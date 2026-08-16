@@ -1,0 +1,79 @@
+# EkGuru — https://ekgurulearning.github.io/EkGuru/
+# Online Hindi tutoring with verified native tutors.
+
+User-agent: *
+Allow: /
+
+# The pre-rendered profiles carry the full text without JavaScript.
+# These are the canonical versions of each tutor page.
+Allow: /tutor/
+
+# Translated pages — real files, one per language
+Allow: /es/
+Allow: /fr/
+Allow: /de/
+Allow: /pt/
+Allow: /ja/
+Allow: /ar/
+
+# The interactive shell renders through JavaScript and canonicalises to
+# /tutor/<id>/. Crawling it is not harmful, it simply adds nothing.
+# It is left crawlable so the canonical tag can be discovered.
+
+# ---------------------------------------------------------------
+# AI and answer engines — explicitly welcome, with a machine-readable
+# summary at /llms.txt
+# ---------------------------------------------------------------
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+# ---------------------------------------------------------------
+Sitemap: https://ekgurulearning.github.io/EkGuru/sitemap.xml

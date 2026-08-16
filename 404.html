@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="google-site-verification" content="hFaqyp-9LdUXSKPA9RF011TkO2m_-7AUMasXqm_0dGI" />
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Page not found | EkGuru</title>
+<meta name="robots" content="noindex, follow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%235b3df5'/><text y='72' x='50' font-size='58' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'>E</text></svg>">
+<!--
+  GitHub Pages serves this file for ANY missing URL, at whatever depth was
+  requested. So /EkGuru/tutor/nope/ would resolve relative links against
+  that folder and break them.
+
+  The script below works out the site root from the current path at runtime,
+  which means the same file is correct on ekgurulearning.github.io/EkGuru/
+  AND on a custom domain later, with nothing to edit.
+-->
+<script>
+(function () {
+  var p = location.pathname.split("/").filter(Boolean);
+  /* On github.io the first path segment is the repository name. On a custom
+     domain there is no such prefix. */
+  var root = (location.hostname.indexOf("github.io") > -1 && p.length) ? "/" + p[0] + "/" : "/";
+  document.write('<base href="' + root + '">');
+  document.documentElement.setAttribute("data-root", root);
+})();
+</script>
+<link rel="stylesheet" href="css/style.min.css">
+<style>
+  body{display:grid;place-items:center;min-height:100dvh;text-align:center;padding:24px}
+  .e-num{font-size:clamp(3.5rem,14vw,6rem);font-weight:900;line-height:1;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .e-box{max-width:520px}
+  .e-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+  .e-tutors{margin-top:26px;padding-top:20px;border-top:1px solid var(--line);font-size:.9rem}
+  .e-tutors a{color:var(--brand);font-weight:700;margin:0 8px}
+</style>
+</head>
+<body>
+<div class="e-box">
+  <div class="e-num">404</div>
+  <h1 style="margin:.2em 0">Page not found</h1>
+  <p class="muted">That link does not exist. Let us get you back on track.</p>
+  <div class="e-links">
+    <a class="btn btn-primary btn-lg" href="./">Back to home</a>
+    <a class="btn btn-ghost btn-lg" href="find-tutors.html">Find a Hindi tutor</a>
+  </div>
+  <p class="e-tutors">
+    Looking for a tutor?
+    <a href="tutor/sushila-g/">Sushila G.</a>
+    <a href="tutor/hemlata/">Hemlata</a>
+    <a href="tutor/tara/">Tara</a>
+  </p>
+</div>
+</body>
+</html>
