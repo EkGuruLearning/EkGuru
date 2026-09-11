@@ -847,7 +847,7 @@ window.EKGURU_SITE = {
              "soon"    -> "Coming soon" pill in the header
              "beta"    -> "Beta" pill in the header
      ========================================================= */
-  status: "soon"
+  status: "live"
 };
 
 /* =========================================================

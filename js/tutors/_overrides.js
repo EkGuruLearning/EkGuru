@@ -2,7 +2,7 @@
    EkGuru — SHEET OVERRIDES  (GENERATED — DO NOT EDIT)
    ---------------------------------------------------------
    Written by tools/sheetsync.js from the Google Sheet on
-   2026-09-11T04:29:14.713Z.
+   2026-09-11T06:06:20.825Z.
 
    Loaded AFTER the hand-written tutor files, so the sheet
    wins. Delete this file and the site falls back to those
@@ -11,6 +11,12 @@
 
    Edit the spreadsheet, not this file. Anything typed here
    is overwritten on the next build.
+
+   Privacy: tutor emails are NOT written here. The production
+   sheet keeps the email column blank (enquiries route via
+   the site inbox or a formKey alias), so this file carries
+   no personal addresses. Regenerate with:
+       node tools/sheetsync.js
    ========================================================= */
 window.EKGURU_SHEET_OVERRIDES = {
   "sushila-g": {
@@ -22,7 +28,6 @@ window.EKGURU_SHEET_OVERRIDES = {
     "timezone": "IST (GMT+5:30)",
     "subject": "Hindi",
     "lessonLength": "50 min",
-    "email": "ekgurulearning@gmail.com",
     "priceUSD": 6,
     "experienceYears": 3,
     "rating": 5,
@@ -138,26 +143,7 @@ window.EKGURU_SHEET_OVERRIDES = {
       ],
       "Sun": []
     },
-    "reviews": [
-      {
-        "name": "Tomasz",
-        "date": "2026-07-12",
-        "stars": 5,
-        "text": "Sushila is a very patient teacher. She adjusts the tempo to the student's level and the content to his needs, is very calm and helpful. Her pronunciation is very clear and understandable. A lesson with Sushila is a highly enjoyable Hindi experience with lots of new knowledge. Thank you, Sushila!"
-      },
-      {
-        "name": "Jon",
-        "date": "2026-06-19",
-        "stars": 5,
-        "text": "Shashi is very patient and maintains a good pace during lessons. She plans the lessons according to my level, and we mostly converse in Hindi. She is a wonderful person with a calm and gentle nature — we even talk about Hindi culture. She is very professional and we share a great rapport. Shashi, you are amazing — thank you!"
-      },
-      {
-        "name": "Matthew",
-        "date": "2026-06-18",
-        "stars": 5,
-        "text": "Sushila is well organised, friendly, and most importantly she is patient. She is always fully present in class. She is helping me with my pronunciation, reading and speaking, and it is going well. Classes are fun — we read children's stories and other school material. I look forward to classes and I recommend her as a tutor."
-      }
-    ]
+    "reviews": []
   },
   "hemlata": {
     "name": "Hemlata",
@@ -167,12 +153,13 @@ window.EKGURU_SHEET_OVERRIDES = {
     "timezone": "IST (GMT+5:30)",
     "subject": "Hindi",
     "lessonLength": "50 min",
-    "email": "ekgurulearning@gmail.com",
     "priceUSD": 12,
     "experienceYears": 3,
+    "rating": 0,
+    "reviewsCount": 0,
+    "lessonsCount": 0,
     "trialAvailable": true,
     "verified": true,
-    "superTutor": false,
     "photo": "images/hemlata.jpg",
     "thumb": "images/hemlata.jpg",
     "banner": "images/hemlata-banner.jpg",
@@ -266,9 +253,7 @@ window.EKGURU_SHEET_OVERRIDES = {
       "Sat": [],
       "Sun": []
     },
-    "reviews": [],
-    "reviewsCount": 0,
-    "rating": 0
+    "reviews": []
   },
   "shikha-dutta": {
     "name": "Shikha Dutta",
@@ -278,12 +263,13 @@ window.EKGURU_SHEET_OVERRIDES = {
     "timezone": "IST (GMT+5:30)",
     "subject": "Hindi",
     "lessonLength": "50 min",
-    "email": "ckhadutta@gmail.com",
     "priceUSD": 8,
     "experienceYears": 16,
+    "rating": 0,
+    "reviewsCount": 0,
+    "lessonsCount": 0,
     "trialAvailable": true,
     "verified": true,
-    "superTutor": false,
     "photo": "images/shikha.jpg",
     "thumb": "images/shikha.jpg",
     "videoTitle": "Hindi Tutor Intro",
@@ -411,9 +397,7 @@ window.EKGURU_SHEET_OVERRIDES = {
         "22:00"
       ]
     },
-    "reviews": [],
-    "reviewsCount": 0,
-    "rating": 0
+    "reviews": []
   },
   "tara": {
     "name": "Tara",
@@ -423,14 +407,15 @@ window.EKGURU_SHEET_OVERRIDES = {
     "timezone": "IST (GMT+5:30)",
     "subject": "Hindi",
     "lessonLength": "50 min",
-    "email": "ekgurulearning@gmail.com",
     "priceUSD": 8,
     "experienceYears": 2,
+    "rating": 0,
+    "reviewsCount": 0,
+    "lessonsCount": 0,
     "trialAvailable": true,
-    "verified": false,
-    "superTutor": false,
     "photo": "images/placeholder-tutor.jpg",
-    "videoTitle": "Conversation first | Speaking practice in every single lesson, from the very beginning.\nGrammar that makes sense | Rules explained simply, with examples you will actually use.\nSteady script practice | Reading and writing Devanagari built up gradually, never rushed.\nRelaxed and encouraging | A patient space where asking questions is always welcome.",
+    "thumb": "images/placeholder-tutor.jpg",
+    "countryFlag": "🇮🇳",
     "tags": [
       "Native speaker",
       "Friendly",
@@ -455,6 +440,35 @@ window.EKGURU_SHEET_OVERRIDES = {
       {
         "lang": "English",
         "level": "Intermediate B1"
+      }
+    ],
+    "about": [
+      "Namaste! I am Tara, a native Hindi speaker and tutor. I enjoy helping students find their confidence in Hindi, whether they are starting from zero or polishing skills they already have.",
+      "My lessons balance conversation with clear, structured grammar, so you understand why Hindi works the way it does rather than just repeating phrases.",
+      "I keep the atmosphere relaxed and encouraging. Every student learns at a different speed, and my job is to match yours."
+    ],
+    "experience": [
+      "Teaches beginners and intermediate learners from a range of countries.",
+      "Focuses on practical, everyday Hindi that students can use straight away.",
+      "Teaches the Devanagari script step by step, at a comfortable pace.",
+      "Sets short practice tasks between lessons to keep progress steady."
+    ],
+    "methodology": [
+      {
+        "title": "Conversation first",
+        "desc": "Speaking practice in every single lesson, from the very beginning."
+      },
+      {
+        "title": "Grammar that makes sense",
+        "desc": "Rules explained simply, with examples you will actually use."
+      },
+      {
+        "title": "Steady script practice",
+        "desc": "Reading and writing Devanagari built up gradually, never rushed."
+      },
+      {
+        "title": "Relaxed and encouraging",
+        "desc": "A patient space where asking questions is always welcome."
       }
     ],
     "availability": {
@@ -486,9 +500,7 @@ window.EKGURU_SHEET_OVERRIDES = {
       ],
       "Sun": []
     },
-    "reviews": [],
-    "reviewsCount": 0,
-    "rating": 0
+    "reviews": []
   }
 };
 window.EKGURU_SHEET_SETTINGS = {
@@ -497,60 +509,3 @@ window.EKGURU_SHEET_SETTINGS = {
   "youtubeChannel": "https://www.youtube.com/@Sashi-e3s",
   "tagline": "One Student. One Goal. One Guru."
 };
-
-/* =========================================================
-   BUG FOUND v62 — THIS FILE APPLIED TO NOTHING.
-
-   It looped over window.EKGURU_TUTORS. That array does not
-   exist yet: js/tutors-data.js BUILDS it, and it runs after
-   this file — it has to, because it applies the defaults that
-   depend on the final values.
-
-   So the loop ran over an empty array every single time and
-   the whole of v61 did nothing. The proof: the tutor sheet
-   said Sushila was $10, her file said $3, and every
-   pre-rendered page, the sitemap and the schema all published
-   $3. Silent, because the fallback is the file and a file
-   value always looks plausible.
-
-   The real collection at this point is EKGURU_TUTOR_FILES,
-   which _registry.js fills as each tutor file loads. Patch
-   that, and tutors-data.js then assembles the list from
-   already-correct objects — which also means the defaults are
-   applied to the sheet's values instead of fighting them.
-
-   Both are patched, and the same function is exposed so the
-   browser can re-apply after a tutor is created at runtime.
-   ========================================================= */
-window.EkGuruApplyOverrides = function () {
-  var O = window.EKGURU_SHEET_OVERRIDES || {};
-  var n = 0;
-
-  /* Site settings first — js/site-config.js has already run,
-     and everything after this point reads EKGURU_SITE. */
-  var SS = window.EKGURU_SHEET_SETTINGS || {};
-  if (window.EKGURU_SITE) {
-    Object.keys(SS).forEach(function (k) { window.EKGURU_SITE[k] = SS[k]; });
-  }
-
-  /* the collection that exists at load time */
-  var files = window.EKGURU_TUTOR_FILES || {};
-  Object.keys(files).forEach(function (id) {
-    var p = O[id];
-    if (!p) return;
-    Object.keys(p).forEach(function (k) { files[id][k] = p[k]; });
-    n++;
-  });
-
-  /* and the assembled list, when it exists — the objects are
-     the same references, so this is normally a no-op. It matters
-     when a tutor was created from the sheet in the browser and
-     never passed through EKGURU_TUTOR_FILES at all. */
-  (window.EKGURU_TUTORS || []).forEach(function (t) {
-    var p = O[t.id];
-    if (!p) return;
-    Object.keys(p).forEach(function (k) { t[k] = p[k]; });
-  });
-  return n;
-};
-window.EkGuruApplyOverrides();

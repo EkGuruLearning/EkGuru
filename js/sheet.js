@@ -448,8 +448,18 @@
       return normalizePhoto(v);
     },
 
-    /* videoTitle — the caption printed over the intro video. */
-    videoTitle: function (v) { return v; },
+    /* videoTitle — the caption printed over the intro video.
+       v97: refuse values shaped like the methodology cell — a
+       newline or a " | " separator is the tell that methodology
+       text was pasted into the wrong column (found live on tara's
+       row, 11 Sep 2026). A garbled multi-line caption is worse
+       than none. */
+    videoTitle: function (v) {
+      v = String(v == null ? "" : v).trim();
+      if (!v) return null;
+      if (v.length > 90 || v.indexOf("|") > -1 || /[\r\n]/.test(v)) return null;
+      return v;
+    },
 
     /* countryFlag — one emoji. Restricted to the regional
        indicator range so a stray letter cannot end up rendered as

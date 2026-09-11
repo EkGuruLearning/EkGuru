@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-11T04:29:21Z",
+ "generated": "2026-09-11T06:16:30.731Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -3924,22 +3924,22 @@ window.EKGURU_ADMIN_STATS = {
   "warnings": 0,
   "pages": 554,
   "sitemapUrls": 549,
-  "sitemapFiles": 14,
+  "sitemapFiles": 13,
   "brokenLinks": 0,
   "orphans": 0
  },
  "privacy": {
-  "state": "BLOCKED",
+  "state": "PASS",
   "fails": 0,
-  "blocked": 1,
-  "note": "Run: node tools/privacy.js --sheets --live"
+  "blocked": 0,
+  "note": "620 files scanned, 0 secrets"
  },
  "gate": {
-  "doctorProblems": 2,
-  "doctorWarnings": 1,
-  "doctorChecks": 123,
+  "doctorProblems": 1,
+  "doctorWarnings": 0,
+  "doctorChecks": 11,
   "seoPass": true,
-  "privacyState": "BLOCKED"
+  "privacyState": "PASS"
  },
  "tutors": [
   {
