@@ -124,6 +124,7 @@ The relay is now **live and sendable** — verified end-to-end from the build sa
 
 1. **Confirm the `[TEST]` emails arrived** in `EkGuruLearning@gmail.com` (mailbox receipt — ACCEPTED proves dispatch, the inbox proves receipt).
 2. **Push the release build** (committed locally; GitHub push is credential-blocked in this sandbox) and verify `ekguru.shop` serves it.
+   Local commits (Email ULTRA workstream): `85e3eee` → `f166ff1` → `d199a9a` → `1e212b9` (HEAD). The client token is **not** in any commit — it lives only in the gitignored `deploy-secrets.local.json` and is re-injected by `tools/wire-token.py` at deploy time.
 3. **Two-student / two-tutor cross-routing test** in a real browser, with duplicate/retry and security replay tests against the live relay.
 4. **Real student mailbox receipt** — the mandatory PASS that has not happened yet.
 
