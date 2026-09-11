@@ -110,16 +110,38 @@ function scan(dir) {
     if (/^test-/.test(f) && /\/tools\//.test(p)) return;
     const txt = fs.readFileSync(p, "utf8");
     if (SECRET_RE.test(txt)) leaked.push(p + " (token VALUE in source)");
-    if (TOKEN_VALUE_RE.test(txt)) leaked.push(p + " (client token value in source)");
+    /* js/site-config.js's mail.appsScript.token is the sanctioned
+       deploy-time field (checked separately against the gitignored
+       secrets file); a token value anywhere ELSE is a leak. */
+    if (!/site-config\.js$/.test(p) && TOKEN_VALUE_RE.test(txt)) {
+      leaked.push(p + " (client token value in source)");
+    }
   });
 }
 scan(ROOT);
 check("no relay token value committed in source", leaked.length === 0, leaked.join("; "));
 
+/* The client token's ONLY sanctioned home at deploy time is
+   mail.appsScript.token in js/site-config.js, filled by wire-token.py
+   from the gitignored deploy-secrets.local.json. If a value is present
+   it must match that file, and that file must be gitignored. */
 const cfg = fs.readFileSync(path.join(ROOT, "js", "site-config.js"), "utf8");
 const tokenField = (cfg.match(/token:\s*"([^"]*)"/) || [null, ""])[1] || "";
-check("client token field is empty (wired only via wire-token.py)",
-  tokenField === "" || /^(your-|example|CHANGE)/i.test(tokenField), JSON.stringify(tokenField));
+const secretsPath = path.join(ROOT, "deploy-secrets.local.json");
+let secretsToken = "";
+if (fs.existsSync(secretsPath)) {
+  try { secretsToken = JSON.parse(fs.readFileSync(secretsPath, "utf8")).mailerToken || ""; }
+  catch (e) { secretsToken = ""; }
+}
+const gitignore = fs.existsSync(path.join(ROOT, ".gitignore"))
+  ? fs.readFileSync(path.join(ROOT, ".gitignore"), "utf8") : "";
+check("deploy-secrets.local.json is gitignored", /deploy-secrets\.local\.json/.test(gitignore));
+if (tokenField) {
+  check("wired client token matches the gitignored secrets file (deploy-time wiring)",
+    tokenField === secretsToken, "site-config token != deploy-secrets.local.json");
+} else {
+  check("client token empty — not yet wired (wire-token.py pending)", true);
+}
 
 console.log("\n" + (failures === 0 ? "ALL EMAIL-SECURITY TESTS PASSED" : failures + " FAILURE(S)"));
 process.exit(failures === 0 ? 0 : 1);

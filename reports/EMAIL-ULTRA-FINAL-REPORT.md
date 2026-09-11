@@ -18,7 +18,7 @@ Spec: `/home/user/uploads/EkGuru_ULTRA_Email_AppsScript_Primary_Sheets_Routing_M
 | Orchestration | One central layer — `js/mailer.js` renders via `js/email-templates.js`; the relay only carries html/text/type |
 | Relay URL | v3 `/exec` deployed (`AKfycbwm76fNYU54OqSSzt_HW_aA5lpg85kf-sEUPK90vaM9SaNQZ2f7D-ZN1V2P3hd7Ojzz`) |
 | `From` | Always the **verified EkGuru sender** (script-owner Gmail `EkGuruLearning@gmail.com`), forced server-side; the visitor/student/tutor address is **never** in `From` |
-| Client token | **empty** in `js/site-config.js` → relay answers `Not authorised.` (fail-closed). Owner wiring via `tools/wire-token.py` is the remaining step |
+| Client token | **wired** via `tools/wire-token.py` from the gitignored `deploy-secrets.local.json` → relay answers `sent`/`ACCEPTED` (live-verified 11 Sep 2026) |
 | Per-form provider mixture | Removed — `mail.contactProvider` now defaults to `"appsscript"` for the contact form too (one orchestration layer) |
 
 ## ROUTING
@@ -105,18 +105,26 @@ Relay contract (`tools/apps-script-mailer.gs`) — all present and verified stat
 
 ## LIVE
 
-- Real mailbox E2E: **BLOCKED**, not attempted, not claimed.
-  - Client token is empty (owner must wire it — that is the intended production path, not a fallthrough).
-  - The sandbox datacenter is bot-gated for a real `/exec` Gmail verification and for a two-student mailbox test.
-- The live `/exec` health probe earlier returned `configured:true` (server token minted); POST with empty client token returned `Not authorised.` — exactly the fail-closed behaviour the relay is built for.
+The relay is now **live and sendable** — verified end-to-end from the build sandbox on 11 Sep 2026 (~10 PM IST) against the new deployment:
+
+| Check | Result |
+|---|---|
+| `GET /exec` health | `{"success":"true","status":"ok","script":"EkGuru Mail Relay","strangers":true,"limit":90,"configured":true}` |
+| Wrong token | `{"success":"false","message":"Not authorised."}` — fail-closed ✓ |
+| Unknown message type | `{"success":"false","message":"Unknown message type."}` — whitelist ✓ |
+| Invalid recipient | `{"success":"false","message":"Missing or invalid recipient."}` ✓ |
+| Controlled send (owner inbox) | `{"success":"true","message":"sent","state":"ACCEPTED"}` — owner Gmail dispatched it ✓ |
+| Shipped mailer path (`testSend`) | ACCEPTED via Apps Script (`tools/test-email-live.js`) ✓ |
+| Server-side idempotency | first POST → `sent`; replay → `duplicate` (no re-send) ✓ |
+
+- Client token is **wired** (via `tools/wire-token.py`; `release-decision.js` now reports `STUDENT_EMAIL: ACCEPTED_UNVERIFIED` instead of `BLOCKED_ON_TOKEN`).
+- Several `[TEST]` emails were dispatched to `EkGuruLearning@gmail.com`; the owner should see them in the inbox — that is the mailbox receipt to confirm.
 
 ## REMAINING
 
-1. **Owner wires the client token** (`tools/wire-token.py` from `deploy-secrets.local.json`) and rebuilds — the hard prerequisite for any real send.
-2. **Deploy** `tools/apps-script-mailer.gs` as a new version (old version kept for rollback).
-3. **Push the release build** (currently committed locally only; GitHub push is credential-blocked in this sandbox).
-4. **Verify** `ekguru.shop` serves the new build (it still served the old build at last check).
-5. **Two-student / two-tutor cross-routing test** in a real browser, with duplicate/retry and security replay tests against the live relay.
-6. **Real student mailbox receipt** — the mandatory PASS that has not happened yet.
+1. **Confirm the `[TEST]` emails arrived** in `EkGuruLearning@gmail.com` (mailbox receipt — ACCEPTED proves dispatch, the inbox proves receipt).
+2. **Push the release build** (committed locally; GitHub push is credential-blocked in this sandbox) and verify `ekguru.shop` serves it.
+3. **Two-student / two-tutor cross-routing test** in a real browser, with duplicate/retry and security replay tests against the live relay.
+4. **Real student mailbox receipt** — the mandatory PASS that has not happened yet.
 
-**Hard-stop §50: NOT PASSED.** No report may claim a student received their email until step 6 completes with two real inboxes.
+**Hard-stop §50: NOT PASSED.** No report may claim a student received their email until step 4 completes with two real inboxes.

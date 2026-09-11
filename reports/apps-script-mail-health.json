@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-11T15:52:25Z",
+  "generated": "2026-09-11T16:40:18Z",
   "script": "tools/apps-script-mailer.gs (v100)",
   "relay_contract": {
     "auth": "MAILER_SHARED_TOKEN in Script Property; fail-closed (no token -> Not authorised.)",
@@ -15,13 +15,21 @@
     "open_relay_prevention": "whitelist + recipient validation + forced From"
   },
   "client_config": {
-    "apps_script_url": "https://script.google.com/macros/s/AKfycbwm76fNYU54OqSSzt_HW_aA5lpg85kf-sEUPK90vaM9SaNQZ2f7D-ZN1V2P3hd7Ojzz/exec",
-    "client_token_wired": false,
+    "apps_script_url": "https://script.google.com/macros/s/AKfycbzdX02U8KQU0XZpqXp4ACuNDAShrOKcHPCrMW5R3UcWOtHuWqquyouppkNusnLIz5ri/exec",
+    "client_token_wired": true,
     "note": "client token empty -> every doPost answers 'Not authorised.' (fail-closed, not a broken relay)"
   },
   "live_verification": {
-    "status": "BLOCKED_FROM_SANDBOX",
-    "reason": "datacenter bot-gate prevents a real /exec verify here; owner token wiring + real browser (two-student mailbox test) still required",
+    "status": "LIVE_VERIFIED_ACCEPTED",
+    "date": "2026-09-11T16:40:18Z",
+    "get_health": "{\"success\":\"true\",\"status\":\"ok\",\"script\":\"EkGuru Mail Relay\",\"strangers\":true,\"limit\":90,\"configured\":true}",
+    "wrong_token": "{\"success\":\"false\",\"message\":\"Not authorised.\"}",
+    "unknown_type": "{\"success\":\"false\",\"message\":\"Unknown message type.\"}",
+    "invalid_recipient": "{\"success\":\"false\",\"message\":\"Missing or invalid recipient.\"}",
+    "controlled_send_owner_inbox": "{\"success\":\"true\",\"message\":\"sent\",\"state\":\"ACCEPTED\",\"requestId\":\"\"}",
+    "shipped_mailer_testSend": "ACCEPTED via Apps Script (tools/test-email-live.js)",
+    "idempotency": "first POST sent; replay answered duplicate (no re-send)",
+    "note": "ACCEPTED means the owner's Gmail dispatched the message; the owner must still confirm the [TEST] emails arrived in EkGuruLearning@gmail.com (mailbox receipt).",
     "never_claimed": "DELIVERED"
   }
 }

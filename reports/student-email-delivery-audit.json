@@ -2,10 +2,7 @@
   "generated": "2026-09-11T11:43:22Z",
   "command": "EkGuru_P0_Student_Booking_Email_Delivery_Repair.md",
   "production": "https://ekguru.shop/",
-  "summary": {
-    "student_receives_own_booking_email": "NOT_YET_VERIFIED_IN_REAL_MAILBOX",
-    "why": "The student's receipt can only be carried by a relay that can address an arbitrary recipient. The owner's own Apps Script relay (the only verified-sender path) is LIVE and reports configured:true (server token minted), but the CLIENT token (mail.appsScript.token) is empty, so every doPost() answers 'Not authorised.' and the receipt falls back to Web3Forms (unverifiable from this datacenter) and EmailJS (unconfigured)."
-  },
+  "summary": "Apps Script primary relay is LIVE and SENDABLE: token wired, deployment v1 verified (fail-closed auth, type whitelist, recipient validation, real controlled send ACCEPTED). Remaining: owner confirms the [TEST] emails in the inbox, then the two-student/two-tutor cross-routing test.",
   "root_cause": {
     "title": "Student confirmation relay has no working route: Apps Script client-token unwired + stranger-capable fallbacks unavailable/unverifiable",
     "chain_of_truth": [
@@ -25,12 +22,12 @@
     {
       "provider": "Google Apps Script (own Gmail)",
       "id": "appsscript",
-      "url": "https://script.google.com/macros/s/AKfycbwm76fNYU54OqSSzt_HW_aA5lpg85kf-sEUPK90vaM9SaNQZ2f7D-ZN1V2P3hd7Ojzz/exec",
-      "scriptId": "1kcvADOf9OqQQ2uH3Yl4fC6aG7-fBR1asfaGpqLf9cqn_xErvkZ5TMHKm",
+      "url": "https://script.google.com/macros/s/AKfycbzdX02U8KQU0XZpqXp4ACuNDAShrOKcHPCrMW5R3UcWOtHuWqquyouppkNusnLIz5ri/exec",
+      "scriptId": "1HL_EX3V4hDvGmS9WPsVq6E33rZSod9bJ0Ggaty--JXf5k5yGnJoJvmXM",
       "configured": true,
       "enabled": true,
-      "sendable": false,
-      "reason_not_sendable": "client token (mail.appsScript.token) empty; server token IS minted (doGet -> configured:true)",
+      "sendable": true,
+      "reason_not_sendable": null,
       "booking_student": "PRIMARY once token wired (arbitrary recipient, replyTo, verified EkGuru sender, no activation)",
       "booking_tutor": "can carry (arbitrary recipient) but tutor copies that route to our inbox use the free relay instead",
       "booking_internal": "yes (addressed to us, but free relay preferred for cost)",
@@ -42,10 +39,20 @@
       "quota": "90/day relay cap (owner Gmail ~100/day)",
       "error_classes": "AUTH (token), quota (limit exceeded), INVALID_RECIPIENT",
       "fallback_position": 1,
-      "last_tested": "2026-09-11T11:43:22Z",
+      "last_tested": "2026-09-11T16:38:02Z",
       "live_probe": {
         "status": 200,
         "body": "{\"success\":\"true\",\"status\":\"ok\",\"script\":\"EkGuru Mail Relay\",\"strangers\":true,\"limit\":90,\"configured\":true}"
+      },
+      "live_post_verification": {
+        "date": "2026-09-11T16:38:02Z",
+        "wrong_token": "{\"success\":\"false\",\"message\":\"Not authorised.\"}",
+        "unknown_type": "{\"success\":\"false\",\"message\":\"Unknown message type.\"}",
+        "invalid_recipient": "{\"success\":\"false\",\"message\":\"Missing or invalid recipient.\"}",
+        "controlled_send_owner_inbox": "{\"success\":\"true\",\"message\":\"sent\",\"state\":\"ACCEPTED\",\"requestId\":\"\"}",
+        "shipped_mailer_testSend": "ACCEPTED via Apps Script (tools/test-email-live.js)",
+        "idempotency_first_send": "sent",
+        "note": "ACCEPTED means the owner's Gmail dispatched the message; mailbox receipt still needs the owner to confirm the [TEST] emails arrived in EkGuruLearning@gmail.com."
       }
     },
     {
@@ -180,9 +187,8 @@
     "contact_regression": "PASS_STRUCTURAL (contact flow untouched; re-verified by email-e2e test A)"
   },
   "remaining_owner_steps": [
-    "Open the Apps Script project 1kcvADOf9OqQQ2uH3Yl4fC6aG7-fBR1asfaGpqLf9cqn_xErvkZ5TMHKm -> Project Settings -> Script Properties -> copy MAILER_SHARED_TOKEN.",
-    "Run tools/wire-token.py (or set mail.appsScript.token in js/site-config.js at deploy time) with that value, WITHOUT committing it.",
-    "Re-deploy GitHub Pages, then from a real browser submit two controlled test bookings (Student A->Tutor A, Student B->Tutor B) and confirm each student's inbox receives their own receipt (no duplicate, admin shows provider + ACCEPTED).",
-    "That real-mailbox receipt is the only thing that flips student_mailbox to PASS."
+    "1. Confirm the [TEST] emails arrived in EkGuruLearning@gmail.com (mailbox receipt).",
+    "2. Deploy the release build (token is wired locally; GitHub push still credential-blocked from the sandbox).",
+    "3. Two-student/two-tutor cross-routing test in a real browser, then mark the final report PASS."
   ]
 }

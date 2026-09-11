@@ -268,31 +268,24 @@ window.EKGURU_SITE = {
          Anything else is rejected by the provider's enabled()
          check rather than silently eating your mail — the v94
          "second-key-here" lesson. */
-      /* v99 — Prakash redeployed the relay on 11 Sep 2026 (Version 3,
-         4:10 PM IST). Details from the Apps Script "Manage deployments"
-         page (uploaded as ee.md):
-           - Deployment ID (v3):  AKfycbwm76fNYU54OqSSzt_HW_aA5lpg85kf-sEUPK90vaM9SaNQZ2f7D-ZN1V2P3hd7Ojzz
-           - Deployment ID (v2):  AKfycbwuZgVFp6YabDCQPkI_0VBYHKxKJMVj23nTADdX46X32RBES_tLNfmkobAb2L0kDtDH
-           - Script ID:           1kcvADOf9OqQQ2uH3Yl4fC6aG7-fBR1asfaGpqLf9cqn_xErvkZ5TMHKm
-         We point at the latest (v3) /exec URL below.
-
-         ⚠️ Honest status: from this build sandbox both the old and new
-         /exec endpoints answer empty (Google serves a bot interstitial
-         to datacenter IPs), so the relay could NOT be live-verified
-         here — only a real visitor's browser can. The mailer treats any
-         failure as a normal fallback, so if the script is down the
-         chain moves on — never loses mail.
+      /* v100 — new relay project, 11 Sep 2026 (Version 1, 9:47 PM IST).
+         Details from the Apps Script "Manage deployments" page:
+           - Deployment ID:  AKfycbzdX02U8KQU0XZpqXp4ACuNDAShrOKcHPCrMW5R3UcWOtHuWqquyouppkNusnLIz5ri
+           - Script ID:      1HL_EX3V4hDvGmS9WPsVq6E33rZSod9bJ0Ggaty--JXf5k5yGnJoJvmXM
+           - Timezone:       GMT+05:30 (India Standard Time – Kolkata)
+           - Runtime:        Chrome V8
+         We point at this deployment's /exec URL below.
 
          ⚠️ AUTH: the relay is fail-closed — it refuses to send until
-         the owner sets the Script Property MAILER_SHARED_TOKEN and the
-         client token below matches. Leave token empty until the owner
-         confirms the word; the mailer then classifies it AUTH and
-         walks to the next provider. */
-      url: "https://script.google.com/macros/s/AKfycbwm76fNYU54OqSSzt_HW_aA5lpg85kf-sEUPK90vaM9SaNQZ2f7D-ZN1V2P3hd7Ojzz/exec",
+         the Script Property MAILER_SHARED_TOKEN is set AND the client
+         token below matches it. The client token is wired from the
+         gitignored deploy-secrets.local.json by tools/wire-token.py,
+         never hard-coded in this file's committed form. */
+      url: "https://script.google.com/macros/s/AKfycbzdX02U8KQU0XZpqXp4ACuNDAShrOKcHPCrMW5R3UcWOtHuWqquyouppkNusnLIz5ri/exec",
       /* The script's own ID (for the Apps Script dashboard / API).
          Not sent in requests — recorded here so nobody has to hunt
          for it. */
-      scriptId: "1kcvADOf9OqQQ2uH3Yl4fC6aG7-fBR1asfaGpqLf9cqn_xErvkZ5TMHKm",
+      scriptId: "1HL_EX3V4hDvGmS9WPsVq6E33rZSod9bJ0Ggaty--JXf5k5yGnJoJvmXM",
       /* A shared word you invent, and paste into the script too.
          It stops a passer-by who reads the page source from using
          your Gmail as an open relay. It is NOT a secret — nothing

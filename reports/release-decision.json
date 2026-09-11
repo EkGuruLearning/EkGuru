@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-11T11:46:58.685Z",
+  "generated": "2026-09-11T16:38:02.692Z",
   "decision": {
     "RELEASE": {
       "result": "GO",
@@ -15,7 +15,7 @@
     },
     "PRIVACY": {
       "result": "PASS",
-      "evidence": "632 files, 0 secrets, 0 blocked"
+      "evidence": "659 files, 0 secrets, 0 blocked"
     },
     "DOCTOR": {
       "result": "PASS",
@@ -26,16 +26,16 @@
       "evidence": "4 CSVs reachable, schema 26/26, unique ids, no silent []"
     },
     "EMAIL": {
-      "result": "DEGRADED",
-      "evidence": "real E2E: contact internal copy ACCEPTED via FormSubmit (activated) (live); visitor copy routes via a stranger-capable relay (Web3Forms UNVERIFIABLE from this datacenter; Apps Script live but awaiting token); no DELIVERED claim made"
+      "result": "FAIL",
+      "evidence": "real E2E: contact internal copy ACCEPTED via StaticForms (live); visitor copy routes via a stranger-capable relay (Web3Forms UNVERIFIABLE from this datacenter; Apps Script live but unconfigured); no DELIVERED claim made"
     },
     "BOOKING": {
       "result": "DEGRADED",
-      "evidence": "real E2E: Tutor A/B honest routing (TUTOR_EMAIL_UNAVAILABLE, no generic tutor inbox); internal record ACCEPTED via FormSubmit; tutor/student copies via stranger-capable relay unverifiable from datacenter"
+      "evidence": "real E2E: Tutor A/B honest routing (TUTOR_EMAIL_UNAVAILABLE, no generic tutor inbox); internal record ACCEPTED via StaticForms; tutor/student copies via stranger-capable relay unverifiable from datacenter"
     },
     "STUDENT_EMAIL": {
-      "result": "BLOCKED_ON_TOKEN",
-      "evidence": "Apps Script relay reachable and server token minted; client token EMPTY. Student receipt has no verified route until mail.appsScript.token is wired (see reports/student-email-delivery-audit.json)."
+      "result": "ACCEPTED_UNVERIFIED",
+      "evidence": "Apps Script relay reachable and server token minted; client token wired. Student receipt routes via own Gmail — real student-mailbox receipt still required to close P0."
     },
     "EMAIL_IDEMPOTENCY": {
       "result": "PASS",
@@ -43,7 +43,7 @@
     },
     "EMAIL_FALLBACK": {
       "result": "PASS",
-      "evidence": "FormSubmit activated for our inbox (strangers refused by design); v98 chain walks past a dead relay; all-providers-down -> record survives + honest failure"
+      "evidence": "FormSubmit unactivated -> StaticForms fallback live-verified; v98 chain walks past a dead relay; all-providers-down -> record survives + honest failure"
     },
     "PAYMENT": {
       "result": "N/A",
@@ -67,7 +67,7 @@
     },
     "SEO": {
       "result": "PASS",
-      "evidence": "555 pages, 0 broken, 0 orphans, 550 sitemap urls"
+      "evidence": "575 pages, 0 broken, 0 orphans, 585 sitemap urls"
     },
     "MOBILE": {
       "result": "PASS",

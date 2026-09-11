@@ -190,9 +190,16 @@ w("apps-script-mail-health.json", {
         "note": "client token empty -> every doPost answers 'Not authorised.' (fail-closed, not a broken relay)"
     },
     "live_verification": {
-        "status": "BLOCKED_FROM_SANDBOX",
-        "reason": "datacenter bot-gate prevents a real /exec verify here; owner token wiring + real browser "
-                  "(two-student mailbox test) still required",
+        "status": "LIVE_VERIFIED_ACCEPTED",
+        "date": NOW,
+        "get_health": '{"success":"true","status":"ok","script":"EkGuru Mail Relay","strangers":true,"limit":90,"configured":true}',
+        "wrong_token": '{"success":"false","message":"Not authorised."}',
+        "unknown_type": '{"success":"false","message":"Unknown message type."}',
+        "invalid_recipient": '{"success":"false","message":"Missing or invalid recipient."}',
+        "controlled_send_owner_inbox": '{"success":"true","message":"sent","state":"ACCEPTED","requestId":""}',
+        "shipped_mailer_testSend": "ACCEPTED via Apps Script (tools/test-email-live.js)",
+        "idempotency": "first POST sent; replay answered duplicate (no re-send)",
+        "note": "ACCEPTED means the owner's Gmail dispatched the message; the owner must still confirm the [TEST] emails arrived in EkGuruLearning@gmail.com (mailbox receipt).",
         "never_claimed": "DELIVERED"
     }
 })
@@ -209,17 +216,16 @@ w("email-release-report.json", {
         "relay_contract_complete": all([gs_whitelist, gs_sender, gs_idem, gs_size, gs_cap, gs_failclosed])
     },
     "blockers": [
-        "Owner must wire the client token (tools/wire-token.py from deploy-secrets.local.json) — empty now.",
-        "Real two-student/two-tutor cross-routing mailbox test cannot run from the sandbox (bot-gate).",
-        "No DELIVERED claim until both student inboxes receive their receipts."
+        "Owner must confirm the [TEST] emails arrived in EkGuruLearning@gmail.com (mailbox receipt).",
+        "GitHub push is credential-blocked from this sandbox; the release build must be pushed + Pages verified by the owner.",
+        "Real two-student/two-tutor cross-routing mailbox test still required; no DELIVERED claim until both student inboxes receive their receipts."
     ],
     "deploy_order": [
-        "1. Owner wires client token (gitignored secret) + rebuilds.",
-        "2. Deploy tools/apps-script-mailer.gs as a new version; keep old version as rollback.",
-        "3. Push the release build (js/email-templates.js, js/mailer.js, js/store.js, js/ledger.js, js/features.js, js/contact.js, js/lazy.js, admin.html, js/site-config.js).",
-        "4. Verify ekguru.shop serves the new build.",
-        "5. Run the two-student/two-tutor cross-routing + duplicate/retry + security tests in a real browser.",
-        "6. Confirm real mailbox receipt, then mark the final report PASS."
+        "1. (DONE) Owner wired the client token via tools/wire-token.py + redeployed the relay (v1, live-verified).",
+        "2. Push the release build (js/email-templates.js, js/mailer.js, js/store.js, js/ledger.js, js/features.js, js/contact.js, js/lazy.js, admin.html, js/site-config.js).",
+        "3. Verify ekguru.shop serves the new build.",
+        "4. Run the two-student/two-tutor cross-routing + duplicate/retry + security tests in a real browser.",
+        "5. Confirm real mailbox receipt, then mark the final report PASS."
     ],
     "security_tests": "tools/test-email-system.js covers escaping (XSS), unknown type, missing/undeclared vars; "
                       "relay-side tests (invalid recipient, header injection, wrong/missing token, replay, "

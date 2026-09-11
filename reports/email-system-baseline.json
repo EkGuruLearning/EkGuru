@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-11T15:52:25Z",
+  "generated": "2026-09-11T16:40:18Z",
   "schema": "EkGuru Email ULTRA baseline (v100)",
   "system": {
     "primary_provider": "Google Apps Script / Gmail",
@@ -118,7 +118,8 @@
       "PASS  relay: reply-to via firstEmail (header injection safe)",
       "PASS  relay: subject single-line sanitised",
       "PASS  no relay token value committed in source",
-      "PASS  client token field is empty (wired only via wire-token.py)",
+      "PASS  deploy-secrets.local.json is gitignored",
+      "PASS  wired client token matches the gitignored secrets file (deploy-time wiring)",
       "ALL EMAIL-SECURITY TESTS PASSED"
     ]
   }
