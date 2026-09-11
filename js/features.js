@@ -468,6 +468,60 @@
       return z ? z + " (" + lbl + ")" : lbl;
     } catch (e) { return "your local time"; }
   }
+  /* ── SELECTABLE TIMEZONE LIST (booking form) ────────────────────
+     value = display label ("IST (Asia/Kolkata)"), data-offset = fixed
+     minutes east of UTC (used to convert the tutor's weekly grid).
+     DST zones are labelled with both abbreviations; the conversion uses
+     the standard offset, so the exact time is always re-confirmed by
+     email — never silently assumed. */
+  var TZ_LIST = [
+    ["IST (Asia/Kolkata)", 330], ["NPT (Asia/Kathmandu)", 345],
+    ["PKT (Asia/Karachi)", 300], ["IST (Asia/Colombo)", 330],
+    ["BST (Asia/Dhaka)", 360], ["GST (Asia/Dubai)", 240],
+    ["AST (Asia/Riyadh)", 180], ["EAT (Africa/Nairobi)", 180],
+    ["MSK (Europe/Moscow)", 180], ["CET (Europe/Paris)", 60],
+    ["GMT (Europe/London)", 0], ["UTC", 0],
+    ["WAT (Africa/Lagos)", 60], ["SAST (Africa/Johannesburg)", 120],
+    ["EET (Africa/Cairo)", 120], ["ICT (Asia/Bangkok)", 420],
+    ["WIB (Asia/Jakarta)", 420], ["SGT (Asia/Singapore)", 480],
+    ["HKT (Asia/Hong_Kong)", 480], ["JST (Asia/Tokyo)", 540],
+    ["KST (Asia/Seoul)", 540], ["AWST (Australia/Perth)", 480],
+    ["AEST (Australia/Sydney)", 600], ["NZST (Pacific/Auckland)", 720],
+    ["EST/EDT (America/New_York)", -300], ["CST/CDT (America/Chicago)", -360],
+    ["MST/MDT (America/Denver)", -420], ["PST/PDT (America/Los_Angeles)", -480],
+    ["CST (America/Mexico_City)", -360], ["BRT (America/Sao_Paulo)", -180],
+    ["ART (America/Buenos_Aires)", -180]
+  ];
+  function detectedIana() {
+    try { return Intl.DateTimeFormat().resolvedOptions().timeZone || ""; }
+    catch (e) { return ""; }
+  }
+  /* Map a detected IANA name onto a TZ_LIST label, e.g.
+     "Asia/Calcutta" → "IST (Asia/Kolkata)". */
+  var IANA_ALIAS = {
+    "Asia/Calcutta": "Asia/Kolkata", "Asia/Saigon": "Asia/Ho_Chi_Minh",
+    "Asia/Katmandu": "Asia/Kathmandu", "Europe/London": "Europe/London",
+    "US/Eastern": "America/New_York", "US/Central": "America/Chicago",
+    "US/Mountain": "America/Denver", "US/Pacific": "America/Los_Angeles"
+  };
+  function labelForIana(iana) {
+    var canon = IANA_ALIAS[iana] || iana;
+    for (var i = 0; i < TZ_LIST.length; i++) {
+      if (TZ_LIST[i][0].indexOf("(" + canon + ")") > -1) return TZ_LIST[i][0];
+    }
+    return "";
+  }
+  function selectedTzInfo() {
+    var sel = ($("#bk-tz") || {});
+    var opt = sel.selectedOptions && sel.selectedOptions[0];
+    if (!opt) return { label: (sel.value || myTzLabel()), offMin: null };
+    var off = opt.getAttribute("data-offset");
+    return {
+      label: opt.value,
+      offMin: off === null || off === "" ? null : parseInt(off, 10)
+    };
+  }
+
   var DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   /* convert a slot to the visitor's timezone, returning {day, time, shift} */
   function convertSlot(dayIdx, hhmm, fromMin, toMin) {
@@ -577,7 +631,7 @@
               '<option value="Intermediate">' + esc(t("book.lvl3")) + "</option>" +
               '<option value="Advanced">' + esc(t("book.lvl4")) + "</option>" +
             "</select></label>" +
-            '<label class="bk-f"><span>' + esc(t("book.tz")) + '</span><input type="text" id="bk-tz" readonly></label>' +
+            '<label class="bk-f"><span>' + esc(t("book.tz")) + '</span><select id="bk-tz"></select></label>' +
           "</div>" +
           '<label class="bk-f bk-full"><span>' + esc(t("book.goal")) + '</span><textarea id="bk-goal" rows="3" placeholder="' + esc(t("book.goalPh")) + '"></textarea></label>' +
           '<div class="bk-step"><span class="bk-n">3</span><b>' + esc(t("book.step3")) + "</b></div>" +
@@ -597,6 +651,15 @@
     ["bk-name", "bk-email", "bk-goal", "bk-level"].forEach(function (id) {
       modal.addEventListener("input", function (e) { if (e.target.id === id) updatePreview(); });
       modal.addEventListener("change", function (e) { if (e.target.id === id) updatePreview(); });
+    });
+    /* Choosing a different timezone re-renders the slot list in that
+       zone and refreshes the summary — the "actual user's selected
+       timezone" from the booking command. */
+    modal.addEventListener("change", function (e) {
+      if (e.target.id === "bk-tz") {
+        renderSlots();
+        updatePreview();
+      }
     });
     return modal;
   }
@@ -642,14 +705,19 @@
          touching the Monday-first grid that the fallback picker
          still depends on. */
       var DAY_FROM_SUNDAY = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-      return t("days." + DAY_FROM_SUNDAY[d.getDay()]) + " " + d.getDate() + " " + MONS[d.getMonth()] +
-        ", " + h12(d.getHours(), d.getMinutes()) +
-        " (" + (window.EkGuruSchedule
-          ? window.EkGuruSchedule.visitorZoneName()
-          : t("tz.yourTime")) + ")";
+      /* The slot is an absolute Date; render it in the SELECTED zone
+         when the visitor has picked one, else in their browser zone. */
+      var sel3 = selectedTzInfo();
+      var zd = (sel3.offMin != null) ? new Date(d.getTime() + sel3.offMin * 60000) : d;
+      var isSel = sel3.offMin != null;
+      return t("days." + DAY_FROM_SUNDAY[isSel ? zd.getUTCDay() : d.getDay()]) + " " +
+        (isSel ? zd.getUTCDate() : d.getDate()) + " " + MONS[isSel ? zd.getUTCMonth() : d.getMonth()] +
+        ", " + h12(isSel ? zd.getUTCHours() : d.getHours(), isSel ? zd.getUTCMinutes() : d.getMinutes()) +
+        " (" + (sel3.label || t("tz.yourTime")) + ")";
     }
+    var sel4 = selectedTzInfo();
     return t("days." + DAYS[chosen.day]) + " " + h12chosen(chosen.time) +
-      (chosen.mine ? " (" + t("tz.yourTime") + ")" : " (" + modalTutor.timezone + ")");
+      (chosen.mine ? " (" + (sel4.label || t("tz.yourTime")) + ")" : " (" + modalTutor.timezone + ")");
   }
 
   function buildMessage() {
@@ -1131,6 +1199,7 @@
        empty is worse than one that looks dated.
        ========================================================= */
     if (window.EkGuruSchedule) {
+      var sel = selectedTzInfo();
       var n = window.EkGuruSchedule.render(host, modalTutor, function (dt, label) {
         chosen = { date: dt, time: label, mine: true, dated: true };
         $(".bk-err", modal).hidden = true;
@@ -1148,7 +1217,7 @@
            keeps both destinations exactly as before. */
         track("slot_picked", { tutor: modalTutor.id, slot: label });
         updatePreview();
-      });
+      }, sel.offMin, sel.label);
       if (n > 0) return;
       /* No dated slots at all — fall through to the weekly grid,
          which at least tells the student when this tutor works. */
@@ -1156,7 +1225,8 @@
 
     var av = modalTutor.availability || {};
     var from = tzOffsetMin(modalTutor.timezone);
-    var to = myOffsetMin();
+    var sel2 = selectedTzInfo();
+    var to = sel2.offMin != null ? sel2.offMin : myOffsetMin();
     var showMine = from != null && from !== to;
 
     var rows = DAYS.map(function (d, i) {
@@ -1174,7 +1244,7 @@
     }).filter(Boolean).join("");
 
     host.innerHTML = (rows || '<p class="muted">' + esc(t("book.noSlots")) + "</p>") +
-      (showMine ? '<p class="bk-tznote">🕒 ' + esc(t("tz.showingYours")) + " <b>" + esc(myTzLabel()) + "</b></p>"
+      (showMine ? '<p class="bk-tznote">🕒 ' + esc(t("tz.showingYours")) + " <b>" + esc(sel2.label) + "</b></p>"
                 : '<p class="bk-tznote">🕒 ' + esc(t("pf.schedNote")) + " " + esc(modalTutor.timezone) + "</p>");
 
     $all(".bk-slot", host).forEach(function (b) {
@@ -1187,6 +1257,26 @@
         updatePreview();
       });
     });
+  }
+
+  /* Populate the timezone <select> and default it to the visitor's
+     own zone (or the zone they picked last time). If their zone is
+     not in the list, a first option carries the detected label so
+     nothing is ever silently changed. */
+  function fillTzSelect() {
+    var sel = $("#bk-tz", modal);
+    if (!sel) return;
+    var html = "";
+    TZ_LIST.forEach(function (t) {
+      html += '<option value="' + esc(t[0]) + '" data-offset="' + t[1] + '">' + esc(t[0]) + "</option>";
+    });
+    var mine = labelForIana(detectedIana()) || myTzLabel();
+    if (labelForIana(detectedIana()) === "") {
+      html = '<option value="' + esc(mine) + '" data-offset="' + myOffsetMin() + '">' +
+        esc(mine) + '</option>' + html;
+    }
+    sel.innerHTML = html;
+    try { sel.value = mine; } catch (e) { sel.selectedIndex = 0; }
   }
 
   function openBooking(id) {
@@ -1208,7 +1298,7 @@
     $("#bk-title", modal).textContent = t("book.title") + " " + modalTutor.name;
     $(".bk-sub", modal).textContent = (modalTutor.lessonLength || "50 min") + " · " + px(modalTutor.priceUSD) +
       (modalTutor.trialAvailable ? " · " + t("pf.trial") : "");
-    $("#bk-tz", modal).value = myTzLabel();
+    fillTzSelect();
     $("#bk-name", modal).value = "";
     $("#bk-email", modal).value = "";
     $("#bk-goal", modal).value = "";

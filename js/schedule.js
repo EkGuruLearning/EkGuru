@@ -201,13 +201,20 @@
   }
 
   /* Group into days using the VISITOR's local calendar, because
-     that is the calendar they are reading. */
-  function groupByLocalDay(slots) {
+     that is the calendar they are reading. When the visitor has
+     SELECTED a timezone (offMin is a number), group using that
+     zone's calendar instead of the browser's. */
+  function inZone(d, offMin) {
+    return typeof offMin === "number" ? new Date(d.getTime() + offMin * 60000) : null;
+  }
+  function groupByLocalDay(slots, offMin) {
     var map = {}, order = [];
     slots.forEach(function (s) {
-      var d = s.date;
-      var key = d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
-      if (!map[key]) { map[key] = { key: key, date: d, slots: [] }; order.push(key); }
+      var z = inZone(s.date, offMin);
+      var key = z
+        ? z.getUTCFullYear() + "-" + pad(z.getUTCMonth() + 1) + "-" + pad(z.getUTCDate())
+        : s.date.getFullYear() + "-" + pad(s.date.getMonth() + 1) + "-" + pad(s.date.getDate());
+      if (!map[key]) { map[key] = { key: key, date: s.date, slots: [] }; order.push(key); }
       map[key].slots.push(s);
     });
 
@@ -235,17 +242,26 @@
     return order.map(function (k) { return map[k]; });
   }
 
-  function dayLabel(d) {
-    var today = new Date();
-    var t0 = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-    var d0 = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  function dayLabel(d, offMin) {
+    var z = inZone(new Date(), offMin);
+    var t0 = z
+      ? new Date(Date.UTC(z.getUTCFullYear(), z.getUTCMonth(), z.getUTCDate()))
+      : new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+    var zd = inZone(d, offMin);
+    var d0 = zd
+      ? new Date(Date.UTC(zd.getUTCFullYear(), zd.getUTCMonth(), zd.getUTCDate()))
+      : new Date(d.getFullYear(), d.getMonth(), d.getDate());
     var diff = Math.round((d0 - t0) / 86400000);
     if (diff === 0) return "Today";
     if (diff === 1) return "Tomorrow";
-    return DAY_LONG[d.getDay()] + " " + d.getDate() + " " + MON[d.getMonth()];
+    return DAY_LONG[(zd ? zd.getUTCDay() : d.getDay())] + " " + (zd ? zd.getUTCDate() : d.getDate()) + " " + MON[(zd ? zd.getUTCMonth() : d.getMonth())];
   }
 
-  function timeLabel(d) {
+  function timeLabel(d, offMin) {
+    if (typeof offMin === "number") {
+      var u = new Date(d.getTime() + offMin * 60000);
+      return pad(u.getUTCHours()) + ":" + pad(u.getUTCMinutes());
+    }
     return pad(d.getHours()) + ":" + pad(d.getMinutes());
   }
 
@@ -321,10 +337,10 @@
      Render into a container. Returns the number of slots shown
      so the caller can decide whether to display anything at all.
      --------------------------------------------------------- */
-  function render(el, tutor, onPick) {
+  function render(el, tutor, onPick, offMin, zoneLabel) {
     if (!el) return 0;
     var res = slotsFor(tutor);
-    var days = groupByLocalDay(res.slots);
+    var days = groupByLocalDay(res.slots, offMin);
 
     if (!days.length) {
       el.innerHTML = '<p class="sched-none">' +
@@ -334,16 +350,16 @@
       return 0;
     }
 
-    var zone = visitorZoneName();
+    var zone = zoneLabel || visitorZoneName();
     var html = '<p class="sched-zone">Times shown in <b>' + zone + '</b>' +
       (res.zoneKnown ? "" : " — the tutor's own timezone could not be read, so these may be off") +
       '.</p><div class="sched-days">';
 
     days.slice(0, 10).forEach(function (d) {
-      html += '<div class="sched-day"><h4>' + dayLabel(d.date) + "</h4><div class='sched-slots'>";
+      html += '<div class="sched-day"><h4>' + dayLabel(d.date, offMin) + "</h4><div class='sched-slots'>";
       d.slots.forEach(function (s) {
         html += '<button type="button" class="sched-slot" data-iso="' +
-          s.date.toISOString() + '">' + timeLabel(s.date) + "</button>";
+          s.date.toISOString() + '">' + timeLabel(s.date, offMin) + "</button>";
       });
       html += "</div></div>";
     });

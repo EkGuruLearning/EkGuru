@@ -1,4 +1,4 @@
-# EkGuru — Cumulative Final Report (v98 · 11 Sep 2026)
+# EkGuru — Cumulative Final Report (v99 · 11 Sep 2026)
 
 **Scope:** all **16** command files merged into one cumulative checklist —
 `reports/master-requirements.json` (**451 requirements**). Every claim below has
@@ -23,7 +23,7 @@ without evidence. The one true blocker — live deployment — is stated plainly
 | Email idempotency | PASS — same-ref double send deduped |
 | Email fallback | PASS — v98 chain now walks past a dead/un-tokened relay (fixed the dead-end); all-down record survival PASS |
 | Timezone | PASS — slot label now `7:00 PM IST (Asia/Kolkata)` (12-hour + IANA label; sheet value normalized, never rewritten) |
-| Motion system | PASS — shared tokens + hamburger→X morph + backdrop; **toasts + skeletons** (`js/toast.js`, `.toast`/`.skel` CSS) wired into the admin dashboard (mail retry/import/export toasts, live-health skeletons); reduced-motion verified in a real browser |
+| Motion system | PASS — shared tokens + hamburger→X morph + backdrop + toasts/skeletons; **this turn:** tutor-photo hover, tool-chip lift, staggered search results, quiz correct/wrong feedback + wrong-answer shake, flashcards/level-test reveal, footer underline, offline banner — 31/31 browser checks, reduced-motion verified |
 | Payment | N/A — no payment system (static site) |
 | Backup / Restore / Rollback | PASS / PASS / PASS |
 | SEO | PASS — 555 pages, 0 broken, 0 orphans, 550 sitemap URLs (prior pass) |
@@ -75,6 +75,15 @@ silently throwing `get is not defined` (its `get`/`LIVE` helpers live in a
 different `<script>` IIFE); they are now shared via `window.EkGuruGet`/
 `window.EkGuruLIVE`, and the tab renders in a real browser.
 
+**Motion system (this turn — full sweep):** `css/style.min.css` (consolidated
+upgrade block: §9 `.ac-item` stagger, §12 `.tcard-photo img` scale, §13 `.chips a`
+lift, §14 `.lq` reveal, §15 quiz `.ok/.no` pop + `.q-bad` shake + `#qtext.q-in` +
+`#qbar/#cbar/#lbar` width transition, §16 flashcards `faceIn`, §30 footer
+underline, hero chip bob 12→6px), `toolbox/hindi-quiz/index.html` (2 micro-edits:
+wrong-answer shake class, question fade retrigger), `js/site-config.js` (appended
+§35 offline/network banner — lazy, fixed, `role=status`, Retry button), and
+`reports/MOTION-REPORT.md` (new, §47 final report).
+
 **Reports:** `final-gap-sweep.json`, `environment-audit.json`,
 `dependency-failure-map.json`, `release-candidate.json`, `runbook.md`,
 `master-requirements.json` (451), `email-provider-inventory.json` (Apps Script →
@@ -88,6 +97,8 @@ python3 tools/test-email-e2e.py                     → contact/booking/fallback
 python3 tools/test-data-sources.py                  → 26 checks, 0 failures (4 CSVs + Apps Script JSON)
 Playwright: burger→X morph, backdrop, Escape, aria  → PASS, 0 console errors @390px
 Playwright: timezone IST (Asia/Kolkata) → 330       → PASS
+Playwright: motion regression (motion-test.py)      → 31/31 PASS (burger/drawer/backdrop/reduced-motion/cards/search/quiz/flashcards/level-test/booking; 0 errors)
+Playwright: offline banner (offline→shown, online→hidden, Retry) → PASS
 Live: doGet /exec                                   → {"success":"true",…,"remaining":100}
 Live: doPost /exec (text/plain, empty token)        → {"success":"false","message":"Not authorised."}
 ```
@@ -114,14 +125,15 @@ Live: doPost /exec (text/plain, empty token)        → {"success":"false","mess
    per booking and a Delivery-routes note pointing at `js/tutors/` + the Sheet
    for configuring a verified address later — never a fake personal delivery.
 5. **MEDIUM — editorial:** originality audit, content depth, hreflang set,
-   admin 1000-record pagination. (The skeleton/toast motion layer is now done —
-   see §2.)
+   admin 1000-record pagination. (The motion system is now complete — see §2 and
+   `reports/MOTION-REPORT.md`.)
 
 ## 6. The single blocker, unchanged
 
-The sandbox has **no git credentials**; nothing can be pushed. The remote is
-now set to `https://github.com/ekgurulearning/EkGuru.git` (public, reachable —
-verified via `git ls-remote`). Two facts matter for the push:
+The sandbox has **no git credentials**; nothing can be pushed. The remote URL
+is `https://github.com/ekgurulearning/EkGuru.git` (recovered from `.git/FETCH_HEAD`;
+`.git/config` is stripped from this sandbox snapshot, so `git remote -v` is empty
+here). Two facts matter for the push:
 
 - **Local `main`** is the latest commit (`git rev-parse HEAD`; all fixes committed,
   working tree clean).

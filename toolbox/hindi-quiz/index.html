@@ -279,7 +279,7 @@ is selling something.</p>
     if(n>=qs.length)return finish();
     var it=qs[n];
     meta.textContent="Question "+(n+1)+" of "+qs.length;
-    txt.textContent=it.q;
+    txt.textContent=it.q;txt.classList.remove('q-in');void txt.offsetWidth;txt.classList.add('q-in');
     bar.style.width=Math.round(n/qs.length*100)+"%";
     var all=distractors(it).concat([it.a]).sort(function(){return Math.random()-0.5});
     opts.innerHTML="";
@@ -290,7 +290,7 @@ is selling something.</p>
         if(opts.getAttribute("data-locked"))return;
         opts.setAttribute("data-locked","1");
         if(a===it.a){right++;b.innerHTML=a+' <span class="ok">correct</span>';}
-        else{b.innerHTML=a+' <span class="no">no</span>';
+        else{b.classList.add('q-bad');b.innerHTML=a+' <span class="no">no</span>';
           [].forEach.call(opts.children,function(x){
             if(x.textContent.replace(/ (correct|no)$/,"")===it.a)x.innerHTML=it.a+' <span class="ok">← this one</span>';});
         }

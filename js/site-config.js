@@ -882,3 +882,46 @@ window.EKGURU_MARKETS = [
   { code: "ja", locale: "ja-JP", country: "Japan",         flag: "🇯🇵", label: "日本語",       dir: "ltr" },
   { code: "ar", locale: "ar-AE", country: "UAE",           flag: "🇦🇪", label: "العربية",    dir: "rtl" }
 ];
+
+/* =========================================================
+   §35 — Offline / network-state banner (motion command).
+   Appended here deliberately: site-config.js is the one script
+   loaded on every page (deferred), so the banner is universal
+   with no per-page markup. Created lazily; position:fixed so it
+   never causes layout shift. Shows only on a real offline event,
+   hides on reconnect; "Retry" re-attempts the page (the service
+   worker serves the cached copy where available). Never fakes a
+   network state.
+   ========================================================= */
+(function () {
+  "use strict";
+  function mk(tag, cls, txt) {
+    var n = document.createElement(tag);
+    n.className = cls;
+    if (txt != null) n.textContent = txt;
+    return n;
+  }
+  function banner() {
+    var b = document.getElementById("ekg-net-banner");
+    if (b) return b;
+    b = mk("div", "net-banner");
+    b.id = "ekg-net-banner";
+    b.setAttribute("role", "status");
+    b.setAttribute("aria-live", "polite");
+    var msg = mk("span", "net-msg", "You're offline. Some actions may not work.");
+    var retry = mk("button", "net-retry", "Retry");
+    retry.type = "button";
+    retry.addEventListener("click", function () { try { location.reload(); } catch (e) {} });
+    b.appendChild(msg);
+    b.appendChild(retry);
+    document.body.appendChild(b);
+    return b;
+  }
+  function on()  { banner().classList.add("is-on"); }
+  function off() { banner().classList.remove("is-on"); }
+  try {
+    window.addEventListener("offline", on);
+    window.addEventListener("online", off);
+    if (typeof navigator !== "undefined" && navigator.onLine === false) on();
+  } catch (e) {}
+})();
