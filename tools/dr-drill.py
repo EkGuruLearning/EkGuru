@@ -29,9 +29,14 @@ def sh(*a):
 commit = sh("git", "rev-parse", "HEAD")
 bundle = os.path.join(BK, f"ekguru-known-good-{commit[:8]}.bundle")
 r = subprocess.run(["git", "bundle", "create", bundle, "--all"], cwd=ROOT, capture_output=True, text=True)
-zip_src = "/home/user/releases/v2.zip"
-zip_dst = os.path.join(BK, "ekguru-release-v2.zip")
-if os.path.exists(zip_src):
+# latest release zip (auto-detected, so the drill never rots when the
+# version bumps: v3.zip -> v4.zip -> ...). Exactly one v*.zip exists by
+# make-zip.py design, so the newest is always "the" release artifact.
+import glob
+_rel_zips = sorted(glob.glob(os.path.join("/home/user/releases", "v*.zip")))
+zip_src = _rel_zips[-1] if _rel_zips else None
+zip_dst = os.path.join(BK, "ekguru-release-" + os.path.basename(zip_src)) if zip_src else None
+if zip_src and os.path.exists(zip_src):
     shutil.copy2(zip_src, zip_dst)
 out["backup"] = {
     "commit": commit,
@@ -40,7 +45,7 @@ out["backup"] = {
     "release_zip": os.path.basename(zip_dst) if os.path.exists(zip_dst) else None,
     "rpo": "0 (static site: source of truth is the repo; rebuild = redeploy)",
     "rto": "minutes (GitHub Pages push-to-deploy; no DB to restore)",
-    "last_known_good": "release v2.zip + git commit " + commit[:8],
+    "last_known_good": "release " + (os.path.basename(zip_src) if zip_src else "zip") + " + git commit " + commit[:8],
 }
 
 # ── 2. RESTORE DRILL (away from production) ────────────────────

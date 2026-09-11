@@ -39,7 +39,7 @@ add(FR, "Privacy final gate (not BLOCKED)", "privacy", "P0", "PASS", "tools/priv
 add(FR, "Doctor final gate (0 unresolved problems)", "quality", "P0", "FAIL", "11 checks, 1 problem = deployment freshness (live still 'soon'). 0 code problems.")
 add(FR, "Disaster recovery (BACKUP/CURRENT/LAST_KNOWN_GOOD, RPO/RTO)", "dr", "P0", "PASS", "git bundle + release zip; RPO=0, RTO=minutes (docs in dr-drill.json)")
 add(FR, "Restore drill (away from production)", "dr", "P0", "PASS", "zip restored to scratch; /, /learn/, tool, tutor, /contact/ all 200")
-add(FR, "Rollback drill", "dr", "P0", "PASS", "known-good 8de5b69 + documented procedure; no DNS change needed")
+add(FR, "Rollback drill", "dr", "P0", "PASS", "known-good edc76a7a + documented procedure; no DNS change needed")
 add(FR, "Uptime / live monitoring", "ops", "P0", "PASS", "tools/live-monitor.js: 15G/0Y/0R all green (incl. Apps Script relay HTTP 200)")
 add(FR, "Incident drill", "ops", "P2", "PARTIAL", "incident schema defined in monitor report; no auto-paging (no backend)")
 add(FR, "Abuse / spam / bot test", "security", "P1", "PARTIAL", "honeypot + dwell-time + provider rate notes; server-side IP limits N/A on static host")

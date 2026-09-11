@@ -141,7 +141,7 @@ req(ADM, "Audit log", "admin", "P3", "DEFERRED",
 req(ADM, "Admin RBAC", "admin", "P3", "DEFERRED",
     "static site, no auth layer", "-", "needs backend", "n/a", "DEFERRED")
 req(ADM, "Backup / recovery", "process", "P1", "PASS",
-    "audit/backup/_overrides.js.before + snapshot-before.md + releases/v1.zip", "audit/, releases/", "done", "n/a", "PASS")
+    "audit/backup/_overrides.js.before + snapshot-before.md + releases/v4.zip", "audit/, releases/", "done", "n/a", "PASS")
 req(ADM, "Performance of admin", "admin", "P3", "PARTIAL",
     "not measured", "-", "measure", "n/a", "PARTIAL")
 req(ADM, "Live smoke test", "pages", "P0", "PASS",
@@ -263,7 +263,7 @@ req(PRO, "Ultra accessibility", "qa", "P1", "PASS",
 req(PRO, "Ultra page-reachability test", "pages", "P0", "PASS",
     "564/564 live 200", "reports/live-reachability.json", "done", "live crawl", "PASS")
 req(PRO, "Ultra build / deployment safety", "deploy", "P1", "PASS",
-    "releases/v1.zip verified (root-only, no .git); git commits clean", "releases/", "done", "n/a", "PASS")
+    "releases/v4.zip verified (root-only, no .git); git commits clean", "releases/", "done", "n/a", "PASS")
 req(PRO, "Ultra AdSense readiness gate", "adsense", "P0", "PASS",
     "adsready.js 12/12 checks pass (readiness only, not approval)", "tools/adsready.js", "done", "adsready run", "PASS")
 req(PRO, "Ultra final quality scorecard", "quality", "P0", "PASS",

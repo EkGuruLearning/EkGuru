@@ -1,16 +1,16 @@
 {
-  "generated": "2026-09-11T06:33:44Z",
+  "generated": "2026-09-11T09:42:19Z",
   "backup": {
-    "commit": "8de5b69d5c839453cab47011b23fdbcbcfa32e59",
-    "git_bundle": "ekguru-known-good-8de5b69d.bundle",
+    "commit": "edc76a7a3f1ac7b1365638a6f17ef55ff552a201",
+    "git_bundle": "ekguru-known-good-edc76a7a.bundle",
     "git_bundle_ok": true,
-    "release_zip": "ekguru-release-v2.zip",
+    "release_zip": "ekguru-release-v4.zip",
     "rpo": "0 (static site: source of truth is the repo; rebuild = redeploy)",
     "rto": "minutes (GitHub Pages push-to-deploy; no DB to restore)",
-    "last_known_good": "release v2.zip + git commit 8de5b69d"
+    "last_known_good": "release v4.zip + git commit edc76a7a"
   },
   "restore": {
-    "restored_from": "ekguru-release-v2.zip",
+    "restored_from": "ekguru-release-v4.zip",
     "pages": {
       "/": 200,
       "/learn/": 200,
@@ -23,12 +23,12 @@
   },
   "rollback": {
     "procedure": [
-      "git checkout 8de5b69d5c839453cab47011b23fdbcbcfa32e59   # known-good commit",
+      "git checkout edc76a7a3f1ac7b1365638a6f17ef55ff552a201   # known-good commit",
       "python3 /home/user/releases/make-zip.py",
       "re-upload the zip to the GitHub repo (Add file \u2192 Upload files)",
       "or: git push origin main --force-with-lease from a machine with push access"
     ],
-    "known_good": "8de5b69d5c839453cab47011b23fdbcbcfa32e59",
+    "known_good": "edc76a7a3f1ac7b1365638a6f17ef55ff552a201",
     "dns_change_needed": false
   },
   "adversarial": {
