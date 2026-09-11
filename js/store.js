@@ -130,6 +130,21 @@
     } catch (e) { return "s0"; }
   }
 
+  /* v99 — the flat student_email_* columns are DERIVED, never
+     hand-set, so they can never drift from emailDelivery.student.
+     Called from both add() and update() so a late emailDelivery
+     patch re-derives them. */
+  function applyStudentFlat(rec) {
+    var stu = (rec.emailDelivery && rec.emailDelivery.student) || null;
+    rec.student_email_status = (stu && stu.status) ||
+      ((rec.emailStates || {}).student) || "";
+    rec.student_email_provider = (stu && stu.provider) || "";
+    rec.student_email_last_attempt = (stu && stu.lastAttempt) || "";
+    rec.student_email_last_error = (stu && stu.lastError) || "";
+    rec.student_email_retry_count = (stu && stu.retryCount) || 0;
+    rec.student_email_message_id = (stu && stu.messageId) || "";
+  }
+
   var Store = {
 
     /* Exposed so a booking can be given its reference BEFORE the
@@ -178,14 +193,7 @@
       /* v99 — flat student_email_* columns (the P0's exact field
          names), derived from emailDelivery.student so the CSV export
          and any consumer gets them without knowing the nested shape. */
-      var stu = rec.emailDelivery && rec.emailDelivery.student;
-      rec.student_email_status = (stu && stu.status) ||
-        ((rec.emailStates || {}).student) || "";
-      rec.student_email_provider = (stu && stu.provider) || "";
-      rec.student_email_last_attempt = (stu && stu.lastAttempt) || "";
-      rec.student_email_last_error = (stu && stu.lastError) || "";
-      rec.student_email_retry_count = (stu && stu.retryCount) || 0;
-      rec.student_email_message_id = (stu && stu.messageId) || "";
+      applyStudentFlat(rec);
       var all = readAll();
       all.push(rec);
       writeAll(all);
@@ -216,7 +224,13 @@
     update: function (ref, patch) {
       var all = readAll(), hit = false;
       all.forEach(function (r) {
-        if (r.ref === ref) { for (var k in patch) r[k] = patch[k]; hit = true; }
+        if (r.ref === ref) {
+          for (var k in patch) r[k] = patch[k];
+          /* v99 — re-derive the flat student_email_* columns when
+             the delivery record changed, so they always agree. */
+          if (patch.emailDelivery) applyStudentFlat(r);
+          hit = true;
+        }
       });
       if (hit) writeAll(all);
       return hit;
