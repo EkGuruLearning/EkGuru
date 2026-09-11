@@ -633,7 +633,7 @@
   /* Open Graph */
   /* BUG FOUND v62 — see the same fix in tools/prerender.js.
      BASE + an already-absolute URL produces
-     "https://ekgurulearning.github.io/EkGuru/https://lh3.google…",
+     "https://ekguru.shop/https://lh3.google…",
      which every social card and Google's rich result would show as
      no image at all. A photo from Google Drive is absolute. */
   function absUrl(p) { return /^https?:\/\//i.test(String(p || "")) ? String(p) : BASE + String(p || ""); }
