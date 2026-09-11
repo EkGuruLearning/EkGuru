@@ -15,6 +15,18 @@ Generated 2026-09-11 (Asia/Kolkata) · Command: `/home/user/uploads/EkGuru_EMAIL
 | Sender identity | **verified EkGuru sender** (owner Gmail). Visitor/student/tutor address is never `From` (enforced server-side) |
 | Orchestration | one central layer: `js/mailer.js` + `js/email-templates.js`; `tools/apps-script-mailer.gs` relay |
 
+## ROUTING (live-verified by `tools/test-routing.js`)
+
+Probe output against the LIVE config (token wired):
+
+    Booking  → STUDENT   → appsscript   (top rank)
+    Booking  → TUTOR     → appsscript   (top rank)
+    Booking  → EKGURU    → formsubmit   (unlimited)
+    Contact  → VISITOR   → appsscript   (top rank)
+    Contact  → EKGURU    → formsubmit   (unlimited)
+    Admin    → RECIPIENT → appsscript   (fallback: formsubmit → web3forms)
+    Admin    → EKGURU    → formsubmit   (unlimited)
+
 ## ROUTING
 
 | Role | Type | To | Reply-To |
@@ -34,6 +46,8 @@ Generated 2026-09-11 (Asia/Kolkata) · Command: `/home/user/uploads/EkGuru_EMAIL
 ## TEMPLATES
 
 Seven SIMPLE, role-specific templates (exact copy from the command). Shared shell (HTML + plain-text), all user values escaped, `render()` fails loudly on unknown type / missing / undeclared / null var / raw `{placeholder}` / unescaped `<script>`; subject single-line (CR/LF collapsed, 150 chars).
+
+v101.1 — **row payloads now mirror the templates** (bug fixed): FormSubmit renders only the row fields (it strips html/text), so the internal copies EkGuru's own inbox receives were still the old verbose table. Every body builder (tutor / internal record / student / contact internal / visitor ack / admin outbound + copy) now emits the same SIMPLE labelled rows as its template, so every relay renders the same clean wording. See `reports/email-preview-all-7.html` for the rendered result.
 
 | Template | Subject |
 |---|---|

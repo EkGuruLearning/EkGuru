@@ -1882,39 +1882,28 @@
         return a;
       });
 
-      /* ---------- 1. THE TUTOR'S COPY — the working copy ---------- */
+      /* ---------- 1. THE TUTOR'S COPY — the working copy ----------
+         v101 — rows mirror the SIMPLE tutor template, so every relay
+         (Apps Script html/text, or a fallback relay that renders the
+         rows) shows the same clean wording. */
       function tutorBody() {
         return withTemplate({
-          _subject: "Booking request " + ref + " — " + studentName +
-                    (data.slot ? " — " + data.slot : ""),
+          _subject: "Congratulations — you have a new booking request | EkGuru",
           _template: "table",
           _captcha: "false",
 
-          "Reference": ref || "(none)",
-          "WHO SENT THIS": studentLine,
-          "SENT TO": "you",
-          "WHAT WAS REQUESTED": "A " + lesson + " Hindi lesson with you at " +
-                    when + " for " + (data.price || "the listed price"),
-          "SENT WHEN": now.toUTCString() +
-                    (data.timezone ? "   (student's timezone: " + data.timezone + ")" : ""),
+          "Reference Number": ref || "(none)",
+          "Student": studentName,
+          "Student Email": data.email || "",
+          "Requested date & time": when,
+          "Timezone": data.timezone || "",
+          "Lesson": lessonType,
+          "Student's message": data.message || data.goal || "",
+          "What to do next": "Please reply to this email / use the available " +
+            "booking action to confirm whether you are available.",
+          "You can respond with": "Available · Not available · Available at " +
+            "another time (reply with the time that suits you)",
 
-          "Student name": studentName,
-          "Student email": data.email || "",
-          "Student level": data.level || "",
-          "Student timezone": data.timezone || "",
-          "Student goal": data.goal || "",
-          "Requested time": when,
-          "Lesson": lesson + " · " + (data.price || ""),
-          "Full message": data.message || "",
-
-          "What happens next":
-            "Reply to " + (data.email || "the student") + " to confirm the time. " +
-            brand + " keeps a copy for its records. Quote reference " +
-            (ref || "above") + " in any reply.",
-
-          "—": signOff,
-
-          /* Reply goes straight back to the student */
           email: data.email || SITE.email || ""
         }, "BOOKING_TUTOR_NOTIFICATION", {
           tutorName: tutorName,
@@ -1934,41 +1923,31 @@
         }, kTutor, refKey ? refKey + ":tutor" : "");
       }
 
-      /* ---------- 2. EKGURU'S COPY — the full record ---------- */
+      /* ---------- 2. EKGURU'S COPY — the full record ----------
+         v101 — rows mirror the SIMPLE internal template, so the
+         FormSubmit-rendered copy (rows only) reads exactly like the
+         Apps Script html/text version. One simple record. */
       function siteBody() {
         return withTemplate({
-          _subject: "[record] " + ref + " — " + studentName + " → " + tutorName +
-                    (data.slot ? " — " + data.slot : ""),
+          _subject: "New booking request — " + studentName + " → " + tutorName + " | " + ref,
           _template: "table",
           _captcha: "false",
 
-          "Reference": ref || "(none)",
-          "WHO SENT THIS": studentLine,
-          "SENT TO": tutorLine,
-          "COPIES SENT SEPARATELY TO": copies.length ? copies.join("  |  ") : "(none)",
-          "WHAT WAS REQUESTED": "A " + lesson + " Hindi lesson with " + tutorName +
-                    " at " + when + " for " + (data.price || "the listed price"),
-          "SENT WHEN": now.toUTCString() +
-                    (data.timezone ? "   (student's timezone: " + data.timezone + ")" : ""),
-
+          "Reference Number": ref || "(none)",
+          "Student": studentName,
+          "Student Email": data.email || "",
           "Tutor": tutorName,
-          "Tutor inbox": target,
-          "Tutor email state": tutorEmailState(tutor),
-          "Student name": studentName,
-          "Student email": data.email || "",
-          "Student level": data.level || "",
-          "Student timezone": data.timezone || "",
-          "Student goal": data.goal || "",
-          "Requested time": when,
-          "Lesson": lesson + " · " + (data.price || ""),
-          "Booked from": data.pageUrl || (location && location.href) || "",
-          "Sent via": brand + " booking form — " + (SITE.baseUrl || ""),
-          "Full message": data.message || "",
-          "Email delivery — Student": "SENDING",
-          "Email delivery — Tutor": tutorEmailState(tutor) === "ACTIVE+VALID" ? "SENDING" : "NOT_ATTEMPTED",
-          "Email delivery — Internal": "SENDING",
-          "Next admin action": "Confirm the time with the tutor.",
-          "—": signOff,
+          "Tutor Email": tutorEmailState(tutor) === "ACTIVE+VALID" ? target : "TUTOR_EMAIL_UNAVAILABLE",
+          "Date & Time": when,
+          "Timezone": data.timezone || "",
+          "Lesson": lessonType,
+          "Student's message": data.message || data.goal || "",
+          "Booking Status": "Request received",
+          "Email Delivery": "Student: sending · Tutor: " +
+            (tutorEmailState(tutor) === "ACTIVE+VALID" ? "sending" : "not attempted") +
+            " · Internal: sending",
+          "Next Admin Action": "Confirm the time with the tutor.",
+          "Source": data.pageUrl || (location && location.href) || "",
 
           email: data.email || SITE.email || ""
         }, "BOOKING_EKGURU_NOTIFICATION", {
@@ -1999,33 +1978,18 @@
          address to every person who books is not acceptable. */
       function studentBody() {
         return withTemplate({
-          _subject: "Your booking request " + ref + " with " + tutorName +
-                    (data.slot ? " — " + data.slot : ""),
+          _subject: "Congratulations — your booking request was received | EkGuru",
           _template: "table",
           _captcha: "false",
 
-          "Your reference": ref || "(none)",
-          "You booked": tutorName,
-          "You asked for": "A " + lesson + " Hindi lesson at " + when +
-                    " for " + (data.price || "the listed price"),
-          "Date & time": when,
-          "Your timezone": data.timezone || "",
-          "Lesson": lesson + " · " + (data.price || ""),
-          "Current status": "Request received — waiting for " + tutorName +
-                    " to confirm the time.",
-          "You sent it": now.toUTCString(),
-          "Your name": studentName,
-          "Your email": data.email || "",
-          "Your level": data.level || "",
-          "Your goal": data.goal || "",
-
-          "What happens next":
-            tutorName + " has your request and will reply to this address to " +
-            "confirm the time. This is a request, not a confirmed booking. " +
-            "If you hear nothing within a day, check your spam folder or write " +
-            "to " + (SITE.email || "us") + " quoting " + (ref || "your reference") + ".",
-
-          "—": signOff,
+          "Reference Number": ref || "(none)",
+          "You requested a lesson with": tutorName,
+          "Your message": data.message || data.goal || "",
+          "Requested date & time": when,
+          "Timezone": data.timezone || "",
+          "Current status": "Request received",
+          "What happens next": tutorName + " will reply to confirm the time. " +
+            "Keep your reference number — quote it in any reply.",
 
           /* Replies from the student come to EkGuru, not to the tutor's
              private inbox, so the address is never disclosed. */
@@ -2038,12 +2002,9 @@
           date: when,
           time: "",
           timezone: data.timezone || "",
-          bookingStatus: "Request received — waiting for " + tutorName +
-            " to confirm the time.",
-          nextStep: tutorName + " has your request and will reply to this " +
-            "address to confirm the time. This is a request, not a confirmed " +
-            "booking. If you hear nothing within a day, check your spam folder " +
-            "or write to " + (SITE.email || "us") + " quoting " + (ref || "your reference") + ".",
+          bookingStatus: "Request received",
+          nextStep: tutorName + " will reply to confirm the time. Keep your " +
+            "reference number — quote it in any reply.",
           supportEmail: SITE.email || "",
           siteUrl: (SITE.baseUrl || "https://ekguru.shop/")
         }, kStudent, refKey ? refKey + ":student" : "");
@@ -2570,26 +2531,23 @@
               "on answering one: 30 days under GDPR.")
         : "";
 
-      /* ---------- 1. our copy — the one that must be replyable ---------- */
+      /* ---------- 1. our copy — the one that must be replyable ----------
+         v101 — rows mirror the SIMPLE internal contact template, so
+         the FormSubmit-rendered copy reads the same as html/text. */
       var mine = withTemplate({
-        _subject: tag + ref + " — " + topic + " — " + who,
+        _subject: "New contact message — " + ref,
         _template: "table",
         _captcha: "false",
 
-        "Reference": ref,
-        "Their name": who,
-        "Their email": from,
-        "Topic": topic,
+        "Reference Number": ref,
+        "Name": who,
+        "Email": from,
         "Subject": subj,
         "Message": body,
-        "Sent": now.toUTCString(),
-        "Sent from page": data.pageUrl || (typeof location !== "undefined" ? location.href : ""),
-        "Their language": data.lang || "",
-        "How to answer": "Just press Reply — this email's reply-to is " + from + ".",
-        /* Only present when it matters, so it is not noise on the
-           other seven topics. */
-        "ACTION NEEDED": actionNeeded || undefined,
-        "—": signOff,
+        "Submitted": now.toUTCString(),
+        "Source": data.pageUrl || (typeof location !== "undefined" ? location.href : ""),
+        "Reply-To": from,
+        "Internal action": actionNeeded || "Reply to the visitor within a day.",
 
         /* Both relays use `email` as the reply-to. This single line
            is what makes "hum usko reply kar sake" true. It is NOT
@@ -2610,26 +2568,19 @@
 
       /* ---------- 2. their acknowledgement ---------- */
       var nextStep = isUrgent && topic === "Report"
-        ? "Thank you for telling us — that took effort and it matters. " +
-          "A person is reading this today, not a system. We will reply at " +
-          from + ". Nothing you have written is shared with the tutor: we " +
-          "look into it ourselves first, and we can remove a tutor from the " +
-          "site immediately if we need to. Your reference is " + ref + "."
+        ? "A person is reading this today, not a system. We will reply at " +
+          from + ". Your reference is " + ref + "."
         : "A person reads every message. You will get a reply at " + from +
-          ", usually within a day. If it is urgent, reply to this email and " +
-          "quote " + ref + ". This is an acknowledgement, not an answer.";
+          ", usually within a day. Keep your reference " + ref + ".";
 
       var theirs = withTemplate({
-        _subject: "[copy] We have your message — " + ref,
+        _subject: "We received your message — EkGuru",
         _template: "table",
         _captcha: "false",
 
-        "Your reference": ref,
-        "We received": now.toUTCString(),
-        "You wrote": body,
-        "About": topic,
+        "Reference Number": ref,
+        "Your message": body,
         "What happens next": nextStep,
-        "—": signOff,
         _cc: from,
         email: SITE.email || ourInbox
       }, "CONTACT_VISITOR_CONFIRMATION", {
@@ -2978,8 +2929,8 @@
         _template: "table",
         _captcha: "false",
         "Message": data.message,
-        "Sent": now.toUTCString(),
-        "—": sign,
+        "Reference Number": convRef,
+        "Regards": brand,
         /* Their reply comes to us. This is the one address that
            SHOULD be ours in this message. */
         email: data.replyTo || SITE.email || ""
@@ -2999,7 +2950,7 @@
         "Recipient Email": data.to,
         "Subject": data.subject || "",
         "Message Sent": data.message,
-        "Reference": convRef,
+        "Reference Number": convRef,
         "Sent By": data.adminIdentity || "admin dashboard",
         "Timestamp": now.toUTCString(),
         email: SITE.email || ""
@@ -3053,11 +3004,16 @@
 
       /* Relays that will actually deliver to the address we name,
          cheapest first — free before metered. A CAPABILITY sort,
-         so a new provider needs no edit here. */
+         so a new provider needs no edit here.
+         v101 — Apps Script is PRIMARY for admin outbound (RESET
+         §13): it can reach any address with no activation step.
+         Order: Apps Script → free → metered, exactly the order
+         routingMap().adminOutbound reports to the dashboard. */
       var usable = chain().filter(function (p) { return !p.ignoresRecipient; });
-      var free = usable.filter(function (p) { return !p.metered; });
-      var paid = usable.filter(function (p) { return p.metered; });
-      var order = free.concat(paid);
+      var app = usable.filter(function (p) { return p.id === "appsscript"; });
+      var free = usable.filter(function (p) { return p.id !== "appsscript" && !p.metered; });
+      var paid = usable.filter(function (p) { return p.id !== "appsscript" && p.metered; });
+      var order = app.concat(free, paid);
       if (!order.length) order = [PROVIDERS[PROVIDERS.length - 1]];
 
       /* Does this failure mean "the recipient is not activated"
@@ -3416,6 +3372,43 @@
         target: tutorTarget(tutor),
         notificationEmail: notificationEmail(tutor),
         available: !tutorEmailUnavailable(tutor)
+      };
+    },
+
+    /* v101 — ROUTING MAP (read-only). Which relay carries which
+       role RIGHT NOW, under the live config. Used by the admin
+       dashboard's mail panel and by tools/test-routing.js so the
+       owner can SEE the answer without reading code. Returns
+       provider ids; null = no usable route. */
+    routingMap: function () {
+      function id(p) { return p ? p.id : null; }
+      var stranger = chain().filter(function (p) { return p.canAddressStrangers; });
+      var internal = ownInboxRelay(isEmail(SITE.email) ? SITE.email : "EkGuruLearning@gmail.com");
+      /* compose() order: Apps Script primary, then free, then
+         metered — every one honouring the recipient it is given. */
+      var usable = chain().filter(function (p) { return !p.ignoresRecipient; });
+      var app = usable.filter(function (p) { return p.id === "appsscript"; });
+      var free = usable.filter(function (p) { return p.id !== "appsscript" && !p.metered; });
+      var paid = usable.filter(function (p) { return p.id !== "appsscript" && p.metered; });
+      var outbound = app.concat(free, paid);
+      return {
+        providers: PROVIDERS.map(function (p) {
+          return {
+            id: p.id,
+            sendable: p.sendable ? p.sendable() : !!p.enabled(),
+            metered: !!p.metered,
+            stranger: !!p.canAddressStrangers,
+            ignoresRecipient: !!p.ignoresRecipient
+          };
+        }),
+        bookingStudent: id(stranger[0]),
+        bookingTutor: id(stranger[0]),
+        bookingInternal: id(internal),
+        contactVisitor: id(stranger[0]),
+        contactInternal: id(internal),
+        adminOutbound: id(outbound[0]),
+        adminOutboundFallbacks: outbound.slice(1).map(id).filter(Boolean),
+        adminInternalCopy: id(internal)
       };
     },
 

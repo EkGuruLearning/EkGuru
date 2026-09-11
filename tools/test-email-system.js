@@ -158,7 +158,7 @@ const sendPayload = {
 
 function byType(type) { return POSTED.filter((p) => p.parsed && p.parsed.type === type); }
 function internalRows() {
-  return POSTED.filter((p) => p.parsed && p.parsed["Reference"] && !p.parsed.type);
+  return POSTED.filter((p) => p.parsed && p.parsed["Reference Number"] && !p.parsed.type);
 }
 
 (async function () {
@@ -206,9 +206,9 @@ function internalRows() {
     if (rec) {
       check("internal record via the free internal relay (FormSubmit endpoint)",
         /formsubmit\.co\/ajax\//i.test(rec.url), rec.url.slice(0, 60));
-      check("internal record carries delivery state rows",
-        rec.parsed["Email delivery — Student"] === "SENDING" &&
-        rec.parsed["Email delivery — Tutor"] === "SENDING");
+      check("internal record carries delivery state row",
+        /Student: sending/.test(rec.parsed["Email Delivery"] || "") &&
+        /Tutor: sending/.test(rec.parsed["Email Delivery"] || ""));
     }
   }
 
@@ -244,7 +244,7 @@ function internalRows() {
     check("internal record still written", !!rec);
     if (rec) {
       check("internal record marks tutor email state honestly",
-        rec.parsed["Tutor email state"] === "ACTIVE+MISSING");
+        rec.parsed["Tutor Email"] === "TUTOR_EMAIL_UNAVAILABLE");
     }
   }
 
@@ -266,7 +266,7 @@ function internalRows() {
     check("contact() resolves", !!cres.ok);
     const vis = byType("CONTACT_VISITOR_CONFIRMATION");
     check("visitor ack stamped CONTACT_VISITOR_CONFIRMATION", vis.length === 1, "got " + vis.length);
-    const intl = internalRows().filter((p) => p.parsed["Their name"] === "Aarav");
+    const intl = internalRows().filter((p) => p.parsed["Name"] === "Aarav");
     check("internal contact goes via the internal route", intl.length === 1, "got " + intl.length);
     if (vis[0]) {
       check("visitor ack recipient = visitor email", vis[0].parsed.to === "aarav@example.com");
