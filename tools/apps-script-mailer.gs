@@ -1,59 +1,87 @@
 /**
  * ============================================================
- *  EKGURU — APPS SCRIPT MAIL RELAY  (v98 · 11 Sep 2026)
+ *  EKGURU — APPS SCRIPT MAIL RELAY  (v100 · 11 Sep 2026)
  * ============================================================
  *  This is the WHOLE script. Paste it into Code.gs of the Apps
  *  Script project and deploy as a Web App (see
  *  tools/APPS-SCRIPT-SETUP.md for the click-by-click).
  *
- *  It is the front line of the mail chain: it sends from
+ *  It is the PRIMARY mail route: it sends from
  *  EkGuruLearning@gmail.com (your own Gmail) with no per-recipient
  *  activation link, about 100 recipients a day, and it is the only
- *  relay whose email body WE write — the HTML table below is ours,
- *  not a relay's.
+ *  relay whose email body WE write — the HTML below is ours, not a
+ *  relay's.
  *
- *  THE CONTRACT WITH js/mailer.js
- *  ------------------------------
+ *  THE CONTRACT WITH js/mailer.js  (v100)
+ *  -------------------------------------
  *  The site POSTs to /exec with Content-Type: text/plain
  *  (NOT application/json — an Apps Script Web App cannot answer the
  *  CORS preflight that a JSON content-type triggers). The body is a
  *  JSON string:
  *
  *      {
- *        "token":     "the word shared with js/site-config.js",
- *        "to":        "recipient@example.com",
- *        "subject":   "Booking request EK123 — Aarav",
- *        "replyTo":   "student@example.com",
- *        "cc":        "" (usually empty — the site sends separately),
- *        "fromName":  "EkGuru",
- *        "rows":      { "Reference": "EK123", "Student name": "Aarav", ... }
+ *        "token":          "the word shared with js/site-config.js",
+ *        "type":           "BOOKING_STUDENT_CONFIRMATION",   ← whitelisted
+ *        "to":             "recipient@example.com",
+ *        "replyTo":        "support@example.com",
+ *        "cc":             "",
+ *        "fromName":       "EkGuru",                          ← forced
+ *        "html":           "<html body>",                     ← v100
+ *        "text":           "plain body",                      ← v100
+ *        "rows":           { "Reference": "EK123", ... },     ← legacy fallback
+ *        "requestId":      "EK123:student",
+ *        "idempotencyKey": "EK123:BOOKING_STUDENT_CONFIRMATION"
  *      }
  *
- *  A successful send answers  {"success":"true", "message":"sent"}.
+ *  A successful send answers
+ *      {"success":"true","message":"sent","state":"ACCEPTED","requestId":"…"}
+ *  A duplicate (same idempotencyKey, already sent) answers
+ *      {"success":"true","message":"duplicate","state":"ACCEPTED","dedup":true}
  *  Anything else is a failure the site treats as a normal fallback.
  *
  *  ⚠️  HONEST LIMITS (read them, they matter)
- *  · A free Gmail account allows roughly 100 recipients/day
- *    (some accounts up to 500). DAILY_LIMIT below defaults to 90
- *    and is enforced here so we never burn the account silently.
- *  · The deployment URL is PUBLIC (it sits in the page source), so
- *    this script REQUIRES a token by default. The token is NOT
- *    encryption and NOT a substitute for the daily cap — but it
- *    stops a drive-by who found the bare URL. The daily cap is the
- *    real backstop.
- *  · The token is a SHARED SECRET stored SERVER-SIDE as an Apps
- *    Script Property named MAILER_SHARED_TOKEN. Generate it here
- *    (run mintToken() once in the editor) — do NOT hard-code it in
- *    this file, do NOT commit it to git, and do NOT paste it into a
- *    chat. The client config (js/site-config.js) is wired at deploy
- *    time by the operator; see tools/APPS-SCRIPT-SETUP.md.
- *  · It sends AS the script owner. Reply-To is set separately, so
- *    a visitor's address never appears in the From field (the
- *    "visitor email in FROM" bug this project fixed).
+ *  · A free Gmail account allows roughly 100 recipients/day.
+ *    DAILY_LIMIT below defaults to 90 and is enforced here.
+ *  · The token is a SHARED SECRET stored SERVER-SIDE as the Script
+ *    Property MAILER_SHARED_TOKEN (run mintToken() once). It is NOT
+ *    encryption and NOT a substitute for the daily cap.
+ *  · It sends AS the script owner. Reply-To is set separately, so a
+ *    visitor's address never appears in the From field.
+ *  · ACCEPTED ≠ DELIVERED: success means Gmail accepted the message,
+ *    not that the recipient's mailbox has it.
  * ============================================================
  */
 
 var SCRIPT_NAME = "EkGuru Mail Relay";
+
+/* ============================================================
+ * MESSAGE-TYPE WHITELIST  (§21)
+ * The ONLY message types this relay will carry. Unknown types are
+ * rejected before any send. This is how the public site is stopped
+ * from turning the relay into an open mailer for arbitrary content.
+ * ============================================================ */
+var MESSAGE_TYPES = [
+  "CONTACT_VISITOR_CONFIRMATION",
+  "CONTACT_EKGURU_NOTIFICATION",
+  "BOOKING_STUDENT_CONFIRMATION",
+  "BOOKING_TUTOR_NOTIFICATION",
+  "BOOKING_EKGURU_NOTIFICATION"
+];
+
+/* The display name that may appear as the sender. The client may
+ * propose one; anything else is replaced with this, so the public
+ * site can never spoof a sender name. The FROM ADDRESS is always
+ * the script owner's Gmail — never taken from the client. */
+var SENDER_NAME = "EkGuru";
+
+/* Payload size limits — stop an oversized message from wedging the
+ * script or blowing the mailbox quota. */
+var MAX_HTML_BYTES = 60000;
+var MAX_TEXT_BYTES = 20000;
+
+/* Idempotency retention: a replayed key within this window is
+ * answered as a duplicate and NOT re-sent. */
+var DEDUP_DAYS = 7;
 
 /** The shared token, read from the Script Property MAILER_SHARED_TOKEN
  *  (never from source code). FAIL-CLOSED: doPost refuses mail while
@@ -95,9 +123,7 @@ function allowedRecipients() {
  *  route student receipts through the other providers. */
 var ALLOW_STRANGERS = true;
 
-/** Daily ceiling. Keep it below Gmail's own cap so we fail gracefully
- *  (with a quota message the site recognises) instead of hitting a
- *  hard Gmail block. */
+/** Daily ceiling. Keep it below Gmail's own cap so we fail gracefully. */
 var DAILY_LIMIT = 90;
 
 /** ------------------------------------------------------------------
@@ -105,8 +131,7 @@ var DAILY_LIMIT = 90;
  *  ------------------------------------------------------------------ */
 function doGet() {
   // Health check. Open the /exec URL in a browser and you should see
-  // {"success":"true","status":"ok",...}. If you see a Google error
-  // page, the deployment is not set to "Anyone".
+  // {"success":"true","status":"ok",...}.
   return json({
     success: "true",
     status: "ok",
@@ -119,7 +144,8 @@ function doGet() {
 
 function doPost(e) {
   // One request at a time: Gmail is fine with bursts, but the daily
-  // counter below must never double-count two racing requests.
+  // counter and the idempotency store must never double-count two
+  // racing requests.
   var lock = LockService.getScriptLock();
   try { lock.waitLock(30000); } catch (err) {
     return json({ success: "false", message: "Busy, try again." });
@@ -152,13 +178,7 @@ function handle(e) {
     return json({ success: "false", message: "Malformed payload." });
   }
 
-  // 1. Token — FAIL CLOSED. This relay is the intended production path,
-  //    so it must never accept mail without the server-side secret.
-  //    · no MAILER_SHARED_TOKEN configured  → refuse ("Not authorised.")
-  //    · token mismatch                     → refuse ("Not authorised.")
-  //    The operator sets the secret ONCE via mintToken() (Script
-  //    Property, server-side) and wires the same value into the client
-  //    config at deploy time. See tools/APPS-SCRIPT-SETUP.md.
+  // 1. Token — FAIL CLOSED. Never accept mail without the secret.
   var expected = token();
   if (!expected) {
     return json({ success: "false", message: "Not authorised. Relay token not configured." });
@@ -167,7 +187,15 @@ function handle(e) {
     return json({ success: "false", message: "Not authorised." });
   }
 
-  // 2. Recipient — must be a real address we are willing to write to.
+  // 2. Message type — WHITELIST. Unknown types are refused before
+  //    any recipient is touched, so the relay cannot be used to
+  //    carry arbitrary content (open-relay defence).
+  var type = String(body.type || "").trim().toUpperCase();
+  if (type && MESSAGE_TYPES.indexOf(type) === -1) {
+    return json({ success: "false", message: "Unknown message type." });
+  }
+
+  // 3. Recipient — must be a real address we are willing to write to.
   var to = String(body.to || "").trim();
   if (!isEmail(to)) {
     return json({ success: "false", message: "Missing or invalid recipient." });
@@ -179,7 +207,7 @@ function handle(e) {
     return json({ success: "false", message: "Recipient not allowed." });
   }
 
-  // 3. Daily cap — refuse BEFORE sending, with a message the site's
+  // 4. Daily cap — refuse BEFORE sending, with a message the site's
   //    quota fallback recognises ("limit exceeded").
   var day = Utilities.formatDate(new Date(), "GMT", "yyyy-MM-dd");
   var used = parseInt(props().getProperty("USED_" + day) || "0", 10);
@@ -187,32 +215,83 @@ function handle(e) {
     return json({ success: "false", message: "Daily limit exceeded." });
   }
 
-  // 4. Build the message — our layout, our wording.
-  var subject = String(body.subject || "EkGuru").slice(0, 150);
+  // 5. Idempotency — server-side. A replayed key within the window
+  //    is answered as a duplicate and NOT re-sent, so a double
+  //    submit / refresh / retry can never double a message.
+  var idem = String(body.idempotencyKey || "").trim().slice(0, 200);
+  if (idem) {
+    var already = sentFlag(idem);
+    if (already) {
+      return json({
+        success: "true", message: "duplicate", state: "ACCEPTED",
+        dedup: true, requestId: String(body.requestId || "")
+      });
+    }
+  }
+
+  // 6. Size limits.
+  var html = String(body.html || "");
+  var text = String(body.text || "");
+  if (html.length > MAX_HTML_BYTES || text.length > MAX_TEXT_BYTES) {
+    return json({ success: "false", message: "Payload too large." });
+  }
+
+  // 7. Sender enforcement. The From ADDRESS is the script owner —
+  //    the client cannot change it. The display name is forced to
+  //    SENDER_NAME; a client-supplied fromName is ignored.
   var replyTo = firstEmail(body.replyTo);
   var cc = firstEmail(body.cc);
-  var fromName = String(body.fromName || "EkGuru").slice(0, 60);
-  var rows = body.rows && typeof body.rows === "object" ? body.rows : {};
-  var html = renderHtml(rows, fromName);
-  var text = renderText(rows, fromName);
 
-  var opts = { htmlBody: html, name: fromName };
+  // 8. Build the message. v100: html/text come straight from the
+  //    client templates; legacy rows still render if html is empty.
+  var rows = body.rows && typeof body.rows === "object" ? body.rows : {};
+  var htmlBody = html || renderHtml(rows, SENDER_NAME);
+  var textBody = text || renderText(rows, SENDER_NAME);
+  // Single-line subject: collapse control characters so a newline
+  // smuggled into a name can never inject a header line.
+  var subject = String(body.subject || "EkGuru")
+    .replace(/[\r\n\t]+/g, " ")
+    .slice(0, 150);
+
+  var opts = { htmlBody: htmlBody, name: SENDER_NAME };
   if (replyTo) opts.replyTo = replyTo;
   if (cc) opts.cc = cc;
 
-  GmailApp.sendEmail(to, subject, text, opts);
+  GmailApp.sendEmail(to, subject, textBody, opts);
 
+  // Record the send — quota, then idempotency (after success only).
   props().setProperty("USED_" + day, String(used + 1));
-  return json({ success: "true", message: "sent" });
+  if (idem) setSentFlag(idem);
+
+  return json({
+    success: "true", message: "sent", state: "ACCEPTED",
+    requestId: String(body.requestId || "")
+  });
 }
 
 /** ------------------------------------------------------------------
- *  RENDERING — the table the recipient actually sees
+ *  IDEMPOTENCY STORE (Script Properties)
+ *  Key: SENT_<idempotencyKey>  Value: ISO timestamp of the send.
+ *  Read + write are inside the doPost lock, so no double-send race.
+ *  ------------------------------------------------------------------ */
+function sentFlag(idem) {
+  var v = props().getProperty("SENT_" + idem);
+  if (!v) return false;
+  var when = new Date(v).getTime();
+  if (!when) return false;
+  return (Date.now() - when) < (DEDUP_DAYS * 86400000);
+}
+function setSentFlag(idem) {
+  props().setProperty("SENT_" + idem, new Date().toISOString());
+}
+
+/** ------------------------------------------------------------------
+ *  RENDERING — legacy table for clients that still send `rows`
  *  ------------------------------------------------------------------ */
 function renderHtml(rows, fromName) {
   var inner = [];
   Object.keys(rows).forEach(function (label) {
-    if (label === "_subject" || label === "_template" || label === "_captcha") return;
+    if (label.charAt(0) === "_") return;
     var value = String(rows[label] == null ? "" : rows[label]);
     if (!label || !value) return;
     inner.push(
@@ -240,7 +319,7 @@ function renderHtml(rows, fromName) {
 function renderText(rows, fromName) {
   var out = [];
   Object.keys(rows).forEach(function (label) {
-    if (label === "_subject" || label === "_template" || label === "_captcha") return;
+    if (label.charAt(0) === "_") return;
     var value = String(rows[label] == null ? "" : rows[label]);
     if (!label || !value) return;
     out.push(label + ": " + value);

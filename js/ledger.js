@@ -153,6 +153,10 @@
         }),
         ok: m.ok !== false,
         error: m.error || "",
+        /* v100 — a message can be recorded BEFORE it is sent
+           (status "sending") and filled in afterwards, so a crash
+           mid-send still leaves a durable trace. */
+        status: m.status || (m.ok !== false ? "sent" : "failed"),
         /* v97 — the honest per-role delivery state (ACCEPTED, FAILED,
            TUTOR_EMAIL_UNAVAILABLE, …) copied from the mailer result,
            so the record room can answer "was the tutor notified?" */
@@ -166,6 +170,22 @@
       all.push(rec);
       writeAll(all);
       return rec;
+    },
+
+    /* v100 — fill in a record by reference (upsert semantics for
+       fields that arrive later, e.g. the send outcome). Returns the
+       patched record, or null when there is nothing to patch. */
+    update: function (ref, patch) {
+      if (!ref) return null;
+      var all = readAll(), hit = null;
+      all.forEach(function (r) {
+        if (String(r.ref) === String(ref)) {
+          for (var k in patch) r[k] = patch[k];
+          hit = r;
+        }
+      });
+      if (hit) writeAll(all);
+      return hit;
     },
 
     /* Newest first — that is the order anybody wants to read it. */

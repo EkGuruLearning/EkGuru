@@ -327,7 +327,9 @@
         var body = {};
         for (var k in payload) {
           if (k === "_subject" || k === "_template" || k === "_captcha" ||
-              k === "_cc" || k === "email") continue;
+              k === "_cc" || k === "email" ||
+              k === "_type" || k === "_html" || k === "_text" ||
+              k === "_idem" || k === "_requestId") continue;
           if (payload[k] !== undefined && payload[k] !== null && payload[k] !== "") {
             body[k] = payload[k];
           }
@@ -343,6 +345,15 @@
                allow-list it is given. Documented honestly in the
                setup guide rather than described as encryption. */
             token: String((CFG.appsScript || {}).token || ""),
+            /* v100 — the relay contract: message type (whitelisted
+               server-side), rendered html/text, and the idempotency
+               key so a replayed request is deduped by the relay
+               itself, not only by this browser. */
+            type: payload._type || "",
+            html: payload._html || "",
+            text: payload._text || "",
+            requestId: payload._requestId || "",
+            idempotencyKey: payload._idem || "",
             to: to,
             subject: payload._subject || "EkGuru",
             replyTo: payload.email || SITE.email || "",
@@ -350,7 +361,8 @@
             fromName: SITE.brand || "EkGuru",
             /* The labelled rows, in order, exactly as every other
                provider receives them. doPost() renders them as a
-               table — OUR table, in OUR wording. */
+               table — OUR table, in OUR wording. (Legacy fallback:
+               when html/text are present the relay uses those.) */
             rows: body
           }
         };
@@ -566,6 +578,10 @@
         if (payload._cc) body.ccemail = payload._cc;
         delete body._subject; delete body._template;
         delete body._captcha; delete body._cc;
+        /* v100 — the Apps Script-only fields must not leak into a
+           Web3Forms request. */
+        delete body._type; delete body._html; delete body._text;
+        delete body._idem; delete body._requestId;
         /* Internal bookkeeping, never sent over the wire. Read off
            the built body by post() before the fetch. */
         var usedKey = body.__ekguruKey; delete body.__ekguruKey;
@@ -745,7 +761,16 @@
       /* Always available — it is the floor of the chain. */
       enabled: function () { return true; },
       build: function (to, payload) {
-        return { url: endpointFor(to), body: payload };
+        /* FormSubmit passes the payload straight through, so the
+           Apps Script-only fields must be stripped here or they
+           would render as message rows. */
+        var clean = {};
+        for (var k in payload) {
+          if (k === "_type" || k === "_html" || k === "_text" ||
+              k === "_idem" || k === "_requestId") continue;
+          clean[k] = payload[k];
+        }
+        return { url: endpointFor(to), body: clean };
       }
     }
   ];
@@ -1158,6 +1183,75 @@
     if (tutor && isEmail(tutor.email)) return String(tutor.email).trim();
     if (CFG.siteKey) return String(CFG.siteKey).trim();
     return isEmail(SITE.email) ? SITE.email : "";
+  }
+
+  /* v100 — DATA-DRIVEN TUTOR EMAIL RESOLUTION  (§15/§16)
+     One explicit precedence chain, documented and tested, so a
+     future tutor needs no new code branch:
+       notificationEmail (dedicated operational field)
+       → formKey (hidden alias, does not publish the raw address)
+       → email (public profile email)
+       → siteKey / SITE.email (EkGuru inbox — honest fallback)
+     The Sheet can override any of these at runtime (js/sheet.js
+     applies the published sheet to the tutor object before the
+     mailer sees it), so an owner can change where a tutor's mail
+     lands without a deploy. */
+  function notificationEmail(tutor) {
+    if (tutor && isEmail(tutor.notificationEmail)) return String(tutor.notificationEmail).trim();
+    if (tutor && tutor.formKey) return String(tutor.formKey).trim();
+    if (tutor && isEmail(tutor.email)) return String(tutor.email).trim();
+    if (CFG.siteKey) return String(CFG.siteKey).trim();
+    return isEmail(SITE.email) ? SITE.email : "";
+  }
+
+  /* v100 — TUTOR EMAIL STATE  (§15)
+     Classify each tutor, never silently reroute:
+       ACTIVE+VALID     a real operational address exists
+       ACTIVE+MISSING   no address on file → TUTOR_EMAIL_UNAVAILABLE,
+                        routed through EkGuru, reported honestly
+       ACTIVE+INVALID   an address exists but is not a valid email
+     This is the state shown to admin and written into the booking
+     snapshot, and it is what decides TUTOR_EMAIL_UNAVAILABLE. */
+  function tutorEmailState(tutor) {
+    if (tutor && tutor.formKey) return "ACTIVE+VALID";
+    if (tutor && isEmail(tutor.notificationEmail)) return "ACTIVE+VALID";
+    if (tutor && tutor.email && !isEmail(tutor.email)) return "ACTIVE+INVALID";
+    if (tutor && isEmail(tutor.email)) return "ACTIVE+VALID";
+    return "ACTIVE+MISSING";
+  }
+  function tutorEmailUnavailable(tutor) {
+    return tutorEmailState(tutor) !== "ACTIVE+VALID";
+  }
+
+  /* v100 — attach the rendered role template to a payload. The
+     `_type/_html/_text/_idem/_requestId` keys are read only by the
+     Apps Script provider's build(); every other provider's build()
+     skips or strips them. Rendering here means one place decides
+     the wording, and the relay just carries it. */
+  function withTemplate(payload, type, vars, idem, requestId) {
+    try {
+      if (window.EKGURU_EMAIL && window.EKGURU_EMAIL.render) {
+        var r = window.EKGURU_EMAIL.render(type, vars);
+        if (r && r.ok) {
+          payload._type = type;
+          payload._html = r.html;
+          payload._text = r.text;
+          /* The template is the source of truth for the subject —
+             one place decides the wording for every provider. */
+          payload._subject = r.subject;
+        } else if (window.console && console.warn) {
+          console.warn("[EkGuru] template render skipped (" + type + "): " +
+            ((r && r.errors) || []).join(", "));
+        }
+      }
+    } catch (e) {
+      if (window.console && console.warn) {
+        console.warn("[EkGuru] template render failed (" + type + "): " + e.message);
+      }
+    }
+    if (idem) payload._idem = idem;
+    if (requestId) payload._requestId = requestId;
+    return payload;
   }
 
   /* Everyone who should receive a copy, minus the main recipient
@@ -1726,6 +1820,11 @@
       var now = new Date();
       var ref = data.ref || "";
       var lesson = tutor.lessonLength || "50 min";
+      /* v100 — a stable "lesson type" label for the snapshot and the
+         templates. A tutor marked trialAvailable gets "Trial lesson";
+         otherwise it is a plain lesson of their usual length. */
+      var lessonType = (tutor.trialAvailable ? "Trial lesson" : "Lesson") +
+                       " · " + lesson;
       var when = data.slot || "a time still to be agreed";
       var studentName = data.name || "A student";
       var tutorName = tutor.name || "the tutor";
@@ -1756,7 +1855,7 @@
 
       /* ---------- 1. THE TUTOR'S COPY — the working copy ---------- */
       function tutorBody() {
-        return {
+        return withTemplate({
           _subject: "Booking request " + ref + " — " + studentName +
                     (data.slot ? " — " + data.slot : ""),
           _template: "table",
@@ -1788,12 +1887,26 @@
 
           /* Reply goes straight back to the student */
           email: data.email || SITE.email || ""
-        };
+        }, "BOOKING_TUTOR_NOTIFICATION", {
+          tutorName: tutorName,
+          bookingId: ref,
+          studentName: studentName,
+          date: when,
+          time: "",
+          timezone: data.timezone || "",
+          lessonType: lessonType,
+          studentRequirement: (data.goal || data.message || ""),
+          bookingStatus: "Request received",
+          tutorNextAction: "Reply to " + (data.email || "the student") +
+            " to confirm the time. Quote reference " + (ref || "above") + ".",
+          supportEmail: SITE.email || "",
+          siteUrl: (SITE.baseUrl || "https://ekguru.shop/")
+        }, kTutor, refKey ? refKey + ":tutor" : "");
       }
 
       /* ---------- 2. EKGURU'S COPY — the full record ---------- */
       function siteBody() {
-        return {
+        return withTemplate({
           _subject: "[record] " + ref + " — " + studentName + " → " + tutorName +
                     (data.slot ? " — " + data.slot : ""),
           _template: "table",
@@ -1823,7 +1936,30 @@
           "—": signOff,
 
           email: data.email || SITE.email || ""
-        };
+        }, "BOOKING_EKGURU_NOTIFICATION", {
+          bookingId: ref,
+          status: "sent",
+          createdAt: now.toISOString(),
+          studentName: studentName,
+          studentEmail: data.email || "",
+          tutorName: tutorName,
+          tutorId: tutor.id || "",
+          tutorEmailState: tutorEmailState(tutor),
+          date: when,
+          time: "",
+          timezone: data.timezone || "",
+          lessonType: lessonType,
+          studentRequirement: (data.goal || data.message || ""),
+          sourcePage: data.pageUrl || "",
+          studentDeliveryState: "PENDING",
+          tutorDeliveryState: "PENDING",
+          internalDeliveryState: "PENDING",
+          provider: "Google Apps Script",
+          lastError: "",
+          nextAction: "Confirm the time with the tutor.",
+          supportEmail: SITE.email || "",
+          siteUrl: (SITE.baseUrl || "https://ekguru.shop/")
+        }, kInternal, refKey ? refKey + ":internal" : "");
       }
 
       /* ---------- 3. THE STUDENT'S RECEIPT — only what is theirs ----------
@@ -1832,7 +1968,7 @@
          has no need for any of it, and publishing a tutor's private
          address to every person who books is not acceptable. */
       function studentBody() {
-        return {
+        return withTemplate({
           _subject: "Your booking request " + ref + " with " + tutorName +
                     (data.slot ? " — " + data.slot : ""),
           _template: "table",
@@ -1864,7 +2000,24 @@
           /* Replies from the student come to EkGuru, not to the tutor's
              private inbox, so the address is never disclosed. */
           email: SITE.email || ""
-        };
+        }, "BOOKING_STUDENT_CONFIRMATION", {
+          studentName: studentName,
+          bookingId: ref,
+          tutorName: tutorName,
+          date: when,
+          time: "",
+          timezone: data.timezone || "",
+          lessonType: lessonType,
+          studentRequirement: (data.goal || data.message || ""),
+          bookingStatus: "Request received — waiting for " + tutorName +
+            " to confirm the time.",
+          nextStep: tutorName + " has your request and will reply to this " +
+            "address to confirm the time. This is a request, not a confirmed " +
+            "booking. If you hear nothing within a day, check your spam folder " +
+            "or write to " + (SITE.email || "us") + " quoting " + (ref || "your reference") + ".",
+          supportEmail: SITE.email || "",
+          siteUrl: (SITE.baseUrl || "https://ekguru.shop/")
+        }, kStudent, refKey ? refKey + ":student" : "");
       }
 
       /* post() now lives at module scope — see the note above it. */
@@ -2337,6 +2490,13 @@
                  (topic + " — message from " + who);
       var body = String(data.message).trim();
 
+      /* Idempotency keys — CONTACT-{ref}-INTERNAL / -VISITOR.
+         Declared BEFORE the bodies are built so the templates carry
+         their idempotencyKey (the relay dedupes a replay by it). */
+      var refKey = ref ? String(ref).toUpperCase() : "";
+      var kInternal = refKey ? "CONTACT-" + refKey + "-INTERNAL" : "";
+      var kVisitor = refKey ? "CONTACT-" + refKey + "-VISITOR" : "";
+
       var founder = (SITE.founder && SITE.founder.name) || "Prakash";
       var signOff =
         brand + " — " + (SITE.tagline || "") + "\n" +
@@ -2366,7 +2526,7 @@
       var tag = isUrgent ? "[!! " + topic.toUpperCase() + "] " : "[contact] ";
 
       /* ---------- 1. our copy — the one that must be replyable ---------- */
-      var mine = {
+      var mine = withTemplate({
         _subject: tag + ref + " — " + topic + " — " + who,
         _template: "table",
         _captcha: "false",
@@ -2400,10 +2560,31 @@
            previous version set this to SITE.email, which made every
            reply come back to ourselves. */
         email: from
-      };
+      }, "CONTACT_EKGURU_NOTIFICATION", {
+        visitorName: who,
+        visitorEmail: from,
+        category: topic,
+        subject: subj,
+        message: body,
+        timestamp: now.toUTCString(),
+        sourcePage: data.pageUrl || (typeof location !== "undefined" ? location.href : ""),
+        contactId: ref,
+        supportEmail: SITE.email || ourInbox,
+        siteUrl: (SITE.baseUrl || "https://ekguru.shop/")
+      }, kInternal, refKey ? refKey + ":internal" : "");
 
       /* ---------- 2. their acknowledgement ---------- */
-      var theirs = {
+      var nextStep = isUrgent && topic === "Report"
+        ? "Thank you for telling us — that took effort and it matters. " +
+          "A person is reading this today, not a system. We will reply at " +
+          from + ". Nothing you have written is shared with the tutor: we " +
+          "look into it ourselves first, and we can remove a tutor from the " +
+          "site immediately if we need to. Your reference is " + ref + "."
+        : "A person reads every message. You will get a reply at " + from +
+          ", usually within a day. If it is urgent, reply to this email and " +
+          "quote " + ref + ". This is an acknowledgement, not an answer.";
+
+      var theirs = withTemplate({
         _subject: "[copy] We have your message — " + ref,
         _template: "table",
         _captcha: "false",
@@ -2412,19 +2593,17 @@
         "We received": now.toUTCString(),
         "You wrote": body,
         "About": topic,
-        "What happens next": isUrgent && topic === "Report"
-          ? "Thank you for telling us — that took effort and it matters. " +
-            "A person is reading this today, not a system. We will reply at " +
-            from + ". Nothing you have written is shared with the tutor: we " +
-            "look into it ourselves first, and we can remove a tutor from the " +
-            "site immediately if we need to. Your reference is " + ref + "."
-          : "A person reads every message. You will get a reply at " + from +
-            ", usually within a day. If it is urgent, reply to this email and " +
-            "quote " + ref + ". This is an acknowledgement, not an answer.",
+        "What happens next": nextStep,
         "—": signOff,
         _cc: from,
         email: SITE.email || ourInbox
-      };
+      }, "CONTACT_VISITOR_CONFIRMATION", {
+        visitorName: who,
+        contactId: ref,
+        nextStep: nextStep,
+        supportEmail: SITE.email || ourInbox,
+        siteUrl: (SITE.baseUrl || "https://ekguru.shop/")
+      }, kVisitor, refKey ? refKey + ":visitor" : "");
 
       /* =========================================================
          v79 — CONTACT GOES THROUGH THE FREE UNLIMITED RELAY
@@ -2454,10 +2633,15 @@
          a relay that disappears would take the contact form with
          it. Unknown or unavailable value simply falls back to the
          normal chain rather than failing. */
-      var wanted = String(CFG.contactProvider || "formsubmit").toLowerCase();
+      var wanted = String(CFG.contactProvider || "appsscript").toLowerCase();
       function preferContact(payload) {
         var p = PROVIDERS.filter(function (x) {
-          return x.id === wanted && x.enabled() && !spent(x.id);
+          /* v100 — Apps Script is PRIMARY for contact too, so the
+             internal copy must only take that hop when it is
+             genuinely sendable (token wired). sendable() — not
+             enabled() — is what routing asks everywhere else. */
+          var usable = typeof x.sendable === "function" ? x.sendable() : x.enabled();
+          return x.id === wanted && usable && !spent(x.id);
         })[0];
         /* Unknown id, disabled, or spent for the month: fall back to
            the normal chain rather than failing. A preference is a
@@ -2558,11 +2742,6 @@
         })[0] || null;
       }
 
-      /* Idempotency keys — CONTACT-{ref}-INTERNAL / -VISITOR. */
-      var refKey = ref ? String(ref).toUpperCase() : "";
-      var kInternal = refKey ? "CONTACT-" + refKey + "-INTERNAL" : "";
-      var kVisitor = refKey ? "CONTACT-" + refKey + "-VISITOR" : "";
-
       /* v97 — admin retry force: clear this ref's sent keys so the
          jobs run again. */
       if (data.force && refKey) {
@@ -2592,8 +2771,9 @@
                anything from their point of view, it is their
                receipt. The marker existed only because the message
                used to land in OUR inbox and needed distinguishing
-               there. */
-            own._subject = "We have your message — " + ref;
+               there. The template subject ("We received your
+               message — … | EkGuru") is already on `theirs` and
+               carries through the clone, so it is left as-is. */
             return postVia(direct, from, own);
           }
 
@@ -3134,7 +3314,71 @@
        already gone out in this browser; clearSent() wipes it (used
        by the dashboard's mail tools and by tests). */
     sentLog: function () { return sentMap(); },
-    clearSent: clearSent
+    clearSent: clearSent,
+
+    /* v100 — single source of truth for tutor email resolution.
+       The booking snapshot and the admin dashboard both ask this
+       instead of re-implementing the chain, so a tutor added via a
+       Sheet row flows through with no new code. Returns
+         { state, target, available } where available means a real
+       operational address exists (ACTIVE+VALID); otherwise the
+       message is TUTOR_EMAIL_UNAVAILABLE and target is the EkGuru
+       inbox. */
+    tutorEmailInfo: function (tutor) {
+      return {
+        state: tutorEmailState(tutor),
+        target: tutorTarget(tutor),
+        notificationEmail: notificationEmail(tutor),
+        available: !tutorEmailUnavailable(tutor)
+      };
+    },
+
+    /* v100 — ADMIN SEND-TEST  (§39/§40)
+       Sends one real templated message to a CONTROLLED address
+       (an inbox the owner controls: the site inbox or an alwaysCc
+       entry). Refuses any other address — this is a test button,
+       not a way to spam a stranger from the dashboard.
+       type must be one of the five whitelisted message types;
+       vars are the template variables. The subject is prefixed
+       [TEST] so the owner's inbox can filter it. Returns ACCEPTED
+       on success — never DELIVERED. */
+    testSend: function (type, to, vars) {
+      var controlled = ourInboxes();
+      if (!isEmail(to)) {
+        return Promise.reject(new Error("A valid recipient is required"));
+      }
+      var allowed = controlled.some(function (a) {
+        return a.toLowerCase() === String(to).toLowerCase();
+      });
+      if (!allowed) {
+        return Promise.reject(new Error("Send-test is limited to inboxes you control (" +
+          controlled.join(", ") + ")"));
+      }
+      if (!(window.EKGURU_EMAIL && window.EKGURU_EMAIL.render)) {
+        return Promise.reject(new Error("Template engine is not loaded"));
+      }
+      var r = window.EKGURU_EMAIL.render(type, vars);
+      if (!r || !r.ok) {
+        return Promise.reject(new Error("Template render failed: " +
+          ((r && r.errors) || []).join(", ")));
+      }
+      var payload = withTemplate({
+        _subject: r.subject,
+        _template: "table",
+        _captcha: "false",
+        email: SITE.email || ""
+      }, type, vars);
+      /* Mark it unmistakably as a test so it is filterable in the
+         owner's inbox. */
+      payload._subject = "[TEST] " + payload._subject;
+      return postOwn(to, payload).then(function (res) {
+        return {
+          ok: !!res.ok, state: res.ok ? "ACCEPTED" : (res.state || "FAILED"),
+          via: res.via || "", to: to, type: type, subject: payload._subject,
+          error: res.error || ""
+        };
+      });
+    }
   };
 
   window.EkGuruMail = Mail;

@@ -183,6 +183,18 @@
         tutorEmailStatus: b.tutorEmailStatus || "",
         tutorEmailNote: b.tutorEmailNote || "",
         emailStates: b.emailStates || {},
+        /* v100 — IMMUTABLE booking snapshot (§17). Written once at
+           booking time and never re-derived from later Sheet edits:
+           the tutor's name as it was then, their email ONLY if a
+           verified operational address existed at the time (an
+           empty string honestly means TUTOR_EMAIL_UNAVAILABLE —
+           a forged address is never invented), and the lesson
+           type. Historical emails are regenerated from these, never
+           from the mutable tutor Sheet. */
+        tutorNameSnapshot: b.tutorNameSnapshot || b.tutor || "",
+        tutorEmailSnapshot: b.tutorEmailSnapshot || "",
+        tutorEmailState: b.tutorEmailState || "",
+        lessonType: b.lessonType || "",
         /* v99 — the full per-role delivery record (the P0's section
            15): status | provider | lastAttempt | lastError |
            retryCount | messageId per role. Kept whole so admin can

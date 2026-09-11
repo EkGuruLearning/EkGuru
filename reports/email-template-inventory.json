@@ -1,0 +1,190 @@
+{
+  "generated": "2026-09-11T15:49:08Z",
+  "source": "js/email-templates.js TEMPLATES",
+  "design_system": "one shared shell (EkGuru card layout), HTML + plain-text, all user values escaped",
+  "registry_contract": "render() fails on unknown type, missing/undeclared/null variable, raw {placeholder}, unescaped <script>",
+  "templates": [
+    {
+      "key": "contactVisitor",
+      "type": "CONTACT_VISITOR_CONFIRMATION",
+      "role": "visitor",
+      "allowedVars": [
+        "visitorName",
+        "contactId",
+        "nextStep",
+        "supportEmail",
+        "siteUrl"
+      ],
+      "subject": "We received your message — C-TEST01 | EkGuru",
+      "render_ok": true,
+      "type_name_render_ok": true,
+      "render_errors": [],
+      "role_qa": {
+        "mustSay": [
+          "message received",
+          "reference"
+        ],
+        "mustNotSay": [
+          "new lesson request",
+          "you booked",
+          "internal",
+          "provider"
+        ],
+        "violations": [],
+        "pass": true
+      }
+    },
+    {
+      "key": "contactInternal",
+      "type": "CONTACT_EKGURU_NOTIFICATION",
+      "role": "internal",
+      "allowedVars": [
+        "visitorName",
+        "visitorEmail",
+        "category",
+        "subject",
+        "message",
+        "timestamp",
+        "sourcePage",
+        "contactId",
+        "supportEmail",
+        "siteUrl"
+      ],
+      "subject": "New contact request — General — C-TEST01",
+      "render_ok": true,
+      "type_name_render_ok": true,
+      "render_errors": [],
+      "role_qa": {
+        "mustSay": [
+          "visitor",
+          "message"
+        ],
+        "mustNotSay": [
+          "you booked",
+          "your booking id"
+        ],
+        "violations": [],
+        "pass": true
+      }
+    },
+    {
+      "key": "bookingStudent",
+      "type": "BOOKING_STUDENT_CONFIRMATION",
+      "role": "student",
+      "allowedVars": [
+        "studentName",
+        "bookingId",
+        "tutorName",
+        "date",
+        "time",
+        "timezone",
+        "lessonType",
+        "studentRequirement",
+        "bookingStatus",
+        "nextStep",
+        "supportEmail",
+        "siteUrl"
+      ],
+      "subject": "Booking request received — Tara | EkGuru",
+      "render_ok": true,
+      "type_name_render_ok": true,
+      "render_errors": [],
+      "role_qa": {
+        "mustSay": [
+          "your request",
+          "what happens next"
+        ],
+        "mustNotSay": [
+          "new lesson request for you",
+          "tutor's private",
+          "your next action as the tutor"
+        ],
+        "violations": [],
+        "pass": true
+      }
+    },
+    {
+      "key": "bookingTutor",
+      "type": "BOOKING_TUTOR_NOTIFICATION",
+      "role": "tutor",
+      "allowedVars": [
+        "tutorName",
+        "bookingId",
+        "studentName",
+        "date",
+        "time",
+        "timezone",
+        "lessonType",
+        "studentRequirement",
+        "bookingStatus",
+        "tutorNextAction",
+        "supportEmail",
+        "siteUrl"
+      ],
+      "subject": "New lesson request — Priya — 20 September 2026 | EkGuru",
+      "render_ok": true,
+      "type_name_render_ok": true,
+      "render_errors": [],
+      "role_qa": {
+        "mustSay": [
+          "new lesson request",
+          "learner"
+        ],
+        "mustNotSay": [
+          "you booked",
+          "your booking request was received"
+        ],
+        "violations": [],
+        "pass": true
+      }
+    },
+    {
+      "key": "bookingInternal",
+      "type": "BOOKING_EKGURU_NOTIFICATION",
+      "role": "internal",
+      "allowedVars": [
+        "bookingId",
+        "status",
+        "createdAt",
+        "studentName",
+        "studentEmail",
+        "tutorName",
+        "tutorId",
+        "tutorEmailState",
+        "date",
+        "time",
+        "timezone",
+        "lessonType",
+        "studentRequirement",
+        "sourcePage",
+        "studentDeliveryState",
+        "tutorDeliveryState",
+        "internalDeliveryState",
+        "provider",
+        "lastError",
+        "nextAction",
+        "supportEmail",
+        "siteUrl"
+      ],
+      "subject": "New booking request — Priya → Tara — EK-TEST01",
+      "render_ok": true,
+      "type_name_render_ok": true,
+      "render_errors": [],
+      "role_qa": {
+        "mustSay": [
+          "delivery"
+        ],
+        "mustNotSay": [],
+        "violations": [],
+        "pass": true
+      }
+    }
+  ],
+  "fixtures": {
+    "contactVisitor": "see tools/render-report.js / js/email-templates.js FIXTURES",
+    "contactInternal": "see tools/render-report.js / js/email-templates.js FIXTURES",
+    "bookingStudent": "see tools/render-report.js / js/email-templates.js FIXTURES",
+    "bookingTutor": "see tools/render-report.js / js/email-templates.js FIXTURES",
+    "bookingInternal": "see tools/render-report.js / js/email-templates.js FIXTURES"
+  }
+}

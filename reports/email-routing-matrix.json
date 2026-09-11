@@ -1,0 +1,52 @@
+{
+  "generated": "2026-09-11T15:49:08Z",
+  "source": "js/email-templates.js ROUTES (machine-readable, single source of truth)",
+  "rules": [
+    "From is ALWAYS the verified EkGuru sender; the visitor/student/tutor address is never the From.",
+    "Reply-To is per role: tutor copy -> student; internal records -> student; receipts -> support.",
+    "Contact is NOT a booking; five distinct types, no one generic recipient array.",
+    "TUTOR_EMAIL_UNAVAILABLE when no verified tutor address exists (student + internal still send)."
+  ],
+  "routes": [
+    {
+      "type": "CONTACT_VISITOR_CONFIRMATION",
+      "role": "contact_visitor",
+      "from": "verified EkGuru sender",
+      "to": "exact submitted visitor email",
+      "replyTo": "official support address",
+      "template": "contactVisitor"
+    },
+    {
+      "type": "CONTACT_EKGURU_NOTIFICATION",
+      "role": "contact_internal",
+      "from": "verified EkGuru sender",
+      "to": "EkGuru internal inbox",
+      "replyTo": "exact visitor email",
+      "template": "contactInternal"
+    },
+    {
+      "type": "BOOKING_STUDENT_CONFIRMATION",
+      "role": "booking_student",
+      "from": "verified EkGuru sender",
+      "to": "exact booking student email",
+      "replyTo": "official support address",
+      "template": "bookingStudent"
+    },
+    {
+      "type": "BOOKING_TUTOR_NOTIFICATION",
+      "role": "booking_tutor",
+      "from": "verified EkGuru sender",
+      "to": "canonical tutor notification email",
+      "replyTo": "exact booking student email (tutor confirms the time)",
+      "template": "bookingTutor"
+    },
+    {
+      "type": "BOOKING_EKGURU_NOTIFICATION",
+      "role": "booking_internal",
+      "from": "verified EkGuru sender",
+      "to": "EkGuru internal inbox",
+      "replyTo": "exact booking student email (staff can reply to the learner)",
+      "template": "bookingInternal"
+    }
+  ]
+}

@@ -144,6 +144,10 @@
      first — features.js looked booking-shaped and was not.
      ═══════════════════════════════════════════════════════ */
   var DEFERRED = [
+    /* email-templates.js must load BEFORE mailer.js — the mailer
+       renders role templates at send time and reads this at call
+       time, but loading it first keeps the dependency obvious. */
+    "js/email-templates.js",
     "js/mailer.js",
     "js/schedule.js",
     "js/calendar.js"

@@ -289,6 +289,21 @@
       if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
       track("contact_submit");
 
+      /* v100 — record the contact BEFORE it is sent, under the same
+         reference the visitor sees, so a crash or a refused relay
+         still leaves a durable trace. The mailer's outcome is
+         written into this same record afterwards (update below). */
+      try {
+        if (window.EkGuruLedger) {
+          window.EkGuruLedger.add({
+            kind: data.topic === "Report" ? "report" : "contact",
+            ref: data.ref, name: data.name, email: data.email,
+            subject: data.subject, topic: data.topic, summary: data.message,
+            status: "sending", ok: false, error: "", page: data.pageUrl
+          });
+        }
+      } catch (e0) {}
+
       window.EkGuruMail.contact(data).then(function (res) {
         track("contact_sent");
         /* ═══════════════════════════════════════════════════════
@@ -317,16 +332,12 @@
                        to: f.to || "", ok: false, via: f.via || "",
                        state: f.state || "FAILED", error: f.error || "" };
             });
-            window.EkGuruLedger.add({
-              kind: data.topic === "Report" ? "report" : "contact",
-              ref: res.ref,
-              name: data.name,
-              email: data.email,
-              subject: data.subject,
-              topic: data.topic,
-              summary: data.message,
+            window.EkGuruLedger.update(data.ref, {
               ok: true,
+              status: "sent",
+              error: "",
               emailStates: es,
+              via: res.via || "",
               recipients: [
                 { role: "ekguru", to: res.to || "", ok: true,
                   via: res.via || "", state: es.internal || "ACCEPTED" },
@@ -347,14 +358,24 @@
         if (btn) { btn.disabled = false; btn.textContent = label; }
         track("contact_failed");
         /* A failure is worth recording too — more so than a
-           success. It is the list somebody has to act on. */
+           success. It is the list somebody has to act on. The
+           pre-send record (above) is updated; if it never got
+           written (storage blocked), fall back to a fresh one. */
         try {
           if (window.EkGuruLedger) {
-            window.EkGuruLedger.add({
-              kind: "contact", name: data.name, email: data.email,
-              subject: data.subject, topic: data.topic, summary: data.message,
-              ok: false, error: (e2 && e2.message) || String(e2)
+            var patched = window.EkGuruLedger.update(data.ref, {
+              ok: false, status: "failed",
+              error: (e2 && e2.message) || String(e2)
             });
+            if (!patched) {
+              window.EkGuruLedger.add({
+                kind: "contact", ref: data.ref, name: data.name,
+                email: data.email, subject: data.subject,
+                topic: data.topic, summary: data.message,
+                ok: false, status: "failed",
+                error: (e2 && e2.message) || String(e2)
+              });
+            }
           }
         } catch (e3) {}
         showFail(form, e2, data);

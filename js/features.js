@@ -924,6 +924,13 @@
   function logBooking(status, res, err, ref, emailNorm) {
     try {
       if (!window.EkGuruStore) return null;
+      /* v100 — immutable snapshot fields. The tutor's name and
+         verified email are frozen NOW, at booking time, so a later
+         Sheet edit can never rewrite what an already-sent email
+         said. tutorEmailSnapshot is empty unless a real operational
+         address existed (never invented). */
+      var mailInfo = (window.EkGuruMail && window.EkGuruMail.tutorEmailInfo)
+        ? window.EkGuruMail.tutorEmailInfo(modalTutor) : null;
       return window.EkGuruStore.add({
         ref: ref || "",
         tutorId: modalTutor.id,
@@ -934,6 +941,12 @@
            idempotency and admin lookups never depend on the exact
            casing the visitor typed. */
         emailNorm: emailNorm || "",
+        tutorNameSnapshot: modalTutor.name || "",
+        tutorEmailSnapshot: (mailInfo && mailInfo.available)
+          ? (mailInfo.target || "") : "",
+        tutorEmailState: mailInfo ? mailInfo.state : "",
+        lessonType: (modalTutor.trialAvailable ? "Trial lesson" : "Lesson") +
+          " · " + (modalTutor.lessonLength || "50 min"),
         level: ($("#bk-level") || {}).value || "",
         timezone: ($("#bk-tz") || {}).value || "",
         goal: (($("#bk-goal") || {}).value || "").trim(),

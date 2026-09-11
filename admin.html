@@ -978,6 +978,68 @@
     re-activating FormSubmit, so already-sent roles can be sent again if needed.</p>
   </div>
 
+  <!-- ═══════════════════════════════════════════════════════
+       v100 — MAIL OPS  (Email ULTRA §38–§40)
+
+       The owner-facing control panel for the Apps Script primary:
+         · PRIMARY / SENDER / VERIFICATION / TOKEN / RELAY HEALTH
+           as GREEN-YELLOW-RED-GRAY chips — unknown is never green;
+         · the routing matrix (From/To/Reply-To/Template per type),
+           read from EKGURU_EMAIL.ROUTES so it cannot drift;
+         · template health — all five fixtures rendered live;
+         · per-role delivery state for the most recent bookings;
+         · template preview (Priya / Tara / BOOK-TEST-001);
+         · send-test, restricted to inboxes the owner controls.
+       ═══════════════════════════════════════════════════════ -->
+  <div class="card">
+    <h2>Mail Ops — primary route &amp; sender identity</h2>
+    <p class="muted">One orchestration layer, one primary relay. Green means
+    verified here; a grey chip means the truth is not yet known and is shown as
+    grey, never green.</p>
+    <div id="moChips" style="display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px"></div>
+    <div id="moSender" class="sub" style="margin:8px 0 16px"></div>
+
+    <h3 style="margin:0 0 6px">Routing matrix</h3>
+    <p class="muted">Five message types, one row each. From is always the
+    verified EkGuru sender; Reply-To is per role. Read live from
+    <code>js/email-templates.js</code>.</p>
+    <div class="scroll"><table id="moRoutes"></table></div>
+
+    <h3 style="margin:18px 0 6px">Template health</h3>
+    <p class="muted">Every fixture is rendered now. A broken template fails
+    loudly here before it can fail silently on a real booking.</p>
+    <div id="moTemplates" style="display:grid;gap:10px"></div>
+
+    <h3 style="margin:18px 0 6px">Per-role delivery (this browser)</h3>
+    <p class="muted">Most recent bookings, one row per role, honest state.
+    ACCEPTED ≠ DELIVERED.</p>
+    <div class="scroll"><table id="moDelivery"></table></div>
+
+    <h3 style="margin:18px 0 6px">Send-test (controlled addresses only)</h3>
+    <p class="muted">Sends one real templated message to an inbox you control
+    (your own, or an <code>alwaysCc</code> entry). Any other address is
+    refused. The subject is prefixed <code>[TEST]</code> so you can filter it.</p>
+    <div style="display:grid;gap:10px;max-width:720px">
+      <div class="row" style="gap:8px;flex-wrap:wrap">
+        <select id="moTestType" style="font:inherit">
+          <option value="BOOKING_STUDENT_CONFIRMATION">Booking — student confirmation (Priya)</option>
+          <option value="BOOKING_TUTOR_NOTIFICATION">Booking — tutor notification (Tara)</option>
+          <option value="BOOKING_EKGURU_NOTIFICATION">Booking — internal record</option>
+          <option value="CONTACT_VISITOR_CONFIRMATION">Contact — visitor confirmation</option>
+          <option value="CONTACT_EKGURU_NOTIFICATION">Contact — internal</option>
+        </select>
+        <input type="text" id="moTestTo" placeholder="Recipient (your inbox)" style="font:inherit;flex:1;min-width:220px">
+        <button id="moTestSend" class="btn btn-primary">Send test</button>
+      </div>
+      <div class="muted" id="moTestStatus"></div>
+    </div>
+
+    <h3 style="margin:18px 0 6px">Template preview (fixtures)</h3>
+    <p class="muted">Priya, Tara, and <code>BOOK-TEST-001</code> — never real
+    customer data.</p>
+    <div id="moPreview" style="display:grid;gap:10px"></div>
+  </div>
+
   <div class="card">
     <h2>Every relay, and what it can actually do</h2>
     <p class="muted">Rendered from what <code>js/mailer.js</code> declares, not
@@ -1161,6 +1223,7 @@
   <script src="js/toast.js"></script>
 <!-- compose needs the mailer; without it the Send a message tab
      silently does nothing -->
+<script src="js/email-templates.js"></script>
 <script src="js/mailer.js"></script>
 <script src="js/tutors/_registry.js"></script>
 <script src="js/tutors/sushila-g.js"></script>
@@ -4922,7 +4985,204 @@
 
     fillBulk();
     estimateCost();
+
+    try { drawMailOps(); } catch (e) { console.error("mailops:", e); }
   }
+
+  /* ═══════════════════════════════════════════════════════
+     v100 — MAIL OPS  (Email ULTRA §38–§40)
+     Primary/sender/verification/token/relay-health chips, the
+     routing matrix, live template health, per-role delivery, a
+     controlled-address send-test, and fixture previews.
+     ═══════════════════════════════════════════════════════ */
+
+  function moChip(label, tone, text) {
+    /* GREEN ok · YELLOW warn · RED fail · GRAY unknown. Unknown is
+       never rendered green. */
+    var cls = tone === "ok" ? "sent" : tone === "warn" ? "warn" : tone === "bad" ? "failed" : "muted";
+    return '<span class="pill ' + cls + '" title="' + esc(text) + '">' +
+      esc(label) + ": " + esc(text) + "</span>";
+  }
+
+  function drawMailOps() {
+    var chips = el("moChips"), sender = el("moSender");
+    if (!chips) return;
+    var M = window.EkGuruMail, E = window.EKGURU_EMAIL;
+    var mine = siteEmail();
+
+    /* ---- chips ---- */
+    var app = (M && M.providers) ? M.providers().filter(function (p) {
+      return p.id === "appsscript";
+    })[0] : null;
+    var parts = [];
+
+    if (app && app.configured && app.sendable) {
+      parts.push(moChip("PRIMARY", "ok", "Google Apps Script — sendable"));
+    } else if (app && app.configured) {
+      parts.push(moChip("PRIMARY", "warn", "Apps Script configured, client token not wired"));
+    } else {
+      parts.push(moChip("PRIMARY", "bad", "Apps Script not configured"));
+    }
+
+    if (mine) {
+      parts.push(moChip("SENDER", "ok", mine));
+    } else {
+      parts.push(moChip("SENDER", "bad", "no sender inbox configured"));
+    }
+
+    /* Verification of the From address can only be confirmed in
+       Gmail's send-as settings — never asserted green from here. */
+    parts.push(moChip("VERIFICATION", "muted",
+      "confirm send-as alias in Gmail settings — not assertable from here"));
+
+    var token = (window.EKGURU_SITE && window.EKGURU_SITE.mail &&
+                 window.EKGURU_SITE.mail.appsScript) ? window.EKGURU_SITE.mail.appsScript.token : "";
+    parts.push(token && String(token).trim()
+      ? moChip("TOKEN", "ok", "client token wired")
+      : moChip("TOKEN", "bad", "client token empty — relay refuses every send"));
+
+    var fallbacks = (M && M.providers)
+      ? M.providers().filter(function (p) { return p.id !== "appsscript" && p.configured && !p.spent; })
+      : [];
+    parts.push(fallbacks.length
+      ? moChip("FALLBACK", "ok", fallbacks.length + " fallback(s) available")
+      : moChip("FALLBACK", "warn", "no fallback available"));
+
+    chips.innerHTML = parts.join("");
+
+    /* ---- sender identity line ---- */
+    var url = (window.EKGURU_SITE && window.EKGURU_SITE.mail && window.EKGURU_SITE.mail.appsScript)
+      ? String(window.EKGURU_SITE.mail.appsScript.url || "") : "";
+    sender.innerHTML = "Every email is sent <b>From</b> the verified EkGuru sender (<b>" +
+      esc(mine || "—") + "</b>); the visitor's address is only ever the Reply-To or To, " +
+      "never the From. The Apps Script relay enforces this server-side. " +
+      (url ? "Relay: <code>" + esc(url.replace(/\/exec.*/, "/exec")) + "</code>" : "");
+
+    /* ---- routing matrix ---- */
+    var routes = el("moRoutes");
+    if (routes && E && E.ROUTES) {
+      routes.innerHTML = "<tr><th>Message type</th><th>From</th><th>To</th>" +
+        "<th>Reply-To</th><th>Template</th></tr>" +
+        E.ROUTES.map(function (r) {
+          return "<tr><td><code>" + esc(r.type) + "</code></td><td>" + esc(r.from) +
+            "</td><td>" + esc(r.to) + "</td><td>" + esc(r.replyTo) +
+            "</td><td><code>" + esc(r.template) + "</code></td></tr>";
+        }).join("");
+    }
+
+    /* ---- template health ---- */
+    var tplBox = el("moTemplates");
+    if (tplBox && E && E.FIXTURES && E.ROLE_QA) {
+      tplBox.innerHTML = Object.keys(E.FIXTURES).map(function (k) {
+        var r = E.render(k, E.FIXTURES[k]);
+        var qa = E.ROLE_QA[k] || { mustSay: [], mustNotSay: [] };
+        var txt = r.ok ? (r.subject + " " + r.html + " " + r.text).toLowerCase() : "";
+        var qaBad = [];
+        qa.mustSay.forEach(function (m) { if (txt.indexOf(m.toLowerCase()) === -1) qaBad.push("missing '" + m + "'"); });
+        qa.mustNotSay.forEach(function (m) { if (txt.indexOf(m.toLowerCase()) > -1) qaBad.push("says '" + m + "'"); });
+        var state = !r.ok ? "bad" : (qaBad.length ? "warn" : "ok");
+        var label = !r.ok ? "FAIL" : (qaBad.length ? "PASS (language warn)" : "PASS");
+        return '<div style="border:1px solid var(--line);border-radius:10px;padding:10px 12px">' +
+          "<div class=\"row\" style=\"gap:8px;align-items:center\"><b>" + esc(k) + "</b>" +
+          '<span class="pill ' + (state === "ok" ? "sent" : state === "warn" ? "warn" : "failed") + '">' +
+          esc(label) + "</span></div>" +
+          (r.ok ? '<div class="muted" style="font-size:.85rem;margin-top:4px">' + esc(r.subject) + "</div>" : "") +
+          ((!r.ok || qaBad.length)
+            ? '<div class="note warn" style="margin-top:6px">' + esc((r.errors || []).concat(qaBad).join(" · ")) + "</div>"
+            : "") +
+          "</div>";
+      }).join("");
+    }
+
+    /* ---- per-role delivery ---- */
+    var dv = el("moDelivery");
+    if (dv) {
+      var store = window.EkGuruStore;
+      var rows = store ? store.all().slice(0, 8) : [];
+      dv.innerHTML = "<tr><th>Ref</th><th>Student</th><th>Tutor</th><th>Internal</th>" +
+        "<th>Tutor email</th></tr>" +
+        (rows.length
+          ? rows.map(function (b) {
+              var d = b.emailDelivery || {};
+              function pill(role) {
+                var s = (d[role] || {}).status || "—";
+                var tone = s === "ACCEPTED" || s === "DELIVERED" ? "sent"
+                         : s === "FAILED" ? "failed"
+                         : s === "QUEUED" || s === "PENDING" ? "warn" : "muted";
+                return '<span class="pill ' + tone + '">' + esc(s) + "</span>";
+              }
+              return "<tr><td><code>" + esc(b.ref) + "</code></td><td>" + pill("student") +
+                "</td><td>" + pill("tutor") + "</td><td>" + pill("internal") +
+                "</td><td class=\"muted\">" + esc(b.tutorEmailStatus ||
+                  (b.tutorEmailSnapshot ? "verified" : "unavailable")) + "</td></tr>";
+            }).join("")
+          : '<tr><td colspan="5" class="muted">No bookings recorded in this browser yet.</td></tr>');
+    }
+
+    /* ---- previews ---- */
+    var pv = el("moPreview");
+    if (pv && E && E.FIXTURES) {
+      var order = ["bookingStudent", "bookingTutor", "bookingInternal",
+                   "contactVisitor", "contactInternal"];
+      pv.innerHTML = order.map(function (k) {
+        var vars = {};
+        for (var x in E.FIXTURES[k]) vars[x] = E.FIXTURES[k][x];
+        if (k.indexOf("booking") === 0) vars.bookingId = "BOOK-TEST-001";
+        var r = E.render(k, vars);
+        if (!r.ok) {
+          return '<div class="note warn"><b>' + esc(k) + "</b> failed to render: " +
+            esc((r.errors || []).join(" · ")) + "</div>";
+        }
+        var id = "moPv" + k;
+        return '<div style="border:1px solid var(--line);border-radius:10px;padding:10px 12px">' +
+          '<div class="row" style="gap:8px;align-items:center"><b>' + esc(k) + "</b>" +
+          '<span class="muted" style="font-size:.85rem">' + esc(r.subject) + "</span>" +
+          '<button class="ghost" data-mopv-toggle="' + id + '">text</button></div>' +
+          '<div style="background:#f5f6f8;border-radius:8px;margin-top:8px;overflow:auto;max-height:280px">' +
+          r.html + "</div>" +
+          '<div id="' + id + '" hidden style="white-space:pre-wrap;font-family:monospace;font-size:.8rem;background:#f5f6f8;border-radius:8px;margin-top:8px;padding:10px;overflow:auto;max-height:280px">' +
+          esc(r.text) + "</div></div>";
+      }).join("");
+    }
+  }
+
+  /* ---- send-test button + preview text toggle ---- */
+  (function () {
+    var send = el("moTestSend");
+    if (send) send.addEventListener("click", function () {
+      var type = (el("moTestType") || {}).value;
+      var to = ((el("moTestTo") || {}).value || "").trim() || siteEmail();
+      var st = el("moTestStatus");
+      var E = window.EKGURU_EMAIL, M = window.EkGuruMail;
+      if (!E || !M || !M.testSend) { if (st) st.textContent = "Mailer not loaded."; return; }
+      var type2key = {
+        "BOOKING_STUDENT_CONFIRMATION": "bookingStudent",
+        "BOOKING_TUTOR_NOTIFICATION": "bookingTutor",
+        "BOOKING_EKGURU_NOTIFICATION": "bookingInternal",
+        "CONTACT_VISITOR_CONFIRMATION": "contactVisitor",
+        "CONTACT_EKGURU_NOTIFICATION": "contactInternal"
+      };
+      var vars = {};
+      for (var x in E.FIXTURES[type2key[type]]) vars[x] = E.FIXTURES[type2key[type]][x];
+      if (type2key[type].indexOf("booking") === 0) vars.bookingId = "BOOK-TEST-001";
+      if (st) st.textContent = "Sending test to " + to + "…";
+      M.testSend(type, to, vars).then(function (res) {
+        if (st) st.innerHTML = '<span class="pill sent">sent (ACCEPTED)</span> via ' +
+          esc(res.via || "—") + " · <b>" + esc(res.subject || "") + "</b>" +
+          '<br><span class="muted">ACCEPTED means the relay took the message; ' +
+          "check the inbox for receipt.</span>";
+      }).catch(function (e2) {
+        if (st) st.innerHTML = '<span class="pill failed">not sent</span> ' + esc(e2.message || String(e2));
+      });
+    });
+
+    document.addEventListener("click", function (e) {
+      var t = e.target && e.target.getAttribute && e.target.getAttribute("data-mopv-toggle");
+      if (!t) return;
+      var box = el(t);
+      if (box) box.hidden = !box.hidden;
+    });
+  })();
 
   /* ---------- bulk send ---------- */
   function parseRecipients(text) {

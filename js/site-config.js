@@ -340,47 +340,35 @@ window.EKGURU_SITE = {
     siteKey: "",
 
     /* =========================================================
-       WHICH RELAY SENDS WHAT  (v79)
+       WHICH RELAY SENDS WHAT  (v100)
        ---------------------------------------------------------
-       Prakash: "web3 jo paid aur only limited hai wo use karo
-       student copy mein aur tutor ko send karne mein record ke
-       liye; contact ke liye formsubmit free wala use karo jo
-       unlimited hai."
+       Google Apps Script / Gmail is the PRIMARY transactional
+       route for BOTH bookings and contact — one orchestration
+       layer, no per-form provider mixture. The contact form is
+       not a different animal that gets a different relay.
 
-       The split, and why each way round:
+       The chain below still exists as FALLBACK, in this order,
+       and every one of them is only reached when the primary is
+       not sendable (no client token wired yet) or refused:
 
-         BOOKINGS  → the normal chain, Web3Forms first.
-                     Low volume, high value, unbranded matters
-                     when a stranger is deciding whether to trust
-                     you with money. 250/month is plenty for four
-                     tutors.
+         PRIMARY   → Google Apps Script (your own Gmail). From is
+                     the verified EkGuru sender, not the visitor.
 
-         CONTACT   → FormSubmit. Free forever, no monthly cap.
-                     A public form is the one surface anyone can
-                     submit repeatedly; metering it would starve
-                     the bookings, which are the ones that earn.
+         FALLBACK  → Web3Forms (250/month, unbranded, can address
+                     strangers — carries the student/visitor copy).
+         FALLBACK  → StaticForms (unlimited, but only its own
+                     registered inbox).
+         FLOOR     → FormSubmit (free, but needs per-address
+                     activation, so it cannot reach strangers).
 
-         ANY CC    → FormSubmit, automatically, whatever this
-                     setting says. Web3Forms drops `ccemail` on
-                     the free plan AND STILL ANSWERS SUCCESS, so
-                     the student's receipt vanished silently for
-                     months. js/mailer.js pick() enforces this by
-                     CAPABILITY, not by name.
-
-         OUR OWN   → FormSubmit, automatically, whatever this
-         INBOX       setting says. (v86) EkGuruLearning@gmail.com
-                     was activated with FormSubmit once, in v49,
-                     and stays activated forever — so every
-                     message addressed to it is free and uncapped.
-                     Setting this to "web3forms" will NOT buy what
-                     is already free: js/mailer.js refuses a
-                     METERED preference for an address we own.
-                     The 250 belong to the messages no free relay
-                     can carry — the student's receipt and the
-                     contact sender's copy.
-
-       Set to "" to use the normal chain for contact too. */
-    contactProvider: "formsubmit"
+       contactProvider below names the primary for the CONTACT
+       form's internal copy. "appsscript" is the default because
+       the contact copy is transactional mail like any other. If
+       the relay has no client token yet, js/mailer.js falls back
+       to the normal chain automatically — a preference is a
+       preference, not a requirement. Set to "" to use the plain
+       chain. */
+    contactProvider: "appsscript"
   },
 
   /* ---------- Tutor application form ----------

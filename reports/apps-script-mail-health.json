@@ -1,0 +1,27 @@
+{
+  "generated": "2026-09-11T15:49:08Z",
+  "script": "tools/apps-script-mailer.gs (v100)",
+  "relay_contract": {
+    "auth": "MAILER_SHARED_TOKEN in Script Property; fail-closed (no token -> Not authorised.)",
+    "token_in_code": "never hard-coded; wired via tools/wire-token.py from gitignored deploy-secrets.local.json",
+    "message_type_whitelist": true,
+    "sender_enforcement": true,
+    "forced_from": "verified EkGuru sender (owner From address), never the visitor",
+    "html_text_contract": true,
+    "idempotency": true,
+    "payload_size_limits": true,
+    "daily_cap": true,
+    "fail_closed_token": true,
+    "open_relay_prevention": "whitelist + recipient validation + forced From"
+  },
+  "client_config": {
+    "apps_script_url": "https://script.google.com/macros/s/AKfycbwm76fNYU54OqSSzt_HW_aA5lpg85kf-sEUPK90vaM9SaNQZ2f7D-ZN1V2P3hd7Ojzz/exec",
+    "client_token_wired": false,
+    "note": "client token empty -> every doPost answers 'Not authorised.' (fail-closed, not a broken relay)"
+  },
+  "live_verification": {
+    "status": "BLOCKED_FROM_SANDBOX",
+    "reason": "datacenter bot-gate prevents a real /exec verify here; owner token wiring + real browser (two-student mailbox test) still required",
+    "never_claimed": "DELIVERED"
+  }
+}
