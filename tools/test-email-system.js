@@ -125,6 +125,20 @@ const evilR = E.render("bookingStudent", evil);
 check("no raw <script> survives escaping", evilR.ok && !/<script/i.test(evilR.html) && /&lt;script/i.test(evilR.html));
 check("raw {placeholder} never survives", !/\{[A-Za-z_]+\}/.test(evilR.html + evilR.text + evilR.subject));
 
+/* ---- v80 report/privacy urgency survives the templated copy ---- */
+const urgentVars = Object.assign({}, E.FIXTURES.contactInternal, {
+  category: "Report", urgent: true,
+  actionNeeded: "This is a report about a tutor or a lesson. Read it today."
+});
+const urgentR = E.render("contactInternal", urgentVars);
+check("urgent contact subject is marked [!! REPORT]",
+  urgentR.ok && /\[!! REPORT\]/.test(urgentR.subject), urgentR.subject);
+check("urgent contact html carries the action-needed row",
+  urgentR.ok && /Action needed/i.test(urgentR.html));
+const normalR = E.render("contactInternal", E.FIXTURES.contactInternal);
+check("ordinary contact has NO action-needed row",
+  normalR.ok && !/Action needed/i.test(normalR.html));
+
 /* =========================== 4. role language =========================== */
 Object.keys(E.ROLE_QA).forEach((k) => {
   const r = E.render(k, E.FIXTURES[k]);

@@ -2525,6 +2525,19 @@
       var isUrgent = URGENT.indexOf(topic) > -1;
       var tag = isUrgent ? "[!! " + topic.toUpperCase() + "] " : "[contact] ";
 
+      /* v100 — the report/privacy guidance is a template variable,
+         so it survives the move to the templated (Apps Script
+         primary) copy and is only present when it matters. */
+      var actionNeeded = isUrgent
+        ? (topic === "Report"
+            ? "This is a report about a tutor or a lesson. Read it today. " +
+              "The Tutors tab in the dashboard can hide, suspend or remove a " +
+              "tutor immediately — a hidden tutor disappears from the site on " +
+              "the visitor's next page load, with no deploy."
+            : "This is a privacy or data request. There are legal time limits " +
+              "on answering one: 30 days under GDPR.")
+        : "";
+
       /* ---------- 1. our copy — the one that must be replyable ---------- */
       var mine = withTemplate({
         _subject: tag + ref + " — " + topic + " — " + who,
@@ -2543,15 +2556,7 @@
         "How to answer": "Just press Reply — this email's reply-to is " + from + ".",
         /* Only present when it matters, so it is not noise on the
            other seven topics. */
-        "ACTION NEEDED": isUrgent
-          ? (topic === "Report"
-              ? "This is a report about a tutor or a lesson. Read it today. " +
-                "The Tutors tab in the dashboard can hide, suspend or remove a " +
-                "tutor immediately — a hidden tutor disappears from the site on " +
-                "the visitor's next page load, with no deploy."
-              : "This is a privacy or data request. There are legal time limits " +
-                "on answering one: 30 days under GDPR.")
-          : undefined,
+        "ACTION NEEDED": actionNeeded || undefined,
         "—": signOff,
 
         /* Both relays use `email` as the reply-to. This single line
@@ -2570,7 +2575,9 @@
         sourcePage: data.pageUrl || (typeof location !== "undefined" ? location.href : ""),
         contactId: ref,
         supportEmail: SITE.email || ourInbox,
-        siteUrl: (SITE.baseUrl || "https://ekguru.shop/")
+        siteUrl: (SITE.baseUrl || "https://ekguru.shop/"),
+        urgent: isUrgent,
+        actionNeeded: actionNeeded
       }, kInternal, refKey ? refKey + ":internal" : "");
 
       /* ---------- 2. their acknowledgement ---------- */

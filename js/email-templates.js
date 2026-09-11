@@ -167,9 +167,13 @@
     /* ============ CONTACT — EKGURU INTERNAL ============ */
     contactInternal: {
       role: "internal",
-      subject: function (v) { return "New contact request — " + v.category + " — " + v.contactId; },
+      subject: function (v) {
+        return (v.urgent ? "[!! " + String(v.category).toUpperCase() + "] " : "") +
+          "New contact request — " + v.category + " — " + v.contactId;
+      },
       allowedVars: ["visitorName", "visitorEmail", "category", "subject", "message",
-                    "timestamp", "sourcePage", "contactId", "supportEmail", "siteUrl"],
+                    "timestamp", "sourcePage", "contactId", "supportEmail", "siteUrl",
+                    "urgent", "actionNeeded"],
       html: function (v) {
         return shell(
           badge("NEW CONTACT REQUEST", "warn") +
@@ -182,7 +186,11 @@
             ["Subject", v.subject],
             ["Received", v.timestamp],
             ["Source page", v.sourcePage],
-            ["Message", v.message]
+            ["Message", v.message],
+            /* Only present when it matters (a report or privacy
+               request) — omitted otherwise, so it is not noise on
+               the other topics. */
+            ["Action needed", v.actionNeeded]
           ]) +
           p('<span style="font-size:13px;color:#64748b;">Reply directly to this email — the visitor\'s address is on the Reply-To line.</span>')
         );
@@ -197,6 +205,7 @@
           "Received: " + v.timestamp,
           "Source: " + v.sourcePage, "",
           "Message:", v.message, "",
+          (v.actionNeeded ? "ACTION NEEDED: " + v.actionNeeded + "\n" : ""),
           "Reply directly to this email to answer the visitor."
         ].join("\n");
       }
@@ -455,7 +464,8 @@
       visitorName: "Priya", visitorEmail: "priya@example.com", category: "General",
       subject: "A question about lessons", message: "Do you teach complete beginners?",
       timestamp: "11 Sep 2026, 3:00 PM", sourcePage: "/contact/", contactId: "C-TEST01",
-      supportEmail: "EkGuruLearning@gmail.com", siteUrl: "https://ekguru.shop/"
+      supportEmail: "EkGuruLearning@gmail.com", siteUrl: "https://ekguru.shop/",
+      urgent: false, actionNeeded: ""
     },
     bookingStudent: {
       studentName: "Priya", bookingId: "EK-TEST01", tutorName: "Tara", date: "20 September 2026",

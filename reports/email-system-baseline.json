@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-11T15:49:08Z",
+  "generated": "2026-09-11T15:52:25Z",
   "schema": "EkGuru Email ULTRA baseline (v100)",
   "system": {
     "primary_provider": "Google Apps Script / Gmail",
@@ -47,6 +47,9 @@
       "PASS  undeclared var rejected",
       "PASS  no raw <script> survives escaping",
       "PASS  raw {placeholder} never survives",
+      "PASS  urgent contact subject is marked [!! REPORT]",
+      "PASS  urgent contact html carries the action-needed row",
+      "PASS  ordinary contact has NO action-needed row",
       "PASS  role-language QA: contactVisitor",
       "PASS  role-language QA: contactInternal",
       "PASS  role-language QA: bookingStudent",
