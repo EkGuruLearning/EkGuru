@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-11T08:51:31.881Z",
+  "generated": "2026-09-11T09:09:42.005Z",
   "decision": {
     "RELEASE": {
       "result": "NO-GO",
@@ -30,7 +30,7 @@
       "evidence": "real E2E: contact internal copy ACCEPTED via FormSubmit (activated) (live); visitor copy routes via a stranger-capable relay (Web3Forms UNVERIFIABLE from this datacenter; Apps Script live but awaiting token); no DELIVERED claim made"
     },
     "BOOKING": {
-      "result": "DEGRADED",
+      "result": "FAIL",
       "evidence": "real E2E: Tutor A/B honest routing (TUTOR_EMAIL_UNAVAILABLE, no generic tutor inbox); internal record ACCEPTED via FormSubmit; tutor/student copies via stranger-capable relay unverifiable from datacenter"
     },
     "EMAIL_IDEMPOTENCY": {

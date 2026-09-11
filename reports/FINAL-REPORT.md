@@ -40,8 +40,14 @@ without evidence. The one true blocker — live deployment — is stated plainly
   `o`; the correct id was recovered from the Sheets command and **live-verified**.
 - `tools/apps-script-mailer.gs` (new) — complete `Code.gs` (token check, recipient
   allow-list, daily cap 90, HTML table render, `success:"true"/"false"` contract).
-- `tools/APPS-SCRIPT-SETUP.md` (new) — click-by-click deploy + the observed live
-  contract + the one remaining step (the shared token).
+  The shared token is now read **server-side** from the Script Property
+  `MAILER_SHARED_TOKEN`; a `mintToken()` helper generates a fresh random secret
+  and stores it in Script Properties (never printed, never in source).
+- `tools/APPS-SCRIPT-SETUP.md` (new) — click-by-click deploy, the observed live
+  contract, and the token procedure: run `mintToken` in the editor, deploy the
+  Web App, then wire the same value into `mail.appsScript.token` **at deploy
+  time only** (the committed `site-config.js` ships `token: ""` — no secret in
+  the repo, browser source, or logs).
 
 **Mailer hardening (`js/mailer.js`, v98):**
 - Fixed a real dead-end: a network failure on the first relay (or a forced relay)
@@ -97,16 +103,32 @@ Live: doPost /exec (text/plain, empty token)        → {"success":"false","mess
 
 1. **CRITICAL — Deployment.** Production `https://ekguru.shop/` still serves the
    pre-fix tree (`status:"soon"`). Push the local tree to release everything above.
-2. **HIGH — Apps Script token.** Set the shared word in both the script and
-   `mail.appsScript.token`; the relay then carries mail itself.
+2. **HIGH — Apps Script token + deploy.** Run `mintToken` in the Apps Script
+   editor (stores `MAILER_SHARED_TOKEN` server-side), redeploy the Web App, then
+   wire the same value into `mail.appsScript.token` at deploy time only — the
+   relay then carries mail itself. Requires the owner's Google account; not
+   possible from this sandbox. The repo ships `token: ""` (no secret committed).
 3. **HIGH — Web3Forms live check** from a residential browser (datacenter-blocked here).
-4. **HIGH — Tutor real addresses / formKey** (all 4 tutors route via EkGuru inbox today).
+4. **HIGH — Tutor real addresses / formKey** (all 4 tutors route via EkGuru inbox
+   today). Admin now shows **"tutor email unavailable · fallback: EkGuru inbox"**
+   per booking and a Delivery-routes note pointing at `js/tutors/` + the Sheet
+   for configuring a verified address later — never a fake personal delivery.
 5. **MEDIUM — editorial:** originality audit, content depth, hreflang set,
    admin 1000-record pagination. (The skeleton/toast motion layer is now done —
    see §2.)
 
 ## 6. The single blocker, unchanged
 
-The sandbox has **no git remote/credentials**; nothing can be pushed. All fixes
-are local and packaged for release. After a deploy, `tools/doctor.js`'s
-"deployed" check flips and the release decision moves to GO.
+The sandbox has **no git credentials**; nothing can be pushed. The remote is
+now set to `https://github.com/ekgurulearning/EkGuru.git` (public, reachable —
+verified via `git ls-remote`). Two facts matter for the push:
+
+- **Local `main`** is `111e8e9` (all fixes committed; working tree clean).
+- **Remote `main`** is `965ac21` — a force-reset, single *"Initial commit"*
+  containing the old production tree (`status:"soon"`), with **no common
+  ancestor** to local `main`.
+
+So a push needs credentials **and** a reconciliation decision (rebase local onto
+the reset remote, or force-push local `main`). Neither is possible from this
+sandbox; both are safe for the operator to run. After any successful deploy,
+`tools/doctor.js`'s "deployed" check flips and the release decision moves to GO.

@@ -38,7 +38,7 @@ body.nav-open .nav-backdrop{opacity:1;visibility:visible;transition:opacity var(
 .btn,.nav a,.chip-btn,.lang-btn{transition-duration:var(--motion-fast);transition-timing-function:var(--ease-standard)}
 
 /* ── motion §23/§24: toasts + skeletons ─────────────────────────── */
-.toast-stack{position:fixed;right:16px;bottom:16px;z-index:2147483000;display:flex;flex-direction:column;gap:10px;max-width:min(360px,calc(100vw - 32px));pointer-events:none}
+.toast-stack{position:fixed;right:16px;bottom:16px;z-index:999999;display:flex;flex-direction:column;gap:10px;max-width:min(360px,calc(100vw - 32px));pointer-events:none}
 .toast{pointer-events:auto;padding:12px 14px;border-radius:12px;background:#1c1f26;color:#f7f8fa;font-size:.925rem;line-height:1.45;box-shadow:var(--shadow-hover,0 10px 30px rgba(0,0,0,.25));opacity:0;transform:translateY(8px);transition:opacity .18s var(--ease-enter,ease),transform .18s var(--ease-enter,ease);cursor:pointer;word-break:break-word}
 .toast.is-in{opacity:1;transform:none}
 .toast.is-out{opacity:0;transform:translateY(8px)}

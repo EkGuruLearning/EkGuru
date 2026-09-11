@@ -1296,7 +1296,7 @@
           "<td>" + esc(when(r.at)) + "</td>" +
           "<td>" + esc(r.tutor) +
             (r.tutorEmailStatus === "TUTOR_EMAIL_UNAVAILABLE"
-              ? '<br><span class="muted">tutor email unavailable</span>' : "") +
+              ? '<br><span class="muted" title="This tutor has no verified personal email/formKey, so the booking was routed to the EkGuru inbox. Set their address in js/tutors/<id>.js (email or formKey) or in the Sheet to change this.">tutor email unavailable · fallback: EkGuru inbox</span>' : "") +
           "</td>" +
           "<td>" + esc(r.name) + '<br><span class="muted">' +
             '<a href="mailto:' + esc(r.email) + '?subject=' +
@@ -4051,6 +4051,20 @@
             esc(r.how === "alias" ? "the alias" : r.to) + "</td><td class=\"muted\">" +
             esc(r.why) + "</td></tr>";
         }).join("") + "</table>";
+
+      /* A clear, in-dashboard path to give a tutor their own verified
+         notification address later — without guessing or substituting
+         another tutor's address. */
+      var cfgNote = document.createElement("p");
+      cfgNote.className = "sub";
+      cfgNote.style.marginTop = "12px";
+      cfgNote.innerHTML =
+        "To give a tutor their own verified address, set <code>email</code> " +
+        "(or a FormSubmit <code>formKey</code>) in their file under " +
+        "<code>js/tutors/</code> or in the tutors Sheet — the table above " +
+        "updates on next load. Until then their booking lands in the EkGuru " +
+        "inbox as <b>TUTOR_EMAIL_UNAVAILABLE</b>, never as a fake personal delivery.";
+      rl.appendChild(cfgNote);
 
       /* =========================================================
          v81 — WHICH RELAY CARRIES WHICH MESSAGE

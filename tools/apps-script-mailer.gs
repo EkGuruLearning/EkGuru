@@ -37,10 +37,16 @@
  *    (some accounts up to 500). DAILY_LIMIT below defaults to 90
  *    and is enforced here so we never burn the account silently.
  *  · The deployment URL is PUBLIC (it sits in the page source), so
- *    this script REQUIRES a token by default. The token is NOT a
- *    secret — anyone who reads the page source can copy it — but it
+ *    this script REQUIRES a token by default. The token is NOT
+ *    encryption and NOT a substitute for the daily cap — but it
  *    stops a drive-by who found the bare URL. The daily cap is the
- *    real backstop. Never describe the token as encryption.
+ *    real backstop.
+ *  · The token is a SHARED SECRET stored SERVER-SIDE as an Apps
+ *    Script Property named MAILER_SHARED_TOKEN. Generate it here
+ *    (run mintToken() once in the editor) — do NOT hard-code it in
+ *    this file, do NOT commit it to git, and do NOT paste it into a
+ *    chat. The client config (js/site-config.js) is wired at deploy
+ *    time by the operator; see tools/APPS-SCRIPT-SETUP.md.
  *  · It sends AS the script owner. Reply-To is set separately, so
  *    a visitor's address never appears in the From field (the
  *    "visitor email in FROM" bug this project fixed).
@@ -49,12 +55,28 @@
 
 var SCRIPT_NAME = "EkGuru Mail Relay";
 
-/** A shared word you invent, stored as a Script Property named
- *  "TOKEN". Paste the SAME word into js/site-config.js under
- *  mail.appsScript.token. Empty here means "no token required" —
+/** The shared token, read from the Script Property MAILER_SHARED_TOKEN
+ *  (never from source code). Empty here means "no token required" —
  *  allowed, but then anyone with the URL can send as you. */
 function token() {
-  return String(props().getProperty("TOKEN") || "").trim();
+  return String(props().getProperty("MAILER_SHARED_TOKEN") || "").trim();
+}
+
+/** Generate a fresh random shared secret and store it in the Script
+ *  Property MAILER_SHARED_TOKEN. Run ONCE from the Apps Script editor
+ *  (select mintToken → Run), then wire the SAME value into the client
+ *  config at deploy time. The secret stays server-side; it is never
+ *  written into this source file or committed to the repository. */
+function mintToken() {
+  var chars = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789";
+  var out = "";
+  for (var i = 0; i < 32; i++) {
+    out += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  PropertiesService.getScriptProperties().setProperty("MAILER_SHARED_TOKEN", out);
+  Logger.log("New MAILER_SHARED_TOKEN stored (length " + out.length + "). " +
+    "Wire the same value into the client config — it is not logged here.");
+  return "stored";
 }
 
 /** Addresses this relay is ALWAYS allowed to write to (your own
