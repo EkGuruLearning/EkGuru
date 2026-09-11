@@ -154,22 +154,59 @@ function classifyColumn(name) {
   return "public";
 }
 
+/* Proper RFC-4180 CSV parser — replaces the old naive
+   text.split("\n").map(l => l.split(",")) which mis-split cells that
+   contain quoted commas, escaped quotes, or multiline quoted cells
+   (a source of false positives and missed fields in the sheet scan). */
+function parseCSV(text) {
+  if (text && text.charCodeAt(0) === 0xFEFF) text = text.slice(1); // UTF-8 BOM
+  const rows = [];
+  let row = [], cell = "", inQuotes = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (inQuotes) {
+      if (c === '"') {
+        if (text[i + 1] === '"') { cell += '"'; i++; } // escaped quote
+        else inQuotes = false;
+      } else {
+        cell += c;                                       // incl. commas/newlines inside quotes
+      }
+    } else if (c === '"') {
+      inQuotes = true;
+    } else if (c === ',') {
+      row.push(cell); cell = "";
+    } else if (c === '\n' || c === '\r') {
+      if (c === '\r' && text[i + 1] === '\n') i++;       // \r\n = one row break
+      row.push(cell); cell = "";
+      rows.push(row); row = [];
+    } else {
+      cell += c;
+    }
+  }
+  if (cell !== "" || row.length) { row.push(cell); rows.push(row); }
+  // drop fully-empty trailing rows (the common trailing newline)
+  return rows.filter(r => r.some(c => String(c).trim() !== ""));
+}
+
 async function scanSheets() {
   for (const [label, url] of Object.entries(CSVS)) {
     try {
       const r = await fetch(url);
       if (!r.ok) { blocked++; addFinding("secret", `sheets:${label}`, "fetch failed HTTP " + r.status, "BLOCKED"); continue; }
       const text = await r.text();
-      const lines = text.split(/\r?\n/);
-      const head = (lines[0] || "").split(",").map(h => h.trim());
-      results.files[`sheets:${label}`] = { columns: head.map(c => ({ name: c, class: classifyColumn(c) })) };
+      const rows = parseCSV(text);
+      const head = (rows[0] || []).map(h => h.trim());
+      const dataRows = rows.slice(1);
+      results.files[`sheets:${label}`] = {
+        columns: head.map(c => ({ name: c, class: classifyColumn(c) })),
+        rows: dataRows.length,
+      };
       // scan data cells for PII that is NOT intentional
-      for (const ln of lines.slice(1)) {
-        const cells = ln.split(",");
+      for (const cells of dataRows) {
         cells.forEach((cell, i) => {
           const col = head[i] || "";
           if (!cell) return;
-          const t = cell.trim();
+          const t = String(cell).trim();
           const m = t.match(EMAIL_RE);
           if (m && classifyColumn(col) === "sensitive") {
             for (const em of m) {

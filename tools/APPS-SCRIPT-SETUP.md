@@ -76,6 +76,18 @@ implements this exact contract plus a daily cap and a token check.
 > **Each code edit needs a NEW deployment version** — editing Code.gs
 > alone does not change the live `/exec`.
 
+### Fail-closed auth (post-push hardening)
+
+The reference `Code.gs` now **fails closed**: `doPost` refuses mail
+(`"Not authorised."`) until a `MAILER_SHARED_TOKEN` Script Property
+exists, and again on any mismatch. The relay therefore cannot run
+unauthenticated — there is no "token empty = open relay" fall-through.
+`doGet` health now also reports `"configured": true/false` so the relay
+state is visible without exposing anything. The client-side chain in
+`js/mailer.js` already classifies `"Not authorised."` as an AUTH error
+and walks to the next provider, so no mail is lost while the token is
+unset.
+
 ---
 
 ## Honest notes (do not skip)

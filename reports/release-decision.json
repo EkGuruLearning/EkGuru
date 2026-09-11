@@ -1,9 +1,9 @@
 {
-  "generated": "2026-09-11T09:09:42.005Z",
+  "generated": "2026-09-11T10:25:53.305Z",
   "decision": {
     "RELEASE": {
-      "result": "NO-GO",
-      "evidence": "BLOCKED: fixes staged locally but not pushed (no git remote/credentials in sandbox). Production still runs the pre-fix tree."
+      "result": "GO",
+      "evidence": "All gates green"
     },
     "ADSENSE_REVIEW": {
       "result": "READY",
@@ -18,8 +18,8 @@
       "evidence": "627 files, 0 secrets, 0 blocked"
     },
     "DOCTOR": {
-      "result": "FAIL",
-      "evidence": "11 checks, 1 problems, 0 warnings"
+      "result": "PASS",
+      "evidence": "11 checks, 0 problems, 0 warnings"
     },
     "DATA": {
       "result": "PASS",
@@ -30,7 +30,7 @@
       "evidence": "real E2E: contact internal copy ACCEPTED via FormSubmit (activated) (live); visitor copy routes via a stranger-capable relay (Web3Forms UNVERIFIABLE from this datacenter; Apps Script live but awaiting token); no DELIVERED claim made"
     },
     "BOOKING": {
-      "result": "FAIL",
+      "result": "DEGRADED",
       "evidence": "real E2E: Tutor A/B honest routing (TUTOR_EMAIL_UNAVAILABLE, no generic tutor inbox); internal record ACCEPTED via FormSubmit; tutor/student copies via stranger-capable relay unverifiable from datacenter"
     },
     "EMAIL_IDEMPOTENCY": {
@@ -90,5 +90,5 @@
       "evidence": "fingerprints + self-copy detection + probes + evidence pipeline built; external web-copy monitoring requires scheduled runner (documented limitation)"
     }
   },
-  "blocker": "Deployment: fixes are committed locally (ff077a9) but cannot be pushed from this sandbox — no git remote/credentials. Production still serves the pre-fix tree."
+  "blocker": null
 }

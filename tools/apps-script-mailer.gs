@@ -56,8 +56,8 @@
 var SCRIPT_NAME = "EkGuru Mail Relay";
 
 /** The shared token, read from the Script Property MAILER_SHARED_TOKEN
- *  (never from source code). Empty here means "no token required" —
- *  allowed, but then anyone with the URL can send as you. */
+ *  (never from source code). FAIL-CLOSED: doPost refuses mail while
+ *  this is empty, so the relay can never run unauthenticated. */
 function token() {
   return String(props().getProperty("MAILER_SHARED_TOKEN") || "").trim();
 }
@@ -112,7 +112,8 @@ function doGet() {
     status: "ok",
     script: SCRIPT_NAME,
     strangers: ALLOW_STRANGERS,
-    limit: DAILY_LIMIT
+    limit: DAILY_LIMIT,
+    configured: !!token()
   });
 }
 
@@ -151,10 +152,19 @@ function handle(e) {
     return json({ success: "false", message: "Malformed payload." });
   }
 
-  // 1. Token — fail closed when one is configured.
+  // 1. Token — FAIL CLOSED. This relay is the intended production path,
+  //    so it must never accept mail without the server-side secret.
+  //    · no MAILER_SHARED_TOKEN configured  → refuse ("Not authorised.")
+  //    · token mismatch                     → refuse ("Not authorised.")
+  //    The operator sets the secret ONCE via mintToken() (Script
+  //    Property, server-side) and wires the same value into the client
+  //    config at deploy time. See tools/APPS-SCRIPT-SETUP.md.
   var expected = token();
-  if (expected && String(body.token || "") !== expected) {
-    return json({ success: "false", message: "bad token" });
+  if (!expected) {
+    return json({ success: "false", message: "Not authorised. Relay token not configured." });
+  }
+  if (String(body.token || "") !== expected) {
+    return json({ success: "false", message: "Not authorised." });
   }
 
   // 2. Recipient — must be a real address we are willing to write to.

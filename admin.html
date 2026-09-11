@@ -1296,7 +1296,7 @@
           "<td>" + esc(when(r.at)) + "</td>" +
           "<td>" + esc(r.tutor) +
             (r.tutorEmailStatus === "TUTOR_EMAIL_UNAVAILABLE"
-              ? '<br><span class="muted" title="This tutor has no verified personal email/formKey, so the booking was routed to the EkGuru inbox. Set their address in js/tutors/<id>.js (email or formKey) or in the Sheet to change this.">tutor email unavailable · fallback: EkGuru inbox</span>' : "") +
+              ? '<br><span class="muted" title="This tutor has no verified personal email/formKey, so the booking was routed to the EkGuru inbox. Set their address in js/tutors/<id>.js (email or formKey) or in the Sheet to change this."><b>TUTOR EMAIL: UNAVAILABLE</b> · <b>FALLBACK: EKGURU INTERNAL</b></span>' : "") +
           "</td>" +
           "<td>" + esc(r.name) + '<br><span class="muted">' +
             '<a href="mailto:' + esc(r.email) + '?subject=' +
