@@ -12,7 +12,9 @@ const KEY2TYPE = {
   contactInternal: "CONTACT_EKGURU_NOTIFICATION",
   bookingStudent: "BOOKING_STUDENT_CONFIRMATION",
   bookingTutor: "BOOKING_TUTOR_NOTIFICATION",
-  bookingInternal: "BOOKING_EKGURU_NOTIFICATION"
+  bookingInternal: "BOOKING_EKGURU_NOTIFICATION",
+  adminOutbound: "ADMIN_CONTACT_OUTBOUND",
+  adminInternalCopy: "ADMIN_CONTACT_INTERNAL_COPY"
 };
 
 const out = { whitelist: E.WHITELIST, routes: E.ROUTES, templates: [] };

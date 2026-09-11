@@ -354,14 +354,13 @@ window.EKGURU_SITE = {
          FLOOR     → FormSubmit (free, but needs per-address
                      activation, so it cannot reach strangers).
 
-       contactProvider below names the primary for the CONTACT
-       form's internal copy. "appsscript" is the default because
-       the contact copy is transactional mail like any other. If
-       the relay has no client token yet, js/mailer.js falls back
-       to the normal chain automatically — a preference is a
-       preference, not a requirement. Set to "" to use the plain
-       chain. */
-    contactProvider: "appsscript"
+       contactProvider below is an optional OVERRIDE for the contact
+       form's internal copy. It defaults to "" — which means the
+       internal copy takes the internal high-capacity route
+       (FormSubmit → StaticForms → Apps Script fallback), while the
+       visitor confirmation still goes via Apps Script primary. Set
+       it only to force a specific relay for that one internal copy. */
+    contactProvider: ""
   },
 
   /* ---------- Tutor application form ----------
@@ -661,9 +660,20 @@ window.EKGURU_SITE = {
      SETUP:  node tools/makereviews.js
      ========================================================= */
   reviews: {
-    /* LIVE — consolidated production workbook (see sheet tab).
-       Verified 11 Sep 2026 — HTTP 200, correct header row. */
-    csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRGCkYfn_JfKPGaUy7tGWRFoPvo7x6-cB4SLTbi-kzKY1f0k1hwXYCwYob-qHG5EKZeVrwcBeBD64fc/pub?gid=1290168568&single=true&output=csv",
+    /* (was LIVE from the consolidated production workbook; the URL is
+       removed per the reset command — see the v101 note below.) */
+    /* v101 — SHEET DATA SOURCE PAUSED FOR RE-UPLOAD  (EMAIL RESET COMMAND §3)
+       The four public CSV URLs were intentionally removed on 11 Sep 2026.
+       DATA_SOURCE_STATUS = PAUSED_FOR_REUPLOAD. The loaders keep working:
+       with csvUrl empty nothing is fetched, the baked-in local data
+       (tutor files, built-in settings, static content) is served, and the
+       admin dashboard shows "Sheets: PAUSED — new upload links required".
+       Fresh, schema-exact CSVs for re-upload live in /home/user/csv/.
+       When the new published URLs arrive, paste them back into the four
+       csvUrl fields below and delete this note. Do NOT guess URLs now. */
+    pausedForReupload: true,
+    status: "PAUSED_FOR_REUPLOAD",
+    csvUrl: "",
     /* v62: 60 -> 5, same reason as the tutor sheet above. A review
        added in the morning could otherwise be invisible all
        afternoon to anyone who had loaded the page once. */
@@ -711,9 +721,11 @@ window.EKGURU_SITE = {
      file. So do baseUrl and brand — a typo in either renames the
      company or breaks every canonical URL at once. */
   settings: {
-    /* LIVE — consolidated production workbook (see sheet tab).
-       Verified 11 Sep 2026: HTTP 200, key/value shape. */
-    csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRGCkYfn_JfKPGaUy7tGWRFoPvo7x6-cB4SLTbi-kzKY1f0k1hwXYCwYob-qHG5EKZeVrwcBeBD64fc/pub?gid=764031473&single=true&output=csv",
+    /* PAUSED_FOR_REUPLOAD — old public CSV URL removed (see the
+       sheet block note). Fresh CSV: csv/ekguru_settings.csv. */
+    pausedForReupload: true,
+    status: "PAUSED_FOR_REUPLOAD",
+    csvUrl: "",
     cacheMinutes: 5,
     alwaysRevalidate: true,
     /* The address that is currently baked into the generated
@@ -725,10 +737,11 @@ window.EKGURU_SITE = {
   },
 
   content: {
-    /* LIVE — consolidated production workbook (see sheet tab).
-       Verified 11 Sep 2026 — HTTP 200, correct header row. */
-    csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRGCkYfn_JfKPGaUy7tGWRFoPvo7x6-cB4SLTbi-kzKY1f0k1hwXYCwYob-qHG5EKZeVrwcBeBD64fc/pub?gid=2135319947&single=true&output=csv"
-  },
+    /* PAUSED_FOR_REUPLOAD — old public CSV URL removed (see the
+       sheet block note). Fresh CSV: csv/ekguru_content.csv. */
+    pausedForReupload: true,
+    status: "PAUSED_FOR_REUPLOAD",
+    csvUrl: ""},
 
   sheet: {
     /* LIVE since v54. Verified 8 Sep 2026 — returns HTTP 200 with all
@@ -769,7 +782,17 @@ window.EKGURU_SITE = {
        out of step until this change.
 
        Verified 11 Sep 2026: HTTP 200, all 47 columns, 4 tutors. */
-    csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRGCkYfn_JfKPGaUy7tGWRFoPvo7x6-cB4SLTbi-kzKY1f0k1hwXYCwYob-qHG5EKZeVrwcBeBD64fc/pub?gid=834026040&single=true&output=csv",
+    /* v101 — SHEET DATA SOURCE PAUSED FOR RE-UPLOAD  (EMAIL RESET COMMAND §3)
+       The four public CSV URLs were intentionally removed on 11 Sep 2026.
+       DATA_SOURCE_STATUS = PAUSED_FOR_REUPLOAD. With csvUrl empty the
+       loader never fetches and the tutor files are the only source —
+       the site keeps working unchanged. Fresh, schema-exact CSVs for
+       re-upload live in /home/user/csv/ (ekguru_tutors.csv includes the
+       new canonical notification_email column). When the new published
+       URLs arrive, paste them back and delete this note. */
+    pausedForReupload: true,
+    status: "PAUSED_FOR_REUPLOAD",
+    csvUrl: "",
     /* v62 — WAS 60, AND THAT WAS THE BUG PRAKASH KEPT HITTING.
        A visitor's cached copy under an hour old BLOCKED the fetch
        entirely, so a price changed in the sheet stayed invisible for

@@ -958,11 +958,11 @@
         error: err || "",
         delivered: res ? [res.to].concat(res.cc || []) : [],
         /* v99 — at commit time the booking exists but the emails
-           have not been attempted: QUEUED, honestly, until the
-           mailer resolves each role. */
+           have not been attempted: SENDING, honestly, until the
+           mailer resolves each role (RESET §16 vocabulary). */
         emailDelivery: status === "sending" ? {
-          student: { status: "QUEUED" }, tutor: { status: "QUEUED" },
-          internal: { status: "QUEUED" }
+          student: { status: "SENDING" }, tutor: { status: "SENDING" },
+          internal: { status: "SENDING" }
         } : (res && res.emailDelivery) || {}
       });
     } catch (e) { return null; }

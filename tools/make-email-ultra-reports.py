@@ -94,7 +94,7 @@ w("email-system-baseline.json", {
         "orchestration": "one central layer (js/mailer.js) + one template source (js/email-templates.js)",
         "canonical_data_source": "Google Sheets (settings/content/reviews/tutors) via js/sheet.js",
         "files": {
-            "js/email-templates.js": "five message templates + routing matrix + allowedVars + ROLE_QA + fixtures",
+            "js/email-templates.js": "seven SIMPLE role templates + routing matrix + allowedVars + ROLE_QA + fixtures",
             "js/mailer.js": "provider chain, retry, quota, idempotency, template rendering at send time",
             "tools/apps-script-mailer.gs": "Apps Script relay: whitelist, sender enforcement, idempotency, caps",
             "js/site-config.js": "mail block (appsScript url/token, fallback keys, owner inbox)",
@@ -125,7 +125,7 @@ w("email-routing-matrix.json", {
     "rules": [
         "From is ALWAYS the verified EkGuru sender; the visitor/student/tutor address is never the From.",
         "Reply-To is per role: tutor copy -> student; internal records -> student; receipts -> support.",
-        "Contact is NOT a booking; five distinct types, no one generic recipient array.",
+        "Contact is NOT a booking; seven distinct types (incl. admin outbound + internal copy), no one generic recipient array.",
         "TUTOR_EMAIL_UNAVAILABLE when no verified tutor address exists (student + internal still send)."
     ],
     "routes": RENDER.get("routes", [])

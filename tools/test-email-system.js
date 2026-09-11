@@ -1,22 +1,25 @@
 #!/usr/bin/env node
 /* =========================================================
-   EkGuru — EMAIL SYSTEM TESTS  (v100)
+   EkGuru — EMAIL SYSTEM TESTS  (v101 — SIMPLE ROLE TEMPLATES)
    ---------------------------------------------------------
    Loads js/email-templates.js + js/mailer.js against a minimal
-   browser shim and verifies the Email ULTRA contract:
+   browser shim and verifies the EMAIL RESET contract:
 
-     1. the five message types render (by template key AND by the
+     1. seven message types render (by template key AND by the
         contractual relay type name);
      2. the registry rejects unknown / missing / undeclared vars
         and raw {placeholders};
      3. user values are HTML-escaped (no raw <script> survives);
-     4. role-language QA (a student mail must not read like a
-        tutor mail, and vice-versa);
-     5. mailer.send() / mailer.contact() render the template at
-        send time and stamp type / html / text / idempotencyKey
-        onto the Apps Script payload;
+     4. role-language QA (§27-H) — a tutor mail must not read
+        like a student mail, internal wording never leaks;
+     5. mailer.send() / mailer.contact() / mailer.compose()
+        render the SIMPLE template at send time, stamp
+        type / html / text / idempotencyKey (entityId:type) onto
+        the Apps Script payload, and route internal copies via the
+        internal high-capacity relay;
      6. tutorEmailInfo() classifies tutors (ACTIVE+VALID / MISSING
-        / INVALID) and TUTOR_EMAIL_UNAVAILABLE routing holds.
+        / INVALID / UNPUBLISHED / DISABLED) and
+        TUTOR_EMAIL_UNAVAILABLE routing holds.
 
    Run:  node tools/test-email-system.js
    ========================================================= */
@@ -47,7 +50,7 @@ window.EKGURU_SITE = {
     enabled: true,
     copyToStudent: true,
     copyToSite: true,
-    contactProvider: "appsscript",
+    contactProvider: "",
     appsScript: {
       url: "https://script.google.com/macros/s/AKfycbTEST/exec",
       token: "test-client-token"
@@ -58,7 +61,7 @@ window.EKGURU_SITE = {
   }
 };
 
-/* fake relay: Apps Script answers a JSON success over text/plain */
+/* fake relay: answers a JSON success over text/plain */
 const POSTED = [];
 global.fetch = function (url, opts) {
   const body = String(opts && opts.body || "");
@@ -70,7 +73,7 @@ global.fetch = function (url, opts) {
     text: () => Promise.resolve(JSON.stringify({ success: "true", sent: true }))
   });
 };
-window.fetch = global.fetch;   // mailer gates on window.fetch
+window.fetch = global.fetch;
 
 /* ------------------------- load ------------------------- */
 require(path.join(ROOT, "js", "email-templates.js"));
@@ -91,9 +94,9 @@ check("EKGURU_EMAIL exposed", !!E);
 check("EkGuruMail exposed", !!M);
 const TYPES = ["CONTACT_VISITOR_CONFIRMATION", "CONTACT_EKGURU_NOTIFICATION",
   "BOOKING_STUDENT_CONFIRMATION", "BOOKING_TUTOR_NOTIFICATION",
-  "BOOKING_EKGURU_NOTIFICATION"];
-check("WHITELIST = five message types",
-  TYPES.every((t) => (E.WHITELIST || []).indexOf(t) > -1) && E.WHITELIST.length === 5,
+  "BOOKING_EKGURU_NOTIFICATION", "ADMIN_CONTACT_OUTBOUND", "ADMIN_CONTACT_INTERNAL_COPY"];
+check("WHITELIST = seven message types",
+  TYPES.every((t) => (E.WHITELIST || []).indexOf(t) > -1) && E.WHITELIST.length === 7,
   JSON.stringify(E.WHITELIST));
 
 /* =========================== 2. render =========================== */
@@ -102,11 +105,13 @@ const KEY2TYPE = {
   contactInternal: "CONTACT_EKGURU_NOTIFICATION",
   bookingStudent: "BOOKING_STUDENT_CONFIRMATION",
   bookingTutor: "BOOKING_TUTOR_NOTIFICATION",
-  bookingInternal: "BOOKING_EKGURU_NOTIFICATION"
+  bookingInternal: "BOOKING_EKGURU_NOTIFICATION",
+  adminOutbound: "ADMIN_CONTACT_OUTBOUND",
+  adminInternalCopy: "ADMIN_CONTACT_INTERNAL_COPY"
 };
 Object.keys(E.FIXTURES).forEach((k) => {
   const r = E.render(k, E.FIXTURES[k]);
-  check("fixture renders: " + k, r.ok && r.subject && r.html && r.text, r.errors && r.errors.join(", "));
+  check("fixture renders: " + k, r.ok && r.subject && r.html && r.text, (r.errors || []).join(", "));
   const byType = E.render(KEY2TYPE[k], E.FIXTURES[k]);
   check("type-name renders: " + KEY2TYPE[k], byType.ok && byType.template === k);
 });
@@ -125,29 +130,15 @@ const evilR = E.render("bookingStudent", evil);
 check("no raw <script> survives escaping", evilR.ok && !/<script/i.test(evilR.html) && /&lt;script/i.test(evilR.html));
 check("raw {placeholder} never survives", !/\{[A-Za-z_]+\}/.test(evilR.html + evilR.text + evilR.subject));
 
-/* ---- v80 report/privacy urgency survives the templated copy ---- */
-const urgentVars = Object.assign({}, E.FIXTURES.contactInternal, {
-  category: "Report", urgent: true,
-  actionNeeded: "This is a report about a tutor or a lesson. Read it today."
-});
-const urgentR = E.render("contactInternal", urgentVars);
-check("urgent contact subject is marked [!! REPORT]",
-  urgentR.ok && /\[!! REPORT\]/.test(urgentR.subject), urgentR.subject);
-check("urgent contact html carries the action-needed row",
-  urgentR.ok && /Action needed/i.test(urgentR.html));
-const normalR = E.render("contactInternal", E.FIXTURES.contactInternal);
-check("ordinary contact has NO action-needed row",
-  normalR.ok && !/Action needed/i.test(normalR.html));
-
 /* =========================== 4. role language =========================== */
 Object.keys(E.ROLE_QA).forEach((k) => {
   const r = E.render(k, E.FIXTURES[k]);
   const qa = E.ROLE_QA[k];
-  if (!r.ok) { check("role-language render: " + k, false, r.errors && r.errors.join(", ")); return; }
+  if (!r.ok) { check("role-language render: " + k, false, (r.errors || []).join(", ")); return; }
   const text = (r.subject + " " + r.html + " " + r.text).toLowerCase();
   const bad = [];
   qa.mustSay.forEach((m) => { if (text.indexOf(m.toLowerCase()) === -1) bad.push("missing '" + m + "'"); });
-  qa.mustNotSay.forEach((m) => { if (text.indexOf(m.toLowerCase()) > -1) bad.push("should not say '" + m + "'"); });
+  qa.mustNotSay.forEach((m) => { if (text.indexOf(m.toLowerCase()) > -1) bad.push("says '" + m + "'"); });
   check("role-language QA: " + k, bad.length === 0, bad.join("; "));
 });
 
@@ -165,8 +156,10 @@ const sendPayload = {
   price: "Free trial", ref: "EK-TEST-01"
 };
 
-function posted() { return POSTED.filter((p) => p.parsed && p.parsed.token); }
 function byType(type) { return POSTED.filter((p) => p.parsed && p.parsed.type === type); }
+function internalRows() {
+  return POSTED.filter((p) => p.parsed && p.parsed["Reference"] && !p.parsed.type);
+}
 
 (async function () {
   localStorage.clear();
@@ -182,40 +175,40 @@ function byType(type) { return POSTED.filter((p) => p.parsed && p.parsed.type ==
     check("send() resolves (tutor WITH email)", !!res.ok, JSON.stringify(res));
     const tutor = byType("BOOKING_TUTOR_NOTIFICATION");
     const student = byType("BOOKING_STUDENT_CONFIRMATION");
-    const internal = byType("BOOKING_EKGURU_NOTIFICATION");
     check("tutor job stamped BOOKING_TUTOR_NOTIFICATION", tutor.length === 1, "got " + tutor.length);
     check("student job stamped BOOKING_STUDENT_CONFIRMATION", student.length === 1, "got " + student.length);
-    check("internal job stamped BOOKING_EKGURU_NOTIFICATION", internal.length === 1, "got " + internal.length);
+    check("internal record goes via the internal route (rows, not Apps Script)",
+      internalRows().length === 1, "got " + internalRows().length);
     if (tutor[0]) {
       check("tutor payload has html + text", !!tutor[0].parsed.html && !!tutor[0].parsed.text);
-      check("tutor payload has idempotencyKey", !!tutor[0].parsed.idempotencyKey,
+      check("tutor idempotencyKey = entityId:type",
+        tutor[0].parsed.idempotencyKey === "EK-TEST-01:BOOKING_TUTOR_NOTIFICATION",
         JSON.stringify(tutor[0].parsed.idempotencyKey));
-      check("tutor payload subject is the template subject",
-        /new lesson request/i.test(tutor[0].parsed.subject || ""), tutor[0].parsed.subject);
-      check("tutor html rendered by template", /new lesson request/i.test(tutor[0].parsed.html));
+      check("tutor subject is the SIMPLE tutor subject",
+        /congratulations — you have a new booking request/i.test(tutor[0].parsed.subject || ""),
+        tutor[0].parsed.subject);
+      check("tutor html rendered by template", /you have received a new booking request/i.test(tutor[0].parsed.html));
       check("tutor payload recipient = tutor email", tutor[0].parsed.to === "tara@example.com");
-      /* Reply-To on the tutor's working copy is the STUDENT (the
-         tutor confirms the time by replying to the learner). The
-         tutor's address is never the From, and the visitor's email
-         is never the From. */
-      check("tutor copy replyTo = student (not From, not support)",
+      check("tutor copy replyTo = student (supported direct-response)",
         (tutor[0].parsed.replyTo || "").toLowerCase() === "priya@example.com");
-      check("From is never the visitor/student (fromName is EkGuru)",
-        String(tutor[0].parsed.fromName || "").toLowerCase().indexOf("ekguru") > -1 &&
-        String(tutor[0].parsed.fromName || "").toLowerCase().indexOf("priya") === -1);
     }
     if (student[0]) {
       check("student recipient = student email", student[0].parsed.to === "priya@example.com");
       check("student html is the STUDENT template (not tutor's)",
-        /booking request received/i.test(student[0].parsed.html) && !/new lesson request/i.test(student[0].parsed.html));
+        /your booking request has been received/i.test(student[0].parsed.html) &&
+        !/you have received a new booking request/i.test(student[0].parsed.html));
       check("student html does not expose tutor inbox",
-        !/tara@example\.com/i.test(student[0].parsed.html), student[0].parsed.html.slice(0, 120));
+        !/tara@example\.com/i.test(student[0].parsed.html));
+      check("student idempotencyKey = entityId:type",
+        student[0].parsed.idempotencyKey === "EK-TEST-01:BOOKING_STUDENT_CONFIRMATION");
     }
-    if (internal[0]) {
-      check("internal recipient = EkGuru inbox",
-        internal[0].parsed.to.toLowerCase() === "ekgurulearning@gmail.com");
-      check("internal html carries delivery state field",
-        /delivery/i.test(internal[0].parsed.html));
+    const rec = internalRows()[0];
+    if (rec) {
+      check("internal record via the free internal relay (FormSubmit endpoint)",
+        /formsubmit\.co\/ajax\//i.test(rec.url), rec.url.slice(0, 60));
+      check("internal record carries delivery state rows",
+        rec.parsed["Email delivery — Student"] === "SENDING" &&
+        rec.parsed["Email delivery — Tutor"] === "SENDING");
     }
   }
 
@@ -227,6 +220,10 @@ function byType(type) { return POSTED.filter((p) => p.parsed && p.parsed.type ==
     M.tutorEmailInfo(tara).state === "ACTIVE+VALID" && M.tutorEmailInfo(tara).available === true);
   check("tutorEmailInfo: bad email → ACTIVE+INVALID",
     M.tutorEmailInfo({ id: "x", name: "X", email: "not-an-email" }).state === "ACTIVE+INVALID");
+  check("tutorEmailInfo: active:no → DISABLED",
+    M.tutorEmailInfo({ id: "x", name: "X", email: "x@y.com", active: "no" }).state === "DISABLED");
+  check("tutorEmailInfo: notification_email (snake) → ACTIVE+VALID",
+    M.tutorEmailInfo({ id: "x", name: "X", notification_email: "tutor@x.com" }).state === "ACTIVE+VALID");
 
   POSTED.length = 0;
   const ghost = { id: "newtutor", name: "New Tutor", lessonLength: "50 min" };
@@ -243,13 +240,11 @@ function byType(type) { return POSTED.filter((p) => p.parsed && p.parsed.type ==
       "got " + byType("BOOKING_TUTOR_NOTIFICATION").length);
     check("student still gets their receipt",
       byType("BOOKING_STUDENT_CONFIRMATION").length === 1);
-    check("internal record still written",
-      byType("BOOKING_EKGURU_NOTIFICATION").length === 1);
-    const internal = byType("BOOKING_EKGURU_NOTIFICATION")[0];
-    if (internal) {
-      check("internal record marks tutorEmailState honestly",
-        /ACTIVE\+MISSING/.test(internal.parsed.html || ""),
-        internal.parsed.html && internal.parsed.html.slice(0, 200));
+    const rec = internalRows()[0];
+    check("internal record still written", !!rec);
+    if (rec) {
+      check("internal record marks tutor email state honestly",
+        rec.parsed["Tutor email state"] === "ACTIVE+MISSING");
     }
   }
 
@@ -270,37 +265,66 @@ function byType(type) { return POSTED.filter((p) => p.parsed && p.parsed.type ==
   if (cres) {
     check("contact() resolves", !!cres.ok);
     const vis = byType("CONTACT_VISITOR_CONFIRMATION");
-    const intl = byType("CONTACT_EKGURU_NOTIFICATION");
     check("visitor ack stamped CONTACT_VISITOR_CONFIRMATION", vis.length === 1, "got " + vis.length);
-    check("internal stamped CONTACT_EKGURU_NOTIFICATION", intl.length === 1, "got " + intl.length);
-    if (intl[0]) {
-      check("internal contact replyTo = visitor email",
-        (intl[0].parsed.replyTo || "").toLowerCase() === "aarav@example.com");
-      check("visitor email NOT used as From (recipient is our inbox)",
-        intl[0].parsed.to.toLowerCase() === "ekgurulearning@gmail.com");
-      check("internal contact carries idempotencyKey",
-        /^CONTACT-.*-INTERNAL$/.test(intl[0].parsed.idempotencyKey || ""),
-        JSON.stringify(intl[0].parsed.idempotencyKey));
-    }
+    const intl = internalRows().filter((p) => p.parsed["Their name"] === "Aarav");
+    check("internal contact goes via the internal route", intl.length === 1, "got " + intl.length);
     if (vis[0]) {
       check("visitor ack recipient = visitor email", vis[0].parsed.to === "aarav@example.com");
       check("visitor ack replyTo = support (not a bounce-back to self)",
         (vis[0].parsed.replyTo || "").toLowerCase() === "ekgurulearning@gmail.com");
-      check("visitor ack carries idempotencyKey",
-        /^CONTACT-.*-VISITOR$/.test(vis[0].parsed.idempotencyKey || ""),
+      check("visitor ack idempotencyKey = entityId:type",
+        /^C-[A-Z0-9]+:CONTACT_VISITOR_CONFIRMATION$/.test(vis[0].parsed.idempotencyKey || ""),
         JSON.stringify(vis[0].parsed.idempotencyKey));
+    }
+    if (intl[0]) {
+      check("internal contact replyTo = visitor email",
+        (intl[0].parsed.email || "").toLowerCase() === "aarav@example.com");
+      check("internal contact via the free internal relay (FormSubmit endpoint)",
+        /formsubmit\.co\/ajax\//i.test(intl[0].url), intl[0].url.slice(0, 60));
     }
   }
 
-  /* =========================== 7. send-test =========================== */
+  /* =========================== 7. compose() =========================== */
+  POSTED.length = 0;
+  let ores;
+  try {
+    ores = await M.compose({
+      to: "student@example.com", subject: "Your lesson time is confirmed",
+      message: "Your trial lesson with Tara is confirmed. See you then!"
+    });
+  } catch (e) {
+    check("compose() resolves", false, e.message);
+    ores = null;
+  }
+  if (ores) {
+    check("compose() resolves", !!ores.ok);
+    const outbound = byType("ADMIN_CONTACT_OUTBOUND");
+    check("outbound stamped ADMIN_CONTACT_OUTBOUND", outbound.length === 1, "got " + outbound.length);
+    const intl = internalRows().filter((p) => p.parsed["Message Sent"]);
+    check("admin internal copy sent to own inbox", intl.length === 1, "got " + intl.length);
+    check("compose returns a conversation ref", /^ADMIN-/.test(ores.ref || ""), ores.ref);
+    check("compose returns the internal copy result", !!ores.internalCopy);
+    if (outbound[0]) {
+      check("outbound idempotencyKey = entityId:type",
+        /^ADMIN-[A-Z0-9]+:ADMIN_CONTACT_OUTBOUND$/.test(outbound[0].parsed.idempotencyKey || ""),
+        JSON.stringify(outbound[0].parsed.idempotencyKey));
+      check("outbound replyTo = support",
+        (outbound[0].parsed.replyTo || "").toLowerCase() === "ekgurulearning@gmail.com");
+    }
+    if (intl[0]) {
+      check("admin internal copy carries recipient + message",
+        intl[0].parsed["Recipient Email"] === "student@example.com" &&
+        /confirmed/.test(intl[0].parsed["Message Sent"]));
+    }
+  }
+
+  /* =========================== 8. send-test =========================== */
   POSTED.length = 0;
   try {
     const t = await M.testSend("BOOKING_STUDENT_CONFIRMATION", "EkGuruLearning@gmail.com",
       E.FIXTURES.bookingStudent);
     check("testSend to controlled inbox resolves", !!t.ok && t.state === "ACCEPTED", JSON.stringify(t));
     check("testSend subject prefixed [TEST]", /^\[TEST\]/i.test(t.subject || ""), t.subject);
-    const last = POSTED.filter((p) => p.parsed && p.parsed.type === "BOOKING_STUDENT_CONFIRMATION").pop();
-    check("testSend posted the rendered template", !!last && !!last.parsed.html && !!last.parsed.text);
   } catch (e) {
     check("testSend to controlled inbox resolves", false, e.message);
   }

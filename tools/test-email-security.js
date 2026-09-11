@@ -64,10 +64,13 @@ check("every whitelisted type renders", E.WHITELIST.every((t) => {
     "CONTACT_EKGURU_NOTIFICATION": "contactInternal",
     "BOOKING_STUDENT_CONFIRMATION": "bookingStudent",
     "BOOKING_TUTOR_NOTIFICATION": "bookingTutor",
-    "BOOKING_EKGURU_NOTIFICATION": "bookingInternal"
+    "BOOKING_EKGURU_NOTIFICATION": "bookingInternal",
+    "ADMIN_CONTACT_OUTBOUND": "adminOutbound",
+    "ADMIN_CONTACT_INTERNAL_COPY": "adminInternalCopy"
   };
   return E.render(t, E.FIXTURES[map[t]]).ok;
 }));
+check("seven message types, no more", E.WHITELIST.length === 7, E.WHITELIST.join(","));
 
 /* ============ 4. student copy never leaks the tutor's address ============ */
 const stu = E.render("bookingStudent", E.FIXTURES.bookingStudent);
@@ -76,8 +79,8 @@ const stuEmailVars = E.TEMPLATES.bookingStudent.allowedVars.filter((v) =>
 check("student template's only email var is the shared support address",
   stuEmailVars.length === 1 && stuEmailVars[0] === "supportEmail",
   stuEmailVars.join(","));
-check("student html carries the SHARED support address (expected)",
-  /EkGuruLearning@gmail\.com/.test(stu.html), "support address missing");
+check("student html carries NO email address at all (simple copy — nothing to leak)",
+  !/@/.test(stu.html), "leaks an address: " + stu.html.slice(0, 140));
 check("student html has no 'provider' / internal wording",
   !/provider|delivery state|internal/i.test(stu.html), stu.html.slice(0, 160));
 

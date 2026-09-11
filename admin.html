@@ -1000,7 +1000,7 @@
     <div id="moSender" class="sub" style="margin:8px 0 16px"></div>
 
     <h3 style="margin:0 0 6px">Routing matrix</h3>
-    <p class="muted">Five message types, one row each. From is always the
+    <p class="muted">Seven message types, one row each. From is always the
     verified EkGuru sender; Reply-To is per role. Read live from
     <code>js/email-templates.js</code>.</p>
     <div class="scroll"><table id="moRoutes"></table></div>
@@ -1027,6 +1027,8 @@
           <option value="BOOKING_EKGURU_NOTIFICATION">Booking — internal record</option>
           <option value="CONTACT_VISITOR_CONFIRMATION">Contact — visitor confirmation</option>
           <option value="CONTACT_EKGURU_NOTIFICATION">Contact — internal</option>
+          <option value="ADMIN_CONTACT_OUTBOUND">Admin → recipient</option>
+          <option value="ADMIN_CONTACT_INTERNAL_COPY">Admin internal copy</option>
         </select>
         <input type="text" id="moTestTo" placeholder="Recipient (your inbox)" style="font:inherit;flex:1;min-width:220px">
         <button id="moTestSend" class="btn btn-primary">Send test</button>
@@ -2011,9 +2013,17 @@
                       : "Visitor numbers from everyone, not just this browser. " +
                         "Free at goatcounter.com — set analytics in js/site-config.js"],
         ["Google Sheet",
-          sh.csvUrl ? '<span class="pill sent">connected</span>'
-                    : '<span class="pill failed">off</span>',
-          sh.csvUrl ? (window.EkGuruSheet
+          (sh.status === "PAUSED_FOR_REUPLOAD" || sh.pausedForReupload)
+            ? '<span class="pill warn">PAUSED</span>'
+            : (sh.csvUrl ? '<span class="pill sent">connected</span>'
+                         : '<span class="pill failed">off</span>'),
+          (sh.status === "PAUSED_FOR_REUPLOAD" || sh.pausedForReupload)
+            ? "<b>Sheets: PAUSED — new upload links required.</b> The old public " +
+              "CSV URLs were removed. Fresh schema-exact CSVs are in <code>csv/</code> " +
+              "(ekguru_settings / content / reviews / tutors / github_urls / urls). " +
+              "Upload each into a new workbook, publish each tab as CSV, and paste the " +
+              "new URLs back into <code>js/site-config.js</code>."
+            : (sh.csvUrl ? (window.EkGuruSheet
               ? "Last load: " + esc(JSON.stringify(window.EkGuruSheet.info().rows || 0)) + " row(s)"
               : "Configured")
             : "Edit prices, videos and bios in a spreadsheet instead of code." +
@@ -2021,7 +2031,7 @@
               '<a href="tutors-sheet.csv" download>download tutors-sheet.csv</a>' +
               " — it already has all four tutors in it. Import to Google Sheets, " +
               "File → Share → Publish to web → CSV, then paste the link into " +
-              "<code>sheet.csvUrl</code>. Full steps in SHEET-SETUP.md."],
+              "<code>sheet.csvUrl</code>. Full steps in SHEET-SETUP.md.")],
         /* v53: this row said "off" and told you to go and create four
            cal.com accounts. It had said that since v44 and nobody
            ever would. The site now has its OWN dated calendar built
@@ -2740,7 +2750,9 @@
         'Google\'s own CDN holds a published sheet for about 5 minutes, ' +
         'which is the real floor. Cache setting: ' +
         esc(String(cfg.cacheMinutes || 5)) + ' min.</span>'
-      : '<span class="pill failed">no Sheet connected</span>';
+      : ((cfg.status === "PAUSED_FOR_REUPLOAD" || cfg.pausedForReupload)
+          ? '<span class="pill warn">PAUSED — new upload links required</span>'
+          : '<span class="pill failed">no Sheet connected</span>');
 
     var GROUPS = [
       ["Changed most often", [
@@ -3343,6 +3355,13 @@
     if (!box) return;
     var cfg = (window.EKGURU_SITE && window.EKGURU_SITE.content) || {};
     if (!cfg.csvUrl) {
+      if (cfg.status === "PAUSED_FOR_REUPLOAD" || cfg.pausedForReupload) {
+        box.innerHTML = '<div class="note warn"><b>Sheets: PAUSED — new upload links required.</b> ' +
+          "The old public CSV URLs were removed. Fresh schema-exact CSVs are in " +
+          "<code>csv/</code> — upload them into a new workbook, publish each tab as " +
+          "CSV, and paste the new URLs back into <code>js/site-config.js</code>.</div>";
+        return;
+      }
       box.innerHTML = '<div class="note"><b>Not connected yet.</b> Run ' +
         "<code>node tools/contentsheet.js --template</code> to get a starter CSV, " +
         "add it as a second tab called <b>content</b>, publish that tab to the web " +
@@ -4950,22 +4969,20 @@
     }
 
     var ROWS = [
-      ["Booking — tutor with their own address", "stranger",
-       "Their address is one no free relay has been activated for."],
-      ["Booking — tutor with no address yet", "own",
-       "It lands in your inbox, so it is free. Three of the four tutors."],
-      ["Booking — your record", "own",
-       "Addressed to you. This is the one that says who booked whom."],
       ["Booking — student's receipt", "stranger",
-       "A stranger's address. This is what the quota is for."],
-      ["Contact form — the message", "own",
-       "Addressed to you, so free — and a public form is the one surface anyone can submit repeatedly."],
-      ["Contact form — sender's copy", "stranger",
-       "Also a stranger, addressed to them directly."],
-      ["Admin reply / bulk send — someone you have mailed before", "own",
-       "Their address is already activated, so it costs nothing."],
-      ["Admin reply / bulk send — a brand new address", "stranger",
-       "Only reached after the free relay refuses. v86 added that fallthrough; before it, the reply silently failed."]
+       "Apps Script (your Gmail) is primary for stranger mail; a stranger-capable fallback carries it if the relay is un-tokened."],
+      ["Booking — tutor's copy", "stranger",
+       "Same rule — Apps Script primary to the tutor's notification_email."],
+      ["Booking — your record (internal)", "own",
+       "Internal mail takes the high-capacity internal relay (FormSubmit → StaticForms → Apps Script fallback) — never the metered quota."],
+      ["Contact form — the visitor's confirmation", "stranger",
+       "Apps Script primary, addressed to the visitor directly."],
+      ["Contact form — your copy (internal)", "own",
+       "Internal high-capacity relay, free and uncapped."],
+      ["Admin → recipient", "stranger",
+       "Apps Script primary to whoever the admin wrote to."],
+      ["Admin internal copy", "own",
+       "Internal high-capacity relay — the record of what was sent."]
     ];
 
     var meteredCount = 0;
@@ -5108,7 +5125,7 @@
                 var s = (d[role] || {}).status || "—";
                 var tone = s === "ACCEPTED" || s === "DELIVERED" ? "sent"
                          : s === "FAILED" ? "failed"
-                         : s === "QUEUED" || s === "PENDING" ? "warn" : "muted";
+                         : s === "QUEUED" || s === "PENDING" || s === "SENDING" ? "warn" : "muted";
                 return '<span class="pill ' + tone + '">' + esc(s) + "</span>";
               }
               return "<tr><td><code>" + esc(b.ref) + "</code></td><td>" + pill("student") +
@@ -5123,7 +5140,8 @@
     var pv = el("moPreview");
     if (pv && E && E.FIXTURES) {
       var order = ["bookingStudent", "bookingTutor", "bookingInternal",
-                   "contactVisitor", "contactInternal"];
+                   "contactVisitor", "contactInternal",
+                   "adminOutbound", "adminInternalCopy"];
       pv.innerHTML = order.map(function (k) {
         var vars = {};
         for (var x in E.FIXTURES[k]) vars[x] = E.FIXTURES[k][x];
@@ -5160,7 +5178,9 @@
         "BOOKING_TUTOR_NOTIFICATION": "bookingTutor",
         "BOOKING_EKGURU_NOTIFICATION": "bookingInternal",
         "CONTACT_VISITOR_CONFIRMATION": "contactVisitor",
-        "CONTACT_EKGURU_NOTIFICATION": "contactInternal"
+        "CONTACT_EKGURU_NOTIFICATION": "contactInternal",
+        "ADMIN_CONTACT_OUTBOUND": "adminOutbound",
+        "ADMIN_CONTACT_INTERNAL_COPY": "adminInternalCopy"
       };
       var vars = {};
       for (var x in E.FIXTURES[type2key[type]]) vars[x] = E.FIXTURES[type2key[type]][x];

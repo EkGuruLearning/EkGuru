@@ -912,9 +912,18 @@
      caller falls through to the normal chain — a preference is a
      preference, never a requirement, and mail must never be lost
      because the cheap route is unavailable. */
+  /* v101 — INTERNAL MAIL GOES VIA THE HIGH-CAPACITY INTERNAL
+     RELAYS FIRST, Apps Script as fallback (RESET §14/§15).
+     EkGuru's own inbox is already activated on FormSubmit (free,
+     unlimited), with StaticForms next; the Apps Script relay —
+     which is PRIMARY for student/tutor/visitor mail — is only the
+     fallback for internal mail, so a booking burst never eats the
+     Gmail daily cap on messages addressed to ourselves. */
+  var INTERNAL_ORDER = ["formsubmit", "staticforms", "appsscript"];
+
   function ownInboxRelay(to, except) {
     except = except || [];
-    return chain().filter(function (p) {
+    var usable = chain().filter(function (p) {
       if (except.indexOf(p.id) !== -1) return false;
       if (p.metered) return false;
       /* v97 — a relay that ignores the recipient is still fine for
@@ -925,7 +934,16 @@
          mail for free when FormSubmit is down or unactivated. */
       if (p.ignoresRecipient) return isOurs(to);
       return true;
-    })[0] || null;
+    });
+    /* v101 — prefer the high-capacity internal relays in a fixed
+       order; anything unlisted follows after them. */
+    usable.sort(function (a, b) {
+      var ia = INTERNAL_ORDER.indexOf(a.id), ib = INTERNAL_ORDER.indexOf(b.id);
+      if (ia === -1) ia = 99;
+      if (ib === -1) ib = 99;
+      return ia - ib;
+    });
+    return usable[0] || null;
   }
 
   /* postOwn(to, payload) — post to an address WE own, preferring
@@ -1179,42 +1197,53 @@
      not, we use their email. If they have neither, EkGuru's
      address is used so a request is never simply lost.          */
   function tutorTarget(tutor) {
-    if (tutor && tutor.formKey) return String(tutor.formKey).trim();
-    if (tutor && isEmail(tutor.email)) return String(tutor.email).trim();
-    if (CFG.siteKey) return String(CFG.siteKey).trim();
-    return isEmail(SITE.email) ? SITE.email : "";
+    /* The recipient for the tutor's copy is exactly what
+       notificationEmail() resolves — one chain, one answer. */
+    return notificationEmail(tutor);
   }
 
-  /* v100 — DATA-DRIVEN TUTOR EMAIL RESOLUTION  (§15/§16)
+  /* v101 — DATA-DRIVEN TUTOR EMAIL RESOLUTION  (RESET §11)
      One explicit precedence chain, documented and tested, so a
      future tutor needs no new code branch:
-       notificationEmail (dedicated operational field)
-       → formKey (hidden alias, does not publish the raw address)
-       → email (public profile email)
+       notification_email (canonical operational field — the Sheet
+          column the reset command requires; also accepted under
+          the camelCase runtime name notificationEmail)
+       → formKey (hidden FormSubmit alias, does not publish the
+          raw address)
+       → email (legacy public profile email — kept only for
+          migration compatibility)
        → siteKey / SITE.email (EkGuru inbox — honest fallback)
-     The Sheet can override any of these at runtime (js/sheet.js
-     applies the published sheet to the tutor object before the
-     mailer sees it), so an owner can change where a tutor's mail
-     lands without a deploy. */
+     js/sheet.js applies the published sheet to the tutor object
+     before the mailer sees it, so an owner can change where a
+     tutor's mail lands without a deploy. */
   function notificationEmail(tutor) {
     if (tutor && isEmail(tutor.notificationEmail)) return String(tutor.notificationEmail).trim();
+    if (tutor && isEmail(tutor.notification_email)) return String(tutor.notification_email).trim();
     if (tutor && tutor.formKey) return String(tutor.formKey).trim();
     if (tutor && isEmail(tutor.email)) return String(tutor.email).trim();
     if (CFG.siteKey) return String(CFG.siteKey).trim();
     return isEmail(SITE.email) ? SITE.email : "";
   }
 
-  /* v100 — TUTOR EMAIL STATE  (§15)
+  /* v101 — TUTOR EMAIL STATE  (RESET §11)
      Classify each tutor, never silently reroute:
        ACTIVE+VALID     a real operational address exists
        ACTIVE+MISSING   no address on file → TUTOR_EMAIL_UNAVAILABLE,
                         routed through EkGuru, reported honestly
        ACTIVE+INVALID   an address exists but is not a valid email
+       UNPUBLISHED      hidden (active:no) — no tutor copy is sent
+       DISABLED         explicitly disabled — no tutor copy is sent
      This is the state shown to admin and written into the booking
      snapshot, and it is what decides TUTOR_EMAIL_UNAVAILABLE. */
   function tutorEmailState(tutor) {
-    if (tutor && tutor.formKey) return "ACTIVE+VALID";
+    var rawActive = String((tutor && tutor.active) == null ? "" : tutor.active).trim();
+    var disabled = tutor && (tutor.active === false ||
+      /^(no|false|0|n|hidden|disabled)$/i.test(rawActive));
+    if (disabled) return "DISABLED";
+    if (tutor && (tutor._hiddenBySheet || tutor.hidden)) return "UNPUBLISHED";
     if (tutor && isEmail(tutor.notificationEmail)) return "ACTIVE+VALID";
+    if (tutor && isEmail(tutor.notification_email)) return "ACTIVE+VALID";
+    if (tutor && tutor.formKey) return "ACTIVE+VALID";
     if (tutor && tutor.email && !isEmail(tutor.email)) return "ACTIVE+INVALID";
     if (tutor && isEmail(tutor.email)) return "ACTIVE+VALID";
     return "ACTIVE+MISSING";
@@ -1891,14 +1920,15 @@
           tutorName: tutorName,
           bookingId: ref,
           studentName: studentName,
+          studentEmail: data.email || "",
           date: when,
           time: "",
           timezone: data.timezone || "",
           lessonType: lessonType,
           studentRequirement: (data.goal || data.message || ""),
-          bookingStatus: "Request received",
-          tutorNextAction: "Reply to " + (data.email || "the student") +
-            " to confirm the time. Quote reference " + (ref || "above") + ".",
+          tutorNextAction: "Please reply to this email / use the available " +
+            "booking action to confirm whether you are available.",
+          tutorAltTimeInstruction: "reply with the time that suits you",
           supportEmail: SITE.email || "",
           siteUrl: (SITE.baseUrl || "https://ekguru.shop/")
         }, kTutor, refKey ? refKey + ":tutor" : "");
@@ -1923,6 +1953,7 @@
 
           "Tutor": tutorName,
           "Tutor inbox": target,
+          "Tutor email state": tutorEmailState(tutor),
           "Student name": studentName,
           "Student email": data.email || "",
           "Student level": data.level || "",
@@ -1933,32 +1964,31 @@
           "Booked from": data.pageUrl || (location && location.href) || "",
           "Sent via": brand + " booking form — " + (SITE.baseUrl || ""),
           "Full message": data.message || "",
+          "Email delivery — Student": "SENDING",
+          "Email delivery — Tutor": tutorEmailState(tutor) === "ACTIVE+VALID" ? "SENDING" : "NOT_ATTEMPTED",
+          "Email delivery — Internal": "SENDING",
+          "Next admin action": "Confirm the time with the tutor.",
           "—": signOff,
 
           email: data.email || SITE.email || ""
         }, "BOOKING_EKGURU_NOTIFICATION", {
           bookingId: ref,
-          status: "sent",
-          createdAt: now.toISOString(),
           studentName: studentName,
           studentEmail: data.email || "",
           tutorName: tutorName,
           tutorId: tutor.id || "",
-          tutorEmailState: tutorEmailState(tutor),
+          tutorEmail: tutorEmailState(tutor) === "ACTIVE+VALID" ? target : "TUTOR_EMAIL_UNAVAILABLE",
           date: when,
           time: "",
           timezone: data.timezone || "",
           lessonType: lessonType,
           studentRequirement: (data.goal || data.message || ""),
-          sourcePage: data.pageUrl || "",
-          studentDeliveryState: "PENDING",
-          tutorDeliveryState: "PENDING",
-          internalDeliveryState: "PENDING",
-          provider: "Google Apps Script",
-          lastError: "",
-          nextAction: "Confirm the time with the tutor.",
-          supportEmail: SITE.email || "",
-          siteUrl: (SITE.baseUrl || "https://ekguru.shop/")
+          bookingStatus: "Request received",
+          studentDeliveryStatus: "SENDING",
+          tutorDeliveryStatus: (tutorEmailState(tutor) === "ACTIVE+VALID" ? "SENDING" : "NOT_ATTEMPTED"),
+          internalDeliveryStatus: "SENDING",
+          adminNextAction: "Confirm the time with the tutor.",
+          sourcePage: data.pageUrl || (location && location.href) || ""
         }, kInternal, refKey ? refKey + ":internal" : "");
       }
 
@@ -2004,11 +2034,10 @@
           studentName: studentName,
           bookingId: ref,
           tutorName: tutorName,
+          studentRequirement: (data.goal || data.message || ""),
           date: when,
           time: "",
           timezone: data.timezone || "",
-          lessonType: lessonType,
-          studentRequirement: (data.goal || data.message || ""),
           bookingStatus: "Request received — waiting for " + tutorName +
             " to confirm the time.",
           nextStep: tutorName + " has your request and will reply to this " +
@@ -2075,9 +2104,12 @@
          Guarded() skips a job whose key already succeeded in this
          browser, so a double-click or a refresh cannot send twice. */
       var refKey = ref ? String(ref).toUpperCase() : "";
-      var kTutor = refKey ? "BOOKING-" + refKey + "-TUTOR" : "";
-      var kStudent = refKey ? "BOOKING-" + refKey + "-STUDENT" : "";
-      var kInternal = refKey ? "BOOKING-" + refKey + "-INTERNAL" : "";
+      /* v101 — idempotency key = entityId:messageType (RESET §16).
+         BOOK-123:BOOKING_STUDENT_CONFIRMATION etc. One event → one
+         effective message per role, across client AND relay. */
+      var kTutor = refKey ? refKey + ":BOOKING_TUTOR_NOTIFICATION" : "";
+      var kStudent = refKey ? refKey + ":BOOKING_STUDENT_CONFIRMATION" : "";
+      var kInternal = refKey ? refKey + ":BOOKING_EKGURU_NOTIFICATION" : "";
 
       /* v97 — an ADMIN RETRY must be able to actually re-send a role
          that already succeeded (e.g. the student lost their receipt).
@@ -2494,8 +2526,8 @@
          Declared BEFORE the bodies are built so the templates carry
          their idempotencyKey (the relay dedupes a replay by it). */
       var refKey = ref ? String(ref).toUpperCase() : "";
-      var kInternal = refKey ? "CONTACT-" + refKey + "-INTERNAL" : "";
-      var kVisitor = refKey ? "CONTACT-" + refKey + "-VISITOR" : "";
+      var kInternal = refKey ? refKey + ":CONTACT_EKGURU_NOTIFICATION" : "";
+      var kVisitor = refKey ? refKey + ":CONTACT_VISITOR_CONFIRMATION" : "";
 
       var founder = (SITE.founder && SITE.founder.name) || "Prakash";
       var signOff =
@@ -2566,18 +2598,14 @@
            reply come back to ourselves. */
         email: from
       }, "CONTACT_EKGURU_NOTIFICATION", {
+        contactId: ref,
         visitorName: who,
         visitorEmail: from,
-        category: topic,
         subject: subj,
         message: body,
         timestamp: now.toUTCString(),
         sourcePage: data.pageUrl || (typeof location !== "undefined" ? location.href : ""),
-        contactId: ref,
-        supportEmail: SITE.email || ourInbox,
-        siteUrl: (SITE.baseUrl || "https://ekguru.shop/"),
-        urgent: isUrgent,
-        actionNeeded: actionNeeded
+        adminNextAction: actionNeeded || "Reply to the visitor within a day."
       }, kInternal, refKey ? refKey + ":internal" : "");
 
       /* ---------- 2. their acknowledgement ---------- */
@@ -2607,6 +2635,7 @@
       }, "CONTACT_VISITOR_CONFIRMATION", {
         visitorName: who,
         contactId: ref,
+        message: body,
         nextStep: nextStep,
         supportEmail: SITE.email || ourInbox,
         siteUrl: (SITE.baseUrl || "https://ekguru.shop/")
@@ -2640,37 +2669,21 @@
          a relay that disappears would take the contact form with
          it. Unknown or unavailable value simply falls back to the
          normal chain rather than failing. */
-      var wanted = String(CFG.contactProvider || "appsscript").toLowerCase();
+      /* v101 — the INTERNAL contact copy always takes the internal
+         high-capacity route (FormSubmit → StaticForms → Apps Script
+         fallback), never the stranger route (RESET §14). The knob
+         below is kept only for a deliberate override; its default
+         ("") means "use the internal route". */
+      var wanted = String(CFG.contactProvider || "").toLowerCase();
       function preferContact(payload) {
-        var p = PROVIDERS.filter(function (x) {
-          /* v100 — Apps Script is PRIMARY for contact too, so the
-             internal copy must only take that hop when it is
-             genuinely sendable (token wired). sendable() — not
-             enabled() — is what routing asks everywhere else. */
-          var usable = typeof x.sendable === "function" ? x.sendable() : x.enabled();
-          return x.id === wanted && usable && !spent(x.id);
-        })[0];
-        /* Unknown id, disabled, or spent for the month: fall back to
-           the normal chain rather than failing. A preference is a
-           preference, not a requirement. */
-        /* v86: the fallback is postOwn, not post. This address is
-           ours, so even when the named preference is unavailable
-           the message must not be paid for out of the metered
-           quota if a free relay exists. post() only as the floor. */
-        if (!p) return postOwn(ourInbox, payload);
-        /* v86 — a METERED preference is refused for our own inbox.
-           contactProvider is a knob, and a knob set to "web3forms"
-           would quietly spend the booking budget on contact-form
-           mail addressed to an inbox the free relay reaches for
-           nothing. Prakash asked for exactly this: "contact wali
-           bhi free wale se". If the preference is free, it is
-           honoured; if it is metered and a free route exists, the
-           free route wins. */
-        if (p.metered && ownInboxRelay(ourInbox)) return postOwn(ourInbox, payload);
-        /* postVia keeps every retry, timeout and quota rule in
-           post() rather than duplicating them here — a second copy
-           of retry logic is a second place for it to be wrong. */
-        return postVia(p, ourInbox, payload);
+        if (wanted && wanted !== "appsscript") {
+          var p = PROVIDERS.filter(function (x) {
+            var usable = typeof x.sendable === "function" ? x.sendable() : x.enabled();
+            return x.id === wanted && usable && !spent(x.id);
+          })[0];
+          if (p) return postVia(p, ourInbox, payload);
+        }
+        return postOwn(ourInbox, payload);
       }
 
       /* =========================================================
@@ -2744,8 +2757,11 @@
          name written into logic is the fourteen-hardcoded-values
          problem this project keeps rediscovering. */
       function directToStranger() {
+        /* sendable-aware (v101): a token-less Apps Script must not
+           win the stranger route only to refuse. */
         return PROVIDERS.filter(function (p) {
-          return p.enabled() && !spent(p.id) && p.canAddressStrangers;
+          var usable = typeof p.sendable === "function" ? p.sendable() : p.enabled();
+          return usable && !spent(p.id) && p.canAddressStrangers;
         })[0] || null;
       }
 
@@ -2945,17 +2961,57 @@
            · no copy to ourselves at all
            · reply-to is EkGuru, so their answer comes back
          ========================================================= */
-      var payload = {
+      /* v101 — ADMIN OUTBOUND is two messages (RESET §13):
+           ADMIN_CONTACT_OUTBOUND        → the recipient
+           ADMIN_CONTACT_INTERNAL_COPY   → EkGuru internal inbox
+         Each is its own template, its own idempotency key, its own
+         delivery state. The internal copy is the record. */
+      var now = new Date();
+      var convRef = data.ref || ("ADMIN-" + now.getTime().toString(36).toUpperCase().slice(-6));
+      var kOutbound = convRef + ":ADMIN_CONTACT_OUTBOUND";
+      var kInternalCopy = convRef + ":ADMIN_CONTACT_INTERNAL_COPY";
+      var recipientName = data.toName || data.name ||
+        String(data.to || "").split("@")[0] || "there";
+
+      var payload = withTemplate({
         _subject: data.subject || ("A message from " + brand),
         _template: "table",
         _captcha: "false",
         "Message": data.message,
-        "Sent": new Date().toUTCString(),
+        "Sent": now.toUTCString(),
         "—": sign,
         /* Their reply comes to us. This is the one address that
            SHOULD be ours in this message. */
         email: data.replyTo || SITE.email || ""
-      };
+      }, "ADMIN_CONTACT_OUTBOUND", {
+        recipientName: recipientName,
+        adminSubject: data.subject || ("A message from " + brand),
+        adminMessage: data.message,
+        conversationId: convRef,
+        supportContact: SITE.email || ""
+      }, kOutbound, convRef + ":outbound");
+
+      var internalPayload = withTemplate({
+        _subject: "Admin sent a contact message — " + convRef,
+        _template: "table",
+        _captcha: "false",
+        "Recipient": recipientName,
+        "Recipient Email": data.to,
+        "Subject": data.subject || "",
+        "Message Sent": data.message,
+        "Reference": convRef,
+        "Sent By": data.adminIdentity || "admin dashboard",
+        "Timestamp": now.toUTCString(),
+        email: SITE.email || ""
+      }, "ADMIN_CONTACT_INTERNAL_COPY", {
+        recipientName: recipientName,
+        recipientEmail: data.to,
+        adminSubject: data.subject || "",
+        adminMessage: data.message,
+        conversationId: convRef,
+        adminIdentity: data.adminIdentity || "admin dashboard",
+        timestamp: now.toUTCString()
+      }, kInternalCopy, convRef + ":internal-copy");
 
       var target = data.to;
 
@@ -3098,7 +3154,30 @@
         });
       }
 
-      return attemptWith(0);
+      return attemptWith(0).then(function (outbound) {
+        /* v101 — the internal copy is the RECORD of what the admin
+           sent. Addressed to our own inbox → free internal route,
+           never metered, and a failure here must not fail the
+           outbound (the person got their message). */
+        outbound.ref = convRef;
+        var rec;
+        if (isEmail(SITE.email) && String(SITE.email).toLowerCase() !== String(target).toLowerCase()) {
+          rec = postOwn(SITE.email, internalPayload).then(function (r) {
+            return { ok: !!r.ok, to: SITE.email, via: r.via || "",
+                     state: r.ok ? "ACCEPTED" : "FAILED", error: r.error || "" };
+          }).catch(function (e) {
+            return { ok: false, to: SITE.email, via: "", state: "FAILED",
+                     error: (e && e.message) || String(e) };
+          });
+        } else {
+          rec = Promise.resolve({ ok: false, to: "", via: "", state: "NOT_ATTEMPTED",
+                                  error: "no internal inbox configured" });
+        }
+        return rec.then(function (r2) {
+          outbound.internalCopy = r2;
+          return outbound;
+        });
+      });
     },
 
     /* Which provider is in use, for the dashboard to display.
@@ -3378,7 +3457,14 @@
       /* Mark it unmistakably as a test so it is filterable in the
          owner's inbox. */
       payload._subject = "[TEST] " + payload._subject;
-      return postOwn(to, payload).then(function (res) {
+      /* A send-test exercises the PRIMARY relay (Apps Script) when it
+         is sendable; only then does it fall back to the internal
+         route — the test is meant to prove the primary works. */
+      var app = PROVIDERS.filter(function (p) {
+        return p.id === "appsscript" && (p.sendable ? p.sendable() : p.enabled());
+      })[0];
+      var send = app ? postVia(app, to, payload) : postOwn(to, payload);
+      return send.then(function (res) {
         return {
           ok: !!res.ok, state: res.ok ? "ACCEPTED" : (res.state || "FAILED"),
           via: res.via || "", to: to, type: type, subject: payload._subject,

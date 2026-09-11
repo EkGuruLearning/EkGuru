@@ -272,6 +272,12 @@
     city:         function (v) { return v; },
     bio:          function (v) { return v; },
     email:        function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? v : null; },
+    /* v101 — CANONICAL OPERATIONAL EMAIL (RESET §11). The one
+       address booking mail is sent to for this tutor. It is NOT
+       rendered on any public page — it exists only for the mailer's
+       notification_email() resolution. The legacy `email` column
+       stays for migration compatibility. */
+    notification_email: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) ? v : null; },
     /* v72 — the safe way for the sheet to route a tutor's booking
        mail. A FormSubmit alias delivers to their inbox without the
        address existing anywhere public. js/mailer.js already

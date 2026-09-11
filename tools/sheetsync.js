@@ -129,6 +129,10 @@ function buildTutor(r) {
   set("subject", r.subject);
   set("lessonLength", r.lessonlength || r["lessonlength"]);
   if (isEmail(r.email)) set("email", String(r.email).trim());
+  /* v101 — canonical operational email (RESET §11). Written into the
+     tutor file so the mailer's notification_email() resolves it even
+     before the sheet is fetched; never rendered on a public page. */
+  if (isEmail(r.notification_email || r["notification_email"])) set("notification_email", String(r.notification_email || r["notification_email"]).trim());
   if (r.formkey && r.formkey.indexOf("@") < 0 && /^[A-Za-z0-9_-]{6,64}$/.test(r.formkey)) set("formKey", r.formkey);
   set("priceUSD", num(r.priceusd || r["priceusd"], 1, 2000));
   set("experienceYears", num(r.experienceyears || r["experienceyears"]));
