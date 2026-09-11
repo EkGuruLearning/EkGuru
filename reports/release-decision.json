@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-11T08:39:58.739Z",
+  "generated": "2026-09-11T08:51:03.498Z",
   "decision": {
     "RELEASE": {
       "result": "NO-GO",
@@ -15,7 +15,7 @@
     },
     "PRIVACY": {
       "result": "PASS",
-      "evidence": "626 files, 0 secrets, 0 blocked"
+      "evidence": "627 files, 0 secrets, 0 blocked"
     },
     "DOCTOR": {
       "result": "FAIL",
@@ -90,5 +90,5 @@
       "evidence": "fingerprints + self-copy detection + probes + evidence pipeline built; external web-copy monitoring requires scheduled runner (documented limitation)"
     }
   },
-  "blocker": "Deployment: fixes are committed locally (8de5b69) but cannot be pushed from this sandbox — no git remote/credentials. Production still serves the pre-fix tree."
+  "blocker": "Deployment: fixes are committed locally (2fcf497) but cannot be pushed from this sandbox — no git remote/credentials. Production still serves the pre-fix tree."
 }

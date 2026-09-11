@@ -44,7 +44,7 @@ gap = {
     "medium_remaining": [
         {"item": "Full hreflang set + post-deploy re-crawl", "detail": "canonical present; hreflang sweep and 542-URL re-crawl deferred to after deploy."},
         {"item": "Editorial content depth / originality audit", "detail": "Page-by-page human originality edit (Phases 3/4/12) is ongoing editorial work, not code."},
-        {"item": "Skeleton/toast motion layer", "detail": "Motion tokens + hamburger/backdrop done; skeleton shimmer and toast layer are backlog."},
+        {"item": "Skeleton/toast motion layer", "detail": "Done: js/toast.js + .toast/.skel CSS + admin wiring; Playwright-verified incl. reduced-motion."},
         {"item": "Admin 1000-record pagination", "detail": "Ledger search/filter present; large-dataset pagination is backlog."}
     ],
     "not_applicable": [

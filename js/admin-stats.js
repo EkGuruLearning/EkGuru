@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-11T08:39:55.109Z",
+ "generated": "2026-09-11T08:51:09.760Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -3930,9 +3930,9 @@ window.EKGURU_ADMIN_STATS = {
  },
  "privacy": {
   "state": "PASS",
-  "fails": 0,
+  "fails": 1,
   "blocked": 0,
-  "note": "626 files scanned, 0 secrets"
+  "note": "627 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 1,

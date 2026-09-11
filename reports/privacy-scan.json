@@ -1,9 +1,9 @@
 {
   "summary": {
-    "scanned_files": 626,
+    "scanned_files": 627,
     "findings": {
       "secret": 0,
-      "sensitive": 0,
+      "sensitive": 1,
       "internal": 1,
       "public": 0
     },
@@ -11,6 +11,12 @@
     "verdict": "PASS"
   },
   "findings": [
+    {
+      "category": "sensitive",
+      "file": "css/style.min.css",
+      "detail": "phone-like: 2147483000",
+      "note": ""
+    },
     {
       "category": "internal",
       "file": "live:homepage",

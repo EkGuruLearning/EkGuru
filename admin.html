@@ -1135,7 +1135,8 @@
      the contact form, an admin reply or a bulk send. Before v93 a
      contact reference existed on the visitor's screen and nowhere
      else. See js/ledger.js. -->
-<script src="js/ledger.js"></script>
+  <script src="js/ledger.js"></script>
+  <script src="js/toast.js"></script>
 <!-- compose needs the mailer; without it the Send a message tab
      silently does nothing -->
 <script src="js/mailer.js"></script>
@@ -1152,6 +1153,21 @@
   var SITE = window.EKGURU_SITE || {};
   var S = window.EkGuruStore;
   var $ = function (s) { return document.querySelector(s); };
+
+  /* motion §23/§24 — toasts + skeletons (admin dashboard) */
+  function notify(msg, kind) {
+    if (window.EkGuruToast) { window.EkGuruToast[kind === "err" ? "err" : kind === "ok" ? "ok" : "info"](msg); }
+    else { alert(msg); }
+  }
+  function skelRows(n, cols) {
+    var html = "";
+    for (var i = 0; i < n; i++) {
+      html += "<tr>";
+      for (var j = 0; j < cols; j++) html += '<td><span class="skel" style="display:block;height:14px"></span></td>';
+      html += "</tr>";
+    }
+    return html;
+  }
 
   function esc(v) {
     return String(v == null ? "" : v)
@@ -1340,12 +1356,12 @@
      skip so the messages genuinely go out again), then updates the record. */
   function retryBooking(ref, btn) {
     if (!window.EkGuruMail || !window.EkGuruMail.send) {
-      alert("The mailer is not loaded here."); return;
+      notify("The mailer is not loaded here.", "err"); return;
     }
     var r = S.all().filter(function (x) { return x.ref === ref; })[0];
-    if (!r) { alert("Record not found."); return; }
+    if (!r) { notify("Record not found.", "err"); return; }
     var t = tutorsNow().filter(function (x) { return x.id === r.tutorId; })[0] || null;
-    if (!t) { alert("Tutor '" + (r.tutorId || "?") + "' is not in the tutor list, so the booking cannot be routed."); return; }
+    if (!t) { notify("Tutor '" + (r.tutorId || "?") + "' is not in the tutor list, so the booking cannot be routed.", "err"); return; }
     var old = btn.textContent;
     btn.disabled = true; btn.textContent = "sending…";
     window.EkGuruMail.send({
@@ -1376,7 +1392,7 @@
     }).catch(function (e) {
       btn.disabled = false; btn.textContent = old;
       S.update(r.ref, { status: "email_degraded", error: (e && e.message || "").slice(0, 160) });
-      alert("Retry failed: " + ((e && e.message) || e) + "\n\nThe booking is still saved — try again later.");
+      notify("Retry failed: " + ((e && e.message) || e) + "\n\nThe booking is still saved — try again later.", "err");
       drawLocal();
     });
   }
@@ -1401,8 +1417,9 @@
     var fr = new FileReader();
     fr.onload = function () {
       var r = S.importJSON(fr.result);
-      alert(r.ok ? ("Merged " + r.added + " new booking(s). Total now " + r.total + ".")
-                 : ("Could not import: " + r.error));
+      notify(r.ok ? ("Merged " + r.added + " new booking(s). Total now " + r.total + ".")
+                  : ("Could not import: " + r.error),
+             r.ok ? "ok" : "err");
       drawLocal(); drawStats();
     };
     fr.readAsText(f);
@@ -2243,6 +2260,11 @@
       clearTimeout(timer); throw e;
     });
   }
+
+  /* Shared with the second script block (site health / live health /
+     ranking), which has its own IIFE scope and cannot see these. */
+  window.EkGuruGet = get;
+  window.EkGuruLIVE = LIVE;
 
   function seoRow(state, label, detail) {
     var cls = state === "ok" ? "good" : (state === "warn" ? "warn" : "bad");
@@ -3618,6 +3640,30 @@
   var A = window.EkGuruAdmin;
   if (!A) return;
 
+  /* live fetch helpers — defined in the first script block and shared
+     here (a second IIFE cannot see that block's closures). */
+  var LIVE = window.EkGuruLIVE || ((window.EKGURU_SITE && window.EKGURU_SITE.baseUrl) || "https://ekguru.shop/");
+  var get = window.EkGuruGet || function (url, ms) {
+    return fetch(url, { cache: "no-store" }).then(function (r) {
+      return r.text().then(function (t) { return { ok: r.ok, status: r.status, text: t }; });
+    });
+  };
+
+  /* motion §23/§24 — same helpers as the main block (separate scope) */
+  function notify(msg, kind) {
+    if (window.EkGuruToast) { window.EkGuruToast[kind === "err" ? "err" : kind === "ok" ? "ok" : "info"](msg); }
+    else { alert(msg); }
+  }
+  function skelRows(n, cols) {
+    var html = "";
+    for (var i = 0; i < n; i++) {
+      html += "<tr>";
+      for (var j = 0; j < cols; j++) html += '<td><span class="skel" style="display:block;height:14px"></span></td>';
+      html += "</tr>";
+    }
+    return html;
+  }
+
   function esc(v) {
     return String(v == null ? "" : v)
       .replace(/&/g, "&amp;").replace(/</g, "&lt;")
@@ -4213,10 +4259,10 @@
      success). The original ledger record is not duplicated. */
   function retryContact(ref, btn) {
     if (!window.EkGuruMail || !window.EkGuruMail.contact) {
-      alert("The mailer is not loaded here."); return;
+      notify("The mailer is not loaded here.", "err"); return;
     }
     var r = (window.EkGuruLedger && window.EkGuruLedger.find(ref)) || null;
-    if (!r) { alert("Record not found in this browser's ledger."); return; }
+    if (!r) { notify("Record not found in this browser's ledger.", "err"); return; }
     var old = btn.textContent;
     btn.disabled = true; btn.textContent = "sending…";
     window.EkGuruMail.contact({
@@ -4242,7 +4288,7 @@
       drawContactRecords();
     }).catch(function (e) {
       btn.disabled = false; btn.textContent = old;
-      alert("Retry failed: " + ((e && e.message) || e) + "\n\nThe message is still saved in the ledger.");
+      notify("Retry failed: " + ((e && e.message) || e) + "\n\nThe message is still saved in the ledger.", "err");
     });
   }
 
@@ -5037,6 +5083,22 @@
     function say(t) { if (status) status.textContent = t; }
     say("checking…");
 
+    /* skeletons only while these fetches are genuinely in flight —
+       replaced the moment each result lands (never shown after content
+       is available) */
+    [["lhPages", 4, 3], ["lhCrawl", 4, 3]].forEach(function (c) {
+      var tb = el(c[0]);
+      if (tb) tb.innerHTML = skelRows(c[1], c[2]);
+    });
+    (function () {
+      var li = el("lhIntegrity");
+      if (li) {
+        var h = "";
+        for (var i = 0; i < 4; i++) h += '<span class="skel" style="display:block;height:14px;margin:6px 0"></span>';
+        li.innerHTML = h;
+      }
+    })();
+
     /* --- 1. built vs live --- */
     box.innerHTML = '<p class="muted">reading the live site…</p>';
 
@@ -5385,7 +5447,7 @@
             new Date().toISOString().slice(0, 10) + ".csv";
           a.click();
           setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000);
-        } catch (e) { alert("Could not export: " + e.message); }
+        } catch (e) { notify("Could not export: " + e.message, "err"); }
       });
     }
 

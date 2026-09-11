@@ -36,3 +36,20 @@ body.nav-open .nav-backdrop{opacity:1;visibility:visible;transition:opacity var(
 /* Cards/buttons/links: consistent micro-interactions via tokens. */
 .tcard,.mkt,.tool-card,.step,.method .m,.panel{transition-duration:var(--motion-normal);transition-timing-function:var(--ease-standard)}
 .btn,.nav a,.chip-btn,.lang-btn{transition-duration:var(--motion-fast);transition-timing-function:var(--ease-standard)}
+
+/* ── motion §23/§24: toasts + skeletons ─────────────────────────── */
+.toast-stack{position:fixed;right:16px;bottom:16px;z-index:2147483000;display:flex;flex-direction:column;gap:10px;max-width:min(360px,calc(100vw - 32px));pointer-events:none}
+.toast{pointer-events:auto;padding:12px 14px;border-radius:12px;background:#1c1f26;color:#f7f8fa;font-size:.925rem;line-height:1.45;box-shadow:var(--shadow-hover,0 10px 30px rgba(0,0,0,.25));opacity:0;transform:translateY(8px);transition:opacity .18s var(--ease-enter,ease),transform .18s var(--ease-enter,ease);cursor:pointer;word-break:break-word}
+.toast.is-in{opacity:1;transform:none}
+.toast.is-out{opacity:0;transform:translateY(8px)}
+.toast--ok{border-left:4px solid #2f9e5f}
+.toast--err{border-left:4px solid #d6492f}
+.toast--info{border-left:4px solid #3d7bd9}
+.skel{position:relative;overflow:hidden;border-radius:8px;background:#e8eaef;min-height:1em}
+.skel::after{content:"";position:absolute;inset:0;transform:translateX(-100%);background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);animation:skel-shimmer 1.4s infinite}
+@keyframes skel-shimmer{to{transform:translateX(100%)}}
+@media (prefers-reduced-motion:reduce){
+.toast{opacity:1;transform:none;transition:none}
+.toast.is-out{opacity:0}
+.skel::after{animation:none;background:rgba(255,255,255,.35)}
+}

@@ -23,7 +23,7 @@ without evidence. The one true blocker — live deployment — is stated plainly
 | Email idempotency | PASS — same-ref double send deduped |
 | Email fallback | PASS — v98 chain now walks past a dead/un-tokened relay (fixed the dead-end); all-down record survival PASS |
 | Timezone | PASS — slot label now `7:00 PM IST (Asia/Kolkata)` (12-hour + IANA label; sheet value normalized, never rewritten) |
-| Motion system | PASS — shared tokens + hamburger→X morph + backdrop, reduced-motion safe, 0 console errors at 390px |
+| Motion system | PASS — shared tokens + hamburger→X morph + backdrop; **toasts + skeletons** (`js/toast.js`, `.toast`/`.skel` CSS) wired into the admin dashboard (mail retry/import/export toasts, live-health skeletons); reduced-motion verified in a real browser |
 | Payment | N/A — no payment system (static site) |
 | Backup / Restore / Rollback | PASS / PASS / PASS |
 | SEO | PASS — 555 pages, 0 broken, 0 orphans, 550 sitemap URLs (prior pass) |
@@ -60,7 +60,14 @@ without evidence. The one true blocker — live deployment — is stated plainly
 without touching the sheet), tutor data files relabelled.
 
 **Motion system:** `css/style.min.css` (tokens + hamburger morph + backdrop) and
-`js/main.js` (backdrop element + aria wiring).
+`js/main.js` (backdrop element + aria wiring). **§23/§24 added:** `js/toast.js`
+(toast enter/remain/exit, `role="status"`/`"alert"`, click + auto-dismiss) plus
+`.toast`/`.skel` CSS with a `prefers-reduced-motion` override; the admin dashboard
+now uses toasts for mail retry/import/export feedback and skeleton rows while the
+live-health checks are genuinely in flight. **Bug fixed:** the Live health tab was
+silently throwing `get is not defined` (its `get`/`LIVE` helpers live in a
+different `<script>` IIFE); they are now shared via `window.EkGuruGet`/
+`window.EkGuruLIVE`, and the tab renders in a real browser.
 
 **Reports:** `final-gap-sweep.json`, `environment-audit.json`,
 `dependency-failure-map.json`, `release-candidate.json`, `runbook.md`,
@@ -95,7 +102,8 @@ Live: doPost /exec (text/plain, empty token)        → {"success":"false","mess
 3. **HIGH — Web3Forms live check** from a residential browser (datacenter-blocked here).
 4. **HIGH — Tutor real addresses / formKey** (all 4 tutors route via EkGuru inbox today).
 5. **MEDIUM — editorial:** originality audit, content depth, hreflang set,
-   skeleton/toast motion layer, admin 1000-record pagination.
+   admin 1000-record pagination. (The skeleton/toast motion layer is now done —
+   see §2.)
 
 ## 6. The single blocker, unchanged
 
