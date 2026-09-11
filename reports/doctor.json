@@ -1,9 +1,9 @@
 {
-  "doctorProblems": 0,
+  "doctorProblems": 1,
   "doctorWarnings": 0,
   "doctorChecks": 11,
   "seoPass": true,
-  "privacyState": "PASS",
+  "privacyState": "FAIL",
   "results": [
     {
       "id": "status-live",
@@ -20,8 +20,8 @@
     {
       "id": "privacy",
       "label": "Privacy/secret scan passes",
-      "status": "PASS",
-      "detail": "PASS — 0 secrets, 65 sensitive, 0 blocked"
+      "status": "FAIL",
+      "detail": "FAIL — 3 secrets, 211 sensitive, 0 blocked"
     },
     {
       "id": "no-personal-emails",
@@ -72,5 +72,5 @@
       "detail": "videoTitle guard active"
     }
   ],
-  "generated": "2026-09-11T12:52:24.531Z"
+  "generated": "2026-09-11T20:08:13.773Z"
 }

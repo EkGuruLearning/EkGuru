@@ -1,0 +1,80 @@
+{
+  "generated": "2026-09-11T20:02:33Z",
+  "regression": "IDLE-INTERACTION-RECOVERY",
+  "acceptance": "After 180s idle: links, buttons, dropdowns, search, forms, scrolling, keyboard, menu, booking, contact all work; no refresh required.",
+  "environment": {
+    "browser": "Chromium 151.0.7922.34",
+    "headed": true,
+    "base": "http://localhost:8017/",
+    "production": "https://ekguru.shop/",
+    "date": "2026-09-12"
+  },
+  "preFixReproduction": [
+    {
+      "scenario": "pure idle 30/60/120/180s ladder",
+      "coverage": "homepage 1280x720",
+      "result": "PASS (no failure)",
+      "refreshRequired": false
+    },
+    {
+      "scenario": "parallel idle 180s",
+      "coverage": "12 page/viewport combos (home 360/768/1366, tutors 1280, profile 390, contact, learn, path, tools, practice, material, admin)",
+      "result": "PASS",
+      "refreshRequired": false
+    },
+    {
+      "scenario": "tab-switch (130s backgrounded)",
+      "coverage": "homepage headed",
+      "result": "PASS",
+      "refreshRequired": false
+    },
+    {
+      "scenario": "back-forward (bfcache)",
+      "coverage": "homepage headed",
+      "result": "PASS (test harness limitation noted: first nav link was same-URL)",
+      "refreshRequired": false
+    },
+    {
+      "scenario": "drawer open/close then idle",
+      "coverage": "homepage 390px headed",
+      "result": "PASS",
+      "refreshRequired": false
+    },
+    {
+      "scenario": "cross-page link click (view-transition path)",
+      "coverage": "index -> find-tutors",
+      "result": "PASS; no ::view-transition pseudo-elements, animations drained, link hit-test true",
+      "refreshRequired": false
+    }
+  ],
+  "postFixRegression": [
+    {
+      "scenario": "parallel idle 180s",
+      "coverage": "12 page/viewport combos",
+      "result": "PASS \u2014 0 console errors, 0 network errors, pointer-events auto, no scroll lock, no overlays",
+      "refreshRequired": false
+    },
+    {
+      "scenario": "shell-page link click after 60s idle",
+      "coverage": "contact, learn, path, tools, practice, material",
+      "result": "PASS",
+      "refreshRequired": false
+    },
+    {
+      "scenario": "watchdog self-heal unit test",
+      "coverage": "stale scroll-lock, stale nav-open+backdrop, pointer-events:none, stale overlay, preserve-while-dialog-open",
+      "result": "PASS 5/5",
+      "refreshRequired": false
+    },
+    {
+      "scenario": "full 11-viewport matrix x 180s idle (homepage)",
+      "coverage": "320x568, 360x800, 390x844, 430x932, 768x1024, 1024x768, 1280x800, 1366x768, 1440x900, 1536x864, 1920x1080",
+      "result": "PASS \u2014 click/scroll/keyboard all work, 0 console errors",
+      "refreshRequired": false
+    }
+  ],
+  "refreshRequiredAnywhere": false,
+  "remainingRisk": [
+    "AdSense Auto Ads (vignette/anchor) are runtime third-party overlays that only appear on the live, approved domain; they cannot be reproduced on a local build. Mitigation: watchdog ignores ad iframes; owner should limit Vignette + Anchor ads in AdSense Auto ads settings if they overlap interactions."
+  ]
+}

@@ -58,6 +58,10 @@ const SHELL = [
      contact.js without mailer.js means submit does nothing at
      all. Caching one and not the other is a half-working form. */
   "./js/contact.js",
+  /* v80 — the idle-interaction self-healing watchdog. Kept in the
+     shell so a returning visitor offline still gets the recovery
+     layer, not just the cached page. */
+  "./js/recovery.js",
   "./images/logo.svg"
 ];
 
