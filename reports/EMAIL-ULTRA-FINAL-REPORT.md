@@ -96,7 +96,7 @@ Relay contract (`tools/apps-script-mailer.gs`) — all present and verified stat
 
 | Suite | Runner | Result |
 |---|---|---|
-| Template registry + render + role QA + escaping | `tools/test-email-system.js` | **60/60 PASS** |
+| Template registry + render + role QA + escaping | `tools/test-email-system.js` | **63/63 PASS** |
 | Mailer integration (send/contact/tutorEmailInfo/testSend) | `tools/test-email-system.js` | included above |
 | Security (injection, XSS, unknown type, secrets, relay static) | `tools/test-email-security.js` | **20/20 PASS** |
 
