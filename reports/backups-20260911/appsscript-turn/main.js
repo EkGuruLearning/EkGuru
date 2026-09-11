@@ -338,18 +338,6 @@
       b.setAttribute("aria-controls", nav.id);
       b.setAttribute("aria-expanded", "false");
 
-      /* v98 — drawer backdrop. Fades in behind the menu, blocks
-         clicks to the page behind it, and closes the menu when
-         tapped. The existing outside-click handler already treats
-         it as "outside", so no extra listener is needed. */
-      var backdrop = $(".nav-backdrop");
-      if (!backdrop) {
-        backdrop = document.createElement("div");
-        backdrop.className = "nav-backdrop";
-        backdrop.setAttribute("aria-hidden", "true");
-        document.body.appendChild(backdrop);
-      }
-
       function focusables() {
         return $all("a[href],button:not([disabled]),input,select,[tabindex]:not([tabindex='-1'])", nav)
           .filter(function (el) { return el.offsetParent !== null; });
@@ -364,7 +352,6 @@
         b.setAttribute("aria-expanded", "true");
         nav.removeAttribute("aria-hidden");
         document.body.classList.add("nav-open");
-        backdrop.setAttribute("aria-hidden", "false");
         /* The compensating offset is what keeps the page looking
            exactly as it did. Without it, position:fixed would
            snap the view to the top — the same bug in a new form. */
@@ -379,7 +366,6 @@
         nav.classList.remove("open");
         b.setAttribute("aria-expanded", "false");
         document.body.classList.remove("nav-open");
-        backdrop.setAttribute("aria-hidden", "true");
         document.body.style.top = "";
         /* behavior:"auto" defeats html{scroll-behavior:smooth}.
            Without it the restore is animated and looks like the
@@ -405,7 +391,6 @@
           nav.classList.remove("open");
           b.setAttribute("aria-expanded", "false");
           document.body.classList.remove("nav-open");
-          backdrop.setAttribute("aria-hidden", "true");
           document.body.style.top = "";
         });
       });

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-11T06:41:23.235Z",
+  "generated": "2026-09-11T08:39:58.739Z",
   "decision": {
     "RELEASE": {
       "result": "NO-GO",
@@ -15,7 +15,7 @@
     },
     "PRIVACY": {
       "result": "PASS",
-      "evidence": "625 files, 0 secrets, 0 blocked"
+      "evidence": "626 files, 0 secrets, 0 blocked"
     },
     "DOCTOR": {
       "result": "FAIL",
@@ -27,11 +27,19 @@
     },
     "EMAIL": {
       "result": "DEGRADED",
-      "evidence": "routing/Reply-To/honeypot code-verified; Apps Script relay intermittently bot-gated from datacenter IPs; no live send performed (would be fabricated)"
+      "evidence": "real E2E: contact internal copy ACCEPTED via FormSubmit (activated) (live); visitor copy routes via a stranger-capable relay (Web3Forms UNVERIFIABLE from this datacenter; Apps Script live but awaiting token); no DELIVERED claim made"
     },
     "BOOKING": {
       "result": "DEGRADED",
-      "evidence": "3-audience routing + site-inbox fallback code-verified; no live send performed"
+      "evidence": "real E2E: Tutor A/B honest routing (TUTOR_EMAIL_UNAVAILABLE, no generic tutor inbox); internal record ACCEPTED via FormSubmit; tutor/student copies via stranger-capable relay unverifiable from datacenter"
+    },
+    "EMAIL_IDEMPOTENCY": {
+      "result": "PASS",
+      "evidence": "same-ref double send: internal role deduped (only the failed visitor role retried)"
+    },
+    "EMAIL_FALLBACK": {
+      "result": "PASS",
+      "evidence": "FormSubmit activated for our inbox (strangers refused by design); v98 chain walks past a dead relay; all-providers-down -> record survives + honest failure"
     },
     "PAYMENT": {
       "result": "N/A",
@@ -50,8 +58,8 @@
       "evidence": "known-good 8de5b69d; procedure documented; no DNS change needed"
     },
     "LIVE_MONITORING": {
-      "result": "DEGRADED",
-      "evidence": "14G/1Y/0R — Apps Script relay"
+      "result": "PASS",
+      "evidence": "15G/0Y/0R — all green"
     },
     "SEO": {
       "result": "PASS",

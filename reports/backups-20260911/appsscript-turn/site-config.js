@@ -279,7 +279,7 @@ window.EKGURU_SITE = {
          visitor's browser is not affected. The mailer treats any
          failure as a normal fallback, so if the script is ever down
          the chain simply moves on — never loses mail. */
-      url: "https://script.google.com/macros/s/AKfycbwG978gM3Vspo0r8JmNxRojiUwA5h0tWoFd8p9vQf5x-NX9QGDB8VCr0j1LnTPoOjqtdA/exec",
+      url: "https://script.google.com/macros/s/AKfycbwG978gM3Vspo0r8JmNxRojiUwA5h0tWoFd8p9vQf5x-NX9QGDB8VCr0j1LnTPoOoJqtdA/exec",
       /* The script's own ID (for the Apps Script dashboard / API).
          Not sent in requests — recorded here so nobody has to hunt
          for it. */

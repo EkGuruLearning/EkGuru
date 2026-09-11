@@ -36,7 +36,7 @@ ekguruTutor({
   country: "India",
   countryFlag: "🇮🇳",
   city: "India",                      // EDIT ME: e.g. "Delhi, India"
-  timezone: "IST (GMT+5:30)",         // EDIT ME if different
+  timezone: "IST (Asia/Kolkata)",         // EDIT ME if different
 
   /* ===== IMAGES & VIDEO — TARA ONLY ==================================
      ⏳ All three are placeholders. When her files arrive:
@@ -77,7 +77,12 @@ ekguruTutor({
                 No spaces, brackets or dashes.
                 Leave "" and her WhatsApp buttons stay hidden.
      ================================================================ */
-  email: "EkGuruLearning@gmail.com",  // ← EDIT ME: TARA's personal email
+  /* v97 — was "EkGuruLearning@gmail.com", the PLATFORM inbox, not
+     Tara's own address. Paste her real personal address (or a
+     formKey alias) here; until then her bookings are marked
+     TUTOR_EMAIL_UNAVAILABLE and routed via the EkGuru inbox for
+     forwarding — honestly reported, never silently faked. */
+  email: "",   // ← EDIT ME: TARA's personal email (empty = no direct address on file)
   whatsapp: "",                       // ← EDIT ME: TARA's WhatsApp, e.g. "+919812345678"
 
   /* ===== BOOKING EMAIL — TARA ONLY ==============================

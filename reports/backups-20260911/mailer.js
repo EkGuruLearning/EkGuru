@@ -769,18 +769,9 @@
      posts a SEPARATE message to that person instead. Degraded,
      visible, and nobody is quietly left out.
      ========================================================= */
-  function pick(payload, except, strangerOnly) {
-    except = except || [];
-    var usable = chain().filter(function (p) {
-      return except.indexOf(p.id) === -1 &&
-             (!strangerOnly || p.canAddressStrangers);
-    });
-    if (!usable.length) {
-      var last = PROVIDERS[PROVIDERS.length - 1];
-      if (except.indexOf(last.id) === -1 &&
-          (!strangerOnly || last.canAddressStrangers)) usable = [last];
-    }
-    if (!usable.length) return null;
+  function pick(payload) {
+    var usable = chain();
+    if (!usable.length) usable = [PROVIDERS[PROVIDERS.length - 1]];
 
     if (payload && payload._cc) {
       var canCC = usable.filter(function (p) { return !p.cannotCC; });
@@ -863,19 +854,9 @@
      caller falls through to the normal chain — a preference is a
      preference, never a requirement, and mail must never be lost
      because the cheap route is unavailable. */
-  function ownInboxRelay(to, except) {
-    except = except || [];
+  function ownInboxRelay() {
     return chain().filter(function (p) {
-      if (except.indexOf(p.id) !== -1) return false;
-      if (p.metered) return false;
-      /* v97 — a relay that ignores the recipient is still fine for
-         a message addressed to an inbox WE own, because its key is
-         registered to that inbox and the message lands there. It
-         only becomes a problem when the target is somebody else's
-         address. This is what lets StaticForms carry our-own-inbox
-         mail for free when FormSubmit is down or unactivated. */
-      if (p.ignoresRecipient) return isOurs(to);
-      return true;
+      return !p.metered && !p.ignoresRecipient;
     })[0] || null;
   }
 
@@ -887,7 +868,7 @@
        CC; pick() knows that rule, so do not override it here. The
        free relay can CC anyway, but that is its property to
        declare, not ours to assume. */
-    var free = ownInboxRelay(to);
+    var free = ownInboxRelay();
     if (!free) return post(to, payload);
     if (payload && payload._cc && free.cannotCC) return post(to, payload);
     return postVia(free, to, payload);
@@ -1024,71 +1005,6 @@
     try { localStorage.removeItem(QUOTA_KEY); } catch (e) {}
   }
 
-  /* =========================================================
-     v97 — IDEMPOTENCY: ONE MESSAGE ROLE IS SENT ONCE
-     ---------------------------------------------------------
-     A message key looks like BOOKING-EK123-TUTOR or
-     CONTACT-C4K2P9-VISITOR. Before a job posts, its key is
-     checked; if that exact role already succeeded in THIS
-     browser, the job resolves as already-sent and nothing goes
-     out twice. It survives double-click, refresh and restart
-     because it lives in localStorage — the same per-browser
-     caveat as the quota store, and documented the same way.
-
-     A FAILED attempt is recorded as ok:false, so an admin retry
-     or a second submit is never blocked by an earlier failure. */
-  var SENT_KEY = "ekguru_mail_sent_v1";
-  function sentMap() {
-    try { return JSON.parse(localStorage.getItem(SENT_KEY) || "{}") || {}; }
-    catch (e) { return {}; }
-  }
-  function sentSucceeded(key) {
-    var m = sentMap();
-    return !!(m[key] && m[key].ok);
-  }
-  function recordSent(key, info) {
-    try {
-      var m = sentMap();
-      m[key] = {
-        at: new Date().toISOString(),
-        ok: !!(info && info.ok),
-        to: (info && info.to) || "",
-        via: (info && info.via) || "",
-        state: (info && info.state) || ((info && info.ok) ? "ACCEPTED" : "FAILED")
-      };
-      localStorage.setItem(SENT_KEY, JSON.stringify(m));
-    } catch (e) {}
-  }
-  function clearSent() {
-    try { localStorage.removeItem(SENT_KEY); } catch (e) {}
-  }
-
-  /* Wrap one send job with its idempotency key. When the key has
-     already succeeded the job is skipped and the earlier result is
-     replayed, so the confirmation screen and the ledger still see
-     who received what — without sending anything twice. */
-  function guarded(key, to, job) {
-    return function () {
-      if (!key) return job();
-      var prev = sentMap()[key];
-      if (prev && prev.ok) {
-        return Promise.resolve({
-          to: prev.to || to, ok: true, dedup: key,
-          state: "ACCEPTED", via: prev.via || ""
-        });
-      }
-      return job().then(function (r) {
-        recordSent(key, {
-          ok: !!(r && r.ok),
-          to: (r && r.to) || to,
-          via: (r && r.via) || "",
-          state: (r && r.ok) ? "ACCEPTED" : "FAILED"
-        });
-        return r;
-      });
-    };
-  }
-
   function hasWeb3Key() {
     return !!(CFG.web3formsKey && String(CFG.web3formsKey).trim());
   }
@@ -1207,30 +1123,11 @@
     return post(to, payload, attempt, forced);
   }
 
-  function post(to, payload, attempt, forced, exclude, strangerOnly) {
+  function post(to, payload, attempt, forced) {
     attempt = attempt || 0;
-    exclude = exclude || [];
-    /* v98 — a forced relay chosen because it can reach a stranger
-       keeps that requirement for every fallback of THIS send. A
-       receipt addressed to a student must never silently fall back
-       to a relay that ignores the recipient (StaticForms) and would
-       deliver the message to our own inbox while reporting success.
-       Once a stranger, always a stranger — through every retry. */
-    if (forced && forced.canAddressStrangers && !isOurs(to)) strangerOnly = true;
     var ctrl = null, timer = null;
     try { ctrl = new AbortController(); } catch (e) {}
     if (ctrl) timer = setTimeout(function () { try { ctrl.abort(); } catch (e) {} }, 15000);
-
-    /* How many DISTINCT routes actually exist? Every provider,
-       plus one per extra key it holds. This is the retry budget
-       for one send — hoisted up here (v98) because BOTH the
-       response handler and the network-error fallback below need
-       it. A budget of zero would make a single flaky relay lose
-       the message while four healthy ones sit unused. */
-    var routes = 0;
-    PROVIDERS.forEach(function (p) {
-      routes += p.keys ? Math.max(1, p.keys().length) : 1;
-    });
 
     /* v55: the provider is whichever is first in the chain right
        now. Captured here, before the request, because the
@@ -1242,7 +1139,7 @@
        deliver one, or the CC'd person is silently dropped and the
        relay still answers success. That is the bug that hid the
        student's receipt for months. */
-    var active = forced || pick(payload, exclude, strangerOnly);
+    var active = forced || pick(payload);
 
     /* =========================================================
        v86 — THE LAST LINE OF DEFENCE
@@ -1260,26 +1157,13 @@
        explicit choice is how you get a bug nobody can find.
        ========================================================= */
     if (!forced && active && active.metered && isOurs(to)) {
-      var freeRoute = ownInboxRelay(to, exclude);
+      var freeRoute = ownInboxRelay();
       if (freeRoute && !(payload && payload._cc && freeRoute.cannotCC)) {
         active = freeRoute;
       }
     }
 
     if (!active) {
-      /* pick() returns null in two situations now. The original:
-         a CC is required and no usable relay can do it — the caller
-         splits the message and posts the person their own copy.
-         The new one (v98): every route has already been excluded for
-         THIS send, i.e. the whole chain refused or died. That is a
-         genuine FAILED, reported as one, never spun into a loop. */
-      if (exclude && exclude.length) {
-        return Promise.resolve({
-          to: to, ok: false, state: "FAILED", via: "",
-          error: "No mail relay could carry this message.",
-          errorClass: "NO_ROUTE"
-        });
-      }
       /* pick() returns null only when a CC is required and no
          usable relay can do it. Rather than send it anyway and
          lose the recipient in silence, say so — send() catches
@@ -1398,12 +1282,7 @@
            from one that failed, and the confirmation screen would
            claim an email that never arrived. */
         if (res.ok && json && String(json.success) === "true") {
-          /* ACCEPTED, never DELIVERED: the provider confirmed it
-             accepted the message. It cannot confirm the recipient's
-             mailbox. The command is explicit about not confusing
-             the two, so the state is named honestly. */
-          return { to: to, ok: true, ccTo: payload._cc || null,
-                   state: "ACCEPTED", via: active.label };
+          return { to: to, ok: true, ccTo: payload._cc || null };
         }
 
         var why = (json && json.message) ? json.message :
@@ -1463,58 +1342,6 @@
           /invalid access key|invalid api key|access key.*invalid|unauthorized|forbidden/i.test(why);
         if (authDead) quotaHit = true;
 
-        /* v98 — "NOT AUTHORISED" IS A CONFIG GAP, NOT A QUOTA.
-           The deployed Apps Script relay answers this when the shared
-           token is empty or wrong. It is live and reachable — the
-           problem is a missing word in two places, which a human can
-           fix in a minute. Marking it spent for the month would hide
-           a working relay; instead we fall through for THIS send only
-           and carry an AUTH errorClass so the dashboard can flag
-           "set the token". British ("authorised") and American
-           ("unauthorized") both matched, because Google's message is
-           the British one. */
-        var needsAuth = /not authori[sz]ed|unauthori[sz]ed/i.test(why);
-        if (needsAuth && attempt < routes + 1) {
-          return post(to, payload, attempt + 1, null,
-                     exclude.concat(active.id), strangerOnly);
-        }
-
-        /* v97 — "THIS FORM NEEDS ACTIVATION" IS A PERMANENT REFUSAL
-           ---------------------------------------------------------
-           FormSubmit answers this for any address whose owner has
-           never clicked its activation link. It is NOT transient
-           and NOT a quota: retrying the same relay is pointless,
-           and posting to the same recipient can never succeed
-           until a human activates the address.
-
-           Live probe 11 Sep 2026 (real browser Origin): our own
-           inbox EkGuruLearning@gmail.com answers
-               {"success":"true","message":"The form was
-                submitted successfully."}
-           while a stranger's address answers
-               {"success":"false","message":"This form needs
-                Activation..."}
-           That is exactly the designed split: FormSubmit is
-           activated for OUR inbox (free, uncapped) and refuses
-           addresses whose owner never clicked an activation link —
-           which is every student/visitor. So the refusal is a
-           capability limit, not a fault. If activation is ever
-           lost (our own inbox starts getting this answer), this
-           branch retires the relay for the month and falls back,
-           so a booking is never lost to a deactivated free relay. */
-        var needsActivation = /needs activation|activate form|will be activ/i.test(why);
-        if (needsActivation) {
-          markSpent(active.id,
-            active.label + " — recipient address not activated on this relay (tools/mail-activate.html)");
-          /* A forced provider that is now spent must be dropped,
-             or the retry picks it again and loops forever. pick()
-             then selects the next capable relay for this payload. */
-          if (attempt < routes + 1) {
-            var nextForced = (forced && !spent(forced.id)) ? forced : null;
-            return post(to, payload, attempt + 1, nextForced, exclude, strangerOnly);
-          }
-        }
-
         if (quotaHit) {
           if (usedKey) {
             /* Retire this KEY. The provider stays in the chain
@@ -1547,7 +1374,11 @@
 
              Count the routes that exist instead: every provider,
              plus one per extra key it holds. */
-          if (attempt < routes + 1) return post(to, payload, attempt + 1, forced, exclude, strangerOnly);
+          var routes = 0;
+          PROVIDERS.forEach(function (p) {
+            routes += p.keys ? Math.max(1, p.keys().length) : 1;
+          });
+          if (attempt < routes + 1) return post(to, payload, attempt + 1, forced);
         }
 
         var throttled = /web server/i.test(why) &&
@@ -1557,59 +1388,23 @@
         if ((throttled || rateLimited) && attempt < 3) {
           var wait = 700 * Math.pow(2, attempt);   /* 700ms, 1.4s, 2.8s */
           return new Promise(function (r) { setTimeout(r, wait); })
-            .then(function () { return post(to, payload, attempt + 1, forced, exclude, strangerOnly); });
+            .then(function () { return post(to, payload, attempt + 1, forced); });
         }
 
         if (throttled) {
           why = "The mail service is busy. Please try again in a minute.";
         }
-        /* v97 — a normalized class for every failure, so callers and
-           the dashboard can tell "retry later" from "fix the config".
-           needsActivation/quotaHit/authDead returned above; what is
-           left here is a throttle/rate limit or something unknown. */
-        var errClass = (throttled || rateLimited) ? "RATE_LIMIT"
-                     : (needsAuth ? "AUTH" : "UNKNOWN");
-        if (needsAuth) {
-          why = "Apps Script relay needs its shared token — set mail.appsScript.token in js/site-config.js.";
-        }
-
-        /* v98 — AN UNKNOWN REFUSAL IS NOT THE END OF THE LINE EITHER.
-           One relay answered HTTP 200 with a body that is neither
-           success, quota, activation nor throttle (a changed API, a
-           half-configured script). Walk to the next route before
-           reporting failure; only fail once every route has refused.
-           The refused relay is excluded for THIS send only — it was
-           not a quota, so it is not marked spent for the month. */
-        if (attempt < routes + 1) {
-          return post(to, payload, attempt + 1, null, exclude.concat(active.id), strangerOnly);
-        }
-        return { to: to, ok: false, error: why, state: "FAILED",
-                 via: active.label, errorClass: errClass };
+        return { to: to, ok: false, error: why };
       });
     }).catch(function (err) {
       if (timer) clearTimeout(timer);
       var msg = err && err.message ? err.message : String(err);
-      var networkDown = !/abort|timeout/i.test(msg);
-      /* A dropped connection is worth one retry on the SAME relay:
-         transient blips are common and re-using the relay is cheap. */
-      if (attempt < 2 && networkDown) {
+      /* A dropped connection is worth one retry too. */
+      if (attempt < 2 && !/abort/i.test(msg)) {
         return new Promise(function (r) { setTimeout(r, 800 * (attempt + 1)); })
-          .then(function () { return post(to, payload, attempt + 1, forced, exclude, strangerOnly); });
+          .then(function () { return post(to, payload, attempt + 1, forced); });
       }
-      /* v98 — A RELAY THAT IS UNREACHABLE MUST NOT BE A DEAD END.
-         The whole point of a chain is that one relay being down
-         cannot lose mail. On a network failure (not our own abort
-         or timeout), stop re-picking the same relay and move to the
-         next route — excluding the dead one for THIS send so pick()
-         cannot choose it again. It is deliberately NOT marked spent:
-         network trouble is transient, unlike a quota, and it should
-         be back in the chain on the next message. */
-      if (networkDown && attempt < routes + 1) {
-        return post(to, payload, attempt + 1, null, exclude.concat(active.id), strangerOnly);
-      }
-      return { to: to, ok: false, error: msg, state: "FAILED",
-               via: (active && active.label) || "",
-               errorClass: /abort|timeout/i.test(msg) ? "TIMEOUT" : "NETWORK" };
+      return { to: to, ok: false, error: msg };
     });
   }
 
@@ -1871,39 +1666,6 @@
       var targetIsUs = isEmail(SITE.email) &&
                        SITE.email.toLowerCase() === String(target).toLowerCase();
 
-      /* v97 — WAS THE TUTOR'S OWN ADDRESS ACTUALLY AVAILABLE?
-         The command forbids silently rerouting a tutor's mail to a
-         generic inbox and calling it done. When a tutor has neither
-         a formKey alias nor a personal email, the request is routed
-         through the EkGuru inbox and the state is marked
-         TUTOR_EMAIL_UNAVAILABLE — reported to EkGuru, shown to the
-         student honestly, and never confused with a delivery to the
-         tutor's own mailbox. */
-      var tutorHasDirect = !!(tutor && (tutor.formKey || isEmail(tutor.email)));
-      var tutorEmailStatus = tutorHasDirect
-        ? (tutor.formKey ? "ALIAS" : "PERSONAL")
-        : "TUTOR_EMAIL_UNAVAILABLE";
-
-      /* Idempotency keys — BOOKING-{ref}-TUTOR / -STUDENT / -INTERNAL.
-         Guarded() skips a job whose key already succeeded in this
-         browser, so a double-click or a refresh cannot send twice. */
-      var refKey = ref ? String(ref).toUpperCase() : "";
-      var kTutor = refKey ? "BOOKING-" + refKey + "-TUTOR" : "";
-      var kStudent = refKey ? "BOOKING-" + refKey + "-STUDENT" : "";
-      var kInternal = refKey ? "BOOKING-" + refKey + "-INTERNAL" : "";
-
-      /* v97 — an ADMIN RETRY must be able to actually re-send a role
-         that already succeeded (e.g. the student lost their receipt).
-         data.force clears this ref's sent keys so the guarded jobs
-         run again. Normal submits never set it. */
-      if (data.force && refKey) {
-        try {
-          var smF = sentMap();
-          [kTutor, kStudent, kInternal].forEach(function (k) { if (k) delete smF[k]; });
-          localStorage.setItem(SENT_KEY, JSON.stringify(smF));
-        } catch (e) {}
-      }
-
       /* When a tutor has not yet given us a personal address, their
          bookings come to our inbox — so `target` and our inbox are
          the same place. Sending both the tutor copy and the record
@@ -1922,16 +1684,16 @@
          ownInboxRelay(). `targetIsUs` is exactly the case where a
          tutor has no personal address yet, which is 3 of our 4
          tutors, so this is the common path, not the edge case. */
-      var jobs = [guarded(targetIsUs ? kInternal : kTutor, target, function () {
+      var jobs = [function () {
         return targetIsUs
           ? postOwn(target, siteBody())      /* our inbox — free relay */
           : post(target, tutorBody());       /* a real tutor address   */
-      })];
+      }];
 
       if (CFG.copyToSite !== false && isEmail(SITE.email) && !targetIsUs) {
         /* THE RECORD. Prakash: "record wali free wale se hi aani
            chahiye." It is addressed to us, so it costs nothing. */
-        jobs.push(guarded(kInternal, ourInbox, function () { return postOwn(ourInbox, siteBody()); }));
+        jobs.push(function () { return postOwn(ourInbox, siteBody()); });
       }
 
       /* =========================================================
@@ -1978,7 +1740,7 @@
                        ? data.email : null;
 
       if (studentTo) {
-        jobs.push(guarded(kStudent, studentTo, function () {
+        jobs.push(function () {
           var direct = PROVIDERS.filter(function (p) {
             return p.enabled() && !spent(p.id) && p.canAddressStrangers;
           })[0];
@@ -2001,7 +1763,7 @@
              and the free relay is also the only one that can
              actually deliver the CC. Both rules point the same way. */
           return postOwn(ourInbox, receipt);
-        }));
+        });
       }
 
       /* Any extra operational inboxes get the full record. These are
@@ -2103,45 +1865,14 @@
             }
             return out;
           })(),
-          failed: failed.map(function (r) {
-            return { to: r.to, error: r.error, state: r.state || "FAILED",
-                     via: r.via || "", errorClass: r.errorClass || "UNKNOWN" };
-          }),
+          failed: failed.map(function (r) { return { to: r.to, error: r.error }; }),
           ref: data.ref || "",
           from: studentLine,
           toLabel: tutorLine,
           copies: copies,
           sentAt: now.toISOString(),
           subject: tutorBody()._subject,
-          separate: true,
-          /* v97 — the honest state vocabulary. `delivered` above is
-             retained for the existing dashboard, but it means
-             PROVIDER-ACCEPTED, and this field says so in words. */
-          state: "ACCEPTED",
-          accepted: true,
-          tutorEmailStatus: tutorEmailStatus,
-          tutorEmailUnavailable: tutorEmailStatus === "TUTOR_EMAIL_UNAVAILABLE",
-          tutorEmailNote: tutorEmailStatus === "TUTOR_EMAIL_UNAVAILABLE"
-            ? "This tutor has no personal address on file; the request went to the EkGuru inbox for forwarding."
-            : "",
-          emailStates: (function () {
-            var okAddrs = delivered.map(function (a) { return String(a).toLowerCase(); });
-            var stuLc = studentTo ? String(studentTo).toLowerCase() : "";
-            var siteLc = String(SITE.email || "").toLowerCase();
-            var studentAccepted = studentTo && (
-              okAddrs.indexOf(stuLc) > -1 ||
-              results.some(function (r) { return r.ok && r.ccTo && String(r.ccTo).toLowerCase() === stuLc; })
-            );
-            return {
-              tutor: tutorEmailStatus === "TUTOR_EMAIL_UNAVAILABLE"
-                ? "TUTOR_EMAIL_UNAVAILABLE"
-                : (targetIsUs
-                    ? (primary.ok ? "ACCEPTED" : "FAILED")     /* merged into the record */
-                    : (okAddrs.indexOf(String(target).toLowerCase()) > -1 ? "ACCEPTED" : "FAILED")),
-              internal: (okAddrs.indexOf(siteLc) > -1) ? "ACCEPTED" : "FAILED",
-              student: studentTo ? (studentAccepted ? "ACCEPTED" : "FAILED") : null
-            };
-          })()
+          separate: true
         };
       });
     },
@@ -2378,7 +2109,7 @@
            bhi free wale se". If the preference is free, it is
            honoured; if it is metered and a free route exists, the
            free route wins. */
-        if (p.metered && ownInboxRelay(ourInbox)) return postOwn(ourInbox, payload);
+        if (p.metered && ownInboxRelay()) return postOwn(ourInbox, payload);
         /* postVia keeps every retry, timeout and quota rule in
            post() rather than duplicating them here — a second copy
            of retry logic is a second place for it to be wrong. */
@@ -2461,25 +2192,10 @@
         })[0] || null;
       }
 
-      /* Idempotency keys — CONTACT-{ref}-INTERNAL / -VISITOR. */
-      var refKey = ref ? String(ref).toUpperCase() : "";
-      var kInternal = refKey ? "CONTACT-" + refKey + "-INTERNAL" : "";
-      var kVisitor = refKey ? "CONTACT-" + refKey + "-VISITOR" : "";
-
-      /* v97 — admin retry force: clear this ref's sent keys so the
-         jobs run again. */
-      if (data.force && refKey) {
-        try {
-          var smF = sentMap();
-          [kInternal, kVisitor].forEach(function (k) { if (k) delete smF[k]; });
-          localStorage.setItem(SENT_KEY, JSON.stringify(smF));
-        } catch (e) {}
-      }
-
-      var jobs = [guarded(kInternal, ourInbox, function () { return preferContact(mine); })];
+      var jobs = [function () { return preferContact(mine); }];
 
       if (CFG.copyToStudent !== false) {
-        jobs.push(guarded(kVisitor, from, function () {
+        jobs.push(function () {
           var direct = directToStranger();
 
           if (direct) {
@@ -2507,7 +2223,7 @@
              it; it just looks less tidy and costs us a duplicate.
              A worse copy beats no copy. */
           return preferContact(theirs);
-        }));
+        });
       }
       (CFG.alwaysCc || []).forEach(function (extra) {
         if (isEmail(extra) && extra.toLowerCase() !== String(ourInbox).toLowerCase()) {
@@ -2535,30 +2251,12 @@
            a failed message — they would send it again. */
         var primary = results[0];
         if (!primary.ok) throw new Error(primary.error);
-        var ack = !!(results[1] && results[1].ok);
-        var visitorJob = CFG.copyToStudent !== false ? results[1] : null;
         return {
           ok: true,
           ref: ref,
           to: ourInbox,
-          via: primary.via || "",
-          acknowledged: ack,
-          state: "ACCEPTED",
-          accepted: true,
-          sentAt: now.toISOString(),
-          /* v97 — honest per-role states. ACCEPTED means the relay
-             took the message; it does not claim the mailbox showed
-             it. */
-          emailStates: {
-            internal: primary.ok ? "ACCEPTED" : "FAILED",
-            visitor: visitorJob
-              ? (visitorJob.ok ? "ACCEPTED" : "FAILED")
-              : null
-          },
-          failed: results.filter(function (r) { return !r.ok; }).map(function (r) {
-            return { to: r.to, error: r.error, state: r.state || "FAILED",
-                     via: r.via || "", errorClass: r.errorClass || "UNKNOWN" };
-          })
+          acknowledged: !!(results[1] && results[1].ok),
+          sentAt: now.toISOString()
         };
       });
     },
@@ -2988,13 +2686,7 @@
        can switch straight back after upgrading, without waiting for
        the 1st of the month. */
     quota: quotaState,
-    clearQuota: clearQuota,
-
-    /* v97 — idempotency. sentLog() shows which message roles have
-       already gone out in this browser; clearSent() wipes it (used
-       by the dashboard's mail tools and by tests). */
-    sentLog: function () { return sentMap(); },
-    clearSent: clearSent
+    clearQuota: clearQuota
   };
 
   window.EkGuruMail = Mail;

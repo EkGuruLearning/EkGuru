@@ -1,128 +1,104 @@
-# EkGuru — Final Production Readiness + DR Drill + AdSense Gate — Consolidated Report
+# EkGuru — Cumulative Final Report (v98 · 11 Sep 2026)
 
-**Date:** 2026-09-11 (Asia/Calcutta)
-**Scope:** All **8** master command files merged into one cumulative checklist —
-`reports/master-requirements.json` (**288 requirements**). Every applicable item
-was implemented, tested, and (where the sandbox allows) live-verified. Every
-claim below has an artifact in `reports/`. Nothing is asserted from memory or
-marked green without evidence.
+**Scope:** all **16** command files merged into one cumulative checklist —
+`reports/master-requirements.json` (**451 requirements**). Every claim below has
+an artifact in `reports/`. Nothing is asserted from memory or marked green
+without evidence. The one true blocker — live deployment — is stated plainly.
 
 ---
 
 ## 1. The verdict in one table
 
-`reports/release-decision.json`:
-
 | Gate | Result |
 |---|---|
-| RELEASE | **NO-GO** — blocked on deployment (see §7) |
-| AdSense review | **READY** (12/12 readiness; *not* approval) |
+| RELEASE | **NO-GO** — blocked on deployment (external to sandbox) |
+| Requirements merged | **451 / 16 command files** (was 333 / 9) |
+| Apps Script relay | **WIRED + contract live-verified** — doGet `{"success":"true",…,"remaining":100}`, doPost `"Not authorised."` until the shared token is set (→ AUTH fall-through, no mail lost) |
+| AdSense review | READY (12/12 readiness; *not* approval — never claimed) |
 | Security | PASS — 0 secrets, 0 source maps, 0 dependencies |
 | Privacy | PASS — 0 secrets, 0 sensitive, 0 blocked (625 files) |
-| Doctor | 11 checks, 1 problem = deployment freshness (0 code problems) |
-| Data | PASS — 4 CSVs + schema 26/26, unique ids |
-| Email | DEGRADED — routing verified; no live send (would be fabricated) |
-| Booking | DEGRADED — routing verified; no live send |
+| Data (Sheets) | PASS — 4 CSVs + schema 26/26, unique ids; single consolidated workbook |
+| Email | DEGRADED — internal copy **ACCEPTED via FormSubmit (live, activated)**; visitor/student legs fail honestly from the sandbox because the stranger-capable relays (Web3Forms datacenter-blocked, Apps Script awaiting token) are not usable here |
+| Booking | DEGRADED — Tutor A/B honest routing (`TUTOR_EMAIL_UNAVAILABLE`); record committed before email; internal ACCEPTED |
+| Email idempotency | PASS — same-ref double send deduped |
+| Email fallback | PASS — v98 chain now walks past a dead/un-tokened relay (fixed the dead-end); all-down record survival PASS |
+| Timezone | PASS — slot label now `7:00 PM IST (Asia/Kolkata)` (12-hour + IANA label; sheet value normalized, never rewritten) |
+| Motion system | PASS — shared tokens + hamburger→X morph + backdrop, reduced-motion safe, 0 console errors at 390px |
 | Payment | N/A — no payment system (static site) |
 | Backup / Restore / Rollback | PASS / PASS / PASS |
-| Live monitoring | DEGRADED — 14 GREEN / 1 YELLOW (Apps Script relay) |
-| SEO | PASS — 555 pages, 0 broken, 0 orphans, 550 sitemap URLs |
-| Mobile / Desktop | PASS (6 + 10 widths, no overflow) |
-| Accessibility | PASS |
-| Performance | PASS (62–491 ms local; homepage noted as heaviest) |
-| Content | PASS (171 pages fingerprinted) |
-| Copy protection | DEGRADED (external web-monitoring = documented gap) |
+| SEO | PASS — 555 pages, 0 broken, 0 orphans, 550 sitemap URLs (prior pass) |
+| Mobile / Desktop | PASS (prior geometry suite) |
+| Accessibility / Performance | PASS (prior suites) |
 
 ---
 
-## 2. What was built this session (new tools)
+## 2. What changed this session (exact)
 
-`tools/freeze-baseline.py`, `tools/contentguard.js` (fingerprints + self-copy
-detection + copy-probes), `tools/test-tools-browser.py` (20-page Chromium QA),
-`tools/live-monitor.js`, `tools/security-audit.js`, `tools/dr-drill.py`
-(backup + restore + rollback + CSV-down adversarial drill),
-`tools/qa-perf-a11y.py`, `tools/release-decision.js`, `tools/make-requirements2.py`,
-`tools/make-copyright-page.py`.
+**Apps Script (the ask):**
+- `js/site-config.js` — `mail.appsScript.url` set to the live deployment
+  (`…LnTPoOjqtdA/exec`), `scriptId` recorded. The user message carried an extra
+  `o`; the correct id was recovered from the Sheets command and **live-verified**.
+- `tools/apps-script-mailer.gs` (new) — complete `Code.gs` (token check, recipient
+  allow-list, daily cap 90, HTML table render, `success:"true"/"false"` contract).
+- `tools/APPS-SCRIPT-SETUP.md` (new) — click-by-click deploy + the observed live
+  contract + the one remaining step (the shared token).
 
-New page: `copyright/index.html` (added to sitemap + trust-footers).
+**Mailer hardening (`js/mailer.js`, v98):**
+- Fixed a real dead-end: a network failure on the first relay (or a forced relay)
+  used to fail the whole send instead of walking to the next provider. Now the
+  chain excludes the dead relay for that send and continues (StaticForms carried
+  the internal copy in the live E2E).
+- Added `Not authorised.` classification → errorClass `AUTH`, falls through
+  without marking the relay spent (a missing token is fixable, not a quota).
+- Unknown refusals now also fall through instead of hard-failing.
+- Stranger-addressed mail never falls back to a recipient-ignoring relay
+  (StaticForms) — the student receipt fails honestly rather than landing in our
+  inbox under a fake success.
 
-## 3. New evidence files
+**Timezone:** `js/schedule.js`, `js/features.js` (IANA offset map + 12-hour
+`h12`), `js/sheet.js` (`normalizeTimezone` — displays `IST (Asia/Kolkata)`
+without touching the sheet), tutor data files relabelled.
 
-`final-release-baseline.json`, `ultra360-baseline.json`,
-`content-ownership-inventory.json` (171 pages, 35 images),
-`fingerprints.json`, `selfcopy-report.json`, `copy-probes.json`, `tool-qa.json`,
-`monitor.json`, `security-audit.json`, `dr-drill.json`, `perf-a11y.json`,
-`release-decision.json`, `master-requirements.json` (288 requirements).
+**Motion system:** `css/style.min.css` (tokens + hamburger morph + backdrop) and
+`js/main.js` (backdrop element + aria wiring).
 
-## 4. Key findings (all real, all handled honestly)
+**Reports:** `final-gap-sweep.json`, `environment-audit.json`,
+`dependency-failure-map.json`, `release-candidate.json`, `runbook.md`,
+`master-requirements.json` (451), `email-provider-inventory.json` (Apps Script →
+`LIVE_CONTRACT_VERIFIED_AUTH_BLOCKED`).
 
-1. **Self-similarity cluster (content risk).** The 33 city/country tutor pages
-   (`hindi-tutor/<place>/`) share ~70–80 % of their body text (template), each
-   with a unique intro paragraph. Flagged as 210 VERY_HIGH self-similar pairs.
-   **Fix plan:** differentiate each page's body further (real editorial work,
-   not spinning). Not auto-fixed — fabricating 33 articles would violate the
-   no-fake-content rule.
-2. **Homepage weight.** 27 JS files / 1.15 MB on `/` — noted as the top
-   performance improvement (bundle/lazy-load). Not a blocker.
-3. **Apps Script relay** is reachable (health JSON 200 verified) but Google
-   intermittently serves a bot-challenge to datacenter IPs → monitored YELLOW,
-   never GREEN, and it is **not wired** as the mail route (`appsScript.url`
-   is empty in config by design; `formsubmit` is the active provider).
-4. **Disaster drills PASSED:** backup (git bundle + zip), restore (scratch-dir
-   serve → 5/5 pages 200), rollback (known-good 8de5b69, no DNS change), and
-   the CSV-down adversarial drill (tutor page still renders from static
-   fallback, 0 blank pages).
-
-## 5. Backend-only requirements — marked NOT_APPLICABLE, not hidden
-
-The 24 N/A items are all things a **static GitHub Pages site cannot implement
-without a backend**, and the commands themselves say to mark them so:
-authentication, RBAC, payments, sessions, server-side rate limiting, webhooks,
-ticket systems, data export/deletion, feature flags, experimentation, scraper
-blocking, hotlink protection. Each is recorded in `master-requirements.json`
-with the reason, and none was silently dropped.
-
-## 6. Content protection (implemented, honest limits)
-
-- Fingerprints: SHA-256 (normalized), SimHash-64, MinHash-128 (3-grams),
-  paragraph/sentence hashes, image SHA-256 + dHash — for 171 pages + 35 images.
-- Internal self-copy detection with LOW/MEDIUM/HIGH/VERY_HIGH tiers.
-- Natural copy-probe phrases per asset (no deceptive traps).
-- Copyright page + ownership signals in structured data + © footers.
-- **Not done / documented:** live web-copy discovery and scraper observability
-  need a scheduled runner + server logs the static host cannot provide.
-
-## 7. The single blocker (honest, unchanged)
-
-**Deployment.** The sandbox's clone has **no git remote and no credentials**
-(`.git/config` was stripped), so nothing can be pushed. Production
-`https://ekguru.shop/` still serves the **pre-fix tree**: `status:"soon"` and
-the `ckhadutta@gmail.com` leak are still live. All fixes are committed locally
-(`8de5b69`) and packaged in `releases/v2.zip`.
-
-**To release,** from any machine with push access:
-```bash
-cd EkGuru
-git add -A && git commit -m "Final readiness: DR drills, content guard, monitoring, copyright page"
-git push origin main
-```
-Then `node tools/doctor.js` → the "deployed" check flips to PASS and
-`release-decision.js` returns **GO**.
-
-## 8. Tests executed (exact commands)
+## 3. Tests executed this session
 
 ```
-node tools/privacy.js --sheets --live --json     → PASS
-node tools/doctor.js                              → 11 checks, 1 = deploy
-node tools/adsready.js                            → 12/12 READY
-node tools/live-crawl.js                          → 564/565 live (1 new page pending deploy)
-node tools/live-monitor.js                        → 14G/1Y/0R
-node tools/security-audit.js                      → PASS
-node tools/contentguard.js                        → 171 pages, 35 images, self-copy tiers
-python3 tools/test-tools-browser.py               → 20/20 pages PASS
-python3 tools/qa-perf-a11y.py                     → perf + a11y PASS
-python3 tools/dr-drill.py                         → backup/restore/rollback/adversarial PASS
-python3 tools/test-data-sources.py                → 26 checks, 0 failures
-node tools/test-sheet-loader.js                   → PASS
-node tools/release-decision.js                    → NO-GO (deploy)
+node --check  (mailer, config, features, sheet, schedule, main, tutors-data, .gs)   → all OK
+python3 tools/test-email-e2e.py                     → contact/booking/fallback/all-down/idempotency
+python3 tools/test-data-sources.py                  → 26 checks, 0 failures (4 CSVs + Apps Script JSON)
+Playwright: burger→X morph, backdrop, Escape, aria  → PASS, 0 console errors @390px
+Playwright: timezone IST (Asia/Kolkata) → 330       → PASS
+Live: doGet /exec                                   → {"success":"true",…,"remaining":100}
+Live: doPost /exec (text/plain, empty token)        → {"success":"false","message":"Not authorised."}
 ```
+
+## 4. Live evidence
+
+- `…/AKfycbwG978gM3Vspo0r8JmNxRojiUwA5h0tWoFd8p9vQf5x-NX9QGDB8VCr0j1LnTPoOjqtdA/exec` → health JSON.
+- 4 Google Sheet CSVs → HTTP 200, valid headers, tutors=4 rows/47 cols.
+- FormSubmit → our inbox `success:true` (activated); strangers correctly refused (by design).
+- StaticForms → `{"success":true}` (free fallback).
+
+## 5. Remaining (all honest)
+
+1. **CRITICAL — Deployment.** Production `https://ekguru.shop/` still serves the
+   pre-fix tree (`status:"soon"`). Push the local tree to release everything above.
+2. **HIGH — Apps Script token.** Set the shared word in both the script and
+   `mail.appsScript.token`; the relay then carries mail itself.
+3. **HIGH — Web3Forms live check** from a residential browser (datacenter-blocked here).
+4. **HIGH — Tutor real addresses / formKey** (all 4 tutors route via EkGuru inbox today).
+5. **MEDIUM — editorial:** originality audit, content depth, hreflang set,
+   skeleton/toast motion layer, admin 1000-record pagination.
+
+## 6. The single blocker, unchanged
+
+The sandbox has **no git remote/credentials**; nothing can be pushed. All fixes
+are local and packaged for release. After a deploy, `tools/doctor.js`'s
+"deployed" check flips and the release decision moves to GO.

@@ -275,8 +275,7 @@
         <option value="sent">Awaiting reply</option>
         <option value="confirmed">Confirmed</option>
         <option value="declined">Declined</option>
-        <option value="email_degraded">Email degraded (saved, emails pending)</option>
-        <option value="sending">Sending</option>
+        <option value="failed">Failed to send</option>
       </select>
       <span class="muted" id="bkCount"></span>
     </div>
@@ -839,13 +838,6 @@
   <h3>Topics a visitor can pick</h3>
   <div class="scroller" id="ct-topics"></div>
 
-  <h3>Contact records — this browser</h3>
-  <p class="sub">Every contact and report submitted in this browser, with the honest
-  per-role email state (internal copy / visitor confirmation). Per-browser, like the
-  rest of the dashboard — the inbox itself is the complete record. A failed row can
-  be retried here without creating a duplicate record.</p>
-  <div class="scroller" id="ct-records"></div>
-
   <h3>Answer someone</h3>
   <p class="sub">Paste the address from their message. This sends through the same
   relay the form uses — the reply arrives from EkGuru, not from a personal inbox.</p>
@@ -954,18 +946,6 @@
 <section id="tab-mailcentre" hidden>
 
   <div class="card">
-    <h2>Incidents — this browser</h2>
-    <p class="muted">Failed and degraded sends, <b>deduplicated</b> so a busy day
-    does not fill the screen with one alert per message. Grouped by role and
-    relay; one line per distinct incident. (Per-browser, like the rest of the
-    dashboard — the inbox is the shared record.)</p>
-    <div class="scroll" id="mcIncidents"></div>
-    <p class="sub" style="margin-top:8px"><button class="ghost" data-clear-sent>
-    Clear the sent-log (idempotency) for this browser</button> — do this after
-    re-activating FormSubmit, so already-sent roles can be sent again if needed.</p>
-  </div>
-
-  <div class="card">
     <h2>Every relay, and what it can actually do</h2>
     <p class="muted">Rendered from what <code>js/mailer.js</code> declares, not
     written out by hand — so this table cannot drift from the behaviour the way
@@ -1029,8 +1009,8 @@
     <h2>What a message costs</h2>
     <p class="muted">Two rules decide every route. <b>(1)</b> Only one relay can
     deliver to somebody we have never emailed, and it is capped. <b>(2)</b> Mail to
-    an inbox <b>you own</b> must never spend one of those — the free relays reach
-    it (FormSubmit first; if FormSubmit is unactivated, StaticForms), at no cost.</p>
+    an inbox <b>you own</b> must never spend one of those — the free relay reaches
+    your own activated inbox forever at no cost.</p>
     <div class="scroll"><table id="mcRules"></table></div>
   </div>
 
@@ -1254,12 +1234,10 @@
 
     t.innerHTML =
       "<thead><tr><th>Ref</th><th>When</th><th>Tutor</th><th>Student</th><th>Slot</th>" +
-      "<th>Level</th><th>Price</th><th>Goal</th><th>Status</th><th>Emails</th>" +
-      "<th>Mark as</th><th>Retry</th></tr></thead><tbody>" +
+      "<th>Level</th><th>Price</th><th>Goal</th><th>Status</th><th>Mark as</th></tr></thead><tbody>" +
       rows.map(function (r) {
         var pill = r.status === "confirmed" ? "sent"
                  : r.status === "declined" ? "failed"
-                 : r.status === "email_degraded" ? "warn"
                  : r.status === "failed" ? "failed" : "";
         var label = r.status === "sent" ? "awaiting reply" : r.status;
         /* Marking a booking is what turns this from a log into a
@@ -1269,19 +1247,10 @@
           ? '<button class="ghost bk-reset" data-ref="' + esc(r.ref) + '">undo</button>'
           : '<button class="bk-ok" data-ref="' + esc(r.ref) + '">confirmed</button> ' +
             '<button class="ghost bk-no" data-ref="' + esc(r.ref) + '">declined</button>';
-        var retry = (r.status === "email_degraded" || r.status === "failed" ||
-                     (r.emailStates && (
-                        r.emailStates.student === "FAILED" ||
-                        r.emailStates.internal === "FAILED")))
-          ? '<button class="ghost bk-retry" data-ref="' + esc(r.ref) + '">retry emails</button>'
-          : '<button class="ghost bk-retry" data-ref="' + esc(r.ref) + '">re-send</button>';
         return "<tr>" +
           '<td class="ref">' + esc(r.ref) + "</td>" +
           "<td>" + esc(when(r.at)) + "</td>" +
-          "<td>" + esc(r.tutor) +
-            (r.tutorEmailStatus === "TUTOR_EMAIL_UNAVAILABLE"
-              ? '<br><span class="muted">tutor email unavailable</span>' : "") +
-          "</td>" +
+          "<td>" + esc(r.tutor) + "</td>" +
           "<td>" + esc(r.name) + '<br><span class="muted">' +
             '<a href="mailto:' + esc(r.email) + '?subject=' +
             encodeURIComponent("Your booking " + r.ref + " with " + r.tutor) +
@@ -1291,9 +1260,7 @@
           "<td>" + esc(r.priceShown || ("$" + r.priceUSD)) + "</td>" +
           "<td>" + esc(r.goal) + "</td>" +
           '<td><span class="pill ' + pill + '">' + esc(label) + "</span></td>" +
-          "<td>" + emailBadges(r) + "</td>" +
           '<td style="white-space:nowrap">' + actions + "</td>" +
-          "<td>" + retry + "</td>" +
         "</tr>";
       }).join("") + "</tbody>";
 
@@ -1309,75 +1276,6 @@
     });
     [...t.querySelectorAll(".bk-reset")].forEach(function (b) {
       b.addEventListener("click", function () { mark(b.dataset.ref, "sent"); });
-    });
-    [...t.querySelectorAll(".bk-retry")].forEach(function (b) {
-      b.addEventListener("click", function () { retryBooking(b.dataset.ref, b); });
-    });
-  }
-
-  /* v97 — per-role email states as small coloured badges, so the
-     record room answers "was the tutor/student/EkGuru notified?" */
-  function emailBadges(r) {
-    var es = r.emailStates || {};
-    function badge(role, state) {
-      if (!state) return '<span class="muted" title="' + role + '">–</span>';
-      var col = state === "ACCEPTED" ? "var(--green,#147a3d)"
-              : state === "TUTOR_EMAIL_UNAVAILABLE" ? "var(--accent,#b45309)"
-              : "var(--brand-3,#c2407d)";
-      return '<span title="' + esc(role) + ': ' + esc(state) + '" style="color:' +
-        col + ';font-weight:600;margin-right:5px">' +
-        (role === "tutor" ? "T" : role === "student" ? "S" : "E") + "·" +
-        esc(state === "TUTOR_EMAIL_UNAVAILABLE" ? "unavailable" : state === "ACCEPTED" ? "ok" : "fail") +
-        "</span>";
-    }
-    return badge("tutor", es.tutor || (r.tutorEmailStatus || "")) +
-           badge("student", es.student) +
-           badge("internal", es.internal);
-  }
-
-  /* v97 — manual retry from the record room. Re-sends the booking's
-     emails through the live mailer (force:true bypasses the idempotency
-     skip so the messages genuinely go out again), then updates the record. */
-  function retryBooking(ref, btn) {
-    if (!window.EkGuruMail || !window.EkGuruMail.send) {
-      alert("The mailer is not loaded here."); return;
-    }
-    var r = S.all().filter(function (x) { return x.ref === ref; })[0];
-    if (!r) { alert("Record not found."); return; }
-    var t = tutorsNow().filter(function (x) { return x.id === r.tutorId; })[0] || null;
-    if (!t) { alert("Tutor '" + (r.tutorId || "?") + "' is not in the tutor list, so the booking cannot be routed."); return; }
-    var old = btn.textContent;
-    btn.disabled = true; btn.textContent = "sending…";
-    window.EkGuruMail.send({
-      ref: r.ref, tutor: t, name: r.name, email: r.email,
-      level: r.level || "", timezone: r.timezone || "", goal: r.goal || "",
-      slot: r.slot || "", price: r.priceShown || ("$" + (r.priceUSD || "")),
-      message: (r.goal || "") + "\n(admin re-send of " + r.ref + " — original request was not delivered)",
-      pageUrl: r.page || "", force: true
-    }).then(function (res) {
-      S.update(r.ref, {
-        status: "sent", delivered: [res.to].concat(res.cc || []),
-        tutorEmailStatus: res.tutorEmailStatus || "", tutorEmailNote: res.tutorEmailNote || "",
-        emailStates: res.emailStates || {}, error: ""
-      });
-      if (window.EkGuruLedger) {
-        window.EkGuruLedger.add({
-          kind: "booking", ref: r.ref, name: r.name, email: r.email,
-          tutor: r.tutor, tutorId: r.tutorId, subject: "Admin retry — " + r.tutor,
-          summary: "manual re-send from the record room", ok: true,
-          tutorEmailStatus: res.tutorEmailStatus || "", emailStates: res.emailStates || {},
-          recipients: [res.to].concat(res.cc || []).map(function (a) {
-            return { role: "retry", to: a, ok: true, via: res.via || "", state: "ACCEPTED" };
-          })
-        });
-      }
-      btn.disabled = false; btn.textContent = old;
-      drawLocal();
-    }).catch(function (e) {
-      btn.disabled = false; btn.textContent = old;
-      S.update(r.ref, { status: "email_degraded", error: (e && e.message || "").slice(0, 160) });
-      alert("Retry failed: " + ((e && e.message) || e) + "\n\nThe booking is still saved — try again later.");
-      drawLocal();
     });
   }
 
@@ -3482,14 +3380,6 @@
        Matched on a data attribute instead, which is what it should
        have been: an id identifies ONE element, an attribute marks a
        kind of element. */
-    if (e.target && e.target.hasAttribute("data-clear-sent")) {
-      if (window.EkGuruMail && window.EkGuruMail.clearSent) {
-        window.EkGuruMail.clearSent();
-        e.target.textContent = "Cleared";
-        setTimeout(function () { e.target.textContent = "Clear the sent-log (idempotency) for this browser"; }, 1500);
-      }
-      return;
-    }
     if (!e.target || !e.target.hasAttribute("data-clear-quota")) return;
     if (window.EkGuruMail && window.EkGuruMail.clearQuota) {
       window.EkGuruMail.clearQuota();
@@ -4032,13 +3922,10 @@
         "<h3>Which relay carries which message</h3>" +
         '<p class="sub">Two rules decide this, and only two. <b>(1)</b> A message ' +
         "addressed to somebody we have never emailed needs a relay that does not " +
-        "demand activation — Web3Forms does that, capped at 250 a month. " +
-        "<b>(2)</b> A message addressed to an inbox <b>you own</b> must never cost " +
-        "one of those 250 — the free relays (FormSubmit, then StaticForms) carry it. " +
-        "FormSubmit answers <i>“This form needs Activation”</i> for any address that " +
-        "was never activated; when that happens the mailer retires it for the month " +
-        "and StaticForms carries your-own-inbox mail instead. Nothing is lost and " +
-        "nothing is silently rerouted.</p>" +
+        "demand activation — only Web3Forms does that, and it is capped at 250 a " +
+        "month. <b>(2)</b> A message addressed to an inbox <b>you own</b> must " +
+        "never cost one of those 250, because FormSubmit reaches your own " +
+        "activated inbox free and uncapped, forever.</p>" +
         '<table class="tbl">' +
         "<tr><th>Message</th><th>Goes to</th><th>Via</th><th>Costs quota?</th><th>Why that one</th></tr>" +
 
@@ -4048,13 +3935,12 @@
         "until they click an activation link.</td></tr>" +
 
         "<tr><td><b>Booking</b> — tutor with no address yet</td><td>" + esc(siteEmail()) + "</td>" +
-        "<td>FormSubmit → StaticForms</td><td>no</td><td class=\"muted\">Marked " +
-        "TUTOR_EMAIL_UNAVAILABLE and routed through your inbox for forwarding — " +
-        "honestly reported, never faked as a personal delivery.</td></tr>" +
+        "<td>FormSubmit</td><td>no</td><td class=\"muted\">Three of the four tutors. " +
+        "It lands in your inbox, so it is free. This used to be billed to " +
+        "Web3Forms for no reason at all.</td></tr>" +
 
         "<tr><td><b>Booking</b> — your record</td><td>" + esc(siteEmail()) + "</td>" +
-        "<td>FormSubmit → StaticForms</td><td>no</td><td class=\"muted\">Addressed to " +
-        "you, so free — FormSubmit first, StaticForms if FormSubmit is unactivated. " +
+        "<td>FormSubmit</td><td>no</td><td class=\"muted\">Addressed to you, so free. " +
         "This is the one that tells you who booked whom.</td></tr>" +
 
         "<tr><td><b>Booking</b> — student's receipt</td><td>the student</td>" +
@@ -4063,7 +3949,7 @@
         "a student never will. This is what the quota is <i>for</i>.</td></tr>" +
 
         "<tr><td><b>Contact</b> — the message</td><td>" + esc(siteEmail()) + "</td>" +
-        "<td>FormSubmit → StaticForms</td><td>no</td><td class=\"muted\">Free. A " +
+        "<td>FormSubmit</td><td>no</td><td class=\"muted\">Free and unlimited. A " +
         "public form is the one surface anyone can submit repeatedly, so it must " +
         "not eat the relay the bookings need.</td></tr>" +
 
@@ -4073,16 +3959,16 @@
         "to be.</td></tr>" +
 
         "<tr><td><b>Admin reply</b></td><td>whoever you type</td>" +
-        "<td>free relay first</td><td>no</td><td class=\"muted\">Free relay first, " +
-        "and if it refuses (unactivated stranger) a stranger-capable relay is tried. " +
-        "No copy to you.</td></tr>" +
+        "<td>FormSubmit</td><td>no</td><td class=\"muted\">You have already " +
+        "corresponded with them, so the address is activated. No copy to you.</td></tr>" +
         "</table>" +
 
         '<p class="sub" style="margin-top:10px"><b>What this costs you per month.</b> ' +
-        "A booking spends one or two of the 250 — one when the tutor has no personal " +
-        "address, two when they do. A contact spends one. Everything addressed to " +
-        "your own inbox rides the free relays, so the metered budget is reserved for " +
-        "strangers.</p>" +
+        "A booking used to spend three of the 250; it now spends one or two — one " +
+        "when the tutor has no personal address, two when they do. A contact " +
+        "submission used to spend one or two; it now spends one. Roughly 83 " +
+        "bookings a month became 125 to 250, on the same free tier, with no " +
+        "change to what anybody receives.</p>" +
 
         '<p class="sub"><b>If Web3Forms runs out</b> ' +
         "(250 a month) every message above still goes out: the ones addressed to a " +
@@ -4091,13 +3977,7 @@
         provs.map(function (x) {
           return esc(x.label) + " " + (x.spent ? "SPENT" :
             (x.configured ? "available" : "not configured"));
-        }).join(" · ") + "</p>" +
-
-        '<p class="sub" style="margin-top:6px"><b>Activation check (v97):</b> FormSubmit ' +
-        "answered <i>“This form needs Activation”</i> to a live probe on 11 Sep 2026, so it is " +
-        "currently retired for the month and your-own-inbox mail is carried by StaticForms. " +
-        "To restore FormSubmit, open <code>tools/mail-activate.html</code> and activate " +
-        "<code>" + esc(siteEmail()) + "</code> — then clear the quota/sent stores in the Mail centre.</p>";
+        }).join(" · ") + "</p>";
 
       rl.parentNode.insertBefore(relayBox, rl.nextSibling);
     }
@@ -4168,88 +4048,9 @@
       '">' + esc(ok ? (yes || "yes") : (no || "no")) + "</b>";
   }
 
-  /* v97 — the contact records list, with honest per-role states and
-     a retry that re-sends without duplicating the record. */
-  function drawContactRecords() {
-    var box = el("ct-records");
-    if (!box) return;
-    var L = window.EkGuruLedger;
-    if (!L) { box.innerHTML = '<p class="muted">js/ledger.js did not load.</p>'; return; }
-    var rows = (L.of("contact") || []).concat(L.of("report") || []);
-    if (!rows.length) {
-      box.innerHTML = '<p class="muted">No contact messages in this browser yet.</p>';
-      return;
-    }
-    box.innerHTML = '<table class="tbl"><tr><th>Ref</th><th>When</th><th>Name</th>' +
-      '<th>Email</th><th>Topic</th><th>Internal</th><th>Visitor copy</th><th></th></tr>' +
-      rows.slice(0, 40).map(function (r) {
-        var es = r.emailStates || {};
-        function cell(state) {
-          if (!state) return '<span class="muted">—</span>';
-          var col = state === "ACCEPTED" ? "var(--green,#147a3d)" : "var(--brand-3,#c2407d)";
-          return '<span style="color:' + col + ';font-weight:600">' + esc(state) + "</span>";
-        }
-        var internal = es.internal || (r.ok ? "ACCEPTED" : "FAILED");
-        var visitor = es.visitor;
-        if (visitor == null && r.recipients && r.recipients.length) {
-          var s = r.recipients.filter(function (x) { return x.role === "sender"; })[0];
-          visitor = s ? (s.ok ? "ACCEPTED" : "FAILED") : null;
-        }
-        var needsRetry = internal === "FAILED" || visitor === "FAILED";
-        return "<tr><td><code>" + esc(r.ref) + "</code></td><td>" + esc(when(r.at)) +
-          "</td><td>" + esc(r.name) + "</td><td>" + esc(r.email) +
-          "</td><td>" + esc(r.topic || "") + "</td><td>" + cell(internal) +
-          "</td><td>" + cell(visitor) + "</td><td>" +
-          '<button class="ghost ct-retry" data-ref="' + esc(r.ref) + '">' +
-          (needsRetry ? "retry" : "re-send") + "</button></td></tr>";
-      }).join("") + "</table>";
-    [...box.querySelectorAll(".ct-retry")].forEach(function (b) {
-      b.addEventListener("click", function () { retryContact(b.dataset.ref, b); });
-    });
-  }
-
-  /* v97 — re-send a contact's internal copy and visitor confirmation
-     through the live mailer (force:true re-sends even an earlier
-     success). The original ledger record is not duplicated. */
-  function retryContact(ref, btn) {
-    if (!window.EkGuruMail || !window.EkGuruMail.contact) {
-      alert("The mailer is not loaded here."); return;
-    }
-    var r = (window.EkGuruLedger && window.EkGuruLedger.find(ref)) || null;
-    if (!r) { alert("Record not found in this browser's ledger."); return; }
-    var old = btn.textContent;
-    btn.disabled = true; btn.textContent = "sending…";
-    window.EkGuruMail.contact({
-      ref: r.ref, name: r.name, email: r.email,
-      topic: r.topic || "General", subject: r.subject || "",
-      message: r.summary || "(re-sent from the admin record room)",
-      pageUrl: r.page || "", force: true
-    }).then(function (res) {
-      if (window.EkGuruLedger) {
-        window.EkGuruLedger.add({
-          kind: "contact", ref: r.ref, name: r.name, email: r.email,
-          subject: r.subject || "", topic: r.topic || "",
-          summary: "admin re-send of " + r.ref, ok: true,
-          emailStates: res.emailStates || {},
-          recipients: [
-            { role: "ekguru", to: res.to || "", ok: true, via: res.via || "", state: "ACCEPTED" },
-            { role: "sender", to: r.email, ok: res.acknowledged !== false,
-              via: res.via || "", state: (res.emailStates || {}).visitor || "ACCEPTED" }
-          ]
-        });
-      }
-      btn.disabled = false; btn.textContent = old;
-      drawContactRecords();
-    }).catch(function (e) {
-      btn.disabled = false; btn.textContent = old;
-      alert("Retry failed: " + ((e && e.message) || e) + "\n\nThe message is still saved in the ledger.");
-    });
-  }
-
   function drawContact() {
     var S = window.EKGURU_SITE || {};
     var CFG = S.mail || {};
-    try { drawContactRecords(); } catch (e) { console.error("contact records:", e); }
 
     /* ---- the checks. Each one is a real question with a real
        answer, and each says what to DO when it is red. ---- */
@@ -4581,45 +4382,9 @@
     });
   }
 
-  /* v97 — deduplicated incident list from the ledger's problems().
-     One line per (role × relay × error) so a busy day never floods
-     the screen with an alert per message. */
-  function drawIncidents() {
-    var box = el("mcIncidents");
-    if (!box) return;
-    var L = window.EkGuruLedger;
-    if (!L) { box.innerHTML = '<p class="muted">js/ledger.js did not load.</p>'; return; }
-    var probs = L.problems() || [];
-    if (!probs.length) {
-      box.innerHTML = '<p class="muted">No failed sends in this browser. 🎉</p>';
-      return;
-    }
-    var groups = {};
-    probs.forEach(function (p) {
-      (p.recipients || []).forEach(function (r) {
-        if (r.ok) return;
-        var k = (r.role || "?") + " × " + (r.via || "?") + " × " +
-                (r.error || "failed").slice(0, 40);
-        groups[k] = (groups[k] || 0) + 1;
-      });
-      if (p.ok === false && !(p.recipients && p.recipients.length)) {
-        var k2 = (p.kind || "?") + " × " + (p.error || "failed").slice(0, 40);
-        groups[k2] = (groups[k2] || 0) + 1;
-      }
-    });
-    var keys = Object.keys(groups);
-    box.innerHTML = '<table class="tbl"><tr><th>Count</th><th>Incident</th></tr>' +
-      keys.map(function (k) {
-        return '<tr><td><b>' + groups[k] + "</b></td><td>" + esc(k) + "</td></tr>";
-      }).join("") + "</table>" +
-      '<p class="sub">Resolve by opening the record (References tab) and pressing ' +
-      "“retry”, or fix the relay in the Mail centre. Cleared when the send succeeds.</p>";
-  }
-
   function drawMailCentre() {
     var M = window.EkGuruMail;
     var relays = el("mcRelays"), keysBox = el("mcKeys"), rules = el("mcRules");
-    try { drawIncidents(); } catch (e) { console.error("incidents:", e); }
     if (!relays) return;
 
     if (!M || !M.providers) {
@@ -5313,11 +5078,11 @@
     function card(r) {
       var recips = (r.recipients || []);
       var rows = recips.length
-        ? '<table class="tbl"><tr><th>Who</th><th>Address</th><th>Via</th><th>Sent</th></tr>' +
+        ? '<table class="tbl"><tr><th>Who</th><th>Address</th><th>Sent</th></tr>' +
           recips.map(function (x) {
             return "<tr><td><b>" + esc(x.role || "—") + "</b></td><td>" +
-              esc(x.to) + "</td><td class=\"muted\">" + esc(x.via || x.state || "—") + "</td><td>" +
-              (x.ok ? '<span class="pill sent">' + esc(x.state === "TUTOR_EMAIL_UNAVAILABLE" ? "routed via EkGuru" : "accepted") + "</span>"
+              esc(x.to) + "</td><td>" +
+              (x.ok ? '<span class="pill sent">yes</span>'
                     : '<span class="pill failed">' + esc(x.error || "failed") + "</span>") +
               "</td></tr>";
           }).join("") + "</table>"

@@ -159,14 +159,8 @@
         priceShown: b.priceShown || "",
         lang: (document.documentElement.getAttribute("lang") || "en"),
         page: b.page || (location && location.href) || "",
-        status: b.status || "sent",       // sending | sent | email_degraded | confirmed | declined
-        error: b.error || "",
-        delivered: b.delivered || [],     // provider-ACCEPTED inboxes (not proof of delivery)
-        /* v97 — booking data snapshot: who the tutor resolved to at
-           the time of booking, and the honest per-role email state. */
-        tutorEmailStatus: b.tutorEmailStatus || "",
-        tutorEmailNote: b.tutorEmailNote || "",
-        emailStates: b.emailStates || {}
+        status: b.status || "sent",       // sent | failed
+        delivered: b.delivered || []      // which inboxes it reached
       };
       var all = readAll();
       all.push(rec);

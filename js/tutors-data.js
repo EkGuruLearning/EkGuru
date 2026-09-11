@@ -78,7 +78,7 @@
   var DEFAULTS = {
     /* identity */
     nickname: "", headline: "", subject: "Hindi",
-    country: "India", countryFlag: "🇮🇳", city: "", timezone: "IST (GMT+5:30)",
+    country: "India", countryFlag: "🇮🇳", city: "", timezone: "IST (Asia/Kolkata)",
 
     /* media */
     photo: "images/placeholder-tutor.jpg",

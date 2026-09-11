@@ -115,7 +115,7 @@ req(ADM, "Admin review / moderation", "admin", "P3", "PARTIAL",
 req(ADM, "Admin booking operations", "admin", "P2", "PARTIAL",
     "booking mail routing verified in code; admin ops UI deferred", "admin.html, js/mailer.js", "deferred", "n/a", "PARTIAL")
 req(ADM, "Admin email operations", "admin", "P2", "PARTIAL",
-    "compose() present; live send not triggered", "admin.html, js/mailer.js", "verify", "manual", "PARTIAL")
+    "compose() present; internal copy live-sent via FormSubmit (activated)", "admin.html, js/mailer.js", "verify", "manual", "PARTIAL")
 req(ADM, "Admin SEO control center", "admin", "P2", "PARTIAL",
     "seo stats shown from build-time crawl", "admin.html", "done", "n/a", "PARTIAL")
 req(ADM, "Admin privacy center", "admin", "P2", "PASS",
@@ -165,9 +165,9 @@ req(FIN, "Header requirement — preserve previous fix", "header", "P1", "PASS",
 req(FIN, "Google Sheets / Apps Script repair before content rebuild", "data", "P0", "PASS",
     "consolidated csvUrl; schema validation; 26 checks 0 failures", "js/site-config.js, js/sheet.js", "done", "test-data-sources.py", "PASS")
 req(FIN, "Contact form fix end-to-end", "email", "P0", "PARTIAL",
-    "routing/Reply-To/honeypot verified; no live send performed (would be a fabricated success)", "js/contact.js, js/mailer.js", "verify via real submit", "code inspection", "PARTIAL")
+    "routing/Reply-To/honeypot verified; live send - internal copy ACCEPTED via FormSubmit (activated); visitor copy NO_ROUTE (stranger leg by design)", "js/contact.js, js/mailer.js", "verify via real submit", "code inspection", "PARTIAL")
 req(FIN, "Booking emails fix end-to-end", "email", "P0", "PARTIAL",
-    "three-audience routing verified; live send not triggered", "js/mailer.js", "verify via real submit", "code inspection", "PARTIAL")
+    "three-audience routing live-tested: internal ACCEPTED, student FAILED (NO_ROUTE), tutor TUTOR_EMAIL_UNAVAILABLE", "js/mailer.js", "verify via real submit", "code inspection", "PARTIAL")
 req(FIN, "Old domain / migration — correct interpretation", "live", "P1", "PASS",
     "old GitHub →301→ HTTPS production →200 (not HTTP final)", "-", "done", "curl -L", "PASS")
 req(FIN, "Sitemap / robots / ads.txt", "seo", "P1", "PASS",

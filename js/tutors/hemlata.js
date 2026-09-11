@@ -36,7 +36,7 @@ ekguruTutor({
   country: "India",
   countryFlag: "🇮🇳",
   city: "India",                      // EDIT ME: e.g. "Jaipur, India"
-  timezone: "IST (GMT+5:30)",         // EDIT ME if she is not in India
+  timezone: "IST (Asia/Kolkata)",         // EDIT ME if she is not in India
 
   /* ===== IMAGES & VIDEO — HEMLATA ONLY ===============================
      ✅ Her photo and banner are done and working.
@@ -82,7 +82,14 @@ ekguruTutor({
                 Leave "" and no WhatsApp button appears anywhere for her
                 — no broken links, the page simply shows email instead.
      ================================================================ */
-  email: "EkGuruLearning@gmail.com",  // ← EDIT ME: HEMLATA's personal email
+  /* v97 — was "EkGuruLearning@gmail.com", which is the PLATFORM
+     inbox, not Hemlata's own address. A booking must never be
+     silently routed to a generic inbox while pretending it reached
+     the tutor, so her real personal address must be pasted here
+     (or a formKey alias). Until then the system marks her bookings
+     TUTOR_EMAIL_UNAVAILABLE and routes them through the EkGuru
+     inbox for forwarding — reported honestly, never faked. */
+  email: "",   // ← EDIT ME: HEMLATA's personal email (empty = no direct address on file)
   whatsapp: "",                       // ← EDIT ME: HEMLATA's WhatsApp, e.g. "+919876543210"
 
   /* ===== BOOKING EMAIL — HEMLATA ONLY ==============================

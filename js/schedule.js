@@ -52,7 +52,7 @@
 
    The tutor's zone is stored as a display string:
 
-       timezone: "IST (GMT+5:30)"
+       timezone: "IST (Asia/Kolkata)"
 
    That is written for humans, not for Date(). So the offset
    is parsed out of the "(GMT+5:30)" part. If it cannot be
@@ -81,13 +81,28 @@
   var MIN_NOTICE_HOURS = 3;
 
   /* ---------------------------------------------------------
-     Parse "IST (GMT+5:30)" → 330 minutes.
+     Parse "IST (Asia/Kolkata)" or "IST (GMT+5:30)" → 330 min.
      Also accepts "GMT-3", "UTC+05:30", "(GMT+0)".
      Returns null when it genuinely cannot tell, so the caller
      can fall back loudly rather than guess.
+
+     v98 — the tutor timezone label is now "IST (Asia/Kolkata)"
+     (the command's required display form). IANA names have no
+     +/- inside them, so they are matched by name first; the GMT
+     parser remains for any hand-written string.
      --------------------------------------------------------- */
+  var IANA_OFFSET = {
+    "Asia/Kolkata": 330, "Asia/Calcutta": 330,
+    "Asia/Kathmandu": 345, "Asia/Dubai": 240,
+    "Europe/London": 0, "America/New_York": -300,
+    "America/Chicago": -360, "America/Denver": -420,
+    "America/Los_Angeles": -480, "Australia/Sydney": 600
+  };
   function offsetMinutes(tzString) {
-    var m = /(?:GMT|UTC)\s*([+-])\s*(\d{1,2})(?::?(\d{2}))?/i.exec(String(tzString || ""));
+    var s = String(tzString || "");
+    var m = /([A-Za-z_]+\/[A-Za-z_]+)/.exec(s);
+    if (m && IANA_OFFSET[m[1]] !== undefined) return IANA_OFFSET[m[1]];
+    m = /(?:GMT|UTC)\s*([+-])\s*(\d{1,2})(?::?(\d{2}))?/i.exec(s);
     if (!m) return null;
     var sign = m[1] === "-" ? -1 : 1;
     var h = parseInt(m[2], 10) || 0;

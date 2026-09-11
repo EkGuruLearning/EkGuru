@@ -442,19 +442,9 @@
   /* =========================================================
      3. TIMEZONE HELPERS
      ========================================================= */
-  /* "IST (Asia/Kolkata)" or "IST (GMT+5:30)" -> 330 minutes */
-  var IANA_OFFSET = {
-    "Asia/Kolkata": 330, "Asia/Calcutta": 330,
-    "Asia/Kathmandu": 345, "Asia/Dubai": 240,
-    "Europe/London": 0, "America/New_York": -300,
-    "America/Chicago": -360, "America/Denver": -420,
-    "America/Los_Angeles": -480, "Australia/Sydney": 600
-  };
+  /* "IST (GMT+5:30)" -> 330 minutes */
   function tzOffsetMin(str) {
-    var s = String(str || "");
-    var iana = /([A-Za-z_]+\/[A-Za-z_]+)/.exec(s);
-    if (iana && IANA_OFFSET[iana[1]] !== undefined) return IANA_OFFSET[iana[1]];
-    var m = /GMT([+-])(\d{1,2})(?::(\d{2}))?/i.exec(s);
+    var m = /GMT([+-])(\d{1,2})(?::(\d{2}))?/i.exec(String(str || ""));
     if (!m) return null;
     var sign = m[1] === "-" ? -1 : 1;
     return sign * (parseInt(m[2], 10) * 60 + (m[3] ? parseInt(m[3], 10) : 0));
@@ -601,20 +591,6 @@
     return modal;
   }
 
-  /* v98 — 12-hour clock for the slot label: "7:00 PM", "12:00 PM",
-     "12:30 AM". The command's required display form is
-     "7:00 PM IST (Asia/Kolkata)" — a 24-hour "19:00" is not it. */
-  function h12(hr, min) {
-    var ampm = hr >= 12 ? "PM" : "AM";
-    var h = hr % 12; if (h === 0) h = 12;
-    return h + ":" + String(min).padStart(2, "0") + " " + ampm;
-  }
-  function h12chosen(hhmm) {
-    var p = String(hhmm || "").split(":");
-    if (p.length !== 2) return hhmm;
-    return h12(parseInt(p[0], 10), parseInt(p[1], 10));
-  }
-
   function slotLabel() {
     if (!chosen) return "";
 
@@ -643,12 +619,12 @@
          still depends on. */
       var DAY_FROM_SUNDAY = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
       return t("days." + DAY_FROM_SUNDAY[d.getDay()]) + " " + d.getDate() + " " + MONS[d.getMonth()] +
-        ", " + h12(d.getHours(), d.getMinutes()) +
+        ", " + p2(d.getHours()) + ":" + p2(d.getMinutes()) +
         " (" + (window.EkGuruSchedule
           ? window.EkGuruSchedule.visitorZoneName()
           : t("tz.yourTime")) + ")";
     }
-    return t("days." + DAYS[chosen.day]) + " " + h12chosen(chosen.time) +
+    return t("days." + DAYS[chosen.day]) + " " + chosen.time +
       (chosen.mine ? " (" + t("tz.yourTime") + ")" : " (" + modalTutor.timezone + ")");
   }
 

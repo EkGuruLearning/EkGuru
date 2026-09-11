@@ -27,7 +27,7 @@ ekguruTutor({
   country: "India",
   countryFlag: "🇮🇳",
   city: "Kolkata, India",
-  timezone: "IST (GMT+5:30)",
+  timezone: "IST (Asia/Kolkata)",
 
 
   /* ===== IMAGES & VIDEO — SHIKHA ONLY ===============================

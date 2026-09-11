@@ -1,0 +1,118 @@
+{
+  "generated": "2026-09-11T07:16:49Z",
+  "providers": [
+    {
+      "provider": "Web3Forms",
+      "send_support": true,
+      "reply_to_support": true,
+      "html": false,
+      "text": true,
+      "attachments": false,
+      "rate_limit": "250/month/key",
+      "timeout_seconds": 15,
+      "error_classes": [
+        "RATE_LIMIT",
+        "AUTH",
+        "NETWORK",
+        "TIMEOUT",
+        "UNKNOWN"
+      ],
+      "delivery_events": [
+        "ACCEPTED"
+      ],
+      "webhook_support": false,
+      "sandbox_test_mode": false,
+      "configuration_status": "configured (5 keys), unverifiable from datacenter"
+    },
+    {
+      "provider": "StaticForms",
+      "send_support": true,
+      "reply_to_support": true,
+      "html": false,
+      "text": true,
+      "attachments": false,
+      "rate_limit": "none",
+      "timeout_seconds": 15,
+      "error_classes": [
+        "AUTH",
+        "NETWORK",
+        "TIMEOUT",
+        "UNKNOWN"
+      ],
+      "delivery_events": [
+        "ACCEPTED"
+      ],
+      "webhook_support": false,
+      "sandbox_test_mode": false,
+      "configuration_status": "configured and LIVE_VERIFIED"
+    },
+    {
+      "provider": "FormSubmit",
+      "send_support": true,
+      "reply_to_support": true,
+      "html": true,
+      "text": true,
+      "attachments": false,
+      "rate_limit": "unlimited (burst-throttled)",
+      "timeout_seconds": 15,
+      "error_classes": [
+        "CONFIGURATION (needs Activation)",
+        "RATE_LIMIT",
+        "NETWORK",
+        "TIMEOUT",
+        "UNKNOWN"
+      ],
+      "delivery_events": [
+        "ACCEPTED"
+      ],
+      "webhook_support": false,
+      "sandbox_test_mode": false,
+      "configuration_status": "configured but NOT ACTIVATED (retired until activated)"
+    },
+    {
+      "provider": "EmailJS",
+      "send_support": false,
+      "reply_to_support": true,
+      "html": true,
+      "text": true,
+      "attachments": false,
+      "rate_limit": "200/month",
+      "timeout_seconds": 15,
+      "error_classes": [
+        "AUTH",
+        "RATE_LIMIT",
+        "NETWORK",
+        "TIMEOUT",
+        "UNKNOWN"
+      ],
+      "delivery_events": [
+        "ACCEPTED"
+      ],
+      "webhook_support": false,
+      "sandbox_test_mode": false,
+      "configuration_status": "not configured"
+    },
+    {
+      "provider": "Google Apps Script",
+      "send_support": false,
+      "reply_to_support": true,
+      "html": true,
+      "text": true,
+      "attachments": false,
+      "rate_limit": "~100 recipients/day",
+      "timeout_seconds": 15,
+      "error_classes": [
+        "AUTH",
+        "NETWORK",
+        "TIMEOUT",
+        "UNKNOWN"
+      ],
+      "delivery_events": [
+        "ACCEPTED"
+      ],
+      "webhook_support": false,
+      "sandbox_test_mode": false,
+      "configuration_status": "not configured"
+    }
+  ]
+}

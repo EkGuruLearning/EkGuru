@@ -310,13 +310,6 @@
            an error the visitor sees. */
         try {
           if (window.EkGuruLedger) {
-            var es = res.emailStates || {};
-            var failedList = (res.failed || []).map(function (f) {
-              var a = String(f.to || "").toLowerCase();
-              return { role: a === String(data.email).toLowerCase() ? "sender" : "ekguru",
-                       to: f.to || "", ok: false, via: f.via || "",
-                       state: f.state || "FAILED", error: f.error || "" };
-            });
             window.EkGuruLedger.add({
               kind: data.topic === "Report" ? "report" : "contact",
               ref: res.ref,
@@ -326,18 +319,14 @@
               topic: data.topic,
               summary: data.message,
               ok: true,
-              emailStates: es,
               recipients: [
-                { role: "ekguru", to: res.to || "", ok: true,
-                  via: res.via || "", state: es.internal || "ACCEPTED" },
+                { role: "ekguru", to: res.to || "", ok: true },
                 /* The acknowledgement is best-effort by design: if
                    it failed the visitor still got through, and the
                    ledger records that honestly rather than claiming
                    both arrived. */
-                { role: "sender", to: data.email, ok: res.acknowledged !== false,
-                  via: (failedList.length ? "" : (res.via || "")),
-                  state: es.visitor || (res.acknowledged !== false ? "ACCEPTED" : "FAILED") }
-              ].concat(failedList)
+                { role: "sender", to: data.email, ok: res.acknowledged !== false }
+              ]
             });
           }
         } catch (e3) {}

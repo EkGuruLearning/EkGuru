@@ -32,15 +32,15 @@ add(FR, "Critical release blockers — none may be hidden", "process", P0, "FAIL
 add(FR, "Authentication final audit", "auth", "P1", "N_A", "static site — no signup/login/session system exists to audit")
 add(FR, "Admin final security", "admin", "P1", "N_A", "admin.html is client-side (no server to authorise); RBAC not applicable")
 add(FR, "Payment final audit", "payment", "P1", "N_A", "no payment system on this static site (explicitly NOT_APPLICABLE per command)")
-add(FR, "Booking final audit", "booking", "P0", "DEGRADED", "3-audience routing + site-inbox fallback code-verified; no live send performed (would fabricate)")
-add(FR, "Contact + email final audit", "email", "P0", "DEGRADED", "Reply-To=visitor, FROM=verified sender, honeypot+dwell traps verified; no live send")
+add(FR, "Booking final audit", "booking", "P0", "DEGRADED", "3-audience routing + site-inbox fallback code-verified; live send - internal copy ACCEPTED via FormSubmit (activated); student/tutor legs blocked externally")
+add(FR, "Contact + email final audit", "email", "P0", "DEGRADED", "Reply-To=visitor, FROM=verified sender, honeypot+dwell traps verified; live send - internal copy ACCEPTED via FormSubmit (activated)")
 add(FR, "Sheets / Apps Script final audit", "data", "P0", "PASS", "4 CSVs 200 + schema 26/26; Apps Script health 200 JSON (intermittent bot-gate from DC IPs → YELLOW)")
 add(FR, "Privacy final gate (not BLOCKED)", "privacy", "P0", "PASS", "tools/privacy.js --sheets --live: 0 secrets, 0 sensitive, 0 blocked, PASS")
 add(FR, "Doctor final gate (0 unresolved problems)", "quality", "P0", "FAIL", "11 checks, 1 problem = deployment freshness (live still 'soon'). 0 code problems.")
 add(FR, "Disaster recovery (BACKUP/CURRENT/LAST_KNOWN_GOOD, RPO/RTO)", "dr", "P0", "PASS", "git bundle + release zip; RPO=0, RTO=minutes (docs in dr-drill.json)")
 add(FR, "Restore drill (away from production)", "dr", "P0", "PASS", "zip restored to scratch; /, /learn/, tool, tutor, /contact/ all 200")
 add(FR, "Rollback drill", "dr", "P0", "PASS", "known-good 8de5b69 + documented procedure; no DNS change needed")
-add(FR, "Uptime / live monitoring", "ops", "P0", "DEGRADED", "tools/live-monitor.js: 14G/1Y/0R (Apps Script relay YELLOW)")
+add(FR, "Uptime / live monitoring", "ops", "P0", "PASS", "tools/live-monitor.js: 15G/0Y/0R all green (incl. Apps Script relay HTTP 200)")
 add(FR, "Incident drill", "ops", "P2", "PARTIAL", "incident schema defined in monitor report; no auto-paging (no backend)")
 add(FR, "Abuse / spam / bot test", "security", "P1", "PARTIAL", "honeypot + dwell-time + provider rate notes; server-side IP limits N/A on static host")
 add(FR, "Copy / content protection final", "content", "P1", "DEGRADED", "fingerprints+selfcopy+probes built; external web monitoring needs a scheduled runner (documented)")
@@ -55,7 +55,7 @@ add(FR, "Performance final gate", "perf", "P0", "PASS", "62-491ms local load; ho
 add(FR, "Security final gate", "security", "P0", "PASS", "0 secrets, 0 source maps, no deps; headers not settable on GitHub Pages (documented)")
 add(FR, "Search / traffic final gate", "seo", "P2", "DEFERRED", "needs Search Console access (unavailable in sandbox)")
 add(FR, "Analytics final gate", "analytics", "P1", "PASS", "GoatCounter configured (no cookies); no fabricated counts")
-add(FR, "Final user journey drill", "qa", "P1", "PARTIAL", "code paths verified; email/booking legs not live-sent (documented)")
+add(FR, "Final user journey drill", "qa", "P1", "PARTIAL", "code paths + admin flows browser-verified; internal email leg live-sent (FormSubmit ACCEPTED); visitor/tutor legs external")
 add(FR, "Final adverse-condition drill", "qa", "P0", "PASS", "CSV-down drill: page renders from static fallback (dr-drill.json)")
 add(FR, "Release decision (GO/NO-GO matrix)", "release", "P0", "FAIL", "NO-GO — deploy pending (no git remote/credentials); all other gates green — release-decision.json")
 add(FR, "Final release report", "process", "P0", "PASS", "reports/FINAL-REPORT.md (v2) + this checklist")
@@ -70,7 +70,7 @@ for ph, req, cat, prio, st, ev in [
     ("P5", "Calendar / timezone / availability", "booking", "P2", "PARTIAL", "tutor page shows timezone conversion; server-side slot validation N/A"),
     ("P6", "Disaster recovery", "dr", "P0", "PASS", "backup + restore + rollback verified (dr-drill.json)"),
     ("P7", "Deployment safety", "deploy", "P0", "PASS", "gate.js blocks on critical failure; deploy itself blocked on missing credentials"),
-    ("P8", "Uptime + observability", "ops", "P0", "DEGRADED", "live-monitor 14G/1Y/0R"),
+    ("P8", "Uptime + observability", "ops", "P0", "DEGRADED", "live-monitor 15G/0Y/0R covers 15 surfaces; email-provider surface via real-browser probes (FormSubmit/Web3Forms geo-gate datacenter IPs)"),
     ("P9", "Incident management", "ops", "P2", "PARTIAL", "schema documented; no backend to auto-open tickets"),
     ("P10", "Rate limiting + abuse protection", "security", "P1", "PARTIAL", "client-side traps exist; server rate limits N/A on static host"),
     ("P11", "Bot / spam / fraud defense", "security", "P2", "PARTIAL", "honeypot + dwell-time; no server logs"),

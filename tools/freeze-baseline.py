@@ -49,8 +49,8 @@ base = {
     "live_reachability": read_json("live-reachability.json"),
     "url_count": len(read_json("url-inventory.json")["urls"]) if read_json("url-inventory.json") else None,
     "health_dashboard": read_json("doctor.json") is not None,
-    "email_status": "CODE-VERIFIED (routing/Reply-To/honeypot); no live send performed",
-    "booking_status": "CODE-VERIFIED (3-audience routing + site-inbox fallback); no live send performed",
+    "email_status": "LIVE-PARTIAL (internal copy ACCEPTED via FormSubmit activated; visitor leg NO_ROUTE)",
+    "booking_status": "LIVE-PARTIAL (internal ACCEPTED via FormSubmit; student/tutor legs externally blocked)",
     "payment_status": "NOT_APPLICABLE (no payment system on this static site)",
     "auth_status": "NOT_APPLICABLE (static site, no backend auth)",
     "inventory": {

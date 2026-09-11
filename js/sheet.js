@@ -153,6 +153,17 @@
      change must be made in BOTH — tools/test-livedata.js
      asserts the two agree, because two parsers for one format
      is how they drift apart. */
+  /* v98 — display form for timezones. The sheet writes the human
+     form "IST (GMT+5:30)"; the site shows "IST (Asia/Kolkata)" as
+     the command requires. Same offset, so nothing is mis-parsed;
+     the function only rewrites labels it already knows, and passes
+     everything else through untouched (never a data change). */
+  function normalizeTimezone(v) {
+    var s = String(v == null ? "" : v).trim();
+    if (/IST\s*\(\s*GMT\s*\+\s*5:30\s*\)/i.test(s)) return "IST (Asia/Kolkata)";
+    return s;
+  }
+
   function normalizePhoto(v) {
     v = String(v == null ? "" : v).trim();
     if (!v) return null;
@@ -404,7 +415,11 @@
     lessonsCount:  function (v) { var n = Number(v); return isFinite(n) && n >= 0 ? n : null; },
     preplyUrl:  function (v) { return /^https?:\/\//.test(v) ? v : null; },
     calLink:    function (v) { return /^[a-z0-9-]+\/[a-z0-9-]+$/i.test(v) ? v : null; },
-    timezone:   function (v) { return v; },
+    /* v98 — the sheet stores "IST (GMT+5:30)"; the site displays the
+       command's required form "IST (Asia/Kolkata)". Both parse to the
+       same +330 minutes, so this is a display normalization, not a
+       data change — the sheet is never rewritten. */
+    timezone:   function (v) { return normalizeTimezone(v); },
     country:    function (v) { return v; },
 
     /* =========================================================

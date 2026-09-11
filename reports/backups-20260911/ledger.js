@@ -153,11 +153,6 @@
         }),
         ok: m.ok !== false,
         error: m.error || "",
-        /* v97 — the honest per-role delivery state (ACCEPTED, FAILED,
-           TUTOR_EMAIL_UNAVAILABLE, …) copied from the mailer result,
-           so the record room can answer "was the tutor notified?" */
-        tutorEmailStatus: m.tutorEmailStatus || "",
-        emailStates: m.emailStates || {},
         page: m.page || (typeof location !== "undefined" ? location.href : ""),
         lang: (typeof document !== "undefined" &&
                document.documentElement.getAttribute("lang")) || "en"

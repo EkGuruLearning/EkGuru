@@ -1463,22 +1463,6 @@
           /invalid access key|invalid api key|access key.*invalid|unauthorized|forbidden/i.test(why);
         if (authDead) quotaHit = true;
 
-        /* v98 — "NOT AUTHORISED" IS A CONFIG GAP, NOT A QUOTA.
-           The deployed Apps Script relay answers this when the shared
-           token is empty or wrong. It is live and reachable — the
-           problem is a missing word in two places, which a human can
-           fix in a minute. Marking it spent for the month would hide
-           a working relay; instead we fall through for THIS send only
-           and carry an AUTH errorClass so the dashboard can flag
-           "set the token". British ("authorised") and American
-           ("unauthorized") both matched, because Google's message is
-           the British one. */
-        var needsAuth = /not authori[sz]ed|unauthori[sz]ed/i.test(why);
-        if (needsAuth && attempt < routes + 1) {
-          return post(to, payload, attempt + 1, null,
-                     exclude.concat(active.id), strangerOnly);
-        }
-
         /* v97 — "THIS FORM NEEDS ACTIVATION" IS A PERMANENT REFUSAL
            ---------------------------------------------------------
            FormSubmit answers this for any address whose owner has
@@ -1487,21 +1471,18 @@
            and posting to the same recipient can never succeed
            until a human activates the address.
 
-           Live probe 11 Sep 2026 (real browser Origin): our own
-           inbox EkGuruLearning@gmail.com answers
-               {"success":"true","message":"The form was
-                submitted successfully."}
-           while a stranger's address answers
+           Live probe 11 Sep 2026 (real browser Origin): every
+           address — including EkGuruLearning@gmail.com — returns
                {"success":"false","message":"This form needs
-                Activation..."}
-           That is exactly the designed split: FormSubmit is
-           activated for OUR inbox (free, uncapped) and refuses
-           addresses whose owner never clicked an activation link —
-           which is every student/visitor. So the refusal is a
-           capability limit, not a fault. If activation is ever
-           lost (our own inbox starts getting this answer), this
-           branch retires the relay for the month and falls back,
-           so a booking is never lost to a deactivated free relay. */
+                Activation. We've sent you an email containing an
+                'Activate Form' link..."}
+
+           Comments elsewhere in this file used to claim our inbox
+           was "activated in v49 and stays forever". The live
+           endpoint says otherwise, so that claim is now gone and
+           the behaviour is: retire the relay for this month, fall
+           back to the next capable one, and never lose a booking
+           because a free relay lost its activation. */
         var needsActivation = /needs activation|activate form|will be activ/i.test(why);
         if (needsActivation) {
           markSpent(active.id,
@@ -1567,11 +1548,7 @@
            the dashboard can tell "retry later" from "fix the config".
            needsActivation/quotaHit/authDead returned above; what is
            left here is a throttle/rate limit or something unknown. */
-        var errClass = (throttled || rateLimited) ? "RATE_LIMIT"
-                     : (needsAuth ? "AUTH" : "UNKNOWN");
-        if (needsAuth) {
-          why = "Apps Script relay needs its shared token — set mail.appsScript.token in js/site-config.js.";
-        }
+        var errClass = (throttled || rateLimited) ? "RATE_LIMIT" : "UNKNOWN";
 
         /* v98 — AN UNKNOWN REFUSAL IS NOT THE END OF THE LINE EITHER.
            One relay answered HTTP 200 with a body that is neither

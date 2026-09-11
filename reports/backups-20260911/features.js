@@ -442,19 +442,9 @@
   /* =========================================================
      3. TIMEZONE HELPERS
      ========================================================= */
-  /* "IST (Asia/Kolkata)" or "IST (GMT+5:30)" -> 330 minutes */
-  var IANA_OFFSET = {
-    "Asia/Kolkata": 330, "Asia/Calcutta": 330,
-    "Asia/Kathmandu": 345, "Asia/Dubai": 240,
-    "Europe/London": 0, "America/New_York": -300,
-    "America/Chicago": -360, "America/Denver": -420,
-    "America/Los_Angeles": -480, "Australia/Sydney": 600
-  };
+  /* "IST (GMT+5:30)" -> 330 minutes */
   function tzOffsetMin(str) {
-    var s = String(str || "");
-    var iana = /([A-Za-z_]+\/[A-Za-z_]+)/.exec(s);
-    if (iana && IANA_OFFSET[iana[1]] !== undefined) return IANA_OFFSET[iana[1]];
-    var m = /GMT([+-])(\d{1,2})(?::(\d{2}))?/i.exec(s);
+    var m = /GMT([+-])(\d{1,2})(?::(\d{2}))?/i.exec(String(str || ""));
     if (!m) return null;
     var sign = m[1] === "-" ? -1 : 1;
     return sign * (parseInt(m[2], 10) * 60 + (m[3] ? parseInt(m[3], 10) : 0));
@@ -601,20 +591,6 @@
     return modal;
   }
 
-  /* v98 — 12-hour clock for the slot label: "7:00 PM", "12:00 PM",
-     "12:30 AM". The command's required display form is
-     "7:00 PM IST (Asia/Kolkata)" — a 24-hour "19:00" is not it. */
-  function h12(hr, min) {
-    var ampm = hr >= 12 ? "PM" : "AM";
-    var h = hr % 12; if (h === 0) h = 12;
-    return h + ":" + String(min).padStart(2, "0") + " " + ampm;
-  }
-  function h12chosen(hhmm) {
-    var p = String(hhmm || "").split(":");
-    if (p.length !== 2) return hhmm;
-    return h12(parseInt(p[0], 10), parseInt(p[1], 10));
-  }
-
   function slotLabel() {
     if (!chosen) return "";
 
@@ -643,12 +619,12 @@
          still depends on. */
       var DAY_FROM_SUNDAY = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
       return t("days." + DAY_FROM_SUNDAY[d.getDay()]) + " " + d.getDate() + " " + MONS[d.getMonth()] +
-        ", " + h12(d.getHours(), d.getMinutes()) +
+        ", " + p2(d.getHours()) + ":" + p2(d.getMinutes()) +
         " (" + (window.EkGuruSchedule
           ? window.EkGuruSchedule.visitorZoneName()
           : t("tz.yourTime")) + ")";
     }
-    return t("days." + DAYS[chosen.day]) + " " + h12chosen(chosen.time) +
+    return t("days." + DAYS[chosen.day]) + " " + chosen.time +
       (chosen.mine ? " (" + t("tz.yourTime") + ")" : " (" + modalTutor.timezone + ")");
   }
 
@@ -764,20 +740,6 @@
       if (window.EkGuruStore && window.EkGuruStore.makeRef) ref = window.EkGuruStore.makeRef();
     } catch (e) {}
 
-    /* ═══════════════════════════════════════════════════════
-       v97 — COMMIT THE BOOKING BEFORE ANY EMAIL IS ATTEMPTED
-       ───────────────────────────────────────────────────────
-       The command's transaction order is: validate → resolve
-       tutor → create record → commit → outbox → send → update.
-       The record is therefore written here, first, with status
-       "sending", so a browser close or an email-provider failure
-       can never delete the booking. On success the same record is
-       updated in place (never duplicated); on failure its status
-       becomes EMAIL_DEGRADED — the booking is kept, and the
-       student is told the truth: saved, emails pending, not
-       "booking failed". */
-    var rec = logBooking("sending", null, "", ref);
-
     window.EkGuruMail.send({
       ref: ref,
       tutor: modalTutor,
@@ -796,39 +758,21 @@
          student keeps a record and admin.html can list it. See
          js/store.js for why this is not a real shared database. */
       track("booking_sent", { tutor: modalTutor.id, ref: ref, price: modalTutor.priceUSD });
-      try {
-        window.EkGuruStore.update(ref, {
-          status: "sent",
-          delivered: [res.to].concat(res.cc || []),
-          tutorEmailStatus: res.tutorEmailStatus || "",
-          tutorEmailNote: res.tutorEmailNote || "",
-          emailStates: res.emailStates || {}
-        });
-      } catch (e2) {}
-      logLedger(true, res, "", ref);
+      var rec = logBooking("sent", res, "", ref); logLedger(true, res, "", ref);
       showSent(res, rec);
     }).catch(function (e) {
       host.dataset.sending = "";
       btn.disabled = false;
       btn.classList.remove("is-sending");
       btn.textContent = label;
-      /* EMAIL_DEGRADED, never "booking failed": the booking exists
-         and is still visible to EkGuru. Only the emails did not
-         go out. */
-      try {
-        window.EkGuruStore.update(ref, {
-          status: "email_degraded",
-          error: (e && e.message || "").slice(0, 160)
-        });
-      } catch (e2) {}
       if (err) {
-        err.innerHTML = "⚠️ " + esc(t("book.emailDegraded")) +
+        err.innerHTML = "⚠️ " + esc(t("book.sendFail")) +
           ' <a href="' + esc(fallbackHref) + '">' + esc(t("book.sendFailLink")) + "</a>";
         err.hidden = false;
         scrollTo(err, { behavior: "smooth", block: "center" });
       }
-      track("booking_email_degraded", { tutor: modalTutor.id, ref: ref, reason: (e && e.message || "").slice(0, 80) });
-      logLedger(false, null, e && e.message, ref);
+      track("booking_failed", { tutor: modalTutor.id, ref: ref, reason: (e && e.message || "").slice(0, 80) });
+      logBooking("failed", null, e && e.message, ref); logLedger(false, null, e && e.message, ref);
       warn("booking mail", e);
     });
   }
@@ -889,48 +833,17 @@
            and everyone else in `cc`. Label them by role so the
            dashboard can say "student's copy failed" rather than
            printing three addresses and leaving you to work it
-           out. v97: each recipient now carries its relay (via)
-           and honest state, so the record room can show which
-           provider carried each message and which one failed. */
+           out. */
         var student = (($("#bk-email") || {}).value || "").trim().toLowerCase();
         var site = ((window.EKGURU_SITE || {}).email || "").toLowerCase();
-        var es = res.emailStates || {};
         [].concat(res.to || [], res.cc || []).forEach(function (addr) {
           if (!addr) return;
           var a = String(addr).toLowerCase();
-          var role = a === student ? "student" : a === site ? "ekguru" : "tutor";
           who.push({
-            role: role,
-            to: addr,
-            ok: true,
-            via: res.via || "",
-            state: es[role] || "ACCEPTED"
+            role: a === student ? "student" : a === site ? "ekguru" : "tutor",
+            to: addr, ok: true
           });
         });
-        /* Failed copies are equally part of "who got what". */
-        (res.failed || []).forEach(function (f) {
-          var a = String(f.to || "").toLowerCase();
-          var role = a === student ? "student" : a === site ? "ekguru" : "tutor";
-          who.push({
-            role: role,
-            to: f.to || "",
-            ok: false,
-            via: f.via || "",
-            state: f.state || "FAILED",
-            error: f.error || ""
-          });
-        });
-        /* A tutor with no personal address is not a failed send —
-           it is a routed-through-EkGuru send, marked honestly. */
-        if (res.tutorEmailUnavailable) {
-          who.push({
-            role: "tutor",
-            to: ((window.EKGURU_SITE || {}).email || "EkGuru inbox"),
-            ok: true,
-            via: "routed-via-EkGuru",
-            state: "TUTOR_EMAIL_UNAVAILABLE"
-          });
-        }
       }
       return window.EkGuruLedger.add({
         kind: "booking",
@@ -944,8 +857,6 @@
                  priceLine(modalTutor.priceUSD),
         ok: ok,
         error: err || "",
-        tutorEmailStatus: (res && res.tutorEmailStatus) || "",
-        emailStates: (res && res.emailStates) || {},
         recipients: who
       });
     } catch (e) { return null; }
@@ -982,11 +893,7 @@
     /* The tutor's name only. Their inbox address is deliberately NOT
        shown: this receipt is on the student's screen, and a tutor's
        private address should not be handed to everyone who books. */
-    /* v97 — when the tutor has no personal address on file, the
-       receipt says so instead of pretending a private inbox was
-       reached. */
-    var to = modalTutor.name +
-      ((res && res.tutorEmailUnavailable) ? " — via EkGuru" : "");
+    var to = modalTutor.name;
     var what = (modalTutor.lessonLength || "50 min") + " " + t("book.rcLesson") +
       " " + (chosen ? slotLabel() : t("book.rcNoSlot")) +
       " — " + priceLine(modalTutor.priceUSD);

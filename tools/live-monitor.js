@@ -13,7 +13,7 @@ if (!fs.existsSync(REPORTS)) fs.mkdirSync(REPORTS, { recursive: true });
 
 const BASE = "https://ekguru.shop";
 const SS = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRGCkYfn_JfKPGaUy7tGWRFoPvo7x6-cB4SLTbi-kzKY1f0k1hwXYCwYob-qHG5EKZeVrwcBeBD64fc/pub";
-const GAS = "https://script.google.com/macros/s/AKfycbwG978gM3Vspo0r8JmNxRojiUwA5h0tWoFd8p9vQf5x-NX9QGDB8VCr0j1LnTPoOoJqtdA/exec";
+const GAS = "https://script.google.com/macros/s/AKfycbwG978gM3Vspo0r8JmNxRojiUwA5h0tWoFd8p9vQf5x-NX9QGDB8VCr0j1LnTPoOjqtdA/exec";
 
 const checks = [];
 

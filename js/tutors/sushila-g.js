@@ -37,7 +37,7 @@ ekguruTutor({
   country: "India",
   countryFlag: "🇮🇳",
   city: "Rajasthan, India",
-  timezone: "IST (GMT+5:30)",
+  timezone: "IST (Asia/Kolkata)",
 
   /* ===== IMAGES & VIDEO — SUSHILA ONLY ===============================
      photo  : square portrait, 500x500 or larger. Round picture on her profile.
@@ -89,7 +89,12 @@ ekguruTutor({
                 opening a chat with the message already written.
                 Country code required. No spaces or dashes.
      ================================================================ */
-  email: "EkGuruLearning@gmail.com",   // ← SUSHILA's email
+  /* v97 — was "EkGuruLearning@gmail.com", the PLATFORM inbox, not
+     Sushila's own address. Paste her real personal address (or a
+     formKey alias) here; until then her bookings are marked
+     TUTOR_EMAIL_UNAVAILABLE and routed via the EkGuru inbox for
+     forwarding — honestly reported, never silently faked. */
+  email: "",   // ← SUSHILA's email (empty = no direct address on file)
   whatsapp: "",                        // ← SUSHILA's WhatsApp
 
   /* ===== BOOKING EMAIL — SUSHILA ONLY ==============================
