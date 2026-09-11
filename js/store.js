@@ -151,6 +151,7 @@
         tutor: b.tutor || "",
         name: b.name || "",
         email: b.email || "",
+        emailNorm: b.emailNorm || String(b.email || "").toLowerCase(),
         level: b.level || "",
         timezone: b.timezone || "",
         goal: b.goal || "",
@@ -166,8 +167,25 @@
            the time of booking, and the honest per-role email state. */
         tutorEmailStatus: b.tutorEmailStatus || "",
         tutorEmailNote: b.tutorEmailNote || "",
-        emailStates: b.emailStates || {}
+        emailStates: b.emailStates || {},
+        /* v99 — the full per-role delivery record (the P0's section
+           15): status | provider | lastAttempt | lastError |
+           retryCount | messageId per role. Kept whole so admin can
+           render provider + last error + retry count per message. */
+        emailDelivery: b.emailDelivery || {}
       };
+
+      /* v99 — flat student_email_* columns (the P0's exact field
+         names), derived from emailDelivery.student so the CSV export
+         and any consumer gets them without knowing the nested shape. */
+      var stu = rec.emailDelivery && rec.emailDelivery.student;
+      rec.student_email_status = (stu && stu.status) ||
+        ((rec.emailStates || {}).student) || "";
+      rec.student_email_provider = (stu && stu.provider) || "";
+      rec.student_email_last_attempt = (stu && stu.lastAttempt) || "";
+      rec.student_email_last_error = (stu && stu.lastError) || "";
+      rec.student_email_retry_count = (stu && stu.retryCount) || 0;
+      rec.student_email_message_id = (stu && stu.messageId) || "";
       var all = readAll();
       all.push(rec);
       writeAll(all);

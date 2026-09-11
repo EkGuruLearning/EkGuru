@@ -1,0 +1,37 @@
+{
+  "generated": "2026-09-11T11:33:33Z",
+  "probes": {
+    "appsscript_v3_doGet": {
+      "status": 200,
+      "body": "{\"success\":\"true\",\"status\":\"ok\",\"script\":\"EkGuru Mail Relay\",\"strangers\":true,\"limit\":90,\"configured\":true}"
+    },
+    "appsscript_v3_doPost_empty_token": {
+      "status": 200,
+      "body": "{\"success\":\"false\",\"message\":\"Not authorised.\"}"
+    },
+    "appsscript_old_doGet": {
+      "status": 200,
+      "body": "{\"success\":\"true\",\"message\":\"EkGuru mail relay is deployed and reachable.\",\"remaining\":100}"
+    },
+    "web3forms_key1": {
+      "status": -1,
+      "body": "FETCH ERROR: Failed to fetch"
+    },
+    "web3forms_key2": {
+      "status": -1,
+      "body": "FETCH ERROR: Failed to fetch"
+    },
+    "formsubmit_our_inbox": {
+      "status": 200,
+      "body": "{\"success\":\"true\",\"message\":\"The form was submitted successfully.\"}"
+    },
+    "formsubmit_stranger": {
+      "status": 200,
+      "body": "{\"success\":\"false\",\"message\":\"This form needs Activation. We've sent you an email containing an 'Activate Form' link. Just click it and your form will be actived!\"}"
+    },
+    "staticforms": {
+      "status": 200,
+      "body": "{\"success\":true,\"message\":\"Form submitted successfully\"}"
+    }
+  }
+}

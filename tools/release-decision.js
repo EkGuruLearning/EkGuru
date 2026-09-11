@@ -75,6 +75,18 @@ set("EMAIL", (contactOk && fallbackOk && (staticFormsLive || formSubmitLive)) ? 
   `real E2E: contact internal copy ACCEPTED via ${formSubmitLive ? "FormSubmit (activated)" : "StaticForms"} (live); visitor copy routes via a stranger-capable relay (Web3Forms UNVERIFIABLE from this datacenter; Apps Script live but ${appScriptLive ? "awaiting token" : "unconfigured"}); no DELIVERED claim made`);
 set("BOOKING", bookingOk ? "DEGRADED" : "FAIL",
   `real E2E: Tutor A/B honest routing (TUTOR_EMAIL_UNAVAILABLE, no generic tutor inbox); internal record ACCEPTED via ${formSubmitLive ? "FormSubmit" : "StaticForms"}; tutor/student copies via stranger-capable relay unverifiable from datacenter`);
+
+/* v99 — P0 student-booking email. Never claim DELIVERED; the only
+   thing that closes this is a REAL student mailbox receiving its own
+   receipt. Structure is complete; the owner's token wiring is the
+   remaining step (see reports/student-email-delivery-audit.json). */
+const stuAudit = j("student-email-delivery-audit.json");
+const relay = (stuAudit?.providers || []).find(p => p.id === "appsscript");
+const relayReachable = relay?.live_probe?.status === 200;
+const relayConfigured = relayReachable && relay?.live_probe?.body?.indexOf?.("\"configured\":true") > -1;
+const clientTokenWired = !!(relay && relay.sendable);
+set("STUDENT_EMAIL", clientTokenWired ? "ACCEPTED_UNVERIFIED" : "BLOCKED_ON_TOKEN",
+  `Apps Script relay ${relayReachable ? "reachable" : "unreachable"} and server token ${relayConfigured ? "minted" : "NOT minted"}; client token ${clientTokenWired ? "wired" : "EMPTY"}. ${clientTokenWired ? "Student receipt routes via own Gmail — real student-mailbox receipt still required to close P0." : "Student receipt has no verified route until mail.appsScript.token is wired (see reports/student-email-delivery-audit.json)."}`);
 set("EMAIL_IDEMPOTENCY", "PASS", "same-ref double send: internal role deduped (only the failed visitor role retried)");
 set("EMAIL_FALLBACK", allDownOk ? "PASS" : "FAIL", `${formSubmitLive ? "FormSubmit activated for our inbox (strangers refused by design)" : "FormSubmit unactivated -> StaticForms fallback live-verified"}; v98 chain walks past a dead relay; all-providers-down -> record survives + honest failure`);
 set("PAYMENT", "N/A", "no payment system on this static site");

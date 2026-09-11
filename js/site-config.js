@@ -268,22 +268,31 @@ window.EKGURU_SITE = {
          Anything else is rejected by the provider's enabled()
          check rather than silently eating your mail — the v94
          "second-key-here" lesson. */
-      /* v98 — SET BY PRAKASH on 11 Sep 2026 (script id + live
-         deployment). This is the relay YOU own: it sends from
-         EkGuruLearning@gmail.com with no per-recipient activation,
-         about 100 recipients a day.
+      /* v99 — Prakash redeployed the relay on 11 Sep 2026 (Version 3,
+         4:10 PM IST). Details from the Apps Script "Manage deployments"
+         page (uploaded as ee.md):
+           - Deployment ID (v3):  AKfycbwm76fNYU54OqSSzt_HW_aA5lpg85kf-sEUPK90vaM9SaNQZ2f7D-ZN1V2P3hd7Ojzz
+           - Deployment ID (v2):  AKfycbwuZgVFp6YabDCQPkI_0VBYHKxKJMVj23nTADdX46X32RBES_tLNfmkobAb2L0kDtDH
+           - Script ID:           1kcvADOf9OqQQ2uH3Yl4fC6aG7-fBR1asfaGpqLf9cqn_xErvkZ5TMHKm
+         We point at the latest (v3) /exec URL below.
 
-         ⚠️ Honest status: from this build sandbox the endpoint is
-         bot-gated (Google serves a datacenter interstitial / 404 to
-         server IPs), so it could NOT be live-verified here. A real
-         visitor's browser is not affected. The mailer treats any
-         failure as a normal fallback, so if the script is ever down
-         the chain simply moves on — never loses mail. */
-      url: "https://script.google.com/macros/s/AKfycbwG978gM3Vspo0r8JmNxRojiUwA5h0tWoFd8p9vQf5x-NX9QGDB8VCr0j1LnTPoOjqtdA/exec",
+         ⚠️ Honest status: from this build sandbox both the old and new
+         /exec endpoints answer empty (Google serves a bot interstitial
+         to datacenter IPs), so the relay could NOT be live-verified
+         here — only a real visitor's browser can. The mailer treats any
+         failure as a normal fallback, so if the script is down the
+         chain moves on — never loses mail.
+
+         ⚠️ AUTH: the relay is fail-closed — it refuses to send until
+         the owner sets the Script Property MAILER_SHARED_TOKEN and the
+         client token below matches. Leave token empty until the owner
+         confirms the word; the mailer then classifies it AUTH and
+         walks to the next provider. */
+      url: "https://script.google.com/macros/s/AKfycbwm76fNYU54OqSSzt_HW_aA5lpg85kf-sEUPK90vaM9SaNQZ2f7D-ZN1V2P3hd7Ojzz/exec",
       /* The script's own ID (for the Apps Script dashboard / API).
          Not sent in requests — recorded here so nobody has to hunt
          for it. */
-      scriptId: "1dG12tEKQXs7bRKsUetBmFeVi-kqrDqMKU9S_2ahZJNM8mCYjE5nrDaM1",
+      scriptId: "1kcvADOf9OqQQ2uH3Yl4fC6aG7-fBR1asfaGpqLf9cqn_xErvkZ5TMHKm",
       /* A shared word you invent, and paste into the script too.
          It stops a passer-by who reads the page source from using
          your Gmail as an open relay. It is NOT a secret — nothing

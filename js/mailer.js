@@ -304,6 +304,25 @@
            emptiness. */
         return /^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec/.test(u);
       },
+      /* v99 — "CONFIGURED" IS NOT "SENDABLE".
+         The relay's doGet() reports configured:true the moment the
+         owner has minted the server-side MAILER_SHARED_TOKEN. But
+         the CLIENT also carries a token (mail.appsScript.token), and
+         with the client token empty every doPost() answers "Not
+         authorised." — a guaranteed refusal, round trip after round
+         trip. The P0's exact words: do not leave Apps Script AUTH
+         fall-through as the final path when this relay is the
+         intended production route. So enabled() stays structural
+         (the dashboard must still SHOW the relay as configured),
+         while sendable() is what routing asks: it needs BOTH the URL
+         and the client token. chain() uses sendable(), so a
+         token-less relay is simply not tried and the student's
+         receipt is carried by the next stranger-capable relay
+         instead of burning a doomed hop first. */
+      sendable: function () {
+        return this.enabled() &&
+               !!String((CFG.appsScript || {}).token || "").trim();
+      },
       build: function (to, payload) {
         var body = {};
         for (var k in payload) {
@@ -735,7 +754,12 @@
      that have already hit their monthly limit. */
   function chain() {
     return PROVIDERS.filter(function (p) {
-      return p.enabled() && !spent(p.id);
+      /* v99 — routing asks sendable(), not enabled(). A provider
+         whose URL is set but whose client token is missing (the
+         Apps Script relay before the owner wires the token) is
+         CONFIGURED but cannot actually send, and must not win
+         pick() only to refuse and fall through every booking. */
+      return (p.sendable ? p.sendable() : p.enabled()) && !spent(p.id);
     });
   }
 
@@ -1277,7 +1301,7 @@
         return Promise.resolve({
           to: to, ok: false, state: "FAILED", via: "",
           error: "No mail relay could carry this message.",
-          errorClass: "NO_ROUTE"
+          errorClass: "NO_ROUTE", attempts: attempt
         });
       }
       /* pick() returns null only when a CC is required and no
@@ -1288,7 +1312,8 @@
         to: to, ok: false, needsSplit: true,
         ccTarget: payload._cc,
         payload: payload,
-        error: "No available relay can deliver a copy to a second address."
+        error: "No available relay can deliver a copy to a second address.",
+        attempts: attempt
       });
     }
     var built = active.build(to, payload);
@@ -1403,7 +1428,10 @@
              mailbox. The command is explicit about not confusing
              the two, so the state is named honestly. */
           return { to: to, ok: true, ccTo: payload._cc || null,
-                   state: "ACCEPTED", via: active.label };
+                   state: "ACCEPTED", via: active.label,
+                   attempts: attempt,
+                   msgId: (json && (json.id || json.message_id ||
+                                    json.messageId)) || "" };
         }
 
         var why = (json && json.message) ? json.message :
@@ -1584,7 +1612,7 @@
           return post(to, payload, attempt + 1, null, exclude.concat(active.id), strangerOnly);
         }
         return { to: to, ok: false, error: why, state: "FAILED",
-                 via: active.label, errorClass: errClass };
+                 via: active.label, errorClass: errClass, attempts: attempt };
       });
     }).catch(function (err) {
       if (timer) clearTimeout(timer);
@@ -1609,7 +1637,8 @@
       }
       return { to: to, ok: false, error: msg, state: "FAILED",
                via: (active && active.label) || "",
-               errorClass: /abort|timeout/i.test(msg) ? "TIMEOUT" : "NETWORK" };
+               errorClass: /abort|timeout/i.test(msg) ? "TIMEOUT" : "NETWORK",
+               attempts: attempt };
     });
   }
 
@@ -1813,6 +1842,11 @@
           "You booked": tutorName,
           "You asked for": "A " + lesson + " Hindi lesson at " + when +
                     " for " + (data.price || "the listed price"),
+          "Date & time": when,
+          "Your timezone": data.timezone || "",
+          "Lesson": lesson + " · " + (data.price || ""),
+          "Current status": "Request received — waiting for " + tutorName +
+                    " to confirm the time.",
           "You sent it": now.toUTCString(),
           "Your name": studentName,
           "Your email": data.email || "",
@@ -1979,8 +2013,12 @@
 
       if (studentTo) {
         jobs.push(guarded(kStudent, studentTo, function () {
-          var direct = PROVIDERS.filter(function (p) {
-            return p.enabled() && !spent(p.id) && p.canAddressStrangers;
+          /* v99 — chain() (sendable-aware) rather than a raw
+             enabled() filter: the student's receipt must be carried
+             by a relay that can genuinely send right now, not by a
+             token-less Apps Script that is guaranteed to refuse. */
+          var direct = chain().filter(function (p) {
+            return p.canAddressStrangers;
           })[0];
 
           if (direct) {
@@ -2140,6 +2178,65 @@
                     : (okAddrs.indexOf(String(target).toLowerCase()) > -1 ? "ACCEPTED" : "FAILED")),
               internal: (okAddrs.indexOf(siteLc) > -1) ? "ACCEPTED" : "FAILED",
               student: studentTo ? (studentAccepted ? "ACCEPTED" : "FAILED") : null
+            };
+          })(),
+          /* v99 — PER-ROLE DELIVERY DETAIL (the P0's section 15).
+             emailStates answers "did it go?" in one word; this is
+             the full record the admin needs to answer "which relay,
+             when, what went wrong, how many tries". One object per
+             role: status | provider | lastAttempt | lastError |
+             retryCount | messageId | recipient. Status is ACCEPTED
+             on a provider acceptance — NEVER DELIVERED, because a
+             relay cannot confirm a stranger's mailbox. A refusal
+             after every stranger-capable route is EXHAUSTED, never
+             dressed up as success. */
+          emailDelivery: (function () {
+            function find(addr) {
+              if (!addr) return null;
+              var a = String(addr).toLowerCase();
+              for (var i = 0; i < results.length; i++) {
+                var r = results[i];
+                if (String(r.to || "").toLowerCase() === a) return r;
+                if (r.ccTo && String(r.ccTo).toLowerCase() === a) return r;
+              }
+              return null;
+            }
+            function role(addr) {
+              var r = find(addr);
+              if (!r) return null;
+              var status = r.ok ? "ACCEPTED"
+                : (r.errorClass === "NO_ROUTE" || r.errorClass === "AUTH" ||
+                   r.errorClass === "NETWORK" || r.errorClass === "TIMEOUT")
+                  ? "EXHAUSTED" : "FAILED";
+              return {
+                status: status,
+                provider: r.via || "",
+                lastAttempt: now.toISOString(),
+                lastError: r.error || "",
+                retryCount: (r.attempts || 0),
+                messageId: r.msgId || "",
+                recipient: addr
+              };
+            }
+            var merged = targetIsUs ? {
+              status: primary.ok ? "ACCEPTED" : "EXHAUSTED",
+              provider: primary.via || "",
+              lastAttempt: now.toISOString(),
+              lastError: primary.error || "",
+              retryCount: (primary.attempts || 0),
+              messageId: primary.msgId || "",
+              recipient: target,
+              merged: true
+            } : null;
+            return {
+              student: studentTo ? role(studentTo) : null,
+              tutor: tutorEmailStatus === "TUTOR_EMAIL_UNAVAILABLE"
+                ? { status: "TUTOR_EMAIL_UNAVAILABLE", provider: "",
+                    lastAttempt: now.toISOString(), lastError: "",
+                    retryCount: 0, messageId: "",
+                    recipient: (CFG.siteKey || SITE.email || "") }
+                : (merged || role(target)),
+              internal: merged || role(SITE.email || "")
             };
           })()
         };
@@ -2855,6 +2952,11 @@
           id: p.id, label: p.label, branded: !!p.branded,
           note: p.quotaNote,
           configured: p.enabled(),
+          /* v99 — configured ≠ sendable. The Apps Script relay is
+             "configured" once its URL is set but cannot send until
+             the client token is wired; routing uses sendable. */
+          sendable: p.sendable ? p.sendable() : p.enabled(),
+          tokenMissing: p.id === "appsscript" && p.enabled() && !p.sendable(),
           spent: spent(p.id),
           /* Capabilities — the four questions routing asks. */
           metered: !!p.metered,
@@ -2889,6 +2991,44 @@
           })()
         };
       });
+    },
+
+    /* =========================================================
+       v99 — relayHealth(): LIVE health of the owner's Apps Script
+       relay, fetched straight from its /exec GET. The relay's
+       doGet() reports configured:true once the server-side
+       MAILER_SHARED_TOKEN is minted, and configured:false while it
+       is empty — so the dashboard can show, with a live call rather
+       than a guess, whether the one remaining wiring step is done.
+       Also reports whether the CLIENT token is wired, which is the
+       half this static site controls. Never returns a secret. */
+    relayHealth: function () {
+      var u = String((CFG.appsScript || {}).url || "").trim();
+      if (!/^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec/.test(u)) {
+        return Promise.resolve({ reachable: false, reason: "no_url" });
+      }
+      if (typeof window.fetch !== "function") {
+        return Promise.resolve({ reachable: false, reason: "no_fetch" });
+      }
+      return fetch(u, { method: "GET" })
+        .then(function (r) {
+          if (!r || !r.ok) return { reachable: false, reason: "http_" + (r && r.status) };
+          return r.text().then(function (raw) {
+            var j = {};
+            try { j = JSON.parse(raw); } catch (e) { j = {}; }
+            return {
+              reachable: true,
+              status: j.status || (String(j.success) === "true" ? "ok" : "unknown"),
+              configured: !!j.configured,
+              strangers: !!j.strangers,
+              limit: j.limit,
+              clientTokenWired: !!String((CFG.appsScript || {}).token || "").trim()
+            };
+          });
+        })
+        .catch(function (e) {
+          return { reachable: false, reason: (e && e.message) || "network" };
+        });
     },
 
     /* =========================================================

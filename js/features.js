@@ -844,13 +844,21 @@
        becomes EMAIL_DEGRADED — the booking is kept, and the
        student is told the truth: saved, emails pending, not
        "booking failed". */
-    var rec = logBooking("sending", null, "", ref);
+    /* v99 — the student recipient is resolved ONCE, normalised, and
+       kept in a variable so the same value goes into the booking
+       record, the email and the idempotency check. Never re-read the
+       DOM after the booking is saved. */
+    var studentName = (($("#bk-name") || {}).value || "").trim();
+    var studentEmail = (($("#bk-email") || {}).value || "").trim();
+    var studentEmailNorm = studentEmail.toLowerCase();
+
+    var rec = logBooking("sending", null, "", ref, studentEmailNorm);
 
     window.EkGuruMail.send({
       ref: ref,
       tutor: modalTutor,
-      name: (($("#bk-name") || {}).value || "").trim(),
-      email: (($("#bk-email") || {}).value || "").trim(),
+      name: studentName,
+      email: studentEmail,
       level: ($("#bk-level") || {}).value || "",
       timezone: ($("#bk-tz") || {}).value || "",
       goal: (($("#bk-goal") || {}).value || "").trim(),
@@ -870,7 +878,8 @@
           delivered: [res.to].concat(res.cc || []),
           tutorEmailStatus: res.tutorEmailStatus || "",
           tutorEmailNote: res.tutorEmailNote || "",
-          emailStates: res.emailStates || {}
+          emailStates: res.emailStates || {},
+          emailDelivery: res.emailDelivery || {}
         });
       } catch (e2) {}
       logLedger(true, res, "", ref);
@@ -883,10 +892,19 @@
       /* EMAIL_DEGRADED, never "booking failed": the booking exists
          and is still visible to EkGuru. Only the emails did not
          go out. */
+      var failMsg = (e && e.message || "").slice(0, 160);
       try {
         window.EkGuruStore.update(ref, {
           status: "email_degraded",
-          error: (e && e.message || "").slice(0, 160)
+          error: failMsg,
+          emailDelivery: {
+            student: { status: "EXHAUSTED", lastAttempt: new Date().toISOString(),
+                       lastError: failMsg, retryCount: 0, provider: "" },
+            tutor: { status: "FAILED", lastAttempt: new Date().toISOString(),
+                     lastError: failMsg, retryCount: 0, provider: "" },
+            internal: { status: "FAILED", lastAttempt: new Date().toISOString(),
+                        lastError: failMsg, retryCount: 0, provider: "" }
+          }
         });
       } catch (e2) {}
       if (err) {
@@ -903,7 +921,7 @@
 
   /* One booking, written to the local ledger. Never allowed to
      throw — a diary problem must not break a booking. */
-  function logBooking(status, res, err, ref) {
+  function logBooking(status, res, err, ref, emailNorm) {
     try {
       if (!window.EkGuruStore) return null;
       return window.EkGuruStore.add({
@@ -912,6 +930,10 @@
         tutor: modalTutor.name,
         name: (($("#bk-name") || {}).value || "").trim(),
         email: (($("#bk-email") || {}).value || "").trim(),
+        /* v99 — the normalised value, persisted with the record so
+           idempotency and admin lookups never depend on the exact
+           casing the visitor typed. */
+        emailNorm: emailNorm || "",
         level: ($("#bk-level") || {}).value || "",
         timezone: ($("#bk-tz") || {}).value || "",
         goal: (($("#bk-goal") || {}).value || "").trim(),
@@ -921,7 +943,14 @@
         page: location.href,
         status: status,
         error: err || "",
-        delivered: res ? [res.to].concat(res.cc || []) : []
+        delivered: res ? [res.to].concat(res.cc || []) : [],
+        /* v99 — at commit time the booking exists but the emails
+           have not been attempted: QUEUED, honestly, until the
+           mailer resolves each role. */
+        emailDelivery: status === "sending" ? {
+          student: { status: "QUEUED" }, tutor: { status: "QUEUED" },
+          internal: { status: "QUEUED" }
+        } : (res && res.emailDelivery) || {}
       });
     } catch (e) { return null; }
   }
@@ -1075,6 +1104,15 @@
     /* de-duplicate the platform entry */
     copies = copies.filter(function (v, i) { return copies.indexOf(v) === i; });
 
+    /* v99 — was the student's OWN copy actually accepted? Derived
+       from the mailer's per-role delivery record, never guessed from
+       "a post to our inbox succeeded". */
+    var stuDel = (res && res.emailDelivery && res.emailDelivery.student) || null;
+    var stuState = stuDel ? stuDel.status
+      : (res && res.emailStates && res.emailStates.student) || null;
+    var studentCopyDegraded = !!(mail && stuState &&
+      stuState !== "ACCEPTED" && stuState !== "TUTOR_EMAIL_UNAVAILABLE");
+
     /* ═══════════════════════════════════════════════════════
        BUG FOUND v72 — THE CONFIRMATION STOPPED MENTIONING
        EKGURU WHEN THE TUTOR ROUTES THROUGH THE SHARED INBOX.
@@ -1125,6 +1163,16 @@
             '<ul class="bk-done-list">' +
               copies.map(function (c) { return "<li>✉️ " + esc(c) + "</li>"; }).join("") +
             "</ul>"
+          : "") +
+
+        /* v99 — honest per-role result on the student's screen. When
+           the booking saved but the student's own confirmation did
+           not get accepted, say so rather than printing "a copy went
+           to you". ACCEPTED is the truthful ceiling a provider can
+           give; DELIVERED is never claimed. */
+        (studentCopyDegraded
+          ? '<p class="bk-note" style="color:var(--brand-3,#b45309)">⚠️ ' +
+            esc(t("book.emailDegraded")) + "</p>"
           : "") +
 
         '<p class="bk-note">' + esc(t("book.sentNote")) + "</p>" +

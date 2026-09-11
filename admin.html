@@ -795,6 +795,12 @@
 
   <div class="cards" id="dl-cards"></div>
 
+  <h3>Student confirmation relay — live</h3>
+  <p class="sub">Only a relay that can write to an <em>arbitrary</em> student
+  address (your own Apps Script / Gmail) can carry the student's own booking
+  receipt with a verified EkGuru sender. Its health is fetched live, not assumed.</p>
+  <div class="scroller" id="dl-relay"></div>
+
   <h3>Per tutor</h3>
   <div class="scroller" id="dl-table"></div>
 
@@ -1335,20 +1341,34 @@
      record room answers "was the tutor/student/EkGuru notified?" */
   function emailBadges(r) {
     var es = r.emailStates || {};
+    var d = r.emailDelivery || {};
+    function detail(role) {
+      var x = d[role];
+      if (!x) return "";
+      var parts = [];
+      if (x.provider) parts.push("relay: " + x.provider);
+      if (x.lastAttempt) parts.push("tried: " + x.lastAttempt);
+      if (x.retryCount) parts.push("retries: " + x.retryCount);
+      if (x.lastError) parts.push("error: " + x.lastError);
+      if (x.messageId) parts.push("id: " + x.messageId);
+      return parts.length ? " — " + parts.join(" | ") : "";
+    }
     function badge(role, state) {
       if (!state) return '<span class="muted" title="' + role + '">–</span>';
       var col = state === "ACCEPTED" ? "var(--green,#147a3d)"
               : state === "TUTOR_EMAIL_UNAVAILABLE" ? "var(--accent,#b45309)"
+              : state === "QUEUED" || state === "PROCESSING" ? "var(--muted,#64748b)"
               : "var(--brand-3,#c2407d)";
-      return '<span title="' + esc(role) + ': ' + esc(state) + '" style="color:' +
-        col + ';font-weight:600;margin-right:5px">' +
+      return '<span title="' + esc(role) + ': ' + esc(state) + esc(detail(role)) +
+        '" style="color:' + col + ';font-weight:600;margin-right:5px">' +
         (role === "tutor" ? "T" : role === "student" ? "S" : "E") + "·" +
-        esc(state === "TUTOR_EMAIL_UNAVAILABLE" ? "unavailable" : state === "ACCEPTED" ? "ok" : "fail") +
+        esc(state === "TUTOR_EMAIL_UNAVAILABLE" ? "unavailable"
+          : state === "ACCEPTED" ? "ok" : String(state).toLowerCase()) +
         "</span>";
     }
-    return badge("tutor", es.tutor || (r.tutorEmailStatus || "")) +
-           badge("student", es.student) +
-           badge("internal", es.internal);
+    return badge("tutor", (d.tutor && d.tutor.status) || es.tutor || (r.tutorEmailStatus || "")) +
+           badge("student", (d.student && d.student.status) || es.student) +
+           badge("internal", (d.internal && d.internal.status) || es.internal);
   }
 
   /* v97 — manual retry from the record room. Re-sends the booking's
@@ -4196,6 +4216,52 @@
       if (e && !e._bound) { e._bound = 1; e.addEventListener("change", sim); e.addEventListener("input", sim); }
     });
     sim();
+
+    /* v99 — live relay health, refreshed every time this tab draws. */
+    try { drawRelayHealth(); } catch (e) { console.error("relay-health:", e); }
+  }
+
+  /* v99 — the student-confirmation relay's live health. Fetch the
+     Apps Script /exec GET (which reports configured:true once the
+     server-side token is minted) and pair it with the client token
+     state from site-config, so the "one remaining wiring step" is
+     shown as a live fact rather than a guess. */
+  function drawRelayHealth() {
+    var box = el("dl-relay");
+    if (!box) return;
+    if (!window.EkGuruMail || !window.EkGuruMail.relayHealth) {
+      box.innerHTML = "<p class=\"muted\">The mailer is not loaded here.</p>";
+      return;
+    }
+    box.innerHTML = "<p class=\"muted\">Checking the relay live…</p>";
+    window.EkGuruMail.relayHealth().then(function (h) {
+      if (!h || !h.reachable) {
+        box.innerHTML = "<table class=\"tbl\"><tr><td style=\"color:var(--brand-3,#c2407d)\">" +
+          "Apps Script relay unreachable" + (h && h.reason ? " (" + esc(h.reason) + ")" : "") +
+          " — the student's confirmation will fall back to Web3Forms/EmailJS.</td></tr></table>";
+        return;
+      }
+      var ok = h.configured && h.clientTokenWired;
+      var row = function (k, v, good) {
+        return "<tr><td>" + esc(k) + "</td><td>" +
+          "<b style=\"color:" + (good ? "var(--green,#147a3d)" : "var(--brand-3,#c2407d)") + "\">" +
+          esc(String(v)) + "</b></td></tr>";
+      };
+      box.innerHTML =
+        "<table class=\"tbl\">" +
+        row("Relay reachable", "yes", true) +
+        row("Server token minted (MAILER_SHARED_TOKEN)", h.configured ? "yes" : "NO — run mintToken()", !!h.configured) +
+        row("Client token wired (site-config)", h.clientTokenWired ? "yes" : "NO — wire mail.appsScript.token", !!h.clientTokenWired) +
+        row("Can reach strangers", h.strangers ? "yes" : "locked to allow-list", !!h.strangers) +
+        row("Daily limit", h.limit || "—", true) +
+        (ok
+          ? "<tr><td colspan=\"2\" style=\"color:var(--green,#147a3d)\">" +
+            "The student's own receipt is carried by your Gmail relay — the verified sender path.</td></tr>"
+          : "<tr><td colspan=\"2\" style=\"color:var(--accent,#b45309)\">" +
+            "Until the token is wired, the student's receipt falls back to Web3Forms (250/month per key) and EmailJS. " +
+            "Run mintToken() in the Apps Script editor, then set mail.appsScript.token.</td></tr>") +
+        "</table>";
+    });
   }
 
   /* The Sheet can land after the first paint. Redraw when it

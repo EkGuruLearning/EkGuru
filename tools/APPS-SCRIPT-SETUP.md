@@ -8,18 +8,22 @@ sends exactly the HTML layout *we* wrote, not a relay's template.
 
 ## What we verified about YOUR deployment (11 Sep 2026)
 
-Your script is already deployed and reachable. Live probe results:
+You redeployed the relay twice on 11 Sep 2026 (from the Apps Script
+"Manage deployments" page, `ee.md`):
 
-| Request | Response |
-|---|---|
-| `GET /exec` (health) | `{"success":"true","message":"EkGuru mail relay is deployed and reachable.","remaining":100}` |
-| `POST /exec` (text/plain, empty token) | `{"success":"false","message":"Not authorised."}` |
+| Version | Deployment ID (prefix) | Time |
+|---|---|---|
+| v3 (latest) | `AKfycbwm76fNYU54OqSSzt_HW_aA5lpg85kf-sEUPK90vaM9SaNQZ2f7D-ZN1V2P3hd7Ojzz` | 4:10 PM |
+| v2 | `AKfycbwuZgVFp6YabDCQPkI_0VBYHKxKJMVj23nTADdX46X32RBES_tLNfmkobAb2L0kDtDH` | 4:08 PM |
 
-So the endpoint is **live** and speaks the exact contract the site
-expects (`success:"true"` / `success:"false"` + `message`). The only
-missing piece is **the shared token**: with an empty token the script
-answers `Not authorised`, and the site correctly falls back to
-StaticForms/Web3Forms so no mail is lost.
+Script ID: `1kcvADOf9OqQQ2uH3Yl4fC6aG7-fBR1asfaGpqLf9cqn_xErvkZ5TMHKm`
+(library URL `…/macros/library/d/1kcvADOf9OqQQ2uH3Yl4fC6aG7-fBR1asfaGpqLf9cqn_xErvkZ5TMHKm/3`).
+
+The client now points at the **v3** `/exec` URL. The relay is fail-closed:
+with an empty token it answers `Not authorised`, and the site correctly
+falls back to StaticForms/Web3Forms so no mail is lost. From this build
+sandbox the `/exec` URL answers empty (Google bot-gates datacenter IPs),
+so only a real visitor's browser can exercise it end-to-end.
 
 ### The one remaining step — the token
 
@@ -34,27 +38,35 @@ Property. To switch the relay on:
 2. **Deploy the Web App** (Deploy → New deployment → Web app → Execute
    as Me, access Anyone) so the latest code — including `mintToken` —
    is live.
-3. **Wire the client at deploy time**: put the SAME value into
-   `js/site-config.js` locally during deployment (see below). Keep it
-   out of any committed file — the repository copy of `site-config.js`
-   ships with `token: ""`.
+3. **Wire the client ONCE, durably** (so no update ever erases it):
+
+   ```
+   echo '{"mailerToken": "PASTE_THE_VALUE"}' > deploy-secrets.local.json
+   python3 tools/wire-token.py
+   ```
+
+   `deploy-secrets.local.json` is gitignored, so the token is never
+   committed. `tools/wire-token.py` re-injects it into
+   `js/site-config.js` after every update — run it after each
+   `git pull` / before each deploy instead of re-pasting by hand.
+   `tools/release-decision.js` reports `STUDENT_EMAIL:
+   BLOCKED_ON_TOKEN` until it is wired, so a forgotten token can
+   never pass silently.
 
    ```js
    mail: { …
      appsScript: {
-       url: "https://script.google.com/macros/s/AKfycbwG978gM3Vspo0r8JmNxRojiUwA5h0tWoFd8p9vQf5x-NX9QGDB8VCr0j1LnTPoOjqtdA/exec",
-       scriptId: "1dG12tEKQXs7bRKsUetBmFeVi-kqrDqMKU9S_2ahZJNM8mCYjE5nrDaM1",
-       token: ""   /* ← fill only at deploy time; never commit the value */
+       url: "https://script.google.com/macros/s/AKfycbwm76fNYU54OqSSzt_HW_aA5lpg85kf-sEUPK90vaM9SaNQZ2f7D-ZN1V2P3hd7Ojzz/exec",
+       scriptId: "1kcvADOf9OqQQ2uH3Yl4fC6aG7-fBR1asfaGpqLf9cqn_xErvkZ5TMHKm",
+       token: ""   /* ← filled by tools/wire-token.py; never commit the value */
      }
    }
    ```
 
 4. Re-test: `python3 tools/test-email-e2e.py` → the booking/contact
-   internal copy should then go out **via Google Apps Script**.
-
-> ⚠️ If the URL you typed had an extra letter (`…LnTPoOoJqtdA`), note the
-> correct deployment is `…LnTPoOjqtdA` — one `o`. The extra-letter URL
-> answers "file does not exist".
+   internal copy should then go out **via Google Apps Script**, and
+   the Delivery tab in `admin.html` shows "Server token minted: yes /
+   Client token wired: yes".
 
 ---
 
@@ -63,7 +75,7 @@ Property. To switch the relay on:
 `tools/apps-script-mailer.gs` is a complete, drop-in `Code.gs` that
 implements this exact contract plus a daily cap and a token check.
 
-1. <https://script.google.com> → open project `1dG12tEKQXs7bRKsUetBmFeVi-kqrDqMKU9S_2ahZJNM8mCYjE5nrDaM1`.
+1. <https://script.google.com> → open project `1kcvADOf9OqQQ2uH3Yl4fC6aG7-fBR1asfaGpqLf9cqn_xErvkZ5TMHKm`.
 2. Paste the whole of `tools/apps-script-mailer.gs` into `Code.gs`.
 3. **Run `mintToken` once** from the editor → it creates the Script
    Property `MAILER_SHARED_TOKEN` with a fresh secret (never printed,

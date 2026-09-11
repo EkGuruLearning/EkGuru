@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-11T10:27:57.014Z",
+  "generated": "2026-09-11T11:46:58.685Z",
   "decision": {
     "RELEASE": {
       "result": "GO",
@@ -15,7 +15,7 @@
     },
     "PRIVACY": {
       "result": "PASS",
-      "evidence": "627 files, 0 secrets, 0 blocked"
+      "evidence": "632 files, 0 secrets, 0 blocked"
     },
     "DOCTOR": {
       "result": "PASS",
@@ -32,6 +32,10 @@
     "BOOKING": {
       "result": "DEGRADED",
       "evidence": "real E2E: Tutor A/B honest routing (TUTOR_EMAIL_UNAVAILABLE, no generic tutor inbox); internal record ACCEPTED via FormSubmit; tutor/student copies via stranger-capable relay unverifiable from datacenter"
+    },
+    "STUDENT_EMAIL": {
+      "result": "BLOCKED_ON_TOKEN",
+      "evidence": "Apps Script relay reachable and server token minted; client token EMPTY. Student receipt has no verified route until mail.appsScript.token is wired (see reports/student-email-delivery-audit.json)."
     },
     "EMAIL_IDEMPOTENCY": {
       "result": "PASS",
