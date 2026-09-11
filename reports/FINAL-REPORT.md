@@ -123,7 +123,7 @@ The sandbox has **no git credentials**; nothing can be pushed. The remote is
 now set to `https://github.com/ekgurulearning/EkGuru.git` (public, reachable —
 verified via `git ls-remote`). Two facts matter for the push:
 
-- **Local `main`** is `111e8e9` (all fixes committed; working tree clean).
+- **Local `main`** is `9e710ae` (all fixes committed; working tree clean).
 - **Remote `main`** is `965ac21` — a force-reset, single *"Initial commit"*
   containing the old production tree (`status:"soon"`), with **no common
   ancestor** to local `main`.
