@@ -340,11 +340,23 @@ way to write Hindi in Latin letters.</p></div>
 (function(){
   var tbl=document.getElementById("pt"),rows=[].slice.call(tbl.querySelectorAll("tr[data-cat]"));
   var q=document.getElementById("ps"),cnt=document.getElementById("pcount"),cat="";
+  /* v100 — romanisation-tolerant search (shukriya / shukriyaa /
+     śukriyā all match). Diacritics stripped, doubled vowels
+     collapsed; Devanagari matches exactly. */
+  function norm(s){
+    return String(s||"").toLowerCase()
+      .replace(/[āáàâ]/g,"a").replace(/[īíìî]/g,"i")
+      .replace(/[ūúùû]/g,"u").replace(/[ēéèê]/g,"e")
+      .replace(/[ōóòô]/g,"o").replace(/[ṣśš]/g,"s")
+      .replace(/[ñṅ]/g,"n").replace(/[ḍḷ]/g,"d").replace(/ṭ/g,"t")
+      .replace(/ṛ/g,"r").replace(/ḥ/g,"h").replace(/ṃ/g,"m")
+      .replace(/([aeiou])\1+/g,"$1");
+  }
   function apply(){
-    var s=q.value.trim().toLowerCase(),n=0;
+    var s=norm(q.value),n=0;
     rows.forEach(function(r){
       var okCat=!cat||r.getAttribute("data-cat")===cat;
-      var okTxt=!s||r.textContent.toLowerCase().indexOf(s)>-1;
+      var okTxt=!s||norm(r.textContent).indexOf(s)>-1;
       var show=okCat&&okTxt;
       r.style.display=show?"":"none";
       if(show)n++;

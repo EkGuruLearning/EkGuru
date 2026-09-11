@@ -285,10 +285,23 @@ way to write Hindi in Latin letters.</p></div>
 (function(){
   var rows=[].slice.call(document.querySelectorAll("#vt tr")).slice(1);
   var q=document.getElementById("vs"),c=document.getElementById("vc");
+  /* v100 — romanisation-tolerant search. A learner types khana,
+     khaana or khānā; the row says khaana. Strip diacritics and
+     collapse doubled vowels so all of them match. Devanagari is
+     untouched, so खाना still matches exactly. */
+  function norm(s){
+    return String(s||"").toLowerCase()
+      .replace(/[āáàâ]/g,"a").replace(/[īíìî]/g,"i")
+      .replace(/[ūúùû]/g,"u").replace(/[ēéèê]/g,"e")
+      .replace(/[ōóòô]/g,"o").replace(/[ṣśš]/g,"s")
+      .replace(/[ñṅ]/g,"n").replace(/[ḍḷ]/g,"d").replace(/ṭ/g,"t")
+      .replace(/ṛ/g,"r").replace(/ḥ/g,"h").replace(/ṃ/g,"m")
+      .replace(/([aeiou])\1+/g,"$1");
+  }
   q.addEventListener("input",function(){
-    var s=q.value.trim().toLowerCase(),n=0;
+    var s=norm(q.value),n=0;
     rows.forEach(function(r){
-      var show=!s||r.textContent.toLowerCase().indexOf(s)>-1;
+      var show=!s||norm(r.textContent).indexOf(s)>-1;
       r.style.display=show?"":"none";if(show)n++;
     });
     c.textContent=n+" verb"+(n===1?"":"s");
