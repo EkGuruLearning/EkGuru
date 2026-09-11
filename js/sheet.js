@@ -861,34 +861,64 @@
   }
 
   function fetchSheet() {
-    var ctrl = null, timer = null;
-    try { ctrl = new AbortController(); } catch (e) {}
-    if (ctrl) timer = setTimeout(function () { try { ctrl.abort(); } catch (e) {} }, 8000);
+    /* v97 — one silent retry after a failed fetch (a cold Google CDN
+       edge on the first hit of the day is common), then the existing
+       error path. The 8-second abort timeout applies per attempt. */
+    function once(attempt) {
+      var ctrl = null, timer = null;
+      try { ctrl = new AbortController(); } catch (e) {}
+      if (ctrl) timer = setTimeout(function () { try { ctrl.abort(); } catch (e) {} }, 8000);
 
-    return fetch(url, { signal: ctrl ? ctrl.signal : undefined, cache: "default" })
-      .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error("HTTP " + r.status)); })
-      .then(function (text) {
-        if (timer) clearTimeout(timer);
-        /* A Sheet that is not actually published returns an HTML
-           login page, not CSV. Refuse it rather than parsing junk. */
-        if (/^\s*</.test(text)) {
-          throw new Error("That URL returned a web page, not CSV. " +
-            "Use File → Share → Publish to web → CSV.");
-        }
-        var recs = toRecords(parseCSV(text));
-        if (!recs.length) throw new Error("no rows with an id column");
-        writeCache(recs);
-        var n = applyRecords(recs);
-        announce();
-        if (n) console.info("[EkGuru] Sheet applied: " + n + " change(s).");
-      })
-      .catch(function (e) {
-        if (timer) clearTimeout(timer);
-        window.EKGURU_SHEET_INFO = { loaded: false, error: e.message };
-        announce();
-        console.warn("[EkGuru] Sheet not loaded: " + e.message +
-          " — the tutor files are being used instead.");
-      });
+      return fetch(url, { signal: ctrl ? ctrl.signal : undefined, cache: "default" })
+        .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error("HTTP " + r.status)); })
+        .then(function (text) {
+          if (timer) clearTimeout(timer);
+          /* A Sheet that is not actually published returns an HTML
+             login page, not CSV. Refuse it rather than parsing junk. */
+          if (/^\s*</.test(text)) {
+            throw new Error("That URL returned a web page, not CSV. " +
+              "Use File → Share → Publish to web → CSV.");
+          }
+          var rows = parseCSV(text);
+          var head = (rows[0] || []).map(function (h) { return String(h).trim().toLowerCase(); });
+          /* Schema check: without an id column nothing can map, and a
+             wrong tab (or an empty sheet) must be loud, not silent. */
+          if (head.indexOf("id") === -1) {
+            throw new Error("header row has no 'id' column (got: " +
+              head.slice(0, 8).join(",") + ") — is the right tab published?");
+          }
+          /* Report columns the code expects but the sheet lacks, so a
+             silently-dead column is visible instead of mysterious.
+             'youtubeId' is the internal name of the 'video' column. */
+          var missing = Object.keys(FIELDS).filter(function (f) {
+            return f !== "youtubeId" && head.indexOf(f.toLowerCase()) === -1;
+          });
+          if (missing.length) {
+            console.warn("[EkGuru] Sheet is missing columns: " + missing.join(", ") +
+              " — those fields keep their file values.");
+          }
+          var recs = toRecords(rows);
+          if (!recs.length) throw new Error("no rows with an id column");
+          writeCache(recs);
+          var n = applyRecords(recs);
+          announce();
+          if (n) console.info("[EkGuru] Sheet applied: " + n + " change(s).");
+        })
+        .catch(function (e) {
+          if (timer) clearTimeout(timer);
+          if (attempt < 2) {
+            /* One quiet retry; only the final failure reports. */
+            return new Promise(function (res) {
+              setTimeout(function () { once(attempt + 1).catch(function () {}); res(); }, 1200);
+            });
+          }
+          window.EKGURU_SHEET_INFO = { loaded: false, error: e.message };
+          announce();
+          console.warn("[EkGuru] Sheet not loaded: " + e.message +
+            " — the tutor files are being used instead.");
+        });
+    }
+    return once(1);
   }
 
   /* A fresh cache applies before anything renders, so the first

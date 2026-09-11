@@ -652,8 +652,9 @@ window.EKGURU_SITE = {
      SETUP:  node tools/makereviews.js
      ========================================================= */
   reviews: {
-    /* LIVE since v61. Verified 8 Sep 2026 — HTTP 200, correct header. */
-    csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRSVJM_3amGYntf2atDS90_Nm6b85NeN2Mcy-pABIUMpl9DZMJ-LS3dlOPKWMjIFG_MpI7JR-d5aiLd/pub?gid=1785051835&single=true&output=csv",
+    /* LIVE — consolidated production workbook (see sheet tab).
+       Verified 11 Sep 2026 — HTTP 200, correct header row. */
+    csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRGCkYfn_JfKPGaUy7tGWRFoPvo7x6-cB4SLTbi-kzKY1f0k1hwXYCwYob-qHG5EKZeVrwcBeBD64fc/pub?gid=1290168568&single=true&output=csv",
     /* v62: 60 -> 5, same reason as the tutor sheet above. A review
        added in the morning could otherwise be invisible all
        afternoon to anyone who had loaded the page once. */
@@ -701,8 +702,9 @@ window.EKGURU_SITE = {
      file. So do baseUrl and brand — a typo in either renames the
      company or breaks every canonical URL at once. */
   settings: {
-    /* LIVE since v70. Verified: HTTP 200, key/value shape, 8 settings. */
-    csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRiuNhrMRsj7SmIz_tEiQnnx49aS-tXCpkDIiLwJxNAtGQeGLb9Dbc31KixE7CIQcTaEJV0rGOUmqZZ/pub?gid=1901421635&single=true&output=csv",
+    /* LIVE — consolidated production workbook (see sheet tab).
+       Verified 11 Sep 2026: HTTP 200, key/value shape. */
+    csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRGCkYfn_JfKPGaUy7tGWRFoPvo7x6-cB4SLTbi-kzKY1f0k1hwXYCwYob-qHG5EKZeVrwcBeBD64fc/pub?gid=764031473&single=true&output=csv",
     cacheMinutes: 5,
     alwaysRevalidate: true,
     /* The address that is currently baked into the generated
@@ -714,14 +716,9 @@ window.EKGURU_SITE = {
   },
 
   content: {
-    /* LIVE since v60. Verified 8 Sep 2026 — HTTP 200, correct header row.
-
-       Note this is a SEPARATE spreadsheet from the tutor one, not a
-       second tab of it. That is fine and arguably better: the tutor
-       sheet holds four rows that rarely change, this one will hold
-       hundreds. Keeping them apart means a mistake while writing
-       content cannot touch a live tutor profile. */
-    csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRMDUcwsMt0xu9JFzzc5NzLJP481rA6nTzjXPH4jltoKu5PUBCOItQd3alNzlcAvoqcRp5oTP_zA3J2/pub?gid=1427080849&single=true&output=csv"
+    /* LIVE — consolidated production workbook (see sheet tab).
+       Verified 11 Sep 2026 — HTTP 200, correct header row. */
+    csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRGCkYfn_JfKPGaUy7tGWRFoPvo7x6-cB4SLTbi-kzKY1f0k1hwXYCwYob-qHG5EKZeVrwcBeBD64fc/pub?gid=2135319947&single=true&output=csv"
   },
 
   sheet: {
@@ -747,7 +744,23 @@ window.EKGURU_SITE = {
        "Replace spreadsheet".
 
        Verified 9 Sep 2026: HTTP 200, all 36 columns. */
-    csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQCNt5kON7FMVZxu9cXeNC0Zu10C-bslUbeNN5eh83R-7LMxm98govPXvt88zJxSySmamLW6GJOk5hD/pub?gid=2127621931&single=true&output=csv",
+    /* v97 — CONSOLIDATED TO THE SINGLE PRODUCTION WORKBOOK (11 Sep 2026).
+
+       The four data tabs (tutors, reviews, settings, content) now live
+       in ONE spreadsheet — the same workbook the master command lists —
+       instead of four separate published spreadsheets. The previous
+       tutor URL pointed at an OLDER copy of the tab: 36 columns, raw
+       emails still exposed, and tara's row shifted (about/experience/
+       methodology had landed in thumb/banner). The production tab has
+       47 columns — including formKey, holiday, holidayUntil,
+       holidayNote, specialities, badge, trialMinutes, packageDiscount,
+       responseHours, intro, exams — emails blanked in favour of
+       formKey, and tara's columns correct. js/sheet.js FIELDS already
+       expected the 47-column schema, so the code and the config were
+       out of step until this change.
+
+       Verified 11 Sep 2026: HTTP 200, all 47 columns, 4 tutors. */
+    csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRGCkYfn_JfKPGaUy7tGWRFoPvo7x6-cB4SLTbi-kzKY1f0k1hwXYCwYob-qHG5EKZeVrwcBeBD64fc/pub?gid=834026040&single=true&output=csv",
     /* v62 — WAS 60, AND THAT WAS THE BUG PRAKASH KEPT HITTING.
        A visitor's cached copy under an hour old BLOCKED the fetch
        entirely, so a price changed in the sheet stayed invisible for
