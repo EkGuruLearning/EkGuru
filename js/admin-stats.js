@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-11T06:16:30.731Z",
+ "generated": "2026-09-11T06:20:33.661Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
