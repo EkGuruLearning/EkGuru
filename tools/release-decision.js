@@ -92,7 +92,7 @@ set("CONTENT", "PASS", `554 pages, 171 fingerprinted, ${selfcopy?.tier_counts?.V
 set("COPY_PROTECTION", "DEGRADED", "fingerprints + self-copy detection + probes + evidence pipeline built; external web-copy monitoring requires scheduled runner (documented limitation)");
 
 const out = { generated: new Date().toISOString(), decision: R,
-  blocker: deployPending ? "Deployment: fixes are committed locally (2fcf497) but cannot be pushed from this sandbox — no git remote/credentials. Production still serves the pre-fix tree." : null };
+  blocker: deployPending ? "Deployment: fixes are committed locally (ff077a9) but cannot be pushed from this sandbox — no git remote/credentials. Production still serves the pre-fix tree." : null };
 fs.writeFileSync(path.join(REPORTS, "release-decision.json"), JSON.stringify(out, null, 2));
 
 for (const [k, v] of Object.entries(R)) {
