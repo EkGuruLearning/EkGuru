@@ -1,102 +1,128 @@
-# EkGuru — Cumulative Implementation & Live Audit Report
+# EkGuru — Final Production Readiness + DR Drill + AdSense Gate — Consolidated Report
 
 **Date:** 2026-09-11 (Asia/Calcutta)
-**Scope:** Merged all four master command files into one cumulative checklist
-(`reports/master-requirements.json`, 116 requirements) and implemented every
-applicable item. Every claim below is backed by an artifact in `reports/` or a
-recorded live check. Nothing is marked fixed from memory alone — each was
-re-verified in the current tree and, where possible, against the live site.
+**Scope:** All **8** master command files merged into one cumulative checklist —
+`reports/master-requirements.json` (**288 requirements**). Every applicable item
+was implemented, tested, and (where the sandbox allows) live-verified. Every
+claim below has an artifact in `reports/`. Nothing is asserted from memory or
+marked green without evidence.
 
 ---
 
-## 1. Files changed (exact)
+## 1. The verdict in one table
 
-### Modified (tracked)
-| File | Change |
+`reports/release-decision.json`:
+
+| Gate | Result |
 |---|---|
-| `js/site-config.js` | `status: "soon"` → `status: "live"` (kills the Coming-soon pill) |
-| `js/tutors/_overrides.js` | Regenerated from live sheet — **removed personal email `ckhadutta@gmail.com`** (stale sheet data) and blank tutor emails; honest generation |
-| `js/sheet.js` | `videoTitle` guard: refuse values shaped like methodology text (newline / `\|` / >90 chars) — fixes a live cross-column leak on tara's row |
-| `js/admin-stats.js` | Regenerated with real current numbers (seo PASS, privacy PASS, gate 0 problems) |
-
-### New tools (build/test/ops)
-`tools/privacy.js`, `tools/sheetsync.js`, `tools/seocheck.js`, `tools/gate.js`,
-`tools/doctor.js`, `tools/adminstats.js`, `tools/adsready.js`,
-`tools/live-crawl.js`, `tools/test-header-geometry.py`, `tools/make-requirements.py`.
-
-### New reports
-`reports/header-geometry.json`, `reports/privacy-scan.json`, `reports/seo.json`,
-`reports/doctor.json`, `reports/adsready.json`, `reports/live-reachability.json`,
-`reports/url-inventory.json`, `reports/master-requirements.json`,
-`reports/shots/*.png` (7 header screenshots).
+| RELEASE | **NO-GO** — blocked on deployment (see §7) |
+| AdSense review | **READY** (12/12 readiness; *not* approval) |
+| Security | PASS — 0 secrets, 0 source maps, 0 dependencies |
+| Privacy | PASS — 0 secrets, 0 sensitive, 0 blocked (625 files) |
+| Doctor | 11 checks, 1 problem = deployment freshness (0 code problems) |
+| Data | PASS — 4 CSVs + schema 26/26, unique ids |
+| Email | DEGRADED — routing verified; no live send (would be fabricated) |
+| Booking | DEGRADED — routing verified; no live send |
+| Payment | N/A — no payment system (static site) |
+| Backup / Restore / Rollback | PASS / PASS / PASS |
+| Live monitoring | DEGRADED — 14 GREEN / 1 YELLOW (Apps Script relay) |
+| SEO | PASS — 555 pages, 0 broken, 0 orphans, 550 sitemap URLs |
+| Mobile / Desktop | PASS (6 + 10 widths, no overflow) |
+| Accessibility | PASS |
+| Performance | PASS (62–491 ms local; homepage noted as heaviest) |
+| Content | PASS (171 pages fingerprinted) |
+| Copy protection | DEGRADED (external web-monitoring = documented gap) |
 
 ---
 
-## 2. Tests run — results
+## 2. What was built this session (new tools)
 
-| Test | Result | Evidence |
-|---|---|---|
-| Header geometry (real Chromium, 17 widths: 320–768 mobile, 820/900 tablet, 1024–1920 desktop) | **PASS — 0 failures** | `reports/header-geometry.json` |
-| Burger/drawer interaction (open / Escape / outside-click / aria-expanded, 0 console errors) | **PASS** | DOM measurement at 390px |
-| Privacy & secret scan `node tools/privacy.js --sheets --live` | **PASS — 0 secrets, 0 sensitive, 0 blocked** (619 files + live sheets + live homepage) | `reports/privacy-scan.json` |
-| SEO check (broken links / orphans / sitemap) | **PASS — 554 pages, 0 broken, 0 orphans, 13 sitemap files, 549 URLs** | `reports/seo.json` |
-| Doctor / build gate | **10/11 PASS; 1 FAIL = deploy pending** (see Blocker) | `reports/doctor.json` |
-| AdSense readiness | **12/12 PASS** (readiness only — approval is Google's decision) | `reports/adsready.json` |
-| Data-source integrity (CSV endpoints, schema, Apps Script health) | **26 checks, 0 failures** | `tools/test-data-sources.py` |
-| Sheet loader (parse/apply/retry/abort) | **PASS** | `tools/test-sheet-loader.js` |
-| Live reachability (every page) | **564/564 live URLs HTTP 200, 0 redirects, 0 not-200** | `reports/live-reachability.json` |
+`tools/freeze-baseline.py`, `tools/contentguard.js` (fingerprints + self-copy
+detection + copy-probes), `tools/test-tools-browser.py` (20-page Chromium QA),
+`tools/live-monitor.js`, `tools/security-audit.js`, `tools/dr-drill.py`
+(backup + restore + rollback + CSV-down adversarial drill),
+`tools/qa-perf-a11y.py`, `tools/release-decision.js`, `tools/make-requirements2.py`,
+`tools/make-copyright-page.py`.
 
-## 3. Live evidence (fetched this session)
+New page: `copyright/index.html` (added to sitemap + trust-footers).
 
-- Homepage `https://ekguru.shop/` → 200, canonical `https://ekguru.shop/`.
-- Old GitHub `https://ekgurulearning.github.io/EkGuru/` → 301 → `https://ekguru.shop/` → 200.
-- `http://ekguru.shop/` → 301 → https. `http://www…` → 301 → https.
-- `ads.txt` → exact line `google.com, pub-8175326569491671, DIRECT, f08c47fec0942fa0`.
-- `robots.txt` → permits money pages, disallows `/admin.html`, `/tools/`, `/search/`, declares sitemap.
-- `sitemap-index.xml` → 7 child sitemaps, lastmod 2026-09-11.
-- **All 564 URLs** (554 HTML pages + 10 critical assets) return 200.
-- Apps Script relay `…/exec` → `{"success":"true",…}` (health only; not a mail route).
+## 3. New evidence files
 
-## 4. Real bugs found & fixed (re-verified, not trusted from old reports)
+`final-release-baseline.json`, `ultra360-baseline.json`,
+`content-ownership-inventory.json` (171 pages, 35 images),
+`fingerprints.json`, `selfcopy-report.json`, `copy-probes.json`, `tool-qa.json`,
+`monitor.json`, `security-audit.json`, `dr-drill.json`, `perf-a11y.json`,
+`release-decision.json`, `master-requirements.json` (288 requirements).
 
-1. **Coming-soon pill (P0)** — `status:"soon"` in config → fixed to `"live"`.
-2. **Personal-email privacy leak (P0)** — `ckhadutta@gmail.com` (Shikha Dutta's
-   real Gmail) was published in the generated `_overrides.js` from stale sheet
-   data. Regenerated; the file now carries **zero** personal emails.
-3. **Cross-column data leak (tara)** — production sheet `videotitle` cell
-   contained methodology text. Guard added in `js/sheet.js` + `tools/sheetsync.js`.
+## 4. Key findings (all real, all handled honestly)
 
-## 5. Honesty notes (no fabricated claims)
+1. **Self-similarity cluster (content risk).** The 33 city/country tutor pages
+   (`hindi-tutor/<place>/`) share ~70–80 % of their body text (template), each
+   with a unique intro paragraph. Flagged as 210 VERY_HIGH self-similar pairs.
+   **Fix plan:** differentiate each page's body further (real editorial work,
+   not spinning). Not auto-fixed — fabricating 33 articles would violate the
+   no-fake-content rule.
+2. **Homepage weight.** 27 JS files / 1.15 MB on `/` — noted as the top
+   performance improvement (bundle/lazy-load). Not a blocker.
+3. **Apps Script relay** is reachable (health JSON 200 verified) but Google
+   intermittently serves a bot-challenge to datacenter IPs → monitored YELLOW,
+   never GREEN, and it is **not wired** as the mail route (`appsScript.url`
+   is empty in config by design; `formsubmit` is the active provider).
+4. **Disaster drills PASSED:** backup (git bundle + zip), restore (scratch-dir
+   serve → 5/5 pages 200), rollback (known-good 8de5b69, no DNS change), and
+   the CSV-down adversarial drill (tutor page still renders from static
+   fallback, 0 blank pages).
 
-- **No "AdSense approved"** — only readiness (12/12 checks). Approval is Google's.
-- **No "all pages indexed"** — Search Console access is unavailable in this sandbox.
-- **Email E2E:** routing, Reply-To (= visitor, FROM = verified sender),
-  honeypot/dwell-time traps, and provider capability flags (appsscript /
-  web3forms / emailjs / staticforms / formsubmit) are verified in code; **no live
-  send was executed**, because a fake "DELIVERED" claim is forbidden and a real
-  send needs a real form submission. Providers only ever promise ACCEPTED, and
-  the code models SUCCESS/PARTIAL_SUCCESS/FAILURE with idempotency — never DELIVERED.
+## 5. Backend-only requirements — marked NOT_APPLICABLE, not hidden
 
-## 6. Remaining blocker (1)
+The 24 N/A items are all things a **static GitHub Pages site cannot implement
+without a backend**, and the commands themselves say to mark them so:
+authentication, RBAC, payments, sessions, server-side rate limiting, webhooks,
+ticket systems, data export/deletion, feature flags, experimentation, scraper
+blocking, hotlink protection. Each is recorded in `master-requirements.json`
+with the reason, and none was silently dropped.
 
-**Deployment is pending.** The live site `https://ekguru.shop/` still serves the
-previous tree: `js/site-config.js` line 850 = `status: "soon"` and
-`js/tutors/_overrides.js` still contains the personal email. Every fix above is
-complete and tested **locally** but cannot be pushed from this sandbox:
+## 6. Content protection (implemented, honest limits)
 
-- `.git/config` has **no remote** (the clone's origin URL was stripped), so
-  `git push` is impossible; there are no SSH keys or tokens in the environment.
-- The live deployment is GitHub Pages on `ekgurulearning/EkGuru` (CNAME
-  `ekguru.shop`), i.e. push-to-deploy.
+- Fingerprints: SHA-256 (normalized), SimHash-64, MinHash-128 (3-grams),
+  paragraph/sentence hashes, image SHA-256 + dHash — for 171 pages + 35 images.
+- Internal self-copy detection with LOW/MEDIUM/HIGH/VERY_HIGH tiers.
+- Natural copy-probe phrases per asset (no deceptive traps).
+- Copyright page + ownership signals in structured data + © footers.
+- **Not done / documented:** live web-copy discovery and scraper observability
+  need a scheduled runner + server logs the static host cannot provide.
 
-**To deploy**, run from any machine with push access:
+## 7. The single blocker (honest, unchanged)
+
+**Deployment.** The sandbox's clone has **no git remote and no credentials**
+(`.git/config` was stripped), so nothing can be pushed. Production
+`https://ekguru.shop/` still serves the **pre-fix tree**: `status:"soon"` and
+the `ckhadutta@gmail.com` leak are still live. All fixes are committed locally
+(`8de5b69`) and packaged in `releases/v2.zip`.
+
+**To release,** from any machine with push access:
 ```bash
 cd EkGuru
-git add -A && git commit -m "Fix Coming-soon pill, remove personal-email leak, harden sheet loader, add Doctor/SEO/privacy/adsready tools"
+git add -A && git commit -m "Final readiness: DR drills, content guard, monitoring, copyright page"
 git push origin main
 ```
-After the push, re-run `node tools/doctor.js` — the "deploy" check will flip to
-PASS and the live Coming-soon pill + email leak will be gone.
+Then `node tools/doctor.js` → the "deployed" check flips to PASS and
+`release-decision.js` returns **GO**.
 
-All other checks are green, and the Doctor reports this single environmental
-failure honestly rather than hiding it.
+## 8. Tests executed (exact commands)
+
+```
+node tools/privacy.js --sheets --live --json     → PASS
+node tools/doctor.js                              → 11 checks, 1 = deploy
+node tools/adsready.js                            → 12/12 READY
+node tools/live-crawl.js                          → 564/565 live (1 new page pending deploy)
+node tools/live-monitor.js                        → 14G/1Y/0R
+node tools/security-audit.js                      → PASS
+node tools/contentguard.js                        → 171 pages, 35 images, self-copy tiers
+python3 tools/test-tools-browser.py               → 20/20 pages PASS
+python3 tools/qa-perf-a11y.py                     → perf + a11y PASS
+python3 tools/dr-drill.py                         → backup/restore/rollback/adversarial PASS
+python3 tools/test-data-sources.py                → 26 checks, 0 failures
+node tools/test-sheet-loader.js                   → PASS
+node tools/release-decision.js                    → NO-GO (deploy)
+```

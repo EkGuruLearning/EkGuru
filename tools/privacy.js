@@ -33,6 +33,9 @@ const INTENTIONAL_PUBLIC = new Set([
   "5ad4a9a6-fcb2-445c-9764-cab8c99fadfa",     // Web3Forms public access keys (by design)
 ]);
 
+/* Google Sheet tab gids — spreadsheet identifiers, not phone numbers. */
+const SHEET_GIDS = new Set(["764031473", "2135319947", "1290168568", "834026040"]);
+
 /* Documentation placeholders that are fictional examples, not real contacts. */
 const DOC_EXAMPLES = new Set([
   "somerandomstudent99@gmail.com",  // mailer.js comment: example API path
@@ -120,6 +123,7 @@ for (const f of files) {
       const ph = mm[0];
       const digits = ph.replace(/\D/g, "");
       if (digits === "8175326569491671") continue;
+      if (SHEET_GIDS.has(digits)) continue;
       if (gids.has(digits)) continue;
       const before = mm.index > 0 ? text[mm.index - 1] : "";
       if (/[-A-Za-z0-9]/.test(before)) continue;                    // part of a larger token

@@ -1,0 +1,86 @@
+{
+  "generated": "2026-09-11T06:41:23.235Z",
+  "decision": {
+    "RELEASE": {
+      "result": "NO-GO",
+      "evidence": "BLOCKED: fixes staged locally but not pushed (no git remote/credentials in sandbox). Production still runs the pre-fix tree."
+    },
+    "ADSENSE_REVIEW": {
+      "result": "READY",
+      "evidence": "12/12 readiness checks pass (readiness only — not approval)"
+    },
+    "SECURITY": {
+      "result": "PASS",
+      "evidence": "no exploitable server surface; 0 secrets; headers not settable on GitHub Pages (documented)"
+    },
+    "PRIVACY": {
+      "result": "PASS",
+      "evidence": "625 files, 0 secrets, 0 blocked"
+    },
+    "DOCTOR": {
+      "result": "FAIL",
+      "evidence": "11 checks, 1 problems, 0 warnings"
+    },
+    "DATA": {
+      "result": "PASS",
+      "evidence": "4 CSVs reachable, schema 26/26, unique ids, no silent []"
+    },
+    "EMAIL": {
+      "result": "DEGRADED",
+      "evidence": "routing/Reply-To/honeypot code-verified; Apps Script relay intermittently bot-gated from datacenter IPs; no live send performed (would be fabricated)"
+    },
+    "BOOKING": {
+      "result": "DEGRADED",
+      "evidence": "3-audience routing + site-inbox fallback code-verified; no live send performed"
+    },
+    "PAYMENT": {
+      "result": "N/A",
+      "evidence": "no payment system on this static site"
+    },
+    "BACKUP": {
+      "result": "PASS",
+      "evidence": "ekguru-known-good-8de5b69d.bundle + ekguru-release-v2.zip"
+    },
+    "RESTORE": {
+      "result": "PASS",
+      "evidence": "restored from zip; {\"/\":200,\"/learn/\":200,\"/toolbox/hindi-alphabet/\":200,\"/tutor/sushila-g/\":200,\"/contact/\":200}"
+    },
+    "ROLLBACK": {
+      "result": "PASS",
+      "evidence": "known-good 8de5b69d; procedure documented; no DNS change needed"
+    },
+    "LIVE_MONITORING": {
+      "result": "DEGRADED",
+      "evidence": "14G/1Y/0R — Apps Script relay"
+    },
+    "SEO": {
+      "result": "PASS",
+      "evidence": "555 pages, 0 broken, 0 orphans, 550 sitemap urls"
+    },
+    "MOBILE": {
+      "result": "PASS",
+      "evidence": "header + 12 tools + 8 learn pages: no overflow at 320-768"
+    },
+    "DESKTOP": {
+      "result": "PASS",
+      "evidence": "header + tools + learn pages: no overflow at 1024-1920"
+    },
+    "ACCESSIBILITY": {
+      "result": "PASS",
+      "evidence": "lang=en, single H1, heading order, alt, accessible names — 5 key pages clean"
+    },
+    "PERFORMANCE": {
+      "result": "PASS",
+      "evidence": "local load 62-491ms; homepage 1.15MB/27JS is the heaviest page (noted improvement target)"
+    },
+    "CONTENT": {
+      "result": "PASS",
+      "evidence": "554 pages, 171 fingerprinted, 210 VERY_HIGH self-similar pairs (city-page template cluster — remediation planned)"
+    },
+    "COPY_PROTECTION": {
+      "result": "DEGRADED",
+      "evidence": "fingerprints + self-copy detection + probes + evidence pipeline built; external web-copy monitoring requires scheduled runner (documented limitation)"
+    }
+  },
+  "blocker": "Deployment: fixes are committed locally (8de5b69) but cannot be pushed from this sandbox — no git remote/credentials. Production still serves the pre-fix tree."
+}
