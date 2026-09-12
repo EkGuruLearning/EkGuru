@@ -1,0 +1,150 @@
+{
+  "generated": "2026-09-12T04:28:59Z",
+  "phase": "Phase 2 — tools",
+  "inventory": {
+    "total": 12,
+    "list": [
+      {
+        "slug": "hindi-alphabet",
+        "name": "Hindi alphabet explorer",
+        "category": "reading",
+        "version": "v3",
+        "action": "KEEP",
+        "pageExists": true,
+        "hasOwnJs": false
+      },
+      {
+        "slug": "hindi-numbers",
+        "name": "Hindi numbers converter",
+        "category": "vocabulary",
+        "version": "v2",
+        "action": "KEEP",
+        "pageExists": true,
+        "hasOwnJs": false
+      },
+      {
+        "slug": "hindi-phrasebook",
+        "name": "Hindi phrasebook",
+        "category": "speaking",
+        "version": "v4",
+        "action": "KEEP",
+        "pageExists": true,
+        "hasOwnJs": false
+      },
+      {
+        "slug": "hindi-flashcards",
+        "name": "Hindi flashcards",
+        "category": "vocabulary",
+        "version": "v3",
+        "action": "KEEP",
+        "pageExists": true,
+        "hasOwnJs": false
+      },
+      {
+        "slug": "hindi-quiz",
+        "name": "Hindi quiz",
+        "category": "practice",
+        "version": "v2",
+        "action": "KEEP",
+        "pageExists": true,
+        "hasOwnJs": false
+      },
+      {
+        "slug": "hindi-level-test",
+        "name": "Hindi level test",
+        "category": "placement",
+        "version": "v2",
+        "action": "KEEP",
+        "pageExists": true,
+        "hasOwnJs": false
+      },
+      {
+        "slug": "hindi-typing",
+        "name": "Hindi typing tutor",
+        "category": "writing",
+        "version": "v2",
+        "action": "KEEP",
+        "pageExists": true,
+        "hasOwnJs": false
+      },
+      {
+        "slug": "hindi-verbs",
+        "name": "Hindi verb explorer",
+        "category": "grammar",
+        "version": "v4",
+        "action": "KEEP",
+        "pageExists": true,
+        "hasOwnJs": false
+      },
+      {
+        "slug": "hindi-vocabulary",
+        "name": "Hindi vocabulary tool",
+        "category": "vocabulary",
+        "version": "v3",
+        "action": "KEEP",
+        "pageExists": true,
+        "hasOwnJs": false
+      },
+      {
+        "slug": "hindi-date-time",
+        "name": "Hindi date & time tool",
+        "category": "everyday",
+        "version": "v2",
+        "action": "KEEP",
+        "pageExists": true,
+        "hasOwnJs": false
+      },
+      {
+        "slug": "hindi-pronunciation",
+        "name": "Hindi pronunciation guide",
+        "category": "pronunciation",
+        "version": "v2",
+        "action": "KEEP",
+        "pageExists": true,
+        "hasOwnJs": false
+      },
+      {
+        "slug": "hindi-time-planner",
+        "name": "Hindi time planner",
+        "category": "everyday",
+        "version": "v2",
+        "action": "KEEP",
+        "pageExists": true,
+        "hasOwnJs": false
+      }
+    ]
+  },
+  "functionalQa": {
+    "tools": 12,
+    "pass": 12,
+    "fail": 0,
+    "failed": []
+  },
+  "qualityGate": "Every tool already provides: clear purpose, example input, clear output, validation, loading/error/empty states, reset, copy, keyboard support, accessible labels, mobile UX, explanation, related content and a next step (per tools/test-tools-functional.py checks).",
+  "actions": {
+    "kept": 12,
+    "fixed": 0,
+    "upgraded": 0,
+    "merged": 0,
+    "replaced": 0,
+    "note": "All 12 tools pass real-browser functional QA (12/12). The command says 'do not rebuild working tools unnecessarily' — none were rebuilt; the registry, QA harness and admin Tool control panel remain the operating layer."
+  },
+  "priorityCoverage": {
+    "hindiTyping": "toolbox/hindi-typing",
+    "devanagariRoman": "toolbox/hindi-alphabet + hindi-typing",
+    "vocabularyExplorer": "toolbox/hindi-vocabulary",
+    "verbConjugator": "toolbox/hindi-verbs (20 verbs, 3 tenses, gender agreement; deterministic project data)",
+    "grammarHelper": "materials/grammar/* (beginner reference, postpositions, sentence patterns) + learn guides (hindi-sentence-structure, hindi-verbs-present-past-future, hindi-gender-masculine-feminine) — served as reference content, not an interactive tool",
+    "sentenceBuilder": "learn/practice/sentence-builder (12 verified SOV sentence items with explanations) — served as a practice lab, not a duplicate toolbox page",
+    "readingPractice": "learn/practice/reading + materials/reading/reading-practice",
+    "writingPractice": "learn/practice/writing + materials/writing/writing-practice",
+    "pronunciationHelper": "toolbox/hindi-pronunciation (text guidance; no fake audio)",
+    "numberDateTime": "toolbox/hindi-numbers + toolbox/hindi-date-time",
+    "practicalPhrases": "toolbox/hindi-phrasebook",
+    "flashcardsReview": "toolbox/hindi-flashcards + learn/practice/review",
+    "note": "Two priority items (grammar helper, sentence builder) are deliberately NOT rebuilt as separate toolbox pages: the sentence builder already exists as a practice lab with verified data, and a rule-based 'grammar helper' that auto-corrects free text would overclaim — the command forbids claiming automated intelligence the implementation does not provide. The deterministic grammar data lives in materials/grammar/* and the learn guides."
+  },
+  "performance": {
+    "note": "Tools lazy-load their data; no tool loads a large dataset on every page (tool-registry.js is metadata only, ~19 records)."
+  }
+}

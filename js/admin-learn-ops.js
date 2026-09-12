@@ -340,6 +340,40 @@
     });
   }
 
+  /* ---------------- render: materials ---------------- */
+
+  function renderMaterials() {
+    var el = $("#lo-materials");
+    if (!el) return;
+    var mats = window.EKGURU_MATERIALS || [];
+    if (!mats.length) {
+      el.innerHTML = '<div class="card"><p class="muted">No materials registry found. Run <code>python3 tools/build-materials.py</code> to regenerate it.</p></div>';
+      return;
+    }
+    var byCat = {};
+    mats.forEach(function (m) { (byCat[m.category] = byCat[m.category] || []).push(m); });
+    var cats = Object.keys(byCat).sort();
+    var complete = mats.filter(function (m) { return m.hasQuickref && m.hasPractice && m.hasMistakes && m.sections >= 2; });
+    var html = '<div class="card"><h2>Materials</h2><p class="muted">' + mats.length +
+      ' materials across ' + cats.length + ' categories. Each has a purpose, quick reference, explanation, practice, mistakes and a mini quiz where the material type calls for it — nothing pretends to be a download.</p>' +
+      '<div class="stats" style="display:flex;gap:18px;flex-wrap:wrap;margin:10px 0">' +
+      stat("Materials", mats.length) + stat("Categories", cats.length) +
+      stat("Full set", complete.length) + stat("With quiz", mats.filter(function (m) { return m.quiz > 0; }).length) +
+      '</div></div>';
+    cats.forEach(function (c) {
+      html += '<div class="card"><h3 style="margin:0 0 8px">' + esc(c) + '</h3><div class="scroll"><table style="width:100%;border-collapse:collapse;font-size:.85rem"><thead><tr><th style="text-align:left">Material</th><th>Level</th><th>Links</th><th style="text-align:left">Complete</th></tr></thead><tbody>';
+      (byCat[c] || []).forEach(function (m) {
+        var ok = m.hasQuickref && m.hasPractice && m.hasMistakes && m.sections >= 2;
+        html += '<tr><td style="padding:6px;border-top:1px solid var(--line)"><a href="' + esc(m.path) + '" target="_blank" rel="noopener">' + esc(m.title) + '</a></td>' +
+          '<td style="padding:6px;border-top:1px solid var(--line)" class="muted">' + esc(m.level) + '</td>' +
+          '<td style="padding:6px;border-top:1px solid var(--line)" class="muted">' + m.lessons + ' lessons · ' + m.tools + ' tools</td>' +
+          '<td style="padding:6px;border-top:1px solid var(--line)">' + (ok ? '<span style="color:#1c7d3a">✓</span>' : '<span class="muted">partial</span>') + '</td></tr>';
+      });
+      html += '</tbody></table></div></div>';
+    });
+    el.innerHTML = html;
+  }
+
   function renderAuditLog() {
     var log = auditLog();
     var el = $("#lo-auditlog");
@@ -628,6 +662,7 @@
           '<button type="button" class="lo-nav" data-p="graph">Learning graph</button>' +
           '<button type="button" class="lo-nav" data-p="practice">Practice bank</button>' +
           '<button type="button" class="lo-nav" data-p="tools">Tool control</button>' +
+          '<button type="button" class="lo-nav" data-p="materials">Materials</button>' +
           '<button type="button" class="lo-nav" data-p="quality">Content quality</button>' +
           '<button type="button" class="lo-nav" data-p="gap">Gap engine</button>' +
           '<button type="button" class="lo-nav" data-p="editor">Content editor</button>' +
@@ -635,7 +670,7 @@
           '<button type="button" class="lo-nav" data-p="diag">Diagnostics</button>' +
         "</div>" +
         '<div id="lo-dash"></div><div id="lo-graph" hidden></div><div id="lo-practice" hidden></div>' +
-        '<div id="lo-tools" hidden></div><div id="lo-quality" hidden></div><div id="lo-gap" hidden></div>' +
+        '<div id="lo-tools" hidden></div><div id="lo-materials" hidden></div><div id="lo-quality" hidden></div><div id="lo-gap" hidden></div>' +
         '<div id="lo-editor" hidden></div><div id="lo-health" hidden></div><div id="lo-diag" hidden></div>';
 
       host.querySelectorAll(".lo-nav").forEach(function (b) {
@@ -643,7 +678,7 @@
           host.querySelectorAll(".lo-nav").forEach(function (o) { o.classList.remove("on"); });
           b.classList.add("on");
           var p = b.getAttribute("data-p");
-          ["dash", "graph", "practice", "tools", "quality", "gap", "editor", "health", "diag"].forEach(function (k) {
+          ["dash", "graph", "practice", "tools", "materials", "quality", "gap", "editor", "health", "diag"].forEach(function (k) {
             var el = $("#lo-" + k);
             if (el) el.hidden = (k !== p);
           });
@@ -655,6 +690,7 @@
     renderGraph();
     renderPractice();
     renderTools();
+    renderMaterials();
     renderQuality();
     renderGap();
     renderEditor();

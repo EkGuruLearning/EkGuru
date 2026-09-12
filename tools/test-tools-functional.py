@@ -15,7 +15,8 @@ import json
 import time
 from playwright.sync_api import sync_playwright
 
-BASE = "http://127.0.0.1:8899"
+import os
+BASE = os.environ.get("EK_BASE", "http://127.0.0.1:8899").rstrip("/")
 
 RECIPES = {
     "toolbox/hindi-alphabet/": {

@@ -17,7 +17,7 @@ import time
 from html.parser import HTMLParser
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SCAN_DIRS = ["learn", "toolbox", "daily-hindi", "answers"]
+SCAN_DIRS = ["learn", "toolbox", "daily-hindi", "answers", "materials"]
 
 DEVANAGARI = re.compile(r"[\u0900-\u097F]")
 WORD = re.compile(r"[A-Za-z\u0900-\u097F0-9']+")

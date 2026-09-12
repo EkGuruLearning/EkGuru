@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-11T20:08:13.851Z",
+ "generated": "2026-09-12T04:30:31.132Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,8 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 575
+  "totalHtml": 592,
+  "materials": 0
  },
  "countries": {
   "total": 196,
@@ -3922,17 +3923,17 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 575,
-  "sitemapUrls": 585,
-  "sitemapFiles": 13,
+  "pages": 592,
+  "sitemapUrls": 602,
+  "sitemapFiles": 14,
   "brokenLinks": 0,
   "orphans": 0
  },
  "privacy": {
   "state": "FAIL",
-  "fails": 214,
+  "fails": 215,
   "blocked": 0,
-  "note": "703 files scanned, 3 secrets"
+  "note": "722 files scanned, 4 secrets"
  },
  "gate": {
   "doctorProblems": 1,
@@ -4555,5 +4556,25 @@ window.EKGURU_ADMIN_STATS = {
   "ar/",
   "ar/find-tutors.html",
   "ar/join.html"
- ]
+ ],
+ "release": {
+  "commit": "eb8cb5c76abda43ab50eab7de37e522a1c59f1e9",
+  "subject": "P0: fix long-idle interaction failure",
+  "buildTime": "2026-09-12T04:30:31.143Z",
+  "dataSourceStatus": "PAUSED_FOR_REUPLOAD",
+  "toolQa": {
+   "tools": 12,
+   "pass": 12,
+   "fail": 0,
+   "failed": []
+  },
+  "idleRegression": {
+   "refreshRequiredAnywhere": false
+  },
+  "sections": {
+   "totalHtml": 592,
+   "tutorProfiles": 4,
+   "materials": 0
+  }
+ }
 };

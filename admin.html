@@ -218,6 +218,7 @@
   <button data-tab="livehealth">Live health</button>
   <button data-tab="health">Site health</button>
   <button data-tab="coverage">Coverage</button>
+  <button data-tab="release">Release status</button>
 
   <span class="tabgrp">Growth</span>
   <button data-tab="traffic">Traffic</button>
@@ -1184,6 +1185,14 @@
   <div id="rk-factors" class="scroller"></div>
 </section>
 
+<section id="tab-release" hidden>
+  <h2>Release status</h2>
+  <p class="sub">What this build is, what it contains, and what still needs doing.
+  A local commit is never reported as a production deployment — the two are
+  tracked separately below.</p>
+  <div id="relBoard"></div>
+</section>
+
 <section id="tab-learnops" hidden>
   <h2>Learn Ops</h2>
   <p class="sub">Learning paths, practice bank, tool control, content quality,
@@ -1245,6 +1254,7 @@
 <script src="js/practice-bank.js"></script>
 <script src="js/learn-quality.js"></script>
 <script src="js/tool-registry.js"></script>
+<script src="js/materials-registry.js"></script>
 <script src="js/admin-learn-ops.js"></script>
 <script>
 (function () {
@@ -5920,6 +5930,77 @@
 
   if (window.EKG_ADMIN_OPEN) drawNew();
   else window.addEventListener("ekguru:render", drawNew);
+})();
+</script>
+<script>
+/* v102 — Release status board. Reads the build-time snapshot in
+   js/admin-stats.js (window.EKGURU_ADMIN_STATS.release) and joins it
+   with the runtime data-source state in js/site-config.js. A local
+   commit is labelled LOCAL COMMIT, never a deployment. */
+(function () {
+  "use strict";
+  function badge(state) {
+    var c = { GREEN: "#1c7d3a", YELLOW: "#b7791f", RED: "#c0392b", GRAY: "#6b7280" }[state] || "#6b7280";
+    return '<span style="display:inline-block;min-width:74px;text-align:center;padding:3px 8px;border-radius:6px;background:' + c + ';color:#fff;font-size:.78rem;font-weight:700">' + state + '</span>';
+  }
+  function esc(v) { return String(v == null ? "" : v).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+  function row(label, value) {
+    return '<tr><td style="padding:8px 10px;border-top:1px solid var(--line)"><b>' + esc(label) + '</b></td><td style="padding:8px 10px;border-top:1px solid var(--line)">' + value + '</td></tr>';
+  }
+  function drawRelease() {
+    var el = document.getElementById("relBoard");
+    if (!el) return;
+    var A = window.EKGURU_ADMIN_STATS || {};
+    var R = A.release || {};
+    var S = window.EKGURU_SITE || {};
+    var mats = window.EKGURU_MATERIALS || [];
+    // data source state from the single source of truth in site-config
+    var dsStatus = "GRAY", dsText = "Unknown — check js/site-config.js";
+    try {
+      var sheet = (S.sheets && S.sheets[0]) || S.tutors || S.settings || S.reviews || S.content || null;
+      var statuses = [];
+      ["tutors", "settings", "reviews", "content"].forEach(function (k) {
+        if (S[k] && S[k].status) statuses.push(S[k].status);
+      });
+      if (S.sheets && S.sheets.length) S.sheets.forEach(function (s) { if (s.status) statuses.push(s.status); });
+      if (statuses.length) {
+        var allPaused = statuses.every(function (s) { return s === "PAUSED_FOR_REUPLOAD"; });
+        dsStatus = allPaused ? "YELLOW" : "GREEN";
+        dsText = statuses[0] + (allPaused ? " (all sources) — awaiting owner-provided CSV links" : "");
+      }
+    } catch (e) { dsText = "Could not read data-source state"; }
+    var sec = A.sections || R.sections || {};
+    var qa = R.toolQa;
+    var idle = R.idleRegression;
+    var html = '<div class="card"><h2>Current build</h2><table style="width:100%;border-collapse:collapse;font-size:.9rem">' +
+      row("Commit", '<code>' + esc(R.commit || "unknown") + '</code> <span class="muted">(LOCAL COMMIT — see deployment below)</span>') +
+      row("Subject", esc(R.subject || "—")) +
+      row("Built", esc((R.buildTime || A.generated || "").slice(0, 19).replace("T", " "))) +
+      row("Pages", (sec.totalHtml != null ? sec.totalHtml : "?") + " HTML · " + (sec.guides || "?") + " guides · " + (sec.tools || "?") + " tools · " + (sec.materials != null ? sec.materials : mats.length) + " materials · " + (sec.tutorProfiles || "?") + " tutor profiles") +
+      "</table></div>";
+    html += '<div class="card"><h2>Data sources</h2><table style="width:100%;border-collapse:collapse;font-size:.9rem">' +
+      '<tr><td style="padding:8px 10px"><b>Sheets (Google CSV)</b></td><td style="padding:8px 10px">' + badge(dsStatus) + ' <span class="muted">' + esc(dsText) + '</span></td></tr>' +
+      '<tr><td style="padding:8px 10px"><b>Booking snapshot</b></td><td style="padding:8px 10px"><span class="muted">Frozen — never modified by updates</span></td></tr>' +
+      "</table></div>";
+    html += '<div class="card"><h2>Test evidence (this build)</h2><table style="width:100%;border-collapse:collapse;font-size:.9rem">' +
+      (qa ? row("Tool functional QA", qa.pass + " pass / " + qa.fail + " fail") : row("Tool functional QA", '<span class="muted">not run — run tools/test-tools-functional.py</span>')) +
+      (idle ? row("Idle-interaction regression", (idle.refreshRequiredAnywhere ? badge("RED") + " refresh required" : badge("GREEN") + " no refresh required")) : row("Idle-interaction regression", '<span class="muted">not run</span>')) +
+      "</table></div>";
+    html += '<div class="card"><h2>Deployment</h2><p class="muted">This dashboard reports what is in the local build. Production deployment to <b>https://ekguru.shop/</b> is a separate step (git push → GitHub Pages) and is <b>NOT VERIFIED</b> unless the Live health tab shows the live site serving this same build.</p>' +
+      '<table style="width:100%;border-collapse:collapse;font-size:.9rem">' +
+      row("Local commit", '<code>' + esc(R.commit || "unknown") + '</code>') +
+      row("Pushed to GitHub", badge("GRAY") + ' <span class="muted">not verified in this build</span>') +
+      row("GitHub Pages deployed", badge("GRAY") + ' <span class="muted">not verified in this build</span>') +
+      row("ekguru.shop serving this build", badge("GRAY") + ' <span class="muted">verify on the Live health tab</span>') +
+      "</table></div>";
+    html += '<div class="card"><h2>Known blockers</h2><ul style="margin:6px 0 6px 18px">' +
+      '<li>Sheets data source is PAUSED_FOR_REUPLOAD — awaiting six new published CSV links from the owner before live values resume.</li>' +
+      '<li>GitHub push credentials unavailable from this environment — release is a local commit until pushed.</li>' +
+      "</ul></div>";
+    el.innerHTML = html;
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", drawRelease);
+  else drawRelease();
 })();
 </script>
 </body>

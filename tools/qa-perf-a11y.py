@@ -11,10 +11,13 @@ Output: reports/perf-a11y.json
 import json, time, os
 from playwright.sync_api import sync_playwright
 
-BASE = "http://127.0.0.1:8899"
-PAGES = ["/", "/learn/", "/toolbox/hindi-alphabet/", "/tutor/sushila-g/",
+import os
+BASE = os.environ.get("EK_BASE", "http://127.0.0.1:8899").rstrip("/")
+PAGES = [
+    "/materials/alphabet/devanagari-chart/", "/materials/grammar/postpositions/","/", "/learn/", "/toolbox/hindi-alphabet/", "/tutor/sushila-g/",
          "/learn/hindi-sentence-structure/", "/contact/", "/about/"]
-A11Y = ["/", "/learn/", "/toolbox/hindi-alphabet/", "/tutor/sushila-g/", "/contact/"]
+A11Y = [
+    "/materials/grammar/postpositions/","/", "/learn/", "/toolbox/hindi-alphabet/", "/tutor/sushila-g/", "/contact/"]
 
 def run():
     out = {"generated": None, "performance": [], "accessibility": []}
@@ -72,12 +75,15 @@ def run():
     with open("reports/perf-a11y.json", "w") as f:
         json.dump(out, f, indent=2)
 
+    def short(u):
+        return u[len(BASE):] if u.startswith(BASE) else u
+
     print("— performance (load ms | resources | js | transfer KB) —")
     for r in out["performance"]:
-        print(f"  {r['url'].split('8899')[1]:35} load={r['load']:>5}ms  res={r['resources']:>3}  js={r['js']}  {r['transfer_kb']}KB")
+        print(f"  {short(r['url']):35} load={r['load']:>5}ms  res={r['resources']:>3}  js={r['js']}  {r['transfer_kb']}KB")
     print("— accessibility —")
     for r in out["accessibility"]:
-        u = r["url"].split("8899")[1]
+        u = short(r["url"])
         flags = []
         if not r["orderOk"]: flags.append("heading-skip")
         if r["noAlt"]: flags.append(f"{r['noAlt']}img-no-alt")

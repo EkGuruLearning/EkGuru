@@ -41,6 +41,7 @@ const html = walk(ROOT, []);
 const rel = p => path.relative(ROOT, p).split(path.sep).join("/");
 const totalHtml = html.length;
 const tutorProfiles = html.filter(f => /^tutor\/[^/]+\/index\.html$/.test(rel(f))).length;
+const materials = html.filter(f => /^materials\/[^/]+\/index\.html$/.test(rel(f))).length;
 
 /* privacy block (shape admin-repo.js expects) */
 const privacyBlock = priv ? {
@@ -66,9 +67,32 @@ const gateBlock = gate ? {
   privacyState: gate.privacyState,
 } : prev.gate;
 
+/* release block — current build identity, data-source state, and test evidence */
+function releaseBlock() {
+  let commit = "unknown", subject = "";
+  try {
+    const cp = require("child_process");
+    commit = cp.execSync("git rev-parse HEAD", { cwd: ROOT }).toString().trim();
+    subject = cp.execSync("git log -1 --format=%s", { cwd: ROOT }).toString().trim();
+  } catch (e) { /* not a git checkout during build */ }
+  const tests = {};
+  ["test-sheet-apply.js", "adsready.js", "seocheck.js"].forEach(t => { tests[t] = null; });
+  // pick up tool QA summary if present
+  const qa = readJson("reports/tool-functional-qa.json");
+  const idle = readJson("reports/idle-interaction-regression.json");
+  return {
+    commit, subject,
+    buildTime: new Date().toISOString(),
+    dataSourceStatus: "PAUSED_FOR_REUPLOAD",  // reflected from js/site-config.js at runtime
+    toolQa: qa && qa.summary ? qa.summary : null,
+    idleRegression: idle ? { refreshRequiredAnywhere: idle.refreshRequiredAnywhere } : null,
+    sections: { totalHtml, tutorProfiles, materials },
+  };
+}
+
 const out = {
   generated: new Date().toISOString(),
-  sections: Object.assign({}, prev.sections, { totalHtml, tutorProfiles }),
+  sections: Object.assign({}, prev.sections, { totalHtml, tutorProfiles, materials }),
   countries: prev.countries,
   languages: prev.languages,
   pairs: prev.pairs,
@@ -77,6 +101,7 @@ const out = {
   gate: gateBlock,
   tutors: prev.tutors,
   sitemapUrls: prev.sitemapUrls,
+  release: releaseBlock(),
 };
 
 const header =
