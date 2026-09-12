@@ -1,7 +1,7 @@
 # EkGuru — Phase 2 Final Report
 
 **Date:** 2026-09-12 (Asia/Kolkata)
-**Local commit:** `101905dc5c428c526927f88f5170d23a4102b24c` (Phase 2, on top of P0 `eb8cb5c`)
+**Local commits:** P0 `eb8cb5c` → Phase 2 content `7db1fe0af66a0a61c3c440b8272cb64569fab868` → final report `d0b199e41631b377263ea6a29358626a5183f94f` (the exact tip hash is given in the delivery summary)
 **Build verified at:** `http://localhost:8017` (real Chromium, Playwright)
 
 ---
@@ -58,7 +58,7 @@ Phase 2 of the cumulative command — `EkGuru_Next_Major_Update_Content_Material
 | TEST (seo, tools, email, idle, browser matrix, perf/a11y, ContentGuard, doctor) | ✅ done |
 | SECRET SCAN (no token/key in staged diff; token blanked) | ✅ clean |
 | ZIP | ✅ see §6 |
-| COMMIT | ✅ `101905dc5c428c526927f88f5170d23a4102b24c` |
+| COMMIT | ✅ `7db1fe0…` (content) + `d0b199e…` (final report) |
 | PUSH | ❌ **PUSH BLOCKED** — no git remote configured and no GitHub credentials in this environment |
 | DEPLOY | ⚠️ **DEPLOYMENT NOT VERIFIED** — Pages deployment and `ekguru.shop` live-serve cannot be checked from here |
 | LIVE RE-AUDIT | ⏳ pending owner push |
