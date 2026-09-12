@@ -118,6 +118,7 @@ def main():
 
     # 5) key hub pages must always be present
     for hub, sec in (("faq/", "Page"), ("learn/practice/", "Practice"),
+                     ("languages/", "Page"), ("start/", "Page"),
                      ("learn/hindi/practice/", "Practice"),
                      ("learn/hindi/practice/typing/", "Practice"),
                      ("learn/hindi/practice/quiz/", "Practice"),

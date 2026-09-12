@@ -77,6 +77,9 @@ const SHELL = [
   "./js/hindi-audio.js",
   "./js/hindi-offline.js",
   "./js/hindi-tools.js",
+  /* Phase 7 — global language registry + goal-based onboarding */
+  "./js/languages.js",
+  "./js/onboarding.js",
   "./images/logo.svg"
 ];
 

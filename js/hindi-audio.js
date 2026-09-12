@@ -120,4 +120,46 @@
 
   /* tiny public API for other features (typing trainer etc.) */
   window.EkGuruHindiAudio = { speak: speak, stop: stop, supported: supported };
+
+  /* =========================================================
+     Phase 7 §10 — AUDIO PROVIDER ABSTRACTION (additive, non-breaking)
+     ---------------------------------------------------------
+     Providers: BROWSER_TTS | RECORDED | API_TTS | UNAVAILABLE.
+     resolve(langTag) returns the best provider available right now
+     for a BCP-47 language tag, in priority order. Today only
+     BROWSER_TTS can ever resolve — RECORDED and API_TTS are future
+     hooks (no recorded audio and no API exist yet). Nothing here
+     ever claims browser TTS is native or recorded.
+     ========================================================= */
+  window.EkGuruAudioProvider = {
+    PROVIDERS: ["BROWSER_TTS", "RECORDED", "API_TTS", "UNAVAILABLE"],
+    voiceExists: function (langTag) {
+      if (!supported()) return false;
+      try {
+        var v = window.speechSynthesis.getVoices();
+        if (v && v.length) {
+          var tag = String(langTag).toLowerCase();
+          for (var i = 0; i < v.length; i++) {
+            if (String(v[i].lang || "").toLowerCase().indexOf(tag) === 0) return true;
+          }
+        }
+        return true; // voices not yet enumerated; speechSynthesis still exists
+      } catch (e) { return false; }
+    },
+    resolve: function (langTag) {
+      if (!supported()) return "UNAVAILABLE";
+      if (!this.voiceExists(langTag)) return "UNAVAILABLE";
+      return "BROWSER_TTS"; // RECORDED/API_TTS never resolve today (honest)
+    },
+    describe: function (langTag) {
+      var p = this.resolve(langTag);
+      return {
+        provider: p,
+        nativeRecorded: p === "RECORDED",   // always false today
+        needsServer: p === "API_TTS",       // always false today
+        label: p === "BROWSER_TTS" ? "computer voice (browser TTS)" :
+               p === "UNAVAILABLE" ? "no audio available" : p,
+      };
+    },
+  };
 })();
