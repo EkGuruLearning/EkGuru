@@ -130,6 +130,20 @@ def my_learning_page():
     <div id="offline-app"><p class="muted">Reading your saved pages…</p></div>
   </div>
 
+  <div class="box" id="family-box">
+    <h2>Family & children</h2>
+    <p class="muted" style="margin:0 0 10px">A privacy mode for parents and family learners,
+    saved on this device only. When on, it stops visitor counting and hides the
+    tutor/booking contact points on pages that carry them.</p>
+    <p class="muted" style="margin:0 0 10px"><b>What it never does:</b> no child profile, no
+    messaging, no child contact details, no social features for minors, no hidden recording —
+    the microphone is only ever used after an explicit tap, and there is no account to collect
+    anything anyway.</p>
+    <p class="muted" style="margin:0 0 10px"><b>Honest scope:</b> this is a privacy mode, not
+    child lesson content — no child-specific lessons have been authored yet.</p>
+    <div id="family-app"></div>
+  </div>
+
   <div class="box" id="script-box">
     <h2>Script support</h2>
     <div id="script-app"><p class="muted">Loading script registry…</p></div>
@@ -221,6 +235,13 @@ def my_learning_page():
       }).join("") + "</ul>";
     }
 
+    /* ---- family mode ---- */
+    function family() {
+      var el = document.getElementById("family-app");
+      if (!el || !window.EkGuruFamilyMode) return;
+      window.EkGuruFamilyMode.mount(el);
+    }
+
     /* ---- scripts ---- */
     function scripts() {
       var el = document.getElementById("script-app");
@@ -239,21 +260,23 @@ def my_learning_page():
 
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", function () {
-        progress(); goals(); search(); grammar(); vocab(); offline(); scripts();
+        progress(); goals(); search(); grammar(); vocab(); offline(); family(); scripts();
         when("EkGuruProgress", progress); when("EkGuruGoals", goals); when("EkGuruSearch", search);
         when("EkGuruGrammar", grammar); when("EkGuruVocab", vocab); when("EkGuruScript", scripts);
+        when("EkGuruFamilyMode", family);
       });
     } else {
-      progress(); goals(); search(); grammar(); vocab(); offline(); scripts();
+      progress(); goals(); search(); grammar(); vocab(); offline(); family(); scripts();
       when("EkGuruProgress", progress); when("EkGuruGoals", goals); when("EkGuruSearch", search);
       when("EkGuruGrammar", grammar); when("EkGuruVocab", vocab); when("EkGuruScript", scripts);
+      when("EkGuruFamilyMode", family);
     }
   })();
   </script>
 """
     scripts = ("content-graph.js", "goals.js", "script-engine.js", "grammar-engine.js",
                "vocab-phrase-engine.js", "global-search.js", "hindi-srs.js",
-               "hindi-progress.js", "hindi-offline.js")
+               "hindi-progress.js", "hindi-offline.js", "family-mode.js")
     write_page("learn/my-learning/index.html", up,
                "My Learning — your progress, goals and review on this device",
                "Your Hindi progress, spaced-repetition review queue, goals and a language-aware search across every lesson, phrase and grammar concept — saved on this device, never uploaded.",

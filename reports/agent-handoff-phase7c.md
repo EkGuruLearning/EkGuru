@@ -2,7 +2,7 @@
 
 - **repo**: EkGuru (GitHub Pages static site)
 - **branch**: main
-- **SHA**: 8c2efd35db112281007e7f856664f83cca87baac
+- **SHA**: 3da1469e4ee3d5eb0a566e08c7d5359577dd9d5c
 - **verdict**: GREEN_GLOBAL_ENGINE_PRODUCTION_READY (31/31)
 
 ## Completed batches
@@ -11,10 +11,11 @@
 - tranche 3: goals/script/grammar/vocab/search + My Learning (Gate D)
 - tranche 4: country-context + India visitor + heritage (Gate E)
 - tranche 5: admin global language ops (Gate F)
+- tranche 6: child/family privacy mode (device-only toggle; no child content) + SRS card globalization
 
 ## Pending
 - additional production languages (Stage 2: 3-5 languages) — requires authored content first
-- child/heritage privacy mode surface (architecture in place; no child content authored)
+- child-specific lesson content (privacy mode ships; lessons not authored)
 - large-scale SEO batches (Stage 6) — never before quality gates
 
 ## Next exact command

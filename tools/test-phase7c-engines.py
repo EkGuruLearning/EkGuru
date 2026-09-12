@@ -114,6 +114,30 @@ with sync_playwright() as p:
     if not r4 or "No matches" in r4:
         fails.append("query 'past tense' returned no results")
 
+    # ---- family mode (privacy-safe child/family toggle) ----
+    fam_btn = pg.evaluate("() => !!document.querySelector('#family-app button')")
+    note("family_button_present", fam_btn)
+    if not fam_btn:
+        fails.append("family mode toggle did not mount")
+    else:
+        pg.click("#family-app button")
+        pg.wait_for_timeout(300)
+        pressed = pg.evaluate("() => document.querySelector('#family-app button').getAttribute('aria-pressed')")
+        noTrack = pg.evaluate("() => localStorage.getItem('ekguru_no_track')")
+        note("family_mode_on", {"pressed": pressed, "no_track": noTrack})
+        if pressed != "true" or noTrack != "1":
+            fails.append("family mode did not opt out of tracking")
+        pg.click("#family-app button")  # back off
+        pg.wait_for_timeout(200)
+
+    # ---- SRS card model is language-agnostic (§31) ----
+    card = pg.evaluate("() => { var r = window.EkGuruSRS.add({prompt:'पानी', answer:'water', language:'hi', target:'पानी', source:'en', category:'vocabulary', level:'beginner'}); return r.card; }")
+    note("srs_card_language", card.get("language") if isinstance(card, dict) else card)
+    if not isinstance(card, dict) or card.get("language") != "hi":
+        fails.append("SRS card missing language field")
+    if card.get("target") != "पानी":
+        fails.append("SRS card missing target field")
+
     note("page_errors", errs)
     b.close()
 

@@ -1,6 +1,6 @@
 {
-  "generated": "2026-09-12T21:19:01Z",
-  "commit": "8c2efd35db112281007e7f856664f83cca87baac",
+  "generated": "2026-09-12T21:20:34Z",
+  "commit": "3da1469e4ee3d5eb0a566e08c7d5359577dd9d5c",
   "verdict": "GREEN_GLOBAL_ENGINE_PRODUCTION_READY",
   "green": 31,
   "total": 31,
@@ -56,7 +56,7 @@
     },
     {
       "state": "GREEN",
-      "evidence": "language-agnostic card model + starter decks"
+      "evidence": "language-agnostic card model (language/target/source/country/goal fields) verified in Chromium"
     },
     {
       "state": "GREEN",
@@ -120,7 +120,7 @@
     },
     {
       "state": "GREEN",
-      "evidence": "no secrets; device-only state; noindex dashboards"
+      "evidence": "no secrets; device-only state; noindex dashboards; family mode = tracking opt-out + hidden contact CTAs, no child profile/messaging/data"
     },
     {
       "state": "GREEN",

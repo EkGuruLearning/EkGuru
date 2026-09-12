@@ -1,8 +1,8 @@
 {
-  "generated": "2026-09-12T21:19:01Z",
+  "generated": "2026-09-12T21:20:34Z",
   "repo": "EkGuru (GitHub Pages static site)",
   "branch": "main",
-  "sha": "8c2efd35db112281007e7f856664f83cca87baac",
+  "sha": "3da1469e4ee3d5eb0a566e08c7d5359577dd9d5c",
   "sourceRegistries": [
     "data/content-graph.json",
     "reports/language-registry-phase7c.json",
@@ -13,11 +13,12 @@
     "tranche 2: conversation engine (Gate C)",
     "tranche 3: goals/script/grammar/vocab/search + My Learning (Gate D)",
     "tranche 4: country-context + India visitor + heritage (Gate E)",
-    "tranche 5: admin global language ops (Gate F)"
+    "tranche 5: admin global language ops (Gate F)",
+    "tranche 6: child/family privacy mode (device-only toggle; no child content) + SRS card globalization"
   ],
   "pendingBatches": [
     "additional production languages (Stage 2: 3-5 languages) — requires authored content first",
-    "child/heritage privacy mode surface (architecture in place; no child content authored)",
+    "child-specific lesson content (privacy mode ships; lessons not authored)",
     "large-scale SEO batches (Stage 6) — never before quality gates"
   ],
   "nextExactCommand": "python3 tools/build-global-pages.py && python3 tools/test-phase7c-engines.py && python3 tools/test-phase7c-context.py",
