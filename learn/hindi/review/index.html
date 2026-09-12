@@ -114,11 +114,13 @@
     });
   }
   document.getElementById("srs-seed").addEventListener("click", function () {
-    var r = S.seedStarter(); paint();
+    var r = S.seedStarter(); queue = []; paint();
     if (window.EkGuruToast) window.EkGuruToast.show(r.added + " cards added (from quiz bank + vocabulary).");
   });
   document.getElementById("srs-reset").addEventListener("click", function () {
     S.all().forEach(function (c) { S.remove(c.card_id); });
+    queue = []; /* v31 fix: drop the stale in-memory queue so the empty state
+                   renders instead of a phantom card the user just removed */
     paint();
   });
   paint();
@@ -133,6 +135,7 @@
 </html>
 <script src="../../../js/site-config.js" defer></script>
 <script src="../../../js/analytics.js" defer></script>
+<script src="../../../js/toast.js" defer></script>
 <!-- ekguru:recovery:start -->
 <script src="../../../js/recovery.js" defer></script>
 <!-- ekguru:recovery:end -->

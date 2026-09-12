@@ -115,6 +115,7 @@ def foot(up, scripts=()):
 </html>
 <script src="%sjs/site-config.js" defer></script>
 <script src="%sjs/analytics.js" defer></script>
+<script src="%sjs/toast.js" defer></script>
 <!-- ekguru:recovery:start -->
 <script src="%sjs/recovery.js" defer></script>
 <!-- ekguru:recovery:end -->
@@ -126,7 +127,7 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
-""" % (up, up, up, up, up, up, up, up, up, s, up)
+""" % (up, up, up, up, up, up, up, up, up, up, s, up)
 
 
 def write_page(path, up, title, desc, url, crumb, body, scripts=(), index=True,
@@ -210,11 +211,13 @@ REVIEW_JS = """<script>
     });
   }
   document.getElementById("srs-seed").addEventListener("click", function () {
-    var r = S.seedStarter(); paint();
+    var r = S.seedStarter(); queue = []; paint();
     if (window.EkGuruToast) window.EkGuruToast.show(r.added + " cards added (from quiz bank + vocabulary).");
   });
   document.getElementById("srs-reset").addEventListener("click", function () {
     S.all().forEach(function (c) { S.remove(c.card_id); });
+    queue = []; /* v31 fix: drop the stale in-memory queue so the empty state
+                   renders instead of a phantom card the user just removed */
     paint();
   });
   paint();
@@ -436,6 +439,14 @@ def decorate_lessons():
                           '<script src="../../js/hindi-progress.js" defer></script>\n'
                           '<script src="../../js/hindi-audio.js" defer></script>\n'
                           '<script src="../../js/hindi-offline.js" defer></script>\n'
+                          '<script src="../../js/toast.js" defer></script>\n'
+                          '<script src="../../js/site-config.js" defer>', 1)
+        elif 'js/toast.js' not in h:
+            # v31 fix: feedback layer (toast.js) was missing on lessons, so the
+            # "＋ Review" button added cards silently. Add it without re-injecting
+            # the whole Phase 6 block.
+            h = h.replace('<script src="../../js/site-config.js" defer>',
+                          '<script src="../../js/toast.js" defer></script>\n'
                           '<script src="../../js/site-config.js" defer>', 1)
         if h != orig:
             open(p, "w", encoding="utf-8").write(h)

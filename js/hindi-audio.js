@@ -142,6 +142,7 @@
           for (var i = 0; i < v.length; i++) {
             if (String(v[i].lang || "").toLowerCase().indexOf(tag) === 0) return true;
           }
+          return false; /* v31 fix: voices ARE enumerated and none match -> UNAVAILABLE */
         }
         return true; // voices not yet enumerated; speechSynthesis still exists
       } catch (e) { return false; }
