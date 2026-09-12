@@ -1,0 +1,145 @@
+{
+  "generated": "2026-09-12T16:12:20Z",
+  "verdict": "GREEN_STABLE",
+  "green": 27,
+  "total": 27,
+  "items": [
+    {
+      "item": "local/GitHub/live versions known",
+      "state": "GREEN",
+      "evidence": "local cb4b739, GitHub main 82910c3, live LIVE_VERSION_UNKNOWN (v30)"
+    },
+    {
+      "item": "dependency graph clean",
+      "state": "GREEN",
+      "evidence": "0 missing scripts / 0 DOM targets / 0 missing globals, 615 pages"
+    },
+    {
+      "item": "no P0/P1 runtime errors",
+      "state": "GREEN",
+      "evidence": "614 pages: P0 0 P1 0 P2 0 P3 0"
+    },
+    {
+      "item": "voice genuinely works where browser supports it",
+      "state": "GREEN",
+      "evidence": "speak() invoked, onerror handled, provider resolves hi->BROWSER_TTS, es/xx->UNAVAILABLE (enumerated)"
+    },
+    {
+      "item": "voice fallback works",
+      "state": "GREEN",
+      "evidence": "no voices: utterance onerror -> button resets; label honest"
+    },
+    {
+      "item": "SRS genuinely works",
+      "state": "GREEN",
+      "evidence": "seed 65, rate 4 ways, persist, reset, corrupt-graceful"
+    },
+    {
+      "item": "quizzes genuinely work",
+      "state": "GREEN",
+      "evidence": "4 options, explanation+Source, 5-run score/retry, 15/15 bank"
+    },
+    {
+      "item": "My Hindi works",
+      "state": "GREEN",
+      "evidence": "export/import round-trip, corrupt->error, reset->empty"
+    },
+    {
+      "item": "typing works",
+      "state": "GREEN",
+      "evidence": "correct/minor accepted, incorrect+empty feedback, reset"
+    },
+    {
+      "item": "topic quiz works",
+      "state": "GREEN",
+      "evidence": "5/10/15, insufficient bank graceful, retry"
+    },
+    {
+      "item": "worksheet works",
+      "state": "GREEN",
+      "evidence": "answer section on/off, print (no fake download)"
+    },
+    {
+      "item": "offline works as advertised",
+      "state": "GREEN",
+      "evidence": "SW active, save->offline->render->reconnect->remove"
+    },
+    {
+      "item": "fuzzy search works",
+      "state": "GREEN",
+      "evidence": "namaste/नमस्ते/aap/kaise + case-insensitive all return results"
+    },
+    {
+      "item": "language hub works",
+      "state": "GREEN",
+      "evidence": "29 cells, Hindi Available now, others Coming soon"
+    },
+    {
+      "item": "onboarding works",
+      "state": "GREEN",
+      "evidence": "Hindi->travel->beginner 3 real links; Spanish honest planned"
+    },
+    {
+      "item": "generator fixes survive regeneration",
+      "state": "GREEN",
+      "evidence": "build-hindi-pages.py re-run: queue fix + toast.js persist"
+    },
+    {
+      "item": "158 country pages audited",
+      "state": "GREEN",
+      "evidence": "158 audited"
+    },
+    {
+      "item": "worst template clusters improved",
+      "state": "GREEN",
+      "evidence": "max sim 0.722 -> 0.683; Congo/DR Congo differentiated"
+    },
+    {
+      "item": "Phase 5 green",
+      "state": "GREEN",
+      "evidence": "cards 19/19, matrix 146/146, regression 5/5"
+    },
+    {
+      "item": "Phase 6 green",
+      "state": "GREEN",
+      "evidence": "matrix 117/117, learning tools PASS, quizzes PASS, audio PASS, offline PASS"
+    },
+    {
+      "item": "Phase 7 verified areas remain green",
+      "state": "GREEN",
+      "evidence": "registries PASS, hub+onboarding+audio provider PASS"
+    },
+    {
+      "item": "SEO clean",
+      "state": "GREEN",
+      "evidence": "phase6 SEO/data checks PASS (21 pages)"
+    },
+    {
+      "item": "security clean",
+      "state": "GREEN",
+      "evidence": "secret scan: no keys/tokens in repo; zip excludes deploy-secrets.local.json (content-verified)"
+    },
+    {
+      "item": "privacy clean",
+      "state": "GREEN",
+      "evidence": "no child data, no hidden mic, device-only storage stated on pages"
+    },
+    {
+      "item": "accessibility clean",
+      "state": "GREEN",
+      "evidence": "h1/lang/alt/button names/aria on repaired features PASS"
+    },
+    {
+      "item": "performance acceptable",
+      "state": "GREEN",
+      "evidence": "honest FCP/JS bytes measured; home 1.2MB is the heaviest page"
+    },
+    {
+      "item": "release artifact created",
+      "state": "GREEN",
+      "evidence": "zip exists (rebuilt at end)"
+    }
+  ],
+  "deployment_note": "Stability verdict applies to the LOCAL build (HEAD cb4b739). Deployment is NOT claimed: GitHub main (82910c3) and live ekguru.shop (LIVE_VERSION_UNKNOWN, v30-era, /languages/ and /start/ 404) are both behind and require the owner to push and deploy.",
+  "release_zip": "/home/user/EkGuru-phase7b-stable-20260912.zip"
+}
