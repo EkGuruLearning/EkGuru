@@ -19,6 +19,11 @@
 
 const CACHE = "ekguru-v30-f10d5437";
 
+/* Phase 6 §14 — "Save for offline" pins learner-chosen pages in a dedicated
+   cache that survives the main cache rotation. Only same-origin, non-private
+   pages are ever saved (the message handler refuses everything else). */
+const OFFLINE = "ekguru-offline-v1";
+
 const SHELL = [
   "./",
   "./index.html",
@@ -62,6 +67,16 @@ const SHELL = [
      shell so a returning visitor offline still gets the recovery
      layer, not just the cached page. */
   "./js/recovery.js",
+  /* Phase 6 — Hindi learning product scripts, precached so a saved-for-
+     offline lesson keeps working with no network. All are small, native
+     helpers (no framework). */
+  "./js/hindi-quiz-bank.js",
+  "./js/hindi-fuzzy.js",
+  "./js/hindi-srs.js",
+  "./js/hindi-progress.js",
+  "./js/hindi-audio.js",
+  "./js/hindi-offline.js",
+  "./js/hindi-tools.js",
   "./images/logo.svg"
 ];
 
@@ -81,9 +96,49 @@ self.addEventListener("install", event => {
 self.addEventListener("activate", event => {
   event.waitUntil(
     caches.keys()
-      .then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k))))
+      .then(keys => Promise.all(keys.filter(k => k !== CACHE && k !== OFFLINE).map(k => caches.delete(k))))
       .then(() => self.clients.claim())
   );
+});
+
+/* Phase 6 §14 — message channel for Save-for-offline.
+   save-offline  {url}          → pin a same-origin page
+   remove-offline {url}         → unpin
+   list-offline  {}             → saved list */
+self.addEventListener("message", event => {
+  const d = event.data || {};
+  const reply = port => {
+    try {
+      if (d.type === "save-offline") {
+        const url = new URL(d.url, self.location.origin);
+        /* refuse anything outside our origin, and never cache admin/private state */
+        if (url.origin !== self.location.origin ||
+            /\/admin(\.html)?($|\/)/.test(url.pathname) ||
+            /booking|join|contact/.test(url.pathname)) {
+          port.postMessage({ ok: false, reason: "refused" });
+          return;
+        }
+        caches.open(OFFLINE)
+          .then(c => c.add(url.pathname + url.search))
+          .then(() => port.postMessage({ ok: true }))
+          .catch(() => port.postMessage({ ok: false, reason: "cache-error" }));
+      } else if (d.type === "remove-offline") {
+        const url = new URL(d.url, self.location.origin);
+        caches.open(OFFLINE)
+          .then(c => c.delete(url.pathname + url.search))
+          .then(() => port.postMessage({ ok: true }));
+      } else if (d.type === "list-offline") {
+        caches.open(OFFLINE).then(c => c.keys()).then(keys => {
+          port.postMessage({ ok: true, urls: keys.map(k => new URL(k.url).pathname) });
+        });
+      } else {
+        port.postMessage({ ok: false, reason: "unknown-type" });
+      }
+    } catch (e) {
+      port.postMessage({ ok: false, reason: "error" });
+    }
+  };
+  if (event.ports && event.ports[0]) reply(event.ports[0]);
 });
 
 self.addEventListener("fetch", event => {
@@ -139,7 +194,11 @@ self.addEventListener("fetch", event => {
           caches.open(CACHE).then(c => c.put(req, copy));
         }
         return res;
-      }).catch(() => caches.match(req))
+      }).catch(() =>
+        /* offline: prefer an explicitly saved copy, then any cached copy */
+        caches.open(OFFLINE).then(c => c.match(req)).then(hit =>
+          hit || caches.match(req))
+      )
     );
     return;
   }

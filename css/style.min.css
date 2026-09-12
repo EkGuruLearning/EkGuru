@@ -157,3 +157,10 @@ body.nav-open .nav-backdrop{opacity:1;visibility:visible;transition:opacity var(
    ============================================================ */
 .logo small,.hdr .logo small,.ftr .logo small{display:block!important;white-space:normal!important;overflow:visible!important;text-overflow:clip!important;line-height:1.18!important;font-size:clamp(0.6rem,0.55rem + 0.35vw,0.72rem)!important;font-weight:600!important;letter-spacing:.03em!important;text-transform:uppercase!important;max-width:146px!important;color:var(--muted)}
 .hdr .logo>span:not(.logo-mark),.logo>span{overflow:visible!important;text-overflow:clip!important;max-width:146px!important}
+/* Phase 6 — Hindi learning product: Listen (computer voice) + Add to review */
+.hi-listen{display:inline-flex;align-items:center;gap:5px;margin:0 0 0 8px;padding:4px 10px;font-size:.82rem;line-height:1.4;border-radius:999px;border:1px solid var(--line);background:var(--bg-soft);color:var(--ink);cursor:pointer;vertical-align:middle}
+.hi-listen.playing{background:var(--brand);border-color:var(--brand);color:#fff}
+.hi-listen:disabled{opacity:.6;cursor:not-allowed}
+.hi-review-add{display:inline-flex;align-items:center;margin:0 0 0 6px;padding:3px 9px;font-size:.78rem;line-height:1.4;border-radius:999px;border:1px dashed var(--line);background:transparent;color:var(--ink-2);cursor:pointer;vertical-align:middle}
+.hi-review-add.added{border-style:solid;border-color:var(--green);color:var(--green)}
+@media(pointer:coarse){.hi-listen,.hi-review-add{min-height:44px;padding:6px 14px}}

@@ -117,7 +117,13 @@ def main():
         added += 1
 
     # 5) key hub pages must always be present
-    for hub, sec in (("faq/", "Page"), ("learn/practice/", "Practice")):
+    for hub, sec in (("faq/", "Page"), ("learn/practice/", "Practice"),
+                     ("learn/hindi/practice/", "Practice"),
+                     ("learn/hindi/practice/typing/", "Practice"),
+                     ("learn/hindi/practice/quiz/", "Practice"),
+                     ("learn/hindi/practice/worksheets/", "Practice"),
+                     ("learn/hindi/intermediate/", "Page"),
+                     ("learn/hindi/", "Page")):
         if hub in by_url or not os.path.exists(os.path.join(hub, "index.html")):
             continue
         idx.append({"u": hub, "t": title_of(os.path.join(hub, "index.html")) or hub,

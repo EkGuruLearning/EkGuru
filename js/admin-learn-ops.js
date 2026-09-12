@@ -38,6 +38,10 @@
   var REGISTRY = window.EKGURU_TOOL_REGISTRY || [];
   var QA = null;                 // tool-functional-qa.json, joined below
   var AUDIT_KEY = "ekguru_tool_audit_v1";
+  // Phase 6 Hindi learning reports (same-origin; honest UNKNOWN until loaded)
+  var P6 = {
+    quiz: null, audio: null, features: null, browser: null, offline: null, search: null
+  };
 
   /* ---------------- helpers ---------------- */
 
@@ -565,6 +569,13 @@
       var tp = QA && QA.summary ? QA.summary.pass : null, tf = QA && QA.summary ? QA.summary.fail : null;
       out.push(["Tool functional tests", tf ? "RED" : (tp !== null ? "GREEN" : "UNKNOWN"), tp !== null ? tp + " pass / " + tf + " fail" : "QA JSON not loaded"]);
       out.push(["Data sources", (PATHS.length && Object.keys(BANK).length && QUALITY.pages.length) ? "GREEN" : "RED", PATHS.length + " paths, " + Object.keys(BANK).length + " banks, " + QUALITY.pages.length + " pages"]);
+      // Phase 6 Hindi learning product (report-driven, never guessed)
+      var p6k = ["quiz", "audio", "features", "browser", "offline", "search"];
+      var p6Loaded = p6k.filter(function (k) { return P6[k] !== null; }).length;
+      var p6Fail = p6k.filter(function (k) { return P6[k] !== null && P6[k].pass === false; }).length;
+      var p6St = !p6Loaded ? "UNKNOWN" : (p6Fail ? "RED" : (p6Loaded < p6k.length ? "YELLOW" : "GREEN"));
+      out.push(["Phase 6 Hindi learning", p6St,
+        p6Loaded + "/" + p6k.length + " reports loaded" + (p6Fail ? ", " + p6Fail + " failing" : "")]);
 
       var lines = out.map(function (r) {
         return '<p style="margin:6px 0"><span style="display:inline-block;width:220px">' + esc(r[0]) + "</span>" + badge(r[1]) + ' <span class="muted" style="font-size:.82rem">' + esc(r[2]) + "</span></p>";
@@ -708,6 +719,21 @@
         // QA stays null; tool statuses show UNKNOWN honestly
       });
     }
+
+    // join Phase 6 Hindi learning reports (same-origin; honest UNKNOWN on miss)
+    var p6map = {
+      quiz: "reports/hindi-quiz-coverage-phase6.json",
+      audio: "reports/hindi-audio-phase6.json",
+      features: "reports/hindi-learning-features-tests.json",
+      browser: "reports/hindi-learning-browser.json",
+      offline: "reports/hindi-offline-phase6.json",
+      search: "reports/hindi-search-phase6.json"
+    };
+    Object.keys(p6map).forEach(function (k) {
+      fetch(p6map[k]).then(function (r) { return r.ok ? r.json() : Promise.reject(); }).then(function (j) {
+        P6[k] = j;
+      }).catch(function () { /* stays null -> UNKNOWN */ });
+    });
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);

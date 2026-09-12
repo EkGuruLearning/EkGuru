@@ -610,6 +610,14 @@ def build_sitemap():
     for dirpath, dirs, files in os.walk(learn_root):
         if "index.html" not in files:
             continue
+        # Phase 6: never put noindex utility pages (review, my-progress) in the
+        # sitemap — they are private local state, not searchable content.
+        try:
+            page = open(os.path.join(dirpath, "index.html"), encoding="utf-8").read()
+            if 'name="robots" content="noindex' in page:
+                continue
+        except Exception:
+            pass
         rel = os.path.relpath(dirpath, ROOT).replace(os.sep, "/")
         # rel is already e.g. "learn/aap-tum-tu-hindi" — build the URL from it
         # directly. (Fixed: previously prepended "/learn/" to a path that already

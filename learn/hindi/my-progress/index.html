@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="google-site-verification" content="hFaqyp-9LdUXSKPA9RF011TkO2m_-7AUMasXqm_0dGI" />
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>My Hindi — progress on this device | EkGuru</title>
+<meta name="description" content="Your local Hindi learning checklist: lessons opened and completed, quiz scores, review cards and paths — saved only in this browser.">
+<meta name="author" content="EkGuru">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://ekguru.shop/learn/hindi/my-progress/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="My Hindi — progress on this device | EkGuru">
+<meta property="og:description" content="Your local Hindi learning checklist: lessons opened and completed, quiz scores, review cards and paths — saved only in this browser.">
+<meta property="og:url" content="https://ekguru.shop/learn/hindi/my-progress/">
+<meta property="og:image" content="https://ekguru.shop/images/og-cover.jpg">
+<meta property="og:site_name" content="EkGuru">
+<meta property="article:published_time" content="2026-09-12">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="My Hindi — progress on this device">
+<meta name="twitter:description" content="Your local Hindi learning checklist: lessons opened and completed, quiz scores, review cards and paths — saved only in this browser.">
+<link rel="icon" href="../../../images/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../../../images/apple-touch-icon.png">
+<link rel="manifest" href="../../../manifest.webmanifest">
+<meta name="theme-color" content="#4f32d9">
+<link rel="stylesheet" href="../../../css/style.min.css">
+<style>
+.art{max-width:760px;margin:0 auto;padding:0 20px 60px}
+.art h1{font-size:2rem;line-height:1.25;margin:26px 0 10px}
+.art .meta{color:var(--muted);font-size:.86rem;margin:0 0 26px}
+.art h2{font-size:1.28rem;margin:34px 0 12px;padding-top:6px}
+.art p,.art li{line-height:1.75}
+.art ul,.art ol{padding-left:22px}
+.art li{margin:7px 0}
+.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0}
+.crumb a{color:var(--muted)}
+.lede{color:var(--ink-2);font-size:1.05rem;line-height:1.7;margin:0 0 22px}
+.linklist{list-style:none;padding:0;margin:12px 0 0}
+.linklist li{padding:10px 0;border-bottom:1px solid var(--line)}
+.linklist li:last-child{border-bottom:0}
+.linklist a{font-weight:600}
+.linklist span{display:block;color:var(--muted);font-size:.87rem;margin-top:2px;line-height:1.5}
+.note{background:var(--bg-soft);border:1px solid #ddd8ff;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:.94rem;color:var(--ink-2)}
+.btn{margin:6px 6px 6px 0}
+</style>
+</head>
+<body>
+<div class="art">
+    <p class="crumb"><a href="../../../">EkGuru</a> › <a href="../../">Learn Hindi</a> › <a href="../">Hindi</a> › My Hindi</p>
+  <h1>My Hindi — progress on this device</h1>
+  <p class="lede">Your own checklist: what you have read, finished and reviewed. <b>Saved on this device only</b> — no account, no upload, no cross-device sync.</p>
+  <div id="my-hindi"></div>
+  <div style="margin-top:18px">
+    <button type="button" class="btn" id="mp-export">Export JSON</button>
+    <button type="button" class="btn ghost" id="mp-import">Import JSON</button>
+    <input type="file" id="mp-file" accept="application/json" style="display:none">
+    <button type="button" class="btn ghost" id="mp-reset">Reset everything</button>
+  </div>
+  <p class="muted" style="margin-top:12px">Exports a JSON file you can keep or import back on another browser. Import accepts only EkGuru Hindi progress files and never touches your booking data.</p>
+
+</div>
+<!-- ekguru:trust-footer:start -->
+<footer class="pw-ftr">
+  <nav aria-label="Site information">
+    <a href="../../../">Home</a>
+    <a href="../../../about/">About</a>
+    <a href="../../../contact/">Contact</a>
+    <a href="../../../privacy/">Privacy</a>
+    <a href="../../../terms/">Terms</a>
+    <a href="../../../disclaimer/">Disclaimer</a>
+  </nav>
+  <p>
+  © 2026 EkGuru — One Student. One Goal. One Guru.<br>
+  Written and maintained by Prakash. Hindi lessons with native-speaking tutors, one to one.
+  </p>
+</footer>
+<!-- ekguru:trust-footer:end -->
+<script>
+(function () {
+  "use strict";
+  function boot() {
+  var P = window.EkGuruProgress;
+  function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+  function dl(name, text, mime) {
+    var b = new Blob([text], {type:(mime||"text/plain")+";charset=utf-8"});
+    var u = URL.createObjectURL(b); var a = document.createElement("a");
+    a.href = u; a.download = name; document.body.appendChild(a); a.click();
+    document.body.removeChild(a); setTimeout(function(){URL.revokeObjectURL(u);},1000);
+  }
+  function paint() {
+    var s = P.snapshot();
+    var rows = [];
+    rows.push('<div class="note"><b>Summary.</b> ' + s.lessonsOpened + ' lessons opened · ' +
+      s.lessonsCompleted + ' marked complete · ' + s.reviewCards + ' review cards (' + s.reviewDue +
+      ' due) · ' + s.pathsStarted + ' paths started.</div>');
+    if (s.opened.length) {
+      rows.push('<h2>Recently opened</h2><ul class="linklist">' + s.opened.slice(0,8).map(function(o){
+        return '<li><span>' + esc(o.title) + '</span></li>'; }).join('') + '</ul>');
+    }
+    if (Object.keys(s.completed).length) {
+      rows.push('<h2>Marked complete</h2><ul class="linklist">' +
+        Object.keys(s.completed).map(function(k){return '<li><span>' + esc(s.completed[k].title) + '</span></li>';}).join('') + '</ul>');
+    }
+    if (Object.keys(s.quizzes).length) {
+      rows.push('<h2>Quiz attempts</h2><ul class="linklist">' + Object.keys(s.quizzes).map(function(k){
+        var q = s.quizzes[k]; return '<li><b>' + esc(k) + '</b><span>' + q.attempts + ' attempt(s) · best ' + q.best + ' / ' + q.total + '</span></li>'; }).join('') + '</ul>');
+    }
+    if (!s.lessonsOpened && !Object.keys(s.completed).length && !s.reviewCards) {
+      rows.push('<div class="note">Nothing recorded yet. Open a lesson, mark one complete, or add a card to review — it will appear here.</div>');
+    }
+    document.getElementById("my-hindi").innerHTML = rows.join("");
+  }
+  document.getElementById("mp-export").addEventListener("click", function () {
+    dl("ekguru-hindi-progress.json", P.exportJSON(), "application/json");
+  });
+  document.getElementById("mp-import").addEventListener("click", function () {
+    document.getElementById("mp-file").click();
+  });
+  document.getElementById("mp-file").addEventListener("change", function (e) {
+    var f = e.target.files[0]; if (!f) return;
+    var r = new FileReader();
+    r.onload = function () { var res = P.importJSON(r.result); paint();
+      if (window.EkGuruToast) window.EkGuruToast.show(res.ok ? "Imported." : res.error); };
+    r.readAsText(f);
+  });
+  document.getElementById("mp-reset").addEventListener("click", function () {
+    if (confirm("Clear all your Hindi progress on this device?")) { P.reset(); paint(); }
+  });
+  paint();
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else { boot(); }
+})();
+</script>
+
+</body>
+</html>
+<script src="../../../js/site-config.js" defer></script>
+<script src="../../../js/analytics.js" defer></script>
+<!-- ekguru:recovery:start -->
+<script src="../../../js/recovery.js" defer></script>
+<!-- ekguru:recovery:end -->
+
+<script src="../../../js/hindi-srs.js" defer></script>
+<script src="../../../js/hindi-progress.js" defer></script>
+<script defer>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("../../../sw.js").catch(function () {});
+  });
+}
+</script>
