@@ -330,6 +330,7 @@ def practice_hub():
     <li><a href="typing/">Hindi Typing Trainer</a><span>Roman prompt → type it in Devanagari, with harmless formatting differences accepted.</span></li>
     <li><a href="quiz/">Hindi Topic Quiz</a><span>Pick a topic and level, answer 5–15 questions, get an explanation with every answer.</span></li>
     <li><a href="worksheets/">Hindi Worksheets</a><span>Printable prompts with a writing space and an optional answer section.</span></li>
+    <li><a href="conversation/">Hindi Conversation Practice</a><span>Deterministic scenario simulator — read a line, pick the reply. Rule-based, clearly not AI.</span></li>
     <li><a href="../review/">Hindi Review</a><span>Spaced repetition for the words and ideas you save.</span></li>
     <li><a href="../my-progress/">My Hindi</a><span>Your local checklist — saved on this device only.</span></li>
   </ul>
@@ -378,6 +379,77 @@ def tool_pages():
   <p class="lede">Build a worksheet from the quiz bank: choose a topic and a number of prompts, then print. Answers are included at the end unless you turn them off.</p>
   <div id="ws-app"></div>
 """, scripts=["hindi-quiz-bank.js", "hindi-tools.js"])
+
+
+# ---------------------------------------------------------------------------
+# §21 CONVERSATION — deterministic scenario simulator (Phase 7C)
+# ---------------------------------------------------------------------------
+CONV_CSS = """
+.conv-tag{display:inline-block;background:var(--bg-soft);border:1px solid #ddd8ff;border-radius:999px;padding:2px 10px;font-size:.72rem;font-weight:700;margin:0 0 12px}
+.conv-title{margin:4px 0 6px}
+.conv-context{margin:0 0 14px}
+.conv-npc{background:var(--card,#fff);border:1px solid var(--line);border-left:4px solid var(--accent,#b26a00);border-radius:10px;padding:12px 14px;margin:0 0 12px}
+.conv-npc-tag{display:block;font-size:1.15rem;font-weight:700}
+.conv-roman{display:block;color:var(--muted);font-size:.9rem}
+.conv-en{display:block;font-size:.9rem;color:var(--ink-2)}
+.conv-prompt{font-weight:600;margin:0 0 8px}
+.conv-choices{display:flex;flex-direction:column;gap:8px;margin:0 0 12px}
+.conv-choice{text-align:left;display:flex;flex-direction:column;align-items:flex-start}
+.conv-choice .conv-roman{font-size:.82rem}
+.conv-choice .conv-en{font-size:.8rem}
+.conv-vocab{display:block;margin-top:8px;font-size:.85rem;color:var(--ink-2)}
+.conv-fb{margin-top:12px}
+"""
+
+
+def conversation_page():
+    up = "../../../../"
+    crumb_base = ('<a href="../../../../">EkGuru</a> › <a href="../../../">Learn Hindi</a> › '
+                  '<a href="../../">Hindi</a> › <a href="../">Practice</a> › ')
+    body = """  <h1>Hindi Conversation Practice</h1>
+  <p class="lede">A deterministic conversation simulator: you read a line, pick the reply, and get the reasoning behind the right answer. Every line is authored, basic, reviewed Hindi — a rule-based state machine, <b>not AI</b>.</p>
+  <div class="note"><b>Honest scope.</b> This teaches the shape of a conversation (greet → reply → close). It cannot listen to your pronunciation and it is not a live tutor — for real speaking practice, book a one-to-one lesson.</div>
+  <div id="conv-app"><p class="muted">Loading scenarios…</p></div>
+  <script defer>
+  (function(){
+    var el=document.getElementById("conv-app");
+    if(!el)return;
+    function whenReady(cb){
+      if(window.EkGuruConversation){cb(window.EkGuruConversation);return;}
+      var n=0,t=setInterval(function(){
+        if(window.EkGuruConversation){clearInterval(t);cb(window.EkGuruConversation);}
+        else if(++n>40){clearInterval(t);el.innerHTML='<p class="muted">Conversation practice is unavailable right now.</p>';}
+      },100);
+    }
+    whenReady(function(C){
+      C.ready().then(function(){
+        var list=C.list();
+        var html='<p class="muted">Choose a scenario:</p><div class="conv-choices">';
+        list.forEach(function(s){
+          html+='<button type="button" class="btn conv-choice" data-sc="'+s.id+'"><span>'+s.title+'</span>'
+            +'<span class="conv-roman">'+s.level+' · goal: '+s.goal+'</span></button>';
+        });
+        html+='</div><div id="conv-stage"></div>';
+        el.innerHTML=html;
+        el.querySelectorAll("[data-sc]").forEach(function(b){
+          b.addEventListener("click",function(){
+            C.mount(document.getElementById("conv-stage"), b.getAttribute("data-sc"));
+            b.scrollIntoView({behavior:"smooth",block:"start"});
+          });
+        });
+      }).catch(function(){
+        el.innerHTML='<p class="muted">Conversation practice is unavailable right now. The rest of this page works normally.</p>';
+      });
+    });
+  })();
+  </script>
+"""
+    write_page("learn/hindi/practice/conversation/index.html", up,
+               "Hindi Conversation Practice — deterministic scenarios",
+               "Practise basic Hindi conversations: read a line, pick the right reply, and see why. A deterministic, rule-based simulator — clearly not AI, no listening required.",
+               "learn/hindi/practice/conversation/", crumb_base + "Conversation",
+               body, scripts=["conversation-engine.js", "hindi-progress.js"],
+               extra_style=CONV_CSS)
 
 
 # ---------------------------------------------------------------------------
@@ -468,6 +540,8 @@ def update_hub_nav():
                '<span>Roman prompt → type it in Devanagari.</span></li>\n'
                '    <li><a href="practice/worksheets/">Hindi Worksheets</a>'
                '<span>Printable prompts with writing space and answers.</span></li>\n'
+               '    <li><a href="practice/conversation/">Hindi Conversation Practice</a>'
+               '<span>Deterministic scenario simulator — rule-based, not AI.</span></li>\n'
                '    <li><a href="review/">Hindi Review</a>'
                '<span>Spaced repetition for the words you save.</span></li>\n'
                '    <li><a href="my-progress/">My Hindi</a>'
@@ -480,6 +554,18 @@ def update_hub_nav():
     if h != orig:
         open(p, "w", encoding="utf-8").write(h)
         return True
+    # Phase 7C: add the conversation link on its own (idempotent)
+    if 'practice/conversation/' not in h:
+        add = ('    <li><a href="practice/conversation/">Hindi Conversation Practice</a>'
+               '<span>Deterministic scenario simulator — rule-based, not AI.</span></li>\n')
+        idx = h.find('<a href="review/">Hindi Review</a>')
+        if idx > 0:
+            # insert before the <li> that holds this review link
+            li_start = h.rfind('<li>', 0, idx)
+            h = h[:li_start] + add + h[li_start:]
+            open(p, "w", encoding="utf-8").write(h)
+            return True
+    return False
     return False
 
 
@@ -489,6 +575,7 @@ def main():
     progress_page(); made.append("learn/hindi/my-progress/index.html")
     practice_hub(); made.append("learn/hindi/practice/index.html")
     tool_pages()
+    conversation_page(); made.append("learn/hindi/practice/conversation/index.html")
     made += ["learn/hindi/practice/typing/index.html",
              "learn/hindi/practice/quiz/index.html",
              "learn/hindi/practice/worksheets/index.html"]
