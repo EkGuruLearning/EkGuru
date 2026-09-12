@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "generated": "2026-09-12T00:00:00Z",
+  "purpose": "Reusable script engine registry (§27). Production status is honest: only Latin (source) and Devanagari (Hindi) have real rendering + transliteration + typing support in the product today. All other scripts are listed with PLANNED status — no course content, no transliteration, no typing trainer exists for them yet.",
+  "scripts": [
+    { "id": "latn", "name": "Latin", "iso15924": "Latn", "direction": "ltr", "productionStatus": "PRODUCTION", "transliteration": "n/a — source script", "typing": "native keyboard", "rendering": "native", "note": "Source-language script; every UI and English page renders natively." },
+    { "id": "deva", "name": "Devanagari", "iso15924": "Deva", "direction": "ltr", "productionStatus": "PRODUCTION", "transliteration": "Latin → Devanagari via js/translit.js rule engine; Google Input Tools API used only when a secure server relay exists (it does not today), otherwise the keyless rule engine is the fallback", "typing": "Roman → Devanagari typing trainer + on-screen chart", "rendering": "native", "note": "Hindi (hi) is the only PRODUCTION target language; its script is fully supported end-to-end." },
+    { "id": "arab", "name": "Arabic", "iso15924": "Arab", "direction": "rtl", "productionStatus": "PLANNED", "transliteration": null, "typing": null, "rendering": "browser-native", "note": "No PRODUCTION language uses it yet; no authored content or transliteration." },
+    { "id": "cyrl", "name": "Cyrillic", "iso15924": "Cyrl", "direction": "ltr", "productionStatus": "PLANNED", "transliteration": null, "typing": null, "rendering": "browser-native", "note": "No PRODUCTION language uses it yet." },
+    { "id": "grek", "name": "Greek", "iso15924": "Grek", "direction": "ltr", "productionStatus": "PLANNED", "transliteration": null, "typing": null, "rendering": "browser-native", "note": "No PRODUCTION language uses it yet." },
+    { "id": "hebr", "name": "Hebrew", "iso15924": "Hebr", "direction": "rtl", "productionStatus": "PLANNED", "transliteration": null, "typing": null, "rendering": "browser-native", "note": "No PRODUCTION language uses it yet." },
+    { "id": "hang", "name": "Hangul", "iso15924": "Hang", "direction": "ltr", "productionStatus": "PLANNED", "transliteration": null, "typing": null, "rendering": "browser-native", "note": "No PRODUCTION language uses it yet." },
+    { "id": "kana", "name": "Kana", "iso15924": "Hrkt", "direction": "ltr", "productionStatus": "PLANNED", "transliteration": null, "typing": null, "rendering": "browser-native", "note": "No PRODUCTION language uses it yet." },
+    { "id": "hani", "name": "Han (Chinese characters)", "iso15924": "Hani", "direction": "ltr", "productionStatus": "PLANNED", "transliteration": null, "typing": null, "rendering": "browser-native", "note": "No PRODUCTION language uses it yet." }
+  ]
+}
