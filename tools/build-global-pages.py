@@ -263,6 +263,75 @@ def my_learning_page():
     return "learn/my-learning/index.html"
 
 
+CC_CSS = """
+.cc-head h2{margin:0 0 6px;font-size:1.3rem}
+.cc-sub{color:var(--ink-2);margin:0 0 8px;line-height:1.6}
+.cc-note{font-size:.9rem}
+.cc-shared{font-size:.9rem;color:var(--ink-2);margin:12px 0}
+.cc-mod{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:14px 0;background:var(--bg-soft)}
+.cc-mod h3{margin:0 0 10px;font-size:1.05rem}
+.cc-phrases{list-style:none;padding:0;margin:0 0 4px}
+.cc-phrase{padding:7px 0;border-bottom:1px dashed var(--line)}
+.cc-phrase:last-child{border-bottom:0}
+.cc-target{font-weight:600;font-size:1.02rem}
+.cc-roman{display:block;color:var(--muted);font-size:.85rem;margin:1px 0}
+.cc-meaning{color:var(--ink-2);font-size:.9rem}
+.cc-links{list-style:none;padding:0;margin:10px 0 0}
+.cc-links li{margin:6px 0}
+.cc-links a{font-weight:600}
+"""
+
+
+def _context_page(cid, up, title, desc, url, crumb, lede, scripts):
+    body = '  <h1>%s</h1>\n  <p class="lede">%s</p>\n  <div class="note"><b>Honest scope.</b> This is a curated path built from '
+    body += 'real published phrases and lessons — a context on top of the shared Hindi course, not a new course. '
+    body += 'Nothing here is AI-generated; every phrase is copied from a page that already exists on EkGuru.</div>\n'
+    body += '  <div id="ctx-app"><p class="muted">Loading…</p></div>\n'
+    body += """  <script defer>
+  (function(){
+    var el=document.getElementById("ctx-app");
+    if(!el)return;
+    function whenReady(cb){
+      if(window.EkGuruCountryContext){cb();return;}
+      var n=0,t=setInterval(function(){
+        if(window.EkGuruCountryContext){clearInterval(t);cb();}
+        else if(++n>40){clearInterval(t);el.innerHTML='<p class="muted">Context unavailable right now.</p>';}
+      },100);
+    }
+    whenReady(function(){
+      window.EkGuruCountryContext.ready().then(function(){
+        window.EkGuruCountryContext.render(el, "%s");
+      }).catch(function(){el.innerHTML='<p class="muted">Context unavailable right now.</p>';});
+    });
+  })();
+  </script>
+"""
+    body = body % (title, lede, cid)
+    return write_page(url + "index.html", up, title, desc, url, crumb, body, scripts=scripts, index=True, extra_style=CC_CSS)
+
+
+def context_pages():
+    up = "../../../"
+    made = []
+    made.append(_context_page(
+        "india-visitor", up,
+        "Learn Hindi for India — the visitor's phrase path",
+        "Survive a trip to India: greetings, taxis, directions, restaurant, shopping, trains and help — real phrases with romanisation, rehearsed on top of the shared Hindi course.",
+        "learn/contexts/india-visitor/",
+        '<a href="../../../">EkGuru</a> › <a href="../../">Learn</a> › <a href="../">Contexts</a> › India visitor',
+        "A visitor's path through Hindi: the phrases that handle a trip — airport, taxi, hotel, food, money and help — organised so you can rehearse each situation before you land.",
+        ("country-context.js", "hindi-srs.js")))
+    made.append(_context_page(
+        "heritage", up,
+        "Hindi for Family & Heritage Learners",
+        "Reconnect with family and culture: Hindi family words, respectful forms, culture and reading progression for NRI and heritage learners — built from real published content.",
+        "learn/contexts/heritage/",
+        '<a href="../../../">EkGuru</a> › <a href="../../">Learn</a> › <a href="../">Contexts</a> › Family & heritage',
+        "A path for heritage learners: the family words, respectful forms and culture notes that matter at home — without assuming every family speaks the same variety.",
+        ("country-context.js", "hindi-srs.js")))
+    return made
+
+
 def patch_learn_hub():
     """Idempotently add a My Learning card to /learn/index.html."""
     p = "learn/index.html"
@@ -286,6 +355,7 @@ def patch_learn_hub():
 def main():
     made = []
     made.append(my_learning_page())
+    made += context_pages()
     hub = patch_learn_hub()
     print("generated:")
     for m in made:
