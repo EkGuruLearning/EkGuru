@@ -256,8 +256,8 @@ browser; nothing you type is sent anywhere.</p>
 
       sc.textContent=hits.length?hits.length+" result"+(hits.length===1?"":"s"):"Nothing matched. Try a shorter word.";
       res.innerHTML=hits.map(function(h){
-        return '<div class="faq"><b><a href="'+BASEP+esc(h.r.u)+'">'+esc(h.r.t)+'</a></b>'+
-          '<p><span class="pill" style="cursor:default">'+esc(h.r.s)+'</span> '+esc(h.r.d)+'</p></div>';
+        return '<a class="faq" style="display:block" href="'+BASEP+esc(h.r.u)+'"><b>'+esc(h.r.t)+'</b>'+
+          '<p><span class="pill">'+esc(h.r.s)+'</span> '+esc(h.r.d)+'</p></a>';
       }).join("");
     });
   }

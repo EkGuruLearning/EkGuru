@@ -145,6 +145,28 @@ function phase4Block() {
   };
 }
 
+/* phase5 block — card clickability / interaction audit. Read-only facts from
+   the Phase 5 evidence reports; rendered on the Release board. */
+function phase5Block() {
+  const inv = readJson("reports/phase5-interaction-inventory.json") || {};
+  const click = readJson("reports/phase5-card-clickability.json") || {};
+  const matrix = readJson("reports/phase5-browser-matrix.json") || {};
+  const reg = readJson("reports/phase5-regression.json") || {};
+  const fg = readJson("reports/phase5-final-gate.json") || {};
+  return {
+    verdict: fg.verdict || "NOT_RUN",
+    cardsTotal: inv.totalCardInstances || 0,
+    byPattern: inv.byPattern || {},
+    titleOnly: (inv.byPattern && inv.byPattern["title-only-link"]) || 0,
+    deadLinks: (fg.components && fg.components.staticInventory.deadLinks) || 0,
+    deadButtons: (fg.components && fg.components.staticInventory.deadButtons) || 0,
+    interactions: `${click.ok || 0}/${click.total || 0}`,
+    matrix: `${matrix.ok || 0}/${matrix.total || 0}`,
+    regression: `${reg.ok || 0}/${reg.total || 0}`,
+    gapsBlocking: fg.gapsBlocking || 0,
+  };
+}
+
 const out = {
   generated: new Date().toISOString(),
   sections: Object.assign({}, prev.sections, { totalHtml, tutorProfiles, materials }),
@@ -159,6 +181,7 @@ const out = {
   release: releaseBlock(),
   phase3: phase3Block(),
   phase4: phase4Block(),
+  phase5: phase5Block(),
 };
 
 const header =

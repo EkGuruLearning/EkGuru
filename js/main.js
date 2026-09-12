@@ -696,7 +696,7 @@
     var host = $("#markets");
     if (!host) return;
     host.innerHTML = MARKETS.map(function (m) {
-      return '<div class="mkt"><span class="mkt-flag">' + m.flag + "</span><b>" + esc(m.country) + "</b><span>" + esc(m.label) + "</span></div>";
+      return '<a class="mkt" href="' + esc(m.slug || "learn-hindi-by-country/") + '"><span class="mkt-flag">' + m.flag + "</span><b>" + esc(m.country) + "</b><span>" + esc(m.label) + "</span></a>";
     }).join("");
   }
 
@@ -726,6 +726,7 @@
     if (hc && TUTORS.length) {
       var x = TUTORS[0];
       hc.innerHTML =
+        '<a class="hc-link" href="' + langHref("tutor.html", "id=" + encodeURIComponent(x.id)) + '" aria-label="' + esc(x.name) + ' — view profile"></a>' +
         '<img data-safe src="' + esc(x.photo) + '" alt="' + esc(x.name) + '" width="96" height="96">' +
         '<p class="hc-name">' + esc(x.name) + "</p>" +
         '<p class="sm">' + esc(t("card.tutor")) + " · " + esc(x.country) + "</p>" +

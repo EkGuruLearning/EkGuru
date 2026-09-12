@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-12T05:38:42.640Z",
+ "generated": "2026-09-12T06:45:10.591Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "6d344e17d7f22beaa0c32a703eb0074d5dbdcd6a",
-  "subject": "Phase 3: final console summary",
-  "buildTime": "2026-09-12T05:38:42.662Z",
+  "commit": "dd8a4a2dc1ce28b9725a89463551db02058faf1a",
+  "subject": "Phase 4: Learn Hindi complete structure (hub/levels/topics)",
+  "buildTime": "2026-09-12T06:45:10.618Z",
   "dataSourceStatus": "PAUSED_FOR_REUPLOAD",
   "toolQa": {
    "tools": 12,
@@ -4645,5 +4645,24 @@ window.EKGURU_ADMIN_STATS = {
   "green": 27,
   "yellow": 2,
   "red": 1
+ },
+ "phase5": {
+  "verdict": "GREEN_INTERACTION_VERIFIED",
+  "cardsTotal": 1766,
+  "byPattern": {
+   "no-link": 113,
+   "informational-faq": 1520,
+   "nested-actions": 50,
+   "whole-anchor": 78,
+   "stretched-link": 4,
+   "js-wired-action": 1
+  },
+  "titleOnly": 0,
+  "deadLinks": 0,
+  "deadButtons": 0,
+  "interactions": "19/19",
+  "matrix": "146/146",
+  "regression": "5/5",
+  "gapsBlocking": 0
  }
 };

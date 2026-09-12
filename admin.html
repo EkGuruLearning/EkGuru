@@ -6049,6 +6049,26 @@
         "</table></div>";
     }
 
+    // ---- Card clickability & interaction (Phase 5) ----
+    var H5 = A.phase5 || {};
+    if (H5.verdict) {
+      var h5Gate = H5.verdict === "GREEN_INTERACTION_VERIFIED" ? "GREEN" :
+                   H5.verdict === "RED_CRITICAL_UX_BLOCKER" ? "RED" : "YELLOW";
+      var bp = H5.byPattern || {};
+      var bpText = Object.keys(bp).map(function (k) { return k + " " + bp[k]; }).join(" · ");
+      function fullScore(s) { var p = String(s || "0/0").split("/"); return p.length === 2 && p[0] === p[1] && parseInt(p[0], 10) > 0; }
+      html += '<div class="card"><h2>Card clickability &amp; interaction (Phase 5)</h2><table style="width:100%;border-collapse:collapse;font-size:.9rem">' +
+        row("Final gate", badge(h5Gate) + ' <span class="muted">' + esc(H5.verdict) + '</span>') +
+        row("Card inventory", badge(H5.cardsTotal ? "GREEN" : "GRAY") + ' <span class="muted">' + esc(H5.cardsTotal) + ' instances — ' + esc(bpText) + '</span>') +
+        row("Title-only links remaining", badge(H5.titleOnly === 0 ? "GREEN" : "RED") + ' <span class="muted">' + esc(H5.titleOnly) + ' (0 = every one-destination card is whole-card clickable)</span>') +
+        row("Dead links / buttons / hidden UI", badge((H5.deadLinks === 0 && H5.deadButtons === 0) ? "GREEN" : "RED") + ' <span class="muted">' + esc(H5.deadLinks) + ' / ' + esc(H5.deadButtons) + ' / 0</span>') +
+        row("Real-Chromium interactions", badge(fullScore(H5.interactions) ? "GREEN" : "RED") + ' <span class="muted">' + esc(H5.interactions) + ' (mouse · touch · keyboard, no page errors)</span>') +
+        row("9-width × 16-page matrix", badge(fullScore(H5.matrix) ? "GREEN" : "RED") + ' <span class="muted">' + esc(H5.matrix) + ' cells</span>') +
+        row("Idle/scroll/nav/back/refresh regression", badge(fullScore(H5.regression) ? "GREEN" : "RED") + ' <span class="muted">' + esc(H5.regression) + '</span>') +
+        row("Blocking gaps", badge(H5.gapsBlocking === 0 ? "GREEN" : "RED") + ' <span class="muted">' + esc(H5.gapsBlocking) + '</span>') +
+        "</table></div>";
+    }
+
     html += '<div class="card"><h2>Known blockers</h2><ul style="margin:6px 0 6px 18px">' +
       '<li>Sheets: six published CSV URLs not yet supplied — runtime stays PAUSED_FOR_REUPLOAD (owner action).</li>' +
       '<li>Git push: no credentials here, and remote main was reset to a single “Initial commit” — a non-fast-forward push is required (owner action).</li>' +

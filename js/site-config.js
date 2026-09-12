@@ -887,13 +887,13 @@ window.EKGURU_SITE = {
    Used for: language switcher, SEO hreflang, "students from" strip.
    ========================================================= */
 window.EKGURU_MARKETS = [
-  { code: "en", locale: "en-US", country: "United States", flag: "🇺🇸", label: "English",    dir: "ltr" },
-  { code: "es", locale: "es-ES", country: "Spain",         flag: "🇪🇸", label: "Español",    dir: "ltr" },
-  { code: "fr", locale: "fr-FR", country: "France",        flag: "🇫🇷", label: "Français",   dir: "ltr" },
-  { code: "de", locale: "de-DE", country: "Germany",       flag: "🇩🇪", label: "Deutsch",    dir: "ltr" },
-  { code: "pt", locale: "pt-BR", country: "Brazil",        flag: "🇧🇷", label: "Português",  dir: "ltr" },
-  { code: "ja", locale: "ja-JP", country: "Japan",         flag: "🇯🇵", label: "日本語",       dir: "ltr" },
-  { code: "ar", locale: "ar-AE", country: "UAE",           flag: "🇦🇪", label: "العربية",    dir: "rtl" }
+  { code: "en", locale: "en-US", country: "United States", flag: "🇺🇸", slug: "learn-hindi-from-usa/", label: "English",    dir: "ltr" },
+  { code: "es", locale: "es-ES", country: "Spain",         flag: "🇪🇸", slug: "learn-hindi-from-spain/", label: "Español",    dir: "ltr" },
+  { code: "fr", locale: "fr-FR", country: "France",        flag: "🇫🇷", slug: "learn-hindi-from-france/", label: "Français",   dir: "ltr" },
+  { code: "de", locale: "de-DE", country: "Germany",       flag: "🇩🇪", slug: "learn-hindi-from-germany/", label: "Deutsch",    dir: "ltr" },
+  { code: "pt", locale: "pt-BR", country: "Brazil",        flag: "🇧🇷", slug: "learn-hindi-from-brazil/", label: "Português",  dir: "ltr" },
+  { code: "ja", locale: "ja-JP", country: "Japan",         flag: "🇯🇵", slug: "learn-hindi-from-japan/", label: "日本語",       dir: "ltr" },
+  { code: "ar", locale: "ar-AE", country: "UAE",           flag: "🇦🇪", slug: "learn-hindi-from-uae/", label: "العربية",    dir: "rtl" }
 ];
 
 /* =========================================================
