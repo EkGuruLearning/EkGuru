@@ -17,7 +17,7 @@
    Bump CACHE when you deploy and the old one is cleared out.
    ========================================================= */
 
-const CACHE = "ekguru-v30-f10d5437";
+const CACHE = "ekguru-v31-1dbed90";
 
 /* Phase 6 §14 — "Save for offline" pins learner-chosen pages in a dedicated
    cache that survives the main cache rotation. Only same-origin, non-private

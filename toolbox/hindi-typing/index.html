@@ -262,6 +262,18 @@ way to write Hindi in Latin letters.</p></div>
 <script src="../../js/recovery.js" defer></script>
 <!-- ekguru:recovery:end -->
 <script src="../../js/analytics.js" defer></script>
+<!-- v31 — the transliteration engines this page's inline code
+     depends on. Loaded synchronously (no defer) immediately before
+     the inline snippet below, so window.EkGuruTranslit and
+     window.EkGuruTranslitAPI are defined when that snippet runs.
+     (Deferred would execute AFTER the inline script, which is not
+     deferred and runs in place — leaving the globals undefined.)
+     These two were missing entirely, so the core #tin -> #tout path
+     was silently undefined: no script loaded, and the inline code
+     called a method (toDevanagari) and a name (EkGuruTranslitApi)
+     that do not exist. See reports/phase7b-dependency-graph.json. -->
+<script src="../../js/translit.js"></script>
+<script src="../../js/translit-api.js"></script>
 <!-- No sheet-owned value on this page, so the live-sheet
      stack (~110 KB) is deliberately not loaded. See the note in
      tools/shell.js. Add a data-t marker and it returns automatically. -->
@@ -278,16 +290,20 @@ way to write Hindi in Latin letters.</p></div>
 (function(){
   var inp=document.getElementById("tin"),out=document.getElementById("tout"),
       alt=document.getElementById("talt"),stat=document.getElementById("tstat");
-  var timer=null;
+  var timer=null,pending=0;
   function offline(s){
-    try{ if(window.EkGuruTranslit&&window.EkGuruTranslit.toDevanagari)
-      return window.EkGuruTranslit.toDevanagari(s); }catch(e){}
+    try{ var T=window.EkGuruTranslit; if(T&&T.transliterate) return T.transliterate(s).text; }catch(e){}
     return "";
+  }
+  function offlineAlts(s){
+    try{ var T=window.EkGuruTranslit;
+      if(T&&T.alternatives) return T.alternatives(s).slice(1).map(function(a){return a.text;}); }catch(e){}
+    return [];
   }
   function render(dev,alts,src){
     out.textContent=dev||"";
     alt.innerHTML="";
-    (alts||[]).slice(1,5).forEach(function(a){
+    (alts||[]).slice(0,4).forEach(function(a){
       var b=document.createElement("button");
       b.className="pill";b.type="button";b.textContent=a;
       b.addEventListener("click",function(){out.textContent=a;});
@@ -298,15 +314,19 @@ way to write Hindi in Latin letters.</p></div>
   function run(){
     var v=inp.value.trim();
     if(!v){render("",[],"");return;}
-    render(offline(v),[],"offline");
-    /* The API path is best-effort. Every failure mode — offline,
-       blocked, slow, non-Devanagari reply — falls back silently
-       to the rule-based result already on screen. */
+    render(offline(v),offlineAlts(v),"offline");
+    /* The API path is best-effort and newest keystroke wins. Every
+       failure mode — offline, blocked, slow, non-Devanagari reply —
+       falls back silently to what is already on screen. */
+    var mine=++pending;
     try{
-      if(window.EkGuruTranslitApi&&window.EkGuruTranslitApi.lookup){
-        window.EkGuruTranslitApi.lookup(v,function(list){
-          if(list&&list.length)render(list[0],list,"api");
-        });
+      var API=window.EkGuruTranslitAPI;
+      if(API&&API.lookup){
+        API.lookup(v).then(function(res){
+          if(!res||!res.text||mine!==pending)return;
+          if(inp.value.trim()!==v)return;
+          render(res.text,res.alternatives||[],"api");
+        }).catch(function(){});
       }
     }catch(e){}
   }

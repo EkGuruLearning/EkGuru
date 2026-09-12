@@ -118,17 +118,20 @@ RECIPES = {
     },
     "toolbox/hindi-typing/": {
         "steps": [
-            ("typing 'namaste' produces Devanagari", """() => {
+            ("typing 'namaste' produces Devanagari in #tout", """async () => {
               const i = document.getElementById('tin'); if (!i) return 'no #tin';
               i.value = 'namaste'; i.dispatchEvent(new Event('input', {bubbles:true}));
+              await new Promise(function (r) { setTimeout(r, 600); });  /* > 320ms debounce */
               const o = document.getElementById('tout');
-              const txt = (o && o.innerText) || document.body.innerText;
-              return txt.includes('\u0928\u092e\u0938\u094d\u0924\u0947');
+              const txt = (o && o.innerText) || '';
+              return /[\u0900-\u097F]/.test(txt);  /* Devanagari in the OUTPUT BOX ONLY */
             }"""),
-            ("clear empties both sides", """() => {
+            ("clear empties both sides", """async () => {
               const c = document.getElementById('tclear'); if (!c) return 'no #tclear';
               c.click();
-              return true;
+              await new Promise(function (r) { setTimeout(r, 50); });
+              return !document.getElementById('tin').value &&
+                     !document.getElementById('tout').innerText;
             }"""),
             ("copy button exists", """() => !!document.getElementById('tcopy')"""),
         ],
