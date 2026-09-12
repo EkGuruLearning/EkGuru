@@ -124,6 +124,27 @@ function phase3Block() {
   };
 }
 
+function phase4Block() {
+  const gate = readJson("reports/learn-hindi-final-gate.json") || {};
+  const build = readJson("reports/learn-hindi-build.json") || {};
+  const arch = readJson("reports/learn-hindi-architecture.json") || {};
+  const browser = readJson("reports/phase4-browser-gate.json") || {};
+  return {
+    hub: "/learn/hindi/",
+    levels: build.levelsBuilt || [],
+    levelsNotBuilt: build.levelsNotBuilt || [],
+    topics: build.topicsBuilt || [],
+    lessons: (arch.byType && arch.byType.lesson) || 0,
+    materials: (arch.byType && arch.byType.material) || 0,
+    practice: (arch.byType && arch.byType.practice) || 0,
+    paths: (arch.byType && arch.byType.path) || 0,
+    browser: browser.matrix ? `${browser.matrix.ok}/${browser.matrix.total}` : "not run",
+    idleProblems: (browser.idle && browser.idle.problems) ? browser.idle.problems.length : null,
+    gate: gate.overall || "NOT_RUN",
+    green: gate.green, yellow: gate.yellow, red: gate.red,
+  };
+}
+
 const out = {
   generated: new Date().toISOString(),
   sections: Object.assign({}, prev.sections, { totalHtml, tutorProfiles, materials }),
@@ -137,6 +158,7 @@ const out = {
   sitemapUrls: prev.sitemapUrls,
   release: releaseBlock(),
   phase3: phase3Block(),
+  phase4: phase4Block(),
 };
 
 const header =

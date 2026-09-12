@@ -611,8 +611,10 @@ def build_sitemap():
         if "index.html" not in files:
             continue
         rel = os.path.relpath(dirpath, ROOT).replace(os.sep, "/")
-        path = "" if rel == "learn" else "/" + rel + "/"
-        url = BASE + "/learn/" + path.lstrip("/")
+        # rel is already e.g. "learn/aap-tum-tu-hindi" — build the URL from it
+        # directly. (Fixed: previously prepended "/learn/" to a path that already
+        # began with "learn/", emitting /learn/learn/… which 404s.)
+        url = BASE + "/" + rel + "/"
         prio = "0.7" if ("/paths/" in url or "/practice/" in url) else "0.8"
         urls.append((url, prio))
     urls.sort()

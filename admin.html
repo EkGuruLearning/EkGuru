@@ -6035,6 +6035,20 @@
     }).join("");
     html += '<div class="card"><h2>Site</h2><table style="width:100%;border-collapse:collapse;font-size:.9rem">' + siteHtml + "</table></div>";
 
+    // ---- Hindi structure (Phase 4) ----
+    var H4 = A.phase4 || {};
+    if (H4.gate) {
+      var h4Gate = H4.gate === "GREEN" ? "GREEN" : H4.gate === "RED" ? "RED" : "YELLOW";
+      html += '<div class="card"><h2>Hindi structure (Phase 4)</h2><table style="width:100%;border-collapse:collapse;font-size:.9rem">' +
+        row("Learn Hindi hub", '<span class="muted">' + esc(H4.hub || "/learn/hindi/") + '</span>') +
+        row("Levels", badge((H4.levels && H4.levels.length) ? "GREEN" : "GRAY") + ' <span class="muted">' + esc((H4.levels || []).join(", ") || "—") + ' — ' + esc((H4.levelsNotBuilt || []).join(", ") || "—") + ' withheld (no real content)</span>') +
+        row("Topic hubs", badge((H4.topics && H4.topics.length) ? "GREEN" : "GRAY") + ' <span class="muted">' + esc((H4.topics || []).length) + ' built (directions omitted — no content)</span>') +
+        row("Lessons / Materials / Practice / Paths", badge("GREEN") + ' <span class="muted">' + esc(H4.lessons) + ' / ' + esc(H4.materials) + ' / ' + esc(H4.practice) + ' / ' + esc(H4.paths) + '</span>') +
+        row("Browser matrix + idle", badge((H4.browser === "108/108" && H4.idleProblems === 0) ? "GREEN" : "GRAY") + ' <span class="muted">' + esc(H4.browser) + ' geometry · idle ' + esc(H4.idleProblems === null ? "not run" : H4.idleProblems + " problems") + '</span>') +
+        row("Final gate", badge(h4Gate) + ' <span class="muted">' + esc(H4.gate) + ' — ' + esc(H4.green) + ' green / ' + esc(H4.yellow) + ' yellow / ' + esc(H4.red) + ' red</span>') +
+        "</table></div>";
+    }
+
     html += '<div class="card"><h2>Known blockers</h2><ul style="margin:6px 0 6px 18px">' +
       '<li>Sheets: six published CSV URLs not yet supplied — runtime stays PAUSED_FOR_REUPLOAD (owner action).</li>' +
       '<li>Git push: no credentials here, and remote main was reset to a single “Initial commit” — a non-fast-forward push is required (owner action).</li>' +

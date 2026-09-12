@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-12T04:58:27.170Z",
+ "generated": "2026-09-12T05:38:42.640Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 592,
+  "totalHtml": 606,
   "materials": 0
  },
  "countries": {
@@ -3923,8 +3923,8 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 592,
-  "sitemapUrls": 602,
+  "pages": 606,
+  "sitemapUrls": 601,
   "sitemapFiles": 14,
   "brokenLinks": 0,
   "orphans": 0
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "b12f5916aae8a9dd8242b6f33994fabe9e44cf36",
-  "subject": "Phase 2 final report: exact commit hashes",
-  "buildTime": "2026-09-12T04:58:27.183Z",
+  "commit": "6d344e17d7f22beaa0c32a703eb0074d5dbdcd6a",
+  "subject": "Phase 3: final console summary",
+  "buildTime": "2026-09-12T05:38:42.662Z",
   "dataSourceStatus": "PAUSED_FOR_REUPLOAD",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 592,
+   "totalHtml": 606,
    "tutorProfiles": 4,
    "materials": 0
   }
@@ -4611,5 +4611,39 @@ window.EKGURU_ADMIN_STATS = {
    "tutorEmail": "TUTOR_EMAIL_UNAVAILABLE (blank in tutors.csv — via EkGuru fallback)",
    "localTests": "system/security/routing PASS"
   }
+ },
+ "phase4": {
+  "hub": "/learn/hindi/",
+  "levels": [
+   "beginner",
+   "elementary"
+  ],
+  "levelsNotBuilt": [
+   "intermediate",
+   "advanced"
+  ],
+  "topics": [
+   "basics",
+   "conversation",
+   "daily-life",
+   "food",
+   "grammar",
+   "numbers",
+   "pronunciation",
+   "shopping",
+   "time-dates",
+   "travel",
+   "vocabulary"
+  ],
+  "lessons": 15,
+  "materials": 15,
+  "practice": 13,
+  "paths": 7,
+  "browser": "108/108",
+  "idleProblems": 0,
+  "gate": "YELLOW_PARTIAL_VERIFICATION",
+  "green": 27,
+  "yellow": 2,
+  "red": 1
  }
 };
