@@ -1,0 +1,30 @@
+{
+  "batchId": "phase7c-final",
+  "generated": "2026-09-12T21:19:01Z",
+  "commit": "8c2efd35db112281007e7f856664f83cca87baac",
+  "language": "hi",
+  "countryContext": [
+    "india-visitor",
+    "heritage"
+  ],
+  "pageCount": 3,
+  "sourceCommit": "8c2efd35db112281007e7f856664f83cca87baac",
+  "generatorVersions": {
+    "build-hindi-pages.py": "conversation_page() + practice-hub link (Gate C)",
+    "build-global-pages.py": "my-learning + context pages (Gates D/E)",
+    "admin-learn-ops.js": "global language ops panel (Gate F)"
+  },
+  "testResults": {
+    "phase7c-graph-test": true,
+    "phase7c-conversation-test": true,
+    "phase7c-engines-test": true,
+    "phase7c-context-test": true,
+    "phase7c-admin-test": true,
+    "phase5-card-interactions": "PASS (5/5)",
+    "phase6-matrix": "PASS (117/117)",
+    "phase7-browser": "PASS"
+  },
+  "qaScoreSummary": "all gates PASS in real Chromium, 0 page errors on every new surface",
+  "failures": [],
+  "outputChecksum": "generated pages verified in-browser, not checksummed"
+}

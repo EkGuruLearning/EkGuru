@@ -1,0 +1,28 @@
+{
+  "generated": "2026-09-12T21:19:01Z",
+  "commit": "8c2efd35db112281007e7f856664f83cca87baac",
+  "statement": "Global link graph: Language → Level → Goal → Topic → Lesson → Practice → Quiz → Review → Next Lesson → Path. Country Context → Language Course. Path → Tutor (optional).",
+  "edges": {
+    "language→level→goal→topic→lesson": "learning-paths.js (6 paths) + content-graph topics",
+    "lesson→practice": "hindi hub practice links",
+    "practice→review": "review page + EkGuruSRS add-buttons",
+    "review→next": "device-only SRS queue",
+    "path→tutor": "optional tutor CTA on hub pages",
+    "country-context→course": "shared-course link on india-visitor + heritage pages"
+  },
+  "newPagesThisTranche": [
+    {
+      "url": "/learn/my-learning/",
+      "index": "noindex (device-only dashboard)"
+    },
+    {
+      "url": "/learn/contexts/india-visitor/",
+      "index": "index (real unique content)"
+    },
+    {
+      "url": "/learn/contexts/heritage/",
+      "index": "index (real unique content)"
+    }
+  ],
+  "note": "No hreflang emitted between non-equivalent pages; no mass language×country URL generation."
+}

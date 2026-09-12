@@ -1,0 +1,536 @@
+{
+  "generated": "2026-09-12T21:19:01Z",
+  "commit": "8c2efd35db112281007e7f856664f83cca87baac",
+  "rule": "Per-language QA. Only languages with real content + real browser evidence may be PRODUCTION. Quantity is never a substitute for quality.",
+  "languages": [
+    {
+      "id": "hi",
+      "name": "Hindi",
+      "productionStatus": "PRODUCTION",
+      "qualityScore": 70,
+      "referenceImplementation": true,
+      "counts": {
+        "lessonCount": 60,
+        "practiceCount": 112,
+        "quizCount": 45,
+        "reviewCardCount": 65,
+        "phraseCount": 69
+      },
+      "grammarState": "PRODUCTION",
+      "vocabularyState": "PRODUCTION",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": {
+        "graph_test": true,
+        "conversation_test": true,
+        "engines_test": true,
+        "context_test": true,
+        "admin_test": true,
+        "phase5_6_7_regression": true
+      }
+    },
+    {
+      "id": "es",
+      "name": "Spanish",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    },
+    {
+      "id": "fr",
+      "name": "French",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    },
+    {
+      "id": "ar",
+      "name": "Arabic",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    },
+    {
+      "id": "de",
+      "name": "German",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    },
+    {
+      "id": "ja",
+      "name": "Japanese",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    },
+    {
+      "id": "ko",
+      "name": "Korean",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    },
+    {
+      "id": "zh",
+      "name": "Chinese",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    },
+    {
+      "id": "ru",
+      "name": "Russian",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    },
+    {
+      "id": "pt",
+      "name": "Portuguese",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    },
+    {
+      "id": "it",
+      "name": "Italian",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    },
+    {
+      "id": "nl",
+      "name": "Dutch",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    },
+    {
+      "id": "pl",
+      "name": "Polish",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    },
+    {
+      "id": "tr",
+      "name": "Turkish",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    },
+    {
+      "id": "fa",
+      "name": "Persian",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    },
+    {
+      "id": "he",
+      "name": "Hebrew",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    },
+    {
+      "id": "ur",
+      "name": "Urdu",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    },
+    {
+      "id": "th",
+      "name": "Thai",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    },
+    {
+      "id": "vi",
+      "name": "Vietnamese",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    },
+    {
+      "id": "id",
+      "name": "Indonesian",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    },
+    {
+      "id": "ms",
+      "name": "Malay",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    },
+    {
+      "id": "bn",
+      "name": "Bengali",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    },
+    {
+      "id": "ta",
+      "name": "Tamil",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    },
+    {
+      "id": "te",
+      "name": "Telugu",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    },
+    {
+      "id": "pa",
+      "name": "Punjabi",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    },
+    {
+      "id": "gu",
+      "name": "Gujarati",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    },
+    {
+      "id": "mr",
+      "name": "Marathi",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    },
+    {
+      "id": "sw",
+      "name": "Swahili",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    },
+    {
+      "id": "uk",
+      "name": "Ukrainian",
+      "productionStatus": "PLANNED",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "PLANNED",
+      "vocabularyState": "PLANNED",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": "no course content — PLANNED, never marked available"
+    }
+  ]
+}

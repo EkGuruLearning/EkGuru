@@ -250,7 +250,7 @@ for e in ent:
 
 os.makedirs("data", exist_ok=True)
 with open("data/content-graph.json", "w", encoding="utf-8") as f:
-    json.dump(graph, f, ensure_ascii=False, indent=1)
+    json.dump(graph, f, ensure_ascii=False, separators=(",", ":"))
 
 print("content graph entities:", len(ent), dict(sorted(by_type.items())))
 print("  quiz:", quiz_count, "| practice:", practice_count,

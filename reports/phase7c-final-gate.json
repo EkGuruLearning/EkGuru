@@ -1,102 +1,134 @@
 {
-  "generated": "2026-09-12T16:30:27Z",
-  "verdict": "YELLOW_PARTIAL_IMPLEMENTATION",
-  "green": 14,
-  "total": 23,
-  "tranche": 1,
-  "note": "Tranche 1 delivered the FOUNDATION: content graph (364 real entities), registries 7C, country\u2194language relationships, api/audio provider honesty, and a live content inventory on /languages/. The remaining engines are the next batches \u2014 they are PENDING, not faked.",
+  "generated": "2026-09-12T21:19:01Z",
+  "commit": "8c2efd35db112281007e7f856664f83cca87baac",
+  "verdict": "GREEN_GLOBAL_ENGINE_PRODUCTION_READY",
+  "green": 31,
+  "total": 31,
+  "note": "All 31 gate items pass with real Chromium evidence (0 page errors on every new surface; Phase 5/6/7 regression green). Performance numbers are measured, not estimated; LIVE deploy status is still not verified this session (LIVE_VERSION_UNKNOWN).",
   "items": [
     {
       "state": "GREEN",
-      "evidence": "graph test: 364 entities, query API works in Chromium, 0 errors"
+      "evidence": "6 gates PASS in real Chromium"
     },
     {
       "state": "GREEN",
-      "evidence": "29 languages, only hi PRODUCTION; counts read from content graph"
+      "evidence": "364 entities, query API in Chromium"
     },
     {
       "state": "GREEN",
-      "evidence": "250 countries with official languages + native/foreign Hindi relation"
+      "evidence": "29 langs, only hi PRODUCTION, rendered in admin"
     },
     {
       "state": "GREEN",
-      "evidence": "learning-paths.js + onboarding.js verified GREEN in Phase 7B"
+      "evidence": "250 countries, relations rendered in admin + context pages"
     },
     {
       "state": "GREEN",
-      "evidence": "Phase 7B GREEN_STABLE: BROWSER_TTS resolution + UNAVAILABLE fallback verified"
+      "evidence": "11 goals, availability computed from real graph"
     },
     {
       "state": "GREEN",
-      "evidence": "TTS labelled; no native/recorded claims; onerror handled"
-    },
-    {
-      "state": "PENDING",
-      "evidence": "conversation engine is deterministic-data planned, not yet built"
+      "evidence": "Phase 7B GREEN_STABLE"
     },
     {
       "state": "GREEN",
-      "evidence": "no API keys; no unverified free APIs; keyless translit only"
+      "evidence": "BROWSER_TTS resolve + honest labels (7B)"
     },
     {
       "state": "GREEN",
-      "evidence": "secret scan clean (repo + zip)"
-    },
-    {
-      "state": "PENDING",
-      "evidence": "QA system validates generated content \u2014 graph built, per-language QA pending"
+      "evidence": "TTS never called native; onerror handled"
     },
     {
       "state": "GREEN",
-      "evidence": "js/hindi-srs.js is language-agnostic data (card: language/target/source/...); global wiring pending"
-    },
-    {
-      "state": "PENDING",
-      "evidence": "My Learning global (/learn/my-learning/) not yet built"
-    },
-    {
-      "state": "PENDING",
-      "evidence": "script engine (Devanagari/Latin/Arabic/\u2026) \u2014 Devanagari exists via translit; others pending"
-    },
-    {
-      "state": "PENDING",
-      "evidence": "grammar engine reusable \u2014 grammar entities exist; renderer pending"
-    },
-    {
-      "state": "PENDING",
-      "evidence": "vocabulary/phrase engine reusable \u2014 entities exist; generic renderer pending"
-    },
-    {
-      "state": "PENDING",
-      "evidence": "country context engine \u2014 relationship data exists; modules pending"
-    },
-    {
-      "state": "PENDING",
-      "evidence": "search architecture language-aware \u2014 Hindi fuzzy search exists; multi-language pending"
+      "evidence": "Gate C PASS: 6 scenarios, retry/next/restart"
     },
     {
       "state": "GREEN",
-      "evidence": "publishability gates documented; no thin batches; no language\u00d7country URL spam"
-    },
-    {
-      "state": "PENDING",
-      "evidence": "internal link graph across languages \u2014 Hindi link graph exists; global pending"
+      "evidence": "keyless translit only; AI APIs blocked without relay"
     },
     {
       "state": "GREEN",
-      "evidence": "GitHub Pages static-first (site is static; content graph is a static JSON)"
+      "evidence": "secret scan clean"
     },
     {
       "state": "GREEN",
-      "evidence": "batch manifest + handoff written (this file set)"
+      "evidence": "per-language quality report + learn-quality.js"
     },
     {
       "state": "GREEN",
-      "evidence": "Phase 5/6/7 regression GREEN (7B GREEN_STABLE + 7C graph test)"
+      "evidence": "language-agnostic card model + starter decks"
     },
     {
       "state": "GREEN",
-      "evidence": "security/privacy/accessibility/perf verified in 7B (honest numbers)"
+      "evidence": "Gate D: /learn/my-learning/ device-only dashboard"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "9 scripts, direction/status/transliteration routing (Gate D)"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "6 authored concepts rendered (Gate D)"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "authored items rendered (Gate D)"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "Gate E: india-visitor + heritage pages"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "Gate D: roman/english/devanagari queries all resolve"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "publishability gate enforced; 2 indexable pages added"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "only 3 real pages; every phrase from published content"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "context→course links; hub cards; paths"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "static-first; content is static JSON"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "batch manifest + 6 gates"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "handoff written; workspace far from ceiling"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "card interactions 5/5"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "matrix 117/117"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "phase7-browser PASS"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "no secrets; device-only state; noindex dashboards"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "rules applied; see global-accessibility report"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "measured in Chromium this session (see global-performance report); graph compacted 222KB→188KB"
     }
   ]
 }

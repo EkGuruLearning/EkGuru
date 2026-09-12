@@ -1,39 +1,41 @@
 {
-  "generated": "2026-09-12T16:30:27Z",
-  "repo": "ekgurulearning/EkGuru",
+  "generated": "2026-09-12T21:19:01Z",
+  "repo": "EkGuru (GitHub Pages static site)",
   "branch": "main",
-  "headSha": "2fddc99",
-  "phase": "7C tranche 1 (foundation)",
-  "completed": [
-    "data/content-graph.json (364 entities: 60 lessons, 45 quiz, 112 practice, 69 phrase, 65 review_card, 6 grammar, 3 pronunciation, 4 culture)",
-    "js/content-graph.js (query engine: ready/all/get/byType/byLanguage/byLevel/byTopic/byGoal/byCountry/stats)",
-    "reports/language-registry-phase7c.json (29 langs, per-lang QA fields + quality scores)",
-    "reports/country-registry-phase7c.json (250 countries + country\u2194language relations)",
-    "languages/index.html now shows a LIVE content inventory from the graph (regenerated via tools/build-phase7-pages.py)",
-    "reports/phase7c-graph-test.json (real Chromium, PASS)",
-    "research, api-provider, audio-provider, baseline reports"
+  "sha": "8c2efd35db112281007e7f856664f83cca87baac",
+  "sourceRegistries": [
+    "data/content-graph.json",
+    "reports/language-registry-phase7c.json",
+    "reports/country-registry-phase7c.json"
   ],
-  "pending": [
-    "lesson engine (render a lesson from graph data)",
-    "vocabulary/phrase engine (generic renderer)",
-    "grammar engine",
-    "pronunciation engine",
-    "dialogue/conversation engine (deterministic)",
-    "global SRS + My Learning",
-    "script engine (multi-script)",
-    "country context modules",
-    "language-aware search",
-    "India visitor + NRI/heritage pathways",
-    "child/heritage privacy modes",
-    "admin global language ops visibility"
+  "completedBatches": [
+    "tranche 1: content graph + registries + live inventory",
+    "tranche 2: conversation engine (Gate C)",
+    "tranche 3: goals/script/grammar/vocab/search + My Learning (Gate D)",
+    "tranche 4: country-context + India visitor + heritage (Gate E)",
+    "tranche 5: admin global language ops (Gate F)"
   ],
-  "nextBatch": "Implement the reusable LESSON engine: data-driven lesson renderer that serves any target language from the graph, proven with Hindi content in real Chromium.",
-  "buildCommand": "python3 tools/build-phase7c-content-graph.py && python3 tools/build-phase7c-registries.py && python3 tools/build-phase7-pages.py",
-  "testCommand": "python3 tools/test-phase7c.py && python3 tools/test-phase7-browser.py",
-  "blockers": [
-    "GitHub main is 82910c3 (Phase 5/6/7 absent) \u2014 owner must push before GitHub is the continuity layer",
-    "live ekguru.shop is v30-era \u2014 owner must deploy",
-    "no secure server relay \u2192 AI/translation/pronunciation APIs stay BLOCKED"
+  "pendingBatches": [
+    "additional production languages (Stage 2: 3-5 languages) — requires authored content first",
+    "child/heritage privacy mode surface (architecture in place; no child content authored)",
+    "large-scale SEO batches (Stage 6) — never before quality gates"
   ],
-  "qualityThresholds": "no language PRODUCTION without real content; no thin pages; no fabricated audio/AI; device-only progress; GREEN = real Chromium evidence"
+  "nextExactCommand": "python3 tools/build-global-pages.py && python3 tools/test-phase7c-engines.py && python3 tools/test-phase7c-context.py",
+  "testCommand": "python3 tools/test-phase7c.py && python3 tools/test-phase7c-conversation.py && python3 tools/test-phase7c-engines.py && python3 tools/test-phase7c-context.py && python3 tools/test-phase7c-admin.py && python3 tools/test-phase7-browser.py && python3 tools/test-phase6-matrix.py && python3 tools/test-card-interactions.py",
+  "outputPaths": [
+    "reports/phase7c-final-gate.json",
+    "reports/batch-manifest-phase7c.json",
+    "reports/language-quality-phase7c.json",
+    "reports/country-context-phase7c.json"
+  ],
+  "qualityThresholds": [
+    "every gate PASS",
+    "0 page errors on new surfaces",
+    "no fabricated language/audio/AI"
+  ],
+  "unresolvedErrors": [],
+  "honestyNotes": [
+    "performance lab audit pending (YELLOW)",
+    "LIVE_VERSION_UNKNOWN — GitHub/live deploy not verified this session"
+  ]
 }

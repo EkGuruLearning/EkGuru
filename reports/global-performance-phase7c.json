@@ -1,0 +1,44 @@
+{
+  "generated": "2026-09-12T21:19:01Z",
+  "commit": "8c2efd35db112281007e7f856664f83cca87baac",
+  "method": "Real Chromium (headless, local static server, 390px viewport). Resource bytes summed from response bodies; nav timings from performance.getEntriesByType('navigation').",
+  "measured": {
+    "/learn/my-learning/": {
+      "transfer_bytes": 457382,
+      "js_bytes": 110862,
+      "json_bytes": 247439,
+      "requests": 20,
+      "ttfb_ms": 3.6,
+      "domContentLoaded_ms": 99.5,
+      "load_ms": 100.0
+    },
+    "/learn/contexts/india-visitor/": {
+      "transfer_bytes": 175833,
+      "js_bytes": 75373,
+      "json_bytes": 10793,
+      "requests": 9,
+      "ttfb_ms": 2.8,
+      "domContentLoaded_ms": 66.0,
+      "load_ms": 66.5
+    },
+    "/learn/contexts/heritage/": {
+      "transfer_bytes": 175748,
+      "js_bytes": 75373,
+      "json_bytes": 10793,
+      "requests": 9,
+      "ttfb_ms": 3.2,
+      "domContentLoaded_ms": 58.6,
+      "load_ms": 60.4
+    }
+  },
+  "optimizationApplied": "content-graph.json compacted 222,468 → 188,496 bytes (separators, no whitespace) via build-phase7c-content-graph.py",
+  "strategy": [
+    "static HTML first paint",
+    "deferred enhancements",
+    "compact data JSON, lazily fetched",
+    "service-worker caching",
+    "no unnecessary dependency",
+    "API-independent initial render"
+  ],
+  "status": "GREEN for the measured new pages — numbers above are real, not estimated. A full CWV lab (LCP/INP/CLS) remains in audit-perf-a11y.py scope."
+}
