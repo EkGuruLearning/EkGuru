@@ -661,6 +661,129 @@
     });
   }
 
+  /* ---------------- render: global language ops (Phase 7C §46) ---------------- */
+
+  var GLOBAL = { languages: null, countries: null, api: null, audio: null, graph: null };
+
+  function fetchJSON(url) {
+    return fetch(url).then(function (r) { return r.ok ? r.json() : Promise.reject(); });
+  }
+
+  function loadGlobal() {
+    var jobs = {
+      languages: fetchJSON("reports/language-registry-phase7c.json"),
+      countries: fetchJSON("reports/country-registry-phase7c.json"),
+      api: fetchJSON("reports/api-provider-phase7c.json"),
+      audio: fetchJSON("reports/audio-provider-phase7c.json"),
+      graph: fetchJSON("data/content-graph.json")
+    };
+    Object.keys(jobs).forEach(function (k) {
+      jobs[k].then(function (j) {
+        GLOBAL[k] = j;
+        renderGlobal();
+      }).catch(function () { /* stays null -> honest UNKNOWN */ });
+    });
+  }
+
+  function renderGlobal() {
+    var el = $("#lo-global");
+    if (!el) return;
+    var h = "";
+
+    /* ---- Languages ---- */
+    h += "<h3>Languages</h3>";
+    var langs = (GLOBAL.languages && GLOBAL.languages.languages) || [];
+    if (!langs.length) {
+      h += '<p class="muted">Language registry not loaded (UNKNOWN).</p>';
+    } else {
+      h += '<p class="muted">' + GLOBAL.languages.count + " languages registered · PRODUCTION: " +
+        (GLOBAL.languages.production || []).join(", ") + " · " + esc(GLOBAL.languages.policy || "") + "</p>";
+      h += '<table class="tbl"><thead><tr><th>Language</th><th>Script</th><th>Status</th><th>Grammar</th><th>Vocab</th><th>Lessons</th><th>Practice</th><th>Quiz</th><th>Quality</th></tr></thead><tbody>';
+      langs.forEach(function (l) {
+        var st = l.productionStatus === "PRODUCTION" ? "GREEN" : (l.productionStatus === "BETA" ? "YELLOW" : "GRAY");
+        h += "<tr><td><b>" + esc(l.name) + "</b> " + esc(l.nativeName || "") + "</td>"
+          + "<td>" + esc(l.script || "—") + "</td>"
+          + "<td>" + badge(st) + "</td>"
+          + "<td>" + esc(l.grammarState || "—") + "</td>"
+          + "<td>" + esc(l.vocabularyState || "—") + "</td>"
+          + "<td>" + (l.lessonCount || 0) + "</td>"
+          + "<td>" + (l.practiceCount || 0) + "</td>"
+          + "<td>" + (l.quizCount || 0) + "</td>"
+          + "<td>" + (l.qualityScore == null ? "—" : l.qualityScore) + "</td></tr>";
+      });
+      h += "</tbody></table>";
+    }
+
+    /* ---- Countries ---- */
+    h += "<h3>Country</h3>";
+    var countries = (GLOBAL.countries && GLOBAL.countries.countries) || [];
+    if (!countries.length) {
+      h += '<p class="muted">Country registry not loaded (UNKNOWN).</p>';
+    } else {
+      h += '<p class="muted">' + GLOBAL.countries.count + " countries · " + (GLOBAL.countries.sovereignStates || "—") +
+        " sovereign · " + esc(GLOBAL.countries.policy || "") + "</p>";
+      var india = countries.filter(function (c) { return c.cca2 === "IN"; })[0];
+      if (india) {
+        var rel = (india.relevantTargetLanguages || []).map(function (r) { return r.target + " (" + r.relation + ")"; }).join(", ");
+        h += '<p>India: official languages ' + Object.keys(india.officialLanguages || {}).map(function (k) {
+          return india.officialLanguages[k];
+        }).join(", ") + " · relation to teachable languages: " + (rel || "—") + "</p>";
+      }
+      var withCtx = countries.filter(function (c) {
+        return (c.relevantTargetLanguages || []).some(function (r) { return r.target === "hi"; });
+      }).length;
+      h += "<p>Countries where Hindi is the teachable target today: " + withCtx + " (every country carries the hi relation — only Hindi is PRODUCTION).</p>";
+    }
+
+    /* ---- Content ---- */
+    h += "<h3>Content</h3>";
+    var graph = GLOBAL.graph;
+    if (!graph || !graph.entities) {
+      h += '<p class="muted">Content graph not loaded (UNKNOWN).</p>';
+    } else {
+      var byType = {};
+      graph.entities.forEach(function (e) { byType[e.type] = (byType[e.type] || 0) + 1; });
+      h += '<p class="muted">' + graph.entities.length + " entities in the global content graph (" + esc(graph.source_language || "en") + " → " + esc(graph.target_language || "hi") + ").</p>";
+      h += '<table class="tbl"><thead><tr><th>Type</th><th>Count</th></tr></thead><tbody>';
+      Object.keys(byType).sort().forEach(function (t) { h += "<tr><td>" + esc(t) + "</td><td>" + byType[t] + "</td></tr>"; });
+      h += "</tbody></table>";
+    }
+
+    /* ---- APIs ---- */
+    h += "<h3>APIs</h3>";
+    var api = GLOBAL.api;
+    if (!api) {
+      h += '<p class="muted">API provider report not loaded (UNKNOWN).</p>';
+    } else {
+      (api.inUse || []).forEach(function (a) {
+        h += '<p>In use: <b>' + esc(a.id) + "</b> — " + esc(a.scope) + " · key: " + esc(a.key) + " · fallback: " + esc(a.fallback) + "</p>";
+      });
+      (api.blocked || []).forEach(function (a) {
+        h += '<p>Blocked: <b>' + esc(a.capability) + "</b> — " + esc(a.reason) + "</p>";
+      });
+    }
+
+    /* ---- Audio ---- */
+    h += "<h3>Audio</h3>";
+    var audio = GLOBAL.audio;
+    if (!audio) {
+      h += '<p class="muted">Audio provider report not loaded (UNKNOWN).</p>';
+    } else {
+      h += "<p>Providers: " + (audio.providers || []).map(esc).join(", ") + "</p>";
+      var rt = audio.resolveToday || {};
+      h += "<p>Resolves today: hi-IN → " + esc(rt["hi-IN"] || "—") + " · es-ES → " + esc(rt["es-ES"] || "—") + "</p>";
+      h += "<p>Rule: " + esc(audio.rule || "") + "</p>";
+    }
+
+    /* ---- SEO / stability / performance (honest pointers) ---- */
+    h += "<h3>SEO · stability · performance</h3>";
+    h += "<p class=\"muted\">Device-only dashboards are noindex (my-learning, review, my-progress). " +
+      "Stability: Phase 7B GREEN_STABLE (27/27). Performance and accessibility are measured by " +
+      "tools/audit-perf-a11y.py and the runtime-error audit — these stay in their own tabs, not re-invented here.</p>";
+
+    el.innerHTML = h;
+  }
+
   /* ---------------- init ---------------- */
 
   function init() {
@@ -679,17 +802,18 @@
           '<button type="button" class="lo-nav" data-p="editor">Content editor</button>' +
           '<button type="button" class="lo-nav" data-p="health">Health board</button>' +
           '<button type="button" class="lo-nav" data-p="diag">Diagnostics</button>' +
+          '<button type="button" class="lo-nav" data-p="global">Global languages</button>' +
         "</div>" +
         '<div id="lo-dash"></div><div id="lo-graph" hidden></div><div id="lo-practice" hidden></div>' +
         '<div id="lo-tools" hidden></div><div id="lo-materials" hidden></div><div id="lo-quality" hidden></div><div id="lo-gap" hidden></div>' +
-        '<div id="lo-editor" hidden></div><div id="lo-health" hidden></div><div id="lo-diag" hidden></div>';
+        '<div id="lo-editor" hidden></div><div id="lo-health" hidden></div><div id="lo-diag" hidden></div><div id="lo-global" hidden></div>';
 
       host.querySelectorAll(".lo-nav").forEach(function (b) {
         b.addEventListener("click", function () {
           host.querySelectorAll(".lo-nav").forEach(function (o) { o.classList.remove("on"); });
           b.classList.add("on");
           var p = b.getAttribute("data-p");
-          ["dash", "graph", "practice", "tools", "materials", "quality", "gap", "editor", "health", "diag"].forEach(function (k) {
+          ["dash", "graph", "practice", "tools", "materials", "quality", "gap", "editor", "health", "diag", "global"].forEach(function (k) {
             var el = $("#lo-" + k);
             if (el) el.hidden = (k !== p);
           });
@@ -707,8 +831,7 @@
     renderEditor();
     renderHealth();
     renderDiagnostics();
-
-    // join QA results once loaded (same-origin fetch; graceful fallback)
+    loadGlobal();
     if (REGISTRY.length && !QA) {
       fetch("reports/tool-functional-qa.json").then(function (r) { return r.json(); }).then(function (j) {
         QA = j;
