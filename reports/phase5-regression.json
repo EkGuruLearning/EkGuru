@@ -1,0 +1,33 @@
+{
+  "generated": "2026-09-12T07:39:38Z",
+  "total": 5,
+  "ok": 5,
+  "scenarios": [
+    {
+      "scenario": "idle-45s",
+      "ok": true,
+      "detail": "errors=0, bodyOverflowHidden=False"
+    },
+    {
+      "scenario": "scroll-to-footer",
+      "ok": true,
+      "detail": "footerVisible=True"
+    },
+    {
+      "scenario": "nav-click",
+      "ok": true,
+      "detail": "index.html -> http://127.0.0.1:8798/index.html"
+    },
+    {
+      "scenario": "back-forward",
+      "ok": true,
+      "detail": "about:blank -> http://127.0.0.1:8798/index.html"
+    },
+    {
+      "scenario": "refresh",
+      "ok": true,
+      "detail": "How to Say Hello in Hindi — And When Nam"
+    }
+  ],
+  "verdict": "PASS"
+}

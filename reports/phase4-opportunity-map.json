@@ -1,0 +1,47 @@
+{
+  "generated": "2026-09-12T05:01:38Z",
+  "ranked": [
+    {
+      "id": "wire-six-sheet-sources",
+      "value": "high",
+      "why": "Reconnect live data (tutors/reviews/settings/content) once published URLs exist; unblocks runtime freshness.",
+      "risk": "low",
+      "evidence": "live-sheets CSVs validated; runtime paused"
+    },
+    {
+      "id": "student-email-e2e",
+      "value": "high",
+      "why": "The one remaining unverified external gate (booking/contact/admin outbound to a real student inbox).",
+      "risk": "low",
+      "evidence": "local tests PASS; external BLOCKED_OWNER"
+    },
+    {
+      "id": "push-and-live-audit",
+      "value": "high",
+      "why": "Deploy Phase 2/3 so materials/FAQ/recovery are live; then re-run live matrix/SEO/performance on the new build.",
+      "risk": "low",
+      "evidence": "live serves pre-Phase-2 build"
+    },
+    {
+      "id": "search-console-wiring",
+      "value": "medium",
+      "why": "Submit sitemaps and inspect key URLs in the owner's Search Console.",
+      "risk": "low",
+      "evidence": "search readiness prepared"
+    },
+    {
+      "id": "practice-analytics",
+      "value": "medium",
+      "why": "Per-skill right/wrong trends already exist in-browser; a lightweight admin view could guide tutor prompts.",
+      "risk": "medium",
+      "evidence": "practice-bank explain fields + review queue"
+    },
+    {
+      "id": "tutor-discovery-improvements",
+      "value": "medium",
+      "why": "City/location pages share a skeleton; deeper per-city value (local times/currency already present) could help.",
+      "risk": "medium",
+      "evidence": "33 hindi-tutor pages, unique prose verified"
+    }
+  ]
+}

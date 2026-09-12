@@ -1,0 +1,23 @@
+# ads.txt — Authorized Digital Sellers (IAB Tech Lab spec)
+#
+# Served from the root of ekguru.shop, which is where the
+# spec requires it. This file is authoritative.
+#
+# ⚠ IF ADSENSE STILL REPORTS ads.txt AS MISSING, the cause is
+# almost certainly NOT this file. Check, in this order:
+#
+#   1. Does every page's <link rel="canonical"> point at this
+#      domain? A canonical naming another host tells Google
+#      this site is a duplicate, and Google does not read
+#      ads.txt for a property it does not recognise. This was
+#      the actual cause on 10 Sep 2026: the domain was live and
+#      correct while 546 pages still canonicalised to
+#      ekgurulearning.github.io.
+#   2. Does the sitemap list THIS domain? It listed the old
+#      host, which 301s here, which canonicalised back — a loop.
+#   3. Has Google recrawled since? It is not instant. Days,
+#      sometimes a couple of weeks.
+#
+# Everything above is checked by  node tools/adsready.js --live
+#
+google.com, pub-8175326569491671, DIRECT, f08c47fec0942fa0

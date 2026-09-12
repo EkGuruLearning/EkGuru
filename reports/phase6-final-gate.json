@@ -1,0 +1,89 @@
+{
+  "generated": "2026-09-12T07:38:03Z",
+  "phase": "Phase 6 — Hindi Learning Product Upgrade",
+  "verdict": "GREEN_LEARNING_PRODUCT_VERIFIED",
+  "sections": {
+    "quizzes": {
+      "pass": true,
+      "detail": "15/15 lesson coverage, 45 questions, answer validation PASS"
+    },
+    "audio": {
+      "pass": true,
+      "detail": "Web Speech hi-IN, honest 'Listen (computer voice)' label"
+    },
+    "srs": {
+      "pass": true,
+      "detail": "SM-2-lite deck, Again/Hard/Good/Easy, device-only"
+    },
+    "progress": {
+      "pass": true,
+      "detail": "local checklist, export/import/reset, device-only"
+    },
+    "practice": {
+      "pass": true,
+      "detail": "typing (correct/minor-format/incorrect) + quiz (score+explain+source) + worksheets (print)"
+    },
+    "offline": {
+      "pass": true,
+      "detail": "save→disconnect→open→verify→reconnect→remove"
+    },
+    "fuzzy_search": {
+      "pass": true,
+      "detail": "namaste→नमस्ते, aap→आप, kaise→कैसे verified in Chromium"
+    },
+    "levels": {
+      "pass": true,
+      "detail": "hub + beginner/elementary + 11 topics + honest intermediate"
+    },
+    "tools_12": {
+      "pass": true,
+      "detail": "12/12 real-browser tool QA"
+    },
+    "regression": {
+      "pass": true,
+      "detail": "Phase 5 card 19/19, matrix 146/146, regression 5/5; P0 recovery PASS"
+    },
+    "matrix": {
+      "pass": true,
+      "detail": "117/117 cells ok (320–1920)"
+    },
+    "seo_data": {
+      "pass": true,
+      "detail": "unique title/desc/H1/canonical/breadcrumbs; no download CTAs; no ads in controls"
+    },
+    "tests": {
+      "pass": true,
+      "detail": "test-hindi-quizzes.py, test-hindi-audio.py, test-hindi-learning-features.py"
+    }
+  },
+  "rulesAudit": {
+    "quizCoverageBeforeVolume": true,
+    "reuseBeforeNewSystems": true,
+    "browserTTSNotNative": true,
+    "noFakeAIPersonalisation": true,
+    "noApiSecretClientSide": true,
+    "noEmptyAdvancedPages": true,
+    "noGiantThinQuiz": true,
+    "noDuplicateTools": true,
+    "lightweightJS": true,
+    "phase5FullCardPreserved": true,
+    "phase3RecoveryPreserved": true,
+    "deviceOnlyHonesty": true,
+    "noSeoOnlyUtilities": true,
+    "noAdDrivenPages": true,
+    "evidenceBeforeGreen": true
+  },
+  "reports": [
+    "hindi-quiz-coverage-phase6.json",
+    "hindi-audio-phase6.json",
+    "hindi-learning-features-tests.json",
+    "hindi-learning-browser.json",
+    "hindi-offline-phase6.json",
+    "hindi-search-phase6.json",
+    "hindi-levels-phase6.json",
+    "hindi-learning-features-phase6.json",
+    "phase6-matrix.json",
+    "phase6-seo.json",
+    "tool-functional-qa.json"
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "generated": "2026-09-11T06:30:16.554Z",
+  "base": "https://ekguru.shop",
+  "results": [
+    {
+      "check": "Strict-Transport-Security (HSTS)",
+      "present": false,
+      "value": "(not set)",
+      "note": "GitHub Pages does not allow setting this header; acceptable for a static site but recorded"
+    },
+    {
+      "check": "Content-Security-Policy",
+      "present": false,
+      "value": "(not set)",
+      "note": "GitHub Pages does not allow setting this header; acceptable for a static site but recorded"
+    },
+    {
+      "check": "X-Content-Type-Options",
+      "present": false,
+      "value": "(not set)",
+      "note": "GitHub Pages does not allow setting this header; acceptable for a static site but recorded"
+    },
+    {
+      "check": "X-Frame-Options",
+      "present": false,
+      "value": "(not set)",
+      "note": "GitHub Pages does not allow setting this header; acceptable for a static site but recorded"
+    },
+    {
+      "check": "Referrer-Policy",
+      "present": false,
+      "value": "(not set)",
+      "note": "GitHub Pages does not allow setting this header; acceptable for a static site but recorded"
+    },
+    {
+      "check": "Permissions-Policy",
+      "present": false,
+      "value": "(not set)",
+      "note": "GitHub Pages does not allow setting this header; acceptable for a static site but recorded"
+    },
+    {
+      "check": "Secrets in repo/live",
+      "present": true,
+      "value": "0 secrets, 0 sensitive",
+      "note": ""
+    },
+    {
+      "check": "Third-party JS dependencies",
+      "present": true,
+      "value": "no npm dependencies (vanilla JS site)",
+      "note": "no node_modules shipped"
+    },
+    {
+      "check": "Source maps shipped",
+      "present": true,
+      "value": "0 .map files",
+      "note": ""
+    },
+    {
+      "check": "Open redirects / server endpoints",
+      "present": true,
+      "value": "N/A — static site, no server-side redirect logic to exploit",
+      "note": "GitHub Pages 301s are host-controlled"
+    },
+    {
+      "check": "Payment/webhook secrets",
+      "present": true,
+      "value": "N/A — no payment system active",
+      "note": "NOT_APPLICABLE"
+    }
+  ],
+  "verdict": "PASS (no exploitable server surface; header limitations documented)"
+}

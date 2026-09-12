@@ -1,0 +1,39 @@
+{
+  "generated": "2026-09-12T04:28:59Z",
+  "phase": "Phase 2 — admin",
+  "panels": [
+    "Dashboard",
+    "Bookings",
+    "Email (Mail centre / Send a message / References / Delivery routes / Contact form / FormSubmit archive)",
+    "Tutors",
+    "Content (Learn Ops → Content quality + Gap engine + Content editor)",
+    "Materials (NEW — Learn Ops → Materials, reads js/materials-registry.js)",
+    "Tools (Learn Ops → Tool control, joins js/tool-registry.js + reports/tool-functional-qa.json)",
+    "Learning Paths (Learn Ops → Learning graph)",
+    "Reviews",
+    "Data Sources / Sheets (Release status board reads js/site-config.js status)",
+    "Health (Live health + Site health + Learn Ops Health board)",
+    "Privacy (doctor/privacy check feeds admin-stats.js)",
+    "SEO (SEO monitor)",
+    "Performance (Health board row)",
+    "Diagnostics (Learn Ops → one-click diagnostics)",
+    "Audit Log (Learn Ops audit log)",
+    "Release status (NEW tab)"
+  ],
+  "healthStates": "GREEN=verified healthy, YELLOW=degraded, RED=failed, GRAY=unknown/not tested. Unknown is never shown as green (enforced in the Health board and Release board).",
+  "releaseControl": {
+    "tab": "Release status (new)",
+    "shows": [
+      "commit",
+      "build time",
+      "page/tool/material/tutor counts",
+      "data-source status (PAUSED_FOR_REUPLOAD)",
+      "tool QA result",
+      "idle-regression result",
+      "deployment state (LOCAL COMMIT vs pushed vs deployed)",
+      "known blockers"
+    ],
+    "neverClaimsDeployment": "The board labels the commit 'LOCAL COMMIT' and shows push/Pages/live-serve as GRAY 'not verified' until the Live health tab proves otherwise."
+  },
+  "diagnostics": "One-click diagnostics run: path graph, practice bank, weak pages (<65), tool functional tests, data sources — each with timestamp, duration, state badge and evidence. See admin-diagnostics-report.json."
+}

@@ -1,0 +1,100 @@
+{
+  "generated": "2026-09-12T08:28:03Z",
+  "versions": {
+    "localHead": "1dbed903a7dc88483fc22dc18e7b9a88bd5f04e1",
+    "localHeadShort": "1dbed90",
+    "localHeadMsg": "Phase 7: global language foundation (YELLOW_PARTIAL)",
+    "githubMain": "82910c33f9c919d87679f80953af5517a38fa2ea",
+    "githubMainMsg": "Initial commit (history re-initialized — Phase 5/6/7 NOT present)",
+    "liveProduction": "UNKNOWN_SHA",
+    "liveDetected": "sw.js cache ekguru-v30-f10d5437 (Phase 5-era); /languages/ 404; /start/ 404",
+    "divergence": "LOCAL has full Phase 3-7 history; GITHUB main is a single 'Initial commit'; LIVE serves an older Phase 5-era build. Local is the only complete current build."
+  },
+  "truthTable": [
+    {
+      "source": "LOCAL",
+      "sha": "1dbed90",
+      "current": "yes"
+    },
+    {
+      "source": "GITHUB MAIN",
+      "sha": "82910c3",
+      "current": "no (re-initialized, missing Phase 5/6/7)"
+    },
+    {
+      "source": "LIVE PRODUCTION",
+      "sha": "LIVE_VERSION_UNKNOWN",
+      "current": "no (Phase 5-era sw v30)"
+    }
+  ],
+  "counts": {
+    "pages": 615,
+    "jsModules": 54,
+    "jsModulesList": [
+      "_overrides.js",
+      "_registry.js",
+      "admin-learn-ops.js",
+      "admin-repo.js",
+      "admin-stats.js",
+      "analytics.js",
+      "calendar.js",
+      "contact.js",
+      "email-templates.js",
+      "features.js",
+      "gate.js",
+      "hemlata.js",
+      "hindi-audio.js",
+      "hindi-fuzzy.js",
+      "hindi-offline.js",
+      "hindi-progress.js",
+      "hindi-quiz-bank.js",
+      "hindi-srs.js",
+      "hindi-tools.js",
+      "i18n.js",
+      "languages.js",
+      "lazy.js",
+      "learn-quality.js",
+      "learning-paths.js",
+      "ledger.js",
+      "livepatch.js",
+      "mailer.js",
+      "main.js",
+      "materials-registry.js",
+      "onboarding.js",
+      "path-progress.js",
+      "practice-bank.js",
+      "practice-engine.js",
+      "pricing.js",
+      "ranking.js",
+      "rates.js",
+      "recovery.js",
+      "reviews.js",
+      "schedule.js",
+      "scroll-restore.js",
+      "seo-engine.js",
+      "seo.js",
+      "settings.js",
+      "sheet.js",
+      "shikha-dutta.js",
+      "site-config.js",
+      "store.js",
+      "sushila-g.js",
+      "tara.js",
+      "toast.js",
+      "tool-registry.js",
+      "translit-api.js",
+      "translit.js",
+      "tutors-data.js"
+    ],
+    "serviceWorkerCache": "ekguru-v30-f10d5437",
+    "offlineCache": "ekguru-offline-v1"
+  },
+  "workingTree": "clean",
+  "knownBlockers": [
+    "GitHub main does not contain Phase 5/6/7 work (re-initialized single commit) — owner push required",
+    "Live production serves a Phase 5-era build — deploy required",
+    "Headless Chromium cannot produce audible speech output — voice test limited to API-state evidence"
+  ],
+  "phase6CommitExpected": "faf1f68 (GREEN_LEARNING_PRODUCT_VERIFIED)",
+  "phase7CommitExpected": "1dbed90 (YELLOW_PARTIAL)"
+}

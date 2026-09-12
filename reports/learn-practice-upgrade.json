@@ -1,0 +1,50 @@
+{
+  "generated": "2026-09-12T04:28:59Z",
+  "phase": "Phase 2 — learn hub / paths / practice",
+  "learnHub": {
+    "added": "Materials section (card + global-nav link); the hub already links practice, paths, daily-hindi, tools, ask, answers, search, contact, about.",
+    "sections": [
+      "Start Learning",
+      "Alphabet",
+      "Pronunciation",
+      "Vocabulary",
+      "Grammar",
+      "Conversation",
+      "Reading",
+      "Writing",
+      "Travel",
+      "Work",
+      "Family",
+      "Practice",
+      "Tools",
+      "Learning Paths",
+      "Materials"
+    ]
+  },
+  "learningPaths": {
+    "count": 7,
+    "audit": "Every path in js/learning-paths.js already carries goal, starting level, expected outcome, ordered modules/lessons, practice, review (quiz), progress (path-progress.js), and a next step. No fluency/certification promises are made anywhere.",
+    "verdict": "KEEP — verified against inventory (0 broken lesson links)"
+  },
+  "practice": {
+    "modes": [
+      "5-min",
+      "10-min",
+      "20-min (daily)",
+      "mixed review",
+      "weak-area review (review queue)",
+      "vocabulary",
+      "grammar",
+      "reading",
+      "writing",
+      "speaking",
+      "listening",
+      "pronunciation",
+      "verbs",
+      "sentence-builder",
+      "placement"
+    ],
+    "feedback": "Every question in js/practice-bank.js carries an explain field — feedback explains the answer, not just right/wrong.",
+    "honestLimits": "The engine states multiple-choice measures recognition/recall, not speaking; placement is a rough guide, not certified."
+  }
+}

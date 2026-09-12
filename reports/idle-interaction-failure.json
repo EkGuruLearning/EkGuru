@@ -1,0 +1,290 @@
+{
+  "generated": "2026-09-11T19:53:56Z",
+  "task": "IDLE-INTERACTION-RECOVERY (P0)",
+  "environment": {
+    "browser": "Chromium 151.0.7922.34 (Playwright, headless + headed under Xvfb)",
+    "base": "http://localhost:8017/",
+    "production": "https://ekguru.shop/",
+    "date": "2026-09-12"
+  },
+  "reproduction": {
+    "matrix": "12 page/viewport combos x (30/60/120/180)s idle + tab-switch + back-forward + drawer + nav-idle scenarios + 6 shell-page link checks",
+    "viewportsCovered": [
+      360,
+      390,
+      768,
+      1280,
+      1366,
+      1440
+    ],
+    "viewportsPendingFullMatrix": [
+      "320x568",
+      "360x800",
+      "390x844",
+      "430x932",
+      "768",
+      "1024",
+      "1280",
+      "1366",
+      "1440",
+      "1536",
+      "1920"
+    ],
+    "reproduced": false,
+    "conclusion": "No code-level idle-interaction failure reproduced in real Chromium (headless + headed). Pages remained clickable, scrollable and keyboard-usable after 180s idle; zero console errors, zero network errors, no stuck overlays, no scroll locks, pointer-events:auto throughout."
+  },
+  "rootCause": {
+    "codeLevel": "Static scan + browser reproduction cleared all code-level suspects: no timers >=60s (only js/mailer.js 15s abort), no orphan setInterval, no global pointer-events/inert, bounded scroll-restore (1200ms ceiling, cancels on interaction), clean service worker, analytics disabled by default, no full-screen loading layers.",
+    "eliminatedSuspects": [
+      {
+        "suspect": "@view-transition{navigation:auto} (cross-document view transitions)",
+        "risk": "Known Chromium bug class: a stuck old-document snapshot can leave the page unclickable until refresh",
+        "action": "Removed from css/style.min.css (base rule + reduced-motion override). Cosmetic-only; removed per stability>effects."
+      },
+      {
+        "suspect": "Stale body.no-scroll / body{position:fixed} scroll lock (drawer + booking modal share lockScroll/unlockScroll)",
+        "risk": "If a lock outlives its owner (tab switch, bfcache, interrupted close) the page is frozen at a fixed offset and cannot scroll",
+        "action": "Added js/recovery.js self-healing watchdog (releases orphaned no-scroll, clears fixed top, restores scroll)."
+      },
+      {
+        "suspect": "Stale .nav-backdrop / body.nav-open",
+        "risk": "Full-viewport fixed inset:0 z-index:99 backdrop blocks all clicks when nav-open sticks",
+        "action": "Watchdog removes nav-open/no-scroll when no drawer is actually open."
+      },
+      {
+        "suspect": "AdSense Auto Ads overlays (vignette/anchor/in-page) injected at runtime (~30-120s)",
+        "risk": "Third-party overlays can cover the page; not reproducible on a local build (ads are not served on localhost)",
+        "action": "Site overlays sit above ads; watchdog never touches ad iframes; owner should disable/limit Vignette + Anchor ads in the AdSense Auto ads dashboard if they block interaction (documented below)."
+      }
+    ]
+  },
+  "fix": {
+    "css": "Removed @view-transition{navigation:auto} and @view-transition{navigation:none} from css/style.min.css.",
+    "watchdog": "Added js/recovery.js (self-healing: stale scroll-lock, stale nav-open/backdrop, pointer-events:none on html/body, stale inert, unexpected full-viewport overlay; incidents exposed via window.EkGuruRecovery.incidents() for admin Diagnostics).",
+    "injection": "tools/inject-recovery.py inserted <script src=...js/recovery.js defer> into 577/578 pages (Google site-verification file intentionally untouched).",
+    "serviceWorker": "Added ./js/recovery.js to sw.js SHELL precache list.",
+    "verification": "Watchdog unit test PASS (5/5 self-heals; healthy state preserved; 0 console errors). Post-fix 180s matrix PASS."
+  },
+  "results": [
+    {
+      "page": "index.html",
+      "viewport": "360x740",
+      "idleDuration": 180,
+      "consoleErrors": [],
+      "networkErrors": [],
+      "activeOverlays": [],
+      "pointerEventsState": "auto",
+      "scrollLockState": {
+        "navOpen": false,
+        "noScroll": false
+      },
+      "topFixedElements": [],
+      "focusedElement": "BODY.",
+      "result": "PASS",
+      "rootCause": "none reproduced",
+      "fix": "n/a (page remained fully interactive at 180s idle)"
+    },
+    {
+      "page": "index.html",
+      "viewport": "768x1024",
+      "idleDuration": 180,
+      "consoleErrors": [],
+      "networkErrors": [],
+      "activeOverlays": [],
+      "pointerEventsState": "auto",
+      "scrollLockState": {
+        "navOpen": false,
+        "noScroll": false
+      },
+      "topFixedElements": [],
+      "focusedElement": "BODY.",
+      "result": "PASS",
+      "rootCause": "none reproduced",
+      "fix": "n/a (page remained fully interactive at 180s idle)"
+    },
+    {
+      "page": "index.html",
+      "viewport": "1366x768",
+      "idleDuration": 180,
+      "consoleErrors": [],
+      "networkErrors": [],
+      "activeOverlays": [],
+      "pointerEventsState": "auto",
+      "scrollLockState": {
+        "navOpen": false,
+        "noScroll": false
+      },
+      "topFixedElements": [],
+      "focusedElement": "BODY.",
+      "result": "PASS",
+      "rootCause": "none reproduced",
+      "fix": "n/a (page remained fully interactive at 180s idle)"
+    },
+    {
+      "page": "find-tutors.html",
+      "viewport": "1280x800",
+      "idleDuration": 180,
+      "consoleErrors": [],
+      "networkErrors": [],
+      "activeOverlays": [],
+      "pointerEventsState": "auto",
+      "scrollLockState": {
+        "navOpen": false,
+        "noScroll": false
+      },
+      "topFixedElements": [],
+      "focusedElement": "BODY.",
+      "result": "PASS",
+      "rootCause": "none reproduced",
+      "fix": "n/a (page remained fully interactive at 180s idle)"
+    },
+    {
+      "page": "tutor/sushila-g/index.html",
+      "viewport": "390x844",
+      "idleDuration": 180,
+      "consoleErrors": [],
+      "networkErrors": [],
+      "activeOverlays": [],
+      "pointerEventsState": "auto",
+      "scrollLockState": {
+        "navOpen": false,
+        "noScroll": false
+      },
+      "topFixedElements": [],
+      "focusedElement": "BODY.",
+      "result": "PASS",
+      "rootCause": "none reproduced",
+      "fix": "n/a (page remained fully interactive at 180s idle)"
+    },
+    {
+      "page": "contact/index.html",
+      "viewport": "1280x800",
+      "idleDuration": 180,
+      "consoleErrors": [],
+      "networkErrors": [],
+      "activeOverlays": [],
+      "pointerEventsState": "auto",
+      "scrollLockState": {
+        "navOpen": false,
+        "noScroll": false
+      },
+      "topFixedElements": [],
+      "focusedElement": "BODY.",
+      "result": "PASS",
+      "rootCause": "none reproduced",
+      "fix": "n/a (page remained fully interactive at 180s idle)"
+    },
+    {
+      "page": "learn/index.html",
+      "viewport": "768x1024",
+      "idleDuration": 180,
+      "consoleErrors": [],
+      "networkErrors": [],
+      "activeOverlays": [],
+      "pointerEventsState": "auto",
+      "scrollLockState": {
+        "navOpen": false,
+        "noScroll": false
+      },
+      "topFixedElements": [],
+      "focusedElement": "BODY.",
+      "result": "PASS",
+      "rootCause": "none reproduced",
+      "fix": "n/a (page remained fully interactive at 180s idle)"
+    },
+    {
+      "page": "learn/paths/hindi-from-zero/index.html",
+      "viewport": "1280x800",
+      "idleDuration": 180,
+      "consoleErrors": [],
+      "networkErrors": [],
+      "activeOverlays": [],
+      "pointerEventsState": "auto",
+      "scrollLockState": {
+        "navOpen": false,
+        "noScroll": false
+      },
+      "topFixedElements": [],
+      "focusedElement": "BODY.",
+      "result": "PASS",
+      "rootCause": "none reproduced",
+      "fix": "n/a (page remained fully interactive at 180s idle)"
+    },
+    {
+      "page": "toolbox/index.html",
+      "viewport": "1280x800",
+      "idleDuration": 180,
+      "consoleErrors": [],
+      "networkErrors": [],
+      "activeOverlays": [],
+      "pointerEventsState": "auto",
+      "scrollLockState": {
+        "navOpen": false,
+        "noScroll": false
+      },
+      "topFixedElements": [],
+      "focusedElement": "BODY.",
+      "result": "PASS",
+      "rootCause": "none reproduced",
+      "fix": "n/a (page remained fully interactive at 180s idle)"
+    },
+    {
+      "page": "learn/practice/index.html",
+      "viewport": "360x740",
+      "idleDuration": 180,
+      "consoleErrors": [],
+      "networkErrors": [],
+      "activeOverlays": [],
+      "pointerEventsState": "auto",
+      "scrollLockState": {
+        "navOpen": false,
+        "noScroll": false
+      },
+      "topFixedElements": [],
+      "focusedElement": "BODY.",
+      "result": "PASS",
+      "rootCause": "none reproduced",
+      "fix": "n/a (page remained fully interactive at 180s idle)"
+    },
+    {
+      "page": "hindi/alphabet/index.html",
+      "viewport": "1280x800",
+      "idleDuration": 180,
+      "consoleErrors": [],
+      "networkErrors": [],
+      "activeOverlays": [],
+      "pointerEventsState": "auto",
+      "scrollLockState": {
+        "navOpen": false,
+        "noScroll": false
+      },
+      "topFixedElements": [],
+      "focusedElement": "BODY.",
+      "result": "PASS",
+      "rootCause": "none reproduced",
+      "fix": "n/a (page remained fully interactive at 180s idle)"
+    },
+    {
+      "page": "admin.html",
+      "viewport": "1440x900",
+      "idleDuration": 180,
+      "consoleErrors": [],
+      "networkErrors": [],
+      "activeOverlays": [
+        "DIV."
+      ],
+      "pointerEventsState": "auto",
+      "scrollLockState": {
+        "navOpen": false,
+        "noScroll": false
+      },
+      "topFixedElements": [
+        "DIV."
+      ],
+      "focusedElement": "INPUT.",
+      "result": "PASS",
+      "rootCause": "none reproduced",
+      "fix": "n/a (page remained fully interactive at 180s idle)"
+    }
+  ]
+}

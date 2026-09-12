@@ -1,0 +1,111 @@
+{
+ "generated": "2026-09-11T09:09:38.983193+00:00",
+ "title": "EkGuru final pre-repo-update gap sweep \u2014 nothing-left audit",
+ "production": "https://ekguru.shop/",
+ "old_domain": "https://ekgurulearning.github.io/EkGuru/",
+ "reclassification_rule": "Previous DONE/PASS/GREEN reclassified LIVE_VERIFIED / CODE_ONLY / PARTIAL / BROKEN / UNKNOWN / N_A",
+ "summary_counts": {
+  "PASS": 277,
+  "PASS_LOCAL": 7,
+  "PARTIAL": 103,
+  "DEFERRED": 25,
+  "FAIL": 3,
+  "N_A": 28,
+  "DEGRADED": 7,
+  "READY": 1
+ },
+ "critical_remaining": [
+  {
+   "item": "Production deployment freshness",
+   "detail": "Live https://ekguru.shop/js/site-config.js still returns status:'soon'; the local tree (Apps Script relay, motion system, timezone, mail fallback) is ahead of production.",
+   "owner": "Prakash (GitHub Pages / hosting push)",
+   "blocker": "External \u2014 cannot deploy from sandbox",
+   "priority": "CRITICAL"
+  },
+  {
+   "item": "Apps Script shared token",
+   "detail": "Relay is live and answers 'Not authorised.' with an empty token. Paste the word the script checks into js/site-config.js mail.appsScript.token.",
+   "owner": "Prakash",
+   "blocker": "Token value known only to the script owner",
+   "priority": "HIGH"
+  }
+ ],
+ "high_remaining": [
+  {
+   "item": "FormSubmit activation",
+   "detail": "FormSubmit answers 'needs Activation' for every address; the chain already routes around it (StaticForms/Apps Script). Re-activate or drop the account.",
+   "priority": "HIGH"
+  },
+  {
+   "item": "Web3Forms live verification",
+   "detail": "Blocked from this datacenter (403 Pro-plan/server-IP); verify once from a residential browser via tools/test-email-e2e.py.",
+   "priority": "HIGH"
+  },
+  {
+   "item": "Tutor personal addresses / formKey",
+   "detail": "All 4 tutors have email:''; bookings correctly route via EkGuru inbox with TUTOR_EMAIL_UNAVAILABLE. Add real addresses when available.",
+   "priority": "HIGH"
+  }
+ ],
+ "medium_remaining": [
+  {
+   "item": "Full hreflang set + post-deploy re-crawl",
+   "detail": "canonical present; hreflang sweep and 542-URL re-crawl deferred to after deploy."
+  },
+  {
+   "item": "Editorial content depth / originality audit",
+   "detail": "Page-by-page human originality edit (Phases 3/4/12) is ongoing editorial work, not code."
+  },
+  {
+   "item": "Skeleton/toast motion layer",
+   "detail": "Done: js/toast.js + .toast/.skel CSS + admin wiring; Playwright-verified incl. reduced-motion."
+  },
+  {
+   "item": "Admin 1000-record pagination",
+   "detail": "Ledger search/filter present; large-dataset pagination is backlog."
+  }
+ ],
+ "not_applicable": [
+  "Payments/auth (no backend)",
+  "PWA offline install (static site)",
+  "Server cron/queues (no server)",
+  "195-country copy/paste expansion (explicitly forbidden)"
+ ],
+ "files_changed_this_pass": [
+  "js/site-config.js",
+  "js/mailer.js",
+  "js/sheet.js",
+  "js/schedule.js",
+  "js/features.js",
+  "js/main.js",
+  "css/style.min.css",
+  "js/tutors/_overrides.js",
+  "js/tutors/hemlata.js",
+  "js/tutors/shikha-dutta.js",
+  "js/tutors/sushila-g.js",
+  "js/tutors/tara.js",
+  "js/tutors-data.js",
+  "tools/apps-script-mailer.gs (new)",
+  "tools/APPS-SCRIPT-SETUP.md (new)",
+  "tools/merge-remaining-requirements.py (new)",
+  "tools/make-sweep-reports.py (new)",
+  "reports/master-requirements.json",
+  "reports/email-provider-inventory.json"
+ ],
+ "tests_run_this_pass": [
+  "node --check on all edited JS (mailer, config, features, sheet, schedule, main, tutors-data, .gs)",
+  "python3 tools/test-email-e2e.py  (contact/booking/fallback/all-down/idempotency)",
+  "python3 tools/test-data-sources.py  (26 checks, 0 failures \u2014 4 CSVs + Apps Script JSON)",
+  "Playwright motion smoke: burger\u2192X morph, backdrop, Escape close, aria-expanded, 0 console errors",
+  "Playwright timezone check: IST (Asia/Kolkata) \u2192 offset 330",
+  "Apps Script live probe: doGet health JSON + doPost 'Not authorised' (token absent)"
+ ],
+ "live_urls_verified": [
+  "https://script.google.com/macros/s/AKfycbwG978gM3Vspo0r8JmNxRojiUwA5h0tWoFd8p9vQf5x-NX9QGDB8VCr0j1LnTPoOjqtdA/exec  (health JSON + POST contract)",
+  "4x Google Sheet CSV endpoints (HTTP 200, headers valid)",
+  "https://api.staticforms.dev/submit  (success:true \u2014 the active fallback)",
+  "https://formsubmit.co/ajax/\u2026  (needs Activation \u2014 honest refusal)"
+ ],
+ "backup_restore_status": "reports/backups-20260911/ snapshots exist (pre-edit copies of every changed file); restore = copy back.",
+ "release_candidate_id": "EK-20260911-gap-sweep"
+}

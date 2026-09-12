@@ -1,0 +1,47 @@
+{
+  "generated": "2026-09-11T10:27:41Z",
+  "backup": {
+    "commit": "ddb7329eb8d2b218a31f5c9b83ccf7577508b4b8",
+    "git_bundle": "ekguru-known-good-ddb7329e.bundle",
+    "git_bundle_ok": true,
+    "release_zip": "ekguru-release-v5.zip",
+    "rpo": "0 (static site: source of truth is the repo; rebuild = redeploy)",
+    "rto": "minutes (GitHub Pages push-to-deploy; no DB to restore)",
+    "last_known_good": "release v5.zip + git commit ddb7329e"
+  },
+  "restore": {
+    "restored_from": "ekguru-release-v5.zip",
+    "pages": {
+      "/": 200,
+      "/learn/": 200,
+      "/toolbox/hindi-alphabet/": 200,
+      "/tutor/sushila-g/": 200,
+      "/contact/": 200
+    },
+    "pass": true,
+    "note": "restore verified in a scratch dir on 127.0.0.1:8877 \u2014 never against production"
+  },
+  "rollback": {
+    "procedure": [
+      "git checkout ddb7329eb8d2b218a31f5c9b83ccf7577508b4b8   # known-good commit",
+      "python3 /home/user/releases/make-zip.py",
+      "re-upload the zip to the GitHub repo (Add file \u2192 Upload files)",
+      "or: git push origin main --force-with-lease from a machine with push access"
+    ],
+    "known_good": "ddb7329eb8d2b218a31f5c9b83ccf7577508b4b8",
+    "dns_change_needed": false
+  },
+  "adversarial": {
+    "csv_blocked": 3,
+    "page_rendered": true,
+    "body_text_length": 2741,
+    "shows_degraded_state": false,
+    "console_errors": [
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED"
+    ],
+    "pass": true,
+    "note": "sheet CSVs aborted at network level; page must still render from static overrides"
+  }
+}

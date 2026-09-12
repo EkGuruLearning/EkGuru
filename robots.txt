@@ -1,0 +1,161 @@
+# EkGuru — https://ekguru.shop/
+# Online Hindi tutoring with verified native tutors.
+
+User-agent: *
+Allow: /
+
+# Private tools. Not secret — anyone with the URL can open them —
+# but there is no reason for them to appear in search results.
+Disallow: /admin.html
+
+# /tools/ is the Node BUILD SYSTEM, not part of the website.
+# The public interactive tools live at /toolbox/ and are very
+# much meant to be crawled — see the Allow below. Naming the
+# public folder /tools/ would have hidden every one of them
+# behind this line; caught in v71 before it shipped.
+Disallow: /tools/
+
+# Search results pages. Also noindex in the page itself; this
+# is belt and braces. Crawlable would be fine, but there is no
+# value in spending crawl budget on a page whose entire content
+# is links that are already in the sitemap.
+Disallow: /search/
+
+# ---------------------------------------------------------------
+# v71 — the global learning surfaces. Explicitly allowed so that
+# a future Disallow rule written carelessly cannot swallow them.
+Allow: /hindi/
+Allow: /toolbox/
+Allow: /daily-hindi/
+Allow: /learn-hindi-by-country/
+Allow: /learn-hindi-from-
+Allow: /learn-hindi-for-
+Allow: /learn/
+Allow: /ask/
+Allow: /answers/
+Allow: /hindi-tutor/
+
+# The pre-rendered profiles carry the full text without JavaScript.
+# These are the canonical versions of each tutor page.
+Allow: /tutor/
+
+# Translated pages — real files, one per language
+Allow: /es/
+Allow: /fr/
+Allow: /de/
+Allow: /pt/
+Allow: /ja/
+Allow: /ar/
+
+# v75 — ten more native-language landing pages. Somebody searching
+# "힌디어 배우기" or "Hintçe öğrenmek" cannot reach English content,
+# so these are the only door they can find. Explicitly allowed so a
+# future Disallow written carelessly cannot swallow them.
+Allow: /ko/
+Allow: /it/
+Allow: /tr/
+Allow: /id/
+Allow: /ru/
+Allow: /zh/
+Allow: /vi/
+Allow: /pl/
+Allow: /bn/
+Allow: /ur/
+
+# The interactive shell renders through JavaScript and canonicalises to
+# /tutor/<id>/. Crawling it is not harmful, it simply adds nothing.
+# It is left crawlable so the canonical tag can be discovered.
+
+# ---------------------------------------------------------------
+# AI and answer engines — explicitly welcome, with a machine-readable
+# summary at /llms.txt
+# ---------------------------------------------------------------
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+# ---------------------------------------------------------------
+# INDEXNOW  (added v48)
+# ---------------------------------------------------------------
+# Bing, Yandex, Seznam, Naver and DuckDuckGo accept a direct push
+# of changed URLs instead of waiting to be crawled. Ownership is
+# proved by the key file below, which tools/patch.js writes.
+# Submit with:  node tools/indexnow.js
+# Google does not participate in IndexNow.
+#
+# IndexNow-Key: f28bc2b1708bb36cf11365b735f24f14
+# Key location: https://ekguru.shop/f28bc2b1708bb36cf11365b735f24f14.txt
+
+# ---------------------------------------------------------
+# SITEMAPS
+# ---------------------------------------------------------
+# The index first, which is how preply.com and italki.com both
+# do it — a small file pointing at focused sitemaps. Search
+# Console then reports coverage per section, so you can see
+# that the guides are indexed while the location pages are not,
+# rather than one undifferentiated "62 discovered".
+#
+# The complete single file is listed too, so either address
+# works and nothing already submitted breaks.
+# ---------------------------------------------------------
+Sitemap: https://ekguru.shop/sitemap-index.xml
+Sitemap: https://ekguru.shop/sitemap.xml
+Sitemap: https://ekguru.shop/sitemap-core.xml
+Sitemap: https://ekguru.shop/sitemap-tutors.xml
+Sitemap: https://ekguru.shop/sitemap-learn.xml
+Sitemap: https://ekguru.shop/sitemap-questions.xml
+Sitemap: https://ekguru.shop/sitemap-places.xml
+Sitemap: https://ekguru.shop/sitemap-languages.xml
+Sitemap: https://ekguru.shop/sitemap-topics.xml
+Sitemap: https://ekguru.shop/sitemap-countries.xml
+Sitemap: https://ekguru.shop/sitemap-source-languages.xml
+Sitemap: https://ekguru.shop/sitemap-tools.xml
+Sitemap: https://ekguru.shop/sitemap-daily.xml
+Sitemap: https://ekguru.shop/sitemap-answers.xml

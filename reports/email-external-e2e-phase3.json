@@ -1,0 +1,16 @@
+{
+  "generated": "2026-09-12T05:01:38Z",
+  "state": "BLOCKED_OWNER",
+  "why": "A fresh controlled external-mailbox test requires an owner-controlled inbox (and, for the booking flow, a real tutor inbox where verified). No mailbox credentials are available here, and none should be pasted into chat.",
+  "subStates": {
+    "booking": "NOT_RUN — needs one controlled student + one verified tutor inbox",
+    "contact": "NOT_RUN — needs a controlled visitor inbox",
+    "adminOutbound": "NOT_RUN — needs the owner's internal inbox"
+  },
+  "localRegression": {
+    "system": "PASS",
+    "security": "PASS",
+    "routing": "PASS"
+  },
+  "notMarkedPassBecause": "HTTP 200 / provider ACCEPTED / internal inbox receipt are not delivery proof (per standing rules)."
+}

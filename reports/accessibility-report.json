@@ -1,0 +1,73 @@
+{
+  "generated": "2026-09-12T04:28:59Z",
+  "phase": "Phase 2 — accessibility",
+  "checks": "lang, single H1, heading order, missing alt, nameless buttons/links, unlabeled inputs (390×844 + 1366×900, real Chromium).",
+  "results": [
+    {
+      "url": "http://localhost:8017/materials/grammar/postpositions/",
+      "h1": 1,
+      "orderOk": true,
+      "noAlt": 0,
+      "namelessBtn": 0,
+      "namelessLink": 0,
+      "noLabelInput": 0,
+      "lang": "en"
+    },
+    {
+      "url": "http://localhost:8017/",
+      "h1": 1,
+      "orderOk": true,
+      "noAlt": 0,
+      "namelessBtn": 0,
+      "namelessLink": 0,
+      "noLabelInput": 0,
+      "lang": "en"
+    },
+    {
+      "url": "http://localhost:8017/learn/",
+      "h1": 1,
+      "orderOk": true,
+      "noAlt": 0,
+      "namelessBtn": 0,
+      "namelessLink": 0,
+      "noLabelInput": 0,
+      "lang": "en"
+    },
+    {
+      "url": "http://localhost:8017/toolbox/hindi-alphabet/",
+      "h1": 1,
+      "orderOk": true,
+      "noAlt": 0,
+      "namelessBtn": 0,
+      "namelessLink": 0,
+      "noLabelInput": 0,
+      "lang": "en"
+    },
+    {
+      "url": "http://localhost:8017/tutor/sushila-g/",
+      "h1": 1,
+      "orderOk": true,
+      "noAlt": 0,
+      "namelessBtn": 0,
+      "namelessLink": 0,
+      "noLabelInput": 0,
+      "lang": "en"
+    },
+    {
+      "url": "http://localhost:8017/contact/",
+      "h1": 1,
+      "orderOk": true,
+      "noAlt": 0,
+      "namelessBtn": 0,
+      "namelessLink": 0,
+      "noLabelInput": 0,
+      "lang": "en"
+    }
+  ],
+  "verdict": "PASS — every tested page (incl. new materials) has lang=en, exactly one H1, correct heading order, 0 images without alt, 0 nameless buttons/links, 0 unlabeled inputs.",
+  "extra": "Materials pages: focus-visible outlines (global CSS), 44px touch targets (global @media pointer:coarse), prefers-reduced-motion respected (global CSS), print stylesheet for materials.",
+  "matrix": {
+    "combos": 30,
+    "problems": 0
+  }
+}

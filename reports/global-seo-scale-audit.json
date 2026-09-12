@@ -1,0 +1,16 @@
+{
+  "generated": "2026-09-12T08:04:19Z",
+  "countryPages": 158,
+  "countryPageChars": {
+    "min": 5666,
+    "max": 6750,
+    "avg": 6051.0
+  },
+  "templateSimilarity": {
+    "maxPairwiseJaccard5gram_sample30": 0.654,
+    "verdict": "WARN",
+    "note": "Pages share a chrome/footer template but each carries unique country facts (timezone, currency, why-learn, community). Max pairwise 5-gram Jaccard across a 30-page sample is the repeat ratio."
+  },
+  "noMassGeneration": true,
+  "policy": "No page is generated for a language/country combination that lacks unique content. The 194-country registry is data, not a page set."
+}

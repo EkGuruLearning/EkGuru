@@ -1,0 +1,16 @@
+# EkGuru — things that must never be committed or deployed.
+
+# The owner's shared mail token (Apps Script relay). Wired into
+# js/site-config.js at deploy time by tools/wire-token.py. Never commit.
+deploy-secrets.local.json
+
+# Python
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db

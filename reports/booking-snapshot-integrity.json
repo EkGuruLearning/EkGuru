@@ -1,0 +1,18 @@
+{
+  "generated": "2026-09-12T05:02:32Z",
+  "test": "create booking \u2192 change source tutor name \u2192 verify historical snapshot unchanged",
+  "result": {
+    "snapshotWritten": true,
+    "snapshotEmailBlank": true,
+    "historicalUnchanged": true,
+    "historicalRef": "BK-TEST-1",
+    "updateKeepsSnapshot": true,
+    "fields": [
+      "ref",
+      "status",
+      "lessonType",
+      "student_email_status"
+    ]
+  },
+  "pass": true
+}

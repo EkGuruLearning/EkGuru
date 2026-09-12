@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="google-site-verification" content="hFaqyp-9LdUXSKPA9RF011TkO2m_-7AUMasXqm_0dGI" />
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Daily Hindi Practice — 5, 10 or 20 Questions | EkGuru</title>
+<meta name="description" content="A short mixed Hindi practice run every day: five, ten or twenty questions across vocabulary, grammar and verbs. Free, saved in your browser.">
+<meta name="author" content="EkGuru">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://ekguru.shop/learn/practice/daily/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Daily Hindi Practice — 5, 10 or 20 Questions | EkGuru">
+<meta property="og:description" content="A short mixed Hindi practice run every day: five, ten or twenty questions across vocabulary, grammar and verbs. Free, saved in your browser.">
+<meta property="og:url" content="https://ekguru.shop/learn/practice/daily/">
+<meta property="og:image" content="https://ekguru.shop/images/og-cover.jpg">
+<meta property="og:site_name" content="EkGuru">
+<meta property="article:published_time" content="2026-09-11">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Daily Hindi Practice — 5, 10 or 20 Questions">
+<meta name="twitter:description" content="A short mixed Hindi practice run every day: five, ten or twenty questions across vocabulary, grammar and verbs. Free, saved in your browser.">
+<link rel="icon" href="../../../images/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../../../images/apple-touch-icon.png">
+<link rel="manifest" href="../../../manifest.webmanifest">
+<meta name="theme-color" content="#4f32d9">
+<link rel="stylesheet" href="../../../css/style.min.css">
+<style>
+.art{max-width:760px;margin:0 auto;padding:0 20px 60px}
+.art h1{font-size:2rem;line-height:1.25;margin:26px 0 10px}
+.art .meta{color:var(--muted);font-size:.86rem;margin:0 0 26px}
+.art h2{font-size:1.28rem;margin:34px 0 12px;padding-top:6px}
+.art p,.art li{line-height:1.75}
+.art table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.95rem}
+.art th,.art td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line)}
+.art th{font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.art ul,.art ol{padding-left:22px}
+.art li{margin:7px 0}
+.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0}
+.crumb a{color:var(--muted)}
+.lede{color:var(--ink-2);font-size:1.05rem;line-height:1.7;margin:0 0 22px}
+.related{margin:40px 0 0;padding-top:26px;border-top:1px solid var(--line)}
+.related h2{margin:0 0 12px;font-size:1.05rem}
+.rel-list{list-style:none;padding:0;margin:14px 0 0}
+.rel-list li{padding:11px 0;border-bottom:1px solid var(--line)}
+.rel-list li:last-child{border-bottom:0}
+.rel-list a{font-weight:600;display:block}
+.rel-list span{display:block;color:var(--muted);font-size:.88rem;margin-top:2px;line-height:1.5}
+@media(pointer:coarse){.pill,.px-opt,.px-word,.pp-row a,.rel-list a{min-height:44px}input,select,textarea,button{min-height:44px}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "@id": "https://ekguru.shop/learn/practice/daily/#app", "name": "Daily Hindi Practice — 5, 10 or 20 Questions", "description": "A short mixed Hindi practice run every day: five, ten or twenty questions across vocabulary, grammar and verbs. Free, saved in your browser.", "url": "https://ekguru.shop/learn/practice/daily/", "applicationCategory": "EducationalApplication", "operatingSystem": "Any modern browser", "inLanguage": "en", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}]}</script>
+</head>
+<body>
+<div class="art">
+  <p class="crumb"><a href="../../../">EkGuru</a> › <a href="../../">Learn Hindi</a> › <a href="../">Practice</a></p>
+
+  <h1>Daily practice</h1>
+  <p class="meta">A free EkGuru practice lab · updated 2026-09-11</p>
+
+<p>A short mixed run every day beats a long session once a week. Pick your length — five, ten or twenty questions — drawn across vocabulary, grammar, sentence order and verbs.</p>
+<p>Consistency is the point, not the score. No account, no upload: your streak lives in this browser.</p>
+  <p style="color:var(--muted)">Each run draws a fresh mix from the vocabulary, grammar, sentence-order and verb banks — 54 questions in total, shuffled every time.</p>
+  <div class="px-wrap" id="daily-pick">
+    <p><b>How long today?</b></p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button type="button" class="btn btn-primary" data-n="5">5 questions</button>
+      <button type="button" class="btn btn-ghost" data-n="10">10 questions</button>
+      <button type="button" class="btn btn-ghost" data-n="20">20 questions</button>
+    </div>
+    <div id="practice-root"></div>
+  </div>
+  <script>
+  document.getElementById("daily-pick").addEventListener("click", function(e){
+    var b = e.target.closest("button[data-n]"); if(!b) return;
+    var r = document.getElementById("practice-root");
+    if (window.EkGuruPractice) EkGuruPractice.mount(r, {mode:"daily", count: +b.getAttribute("data-n")});
+  });
+  </script>
+  <section class="related">
+    <h2>Related learning</h2>
+    <ul class="rel-list">
+      <li><a href="/daily-hindi/">Daily Hindi — 30 days</a></li>
+      <li><a href="/toolbox/hindi-flashcards/">Flashcards</a></li>
+      <li><a href="/learn/practice/">All practice</a></li>
+    </ul>
+  </section>
+
+</div>
+<!-- ekguru:trust-footer:start -->
+<footer class="pw-ftr">
+  <nav aria-label="Site information">
+    <a href="../../../">Home</a>
+    <a href="../../../about/">About</a>
+    <a href="../../../contact/">Contact</a>
+    <a href="../../../privacy/">Privacy</a>
+    <a href="../../../terms/">Terms</a>
+    <a href="../../../disclaimer/">Disclaimer</a>
+  </nav>
+  <p>
+  © 2026 EkGuru — One Student. One Goal. One Guru.<br>
+  Written and maintained by Prakash. Hindi lessons with native-speaking tutors, one to one.
+  </p>
+</footer>
+<!-- ekguru:trust-footer:end -->
+</body>
+</html>
+<script src="../../../js/site-config.js" defer></script>
+<script src="../../../js/analytics.js" defer></script>
+<!-- ekguru:recovery:start -->
+<script src="../../../js/recovery.js" defer></script>
+<!-- ekguru:recovery:end -->
+<script defer>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("../../../sw.js").catch(function () {});
+  });
+}
+</script>
+<script src="../../../js/practice-bank.js" defer></script>
+<script src="../../../js/practice-engine.js" defer></script>

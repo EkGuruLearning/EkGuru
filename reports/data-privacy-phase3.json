@@ -1,0 +1,34 @@
+{
+  "generated": "2026-09-12T05:01:38Z",
+  "tiers": {
+    "PUBLIC": [
+      "page content (answers/learn/materials)",
+      "tutor public profile fields (name, price, availability, bio, photo)",
+      "public contact email EkGuruLearning@gmail.com",
+      "public review text",
+      "public URLs (preply/youtube/apply form)"
+    ],
+    "INTERNAL": [
+      "admin operational view (admin.html — gated)",
+      "booking ledger (localStorage, admin export)",
+      "internal notification routing decisions (site-config mail config)"
+    ],
+    "SENSITIVE": [
+      "student name/email/requirement in bookings (minimized; admin + internal mail only)"
+    ],
+    "SECRET": [
+      "Apps Script shared token (deploy-secrets.local.json, gitignored — never shipped)",
+      "FormSubmit alias (blank in live-sheets/tutors.csv)",
+      "mailbox passwords (never stored)"
+    ]
+  },
+  "tutorEmailRule": {
+    "state": "TUTOR_EMAIL_UNAVAILABLE",
+    "evidence": "live-sheets/tutors.csv email column is blank for all 4 tutors (verified) — bookings route via EkGuru fallback; no address is invented or inferred.",
+    "notificationEmail": "server-side/internal only; not present in live-sheets/tutors.csv (column removed by owner)."
+  },
+  "liveSheetsExposure": {
+    "liveSite": true,
+    "assessment": "The reset commit deployed live-sheets/*.csv to the public site. Contents are PUBLIC-tier (tutor emails blank, only the public contact email in settings). Flagged for the owner: if these files are not meant to be public, remove live-sheets/ from the repo."
+  }
+}

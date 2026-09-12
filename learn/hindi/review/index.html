@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="google-site-verification" content="hFaqyp-9LdUXSKPA9RF011TkO2m_-7AUMasXqm_0dGI" />
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hindi Review — spaced repetition | EkGuru</title>
+<meta name="description" content="Review the Hindi words and phrases you saved, on a simple spaced-repetition schedule that lives in your browser.">
+<meta name="author" content="EkGuru">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://ekguru.shop/learn/hindi/review/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hindi Review — spaced repetition | EkGuru">
+<meta property="og:description" content="Review the Hindi words and phrases you saved, on a simple spaced-repetition schedule that lives in your browser.">
+<meta property="og:url" content="https://ekguru.shop/learn/hindi/review/">
+<meta property="og:image" content="https://ekguru.shop/images/og-cover.jpg">
+<meta property="og:site_name" content="EkGuru">
+<meta property="article:published_time" content="2026-09-12">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hindi Review — spaced repetition">
+<meta name="twitter:description" content="Review the Hindi words and phrases you saved, on a simple spaced-repetition schedule that lives in your browser.">
+<link rel="icon" href="../../../images/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../../../images/apple-touch-icon.png">
+<link rel="manifest" href="../../../manifest.webmanifest">
+<meta name="theme-color" content="#4f32d9">
+<link rel="stylesheet" href="../../../css/style.min.css">
+<style>
+.art{max-width:760px;margin:0 auto;padding:0 20px 60px}
+.art h1{font-size:2rem;line-height:1.25;margin:26px 0 10px}
+.art .meta{color:var(--muted);font-size:.86rem;margin:0 0 26px}
+.art h2{font-size:1.28rem;margin:34px 0 12px;padding-top:6px}
+.art p,.art li{line-height:1.75}
+.art ul,.art ol{padding-left:22px}
+.art li{margin:7px 0}
+.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0}
+.crumb a{color:var(--muted)}
+.lede{color:var(--ink-2);font-size:1.05rem;line-height:1.7;margin:0 0 22px}
+.linklist{list-style:none;padding:0;margin:12px 0 0}
+.linklist li{padding:10px 0;border-bottom:1px solid var(--line)}
+.linklist li:last-child{border-bottom:0}
+.linklist a{font-weight:600}
+.linklist span{display:block;color:var(--muted);font-size:.87rem;margin-top:2px;line-height:1.5}
+.note{background:var(--bg-soft);border:1px solid #ddd8ff;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:.94rem;color:var(--ink-2)}
+.btn{margin:6px 6px 6px 0}
+
+#srs-card .prompt{font-size:1.15rem;font-weight:700;margin-bottom:14px}
+#srs-card .answer{display:none;background:var(--bg-soft);border:1px solid #ddd8ff;border-radius:10px;padding:12px 14px;margin:0 0 14px;color:var(--ink-2)}
+#srs-card .rates{display:flex;gap:8px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<div class="art">
+    <p class="crumb"><a href="../../../">EkGuru</a> › <a href="../../">Learn Hindi</a> › <a href="../">Hindi</a> › Review</p>
+  <h1>Hindi Review — spaced repetition</h1>
+  <p class="lede">A simple, transparent review system for the words and ideas you saved. It lives entirely in this browser.</p>
+  <div class="note"><b>How it works.</b> Each card is shown again on a schedule that grows with each correct answer. Four buttons: <b>Again</b> (starts over), <b>Hard</b>, <b>Good</b>, <b>Easy</b>. This is a simple SM-2-style schedule — not scientific perfection and not “AI personalisation”.</div>
+  <div id="srs-stats" style="margin:12px 0;font-weight:600"></div>
+  <div id="srs-card" style="border:1px solid var(--line);border-radius:14px;padding:20px;background:var(--card,#fff)"></div>
+  <div id="srs-empty" style="display:none" class="note">No cards due right now. Add cards from any lesson (look for the “＋ Review” buttons), or load the starter deck.</div>
+  <div style="margin-top:14px">
+    <button type="button" class="btn" id="srs-seed">Load starter deck</button>
+    <button type="button" class="btn ghost" id="srs-reset">Remove all cards</button>
+  </div>
+  <p class="muted" style="margin-top:14px">Cards are saved on this device only — no account, no upload, no sync.</p>
+
+</div>
+<!-- ekguru:trust-footer:start -->
+<footer class="pw-ftr">
+  <nav aria-label="Site information">
+    <a href="../../../">Home</a>
+    <a href="../../../about/">About</a>
+    <a href="../../../contact/">Contact</a>
+    <a href="../../../privacy/">Privacy</a>
+    <a href="../../../terms/">Terms</a>
+    <a href="../../../disclaimer/">Disclaimer</a>
+  </nav>
+  <p>
+  © 2026 EkGuru — One Student. One Goal. One Guru.<br>
+  Written and maintained by Prakash. Hindi lessons with native-speaking tutors, one to one.
+  </p>
+</footer>
+<!-- ekguru:trust-footer:end -->
+<script>
+(function () {
+  "use strict";
+  function boot() {
+  var S = window.EkGuruSRS, queue = [], card = null;
+  function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+  function paint() {
+    var st = document.getElementById("srs-stats");
+    st.textContent = S.count() + " cards · " + S.dueCount() + " due";
+    var box = document.getElementById("srs-card");
+    var empty = document.getElementById("srs-empty");
+    if (!queue.length) { queue = S.due(); }
+    card = queue.shift() || null;
+    if (!card) { box.innerHTML = ""; empty.style.display = "block"; return; }
+    empty.style.display = "none";
+    box.innerHTML =
+      '<p class="prompt">' + esc(card.prompt) + '</p>' +
+      '<div class="answer" id="srs-a"><b>' + esc(card.answer) + '</b></div>' +
+      '<button type="button" class="btn ghost" id="srs-show">Show answer</button>' +
+      '<div class="rates" id="srs-rates" style="display:none;margin-top:10px">' +
+      '<button type="button" class="btn ghost" data-r="again">Again</button>' +
+      '<button type="button" class="btn ghost" data-r="hard">Hard</button>' +
+      '<button type="button" class="btn" data-r="good">Good</button>' +
+      '<button type="button" class="btn" data-r="easy">Easy</button></div>';
+    box.querySelector("#srs-show").addEventListener("click", function () {
+      box.querySelector("#srs-a").style.display = "block";
+      box.querySelector("#srs-rates").style.display = "flex";
+      this.style.display = "none";
+    });
+    box.querySelectorAll("[data-r]").forEach(function (b) {
+      b.addEventListener("click", function () { S.review(card.card_id, b.getAttribute("data-r")); paint(); });
+    });
+  }
+  document.getElementById("srs-seed").addEventListener("click", function () {
+    var r = S.seedStarter(); paint();
+    if (window.EkGuruToast) window.EkGuruToast.show(r.added + " cards added (from quiz bank + vocabulary).");
+  });
+  document.getElementById("srs-reset").addEventListener("click", function () {
+    S.all().forEach(function (c) { S.remove(c.card_id); });
+    paint();
+  });
+  paint();
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else { boot(); }
+})();
+</script>
+
+</body>
+</html>
+<script src="../../../js/site-config.js" defer></script>
+<script src="../../../js/analytics.js" defer></script>
+<!-- ekguru:recovery:start -->
+<script src="../../../js/recovery.js" defer></script>
+<!-- ekguru:recovery:end -->
+
+<script src="../../../js/hindi-quiz-bank.js" defer></script>
+<script src="../../../js/practice-bank.js" defer></script>
+<script src="../../../js/hindi-srs.js" defer></script>
+<script defer>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("../../../sw.js").catch(function () {});
+  });
+}
+</script>

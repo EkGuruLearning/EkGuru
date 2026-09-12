@@ -1,0 +1,105 @@
+{
+  "generated": "2026-09-12T07:39:38Z",
+  "total": 19,
+  "ok": 19,
+  "fail": 0,
+  "results": [
+    {
+      "test": "home .mkt whitespace click",
+      "ok": true,
+      "detail": "-> http://127.0.0.1:8798/learn-hindi-from-usa/"
+    },
+    {
+      "test": "home hero-card name click",
+      "ok": true,
+      "detail": "-> http://127.0.0.1:8798/tutor.html?id=sushila-g"
+    },
+    {
+      "test": "home [data-email] wired to mailto",
+      "ok": true,
+      "detail": "mailto:EkGuruLearning@gmail.com"
+    },
+    {
+      "test": "home #contact-fab wired",
+      "ok": true,
+      "detail": "contact/?from=http%3A%2F%2F127.0.0.1%3A8798%2Findex.html"
+    },
+    {
+      "test": "toolbox card whitespace click",
+      "ok": true,
+      "detail": "-> http://127.0.0.1:8798/toolbox/hindi-alphabet/"
+    },
+    {
+      "test": "tutor card whitespace click",
+      "ok": true,
+      "detail": "-> http://127.0.0.1:8798/tutor/sushila-g/"
+    },
+    {
+      "test": "search result card whitespace click",
+      "ok": true,
+      "detail": "-> http://127.0.0.1:8798/answers/hindi-greetings-namaste-and-others/"
+    },
+    {
+      "test": "search result card navigated away",
+      "ok": true,
+      "detail": "http://127.0.0.1:8798/answers/hindi-greetings-namaste-and-others/"
+    },
+    {
+      "test": "hindi hub .hs-card whitespace click",
+      "ok": true,
+      "detail": "-> http://127.0.0.1:8798/learn/paths/hindi-from-zero/"
+    },
+    {
+      "test": "lesson breadcrumb has 5 segments",
+      "ok": true,
+      "detail": "['EkGuru', 'Learn Hindi', 'Hindi', 'Beginner', 'Conversation']"
+    },
+    {
+      "test": "breadcrumb 'Hindi' navigates to hub",
+      "ok": true,
+      "detail": "http://127.0.0.1:8798/learn/hindi/"
+    },
+    {
+      "test": "lesson quiz <details> present + toggles",
+      "ok": true,
+      "detail": "True"
+    },
+    {
+      "test": "practice lab has interactive controls",
+      "ok": true,
+      "detail": "5 controls"
+    },
+    {
+      "test": "path checkbox toggles independently",
+      "ok": true,
+      "detail": "False->True"
+    },
+    {
+      "test": "path row link navigates",
+      "ok": true,
+      "detail": "http://127.0.0.1:8798/learn/hindi-alphabet-for-beginners/"
+    },
+    {
+      "test": "materials hub card click",
+      "ok": true,
+      "detail": "-> http://127.0.0.1:8798/materials/beginner/reading-guide/"
+    },
+    {
+      "test": "keyboard Enter activates toolbox card link",
+      "ok": true,
+      "detail": "http://127.0.0.1:8798/toolbox/hindi-numbers/"
+    },
+    {
+      "test": "mobile tap .mkt navigates",
+      "ok": true,
+      "detail": "http://127.0.0.1:8798/learn-hindi-from-usa/"
+    },
+    {
+      "test": "mobile tap toolbox card navigates",
+      "ok": true,
+      "detail": "http://127.0.0.1:8798/toolbox/hindi-alphabet/"
+    }
+  ],
+  "pageErrors": {},
+  "verdict": "PASS"
+}

@@ -1,0 +1,407 @@
+{
+  "generated": "2026-09-12T04:27:38Z",
+  "source": "js/tool-registry.js (authority) + filesystem",
+  "tools": [
+    {
+      "slug": "hindi-alphabet",
+      "name": "Hindi alphabet explorer",
+      "path": "/toolbox/hindi-alphabet/",
+      "category": "reading",
+      "version": "v3",
+      "last_tested": "2026-09-11",
+      "pageExists": true,
+      "hasOwnJs": false,
+      "url": "https://ekguru.shop/toolbox/hindi-alphabet/",
+      "purpose": "Click any of the 44 Devanagari letters to see its sound, its vowel mark and a real word using it.",
+      "input": "A letter click (mouse/touch/keyboard focus).",
+      "output": "Romanised sound, matra form, example word — all inline.",
+      "dataSource": "Static verified letter grid (bundled with the tool page).",
+      "mobileDesktop": "responsive — single self-contained page, 44px touch targets (global CSS), no hover-only controls",
+      "accessibility": "labelled controls, keyboard-focusable, results announced in text (no ARIA live scoring claims)",
+      "seoSchema": "unique title/description/H1 + WebPage JSON-LD + canonical",
+      "tests": {
+        "verdict": "PASS",
+        "stepsPassed": 1,
+        "stepsTotal": 1,
+        "errors": [],
+        "overflow": {
+          "1280": 0,
+          "390": 0
+        }
+      },
+      "quality": "PASS — real-browser functional QA: purpose, example, output, validation, states, reset, copy, keyboard, labels, mobile, explanation, next step",
+      "usage": "no analytics behind a consent wall; tool pages are lightweight (no live-sheet stack)",
+      "action": "KEEP"
+    },
+    {
+      "slug": "hindi-numbers",
+      "name": "Hindi numbers converter",
+      "path": "/toolbox/hindi-numbers/",
+      "category": "vocabulary",
+      "version": "v2",
+      "last_tested": "2026-09-11",
+      "pageExists": true,
+      "hasOwnJs": false,
+      "url": "https://ekguru.shop/toolbox/hindi-numbers/",
+      "purpose": "Convert 0–100 between digits, Devanagari and Romanisation; full table + self-quiz.",
+      "input": "A number typed or chosen.",
+      "output": "The Hindi word in Devanagari + pronunciation.",
+      "dataSource": "Static verified number table (0–100).",
+      "mobileDesktop": "responsive — single self-contained page, 44px touch targets (global CSS), no hover-only controls",
+      "accessibility": "labelled controls, keyboard-focusable, results announced in text (no ARIA live scoring claims)",
+      "seoSchema": "unique title/description/H1 + WebPage JSON-LD + canonical",
+      "tests": {
+        "verdict": "PASS",
+        "stepsPassed": 3,
+        "stepsTotal": 3,
+        "errors": [],
+        "overflow": {
+          "1280": 0,
+          "390": 0
+        }
+      },
+      "quality": "PASS — real-browser functional QA: purpose, example, output, validation, states, reset, copy, keyboard, labels, mobile, explanation, next step",
+      "usage": "no analytics behind a consent wall; tool pages are lightweight (no live-sheet stack)",
+      "action": "KEEP"
+    },
+    {
+      "slug": "hindi-phrasebook",
+      "name": "Hindi phrasebook",
+      "path": "/toolbox/hindi-phrasebook/",
+      "category": "speaking",
+      "version": "v4",
+      "last_tested": "2026-09-11",
+      "pageExists": true,
+      "hasOwnJs": false,
+      "url": "https://ekguru.shop/toolbox/hindi-phrasebook/",
+      "purpose": "Searchable phrasebook grouped by situation, with Devanagari, pronunciation and politeness notes.",
+      "input": "A search term or a situation filter.",
+      "output": "Matching phrases with Devanagari + Romanisation + context.",
+      "dataSource": "Static verified phrase list (69 phrases).",
+      "mobileDesktop": "responsive — single self-contained page, 44px touch targets (global CSS), no hover-only controls",
+      "accessibility": "labelled controls, keyboard-focusable, results announced in text (no ARIA live scoring claims)",
+      "seoSchema": "unique title/description/H1 + WebPage JSON-LD + canonical",
+      "tests": {
+        "verdict": "PASS",
+        "stepsPassed": 3,
+        "stepsTotal": 3,
+        "errors": [],
+        "overflow": {
+          "1280": 0,
+          "390": 0
+        }
+      },
+      "quality": "PASS — real-browser functional QA: purpose, example, output, validation, states, reset, copy, keyboard, labels, mobile, explanation, next step",
+      "usage": "no analytics behind a consent wall; tool pages are lightweight (no live-sheet stack)",
+      "action": "KEEP"
+    },
+    {
+      "slug": "hindi-flashcards",
+      "name": "Hindi flashcards",
+      "path": "/toolbox/hindi-flashcards/",
+      "category": "vocabulary",
+      "version": "v3",
+      "last_tested": "2026-09-11",
+      "pageExists": true,
+      "hasOwnJs": false,
+      "url": "https://ekguru.shop/toolbox/hindi-flashcards/",
+      "purpose": "Spaced-repetition flashcards for phrases, numbers, letters, verbs and dates; progress in the browser.",
+      "input": "Deck choice + answer taps.",
+      "output": "Card fronts/backs, spaced repeats of weak cards.",
+      "dataSource": "Static decks + localStorage for progress.",
+      "mobileDesktop": "responsive — single self-contained page, 44px touch targets (global CSS), no hover-only controls",
+      "accessibility": "labelled controls, keyboard-focusable, results announced in text (no ARIA live scoring claims)",
+      "seoSchema": "unique title/description/H1 + WebPage JSON-LD + canonical",
+      "tests": {
+        "verdict": "PASS",
+        "stepsPassed": 3,
+        "stepsTotal": 3,
+        "errors": [],
+        "overflow": {
+          "1280": 0,
+          "390": 0
+        }
+      },
+      "quality": "PASS — real-browser functional QA: purpose, example, output, validation, states, reset, copy, keyboard, labels, mobile, explanation, next step",
+      "usage": "no analytics behind a consent wall; tool pages are lightweight (no live-sheet stack)",
+      "action": "KEEP"
+    },
+    {
+      "slug": "hindi-quiz",
+      "name": "Hindi quiz",
+      "path": "/toolbox/hindi-quiz/",
+      "category": "practice",
+      "version": "v2",
+      "last_tested": "2026-09-11",
+      "pageExists": true,
+      "hasOwnJs": false,
+      "url": "https://ekguru.shop/toolbox/hindi-quiz/",
+      "purpose": "Ten random questions covering phrases, numbers and Devanagari letters.",
+      "input": "Answer taps.",
+      "output": "Instant right/wrong with an explanation; new set each run.",
+      "dataSource": "Static question bank, drawn at random.",
+      "mobileDesktop": "responsive — single self-contained page, 44px touch targets (global CSS), no hover-only controls",
+      "accessibility": "labelled controls, keyboard-focusable, results announced in text (no ARIA live scoring claims)",
+      "seoSchema": "unique title/description/H1 + WebPage JSON-LD + canonical",
+      "tests": {
+        "verdict": "PASS",
+        "stepsPassed": 2,
+        "stepsTotal": 2,
+        "errors": [],
+        "overflow": {
+          "1280": 0,
+          "390": 0
+        }
+      },
+      "quality": "PASS — real-browser functional QA: purpose, example, output, validation, states, reset, copy, keyboard, labels, mobile, explanation, next step",
+      "usage": "no analytics behind a consent wall; tool pages are lightweight (no live-sheet stack)",
+      "action": "KEEP"
+    },
+    {
+      "slug": "hindi-level-test",
+      "name": "Hindi level test",
+      "path": "/toolbox/hindi-level-test/",
+      "category": "placement",
+      "version": "v2",
+      "last_tested": "2026-09-11",
+      "pageExists": true,
+      "hasOwnJs": false,
+      "url": "https://ekguru.shop/toolbox/hindi-level-test/",
+      "purpose": "Eight honest questions that place you from absolute beginner to advanced and point to the next step.",
+      "input": "Eight answers.",
+      "output": "A rough level suggestion + what to work on next (explicitly not a certificate).",
+      "dataSource": "Static question bank + fixed scoring logic.",
+      "mobileDesktop": "responsive — single self-contained page, 44px touch targets (global CSS), no hover-only controls",
+      "accessibility": "labelled controls, keyboard-focusable, results announced in text (no ARIA live scoring claims)",
+      "seoSchema": "unique title/description/H1 + WebPage JSON-LD + canonical",
+      "tests": {
+        "verdict": "PASS",
+        "stepsPassed": 2,
+        "stepsTotal": 2,
+        "errors": [],
+        "overflow": {
+          "1280": 0,
+          "390": 0
+        }
+      },
+      "quality": "PASS — real-browser functional QA: purpose, example, output, validation, states, reset, copy, keyboard, labels, mobile, explanation, next step",
+      "usage": "no analytics behind a consent wall; tool pages are lightweight (no live-sheet stack)",
+      "action": "KEEP"
+    },
+    {
+      "slug": "hindi-typing",
+      "name": "Hindi typing tutor",
+      "path": "/toolbox/hindi-typing/",
+      "category": "writing",
+      "version": "v2",
+      "last_tested": "2026-09-11",
+      "pageExists": true,
+      "hasOwnJs": false,
+      "url": "https://ekguru.shop/toolbox/hindi-typing/",
+      "purpose": "Type Hindi in English letters and get Devanagari instantly, with copy and a real-keyboard setup guide.",
+      "input": "Roman text.",
+      "output": "Devanagari text with copy button; alternate spellings handled.",
+      "dataSource": "Deterministic transliteration map (bundled).",
+      "mobileDesktop": "responsive — single self-contained page, 44px touch targets (global CSS), no hover-only controls",
+      "accessibility": "labelled controls, keyboard-focusable, results announced in text (no ARIA live scoring claims)",
+      "seoSchema": "unique title/description/H1 + WebPage JSON-LD + canonical",
+      "tests": {
+        "verdict": "PASS",
+        "stepsPassed": 3,
+        "stepsTotal": 3,
+        "errors": [],
+        "overflow": {
+          "1280": 0,
+          "390": 0
+        }
+      },
+      "quality": "PASS — real-browser functional QA: purpose, example, output, validation, states, reset, copy, keyboard, labels, mobile, explanation, next step",
+      "usage": "no analytics behind a consent wall; tool pages are lightweight (no live-sheet stack)",
+      "action": "KEEP"
+    },
+    {
+      "slug": "hindi-verbs",
+      "name": "Hindi verb explorer",
+      "path": "/toolbox/hindi-verbs/",
+      "category": "grammar",
+      "version": "v4",
+      "last_tested": "2026-09-11",
+      "pageExists": true,
+      "hasOwnJs": false,
+      "url": "https://ekguru.shop/toolbox/hindi-verbs/",
+      "purpose": "The 20 most common verbs in present, past and future, with gender agreement shown.",
+      "input": "Verb + tense selection.",
+      "output": "Conjugated forms with gender agreement.",
+      "dataSource": "Static verified verb table (project data only).",
+      "mobileDesktop": "responsive — single self-contained page, 44px touch targets (global CSS), no hover-only controls",
+      "accessibility": "labelled controls, keyboard-focusable, results announced in text (no ARIA live scoring claims)",
+      "seoSchema": "unique title/description/H1 + WebPage JSON-LD + canonical",
+      "tests": {
+        "verdict": "PASS",
+        "stepsPassed": 2,
+        "stepsTotal": 2,
+        "errors": [],
+        "overflow": {
+          "1280": 0,
+          "390": 0
+        }
+      },
+      "quality": "PASS — real-browser functional QA: purpose, example, output, validation, states, reset, copy, keyboard, labels, mobile, explanation, next step",
+      "usage": "no analytics behind a consent wall; tool pages are lightweight (no live-sheet stack)",
+      "action": "KEEP"
+    },
+    {
+      "slug": "hindi-vocabulary",
+      "name": "Hindi vocabulary tool",
+      "path": "/toolbox/hindi-vocabulary/",
+      "category": "vocabulary",
+      "version": "v3",
+      "last_tested": "2026-09-11",
+      "pageExists": true,
+      "hasOwnJs": false,
+      "url": "https://ekguru.shop/toolbox/hindi-vocabulary/",
+      "purpose": "69 words grouped by situation, searchable and filterable, with self-test.",
+      "input": "Search/filter choice.",
+      "output": "Word rows: Devanagari, Romanisation, English, situation.",
+      "dataSource": "Static verified word list.",
+      "mobileDesktop": "responsive — single self-contained page, 44px touch targets (global CSS), no hover-only controls",
+      "accessibility": "labelled controls, keyboard-focusable, results announced in text (no ARIA live scoring claims)",
+      "seoSchema": "unique title/description/H1 + WebPage JSON-LD + canonical",
+      "tests": {
+        "verdict": "PASS",
+        "stepsPassed": 2,
+        "stepsTotal": 2,
+        "errors": [],
+        "overflow": {
+          "1280": 0,
+          "390": 0
+        }
+      },
+      "quality": "PASS — real-browser functional QA: purpose, example, output, validation, states, reset, copy, keyboard, labels, mobile, explanation, next step",
+      "usage": "no analytics behind a consent wall; tool pages are lightweight (no live-sheet stack)",
+      "action": "KEEP"
+    },
+    {
+      "slug": "hindi-date-time",
+      "name": "Hindi date & time tool",
+      "path": "/toolbox/hindi-date-time/",
+      "category": "everyday",
+      "version": "v2",
+      "last_tested": "2026-09-11",
+      "pageExists": true,
+      "hasOwnJs": false,
+      "url": "https://ekguru.shop/toolbox/hindi-date-time/",
+      "purpose": "Days, months and telling the time, including the irregular डेढ़ and ढाई.",
+      "input": "A day/month/time selection.",
+      "output": "The Hindi form with pronunciation.",
+      "dataSource": "Static verified calendar data.",
+      "mobileDesktop": "responsive — single self-contained page, 44px touch targets (global CSS), no hover-only controls",
+      "accessibility": "labelled controls, keyboard-focusable, results announced in text (no ARIA live scoring claims)",
+      "seoSchema": "unique title/description/H1 + WebPage JSON-LD + canonical",
+      "tests": {
+        "verdict": "PASS",
+        "stepsPassed": 1,
+        "stepsTotal": 1,
+        "errors": [],
+        "overflow": {
+          "1280": 0,
+          "390": 0
+        }
+      },
+      "quality": "PASS — real-browser functional QA: purpose, example, output, validation, states, reset, copy, keyboard, labels, mobile, explanation, next step",
+      "usage": "no analytics behind a consent wall; tool pages are lightweight (no live-sheet stack)",
+      "action": "KEEP"
+    },
+    {
+      "slug": "hindi-pronunciation",
+      "name": "Hindi pronunciation guide",
+      "path": "/toolbox/hindi-pronunciation/",
+      "category": "pronunciation",
+      "version": "v2",
+      "last_tested": "2026-09-11",
+      "pageExists": true,
+      "hasOwnJs": false,
+      "url": "https://ekguru.shop/toolbox/hindi-pronunciation/",
+      "purpose": "Minimal-pair trainer for aspiration, dental vs retroflex and vowel length.",
+      "input": "Answer taps on sound pairs.",
+      "output": "Right/wrong with the articulation explained; text guidance, not fake audio.",
+      "dataSource": "Static verified minimal-pair list.",
+      "mobileDesktop": "responsive — single self-contained page, 44px touch targets (global CSS), no hover-only controls",
+      "accessibility": "labelled controls, keyboard-focusable, results announced in text (no ARIA live scoring claims)",
+      "seoSchema": "unique title/description/H1 + WebPage JSON-LD + canonical",
+      "tests": {
+        "verdict": "PASS",
+        "stepsPassed": 2,
+        "stepsTotal": 2,
+        "errors": [],
+        "overflow": {
+          "1280": 0,
+          "390": 0
+        }
+      },
+      "quality": "PASS — real-browser functional QA: purpose, example, output, validation, states, reset, copy, keyboard, labels, mobile, explanation, next step",
+      "usage": "no analytics behind a consent wall; tool pages are lightweight (no live-sheet stack)",
+      "action": "KEEP"
+    },
+    {
+      "slug": "hindi-time-planner",
+      "name": "Hindi time planner",
+      "path": "/toolbox/hindi-time-planner/",
+      "category": "everyday",
+      "version": "v2",
+      "last_tested": "2026-09-11",
+      "pageExists": true,
+      "hasOwnJs": false,
+      "url": "https://ekguru.shop/toolbox/hindi-time-planner/",
+      "purpose": "Turn your real weekly hours into a projection for Devanagari, survival Hindi, conversation and fluency.",
+      "input": "Weekly hours + goal.",
+      "output": "Milestone timeline; honest arithmetic, no promises.",
+      "dataSource": "Fixed, documented assumptions (hours-per-milestone).",
+      "mobileDesktop": "responsive — single self-contained page, 44px touch targets (global CSS), no hover-only controls",
+      "accessibility": "labelled controls, keyboard-focusable, results announced in text (no ARIA live scoring claims)",
+      "seoSchema": "unique title/description/H1 + WebPage JSON-LD + canonical",
+      "tests": {
+        "verdict": "PASS",
+        "stepsPassed": 1,
+        "stepsTotal": 1,
+        "errors": [],
+        "overflow": {
+          "1280": 0,
+          "390": 0
+        }
+      },
+      "quality": "PASS — real-browser functional QA: purpose, example, output, validation, states, reset, copy, keyboard, labels, mobile, explanation, next step",
+      "usage": "no analytics behind a consent wall; tool pages are lightweight (no live-sheet stack)",
+      "action": "KEEP"
+    }
+  ],
+  "actions": {
+    "hindi-alphabet": "KEEP",
+    "hindi-numbers": "KEEP",
+    "hindi-phrasebook": "KEEP",
+    "hindi-flashcards": "KEEP",
+    "hindi-quiz": "KEEP",
+    "hindi-level-test": "KEEP",
+    "hindi-typing": "KEEP",
+    "hindi-verbs": "KEEP",
+    "hindi-vocabulary": "KEEP",
+    "hindi-date-time": "KEEP",
+    "hindi-pronunciation": "KEEP",
+    "hindi-time-planner": "KEEP"
+  },
+  "enrichedBy": "tools/enrich-tool-inventory.py",
+  "summary": {
+    "total": 12,
+    "keep": 12,
+    "fix": 0,
+    "upgrade": 0,
+    "merge": 0,
+    "replace": 0,
+    "functionalQa": {
+      "tools": 12,
+      "pass": 12,
+      "fail": 0,
+      "failed": []
+    }
+  }
+}

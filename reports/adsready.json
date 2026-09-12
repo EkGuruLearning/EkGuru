@@ -1,0 +1,82 @@
+{
+  "ready": true,
+  "passed": 12,
+  "total": 12,
+  "failed": [],
+  "checks": [
+    {
+      "id": "ads-txt",
+      "label": "ads.txt present with correct publisher id",
+      "ok": true,
+      "detail": "200 — google.com, pub-8175326569491671, DIRECT, f08c47fec0942fa0"
+    },
+    {
+      "id": "robots",
+      "label": "robots.txt allows crawling of money pages",
+      "ok": true,
+      "detail": "200 — sitemap declared"
+    },
+    {
+      "id": "sitemap",
+      "label": "sitemap-index valid and enumerates pages",
+      "ok": true,
+      "detail": "200 — 13 child sitemaps"
+    },
+    {
+      "id": "home-200",
+      "label": "Homepage serves HTTP 200",
+      "ok": true,
+      "detail": "200"
+    },
+    {
+      "id": "canonical",
+      "label": "Homepage canonical is the https production URL",
+      "ok": true,
+      "detail": "https://ekguru.shop/"
+    },
+    {
+      "id": "old-github-redirect",
+      "label": "Old GitHub Pages URL 301s to production https",
+      "ok": true,
+      "detail": "final https://ekguru.shop/"
+    },
+    {
+      "id": "page-privacy",
+      "label": "/privacy/ serves 200",
+      "ok": true,
+      "detail": "200"
+    },
+    {
+      "id": "page-about",
+      "label": "/about/ serves 200",
+      "ok": true,
+      "detail": "200"
+    },
+    {
+      "id": "page-contact",
+      "label": "/contact/ serves 200",
+      "ok": true,
+      "detail": "200"
+    },
+    {
+      "id": "page-terms",
+      "label": "/terms/ serves 200",
+      "ok": true,
+      "detail": "200"
+    },
+    {
+      "id": "content-volume",
+      "label": "Substantial unique content (≥100 published pages)",
+      "ok": true,
+      "detail": "606 HTML pages in tree"
+    },
+    {
+      "id": "real-pages",
+      "label": "Country pages are real, distinct pages (not redirects to one)",
+      "ok": true,
+      "detail": "learn-hindi-from-usa/ exists"
+    }
+  ],
+  "generated": "2026-09-12T05:35:58.786Z",
+  "disclaimer": "Readiness only — NOT an approval signal. AdSense approval is Google's decision."
+}

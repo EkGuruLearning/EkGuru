@@ -1,0 +1,194 @@
+{
+  "generated": "2026-09-11T11:43:22Z",
+  "command": "EkGuru_P0_Student_Booking_Email_Delivery_Repair.md",
+  "production": "https://ekguru.shop/",
+  "summary": "Apps Script primary relay is LIVE and SENDABLE: token wired, deployment v1 verified (fail-closed auth, type whitelist, recipient validation, real controlled send ACCEPTED). Remaining: owner confirms the [TEST] emails in the inbox, then the two-student/two-tutor cross-routing test.",
+  "root_cause": {
+    "title": "Student confirmation relay has no working route: Apps Script client-token unwired + stranger-capable fallbacks unavailable/unverifiable",
+    "chain_of_truth": [
+      "Booking submit resolves the student recipient from the validated #bk-email field (js/features.js sendRequest).",
+      "The booking record is committed to the ledger BEFORE any send, with the student email persisted (store.js add()).",
+      "mailer.js send() builds three separate messages: tutorBody() -> tutor target, siteBody() -> EkGuru inbox, studentBody() -> the student's own address.",
+      "The student job picks the first stranger-capable, sendable provider: Apps Script, then Web3Forms, then EmailJS.",
+      "Apps Script: URL set (v3) + server token minted (configured:true) BUT client token empty -> sendable()=false after v99, so it is no longer picked at all (and, before v99, it was picked and refused with 'Not authorised.' every time).",
+      "Web3Forms: 5 keys configured (1 legacy + 4), 250/month each, but the endpoint is datacenter-blocked here and key validity cannot be confirmed from this sandbox.",
+      "EmailJS: serviceId/templateId/publicKey all empty -> disabled.",
+      "FormSubmit: cannot reach an unactivated address (probed: 'This form needs Activation...') -> INCOMPATIBLE_FOR_STUDENT_PRIMARY.",
+      "StaticForms: ignores the recipient, delivers to the key-owner inbox only -> INCOMPATIBLE_FOR_STUDENT_PRIMARY.",
+      "Result: tutor copy and EkGuru record (addressed to our own activated inboxes) succeed via the free FormSubmit relay, while the student's receipt has no route -> EXHAUSTED. Exactly the reported bug."
+    ]
+  },
+  "providers": [
+    {
+      "provider": "Google Apps Script (own Gmail)",
+      "id": "appsscript",
+      "url": "https://script.google.com/macros/s/AKfycbzdX02U8KQU0XZpqXp4ACuNDAShrOKcHPCrMW5R3UcWOtHuWqquyouppkNusnLIz5ri/exec",
+      "scriptId": "1HL_EX3V4hDvGmS9WPsVq6E33rZSod9bJ0Ggaty--JXf5k5yGnJoJvmXM",
+      "configured": true,
+      "enabled": true,
+      "sendable": true,
+      "reason_not_sendable": null,
+      "booking_student": "PRIMARY once token wired (arbitrary recipient, replyTo, verified EkGuru sender, no activation)",
+      "booking_tutor": "can carry (arbitrary recipient) but tutor copies that route to our inbox use the free relay instead",
+      "booking_internal": "yes (addressed to us, but free relay preferred for cost)",
+      "contact_visitor": "yes (arbitrary recipient)",
+      "contact_internal": "yes",
+      "recipient_support": "arbitrary (ALLOW_STRANGERS=true)",
+      "reply_to_support": true,
+      "cc_support": true,
+      "quota": "90/day relay cap (owner Gmail ~100/day)",
+      "error_classes": "AUTH (token), quota (limit exceeded), INVALID_RECIPIENT",
+      "fallback_position": 1,
+      "last_tested": "2026-09-11T16:38:02Z",
+      "live_probe": {
+        "status": 200,
+        "body": "{\"success\":\"true\",\"status\":\"ok\",\"script\":\"EkGuru Mail Relay\",\"strangers\":true,\"limit\":90,\"configured\":true}"
+      },
+      "live_post_verification": {
+        "date": "2026-09-11T16:38:02Z",
+        "wrong_token": "{\"success\":\"false\",\"message\":\"Not authorised.\"}",
+        "unknown_type": "{\"success\":\"false\",\"message\":\"Unknown message type.\"}",
+        "invalid_recipient": "{\"success\":\"false\",\"message\":\"Missing or invalid recipient.\"}",
+        "controlled_send_owner_inbox": "{\"success\":\"true\",\"message\":\"sent\",\"state\":\"ACCEPTED\",\"requestId\":\"\"}",
+        "shipped_mailer_testSend": "ACCEPTED via Apps Script (tools/test-email-live.js)",
+        "idempotency_first_send": "sent",
+        "note": "ACCEPTED means the owner's Gmail dispatched the message; mailbox receipt still needs the owner to confirm the [TEST] emails arrived in EkGuruLearning@gmail.com."
+      }
+    },
+    {
+      "provider": "Web3Forms",
+      "id": "web3forms",
+      "configured": true,
+      "enabled": true,
+      "sendable": true,
+      "keys": 5,
+      "quota": "250/month per key (5 keys = ~1250/month)",
+      "booking_student": "fallback carrier (arbitrary recipient via `to`, but from_name is relay-side; cannot be verified from this datacenter)",
+      "booking_tutor": "fallback",
+      "booking_internal": "never used for our own inbox (ownInboxRelay prefers free)",
+      "contact_visitor": "fallback",
+      "contact_internal": "never (FormSubmit for our inbox)",
+      "recipient_support": "arbitrary (account verified by key, not recipient)",
+      "reply_to_support": true,
+      "cc_support": false,
+      "error_classes": "quota, invalid access key (retires the key)",
+      "fallback_position": 2,
+      "last_tested": "2026-09-11T11:43:22Z",
+      "live_probe": {
+        "status": -1,
+        "body": "FETCH ERROR: Failed to fetch"
+      }
+    },
+    {
+      "provider": "EmailJS",
+      "id": "emailjs",
+      "configured": false,
+      "enabled": false,
+      "sendable": false,
+      "reason": "serviceId/templateId/publicKey empty",
+      "booking_student": "not active",
+      "recipient_support": "arbitrary (template param)",
+      "reply_to_support": true,
+      "cc_support": false,
+      "quota": "200/month",
+      "fallback_position": 3,
+      "last_tested": "2026-09-11T11:43:22Z",
+      "live_probe": {
+        "status": -1,
+        "body": "NOT_CONFIGURED (no keys in site-config)"
+      }
+    },
+    {
+      "provider": "StaticForms",
+      "id": "staticforms",
+      "configured": true,
+      "enabled": true,
+      "sendable": true,
+      "booking_student": "INCOMPATIBLE_FOR_STUDENT_PRIMARY (ignores recipient; delivers to key-owner inbox only)",
+      "booking_tutor": "only as floor (message says 'FOR: <tutor>' and asks forwarding)",
+      "booking_internal": "floor",
+      "recipient_support": "key-owner inbox only",
+      "reply_to_support": true,
+      "cc_support": false,
+      "quota": "no monthly cap",
+      "fallback_position": 4,
+      "last_tested": "2026-09-11T11:43:22Z",
+      "live_probe": {
+        "status": 200,
+        "body": "{\"success\":true,\"message\":\"Form submitted successfully\"}"
+      }
+    },
+    {
+      "provider": "FormSubmit",
+      "id": "formsubmit",
+      "configured": true,
+      "enabled": true,
+      "sendable": true,
+      "booking_student": "INCOMPATIBLE_FOR_STUDENT_PRIMARY (every new recipient must click an activation link)",
+      "booking_tutor": "only for our own activated inboxes",
+      "booking_internal": "primary free relay",
+      "contact_visitor": "visitor copy rides as CC on a post to our inbox (no activation needed for CC)",
+      "contact_internal": "primary",
+      "recipient_support": "activated addresses only",
+      "reply_to_support": true,
+      "cc_support": true,
+      "quota": "unlimited/free (branded)",
+      "fallback_position": 5,
+      "last_tested": "2026-09-11T11:43:22Z",
+      "live_probe": {
+        "status": 200,
+        "body": "{\"success\":\"true\",\"message\":\"The form was submitted successfully.\"}"
+      }
+    }
+  ],
+  "message_roles": {
+    "BOOKING_STUDENT": {
+      "recipient": "studentEmail (validated, trimmed, lowercased, persisted as emailNorm)",
+      "template": "studentBody()",
+      "idempotency_key": "BOOKING-{ref}-STUDENT"
+    },
+    "BOOKING_TUTOR": {
+      "recipient": "tutorTarget(tutor) = formKey | email | site fallback",
+      "template": "tutorBody()",
+      "idempotency_key": "BOOKING-{ref}-TUTOR"
+    },
+    "BOOKING_INTERNAL": {
+      "recipient": "SITE.email (EkGuruLearning@gmail.com)",
+      "template": "siteBody()",
+      "idempotency_key": "BOOKING-{ref}-INTERNAL"
+    }
+  },
+  "delivery_status_vocabulary": [
+    "QUEUED",
+    "PROCESSING",
+    "PROVIDER_ATTEMPT",
+    "ACCEPTED",
+    "DELIVERED",
+    "FAILED",
+    "RETRYING",
+    "EXHAUSTED"
+  ],
+  "note_delivered": "DELIVERED is never set from a provider acceptance; a relay can only confirm ACCEPTED.",
+  "code_changes_v99": [
+    "js/mailer.js: provider.sendable() (Apps Script needs client token), chain() uses sendable(), student direct pick uses chain(), post() returns attempts+msgId, studentBody() gains Date&time/Timezone/Lesson/Current status rows, send() returns per-role emailDelivery {status,provider,lastAttempt,lastError,retryCount,messageId,recipient}, relayHealth() API added, providers() gains sendable+tokenMissing",
+    "js/store.js: booking record persists emailDelivery + flat student_email_status/provider/last_attempt/last_error/retry_count/message_id + emailNorm",
+    "js/features.js: student recipient normalized once and reused; QUEUED state at commit; emailDelivery persisted on success and on failure (EXHAUSTED/FAILED); honest per-role status on the confirmation screen",
+    "js/site-config.js: appsScript.url -> v3 deployment, scriptId -> 1kcvADOf9OqQQ2uH3Yl4fC6aG7-fBR1asfaGpqLf9cqn_xErvkZ5TMHKm",
+    "admin.html: per-role badges show provider/last attempt/retries/error; Delivery tab gains live Apps Script relay health incl. token-wiring status"
+  ],
+  "release_gate": {
+    "student_mailbox": "BLOCKED_ON_OWNER_STEP (must wire mail.appsScript.token; real inbox receipt then verifiable)",
+    "tutor_recipient": "PASS_STRUCTURAL (tutors with no address route to EkGuru inbox as TUTOR_EMAIL_UNAVAILABLE, shown in admin)",
+    "internal_record": "PASS (FormSubmit to our activated inbox, probed success:true)",
+    "booking_record": "PASS (committed before send; emailDelivery persisted)",
+    "fallback": "PASS_STRUCTURAL (sequential chain, stop-on-accept, EXHAUSTED at end; exercised in email-e2e)",
+    "idempotency": "PASS_STRUCTURAL (BOOKING-{ref}-{ROLE} keys in localStorage; admin retry uses force:true)",
+    "admin": "PASS (per-role provider/status/retry + live relay health)",
+    "contact_regression": "PASS_STRUCTURAL (contact flow untouched; re-verified by email-e2e test A)"
+  },
+  "remaining_owner_steps": [
+    "1. Confirm the [TEST] emails arrived in EkGuruLearning@gmail.com (mailbox receipt).",
+    "2. Deploy the release build (token is wired locally; GitHub push still credential-blocked from the sandbox).",
+    "3. Two-student/two-tutor cross-routing test in a real browser, then mark the final report PASS."
+  ]
+}

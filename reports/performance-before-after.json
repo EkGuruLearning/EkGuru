@@ -1,0 +1,144 @@
+{
+  "generated": "2026-09-12T04:28:59Z",
+  "phase": "Phase 2 — performance",
+  "method": "Real Chromium (1366×900), performance.getEntriesByType timing, local build.",
+  "weights": {
+    "jsFiles": 38,
+    "jsBytes": 1155639,
+    "jsKb": 1128.6,
+    "cssFiles": 1,
+    "cssBytes": 82474,
+    "cssKb": 80.5,
+    "largestJs": [
+      [
+        163646,
+        "mailer.js"
+      ],
+      [
+        110784,
+        "learn-quality.js"
+      ],
+      [
+        93283,
+        "admin-stats.js"
+      ],
+      [
+        89997,
+        "features.js"
+      ],
+      [
+        78550,
+        "i18n.js"
+      ],
+      [
+        63765,
+        "main.js"
+      ],
+      [
+        46021,
+        "sheet.js"
+      ],
+      [
+        44276,
+        "site-config.js"
+      ]
+    ]
+  },
+  "pages": [
+    {
+      "url": "http://localhost:8017/materials/alphabet/devanagari-chart/",
+      "dcl": 130,
+      "load": 459,
+      "resources": 14,
+      "js": 5,
+      "css": 1,
+      "img": 0,
+      "transfer_kb": 426
+    },
+    {
+      "url": "http://localhost:8017/materials/grammar/postpositions/",
+      "dcl": 59,
+      "load": 486,
+      "resources": 14,
+      "js": 5,
+      "css": 1,
+      "img": 0,
+      "transfer_kb": 426
+    },
+    {
+      "url": "http://localhost:8017/",
+      "dcl": 168,
+      "load": 612,
+      "resources": 45,
+      "js": 30,
+      "css": 1,
+      "img": 6,
+      "transfer_kb": 1177
+    },
+    {
+      "url": "http://localhost:8017/learn/",
+      "dcl": 31,
+      "load": 420,
+      "resources": 14,
+      "js": 5,
+      "css": 1,
+      "img": 0,
+      "transfer_kb": 426
+    },
+    {
+      "url": "http://localhost:8017/toolbox/hindi-alphabet/",
+      "dcl": 68,
+      "load": 445,
+      "resources": 14,
+      "js": 6,
+      "css": 1,
+      "img": 0,
+      "transfer_kb": 426
+    },
+    {
+      "url": "http://localhost:8017/tutor/sushila-g/",
+      "dcl": 92,
+      "load": 468,
+      "resources": 24,
+      "js": 13,
+      "css": 1,
+      "img": 2,
+      "transfer_kb": 573
+    },
+    {
+      "url": "http://localhost:8017/learn/hindi-sentence-structure/",
+      "dcl": 69,
+      "load": 353,
+      "resources": 23,
+      "js": 13,
+      "css": 1,
+      "img": 0,
+      "transfer_kb": 553
+    },
+    {
+      "url": "http://localhost:8017/contact/",
+      "dcl": 69,
+      "load": 69,
+      "resources": 9,
+      "js": 8,
+      "css": 1,
+      "img": 0,
+      "transfer_kb": 374
+    },
+    {
+      "url": "http://localhost:8017/about/",
+      "dcl": 46,
+      "load": 416,
+      "resources": 15,
+      "js": 6,
+      "css": 1,
+      "img": 0,
+      "transfer_kb": 440
+    }
+  ],
+  "assessment": {
+    "materialsPages": "~420–486 ms load, ~426 KB transfer, 5 JS / 14 resources — materials pages are lightweight (no live-sheet stack, no heavy JS).",
+    "homepage": "~612 ms load / ~1.17 MB transfer (includes the live-sheet stack + tutor images) — unchanged by this phase.",
+    "regression": "None introduced: no new third-party requests, no new JS on existing pages (materials pages load the same minimal shell as learn guides)."
+  }
+}

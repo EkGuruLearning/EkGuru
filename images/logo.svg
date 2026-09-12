@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="EkGuru logo">
+  <title>EkGuru — One Student. One Guru. One Goal.</title>
+  <desc>A diya flame rising from an open book, the lamp of learning passed from guru to student.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5b3df5"/>
+      <stop offset="52%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <linearGradient id="flame" x1="0.5" y1="1" x2="0.5" y2="0">
+      <stop offset="0%"   stop-color="#f59e0b"/>
+      <stop offset="45%"  stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#fff7d6"/>
+    </linearGradient>
+    <linearGradient id="pgL" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f0ecff"/>
+    </linearGradient>
+    <linearGradient id="pgR" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e3dcff"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%"   stop-color="#fbbf24" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#fbbf24" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="116" fill="url(#bg)"/>
+
+  <!-- warm halo behind the flame -->
+  <circle cx="256" cy="150" r="104" fill="url(#glow)"/>
+
+  <!-- diya flame: teardrop with the classic curled tip -->
+  <path d="M256 62c0 0 8 30 30 54 16 18 26 34 26 54a56 56 0 11-112 0c0-20 10-36 26-54 22-24 30-54 30-54z"
+        fill="url(#flame)"/>
+  <!-- inner cooler core -->
+  <path d="M256 122c0 0 4 16 15 29 8 10 13 19 13 29a28 28 0 11-56 0c0-10 5-19 13-29 11-13 15-29 15-29z"
+        fill="#fff" fill-opacity=".82"/>
+
+  <!-- open book: two pages meeting at a spine -->
+  <path d="M248 258c-38-26-80-30-124-14v146c44-16 86-12 124 14z"
+        fill="url(#pgL)"/>
+  <path d="M264 258c38-26 80-30 124-14v146c-44-16-86-12-124 14z"
+        fill="url(#pgR)"/>
+  <!-- spine -->
+  <path d="M256 262v146" stroke="#5b3df5" stroke-opacity=".3" stroke-width="10" stroke-linecap="round"/>
+  <!-- text lines, suggesting Devanagari's headline stroke -->
+  <path d="M150 300h68M150 330h68M150 360h54" stroke="#5b3df5" stroke-opacity=".22"
+        stroke-width="9" stroke-linecap="round"/>
+  <path d="M294 300h68M294 330h68M308 360h54" stroke="#5b3df5" stroke-opacity=".22"
+        stroke-width="9" stroke-linecap="round"/>
+</svg>

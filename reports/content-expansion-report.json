@@ -1,0 +1,36 @@
+{
+  "generated": "2026-09-12T04:28:59Z",
+  "phase": "Phase 2 — content depth & weak pages",
+  "baseline": {
+    "totalHtmlPages": 578,
+    "scanned": 214,
+    "keep": 83,
+    "improve": 129,
+    "remove": 2,
+    "classification": "KEEP | IMPROVE | MERGE | NOINDEX | REMOVE"
+  },
+  "actions": {
+    "newMaterials": 15,
+    "materialsCategories": 13,
+    "weakPageAudit": {
+      "classification": "KEEP | IMPROVE | MERGE | NOINDEX | REMOVE",
+      "heuristic": "baseline word-count: KEEP 83 / IMPROVE 129 / REMOVE 2",
+      "verification": {
+        "nearDuplicates": "0 — daily-hindi (30 pages, 627–816 content words each) and the short-format answers/country/language pages were shingle-compared; no near-duplicate content.",
+        "practiceLabs": "thin-by-design — 13 practice labs render interactively from js/practice-bank.js; every lab already carries a genuine 2-paragraph intro (what it is, how to use it, honest limits). Word-count on static HTML underestimates them.",
+        "paths": "7 paths already carry goal, starting level, expected outcome, ordered modules, practice, review, progress and a next step."
+      },
+      "finalActions": {
+        "keep": "All practice labs, paths, daily-hindi and short-answer pages (unique, useful, thin-by-design).",
+        "improve": "The review lab's 2 heuristic REMOVE flags are FALSE POSITIVES — reclassified KEEP (it is the interactive weak-area review queue, not a broken page).",
+        "merge": 0,
+        "noindex": 0,
+        "remove": 0,
+        "rationale": "No page met the real removal criteria (duplicate, stale, broken references, doorway content). Removing thin-but-interactive labs would break learner progression; padding them would be keyword stuffing."
+      }
+    },
+    "contentDepthStructure": "USER INTENT → QUICK ANSWER → EXPLANATION → EXAMPLES → COMMON MISTAKES → PRACTICE → TOOL → FAQ → RELATED → NEXT STEP is present across the 15 new materials and the existing learn guides (which already carry this structure)."
+  },
+  "noMassThinPages": true,
+  "factChecked": "All linguistic claims use verified, conservative Hindi (IAST romanisation, Devanagari forms); no invented credentials, reviews, ratings or user stories were added."
+}

@@ -1,0 +1,350 @@
+{
+  "generated": "2026-09-11T11:45:44Z",
+  "env": {
+    "mailer_loaded": true,
+    "ledger_loaded": true,
+    "provider": {
+      "name": "Web3Forms",
+      "id": "web3forms",
+      "branded": false,
+      "fallback": false,
+      "spent": [],
+      "available": [
+        "Google Apps Script (your own Gmail)",
+        "Web3Forms",
+        "StaticForms",
+        "FormSubmit"
+      ],
+      "chain": [
+        "Web3Forms",
+        "StaticForms",
+        "FormSubmit"
+      ],
+      "month": "2026-9"
+    },
+    "tutors": [
+      "hemlata",
+      "shikha-dutta",
+      "sushila-g",
+      "tara"
+    ]
+  },
+  "tests": {
+    "A_contact_real_send": {
+      "result": {
+        "resolved": {
+          "ok": true,
+          "ref": "C-E2EA1",
+          "to": "EkGuruLearning@gmail.com",
+          "via": "FormSubmit",
+          "acknowledged": false,
+          "state": "ACCEPTED",
+          "accepted": true,
+          "sentAt": "2026-09-11T11:45:12.193Z",
+          "emailStates": {
+            "internal": "ACCEPTED",
+            "visitor": "FAILED"
+          },
+          "failed": [
+            {
+              "to": "EkGuruLearning+student-test@gmail.com",
+              "error": "No mail relay could carry this message.",
+              "state": "FAILED",
+              "via": "",
+              "errorClass": "NO_ROUTE"
+            }
+          ]
+        }
+      },
+      "provider_requests": [
+        {
+          "url": "https://formsubmit.co/ajax/EkGuruLearning%40gmail.com",
+          "method": "POST",
+          "body": "{\"_subject\":\"[contact] C-E2EA1 \u2014 General \u2014 EkGuru E2E Test\",\"_template\":\"table\",\"_captcha\":\"false\",\"Reference\":\"C-E2EA1\",\"Their name\":\"EkGuru E2E Test\",\"Their email\":\"EkGuruLearning+student-test@gmail.com\",\"Topic\":\"General\",\"Subject\":\"Automated E2E contact test\",\"Message\":\"This is a controlled end-to-end test of the contact form routing. Please ignore.\",\"Sent\":\"Fri, 11 Sep 2026 11:45:12 GMT\",\"Sent from page\":\"http://127.0.0.1:8899/contact/\",\"Their language\":\"\",\"How to answer\":\"Just press Reply \u2014 this email's reply-to is EkGuruLearning+student-test@gmail.com.\",\"\u2014\":\"EkGuru \u2014 One Student. One Goal. One Guru.\\nhttps://ekguru.shop/\\nPrakash, founder \u2014 https://www.linkedin.com/in/itstheprakash/\\nEkGuruLearning@gmail.com\",\"email\":\"EkGuruLearning+student-test@gmail.com\"}"
+        },
+        {
+          "url": "https://api.web3forms.com/submit",
+          "method": "POST",
+          "body": "{\"Your reference\":\"C-E2EA1\",\"We received\":\"Fri, 11 Sep 2026 11:45:12 GMT\",\"You wrote\":\"This is a controlled end-to-end test of the contact form routing. Please ignore.\",\"About\":\"General\",\"What happens next\":\"A person reads every message. You will get a reply at EkGuruLearning+student-test@gmail.com, usually within a day. If it is urgent, reply to this email and quote C-E2EA1. This is an acknowledgement, not an answer.\",\"\u2014\":\"EkGuru \u2014 One Student. One Goal. One Guru.\\nhttps://ekguru.shop/\\nPrakash, founder \u2014 https://www.linkedin.com/in/itstheprakash/\\nEkGuruLearning@gmail.com\",\"email\":\"EkGuruLearning@gmail.com\",\"access_key\":\"5ad4a9a6-fcb2-445c-9764-cab8c99fadfa\",\"subject\":\"We have your message \u2014 C-E2EA1\",\"from_name\":\"EkGuru\",\"to\":\"EkGuruLearning+student-test@gmail.com\"}"
+        },
+        {
+          "url": "https://api.web3forms.com/submit",
+          "method": "POST",
+          "body": "{\"Your reference\":\"C-E2EA1\",\"We received\":\"Fri, 11 Sep 2026 11:45:12 GMT\",\"You wrote\":\"This is a controlled end-to-end test of the contact form routing. Please ignore.\",\"About\":\"General\",\"What happens next\":\"A person reads every message. You will get a reply at EkGuruLearning+student-test@gmail.com, usually within a day. If it is urgent, reply to this email and quote C-E2EA1. This is an acknowledgement, not an answer.\",\"\u2014\":\"EkGuru \u2014 One Student. One Goal. One Guru.\\nhttps://ekguru.shop/\\nPrakash, founder \u2014 https://www.linkedin.com/in/itstheprakash/\\nEkGuruLearning@gmail.com\",\"email\":\"EkGuruLearning@gmail.com\",\"access_key\":\"5ad4a9a6-fcb2-445c-9764-cab8c99fadfa\",\"subject\":\"We have your message \u2014 C-E2EA1\",\"from_name\":\"EkGuru\",\"to\":\"EkGuruLearning+student-test@gmail.com\"}"
+        }
+      ],
+      "note": "provider success=true means ACCEPTED (not DELIVERED)."
+    },
+    "B_booking_tutorA_vs_tutorB": {
+      "tutorA_id": "sushila-g",
+      "tutorA": {
+        "resolved": {
+          "ok": true,
+          "to": "EkGuruLearning@gmail.com",
+          "cc": [],
+          "failed": [
+            {
+              "to": "EkGuruLearning+student-test@gmail.com",
+              "error": "No mail relay could carry this message.",
+              "state": "FAILED",
+              "via": "",
+              "errorClass": "NO_ROUTE"
+            }
+          ],
+          "ref": "EK-E2EA1",
+          "from": "Rahul Test <EkGuruLearning+student-test@gmail.com>",
+          "toLabel": "Sushila G. <EkGuruLearning@gmail.com>",
+          "copies": [
+            "Rahul Test <EkGuruLearning+student-test@gmail.com> (their own copy)"
+          ],
+          "sentAt": "2026-09-11T11:45:16.152Z",
+          "subject": "Booking request EK-E2EA1 \u2014 Rahul Test \u2014 Wed 10 Sep, 18:00 (IST)",
+          "separate": true,
+          "state": "ACCEPTED",
+          "accepted": true,
+          "tutorEmailStatus": "TUTOR_EMAIL_UNAVAILABLE",
+          "tutorEmailUnavailable": true,
+          "tutorEmailNote": "This tutor has no personal address on file; the request went to the EkGuru inbox for forwarding.",
+          "emailStates": {
+            "tutor": "TUTOR_EMAIL_UNAVAILABLE",
+            "internal": "ACCEPTED",
+            "student": "FAILED"
+          },
+          "emailDelivery": {
+            "student": {
+              "status": "EXHAUSTED",
+              "provider": "",
+              "lastAttempt": "2026-09-11T11:45:16.152Z",
+              "lastError": "No mail relay could carry this message.",
+              "retryCount": 3,
+              "messageId": "",
+              "recipient": "EkGuruLearning+student-test@gmail.com"
+            },
+            "tutor": {
+              "status": "TUTOR_EMAIL_UNAVAILABLE",
+              "provider": "",
+              "lastAttempt": "2026-09-11T11:45:16.152Z",
+              "lastError": "",
+              "retryCount": 0,
+              "messageId": "",
+              "recipient": "EkGuruLearning@gmail.com"
+            },
+            "internal": {
+              "status": "ACCEPTED",
+              "provider": "StaticForms",
+              "lastAttempt": "2026-09-11T11:45:16.152Z",
+              "lastError": "",
+              "retryCount": 0,
+              "messageId": "",
+              "recipient": "EkGuruLearning@gmail.com",
+              "merged": true
+            }
+          }
+        }
+      },
+      "tutorB_id": "tara",
+      "tutorB": {
+        "resolved": {
+          "ok": true,
+          "to": "EkGuruLearning@gmail.com",
+          "cc": [],
+          "failed": [
+            {
+              "to": "EkGuruLearning+student-test@gmail.com",
+              "error": "No mail relay could carry this message.",
+              "state": "FAILED",
+              "via": "",
+              "errorClass": "NO_ROUTE"
+            }
+          ],
+          "ref": "EK-E2EB2",
+          "from": "Rahul Test <EkGuruLearning+student-test@gmail.com>",
+          "toLabel": "Tara <EkGuruLearning@gmail.com>",
+          "copies": [
+            "Rahul Test <EkGuruLearning+student-test@gmail.com> (their own copy)"
+          ],
+          "sentAt": "2026-09-11T11:45:19.814Z",
+          "subject": "Booking request EK-E2EB2 \u2014 Rahul Test \u2014 Wed 10 Sep, 18:00 (IST)",
+          "separate": true,
+          "state": "ACCEPTED",
+          "accepted": true,
+          "tutorEmailStatus": "TUTOR_EMAIL_UNAVAILABLE",
+          "tutorEmailUnavailable": true,
+          "tutorEmailNote": "This tutor has no personal address on file; the request went to the EkGuru inbox for forwarding.",
+          "emailStates": {
+            "tutor": "TUTOR_EMAIL_UNAVAILABLE",
+            "internal": "ACCEPTED",
+            "student": "FAILED"
+          },
+          "emailDelivery": {
+            "student": {
+              "status": "EXHAUSTED",
+              "provider": "",
+              "lastAttempt": "2026-09-11T11:45:19.814Z",
+              "lastError": "No mail relay could carry this message.",
+              "retryCount": 3,
+              "messageId": "",
+              "recipient": "EkGuruLearning+student-test@gmail.com"
+            },
+            "tutor": {
+              "status": "TUTOR_EMAIL_UNAVAILABLE",
+              "provider": "",
+              "lastAttempt": "2026-09-11T11:45:19.814Z",
+              "lastError": "",
+              "retryCount": 0,
+              "messageId": "",
+              "recipient": "EkGuruLearning@gmail.com"
+            },
+            "internal": {
+              "status": "ACCEPTED",
+              "provider": "StaticForms",
+              "lastAttempt": "2026-09-11T11:45:19.814Z",
+              "lastError": "",
+              "retryCount": 0,
+              "messageId": "",
+              "recipient": "EkGuruLearning@gmail.com",
+              "merged": true
+            }
+          }
+        }
+      },
+      "note": "routing proven if tutorEmailStatus is reported honestly (TUTOR_EMAIL_UNAVAILABLE when no personal address) and no generic platform address is passed off as a tutor inbox."
+    },
+    "C_fallback_web3forms_blocked": {
+      "result": {
+        "ok": true,
+        "ref": "C-E2EC3",
+        "to": "EkGuruLearning@gmail.com",
+        "via": "FormSubmit",
+        "acknowledged": false,
+        "state": "ACCEPTED",
+        "accepted": true,
+        "sentAt": "2026-09-11T11:45:25.658Z",
+        "emailStates": {
+          "internal": "ACCEPTED",
+          "visitor": "FAILED"
+        },
+        "failed": [
+          {
+            "to": "EkGuruLearning+student-test@gmail.com",
+            "error": "No mail relay could carry this message.",
+            "state": "FAILED",
+            "via": "",
+            "errorClass": "NO_ROUTE"
+          }
+        ]
+      },
+      "requests_seen": [
+        "https://api.web3forms.com/submit",
+        "https://formsubmit.co/ajax/EkGuruLearning%40gmail.com"
+      ],
+      "web3forms_blocked": true
+    },
+    "D_all_providers_down": {
+      "orchestrator_result": {
+        "result": {
+          "thrown": "No mail relay could carry this message."
+        },
+        "record_survived": true,
+        "problems_include_all_down": true
+      },
+      "note": "PASS if result.thrown is an honest error AND record_survived is true AND problems_include_all_down is true."
+    },
+    "E_negative_bad_email": {
+      "rejected": "Page.evaluate: Error: Please enter an email address we can reply to\n    at Object.contact (http://127.0.0.1:8899/js/mailer.js:2311:31)\n    at eval (eval at evaluate (:311:30), <anonymous>:2:49)\n    at UtilityScript.evaluate (<anonymous>:318:18)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+    },
+    "F_idempotency_same_ref": {
+      "result": {
+        "resolved": {
+          "first": {
+            "ok": true,
+            "ref": "C-E2EF5",
+            "to": "EkGuruLearning@gmail.com",
+            "via": "FormSubmit",
+            "acknowledged": false,
+            "state": "ACCEPTED",
+            "accepted": true,
+            "sentAt": "2026-09-11T11:45:37.946Z",
+            "emailStates": {
+              "internal": "ACCEPTED",
+              "visitor": "FAILED"
+            },
+            "failed": [
+              {
+                "to": "EkGuruLearning+student-test@gmail.com",
+                "error": "No mail relay could carry this message.",
+                "state": "FAILED",
+                "via": "",
+                "errorClass": "NO_ROUTE"
+              }
+            ]
+          },
+          "second": {
+            "ok": true,
+            "ref": "C-E2EF5",
+            "to": "EkGuruLearning@gmail.com",
+            "via": "FormSubmit",
+            "acknowledged": false,
+            "state": "ACCEPTED",
+            "accepted": true,
+            "sentAt": "2026-09-11T11:45:41.259Z",
+            "emailStates": {
+              "internal": "ACCEPTED",
+              "visitor": "FAILED"
+            },
+            "failed": [
+              {
+                "to": "EkGuruLearning+student-test@gmail.com",
+                "error": "No mail relay could carry this message.",
+                "state": "FAILED",
+                "via": "",
+                "errorClass": "NO_ROUTE"
+              }
+            ]
+          },
+          "sent_keys": [
+            "CONTACT-C-E2EF5-INTERNAL",
+            "CONTACT-C-E2EF5-VISITOR"
+          ]
+        }
+      },
+      "provider_requests_after_second": [
+        {
+          "url": "https://formsubmit.co/ajax/EkGuruLearning%40gmail.com",
+          "method": "POST",
+          "body": "{\"_subject\":\"[contact] C-E2EF5 \u2014 General \u2014 Dup Test\",\"_template\":\"table\",\"_captcha\":\"false\",\"Reference\":\"C-E2EF5\",\"Their name\":\"Dup Test\",\"Their email\":\"EkGuruLearning+student-test@gmail.com\",\"Topic\":\"General\",\"Subject\":\"dup\",\"Message\":\"dup test message for idempotency\",\"Sent\":\"Fri, 11 Sep 2026 11:45:37 GMT\",\"Sent from page\":\"http://127.0.0.1:8899/contact/\",\"Their language\":\"\",\"How to answer\":\"Just press Reply \u2014 this email's reply-to is EkGuruLearning+student-test@gmail.com.\",\"\u2014\":\"EkGuru \u2014 One Student. One Goal. One Guru.\\nhttps://ekguru.shop/\\nPrakash, founder \u2014 https://www.linkedin.com/in/itstheprakash/\\nEkGuruLearning@gmail.com\",\"email\":\"EkGuruLearning+student-test@gmail.com\"}"
+        },
+        {
+          "url": "https://api.web3forms.com/submit",
+          "method": "POST",
+          "body": "{\"Your reference\":\"C-E2EF5\",\"We received\":\"Fri, 11 Sep 2026 11:45:37 GMT\",\"You wrote\":\"dup test message for idempotency\",\"About\":\"General\",\"What happens next\":\"A person reads every message. You will get a reply at EkGuruLearning+student-test@gmail.com, usually within a day. If it is urgent, reply to this email and quote C-E2EF5. This is an acknowledgement, not an answer.\",\"\u2014\":\"EkGuru \u2014 One Student. One Goal. One Guru.\\nhttps://ekguru.shop/\\nPrakash, founder \u2014 https://www.linkedin.com/in/itstheprakash/\\nEkGuruLearning@gmail.com\",\"email\":\"EkGuruLearning@gmail.com\",\"access_key\":\"5ad4a9a6-fcb2-445c-9764-cab8c99fadfa\",\"subject\":\"We have your message \u2014 C-E2EF5\",\"from_name\":\"EkGuru\",\"to\":\"EkGuruLearning+student-test@gmail.com\"}"
+        },
+        {
+          "url": "https://api.web3forms.com/submit",
+          "method": "POST",
+          "body": "{\"Your reference\":\"C-E2EF5\",\"We received\":\"Fri, 11 Sep 2026 11:45:37 GMT\",\"You wrote\":\"dup test message for idempotency\",\"About\":\"General\",\"What happens next\":\"A person reads every message. You will get a reply at EkGuruLearning+student-test@gmail.com, usually within a day. If it is urgent, reply to this email and quote C-E2EF5. This is an acknowledgement, not an answer.\",\"\u2014\":\"EkGuru \u2014 One Student. One Goal. One Guru.\\nhttps://ekguru.shop/\\nPrakash, founder \u2014 https://www.linkedin.com/in/itstheprakash/\\nEkGuruLearning@gmail.com\",\"email\":\"EkGuruLearning@gmail.com\",\"access_key\":\"5ad4a9a6-fcb2-445c-9764-cab8c99fadfa\",\"subject\":\"We have your message \u2014 C-E2EF5\",\"from_name\":\"EkGuru\",\"to\":\"EkGuruLearning+student-test@gmail.com\"}"
+        },
+        {
+          "url": "https://api.web3forms.com/submit",
+          "method": "POST",
+          "body": "{\"Your reference\":\"C-E2EF5\",\"We received\":\"Fri, 11 Sep 2026 11:45:41 GMT\",\"You wrote\":\"dup test message for idempotency\",\"About\":\"General\",\"What happens next\":\"A person reads every message. You will get a reply at EkGuruLearning+student-test@gmail.com, usually within a day. If it is urgent, reply to this email and quote C-E2EF5. This is an acknowledgement, not an answer.\",\"\u2014\":\"EkGuru \u2014 One Student. One Goal. One Guru.\\nhttps://ekguru.shop/\\nPrakash, founder \u2014 https://www.linkedin.com/in/itstheprakash/\\nEkGuruLearning@gmail.com\",\"email\":\"EkGuruLearning@gmail.com\",\"access_key\":\"5ad4a9a6-fcb2-445c-9764-cab8c99fadfa\",\"subject\":\"We have your message \u2014 C-E2EF5\",\"from_name\":\"EkGuru\",\"to\":\"EkGuruLearning+student-test@gmail.com\"}"
+        },
+        {
+          "url": "https://api.web3forms.com/submit",
+          "method": "POST",
+          "body": "{\"Your reference\":\"C-E2EF5\",\"We received\":\"Fri, 11 Sep 2026 11:45:41 GMT\",\"You wrote\":\"dup test message for idempotency\",\"About\":\"General\",\"What happens next\":\"A person reads every message. You will get a reply at EkGuruLearning+student-test@gmail.com, usually within a day. If it is urgent, reply to this email and quote C-E2EF5. This is an acknowledgement, not an answer.\",\"\u2014\":\"EkGuru \u2014 One Student. One Goal. One Guru.\\nhttps://ekguru.shop/\\nPrakash, founder \u2014 https://www.linkedin.com/in/itstheprakash/\\nEkGuruLearning@gmail.com\",\"email\":\"EkGuruLearning@gmail.com\",\"access_key\":\"5ad4a9a6-fcb2-445c-9764-cab8c99fadfa\",\"subject\":\"We have your message \u2014 C-E2EF5\",\"from_name\":\"EkGuru\",\"to\":\"EkGuruLearning+student-test@gmail.com\"}"
+        }
+      ],
+      "note": "idempotent if the second send skipped the already-succeeded roles (dedup in result) and no new provider request fired for them."
+    }
+  },
+  "ledger_counts": {
+    "total": 0,
+    "failed": 0,
+    "booking": 0,
+    "contact": 0,
+    "reply": 0,
+    "bulk": 0,
+    "report": 0
+  }
+}

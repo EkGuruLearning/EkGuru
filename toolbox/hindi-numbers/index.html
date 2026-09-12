@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hindi Numbers 0 to 100 — Tool and Full Table | EkGuru</title>
+<meta name="description" content="Every Hindi number from 0 to 100 in Devanagari with pronunciation. Type a number, get the Hindi word, or quiz yourself. Free, no sign-up.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://ekguru.shop/toolbox/hindi-numbers/">
+<!-- Search Console verification. tools/patch.js also adds this to
+     every page as its final build step, but patch.js runs LAST and
+     a generator run on its own therefore produced pages without it —
+     which is exactly what happened in v71, when re-running
+     countrypages.js mid-test-suite dropped the tag from 55 pages and
+     test-site caught it. Emitting it here means a page is correct
+     the moment it is written; patch.js then finds nothing to do. -->
+<meta name="google-site-verification" content="hFaqyp-9LdUXSKPA9RF011TkO2m_-7AUMasXqm_0dGI" />
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EkGuru">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Hindi Numbers 0 to 100 — Tool and Full Table | EkGuru">
+<meta property="og:description" content="Every Hindi number from 0 to 100 in Devanagari with pronunciation. Type a number, get the Hindi word, or quiz yourself. Free, no sign-up.">
+<meta property="og:url" content="https://ekguru.shop/toolbox/hindi-numbers/">
+<meta property="og:image" content="https://ekguru.shop/images/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hindi Numbers 0 to 100 — Tool and Full Table | EkGuru">
+<meta name="twitter:description" content="Every Hindi number from 0 to 100 in Devanagari with pronunciation. Type a number, get the Hindi word, or quiz yourself. Free, no sign-up.">
+<meta name="twitter:image" content="https://ekguru.shop/images/og-cover.jpg">
+
+<link rel="icon" href="../../images/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../../images/apple-touch-icon.png">
+<link rel="manifest" href="../../manifest.webmanifest">
+<meta name="theme-color" content="#4f32d9">
+<link rel="stylesheet" href="../../css/style.min.css">
+<style>
+.pw{max-width:820px;margin:0 auto;padding:0 20px 64px}
+.pw h1{font-size:clamp(1.6rem,4.4vw,2.05rem);line-height:1.24;margin:24px 0 14px}
+.pw h2{font-size:clamp(1.12rem,3vw,1.3rem);line-height:1.3;margin:34px 0 12px}
+.pw h3{font-size:1.02rem;margin:24px 0 8px}
+.pw p,.pw li{line-height:1.72;font-size:1rem}
+.pw p,.pw ul,.pw ol{max-width:72ch}
+.lede{color:var(--ink-2);font-size:1.06rem;line-height:1.7}
+.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0;word-break:break-word}
+.crumb a{color:var(--muted)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
+.fact{border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:var(--bg-soft)}
+.fact b{display:block;font-size:1.12rem;margin-bottom:2px;color:var(--ink)}
+.fact span{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.faq{border:1px solid var(--line);border-radius:12px;padding:15px 17px;margin:12px 0;background:var(--card,#fff)}
+.faq b{display:block;margin-bottom:6px;color:var(--ink)}
+.faq p{margin:0;color:var(--ink-2)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chips a{font-size:.87rem;border:1px solid var(--line);border-radius:20px;padding:7px 13px;text-decoration:none;background:var(--card,#fff);color:var(--brand);min-height:34px;display:inline-flex;align-items:center}
+/* v97 — measured 40px in real Chromium at 320px, under the 44px
+   touch floor. This CSS is inlined into the page AFTER style.css
+   loads, so the global @media (pointer:coarse) rule cannot win —
+   the override has to live beside the rule it overrides. */
+@media (pointer:coarse){.chips a{min-height:44px}}
+.chips a:hover{border-color:var(--brand-2)}
+.cta{border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:12px;background:var(--bg-soft);padding:16px 18px;margin:26px 0}
+.cta b{display:block;margin-bottom:6px;color:var(--ink)}
+.cta p{margin:0 0 10px;color:var(--ink-2)}
+.tbl{width:100%;border-collapse:collapse;margin:16px 0;font-size:.95rem;display:block;overflow-x:auto}
+.tbl th,.tbl td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+.tbl th{background:var(--bg-soft);font-weight:600;color:var(--ink)}
+.dv{font-family:"Noto Sans Devanagari","Nirmala UI",system-ui,sans-serif;line-height:1.85}
+.note{background:var(--warn-soft);border:1px solid var(--warn-line);border-radius:10px;padding:12px 15px;margin:18px 0;font-size:.94rem;color:var(--ink-2)}
+.pw .btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+@media(max-width:520px){.pw{padding:0 15px 48px}}
+/* v79 — the trust footer's styling lives in css/style.css as
+   .pw-ftr, NOT here. tools/patch.js emits the identical footer on
+   the 115 pages built by the five pre-shell generators, and two
+   copies of the same rule in two files is how this project has
+   shipped a stale style five separate times. One class, one
+   place, all 465 pages. */
+
+.tool{border:1px solid var(--line);border-radius:14px;padding:18px;margin:22px 0;background:var(--card,#fff)}
+.tool label{display:block;font-size:.9rem;color:var(--ink-2);margin:0 0 6px;font-weight:600}
+.tool input[type=text],.tool input[type=search],.tool select{width:100%;padding:11px 13px;font-size:1rem;
+  border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);min-height:44px}
+.tool input:focus,.tool select:focus{outline:2px solid var(--focus);outline-offset:1px}
+.grid{display:grid;gap:9px}
+.g6{grid-template-columns:repeat(auto-fill,minmax(88px,1fr))}
+.g4{grid-template-columns:repeat(auto-fill,minmax(132px,1fr))}
+.cell{border:1px solid var(--line);border-radius:11px;padding:10px 6px;text-align:center;background:var(--bg-soft);
+  cursor:pointer;min-height:44px}
+.cell:hover,.cell:focus{border-color:var(--brand-2);background:#fff}
+.cell .ch{font-size:1.6rem;line-height:1.3;color:var(--ink);font-family:"Noto Sans Devanagari","Nirmala UI",serif}
+.cell .rm{font-size:.8rem;color:var(--muted);display:block}
+.detail{margin-top:14px;padding:15px;border:1px solid var(--brand-2);border-radius:12px;background:var(--bg-soft)}
+.detail .big{font-size:2.6rem;line-height:1.2;color:var(--brand);font-family:"Noto Sans Devanagari","Nirmala UI",serif}
+.detail p{margin:6px 0;color:var(--ink-2)}
+.row{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:12px 0}
+.row .btn{min-height:44px}
+.pill{font-size:.82rem;border:1px solid var(--line);border-radius:18px;padding:6px 12px;background:var(--bg-soft);
+  cursor:pointer;color:var(--ink-2);min-height:34px}
+/* v97 — .pill above declares min-height:34px and measured 40px
+   on a phone, under the 44px touch floor. This CSS is inlined
+   into each tool page after style.css, so the global
+   pointer:coarse rule cannot win on cascade order. */
+@media (pointer:coarse){.pill{min-height:44px}}
+.pill[aria-pressed=true]{background:var(--brand);color:#fff;border-color:var(--brand)}
+.card{border:1px solid var(--line);border-radius:14px;padding:26px 18px;text-align:center;background:var(--bg-soft);min-height:170px;
+  display:flex;flex-direction:column;justify-content:center;gap:8px}
+.card .front{font-size:1.35rem;color:var(--ink)}
+.card .back{font-size:2rem;color:var(--brand);font-family:"Noto Sans Devanagari","Nirmala UI",serif}
+.card .rom{font-size:.95rem;color:var(--muted)}
+.score{font-size:.9rem;color:var(--ink-2);margin:10px 0}
+.bar{height:8px;border-radius:4px;background:var(--line);overflow:hidden;margin:8px 0}
+.bar>i{display:block;height:100%;background:var(--brand);width:0}
+.out{font-size:1.6rem;min-height:2.4rem;padding:12px;border:1px solid var(--line);border-radius:10px;
+  background:var(--bg-soft);color:var(--ink);font-family:"Noto Sans Devanagari","Nirmala UI",serif;word-break:break-word}
+.ok{color:var(--green);font-weight:600}
+.no{color:var(--brand-3);font-weight:600}
+.nojs{font-size:.9rem;color:var(--muted);margin:6px 0 0}
+.tbl td.dv,.tbl th.dv{font-family:"Noto Sans Devanagari","Nirmala UI",serif;font-size:1.05rem}
+@media(pointer:coarse){.chips a,.chips button,.pill,.rel a,.art-nav a,.crumbs a,.ftr a,.tag,.chip-btn{min-height:44px}.rel a,.art-nav a,.crumbs a,.ftr a{display:inline-block;padding-block:10px}b>a,strong>a,h3>a,h2>a{display:inline-block;padding-block:12px}input,select,textarea,button{min-height:44px}}</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","@id":"https://ekguru.shop/toolbox/hindi-numbers/#app","name":"Hindi Numbers Tool","description":"Look up and practise Hindi numbers 0–100","url":"https://ekguru.shop/toolbox/hindi-numbers/","applicationCategory":"EducationalApplication","operatingSystem":"Any modern browser","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"EkGuru","url":"https://ekguru.shop/"}},{"@id":"https://ekguru.shop/toolbox/hindi-numbers/#faq","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why are Hindi numbers so hard?","acceptedAnswer":{"@type":"Answer","text":"Because they are not built from parts. English makes twenty-one out of twenty and one; Hindi has इक्कीस (ikkees), a separate word worn down from a Sanskrit compound. There are effectively a hundred words to learn rather than about thirty."}},{"@type":"Question","name":"Is there any pattern at all?","acceptedAnswer":{"@type":"Answer","text":"Yes, and it saves you. Within each block of ten, the ending rhymes with the NEXT ten, not the current one. 29 is उनतीस — leaning on तीस (30), not बीस (20). Same at 39, 49, 59. Once you hear that, the nines stop feeling random."}},{"@type":"Question","name":"Which numbers do I actually need?","acceptedAnswer":{"@type":"Answer","text":"1 to 20, the round tens, सौ (100) and हज़ार (1,000). That covers prices, ages, times and phone numbers, which is nearly everything a number is used for in conversation."}},{"@type":"Question","name":"What are lakh and crore?","acceptedAnswer":{"@type":"Answer","text":"The Indian numbering system groups differently above a thousand. A lakh (लाख) is 100,000 and a crore (करोड़) is 10,000,000. Prices, salaries and news figures in India are given this way constantly, so it is worth learning early."}}]},{"@id":"https://ekguru.shop/toolbox/hindi-numbers/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"EkGuru","item":"https://ekguru.shop/"},{"@type":"ListItem","position":2,"name":"Learn Hindi","item":"https://ekguru.shop/learn/"},{"@type":"ListItem","position":3,"name":"Tools","item":"https://ekguru.shop/toolbox/"},{"@type":"ListItem","position":4,"name":"Numbers tool","item":"https://ekguru.shop/toolbox/hindi-numbers/"}]}]}</script>
+<!-- Google AdSense. Emitted only because ads.client is set to a valid
+     publisher id in js/site-config.js. Clear that value and every one
+     of these tags disappears on the next build. See tools/adsense.js. -->
+<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+<link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+<meta name="google-adsense-account" content="ca-pub-8175326569491671">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8175326569491671" crossorigin="anonymous"></script>
+<!-- ekguru:adsense:start -->
+<!-- Google AdSense. Emitted only because ads.client is set to a valid
+     publisher id in js/site-config.js. Clear that value and every one
+     of these tags disappears on the next build. See tools/adsense.js. -->
+<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+<link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+<meta name="google-adsense-account" content="ca-pub-8175326569491671">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8175326569491671" crossorigin="anonymous"></script>
+<!-- ekguru:adsense:end -->
+</head>
+<body>
+<div class="pw">
+
+<p class="crumb"><a href="../../">EkGuru</a> › <a href="../../learn/">Learn Hindi</a> › <a href="../../toolbox/">Tools</a> › Numbers tool</p>
+<h1>Hindi numbers, 0 to 100</h1>
+<p class="lede">Every number from शून्य to सौ, in Devanagari, in Devanagari digits, and
+with a pronunciation guide. Type a number to jump to it, or work through the table.</p>
+
+<div class="tool">
+  <label for="numin">Type a number from 0 to 100</label>
+  <input type="text" id="numin" inputmode="numeric" placeholder="e.g. 47" autocomplete="off">
+  <div class="detail" id="numout" hidden></div>
+  <div class="row">
+    <button class="pill" type="button" id="rand">Show me a random one</button>
+    <button class="pill" type="button" id="quiz">Quiz me</button>
+  </div>
+  <div id="qz" hidden>
+    <p class="score" id="qscore">Score: 0 / 0</p>
+    <p style="font-size:1.9rem;margin:6px 0" class="dv" id="qq"></p>
+    <div class="row" id="qopts"></div>
+  </div>
+  <p class="nojs">The full table is below and needs no JavaScript.</p>
+</div>
+
+<h2>The pattern that saves you</h2>
+<p>Hindi numbers look like a hundred unrelated words, and to a large extent they are.
+But there is one regularity worth knowing: the number ending in nine belongs, in
+sound, to the ten above it. उनतीस (29) rhymes with तीस (30). उनतालीस (39) rhymes with
+चालीस (40). उनचास (49) rhymes with पचास (50). The Hindi nine is built by subtracting
+one from the next ten rather than adding nine to the last one, which is exactly how
+Latin did it too.</p>
+
+<h2>Where you will actually use these</h2>
+<p>Prices are said in full: दो सौ पचास (do sau pachaas) is 250. Listen for सौ as the
+pivot — everything before it multiplies, everything after adds. Ages use साल: मैं
+तीस साल का हूँ. Time uses बजे: तीन बजे is three o'clock. Learn numbers inside these
+three frames rather than as a list and they stick far better.</p>
+
+<h2>The full table</h2>
+<table class="tbl">
+  <tr><th>Number</th><th>Devanagari digit</th><th>Hindi</th><th>Sounds like</th></tr>
+  <tr><td>0</td><td class="dv">०</td><td class="dv">शून्य</td><td>shoonya</td></tr>
+  <tr><td>1</td><td class="dv">१</td><td class="dv">एक</td><td>ek</td></tr>
+  <tr><td>2</td><td class="dv">२</td><td class="dv">दो</td><td>do</td></tr>
+  <tr><td>3</td><td class="dv">३</td><td class="dv">तीन</td><td>teen</td></tr>
+  <tr><td>4</td><td class="dv">४</td><td class="dv">चार</td><td>chaar</td></tr>
+  <tr><td>5</td><td class="dv">५</td><td class="dv">पाँच</td><td>paanch</td></tr>
+  <tr><td>6</td><td class="dv">६</td><td class="dv">छह</td><td>chhah</td></tr>
+  <tr><td>7</td><td class="dv">७</td><td class="dv">सात</td><td>saat</td></tr>
+  <tr><td>8</td><td class="dv">८</td><td class="dv">आठ</td><td>aath</td></tr>
+  <tr><td>9</td><td class="dv">९</td><td class="dv">नौ</td><td>nau</td></tr>
+  <tr><td>10</td><td class="dv">१०</td><td class="dv">दस</td><td>das</td></tr>
+  <tr><td>11</td><td class="dv">११</td><td class="dv">ग्यारह</td><td>gyaarah</td></tr>
+  <tr><td>12</td><td class="dv">१२</td><td class="dv">बारह</td><td>baarah</td></tr>
+  <tr><td>13</td><td class="dv">१३</td><td class="dv">तेरह</td><td>terah</td></tr>
+  <tr><td>14</td><td class="dv">१४</td><td class="dv">चौदह</td><td>chaudah</td></tr>
+  <tr><td>15</td><td class="dv">१५</td><td class="dv">पंद्रह</td><td>pandrah</td></tr>
+  <tr><td>16</td><td class="dv">१६</td><td class="dv">सोलह</td><td>solah</td></tr>
+  <tr><td>17</td><td class="dv">१७</td><td class="dv">सत्रह</td><td>satrah</td></tr>
+  <tr><td>18</td><td class="dv">१८</td><td class="dv">अठारह</td><td>athaarah</td></tr>
+  <tr><td>19</td><td class="dv">१९</td><td class="dv">उन्नीस</td><td>unnees</td></tr>
+  <tr><td>20</td><td class="dv">२०</td><td class="dv">बीस</td><td>bees</td></tr>
+  <tr><td>21</td><td class="dv">२१</td><td class="dv">इक्कीस</td><td>ikkees</td></tr>
+  <tr><td>22</td><td class="dv">२२</td><td class="dv">बाईस</td><td>baaees</td></tr>
+  <tr><td>23</td><td class="dv">२३</td><td class="dv">तेईस</td><td>teees</td></tr>
+  <tr><td>24</td><td class="dv">२४</td><td class="dv">चौबीस</td><td>chaubees</td></tr>
+  <tr><td>25</td><td class="dv">२५</td><td class="dv">पच्चीस</td><td>pachchees</td></tr>
+  <tr><td>26</td><td class="dv">२६</td><td class="dv">छब्बीस</td><td>chhabbees</td></tr>
+  <tr><td>27</td><td class="dv">२७</td><td class="dv">सत्ताईस</td><td>sattaaees</td></tr>
+  <tr><td>28</td><td class="dv">२८</td><td class="dv">अट्ठाईस</td><td>atthaaees</td></tr>
+  <tr><td>29</td><td class="dv">२९</td><td class="dv">उनतीस</td><td>untees</td></tr>
+  <tr><td>30</td><td class="dv">३०</td><td class="dv">तीस</td><td>tees</td></tr>
+  <tr><td>31</td><td class="dv">३१</td><td class="dv">इकतीस</td><td>ikatees</td></tr>
+  <tr><td>32</td><td class="dv">३२</td><td class="dv">बत्तीस</td><td>battees</td></tr>
+  <tr><td>33</td><td class="dv">३३</td><td class="dv">तैंतीस</td><td>taintees</td></tr>
+  <tr><td>34</td><td class="dv">३४</td><td class="dv">चौंतीस</td><td>chauntees</td></tr>
+  <tr><td>35</td><td class="dv">३५</td><td class="dv">पैंतीस</td><td>paintees</td></tr>
+  <tr><td>36</td><td class="dv">३६</td><td class="dv">छत्तीस</td><td>chhattees</td></tr>
+  <tr><td>37</td><td class="dv">३७</td><td class="dv">सैंतीस</td><td>saintees</td></tr>
+  <tr><td>38</td><td class="dv">३८</td><td class="dv">अड़तीस</td><td>adtees</td></tr>
+  <tr><td>39</td><td class="dv">३९</td><td class="dv">उनतालीस</td><td>untaalees</td></tr>
+  <tr><td>40</td><td class="dv">४०</td><td class="dv">चालीस</td><td>chaalees</td></tr>
+  <tr><td>41</td><td class="dv">४१</td><td class="dv">इकतालीस</td><td>ikataalees</td></tr>
+  <tr><td>42</td><td class="dv">४२</td><td class="dv">बयालीस</td><td>bayaalees</td></tr>
+  <tr><td>43</td><td class="dv">४३</td><td class="dv">तैंतालीस</td><td>taintaalees</td></tr>
+  <tr><td>44</td><td class="dv">४४</td><td class="dv">चवालीस</td><td>chavaalees</td></tr>
+  <tr><td>45</td><td class="dv">४५</td><td class="dv">पैंतालीस</td><td>paintaalees</td></tr>
+  <tr><td>46</td><td class="dv">४६</td><td class="dv">छियालीस</td><td>chhiyaalees</td></tr>
+  <tr><td>47</td><td class="dv">४७</td><td class="dv">सैंतालीस</td><td>saintaalees</td></tr>
+  <tr><td>48</td><td class="dv">४८</td><td class="dv">अड़तालीस</td><td>adtaalees</td></tr>
+  <tr><td>49</td><td class="dv">४९</td><td class="dv">उनचास</td><td>unchaas</td></tr>
+  <tr><td>50</td><td class="dv">५०</td><td class="dv">पचास</td><td>pachaas</td></tr>
+  <tr><td>51</td><td class="dv">५१</td><td class="dv">इक्यावन</td><td>ikyaavan</td></tr>
+  <tr><td>52</td><td class="dv">५२</td><td class="dv">बावन</td><td>baavan</td></tr>
+  <tr><td>53</td><td class="dv">५३</td><td class="dv">तिरपन</td><td>tirpan</td></tr>
+  <tr><td>54</td><td class="dv">५४</td><td class="dv">चौवन</td><td>chauvan</td></tr>
+  <tr><td>55</td><td class="dv">५५</td><td class="dv">पचपन</td><td>pachpan</td></tr>
+  <tr><td>56</td><td class="dv">५६</td><td class="dv">छप्पन</td><td>chhappan</td></tr>
+  <tr><td>57</td><td class="dv">५७</td><td class="dv">सत्तावन</td><td>sattaavan</td></tr>
+  <tr><td>58</td><td class="dv">५८</td><td class="dv">अट्ठावन</td><td>atthaavan</td></tr>
+  <tr><td>59</td><td class="dv">५९</td><td class="dv">उनसठ</td><td>unsath</td></tr>
+  <tr><td>60</td><td class="dv">६०</td><td class="dv">साठ</td><td>saath</td></tr>
+  <tr><td>61</td><td class="dv">६१</td><td class="dv">इकसठ</td><td>ikasath</td></tr>
+  <tr><td>62</td><td class="dv">६२</td><td class="dv">बासठ</td><td>baasath</td></tr>
+  <tr><td>63</td><td class="dv">६३</td><td class="dv">तिरसठ</td><td>tirsath</td></tr>
+  <tr><td>64</td><td class="dv">६४</td><td class="dv">चौंसठ</td><td>chaunsath</td></tr>
+  <tr><td>65</td><td class="dv">६५</td><td class="dv">पैंसठ</td><td>painsath</td></tr>
+  <tr><td>66</td><td class="dv">६६</td><td class="dv">छियासठ</td><td>chhiyaasath</td></tr>
+  <tr><td>67</td><td class="dv">६७</td><td class="dv">सड़सठ</td><td>sadsath</td></tr>
+  <tr><td>68</td><td class="dv">६८</td><td class="dv">अड़सठ</td><td>adsath</td></tr>
+  <tr><td>69</td><td class="dv">६९</td><td class="dv">उनहत्तर</td><td>unhattar</td></tr>
+  <tr><td>70</td><td class="dv">७०</td><td class="dv">सत्तर</td><td>sattar</td></tr>
+  <tr><td>71</td><td class="dv">७१</td><td class="dv">इकहत्तर</td><td>ikahattar</td></tr>
+  <tr><td>72</td><td class="dv">७२</td><td class="dv">बहत्तर</td><td>bahattar</td></tr>
+  <tr><td>73</td><td class="dv">७३</td><td class="dv">तिहत्तर</td><td>tihattar</td></tr>
+  <tr><td>74</td><td class="dv">७४</td><td class="dv">चौहत्तर</td><td>chauhattar</td></tr>
+  <tr><td>75</td><td class="dv">७५</td><td class="dv">पचहत्तर</td><td>pachhattar</td></tr>
+  <tr><td>76</td><td class="dv">७६</td><td class="dv">छिहत्तर</td><td>chhihattar</td></tr>
+  <tr><td>77</td><td class="dv">७७</td><td class="dv">सतहत्तर</td><td>satahattar</td></tr>
+  <tr><td>78</td><td class="dv">७८</td><td class="dv">अठहत्तर</td><td>athahattar</td></tr>
+  <tr><td>79</td><td class="dv">७९</td><td class="dv">उन्यासी</td><td>unyaasee</td></tr>
+  <tr><td>80</td><td class="dv">८०</td><td class="dv">अस्सी</td><td>assee</td></tr>
+  <tr><td>81</td><td class="dv">८१</td><td class="dv">इक्यासी</td><td>ikyaasee</td></tr>
+  <tr><td>82</td><td class="dv">८२</td><td class="dv">बयासी</td><td>bayaasee</td></tr>
+  <tr><td>83</td><td class="dv">८३</td><td class="dv">तिरासी</td><td>tiraasee</td></tr>
+  <tr><td>84</td><td class="dv">८४</td><td class="dv">चौरासी</td><td>chauraasee</td></tr>
+  <tr><td>85</td><td class="dv">८५</td><td class="dv">पचासी</td><td>pachaasee</td></tr>
+  <tr><td>86</td><td class="dv">८६</td><td class="dv">छियासी</td><td>chhiyaasee</td></tr>
+  <tr><td>87</td><td class="dv">८७</td><td class="dv">सत्तासी</td><td>sattaasee</td></tr>
+  <tr><td>88</td><td class="dv">८८</td><td class="dv">अट्ठासी</td><td>atthaasee</td></tr>
+  <tr><td>89</td><td class="dv">८९</td><td class="dv">नवासी</td><td>navaasee</td></tr>
+  <tr><td>90</td><td class="dv">९०</td><td class="dv">नब्बे</td><td>nabbe</td></tr>
+  <tr><td>91</td><td class="dv">९१</td><td class="dv">इक्यानवे</td><td>ikyaanave</td></tr>
+  <tr><td>92</td><td class="dv">९२</td><td class="dv">बानवे</td><td>baanave</td></tr>
+  <tr><td>93</td><td class="dv">९३</td><td class="dv">तिरानवे</td><td>tiraanave</td></tr>
+  <tr><td>94</td><td class="dv">९४</td><td class="dv">चौरानवे</td><td>chauraanave</td></tr>
+  <tr><td>95</td><td class="dv">९५</td><td class="dv">पंचानवे</td><td>panchaanave</td></tr>
+  <tr><td>96</td><td class="dv">९६</td><td class="dv">छियानवे</td><td>chhiyaanave</td></tr>
+  <tr><td>97</td><td class="dv">९७</td><td class="dv">सत्तानवे</td><td>sattaanave</td></tr>
+  <tr><td>98</td><td class="dv">९८</td><td class="dv">अट्ठानवे</td><td>atthaanave</td></tr>
+  <tr><td>99</td><td class="dv">९९</td><td class="dv">निन्यानवे</td><td>ninyaanave</td></tr>
+  <tr><td>100</td><td class="dv">१००</td><td class="dv">सौ</td><td>sau</td></tr>
+</table>
+
+<div class="note"><b>A note on the Hindi spellings</b>
+<p>Devanagari is easy to get slightly wrong when it is typed by hand — a missing
+matra, the wrong nukta. If something here looks off to you, trust a native speaker
+over this page and please <a href="../../contact/?topic=Spelling">tell us</a>
+so it gets fixed — it takes a moment and a real person reads it. Romanised
+spellings are a guide to the sound, not a standard: there is no single official
+way to write Hindi in Latin letters.</p></div>
+
+<h2>Questions</h2>
+<div class="faq"><b>Why are Hindi numbers so hard?</b><p>Because they are not built from parts. English makes twenty-one out of twenty and one; Hindi has इक्कीस (ikkees), a separate word worn down from a Sanskrit compound. There are effectively a hundred words to learn rather than about thirty.</p></div>
+<div class="faq"><b>Is there any pattern at all?</b><p>Yes, and it saves you. Within each block of ten, the ending rhymes with the NEXT ten, not the current one. 29 is उनतीस — leaning on तीस (30), not बीस (20). Same at 39, 49, 59. Once you hear that, the nines stop feeling random.</p></div>
+<div class="faq"><b>Which numbers do I actually need?</b><p>1 to 20, the round tens, सौ (100) and हज़ार (1,000). That covers prices, ages, times and phone numbers, which is nearly everything a number is used for in conversation.</p></div>
+<div class="faq"><b>What are lakh and crore?</b><p>The Indian numbering system groups differently above a thousand. A lakh (लाख) is 100,000 and a crore (करोड़) is 10,000,000. Prices, salaries and news figures in India are given this way constantly, so it is worth learning early.</p></div>
+
+<div class="cta">
+  <b>Numbers are the fastest thing to fix with a tutor</b>
+  <p>Reading a number off a page is not the same as catching one said at speed in a shop. Ten minutes of a tutor calling out prices does more than an hour of the table above.</p>
+  <a class="btn btn-primary" href="../../find-tutors.html">Find a Hindi Guru</a>
+  <a class="btn btn-ghost" href="../../learn/">Free Hindi guides</a>
+</div>
+
+<h2>Next</h2>
+<div class="chips">
+  <a href="../../learn/hindi-numbers-1-to-100/">The numbers guide</a>
+  <a href="../../answers/hindi-numbers-1-to-100/">Short answer version</a>
+  <a href="../../toolbox/hindi-time-planner/">How long will Hindi take?</a>
+  <a href="../../toolbox/hindi-flashcards/">Flashcards</a>
+  <a href="../../toolbox/">All tools</a>
+</div>
+
+</div>
+<!-- =========================================================
+     THE TRUST FOOTER  (v79)
+     ---------------------------------------------------------
+     The 450+ generated pages had no footer at all — they ended
+     with their content and the "More on EkGuru" block. That is
+     fine for a reader and a problem for two other audiences:
+
+       · AdSense's reviewer, who looks for a privacy policy
+         reachable from wherever they happen to land. Landing on
+         a country page and finding no route to one is the
+         commonest way a content-rich site still gets rejected.
+       · Anyone who wants to know who wrote what they just read.
+
+     Deliberately minimal: five links and a line. A full site
+     footer on 450 pages would dilute the internal link graph
+     the hub block is carefully shaping, which is the opposite
+     of what v71 spent its whole budget on.
+
+     Every href goes through the depth-derived prefix. A
+     root-relative "/privacy/" 404s here — GitHub Pages serves
+     this site from /EkGuru/, not the domain root.
+     ========================================================= -->
+<footer class="pw-ftr">
+  <nav aria-label="Site information">
+    <a href="../../">Home</a>
+    <a href="../../about/">About</a>
+    <a href="../../contact/">Contact</a>
+    <a href="../../privacy/">Privacy</a>
+    <a href="../../terms/">Terms</a>
+    <a href="../../disclaimer/">Disclaimer</a>
+  </nav>
+  <p>© <span>2026</span> EkGuru — One Student. One Goal. One Guru.<br>
+  Written and maintained by Prakash.
+  Hindi lessons with native-speaking tutors, one to one.</p>
+</footer>
+<script src="../../js/site-config.js" defer></script>
+<!-- v79 — back returns you where you were. Prakash: "back aaun to
+     wapas usi jagah par aaun, ye nahi ki top par hi reh jaun."
+     NOT deferred: it must set history.scrollRestoration="manual"
+     BEFORE the browser performs its own restore, and a deferred
+     script runs long after that moment. It is ~4 KB and touches
+     nothing until a back navigation actually happens. -->
+<script src="../../js/scroll-restore.js"></script>
+<!-- ekguru:recovery:start -->
+<script src="../../js/recovery.js" defer></script>
+<!-- ekguru:recovery:end -->
+<script src="../../js/analytics.js" defer></script>
+<!-- No sheet-owned value on this page, so the live-sheet
+     stack (~110 KB) is deliberately not loaded. See the note in
+     tools/shell.js. Add a data-t marker and it returns automatically. -->
+<!-- v78 — extraScripts. A page that needs real behaviour (the contact
+     form is the first) declares the files it needs, instead of every
+     one of the 460 pages carrying them. Emitted BEFORE o.js so an
+     inline snippet can rely on them having been requested; both are
+     deferred, so they execute in document order regardless.
+     NOTE: no backtick may appear in this comment. It sits inside a
+     JS template literal, and a stray backtick ends the literal —
+     which is exactly how this line first broke the build. -->
+
+<script defer>
+(function(){
+  var N=[{"dev":"०","n":0,"hi":"शून्य","rom":"shoonya"},{"dev":"१","n":1,"hi":"एक","rom":"ek"},{"dev":"२","n":2,"hi":"दो","rom":"do"},{"dev":"३","n":3,"hi":"तीन","rom":"teen"},{"dev":"४","n":4,"hi":"चार","rom":"chaar"},{"dev":"५","n":5,"hi":"पाँच","rom":"paanch"},{"dev":"६","n":6,"hi":"छह","rom":"chhah"},{"dev":"७","n":7,"hi":"सात","rom":"saat"},{"dev":"८","n":8,"hi":"आठ","rom":"aath"},{"dev":"९","n":9,"hi":"नौ","rom":"nau"},{"dev":"१०","n":10,"hi":"दस","rom":"das"},{"dev":"११","n":11,"hi":"ग्यारह","rom":"gyaarah"},{"dev":"१२","n":12,"hi":"बारह","rom":"baarah"},{"dev":"१३","n":13,"hi":"तेरह","rom":"terah"},{"dev":"१४","n":14,"hi":"चौदह","rom":"chaudah"},{"dev":"१५","n":15,"hi":"पंद्रह","rom":"pandrah"},{"dev":"१६","n":16,"hi":"सोलह","rom":"solah"},{"dev":"१७","n":17,"hi":"सत्रह","rom":"satrah"},{"dev":"१८","n":18,"hi":"अठारह","rom":"athaarah"},{"dev":"१९","n":19,"hi":"उन्नीस","rom":"unnees"},{"dev":"२०","n":20,"hi":"बीस","rom":"bees"},{"dev":"२१","n":21,"hi":"इक्कीस","rom":"ikkees"},{"dev":"२२","n":22,"hi":"बाईस","rom":"baaees"},{"dev":"२३","n":23,"hi":"तेईस","rom":"teees"},{"dev":"२४","n":24,"hi":"चौबीस","rom":"chaubees"},{"dev":"२५","n":25,"hi":"पच्चीस","rom":"pachchees"},{"dev":"२६","n":26,"hi":"छब्बीस","rom":"chhabbees"},{"dev":"२७","n":27,"hi":"सत्ताईस","rom":"sattaaees"},{"dev":"२८","n":28,"hi":"अट्ठाईस","rom":"atthaaees"},{"dev":"२९","n":29,"hi":"उनतीस","rom":"untees"},{"dev":"३०","n":30,"hi":"तीस","rom":"tees"},{"dev":"३१","n":31,"hi":"इकतीस","rom":"ikatees"},{"dev":"३२","n":32,"hi":"बत्तीस","rom":"battees"},{"dev":"३३","n":33,"hi":"तैंतीस","rom":"taintees"},{"dev":"३४","n":34,"hi":"चौंतीस","rom":"chauntees"},{"dev":"३५","n":35,"hi":"पैंतीस","rom":"paintees"},{"dev":"३६","n":36,"hi":"छत्तीस","rom":"chhattees"},{"dev":"३७","n":37,"hi":"सैंतीस","rom":"saintees"},{"dev":"३८","n":38,"hi":"अड़तीस","rom":"adtees"},{"dev":"३९","n":39,"hi":"उनतालीस","rom":"untaalees"},{"dev":"४०","n":40,"hi":"चालीस","rom":"chaalees"},{"dev":"४१","n":41,"hi":"इकतालीस","rom":"ikataalees"},{"dev":"४२","n":42,"hi":"बयालीस","rom":"bayaalees"},{"dev":"४३","n":43,"hi":"तैंतालीस","rom":"taintaalees"},{"dev":"४४","n":44,"hi":"चवालीस","rom":"chavaalees"},{"dev":"४५","n":45,"hi":"पैंतालीस","rom":"paintaalees"},{"dev":"४६","n":46,"hi":"छियालीस","rom":"chhiyaalees"},{"dev":"४७","n":47,"hi":"सैंतालीस","rom":"saintaalees"},{"dev":"४८","n":48,"hi":"अड़तालीस","rom":"adtaalees"},{"dev":"४९","n":49,"hi":"उनचास","rom":"unchaas"},{"dev":"५०","n":50,"hi":"पचास","rom":"pachaas"},{"dev":"५१","n":51,"hi":"इक्यावन","rom":"ikyaavan"},{"dev":"५२","n":52,"hi":"बावन","rom":"baavan"},{"dev":"५३","n":53,"hi":"तिरपन","rom":"tirpan"},{"dev":"५४","n":54,"hi":"चौवन","rom":"chauvan"},{"dev":"५५","n":55,"hi":"पचपन","rom":"pachpan"},{"dev":"५६","n":56,"hi":"छप्पन","rom":"chhappan"},{"dev":"५७","n":57,"hi":"सत्तावन","rom":"sattaavan"},{"dev":"५८","n":58,"hi":"अट्ठावन","rom":"atthaavan"},{"dev":"५९","n":59,"hi":"उनसठ","rom":"unsath"},{"dev":"६०","n":60,"hi":"साठ","rom":"saath"},{"dev":"६१","n":61,"hi":"इकसठ","rom":"ikasath"},{"dev":"६२","n":62,"hi":"बासठ","rom":"baasath"},{"dev":"६३","n":63,"hi":"तिरसठ","rom":"tirsath"},{"dev":"६४","n":64,"hi":"चौंसठ","rom":"chaunsath"},{"dev":"६५","n":65,"hi":"पैंसठ","rom":"painsath"},{"dev":"६६","n":66,"hi":"छियासठ","rom":"chhiyaasath"},{"dev":"६७","n":67,"hi":"सड़सठ","rom":"sadsath"},{"dev":"६८","n":68,"hi":"अड़सठ","rom":"adsath"},{"dev":"६९","n":69,"hi":"उनहत्तर","rom":"unhattar"},{"dev":"७०","n":70,"hi":"सत्तर","rom":"sattar"},{"dev":"७१","n":71,"hi":"इकहत्तर","rom":"ikahattar"},{"dev":"७२","n":72,"hi":"बहत्तर","rom":"bahattar"},{"dev":"७३","n":73,"hi":"तिहत्तर","rom":"tihattar"},{"dev":"७४","n":74,"hi":"चौहत्तर","rom":"chauhattar"},{"dev":"७५","n":75,"hi":"पचहत्तर","rom":"pachhattar"},{"dev":"७६","n":76,"hi":"छिहत्तर","rom":"chhihattar"},{"dev":"७७","n":77,"hi":"सतहत्तर","rom":"satahattar"},{"dev":"७८","n":78,"hi":"अठहत्तर","rom":"athahattar"},{"dev":"७९","n":79,"hi":"उन्यासी","rom":"unyaasee"},{"dev":"८०","n":80,"hi":"अस्सी","rom":"assee"},{"dev":"८१","n":81,"hi":"इक्यासी","rom":"ikyaasee"},{"dev":"८२","n":82,"hi":"बयासी","rom":"bayaasee"},{"dev":"८३","n":83,"hi":"तिरासी","rom":"tiraasee"},{"dev":"८४","n":84,"hi":"चौरासी","rom":"chauraasee"},{"dev":"८५","n":85,"hi":"पचासी","rom":"pachaasee"},{"dev":"८६","n":86,"hi":"छियासी","rom":"chhiyaasee"},{"dev":"८७","n":87,"hi":"सत्तासी","rom":"sattaasee"},{"dev":"८८","n":88,"hi":"अट्ठासी","rom":"atthaasee"},{"dev":"८९","n":89,"hi":"नवासी","rom":"navaasee"},{"dev":"९०","n":90,"hi":"नब्बे","rom":"nabbe"},{"dev":"९१","n":91,"hi":"इक्यानवे","rom":"ikyaanave"},{"dev":"९२","n":92,"hi":"बानवे","rom":"baanave"},{"dev":"९३","n":93,"hi":"तिरानवे","rom":"tiraanave"},{"dev":"९४","n":94,"hi":"चौरानवे","rom":"chauraanave"},{"dev":"९५","n":95,"hi":"पंचानवे","rom":"panchaanave"},{"dev":"९६","n":96,"hi":"छियानवे","rom":"chhiyaanave"},{"dev":"९७","n":97,"hi":"सत्तानवे","rom":"sattaanave"},{"dev":"९८","n":98,"hi":"अट्ठानवे","rom":"atthaanave"},{"dev":"९९","n":99,"hi":"निन्यानवे","rom":"ninyaanave"},{"dev":"१००","n":100,"hi":"सौ","rom":"sau"}];
+  var inp=document.getElementById("numin"),out=document.getElementById("numout");
+  function render(n){
+    if(!n){out.hidden=true;return;}
+    out.hidden=false;
+    out.innerHTML='<div class="big">'+n.hi+'</div><p><strong>'+n.rom+'</strong></p>'+
+      '<p>'+n.n+' · Devanagari digit '+n.dev+'</p>';
+  }
+  function lookup(v){
+    v=String(v).trim();
+    if(!/^\d{1,3}$/.test(v))return null;
+    var i=parseInt(v,10);
+    return (i>=0&&i<=100)?N[i]:null;
+  }
+  inp.addEventListener("input",function(){
+    var n=lookup(inp.value);
+    if(n){render(n);}
+    else if(inp.value.trim()===""){out.hidden=true;}
+    else{out.hidden=false;out.innerHTML='<p>This tool covers 0 to 100. For bigger numbers: सौ is 100, हज़ार is 1,000, लाख is 100,000, करोड़ is 10,000,000.</p>';}
+  });
+  document.getElementById("rand").addEventListener("click",function(){
+    render(N[Math.floor(Math.random()*N.length)]);
+  });
+
+  /* Quiz. Deliberately four options rather than free text:
+     free-text answers would need romanisation matching, and
+     there is no single correct romanisation of Hindi, so any
+     checker would mark correct answers wrong. */
+  var qz=document.getElementById("qz"),qq=document.getElementById("qq"),
+      qo=document.getElementById("qopts"),qs=document.getElementById("qscore");
+  var right=0,total=0,cur=null;
+  function ask(){
+    cur=N[Math.floor(Math.random()*N.length)];
+    qq.textContent=cur.hi;
+    var opts=[cur.n],guard=0;
+    while(opts.length<4&&guard++<99){
+      var r=Math.floor(Math.random()*101);
+      if(opts.indexOf(r)<0)opts.push(r);
+    }
+    opts.sort(function(){return Math.random()-0.5;});
+    qo.innerHTML="";
+    opts.forEach(function(o){
+      var b=document.createElement("button");
+      b.className="pill";b.type="button";b.textContent=o;
+      b.addEventListener("click",function(){
+        total++;
+        if(o===cur.n){right++;b.className="pill";b.innerHTML=o+' <span class="ok">correct</span>';}
+        else{b.innerHTML=o+' <span class="no">no — it is '+cur.n+'</span>';}
+        qs.textContent="Score: "+right+" / "+total;
+        setTimeout(ask,900);
+      });
+      qo.appendChild(b);
+    });
+  }
+  document.getElementById("quiz").addEventListener("click",function(){
+    qz.hidden=false;ask();
+    try{if(window.goatcounter)window.goatcounter.count({path:"event/tool_numbers_quiz",event:true});}catch(e){}
+  });
+  try{if(window.goatcounter)window.goatcounter.count({path:"event/tool_numbers",event:true});}catch(e){}
+})();</script>
+<script defer>
+/* =========================================================
+   ANALYTICS EVENTS  (v72, Phase 26)
+   ---------------------------------------------------------
+   GoatCounter is already on the site and is privacy-conscious
+   by design: no cookies, no cross-site identifier, nothing
+   that needs a consent banner. No new provider is introduced.
+
+   What was missing is that it only counted PAGE VIEWS, so
+   there was no way to tell whether anyone who read a country
+   page ever clicked through to a tutor — which is the only
+   number that matters for this whole build.
+
+   Two events are added here, on every page produced by the
+   shell:
+
+     <section>_page_view   fired once, with the section name
+     tutor_cta_clicked     fired when any link to the tutor
+                           pages is clicked, with the section
+                           it was clicked FROM
+
+   The section is derived from the URL rather than passed in,
+   so a new section starts reporting without anyone
+   remembering to wire it up.
+
+   Every call is wrapped: an analytics failure must never
+   break a content page, and GoatCounter is blocked by many
+   ad-blockers, which is fine and expected.
+   ========================================================= */
+(function(){
+  function section(){
+    var p=location.pathname;
+    if(p.indexOf("/learn-hindi-from-")>-1)return "country";
+    if(p.indexOf("/learn-hindi-for-")>-1)return "language";
+    if(p.indexOf("/toolbox/")>-1)return "tool";
+    if(p.indexOf("/daily-hindi/")>-1)return "daily";
+    if(p.indexOf("/hindi/")>-1)return "topic";
+    if(p.indexOf("/learn/")>-1)return "guide";
+    if(p.indexOf("/ask/")>-1)return "question";
+    if(p.indexOf("/answers/")>-1)return "answer";
+    if(p.indexOf("/search/")>-1)return "search";
+    return "page";
+  }
+  function ev(name){
+    try{ if(window.goatcounter&&window.goatcounter.count)
+      window.goatcounter.count({path:"event/"+name,title:name,event:true}); }catch(e){}
+  }
+  var sec=section();
+  /* GoatCounter loads deferred; wait for it rather than firing
+     into nothing. Give up after ~4s instead of polling forever. */
+  var tries=0;
+  (function wait(){
+    if(window.goatcounter&&window.goatcounter.count){ ev(sec+"_page_view"); return; }
+    if(++tries>20)return;
+    setTimeout(wait,200);
+  })();
+
+  document.addEventListener("click",function(e){
+    var a=e.target.closest&&e.target.closest("a[href]");
+    if(!a)return;
+    var h=a.getAttribute("href")||"";
+    /* v84 — WAS A REGEX LITERAL, AND IT SHIPPED BROKEN ON 319 PAGES.
+
+       This block lives inside a JS template literal in
+       tools/shell.js, so every backslash is consumed once by the
+       template before it reaches the page. The source read a
+       regex with escaped dots and slashes; what actually shipped
+       was
+
+           /find-tutors.html|/tutor//
+
+       an unterminated regex followed by a stray slash, which the
+       browser reports as "Invalid regular expression flags". The
+       whole inline script then fails to parse, so NONE of it runs:
+       no <section>_page_view event and no tutor_cta_clicked event,
+       on 319 of 465 pages.
+
+       Silent in the worst way. The page renders perfectly; only
+       the console shows it, and the analytics it killed are the
+       ones that would have told us whether the CTA is ever
+       clicked — the single number this whole build exists for.
+
+       Fixed with indexOf. There is no escaping to get wrong, it
+       is faster, and a future edit to the template cannot
+       re-break it. Do NOT tidy this back into a regex literal.
+       tools/test-shell.js asserts against it. */
+    if(h.indexOf("find-tutors.html")>-1||h.indexOf("/tutor/")>-1) ev("tutor_cta_clicked_from_"+sec);
+  },{passive:true});
+})();
+</script>
+<script defer>
+/* Prices are shown in the visitor's own currency. This repaints
+   them once the live rates land. Wrapped in try/catch because a
+   pricing failure must never blank a content page. */
+document.addEventListener("DOMContentLoaded",function(){
+  function paint(){try{var P=window.EkGuruPrice;if(P&&P.redraw)P.redraw();}catch(e){}}
+  paint();window.addEventListener("ekguru:rates",paint);
+});
+if("serviceWorker" in navigator){window.addEventListener("load",function(){
+  navigator.serviceWorker.register("../../sw.js").catch(function(){});
+});}
+</script>
+</body>
+</html>

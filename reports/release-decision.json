@@ -1,0 +1,98 @@
+{
+  "generated": "2026-09-11T16:38:02.692Z",
+  "decision": {
+    "RELEASE": {
+      "result": "GO",
+      "evidence": "All gates green"
+    },
+    "ADSENSE_REVIEW": {
+      "result": "READY",
+      "evidence": "12/12 readiness checks pass (readiness only — not approval)"
+    },
+    "SECURITY": {
+      "result": "PASS",
+      "evidence": "no exploitable server surface; 0 secrets; headers not settable on GitHub Pages (documented)"
+    },
+    "PRIVACY": {
+      "result": "PASS",
+      "evidence": "659 files, 0 secrets, 0 blocked"
+    },
+    "DOCTOR": {
+      "result": "PASS",
+      "evidence": "11 checks, 0 problems, 0 warnings"
+    },
+    "DATA": {
+      "result": "PASS",
+      "evidence": "4 CSVs reachable, schema 26/26, unique ids, no silent []"
+    },
+    "EMAIL": {
+      "result": "FAIL",
+      "evidence": "real E2E: contact internal copy ACCEPTED via StaticForms (live); visitor copy routes via a stranger-capable relay (Web3Forms UNVERIFIABLE from this datacenter; Apps Script live but unconfigured); no DELIVERED claim made"
+    },
+    "BOOKING": {
+      "result": "DEGRADED",
+      "evidence": "real E2E: Tutor A/B honest routing (TUTOR_EMAIL_UNAVAILABLE, no generic tutor inbox); internal record ACCEPTED via StaticForms; tutor/student copies via stranger-capable relay unverifiable from datacenter"
+    },
+    "STUDENT_EMAIL": {
+      "result": "ACCEPTED_UNVERIFIED",
+      "evidence": "Apps Script relay reachable and server token minted; client token wired. Student receipt routes via own Gmail — real student-mailbox receipt still required to close P0."
+    },
+    "EMAIL_IDEMPOTENCY": {
+      "result": "PASS",
+      "evidence": "same-ref double send: internal role deduped (only the failed visitor role retried)"
+    },
+    "EMAIL_FALLBACK": {
+      "result": "PASS",
+      "evidence": "FormSubmit unactivated -> StaticForms fallback live-verified; v98 chain walks past a dead relay; all-providers-down -> record survives + honest failure"
+    },
+    "PAYMENT": {
+      "result": "N/A",
+      "evidence": "no payment system on this static site"
+    },
+    "BACKUP": {
+      "result": "PASS",
+      "evidence": "ekguru-known-good-ddb7329e.bundle + ekguru-release-v5.zip"
+    },
+    "RESTORE": {
+      "result": "PASS",
+      "evidence": "restored from zip; {\"/\":200,\"/learn/\":200,\"/toolbox/hindi-alphabet/\":200,\"/tutor/sushila-g/\":200,\"/contact/\":200}"
+    },
+    "ROLLBACK": {
+      "result": "PASS",
+      "evidence": "known-good ddb7329e; procedure documented; no DNS change needed"
+    },
+    "LIVE_MONITORING": {
+      "result": "PASS",
+      "evidence": "15G/0Y/0R — all green"
+    },
+    "SEO": {
+      "result": "PASS",
+      "evidence": "575 pages, 0 broken, 0 orphans, 585 sitemap urls"
+    },
+    "MOBILE": {
+      "result": "PASS",
+      "evidence": "header + 12 tools + 8 learn pages: no overflow at 320-768"
+    },
+    "DESKTOP": {
+      "result": "PASS",
+      "evidence": "header + tools + learn pages: no overflow at 1024-1920"
+    },
+    "ACCESSIBILITY": {
+      "result": "PASS",
+      "evidence": "lang=en, single H1, heading order, alt, accessible names — 5 key pages clean"
+    },
+    "PERFORMANCE": {
+      "result": "PASS",
+      "evidence": "local load 62-491ms; homepage 1.15MB/27JS is the heaviest page (noted improvement target)"
+    },
+    "CONTENT": {
+      "result": "PASS",
+      "evidence": "554 pages, 171 fingerprinted, 210 VERY_HIGH self-similar pairs (city-page template cluster — remediation planned)"
+    },
+    "COPY_PROTECTION": {
+      "result": "DEGRADED",
+      "evidence": "fingerprints + self-copy detection + probes + evidence pipeline built; external web-copy monitoring requires scheduled runner (documented limitation)"
+    }
+  },
+  "blocker": null
+}

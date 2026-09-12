@@ -1,0 +1,103 @@
+{
+  "generated": "2026-09-12T07:56:38Z",
+  "name": "EkGuru global content schema",
+  "version": 1,
+  "idRules": {
+    "stable": "content IDs never change once published; a rename adds an alias, not a new id",
+    "format": "<type>:<slug>  e.g. lesson:hindi-sentence-structure, vocab:hi-family-1",
+    "unique": "IDs are globally unique; the registry validator rejects duplicates"
+  },
+  "fields": {
+    "content": {
+      "required": [
+        "id",
+        "type",
+        "source_language",
+        "target_language",
+        "level",
+        "title",
+        "status"
+      ],
+      "optional": [
+        "locale",
+        "country",
+        "goal",
+        "topic",
+        "prerequisites",
+        "next_step",
+        "audio_provider",
+        "source_reference",
+        "created_at",
+        "updated_at"
+      ]
+    },
+    "types": [
+      "lesson",
+      "vocabulary",
+      "phrase",
+      "grammar",
+      "pronunciation",
+      "culture",
+      "practice",
+      "quiz",
+      "review_card",
+      "path",
+      "worksheet",
+      "dialogue"
+    ],
+    "source_language": "ISO 639-1 of the learner's language, or 'en' default. Not used to fork URLs — it is metadata.",
+    "target_language": "ISO 639-1 of the language being learned. Drives /learn/<target>/ routing when content exists.",
+    "level": [
+      "beginner",
+      "elementary",
+      "intermediate",
+      "advanced"
+    ],
+    "goal": [
+      "everyday",
+      "travel",
+      "reading",
+      "speaking",
+      "grammar",
+      "heritage",
+      "work",
+      "study",
+      "family"
+    ],
+    "audio_provider": [
+      "BROWSER_TTS",
+      "RECORDED",
+      "API_TTS",
+      "UNAVAILABLE"
+    ],
+    "status": [
+      "PLANNED",
+      "FOUNDATION",
+      "BETA",
+      "PRODUCTION",
+      "PAUSED"
+    ]
+  },
+  "routingRules": [
+    "/learn/<target-language>/  exists only when that language has PRODUCTION content",
+    "level/topic/goal dirs exist only where real content exists (no empty dirs, no thin pages)",
+    "country and source-language context is metadata + contextual modules, never URL multiplication",
+    "hreflang only between equivalent pages; dashboards/review/private state are noindex"
+  ],
+  "reusableEngines": [
+    "lesson",
+    "vocabulary",
+    "phrase",
+    "grammar",
+    "pronunciation",
+    "quiz",
+    "srs",
+    "conversation",
+    "typing",
+    "worksheet",
+    "path",
+    "progress",
+    "offline",
+    "search"
+  ]
+}

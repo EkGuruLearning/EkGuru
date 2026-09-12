@@ -1,0 +1,23 @@
+{
+ "generated": "2026-09-11T09:09:38.983193+00:00",
+ "release_candidate_id": "EK-20260911-gap-sweep",
+ "build": {
+  "requirements_merged": 451,
+  "command_files": 16,
+  "statuses": {
+   "PASS": 279,
+   "PASS_LOCAL": 7,
+   "PARTIAL": 102,
+   "DEFERRED": 25,
+   "FAIL": 3,
+   "N_A": 28,
+   "DEGRADED": 6,
+   "READY": 1
+  }
+ },
+ "verdict": {
+  "code": "READY (all local suites pass)",
+  "production": "NO-GO \u2014 live deploy pending (external)",
+  "email": "DEGRADED \u2014 Apps Script token + FormSubmit activation + Web3Forms live-check outstanding; chain falls back safely"
+ }
+}

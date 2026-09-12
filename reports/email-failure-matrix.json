@@ -1,0 +1,56 @@
+{
+  "generated": "2026-09-12T05:01:38Z",
+  "note": "Controlled-failure expectations are encoded in tools/test-email-system.js (which PASSES). Live provider failures (Apps Script down, timeout) are exercised against the real relay only when the owner supplies the token + controlled mailboxes.",
+  "cases": [
+    {
+      "case": "missing tutor email",
+      "expected": "TUTOR_EMAIL_UNAVAILABLE + EkGuru fallback recipient; student never told 'sent to tutor'",
+      "verified": "code path present (mailer.js); live-sheets tutors.csv emails blank"
+    },
+    {
+      "case": "invalid recipient",
+      "expected": "request refused client-side; relay replies 'Missing or invalid recipient.'",
+      "verified": "relay probe (prior phase)"
+    },
+    {
+      "case": "Apps Script unavailable",
+      "expected": "fallback provider (FormSubmit/Web3Forms) with degraded state, never silent success",
+      "verified": "routing test PASS"
+    },
+    {
+      "case": "token missing",
+      "expected": "fail-closed — STUDENT_EMAIL BLOCKED_ON_TOKEN, no send attempted",
+      "verified": "security test PASS"
+    },
+    {
+      "case": "duplicate booking request",
+      "expected": "idempotency key (entityId:type) prevents double internal copies",
+      "verified": "system test PASS"
+    },
+    {
+      "case": "repeated idempotency key",
+      "expected": "same key → single internal record",
+      "verified": "system test PASS"
+    },
+    {
+      "case": "malformed request",
+      "expected": "400-class handling, no crash, no send",
+      "verified": "relay probe (prior phase)"
+    },
+    {
+      "case": "oversized body",
+      "expected": "truncation/sanitisation; single-line subject",
+      "verified": "security test PASS (subject sanitised)"
+    },
+    {
+      "case": "provider timeout",
+      "expected": "timeout → FAILURE state with retry, never ACCEPTED-as-DELIVERED",
+      "verified": "code path present; live timeout needs the real provider"
+    },
+    {
+      "case": "fallback provider unavailable",
+      "expected": "SUCCESS/PARTIAL_SUCCESS/FAILURE recorded per role; admin sees last error",
+      "verified": "code path present"
+    }
+  ]
+}

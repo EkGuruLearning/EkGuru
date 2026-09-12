@@ -1,0 +1,414 @@
+{
+  "generated": "2026-09-12T07:33:26Z",
+  "practiceStandard": {
+    "objective": "stated on each practice page (honest capability note)",
+    "instructions": "inline per activity (see page copy)",
+    "validation": "typing compare / quiz option match / worksheet build",
+    "feedback": "correct|minor-format|incorrect + role=status",
+    "retry": "typing Try again / quiz Try again / srs rate again",
+    "reset": "typing Reset / srs reset / progress reset",
+    "keyboard": "native input + Enter to check",
+    "mobile": "390px viewport tested, buttons tappable"
+  },
+  "activities": {
+    "typing": {
+      "pass": true,
+      "facts": {
+        "typing.prompt": "hum",
+        "typing.answer": "हम",
+        "typing.feedback_after_correct": "Correct — हम",
+        "typing.reset_state": "0 of 33 done (0 tries)."
+      }
+    },
+    "quiz": {
+      "pass": true,
+      "facts": {
+        "quiz.first_question": "Question 1 of 5 — basics\n\nWhat does this guide honestly compare?\n\nOnly apps\nApps, YouTube, textbooks and tutors\nOnly tut",
+        "quiz.option_count": 4,
+        "quiz.explanation": "Not quite — the answer was “Apps, YouTube, textbooks and tutors”.\n\nA frank comparison of every way to learn Hindi online"
+      }
+    },
+    "worksheets": {
+      "pass": true,
+      "facts": {
+        "worksheet.built": "Topic\n\nbasics\nconversation\ngrammar\ntime-dates\nvocabulary\nnumbers\ndaily-life\ntravel\npronunciation\nPrompts\n\n5\n10\n15\n inclu"
+      }
+    }
+  },
+  "tests": {
+    "quiz-bank": {
+      "pass": true,
+      "fails": []
+    },
+    "audio": {
+      "pass": true,
+      "fails": []
+    },
+    "features": {
+      "pass": true,
+      "fails": []
+    }
+  },
+  "honestyNotes": {
+    "typing": "not a full transliteration engine (stated on page)",
+    "quiz": "recognition score, not fluency (stated)",
+    "audio": "browser TTS (speechSynthesis hi-IN), never native/recorded (stated)",
+    "offline": "full offline only for saved lessons; snapshot may be older (stated)",
+    "progress": "saved on this device only, no sync (stated)"
+  },
+  "offline": {
+    "pass": true,
+    "facts": {
+      "service_worker_active": true,
+      "offline_button_label": "Save for offline",
+      "offline_title": "The Hindi Alphabet — A Beginner's Guide | EkGuru",
+      "offline_content_rendered": true,
+      "after_reconnect_ctl": "✓ Saved for offline — remove Saves a snapshot of this page on this device. The offline copy may be older than the live p",
+      "after_remove_ctl": "Save for offline Saves a snapshot of this page on this device. The offline copy may be older than the live page.",
+      "page_errors": []
+    },
+    "fails": []
+  },
+  "search": {
+    "pass": true,
+    "queries": {
+      "namaste": {
+        "top": {
+          "href": "../answers/hindi-greetings-namaste-and-others/",
+          "text": "What are the common Hindi greetings besides namaste?\n\nAnswer नमस्ते (namaste) wo"
+        },
+        "result_count": 11
+      },
+      "नमस्ते": {
+        "top": {
+          "href": "../answers/how-to-say-goodbye-in-hindi/",
+          "text": "How do you say goodbye in Hindi?\n\nAnswer नमस्ते (namaste) is goodbye as well as "
+        },
+        "result_count": 9
+      },
+      "aap": {
+        "top": {
+          "href": "../learn/aap-tum-tu-hindi/",
+          "text": "Aap, Tum or Tu — Getting Politeness Right in Hindi\n\nLesson Hindi has three words"
+        },
+        "result_count": 8
+      },
+      "आप": {
+        "top": {
+          "href": "../daily-hindi/day-5/",
+          "text": "Day 5: How are you — and the आप problem — Daily Hindi\n\nDaily Hindi Day 5 of a fr"
+        },
+        "result_count": 4
+      },
+      "kaise": {
+        "top": {
+          "href": "../ask/how-to-say-how-are-you-in-hindi/",
+          "text": "How do you say how are you in Hindi?\n\nQuestion आप कैसे हैं? (aap kaise hain?) to"
+        },
+        "result_count": 1
+      },
+      "कैसे": {
+        "top": {
+          "href": "../ask/how-to-say-how-are-you-in-hindi/",
+          "text": "How do you say how are you in Hindi?\n\nQuestion आप कैसे हैं? (aap kaise hain?) to"
+        },
+        "result_count": 1
+      },
+      "hindi grammar": {
+        "top": {
+          "href": "../learn-hindi-for-arabic-speakers/grammar/",
+          "text": "Hindi Grammar for Arabic Speakers\n\nLanguage Hindi grammar compared with Arabic: "
+        },
+        "result_count": 39
+      },
+      "HINDI GRAMMAR": {
+        "top": {
+          "href": "../learn-hindi-for-arabic-speakers/grammar/",
+          "text": "Hindi Grammar for Arabic Speakers\n\nLanguage Hindi grammar compared with Arabic: "
+        },
+        "result_count": 39
+      }
+    }
+  },
+  "toolQA": {
+    "generated": "2026-09-12T07:16:35Z",
+    "tools": [
+      {
+        "url": "http://127.0.0.1:8899/toolbox/hindi-alphabet/",
+        "steps": [
+          {
+            "step": "letters rendered (>=40 letter elements)",
+            "ok": true,
+            "evidence": ""
+          }
+        ],
+        "errors": [],
+        "bad_resources": [],
+        "overflow": {
+          "1280": 0,
+          "390": 0
+        },
+        "verdict": "PASS"
+      },
+      {
+        "url": "http://127.0.0.1:8899/toolbox/hindi-numbers/",
+        "steps": [
+          {
+            "step": "typing 42 shows Devanagari output",
+            "ok": true,
+            "evidence": ""
+          },
+          {
+            "step": "empty input does not crash (no error, output clears gracefully)",
+            "ok": true,
+            "evidence": ""
+          },
+          {
+            "step": "random button exists and works",
+            "ok": true,
+            "evidence": ""
+          }
+        ],
+        "errors": [],
+        "bad_resources": [],
+        "overflow": {
+          "1280": 0,
+          "390": 0
+        },
+        "verdict": "PASS"
+      },
+      {
+        "url": "http://127.0.0.1:8899/toolbox/hindi-phrasebook/",
+        "steps": [
+          {
+            "step": "search 'thank' narrows results",
+            "ok": true,
+            "evidence": ""
+          },
+          {
+            "step": "romanised search 'shukriya' also matches shukriyaa",
+            "ok": true,
+            "evidence": ""
+          },
+          {
+            "step": "clearing search restores list",
+            "ok": true,
+            "evidence": ""
+          }
+        ],
+        "errors": [],
+        "bad_resources": [],
+        "overflow": {
+          "1280": 0,
+          "390": 0
+        },
+        "verdict": "PASS"
+      },
+      {
+        "url": "http://127.0.0.1:8899/toolbox/hindi-flashcards/",
+        "steps": [
+          {
+            "step": "flip button toggles the card",
+            "ok": true,
+            "evidence": ""
+          },
+          {
+            "step": "easy/hard advance the deck without error",
+            "ok": true,
+            "evidence": ""
+          },
+          {
+            "step": "reset exists",
+            "ok": true,
+            "evidence": ""
+          }
+        ],
+        "errors": [],
+        "bad_resources": [],
+        "overflow": {
+          "1280": 0,
+          "390": 0
+        },
+        "verdict": "PASS"
+      },
+      {
+        "url": "http://127.0.0.1:8899/toolbox/hindi-quiz/",
+        "steps": [
+          {
+            "step": "start begins a 10-question quiz",
+            "ok": true,
+            "evidence": ""
+          },
+          {
+            "step": "answer buttons appear and can be clicked",
+            "ok": true,
+            "evidence": ""
+          }
+        ],
+        "errors": [],
+        "bad_resources": [],
+        "overflow": {
+          "1280": 0,
+          "390": 0
+        },
+        "verdict": "PASS"
+      },
+      {
+        "url": "http://127.0.0.1:8899/toolbox/hindi-level-test/",
+        "steps": [
+          {
+            "step": "test renders questions",
+            "ok": true,
+            "evidence": ""
+          },
+          {
+            "step": "answers can be given",
+            "ok": true,
+            "evidence": ""
+          }
+        ],
+        "errors": [],
+        "bad_resources": [],
+        "overflow": {
+          "1280": 0,
+          "390": 0
+        },
+        "verdict": "PASS"
+      },
+      {
+        "url": "http://127.0.0.1:8899/toolbox/hindi-typing/",
+        "steps": [
+          {
+            "step": "typing 'namaste' produces Devanagari",
+            "ok": true,
+            "evidence": ""
+          },
+          {
+            "step": "clear empties both sides",
+            "ok": true,
+            "evidence": ""
+          },
+          {
+            "step": "copy button exists",
+            "ok": true,
+            "evidence": ""
+          }
+        ],
+        "errors": [],
+        "bad_resources": [],
+        "overflow": {
+          "1280": 0,
+          "390": 0
+        },
+        "verdict": "PASS"
+      },
+      {
+        "url": "http://127.0.0.1:8899/toolbox/hindi-verbs/",
+        "steps": [
+          {
+            "step": "search 'bolna' narrows the verb table",
+            "ok": true,
+            "evidence": ""
+          },
+          {
+            "step": "romanised 'khana' finds 'to eat' (khaana normalised)",
+            "ok": true,
+            "evidence": ""
+          }
+        ],
+        "errors": [],
+        "bad_resources": [],
+        "overflow": {
+          "1280": 0,
+          "390": 0
+        },
+        "verdict": "PASS"
+      },
+      {
+        "url": "http://127.0.0.1:8899/toolbox/hindi-vocabulary/",
+        "steps": [
+          {
+            "step": "search 'food' narrows vocabulary",
+            "ok": true,
+            "evidence": ""
+          },
+          {
+            "step": "hide controls exist",
+            "ok": true,
+            "evidence": ""
+          }
+        ],
+        "errors": [],
+        "bad_resources": [],
+        "overflow": {
+          "1280": 0,
+          "390": 0
+        },
+        "verdict": "PASS"
+      },
+      {
+        "url": "http://127.0.0.1:8899/toolbox/hindi-date-time/",
+        "steps": [
+          {
+            "step": "shows a live now value (Devanagari or digits)",
+            "ok": true,
+            "evidence": ""
+          }
+        ],
+        "errors": [],
+        "bad_resources": [],
+        "overflow": {
+          "1280": 0,
+          "390": 0
+        },
+        "verdict": "PASS"
+      },
+      {
+        "url": "http://127.0.0.1:8899/toolbox/hindi-pronunciation/",
+        "steps": [
+          {
+            "step": "next sound advances",
+            "ok": true,
+            "evidence": ""
+          },
+          {
+            "step": "tip button shows a tip",
+            "ok": true,
+            "evidence": ""
+          }
+        ],
+        "errors": [],
+        "bad_resources": [],
+        "overflow": {
+          "1280": 0,
+          "390": 0
+        },
+        "verdict": "PASS"
+      },
+      {
+        "url": "http://127.0.0.1:8899/toolbox/hindi-time-planner/",
+        "steps": [
+          {
+            "step": "setting hours/week produces a plan",
+            "ok": true,
+            "evidence": ""
+          }
+        ],
+        "errors": [],
+        "bad_resources": [],
+        "overflow": {
+          "1280": 0,
+          "390": 0
+        },
+        "verdict": "PASS"
+      }
+    ],
+    "summary": {
+      "tools": 12,
+      "pass": 12,
+      "fail": 0,
+      "failed": []
+    }
+  },
+  "pass": true
+}

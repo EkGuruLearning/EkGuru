@@ -1,0 +1,56 @@
+{
+  "generated": "2026-09-11T18:06:41Z",
+  "chain": [
+    "Google Sheets (canonical, mutable) -> js/sheet.js validated loader -> normalized runtime tutor model",
+    "live-valid -> cache -> stale-cache+warn -> safe-failure (never silently [])",
+    "a future tutor added via a Sheet row needs NO new mail-code branch"
+  ],
+  "booking_snapshot": {
+    "immutable_at_creation": true,
+    "fields": [
+      "booking_id(ref)",
+      "student_name(name)",
+      "student_email(email)",
+      "tutor_id(tutorId)",
+      "tutor_name_snapshot",
+      "tutor_email_snapshot_if_verified",
+      "requirement(goal/message)",
+      "date/time(slot)",
+      "timezone",
+      "lesson_type",
+      "status",
+      "created_at(at)"
+    ],
+    "verified_snapshot_fields_present": [
+      "tutorNameSnapshot",
+      "tutorEmailSnapshot",
+      "tutorEmailState",
+      "lessonType"
+    ],
+    "rule": "historical emails are never regenerated from later mutable Sheet data; tutorEmailSnapshot is empty unless a verified operational address existed"
+  },
+  "delivery_state": {
+    "per_role": [
+      "student",
+      "tutor",
+      "internal"
+    ],
+    "fields": [
+      "status",
+      "provider",
+      "message_id",
+      "last_error",
+      "retry_count"
+    ],
+    "flat_columns": [
+      "student_email_status",
+      "student_email_provider",
+      "student_email_last_attempt",
+      "student_email_last_error",
+      "student_email_retry_count",
+      "student_email_message_id"
+    ],
+    "rule": "ACCEPTED is never reported as DELIVERED"
+  },
+  "ledger": "js/ledger.js records contacts BEFORE send (status 'sending') and patches the outcome after"
+}

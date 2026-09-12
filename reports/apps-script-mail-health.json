@@ -1,0 +1,35 @@
+{
+  "generated": "2026-09-11T18:06:41Z",
+  "script": "tools/apps-script-mailer.gs (v100)",
+  "relay_contract": {
+    "auth": "MAILER_SHARED_TOKEN in Script Property; fail-closed (no token -> Not authorised.)",
+    "token_in_code": "never hard-coded; wired via tools/wire-token.py from gitignored deploy-secrets.local.json",
+    "message_type_whitelist": true,
+    "sender_enforcement": true,
+    "forced_from": "verified EkGuru sender (owner From address), never the visitor",
+    "html_text_contract": true,
+    "idempotency": true,
+    "payload_size_limits": true,
+    "daily_cap": true,
+    "fail_closed_token": true,
+    "open_relay_prevention": "whitelist + recipient validation + forced From"
+  },
+  "client_config": {
+    "apps_script_url": "https://script.google.com/macros/s/AKfycbzdX02U8KQU0XZpqXp4ACuNDAShrOKcHPCrMW5R3UcWOtHuWqquyouppkNusnLIz5ri/exec",
+    "client_token_wired": true,
+    "note": "client token empty -> every doPost answers 'Not authorised.' (fail-closed, not a broken relay)"
+  },
+  "live_verification": {
+    "status": "LIVE_VERIFIED_ACCEPTED",
+    "date": "2026-09-11T18:06:41Z",
+    "get_health": "{\"success\":\"true\",\"status\":\"ok\",\"script\":\"EkGuru Mail Relay\",\"strangers\":true,\"limit\":90,\"configured\":true}",
+    "wrong_token": "{\"success\":\"false\",\"message\":\"Not authorised.\"}",
+    "unknown_type": "{\"success\":\"false\",\"message\":\"Unknown message type.\"}",
+    "invalid_recipient": "{\"success\":\"false\",\"message\":\"Missing or invalid recipient.\"}",
+    "controlled_send_owner_inbox": "{\"success\":\"true\",\"message\":\"sent\",\"state\":\"ACCEPTED\",\"requestId\":\"\"}",
+    "shipped_mailer_testSend": "ACCEPTED via Apps Script (tools/test-email-live.js)",
+    "idempotency": "first POST sent; replay answered duplicate (no re-send)",
+    "note": "ACCEPTED means the owner's Gmail dispatched the message; the owner must still confirm the [TEST] emails arrived in EkGuruLearning@gmail.com (mailbox receipt).",
+    "never_claimed": "DELIVERED"
+  }
+}
