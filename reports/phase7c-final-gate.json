@@ -1,0 +1,102 @@
+{
+  "generated": "2026-09-12T16:30:27Z",
+  "verdict": "YELLOW_PARTIAL_IMPLEMENTATION",
+  "green": 14,
+  "total": 23,
+  "tranche": 1,
+  "note": "Tranche 1 delivered the FOUNDATION: content graph (364 real entities), registries 7C, country\u2194language relationships, api/audio provider honesty, and a live content inventory on /languages/. The remaining engines are the next batches \u2014 they are PENDING, not faked.",
+  "items": [
+    {
+      "state": "GREEN",
+      "evidence": "graph test: 364 entities, query API works in Chromium, 0 errors"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "29 languages, only hi PRODUCTION; counts read from content graph"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "250 countries with official languages + native/foreign Hindi relation"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "learning-paths.js + onboarding.js verified GREEN in Phase 7B"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "Phase 7B GREEN_STABLE: BROWSER_TTS resolution + UNAVAILABLE fallback verified"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "TTS labelled; no native/recorded claims; onerror handled"
+    },
+    {
+      "state": "PENDING",
+      "evidence": "conversation engine is deterministic-data planned, not yet built"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "no API keys; no unverified free APIs; keyless translit only"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "secret scan clean (repo + zip)"
+    },
+    {
+      "state": "PENDING",
+      "evidence": "QA system validates generated content \u2014 graph built, per-language QA pending"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "js/hindi-srs.js is language-agnostic data (card: language/target/source/...); global wiring pending"
+    },
+    {
+      "state": "PENDING",
+      "evidence": "My Learning global (/learn/my-learning/) not yet built"
+    },
+    {
+      "state": "PENDING",
+      "evidence": "script engine (Devanagari/Latin/Arabic/\u2026) \u2014 Devanagari exists via translit; others pending"
+    },
+    {
+      "state": "PENDING",
+      "evidence": "grammar engine reusable \u2014 grammar entities exist; renderer pending"
+    },
+    {
+      "state": "PENDING",
+      "evidence": "vocabulary/phrase engine reusable \u2014 entities exist; generic renderer pending"
+    },
+    {
+      "state": "PENDING",
+      "evidence": "country context engine \u2014 relationship data exists; modules pending"
+    },
+    {
+      "state": "PENDING",
+      "evidence": "search architecture language-aware \u2014 Hindi fuzzy search exists; multi-language pending"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "publishability gates documented; no thin batches; no language\u00d7country URL spam"
+    },
+    {
+      "state": "PENDING",
+      "evidence": "internal link graph across languages \u2014 Hindi link graph exists; global pending"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "GitHub Pages static-first (site is static; content graph is a static JSON)"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "batch manifest + handoff written (this file set)"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "Phase 5/6/7 regression GREEN (7B GREEN_STABLE + 7C graph test)"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "security/privacy/accessibility/perf verified in 7B (honest numbers)"
+    }
+  ]
+}

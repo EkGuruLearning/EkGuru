@@ -46,10 +46,16 @@
   <p class="lede">One platform, many languages — English → Hindi today, with more targets coming. We only list a language as available when real, reviewed content exists. No empty lessons, no placeholder courses.</p>
   <h2>Available now</h2>
   <div class="lang-grid"><div class="lang-cell"><span class="nm">Hindi <span class="tag on">Available</span></span><span class="sub">हिन्दी · Devanagari script · free</span><p><a class="btn" href="/learn/hindi/">Start learning Hindi</a></p></div></div>
+  <p class="muted" id="cg-stats">Counting live content…</p>
   <h2>Coming soon</h2>
   <p class="muted">These are the next targets in the architecture. Each becomes available only when its lessons, audio and review content are real.</p>
   <div class="lang-grid"><div class="lang-cell"><span class="nm">Spanish</span><span class="sub">español · Latin script</span><span class="tag soon" style="margin-top:6px">Coming</span></div><div class="lang-cell"><span class="nm">French</span><span class="sub">français · Latin script</span><span class="tag soon" style="margin-top:6px">Coming</span></div><div class="lang-cell"><span class="nm">Arabic</span><span class="sub">العربية · Arabic script</span><span class="tag soon" style="margin-top:6px">Coming</span></div><div class="lang-cell"><span class="nm">German</span><span class="sub">Deutsch · Latin script</span><span class="tag soon" style="margin-top:6px">Coming</span></div><div class="lang-cell"><span class="nm">Japanese</span><span class="sub">日本語 · Kana + Kanji script</span><span class="tag soon" style="margin-top:6px">Coming</span></div><div class="lang-cell"><span class="nm">Korean</span><span class="sub">한국어 · Hangul script</span><span class="tag soon" style="margin-top:6px">Coming</span></div><div class="lang-cell"><span class="nm">Chinese</span><span class="sub">中文 · Han script</span><span class="tag soon" style="margin-top:6px">Coming</span></div><div class="lang-cell"><span class="nm">Russian</span><span class="sub">русский · Cyrillic script</span><span class="tag soon" style="margin-top:6px">Coming</span></div><div class="lang-cell"><span class="nm">Portuguese</span><span class="sub">português · Latin script</span><span class="tag soon" style="margin-top:6px">Coming</span></div><div class="lang-cell"><span class="nm">Italian</span><span class="sub">italiano · Latin script</span><span class="tag soon" style="margin-top:6px">Coming</span></div><div class="lang-cell"><span class="nm">Dutch</span><span class="sub">Nederlands · Latin script</span><span class="tag soon" style="margin-top:6px">Coming</span></div><div class="lang-cell"><span class="nm">Polish</span><span class="sub">polski · Latin script</span><span class="tag soon" style="margin-top:6px">Coming</span></div><div class="lang-cell"><span class="nm">Turkish</span><span class="sub">Türkçe · Latin script</span><span class="tag soon" style="margin-top:6px">Coming</span></div><div class="lang-cell"><span class="nm">Persian</span><span class="sub">فارسی · Arabic script</span><span class="tag soon" style="margin-top:6px">Coming</span></div><div class="lang-cell"><span class="nm">Hebrew</span><span class="sub">עברית · Hebrew script</span><span class="tag soon" style="margin-top:6px">Coming</span></div><div class="lang-cell"><span class="nm">Urdu</span><span class="sub">اردو · Arabic script</span><span class="tag soon" style="margin-top:6px">Coming</span></div><div class="lang-cell"><span class="nm">Thai</span><span class="sub">ไทย · Thai script</span><span class="tag soon" style="margin-top:6px">Coming</span></div><div class="lang-cell"><span class="nm">Vietnamese</span><span class="sub">Tiếng Việt · Latin script</span><span class="tag soon" style="margin-top:6px">Coming</span></div><div class="lang-cell"><span class="nm">Indonesian</span><span class="sub">Bahasa Indonesia · Latin script</span><span class="tag soon" style="margin-top:6px">Coming</span></div><div class="lang-cell"><span class="nm">Malay</span><span class="sub">Bahasa Melayu · Latin script</span><span class="tag soon" style="margin-top:6px">Coming</span></div><div class="lang-cell"><span class="nm">Bengali</span><span class="sub">বাংলা · Bengali script</span><span class="tag soon" style="margin-top:6px">Coming</span></div><div class="lang-cell"><span class="nm">Tamil</span><span class="sub">தமிழ் · Tamil script</span><span class="tag soon" style="margin-top:6px">Coming</span></div><div class="lang-cell"><span class="nm">Telugu</span><span class="sub">తెలుగు · Telugu script</span><span class="tag soon" style="margin-top:6px">Coming</span></div><div class="lang-cell"><span class="nm">Punjabi</span><span class="sub">ਪੰਜਾਬੀ · Gurmukhi script</span><span class="tag soon" style="margin-top:6px">Coming</span></div><div class="lang-cell"><span class="nm">Gujarati</span><span class="sub">ગુજરાતી · Gujarati script</span><span class="tag soon" style="margin-top:6px">Coming</span></div><div class="lang-cell"><span class="nm">Marathi</span><span class="sub">मराठी · Devanagari script</span><span class="tag soon" style="margin-top:6px">Coming</span></div><div class="lang-cell"><span class="nm">Swahili</span><span class="sub">Kiswahili · Latin script</span><span class="tag soon" style="margin-top:6px">Coming</span></div><div class="lang-cell"><span class="nm">Ukrainian</span><span class="sub">українська · Cyrillic script</span><span class="tag soon" style="margin-top:6px">Coming</span></div></div>
   <div class="note"><b>Not sure where to begin?</b> Answer three quick questions and get a rule-based starting point — <a href="/start/">find your starting point</a>. This is a deterministic recommendation, not AI.</div>
+  <script defer>
+  (function(){    var el=document.getElementById("cg-stats");    if(!el){return;}    function whenReady(cb){      if(window.EkGuruContent){cb(window.EkGuruContent);return;}      var n=0,t=setInterval(function(){        if(window.EkGuruContent){clearInterval(t);cb(window.EkGuruContent);}        else if(++n>30){clearInterval(t);          el.textContent="Content inventory unavailable right now — the rest of this page works normally.";}      },100);    }    whenReady(function(C){      C.ready().then(function(){        var s=C.stats();        el.textContent="Live content inventory: "+s.total+" items — "
+          +s.byType.lesson+" lessons · "+s.byType.quiz+" quiz questions · "
+          +s.byType.phrase+" phrases · "+s.byType.review_card+" review cards. "
+          +"Counts are read from the content graph, not typed by hand.";      }).catch(function(){        el.textContent="Content inventory unavailable right now — the rest of this page works normally.";      });    });  })();  </script>
 
 </div>
 <footer class="pw-ftr">
@@ -64,7 +70,11 @@
   <p>© 2026 EkGuru — One Student. One Goal. One Guru.<br>
   Written and maintained by Prakash. Hindi lessons with native-speaking tutors, one to one.</p>
 </footer>
+<!-- ekguru:recovery:start -->
+<script src="../js/recovery.js" defer></script>
+<!-- ekguru:recovery:end -->
 
+<script src="../js/content-graph.js" defer></script>
 <script defer>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
@@ -72,8 +82,5 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
-<!-- ekguru:recovery:start -->
-<script src="../js/recovery.js" defer></script>
-<!-- ekguru:recovery:end -->
 </body>
 </html>

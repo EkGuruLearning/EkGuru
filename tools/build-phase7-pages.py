@@ -128,14 +128,40 @@ def languages_page():
         "We only list a language as available when real, reviewed content exists. No empty lessons, no placeholder courses.</p>\n"
         '  <h2>Available now</h2>\n'
         '  <div class="lang-grid">' + prod_cards + "</div>\n"
+        '  <p class="muted" id="cg-stats">Counting live content…</p>\n'
         '  <h2>Coming soon</h2>\n'
         '  <p class="muted">These are the next targets in the architecture. Each becomes available only when its lessons, audio and review content are real.</p>\n'
         '  <div class="lang-grid">' + planned_cells + "</div>\n"
         '  <div class="note"><b>Not sure where to begin?</b> Answer three quick questions and get a rule-based starting point — <a href="/start/">find your starting point</a>. This is a deterministic recommendation, not AI.</div>\n'
+        '  <script defer>\n'
+        '  (function(){'
+        '    var el=document.getElementById("cg-stats");'
+        '    if(!el){return;}'
+        '    function whenReady(cb){'
+        '      if(window.EkGuruContent){cb(window.EkGuruContent);return;}'
+        '      var n=0,t=setInterval(function(){'
+        '        if(window.EkGuruContent){clearInterval(t);cb(window.EkGuruContent);}'
+        '        else if(++n>30){clearInterval(t);'
+        '          el.textContent="Content inventory unavailable right now — the rest of this page works normally.";}'
+        '      },100);'
+        '    }'
+        '    whenReady(function(C){'
+        '      C.ready().then(function(){'
+        '        var s=C.stats();'
+        '        el.textContent="Live content inventory: "+s.total+" items — "\n'
+        '          +s.byType.lesson+" lessons · "+s.byType.quiz+" quiz questions · "\n'
+        '          +s.byType.phrase+" phrases · "+s.byType.review_card+" review cards. "\n'
+        '          +"Counts are read from the content graph, not typed by hand.";'
+        '      }).catch(function(){'
+        '        el.textContent="Content inventory unavailable right now — the rest of this page works normally.";'
+        '      });'
+        '    });'
+        '  })();'
+        '  </script>\n'
     )
     write("languages/index.html", "../", "Learn a language with EkGuru — available now and coming soon",
           "EkGuru teaches Hindi today, with more languages coming. See what is available now, and get a rule-based starting point for your goal.",
-          "languages/", body)
+          "languages/", body, scripts=["content-graph.js"])
 
 
 def start_page():
