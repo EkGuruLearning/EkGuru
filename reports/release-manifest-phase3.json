@@ -1,0 +1,27 @@
+{
+  "generated": "2026-09-12T05:13:03Z",
+  "commit": "66721e048e5fa3f70f3836d81bae70e4c2408464",
+  "buildTimestamp": "2026-09-12T05:13:03Z",
+  "zip": "/home/user/EkGuru-phase3-20260912.zip",
+  "zipSHA256": "05915e7b8856af2b384335f2932a95d5fe04ce63252607d55d7585d077833ccc",
+  "fileCount": 901,
+  "pageCount": 592,
+  "materialCount": 15,
+  "toolCount": 12,
+  "sitemapCount": 14,
+  "testSummary": {
+    "seo": "PASS (592 pages, 0 broken, 0 orphans, 602 urls)",
+    "tools": "12/12 pass",
+    "email": "system/security/routing PASS (external E2E BLOCKED_OWNER)",
+    "bookingSnapshot": "PASS",
+    "idle": "0 refresh required; 0 stuck state",
+    "liveBrowserMatrix": "81 combos, 0 problems",
+    "security": "0 runtime token hits; client token blank; secrets gitignored"
+  },
+  "blockers": [
+    "GitHub push (no credentials; remote reset -> force-with-lease needed)",
+    "Live deploy (ekguru.shop serves pre-Phase-2 build)",
+    "Six published Sheet URLs (runtime PAUSED_FOR_REUPLOAD)",
+    "Student email E2E (owner-controlled mailbox)"
+  ]
+}
