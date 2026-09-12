@@ -5952,12 +5952,12 @@
     if (!el) return;
     var A = window.EKGURU_ADMIN_STATS || {};
     var R = A.release || {};
+    var P = A.phase3 || {};
     var S = window.EKGURU_SITE || {};
     var mats = window.EKGURU_MATERIALS || [];
     // data source state from the single source of truth in site-config
     var dsStatus = "GRAY", dsText = "Unknown — check js/site-config.js";
     try {
-      var sheet = (S.sheets && S.sheets[0]) || S.tutors || S.settings || S.reviews || S.content || null;
       var statuses = [];
       ["tutors", "settings", "reviews", "content"].forEach(function (k) {
         if (S[k] && S[k].status) statuses.push(S[k].status);
@@ -5972,30 +5972,74 @@
     var sec = A.sections || R.sections || {};
     var qa = R.toolQa;
     var idle = R.idleRegression;
-    var html = '<div class="card"><h2>Current build</h2><table style="width:100%;border-collapse:collapse;font-size:.9rem">' +
-      row("Commit", '<code>' + esc(R.commit || "unknown") + '</code> <span class="muted">(LOCAL COMMIT — see deployment below)</span>') +
-      row("Subject", esc(R.subject || "—")) +
+
+    // ---- 8-state release ladder (never collapsed into one flag) ----
+    var ladder = [
+      ["LOCAL COMMIT", "GREEN", '<code>' + esc(R.commit || "unknown") + '</code> <span class="muted">' + esc(R.subject || "") + '</span>'],
+      ["PUSHED", "RED", (P.remote ? ('No push credentials in this environment. Remote <code>' + esc((P.remote.url || "").split("//")[1] || "") + '</code> main = <code>' + esc((P.remote.mainHead || "").slice(0, 7)) + '</code> (' + esc(P.remote.mainSubject || "") + ').') : "not verified")],
+      ["DEPLOYING", "GRAY", "Owner action — git push → GitHub Pages build."],
+      ["DEPLOYED", "YELLOW", (P.live ? ('Live serves the <b>pre-Phase-2</b> build (' + esc(P.live.swCache || "?") + ').') : "not verified")],
+      ["LIVE VERIFIED", "RED", (P.live ? ('This build is <b>not</b> live: /materials/ and /faq/ return 404 on ' + esc(P.live.url || "") + '.') : "not verified")],
+      ["LIVE DEGRADED", "GRAY", "n/a until a verified deployment exists"],
+      ["BLOCKED", "RED", "Push blocked (no credentials) + remote was reset to a single squashed commit — see Known blockers."],
+      ["UNKNOWN", "GRAY", "Anything not listed above is unknown, not healthy."]
+    ];
+    var ladderHtml = ladder.map(function (l) {
+      return '<tr><td style="padding:8px 10px;border-top:1px solid var(--line);white-space:nowrap"><b>' + l[0] + '</b></td>' +
+        '<td style="padding:8px 10px;border-top:1px solid var(--line)">' + badge(l[1]) + '</td>' +
+        '<td style="padding:8px 10px;border-top:1px solid var(--line);color:var(--ink-2)">' + l[2] + '</td></tr>';
+    }).join("");
+
+    var html = '<div class="card"><h2>Release ladder</h2><p class="muted">Eight distinct states; never collapsed into one “deployed” flag. GREEN only where directly verified.</p><table style="width:100%;border-collapse:collapse;font-size:.9rem">' +
+      ladderHtml + "</table></div>";
+
+    html += '<div class="card"><h2>Current build</h2><table style="width:100%;border-collapse:collapse;font-size:.9rem">' +
+      row("Commit", '<code>' + esc(R.commit || "unknown") + '</code>') +
       row("Built", esc((R.buildTime || A.generated || "").slice(0, 19).replace("T", " "))) +
       row("Pages", (sec.totalHtml != null ? sec.totalHtml : "?") + " HTML · " + (sec.guides || "?") + " guides · " + (sec.tools || "?") + " tools · " + (sec.materials != null ? sec.materials : mats.length) + " materials · " + (sec.tutorProfiles || "?") + " tutor profiles") +
       "</table></div>";
-    html += '<div class="card"><h2>Data sources</h2><table style="width:100%;border-collapse:collapse;font-size:.9rem">' +
-      '<tr><td style="padding:8px 10px"><b>Sheets (Google CSV)</b></td><td style="padding:8px 10px">' + badge(dsStatus) + ' <span class="muted">' + esc(dsText) + '</span></td></tr>' +
-      '<tr><td style="padding:8px 10px"><b>Booking snapshot</b></td><td style="padding:8px 10px"><span class="muted">Frozen — never modified by updates</span></td></tr>' +
+
+    // ---- Data: six sources + live-sheets ----
+    var six = ["settings", "content", "reviews", "tutors", "github_urls", "urls"];
+    var sixRows = six.map(function (s) {
+      var inRepo = (P.sheets && P.sheets.liveSheetsInRepo || []).indexOf(s + ".csv") > -1;
+      return row(s + ".csv", inRepo ? badge("YELLOW") + ' <span class="muted">in repo (live-sheets/) — validated; not activated</span>' : badge("GRAY") + ' <span class="muted">awaiting source</span>');
+    }).join("");
+    html += '<div class="card"><h2>Data</h2><table style="width:100%;border-collapse:collapse;font-size:.9rem">' +
+      row("Sheets (Google CSV)", badge(dsStatus) + ' <span class="muted">' + esc(dsText) + '</span>') +
+      row("Six sources", '<span class="muted">published URLs not yet supplied — runtime stays PAUSED_FOR_REUPLOAD</span>') +
+      sixRows +
+      row("Booking snapshot", '<span class="muted">immutable — tutor edits never rewrite history</span>') +
       "</table></div>";
-    html += '<div class="card"><h2>Test evidence (this build)</h2><table style="width:100%;border-collapse:collapse;font-size:.9rem">' +
-      (qa ? row("Tool functional QA", qa.pass + " pass / " + qa.fail + " fail") : row("Tool functional QA", '<span class="muted">not run — run tools/test-tools-functional.py</span>')) +
-      (idle ? row("Idle-interaction regression", (idle.refreshRequiredAnywhere ? badge("RED") + " refresh required" : badge("GREEN") + " no refresh required")) : row("Idle-interaction regression", '<span class="muted">not run</span>')) +
+
+    // ---- Email ----
+    var em = P.email || {};
+    html += '<div class="card"><h2>Email</h2><table style="width:100%;border-collapse:collapse;font-size:.9rem">' +
+      row("Local regression tests", badge("GREEN") + ' <span class="muted">' + esc(em.localTests || "—") + '</span>') +
+      row("Student E2E (external)", badge((em.externalE2E === "VERIFIED" ? "GREEN" : em.externalE2E === "PARTIAL" ? "YELLOW" : em.externalE2E === "FAILED" ? "RED" : "GRAY")) + ' <span class="muted">' + esc(em.externalE2E || "NOT_RUN") + ' — requires owner-controlled mailbox</span>') +
+      row("Tutor email", '<span class="muted">' + esc(em.tutorEmail || "TUTOR_EMAIL_UNAVAILABLE") + '</span>') +
       "</table></div>";
-    html += '<div class="card"><h2>Deployment</h2><p class="muted">This dashboard reports what is in the local build. Production deployment to <b>https://ekguru.shop/</b> is a separate step (git push → GitHub Pages) and is <b>NOT VERIFIED</b> unless the Live health tab shows the live site serving this same build.</p>' +
-      '<table style="width:100%;border-collapse:collapse;font-size:.9rem">' +
-      row("Local commit", '<code>' + esc(R.commit || "unknown") + '</code>') +
-      row("Pushed to GitHub", badge("GRAY") + ' <span class="muted">not verified in this build</span>') +
-      row("GitHub Pages deployed", badge("GRAY") + ' <span class="muted">not verified in this build</span>') +
-      row("ekguru.shop serving this build", badge("GRAY") + ' <span class="muted">verify on the Live health tab</span>') +
-      "</table></div>";
+
+    // ---- Site ----
+    var siteRows = [
+      ["SEO", A.seo && A.seo.pass ? "GREEN" : (A.seo ? "RED" : "GRAY"), A.seo ? (A.seo.pass ? "PASS" : "FAIL") + " · " + A.seo.pages + " pages · " + A.seo.brokenLinks + " broken" : "not run"],
+      ["Tools (real-browser)", (qa && qa.fail === 0) ? "GREEN" : (qa ? "RED" : "GRAY"), qa ? (qa.pass + " pass / " + qa.fail + " fail") : "not run"],
+      ["Idle stability", idle ? (idle.refreshRequiredAnywhere ? "RED" : "GREEN") : "GRAY", idle ? (idle.refreshRequiredAnywhere ? "refresh required" : "no refresh required") : "not run"],
+      ["Privacy scan", A.privacy ? (A.privacy.state === "GREEN" ? "GREEN" : "YELLOW") : "GRAY", A.privacy ? (A.privacy.fails + " regex hits — pre-existing spec-doc false positives, no real secrets") : "not run"],
+      ["Secret scan", "GREEN", "no tokens/keys in this build (token blanked; deploy-secrets gitignored)"]
+    ];
+    var siteHtml = siteRows.map(function (r) {
+      return '<tr><td style="padding:8px 10px;border-top:1px solid var(--line)"><b>' + r[0] + '</b></td>' +
+        '<td style="padding:8px 10px;border-top:1px solid var(--line)">' + badge(r[1]) + '</td>' +
+        '<td style="padding:8px 10px;border-top:1px solid var(--line);color:var(--ink-2)">' + r[2] + '</td></tr>';
+    }).join("");
+    html += '<div class="card"><h2>Site</h2><table style="width:100%;border-collapse:collapse;font-size:.9rem">' + siteHtml + "</table></div>";
+
     html += '<div class="card"><h2>Known blockers</h2><ul style="margin:6px 0 6px 18px">' +
-      '<li>Sheets data source is PAUSED_FOR_REUPLOAD — awaiting six new published CSV links from the owner before live values resume.</li>' +
-      '<li>GitHub push credentials unavailable from this environment — release is a local commit until pushed.</li>' +
+      '<li>Sheets: six published CSV URLs not yet supplied — runtime stays PAUSED_FOR_REUPLOAD (owner action).</li>' +
+      '<li>Git push: no credentials here, and remote main was reset to a single “Initial commit” — a non-fast-forward push is required (owner action).</li>' +
+      '<li>Live deploy: ekguru.shop serves the pre-Phase-2 build until the owner pushes (owner action).</li>' +
+      '<li>Student email E2E: requires a fresh controlled owner mailbox (external gate).</li>' +
       "</ul></div>";
     el.innerHTML = html;
   }

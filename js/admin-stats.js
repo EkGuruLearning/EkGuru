@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-12T04:30:31.132Z",
+ "generated": "2026-09-12T04:58:27.170Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "eb8cb5c76abda43ab50eab7de37e522a1c59f1e9",
-  "subject": "P0: fix long-idle interaction failure",
-  "buildTime": "2026-09-12T04:30:31.143Z",
+  "commit": "b12f5916aae8a9dd8242b6f33994fabe9e44cf36",
+  "subject": "Phase 2 final report: exact commit hashes",
+  "buildTime": "2026-09-12T04:58:27.183Z",
   "dataSourceStatus": "PAUSED_FOR_REUPLOAD",
   "toolQa": {
    "tools": 12,
@@ -4575,6 +4575,41 @@ window.EKGURU_ADMIN_STATS = {
    "totalHtml": 592,
    "tutorProfiles": 4,
    "materials": 0
+  }
+ },
+ "phase3": {
+  "remote": {
+   "url": "https://github.com/ekgurulearning/EkGuru",
+   "mainHead": "ba859a9bb9b5ebd9826b94599179e5a0712f29db",
+   "mainSubject": "Initial commit (owner force-push, 2026-09-11)",
+   "localAhead": true,
+   "note": "Remote main is a squashed PRE-Phase-2 snapshot + the owner's live-sheets/ CSV exports. Local main is ~40 commits ahead; a push is non-fast-forward."
+  },
+  "live": {
+   "url": "https://ekguru.shop/",
+   "servesPhase2": false,
+   "materials": 404,
+   "faq": 404,
+   "recoveryJs": 404,
+   "swCache": "ekguru-v30-f10d5437",
+   "sitemaps": 13,
+   "note": "Production serves the pre-Phase-2 build (no /materials/, /faq/, recovery.js). Live-sheets/*.csv ARE publicly reachable on the live site."
+  },
+  "sheets": {
+   "runtime": "PAUSED_FOR_REUPLOAD",
+   "publishedUrlsSupplied": false,
+   "liveSheetsInRepo": [
+    "content.csv",
+    "reviews.csv",
+    "settings.csv",
+    "tutors.csv"
+   ],
+   "note": "Owner supplied live-sheets/ CSVs in the reset commit; six published Google-Sheet URLs are still required before runtime activation."
+  },
+  "email": {
+   "externalE2E": "BLOCKED_OWNER",
+   "tutorEmail": "TUTOR_EMAIL_UNAVAILABLE (blank in tutors.csv — via EkGuru fallback)",
+   "localTests": "system/security/routing PASS"
   }
  }
 };

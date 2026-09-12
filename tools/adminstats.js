@@ -90,6 +90,40 @@ function releaseBlock() {
   };
 }
 
+/* phase3 block — production/live/email/sheets evidence captured outside the
+   local build. Read-only facts; the admin Release board renders them as a
+   8-state ladder. Regenerate after any external verification changes. */
+function phase3Block() {
+  return {
+    remote: {
+      url: "https://github.com/ekgurulearning/EkGuru",
+      mainHead: "ba859a9bb9b5ebd9826b94599179e5a0712f29db",
+      mainSubject: "Initial commit (owner force-push, 2026-09-11)",
+      localAhead: true,
+      note: "Remote main is a squashed PRE-Phase-2 snapshot + the owner's live-sheets/ CSV exports. Local main is ~40 commits ahead; a push is non-fast-forward.",
+    },
+    live: {
+      url: "https://ekguru.shop/",
+      servesPhase2: false,
+      materials: 404, faq: 404, recoveryJs: 404,
+      swCache: "ekguru-v30-f10d5437",
+      sitemaps: 13,
+      note: "Production serves the pre-Phase-2 build (no /materials/, /faq/, recovery.js). Live-sheets/*.csv ARE publicly reachable on the live site.",
+    },
+    sheets: {
+      runtime: "PAUSED_FOR_REUPLOAD",
+      publishedUrlsSupplied: false,
+      liveSheetsInRepo: ["content.csv", "reviews.csv", "settings.csv", "tutors.csv"],
+      note: "Owner supplied live-sheets/ CSVs in the reset commit; six published Google-Sheet URLs are still required before runtime activation.",
+    },
+    email: {
+      externalE2E: "BLOCKED_OWNER",
+      tutorEmail: "TUTOR_EMAIL_UNAVAILABLE (blank in tutors.csv — via EkGuru fallback)",
+      localTests: "system/security/routing PASS",
+    },
+  };
+}
+
 const out = {
   generated: new Date().toISOString(),
   sections: Object.assign({}, prev.sections, { totalHtml, tutorProfiles, materials }),
@@ -102,6 +136,7 @@ const out = {
   tutors: prev.tutors,
   sitemapUrls: prev.sitemapUrls,
   release: releaseBlock(),
+  phase3: phase3Block(),
 };
 
 const header =

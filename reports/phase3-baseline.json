@@ -1,0 +1,72 @@
+{
+  "generated": "2026-09-12T04:54:50Z",
+  "phase": "Phase 3 baseline",
+  "repo": {
+    "head": "b12f5916aae8a9dd8242b6f33994fabe9e44cf36",
+    "headShort": "b12f591",
+    "branch": "main",
+    "remoteUrl": "https://github.com/ekgurulearning/EkGuru (recovered from FETCH_HEAD; .git/config was excluded from the workspace snapshot)",
+    "remoteConfiguredInThisEnv": true,
+    "workingTreeClean": false,
+    "localCommitChain": [
+      "b12f591 Phase 2 final report: exact commit hashes",
+      "d0b199e Phase 2: final report + refreshed seo/adsready evidence",
+      "7db1fe0 Phase 2: materials hub, FAQ+journeys, search types, admin release control, reports",
+      "eb8cb5c P0: fix long-idle interaction failure",
+      "58fc562 Tagline never cut (responsive, verified 0 header collisions @15 viewports), copy-detection guide + fresh fingerprints, sheet-apply proof (video links work), title fixes, fresh CSVs into csv/, spec docs into docs/commands/, SEO+AdSense re-verified"
+    ]
+  },
+  "remote": {
+    "mainHead": "ba859a9bb9b5ebd9826b94599179e5a0712f29db",
+    "mainSubject": "Initial commit",
+    "mainAuthor": "PRAKASH <prakash@PRAKASHs-MacBook-Air.local>",
+    "mainDate": "2026-09-11T22:24:50+05:30",
+    "note": "Remote main is a squashed snapshot of the PRE-Phase-2 site plus the owner's live-sheets/ CSV exports (content/reviews/settings/tutors). It was force-pushed over the earlier history. Local main is ~40 commits ahead of it. A plain push will be non-fast-forward; the owner must force-push (or merge) \u2014 see reports/owner-release-commands.md. live-sheets/*.csv were preserved into the local tree so a push cannot lose them.",
+    "hasPhase2": false
+  },
+  "build": {
+    "serviceWorkerCache": "ekguru-v30-f10d5437",
+    "pageCountHtml": 595,
+    "sitemapCount": 15,
+    "toolCount": 12,
+    "materialCount": 15,
+    "faqCount": 16
+  },
+  "dataSources": {
+    "runtimeStatus": "PAUSED_FOR_REUPLOAD",
+    "sixSources": [
+      "settings",
+      "content",
+      "reviews",
+      "tutors",
+      "github_urls",
+      "urls"
+    ],
+    "ownerSuppliedPublishedUrls": false,
+    "liveSheetsInRepo": [
+      "content.csv",
+      "reviews.csv",
+      "settings.csv",
+      "tutors.csv"
+    ]
+  },
+  "email": {
+    "localSystemTest": "PASS",
+    "localSecurityTest": "PASS",
+    "localRoutingTest": "PASS",
+    "externalE2e": "NOT_RUN (requires owner-controlled mailbox)",
+    "tutorEmails": "TUTOR_EMAIL_UNAVAILABLE (blank in live-sheets/tutors.csv \u2014 via EkGuru fallback)"
+  },
+  "deployment": {
+    "state": "DEPLOYMENT_NOT_VERIFIED",
+    "liveUrl": "https://ekguru.shop/",
+    "liveServes": "PRE-Phase-2 build (live /materials/ and /faq/ return 404)"
+  },
+  "blockers": [
+    "Git push: no credentials in this environment",
+    "Remote reset: remote main is a single 'Initial commit'; non-fast-forward push required",
+    "Live deploy: ekguru.shop serves the old build until the owner pushes",
+    "Sheets: six published CSV URLs not yet supplied (runtime stays PAUSED_FOR_REUPLOAD)",
+    "Student email E2E: requires a fresh controlled owner mailbox (external gate)"
+  ]
+}

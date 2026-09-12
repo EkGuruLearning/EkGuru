@@ -1,0 +1,192 @@
+{
+  "generated": "2026-09-12T04:57:01Z",
+  "base": "https://ekguru.shop",
+  "robots": {
+    "status": 200,
+    "body": "# EkGuru \u2014 https://ekguru.shop/\n# Online Hindi tutoring with verified native tutors.\n\nUser-agent: *\nAllow: /\n\n# Private tools. Not secret \u2014 anyone with the URL can open them \u2014\n# but there is no reason for them to appear in search results.\nDisallow: /admin.html\n\n# /tools/ is the Node BUILD SYSTEM, not part of the website.\n# The public interactive tools live at /toolbox/ and are very\n# much meant to be crawled \u2014 see the Allow below. Naming the\n# public folder /tools/ would have hidden every one of them\n# behind this line; caught in v71 before it shipped.\nDisallow: /tools/\n\n# Search results pages"
+  },
+  "sitemapIndex": {
+    "status": 200,
+    "fileCount": 13,
+    "files": [
+      "https://ekguru.shop/sitemap-core.xml",
+      "https://ekguru.shop/sitemap-tutors.xml",
+      "https://ekguru.shop/sitemap-learn.xml",
+      "https://ekguru.shop/sitemap-questions.xml",
+      "https://ekguru.shop/sitemap-answers.xml",
+      "https://ekguru.shop/sitemap-places.xml",
+      "https://ekguru.shop/sitemap-countries.xml",
+      "https://ekguru.shop/sitemap-topics.xml",
+      "https://ekguru.shop/sitemap-source-languages.xml",
+      "https://ekguru.shop/sitemap-tools.xml",
+      "https://ekguru.shop/sitemap-daily.xml",
+      "https://ekguru.shop/sitemap-languages.xml",
+      "https://ekguru.shop/sitemap.xml"
+    ]
+  },
+  "sitemaps": {
+    "ok": [
+      {
+        "url": "https://ekguru.shop/sitemap-core.xml",
+        "status": 200,
+        "urls": 10
+      },
+      {
+        "url": "https://ekguru.shop/sitemap-tutors.xml",
+        "status": 200,
+        "urls": 5
+      },
+      {
+        "url": "https://ekguru.shop/sitemap-learn.xml",
+        "status": 200,
+        "urls": 36
+      },
+      {
+        "url": "https://ekguru.shop/sitemap-questions.xml",
+        "status": 200,
+        "urls": 44
+      },
+      {
+        "url": "https://ekguru.shop/sitemap-answers.xml",
+        "status": 200,
+        "urls": 29
+      },
+      {
+        "url": "https://ekguru.shop/sitemap-places.xml",
+        "status": 200,
+        "urls": 33
+      },
+      {
+        "url": "https://ekguru.shop/sitemap-countries.xml",
+        "status": 200,
+        "urls": 159
+      },
+      {
+        "url": "https://ekguru.shop/sitemap-topics.xml",
+        "status": 200,
+        "urls": 35
+      },
+      {
+        "url": "https://ekguru.shop/sitemap-source-languages.xml",
+        "status": 200,
+        "urls": 141
+      },
+      {
+        "url": "https://ekguru.shop/sitemap-tools.xml",
+        "status": 200,
+        "urls": 13
+      },
+      {
+        "url": "https://ekguru.shop/sitemap-daily.xml",
+        "status": 200,
+        "urls": 31
+      },
+      {
+        "url": "https://ekguru.shop/sitemap-languages.xml",
+        "status": 200,
+        "urls": 34
+      },
+      {
+        "url": "https://ekguru.shop/sitemap.xml",
+        "status": 200,
+        "urls": 549
+      }
+    ],
+    "failed": []
+  },
+  "routeSample": [
+    {
+      "route": "",
+      "status": 200,
+      "canonical": "https://ekguru.shop/",
+      "robots": null,
+      "localhostRef": false,
+      "stagingRef": false
+    },
+    {
+      "route": "learn/",
+      "status": 200,
+      "canonical": "https://ekguru.shop/learn/",
+      "robots": "index, follow, max-snippet:-1, max-image-preview:large",
+      "localhostRef": false,
+      "stagingRef": false
+    },
+    {
+      "route": "learn/hindi-alphabet-for-beginners/",
+      "status": 200,
+      "canonical": "https://ekguru.shop/learn/hindi-alphabet-for-beginners/",
+      "robots": "index, follow, max-snippet:-1, max-image-preview:large",
+      "localhostRef": false,
+      "stagingRef": false
+    },
+    {
+      "route": "toolbox/hindi-numbers/",
+      "status": 200,
+      "canonical": "https://ekguru.shop/toolbox/hindi-numbers/",
+      "robots": "index, follow, max-snippet:-1, max-image-preview:large",
+      "localhostRef": false,
+      "stagingRef": false
+    },
+    {
+      "route": "tutor/sushila-g/",
+      "status": 200,
+      "canonical": "https://ekguru.shop/tutor/sushila-g/",
+      "robots": "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+      "localhostRef": false,
+      "stagingRef": false
+    },
+    {
+      "route": "contact/",
+      "status": 200,
+      "canonical": "https://ekguru.shop/contact/",
+      "robots": "index, follow, max-snippet:-1, max-image-preview:large",
+      "localhostRef": false,
+      "stagingRef": false
+    },
+    {
+      "route": "find-tutors.html",
+      "status": 200,
+      "canonical": "https://ekguru.shop/find-tutors.html",
+      "robots": null,
+      "localhostRef": false,
+      "stagingRef": false
+    },
+    {
+      "route": "admin.html",
+      "status": 200,
+      "canonical": null,
+      "robots": "noindex,nofollow,noarchive",
+      "localhostRef": false,
+      "stagingRef": false
+    }
+  ],
+  "leakScan": {
+    "home": {
+      "aws": false,
+      "google_api": false,
+      "private_key": false,
+      "github_token": false,
+      "mailer_token_value": false
+    },
+    "site-config": {
+      "aws": false,
+      "google_api": false,
+      "private_key": false,
+      "github_token": false,
+      "mailer_token_value": false
+    },
+    "mailer": {
+      "aws": false,
+      "google_api": false,
+      "private_key": false,
+      "github_token": false,
+      "mailer_token_value": false
+    }
+  },
+  "liveSheetsExposedOnSite": true,
+  "verificationFiles": {
+    "ads.txt": 200,
+    "googleb3b0e3defc1daa17.html": 200,
+    ".nojekyll": 200
+  }
+}
