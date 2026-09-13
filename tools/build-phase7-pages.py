@@ -35,6 +35,8 @@ CORE_STYLE = """
 .lang-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:14px 0}
 .lang-cell{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--card,#fff)}
 .lang-cell .nm{font-weight:700}
+.lang-cell a.nm{color:var(--ink);text-decoration:none;display:inline-block;margin-bottom:2px}
+.lang-cell a.nm:hover{color:var(--brand)}
 .lang-cell .sub{display:block;color:var(--muted);font-size:.82rem;margin-top:2px}
 .tag{display:inline-block;border-radius:999px;padding:2px 10px;font-size:.72rem;font-weight:700;color:#fff}
 .tag.on{background:#1a7f37}
@@ -153,21 +155,30 @@ def languages_page():
     beta = sorted([l for l in langs if l["productionStatus"] == "BETA"], key=lambda x: x["name"])
     planned = [l for l in langs if l["productionStatus"] not in ("PRODUCTION", "BETA")]
 
+    def _tag(l):
+        loc = l.get("speechLocales") or []
+        if loc and loc[0]:
+            return loc[0]
+        return l.get("speechTag") or (l["id"] + "-" + l["id"].upper())
+
     prod_cards = "".join(
         '<div class="lang-cell"><span class="nm">%s <span class="tag on">Available</span></span>' % esc(l["name"]) +
-        '<span class="sub">%s · %s script · free</span>' % (esc(l["nativeName"]), esc(l["script"])) +
+        '<span class="sub" data-say="%s" data-say-lang="%s">%s · %s script · free</span>' % (
+            esc(l["nativeName"]), esc(_tag(l)), esc(l["nativeName"]), esc(l["script"])) +
         '<p><a class="btn" href="/learn/hindi/">Start learning %s</a></p></div>' % esc(l["name"])
         for l in prod)
 
     beta_cells = "".join(
-        '<a class="lang-cell" href="/languages/%s/">' % esc(l["id"]) +
-        '<span class="nm">%s <span class="tag beta">Starter · beta</span></span>' % esc(l["name"]) +
-        '<span class="sub">%s · %s script</span>' % (esc(l["nativeName"]), esc(l["script"])) +
+        '<div class="lang-cell lb">' +
+        '<a class="nm" href="/languages/%s/">%s <span class="tag beta">Starter · beta</span></a>' % (esc(l["id"]), esc(l["name"])) +
+        '<span class="sub" data-say="%s" data-say-lang="%s">%s · %s script</span>' % (
+            esc(l["nativeName"]), esc(_tag(l)),
+            esc(l["nativeName"]), esc(l["script"])) +
         '<span class="sub">%d words · %d phrases · %d grammar — free</span>' % (
             (l.get("starterCounts") or {}).get("vocab", 0),
             (l.get("starterCounts") or {}).get("phrase", 0),
             (l.get("starterCounts") or {}).get("grammar", 0)) +
-        '</a>'
+        '</div>'
         for l in beta)
 
     planned_cells = "".join(
@@ -252,7 +263,7 @@ def languages_page():
     write("languages/index.html", "../", "Learn a language with EkGuru — available now and coming soon",
           "EkGuru teaches Hindi today, with more languages coming. See what is available now, and get a rule-based starting point for your goal.",
           "languages/", body, scripts=["content-graph.js", "vocab-phrase-engine.js", "grammar-engine.js",
-                                       "hindi-srs.js", "language-pack.js"])
+                                       "hindi-srs.js", "language-pack.js", "hindi-audio.js"])
 
 
 
@@ -458,7 +469,7 @@ def patch_home():
         html = html.replace(
             '<ul class="eg-gn-list">',
             '<ul class="eg-gn-list">\n'
-            '    <li><a href="languages/"><b>Learn other languages</b><span>Free starter packs — '
+            '    <li><a href="languages/"><b>Learn languages</b><span>Free starter packs — '
             'Bengali, Tamil, Telugu, Marathi, Gujarati, Punjabi, Urdu, Spanish and English basics. '
             'One engine, many languages.</span></a></li>', 1)
         changed = True

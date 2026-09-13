@@ -2,8 +2,8 @@
 
 - **repo**: EkGuru (GitHub Pages static site)
 - **branch**: main
-- **SHA**: e8085271791fbba316465b708fcb8b91000ab820
-- **verdict**: GREEN_GLOBAL_ENGINE_PRODUCTION_READY (40/40)
+- **SHA**: f226b508e66b8df6796a91dfdb3ec0a8a48d6558
+- **verdict**: GREEN_GLOBAL_ENGINE_PRODUCTION_READY (43/43)
 
 ## Completed batches
 - tranche 1: content graph + registries + live inventory
@@ -17,20 +17,22 @@
 - tranche 9 (Stage 3): multi-language starter packs — 9 authored BETA packs (en/es/bn/ta/te/mr/gu/pa/ur) with per-language indexable pages, home-page section/nav/global-nav reachability, PLANNED languages stay page-less (Gate J)
 - tranche 10 (Stage 4): starter-pack learning experience — browser-TTS Listen buttons (computer voice, BCP-47 tags fixed: bn-IN/ta-IN/te-IN/mr-IN/gu-IN/pa-IN/ur-PK) + deterministic rule-based starter check, all through the shared engines; Hindi PRODUCTION unchanged (Gate K)
 - tranche 11 (Stage 5): authored starter packs for all remaining PLANNED languages — 20 more packs (fr/ar/de/ja/ko/zh/ru/pt/it/nl/pl/tr/fa/he/th/vi/id/ms/sw/uk) => 29 BETA packs total, 0 PLANNED; RTL speech tags fixed (ar-SA/fa-IR/he-IL/ms-MY); Hindi stays the only PRODUCTION language (Gate L)
+- tranche 12 (Stage 6): everyday polish — 'More on EkGuru' block renamed 'Learn languages' (home + inner pages); browser-TTS Listen buttons mounted on the languages hub (all 30 cells), SRS review card and vocabulary practice; practice questions rotate daily via deterministic dayShuffle (rule-based, not AI) (Gate M)
 
 ## Pending
-- full courses for the 29 BETA languages (starter packs are proofs, not courses) — each needs lessons + practice + quiz + review + recorded-audio decision, then browser QA before PRODUCTION
+- full courses for the 29 BETA languages, one by one, popular first (user directive) — each needs lessons + practice + quiz + review + recorded-audio decision, then browser QA before PRODUCTION
+- flashcards/toolbox pages: extend the same Listen buttons to the flashcards deck and phrasebook
 - child-specific lesson content (privacy mode ships; lessons not authored)
 - large-scale SEO batches (Stage 6) — never before quality gates
 
 ## Next exact command
 ```
-python3 tools/build-lang-packs.py && python3 tools/build-phase7-pages.py && python3 tools/test-phase7c-langs.py && python3 tools/test-phase7c-starter.py
+python3 tools/build-lang-packs.py && python3 tools/build-phase7-pages.py && python3 tools/build-hindi-pages.py && python3 tools/test-phase7c-langs.py && python3 tools/test-phase7c-starter.py && python3 tools/test-phase7c-stage6.py
 ```
 
 ## Test command
 ```
-python3 tools/test-phase7c.py && python3 tools/test-phase7c-conversation.py && python3 tools/test-phase7c-engines.py && python3 tools/test-phase7c-context.py && python3 tools/test-phase7c-admin.py && python3 tools/test-phase7c-langpack.py && python3 tools/test-phase7c-langs.py && python3 tools/test-phase7c-starter.py && python3 tools/test-phase7-browser.py && python3 tools/test-phase6-matrix.py && python3 tools/test-card-interactions.py
+python3 tools/test-phase7c.py && python3 tools/test-phase7c-conversation.py && python3 tools/test-phase7c-engines.py && python3 tools/test-phase7c-context.py && python3 tools/test-phase7c-admin.py && python3 tools/test-phase7c-langpack.py && python3 tools/test-phase7c-langs.py && python3 tools/test-phase7c-starter.py && python3 tools/test-phase7c-stage6.py && python3 tools/test-phase7-browser.py && python3 tools/test-phase6-matrix.py && python3 tools/test-card-interactions.py
 ```
 
 ## Unresolved errors

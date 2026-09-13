@@ -32,6 +32,29 @@
     return out;
   }
 
+  /* deterministic daily rotation (rule-based, not AI): same date + salt
+     -> same order, different date -> different order. `when` optional Date. */
+  function dayShuffle(a, salt, when) {
+    var d = when || new Date();
+    var key = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") +
+              "-" + String(d.getDate()).padStart(2, "0") + ":" + (salt || "");
+    var h = 2166136261;
+    for (var i = 0; i < key.length; i++) { h ^= key.charCodeAt(i); h = Math.imul(h, 16777619); }
+    var seed = h >>> 0;
+    var out = a.slice();
+    var rnd = function () {
+      seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
+      var t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+    for (var i = out.length - 1; i > 0; i--) {
+      var j = Math.floor(rnd() * (i + 1));
+      var tmp = out[i]; out[i] = out[j]; out[j] = tmp;
+    }
+    return out;
+  }
+
   /* ---------- curated typing data (from real lesson content) ---------- */
   var TYPING = [
     ["namaste", "नमस्ते"], ["aap", "आप"], ["tum", "तुम"], ["kaise", "कैसे"],
@@ -151,6 +174,7 @@
       '<option value="5">5</option><option value="10">10</option><option value="15">15</option></select></div>' +
       '<button type="button" class="btn" id="q-start">Start</button>' +
       '</div>' +
+      '<p class="muted" style="font-size:.8rem;margin-top:8px">Questions rotate each day for the same topic and level (rule-based, not random) — come back tomorrow for a new set.</p>' +
       '<div id="q-body" style="margin-top:16px"></div>';
 
     var state = null;
@@ -160,7 +184,7 @@
       var level = host.querySelector("#q-level").value;
       var n = parseInt(host.querySelector("#q-n").value, 10);
       var pool = qs.filter(function (q) { return q.topic === topic && q.level === level; });
-      var use = shuffle(pool).slice(0, n);
+      var use = dayShuffle(pool, "quiz:" + topic + ":" + level).slice(0, n);
       if (!use.length) {
         host.querySelector("#q-body").innerHTML = '<p class="muted">No questions for this combination yet.</p>';
         return;
@@ -238,7 +262,7 @@
     host.querySelector("#w-make").addEventListener("click", function () {
       var topic = host.querySelector("#w-topic").value;
       var n = parseInt(host.querySelector("#w-n").value, 10);
-      made = shuffle(qs.filter(function (q) { return q.topic === topic; })).slice(0, n);
+      made = dayShuffle(qs.filter(function (q) { return q.topic === topic; }), "ws:" + topic).slice(0, n);
       var withAns = host.querySelector("#w-ans").checked;
       var sheet = host.querySelector("#w-sheet");
       var lines = made.map(function (q, i) {

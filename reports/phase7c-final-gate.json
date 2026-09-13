@@ -1,9 +1,9 @@
 {
-  "generated": "2026-09-13T03:27:30Z",
-  "commit": "e8085271791fbba316465b708fcb8b91000ab820",
+  "generated": "2026-09-13T07:36:40Z",
+  "commit": "f226b508e66b8df6796a91dfdb3ec0a8a48d6558",
   "verdict": "GREEN_GLOBAL_ENGINE_PRODUCTION_READY",
-  "green": 40,
-  "total": 40,
+  "green": 43,
+  "total": 43,
   "note": "All gate items pass with real Chromium evidence (0 page errors on every new surface; Phase 5/6/7 regression green; 36-cell viewport gate; real SEO-scale crawl with 0 duplicates/orphans/broken links). Performance numbers are measured, not estimated. LIVE deploy is verified STALE: ekguru.shop 404s on /learn/my-learning/, so it predates Phase 7C — and GitHub origin/main holds only 'Initial commit', so neither live nor GitHub reflects this work; the workspace is the continuity layer.",
   "items": [
     {
@@ -92,6 +92,18 @@
     },
     {
       "state": "GREEN",
+      "evidence": "'More on EkGuru' block -> 'Learn languages' heading + aria-label on home and every inner page; first entry links /languages/ (Gate M)"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "languages hub mounts a browser-TTS Listen button for every one of the 30 language cells (correct BCP-47 tags: ar-SA/fa-IR/he-IL/zh-CN…); SRS review card and vocabulary practice lab speak the Devanagari word — computer voice, never native (Gate M)"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "dayShuffle: same date + salt -> same set, different date -> different set (rule-based, not AI, not random); honest note on quiz + daily practice (Gate M)"
+    },
+    {
+      "state": "GREEN",
       "evidence": "reports/global-content-schema-phase7c.json (unified multi-language schema)"
     },
     {
@@ -136,7 +148,7 @@
     },
     {
       "state": "GREEN",
-      "evidence": "21/21 stages PASS (run-phase7c-pipeline.py)"
+      "evidence": "22/22 stages PASS (run-phase7c-pipeline.py)"
     },
     {
       "state": "GREEN",

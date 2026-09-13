@@ -94,7 +94,7 @@ with sync_playwright() as p:
     hub = pg.evaluate("""() => {
         var grids = document.querySelectorAll('.lang-grid');
         var prod = grids[0] ? grids[0].querySelectorAll('.lang-cell').length : -1;
-        var beta = document.querySelectorAll('.lang-grid a.lang-cell').length;
+        var beta = document.querySelectorAll('.lang-grid .lb').length;
         var sel = document.getElementById('lp-select');
         var opts = sel ? Array.from(sel.options).map(function(o){return o.value;}) : [];
         return {

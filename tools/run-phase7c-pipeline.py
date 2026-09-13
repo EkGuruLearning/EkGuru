@@ -17,12 +17,13 @@ Stages (each runs only if the previous passed; any failure stops the run):
  13  gate: lang pack (Stage 2) tools/test-phase7c-langpack.py
  14  gate: lang packs (Stage 3) tools/test-phase7c-langs.py
  15  gate: starter exp (Stage 4) tools/test-phase7c-starter.py
- 16  gate: multi-viewport      tools/test-phase7c-viewports.py
- 17  seo scale (static crawl)  tools/test-phase7c-seo-scale.py
- 18  regression: Phase 7       tools/test-phase7-browser.py
- 19  regression: Phase 6       tools/test-phase6-matrix.py
- 20  regression: Phase 5       tools/test-card-interactions.py
- 21  reports + final gate      tools/write-phase7c-reports2.py
+ 16  gate: everyday polish (Stage 6) tools/test-phase7c-stage6.py
+ 17  gate: multi-viewport      tools/test-phase7c-viewports.py
+ 18  seo scale (static crawl)  tools/test-phase7c-seo-scale.py
+ 19  regression: Phase 7       tools/test-phase7-browser.py
+ 20  regression: Phase 6       tools/test-phase6-matrix.py
+ 21  regression: Phase 5       tools/test-card-interactions.py
+ 22  reports + final gate      tools/write-phase7c-reports2.py
 
 Requires a static server on http://127.0.0.1:8899 (python3 -m http.server).
 Output: reports/pipeline-phase7c.json
@@ -51,6 +52,7 @@ STAGES = [
     ("gate: language pack (Stage 2)", ["python3", "tools/test-phase7c-langpack.py"], "json", "reports/phase7c-langpack-test.json"),
     ("gate: language packs (Stage 3)", ["python3", "tools/test-phase7c-langs.py"], "json", "reports/phase7c-langs-test.json"),
     ("gate: starter experience (Stage 4)", ["python3", "tools/test-phase7c-starter.py"], "json", "reports/phase7c-starter-test.json"),
+    ("gate: everyday polish (Stage 6)", ["python3", "tools/test-phase7c-stage6.py"], "json", "reports/phase7c-stage6-test.json"),
     ("gate: multi-viewport", ["python3", "tools/test-phase7c-viewports.py"], "json", "reports/phase7c-viewports-test.json"),
     ("seo: scale (static)", ["python3", "tools/test-phase7c-seo-scale.py"], "grep", "SEO scale"),
     ("regression: Phase 7", ["python3", "tools/test-phase7-browser.py"], "grep", "PASS"),

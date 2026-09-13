@@ -159,11 +159,13 @@ def review_page():
   </div>
   <p class="muted" style="margin-top:14px">Cards are saved on this device only — no account, no upload, no sync.</p>
 """
-    scripts = ["hindi-quiz-bank.js", "practice-bank.js", "hindi-srs.js"]
+    scripts = ["hindi-quiz-bank.js", "practice-bank.js", "hindi-srs.js", "hindi-audio.js"]
     extra = """
 #srs-card .prompt{font-size:1.15rem;font-weight:700;margin-bottom:14px}
 #srs-card .answer{display:none;background:var(--bg-soft);border:1px solid #ddd8ff;border-radius:10px;padding:12px 14px;margin:0 0 14px;color:var(--ink-2)}
 #srs-card .rates{display:flex;gap:8px;flex-wrap:wrap}
+.hi-listen{display:inline-flex;align-items:center;gap:5px;margin:0 0 0 8px;padding:4px 10px;font-size:.82rem;line-height:1.4;border-radius:999px;border:1px solid var(--line);background:var(--bg-soft);color:var(--ink);cursor:pointer;vertical-align:middle}
+.hi-listen.playing{background:var(--brand);border-color:var(--brand);color:#fff}
 """
     write_page("learn/hindi/review/index.html", up, "Hindi Review — spaced repetition",
                "Review the Hindi words and phrases you saved, on a simple spaced-repetition schedule that lives in your browser.",
@@ -183,6 +185,11 @@ REVIEW_JS = """<script>
   function boot() {
   var S = window.EkGuruSRS, queue = [], card = null;
   function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+  function deva(t){var m=String(t||"").match(/[\u0900-\u097F]+/);return m?m[0]:null;}
+  function sayWord() {
+    var w = deva(card.target) || deva(card.prompt);
+    return w || null;
+  }
   function paint() {
     var st = document.getElementById("srs-stats");
     st.textContent = S.count() + " cards · " + S.dueCount() + " due";
@@ -192,8 +199,11 @@ REVIEW_JS = """<script>
     card = queue.shift() || null;
     if (!card) { box.innerHTML = ""; empty.style.display = "block"; return; }
     empty.style.display = "none";
+    var say = sayWord();
     box.innerHTML =
-      '<p class="prompt">' + esc(card.prompt) + '</p>' +
+      '<p class="prompt">' + esc(card.prompt) +
+        (say ? '<button type="button" class="hi-listen" id="srs-say" aria-label="Listen (computer voice)" aria-pressed="false"><span aria-hidden="true">🔊</span> Listen</button>' : "") +
+      '</p>' +
       '<div class="answer" id="srs-a"><b>' + esc(card.answer) + '</b></div>' +
       '<button type="button" class="btn ghost" id="srs-show">Show answer</button>' +
       '<div class="rates" id="srs-rates" style="display:none;margin-top:10px">' +
@@ -201,6 +211,14 @@ REVIEW_JS = """<script>
       '<button type="button" class="btn ghost" data-r="hard">Hard</button>' +
       '<button type="button" class="btn" data-r="good">Good</button>' +
       '<button type="button" class="btn" data-r="easy">Easy</button></div>';
+    var sayBtn = box.querySelector("#srs-say");
+    if (sayBtn && say) {
+      sayBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        var A = window.EkGuruHindiAudio;
+        if (A && A.supported()) A.speak(say, sayBtn, "hi-IN");
+      });
+    }
     box.querySelector("#srs-show").addEventListener("click", function () {
       box.querySelector("#srs-a").style.display = "block";
       box.querySelector("#srs-rates").style.display = "flex";

@@ -98,6 +98,38 @@
     }
     return out;
   }
+
+  /* ---- deterministic daily rotation (rule-based, not AI) ----
+     The SAME date + salt always yields the SAME order, so a learner
+     gets a consistent set across reloads, and a DIFFERENT set each
+     day. Option order inside a question stays random (shuffle above).
+     `when` is an optional Date for deterministic tests. */
+  function daySeed(salt, when) {
+    var d = when || new Date();
+    var key = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") +
+              "-" + String(d.getDate()).padStart(2, "0") + ":" + (salt || "");
+    var h = 2166136261;
+    for (var i = 0; i < key.length; i++) {
+      h ^= key.charCodeAt(i);
+      h = Math.imul(h, 16777619);
+    }
+    return h >>> 0;
+  }
+  function dayShuffle(arr, salt, when) {
+    var seed = daySeed(salt, when);
+    var out = arr.slice();
+    var rnd = function () {
+      seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
+      var t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+    for (var i = out.length - 1; i > 0; i--) {
+      var j = Math.floor(rnd() * (i + 1));
+      var tmp = out[i]; out[i] = out[j]; out[j] = tmp;
+    }
+    return out;
+  }
   function speak(text) {
     try {
       if (!("speechSynthesis" in window)) return false;
@@ -109,6 +141,10 @@
       return true;
     } catch (e) { return false; }
   }
+  function deva(t) {
+    var m = String(t || "").match(/[\u0900-\u097F]+/);
+    return m ? m[0] : null;
+  }
 
   /* ---------- the flow ---------- */
   function mount(el, cfg) {
@@ -119,15 +155,15 @@
     if (mode === "review") {
       entries = dueEntries();
     } else if (mode === "daily") {
-      entries = shuffle(allBanks()).slice(0, cfg.count || 10);
+      entries = dayShuffle(allBanks(), "daily:" + (cfg.count || 10)).slice(0, cfg.count || 10);
     } else if (mode === "placement") {
       entries = bank("placement").map(function (item, i) { return { bank: "placement", index: i, item: item }; });
     } else if (mode === "speak") {
       entries = bank("speaking").map(function (item, i) { return { bank: "speaking", index: i, item: item }; });
-      entries = shuffle(entries).slice(0, cfg.count || entries.length);
+      entries = dayShuffle(entries, "speak").slice(0, cfg.count || entries.length);
     } else {
       var src = bank(cfg.bank).map(function (item, i) { return { bank: cfg.bank, index: i, item: item }; });
-      entries = shuffle(src).slice(0, cfg.count || src.length);
+      entries = dayShuffle(src, cfg.bank).slice(0, cfg.count || src.length);
     }
 
     var state = { i: 0, score: 0, answered: false, answerWords: [] };
@@ -142,9 +178,9 @@
       } else if (mode === "review") {
         s = "A simple review box system (not clinical spaced repetition). Items you get wrong come back sooner; items you get right wait longer.";
       } else if (mode === "daily") {
-        s = "Daily practice: a short mixed run. Recognition practice only — it does not test speaking or listening to a native speaker at speed.";
+        s = "Daily practice: a short mixed run. Recognition practice only — it does not test speaking or listening to a native speaker at speed. The set rotates each day (rule-based, not random).";
       } else {
-        s = "Practice, not a test: multiple choice measures recognition of forms, not conversation. No score leaves this browser.";
+        s = "Practice, not a test: multiple choice measures recognition of forms, not conversation. No score leaves this browser. The set rotates each day (rule-based, not random).";
       }
       return '<p class="px-note">' + esc(s) + "</p>";
     }
@@ -189,6 +225,12 @@
       if (item.tts) {
         listenHtml = '<button type="button" class="btn px-play">🔊 Play again</button> ' +
           '<span class="px-tts-note">(computer voice — good for recognition, not a native accent)</span>';
+      } else {
+        var dv = deva(item.q);
+        if (dv) {
+          listenHtml = '<button type="button" class="btn px-play" data-sayw="' + esc(dv) + '">🔊 Listen</button> ' +
+            '<span class="px-tts-note">(computer voice, not a native accent)</span>';
+        }
       }
 
       box.innerHTML =
@@ -286,10 +328,17 @@
 
       var play = box.querySelector(".px-play");
       if (play) {
-        play.addEventListener("click", function () {
-          if (!speak(item.tts)) play.textContent = "Playback unavailable in this browser";
-        });
-        speak(item.tts);   // play once on load
+        if (play.getAttribute("data-sayw")) {
+          var sayText = play.getAttribute("data-sayw");
+          play.addEventListener("click", function () {
+            if (!speak(sayText)) play.textContent = "Playback unavailable in this browser";
+          });
+        } else if (item.tts) {
+          play.addEventListener("click", function () {
+            if (!speak(item.tts)) play.textContent = "Playback unavailable in this browser";
+          });
+          speak(item.tts);   // play once on load
+        }
       }
     }
 
@@ -398,6 +447,8 @@
   window.EkGuruPractice = {
     mount: mount,
     masteryCount: function () { return Object.keys(read()).length; },
-    dueCount: function () { return dueEntries().length; }
+    dueCount: function () { return dueEntries().length; },
+    /* test hook: deterministic daily rotation (rule-based, not AI) */
+    dayShuffle: function (arr, salt, when) { return dayShuffle(arr, salt, when); }
   };
 })();
