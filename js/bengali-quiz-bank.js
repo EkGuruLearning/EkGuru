@@ -1194,6 +1194,166 @@ window.EKGURU_BENGALI_QUIZ =
    "q": "'এটা আমার বাড়ি' means…",
    "topic": "home",
    "type": "meaning"
+  },
+  {
+   "a": "pandal",
+   "explain": "প্যান্ডেল (pandel) — the temporary shrine, heart of Durga Puja.",
+   "id": "bq-75",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "pandal",
+    "temple",
+    "mosque",
+    "fair"
+   ],
+   "q": "প্যান্ডেল means…",
+   "topic": "festivals",
+   "type": "vocab"
+  },
+  {
+   "a": "মা দুর্গা",
+   "explain": "মা দুর্গা (ma durga) — the goddess herself.",
+   "id": "bq-76",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "মা দুর্গা",
+    "সরস্বতী পূজা",
+    "লক্ষ্মী পূজা",
+    "কালীপূজা"
+   ],
+   "q": "Which is 'goddess Durga'?",
+   "topic": "festivals",
+   "type": "vocab"
+  },
+  {
+   "a": "happy Diwali",
+   "explain": "শুভ দীপাবলি — শুভ = auspicious/happy.",
+   "id": "bq-77",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "happy Diwali",
+    "happy Holi",
+    "happy Eid",
+    "merry Christmas"
+   ],
+   "q": "'শুভ দীপাবলি' means…",
+   "topic": "festivals",
+   "type": "meaning"
+  },
+  {
+   "a": "প্রদীপ জ্বালাও",
+   "explain": "প্রদীপ জ্বালাও = light the lamp — জ্বালানো = to light.",
+   "id": "bq-78",
+   "lesson": "festivals",
+   "level": "elementary",
+   "opts": [
+    "প্রদীপ জ্বালাও",
+    "ধূপ নেভাও",
+    "ঘণ্টা বাজাও",
+    "মালা পরাও"
+   ],
+   "q": "Say 'light the lamp'. You say…",
+   "topic": "festivals",
+   "type": "usage"
+  },
+  {
+   "a": "immersion",
+   "explain": "বিসর্জন (bishorjon) — the Dashami immersion of the idol.",
+   "id": "bq-79",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "immersion",
+    "procession",
+    "prayer",
+    "fasting"
+   ],
+   "q": "বিসর্জন means…",
+   "topic": "festivals",
+   "type": "vocab"
+  },
+  {
+   "a": "Christmas",
+   "explain": "বড়দিন (boṛodin) — literally 'big day', the Bengali name for Christmas!",
+   "id": "bq-80",
+   "lesson": "festivals",
+   "level": "elementary",
+   "opts": [
+    "Christmas",
+    "New Year",
+    "Diwali",
+    "Eid"
+   ],
+   "q": "বড়দিন means…",
+   "topic": "festivals",
+   "type": "vocab"
+  },
+  {
+   "a": "let's go see the pandal",
+   "explain": "প্যান্ডেল দেখতে চলো — চলো = let's go.",
+   "id": "bq-81",
+   "lesson": "festivals",
+   "level": "elementary",
+   "opts": [
+    "let's go see the pandal",
+    "let's light the lamp",
+    "let's buy sweets",
+    "let's go home"
+   ],
+   "q": "'প্যান্ডেল দেখতে চলো' means…",
+   "topic": "festivals",
+   "type": "meaning"
+  },
+  {
+   "a": "শুভ নববর্ষ",
+   "explain": "শুভ নববর্ষ — নববর্ষ = new year.",
+   "id": "bq-82",
+   "lesson": "festivals",
+   "level": "elementary",
+   "opts": [
+    "শুভ নববর্ষ",
+    "শুভ দীপাবলি",
+    "ঈদ মোবারক",
+    "শুভ বড়দিন"
+   ],
+   "q": "Greet someone on Bengali New Year. You say…",
+   "topic": "festivals",
+   "type": "usage"
+  },
+  {
+   "a": "drum (dhaak)",
+   "explain": "ঢাক (ḍhak) — the barrel drum whose beat IS Durga Puja.",
+   "id": "bq-83",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "drum (dhaak)",
+    "conch shell",
+    "bell",
+    "fireworks"
+   ],
+   "q": "ঢাক means…",
+   "topic": "festivals",
+   "type": "vocab"
+  },
+  {
+   "a": "take the blessing",
+   "explain": "আশীর্বাদ নাও — আশীর্বাদ = blessing.",
+   "id": "bq-84",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "take the blessing",
+    "light the lamp",
+    "offer flowers",
+    "sing a song"
+   ],
+   "q": "'আশীর্বাদ নাও' means…",
+   "topic": "festivals",
+   "type": "meaning"
   }
  ]
 };

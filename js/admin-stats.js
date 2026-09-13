@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-13T17:59:20.209Z",
+ "generated": "2026-09-13T18:04:27.159Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 875,
+  "totalHtml": 876,
   "materials": 0
  },
  "countries": {
@@ -3923,8 +3923,8 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 875,
-  "sitemapUrls": 798,
+  "pages": 876,
+  "sitemapUrls": 799,
   "sitemapFiles": 14,
   "brokenLinks": 0,
   "orphans": 0
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1094 files scanned, 0 secrets"
+  "note": "1096 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "71f589451b84d02b5509e02190f4f1f4347fd7a5",
-  "subject": "v116: Bengali advanced module 4 — Weather & nature (151 words, human-authored)",
-  "buildTime": "2026-09-13T17:59:20.222Z",
+  "commit": "7f474fd3654392adfc0fc7002b9e27432f7cc36e",
+  "subject": "v117: Bengali advanced module 5 — Home & family (150 words, human-authored)",
+  "buildTime": "2026-09-13T18:04:27.174Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 875,
+   "totalHtml": 876,
    "tutorProfiles": 4,
    "materials": 0
   }
