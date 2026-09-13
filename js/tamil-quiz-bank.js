@@ -554,6 +554,326 @@ window.EKGURU_TAMIL_QUIZ =
    "q": "'ஓய்வெடுங்கள்' means…",
    "topic": "health",
    "type": "meaning"
+  },
+  {
+   "a": "salary",
+   "explain": "சம்பளம் (sambaḷam) = salary.",
+   "id": "tm-35",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "salary",
+    "bonus",
+    "loan",
+    "bill"
+   ],
+   "q": "சம்பளம் means…",
+   "topic": "office",
+   "type": "vocab"
+  },
+  {
+   "a": "கணினி",
+   "explain": "கணினி (kaṇiṉi) — கணக்கு (count) + இன் (in)! Pure Tamil for computer.",
+   "id": "tm-36",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "கணினி",
+    "அச்சுப்பொறி",
+    "கோப்பு",
+    "மேசை"
+   ],
+   "q": "Which is 'computer'?",
+   "topic": "office",
+   "type": "vocab"
+  },
+  {
+   "a": "come on time",
+   "explain": "நேரத்தில் வாருங்கள் — நேரம் = time.",
+   "id": "tm-37",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "come on time",
+    "go home early",
+    "work fast",
+    "take leave"
+   ],
+   "q": "'நேரத்தில் வாருங்கள்' means…",
+   "topic": "office",
+   "type": "meaning"
+  },
+  {
+   "a": "நாளை விடுப்பு வேண்டும்",
+   "explain": "நாளை விடுப்பு வேண்டும் — விடுப்பு = leave.",
+   "id": "tm-38",
+   "lesson": "office",
+   "level": "elementary",
+   "opts": [
+    "நாளை விடுப்பு வேண்டும்",
+    "நாளை கூட்டம் உண்டு",
+    "நாளை சம்பளம் உண்டு",
+    "நாளை விடுமுறை இல்லை"
+   ],
+   "q": "Ask for tomorrow's leave. You say…",
+   "topic": "office",
+   "type": "usage"
+  },
+  {
+   "a": "signature",
+   "explain": "கையொப்பம் (kaiyoppam) = signature — கை = hand.",
+   "id": "tm-39",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "signature",
+    "stamp",
+    "file",
+    "seal"
+   ],
+   "q": "கையொப்பம் means…",
+   "topic": "office",
+   "type": "vocab"
+  },
+  {
+   "a": "mouse (computer)",
+   "explain": "சுட்டி (suṭṭi) — literally 'pointer', pure Tamil for computer mouse!",
+   "id": "tm-40",
+   "lesson": "office",
+   "level": "elementary",
+   "opts": [
+    "mouse (computer)",
+    "keyboard",
+    "printer",
+    "scanner"
+   ],
+   "q": "சுட்டி means…",
+   "topic": "office",
+   "type": "vocab"
+  },
+  {
+   "a": "the work is finished",
+   "explain": "வேலை முடிந்துவிட்டது — முடி = finish.",
+   "id": "tm-41",
+   "lesson": "office",
+   "level": "elementary",
+   "opts": [
+    "the work is finished",
+    "the work begins",
+    "the work is difficult",
+    "the work can wait"
+   ],
+   "q": "'வேலை முடிந்துவிட்டது' means…",
+   "topic": "office",
+   "type": "meaning"
+  },
+  {
+   "a": "மின்னஞ்சல் அனுப்புங்கள்",
+   "explain": "மின்னஞ்சல் அனுப்புங்கள் — மின்னஞ்சல் = email.",
+   "id": "tm-42",
+   "lesson": "office",
+   "level": "elementary",
+   "opts": [
+    "மின்னஞ்சல் அனுப்புங்கள்",
+    "கடிதம் எழுதுங்கள்",
+    "போன் செய்யுங்கள்",
+    "கூட்டத்திற்கு வாருங்கள்"
+   ],
+   "q": "Tell someone to send the email. You say…",
+   "topic": "office",
+   "type": "usage"
+  },
+  {
+   "a": "leave",
+   "explain": "விடுப்பு (viḍuppu) = leave; விடுமுறை = holiday.",
+   "id": "tm-43",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "leave",
+    "holiday",
+    "salary",
+    "bonus"
+   ],
+   "q": "விடுப்பு means…",
+   "topic": "office",
+   "type": "vocab"
+  },
+  {
+   "a": "good job!",
+   "explain": "நல்ல வேலை! — நல்ல = good.",
+   "id": "tm-44",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "good job!",
+    "go home!",
+    "sit down!",
+    "wait here!"
+   ],
+   "q": "'நல்ல வேலை!' means…",
+   "topic": "office",
+   "type": "meaning"
+  },
+  {
+   "a": "exam",
+   "explain": "தேர்வு (tērvu) = exam.",
+   "id": "tm-45",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "exam",
+    "lesson",
+    "homework",
+    "result"
+   ],
+   "q": "தேர்வு means…",
+   "topic": "education",
+   "type": "vocab"
+  },
+  {
+   "a": "தலைமையாசிரியர்",
+   "explain": "தலைமையாசிரியர் (talaimaiyāsiriyar) — தலைமை = head + ஆசிரியர் = teacher.",
+   "id": "tm-46",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "தலைமையாசிரியர்",
+    "முதல்வர்",
+    "பேராசிரியர்",
+    "மாணவன்"
+   ],
+   "q": "Which is 'headmaster'?",
+   "topic": "education",
+   "type": "vocab"
+  },
+  {
+   "a": "knowledge is wealth",
+   "explain": "அறிவே செல்வம் — அறிவு = knowledge.",
+   "id": "tm-47",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "knowledge is wealth",
+    "health is wealth",
+    "time is gold",
+    "work is worship"
+   ],
+   "q": "'அறிவே செல்வம்' means…",
+   "topic": "education",
+   "type": "meaning"
+  },
+  {
+   "a": "நன்றாகப் படி",
+   "explain": "நன்றாகப் படி = study well — நன்றாக = well.",
+   "id": "tm-48",
+   "lesson": "education",
+   "level": "elementary",
+   "opts": [
+    "நன்றாகப் படி",
+    "வெளியே விளையாடு",
+    "சீக்கிரம் தூங்கு",
+    "டிவி பார்"
+   ],
+   "q": "Tell a child to study well. You say…",
+   "topic": "education",
+   "type": "usage"
+  },
+  {
+   "a": "library",
+   "explain": "நூலகம் (nūlagam) = library — நூல் = book.",
+   "id": "tm-49",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "library",
+    "laboratory",
+    "classroom",
+    "hostel"
+   ],
+   "q": "நூலகம் means…",
+   "topic": "education",
+   "type": "vocab"
+  },
+  {
+   "a": "homework",
+   "explain": "வீட்டுப்பாடம் (vīṭṭuppāḍam) — வீடு (home) + பாடம் (lesson)!",
+   "id": "tm-50",
+   "lesson": "education",
+   "level": "elementary",
+   "opts": [
+    "homework",
+    "lesson",
+    "chapter",
+    "essay"
+   ],
+   "q": "வீட்டுப்பாடம் means…",
+   "topic": "education",
+   "type": "vocab"
+  },
+  {
+   "a": "the exam is near",
+   "explain": "தேர்வு நெருங்கிவிட்டது — நெருங்கு = come near.",
+   "id": "tm-51",
+   "lesson": "education",
+   "level": "elementary",
+   "opts": [
+    "the exam is near",
+    "the exam is over",
+    "the exam is easy",
+    "the exam is cancelled"
+   ],
+   "q": "'தேர்வு நெருங்கிவிட்டது' means…",
+   "topic": "education",
+   "type": "meaning"
+  },
+  {
+   "a": "புத்தகத்தைத் திறங்கள்",
+   "explain": "புத்தகத்தைத் திறங்கள் — திற = open.",
+   "id": "tm-52",
+   "lesson": "education",
+   "level": "elementary",
+   "opts": [
+    "புத்தகத்தைத் திறங்கள்",
+    "புத்தகத்தை மூடுங்கள்",
+    "பையைத் திறங்கள்",
+    "வாயைத் திறங்கள்"
+   ],
+   "q": "Say 'open your books'. You say…",
+   "topic": "education",
+   "type": "usage"
+  },
+  {
+   "a": "prize",
+   "explain": "பரிசு (parisu) = prize.",
+   "id": "tm-53",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "prize",
+    "medal",
+    "certificate",
+    "scholarship"
+   ],
+   "q": "பரிசு means…",
+   "topic": "education",
+   "type": "vocab"
+  },
+  {
+   "a": "don't talk in class",
+   "explain": "வகுப்பில் பேசாதே — பேசாதே = don't speak.",
+   "id": "tm-54",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "don't talk in class",
+    "don't run outside",
+    "don't sleep now",
+    "don't eat here"
+   ],
+   "q": "'வகுப்பில் பேசாதே' means…",
+   "topic": "education",
+   "type": "meaning"
   }
  ]
 };
