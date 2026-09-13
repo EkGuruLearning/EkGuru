@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-13T20:03:22.634Z",
+ "generated": "2026-09-13T20:03:56.346Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "b1dfa0ddf1377955470ee7697a6dfed491c939de",
-  "subject": "Indian 9 to Available + world batch 2 + speech-tag fix (v129): 9 Indian courses Available (hub+home+registry, 21/84/20 counts); Russian/Arabic/Chinese/Japanese/Korean courses (30 lessons, 120 practice, 100 quiz, 120 review — all hand-authored); registry 32 = 1 PROD + 19 AVAIL + 12 BETA; fixed ja-JP/ko-KR/uk-UA/vi-VN speech tags at phase7 source; sitemap-courses.xml (111 urls); doctor 11/11, SEO 1019/0/0",
-  "buildTime": "2026-09-13T20:03:22.648Z",
+  "commit": "027350922009440f145d487677074fb6ec31ad5f",
+  "subject": "Tutor sheet-hiding fixed end-to-end (v130): sheetsync respects active=no + bakes EKGURU_SHEET_HIDDEN; tutors-data excludes hidden on first paint; sheet.js stores hidden stubs on TUTORS-less pages + warns on availability=no trap; livepatch removes hidden rows on city/directory/locale pages (was dead code) with reversible first-paint concealment + unavailable banner on hidden profiles with CTA retarget; renderProfile unknown-id shows not-found instead of wrong tutor; 6 locale find-tutors wired to live sheet; verified 9 surfaces + reactivation both ways, 0 pageerrors; doctor 11/11, SEO 1019/0/0",
+  "buildTime": "2026-09-13T20:03:56.360Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
