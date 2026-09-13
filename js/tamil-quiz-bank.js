@@ -874,6 +874,486 @@ window.EKGURU_TAMIL_QUIZ =
    "q": "'வகுப்பில் பேசாதே' means…",
    "topic": "education",
    "type": "meaning"
+  },
+  {
+   "a": "rain",
+   "explain": "மழை (maḻai) = rain.",
+   "id": "tm-55",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "rain",
+    "wind",
+    "cloud",
+    "storm"
+   ],
+   "q": "மழை means…",
+   "topic": "weather",
+   "type": "vocab"
+  },
+  {
+   "a": "சூரியன்",
+   "explain": "சூரியன் (sūriyaṉ) = sun.",
+   "id": "tm-56",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "சூரியன்",
+    "நிலா",
+    "நட்சத்திரம்",
+    "மேகம்"
+   ],
+   "q": "Which is 'sun'?",
+   "topic": "weather",
+   "type": "vocab"
+  },
+  {
+   "a": "it is raining",
+   "explain": "மழை பெய்கிறது — பெய் = fall (rain).",
+   "id": "tm-57",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "it is raining",
+    "it is sunny",
+    "it is windy",
+    "it is foggy"
+   ],
+   "q": "'மழை பெய்கிறது' means…",
+   "topic": "weather",
+   "type": "meaning"
+  },
+  {
+   "a": "குடை எடுத்துக்கொள்",
+   "explain": "குடை எடுத்துக்கொள் = take an umbrella — குடை = umbrella.",
+   "id": "tm-58",
+   "lesson": "weather",
+   "level": "elementary",
+   "opts": [
+    "குடை எடுத்துக்கொள்",
+    "வீட்டில் இரு",
+    "வெளியே ஓடு",
+    "கடைக்குப் போ"
+   ],
+   "q": "Tell a friend to take an umbrella. You say…",
+   "topic": "weather",
+   "type": "usage"
+  },
+  {
+   "a": "river",
+   "explain": "நதி (nadi) = river.",
+   "id": "tm-59",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "river",
+    "lake",
+    "sea",
+    "pond"
+   ],
+   "q": "நதி means…",
+   "topic": "weather",
+   "type": "vocab"
+  },
+  {
+   "a": "rainbow",
+   "explain": "வானவில் (vāṉavil) — வான் (sky) + வில் (bow)!",
+   "id": "tm-60",
+   "lesson": "weather",
+   "level": "elementary",
+   "opts": [
+    "rainbow",
+    "lightning",
+    "thunder",
+    "cloud"
+   ],
+   "q": "வானவில் means…",
+   "topic": "weather",
+   "type": "vocab"
+  },
+  {
+   "a": "how is the weather?",
+   "explain": "வானிலை எப்படி? — எப்படி = how.",
+   "id": "tm-61",
+   "lesson": "weather",
+   "level": "elementary",
+   "opts": [
+    "how is the weather?",
+    "where is the rain?",
+    "when is summer?",
+    "why is it hot?"
+   ],
+   "q": "'வானிலை எப்படி?' means…",
+   "topic": "weather",
+   "type": "meaning"
+  },
+  {
+   "a": "புயலில் போகாதே",
+   "explain": "புயலில் போகாதே — போகாதே = don't go.",
+   "id": "tm-62",
+   "lesson": "weather",
+   "level": "elementary",
+   "opts": [
+    "புயலில் போகாதே",
+    "மழையில் நனை",
+    "வெயிலில் நில்",
+    "காற்றில் ஓடு"
+   ],
+   "q": "Warn: don't go in the storm. You say…",
+   "topic": "weather",
+   "type": "usage"
+  },
+  {
+   "a": "peacock",
+   "explain": "மயில் (mayil) — peacock, India's national bird.",
+   "id": "tm-63",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "peacock",
+    "parrot",
+    "crow",
+    "rooster"
+   ],
+   "q": "மயில் means…",
+   "topic": "weather",
+   "type": "vocab"
+  },
+  {
+   "a": "nature is beautiful",
+   "explain": "இயற்கை அழகானது — இயற்கை = nature.",
+   "id": "tm-64",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "nature is beautiful",
+    "the sky is blue",
+    "the river is deep",
+    "the tree is tall"
+   ],
+   "q": "'இயற்கை அழகானது' means…",
+   "topic": "weather",
+   "type": "meaning"
+  },
+  {
+   "a": "kitchen",
+   "explain": "சமையலறை (samaiyalaṛai) = kitchen — சமையல் = cooking.",
+   "id": "tm-65",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "kitchen",
+    "bedroom",
+    "bathroom",
+    "balcony"
+   ],
+   "q": "சமையலறை means…",
+   "topic": "home",
+   "type": "vocab"
+  },
+  {
+   "a": "மாமா",
+   "explain": "மாமா (māmā) = maternal uncle.",
+   "id": "tm-66",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "மாமா",
+    "சித்தப்பா",
+    "பெரியப்பா",
+    "தாத்தா"
+   ],
+   "q": "Which is 'maternal uncle'?",
+   "topic": "home",
+   "type": "vocab"
+  },
+  {
+   "a": "dinner is ready",
+   "explain": "சாப்பாடு தயார் — தயார் = ready.",
+   "id": "tm-67",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "dinner is ready",
+    "wash your hands",
+    "go to sleep",
+    "lock the door"
+   ],
+   "q": "'சாப்பாடு தயார்' means…",
+   "topic": "home",
+   "type": "meaning"
+  },
+  {
+   "a": "அறையை ஒழுங்குபடுத்து",
+   "explain": "அறையை ஒழுங்குபடுத்து = tidy the room.",
+   "id": "tm-68",
+   "lesson": "home",
+   "level": "elementary",
+   "opts": [
+    "அறையை ஒழுங்குபடுத்து",
+    "வெளியே விளையாடு",
+    "தூங்கப் போ",
+    "பாடம் படி"
+   ],
+   "q": "Guests are coming — tidy the room. You say…",
+   "topic": "home",
+   "type": "usage"
+  },
+  {
+   "a": "key",
+   "explain": "சாவி (sāvi) = key — சாவி எங்கே? (where are the keys?)",
+   "id": "tm-69",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "key",
+    "lock",
+    "door",
+    "window"
+   ],
+   "q": "சாவி means…",
+   "topic": "home",
+   "type": "vocab"
+  },
+  {
+   "a": "afternoon nap",
+   "explain": "மதியத் தூக்கம் (madiyat tūkkam) — the post-lunch nap. மதியம் = afternoon!",
+   "id": "tm-70",
+   "lesson": "home",
+   "level": "elementary",
+   "opts": [
+    "afternoon nap",
+    "morning walk",
+    "night sleep",
+    "daydream"
+   ],
+   "q": "மதியத் தூக்கம் means…",
+   "topic": "home",
+   "type": "vocab"
+  },
+  {
+   "a": "lock the door",
+   "explain": "கதவைப் பூட்டு — பூட்டு = lock.",
+   "id": "tm-71",
+   "lesson": "home",
+   "level": "elementary",
+   "opts": [
+    "lock the door",
+    "open the window",
+    "close the gate",
+    "light the lamp"
+   ],
+   "q": "'கதவைப் பூட்டு' means…",
+   "topic": "home",
+   "type": "meaning"
+  },
+  {
+   "a": "கையைக் கழுவு",
+   "explain": "கையைக் கழுவு = wash your hands — before every meal!",
+   "id": "tm-72",
+   "lesson": "home",
+   "level": "elementary",
+   "opts": [
+    "கையைக் கழுவு",
+    "முகத்தைக் கழுவு",
+    "டீ குடி",
+    "தூங்கப் போ"
+   ],
+   "q": "Say 'wash your hands'. You say…",
+   "topic": "home",
+   "type": "usage"
+  },
+  {
+   "a": "traditional cutter",
+   "explain": "அரிவாள்மனை (arivāḷmaṉai) — the traditional cutter of Tamil kitchens.",
+   "id": "tm-73",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "traditional cutter",
+    "grinding stone",
+    "pressure cooker",
+    "spice box"
+   ],
+   "q": "அரிவாள்மனை means…",
+   "topic": "home",
+   "type": "vocab"
+  },
+  {
+   "a": "this is my home",
+   "explain": "இது என் வீடு — இது = this.",
+   "id": "tm-74",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "this is my home",
+    "this is my room",
+    "our family is big",
+    "sweet dreams"
+   ],
+   "q": "'இது என் வீடு' means…",
+   "topic": "home",
+   "type": "meaning"
+  },
+  {
+   "a": "temple",
+   "explain": "கோயில் (kōyil) = temple.",
+   "id": "tm-75",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "temple",
+    "mosque",
+    "church",
+    "shrine"
+   ],
+   "q": "கோயில் means…",
+   "topic": "festivals",
+   "type": "vocab"
+  },
+  {
+   "a": "தைப்பொங்கல்",
+   "explain": "தைப்பொங்கல் (taippoṅgal) — தை = the Tamil month of Thai.",
+   "id": "tm-76",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "தைப்பொங்கல்",
+    "தைப்பூசம்",
+    "கார்த்திகை தீபம்",
+    "நவராத்திரி"
+   ],
+   "q": "Which is 'Thai Pongal'?",
+   "topic": "festivals",
+   "type": "vocab"
+  },
+  {
+   "a": "happy Diwali",
+   "explain": "இனிய தீபாவளி நல்வாழ்த்துகள் — இனிய = happy.",
+   "id": "tm-77",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "happy Diwali",
+    "happy Pongal",
+    "happy New Year",
+    "merry Christmas"
+   ],
+   "q": "'இனிய தீபாவளி நல்வாழ்த்துகள்' means…",
+   "topic": "festivals",
+   "type": "meaning"
+  },
+  {
+   "a": "விளக்கேற்று",
+   "explain": "விளக்கேற்று = light the lamp — விளக்கு = lamp.",
+   "id": "tm-78",
+   "lesson": "festivals",
+   "level": "elementary",
+   "opts": [
+    "விளக்கேற்று",
+    "விளக்கை அணை",
+    "மணியை அடி",
+    "பூவை வை"
+   ],
+   "q": "Say 'light the lamp'. You say…",
+   "topic": "festivals",
+   "type": "usage"
+  },
+  {
+   "a": "temple car",
+   "explain": "தேர் (tēr) — the giant temple car of Tamil festivals.",
+   "id": "tm-79",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "temple car",
+    "procession",
+    "fair",
+    "garland"
+   ],
+   "q": "தேர் means…",
+   "topic": "festivals",
+   "type": "vocab"
+  },
+  {
+   "a": "kolam (floor art)",
+   "explain": "கோலம் (kōlam) — the rice-flour art at Tamil doorsteps!",
+   "id": "tm-80",
+   "lesson": "festivals",
+   "level": "elementary",
+   "opts": [
+    "kolam (floor art)",
+    "fireworks",
+    "feast",
+    "gift"
+   ],
+   "q": "கோலம் means…",
+   "topic": "festivals",
+   "type": "vocab"
+  },
+  {
+   "a": "let's go to the temple",
+   "explain": "கோயிலுக்குப் போகலாம் — போகலாம் = let's go.",
+   "id": "tm-81",
+   "lesson": "festivals",
+   "level": "elementary",
+   "opts": [
+    "let's go to the temple",
+    "let's light the lamp",
+    "let's buy sweets",
+    "let's go home"
+   ],
+   "q": "'கோயிலுக்குப் போகலாம்' means…",
+   "topic": "festivals",
+   "type": "meaning"
+  },
+  {
+   "a": "இனிய பொங்கல் நல்வாழ்த்துகள்",
+   "explain": "இனிய பொங்கல் நல்வாழ்த்துகள் — the Pongal greeting.",
+   "id": "tm-82",
+   "lesson": "festivals",
+   "level": "elementary",
+   "opts": [
+    "இனிய பொங்கல் நல்வாழ்த்துகள்",
+    "இனிய தீபாவளி நல்வாழ்த்துகள்",
+    "ஈத் முபாரக்",
+    "கிறிஸ்துமஸ் வாழ்த்துகள்"
+   ],
+   "q": "Greet someone Happy Pongal. You say…",
+   "topic": "festivals",
+   "type": "usage"
+  },
+  {
+   "a": "firecracker",
+   "explain": "பட்டாசு (paṭṭāsu) — firecracker; வாணவேடிக்கை = fireworks.",
+   "id": "tm-83",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "firecracker",
+    "fireworks",
+    "lamp",
+    "bell"
+   ],
+   "q": "பட்டாசு means…",
+   "topic": "festivals",
+   "type": "vocab"
+  },
+  {
+   "a": "take the blessing",
+   "explain": "ஆசீர்வாதம் வாங்கு — ஆசீர்வாதம் = blessing.",
+   "id": "tm-84",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "take the blessing",
+    "light the lamp",
+    "offer flowers",
+    "sing a song"
+   ],
+   "q": "'ஆசீர்வாதம் வாங்கு' means…",
+   "topic": "festivals",
+   "type": "meaning"
   }
  ]
 };

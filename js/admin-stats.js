@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-13T18:13:29.991Z",
+ "generated": "2026-09-13T18:18:18.742Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 880,
+  "totalHtml": 883,
   "materials": 0
  },
  "countries": {
@@ -3923,8 +3923,8 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 880,
-  "sitemapUrls": 803,
+  "pages": 883,
+  "sitemapUrls": 806,
   "sitemapFiles": 14,
   "brokenLinks": 0,
   "orphans": 0
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1103 files scanned, 0 secrets"
+  "note": "1109 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "6ed0cc2dba0bea62ff2fbe1a2448d331890eedb4",
-  "subject": "v119: Tamil advanced module 1 — Health (154 words, human-authored)",
-  "buildTime": "2026-09-13T18:13:30.004Z",
+  "commit": "0ecfb673f64cbd69b00159f2239fc05b0a009efe",
+  "subject": "v120: Tamil advanced modules 2-3 — Office + Education (300 words)",
+  "buildTime": "2026-09-13T18:18:18.757Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 880,
+   "totalHtml": 883,
    "tutorProfiles": 4,
    "materials": 0
   }
