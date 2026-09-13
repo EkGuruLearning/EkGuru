@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-13T13:52:49.904Z",
+ "generated": "2026-09-13T14:42:41.486Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "75b46b37023ca253d3b69650aaaf0a94ea14e04c",
-  "subject": "v102: keep burger-less headers inline (localized + tutor profiles)",
-  "buildTime": "2026-09-13T13:52:49.922Z",
+  "commit": "419eda30002c08c5c7f612938a04b16f65323dfa",
+  "subject": "v102: regen doctor outputs after header/homepage work",
+  "buildTime": "2026-09-13T14:42:41.579Z",
   "dataSourceStatus": "PAUSED_FOR_REUPLOAD",
   "toolQa": {
    "tools": 12,

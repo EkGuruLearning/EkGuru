@@ -228,6 +228,17 @@ body.nav-open .burger span::after{top:0;transform:rotate(-45deg)}
 .hdr-in:not(:has(> .burger)) .nav > .btn{width:auto;margin:0}
 }
 
+/* ---- header: (max-width:480px) ---- */
+@media (max-width:480px){
+/* v102b — burger-less headers (22 pages): at <=480px the logo + inline nav
+   no longer fit side by side (ar/: links overlapped the logo at 320px, CTA
+   clipped at 390px — caught by the Firefox second-engine check, identical
+   in Chromium). Stack the nav on its own row under the logo. */
+.hdr-in:not(:has(> .burger)){flex-wrap:wrap}
+.hdr-in:not(:has(> .burger)) .nav{flex:1 1 100%;justify-content:flex-start;margin:8px 0 0}
+.hdr-in:not(:has(> .burger)) .nav a{padding:8px 10px;font-size:0.9rem}
+}
+
 /* ---- header: (min-width:981px) and (max-width:1024px) ---- */
 @media (min-width:981px) and (max-width:1024px){
 .logo small{display:block;font-size:0.66rem;max-width:110px}
