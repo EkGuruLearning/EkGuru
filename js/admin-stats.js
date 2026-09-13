@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-13T19:17:09.215Z",
+ "generated": "2026-09-13T19:24:16.358Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 932,
+  "totalHtml": 939,
   "materials": 0
  },
  "countries": {
@@ -3923,8 +3923,8 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 932,
-  "sitemapUrls": 855,
+  "pages": 939,
+  "sitemapUrls": 862,
   "sitemapFiles": 14,
   "brokenLinks": 0,
   "orphans": 0
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1200 files scanned, 0 secrets"
+  "note": "1213 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "498722c781ee374bc5df57c0c07ccb7995f71393",
-  "subject": "v125: Marathi + Gujarati COMPLETE — 12 advanced modules (1627 words)",
-  "buildTime": "2026-09-13T19:17:09.228Z",
+  "commit": "7ef48f613b922c539ecb91f59f79809b7a5a4808",
+  "subject": "v126: Punjabi + Urdu COMPLETE — 12 advanced modules (1617 words)",
+  "buildTime": "2026-09-13T19:24:16.370Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 932,
+   "totalHtml": 939,
    "tutorProfiles": 4,
    "materials": 0
   }
@@ -4619,8 +4619,7 @@ window.EKGURU_ADMIN_STATS = {
    "elementary"
   ],
   "levelsNotBuilt": [
-   "intermediate",
-   "advanced"
+   "intermediate"
   ],
   "topics": [
    "basics",

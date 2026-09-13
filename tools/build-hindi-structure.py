@@ -364,6 +364,32 @@ def li(base, target, short=None):
     s = short or short_desc(page_path(target))
     return f'    <li><a href="{rel(base, target)}">{t}</a><span>{s}</span></li>'
 
+PREVNEXT_CSS = (
+    ".prevnext{display:flex;justify-content:space-between;gap:12px;margin:34px 0 8px}"
+    ".prevnext a{flex:1;border:1px solid var(--line);border-radius:12px;padding:12px 14px;"
+    "text-decoration:none;color:var(--ink);background:var(--card,#fff)}"
+    ".prevnext a:hover{border-color:var(--brand-2)}"
+    ".prevnext .k{display:block;font-size:.78rem;color:var(--muted)}"
+    ".prevnext .t{font-weight:600}")
+
+
+def prevnext(prev_pair, next_pair):
+    """prev_pair/next_pair: (href, label) or None. Returns '' if neither."""
+    if not prev_pair and not next_pair:
+        return ""
+    cells = []
+    if prev_pair:
+        cells.append('<a href="%s"><span class="k">← Previous</span>'
+                     '<span class="t">%s</span></a>' % prev_pair)
+    else:
+        cells.append("<span></span>")
+    if next_pair:
+        cells.append('<a href="%s" style="text-align:right"><span class="k">Next →</span>'
+                     '<span class="t">%s</span></a>' % next_pair)
+    return ('<nav class="prevnext" aria-label="More Hindi topics">'
+            + "".join(cells) + "</nav>")
+
+
 def hs_card(base, target, label, short=None):
     t = title_of(page_path(target))
     s = short or short_desc(page_path(target))
@@ -442,9 +468,18 @@ def render_topic(topic, meta):
         body.append('  <h2>Questions people ask</h2><ul class="linklist">')
         body += [li(base, t) for t in b["ask"]]
         body.append('</ul>')
-    body.append('  <p style="margin-top:26px"><a href="../beginner/">Beginner level</a> · <a href="../elementary/">Elementary level</a> · <a href="../">All of Learn Hindi</a></p>')
+    body.append('  <p style="margin-top:26px"><a href="../beginner/">Beginner level</a> · <a href="../elementary/">Elementary level</a> · <a href="../advanced/">Advanced level</a> · <a href="../">All of Learn Hindi</a></p>')
+    chain = list(TOPIC_META)
+    i = chain.index(topic)
+    short = lambda k: TOPIC_META[k][0].split(" — ")[0]  # noqa: E731
+    prev_pair = ("../%s/" % chain[i - 1], short(chain[i - 1])) if i > 0 else None
+    next_pair = ("../%s/" % chain[i + 1], short(chain[i + 1])) if i < len(chain) - 1 else None
+    body.append("  " + prevnext(prev_pair, next_pair))
     j = jsonld("CollectionPage", title, t_lede, canon)
-    return shell(depth, title, t_lede, canon, t_h1, t_lede, "\n".join(body), j), base
+    html = shell(depth, title, t_lede, canon, t_h1, t_lede, "\n".join(body), j)
+    html = html.replace("</head>",
+                        "<style>\n" + PREVNEXT_CSS + "\n</style>\n</head>", 1)
+    return html, base
 
 def render_level(level):
     meta = LEVELS[level]
@@ -529,11 +564,15 @@ def render_hub():
                 '<span>From zero: the script, first words and simple sentences.</span></a>')
     body.append('<a class="hs-card" href="elementary/"><b>Elementary</b>'
                 '<span>Past the plateau: real conversation, tenses, register.</span></a>')
+    body.append('<a class="hs-card" href="advanced/"><b>Advanced</b>'
+                '<span>Six real topics: clinic, office, school, weather, home, festivals.</span></a>')
     body.append('  </div>')
-    body.append('  <p class="note">No Intermediate or Advanced page yet — we will not ship an empty '
+    body.append('  <p class="note">No Intermediate page yet — we will not ship an empty '
                 'level page. The site has a handful of intermediate-leaning pages (Bollywood, slang, '
                 'Hinglish, heritage) inside <a href="daily-life/">Daily life &amp; culture</a>, and that '
-                'is where they live until there is enough real content for a level of their own.</p>')
+                'is where they live until there is enough real content for a level of their own. '
+                'Advanced, on the other hand, is now real: 800+ words across '
+                '<a href="advanced/">six everyday topics</a>.</p>')
 
     # Topic selector
     body.append('  <h2>Topics</h2>')
@@ -639,7 +678,7 @@ def main():
     print(f"search-index.json: +{n_added} new entries (total {len(json.load(open('search-index.json')))}))")
     json.dump({"generated": GEN, "pages": made, "searchIndexAdded": n_added,
                "levelsBuilt": sorted(LEVELS), "topicsBuilt": sorted(TOPIC_META),
-               "levelsNotBuilt": ["intermediate", "advanced"],
+               "levelsNotBuilt": ["intermediate"],
                "reasonNotBuilt": "not enough real dedicated content — no empty level pages"},
               open("reports/learn-hindi-build.json", "w", encoding="utf-8"),
               ensure_ascii=False, indent=2)

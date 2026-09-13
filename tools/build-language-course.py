@@ -44,7 +44,12 @@ ART_CSS = """.art{max-width:760px;margin:0 auto;padding:0 20px 60px}
 .linklist span{display:block;color:var(--muted);font-size:.87rem;margin-top:2px;line-height:1.5}
 .note{background:var(--bg-soft);border:1px solid #ddd8ff;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:.94rem;color:var(--ink-2)}
 .tri td:nth-child(3){font-weight:600}
-@media(pointer:coarse){.hs-card,.linklist a{min-height:44px;display:block}input,select,textarea,button{min-height:44px}}"""
+@media(pointer:coarse){.hs-card,.linklist a{min-height:44px;display:block}input,select,textarea,button{min-height:44px}}
+.prevnext{display:flex;justify-content:space-between;gap:12px;margin:34px 0 8px}
+.prevnext a{flex:1;border:1px solid var(--line);border-radius:12px;padding:12px 14px;text-decoration:none;color:var(--ink);background:var(--card,#fff)}
+.prevnext a:hover{border-color:var(--brand-2)}
+.prevnext .k{display:block;font-size:.78rem;color:var(--muted)}
+.prevnext .t{font-weight:600}"""
 
 TRUST_FTR = """<!-- ekguru:trust-footer:start -->
 <footer class="pw-ftr">
@@ -653,6 +658,38 @@ window.EKGURU_TYPING_ACTIVE =
 """
 
 
+# Reading-page order for prev/next navigation (hub, practice labs, review
+# and progress are intentionally excluded — they are tools, not reading).
+READ_ORDER = [
+    ("basics/", "Basics"), ("beginner/", "Beginner"),
+    ("pronunciation/", "Pronunciation"), ("numbers/", "Numbers"),
+    ("time-dates/", "Time & dates"), ("conversation/", "Conversation"),
+    ("vocabulary/", "Vocabulary"), ("grammar/", "Grammar"),
+    ("elementary/", "Elementary"), ("food/", "Food"),
+    ("shopping/", "Shopping"), ("travel/", "Travel"),
+    ("daily-life/", "Daily life"), ("intermediate/", "Intermediate"),
+]
+
+
+def prevnext_nav(prev_pair, next_pair):
+    """prev_pair/next_pair: (href, label) or None. Returns '' if neither."""
+    if not prev_pair and not next_pair:
+        return ""
+    cells = []
+    if prev_pair:
+        cells.append('<a href="%s"><span class="k">← Previous</span>'
+                     '<span class="t">%s</span></a>'
+                     % (prev_pair[0], E(prev_pair[1])))
+    else:
+        cells.append("<span></span>")
+    if next_pair:
+        cells.append('<a href="%s" style="text-align:right"><span class="k">Next →</span>'
+                     '<span class="t">%s</span></a>'
+                     % (next_pair[0], E(next_pair[1])))
+    return ('<nav class="prevnext" aria-label="More lessons">'
+            + "".join(cells) + "</nav>")
+
+
 def build(slug):
     with open(os.path.join(ROOT, "tools", "lang-data", slug + ".json"), encoding="utf-8") as f:
         d = json.load(f)
@@ -661,9 +698,34 @@ def build(slug):
 
     NOINDEX = {"review/", "my-progress/"}  # private local state, mirrors Hindi
 
+    # full prev/next chain: topics + advanced hub + advanced modules
+    _mods = d.get("advanced_modules", [])
+    CHAIN = list(READ_ORDER)
+    if _mods:
+        CHAIN.append(("advanced/", "Advanced"))
+        for m in _mods:
+            CHAIN.append((f"advanced/{m['slug']}/", m["title"]))
+    CHAIN_POS = {p: i for i, (p, _l) in enumerate(CHAIN)}
+
     def emit(relpath, title, desc, body, depth, extra=""):
         # fix crumb root-relative placeholders produced with {{r}}
         body = body.replace("{r}", "../" * depth)
+        # prev/next navigation (post-process: p_* emitters untouched)
+        if relpath in CHAIN_POS:
+            i = CHAIN_POS[relpath]
+            here = os.path.join(out, relpath)
+
+            def href(target):
+                h = os.path.relpath(os.path.join(out, target), here)
+                return h.replace(os.sep, "/") + "/"
+
+            prev_pair = None
+            next_pair = None
+            if i > 0:
+                prev_pair = (href(CHAIN[i - 1][0]), CHAIN[i - 1][1])
+            if i < len(CHAIN) - 1:
+                next_pair = (href(CHAIN[i + 1][0]), CHAIN[i + 1][1])
+            body += "\n  " + prevnext_nav(prev_pair, next_pair)
         robots = "noindex, follow" if relpath in NOINDEX else "index, follow, max-snippet:-1, max-image-preview:large"
         page = shell(d, relpath, title, desc, body, depth, extra, robots)
         fp = os.path.join(out, relpath, "index.html")
