@@ -92,6 +92,18 @@ def main():
                         v_overlap = min(a["bottom"], b["bottom"]) - max(a["top"], b["top"])
                         if v_overlap > 4 and rect_overlap(a, b):
                             failures.append(f"{width}px: overlap {a['tag']}.{a['cls']} with {b['tag']}.{b['cls']}")
+            # v102: cross-tier check — tier2 items (search, links) must not
+            # slide out of the nav box over tier1 siblings (the logo).
+            # This blind spot hid the 1100-1920px logo/search overlap:
+            # within-tier checks all passed while boxes crossed tiers.
+            # tier1 NAV itself is the ancestor: excluded.
+            for r in data["tier2"]:
+                for t in data["tier1"]:
+                    if t["cls"] == "nav":
+                        continue
+                    v_overlap = min(r["bottom"], t["bottom"]) - max(r["top"], t["top"])
+                    if v_overlap > 4 and rect_overlap(r, t):
+                        failures.append(f"{width}px: cross-tier overlap {r['tag']}.{r['cls']} with {t['tag']}.{t['cls']}")
             evidence[str(width)] = data
 
         browser.close()

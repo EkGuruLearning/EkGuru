@@ -66,7 +66,7 @@ def main():
             results.append({"viewport": [w, h], "boxes": b})
 
             # ordered overlap check on desktop
-            if w > 1080:
+            if w > 1200:  # v102: drawer breakpoint is 1200 (was 1080)
                 order = ["logo", "search", "home", "tutors", "how", "trial", "language", "currency"]
                 present = [k for k in order if b.get(k)]
                 violations = []
@@ -90,7 +90,7 @@ def main():
     # print a compact summary
     for r in results:
         w, h = r["viewport"]
-        if w <= 1080:
+        if w <= 1200:
             continue
         row = [f"{w}x{h}"]
         for k in ["logo", "search", "home", "tutors", "how", "trial", "language", "currency"]:

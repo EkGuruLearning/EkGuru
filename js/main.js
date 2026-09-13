@@ -433,7 +433,7 @@
          or a desktop visitor who resized is left unable to
          scroll with no visible menu to close. */
       window.addEventListener("resize", function () {
-        if (window.innerWidth > 1080 && isOpen) closeNav(false);
+        if (window.innerWidth > 1200 && isOpen) closeNav(false);  // v102: drawer breakpoint is 1200 (was 1080)
       });
 
       /* Back/forward restores a page whose body may still carry

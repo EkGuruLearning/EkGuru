@@ -42,8 +42,8 @@ req(HDR, "Desktop header architecture (single row, no overflow)", "header", "P1"
     "reports/header-geometry.json: 0 failures at 1024-1920", "index.html, css/style.min.css", "done", "Playwright getBoundingClientRect", "PASS")
 req(HDR, "Real-browser width matrix 1024-1920 & 320-768", "header", "P1", "PASS",
     "17 widths measured, 0 failures", "tools/test-header-geometry.py", "done", "Chromium 151 headless", "PASS")
-req(HDR, "Breakpoint strategy (burger ≤1080, compact 981-1240, desktop ≥1280)", "header", "P1", "PASS",
-    "CSS media queries verified at 900/1080/981/1240", "css/style.min.css", "done", "DOM measurement at 320-1280", "PASS")
+req(HDR, "Breakpoint strategy (burger ≤1200, compact-logo 1201-1279, desktop ≥1280)", "header", "P1", "PASS",
+    "CSS media queries verified at 900/1200/981/1240", "css/style.min.css", "done", "DOM measurement at 320-1280", "PASS")
 req(HDR, "Header search box", "header", "P2", "PASS",
     "features.js injects .hdr-search; present at all widths, no overlap", "js/features.js", "done", "geometry test", "PASS")
 req(HDR, "Book a trial CTA", "header", "P2", "PARTIAL",
