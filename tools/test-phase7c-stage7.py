@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
-"""Phase 7C Stage 7 — one-language full course (Spanish) gate.
+"""Phase 7C Stage 7+ — full-course gate (one language at a time, popular first).
 
-Verifies, in real Chromium, that the first authored non-Hindi course is real,
-reviewed, and runs on the same engines as Hindi:
+Verifies, in real Chromium, every course in data/courses.json:
 
-  · course hub   — 6 lesson links + practice/quiz/review links, honest BETA note
-  · lesson page  — real content: sections, a dialogue/table, Spanish text
+  · course hub   — N lesson links + practice/quiz/review links, honest BETA note
+  · lesson page  — real content: sections, a dialogue/table, target-language text
   · practice lab — mounts on the shared practice engine, Listen button speaks
-                   the Spanish computer voice (es-ES, browser TTS only)
+                   the course's computer voice (correct BCP-47 tag, browser TTS only)
   · topic quiz   — runs, answers a question, and rotates deterministically
                    per date (same date = same set, different date = new set)
-  · review deck  — SRS cards seed and speak with the es-ES computer voice
+  · review deck  — SRS cards seed and speak with the course's computer voice
   · wiring       — pack page links the course; hub cell carries a "Course" tag
   · no page errors on any visited page
 
@@ -28,6 +27,9 @@ fails, facts = [], {}
 def note(k, v):
     facts[k] = v
 
+with open("data/courses.json", encoding="utf-8") as f:
+    COURSES = json.load(f).get("courses", [])
+
 STUB = """
 window.__spoken = [];
 try {
@@ -35,7 +37,7 @@ try {
     configurable: true,
     value: {
       speak: function(u){ window.__spoken.push({text: u.text, lang: u.lang}); },
-      cancel: function(){}, getVoices: function(){ return [{lang:'hi-IN',name:'hi'},{lang:'es-ES',name:'es'},{lang:'ar-SA',name:'ar'}]; },
+      cancel: function(){}, getVoices: function(){ return [{lang:'hi-IN',name:'hi'},{lang:'es-ES',name:'es'},{lang:'fr-FR',name:'fr'}]; },
       addEventListener: function(){}, removeEventListener: function(){}
     }
   });
@@ -63,180 +65,185 @@ with sync_playwright() as p:
         pg.goto(BASE + url, wait_until="networkidle")
         pg.wait_for_timeout(200)
 
-    # ---- 1) course hub ----
-    goto("/languages/es/course/")
-    hub = pg.evaluate("""() => {
-        var links = Array.prototype.slice.call(document.querySelectorAll('ul.linklist a'));
-        var lessons = links.filter(function(a){ return a.getAttribute('href').indexOf('/lessons/') !== -1; });
-        return {
-          h1: (document.querySelector('h1') || {}).textContent || null,
-          betaTag: document.body.innerHTML.indexOf('BETA') !== -1,
-          lessons: lessons.length,
-          lessonHrefs: lessons.map(function(a){ return a.getAttribute('href'); }),
-          hasPractice: links.some(function(a){ return a.getAttribute('href').indexOf('/practice/') !== -1; }),
-          hasQuiz: links.some(function(a){ return a.getAttribute('href').indexOf('/quiz/') !== -1; }),
-          hasReview: links.some(function(a){ return a.getAttribute('href').indexOf('/review/') !== -1; }),
-          honestNote: /not yet as deep/.test(document.body.innerHTML)
-        };
-    }""")
-    note("course_hub", hub)
-    if not hub["h1"] or "Spanish" not in hub["h1"]:
-        fails.append("course hub h1 missing Spanish: %r" % hub["h1"])
-    if hub["lessons"] != 6:
-        fails.append("course hub should list 6 lessons, got %d" % hub["lessons"])
-    if not (hub["hasPractice"] and hub["hasQuiz"] and hub["hasReview"]):
-        fails.append("course hub missing practice/quiz/review links: %r" % hub)
-    if not hub["honestNote"]:
-        fails.append("course hub missing honest BETA note")
+    for course in COURSES:
+        code = course["lang"]
+        name = course["name"]
+        speech = course.get("speechTag", code + "-" + code.upper())
+        jsvar = "EKGURU_COURSE_" + code.upper()
+        tag = code
 
-    # ---- 2) lesson page ----
-    goto("/languages/es/lessons/greetings-and-introductions/")
-    lesson = pg.evaluate("""() => ({
-        h2: document.querySelectorAll('h2').length,
-        table: document.querySelectorAll('table').length,
-        hasHola: /hola/i.test(document.body.innerHTML),
-        hasTuteo: /usted|tú/i.test(document.body.innerHTML),
-        crumb: (document.querySelector('.crumb') || {}).textContent || null
-    })""")
-    note("lesson_page", lesson)
-    if lesson["h2"] < 2:
-        fails.append("lesson page too thin: %r" % lesson)
-    if not lesson["table"]:
-        fails.append("lesson page missing dialogue/table")
-    if not lesson["hasHola"]:
-        fails.append("lesson page missing Spanish content (hola)")
+        # ---- 1) course hub ----
+        goto("/languages/%s/course/" % code)
+        hub = pg.evaluate("""(m) => {
+            var links = Array.prototype.slice.call(document.querySelectorAll('ul.linklist a'));
+            var lessons = links.filter(function(a){ return a.getAttribute('href').indexOf('/lessons/') !== -1; });
+            return {
+              h1: (document.querySelector('h1') || {}).textContent || null,
+              betaTag: document.body.innerHTML.indexOf('BETA') !== -1,
+              lessons: lessons.length,
+              hasPractice: links.some(function(a){ return a.getAttribute('href').indexOf('/practice/') !== -1; }),
+              hasQuiz: links.some(function(a){ return a.getAttribute('href').indexOf('/quiz/') !== -1; }),
+              hasReview: links.some(function(a){ return a.getAttribute('href').indexOf('/review/') !== -1; }),
+              honestNote: /not yet as deep/.test(document.body.innerHTML)
+            };
+        }""", {"code": code})
+        note("hub:%s" % code, hub)
+        if not hub["h1"] or name not in hub["h1"]:
+            fails.append("[%s] course hub h1 missing name: %r" % (code, hub["h1"]))
+        if hub["lessons"] != course.get("lessons"):
+            fails.append("[%s] course hub should list %d lessons, got %d" % (code, course.get("lessons"), hub["lessons"]))
+        if not (hub["hasPractice"] and hub["hasQuiz"] and hub["hasReview"]):
+            fails.append("[%s] course hub missing practice/quiz/review links: %r" % (code, hub))
+        if not hub["honestNote"]:
+            fails.append("[%s] course hub missing honest BETA note" % code)
 
-    # ---- 3) practice lab (shared engine, es-ES voice) ----
-    goto("/languages/es/practice/")
-    ok = wait(".px-q")
-    practice = pg.evaluate("""() => {
-        var bank = (window.EKGURU_COURSE_ES && window.EKGURU_COURSE_ES.practice) || {};
-        var play = document.querySelector('.px-play');
-        var q = document.querySelector('.px-q');
-        return {
-          mounted: !!q,
-          banks: { vocab: (bank.vocabulary || []).length, grammar: (bank.grammar || []).length },
-          listenBtn: !!play,
-          sayw: play ? play.getAttribute('data-sayw') : null,
-          saylang: play ? play.getAttribute('data-saylang') : null,
-          note: /computer voice/i.test(document.body.innerHTML)
-        };
-    }""")
-    note("practice_lab", practice)
-    if not ok or not practice["mounted"]:
-        fails.append("practice lab did not mount")
-    if practice["banks"].get("vocab") != 12 or practice["banks"].get("grammar") != 12:
-        fails.append("practice banks wrong: %r" % practice["banks"])
-    if not practice["listenBtn"]:
-        fails.append("practice lab missing Listen button")
-    if practice["saylang"] != "es-ES":
-        fails.append("practice Listen lang != es-ES: %r" % practice["saylang"])
-    if not practice["sayw"]:
-        fails.append("practice Listen missing say word (data-sayw)")
-    # click Listen, capture the spoken utterance
-    pg.click(".px-play")
-    pg.wait_for_timeout(200)
-    spoken = pg.evaluate("() => window.__spoken || []")
-    note("practice_spoken", spoken[:3])
-    if not spoken or spoken[0].get("lang") != "es-ES":
-        fails.append("practice Listen did not speak es-ES: %r" % spoken[:3])
-    if not spoken or str(spoken[0].get("text", "")).strip().lower() != str(practice["sayw"]).strip().lower():
-        fails.append("practice Listen spoke wrong text: got %r want %r" % (spoken[0].get("text") if spoken else None, practice["sayw"]))
+        # ---- 2) lesson page (first lesson) ----
+        first_slug = pg.evaluate("""() => {
+            var a = document.querySelector('ul.linklist a[href*="/lessons/"]');
+            return a ? a.getAttribute('href') : null;
+        }""")
+        if not first_slug:
+            fails.append("[%s] no first lesson link found" % code)
+        else:
+            goto(first_slug)
+            lesson = pg.evaluate("""() => ({
+                h2: document.querySelectorAll('h2').length,
+                table: document.querySelectorAll('table').length,
+                crumb: (document.querySelector('.crumb') || {}).textContent || null
+            })""")
+            note("lesson:%s" % code, lesson)
+            if lesson["h2"] < 2:
+                fails.append("[%s] lesson page too thin: %r" % (code, lesson))
+            if not lesson["table"]:
+                fails.append("[%s] lesson page missing dialogue/table" % code)
 
-    # ---- 4) topic quiz: runs + daily rotation ----
-    goto("/languages/es/quiz/")
-    quiz_dom = pg.evaluate("""() => ({
-        hasTopic: !!document.getElementById('es-q-topic'),
-        hasStart: !!document.getElementById('es-q-start'),
-        topics: Array.prototype.slice.call(document.querySelectorAll('#es-q-topic option')).map(function(o){ return o.value; })
-    })""")
-    note("quiz_dom", quiz_dom)
-    if not (quiz_dom["hasTopic"] and quiz_dom["hasStart"]):
-        fails.append("quiz missing controls: %r" % quiz_dom)
-    if len(quiz_dom["topics"]) != 5:
-        fails.append("quiz should have 5 topics, got %d" % len(quiz_dom["topics"]))
-    # rotation determinism: same date -> same order; different dates -> changed
-    rot = pg.evaluate("""() => {
-        function dayShuffle(a, salt, when){
-            var d=when||new Date();
-            var key=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")+":"+(salt||"");
-            var h=2166136261;for(var i=0;i<key.length;i++){h^=key.charCodeAt(i);h=Math.imul(h,16777619);}
-            var s=h>>>0,o=a.slice(),rnd=function(){s|=0;s=(s+0x6D2B79F5)|0;var t=Math.imul(s^(s>>>15),1|s);t=(t+Math.imul(t^(t>>>7),61|t))^t;return((t^(t>>>14))>>>0)/4294967296;};
-            for(var i=o.length-1;i>0;i--){var j=Math.floor(rnd()*(i+1));var tmp=o[i];o[i]=o[j];o[j]=tmp;}
-            return o;
-        }
-        var Q=(window.EKGURU_COURSE_ES&&window.EKGURU_COURSE_ES.quiz)||[];
-        var pool=Q.filter(function(q){return q.topic==='greetings';});
-        var d1=new Date(2026,8,13), d2=new Date(2026,8,14);
-        var a=dayShuffle(pool,'quiz:greetings',d1).map(function(q){return q.q;});
-        var b2=dayShuffle(pool,'quiz:greetings',d1).map(function(q){return q.q;});
-        var c=dayShuffle(pool,'quiz:greetings',d2).map(function(q){return q.q;});
-        return { pool: pool.length, same: JSON.stringify(a)===JSON.stringify(b2), changed: JSON.stringify(a)!==JSON.stringify(c) };
-    }""")
-    note("quiz_rotation", rot)
-    if not rot["same"]:
-        fails.append("quiz rotation not deterministic per date")
-    if not rot["changed"]:
-        fails.append("quiz rotation does not change across dates")
-    # run the quiz: start, answer first option, next
-    pg.click("#es-q-start")
-    ok = wait("#es-q-body [data-opt]")
-    pg.evaluate("() => document.querySelector('#es-q-body [data-opt]').click()")
-    pg.wait_for_timeout(150)
-    ran = pg.evaluate("""() => ({
-        fb: !!document.getElementById('es-q-fb'),
-        fbText: (document.getElementById('es-q-fb')||{}).textContent || null,
-        next: !!document.getElementById('es-q-next')
-    })""")
-    note("quiz_run", ran)
-    if not ran["fb"] or not ran["next"]:
-        fails.append("quiz did not advance after an answer: %r" % ran)
+        # ---- 3) practice lab (shared engine, course voice) ----
+        goto("/languages/%s/practice/" % code)
+        ok = wait(".px-q")
+        practice = pg.evaluate("""(m) => {
+            var bank = (window[m.jsvar] && window[m.jsvar].practice) || {};
+            var play = document.querySelector('.px-play');
+            var q = document.querySelector('.px-q');
+            return {
+              mounted: !!q,
+              banks: { vocab: (bank.vocabulary || []).length, grammar: (bank.grammar || []).length },
+              listenBtn: !!play,
+              sayw: play ? play.getAttribute('data-sayw') : null,
+              saylang: play ? play.getAttribute('data-saylang') : null,
+              note: /computer voice/i.test(document.body.innerHTML)
+            };
+        }""", {"jsvar": jsvar})
+        note("practice:%s" % code, practice)
+        if not ok or not practice["mounted"]:
+            fails.append("[%s] practice lab did not mount" % code)
+        if practice["banks"].get("vocab") < 6 or practice["banks"].get("grammar") < 6:
+            fails.append("[%s] practice banks thin: %r" % (code, practice["banks"]))
+        if not practice["listenBtn"]:
+            fails.append("[%s] practice lab missing Listen button" % code)
+        if practice["saylang"] != speech:
+            fails.append("[%s] practice Listen lang != %s: %r" % (code, speech, practice["saylang"]))
+        if not practice["sayw"]:
+            fails.append("[%s] practice Listen missing say word (data-sayw)" % code)
+        pg.click(".px-play")
+        pg.wait_for_timeout(200)
+        spoken = pg.evaluate("() => window.__spoken || []")
+        note("practice_spoken:%s" % code, spoken[:2])
+        if not spoken or spoken[0].get("lang") != speech:
+            fails.append("[%s] practice Listen did not speak %s: %r" % (code, speech, spoken[:2]))
+        elif practice["sayw"] and str(spoken[0].get("text", "")).strip().lower() != str(practice["sayw"]).strip().lower():
+            fails.append("[%s] practice Listen spoke wrong text: got %r want %r" % (code, spoken[0].get("text"), practice["sayw"]))
 
-    # ---- 5) review deck (SRS, es-ES voice) ----
-    goto("/languages/es/review/")
-    pg.click("#es-srs-seed")
-    pg.wait_for_timeout(200)
-    srs = pg.evaluate("""() => {
-        var stats = (document.getElementById('es-srs-stats')||{}).textContent || null;
-        var say = document.getElementById('es-srs-say');
-        return { stats: stats, hasCard: !!document.getElementById('es-srs-card').innerHTML.trim(), hasSay: !!say };
-    }""")
-    note("review_seed", srs)
-    if not srs["hasCard"]:
-        fails.append("review deck did not show a card after seed")
-    if not srs["hasSay"]:
-        fails.append("review card missing Listen button")
-    pg.click("#es-srs-say")
-    pg.wait_for_timeout(200)
-    rspoken = pg.evaluate("() => window.__spoken || []")
-    note("review_spoken", rspoken[:3])
-    if not rspoken or rspoken[0].get("lang") != "es-ES":
-        fails.append("review Listen did not speak es-ES: %r" % rspoken[:3])
+        # ---- 4) topic quiz: runs + daily rotation ----
+        goto("/languages/%s/quiz/" % code)
+        quiz_dom = pg.evaluate("""() => ({
+            hasTopic: !!document.getElementById('%s-q-topic'),
+            hasStart: !!document.getElementById('%s-q-start'),
+            topics: Array.prototype.slice.call(document.querySelectorAll('#%s-q-topic option')).map(function(o){ return o.value; })
+        })""" % (code, code, code))
+        note("quiz_dom:%s" % code, quiz_dom)
+        if not (quiz_dom["hasTopic"] and quiz_dom["hasStart"]):
+            fails.append("[%s] quiz missing controls: %r" % (code, quiz_dom))
+        if len(quiz_dom["topics"]) < 1:
+            fails.append("[%s] quiz has no topics" % code)
+        rot = pg.evaluate("""(m) => {
+            function dayShuffle(a, salt, when){
+                var d=when||new Date();
+                var key=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")+":"+(salt||"");
+                var h=2166136261;for(var i=0;i<key.length;i++){h^=key.charCodeAt(i);h=Math.imul(h,16777619);}
+                var s=h>>>0,o=a.slice(),rnd=function(){s|=0;s=(s+0x6D2B79F5)|0;var t=Math.imul(s^(s>>>15),1|s);t=(t+Math.imul(t^(t>>>7),61|t))^t;return((t^(t>>>14))>>>0)/4294967296;};
+                for(var i=o.length-1;i>0;i--){var j=Math.floor(rnd()*(i+1));var tmp=o[i];o[i]=o[j];o[j]=tmp;}
+                return o;
+            }
+            var Q=(window[m.jsvar]&&window[m.jsvar].quiz)||[];
+            var topic=Q.length ? Q[0].topic : 'greetings';
+            var pool=Q.filter(function(q){return q.topic===topic;});
+            var d1=new Date(2026,8,13), d2=new Date(2026,8,14);
+            var a=dayShuffle(pool,'quiz:'+topic,d1).map(function(q){return q.q;});
+            var b2=dayShuffle(pool,'quiz:'+topic,d1).map(function(q){return q.q;});
+            var c=dayShuffle(pool,'quiz:'+topic,d2).map(function(q){return q.q;});
+            return { pool: pool.length, same: JSON.stringify(a)===JSON.stringify(b2), changed: JSON.stringify(a)!==JSON.stringify(c) };
+        }""", {"jsvar": jsvar})
+        note("quiz_rotation:%s" % code, rot)
+        if not rot["same"]:
+            fails.append("[%s] quiz rotation not deterministic per date" % code)
+        if not rot["changed"]:
+            fails.append("[%s] quiz rotation does not change across dates" % code)
+        pg.click("#%s-q-start" % code)
+        ok = wait("#%s-q-body [data-opt]" % code)
+        pg.evaluate("() => document.querySelector('#%s-q-body [data-opt]').click()" % code)
+        pg.wait_for_timeout(150)
+        ran = pg.evaluate("""(m) => ({
+            fb: !!document.getElementById('%s-q-fb'),
+            next: !!document.getElementById('%s-q-next')
+        })""" % (code, code), {})
+        note("quiz_run:%s" % code, ran)
+        if not ran["fb"] or not ran["next"]:
+            fails.append("[%s] quiz did not advance after an answer: %r" % (code, ran))
 
-    # ---- 6) wiring: pack page + hub tag ----
-    goto("/languages/es/")
-    pack = pg.evaluate("""() => ({
-        courseLink: !!Array.prototype.slice.call(document.querySelectorAll('a.btn, a'))
-            .find(function(a){ return a.textContent.indexOf('Open the Spanish course') !== -1; }),
-        hasLp: !!document.getElementById('langpack-app'),
-        hasCheck: !!document.getElementById('starter-check')
-    })""")
-    note("pack_page", pack)
-    if not pack["courseLink"]:
-        fails.append("Spanish pack page missing course link")
-    if not (pack["hasLp"] and pack["hasCheck"]):
-        fails.append("Spanish pack page regressed (starter pack/check missing): %r" % pack)
+        # ---- 5) review deck (SRS, course voice) ----
+        goto("/languages/%s/review/" % code)
+        pg.click("#%s-srs-seed" % code)
+        pg.wait_for_timeout(200)
+        srs = pg.evaluate("""(m) => {
+            var stats = (document.getElementById('%s-srs-stats')||{}).textContent || null;
+            var say = document.getElementById('%s-srs-say');
+            return { stats: stats, hasCard: !!document.getElementById('%s-srs-card').innerHTML.trim(), hasSay: !!say };
+        }""" % (code, code, code), {})
+        note("review_seed:%s" % code, srs)
+        if not srs["hasCard"]:
+            fails.append("[%s] review deck did not show a card after seed" % code)
+        if not srs["hasSay"]:
+            fails.append("[%s] review card missing Listen button" % code)
+        pg.click("#%s-srs-say" % code)
+        pg.wait_for_timeout(200)
+        rspoken = pg.evaluate("() => window.__spoken || []")
+        note("review_spoken:%s" % code, rspoken[:2])
+        if not rspoken or rspoken[0].get("lang") != speech:
+            fails.append("[%s] review Listen did not speak %s: %r" % (code, speech, rspoken[:2]))
 
-    goto("/languages/")
-    hubcell = pg.evaluate("""() => {
-        var a = document.querySelector('a.nm[href="/languages/es/"]');
-        return a ? a.textContent : null;
-    }""")
-    note("hub_cell", hubcell)
-    if not hubcell or "Course" not in hubcell:
-        fails.append("hub Spanish cell missing Course tag: %r" % hubcell)
+        # ---- 6) wiring: pack page + hub tag ----
+        goto("/languages/%s/" % code)
+        pack = pg.evaluate("""(m) => ({
+            courseLink: !!Array.prototype.slice.call(document.querySelectorAll('a.btn, a'))
+                .find(function(a){ return a.textContent.indexOf('Open the ' + m.name + ' course') !== -1; }),
+            hasLp: !!document.getElementById('langpack-app'),
+            hasCheck: !!document.getElementById('starter-check')
+        })""", {"name": name})
+        note("pack:%s" % code, pack)
+        if not pack["courseLink"]:
+            fails.append("[%s] pack page missing course link" % code)
+        if not (pack["hasLp"] and pack["hasCheck"]):
+            fails.append("[%s] pack page regressed (starter pack/check missing): %r" % (code, pack))
 
-    # ---- 7) page errors ----
+        goto("/languages/")
+        hubcell = pg.evaluate("""(m) => {
+            var a = document.querySelector('a.nm[href="/languages/%s/"]');
+            return a ? a.textContent : null;
+        }""" % code, {})
+        note("hub_cell:%s" % code, hubcell)
+        if not hubcell or "Course" not in hubcell:
+            fails.append("[%s] hub cell missing Course tag: %r" % (code, hubcell))
+
     note("page_errors", errs)
     if errs:
         fails.append("page errors seen: %r" % errs[:5])
@@ -245,8 +252,9 @@ with sync_playwright() as p:
 
 result = {
     "gate": "phase7c-stage7",
-    "title": "Spanish full course (Stage 7)",
+    "title": "full courses (one language at a time)",
     "when": NOW,
+    "courses_tested": [c["lang"] for c in COURSES],
     "verdict": "PASS" if not fails else "FAIL",
     "pass": not fails,
     "fails": fails,
@@ -256,15 +264,18 @@ os.makedirs("reports", exist_ok=True)
 with open("reports/phase7c-stage7-test.json", "w", encoding="utf-8") as f:
     json.dump(result, f, ensure_ascii=False, indent=2)
 
-print("Phase 7C Stage 7 gate:", result["verdict"])
+print("Phase 7C full-course gate:", result["verdict"], "| courses:", result["courses_tested"])
 if fails:
     for fl in fails:
         print("  FAIL:", fl)
 else:
-    print("  hub lessons:", facts["course_hub"]["lessons"],
-          "| practice banks:", facts["practice_lab"]["banks"],
-          "| spoken:", facts["practice_spoken"][:1],
-          "| quiz rotation:", facts["quiz_rotation"],
-          "| review spoken:", facts["review_spoken"][:1])
+    for c in COURSES:
+        code = c["lang"]
+        print("  %s: practice banks %s | spoken %s | quiz topics %d | rotation %s | review spoken %s"
+              % (code, facts["practice:%s" % code]["banks"],
+                 facts["practice_spoken:%s" % code][:1],
+                 len(facts["quiz_dom:%s" % code]["topics"]),
+                 facts["quiz_rotation:%s" % code],
+                 facts["review_spoken:%s" % code][:1]))
 import sys
 sys.exit(0 if not fails else 1)

@@ -1,36 +1,30 @@
 {
   "gate": "phase7c-stage7",
-  "title": "Spanish full course (Stage 7)",
-  "when": "2026-09-13T08:05:21Z",
+  "title": "full courses (one language at a time)",
+  "when": "2026-09-13T08:35:26Z",
+  "courses_tested": [
+    "es",
+    "fr"
+  ],
   "verdict": "PASS",
   "pass": true,
   "fails": [],
   "facts": {
-    "course_hub": {
+    "hub:es": {
       "h1": "Spanish Course BETA",
       "betaTag": true,
       "lessons": 6,
-      "lessonHrefs": [
-        "/languages/es/lessons/greetings-and-introductions/",
-        "/languages/es/lessons/ser-and-estar/",
-        "/languages/es/lessons/gender-and-articles/",
-        "/languages/es/lessons/numbers-1-to-20/",
-        "/languages/es/lessons/food-and-ordering/",
-        "/languages/es/lessons/present-tense-regular-verbs/"
-      ],
       "hasPractice": true,
       "hasQuiz": true,
       "hasReview": true,
       "honestNote": true
     },
-    "lesson_page": {
+    "lesson:es": {
       "h2": 4,
       "table": 1,
-      "hasHola": true,
-      "hasTuteo": true,
       "crumb": "EkGuru › Languages › Spanish › Course › Spanish Greetings and Introductions"
     },
-    "practice_lab": {
+    "practice:es": {
       "mounted": true,
       "banks": {
         "vocab": 12,
@@ -41,13 +35,13 @@
       "saylang": "es-ES",
       "note": true
     },
-    "practice_spoken": [
+    "practice_spoken:es": [
       {
         "text": "gracias",
         "lang": "es-ES"
       }
     ],
-    "quiz_dom": {
+    "quiz_dom:es": {
       "hasTopic": true,
       "hasStart": true,
       "topics": [
@@ -58,33 +52,100 @@
         "verbs"
       ]
     },
-    "quiz_rotation": {
+    "quiz_rotation:es": {
       "pool": 4,
       "same": true,
       "changed": true
     },
-    "quiz_run": {
+    "quiz_run:es": {
       "fb": true,
-      "fbText": "Not quite — the answer was “¿Cómo se llama?”.¿Cómo se llama? is the formal (usted) form of “what is your name?”.Next",
       "next": true
     },
-    "review_seed": {
+    "review_seed:es": {
       "stats": "24 Spanish cards due",
       "hasCard": true,
       "hasSay": true
     },
-    "review_spoken": [
+    "review_spoken:es": [
       {
         "text": "hola",
         "lang": "es-ES"
       }
     ],
-    "pack_page": {
+    "pack:es": {
       "courseLink": true,
       "hasLp": true,
       "hasCheck": true
     },
-    "hub_cell": "Spanish Starter · beta Course",
+    "hub_cell:es": "Spanish Starter · beta Course",
+    "hub:fr": {
+      "h1": "French Course BETA",
+      "betaTag": true,
+      "lessons": 6,
+      "hasPractice": true,
+      "hasQuiz": true,
+      "hasReview": true,
+      "honestNote": true
+    },
+    "lesson:fr": {
+      "h2": 4,
+      "table": 1,
+      "crumb": "EkGuru › Languages › French › Course › French Greetings and Introductions"
+    },
+    "practice:fr": {
+      "mounted": true,
+      "banks": {
+        "vocab": 12,
+        "grammar": 12
+      },
+      "listenBtn": true,
+      "sayw": "s'il vous plaît",
+      "saylang": "fr-FR",
+      "note": true
+    },
+    "practice_spoken:fr": [
+      {
+        "text": "s'il vous plaît",
+        "lang": "fr-FR"
+      }
+    ],
+    "quiz_dom:fr": {
+      "hasTopic": true,
+      "hasStart": true,
+      "topics": [
+        "greetings",
+        "grammar",
+        "numbers",
+        "food",
+        "verbs"
+      ]
+    },
+    "quiz_rotation:fr": {
+      "pool": 4,
+      "same": true,
+      "changed": true
+    },
+    "quiz_run:fr": {
+      "fb": true,
+      "next": true
+    },
+    "review_seed:fr": {
+      "stats": "24 French cards due",
+      "hasCard": true,
+      "hasSay": true
+    },
+    "review_spoken:fr": [
+      {
+        "text": "bonjour",
+        "lang": "fr-FR"
+      }
+    ],
+    "pack:fr": {
+      "courseLink": true,
+      "hasLp": true,
+      "hasCheck": true
+    },
+    "hub_cell:fr": "French Starter · beta Course",
     "page_errors": []
   }
 }

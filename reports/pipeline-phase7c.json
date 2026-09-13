@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-13T08:03:55Z",
+  "generated": "2026-09-13T08:34:00Z",
   "pass": true,
   "stagesRun": 24,
   "stagesTotal": 24,
@@ -30,11 +30,11 @@
       "name": "build: language courses",
       "exit": 0,
       "seconds": 0.0,
-      "out": "Spanish course built:\n   js/course-es.js\n   languages/es/lessons/greetings-and-introductions/index.html\n   languages/es/lessons/ser-and-estar/index.html\n   languages/es/lessons/gender-and-articles/index.html\n   languages/es/lessons/numbers-1-to-20/index.html\n   languages/es/lessons/food-and-ordering/index.html\n   languages/es/lessons/present-tense-regular-verbs/index.html\n   languages/es/course/index.html\n   languages/es/practice/index.html\n   languages/es/quiz/index.html\n   languages/es/review/index.html\n   data/courses.json\n",
+      "out": "Spanish course built (es):\n    js/course-es.js\n    languages/es/lessons/greetings-and-introductions/index.html\n    languages/es/lessons/ser-and-estar/index.html\n    languages/es/lessons/gender-and-articles/index.html\n    languages/es/lessons/numbers-1-to-20/index.html\n    languages/es/lessons/food-and-ordering/index.html\n    languages/es/lessons/present-tense-regular-verbs/index.html\n    languages/es/course/index.html\n    languages/es/practice/index.html\n    languages/es/quiz/index.html\n    languages/es/review/index.html\nFrench course built (fr):\n    js/course-fr.js\n    languages/fr/lessons/greetings-and-introductions/index.html\n    languages/fr/lessons/etre-and-avoir/index.html\n    languages/fr/lessons/gender-and-articles/index.html\n    languages/fr/lessons/numbers-1-to-20/index.html\n    languages/fr/lessons/food-and-ordering/index.html\n    languages/fr/lessons/present-tense-regular-verbs/index.html\n    languages/fr/course/index.html\n    languages/fr/practice/index.html\n    languages/fr/quiz/index.html\n    languages/fr/review/index.html\nmanifest: data/courses.json (2 courses)\n",
       "tail": [
-        "   languages/es/quiz/index.html",
-        "   languages/es/review/index.html",
-        "   data/courses.json"
+        "    languages/fr/quiz/index.html",
+        "    languages/fr/review/index.html",
+        "manifest: data/courses.json (2 courses)"
       ]
     },
     {
@@ -160,7 +160,7 @@
     {
       "name": "gate: language packs (Stage 3)",
       "exit": 0,
-      "seconds": 37.1,
+      "seconds": 36.7,
       "out": "multi-language packs + reachability: PASS\n  production           [\"hi\"]\n  beta_ids             [\"ar\", \"bn\", \"de\", \"en\", \"es\", \"fa\", \"fr\", \"gu\", \"he\", \"id\", \"it\", \"ja\", \"ko\", \"mr\", \"ms\", \"nl\", \"pa\", \"pl\", \"pt\", \"ru\",\n  planned_count        0\n  home_section         true\n  home_nav             true\n  home_pills           [\"Hindi full course\", \"Arabic\", \"Bengali\", \"Chinese\", \"Dutch\", \"English\", \"French\", \"German\", \"Gujarati\", \"Hebrew\", \"Ind\n  hub                  {\"prod_cells\": 1, \"beta_cells\": 29, \"select_opts\": [\"ar\", \"bn\", \"zh\", \"nl\", \"en\", \"fr\", \"de\", \"gu\", \"he\", \"id\", \"it\", \"j\n  detail_titles        [\"Learn Arabic basics — free starter pack | EkGuru\", \"Learn Bengali basics — free starter pack | EkGuru\", \"Learn German \n  planned_with_page    0\n  page_errors          []\n",
       "tail": [
         "  detail_titles        [\"Learn Arabic basics — free starter pack | EkGuru\", \"Learn Bengali basics — free starter pack | EkGuru\", \"Learn German ",
@@ -171,7 +171,7 @@
     {
       "name": "gate: starter experience (Stage 4)",
       "exit": 0,
-      "seconds": 12.1,
+      "seconds": 11.9,
       "out": "starter-pack learning experience: PASS\n  pack_speechTags    {\"ar\": \"ar-SA\", \"bn\": \"bn-IN\", \"de\": \"de-DE\", \"en\": \"en-IN\", \"es\": \"es-ES\", \"fa\": \"fa-IR\", \"fr\": \"fr-FR\", \"gu\": \"gu-IN\", \"he\": \"he\n  es_detail          {\"listen\": 36, \"say\": 36, \"computerVoice\": true, \"checkLabel\": true, \"questions\": 1}\n  es_spoken          [{\"text\": \"hola\", \"lang\": \"es-ES\"}]\n  es_check_done      \"A fixed rule-based check — the same 8 questions every time. Not an exam, not AI, nothing is saved.\\n\\nFinished\\n\\nYou got 8 of 8.\n  bn_spoken          {\"text\": \"আমি\", \"lang\": \"bn-IN\"}\n  ar_detail          {\"listen\": 36, \"rtl\": \"rtl\"}\n  ar_spoken          {\"text\": \"أنا\", \"lang\": \"ar-SA\"}\n  zh_spoken          {\"text\": \"我\", \"lang\": \"zh-CN\"}\n  hindi_regression   {\"items\": 24, \"say\": 0, \"listen\": 0}\n  page_errors        []\n",
       "tail": [
         "  zh_spoken          {\"text\": \"我\", \"lang\": \"zh-CN\"}",
@@ -182,7 +182,7 @@
     {
       "name": "gate: everyday polish (Stage 6)",
       "exit": 0,
-      "seconds": 10.4,
+      "seconds": 10.3,
       "out": "stage6 everyday polish + honest tooling: PASS\n  nav:/                  {\"aria\": \"Learn languages\", \"heading\": \"Learn languages\"}\n  nav:/answers/          {\"aria\": \"Learn languages\", \"heading\": \"Learn languages\"}\n  hub_listen             {\"cells\": 30, \"withSay\": 30, \"listens\": 30, \"arTag\": true}\n  hub_ar_spoken          {\"text\": \"العربية\", \"lang\": \"ar-SA\"}\n  srs_review             {\"hasSay\": true, \"seen\": 16}\n  practice_listen        {\"hasListen\": true, \"hasNote\": true}\n  daily_rotation         {\"ok\": true, \"deterministic\": true, \"rotated\": true, \"note\": true}\n  page_errors            []\n",
       "tail": [
         "  practice_listen        {\"hasListen\": true, \"hasNote\": true}",
@@ -193,17 +193,18 @@
     {
       "name": "gate: Spanish course (Stage 7)",
       "exit": 0,
-      "seconds": 7.1,
-      "out": "Phase 7C Stage 7 gate: PASS\n  hub lessons: 6 | practice banks: {'vocab': 12, 'grammar': 12} | spoken: [{'text': 'gracias', 'lang': 'es-ES'}] | quiz rotation: {'pool': 4, 'same': True, 'changed': True} | review spoken: [{'text': 'hola', 'lang': 'es-ES'}]\n",
+      "seconds": 13.3,
+      "out": "Phase 7C full-course gate: PASS | courses: ['es', 'fr']\n  es: practice banks {'vocab': 12, 'grammar': 12} | spoken [{'text': 'gracias', 'lang': 'es-ES'}] | quiz topics 5 | rotation {'pool': 4, 'same': True, 'changed': True} | review spoken [{'text': 'hola', 'lang': 'es-ES'}]\n  fr: practice banks {'vocab': 12, 'grammar': 12} | spoken [{'text': \"s'il vous plaît\", 'lang': 'fr-FR'}] | quiz topics 5 | rotation {'pool': 4, 'same': True, 'changed': True} | review spoken [{'text': 'bonjour', 'lang': 'fr-FR'}]\n",
       "tail": [
-        "Phase 7C Stage 7 gate: PASS",
-        "  hub lessons: 6 | practice banks: {'vocab': 12, 'grammar': 12} | spoken: [{'text': 'gracias', 'lang': 'es-ES'}] | quiz rotation: {'pool': 4, 'same': True, 'changed': True} | review spoken: [{'text': 'hola', 'lang': 'es-ES'}]"
+        "Phase 7C full-course gate: PASS | courses: ['es', 'fr']",
+        "  es: practice banks {'vocab': 12, 'grammar': 12} | spoken [{'text': 'gracias', 'lang': 'es-ES'}] | quiz topics 5 | rotation {'pool': 4, 'same': True, 'changed': True} | review spoken [{'text': 'hola', 'lang': 'es-ES'}]",
+        "  fr: practice banks {'vocab': 12, 'grammar': 12} | spoken [{'text': \"s'il vous plaît\", 'lang': 'fr-FR'}] | quiz topics 5 | rotation {'pool': 4, 'same': True, 'changed': True} | review spoken [{'text': 'bonjour', 'lang': 'fr-FR'}]"
       ]
     },
     {
       "name": "gate: multi-viewport",
       "exit": 0,
-      "seconds": 43.9,
+      "seconds": 43.6,
       "out": "multi-viewport gate: PASS (36 cells)\n",
       "tail": [
         "multi-viewport gate: PASS (36 cells)"
@@ -213,9 +214,9 @@
       "name": "seo: scale (static)",
       "exit": 0,
       "seconds": 0.3,
-      "out": "SEO scale (local): 645 pages, 638 indexable, 7 noindex\n  duplicate titles: 0 | duplicate descs: 0 | broken links: 0 | canonical drift: 1 | orphans: 0\n    CANON /tutor.html -> https://ekguru.shop/tutor/\n",
+      "out": "SEO scale (local): 655 pages, 647 indexable, 8 noindex\n  duplicate titles: 0 | duplicate descs: 0 | broken links: 0 | canonical drift: 1 | orphans: 0\n    CANON /tutor.html -> https://ekguru.shop/tutor/\n",
       "tail": [
-        "SEO scale (local): 645 pages, 638 indexable, 7 noindex",
+        "SEO scale (local): 655 pages, 647 indexable, 8 noindex",
         "  duplicate titles: 0 | duplicate descs: 0 | broken links: 0 | canonical drift: 1 | orphans: 0",
         "    CANON /tutor.html -> https://ekguru.shop/tutor/"
       ]
@@ -234,7 +235,7 @@
     {
       "name": "regression: Phase 6",
       "exit": 0,
-      "seconds": 42.2,
+      "seconds": 42.0,
       "out": "phase6 matrix: 117/117 cells ok | PASS\n",
       "tail": [
         "phase6 matrix: 117/117 cells ok | PASS"
@@ -243,7 +244,7 @@
     {
       "name": "regression: Phase 5",
       "exit": 0,
-      "seconds": 163.6,
+      "seconds": 162.0,
       "out": "card interactions: 19/19 ok\npages with errors: none\nverdict: PASS\nbrowser matrix: 146/146 cells ok\nmatrix verdict: PASS\nregression: 5/5 ok\nregression verdict: PASS\n",
       "tail": [
         "matrix verdict: PASS",

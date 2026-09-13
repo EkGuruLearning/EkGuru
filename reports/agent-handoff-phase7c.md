@@ -2,8 +2,8 @@
 
 - **repo**: EkGuru (GitHub Pages static site)
 - **branch**: main
-- **SHA**: 6b5aafc2e27a5f02a3cd8292bf462b64946ecc0a
-- **verdict**: GREEN_GLOBAL_ENGINE_PRODUCTION_READY (44/44)
+- **SHA**: fc06a0c414467c20f264381c88980c584e79100c
+- **verdict**: GREEN_GLOBAL_ENGINE_PRODUCTION_READY (45/45)
 
 ## Completed batches
 - tranche 1: content graph + registries + live inventory
@@ -19,9 +19,10 @@
 - tranche 11 (Stage 5): authored starter packs for all remaining PLANNED languages — 20 more packs (fr/ar/de/ja/ko/zh/ru/pt/it/nl/pl/tr/fa/he/th/vi/id/ms/sw/uk) => 29 BETA packs total, 0 PLANNED; RTL speech tags fixed (ar-SA/fa-IR/he-IL/ms-MY); Hindi stays the only PRODUCTION language (Gate L)
 - tranche 12 (Stage 6): everyday polish — 'More on EkGuru' block renamed 'Learn languages' (home + inner pages); browser-TTS Listen buttons mounted on the languages hub (all 30 cells), SRS review card and vocabulary practice; practice questions rotate daily via deterministic dayShuffle (rule-based, not AI) (Gate M)
 - tranche 13 (Stage 7): first full non-Hindi course — authored Spanish course (6 lessons, 12 vocab + 12 grammar practice on the shared engine, 20-question daily-rotating topic quiz, 24-card SRS review deck) wired into the hub/pack page/courses registry; all verified in real Chromium with es-ES computer voice, 0 page errors (Gate N); es stays BETA
+- tranche 14 (Stage 8): second course + generator generalization — build-language-course.py is now one language-parameterized engine over tools/course-data/{code}.py; authored French course (fr-FR) built and verified in real Chromium with the same Gate N battery (now iterating every course in data/courses.json); fr stays BETA
 
 ## Pending
-- full courses for the remaining 28 BETA languages, one by one, popular first (user directive) — each needs lessons + practice + quiz + review + recorded-audio decision, then browser QA before PRODUCTION
+- full courses for the remaining 27 BETA languages, one by one, popular first (user directive) — each needs lessons + practice + quiz + review + recorded-audio decision, then browser QA before PRODUCTION
 - flashcards/toolbox pages: extend the same Listen buttons to the flashcards deck and phrasebook
 - child-specific lesson content (privacy mode ships; lessons not authored)
 - large-scale SEO batches — never before quality gates

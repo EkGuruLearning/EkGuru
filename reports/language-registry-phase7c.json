@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-13T08:03:55Z",
+ "generated": "2026-09-13T08:34:00Z",
  "count": 30,
  "production": [
   "hi"
@@ -134,6 +134,8 @@
    "course": {
     "lang": "es",
     "name": "Spanish",
+    "native": "español",
+    "speechTag": "es-ES",
     "status": "BETA",
     "lessons": 6,
     "practiceItems": 24,
@@ -181,7 +183,19 @@
     "grammar": 4
    },
    "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
-   "course": null,
+   "course": {
+    "lang": "fr",
+    "name": "French",
+    "native": "français",
+    "speechTag": "fr-FR",
+    "status": "BETA",
+    "lessons": 6,
+    "practiceItems": 24,
+    "quizQuestions": 20,
+    "reviewCards": 24,
+    "url": "languages/fr/course/",
+    "note": "A real, authored French course in beta: 6 lessons, a practice lab, a topic quiz and a review deck — all running on the same engines as Hindi. It is not yet as deep as the Hindi course, and all audio is your browser's computer voice, never a native recording."
+   },
    "referenceImplementation": false
   },
   {
