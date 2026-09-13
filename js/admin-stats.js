@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-13T18:22:44.838Z",
+ "generated": "2026-09-13T18:29:37.192Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 886,
+  "totalHtml": 890,
   "materials": 0
  },
  "countries": {
@@ -3923,8 +3923,8 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 886,
-  "sitemapUrls": 809,
+  "pages": 890,
+  "sitemapUrls": 813,
   "sitemapFiles": 14,
   "brokenLinks": 0,
   "orphans": 0
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1114 files scanned, 0 secrets"
+  "note": "1122 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "b4bfc8f5d51b12f6f6a5cb8e688ade2d87fcc35c",
-  "subject": "v121: Tamil COMPLETE — Weather + Home + Festivals (367 words) — 800+ CROSSED",
-  "buildTime": "2026-09-13T18:22:44.851Z",
+  "commit": "71b0f94aeb0ec51d797d80be530744511eba507d",
+  "subject": "v122: Telugu advanced modules 1-2 — Health + Office (305 words)",
+  "buildTime": "2026-09-13T18:29:37.205Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 886,
+   "totalHtml": 890,
    "tutorProfiles": 4,
    "materials": 0
   }

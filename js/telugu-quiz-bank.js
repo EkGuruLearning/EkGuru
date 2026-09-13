@@ -714,6 +714,646 @@ window.EKGURU_TELUGU_QUIZ =
    "q": "'మంచి పని!' means…",
    "topic": "office",
    "type": "meaning"
+  },
+  {
+   "a": "test",
+   "explain": "టెస్టు (ṭesṭu) = test.",
+   "id": "tq-45",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "test",
+    "lesson",
+    "homework",
+    "result"
+   ],
+   "q": "టెస్టు means…",
+   "topic": "education",
+   "type": "vocab"
+  },
+  {
+   "a": "హెడ్‌మాస్టర్",
+   "explain": "హెడ్‌మాస్టర్ (heḍmāsṭar) = headmaster.",
+   "id": "tq-46",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "హెడ్‌మాస్టర్",
+    "ప్రిన్సిపాల్",
+    "ప్రొఫెసర్",
+    "శిష్యుడు"
+   ],
+   "q": "Which is 'headmaster'?",
+   "topic": "education",
+   "type": "vocab"
+  },
+  {
+   "a": "knowledge is wealth",
+   "explain": "జ్ఞానమే సంపద — జ్ఞానం = knowledge.",
+   "id": "tq-47",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "knowledge is wealth",
+    "health is wealth",
+    "time is gold",
+    "work is worship"
+   ],
+   "q": "'జ్ఞానమే సంపద' means…",
+   "topic": "education",
+   "type": "meaning"
+  },
+  {
+   "a": "బాగా చదువు",
+   "explain": "బాగా చదువు = study well — బాగా = well.",
+   "id": "tq-48",
+   "lesson": "education",
+   "level": "elementary",
+   "opts": [
+    "బాగా చదువు",
+    "బయట ఆడుకో",
+    "త్వరగా పడుకో",
+    "టీవీ చూడు"
+   ],
+   "q": "Tell a child to study well. You say…",
+   "topic": "education",
+   "type": "usage"
+  },
+  {
+   "a": "library",
+   "explain": "గ్రంథాలయం (granthālayaṁ) = library — గ్రంథం = book.",
+   "id": "tq-49",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "library",
+    "laboratory",
+    "classroom",
+    "hostel"
+   ],
+   "q": "గ్రంథాలయం means…",
+   "topic": "education",
+   "type": "vocab"
+  },
+  {
+   "a": "homework",
+   "explain": "హోమ్‌వర్క్ (hōmvark) — from English, every Telugu pupil knows it!",
+   "id": "tq-50",
+   "lesson": "education",
+   "level": "elementary",
+   "opts": [
+    "homework",
+    "lesson",
+    "chapter",
+    "essay"
+   ],
+   "q": "హోమ్‌వర్క్ means…",
+   "topic": "education",
+   "type": "vocab"
+  },
+  {
+   "a": "the exams are near",
+   "explain": "పరీక్షలు దగ్గరపడ్డాయి — దగ్గర = near.",
+   "id": "tq-51",
+   "lesson": "education",
+   "level": "elementary",
+   "opts": [
+    "the exams are near",
+    "the exams are over",
+    "the exams are easy",
+    "the exams are cancelled"
+   ],
+   "q": "'పరీక్షలు దగ్గరపడ్డాయి' means…",
+   "topic": "education",
+   "type": "meaning"
+  },
+  {
+   "a": "పుస్తకాలు తెరవండి",
+   "explain": "పుస్తకాలు తెరవండి — తెరవండి = open.",
+   "id": "tq-52",
+   "lesson": "education",
+   "level": "elementary",
+   "opts": [
+    "పుస్తకాలు తెరవండి",
+    "పుస్తకాలు మూయండి",
+    "బ్యాగ్ తెరవండి",
+    "నోరు తెరవండి"
+   ],
+   "q": "Say 'open your books'. You say…",
+   "topic": "education",
+   "type": "usage"
+  },
+  {
+   "a": "prize",
+   "explain": "బహుమతి (bahumati) = prize.",
+   "id": "tq-53",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "prize",
+    "medal",
+    "certificate",
+    "scholarship"
+   ],
+   "q": "బహుమతి means…",
+   "topic": "education",
+   "type": "vocab"
+  },
+  {
+   "a": "don't talk in class",
+   "explain": "క్లాసులో మాట్లాడకు — మాట్లాడకు = don't speak.",
+   "id": "tq-54",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "don't talk in class",
+    "don't run outside",
+    "don't sleep now",
+    "don't eat here"
+   ],
+   "q": "'క్లాసులో మాట్లాడకు' means…",
+   "topic": "education",
+   "type": "meaning"
+  },
+  {
+   "a": "rain",
+   "explain": "వాన (vāna) = rain.",
+   "id": "tq-55",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "rain",
+    "wind",
+    "cloud",
+    "storm"
+   ],
+   "q": "వాన means…",
+   "topic": "weather",
+   "type": "vocab"
+  },
+  {
+   "a": "సూర్యుడు",
+   "explain": "సూర్యుడు (sūryuḍu) = sun.",
+   "id": "tq-56",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "సూర్యుడు",
+    "చంద్రుడు",
+    "నక్షత్రం",
+    "మేఘం"
+   ],
+   "q": "Which is 'sun'?",
+   "topic": "weather",
+   "type": "vocab"
+  },
+  {
+   "a": "it is raining",
+   "explain": "వాన పడుతోంది — పడడం = to fall.",
+   "id": "tq-57",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "it is raining",
+    "it is sunny",
+    "it is windy",
+    "it is foggy"
+   ],
+   "q": "'వాన పడుతోంది' means…",
+   "topic": "weather",
+   "type": "meaning"
+  },
+  {
+   "a": "గొడుగు తీసుకో",
+   "explain": "గొడుగు తీసుకో = take an umbrella — గొడుగు = umbrella.",
+   "id": "tq-58",
+   "lesson": "weather",
+   "level": "elementary",
+   "opts": [
+    "గొడుగు తీసుకో",
+    "ఇంట్లో ఉండు",
+    "బయట పరిగెత్తు",
+    "షాపుకి వెళ్ళు"
+   ],
+   "q": "Tell a friend to take an umbrella. You say…",
+   "topic": "weather",
+   "type": "usage"
+  },
+  {
+   "a": "river",
+   "explain": "నది (nadi) = river.",
+   "id": "tq-59",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "river",
+    "lake",
+    "sea",
+    "pond"
+   ],
+   "q": "నది means…",
+   "topic": "weather",
+   "type": "vocab"
+  },
+  {
+   "a": "rainbow",
+   "explain": "ఇంద్రధనస్సు (indradhanassu) — ఇంద్రుని (Indra's) + ధనస్సు (bow)!",
+   "id": "tq-60",
+   "lesson": "weather",
+   "level": "elementary",
+   "opts": [
+    "rainbow",
+    "lightning",
+    "thunder",
+    "cloud"
+   ],
+   "q": "ఇంద్రధనస్సు means…",
+   "topic": "weather",
+   "type": "vocab"
+  },
+  {
+   "a": "how is the weather?",
+   "explain": "వాతావరణం ఎలా ఉంది? — ఎలా = how.",
+   "id": "tq-61",
+   "lesson": "weather",
+   "level": "elementary",
+   "opts": [
+    "how is the weather?",
+    "where is the rain?",
+    "when is summer?",
+    "why is it hot?"
+   ],
+   "q": "'వాతావరణం ఎలా ఉంది?' means…",
+   "topic": "weather",
+   "type": "meaning"
+  },
+  {
+   "a": "తుఫానులో వెళ్ళకు",
+   "explain": "తుఫానులో వెళ్ళకు — వెళ్ళకు = don't go.",
+   "id": "tq-62",
+   "lesson": "weather",
+   "level": "elementary",
+   "opts": [
+    "తుఫానులో వెళ్ళకు",
+    "వానలో తడువు",
+    "ఎండలో నిలబడు",
+    "గాలిలో పరిగెత్తు"
+   ],
+   "q": "Warn: don't go in the storm. You say…",
+   "topic": "weather",
+   "type": "usage"
+  },
+  {
+   "a": "peacock",
+   "explain": "నెమలి (nemali) — peacock, India's national bird.",
+   "id": "tq-63",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "peacock",
+    "parrot",
+    "crow",
+    "hen"
+   ],
+   "q": "నెమలి means…",
+   "topic": "weather",
+   "type": "vocab"
+  },
+  {
+   "a": "nature is beautiful",
+   "explain": "ప్రకృతి అందమైనది — ప్రకృతి = nature.",
+   "id": "tq-64",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "nature is beautiful",
+    "the sky is blue",
+    "the river is deep",
+    "the tree is tall"
+   ],
+   "q": "'ప్రకృతి అందమైనది' means…",
+   "topic": "weather",
+   "type": "meaning"
+  },
+  {
+   "a": "kitchen",
+   "explain": "వంటగది (vaṇṭagadi) = kitchen — వంట = cooking.",
+   "id": "tq-65",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "kitchen",
+    "bedroom",
+    "bathroom",
+    "balcony"
+   ],
+   "q": "వంటగది means…",
+   "topic": "home",
+   "type": "vocab"
+  },
+  {
+   "a": "మామయ్య",
+   "explain": "మామయ్య (māmayya) = maternal uncle.",
+   "id": "tq-66",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "మామయ్య",
+    "చిన్నాన్న",
+    "పెదనాన్న",
+    "తాత"
+   ],
+   "q": "Which is 'maternal uncle'?",
+   "topic": "home",
+   "type": "vocab"
+  },
+  {
+   "a": "dinner is ready",
+   "explain": "భోజనం రెడీ — రెడీ = ready.",
+   "id": "tq-67",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "dinner is ready",
+    "wash your hands",
+    "go to sleep",
+    "lock the door"
+   ],
+   "q": "'భోజనం రెడీ' means…",
+   "topic": "home",
+   "type": "meaning"
+  },
+  {
+   "a": "గది సర్దు",
+   "explain": "గది సర్దు = tidy the room.",
+   "id": "tq-68",
+   "lesson": "home",
+   "level": "elementary",
+   "opts": [
+    "గది సర్దు",
+    "బయట ఆడుకో",
+    "పడుకో",
+    "చదువుకో"
+   ],
+   "q": "Guests are coming — tidy the room. You say…",
+   "topic": "home",
+   "type": "usage"
+  },
+  {
+   "a": "key",
+   "explain": "తాళంచెవి (tāḷañchevi) = key.",
+   "id": "tq-69",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "key",
+    "lock",
+    "door",
+    "window"
+   ],
+   "q": "తాళంచెవి means…",
+   "topic": "home",
+   "type": "vocab"
+  },
+  {
+   "a": "lock the door",
+   "explain": "తలుపుకు తాళం వేయి — తాళం = lock.",
+   "id": "tq-70",
+   "lesson": "home",
+   "level": "elementary",
+   "opts": [
+    "lock the door",
+    "open the window",
+    "close the gate",
+    "light the lamp"
+   ],
+   "q": "'తలుపుకు తాళం వేయి' means…",
+   "topic": "home",
+   "type": "meaning"
+  },
+  {
+   "a": "చేతులు కడుక్కో",
+   "explain": "చేతులు కడుక్కో = wash your hands — before every meal!",
+   "id": "tq-71",
+   "lesson": "home",
+   "level": "elementary",
+   "opts": [
+    "చేతులు కడుక్కో",
+    "మొహం కడుక్కో",
+    "టీ తాగు",
+    "పడుకో"
+   ],
+   "q": "Say 'wash your hands'. You say…",
+   "topic": "home",
+   "type": "usage"
+  },
+  {
+   "a": "traditional cutter",
+   "explain": "కత్తిపీట (kattipīṭa) — the traditional cutter of Telugu kitchens.",
+   "id": "tq-72",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "traditional cutter",
+    "grinding stone",
+    "pressure cooker",
+    "spice box"
+   ],
+   "q": "కత్తిపీట means…",
+   "topic": "home",
+   "type": "vocab"
+  },
+  {
+   "a": "this is my home",
+   "explain": "ఇది నా ఇల్లు — ఇది = this.",
+   "id": "tq-73",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "this is my home",
+    "this is my room",
+    "our family is big",
+    "sweet dreams"
+   ],
+   "q": "'ఇది నా ఇల్లు' means…",
+   "topic": "home",
+   "type": "meaning"
+  },
+  {
+   "a": "afternoon nap",
+   "explain": "పగటి నిద్ర (pagaṭi nidra) — పగలు = daytime!",
+   "id": "tq-74",
+   "lesson": "home",
+   "level": "elementary",
+   "opts": [
+    "afternoon nap",
+    "morning walk",
+    "night sleep",
+    "daydream"
+   ],
+   "q": "పగటి నిద్ర means…",
+   "topic": "home",
+   "type": "vocab"
+  },
+  {
+   "a": "temple",
+   "explain": "గుడి (guḍi) = temple.",
+   "id": "tq-75",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "temple",
+    "mosque",
+    "church",
+    "shrine"
+   ],
+   "q": "గుడి means…",
+   "topic": "festivals",
+   "type": "vocab"
+  },
+  {
+   "a": "పెద్ద పండగ",
+   "explain": "పెద్ద పండగ (pedda paṇḍaga) — 'the Big Festival', what Telugu people call Sankranti!",
+   "id": "tq-76",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "పెద్ద పండగ",
+    "ఉగాది పండగ",
+    "దసరా",
+    "దీపావళి"
+   ],
+   "q": "Which is 'the Big Festival' (Sankranti)?",
+   "topic": "festivals",
+   "type": "vocab"
+  },
+  {
+   "a": "happy Diwali",
+   "explain": "దీపావళి శుభాకాంక్షలు — శుభాకాంక్షలు = greetings.",
+   "id": "tq-77",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "happy Diwali",
+    "happy Sankranti",
+    "happy New Year",
+    "merry Christmas"
+   ],
+   "q": "'దీపావళి శుభాకాంక్షలు' means…",
+   "topic": "festivals",
+   "type": "meaning"
+  },
+  {
+   "a": "దీపం వెలిగించు",
+   "explain": "దీపం వెలిగించు = light the lamp — దీపం = lamp.",
+   "id": "tq-78",
+   "lesson": "festivals",
+   "level": "elementary",
+   "opts": [
+    "దీపం వెలిగించు",
+    "దీపం ఆర్పు",
+    "గంట కొట్టు",
+    "పూలు పెట్టు"
+   ],
+   "q": "Say 'light the lamp'. You say…",
+   "topic": "festivals",
+   "type": "usage"
+  },
+  {
+   "a": "temple chariot",
+   "explain": "రథం (rathaṁ) — the temple chariot.",
+   "id": "tq-79",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "temple chariot",
+    "procession",
+    "fair",
+    "garland"
+   ],
+   "q": "రథం means…",
+   "topic": "festivals",
+   "type": "vocab"
+  },
+  {
+   "a": "rangoli (floor art)",
+   "explain": "ముగ్గు (muggu) — the rice-flour art at Telugu doorsteps!",
+   "id": "tq-80",
+   "lesson": "festivals",
+   "level": "elementary",
+   "opts": [
+    "rangoli (floor art)",
+    "fireworks",
+    "feast",
+    "gift"
+   ],
+   "q": "ముగ్గు means…",
+   "topic": "festivals",
+   "type": "vocab"
+  },
+  {
+   "a": "let's go to the temple",
+   "explain": "గుడికి వెళ్దాం — వెళ్దాం = let's go.",
+   "id": "tq-81",
+   "lesson": "festivals",
+   "level": "elementary",
+   "opts": [
+    "let's go to the temple",
+    "let's light the lamp",
+    "let's buy sweets",
+    "let's go home"
+   ],
+   "q": "'గుడికి వెళ్దాం' means…",
+   "topic": "festivals",
+   "type": "meaning"
+  },
+  {
+   "a": "సంక్రాంతి శుభాకాంక్షలు",
+   "explain": "సంక్రాంతి శుభాకాంక్షలు — the Sankranti greeting.",
+   "id": "tq-82",
+   "lesson": "festivals",
+   "level": "elementary",
+   "opts": [
+    "సంక్రాంతి శుభాకాంక్షలు",
+    "దీపావళి శుభాకాంక్షలు",
+    "ఈద్ ముబారక్",
+    "క్రిస్మస్ శుభాకాంక్షలు"
+   ],
+   "q": "Greet someone Happy Sankranti. You say…",
+   "topic": "festivals",
+   "type": "usage"
+  },
+  {
+   "a": "fireworks",
+   "explain": "టపాసులు (ṭapāsulu) — fireworks; టపాకాయ = firecracker.",
+   "id": "tq-83",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "fireworks",
+    "firecracker",
+    "lamp",
+    "bell"
+   ],
+   "q": "టపాసులు means…",
+   "topic": "festivals",
+   "type": "vocab"
+  },
+  {
+   "a": "take the blessing",
+   "explain": "ఆశీర్వాదం తీసుకో — ఆశీర్వాదం = blessing.",
+   "id": "tq-84",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "take the blessing",
+    "light the lamp",
+    "offer flowers",
+    "sing a song"
+   ],
+   "q": "'ఆశీర్వాదం తీసుకో' means…",
+   "topic": "festivals",
+   "type": "meaning"
   }
  ]
 };
