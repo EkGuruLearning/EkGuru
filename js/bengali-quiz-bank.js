@@ -874,6 +874,166 @@ window.EKGURU_BENGALI_QUIZ =
    "q": "'মন দিয়ে পড়ো' means…",
    "topic": "education",
    "type": "meaning"
+  },
+  {
+   "a": "cloud",
+   "explain": "মেঘ (megh) = cloud — কালো মেঘ are dark rain clouds.",
+   "id": "bq-55",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "cloud",
+    "rain",
+    "wind",
+    "sky"
+   ],
+   "q": "মেঘ means…",
+   "topic": "weather",
+   "type": "vocab"
+  },
+  {
+   "a": "সূর্য",
+   "explain": "সূর্য (shurjo) = sun — চাঁদ is the moon.",
+   "id": "bq-56",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "সূর্য",
+    "চাঁদ",
+    "তারা",
+    "আকাশ"
+   ],
+   "q": "Which is 'sun'?",
+   "topic": "weather",
+   "type": "vocab"
+  },
+  {
+   "a": "it is raining",
+   "explain": "বৃষ্টি পড়ছে — পড়ছে = is falling.",
+   "id": "bq-57",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "it is raining",
+    "it is sunny",
+    "it is windy",
+    "it is cold"
+   ],
+   "q": "'বৃষ্টি পড়ছে' means…",
+   "topic": "weather",
+   "type": "meaning"
+  },
+  {
+   "a": "ছাতা নাও",
+   "explain": "ছাতা নাও = take an umbrella. ছাতা = umbrella.",
+   "id": "bq-58",
+   "lesson": "weather",
+   "level": "elementary",
+   "opts": [
+    "ছাতা নাও",
+    "জল খাও",
+    "বসে থাকো",
+    "ঘুমিয়ে পড়ো"
+   ],
+   "q": "It may rain — advise someone. You say…",
+   "topic": "weather",
+   "type": "usage"
+  },
+  {
+   "a": "mountain",
+   "explain": "পাহাড় (pahaṛ) = mountain — টিলা is a hillock.",
+   "id": "bq-59",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "mountain",
+    "river",
+    "forest",
+    "valley"
+   ],
+   "q": "পাহাড় means…",
+   "topic": "weather",
+   "type": "vocab"
+  },
+  {
+   "a": "flood",
+   "explain": "বন্যা (bonna) = flood — খরা is drought, its opposite.",
+   "id": "bq-60",
+   "lesson": "weather",
+   "level": "elementary",
+   "opts": [
+    "flood",
+    "drought",
+    "storm",
+    "fog"
+   ],
+   "q": "বন্যা means…",
+   "topic": "weather",
+   "type": "vocab"
+  },
+  {
+   "a": "it is very hot today",
+   "explain": "আজ খুব গরম — খুব = very.",
+   "id": "bq-61",
+   "lesson": "weather",
+   "level": "elementary",
+   "opts": [
+    "it is very hot today",
+    "it is very cold today",
+    "it is raining today",
+    "it is dark today"
+   ],
+   "q": "'আজ খুব গরম' means…",
+   "topic": "weather",
+   "type": "meaning"
+  },
+  {
+   "a": "কী সুন্দর ফুল!",
+   "explain": "কী সুন্দর ফুল! — কী + adjective + noun is the praise pattern.",
+   "id": "bq-62",
+   "lesson": "weather",
+   "level": "elementary",
+   "opts": [
+    "কী সুন্দর ফুল!",
+    "কত বড় গাছ!",
+    "কী মিষ্টি আম!",
+    "কী ঠান্ডা বাতাস!"
+   ],
+   "q": "Say 'what a beautiful flower!' You say…",
+   "topic": "weather",
+   "type": "usage"
+  },
+  {
+   "a": "bird",
+   "explain": "পাখি (pakhi) = bird — শোনো, পাখিরা কিচিরমিচির করছে (listen, the birds chirp).",
+   "id": "bq-63",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "bird",
+    "fish",
+    "snake",
+    "frog"
+   ],
+   "q": "পাখি means…",
+   "topic": "weather",
+   "type": "vocab"
+  },
+  {
+   "a": "winter has come",
+   "explain": "শীত এসেছে — এসেছে = has come.",
+   "id": "bq-64",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "winter has come",
+    "summer has come",
+    "the rain has stopped",
+    "the sun has set"
+   ],
+   "q": "'শীত এসেছে' means…",
+   "topic": "weather",
+   "type": "meaning"
   }
  ]
 };
