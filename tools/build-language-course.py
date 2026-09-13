@@ -322,6 +322,13 @@ def p_grammar(d):
     pf = "".join(f"<tr><td>{E(x['en'])}</td><td>{E(x['hi'])}</td><td><b>{E(x['t'])}</b></td><td>{E(x['r'])}</td></tr>" for x in d["past_future"])
     post = "".join(f"<tr><td>{E(p['en'])}</td><td>{E(p['hi'])}</td><td><b>{E(p['t'])}</b></td><td>{E(p['ex_t'])} ({E(p['ex_r'])}) — {E(p['ex_en'])}</td></tr>" for p in d["postpositions"])
     clf = "".join(f"<tr><td><b>{E(c['en'])}</b> ({E(c['r'])})</td><td>{E(c['hi'])}</td><td>{E(c['note'])}</td></tr>" for c in d["classifiers"])
+    # v104+ — per-language prose (Bengali defaults keep the first course byte-identical)
+    gender_title = E(d.get("gender_title", "No grammatical gender"))
+    gender_note = E(d.get("gender_note", "Unlike Hindi, adjectives never change: the word for \u201cgood\u201d stays the same for boys, girls and books. One less thing to memorise."))
+    present_note = E(d.get("present_note", "Notice formal and familiar forms differ \u2014 the verb tells you the relationship."))
+    negation_title = E(d.get("negation_title", "Negation is one word"))
+    negation_note = d.get("negation_note", "Put <b>\u09a8\u09be</b> (na) after a present-tense verb: \u0986\u09ae\u09bf \u099c\u09be\u09a8\u09bf \u09a8\u09be (ami jani na) \u2014 I don't know. Past tense tucks it inside: \u0996\u09be\u0987\u09a8\u09bf (khaini) \u2014 didn't eat.")
+    counting_note = d.get("counting_note", "Things take \u099f\u09be, people take \u099c\u09a8:")
     return (f"{n} grammar — word order, verbs and pronouns",
             f"{n} word order, verbs, pronouns and negation — explained with trilingual examples, not listed.",
             f"""{crumb(d, [(None, "Grammar")])}
@@ -329,21 +336,21 @@ def p_grammar(d):
   <p class="lede">Word order, verbs, pronouns and the mistakes everyone makes — explained, not listed.</p>
   <h2>1. The verb goes last</h2>
   <p>{E(n)} is subject–object–verb: <b>{E(s['t'])}</b> ({E(s['r'])}) — {E(s['hi'])} — “{E(s['en'])}”. Learn this once and every sentence parses.</p>
-  <h2>2. No grammatical gender</h2>
-  <p>Unlike Hindi, adjectives never change: the word for “good” stays the same for boys, girls and books. One less thing to memorise.</p>
+  <h2>2. {gender_title}</h2>
+  <p>{gender_note}</p>
   <h2>3. Pronouns</h2>
   {tri_table(d['pronouns'], col3=n)}
   <h2>4. Present tense — one full verb</h2>
-  <p>“To eat” ({E(d['verbs'][0]['t'])}) in the present. Notice آپни/ formal and familiar forms differ — the verb tells you the relationship.</p>
+  <p>“To eat” ({E(d['verbs'][0]['t'])}) in the present. {present_note}</p>
   <table class="tbl"><thead><tr><th>Who</th><th></th><th>Verb</th><th>Say it</th></tr></thead><tbody>{prows}</tbody></table>
   <h2>5. Past and future (first steps)</h2>
   <table class="tbl tri"><thead><tr><th>English</th><th>Hindi</th><th>{E(n)}</th><th>Say it</th></tr></thead><tbody>{pf}</tbody></table>
-  <h2>6. Negation is one word</h2>
-  <p>Put <b>না</b> (na) after a present-tense verb: আমি জানি না (ami jani na) — I don't know. Past tense tucks it inside: খাইনি (khaini) — didn't eat.</p>
+  <h2>6. {negation_title}</h2>
+  <p>{negation_note}</p>
   <h2>7. Postpositions (not prepositions)</h2>
   <table class="tbl"><thead><tr><th>Meaning</th><th>Hindi</th><th>{E(n)}</th><th>Example</th></tr></thead><tbody>{post}</tbody></table>
   <h2>8. Counting words</h2>
-  <p>Things take টা, people take জন:</p>
+  <p>{counting_note}</p>
   <table class="tbl"><thead><tr><th>{E(n)}</th><th>Hindi</th><th>Note</th></tr></thead><tbody>{clf}</tbody></table>""")
 
 
@@ -368,6 +375,7 @@ def p_vocabulary(d):
 
 def p_travel(d):
     n = d["name"]
+    survival_trio = d.get("survival_trio", "X \u0995\u09cb\u09a5\u09be\u09af\u09bc? (where is X?), \u09ad\u09be\u09a1\u09bc\u09be \u0995\u09a4? (how much?), \u098f\u0996\u09be\u09a8\u09c7 \u09a5\u09be\u09ae\u09c1\u09a8 (stop here). These three handle 80% of travel.")
     return (f"{n} for travel — stations, directions and fares",
             f"{n} travel phrases: stations, directions, fares and hotels — the sentences you will actually use.",
             f"""{crumb(d, [(None, "Travel")])}
@@ -377,7 +385,7 @@ def p_travel(d):
   {tri_table(d['travel_words'], col3=n)}
   <h2>Phrases</h2>
   {tri_table(d['travel_phrases'], col3=n)}
-  <div class="note"><b>Survival trio.</b> X কোথায়? (where is X?), ভাড়া কত? (how much?), এখানে থামুন (stop here). These three handle 80% of travel.</div>""")
+  <div class="note"><b>Survival trio.</b> {survival_trio}</div>""")
 
 
 def p_daily(d):
@@ -434,6 +442,7 @@ def p_food(d):
 
 def p_shopping(d):
     n = d["name"]
+    bargaining_script = d.get("bargaining_script", "\u098f\u099f\u09be\u09b0 \u09a6\u09be\u09ae \u0995\u09a4? \u2192 \u0996\u09c1\u09ac \u09a6\u09be\u09ae\u09bf! \u2192 \u098f\u0995\u099f\u09c1 \u0995\u09ae \u0995\u09b0\u09c1\u09a8 \u2192 \u09a0\u09bf\u0995 \u0986\u099b\u09c7, \u09a8\u09c7\u09ac\u09cb. Smile through all four steps.")
     return (f"{n} shopping & money — prices and bargaining",
             f"{n} shopping phrases: prices, bargaining and market talk.",
             f"""{crumb(d, [(None, "Shopping")])}
@@ -443,7 +452,7 @@ def p_shopping(d):
   {tri_table(d['shopping_words'], col3=n)}
   <h2>Phrases</h2>
   {tri_table(d['shopping_phrases'], col3=n)}
-  <div class="note"><b>Bargaining script.</b> এটার দাম কত? → খুব দামি! → একটু কম করুন → ঠিক আছে, নেবো. Smile through all four steps.</div>""")
+  <div class="note"><b>Bargaining script.</b> {bargaining_script}</div>""")
 
 
 def p_practice(d):

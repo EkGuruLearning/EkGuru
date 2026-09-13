@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-13T16:26:46.514Z",
+ "generated": "2026-09-13T16:33:06.220Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 691,
+  "totalHtml": 713,
   "materials": 0
  },
  "countries": {
@@ -3923,8 +3923,8 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 691,
-  "sitemapUrls": 632,
+  "pages": 713,
+  "sitemapUrls": 652,
   "sitemapFiles": 14,
   "brokenLinks": 0,
   "orphans": 0
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "887 files scanned, 0 secrets"
+  "note": "911 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "df1b2a180aadbf9a3c29bf2a66595b157b478b06",
-  "subject": "v103: complete trilingual Bengali course (22 pages + quiz/typing/worksheets)",
-  "buildTime": "2026-09-13T16:26:46.536Z",
+  "commit": "85e561d26964b5af1da9427e3b69d74340ced3a0",
+  "subject": "v104: rewire live sheets to new production workbook + fix sheetsync reviews bake",
+  "buildTime": "2026-09-13T16:33:06.235Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 691,
+   "totalHtml": 713,
    "tutorProfiles": 4,
    "materials": 0
   }

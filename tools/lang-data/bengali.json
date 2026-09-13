@@ -8,403 +8,2388 @@
   "script_name": "Bengali script",
   "script_note": "A left-to-right Eastern Nagari script, a close cousin of Devanagari. If you read Hindi, many letters will look familiar — but several sounds differ, so learn it fresh rather than guessing from Hindi.",
   "difficulty": "US Foreign Service Institute Category III (about 1,100 hours to professional proficiency) — grouped with Hindi. The script is phonetic, verbs are regular, and there is no grammatical gender, which makes the start gentler than Hindi.",
-  "sov": {"t": "আমি ভাত খাই", "r": "ami bhat khai", "hi": "मैं चावल खाता हूँ", "en": "I eat rice (word-for-word: I · rice · eat)"},
-
+  "sov": {
+    "t": "আমি ভাত খাই",
+    "r": "ami bhat khai",
+    "hi": "मैं चावल खाता हूँ",
+    "en": "I eat rice (word-for-word: I · rice · eat)"
+  },
+  "gender_title": "No grammatical gender",
+  "gender_note": "Unlike Hindi, adjectives never change: the word for “good” stays the same for boys, girls and books. One less thing to memorise.",
+  "present_note": "Notice আপনি/তুমি/তুই: formal, familiar and intimate forms differ — the verb tells you the relationship.",
+  "negation_title": "Negation is one word",
+  "negation_note": "Put <b>না</b> (na) after a present-tense verb: আমি জানি না (ami jani na) — I don't know. Past tense tucks it inside: খাইনি (khaini) — didn't eat.",
+  "counting_note": "Things take টা, people take জন:",
+  "survival_trio": "X কোথায়? (where is X?), ভাড়া কত? (how much?), এখানে থামুন (stop here). These three handle 80% of travel.",
+  "bargaining_script": "এটার দাম কত? → খুব দামি! → একটু কম করুন → ঠিক আছে, নেবো. Smile through all four steps.",
   "vowels": [
-    {"t": "অ", "r": "ô", "hint": "o as in 'on' — this is the inherent vowel: ক reads kô, not ka"},
-    {"t": "আ", "r": "a", "hint": "a as in 'father'"},
-    {"t": "ই", "r": "i", "hint": "i as in 'bit'"},
-    {"t": "ঈ", "r": "i", "hint": "ee as in 'feet' — same sound as ই in modern speech"},
-    {"t": "উ", "r": "u", "hint": "u as in 'put'"},
-    {"t": "ঊ", "r": "u", "hint": "oo as in 'food' — same sound as উ in modern speech"},
-    {"t": "ঋ", "r": "ri", "hint": "ri as in 'rig'"},
-    {"t": "এ", "r": "e", "hint": "ay as in 'say' (shorter, no glide)"},
-    {"t": "ঐ", "r": "oi", "hint": "oi as in 'oil'"},
-    {"t": "ও", "r": "o", "hint": "o as in 'go'"},
-    {"t": "ঔ", "r": "ou", "hint": "ow as in 'cow'"}
+    {
+      "t": "অ",
+      "r": "ô",
+      "hint": "o as in 'on' — this is the inherent vowel: ক reads kô, not ka"
+    },
+    {
+      "t": "আ",
+      "r": "a",
+      "hint": "a as in 'father'"
+    },
+    {
+      "t": "ই",
+      "r": "i",
+      "hint": "i as in 'bit'"
+    },
+    {
+      "t": "ঈ",
+      "r": "i",
+      "hint": "ee as in 'feet' — same sound as ই in modern speech"
+    },
+    {
+      "t": "উ",
+      "r": "u",
+      "hint": "u as in 'put'"
+    },
+    {
+      "t": "ঊ",
+      "r": "u",
+      "hint": "oo as in 'food' — same sound as উ in modern speech"
+    },
+    {
+      "t": "ঋ",
+      "r": "ri",
+      "hint": "ri as in 'rig'"
+    },
+    {
+      "t": "এ",
+      "r": "e",
+      "hint": "ay as in 'say' (shorter, no glide)"
+    },
+    {
+      "t": "ঐ",
+      "r": "oi",
+      "hint": "oi as in 'oil'"
+    },
+    {
+      "t": "ও",
+      "r": "o",
+      "hint": "o as in 'go'"
+    },
+    {
+      "t": "ঔ",
+      "r": "ou",
+      "hint": "ow as in 'cow'"
+    }
   ],
   "consonants": [
-    {"t": "ক", "r": "k", "hint": "k as in 'skin' (unaspirated)"},
-    {"t": "খ", "r": "kh", "hint": "k with a puff of air"},
-    {"t": "গ", "r": "g", "hint": "g as in 'go'"},
-    {"t": "ঘ", "r": "gh", "hint": "g with a puff of air"},
-    {"t": "ঙ", "r": "ng", "hint": "ng as in 'sing'"},
-    {"t": "চ", "r": "ch", "hint": "ch as in 'church'"},
-    {"t": "ছ", "r": "chh", "hint": "ch with a puff of air"},
-    {"t": "জ", "r": "j", "hint": "j as in 'jam'"},
-    {"t": "ঝ", "r": "jh", "hint": "j with a puff of air"},
-    {"t": "ঞ", "r": "n", "hint": "n as in 'inch'"},
-    {"t": "ট", "r": "ṭ", "hint": "t with tongue curled back (retroflex)"},
-    {"t": "ঠ", "r": "ṭh", "hint": "retroflex t with a puff of air"},
-    {"t": "ড", "r": "ḍ", "hint": "d with tongue curled back"},
-    {"t": "ঢ", "r": "ḍh", "hint": "retroflex d with a puff of air"},
-    {"t": "ণ", "r": "ṇ", "hint": "retroflex n"},
-    {"t": "ত", "r": "t", "hint": "t with tongue on teeth (dental)"},
-    {"t": "থ", "r": "th", "hint": "dental t with a puff of air (never 'th' as in 'thin')"},
-    {"t": "দ", "r": "d", "hint": "d with tongue on teeth"},
-    {"t": "ধ", "r": "dh", "hint": "dental d with a puff of air"},
-    {"t": "ন", "r": "n", "hint": "dental n"},
-    {"t": "প", "r": "p", "hint": "p as in 'spin'"},
-    {"t": "ফ", "r": "ph/f", "hint": "often pronounced 'f' in modern speech"},
-    {"t": "ব", "r": "b", "hint": "b as in 'bat'"},
-    {"t": "ভ", "r": "bh", "hint": "b with a puff of air"},
-    {"t": "ম", "r": "m", "hint": "m as in 'mat'"},
-    {"t": "য", "r": "j", "hint": "same sound as জ in modern speech"},
-    {"t": "র", "r": "r", "hint": "tapped r, like Spanish 'pero'"},
-    {"t": "ল", "r": "l", "hint": "l as in 'let'"},
-    {"t": "শ", "r": "sh", "hint": "sh as in 'ship'"},
-    {"t": "ষ", "r": "sh", "hint": "same sound as শ in modern speech"},
-    {"t": "স", "r": "s", "hint": "s as in 'sun' (often 'sh' before i-sounds)"},
-    {"t": "হ", "r": "h", "hint": "h as in 'hat'"},
-    {"t": "ড়", "r": "ṛ", "hint": "flapped r — no English equivalent; listen and imitate"},
-    {"t": "ঢ়", "r": "ṛh", "hint": "aspirated flapped r"},
-    {"t": "য়", "r": "y", "hint": "y as in 'yes'"},
-    {"t": "ৎ", "r": "t", "hint": "abrupt t (khanda-ta) — never starts a word"},
-    {"t": "ং", "r": "ng", "hint": "nasalizes the vowel before it"},
-    {"t": "ঃ", "r": "h", "hint": "breathy h at word end (visarga)"},
-    {"t": "ঁ", "r": "◌̃", "hint": "nasalizes the vowel (chandrabindu)"}
+    {
+      "t": "ক",
+      "r": "k",
+      "hint": "k as in 'skin' (unaspirated)"
+    },
+    {
+      "t": "খ",
+      "r": "kh",
+      "hint": "k with a puff of air"
+    },
+    {
+      "t": "গ",
+      "r": "g",
+      "hint": "g as in 'go'"
+    },
+    {
+      "t": "ঘ",
+      "r": "gh",
+      "hint": "g with a puff of air"
+    },
+    {
+      "t": "ঙ",
+      "r": "ng",
+      "hint": "ng as in 'sing'"
+    },
+    {
+      "t": "চ",
+      "r": "ch",
+      "hint": "ch as in 'church'"
+    },
+    {
+      "t": "ছ",
+      "r": "chh",
+      "hint": "ch with a puff of air"
+    },
+    {
+      "t": "জ",
+      "r": "j",
+      "hint": "j as in 'jam'"
+    },
+    {
+      "t": "ঝ",
+      "r": "jh",
+      "hint": "j with a puff of air"
+    },
+    {
+      "t": "ঞ",
+      "r": "n",
+      "hint": "n as in 'inch'"
+    },
+    {
+      "t": "ট",
+      "r": "ṭ",
+      "hint": "t with tongue curled back (retroflex)"
+    },
+    {
+      "t": "ঠ",
+      "r": "ṭh",
+      "hint": "retroflex t with a puff of air"
+    },
+    {
+      "t": "ড",
+      "r": "ḍ",
+      "hint": "d with tongue curled back"
+    },
+    {
+      "t": "ঢ",
+      "r": "ḍh",
+      "hint": "retroflex d with a puff of air"
+    },
+    {
+      "t": "ণ",
+      "r": "ṇ",
+      "hint": "retroflex n"
+    },
+    {
+      "t": "ত",
+      "r": "t",
+      "hint": "t with tongue on teeth (dental)"
+    },
+    {
+      "t": "থ",
+      "r": "th",
+      "hint": "dental t with a puff of air (never 'th' as in 'thin')"
+    },
+    {
+      "t": "দ",
+      "r": "d",
+      "hint": "d with tongue on teeth"
+    },
+    {
+      "t": "ধ",
+      "r": "dh",
+      "hint": "dental d with a puff of air"
+    },
+    {
+      "t": "ন",
+      "r": "n",
+      "hint": "dental n"
+    },
+    {
+      "t": "প",
+      "r": "p",
+      "hint": "p as in 'spin'"
+    },
+    {
+      "t": "ফ",
+      "r": "ph/f",
+      "hint": "often pronounced 'f' in modern speech"
+    },
+    {
+      "t": "ব",
+      "r": "b",
+      "hint": "b as in 'bat'"
+    },
+    {
+      "t": "ভ",
+      "r": "bh",
+      "hint": "b with a puff of air"
+    },
+    {
+      "t": "ম",
+      "r": "m",
+      "hint": "m as in 'mat'"
+    },
+    {
+      "t": "য",
+      "r": "j",
+      "hint": "same sound as জ in modern speech"
+    },
+    {
+      "t": "র",
+      "r": "r",
+      "hint": "tapped r, like Spanish 'pero'"
+    },
+    {
+      "t": "ল",
+      "r": "l",
+      "hint": "l as in 'let'"
+    },
+    {
+      "t": "শ",
+      "r": "sh",
+      "hint": "sh as in 'ship'"
+    },
+    {
+      "t": "ষ",
+      "r": "sh",
+      "hint": "same sound as শ in modern speech"
+    },
+    {
+      "t": "স",
+      "r": "s",
+      "hint": "s as in 'sun' (often 'sh' before i-sounds)"
+    },
+    {
+      "t": "হ",
+      "r": "h",
+      "hint": "h as in 'hat'"
+    },
+    {
+      "t": "ড়",
+      "r": "ṛ",
+      "hint": "flapped r — no English equivalent; listen and imitate"
+    },
+    {
+      "t": "ঢ়",
+      "r": "ṛh",
+      "hint": "aspirated flapped r"
+    },
+    {
+      "t": "য়",
+      "r": "y",
+      "hint": "y as in 'yes'"
+    },
+    {
+      "t": "ৎ",
+      "r": "t",
+      "hint": "abrupt t (khanda-ta) — never starts a word"
+    },
+    {
+      "t": "ং",
+      "r": "ng",
+      "hint": "nasalizes the vowel before it"
+    },
+    {
+      "t": "ঃ",
+      "r": "h",
+      "hint": "breathy h at word end (visarga)"
+    },
+    {
+      "t": "ঁ",
+      "r": "◌̃",
+      "hint": "nasalizes the vowel (chandrabindu)"
+    }
   ],
-
   "greetings": [
-    {"en": "Hello (formal)", "hi": "नमस्ते", "t": "নমস্কার", "r": "nômoshkar"},
-    {"en": "Hello (Muslim greeting)", "hi": "सलाम", "t": "আসসালামু আলাইকুম", "r": "assalamu alaikum", "note": "Reply: ওয়ালাইকুম আসসালাম (walaikum assalam)"},
-    {"en": "How are you? (formal)", "hi": "आप कैसे हैं?", "t": "আপনি কেমন আছেন?", "r": "apni kæmon achhen?"},
-    {"en": "How are you? (familiar)", "hi": "तुम कैसे हो?", "t": "তুমি কেমন আছো?", "r": "tumi kæmon achho?"},
-    {"en": "I'm fine", "hi": "मैं ठीक हूँ", "t": "আমি ভালো আছি", "r": "ami bhalo achhi"},
-    {"en": "Thank you", "hi": "धन्यवाद", "t": "ধন্যবাদ", "r": "dhonnobad"},
-    {"en": "Yes / No", "hi": "हाँ / नहीं", "t": "হ্যাঁ / না", "r": "hæ̃ / na"},
-    {"en": "Please", "hi": "कृपया", "t": "দয়া করে", "r": "dôya kore"},
-    {"en": "Excuse me / Sorry", "hi": "माफ़ कीजिए", "t": "মাফ করবেন", "r": "maph korben"},
-    {"en": "Good morning", "hi": "सुप्रभात", "t": "শুভ সকাল", "r": "shubho shokal"},
-    {"en": "Good night", "hi": "शुभ रात्रि", "t": "শুভ রাত্রি", "r": "shubho ratri"},
-    {"en": "Goodbye", "hi": "अलविदा", "t": "বিদায়", "r": "biday", "note": "Muslims often say খোদা হাফেজ (khoda hafez)"},
-    {"en": "See you again", "hi": "फिर मिलेंगे", "t": "আবার দেখা হবে", "r": "abar dekha hobe"},
-    {"en": "Welcome", "hi": "स्वागत है", "t": "স্বাগতম", "r": "shagotom"}
+    {
+      "en": "Hello (formal)",
+      "hi": "नमस्ते",
+      "t": "নমস্কার",
+      "r": "nômoshkar"
+    },
+    {
+      "en": "Hello (Muslim greeting)",
+      "hi": "सलाम",
+      "t": "আসসালামু আলাইকুম",
+      "r": "assalamu alaikum",
+      "note": "Reply: ওয়ালাইকুম আসসালাম (walaikum assalam)"
+    },
+    {
+      "en": "How are you? (formal)",
+      "hi": "आप कैसे हैं?",
+      "t": "আপনি কেমন আছেন?",
+      "r": "apni kæmon achhen?"
+    },
+    {
+      "en": "How are you? (familiar)",
+      "hi": "तुम कैसे हो?",
+      "t": "তুমি কেমন আছো?",
+      "r": "tumi kæmon achho?"
+    },
+    {
+      "en": "I'm fine",
+      "hi": "मैं ठीक हूँ",
+      "t": "আমি ভালো আছি",
+      "r": "ami bhalo achhi"
+    },
+    {
+      "en": "Thank you",
+      "hi": "धन्यवाद",
+      "t": "ধন্যবাদ",
+      "r": "dhonnobad"
+    },
+    {
+      "en": "Yes / No",
+      "hi": "हाँ / नहीं",
+      "t": "হ্যাঁ / না",
+      "r": "hæ̃ / na"
+    },
+    {
+      "en": "Please",
+      "hi": "कृपया",
+      "t": "দয়া করে",
+      "r": "dôya kore"
+    },
+    {
+      "en": "Excuse me / Sorry",
+      "hi": "माफ़ कीजिए",
+      "t": "মাফ করবেন",
+      "r": "maph korben"
+    },
+    {
+      "en": "Good morning",
+      "hi": "सुप्रभात",
+      "t": "শুভ সকাল",
+      "r": "shubho shokal"
+    },
+    {
+      "en": "Good night",
+      "hi": "शुभ रात्रि",
+      "t": "শুভ রাত্রি",
+      "r": "shubho ratri"
+    },
+    {
+      "en": "Goodbye",
+      "hi": "अलविदा",
+      "t": "বিদায়",
+      "r": "biday",
+      "note": "Muslims often say খোদা হাফেজ (khoda hafez)"
+    },
+    {
+      "en": "See you again",
+      "hi": "फिर मिलेंगे",
+      "t": "আবার দেখা হবে",
+      "r": "abar dekha hobe"
+    },
+    {
+      "en": "Welcome",
+      "hi": "स्वागत है",
+      "t": "স্বাগতম",
+      "r": "shagotom"
+    }
   ],
-
   "pronouns": [
-    {"en": "I", "hi": "मैं", "t": "আমি", "r": "ami"},
-    {"en": "we", "hi": "हम", "t": "আমরা", "r": "amra"},
-    {"en": "you (formal)", "hi": "आप", "t": "আপনি", "r": "apni"},
-    {"en": "you (familiar)", "hi": "तुम", "t": "তুমি", "r": "tumi"},
-    {"en": "you (intimate)", "hi": "तू", "t": "তুই", "r": "tui", "note": "Close friends, children, God — never strangers"},
-    {"en": "he / she", "hi": "वह", "t": "সে", "r": "she", "note": "One word for both — no he/she split"},
-    {"en": "this person (formal)", "hi": "ये", "t": "ইনি", "r": "ini"},
-    {"en": "that person (formal)", "hi": "वे", "t": "উনি", "r": "uni"},
-    {"en": "they", "hi": "वे", "t": "তারা", "r": "tara"},
-    {"en": "this (thing)", "hi": "यह", "t": "এটা", "r": "eṭa"},
-    {"en": "that (thing)", "hi": "वह", "t": "ওটা", "r": "oṭa"},
-    {"en": "what", "hi": "क्या", "t": "কি", "r": "ki"},
-    {"en": "who", "hi": "कौन", "t": "কে", "r": "ke"},
-    {"en": "where", "hi": "कहाँ", "t": "কোথায়", "r": "kothay"},
-    {"en": "when", "hi": "कब", "t": "কখন", "r": "kokhon"},
-    {"en": "why", "hi": "क्यों", "t": "কেন", "r": "kæno"},
-    {"en": "how", "hi": "कैसे", "t": "কেমন / কীভাবে", "r": "kæmon / kibhabe", "note": "কেমন = how is X; কীভাবে = how to do X"},
-    {"en": "how much / how many", "hi": "कितना", "t": "কত", "r": "koto"},
-    {"en": "which", "hi": "कौन-सा", "t": "কোন", "r": "kon"}
+    {
+      "en": "I",
+      "hi": "मैं",
+      "t": "আমি",
+      "r": "ami"
+    },
+    {
+      "en": "we",
+      "hi": "हम",
+      "t": "আমরা",
+      "r": "amra"
+    },
+    {
+      "en": "you (formal)",
+      "hi": "आप",
+      "t": "আপনি",
+      "r": "apni"
+    },
+    {
+      "en": "you (familiar)",
+      "hi": "तुम",
+      "t": "তুমি",
+      "r": "tumi"
+    },
+    {
+      "en": "you (intimate)",
+      "hi": "तू",
+      "t": "তুই",
+      "r": "tui",
+      "note": "Close friends, children, God — never strangers"
+    },
+    {
+      "en": "he / she",
+      "hi": "वह",
+      "t": "সে",
+      "r": "she",
+      "note": "One word for both — no he/she split"
+    },
+    {
+      "en": "this person (formal)",
+      "hi": "ये",
+      "t": "ইনি",
+      "r": "ini"
+    },
+    {
+      "en": "that person (formal)",
+      "hi": "वे",
+      "t": "উনি",
+      "r": "uni"
+    },
+    {
+      "en": "they",
+      "hi": "वे",
+      "t": "তারা",
+      "r": "tara"
+    },
+    {
+      "en": "this (thing)",
+      "hi": "यह",
+      "t": "এটা",
+      "r": "eṭa"
+    },
+    {
+      "en": "that (thing)",
+      "hi": "वह",
+      "t": "ওটা",
+      "r": "oṭa"
+    },
+    {
+      "en": "what",
+      "hi": "क्या",
+      "t": "কি",
+      "r": "ki"
+    },
+    {
+      "en": "who",
+      "hi": "कौन",
+      "t": "কে",
+      "r": "ke"
+    },
+    {
+      "en": "where",
+      "hi": "कहाँ",
+      "t": "কোথায়",
+      "r": "kothay"
+    },
+    {
+      "en": "when",
+      "hi": "कब",
+      "t": "কখন",
+      "r": "kokhon"
+    },
+    {
+      "en": "why",
+      "hi": "क्यों",
+      "t": "কেন",
+      "r": "kæno"
+    },
+    {
+      "en": "how",
+      "hi": "कैसे",
+      "t": "কেমন / কীভাবে",
+      "r": "kæmon / kibhabe",
+      "note": "কেমন = how is X; কীভাবে = how to do X"
+    },
+    {
+      "en": "how much / how many",
+      "hi": "कितना",
+      "t": "কত",
+      "r": "koto"
+    },
+    {
+      "en": "which",
+      "hi": "कौन-सा",
+      "t": "কোন",
+      "r": "kon"
+    }
   ],
-
   "verbs": [
-    {"en": "eat", "hi": "खाना", "t": "খাওয়া", "r": "khaoa", "ami": "খাই", "ami_r": "khai"},
-    {"en": "go", "hi": "जाना", "t": "যাওয়া", "r": "jaoa", "ami": "যাই", "ami_r": "jai"},
-    {"en": "come", "hi": "आना", "t": "আসা", "r": "asha", "ami": "আসি", "ami_r": "ashi"},
-    {"en": "do", "hi": "करना", "t": "করা", "r": "kora", "ami": "করি", "ami_r": "kori"},
-    {"en": "speak / say", "hi": "बोलना", "t": "বলা", "r": "bola", "ami": "বলি", "ami_r": "boli"},
-    {"en": "see", "hi": "देखना", "t": "দেখা", "r": "dekha", "ami": "দেখি", "ami_r": "dekhi"},
-    {"en": "give", "hi": "देना", "t": "দেওয়া", "r": "deoa", "ami": "দিই", "ami_r": "dii"},
-    {"en": "take", "hi": "लेना", "t": "নেওয়া", "r": "neoa", "ami": "নিই", "ami_r": "nii"},
-    {"en": "want", "hi": "चाहना", "t": "চাওয়া", "r": "chaoa", "ami": "চাই", "ami_r": "chai"},
-    {"en": "read / study", "hi": "पढ़ना", "t": "পড়া", "r": "poṛa", "ami": "পড়ি", "ami_r": "poṛi"},
-    {"en": "write", "hi": "लिखना", "t": "লেখা", "r": "lekha", "ami": "লিখি", "ami_r": "likhi"},
-    {"en": "live / stay", "hi": "रहना", "t": "থাকা", "r": "thaka", "ami": "থাকি", "ami_r": "thaki"},
-    {"en": "know", "hi": "जानना", "t": "জানা", "r": "jana", "ami": "জানি", "ami_r": "jani"},
-    {"en": "love", "hi": "प्यार करना", "t": "ভালোবাসা", "r": "bhalobasha", "ami": "ভালোবাসি", "ami_r": "bhalobashi"},
-    {"en": "sleep", "hi": "सोना", "t": "ঘুমানো", "r": "ghumano", "ami": "ঘুমাই", "ami_r": "ghumai"},
-    {"en": "buy", "hi": "खरीदना", "t": "কেনা", "r": "kena", "ami": "কিনি", "ami_r": "kini"},
-    {"en": "learn", "hi": "सीखना", "t": "শেখা", "r": "shekha", "ami": "শিখি", "ami_r": "shikhi"},
-    {"en": "drink (formal)", "hi": "पीना", "t": "পান করা", "r": "pan kora", "ami": "পান করি", "ami_r": "pan kori", "note": "In daily speech tea and water are 'eaten': চা খাই (cha khai)"}
+    {
+      "en": "eat",
+      "hi": "खाना",
+      "t": "খাওয়া",
+      "r": "khaoa",
+      "ami": "খাই",
+      "ami_r": "khai"
+    },
+    {
+      "en": "go",
+      "hi": "जाना",
+      "t": "যাওয়া",
+      "r": "jaoa",
+      "ami": "যাই",
+      "ami_r": "jai"
+    },
+    {
+      "en": "come",
+      "hi": "आना",
+      "t": "আসা",
+      "r": "asha",
+      "ami": "আসি",
+      "ami_r": "ashi"
+    },
+    {
+      "en": "do",
+      "hi": "करना",
+      "t": "করা",
+      "r": "kora",
+      "ami": "করি",
+      "ami_r": "kori"
+    },
+    {
+      "en": "speak / say",
+      "hi": "बोलना",
+      "t": "বলা",
+      "r": "bola",
+      "ami": "বলি",
+      "ami_r": "boli"
+    },
+    {
+      "en": "see",
+      "hi": "देखना",
+      "t": "দেখা",
+      "r": "dekha",
+      "ami": "দেখি",
+      "ami_r": "dekhi"
+    },
+    {
+      "en": "give",
+      "hi": "देना",
+      "t": "দেওয়া",
+      "r": "deoa",
+      "ami": "দিই",
+      "ami_r": "dii"
+    },
+    {
+      "en": "take",
+      "hi": "लेना",
+      "t": "নেওয়া",
+      "r": "neoa",
+      "ami": "নিই",
+      "ami_r": "nii"
+    },
+    {
+      "en": "want",
+      "hi": "चाहना",
+      "t": "চাওয়া",
+      "r": "chaoa",
+      "ami": "চাই",
+      "ami_r": "chai"
+    },
+    {
+      "en": "read / study",
+      "hi": "पढ़ना",
+      "t": "পড়া",
+      "r": "poṛa",
+      "ami": "পড়ি",
+      "ami_r": "poṛi"
+    },
+    {
+      "en": "write",
+      "hi": "लिखना",
+      "t": "লেখা",
+      "r": "lekha",
+      "ami": "লিখি",
+      "ami_r": "likhi"
+    },
+    {
+      "en": "live / stay",
+      "hi": "रहना",
+      "t": "থাকা",
+      "r": "thaka",
+      "ami": "থাকি",
+      "ami_r": "thaki"
+    },
+    {
+      "en": "know",
+      "hi": "जानना",
+      "t": "জানা",
+      "r": "jana",
+      "ami": "জানি",
+      "ami_r": "jani"
+    },
+    {
+      "en": "love",
+      "hi": "प्यार करना",
+      "t": "ভালোবাসা",
+      "r": "bhalobasha",
+      "ami": "ভালোবাসি",
+      "ami_r": "bhalobashi"
+    },
+    {
+      "en": "sleep",
+      "hi": "सोना",
+      "t": "ঘুমানো",
+      "r": "ghumano",
+      "ami": "ঘুমাই",
+      "ami_r": "ghumai"
+    },
+    {
+      "en": "buy",
+      "hi": "खरीदना",
+      "t": "কেনা",
+      "r": "kena",
+      "ami": "কিনি",
+      "ami_r": "kini"
+    },
+    {
+      "en": "learn",
+      "hi": "सीखना",
+      "t": "শেখা",
+      "r": "shekha",
+      "ami": "শিখি",
+      "ami_r": "shikhi"
+    },
+    {
+      "en": "drink (formal)",
+      "hi": "पीना",
+      "t": "পান করা",
+      "r": "pan kora",
+      "ami": "পান করি",
+      "ami_r": "pan kori",
+      "note": "In daily speech tea and water are 'eaten': চা খাই (cha khai)"
+    }
   ],
   "present_table": [
-    {"who_en": "I", "who_t": "আমি", "verb_t": "খাই", "verb_r": "khai"},
-    {"who_en": "you (intimate)", "who_t": "তুই", "verb_t": "খাস", "verb_r": "khas"},
-    {"who_en": "you (familiar)", "who_t": "তুমি", "verb_t": "খাও", "verb_r": "khao"},
-    {"who_en": "you (formal) / he / she", "who_t": "আপনি / সে", "verb_t": "খান / খায়", "verb_r": "khan / khay"},
-    {"who_en": "we", "who_t": "আমরা", "verb_t": "খাই", "verb_r": "khai"},
-    {"who_en": "you all (familiar)", "who_t": "তোমরা", "verb_t": "খাও", "verb_r": "khao"},
-    {"who_en": "they", "who_t": "তারা", "verb_t": "খায়", "verb_r": "khay"}
+    {
+      "who_en": "I",
+      "who_t": "আমি",
+      "verb_t": "খাই",
+      "verb_r": "khai"
+    },
+    {
+      "who_en": "you (intimate)",
+      "who_t": "তুই",
+      "verb_t": "খাস",
+      "verb_r": "khas"
+    },
+    {
+      "who_en": "you (familiar)",
+      "who_t": "তুমি",
+      "verb_t": "খাও",
+      "verb_r": "khao"
+    },
+    {
+      "who_en": "you (formal) / he / she",
+      "who_t": "আপনি / সে",
+      "verb_t": "খান / খায়",
+      "verb_r": "khan / khay"
+    },
+    {
+      "who_en": "we",
+      "who_t": "আমরা",
+      "verb_t": "খাই",
+      "verb_r": "khai"
+    },
+    {
+      "who_en": "you all (familiar)",
+      "who_t": "তোমরা",
+      "verb_t": "খাও",
+      "verb_r": "khao"
+    },
+    {
+      "who_en": "they",
+      "who_t": "তারা",
+      "verb_t": "খায়",
+      "verb_r": "khay"
+    }
   ],
   "past_future": [
-    {"en": "I ate", "hi": "मैंने खाया", "t": "আমি খেলাম", "r": "ami khelam"},
-    {"en": "I went", "hi": "मैं गया", "t": "আমি গেলাম", "r": "ami gelam"},
-    {"en": "I will eat", "hi": "मैं खाऊँगा", "t": "আমি খাবো", "r": "ami khabo"},
-    {"en": "I will go", "hi": "मैं जाऊँगा", "t": "আমি যাবো", "r": "ami jabo"}
+    {
+      "en": "I ate",
+      "hi": "मैंने खाया",
+      "t": "আমি খেলাম",
+      "r": "ami khelam"
+    },
+    {
+      "en": "I went",
+      "hi": "मैं गया",
+      "t": "আমি গেলাম",
+      "r": "ami gelam"
+    },
+    {
+      "en": "I will eat",
+      "hi": "मैं खाऊँगा",
+      "t": "আমি খাবো",
+      "r": "ami khabo"
+    },
+    {
+      "en": "I will go",
+      "hi": "मैं जाऊँगा",
+      "t": "আমি যাবো",
+      "r": "ami jabo"
+    }
   ],
-
   "numbers": [
-    {"n": 1, "hi": "एक", "t": "এক", "r": "æk"}, {"n": 2, "hi": "दो", "t": "দুই", "r": "dui"},
-    {"n": 3, "hi": "तीन", "t": "তিন", "r": "tin"}, {"n": 4, "hi": "चार", "t": "চার", "r": "char"},
-    {"n": 5, "hi": "पाँच", "t": "পাঁচ", "r": "pãch"}, {"n": 6, "hi": "छह", "t": "ছয়", "r": "chhoy"},
-    {"n": 7, "hi": "सात", "t": "সাত", "r": "shat"}, {"n": 8, "hi": "आठ", "t": "আট", "r": "aṭ"},
-    {"n": 9, "hi": "नौ", "t": "নয়", "r": "nôy"}, {"n": 10, "hi": "दस", "t": "দশ", "r": "dôsh"},
-    {"n": 11, "hi": "ग्यारह", "t": "এগারো", "r": "ægaro"}, {"n": 12, "hi": "बारह", "t": "বারো", "r": "baro"},
-    {"n": 13, "hi": "तेरह", "t": "তেরো", "r": "tero"}, {"n": 14, "hi": "चौदह", "t": "চৌদ্দ", "r": "chouddo"},
-    {"n": 15, "hi": "पंद्रह", "t": "পনেরো", "r": "ponero"}, {"n": 16, "hi": "सोलह", "t": "ষোলো", "r": "sholo"},
-    {"n": 17, "hi": "सत्रह", "t": "সতেরো", "r": "shotero"}, {"n": 18, "hi": "अठारह", "t": "আঠারো", "r": "aṭharo"},
-    {"n": 19, "hi": "उन्नीस", "t": "ঊনিশ", "r": "unish"}, {"n": 20, "hi": "बीस", "t": "কুড়ি", "r": "kuṛi"},
-    {"n": 30, "hi": "तीस", "t": "ত্রিশ", "r": "trish"}, {"n": 40, "hi": "चालीस", "t": "চল্লিশ", "r": "chollish"},
-    {"n": 50, "hi": "पचास", "t": "পঞ্চাশ", "r": "ponchash"}, {"n": 60, "hi": "साठ", "t": "ষাট", "r": "shaṭ"},
-    {"n": 70, "hi": "सत्तर", "t": "সত্তর", "r": "shottor"}, {"n": 80, "hi": "अस्सी", "t": "আশি", "r": "ashi"},
-    {"n": 90, "hi": "नब्बे", "t": "নব্বই", "r": "nobboi"}, {"n": 100, "hi": "सौ", "t": "একশো", "r": "æksho"}
+    {
+      "n": 1,
+      "hi": "एक",
+      "t": "এক",
+      "r": "æk"
+    },
+    {
+      "n": 2,
+      "hi": "दो",
+      "t": "দুই",
+      "r": "dui"
+    },
+    {
+      "n": 3,
+      "hi": "तीन",
+      "t": "তিন",
+      "r": "tin"
+    },
+    {
+      "n": 4,
+      "hi": "चार",
+      "t": "চার",
+      "r": "char"
+    },
+    {
+      "n": 5,
+      "hi": "पाँच",
+      "t": "পাঁচ",
+      "r": "pãch"
+    },
+    {
+      "n": 6,
+      "hi": "छह",
+      "t": "ছয়",
+      "r": "chhoy"
+    },
+    {
+      "n": 7,
+      "hi": "सात",
+      "t": "সাত",
+      "r": "shat"
+    },
+    {
+      "n": 8,
+      "hi": "आठ",
+      "t": "আট",
+      "r": "aṭ"
+    },
+    {
+      "n": 9,
+      "hi": "नौ",
+      "t": "নয়",
+      "r": "nôy"
+    },
+    {
+      "n": 10,
+      "hi": "दस",
+      "t": "দশ",
+      "r": "dôsh"
+    },
+    {
+      "n": 11,
+      "hi": "ग्यारह",
+      "t": "এগারো",
+      "r": "ægaro"
+    },
+    {
+      "n": 12,
+      "hi": "बारह",
+      "t": "বারো",
+      "r": "baro"
+    },
+    {
+      "n": 13,
+      "hi": "तेरह",
+      "t": "তেরো",
+      "r": "tero"
+    },
+    {
+      "n": 14,
+      "hi": "चौदह",
+      "t": "চৌদ্দ",
+      "r": "chouddo"
+    },
+    {
+      "n": 15,
+      "hi": "पंद्रह",
+      "t": "পনেরো",
+      "r": "ponero"
+    },
+    {
+      "n": 16,
+      "hi": "सोलह",
+      "t": "ষোলো",
+      "r": "sholo"
+    },
+    {
+      "n": 17,
+      "hi": "सत्रह",
+      "t": "সতেরো",
+      "r": "shotero"
+    },
+    {
+      "n": 18,
+      "hi": "अठारह",
+      "t": "আঠারো",
+      "r": "aṭharo"
+    },
+    {
+      "n": 19,
+      "hi": "उन्नीस",
+      "t": "ঊনিশ",
+      "r": "unish"
+    },
+    {
+      "n": 20,
+      "hi": "बीस",
+      "t": "কুড়ি",
+      "r": "kuṛi"
+    },
+    {
+      "n": 30,
+      "hi": "तीस",
+      "t": "ত্রিশ",
+      "r": "trish"
+    },
+    {
+      "n": 40,
+      "hi": "चालीस",
+      "t": "চল্লিশ",
+      "r": "chollish"
+    },
+    {
+      "n": 50,
+      "hi": "पचास",
+      "t": "পঞ্চাশ",
+      "r": "ponchash"
+    },
+    {
+      "n": 60,
+      "hi": "साठ",
+      "t": "ষাট",
+      "r": "shaṭ"
+    },
+    {
+      "n": 70,
+      "hi": "सत्तर",
+      "t": "সত্তর",
+      "r": "shottor"
+    },
+    {
+      "n": 80,
+      "hi": "अस्सी",
+      "t": "আশি",
+      "r": "ashi"
+    },
+    {
+      "n": 90,
+      "hi": "नब्बे",
+      "t": "নব্বই",
+      "r": "nobboi"
+    },
+    {
+      "n": 100,
+      "hi": "सौ",
+      "t": "একশো",
+      "r": "æksho"
+    }
   ],
-
   "days": [
-    {"en": "Sunday", "hi": "रविवार", "t": "রবিবার", "r": "robibar"},
-    {"en": "Monday", "hi": "सोमवार", "t": "সোমবার", "r": "shombar"},
-    {"en": "Tuesday", "hi": "मंगलवार", "t": "মঙ্গলবার", "r": "mongolbar"},
-    {"en": "Wednesday", "hi": "बुधवार", "t": "বুধবার", "r": "budhbar"},
-    {"en": "Thursday", "hi": "बृहस्पतिवार", "t": "বৃহস্পতিবার", "r": "brihoshpotibar"},
-    {"en": "Friday", "hi": "शुक्रवार", "t": "শুক্রবার", "r": "shukrobar"},
-    {"en": "Saturday", "hi": "शनिवार", "t": "শনিবার", "r": "shonibar"}
+    {
+      "en": "Sunday",
+      "hi": "रविवार",
+      "t": "রবিবার",
+      "r": "robibar"
+    },
+    {
+      "en": "Monday",
+      "hi": "सोमवार",
+      "t": "সোমবার",
+      "r": "shombar"
+    },
+    {
+      "en": "Tuesday",
+      "hi": "मंगलवार",
+      "t": "মঙ্গলবার",
+      "r": "mongolbar"
+    },
+    {
+      "en": "Wednesday",
+      "hi": "बुधवार",
+      "t": "বুধবার",
+      "r": "budhbar"
+    },
+    {
+      "en": "Thursday",
+      "hi": "बृहस्पतिवार",
+      "t": "বৃহস্পতিবার",
+      "r": "brihoshpotibar"
+    },
+    {
+      "en": "Friday",
+      "hi": "शुक्रवार",
+      "t": "শুক্রবার",
+      "r": "shukrobar"
+    },
+    {
+      "en": "Saturday",
+      "hi": "शनिवार",
+      "t": "শনিবার",
+      "r": "shonibar"
+    }
   ],
   "time_words": [
-    {"en": "today", "hi": "आज", "t": "আজ", "r": "aj"},
-    {"en": "tomorrow / yesterday", "hi": "कल", "t": "কাল", "r": "kal", "note": "One word for both — context decides"},
-    {"en": "yesterday (pinned)", "hi": "बीता कल", "t": "গতকাল", "r": "gotokal"},
-    {"en": "now", "hi": "अब", "t": "এখন", "r": "ækhon"},
-    {"en": "later", "hi": "बाद में", "t": "পরে", "r": "pore"},
-    {"en": "morning", "hi": "सुबह", "t": "সকাল", "r": "shokal"},
-    {"en": "noon", "hi": "दोपहर", "t": "দুপুর", "r": "dupur"},
-    {"en": "afternoon", "hi": "शाम (early)", "t": "বিকেল", "r": "bikel"},
-    {"en": "evening", "hi": "शाम", "t": "সন্ধ্যা", "r": "shondha"},
-    {"en": "night", "hi": "रात", "t": "রাত", "r": "rat"},
-    {"en": "What time is it?", "hi": "कितने बजे हैं?", "t": "কটা বাজে?", "r": "koṭa baje?"},
-    {"en": "3 o'clock", "hi": "तीन बजे", "t": "তিনটে বাজে", "r": "tinte baje"}
+    {
+      "en": "today",
+      "hi": "आज",
+      "t": "আজ",
+      "r": "aj"
+    },
+    {
+      "en": "tomorrow / yesterday",
+      "hi": "कल",
+      "t": "কাল",
+      "r": "kal",
+      "note": "One word for both — context decides"
+    },
+    {
+      "en": "yesterday (pinned)",
+      "hi": "बीता कल",
+      "t": "গতকাল",
+      "r": "gotokal"
+    },
+    {
+      "en": "now",
+      "hi": "अब",
+      "t": "এখন",
+      "r": "ækhon"
+    },
+    {
+      "en": "later",
+      "hi": "बाद में",
+      "t": "পরে",
+      "r": "pore"
+    },
+    {
+      "en": "morning",
+      "hi": "सुबह",
+      "t": "সকাল",
+      "r": "shokal"
+    },
+    {
+      "en": "noon",
+      "hi": "दोपहर",
+      "t": "দুপুর",
+      "r": "dupur"
+    },
+    {
+      "en": "afternoon",
+      "hi": "शाम (early)",
+      "t": "বিকেল",
+      "r": "bikel"
+    },
+    {
+      "en": "evening",
+      "hi": "शाम",
+      "t": "সন্ধ্যা",
+      "r": "shondha"
+    },
+    {
+      "en": "night",
+      "hi": "रात",
+      "t": "রাত",
+      "r": "rat"
+    },
+    {
+      "en": "What time is it?",
+      "hi": "कितने बजे हैं?",
+      "t": "কটা বাজে?",
+      "r": "koṭa baje?"
+    },
+    {
+      "en": "3 o'clock",
+      "hi": "तीन बजे",
+      "t": "তিনটে বাজে",
+      "r": "tinte baje"
+    }
   ],
-
   "family": [
-    {"en": "mother", "hi": "माँ", "t": "মা", "r": "ma"},
-    {"en": "father", "hi": "पिता", "t": "বাবা", "r": "baba"},
-    {"en": "brother", "hi": "भाई", "t": "ভাই", "r": "bhai"},
-    {"en": "sister", "hi": "बहन", "t": "বোন", "r": "bon"},
-    {"en": "son / boy", "hi": "बेटा / लड़का", "t": "ছেলে", "r": "chhele"},
-    {"en": "daughter / girl", "hi": "बेटी / लड़की", "t": "মেয়ে", "r": "meye"},
-    {"en": "husband", "hi": "पति", "t": "স্বামী", "r": "shami"},
-    {"en": "wife", "hi": "पत्नी", "t": "স্ত্রী", "r": "stri"},
-    {"en": "friend (male)", "hi": "दोस्त", "t": "বন্ধু", "r": "bondhu"},
-    {"en": "friend (female)", "hi": "सहेली", "t": "বান্ধবী", "r": "bandhobi"},
-    {"en": "family", "hi": "परिवार", "t": "পরিবার", "r": "poribar"},
-    {"en": "grandmother (father's side)", "hi": "दादी", "t": "ঠাকুমা", "r": "thakuma"},
-    {"en": "grandmother (mother's side)", "hi": "नानी", "t": "দিদিমা", "r": "didima"}
+    {
+      "en": "mother",
+      "hi": "माँ",
+      "t": "মা",
+      "r": "ma"
+    },
+    {
+      "en": "father",
+      "hi": "पिता",
+      "t": "বাবা",
+      "r": "baba"
+    },
+    {
+      "en": "brother",
+      "hi": "भाई",
+      "t": "ভাই",
+      "r": "bhai"
+    },
+    {
+      "en": "sister",
+      "hi": "बहन",
+      "t": "বোন",
+      "r": "bon"
+    },
+    {
+      "en": "son / boy",
+      "hi": "बेटा / लड़का",
+      "t": "ছেলে",
+      "r": "chhele"
+    },
+    {
+      "en": "daughter / girl",
+      "hi": "बेटी / लड़की",
+      "t": "মেয়ে",
+      "r": "meye"
+    },
+    {
+      "en": "husband",
+      "hi": "पति",
+      "t": "স্বামী",
+      "r": "shami"
+    },
+    {
+      "en": "wife",
+      "hi": "पत्नी",
+      "t": "স্ত্রী",
+      "r": "stri"
+    },
+    {
+      "en": "friend (male)",
+      "hi": "दोस्त",
+      "t": "বন্ধু",
+      "r": "bondhu"
+    },
+    {
+      "en": "friend (female)",
+      "hi": "सहेली",
+      "t": "বান্ধবী",
+      "r": "bandhobi"
+    },
+    {
+      "en": "family",
+      "hi": "परिवार",
+      "t": "পরিবার",
+      "r": "poribar"
+    },
+    {
+      "en": "grandmother (father's side)",
+      "hi": "दादी",
+      "t": "ঠাকুমা",
+      "r": "thakuma"
+    },
+    {
+      "en": "grandmother (mother's side)",
+      "hi": "नानी",
+      "t": "দিদিমা",
+      "r": "didima"
+    }
   ],
-
   "food_words": [
-    {"en": "cooked rice", "hi": "चावल (पका)", "t": "ভাত", "r": "bhat"},
-    {"en": "uncooked rice", "hi": "चावल (कच्चा)", "t": "চাল", "r": "chal"},
-    {"en": "lentils", "hi": "दाल", "t": "ডাল", "r": "dal"},
-    {"en": "fish", "hi": "मछली", "t": "মাছ", "r": "machh", "note": "মাছে-ভাতে বাঙালি — 'fish and rice make the Bengali'"},
-    {"en": "meat", "hi": "मांस", "t": "মাংস", "r": "mangsho"},
-    {"en": "chicken", "hi": "चिकन", "t": "মুরগি", "r": "murgi"},
-    {"en": "egg", "hi": "अंडा", "t": "ডিম", "r": "dim"},
-    {"en": "milk", "hi": "दूध", "t": "দুধ", "r": "dudh"},
-    {"en": "tea", "hi": "चाय", "t": "চা", "r": "cha"},
-    {"en": "water", "hi": "पानी", "t": "পানি", "r": "pani", "note": "জল (jol) is used too"},
-    {"en": "bread (flatbread)", "hi": "रोटी", "t": "রুটি", "r": "ruṭi"},
-    {"en": "fruit", "hi": "फल", "t": "ফল", "r": "phol"},
-    {"en": "vegetables", "hi": "सब्ज़ी", "t": "সবজি", "r": "shobji"},
-    {"en": "sweets", "hi": "मिठाई", "t": "মিষ্টি", "r": "mishti"},
-    {"en": "salt", "hi": "नमक", "t": "নুন", "r": "nun"},
-    {"en": "sugar", "hi": "चीनी", "t": "চিনি", "r": "chini"},
-    {"en": "potato", "hi": "आलू", "t": "আলু", "r": "alu"},
-    {"en": "onion", "hi": "प्याज़", "t": "পেঁয়াজ", "r": "pẽyaj"}
+    {
+      "en": "cooked rice",
+      "hi": "चावल (पका)",
+      "t": "ভাত",
+      "r": "bhat"
+    },
+    {
+      "en": "uncooked rice",
+      "hi": "चावल (कच्चा)",
+      "t": "চাল",
+      "r": "chal"
+    },
+    {
+      "en": "lentils",
+      "hi": "दाल",
+      "t": "ডাল",
+      "r": "dal"
+    },
+    {
+      "en": "fish",
+      "hi": "मछली",
+      "t": "মাছ",
+      "r": "machh",
+      "note": "মাছে-ভাতে বাঙালি — 'fish and rice make the Bengali'"
+    },
+    {
+      "en": "meat",
+      "hi": "मांस",
+      "t": "মাংস",
+      "r": "mangsho"
+    },
+    {
+      "en": "chicken",
+      "hi": "चिकन",
+      "t": "মুরগি",
+      "r": "murgi"
+    },
+    {
+      "en": "egg",
+      "hi": "अंडा",
+      "t": "ডিম",
+      "r": "dim"
+    },
+    {
+      "en": "milk",
+      "hi": "दूध",
+      "t": "দুধ",
+      "r": "dudh"
+    },
+    {
+      "en": "tea",
+      "hi": "चाय",
+      "t": "চা",
+      "r": "cha"
+    },
+    {
+      "en": "water",
+      "hi": "पानी",
+      "t": "পানি",
+      "r": "pani",
+      "note": "জল (jol) is used too"
+    },
+    {
+      "en": "bread (flatbread)",
+      "hi": "रोटी",
+      "t": "রুটি",
+      "r": "ruṭi"
+    },
+    {
+      "en": "fruit",
+      "hi": "फल",
+      "t": "ফল",
+      "r": "phol"
+    },
+    {
+      "en": "vegetables",
+      "hi": "सब्ज़ी",
+      "t": "সবজি",
+      "r": "shobji"
+    },
+    {
+      "en": "sweets",
+      "hi": "मिठाई",
+      "t": "মিষ্টি",
+      "r": "mishti"
+    },
+    {
+      "en": "salt",
+      "hi": "नमक",
+      "t": "নুন",
+      "r": "nun"
+    },
+    {
+      "en": "sugar",
+      "hi": "चीनी",
+      "t": "চিনি",
+      "r": "chini"
+    },
+    {
+      "en": "potato",
+      "hi": "आलू",
+      "t": "আলু",
+      "r": "alu"
+    },
+    {
+      "en": "onion",
+      "hi": "प्याज़",
+      "t": "পেঁয়াজ",
+      "r": "pẽyaj"
+    }
   ],
   "food_phrases": [
-    {"en": "I am hungry", "hi": "मुझे भूख लगी है", "t": "আমার খিদে পেয়েছে", "r": "amar khide peyechhe"},
-    {"en": "I am thirsty", "hi": "मुझे प्यास लगी है", "t": "আমার তেষ্টা পেয়েছে", "r": "amar teshta peyechhe"},
-    {"en": "The food is tasty", "hi": "खाना मज़ेदार है", "t": "খাবারটা মজার", "r": "khabarṭa mojar"},
-    {"en": "One tea, please", "hi": "एक चाय दीजिए", "t": "একটা চা দিন", "r": "ekṭa cha din"},
-    {"en": "The bill, please", "hi": "बिल दीजिए", "t": "বিলটা দিন", "r": "bilṭa din"},
-    {"en": "Too spicy!", "hi": "बहुत तीखा", "t": "খুব ঝাল", "r": "khub jhal"},
-    {"en": "I don't eat meat", "hi": "मैं मांस नहीं खाता", "t": "আমি মাংস খাই না", "r": "ami mangsho khai na"}
+    {
+      "en": "I am hungry",
+      "hi": "मुझे भूख लगी है",
+      "t": "আমার খিদে পেয়েছে",
+      "r": "amar khide peyechhe"
+    },
+    {
+      "en": "I am thirsty",
+      "hi": "मुझे प्यास लगी है",
+      "t": "আমার তেষ্টা পেয়েছে",
+      "r": "amar teshta peyechhe"
+    },
+    {
+      "en": "The food is tasty",
+      "hi": "खाना मज़ेदार है",
+      "t": "খাবারটা মজার",
+      "r": "khabarṭa mojar"
+    },
+    {
+      "en": "One tea, please",
+      "hi": "एक चाय दीजिए",
+      "t": "একটা চা দিন",
+      "r": "ekṭa cha din"
+    },
+    {
+      "en": "The bill, please",
+      "hi": "बिल दीजिए",
+      "t": "বিলটা দিন",
+      "r": "bilṭa din"
+    },
+    {
+      "en": "Too spicy!",
+      "hi": "बहुत तीखा",
+      "t": "খুব ঝাল",
+      "r": "khub jhal"
+    },
+    {
+      "en": "I don't eat meat",
+      "hi": "मैं मांस नहीं खाता",
+      "t": "আমি মাংস খাই না",
+      "r": "ami mangsho khai na"
+    }
   ],
-
   "colors": [
-    {"en": "red", "hi": "लाल", "t": "লাল", "r": "lal"},
-    {"en": "blue", "hi": "नीला", "t": "নীল", "r": "nil"},
-    {"en": "green", "hi": "हरा", "t": "সবুজ", "r": "shobuj"},
-    {"en": "yellow", "hi": "पीला", "t": "হলুদ", "r": "holud"},
-    {"en": "white", "hi": "सफ़ेद", "t": "সাদা", "r": "shada"},
-    {"en": "black", "hi": "काला", "t": "কালো", "r": "kalo"}
+    {
+      "en": "red",
+      "hi": "लाल",
+      "t": "লাল",
+      "r": "lal"
+    },
+    {
+      "en": "blue",
+      "hi": "नीला",
+      "t": "নীল",
+      "r": "nil"
+    },
+    {
+      "en": "green",
+      "hi": "हरा",
+      "t": "সবুজ",
+      "r": "shobuj"
+    },
+    {
+      "en": "yellow",
+      "hi": "पीला",
+      "t": "হলুদ",
+      "r": "holud"
+    },
+    {
+      "en": "white",
+      "hi": "सफ़ेद",
+      "t": "সাদা",
+      "r": "shada"
+    },
+    {
+      "en": "black",
+      "hi": "काला",
+      "t": "কালো",
+      "r": "kalo"
+    }
   ],
   "core_nouns": [
-    {"en": "book", "hi": "किताब", "t": "বই", "r": "boi"},
-    {"en": "house / home", "hi": "घर", "t": "বাড়ি", "r": "baṛi"},
-    {"en": "work", "hi": "काम", "t": "কাজ", "r": "kaj"},
-    {"en": "school", "hi": "स्कूल", "t": "স্কুল", "r": "skul"},
-    {"en": "teacher", "hi": "शिक्षक", "t": "শিক্ষক", "r": "shikkhok"},
-    {"en": "student (male / female)", "hi": "छात्र / छात्रा", "t": "ছাত্র / ছাত্রী", "r": "chhatro / chhatri"},
-    {"en": "car", "hi": "गाड़ी", "t": "গাড়ি", "r": "gaṛi"},
-    {"en": "road", "hi": "सड़क", "t": "রাস্তা", "r": "rasta"},
-    {"en": "money", "hi": "पैसा", "t": "টাকা", "r": "ṭaka"},
-    {"en": "day", "hi": "दिन", "t": "দিন", "r": "din"},
-    {"en": "week", "hi": "हफ़्ता", "t": "সপ্তাহ", "r": "shoptaho"},
-    {"en": "month", "hi": "महीना", "t": "মাস", "r": "mash"},
-    {"en": "year", "hi": "साल", "t": "বছর", "r": "bochhor"}
+    {
+      "en": "book",
+      "hi": "किताब",
+      "t": "বই",
+      "r": "boi"
+    },
+    {
+      "en": "house / home",
+      "hi": "घर",
+      "t": "বাড়ি",
+      "r": "baṛi"
+    },
+    {
+      "en": "work",
+      "hi": "काम",
+      "t": "কাজ",
+      "r": "kaj"
+    },
+    {
+      "en": "school",
+      "hi": "स्कूल",
+      "t": "স্কুল",
+      "r": "skul"
+    },
+    {
+      "en": "teacher",
+      "hi": "शिक्षक",
+      "t": "শিক্ষক",
+      "r": "shikkhok"
+    },
+    {
+      "en": "student (male / female)",
+      "hi": "छात्र / छात्रा",
+      "t": "ছাত্র / ছাত্রী",
+      "r": "chhatro / chhatri"
+    },
+    {
+      "en": "car",
+      "hi": "गाड़ी",
+      "t": "গাড়ি",
+      "r": "gaṛi"
+    },
+    {
+      "en": "road",
+      "hi": "सड़क",
+      "t": "রাস্তা",
+      "r": "rasta"
+    },
+    {
+      "en": "money",
+      "hi": "पैसा",
+      "t": "টাকা",
+      "r": "ṭaka"
+    },
+    {
+      "en": "day",
+      "hi": "दिन",
+      "t": "দিন",
+      "r": "din"
+    },
+    {
+      "en": "week",
+      "hi": "हफ़्ता",
+      "t": "সপ্তাহ",
+      "r": "shoptaho"
+    },
+    {
+      "en": "month",
+      "hi": "महीना",
+      "t": "মাস",
+      "r": "mash"
+    },
+    {
+      "en": "year",
+      "hi": "साल",
+      "t": "বছর",
+      "r": "bochhor"
+    }
   ],
-
   "travel_words": [
-    {"en": "station", "hi": "स्टेशन", "t": "স্টেশন", "r": "steshon"},
-    {"en": "train", "hi": "ट्रेन", "t": "ট্রেন", "r": "tren"},
-    {"en": "bus", "hi": "बस", "t": "বাস", "r": "bash"},
-    {"en": "taxi", "hi": "टैक्सी", "t": "ট্যাক্সি", "r": "taxi"},
-    {"en": "ticket", "hi": "टिकट", "t": "টিকিট", "r": "ṭikiṭ"},
-    {"en": "hotel", "hi": "होटल", "t": "হোটেল", "r": "hoṭel"},
-    {"en": "room", "hi": "कमरा", "t": "ঘর", "r": "ghor"},
-    {"en": "left", "hi": "बायाँ", "t": "বামে", "r": "bame"},
-    {"en": "right", "hi": "दायाँ", "t": "ডানে", "r": "dane"},
-    {"en": "straight", "hi": "सीधा", "t": "সোজা", "r": "shoja"},
-    {"en": "near", "hi": "पास", "t": "কাছে", "r": "kachhe"},
-    {"en": "far", "hi": "दूर", "t": "দূরে", "r": "dure"}
+    {
+      "en": "station",
+      "hi": "स्टेशन",
+      "t": "স্টেশন",
+      "r": "steshon"
+    },
+    {
+      "en": "train",
+      "hi": "ट्रेन",
+      "t": "ট্রেন",
+      "r": "tren"
+    },
+    {
+      "en": "bus",
+      "hi": "बस",
+      "t": "বাস",
+      "r": "bash"
+    },
+    {
+      "en": "taxi",
+      "hi": "टैक्सी",
+      "t": "ট্যাক্সি",
+      "r": "taxi"
+    },
+    {
+      "en": "ticket",
+      "hi": "टिकट",
+      "t": "টিকিট",
+      "r": "ṭikiṭ"
+    },
+    {
+      "en": "hotel",
+      "hi": "होटल",
+      "t": "হোটেল",
+      "r": "hoṭel"
+    },
+    {
+      "en": "room",
+      "hi": "कमरा",
+      "t": "ঘর",
+      "r": "ghor"
+    },
+    {
+      "en": "left",
+      "hi": "बायाँ",
+      "t": "বামে",
+      "r": "bame"
+    },
+    {
+      "en": "right",
+      "hi": "दायाँ",
+      "t": "ডানে",
+      "r": "dane"
+    },
+    {
+      "en": "straight",
+      "hi": "सीधा",
+      "t": "সোজা",
+      "r": "shoja"
+    },
+    {
+      "en": "near",
+      "hi": "पास",
+      "t": "কাছে",
+      "r": "kachhe"
+    },
+    {
+      "en": "far",
+      "hi": "दूर",
+      "t": "দূরে",
+      "r": "dure"
+    }
   ],
   "travel_phrases": [
-    {"en": "Where is ...?", "hi": "... कहाँ है?", "t": "... কোথায়?", "r": "... kothay?"},
-    {"en": "How do I go to ...?", "hi": "... कैसे जाऊँ?", "t": "... কীভাবে যাবো?", "r": "... kibhabe jabo?"},
-    {"en": "Stop here, please", "hi": "यहाँ रोकिए", "t": "এখানে থামুন", "r": "ekhane thamun"},
-    {"en": "How much is the fare?", "hi": "किराया कितना है?", "t": "ভাড়া কত?", "r": "bhaṛa koto?"},
-    {"en": "I want to go to ...", "hi": "मुझे ... जाना है", "t": "আমি ... যেতে চাই", "r": "ami ... jete chai"},
-    {"en": "Is it far?", "hi": "क्या दूर है?", "t": "এটা কি দূরে?", "r": "eṭa ki dure?"}
+    {
+      "en": "Where is ...?",
+      "hi": "... कहाँ है?",
+      "t": "... কোথায়?",
+      "r": "... kothay?"
+    },
+    {
+      "en": "How do I go to ...?",
+      "hi": "... कैसे जाऊँ?",
+      "t": "... কীভাবে যাবো?",
+      "r": "... kibhabe jabo?"
+    },
+    {
+      "en": "Stop here, please",
+      "hi": "यहाँ रोकिए",
+      "t": "এখানে থামুন",
+      "r": "ekhane thamun"
+    },
+    {
+      "en": "How much is the fare?",
+      "hi": "किराया कितना है?",
+      "t": "ভাড়া কত?",
+      "r": "bhaṛa koto?"
+    },
+    {
+      "en": "I want to go to ...",
+      "hi": "मुझे ... जाना है",
+      "t": "আমি ... যেতে চাই",
+      "r": "ami ... jete chai"
+    },
+    {
+      "en": "Is it far?",
+      "hi": "क्या दूर है?",
+      "t": "এটা কি দূরে?",
+      "r": "eṭa ki dure?"
+    }
   ],
-
   "shopping_words": [
-    {"en": "price", "hi": "कीमत", "t": "দাম", "r": "dam"},
-    {"en": "shop", "hi": "दुकान", "t": "দোকান", "r": "dokan"},
-    {"en": "market", "hi": "बाज़ार", "t": "বাজার", "r": "bajar"},
-    {"en": "cheap", "hi": "सस्ता", "t": "সস্তা", "r": "shosta"},
-    {"en": "expensive", "hi": "महँगा", "t": "দামি", "r": "dami"},
-    {"en": "less", "hi": "कम", "t": "কম", "r": "kom"},
-    {"en": "more", "hi": "ज़्यादा", "t": "বেশি", "r": "beshi"}
+    {
+      "en": "price",
+      "hi": "कीमत",
+      "t": "দাম",
+      "r": "dam"
+    },
+    {
+      "en": "shop",
+      "hi": "दुकान",
+      "t": "দোকান",
+      "r": "dokan"
+    },
+    {
+      "en": "market",
+      "hi": "बाज़ार",
+      "t": "বাজার",
+      "r": "bajar"
+    },
+    {
+      "en": "cheap",
+      "hi": "सस्ता",
+      "t": "সস্তা",
+      "r": "shosta"
+    },
+    {
+      "en": "expensive",
+      "hi": "महँगा",
+      "t": "দামি",
+      "r": "dami"
+    },
+    {
+      "en": "less",
+      "hi": "कम",
+      "t": "কম",
+      "r": "kom"
+    },
+    {
+      "en": "more",
+      "hi": "ज़्यादा",
+      "t": "বেশি",
+      "r": "beshi"
+    }
   ],
   "shopping_phrases": [
-    {"en": "How much is this?", "hi": "यह कितने का है?", "t": "এটার দাম কত?", "r": "eṭar dam koto?"},
-    {"en": "Too expensive!", "hi": "बहुत महँगा", "t": "খুব দামি", "r": "khub dami"},
-    {"en": "Reduce the price a little", "hi": "थोड़ा कम कीजिए", "t": "একটু কম করুন", "r": "ekṭu kom korun"},
-    {"en": "OK, I'll take it", "hi": "ठीक है, लेता हूँ", "t": "ঠিক আছে, নেবো", "r": "ṭhik achhe, nebo"},
-    {"en": "Do you have ...?", "hi": "क्या ... है?", "t": "... আছে?", "r": "... achhe?"},
-    {"en": "Just looking", "hi": "बस देख रहा हूँ", "t": "শুধু দেখছি", "r": "shudhu dekhchhi"}
+    {
+      "en": "How much is this?",
+      "hi": "यह कितने का है?",
+      "t": "এটার দাম কত?",
+      "r": "eṭar dam koto?"
+    },
+    {
+      "en": "Too expensive!",
+      "hi": "बहुत महँगा",
+      "t": "খুব দামি",
+      "r": "khub dami"
+    },
+    {
+      "en": "Reduce the price a little",
+      "hi": "थोड़ा कम कीजिए",
+      "t": "একটু কম করুন",
+      "r": "ekṭu kom korun"
+    },
+    {
+      "en": "OK, I'll take it",
+      "hi": "ठीक है, लेता हूँ",
+      "t": "ঠিক আছে, নেবো",
+      "r": "ṭhik achhe, nebo"
+    },
+    {
+      "en": "Do you have ...?",
+      "hi": "क्या ... है?",
+      "t": "... আছে?",
+      "r": "... achhe?"
+    },
+    {
+      "en": "Just looking",
+      "hi": "बस देख रहा हूँ",
+      "t": "শুধু দেখছি",
+      "r": "shudhu dekhchhi"
+    }
   ],
-
   "daily_phrases": [
-    {"en": "I don't understand", "hi": "मैं नहीं समझा", "t": "আমি বুঝতে পারছি না", "r": "ami bujhte parchhi na"},
-    {"en": "Speak slowly, please", "hi": "धीरे बोलिए", "t": "আস্তে বলুন", "r": "aste bolun"},
-    {"en": "What is this called?", "hi": "इसे क्या कहते हैं?", "t": "এটাকে কী বলে?", "r": "eṭake ki bole?"},
-    {"en": "I am learning Bengali", "hi": "मैं बांग्ला सीख रहा हूँ", "t": "আমি বাংলা শিখছি", "r": "ami bangla shikhchhi"},
-    {"en": "Where are you from?", "hi": "आप कहाँ से हैं?", "t": "আপনি কোথা থেকে?", "r": "apni kotha theke?"},
-    {"en": "My name is ...", "hi": "मेरा नाम ... है", "t": "আমার নাম ...", "r": "amar nam ..."},
-    {"en": "Nice to meet you", "hi": "आपसे मिलकर खुशी हुई", "t": "আপনার সাথে পরিচিত হয়ে ভালো লাগলো", "r": "apnar shathe porichito hoye bhalo laglo"}
+    {
+      "en": "I don't understand",
+      "hi": "मैं नहीं समझा",
+      "t": "আমি বুঝতে পারছি না",
+      "r": "ami bujhte parchhi na"
+    },
+    {
+      "en": "Speak slowly, please",
+      "hi": "धीरे बोलिए",
+      "t": "আস্তে বলুন",
+      "r": "aste bolun"
+    },
+    {
+      "en": "What is this called?",
+      "hi": "इसे क्या कहते हैं?",
+      "t": "এটাকে কী বলে?",
+      "r": "eṭake ki bole?"
+    },
+    {
+      "en": "I am learning Bengali",
+      "hi": "मैं बांग्ला सीख रहा हूँ",
+      "t": "আমি বাংলা শিখছি",
+      "r": "ami bangla shikhchhi"
+    },
+    {
+      "en": "Where are you from?",
+      "hi": "आप कहाँ से हैं?",
+      "t": "আপনি কোথা থেকে?",
+      "r": "apni kotha theke?"
+    },
+    {
+      "en": "My name is ...",
+      "hi": "मेरा नाम ... है",
+      "t": "আমার নাম ...",
+      "r": "amar nam ..."
+    },
+    {
+      "en": "Nice to meet you",
+      "hi": "आपसे मिलकर खुशी हुई",
+      "t": "আপনার সাথে পরিচিত হয়ে ভালো লাগলো",
+      "r": "apnar shathe porichito hoye bhalo laglo"
+    }
   ],
   "culture": [
-    {"t": "দুর্গাপূজা", "r": "Durga Puja", "en": "The biggest Bengali festival — Kolkata's streets fill with pandals for five days in autumn. If you visit Bengal once, come then."},
-    {"t": "পহেলা বৈশাখ", "r": "Pohela Boishakh", "en": "Bengali New Year (mid-April) — new clothes, sweets, and শুভ নববর্ষ (shubho noboborsho) greetings."},
-    {"t": "আড্ডা", "r": "adda", "en": "The legendary Bengali art of long, wandering conversation over tea — no agenda, no hurry. Join one and your Bengali will grow faster than any app."},
-    {"t": "২১শে ফেব্রুয়ারি", "r": "21st February", "en": "Language Martyrs' Day — Bengalis died for their language in 1952, and UNESCO made the date International Mother Language Day. The language is loved fiercely; learners are welcomed warmly."},
-    {"t": "মিষ্টি দই", "r": "mishti doi", "en": "Sweet curd set in clay cups — order it once and you understand half of Bengali food culture."}
+    {
+      "t": "দুর্গাপূজা",
+      "r": "Durga Puja",
+      "en": "The biggest Bengali festival — Kolkata's streets fill with pandals for five days in autumn. If you visit Bengal once, come then."
+    },
+    {
+      "t": "পহেলা বৈশাখ",
+      "r": "Pohela Boishakh",
+      "en": "Bengali New Year (mid-April) — new clothes, sweets, and শুভ নববর্ষ (shubho noboborsho) greetings."
+    },
+    {
+      "t": "আড্ডা",
+      "r": "adda",
+      "en": "The legendary Bengali art of long, wandering conversation over tea — no agenda, no hurry. Join one and your Bengali will grow faster than any app."
+    },
+    {
+      "t": "২১শে ফেব্রুয়ারি",
+      "r": "21st February",
+      "en": "Language Martyrs' Day — Bengalis died for their language in 1952, and UNESCO made the date International Mother Language Day. The language is loved fiercely; learners are welcomed warmly."
+    },
+    {
+      "t": "মিষ্টি দই",
+      "r": "mishti doi",
+      "en": "Sweet curd set in clay cups — order it once and you understand half of Bengali food culture."
+    }
   ],
-
   "postpositions": [
-    {"en": "in / at", "hi": "में", "t": "-এ / -তে", "r": "-e / -te", "ex_t": "বাড়িতে", "ex_r": "baṛite", "ex_en": "at home"},
-    {"en": "to", "hi": "को", "t": "-কে", "r": "-ke", "ex_t": "আমাকে দিন", "ex_r": "amake din", "ex_en": "give (to) me"},
-    {"en": "from", "hi": "से", "t": "থেকে", "r": "theke", "ex_t": "ঢাকা থেকে", "ex_r": "Dhaka theke", "ex_en": "from Dhaka"},
-    {"en": "with (using)", "hi": "से", "t": "দিয়ে", "r": "diye", "ex_t": "চামচ দিয়ে", "ex_r": "chamoch diye", "ex_en": "with a spoon"},
-    {"en": "for", "hi": "के लिए", "t": "জন্য", "r": "jonno", "ex_t": "আপনার জন্য", "ex_r": "apnar jonno", "ex_en": "for you"},
-    {"en": "with (a person)", "hi": "के साथ", "t": "সাথে", "r": "shathe", "ex_t": "বন্ধুর সাথে", "ex_r": "bondhur shathe", "ex_en": "with a friend"}
+    {
+      "en": "in / at",
+      "hi": "में",
+      "t": "-এ / -তে",
+      "r": "-e / -te",
+      "ex_t": "বাড়িতে",
+      "ex_r": "baṛite",
+      "ex_en": "at home"
+    },
+    {
+      "en": "to",
+      "hi": "को",
+      "t": "-কে",
+      "r": "-ke",
+      "ex_t": "আমাকে দিন",
+      "ex_r": "amake din",
+      "ex_en": "give (to) me"
+    },
+    {
+      "en": "from",
+      "hi": "से",
+      "t": "থেকে",
+      "r": "theke",
+      "ex_t": "ঢাকা থেকে",
+      "ex_r": "Dhaka theke",
+      "ex_en": "from Dhaka"
+    },
+    {
+      "en": "with (using)",
+      "hi": "से",
+      "t": "দিয়ে",
+      "r": "diye",
+      "ex_t": "চামচ দিয়ে",
+      "ex_r": "chamoch diye",
+      "ex_en": "with a spoon"
+    },
+    {
+      "en": "for",
+      "hi": "के लिए",
+      "t": "জন্য",
+      "r": "jonno",
+      "ex_t": "আপনার জন্য",
+      "ex_r": "apnar jonno",
+      "ex_en": "for you"
+    },
+    {
+      "en": "with (a person)",
+      "hi": "के साथ",
+      "t": "সাথে",
+      "r": "shathe",
+      "ex_t": "বন্ধুর সাথে",
+      "ex_r": "bondhur shathe",
+      "ex_en": "with a friend"
+    }
   ],
   "classifiers": [
-    {"en": "একটা বই", "r": "ekṭa boi", "hi": "एक किताब", "note": "one book — টা counts things"},
-    {"en": "দুটো আম", "r": "duṭo am", "hi": "दो आम", "note": "two mangoes — দুই + টো contracts to দুটো"},
-    {"en": "তিনজন লোক", "r": "tinjon lok", "hi": "तीन लोग", "note": "three people — জন counts people"}
+    {
+      "en": "একটা বই",
+      "r": "ekṭa boi",
+      "hi": "एक किताब",
+      "note": "one book — টা counts things"
+    },
+    {
+      "en": "দুটো আম",
+      "r": "duṭo am",
+      "hi": "दो आम",
+      "note": "two mangoes — দুই + টো contracts to দুটো"
+    },
+    {
+      "en": "তিনজন লোক",
+      "r": "tinjon lok",
+      "hi": "तीन लोग",
+      "note": "three people — জন counts people"
+    }
   ],
-
   "dialogues": [
-    {"title": "Meeting someone",
-     "lines": [
-       {"sp": "Rina", "t": "নমস্কার! আমার নাম রিনা।", "r": "Nômoshkar! Amar nam Rina.", "hi": "नमस्ते! मेरा नाम रीना है।", "en": "Hello! My name is Rina."},
-       {"sp": "Tom", "t": "নমস্কার! আমি টম। আপনি কেমন আছেন?", "r": "Nômoshkar! Ami Tom. Apni kæmon achhen?", "hi": "नमस्ते! मैं टॉम हूँ। आप कैसे हैं?", "en": "Hello! I'm Tom. How are you?"},
-       {"sp": "Rina", "t": "আমি ভালো আছি, ধন্যবাদ। আপনি কোথা থেকে?", "r": "Ami bhalo achhi, dhonnobad. Apni kotha theke?", "hi": "मैं ठीक हूँ, धन्यवाद। आप कहाँ से हैं?", "en": "I'm fine, thank you. Where are you from?"},
-       {"sp": "Tom", "t": "আমি লন্ডন থেকে। আমি বাংলা শিখছি।", "r": "Ami London theke. Ami bangla shikhchhi.", "hi": "मैं लंदन से हूँ। मैं बांग्ला सीख रहा हूँ।", "en": "I'm from London. I'm learning Bengali."},
-       {"sp": "Rina", "t": "খুব ভালো! আবার দেখা হবে।", "r": "Khub bhalo! Abar dekha hobe.", "hi": "बहुत बढ़िया! फिर मिलेंगे।", "en": "Very good! See you again."}
-     ]},
-    {"title": "At a tea stall",
-     "lines": [
-       {"sp": "You", "t": "দাদা, একটা চা দিন।", "r": "Dada, ekṭa cha din.", "hi": "भैया, एक चाय दीजिए।", "en": "Brother, one tea please. (দাদা = elder brother — everyone calls the vendor দাদা)"},
-       {"sp": "Vendor", "t": "চিনি কটা?", "r": "Chini koṭa?", "hi": "चीनी कितनी?", "en": "How many sugars?"},
-       {"sp": "You", "t": "একটা। দাম কত?", "r": "Ekṭa. Dam koto?", "hi": "एक। कितने का?", "en": "One. How much?"},
-       {"sp": "Vendor", "t": "দশ টাকা।", "r": "Dôsh ṭaka.", "hi": "दस रुपये।", "en": "Ten taka."},
-       {"sp": "You", "t": "ঠিক আছে। ধন্যবাদ!", "r": "Ṭhik achhe. Dhonnobad!", "hi": "ठीक है। धन्यवाद!", "en": "OK. Thank you!"}
-     ]},
-    {"title": "Asking the way",
-     "lines": [
-       {"sp": "You", "t": "মাফ করবেন, স্টেশন কোথায়?", "r": "Maph korben, steshon kothay?", "hi": "माफ़ कीजिए, स्टेशन कहाँ है?", "en": "Excuse me, where is the station?"},
-       {"sp": "Local", "t": "সোজা যান, তারপর ডানে।", "r": "Shoja jan, tarpor dane.", "hi": "सीधे जाइए, फिर दाएँ।", "en": "Go straight, then right."},
-       {"sp": "You", "t": "এটা কি দূরে?", "r": "Eṭa ki dure?", "hi": "क्या दूर है?", "en": "Is it far?"},
-       {"sp": "Local", "t": "না, কাছে। পাঁচ মিনিট।", "r": "Na, kachhe. Pãch minit.", "hi": "नहीं, पास है। पाँच मिनट।", "en": "No, near. Five minutes."},
-       {"sp": "You", "t": "অনেক ধন্যবাদ!", "r": "Ônek dhonnobad!", "hi": "बहुत धन्यवाद!", "en": "Thank you very much!"}
-     ]}
+    {
+      "title": "Meeting someone",
+      "lines": [
+        {
+          "sp": "Rina",
+          "t": "নমস্কার! আমার নাম রিনা।",
+          "r": "Nômoshkar! Amar nam Rina.",
+          "hi": "नमस्ते! मेरा नाम रीना है।",
+          "en": "Hello! My name is Rina."
+        },
+        {
+          "sp": "Tom",
+          "t": "নমস্কার! আমি টম। আপনি কেমন আছেন?",
+          "r": "Nômoshkar! Ami Tom. Apni kæmon achhen?",
+          "hi": "नमस्ते! मैं टॉम हूँ। आप कैसे हैं?",
+          "en": "Hello! I'm Tom. How are you?"
+        },
+        {
+          "sp": "Rina",
+          "t": "আমি ভালো আছি, ধন্যবাদ। আপনি কোথা থেকে?",
+          "r": "Ami bhalo achhi, dhonnobad. Apni kotha theke?",
+          "hi": "मैं ठीक हूँ, धन्यवाद। आप कहाँ से हैं?",
+          "en": "I'm fine, thank you. Where are you from?"
+        },
+        {
+          "sp": "Tom",
+          "t": "আমি লন্ডন থেকে। আমি বাংলা শিখছি।",
+          "r": "Ami London theke. Ami bangla shikhchhi.",
+          "hi": "मैं लंदन से हूँ। मैं बांग्ला सीख रहा हूँ।",
+          "en": "I'm from London. I'm learning Bengali."
+        },
+        {
+          "sp": "Rina",
+          "t": "খুব ভালো! আবার দেখা হবে।",
+          "r": "Khub bhalo! Abar dekha hobe.",
+          "hi": "बहुत बढ़िया! फिर मिलेंगे।",
+          "en": "Very good! See you again."
+        }
+      ]
+    },
+    {
+      "title": "At a tea stall",
+      "lines": [
+        {
+          "sp": "You",
+          "t": "দাদা, একটা চা দিন।",
+          "r": "Dada, ekṭa cha din.",
+          "hi": "भैया, एक चाय दीजिए।",
+          "en": "Brother, one tea please. (দাদা = elder brother — everyone calls the vendor দাদা)"
+        },
+        {
+          "sp": "Vendor",
+          "t": "চিনি কটা?",
+          "r": "Chini koṭa?",
+          "hi": "चीनी कितनी?",
+          "en": "How many sugars?"
+        },
+        {
+          "sp": "You",
+          "t": "একটা। দাম কত?",
+          "r": "Ekṭa. Dam koto?",
+          "hi": "एक। कितने का?",
+          "en": "One. How much?"
+        },
+        {
+          "sp": "Vendor",
+          "t": "দশ টাকা।",
+          "r": "Dôsh ṭaka.",
+          "hi": "दस रुपये।",
+          "en": "Ten taka."
+        },
+        {
+          "sp": "You",
+          "t": "ঠিক আছে। ধন্যবাদ!",
+          "r": "Ṭhik achhe. Dhonnobad!",
+          "hi": "ठीक है। धन्यवाद!",
+          "en": "OK. Thank you!"
+        }
+      ]
+    },
+    {
+      "title": "Asking the way",
+      "lines": [
+        {
+          "sp": "You",
+          "t": "মাফ করবেন, স্টেশন কোথায়?",
+          "r": "Maph korben, steshon kothay?",
+          "hi": "माफ़ कीजिए, स्टेशन कहाँ है?",
+          "en": "Excuse me, where is the station?"
+        },
+        {
+          "sp": "Local",
+          "t": "সোজা যান, তারপর ডানে।",
+          "r": "Shoja jan, tarpor dane.",
+          "hi": "सीधे जाइए, फिर दाएँ।",
+          "en": "Go straight, then right."
+        },
+        {
+          "sp": "You",
+          "t": "এটা কি দূরে?",
+          "r": "Eṭa ki dure?",
+          "hi": "क्या दूर है?",
+          "en": "Is it far?"
+        },
+        {
+          "sp": "Local",
+          "t": "না, কাছে। পাঁচ মিনিট।",
+          "r": "Na, kachhe. Pãch minit.",
+          "hi": "नहीं, पास है। पाँच मिनट।",
+          "en": "No, near. Five minutes."
+        },
+        {
+          "sp": "You",
+          "t": "অনেক ধন্যবাদ!",
+          "r": "Ônek dhonnobad!",
+          "hi": "बहुत धन्यवाद!",
+          "en": "Thank you very much!"
+        }
+      ]
+    }
   ],
-
   "typing": [
-    ["namoshkar", "নমস্কার"], ["dhonnobad", "ধন্যবাদ"], ["ami", "আমি"], ["tumi", "তুমি"],
-    ["apni", "আপনি"], ["bhat", "ভাত"], ["mach", "মাছ"], ["pani", "পানি"], ["cha", "চা"],
-    ["boi", "বই"], ["bari", "বাড়ি"], ["kaj", "কাজ"], ["bhalo", "ভালো"], ["din", "দিন"],
-    ["rat", "রাত"], ["bondhu", "বন্ধু"], ["ma", "মা"], ["baba", "বাবা"], ["ghor", "ঘর"],
-    ["rasta", "রাস্তা"], ["dokan", "দোকান"], ["bajar", "বাজার"], ["shokal", "সকাল"], ["biday", "বিদায়"]
+    [
+      "namoshkar",
+      "নমস্কার"
+    ],
+    [
+      "dhonnobad",
+      "ধন্যবাদ"
+    ],
+    [
+      "ami",
+      "আমি"
+    ],
+    [
+      "tumi",
+      "তুমি"
+    ],
+    [
+      "apni",
+      "আপনি"
+    ],
+    [
+      "bhat",
+      "ভাত"
+    ],
+    [
+      "mach",
+      "মাছ"
+    ],
+    [
+      "pani",
+      "পানি"
+    ],
+    [
+      "cha",
+      "চা"
+    ],
+    [
+      "boi",
+      "বই"
+    ],
+    [
+      "bari",
+      "বাড়ি"
+    ],
+    [
+      "kaj",
+      "কাজ"
+    ],
+    [
+      "bhalo",
+      "ভালো"
+    ],
+    [
+      "din",
+      "দিন"
+    ],
+    [
+      "rat",
+      "রাত"
+    ],
+    [
+      "bondhu",
+      "বন্ধু"
+    ],
+    [
+      "ma",
+      "মা"
+    ],
+    [
+      "baba",
+      "বাবা"
+    ],
+    [
+      "ghor",
+      "ঘর"
+    ],
+    [
+      "rasta",
+      "রাস্তা"
+    ],
+    [
+      "dokan",
+      "দোকান"
+    ],
+    [
+      "bajar",
+      "বাজার"
+    ],
+    [
+      "shokal",
+      "সকাল"
+    ],
+    [
+      "biday",
+      "বিদায়"
+    ]
   ],
-
   "review_deck": [
-    {"t": "নমস্কার", "r": "nômoshkar", "en": "hello"},
-    {"t": "ধন্যবাদ", "r": "dhonnobad", "en": "thank you"},
-    {"t": "আমি", "r": "ami", "en": "I"},
-    {"t": "তুমি / আপনি", "r": "tumi / apni", "en": "you"},
-    {"t": "হ্যাঁ / না", "r": "hæ̃ / na", "en": "yes / no"},
-    {"t": "ভাত", "r": "bhat", "en": "rice"},
-    {"t": "পানি", "r": "pani", "en": "water"},
-    {"t": "চা", "r": "cha", "en": "tea"},
-    {"t": "বই", "r": "boi", "en": "book"},
-    {"t": "বাড়ি", "r": "baṛi", "en": "house"},
-    {"t": "ভালো", "r": "bhalo", "en": "good"},
-    {"t": "কত", "r": "koto", "en": "how much"},
-    {"t": "কোথায়", "r": "kothay", "en": "where"},
-    {"t": "আজ", "r": "aj", "en": "today"},
-    {"t": "কাল", "r": "kal", "en": "tomorrow / yesterday"},
-    {"t": "খাই", "r": "khai", "en": "I eat"},
-    {"t": "যাই", "r": "jai", "en": "I go"},
-    {"t": "চাই", "r": "chai", "en": "I want"},
-    {"t": "ঠিক আছে", "r": "ṭhik achhe", "en": "OK"},
-    {"t": "বিদায়", "r": "biday", "en": "goodbye"}
+    {
+      "t": "নমস্কার",
+      "r": "nômoshkar",
+      "en": "hello"
+    },
+    {
+      "t": "ধন্যবাদ",
+      "r": "dhonnobad",
+      "en": "thank you"
+    },
+    {
+      "t": "আমি",
+      "r": "ami",
+      "en": "I"
+    },
+    {
+      "t": "তুমি / আপনি",
+      "r": "tumi / apni",
+      "en": "you"
+    },
+    {
+      "t": "হ্যাঁ / না",
+      "r": "hæ̃ / na",
+      "en": "yes / no"
+    },
+    {
+      "t": "ভাত",
+      "r": "bhat",
+      "en": "rice"
+    },
+    {
+      "t": "পানি",
+      "r": "pani",
+      "en": "water"
+    },
+    {
+      "t": "চা",
+      "r": "cha",
+      "en": "tea"
+    },
+    {
+      "t": "বই",
+      "r": "boi",
+      "en": "book"
+    },
+    {
+      "t": "বাড়ি",
+      "r": "baṛi",
+      "en": "house"
+    },
+    {
+      "t": "ভালো",
+      "r": "bhalo",
+      "en": "good"
+    },
+    {
+      "t": "কত",
+      "r": "koto",
+      "en": "how much"
+    },
+    {
+      "t": "কোথায়",
+      "r": "kothay",
+      "en": "where"
+    },
+    {
+      "t": "আজ",
+      "r": "aj",
+      "en": "today"
+    },
+    {
+      "t": "কাল",
+      "r": "kal",
+      "en": "tomorrow / yesterday"
+    },
+    {
+      "t": "খাই",
+      "r": "khai",
+      "en": "I eat"
+    },
+    {
+      "t": "যাই",
+      "r": "jai",
+      "en": "I go"
+    },
+    {
+      "t": "চাই",
+      "r": "chai",
+      "en": "I want"
+    },
+    {
+      "t": "ঠিক আছে",
+      "r": "ṭhik achhe",
+      "en": "OK"
+    },
+    {
+      "t": "বিদায়",
+      "r": "biday",
+      "en": "goodbye"
+    }
   ],
-
   "quiz": [
-    {"id": "bq-01", "lesson": "basics", "type": "meaning", "topic": "basics", "level": "beginner", "q": "What does নমস্কার mean?", "a": "hello", "opts": ["hello", "goodbye", "thank you", "sorry"], "explain": "নমস্কার (nômoshkar) is the standard formal hello — to elders, officials, anyone you respect."},
-    {"id": "bq-02", "lesson": "basics", "type": "vocab", "topic": "basics", "level": "beginner", "q": "How do you say 'thank you' in Bengali?", "a": "ধন্যবাদ", "opts": ["ধন্যবাদ", "নমস্কার", "বিদায়", "মাফ করবেন"], "explain": "ধন্যবাদ (dhonnobad). মাফ করবেন is excuse-me/sorry — don't mix them."},
-    {"id": "bq-03", "lesson": "pronunciation", "type": "usage", "topic": "basics", "level": "beginner", "q": "The letter ক reads as…", "a": "kô (as in 'on')", "opts": ["ka (as in 'car')", "kô (as in 'on')", "ki (as in 'kit')", "ku (as in 'put')"], "explain": "Bengali's inherent vowel is ô, not a. ক = kô. This is the biggest shock for Hindi speakers."},
-    {"id": "bq-04", "lesson": "basics", "type": "meaning", "topic": "basics", "level": "beginner", "q": "আপনি কেমন আছেন? means…", "a": "How are you? (formal)", "opts": ["How are you? (formal)", "What is your name?", "Where are you from?", "See you again"], "explain": "আপনি (apni) is formal 'you' — safe with every stranger."},
-    {"id": "bq-05", "lesson": "numbers", "type": "vocab", "topic": "numbers", "level": "beginner", "q": "What does পাঁচ mean?", "a": "five", "opts": ["four", "five", "six", "seven"], "explain": "পাঁচ (pãch) = 5. Same root as Hindi पाँच."},
-    {"id": "bq-06", "lesson": "numbers", "type": "vocab", "topic": "numbers", "level": "beginner", "q": "How do you say 'ten'?", "a": "দশ", "opts": ["দশ", "পাঁচ", "কুড়ি", "একশো"], "explain": "দশ (dôsh) = 10. কুড়ি is 20, একশো is 100."},
-    {"id": "bq-07", "lesson": "numbers", "type": "vocab", "topic": "numbers", "level": "elementary", "q": "কুড়ি means…", "a": "twenty", "opts": ["twelve", "twenty", "two hundred", "two thousand"], "explain": "কুড়ি (kuṛi) = 20 — its own word, like English 'twenty'."},
-    {"id": "bq-08", "lesson": "numbers", "type": "vocab", "topic": "numbers", "level": "elementary", "q": "একশো means…", "a": "one hundred", "opts": ["one thousand", "one hundred", "eleven", "ten"], "explain": "একশো (æksho) = 100. Literally 'one-hundred'."},
-    {"id": "bq-09", "lesson": "food", "type": "vocab", "topic": "food", "level": "beginner", "q": "What does ভাত mean?", "a": "cooked rice", "opts": ["cooked rice", "bread", "fish", "lentils"], "explain": "ভাত (bhat) is cooked rice — the centre of the Bengali plate. Uncooked rice is চাল."},
-    {"id": "bq-10", "lesson": "food", "type": "vocab", "topic": "food", "level": "beginner", "q": "মাছ means…", "a": "fish", "opts": ["meat", "fish", "egg", "milk"], "explain": "মাছ (machh) = fish. মাছে-ভাতে বাঙালি: fish and rice make the Bengali."},
-    {"id": "bq-11", "lesson": "food", "type": "usage", "topic": "food", "level": "elementary", "q": "একটা চা দিন means…", "a": "One tea, please", "opts": ["One tea, please", "Two teas, please", "No tea", "Tea is cold"], "explain": "একটা = one (টা counts things), দিন = give (polite). The full polite ordering pattern."},
-    {"id": "bq-12", "lesson": "travel", "type": "usage", "topic": "travel", "level": "beginner", "q": "স্টেশন কোথায়? means…", "a": "Where is the station?", "opts": ["Where is the station?", "The station is far", "Take me to the station", "The station is closed"], "explain": "কোথায় (kothay) = where. X কোথায়? is the whole direction toolkit in three words."},
-    {"id": "bq-13", "lesson": "travel", "type": "vocab", "topic": "travel", "level": "beginner", "q": "ডানে means…", "a": "right", "opts": ["left", "right", "straight", "back"], "explain": "ডানে (dane) = to the right. Left is বামে, straight is সোজা."},
-    {"id": "bq-14", "lesson": "travel", "type": "usage", "topic": "travel", "level": "elementary", "q": "ভাড়া কত? means…", "a": "How much is the fare?", "opts": ["How much is the fare?", "The fare is fixed", "Stop the car", "Faster, please"], "explain": "ভাড়া (bhaṛa) = fare, কত = how much. Ask before you sit down."},
-    {"id": "bq-15", "lesson": "grammar", "type": "usage", "topic": "grammar", "level": "beginner", "q": "আমি ভাত খাই. The word order is…", "a": "I · rice · eat (verb last)", "opts": ["I · eat · rice (like English)", "I · rice · eat (verb last)", "Rice · I · eat", "Eat · I · rice"], "explain": "Bengali is subject–object–verb: আমি ভাত খাই. The verb always goes last."},
-    {"id": "bq-16", "lesson": "grammar", "type": "usage", "topic": "grammar", "level": "beginner", "q": "Which 'you' is safe with strangers?", "a": "আপনি", "opts": ["তুই", "তুমি", "আপনি", "সে"], "explain": "আপনি (apni) is formal and safe everywhere. তুই to a stranger is rude."},
-    {"id": "bq-17", "lesson": "grammar", "type": "usage", "topic": "grammar", "level": "elementary", "q": "আমি মাংস খাই না means…", "a": "I don't eat meat", "opts": ["I don't eat meat", "I eat meat daily", "I ate meat", "I will eat meat"], "explain": "না after the verb negates it: খাই না = don't eat. Simplest negation in any major language."},
-    {"id": "bq-18", "lesson": "grammar", "type": "usage", "topic": "grammar", "level": "elementary", "q": "তারা খায়. Who is eating?", "a": "they", "opts": ["I", "you (formal)", "he / she", "they"], "explain": "তারা (tara) = they, and the verb agrees: খায় (khay)."},
-    {"id": "bq-19", "lesson": "conversation", "type": "meaning", "topic": "conversation", "level": "beginner", "q": "আমার নাম … means…", "a": "My name is …", "opts": ["My name is …", "Your name is …", "What is this?", "I am lost"], "explain": "আমার (amar) = my, নাম = name. আমার নাম টম = my name is Tom."},
-    {"id": "bq-20", "lesson": "conversation", "type": "usage", "topic": "conversation", "level": "elementary", "q": "আমি বাংলা শিখছি means…", "a": "I am learning Bengali", "opts": ["I am learning Bengali", "I speak Bengali fluently", "I forgot Bengali", "I teach Bengali"], "explain": "শিখছি (shikhchhi) is present continuous: right now, in progress. Say it to any Bengali and watch them smile."},
-    {"id": "bq-21", "lesson": "vocabulary", "type": "vocab", "topic": "vocabulary", "level": "beginner", "q": "বই means…", "a": "book", "opts": ["book", "house", "school", "road"], "explain": "বই (boi) = book. একটা বই = one book (টা counts things)."},
-    {"id": "bq-22", "lesson": "vocabulary", "type": "vocab", "topic": "vocabulary", "level": "beginner", "q": "বাড়ি means…", "a": "house", "opts": ["house", "car", "shop", "school"], "explain": "বাড়ি (baṛi) = house/home. বাড়িতে = at home (তে = in/at)."},
-    {"id": "bq-23", "lesson": "shopping", "type": "usage", "topic": "travel", "level": "elementary", "q": "এটার দাম কত? means…", "a": "How much is this?", "opts": ["How much is this?", "This is free", "This is mine", "Wrap this up"], "explain": "এটার (of this) + দাম (price) + কত (how much). The market survival sentence."},
-    {"id": "bq-24", "lesson": "time-dates", "type": "vocab", "topic": "basics", "level": "elementary", "q": "কাল means…", "a": "tomorrow / yesterday (both)", "opts": ["today", "tomorrow / yesterday (both)", "now", "never"], "explain": "কাল covers both — context decides. গতকাল pins it to yesterday."}
+    {
+      "id": "bq-01",
+      "lesson": "basics",
+      "type": "meaning",
+      "topic": "basics",
+      "level": "beginner",
+      "q": "What does নমস্কার mean?",
+      "a": "hello",
+      "opts": [
+        "hello",
+        "goodbye",
+        "thank you",
+        "sorry"
+      ],
+      "explain": "নমস্কার (nômoshkar) is the standard formal hello — to elders, officials, anyone you respect."
+    },
+    {
+      "id": "bq-02",
+      "lesson": "basics",
+      "type": "vocab",
+      "topic": "basics",
+      "level": "beginner",
+      "q": "How do you say 'thank you' in Bengali?",
+      "a": "ধন্যবাদ",
+      "opts": [
+        "ধন্যবাদ",
+        "নমস্কার",
+        "বিদায়",
+        "মাফ করবেন"
+      ],
+      "explain": "ধন্যবাদ (dhonnobad). মাফ করবেন is excuse-me/sorry — don't mix them."
+    },
+    {
+      "id": "bq-03",
+      "lesson": "pronunciation",
+      "type": "usage",
+      "topic": "basics",
+      "level": "beginner",
+      "q": "The letter ক reads as…",
+      "a": "kô (as in 'on')",
+      "opts": [
+        "ka (as in 'car')",
+        "kô (as in 'on')",
+        "ki (as in 'kit')",
+        "ku (as in 'put')"
+      ],
+      "explain": "Bengali's inherent vowel is ô, not a. ক = kô. This is the biggest shock for Hindi speakers."
+    },
+    {
+      "id": "bq-04",
+      "lesson": "basics",
+      "type": "meaning",
+      "topic": "basics",
+      "level": "beginner",
+      "q": "আপনি কেমন আছেন? means…",
+      "a": "How are you? (formal)",
+      "opts": [
+        "How are you? (formal)",
+        "What is your name?",
+        "Where are you from?",
+        "See you again"
+      ],
+      "explain": "আপনি (apni) is formal 'you' — safe with every stranger."
+    },
+    {
+      "id": "bq-05",
+      "lesson": "numbers",
+      "type": "vocab",
+      "topic": "numbers",
+      "level": "beginner",
+      "q": "What does পাঁচ mean?",
+      "a": "five",
+      "opts": [
+        "four",
+        "five",
+        "six",
+        "seven"
+      ],
+      "explain": "পাঁচ (pãch) = 5. Same root as Hindi पाँच."
+    },
+    {
+      "id": "bq-06",
+      "lesson": "numbers",
+      "type": "vocab",
+      "topic": "numbers",
+      "level": "beginner",
+      "q": "How do you say 'ten'?",
+      "a": "দশ",
+      "opts": [
+        "দশ",
+        "পাঁচ",
+        "কুড়ি",
+        "একশো"
+      ],
+      "explain": "দশ (dôsh) = 10. কুড়ি is 20, একশো is 100."
+    },
+    {
+      "id": "bq-07",
+      "lesson": "numbers",
+      "type": "vocab",
+      "topic": "numbers",
+      "level": "elementary",
+      "q": "কুড়ি means…",
+      "a": "twenty",
+      "opts": [
+        "twelve",
+        "twenty",
+        "two hundred",
+        "two thousand"
+      ],
+      "explain": "কুড়ি (kuṛi) = 20 — its own word, like English 'twenty'."
+    },
+    {
+      "id": "bq-08",
+      "lesson": "numbers",
+      "type": "vocab",
+      "topic": "numbers",
+      "level": "elementary",
+      "q": "একশো means…",
+      "a": "one hundred",
+      "opts": [
+        "one thousand",
+        "one hundred",
+        "eleven",
+        "ten"
+      ],
+      "explain": "একশো (æksho) = 100. Literally 'one-hundred'."
+    },
+    {
+      "id": "bq-09",
+      "lesson": "food",
+      "type": "vocab",
+      "topic": "food",
+      "level": "beginner",
+      "q": "What does ভাত mean?",
+      "a": "cooked rice",
+      "opts": [
+        "cooked rice",
+        "bread",
+        "fish",
+        "lentils"
+      ],
+      "explain": "ভাত (bhat) is cooked rice — the centre of the Bengali plate. Uncooked rice is চাল."
+    },
+    {
+      "id": "bq-10",
+      "lesson": "food",
+      "type": "vocab",
+      "topic": "food",
+      "level": "beginner",
+      "q": "মাছ means…",
+      "a": "fish",
+      "opts": [
+        "meat",
+        "fish",
+        "egg",
+        "milk"
+      ],
+      "explain": "মাছ (machh) = fish. মাছে-ভাতে বাঙালি: fish and rice make the Bengali."
+    },
+    {
+      "id": "bq-11",
+      "lesson": "food",
+      "type": "usage",
+      "topic": "food",
+      "level": "elementary",
+      "q": "একটা চা দিন means…",
+      "a": "One tea, please",
+      "opts": [
+        "One tea, please",
+        "Two teas, please",
+        "No tea",
+        "Tea is cold"
+      ],
+      "explain": "একটা = one (টা counts things), দিন = give (polite). The full polite ordering pattern."
+    },
+    {
+      "id": "bq-12",
+      "lesson": "travel",
+      "type": "usage",
+      "topic": "travel",
+      "level": "beginner",
+      "q": "স্টেশন কোথায়? means…",
+      "a": "Where is the station?",
+      "opts": [
+        "Where is the station?",
+        "The station is far",
+        "Take me to the station",
+        "The station is closed"
+      ],
+      "explain": "কোথায় (kothay) = where. X কোথায়? is the whole direction toolkit in three words."
+    },
+    {
+      "id": "bq-13",
+      "lesson": "travel",
+      "type": "vocab",
+      "topic": "travel",
+      "level": "beginner",
+      "q": "ডানে means…",
+      "a": "right",
+      "opts": [
+        "left",
+        "right",
+        "straight",
+        "back"
+      ],
+      "explain": "ডানে (dane) = to the right. Left is বামে, straight is সোজা."
+    },
+    {
+      "id": "bq-14",
+      "lesson": "travel",
+      "type": "usage",
+      "topic": "travel",
+      "level": "elementary",
+      "q": "ভাড়া কত? means…",
+      "a": "How much is the fare?",
+      "opts": [
+        "How much is the fare?",
+        "The fare is fixed",
+        "Stop the car",
+        "Faster, please"
+      ],
+      "explain": "ভাড়া (bhaṛa) = fare, কত = how much. Ask before you sit down."
+    },
+    {
+      "id": "bq-15",
+      "lesson": "grammar",
+      "type": "usage",
+      "topic": "grammar",
+      "level": "beginner",
+      "q": "আমি ভাত খাই. The word order is…",
+      "a": "I · rice · eat (verb last)",
+      "opts": [
+        "I · eat · rice (like English)",
+        "I · rice · eat (verb last)",
+        "Rice · I · eat",
+        "Eat · I · rice"
+      ],
+      "explain": "Bengali is subject–object–verb: আমি ভাত খাই. The verb always goes last."
+    },
+    {
+      "id": "bq-16",
+      "lesson": "grammar",
+      "type": "usage",
+      "topic": "grammar",
+      "level": "beginner",
+      "q": "Which 'you' is safe with strangers?",
+      "a": "আপনি",
+      "opts": [
+        "তুই",
+        "তুমি",
+        "আপনি",
+        "সে"
+      ],
+      "explain": "আপনি (apni) is formal and safe everywhere. তুই to a stranger is rude."
+    },
+    {
+      "id": "bq-17",
+      "lesson": "grammar",
+      "type": "usage",
+      "topic": "grammar",
+      "level": "elementary",
+      "q": "আমি মাংস খাই না means…",
+      "a": "I don't eat meat",
+      "opts": [
+        "I don't eat meat",
+        "I eat meat daily",
+        "I ate meat",
+        "I will eat meat"
+      ],
+      "explain": "না after the verb negates it: খাই না = don't eat. Simplest negation in any major language."
+    },
+    {
+      "id": "bq-18",
+      "lesson": "grammar",
+      "type": "usage",
+      "topic": "grammar",
+      "level": "elementary",
+      "q": "তারা খায়. Who is eating?",
+      "a": "they",
+      "opts": [
+        "I",
+        "you (formal)",
+        "he / she",
+        "they"
+      ],
+      "explain": "তারা (tara) = they, and the verb agrees: খায় (khay)."
+    },
+    {
+      "id": "bq-19",
+      "lesson": "conversation",
+      "type": "meaning",
+      "topic": "conversation",
+      "level": "beginner",
+      "q": "আমার নাম … means…",
+      "a": "My name is …",
+      "opts": [
+        "My name is …",
+        "Your name is …",
+        "What is this?",
+        "I am lost"
+      ],
+      "explain": "আমার (amar) = my, নাম = name. আমার নাম টম = my name is Tom."
+    },
+    {
+      "id": "bq-20",
+      "lesson": "conversation",
+      "type": "usage",
+      "topic": "conversation",
+      "level": "elementary",
+      "q": "আমি বাংলা শিখছি means…",
+      "a": "I am learning Bengali",
+      "opts": [
+        "I am learning Bengali",
+        "I speak Bengali fluently",
+        "I forgot Bengali",
+        "I teach Bengali"
+      ],
+      "explain": "শিখছি (shikhchhi) is present continuous: right now, in progress. Say it to any Bengali and watch them smile."
+    },
+    {
+      "id": "bq-21",
+      "lesson": "vocabulary",
+      "type": "vocab",
+      "topic": "vocabulary",
+      "level": "beginner",
+      "q": "বই means…",
+      "a": "book",
+      "opts": [
+        "book",
+        "house",
+        "school",
+        "road"
+      ],
+      "explain": "বই (boi) = book. একটা বই = one book (টা counts things)."
+    },
+    {
+      "id": "bq-22",
+      "lesson": "vocabulary",
+      "type": "vocab",
+      "topic": "vocabulary",
+      "level": "beginner",
+      "q": "বাড়ি means…",
+      "a": "house",
+      "opts": [
+        "house",
+        "car",
+        "shop",
+        "school"
+      ],
+      "explain": "বাড়ি (baṛi) = house/home. বাড়িতে = at home (তে = in/at)."
+    },
+    {
+      "id": "bq-23",
+      "lesson": "shopping",
+      "type": "usage",
+      "topic": "travel",
+      "level": "elementary",
+      "q": "এটার দাম কত? means…",
+      "a": "How much is this?",
+      "opts": [
+        "How much is this?",
+        "This is free",
+        "This is mine",
+        "Wrap this up"
+      ],
+      "explain": "এটার (of this) + দাম (price) + কত (how much). The market survival sentence."
+    },
+    {
+      "id": "bq-24",
+      "lesson": "time-dates",
+      "type": "vocab",
+      "topic": "basics",
+      "level": "elementary",
+      "q": "কাল means…",
+      "a": "tomorrow / yesterday (both)",
+      "opts": [
+        "today",
+        "tomorrow / yesterday (both)",
+        "now",
+        "never"
+      ],
+      "explain": "কাল covers both — context decides. গতকাল pins it to yesterday."
+    }
   ]
 }
