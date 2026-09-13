@@ -898,7 +898,13 @@
     if (stub && stub.parentNode) stub.parentNode.removeChild(stub);
 
     var id = new URLSearchParams(location.search).get("id");
-    var x = TUTORS.filter(function (v) { return v.id === id; })[0] || TUTORS[0];
+    /* v130 — an unknown id used to fall back to TUTORS[0], so
+       tutor.html?id=<hidden-tutor> silently rendered the WRONG
+       tutor's full bookable profile. Bare tutor.html still opens
+       the first tutor; a named-but-absent one now reaches the
+       honest not-found state below. */
+    var x = id ? TUTORS.filter(function (v) { return v.id === id; })[0]
+               : TUTORS[0];
     /* Counted ONCE per page view. renderProfile() runs again on
        every sheet repaint, and without this guard a visitor who
        left the tab open logged a new "view_tutor" every time the

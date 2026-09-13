@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-13T19:51:32.190Z",
+ "generated": "2026-09-13T20:03:22.634Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "f0f818f18fe728b407205ad3a1f8b11db36502ec",
-  "subject": "World courses batch 1 + links fixed + interactive hub (v128): German/Portuguese/Italian courses (18 lessons, 72 practice, 60 quiz, 72 review — all hand-authored, EN bridge); resurrected world-course builder from git; completed courses marked Available (hub+home+registry); interactive languages hub (search+chips); tutors-sheet.csv restored; sitemap-courses.xml (56 urls); doctor 11/11, SEO 969/0/0",
-  "buildTime": "2026-09-13T19:51:32.205Z",
+  "commit": "b1dfa0ddf1377955470ee7697a6dfed491c939de",
+  "subject": "Indian 9 to Available + world batch 2 + speech-tag fix (v129): 9 Indian courses Available (hub+home+registry, 21/84/20 counts); Russian/Arabic/Chinese/Japanese/Korean courses (30 lessons, 120 practice, 100 quiz, 120 review — all hand-authored); registry 32 = 1 PROD + 19 AVAIL + 12 BETA; fixed ja-JP/ko-KR/uk-UA/vi-VN speech tags at phase7 source; sitemap-courses.xml (111 urls); doctor 11/11, SEO 1019/0/0",
+  "buildTime": "2026-09-13T20:03:22.648Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,

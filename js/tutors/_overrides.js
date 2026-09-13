@@ -2,7 +2,7 @@
    EkGuru — SHEET OVERRIDES  (GENERATED — DO NOT EDIT)
    ---------------------------------------------------------
    Written by tools/sheetsync.js from the Google Sheet on
-   2026-09-13T16:23:49.003Z.
+   2026-09-13T19:59:02.904Z.
 
    Loaded AFTER the hand-written tutor files, so the sheet
    wins. Delete this file and the site falls back to those
@@ -164,116 +164,6 @@ window.EKGURU_SHEET_OVERRIDES = {
       }
     ]
   },
-  "hemlata": {
-    "name": "Hemlata",
-    "headline": "Native Hindi Tutor for Kids, Adults & Beginners — Read, Write & Speak",
-    "city": "India",
-    "country": "India",
-    "timezone": "IST (GMT+5:30)",
-    "subject": "Hindi",
-    "lessonLength": "50 min",
-    "priceUSD": 12,
-    "experienceYears": 3,
-    "rating": 0,
-    "reviewsCount": 0,
-    "lessonsCount": 0,
-    "trialAvailable": true,
-    "verified": true,
-    "photo": "images/hemlata.jpg",
-    "thumb": "images/hemlata.jpg",
-    "banner": "images/hemlata-banner.jpg",
-    "videoTitle": "Hindi Tutor Intro",
-    "countryFlag": "🇮🇳",
-    "tags": [
-      "Native speaker",
-      "Patient",
-      "Kid-friendly",
-      "All levels"
-    ],
-    "teaches": [
-      "Hindi for beginners",
-      "Hindi for kids",
-      "Conversational Hindi",
-      "Devanagari reading & writing",
-      "Hindi grammar",
-      "Pronunciation training"
-    ],
-    "levels": [
-      "Beginner",
-      "Intermediate",
-      "Advanced"
-    ],
-    "speaks": [
-      {
-        "lang": "Hindi",
-        "level": "Native"
-      },
-      {
-        "lang": "English",
-        "level": "Intermediate B1"
-      }
-    ],
-    "about": [
-      "Namaste! I am Hemlata, a native Hindi speaker and tutor. I teach kids, adults and complete beginners, and I adapt every lesson to the age and level of the student in front of me.",
-      "My classes cover all three skills — reading, writing and speaking. We start with the sounds and the Devanagari script, then move steadily into real conversation, so you are never just memorising rules.",
-      "I believe learning a language should feel encouraging, not stressful. I keep a calm, friendly pace and give you plenty of room to make mistakes, because that is exactly how fluency is built."
-    ],
-    "experience": [
-      "Teaches learners of all ages, from young children to working adults.",
-      "Builds strong foundations with beginners: alphabet, sounds and first conversations.",
-      "Helps intermediate students move from textbook Hindi to natural everyday speech.",
-      "Provides practice material and clear feedback after every lesson.",
-      "Lessons tailored to each student's goal, whether conversation, school work or travel."
-    ],
-    "methodology": [
-      {
-        "title": "All ages welcome",
-        "desc": "Lessons are pitched to the learner, whether that is a child or an adult professional."
-      },
-      {
-        "title": "Read, write and speak",
-        "desc": "All three skills together, so your Hindi is complete and not one-sided."
-      },
-      {
-        "title": "Script from the start",
-        "desc": "Devanagari taught properly and gently, so reading stops feeling intimidating."
-      },
-      {
-        "title": "Encouraging pace",
-        "desc": "A calm, patient environment where mistakes are simply part of learning."
-      }
-    ],
-    "availability": {
-      "Mon": [
-        "19:00",
-        "20:00",
-        "21:00"
-      ],
-      "Tue": [
-        "19:00",
-        "20:00",
-        "21:00"
-      ],
-      "Wed": [
-        "19:00",
-        "20:00",
-        "21:00"
-      ],
-      "Thu": [
-        "19:00",
-        "20:00",
-        "21:00"
-      ],
-      "Fri": [
-        "19:00",
-        "20:00",
-        "21:00"
-      ],
-      "Sat": [],
-      "Sun": []
-    },
-    "reviews": []
-  },
   "shikha-dutta": {
     "name": "Shikha Dutta",
     "headline": "Experienced Hindi Tutor for Classes 1–10 — Devanagari, Grammar & Confident Speaking",
@@ -417,109 +307,6 @@ window.EKGURU_SHEET_OVERRIDES = {
       ]
     },
     "reviews": []
-  },
-  "tara": {
-    "name": "Tara",
-    "headline": "Native Hindi Tutor — Conversation, Grammar & Script for Every Level",
-    "city": "India",
-    "country": "India",
-    "timezone": "IST (GMT+5:30)",
-    "subject": "Hindi",
-    "lessonLength": "50 min",
-    "priceUSD": 8,
-    "experienceYears": 2,
-    "rating": 0,
-    "reviewsCount": 0,
-    "lessonsCount": 0,
-    "trialAvailable": true,
-    "photo": "images/placeholder-tutor.jpg",
-    "thumb": "images/placeholder-tutor.jpg",
-    "countryFlag": "🇮🇳",
-    "tags": [
-      "Native speaker",
-      "Friendly",
-      "Structured",
-      "Encouraging"
-    ],
-    "teaches": [
-      "Conversational Hindi",
-      "Hindi for beginners",
-      "Hindi grammar",
-      "Devanagari reading & writing"
-    ],
-    "levels": [
-      "Beginner",
-      "Intermediate"
-    ],
-    "speaks": [
-      {
-        "lang": "Hindi",
-        "level": "Native"
-      },
-      {
-        "lang": "English",
-        "level": "Intermediate B1"
-      }
-    ],
-    "about": [
-      "Namaste! I am Tara, a native Hindi speaker and tutor. I enjoy helping students find their confidence in Hindi, whether they are starting from zero or polishing skills they already have.",
-      "My lessons balance conversation with clear, structured grammar, so you understand why Hindi works the way it does rather than just repeating phrases.",
-      "I keep the atmosphere relaxed and encouraging. Every student learns at a different speed, and my job is to match yours."
-    ],
-    "experience": [
-      "Teaches beginners and intermediate learners from a range of countries.",
-      "Focuses on practical, everyday Hindi that students can use straight away.",
-      "Teaches the Devanagari script step by step, at a comfortable pace.",
-      "Sets short practice tasks between lessons to keep progress steady."
-    ],
-    "methodology": [
-      {
-        "title": "Conversation first",
-        "desc": "Speaking practice in every single lesson, from the very beginning."
-      },
-      {
-        "title": "Grammar that makes sense",
-        "desc": "Rules explained simply, with examples you will actually use."
-      },
-      {
-        "title": "Steady script practice",
-        "desc": "Reading and writing Devanagari built up gradually, never rushed."
-      },
-      {
-        "title": "Relaxed and encouraging",
-        "desc": "A patient space where asking questions is always welcome."
-      }
-    ],
-    "availability": {
-      "Mon": [
-        "09:00",
-        "15:00",
-        "19:00"
-      ],
-      "Tue": [
-        "09:00",
-        "15:00"
-      ],
-      "Wed": [
-        "09:00",
-        "15:00",
-        "19:00"
-      ],
-      "Thu": [
-        "09:00",
-        "15:00"
-      ],
-      "Fri": [
-        "09:00",
-        "15:00",
-        "19:00"
-      ],
-      "Sat": [
-        "10:00"
-      ],
-      "Sun": []
-    },
-    "reviews": []
   }
 };
 window.EKGURU_SHEET_SETTINGS = {
@@ -528,3 +315,8 @@ window.EKGURU_SHEET_SETTINGS = {
   "youtubeChannel": "https://www.youtube.com/@Sashi-e3s",
   "tagline": "One Student. One Goal. One Guru."
 };
+/* v130 — ids whose sheet row says active=no, as of this build.
+   js/tutors-data.js excludes them from the first paint; the live
+   sheet then corrects both ways at runtime. Keep this line AFTER
+   SETTINGS: tools/gate.js expects OVERRIDES and SETTINGS adjacent. */
+window.EKGURU_SHEET_HIDDEN = ["hemlata","tara"];

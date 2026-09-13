@@ -54,6 +54,25 @@
     }
   });
 
+  /* 2b. BAKED HIDDEN LIST (v130) — the sheet as of the last build.
+     tools/sheetsync.js writes window.EKGURU_SHEET_HIDDEN with the
+     ids whose row says active=no. Excluding them HERE fixes the
+     first paint: before this, hidden tutors rendered from their
+     files and only vanished ~500ms later when the live sheet
+     landed — a flash of unavailable tutors on every page load,
+     and permanently visible if the fetch ever failed.
+
+     This is not one-way: if the sheet now says yes again,
+     js/sheet.js rebuilds the tutor from the live row (which
+     carries the name) and they reappear within a page view. And
+     if _overrides.js is missing entirely, the list is empty and
+     everything renders — the live sheet still corrects at
+     runtime. Fail-open, never fail-closed. */
+  var bakedHidden = window.EKGURU_SHEET_HIDDEN || [];
+  if (bakedHidden.length) {
+    list = list.filter(function (t) { return bakedHidden.indexOf(t.id) === -1; });
+  }
+
   /* 3. tell the developer clearly if a file failed to load */
   if (missing.length) {
     console.error('[EkGuru] These tutors are listed in _registry.js but their file did not load: ' +

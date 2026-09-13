@@ -233,9 +233,23 @@ async function fetchSettings(url) {
 
   const reviewMap = buildReviews(reviews);
   const overrides = {};
+  const hidden = [];
+  const HIDE_RE = /^(no|false|0|n|hidden)$/i;
   for (const row of tutors) {
     const id = String(row.id || "").trim().toLowerCase();
     if (!id || id.charAt(0) === "#") continue;   // the #help row
+    /* v130 — active=no hides the tutor everywhere. No overrides are
+       baked for them, and the id joins EKGURU_SHEET_HIDDEN so the
+       FIRST paint — before the live sheet arrives — already excludes
+       them. Before this, hidden tutors were baked with fresh data
+       and flashed visible on every page load. */
+    if (HIDE_RE.test(String(row.active || "yes").trim())) { hidden.push(id); continue; }
+    /* The availability column holds time slots, not a switch. A bare
+       "no" there parses to nothing and is silently ignored — which
+       reads as "the sheet did nothing". Say so at build time. */
+    if (/^(no|n|false|0)$/i.test(String(row.availability || "").trim())) {
+      console.warn(`  !! "${id}": availability="${row.availability}" does nothing — to hide this tutor set active=no.`);
+    }
     const t = buildTutor(row);
     if (!t.name) continue;                    // a tutor needs a name
     delete t.id;
@@ -283,11 +297,17 @@ async function fetchSettings(url) {
    ========================================================= */
 window.EKGURU_SHEET_OVERRIDES = ${JSON.stringify(overrides, null, 2)};
 window.EKGURU_SHEET_SETTINGS = ${JSON.stringify(settingsObj, null, 2)};
+/* v130 — ids whose sheet row says active=no, as of this build.
+   js/tutors-data.js excludes them from the first paint; the live
+   sheet then corrects both ways at runtime. Keep this line AFTER
+   SETTINGS: tools/gate.js expects OVERRIDES and SETTINGS adjacent. */
+window.EKGURU_SHEET_HIDDEN = ${JSON.stringify(hidden)};
 `;
   const target = path.join(__dirname, "..", "js", "tutors", "_overrides.js");
   fs.writeFileSync(target, out);
   console.log(`Wrote ${path.relative(process.cwd(), target)}`);
   console.log(`  tutors: ${Object.keys(overrides).join(", ")}`);
+  console.log(`  hidden (active=no): ${hidden.join(", ") || "(none)"}`);
   console.log(`  settings: ${Object.keys(settingsObj).join(", ")}`);
   console.log(`  emails written: ${Object.values(overrides).filter(t => t.email).length}`);
 })();

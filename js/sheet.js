@@ -740,10 +740,30 @@
       var activeCell = String(pick(r, lower, "active") || "yes").trim();
       var isHidden = /^(no|false|0|n|hidden)$/i.test(activeCell);
 
+      /* v130 — the availability column holds time slots ("Mon 09:00…"),
+         not a switch. A bare "no" there parses to nothing and is
+         silently ignored, which reads as "the sheet did nothing". */
+      var availCell = String(pick(r, lower, "availability") || "").trim();
+      if (/^(no|n|false|0)$/i.test(availCell)) {
+        console.warn('[EkGuru] Sheet: availability="' + availCell + '" for "' + r.id +
+          '" does nothing — to hide this tutor set active=no.');
+      }
+
       var t = byId[r.id];
 
       if (!t) {
-        if (isHidden) return;                        /* hidden and new: nothing to do */
+        /* Hidden and new: nothing to RENDER — but on a page with no
+           tutor list (a pre-rendered profile, a city page) the stub
+           below is the only way js/livepatch.js learns this tutor
+           is hidden. Dropping the row outright left hidden tutors
+           standing on exactly those pages. (v130) */
+        if (isHidden) {
+          if (!MASTER || !MASTER.length) {
+            byId[r.id] = { id: r.id, _recordOnly: true, _hiddenBySheet: true };
+            hidden++;
+          }
+          return;
+        }
 
         /* =========================================================
            BUG FOUND v65 — A PAGE WITH NO TUTOR LIST AT ALL.
