@@ -61,6 +61,21 @@ for d in keys:
 shared = [(g, c) for g, c in gram_freq.items() if c >= int(len(keys) * 0.6)]
 shared.sort(key=lambda x: -x[1])
 
+# v102 — substance similarity: strip the shared scaffolding 5-grams, then
+# re-run pairwise Jaccard on what REMAINS. If pages differ only by slot
+# values inside identical frames, substance similarity stays high; if the
+# shared text is just section scaffolding around distinct per-country
+# substance, it collapses. This separates "same template" from "same facts".
+template_grams = {g for g, c in shared}
+substance = {d: grams[d] - template_grams for d in keys}
+sub_pairs = []
+for i in range(len(keys)):
+    for j in range(i + 1, len(keys)):
+        sub_pairs.append(jaccard(substance[keys[i]], substance[keys[j]]))
+avg_sub = round(sum(sub_pairs) / len(sub_pairs), 3) if sub_pairs else None
+max_sub = round(max(sub_pairs), 3) if sub_pairs else None
+avg_substance_grams = round(sum(len(substance[d]) for d in keys) / len(keys), 1) if keys else 0
+
 # per-page uniqueness: fraction of its 5-grams that are rare (appear in <= 3 pages)
 rare_count = Counter()
 for d in keys:
@@ -77,6 +92,10 @@ report = {
     "pages": len(keys),
     "max_similarity": round(pairs[0][0], 3) if pairs else None,
     "avg_similarity": round(sum(s for s, _, _ in pairs) / len(pairs), 3) if pairs else None,
+    "avg_substance_similarity": avg_sub,
+    "max_substance_similarity": max_sub,
+    "template_5gram_count": len(template_grams),
+    "avg_substance_5grams_per_page": avg_substance_grams,
     "top_similar_pairs": worst,
     "template_5grams": [{"phrase": " ".join(g), "pages_with": c} for g, c in shared[:25]],
     "least_unique_pages": sorted(uniq_ratio.items(), key=lambda x: x[1])[:20],
@@ -88,6 +107,8 @@ with open("reports/country-detemplating-phase7b.json", "w", encoding="utf-8") as
 
 print("pages:", report["pages"], "| max sim:", report["max_similarity"],
       "| avg sim:", report["avg_similarity"], "| avg unique ratio:", report["avg_unique_ratio"])
+print("substance (scaffolding stripped): avg sim:", avg_sub, "| max sim:", max_sub,
+      "| template 5-grams:", len(template_grams), "| avg substance 5-grams/page:", avg_substance_grams)
 print("\ntop similar pairs:")
 for w in worst[:12]:
     print("  %.3f  %s <-> %s" % (w["sim"], w["a"], w["b"]))

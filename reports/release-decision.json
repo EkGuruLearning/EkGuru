@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-11T16:38:02.692Z",
+  "generated": "2026-09-13T13:27:58.490Z",
   "decision": {
     "RELEASE": {
       "result": "GO",
@@ -15,7 +15,7 @@
     },
     "PRIVACY": {
       "result": "PASS",
-      "evidence": "659 files, 0 secrets, 0 blocked"
+      "evidence": "863 files, 0 secrets, 0 blocked"
     },
     "DOCTOR": {
       "result": "PASS",
@@ -23,19 +23,19 @@
     },
     "DATA": {
       "result": "PASS",
-      "evidence": "4 CSVs reachable, schema 26/26, unique ids, no silent []"
+      "evidence": "PAUSED_FOR_REUPLOAD (by design, v101): 4 csvUrl empty + paused flags set; local csv/*.csv are the live data (read live from js/site-config.js; schema: python3 tools/test-data-sources.py)"
     },
     "EMAIL": {
       "result": "FAIL",
-      "evidence": "real E2E: contact internal copy ACCEPTED via StaticForms (live); visitor copy routes via a stranger-capable relay (Web3Forms UNVERIFIABLE from this datacenter; Apps Script live but unconfigured); no DELIVERED claim made"
+      "evidence": "real E2E (as of 2026-09-11): contact internal copy ACCEPTED via StaticForms (live); visitor copy routes via a stranger-capable relay (Web3Forms UNVERIFIABLE from this datacenter; Apps Script live but unconfigured); no DELIVERED claim made"
     },
     "BOOKING": {
       "result": "DEGRADED",
-      "evidence": "real E2E: Tutor A/B honest routing (TUTOR_EMAIL_UNAVAILABLE, no generic tutor inbox); internal record ACCEPTED via StaticForms; tutor/student copies via stranger-capable relay unverifiable from datacenter"
+      "evidence": "real E2E (as of 2026-09-11): Tutor A/B honest routing (TUTOR_EMAIL_UNAVAILABLE, no generic tutor inbox); internal record ACCEPTED via StaticForms; tutor/student copies via stranger-capable relay unverifiable from datacenter"
     },
     "STUDENT_EMAIL": {
-      "result": "ACCEPTED_UNVERIFIED",
-      "evidence": "Apps Script relay reachable and server token minted; client token wired. Student receipt routes via own Gmail — real student-mailbox receipt still required to close P0."
+      "result": "BLOCKED_ON_TOKEN",
+      "evidence": "client token EMPTY (read live from js/site-config.js in this tree). Server audit as of 2026-09-11: relay reachable, server token minted. Student receipt has no verified route until mail.appsScript.token is wired (python3 tools/wire-token.py)."
     },
     "EMAIL_IDEMPOTENCY": {
       "result": "PASS",
@@ -67,7 +67,7 @@
     },
     "SEO": {
       "result": "PASS",
-      "evidence": "575 pages, 0 broken, 0 orphans, 585 sitemap urls"
+      "evidence": "669 pages, 0 broken, 0 orphans, 608 sitemap urls"
     },
     "MOBILE": {
       "result": "PASS",
@@ -87,7 +87,7 @@
     },
     "CONTENT": {
       "result": "PASS",
-      "evidence": "554 pages, 171 fingerprinted, 210 VERY_HIGH self-similar pairs (city-page template cluster — remediation planned)"
+      "evidence": "669 pages, 171 fingerprinted, 210 VERY_HIGH self-similar pairs (city-page template cluster — remediation planned)"
     },
     "COPY_PROTECTION": {
       "result": "DEGRADED",

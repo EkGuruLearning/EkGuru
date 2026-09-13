@@ -64,8 +64,60 @@ const SECRET_PATTERNS = [
   { name: "SMTP password", re: /\b(smtp[_-]?pass(word)?|mail[_-]?pass(word)?)\s*[:=]\s*["']?[^\s"']{4,}/gi },
   { name: "token= secret", re: /(api[_-]?token|access[_-]?token|secret[_-]?key)\s*[:=]\s*["']?[A-Za-z0-9._-]{8,}/gi },
 ];
-const PHONE_RE = /\b(?:\+?\d{1,3}[\s-]?)?(?:\(?\d{2,4}\)?[\s-]?)?\d{3}[\s-]?\d{3}[\s-]?\d{4}\b/g;
+/* v102 — PHONE separators are space/tab/hyphen ONLY. The old [\s-] also
+   matched newlines, gluing unrelated numbers on adjacent lines (CSS
+   breakpoints "360\n390\n430…", JSON measurements) into fake phones. */
+const PHONE_RE = /\b(?:\+?\d{1,3}[ \t-]?)?(?:\(?\d{2,4}\)?[ \t-]?)?\d{3}[ \t-]?\d{3}[ \t-]?\d{4}\b/g;
 const EMAIL_RE = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/g;
+
+/* Well-known numeric constants that are never phone numbers (verified in
+   this repo: FNV-1 hash basis + 2^32 in js/hindi-tools.js etc.). */
+const KNOWN_NUMERIC_CONSTANTS = new Set([
+  "2166136261",   // FNV-1 32-bit offset basis
+  "16777619",     // FNV-1 32-bit prime (short, guarded anyway)
+  "2147483648",   // 2^31
+  "2147483647",   // 2^31 - 1
+  "4294967296",   // 2^32
+  "4294967295",   // 2^32 - 1
+]);
+
+/* Shannon entropy in bits/char. Random base64 (a real AWS secret key)
+   measures ~5.5-6.0; English text and hex hashes measure ~3.5-4.5. */
+function shannon(s) {
+  const freq = Object.create(null);
+  for (const ch of s) freq[ch] = (freq[ch] || 0) + 1;
+  let h = 0;
+  for (const ch in freq) {
+    const p = freq[ch] / s.length;
+    h -= p * Math.log2(p);
+  }
+  return h;
+}
+
+/* v102 — false-positive gate for the generic 40-char "AWS secret key"
+   pattern, which also matches git SHA-1 hashes and English phrases.
+   Returns true when the match is benign and must NOT be flagged. */
+function isBenignSecretMatch(name, val) {
+  // Web3Forms-style UUIDs (public access keys, by design)
+  if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(val)) return true;
+  if (name === "AWS secret key") {
+    // git SHA-1 / build fingerprint: 40 hex chars. The values flagged
+    // here were verified to be commit objects (git cat-file = commit).
+    if (/^[0-9a-f]{40}$/i.test(val)) return true;
+    // A real 40-char base64 key is mixed-case AND carries digits or
+    // base64 symbols (+/=). Paths and lowercase phrases fail this.
+    // (Verified: the AWS documentation example key passes this test.)
+    const mixed = /[A-Z]/.test(val) && /[a-z]/.test(val) &&
+                  /[0-9+=]/.test(val);
+    if (!mixed) return true;
+    // English phrases that pass the mixed test ("…/FormSubmit/…")
+    // still have far lower entropy than random base64. Measured on
+    // 13 Sep 2026: known false positives 3.4–4.1, AWS doc example
+    // key 4.66, true random keys ~5.5+. Threshold 4.3 splits the gap.
+    if (shannon(val) < 4.3) return true;
+  }
+  return false;
+}
 
 /* ---- 1. repository scan ---- */
 function walk(dir, out) {
@@ -88,8 +140,7 @@ for (const f of files) {
     pat.re.lastIndex = 0;
     while ((m = pat.re.exec(text)) !== null) {
       const val = m[0];
-      // allow the Web3Forms-style UUIDs (public access keys)
-      if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(val)) continue;
+      if (isBenignSecretMatch(pat.name, val)) continue;
       addFinding("secret", rel, `${pat.name}: ${val.slice(0, 40)}`);
     }
   }
@@ -99,9 +150,12 @@ for (const f of files) {
     for (const em of m) {
       // documentation placeholders, not real addresses
       if (/@example\.(com|org|net|edu)$/i.test(em)) continue;
+      // RFC 2606 reserved TLDs — can never be a real address
+      // (catches test fixtures like evil@attacker.example)
+      if (/\.(example|test|invalid|localhost)$/i.test(em)) continue;
       const lower = em.toLowerCase();
       if (DOC_EXAMPLES.has(lower)) continue;
-      if (/^(x|y|test|foo|bar|no.?reply|noreply|hello|hi|info|contact|support|team|admin|user|user1|student|demo|sample)(\d*)[@.]/i.test(lower)) continue;
+      if (/^(x|y|test|foo|bar|no.?reply|noreply|hello|hi|info|contact|support|team|admin|user|user1|student|tutor|evil|attacker|demo|sample)(\d*)[@.]/i.test(lower)) continue;
       const cat = INTENTIONAL_PUBLIC.has(lower) ? "public" : "sensitive";
       if (cat === "sensitive") addFinding("sensitive", rel, `email: ${em}`);
     }
@@ -125,10 +179,19 @@ for (const f of files) {
       if (digits === "8175326569491671") continue;
       if (SHEET_GIDS.has(digits)) continue;
       if (gids.has(digits)) continue;
+      if (KNOWN_NUMERIC_CONSTANTS.has(digits)) continue;          // FNV basis, 2^32… (code constants)
       const before = mm.index > 0 ? text[mm.index - 1] : "";
-      if (/[-A-Za-z0-9]/.test(before)) continue;                    // part of a larger token
+      const after = mm.index + ph.length < text.length ? text[mm.index + ph.length] : "";
+      if (/[-A-Za-z0-9.]/.test(before)) continue;                 // part of a larger token…
+      if (/[.0-9]/.test(after)) continue;                         // …or of a decimal / longer digit run
+      // a solid 13+ digit run with no separators is a measurement, a
+      // timestamp or a hash fragment — never a dialable number as written
+      if (digits.length >= 13 && !/[ \t()-]/.test(ph)) continue;
       if (digits.length >= 10 && !/^(20\d{2}|19\d{2})$/.test(digits) && !INTENTIONAL_PUBLIC.has(ph)) {
         if (/^(\d)\1{5,}$/.test(digits)) continue;                 // 000000…, 999999…
+        // ≤2 distinct digits (e.g. 11111111-2222): a fixture, never a
+        // real number — P(real 10-digit number this uniform) ≈ 1e-6
+        if (new Set(digits).size <= 2) continue;
         if (/^0*1?2?3?4?5?6?7?8?9?$/.test(digits) && /123456|0123456789/.test(digits)) continue; // sequential
         if (["919876543210", "1234567890123456", "919812345678"].includes(digits)) continue;      // doc placeholders
         addFinding("sensitive", rel, `phone-like: ${ph}`);
@@ -229,7 +292,7 @@ async function scanLive() {
     for (const pat of SECRET_PATTERNS) {
       let m; pat.re.lastIndex = 0;
       while ((m = pat.re.exec(text)) !== null) {
-        if (/^[0-9a-f]{8}-/.test(m[0])) continue;
+        if (isBenignSecretMatch(pat.name, m[0])) continue;
         addFinding("secret", "live:homepage", `${pat.name}: ${m[0].slice(0, 40)}`);
       }
     }

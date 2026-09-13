@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-12T06:45:10.591Z",
+ "generated": "2026-09-13T13:24:13.388Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 606,
+  "totalHtml": 669,
   "materials": 0
  },
  "countries": {
@@ -3923,24 +3923,24 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 606,
-  "sitemapUrls": 601,
+  "pages": 669,
+  "sitemapUrls": 608,
   "sitemapFiles": 14,
   "brokenLinks": 0,
   "orphans": 0
  },
  "privacy": {
-  "state": "FAIL",
-  "fails": 215,
+  "state": "PASS",
+  "fails": 0,
   "blocked": 0,
-  "note": "722 files scanned, 4 secrets"
+  "note": "863 files scanned, 0 secrets"
  },
  "gate": {
-  "doctorProblems": 1,
+  "doctorProblems": 0,
   "doctorWarnings": 0,
   "doctorChecks": 11,
   "seoPass": true,
-  "privacyState": "FAIL"
+  "privacyState": "PASS"
  },
  "tutors": [
   {
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "dd8a4a2dc1ce28b9725a89463551db02058faf1a",
-  "subject": "Phase 4: Learn Hindi complete structure (hub/levels/topics)",
-  "buildTime": "2026-09-12T06:45:10.618Z",
+  "commit": "1c98845b461837f8ba23f376d23e7e40e8847e39",
+  "subject": "Phase 7C: refresh reports/handoff to Stage 8 SHA, final gate 45/45",
+  "buildTime": "2026-09-13T13:24:13.405Z",
   "dataSourceStatus": "PAUSED_FOR_REUPLOAD",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 606,
+   "totalHtml": 669,
    "tutorProfiles": 4,
    "materials": 0
   }
