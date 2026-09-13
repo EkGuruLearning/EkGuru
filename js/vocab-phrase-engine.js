@@ -68,9 +68,13 @@
     return (cache || []).filter(function (i) { return i.id === id; })[0] || null;
   }
 
-  function itemHTML(i, compact) {
+  function itemHTML(i, compact, opts) {
+    var listen = opts && opts.listen && opts.speechTag;
+    var target = '<p class="v-target" lang="' + esc(i.language || "hi") + '" dir="auto"'
+      + (listen ? ' data-say="' + esc(i.target) + '" data-say-lang="' + esc(opts.speechTag) + '"' : "")
+      + '>' + esc(i.target) + "</p>";
     var h = '<article class="v-item" data-vid="' + esc(i.id) + '" data-hi-card="' + esc(JSON.stringify({ p: i.target, a: i.meaning, c: i.topic || "vocabulary", l: i.language || "hi" })) + '">'
-      + '<p class="v-target" lang="' + esc(i.language || "hi") + '" dir="auto">' + esc(i.target) + "</p>"
+      + target
       + '<p class="v-roman">' + esc(i.roman) + "</p>"
       + '<p class="v-meaning">' + esc(i.meaning) + "</p>";
     if (!compact) {
@@ -104,14 +108,19 @@
       if (root.EkGuruSRS && typeof root.EkGuruSRS.mountAddButtons === "function") root.EkGuruSRS.mountAddButtons();
     },
     /* Phase 7C Stage 2: render an arbitrary language pack through this same
-       engine (reuse proof). Defaults to the Hindi data file. */
-    renderFrom: function (el, url, filter) {
+       engine (reuse proof). Defaults to the Hindi data file.
+       opts.listen + opts.speechTag add honest browser-TTS "Listen" buttons
+       (Stage 4) — never on the default Hindi path. */
+    renderFrom: function (el, url, filter, opts) {
       if (!el) return;
       load(url).then(function (items) {
         var list = items.filter(function (i) { return !filter || filter(i); });
         if (!list.length) { el.innerHTML = '<p class="muted">No items match.</p>'; return; }
-        el.innerHTML = list.map(function (i) { return itemHTML(i, true); }).join("");
+        el.innerHTML = list.map(function (i) { return itemHTML(i, true, opts); }).join("");
         if (root.EkGuruSRS && typeof root.EkGuruSRS.mountAddButtons === "function") root.EkGuruSRS.mountAddButtons();
+        if (opts && opts.listen && root.EkGuruHindiAudio && typeof root.EkGuruHindiAudio.mountSay === "function") {
+          root.EkGuruHindiAudio.mountSay();
+        }
       }).catch(function () {
         el.innerHTML = '<p class="muted">Language pack unavailable.</p>';
       });

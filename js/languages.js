@@ -480,7 +480,7 @@ window.EKGURU_LANGUAGES = [
     "script": "Arabic",
     "direction": "rtl",
     "transliteration": "ALA-LC",
-    "speechTag": "ur-UR",
+    "speechTag": "ur-PK",
     "browserSpeech": true,
     "audioStatus": "BROWSER_TTS",
     "contentMaturity": {
@@ -615,7 +615,7 @@ window.EKGURU_LANGUAGES = [
     "script": "Bengali",
     "direction": "ltr",
     "transliteration": "IAST",
-    "speechTag": "bn-BN",
+    "speechTag": "bn-IN",
     "browserSpeech": true,
     "audioStatus": "BROWSER_TTS",
     "contentMaturity": {
@@ -642,7 +642,7 @@ window.EKGURU_LANGUAGES = [
     "script": "Tamil",
     "direction": "ltr",
     "transliteration": "ISO 15919",
-    "speechTag": "ta-TA",
+    "speechTag": "ta-IN",
     "browserSpeech": true,
     "audioStatus": "BROWSER_TTS",
     "contentMaturity": {
@@ -669,7 +669,7 @@ window.EKGURU_LANGUAGES = [
     "script": "Telugu",
     "direction": "ltr",
     "transliteration": "ISO 15919",
-    "speechTag": "te-TE",
+    "speechTag": "te-IN",
     "browserSpeech": true,
     "audioStatus": "BROWSER_TTS",
     "contentMaturity": {
@@ -696,7 +696,7 @@ window.EKGURU_LANGUAGES = [
     "script": "Gurmukhi",
     "direction": "ltr",
     "transliteration": "ISO 15919",
-    "speechTag": "pa-PA",
+    "speechTag": "pa-IN",
     "browserSpeech": true,
     "audioStatus": "BROWSER_TTS",
     "contentMaturity": {
@@ -723,7 +723,7 @@ window.EKGURU_LANGUAGES = [
     "script": "Gujarati",
     "direction": "ltr",
     "transliteration": "ISO 15919",
-    "speechTag": "gu-GU",
+    "speechTag": "gu-IN",
     "browserSpeech": true,
     "audioStatus": "BROWSER_TTS",
     "contentMaturity": {
@@ -750,7 +750,7 @@ window.EKGURU_LANGUAGES = [
     "script": "Devanagari",
     "direction": "ltr",
     "transliteration": "ISO 15919",
-    "speechTag": "mr-MR",
+    "speechTag": "mr-IN",
     "browserSpeech": true,
     "audioStatus": "BROWSER_TTS",
     "contentMaturity": {

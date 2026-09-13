@@ -62,6 +62,17 @@ CORE_STYLE = """
 .g-gloss{color:var(--ink-2);font-size:.88rem}
 .g-note{font-size:.92rem;color:var(--ink-2)}
 .hi-review-add{margin-left:8px}
+.hi-listen{display:inline-flex;align-items:center;gap:5px;margin:0 0 0 8px;padding:4px 10px;font-size:.82rem;line-height:1.4;border-radius:999px;border:1px solid var(--line);background:var(--bg-soft);color:var(--ink);cursor:pointer;vertical-align:middle}
+.hi-listen.playing{background:var(--brand);border-color:var(--brand);color:#fff}
+.sc-box{border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:10px 0;background:var(--bg-soft)}
+.sc-word{font-size:1.5rem;font-weight:700;margin:4px 0}
+.sc-count{font-size:.82rem;color:var(--muted);margin:0 0 4px}
+.sc-opts{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.sc-opt:disabled{cursor:default;opacity:.92}
+.sc-opt.sc-right{border-color:#1a7f37;color:#1a7f37;background:#e8f6ec}
+.sc-opt.sc-wrong{border-color:#b42318;color:#b42318;background:#fdeceb}
+.sc-fb{font-size:.95rem;min-height:1.4em;margin:8px 0}
+.sc-nav{min-height:40px}
 """
 
 
@@ -270,6 +281,23 @@ def _langpack_script(code):
             '  </script>\n') % esc(code)
 
 
+def _startercheck_script(code):
+    return ('  <script defer>\n'
+            '  (function(){\n'
+            '    var el=document.getElementById("starter-check");\n'
+            '    if(!el){return;}\n'
+            '    function ready(cb){\n'
+            '      if(window.EkGuruStarter){cb();return;}\n'
+            '      var n=0,t=setInterval(function(){\n'
+            '        if(window.EkGuruStarter){clearInterval(t);cb();}\n'
+            '        else if(++n>40){clearInterval(t);el.innerHTML=\'<p class="muted">Starter check unavailable right now.</p>\';}\n'
+            '      },100);\n'
+            '    }\n'
+            '    ready(function(){ window.EkGuruStarter.renderCheck(el, "%s"); });\n'
+            '  })();\n'
+            '  </script>\n') % esc(code)
+
+
 def lang_pages():
     """One indexable page per BETA starter pack, authored and honest.
     Only languages with an authored pack get a page — PLANNED languages stay
@@ -305,20 +333,26 @@ def lang_pages():
             '  <p>%s</p>\n'
             '  <h2>Starter pack preview</h2>\n'
             '  <p class="muted">%d words · %d phrases · %d grammar concepts — rendered live by the same '
-            'engines that render Hindi, with the same device-only “Add to review” hook.</p>\n'
+            'engines that render Hindi, with the same device-only “Add to review” hook. The 🔊 Listen '
+            'button is your browser’s computer voice, not a native recording.</p>\n'
             '  <div class="lp-box"><div id="langpack-app"><p class="muted">Loading %s starter pack…</p></div></div>\n'
-            '  <div class="note"><b>This is not a full course.</b> There are no lesson pages, no recorded '
-            'audio and no quizzes here yet. When real lessons exist for a language, it moves up — for now '
-            'the only full course is <a href="/learn/hindi/">Hindi</a>.</div>\n'
+            '  <h2>Starter check</h2>\n'
+            '  <p class="muted">A fixed rule-based check over this pack’s words — the same questions every '
+            'time. Not an exam, not AI, nothing is saved.</p>\n'
+            '  <div id="starter-check"><p class="muted">Loading starter check…</p></div>\n'
+            '  <div class="note"><b>This is not a full course.</b> There are no lesson pages and no recorded '
+            'audio here. When real lessons exist for a language, it moves up — for now the only full course '
+            'is <a href="/learn/hindi/">Hindi</a>.</div>\n'
             '  <p><a class="btn" href="/languages/">All languages</a> '
             '<a class="btn" href="/learn/hindi/">Start learning Hindi</a></p>\n'
         ) % (name, name, esc(d.get("honestNote", "") or STD_NOTE), about,
              (p.get("counts") or {}).get("vocab", 0),
              (p.get("counts") or {}).get("phrase", 0),
-             (p.get("counts") or {}).get("grammar", 0), name) + _langpack_script(code)
+             (p.get("counts") or {}).get("grammar", 0), name) + _langpack_script(code) + _startercheck_script(code)
         write("languages/%s/index.html" % code, "../../", title, d.get("about", ""),
               "languages/%s/" % code, body,
-              scripts=["vocab-phrase-engine.js", "grammar-engine.js", "hindi-srs.js", "language-pack.js"])
+              scripts=["vocab-phrase-engine.js", "grammar-engine.js", "hindi-srs.js",
+                       "language-pack.js", "hindi-audio.js", "starter-practice.js"])
         made += 1
     return made
 

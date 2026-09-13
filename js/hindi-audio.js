@@ -34,12 +34,12 @@
     if (supported()) { try { window.speechSynthesis.cancel(); } catch (e) {} }
   }
 
-  function speak(text, btn) {
+  function speak(text, btn, langTag) {
     if (!supported()) return false;
     stop();
     try {
       var u = new SpeechSynthesisUtterance(String(text));
-      u.lang = "hi-IN";
+      u.lang = langTag || "hi-IN";
       u.rate = 0.8;
       u.onend = function () {
         if (active && active.btn === btn) stop();
@@ -111,15 +111,68 @@
     });
   }
 
+  /* Phase 7C Stage 4 — language-aware listen buttons for starter packs.
+     Same honest computer-voice behaviour as Hindi, but the utterance language
+     comes from data-say-lang (a BCP-47 tag). Only mounted when the pack
+     renderer asks for it; the Hindi flow is untouched. */
+  function sayLabelPlaced() {
+    return !!document.getElementById("hi-audio-note");
+  }
+
+  function mountSay() {
+    var items = document.querySelectorAll("[data-say]");
+    if (!items.length) return;
+    var labelPlaced = sayLabelPlaced();
+    items.forEach(function (el) {
+      if (el.getAttribute("data-say-mounted")) return;
+      el.setAttribute("data-say-mounted", "1");
+      var text = el.getAttribute("data-say");
+      var langTag = el.getAttribute("data-say-lang") || "hi-IN";
+      var prov = (window.EkGuruAudioProvider && typeof window.EkGuruAudioProvider.describe === "function")
+        ? window.EkGuruAudioProvider.describe(langTag) : { provider: supported() ? "BROWSER_TTS" : "UNAVAILABLE" };
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "hi-listen";
+      btn.setAttribute("aria-label", "Listen to “" + text + "” (computer voice)");
+      btn.setAttribute("aria-pressed", "false");
+      if (supported() && prov.provider !== "UNAVAILABLE") {
+        btn.innerHTML = '<span aria-hidden="true">🔊</span> <span class="hi-listen-lbl">Listen</span>';
+        btn.title = "Computer voice (browser TTS) — " + langTag + ". Not a native recording.";
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          if (btn.classList.contains("playing")) stop();
+          else speak(text, btn, langTag);
+        });
+      } else {
+        btn.setAttribute("disabled", "disabled");
+        btn.textContent = "Audio unavailable";
+        btn.title = "No computer voice for " + langTag + " in this browser.";
+      }
+      if (!labelPlaced) {
+        var note = mountLabel();
+        if (note) {
+          var anchor = el.closest ? (el.closest("td,th") ? el.closest("table") : el.closest("p,li,div,section")) : null;
+          anchor = anchor || el.parentNode;
+          if (anchor && anchor.parentNode) { anchor.parentNode.insertBefore(note, anchor.nextSibling); labelPlaced = true; }
+        }
+      }
+      el.appendChild(btn);
+    });
+  }
+
   /* style hook (CSS lives in style.min.css: .hi-listen) */
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", mount);
-  } else {
+  function boot() {
     mount();
+    mountSay();
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
   }
 
   /* tiny public API for other features (typing trainer etc.) */
-  window.EkGuruHindiAudio = { speak: speak, stop: stop, supported: supported };
+  window.EkGuruHindiAudio = { speak: speak, stop: stop, supported: supported, mountSay: mountSay };
 
   /* =========================================================
      Phase 7 §10 — AUDIO PROVIDER ABSTRACTION (additive, non-breaking)

@@ -68,7 +68,9 @@ LANGUAGES = [
 # browser TTS (speechSynthesis) BCP-47 tags — standard tags every modern
 # browser ships for these languages; RECORDED audio is none anywhere.
 def speech_tag(iso):
-    return {"zh": "zh-CN", "pt": "pt-BR", "sw": "sw-KE", "en": "en-IN"}.get(iso, iso + "-" + iso.upper())
+    return {"zh": "zh-CN", "pt": "pt-BR", "sw": "sw-KE", "en": "en-IN",
+            "bn": "bn-IN", "ta": "ta-IN", "te": "te-IN", "mr": "mr-IN",
+            "gu": "gu-IN", "pa": "pa-IN", "ur": "ur-PK"}.get(iso, iso + "-" + iso.upper())
 
 def build_languages():
     out = []

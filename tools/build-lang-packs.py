@@ -752,6 +752,7 @@ def build_manifest():
             "nativeName": meta.get("nativeName") or "",
             "script": meta.get("script") or "",
             "direction": meta.get("direction") or "ltr",
+            "speechTag": meta.get("speechTag") or (code + "-" + code.upper()),
             "status": "BETA",
             "scope": d.get("scope", STD_SCOPE),
             "honestNote": STD_NOTE,

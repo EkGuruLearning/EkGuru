@@ -1,29 +1,34 @@
 {
-  "generated": "2026-09-13T02:44:52Z",
-  "commit": "d65a304b3c49118066dc05087d2ae8006d03778a",
-  "publishabilityGate": "ENFORCED — no page was published solely because a combination exists.",
-  "newPages": [
-    {
-      "url": "/learn/contexts/india-visitor/",
-      "uniqueIntent": "visitor trip survival",
-      "duplicateRisk": "low — phrases link back to travel lesson, framed as a curated path"
-    },
-    {
-      "url": "/learn/contexts/heritage/",
-      "uniqueIntent": "NRI/heritage family+culture",
-      "duplicateRisk": "low — family/courtesy/culture framed for heritage learners"
-    },
-    {
-      "url": "/learn/my-learning/",
-      "uniqueIntent": "device dashboard",
-      "duplicateRisk": "noindex, not an SEO asset"
-    }
-  ],
-  "totalSitePages": "574 (existing, from search/index.html) + 3 new = 577",
-  "indexable": "2 new (contexts), 1 noindex (my-learning)",
-  "noKeywordSpinning": true,
-  "noCityCountrySpinning": true,
-  "noHiddenText": true,
-  "noFakeFAQs": true,
-  "scalePosture": "Stage 1 (Hindi perfected) only. No mass batch generated; the 128MB workspace stays far from the 10k-file ceiling."
+  "generated": "2026-09-13T03:00:30Z",
+  "method": "static crawl of local files (link graph needs no browser)",
+  "totalPages": 615,
+  "indexable": 609,
+  "noindex": 6,
+  "duplicateTitles": {
+    "count": 0,
+    "examples": []
+  },
+  "duplicateDescriptions": {
+    "count": 0,
+    "examples": []
+  },
+  "brokenInternalLinks": {
+    "count": 0,
+    "examples": []
+  },
+  "canonicalDrift": {
+    "count": 0,
+    "examples": [],
+    "intentionalLegacyAliases": [
+      [
+        "/tutor.html",
+        "https://ekguru.shop/tutor/"
+      ]
+    ]
+  },
+  "orphanPages": {
+    "count": 0,
+    "examples": []
+  },
+  "verdictNote": "Real counts from the local build. The Phase 7C batch added zero duplicate titles/descriptions, zero broken internal links and zero orphans. The one canonical alias (tutor.html → /tutor/) is an intentional legacy redirect, not a defect."
 }

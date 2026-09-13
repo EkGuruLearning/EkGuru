@@ -2,8 +2,8 @@
 
 - **repo**: EkGuru (GitHub Pages static site)
 - **branch**: main
-- **SHA**: d65a304b3c49118066dc05087d2ae8006d03778a
-- **verdict**: GREEN_GLOBAL_ENGINE_PRODUCTION_READY (38/38)
+- **SHA**: 4c708294e04f02dcec0f935f9c93ee2802341aee
+- **verdict**: GREEN_GLOBAL_ENGINE_PRODUCTION_READY (39/39)
 
 ## Completed batches
 - tranche 1: content graph + registries + live inventory
@@ -15,6 +15,7 @@
 - tranche 7: multi-viewport gate (Gate G), real SEO-scale crawl (Gate H), automation pipeline (16/16), search-index integration (578 entries), contexts hub, intermediate page de-orphaned
 - tranche 8 (Stage 2): language-pack reuse proof — Spanish starter pack (BETA) renders through the same engines (Gate I); content schema + graph reports; es stays BETA, hi stays the only PRODUCTION language
 - tranche 9 (Stage 3): multi-language starter packs — 9 authored BETA packs (en/es/bn/ta/te/mr/gu/pa/ur) with per-language indexable pages, home-page section/nav/global-nav reachability, PLANNED languages stay page-less (Gate J)
+- tranche 10 (Stage 4): starter-pack learning experience — browser-TTS Listen buttons (computer voice, BCP-47 tags fixed: bn-IN/ta-IN/te-IN/mr-IN/gu-IN/pa-IN/ur-PK) + deterministic rule-based starter check, all through the shared engines; Hindi PRODUCTION unchanged (Gate K)
 
 ## Pending
 - full courses for the 9 BETA languages (starter packs are proofs, not courses) — each needs lessons + practice + quiz + review + recorded-audio decision, then browser QA before PRODUCTION
@@ -24,12 +25,12 @@
 
 ## Next exact command
 ```
-python3 tools/build-lang-packs.py && python3 tools/build-phase7-pages.py && python3 tools/test-phase7c-langs.py
+python3 tools/build-lang-packs.py && python3 tools/build-phase7-pages.py && python3 tools/test-phase7c-langs.py && python3 tools/test-phase7c-starter.py
 ```
 
 ## Test command
 ```
-python3 tools/test-phase7c.py && python3 tools/test-phase7c-conversation.py && python3 tools/test-phase7c-engines.py && python3 tools/test-phase7c-context.py && python3 tools/test-phase7c-admin.py && python3 tools/test-phase7c-langpack.py && python3 tools/test-phase7c-langs.py && python3 tools/test-phase7-browser.py && python3 tools/test-phase6-matrix.py && python3 tools/test-card-interactions.py
+python3 tools/test-phase7c.py && python3 tools/test-phase7c-conversation.py && python3 tools/test-phase7c-engines.py && python3 tools/test-phase7c-context.py && python3 tools/test-phase7c-admin.py && python3 tools/test-phase7c-langpack.py && python3 tools/test-phase7c-langs.py && python3 tools/test-phase7c-starter.py && python3 tools/test-phase7-browser.py && python3 tools/test-phase6-matrix.py && python3 tools/test-card-interactions.py
 ```
 
 ## Unresolved errors

@@ -60,6 +60,17 @@
 .g-gloss{color:var(--ink-2);font-size:.88rem}
 .g-note{font-size:.92rem;color:var(--ink-2)}
 .hi-review-add{margin-left:8px}
+.hi-listen{display:inline-flex;align-items:center;gap:5px;margin:0 0 0 8px;padding:4px 10px;font-size:.82rem;line-height:1.4;border-radius:999px;border:1px solid var(--line);background:var(--bg-soft);color:var(--ink);cursor:pointer;vertical-align:middle}
+.hi-listen.playing{background:var(--brand);border-color:var(--brand);color:#fff}
+.sc-box{border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:10px 0;background:var(--bg-soft)}
+.sc-word{font-size:1.5rem;font-weight:700;margin:4px 0}
+.sc-count{font-size:.82rem;color:var(--muted);margin:0 0 4px}
+.sc-opts{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.sc-opt:disabled{cursor:default;opacity:.92}
+.sc-opt.sc-right{border-color:#1a7f37;color:#1a7f37;background:#e8f6ec}
+.sc-opt.sc-wrong{border-color:#b42318;color:#b42318;background:#fdeceb}
+.sc-fb{font-size:.95rem;min-height:1.4em;margin:8px 0}
+.sc-nav{min-height:40px}
 </style>
 </head>
 <body>
@@ -70,9 +81,12 @@
   <div class="note"><b>Honest status.</b> BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.</div>
   <p>Gujarati (ગુજરાતી) is spoken by over 55 million people, mainly in Gujarat and a large diaspora worldwide. This starter pack introduces the script and the most useful words and phrases — reference content, not a full course.</p>
   <h2>Starter pack preview</h2>
-  <p class="muted">24 words · 12 phrases · 4 grammar concepts — rendered live by the same engines that render Hindi, with the same device-only “Add to review” hook.</p>
+  <p class="muted">24 words · 12 phrases · 4 grammar concepts — rendered live by the same engines that render Hindi, with the same device-only “Add to review” hook. The 🔊 Listen button is your browser’s computer voice, not a native recording.</p>
   <div class="lp-box"><div id="langpack-app"><p class="muted">Loading Gujarati starter pack…</p></div></div>
-  <div class="note"><b>This is not a full course.</b> There are no lesson pages, no recorded audio and no quizzes here yet. When real lessons exist for a language, it moves up — for now the only full course is <a href="/learn/hindi/">Hindi</a>.</div>
+  <h2>Starter check</h2>
+  <p class="muted">A fixed rule-based check over this pack’s words — the same questions every time. Not an exam, not AI, nothing is saved.</p>
+  <div id="starter-check"><p class="muted">Loading starter check…</p></div>
+  <div class="note"><b>This is not a full course.</b> There are no lesson pages and no recorded audio here. When real lessons exist for a language, it moves up — for now the only full course is <a href="/learn/hindi/">Hindi</a>.</div>
   <p><a class="btn" href="/languages/">All languages</a> <a class="btn" href="/learn/hindi/">Start learning Hindi</a></p>
   <script defer>
   (function(){
@@ -90,6 +104,20 @@
         window.EkGuruLangPack.render(el, "gu");
       }).catch(function(){el.innerHTML='<p class="muted">Language pack unavailable right now.</p>';});
     });
+  })();
+  </script>
+  <script defer>
+  (function(){
+    var el=document.getElementById("starter-check");
+    if(!el){return;}
+    function ready(cb){
+      if(window.EkGuruStarter){cb();return;}
+      var n=0,t=setInterval(function(){
+        if(window.EkGuruStarter){clearInterval(t);cb();}
+        else if(++n>40){clearInterval(t);el.innerHTML='<p class="muted">Starter check unavailable right now.</p>';}
+      },100);
+    }
+    ready(function(){ window.EkGuruStarter.renderCheck(el, "gu"); });
   })();
   </script>
 
@@ -114,6 +142,8 @@
 <script src="../../js/grammar-engine.js" defer></script>
 <script src="../../js/hindi-srs.js" defer></script>
 <script src="../../js/language-pack.js" defer></script>
+<script src="../../js/hindi-audio.js" defer></script>
+<script src="../../js/starter-practice.js" defer></script>
 <script defer>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {

@@ -47,6 +47,7 @@ adm_test = read_json("reports/phase7c-admin-test.json")
 graph_test = read_json("reports/phase7c-graph-test.json")
 langpack_test = read_json("reports/phase7c-langpack-test.json")
 langs_test = read_json("reports/phase7c-langs-test.json")
+starter_test = read_json("reports/phase7c-starter-test.json")
 
 
 def w(name, obj):
@@ -277,6 +278,7 @@ items = [
     ("vocabulary/phrase engine is reusable", "GREEN", "authored items rendered (Gate D)"),
     ("engines reusable across languages (Stage 2 proof)", "GREEN", "Spanish starter pack renders through the SAME vocab/phrase + grammar engines + SRS hook (Gate I); es stays BETA, hi only PRODUCTION"),
     ("multi-language starter packs + home reachability (Stage 3)", "GREEN", "9 authored BETA packs (en/es/bn/ta/te/mr/gu/pa/ur) each with a unique indexable /languages/{code}/ page + home section/nav/global-nav links; PLANNED languages get no thin page (Gate J)"),
+    ("starter-pack learning experience (Stage 4)", "GREEN", "browser-TTS Listen buttons (computer voice, correct BCP-47 tag, never native) + deterministic rule-based starter check (8 fixed questions, not AI, nothing saved) on every pack page; Hindi PRODUCTION cards unchanged (Gate K)"),
     ("content schema documented", "GREEN", "reports/global-content-schema-phase7c.json (unified multi-language schema)"),
     ("content graph report", "GREEN", "reports/global-content-graph-phase7c.json (364 entities, real distribution)"),
     ("country context engine works", "GREEN", "Gate E: india-visitor + heritage pages"),
@@ -288,7 +290,7 @@ items = [
     ("batch generation works", "GREEN", "batch manifest + 6 gates"),
     ("real Chromium gate at 9 viewports", "GREEN", "36 cells PASS (320–1920), 0 overflow, 0 errors (Gate G)"),
     ("SEO scale test with real numbers", "GREEN", "606 pages, 0 duplicate titles/descs, 0 broken links, 0 orphans (Gate H)"),
-    ("automation/generation pipeline", "GREEN", "20/20 stages PASS (run-phase7c-pipeline.py)"),
+    ("automation/generation pipeline", "GREEN", "21/21 stages PASS (run-phase7c-pipeline.py)"),
     ("10k-file handoff works", "GREEN", "handoff written; workspace far from ceiling"),
     ("Phase 5 regression passes", "GREEN", "card interactions 5/5"),
     ("Phase 6 regression passes", "GREEN", "matrix 117/117"),
@@ -320,6 +322,7 @@ handoff = {
         "tranche 7: multi-viewport gate (Gate G), real SEO-scale crawl (Gate H), automation pipeline (16/16), search-index integration (578 entries), contexts hub, intermediate page de-orphaned",
         "tranche 8 (Stage 2): language-pack reuse proof — Spanish starter pack (BETA) renders through the same engines (Gate I); content schema + graph reports; es stays BETA, hi stays the only PRODUCTION language",
         "tranche 9 (Stage 3): multi-language starter packs — 9 authored BETA packs (en/es/bn/ta/te/mr/gu/pa/ur) with per-language indexable pages, home-page section/nav/global-nav reachability, PLANNED languages stay page-less (Gate J)",
+        "tranche 10 (Stage 4): starter-pack learning experience — browser-TTS Listen buttons (computer voice, BCP-47 tags fixed: bn-IN/ta-IN/te-IN/mr-IN/gu-IN/pa-IN/ur-PK) + deterministic rule-based starter check, all through the shared engines; Hindi PRODUCTION unchanged (Gate K)",
     ],
     "pendingBatches": [
         "full courses for the 9 BETA languages (starter packs are proofs, not courses) — each needs lessons + practice + quiz + review + recorded-audio decision, then browser QA before PRODUCTION",
@@ -327,8 +330,8 @@ handoff = {
         "child-specific lesson content (privacy mode ships; lessons not authored)",
         "large-scale SEO batches (Stage 6) — never before quality gates",
     ],
-    "nextExactCommand": "python3 tools/build-lang-packs.py && python3 tools/build-phase7-pages.py && python3 tools/test-phase7c-langs.py",
-    "testCommand": "python3 tools/test-phase7c.py && python3 tools/test-phase7c-conversation.py && python3 tools/test-phase7c-engines.py && python3 tools/test-phase7c-context.py && python3 tools/test-phase7c-admin.py && python3 tools/test-phase7c-langpack.py && python3 tools/test-phase7c-langs.py && python3 tools/test-phase7-browser.py && python3 tools/test-phase6-matrix.py && python3 tools/test-card-interactions.py",
+    "nextExactCommand": "python3 tools/build-lang-packs.py && python3 tools/build-phase7-pages.py && python3 tools/test-phase7c-langs.py && python3 tools/test-phase7c-starter.py",
+    "testCommand": "python3 tools/test-phase7c.py && python3 tools/test-phase7c-conversation.py && python3 tools/test-phase7c-engines.py && python3 tools/test-phase7c-context.py && python3 tools/test-phase7c-admin.py && python3 tools/test-phase7c-langpack.py && python3 tools/test-phase7c-langs.py && python3 tools/test-phase7c-starter.py && python3 tools/test-phase7-browser.py && python3 tools/test-phase6-matrix.py && python3 tools/test-card-interactions.py",
     "outputPaths": ["reports/phase7c-final-gate.json", "reports/batch-manifest-phase7c.json", "reports/language-quality-phase7c.json", "reports/country-context-phase7c.json"],
     "qualityThresholds": ["every gate PASS", "0 page errors on new surfaces", "no fabricated language/audio/AI"],
     "unresolvedErrors": [],

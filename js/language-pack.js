@@ -84,7 +84,8 @@
 
       var V = root.EkGuruVocab, G = root.EkGuruGrammar;
       if (V && typeof V.renderFrom === "function") {
-        V.renderFrom(document.getElementById("lp-vocab"), url);
+        V.renderFrom(document.getElementById("lp-vocab"), url, null,
+                     { listen: true, speechTag: p.speechTag });
       } else {
         document.getElementById("lp-vocab").innerHTML = '<p class="muted">Vocab engine unavailable.</p>';
       }
