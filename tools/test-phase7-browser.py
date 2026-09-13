@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Phase 7 — real-Chromium verification of the global pages:
-  · /languages/ renders the registry: Hindi "Available", others "Coming"
+  · /languages/ renders the registry: Hindi "Available", BETA starter packs
   · /start/ onboarding: pick target=Hindi, goal=travel, level=beginner,
     script=no → rule-based recommendation with real links (no fake content)
-  · /start/ onboarding: target=Spanish → honest "planned" result
+  · /start/ onboarding: target=Spanish → honest starter-pack (beta) result
   · audio provider abstraction resolves BROWSER_TTS for hi-IN
 """
 import json, os, sys, time
@@ -23,9 +23,9 @@ with sync_playwright() as p:
     langs = pg.evaluate("() => document.querySelectorAll('.lang-cell').length")
     note("languages.cells", langs)
     has_available = pg.evaluate("() => document.body.innerText.includes('Available now') && document.body.innerText.includes('Hindi')")
-    has_coming = pg.evaluate("() => document.body.innerText.includes('Coming soon')")
-    note("languages.available/coming", [has_available, has_coming])
-    if langs < 20 or not has_available or not has_coming:
+    has_beta = pg.evaluate("() => document.body.innerText.includes('Beta starter')")
+    note("languages.available/beta", [has_available, has_beta])
+    if langs < 30 or not has_available or not has_beta:
         fails.append("languages hub incomplete (%d cells)" % langs)
 
     # ---- onboarding: Hindi / travel / beginner / no-script ----
@@ -47,7 +47,7 @@ with sync_playwright() as p:
     if "travel" not in result.lower() and "start this path" not in result.lower():
         fails.append("onboarding hindi: travel goal not reflected in result")
 
-    # ---- onboarding: Spanish → honest planned ----
+    # ---- onboarding: Spanish → starter pack (beta), honest ----
     pg.goto(BASE + "/start/", wait_until="networkidle")
     pg.select_option("#ob-target", "es")
     pg.click("#ob-next")
@@ -55,8 +55,12 @@ with sync_playwright() as p:
     pg.wait_for_timeout(300)
     result_es = pg.evaluate("() => document.getElementById('ob-result').innerText")
     note("onboarding.es.result", result_es[:200])
-    if "planned" not in result_es.lower():
-        fails.append("onboarding spanish: no honest 'planned' result")
+    if "starter pack" not in result_es.lower():
+        fails.append("onboarding spanish: no honest starter-pack (beta) result")
+    es_href = pg.evaluate("() => { var a=document.querySelector('#ob-result a.btn'); return a ? a.getAttribute('href') : null; }")
+    note("onboarding.es.link", es_href)
+    if es_href != "/languages/es/":
+        fails.append("onboarding spanish: starter-pack link wrong: %r" % es_href)
 
     # ---- audio provider abstraction (on a lesson, which loads hindi-audio.js) ----
     pg.goto(BASE + "/learn/how-to-say-hello-in-hindi/", wait_until="networkidle")

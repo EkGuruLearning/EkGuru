@@ -12,7 +12,7 @@ window.EKGURU_LANGUAGES = [
     "script": "Devanagari",
     "direction": "ltr",
     "transliteration": "IAST/ISO 15919",
-    "speechTag": "hi-HI",
+    "speechTag": "hi-IN",
     "browserSpeech": true,
     "audioStatus": "BROWSER_TTS",
     "contentMaturity": {
@@ -37,6 +37,8 @@ window.EKGURU_LANGUAGES = [
     ],
     "region": "South Asia",
     "productionStatus": "PRODUCTION",
+    "starterPack": false,
+    "starterCounts": null,
     "referenceImplementation": true
   },
   {
@@ -63,7 +65,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "Europe / World",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -90,7 +98,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "Europe / Latin America",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -117,7 +131,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "Europe / Africa",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -129,7 +149,7 @@ window.EKGURU_LANGUAGES = [
     "script": "Arabic",
     "direction": "rtl",
     "transliteration": "ALA-LC / Buckwalter",
-    "speechTag": "ar-AR",
+    "speechTag": "ar-SA",
     "browserSpeech": true,
     "audioStatus": "BROWSER_TTS",
     "contentMaturity": {
@@ -144,7 +164,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "Middle East / North Africa",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -171,7 +197,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "Europe",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -198,7 +230,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "East Asia",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -225,7 +263,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "East Asia",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -252,7 +296,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "East Asia",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -279,7 +329,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "Europe / Central Asia",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -306,7 +362,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "Europe / Brazil",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -333,7 +395,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "Europe",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -360,7 +428,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "Europe",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -387,7 +461,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "Europe",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -414,7 +494,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "Europe / West Asia",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -426,7 +512,7 @@ window.EKGURU_LANGUAGES = [
     "script": "Arabic",
     "direction": "rtl",
     "transliteration": "UniPers",
-    "speechTag": "fa-FA",
+    "speechTag": "fa-IR",
     "browserSpeech": true,
     "audioStatus": "BROWSER_TTS",
     "contentMaturity": {
@@ -441,7 +527,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "West Asia",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -453,7 +545,7 @@ window.EKGURU_LANGUAGES = [
     "script": "Hebrew",
     "direction": "rtl",
     "transliteration": "ISO 259",
-    "speechTag": "he-HE",
+    "speechTag": "he-IL",
     "browserSpeech": true,
     "audioStatus": "BROWSER_TTS",
     "contentMaturity": {
@@ -468,7 +560,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "West Asia",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -495,7 +593,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "South Asia",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -522,7 +626,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "Southeast Asia",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -549,7 +659,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "Southeast Asia",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -576,7 +692,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "Southeast Asia",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -588,7 +710,7 @@ window.EKGURU_LANGUAGES = [
     "script": "Latin",
     "direction": "ltr",
     "transliteration": "n/a",
-    "speechTag": "ms-MS",
+    "speechTag": "ms-MY",
     "browserSpeech": true,
     "audioStatus": "BROWSER_TTS",
     "contentMaturity": {
@@ -603,7 +725,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "Southeast Asia",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -630,7 +758,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "South Asia",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -657,7 +791,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "South Asia",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -684,7 +824,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "South Asia",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -711,7 +857,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "South Asia",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -738,7 +890,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "South Asia",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -765,7 +923,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "South Asia",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -792,7 +956,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "East Africa",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   },
   {
@@ -819,7 +989,13 @@ window.EKGURU_LANGUAGES = [
     "levels": [],
     "goals": [],
     "region": "Europe",
-    "productionStatus": "PLANNED",
+    "productionStatus": "BETA",
+    "starterPack": true,
+    "starterCounts": {
+      "vocab": 24,
+      "phrase": 12,
+      "grammar": 4
+    },
     "referenceImplementation": false
   }
 ];

@@ -2,8 +2,8 @@
 
 - **repo**: EkGuru (GitHub Pages static site)
 - **branch**: main
-- **SHA**: 4c708294e04f02dcec0f935f9c93ee2802341aee
-- **verdict**: GREEN_GLOBAL_ENGINE_PRODUCTION_READY (39/39)
+- **SHA**: e8085271791fbba316465b708fcb8b91000ab820
+- **verdict**: GREEN_GLOBAL_ENGINE_PRODUCTION_READY (40/40)
 
 ## Completed batches
 - tranche 1: content graph + registries + live inventory
@@ -16,10 +16,10 @@
 - tranche 8 (Stage 2): language-pack reuse proof — Spanish starter pack (BETA) renders through the same engines (Gate I); content schema + graph reports; es stays BETA, hi stays the only PRODUCTION language
 - tranche 9 (Stage 3): multi-language starter packs — 9 authored BETA packs (en/es/bn/ta/te/mr/gu/pa/ur) with per-language indexable pages, home-page section/nav/global-nav reachability, PLANNED languages stay page-less (Gate J)
 - tranche 10 (Stage 4): starter-pack learning experience — browser-TTS Listen buttons (computer voice, BCP-47 tags fixed: bn-IN/ta-IN/te-IN/mr-IN/gu-IN/pa-IN/ur-PK) + deterministic rule-based starter check, all through the shared engines; Hindi PRODUCTION unchanged (Gate K)
+- tranche 11 (Stage 5): authored starter packs for all remaining PLANNED languages — 20 more packs (fr/ar/de/ja/ko/zh/ru/pt/it/nl/pl/tr/fa/he/th/vi/id/ms/sw/uk) => 29 BETA packs total, 0 PLANNED; RTL speech tags fixed (ar-SA/fa-IR/he-IL/ms-MY); Hindi stays the only PRODUCTION language (Gate L)
 
 ## Pending
-- full courses for the 9 BETA languages (starter packs are proofs, not courses) — each needs lessons + practice + quiz + review + recorded-audio decision, then browser QA before PRODUCTION
-- the 20 remaining PLANNED languages (fr/ar/de/ja/zh/ru/pt/…) — authored starter packs when real content is written
+- full courses for the 29 BETA languages (starter packs are proofs, not courses) — each needs lessons + practice + quiz + review + recorded-audio decision, then browser QA before PRODUCTION
 - child-specific lesson content (privacy mode ships; lessons not authored)
 - large-scale SEO batches (Stage 6) — never before quality gates
 

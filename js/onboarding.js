@@ -35,12 +35,14 @@
 
   function langOptions() {
     var prod = LANGS.filter(function (l) { return l.productionStatus === "PRODUCTION"; });
-    var planned = LANGS.filter(function (l) { return l.productionStatus !== "PRODUCTION"; });
+    var rest = LANGS.filter(function (l) { return l.productionStatus !== "PRODUCTION"; });
     return {
       prod: prod,
-      planned: planned,
-      opts: [].concat(prod, planned).map(function (l) {
-        return '<option value="' + esc(l.id) + '">' + esc(l.name) + (l.productionStatus === "PRODUCTION" ? " — available" : " — coming") + "</option>";
+      planned: rest,
+      opts: [].concat(prod, rest).map(function (l) {
+        var tag = l.productionStatus === "PRODUCTION" ? " — available"
+          : (l.starterPack ? " — beta starter" : " — coming");
+        return '<option value="' + esc(l.id) + '">' + esc(l.name) + tag + "</option>";
       }).join("")
     };
   }
@@ -51,7 +53,7 @@
       '<p class="lede">Three questions, no account, nothing saved. The result is a rule-based suggestion, not AI.</p>' +
       '<div class="ob-row"><label for="ob-target">What do you want to learn?</label>' +
       '<select id="ob-target">' + lo.opts + "</select></div>" +
-      '<p class="muted" style="font-size:.8rem">Hindi is fully available. Other languages are listed honestly as "coming" until real content exists — no empty lessons.</p>';
+      '<p class="muted" style="font-size:.8rem">Hindi is fully available. Other languages are listed honestly as "beta starter" (a free starter pack) or "coming" (no content yet) — no empty lessons.</p>';
     return html;
   }
 
@@ -79,9 +81,12 @@
     if (!lang) return { unavailable: true };
 
     if (lang.productionStatus !== "PRODUCTION") {
+      if (lang.starterPack) {
+        return { starter: true, lang: lang, counts: lang.starterCounts || { vocab: 24, phrase: 12, grammar: 4 } };
+      }
       return {
         planned: true, lang: lang,
-        msg: "honest: " + lang.name + " (" + lang.nativeName + ") has no lessons yet. Hindi is the only language with a full course today.",
+        msg: "honest: " + lang.name + " (" + lang.nativeName + ") has no content yet. Hindi is the only language with a full course today.",
       };
     }
 
@@ -114,6 +119,12 @@
     var html;
     if (r.unavailable) {
       html = '<div class="note">Please choose a language.</div>';
+    } else if (r.starter) {
+      html =
+        '<div class="note"><b>' + esc(r.lang.name) + " (" + esc(r.lang.nativeName) + ") has a free starter pack (beta).</b> " +
+        "Basic words, phrases and grammar to get you started — but this is reference content, not a full course. Hindi is the only language with a full course today.</div>" +
+        '<p><a class="btn" href="/languages/' + esc(r.lang.id) + '/">Open the ' + esc(r.lang.name) + ' starter pack</a> ' +
+        '<a class="btn ghost" href="/learn/hindi/">Learn Hindi instead</a></p>';
     } else if (r.planned) {
       html =
         '<div class="note"><b>' + esc(r.lang.name) + " (" + esc(r.lang.nativeName) + ") is planned.</b> " + esc(r.msg) +

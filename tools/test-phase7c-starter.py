@@ -26,8 +26,13 @@ def note(k, v):
 manifest = json.load(open("data/language-packs.json", encoding="utf-8"))
 packs = {p["lang"]: p for p in manifest["packs"]}
 note("pack_speechTags", {c: packs[c]["speechTag"] for c in sorted(packs)})
-if sorted(packs) != sorted(["en", "es", "bn", "ta", "te", "mr", "gu", "pa", "ur"]):
-    fails.append("manifest should have 9 packs")
+if sorted(packs) != sorted(["en", "es", "bn", "ta", "te", "mr", "gu", "pa", "ur",
+                            "fr", "ar", "de", "ja", "ko", "zh", "ru", "pt", "it", "nl", "pl",
+                            "tr", "fa", "he", "th", "vi", "id", "ms", "sw", "uk"]):
+    fails.append("manifest should have 29 packs")
+if packs["ar"]["speechTag"] != "ar-SA" or packs["fa"]["speechTag"] != "fa-IR" \
+   or packs["he"]["speechTag"] != "he-IL" or packs["ms"]["speechTag"] != "ms-MY":
+    fails.append("RTL/extra speech tags wrong: %s" % {c: packs[c]["speechTag"] for c in ("ar", "fa", "he", "ms")})
 
 STUB = """
 window.__spoken = [];
@@ -36,7 +41,7 @@ try {
     configurable: true,
     value: {
       speak: function(u){ window.__spoken.push({text: u.text, lang: u.lang}); },
-      cancel: function(){}, getVoices: function(){ return [{lang:'es-ES',name:'es'},{lang:'bn-IN',name:'bn'}]; },
+      cancel: function(){}, getVoices: function(){ return [{lang:'es-ES',name:'es'},{lang:'bn-IN',name:'bn'},{lang:'ar-SA',name:'ar'},{lang:'zh-CN',name:'zh'}]; },
       addEventListener: function(){}, removeEventListener: function(){}
     }
   });
@@ -128,6 +133,38 @@ with sync_playwright() as p:
     note("bn_spoken", bn)
     if not bn or bn.get("lang") != "bn-IN":
         fails.append("bn listen: expected bn-IN utterance, got %r" % bn)
+
+    # ---- RTL pack (Arabic) — Stage 5 ----
+    pg.goto(BASE + "/languages/ar/", wait_until="networkidle")
+    wait("#langpack-app .v-item")
+    pg.wait_for_timeout(500)
+    ar = pg.evaluate("""() => {
+        var t = document.body.innerText;
+        return {
+            listen: document.querySelectorAll('#langpack-app .hi-listen').length,
+            rtl: getComputedStyle(document.querySelector('#langpack-app .v-target') || document.body).direction
+        };
+    }""")
+    note("ar_detail", ar)
+    if ar["listen"] != 36:
+        fails.append("ar detail: expected 36 listen buttons, got %d" % ar["listen"])
+    pg.click("#langpack-app .hi-listen >> nth=0")
+    pg.wait_for_timeout(300)
+    ar_sp = pg.evaluate("() => window.__spoken[window.__spoken.length - 1]")
+    note("ar_spoken", ar_sp)
+    if not ar_sp or ar_sp.get("lang") != "ar-SA" or ar_sp.get("text") != "أنا":
+        fails.append("ar listen: expected ar-SA utterance 'أنا', got %r" % ar_sp)
+
+    # ---- CJK pack (Chinese) — Stage 5 ----
+    pg.goto(BASE + "/languages/zh/", wait_until="networkidle")
+    wait("#langpack-app .v-item")
+    pg.wait_for_timeout(500)
+    pg.click("#langpack-app .hi-listen >> nth=0")
+    pg.wait_for_timeout(300)
+    zh_sp = pg.evaluate("() => window.__spoken[window.__spoken.length - 1]")
+    note("zh_spoken", zh_sp)
+    if not zh_sp or zh_sp.get("lang") != "zh-CN" or zh_sp.get("text") != "我":
+        fails.append("zh listen: expected zh-CN utterance '我', got %r" % zh_sp)
 
     # ---- Hindi PRODUCTION regression: no listen buttons injected ----
     pg.goto(BASE + "/learn/my-learning/", wait_until="networkidle")

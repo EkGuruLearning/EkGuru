@@ -3,7 +3,7 @@
 
 Unlocks admin.html (session passcode, same as the existing idle test),
 opens the Learn Ops tab, then the new "Global languages" panel and checks:
-  · Languages: 30 rows, only Hindi GREEN/PRODUCTION (9 BETA starter packs)
+  · Languages: 30 rows, only Hindi GREEN/PRODUCTION (29 BETA starter packs)
   · Country: 250 countries, India relation present
   · Content: 364 entities with per-type counts
   · APIs: keyless transliteration in use, AI APIs blocked

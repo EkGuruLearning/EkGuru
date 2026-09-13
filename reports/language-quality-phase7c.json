@@ -1,6 +1,6 @@
 {
-  "generated": "2026-09-13T03:00:26Z",
-  "commit": "4c708294e04f02dcec0f935f9c93ee2802341aee",
+  "generated": "2026-09-13T03:27:30Z",
+  "commit": "e8085271791fbba316465b708fcb8b91000ab820",
   "rule": "Per-language QA. Only languages with real content + real browser evidence may be PRODUCTION. Quantity is never a substitute for quality.",
   "languages": [
     {
@@ -83,7 +83,7 @@
     {
       "id": "fr",
       "name": "French",
-      "productionStatus": "PLANNED",
+      "productionStatus": "BETA",
       "qualityScore": 0,
       "referenceImplementation": false,
       "counts": {
@@ -93,15 +93,23 @@
         "reviewCardCount": 0,
         "phraseCount": 0
       },
-      "grammarState": "PLANNED",
-      "vocabularyState": "PLANNED",
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
       "audioStatus": "BROWSER_TTS",
-      "evidence": "no content — PLANNED, never marked available"
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
     },
     {
       "id": "ar",
       "name": "Arabic",
-      "productionStatus": "PLANNED",
+      "productionStatus": "BETA",
       "qualityScore": 0,
       "referenceImplementation": false,
       "counts": {
@@ -111,15 +119,23 @@
         "reviewCardCount": 0,
         "phraseCount": 0
       },
-      "grammarState": "PLANNED",
-      "vocabularyState": "PLANNED",
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
       "audioStatus": "BROWSER_TTS",
-      "evidence": "no content — PLANNED, never marked available"
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
     },
     {
       "id": "de",
       "name": "German",
-      "productionStatus": "PLANNED",
+      "productionStatus": "BETA",
       "qualityScore": 0,
       "referenceImplementation": false,
       "counts": {
@@ -129,15 +145,23 @@
         "reviewCardCount": 0,
         "phraseCount": 0
       },
-      "grammarState": "PLANNED",
-      "vocabularyState": "PLANNED",
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
       "audioStatus": "BROWSER_TTS",
-      "evidence": "no content — PLANNED, never marked available"
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
     },
     {
       "id": "ja",
       "name": "Japanese",
-      "productionStatus": "PLANNED",
+      "productionStatus": "BETA",
       "qualityScore": 0,
       "referenceImplementation": false,
       "counts": {
@@ -147,15 +171,23 @@
         "reviewCardCount": 0,
         "phraseCount": 0
       },
-      "grammarState": "PLANNED",
-      "vocabularyState": "PLANNED",
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
       "audioStatus": "BROWSER_TTS",
-      "evidence": "no content — PLANNED, never marked available"
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
     },
     {
       "id": "ko",
       "name": "Korean",
-      "productionStatus": "PLANNED",
+      "productionStatus": "BETA",
       "qualityScore": 0,
       "referenceImplementation": false,
       "counts": {
@@ -165,15 +197,23 @@
         "reviewCardCount": 0,
         "phraseCount": 0
       },
-      "grammarState": "PLANNED",
-      "vocabularyState": "PLANNED",
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
       "audioStatus": "BROWSER_TTS",
-      "evidence": "no content — PLANNED, never marked available"
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
     },
     {
       "id": "zh",
       "name": "Chinese",
-      "productionStatus": "PLANNED",
+      "productionStatus": "BETA",
       "qualityScore": 0,
       "referenceImplementation": false,
       "counts": {
@@ -183,15 +223,23 @@
         "reviewCardCount": 0,
         "phraseCount": 0
       },
-      "grammarState": "PLANNED",
-      "vocabularyState": "PLANNED",
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
       "audioStatus": "BROWSER_TTS",
-      "evidence": "no content — PLANNED, never marked available"
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
     },
     {
       "id": "ru",
       "name": "Russian",
-      "productionStatus": "PLANNED",
+      "productionStatus": "BETA",
       "qualityScore": 0,
       "referenceImplementation": false,
       "counts": {
@@ -201,15 +249,23 @@
         "reviewCardCount": 0,
         "phraseCount": 0
       },
-      "grammarState": "PLANNED",
-      "vocabularyState": "PLANNED",
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
       "audioStatus": "BROWSER_TTS",
-      "evidence": "no content — PLANNED, never marked available"
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
     },
     {
       "id": "pt",
       "name": "Portuguese",
-      "productionStatus": "PLANNED",
+      "productionStatus": "BETA",
       "qualityScore": 0,
       "referenceImplementation": false,
       "counts": {
@@ -219,15 +275,23 @@
         "reviewCardCount": 0,
         "phraseCount": 0
       },
-      "grammarState": "PLANNED",
-      "vocabularyState": "PLANNED",
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
       "audioStatus": "BROWSER_TTS",
-      "evidence": "no content — PLANNED, never marked available"
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
     },
     {
       "id": "it",
       "name": "Italian",
-      "productionStatus": "PLANNED",
+      "productionStatus": "BETA",
       "qualityScore": 0,
       "referenceImplementation": false,
       "counts": {
@@ -237,15 +301,23 @@
         "reviewCardCount": 0,
         "phraseCount": 0
       },
-      "grammarState": "PLANNED",
-      "vocabularyState": "PLANNED",
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
       "audioStatus": "BROWSER_TTS",
-      "evidence": "no content — PLANNED, never marked available"
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
     },
     {
       "id": "nl",
       "name": "Dutch",
-      "productionStatus": "PLANNED",
+      "productionStatus": "BETA",
       "qualityScore": 0,
       "referenceImplementation": false,
       "counts": {
@@ -255,15 +327,23 @@
         "reviewCardCount": 0,
         "phraseCount": 0
       },
-      "grammarState": "PLANNED",
-      "vocabularyState": "PLANNED",
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
       "audioStatus": "BROWSER_TTS",
-      "evidence": "no content — PLANNED, never marked available"
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
     },
     {
       "id": "pl",
       "name": "Polish",
-      "productionStatus": "PLANNED",
+      "productionStatus": "BETA",
       "qualityScore": 0,
       "referenceImplementation": false,
       "counts": {
@@ -273,15 +353,23 @@
         "reviewCardCount": 0,
         "phraseCount": 0
       },
-      "grammarState": "PLANNED",
-      "vocabularyState": "PLANNED",
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
       "audioStatus": "BROWSER_TTS",
-      "evidence": "no content — PLANNED, never marked available"
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
     },
     {
       "id": "tr",
       "name": "Turkish",
-      "productionStatus": "PLANNED",
+      "productionStatus": "BETA",
       "qualityScore": 0,
       "referenceImplementation": false,
       "counts": {
@@ -291,15 +379,23 @@
         "reviewCardCount": 0,
         "phraseCount": 0
       },
-      "grammarState": "PLANNED",
-      "vocabularyState": "PLANNED",
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
       "audioStatus": "BROWSER_TTS",
-      "evidence": "no content — PLANNED, never marked available"
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
     },
     {
       "id": "fa",
       "name": "Persian",
-      "productionStatus": "PLANNED",
+      "productionStatus": "BETA",
       "qualityScore": 0,
       "referenceImplementation": false,
       "counts": {
@@ -309,15 +405,23 @@
         "reviewCardCount": 0,
         "phraseCount": 0
       },
-      "grammarState": "PLANNED",
-      "vocabularyState": "PLANNED",
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
       "audioStatus": "BROWSER_TTS",
-      "evidence": "no content — PLANNED, never marked available"
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
     },
     {
       "id": "he",
       "name": "Hebrew",
-      "productionStatus": "PLANNED",
+      "productionStatus": "BETA",
       "qualityScore": 0,
       "referenceImplementation": false,
       "counts": {
@@ -327,10 +431,18 @@
         "reviewCardCount": 0,
         "phraseCount": 0
       },
-      "grammarState": "PLANNED",
-      "vocabularyState": "PLANNED",
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
       "audioStatus": "BROWSER_TTS",
-      "evidence": "no content — PLANNED, never marked available"
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
     },
     {
       "id": "ur",
@@ -361,7 +473,7 @@
     {
       "id": "th",
       "name": "Thai",
-      "productionStatus": "PLANNED",
+      "productionStatus": "BETA",
       "qualityScore": 0,
       "referenceImplementation": false,
       "counts": {
@@ -371,15 +483,23 @@
         "reviewCardCount": 0,
         "phraseCount": 0
       },
-      "grammarState": "PLANNED",
-      "vocabularyState": "PLANNED",
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
       "audioStatus": "BROWSER_TTS",
-      "evidence": "no content — PLANNED, never marked available"
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
     },
     {
       "id": "vi",
       "name": "Vietnamese",
-      "productionStatus": "PLANNED",
+      "productionStatus": "BETA",
       "qualityScore": 0,
       "referenceImplementation": false,
       "counts": {
@@ -389,15 +509,23 @@
         "reviewCardCount": 0,
         "phraseCount": 0
       },
-      "grammarState": "PLANNED",
-      "vocabularyState": "PLANNED",
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
       "audioStatus": "BROWSER_TTS",
-      "evidence": "no content — PLANNED, never marked available"
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
     },
     {
       "id": "id",
       "name": "Indonesian",
-      "productionStatus": "PLANNED",
+      "productionStatus": "BETA",
       "qualityScore": 0,
       "referenceImplementation": false,
       "counts": {
@@ -407,15 +535,23 @@
         "reviewCardCount": 0,
         "phraseCount": 0
       },
-      "grammarState": "PLANNED",
-      "vocabularyState": "PLANNED",
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
       "audioStatus": "BROWSER_TTS",
-      "evidence": "no content — PLANNED, never marked available"
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
     },
     {
       "id": "ms",
       "name": "Malay",
-      "productionStatus": "PLANNED",
+      "productionStatus": "BETA",
       "qualityScore": 0,
       "referenceImplementation": false,
       "counts": {
@@ -425,10 +561,18 @@
         "reviewCardCount": 0,
         "phraseCount": 0
       },
-      "grammarState": "PLANNED",
-      "vocabularyState": "PLANNED",
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
       "audioStatus": "BROWSER_TTS",
-      "evidence": "no content — PLANNED, never marked available"
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
     },
     {
       "id": "bn",
@@ -589,7 +733,7 @@
     {
       "id": "sw",
       "name": "Swahili",
-      "productionStatus": "PLANNED",
+      "productionStatus": "BETA",
       "qualityScore": 0,
       "referenceImplementation": false,
       "counts": {
@@ -599,15 +743,23 @@
         "reviewCardCount": 0,
         "phraseCount": 0
       },
-      "grammarState": "PLANNED",
-      "vocabularyState": "PLANNED",
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
       "audioStatus": "BROWSER_TTS",
-      "evidence": "no content — PLANNED, never marked available"
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
     },
     {
       "id": "uk",
       "name": "Ukrainian",
-      "productionStatus": "PLANNED",
+      "productionStatus": "BETA",
       "qualityScore": 0,
       "referenceImplementation": false,
       "counts": {
@@ -617,10 +769,18 @@
         "reviewCardCount": 0,
         "phraseCount": 0
       },
-      "grammarState": "PLANNED",
-      "vocabularyState": "PLANNED",
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
       "audioStatus": "BROWSER_TTS",
-      "evidence": "no content — PLANNED, never marked available"
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
     }
   ]
 }

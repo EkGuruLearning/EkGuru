@@ -2,7 +2,7 @@
 """Phase 7C §9/§50 — content-graph engine + languages hub, real Chromium.
 
 Gate C for the Phase 7C content graph:
-  · /languages/ renders the hub (Phase 7 regression: >=20 cells, Available/Coming)
+  · /languages/ renders the hub (Phase 7 regression: >=30 cells, Available/Beta)
   · the page shows a LIVE content-inventory line read from data/content-graph.json
   · window.EkGuruContent query API works (byType/byLanguage/byLevel/byGoal/get/stats)
   · every count traces to real extracted content (no fabricated numbers)
@@ -34,10 +34,11 @@ with sync_playwright() as p:
     pg.wait_for_timeout(1200)
     cells = pg.evaluate("() => document.querySelectorAll('.lang-cell').length")
     has_avail = pg.evaluate("() => document.body.innerText.includes('Available now') && document.body.innerText.includes('Hindi')")
+    has_beta = pg.evaluate("() => document.body.innerText.includes('Beta starter')")
     has_coming = pg.evaluate("() => document.body.innerText.includes('Coming soon')")
     note("hub.cells", cells)
-    note("hub.available/coming", [has_avail, has_coming])
-    if cells < 20 or not has_avail or not has_coming:
+    note("hub.available/beta/coming", [has_avail, has_beta, has_coming])
+    if cells < 30 or not has_avail or not has_beta:
         fails.append("languages hub regression (%d cells)" % cells)
 
     stats_line = pg.evaluate("() => document.getElementById('cg-stats').innerText")

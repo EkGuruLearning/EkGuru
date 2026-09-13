@@ -3,7 +3,7 @@
 Chromium (Gate J).
 
 Verifies:
-  · registry: 9 BETA starter packs (en/es/bn/ta/te/mr/gu/pa/ur), production == ["hi"]
+  · registry: 29 BETA starter packs, production == ["hi"], 0 PLANNED
   · home page: a #languages section + a nav link; Hindi (full course) pill + 9
     beta pills, each linking to its detail page
   · /languages/ hub: 1 available cell (Hindi), 9 beta cells (linked), 20 planned
@@ -36,8 +36,10 @@ note("beta_ids", beta_ids)
 note("planned_count", len(planned_ids))
 if reg.get("production") != ["hi"]:
     fails.append("only hi may be PRODUCTION, got %s" % reg.get("production"))
-if beta_ids != sorted(["en", "es", "bn", "ta", "te", "mr", "gu", "pa", "ur"]):
-    fails.append("expected 9 BETA starter packs, got %s" % beta_ids)
+if beta_ids != sorted(["en", "es", "bn", "ta", "te", "mr", "gu", "pa", "ur",
+                       "fr", "ar", "de", "ja", "ko", "zh", "ru", "pt", "it", "nl", "pl",
+                       "tr", "fa", "he", "th", "vi", "id", "ms", "sw", "uk"]):
+    fails.append("expected 29 BETA starter packs, got %s" % beta_ids)
 for c in beta_ids:
     l = by_id[c]
     if not l.get("starterPack") or not l.get("starterCounts"):
@@ -106,8 +108,8 @@ with sync_playwright() as p:
     note("hub", hub)
     if hub["prod_cells"] != 1:
         fails.append("hub should have exactly 1 available cell, got %d" % hub["prod_cells"])
-    if hub["beta_cells"] != 9:
-        fails.append("hub should have 9 beta cells, got %d" % hub["beta_cells"])
+    if hub["beta_cells"] != 29:
+        fails.append("hub should have 29 beta cells, got %d" % hub["beta_cells"])
     if sorted(hub["select_opts"]) != beta_ids:
         fails.append("picker options %s != beta ids %s" % (sorted(hub["select_opts"]), beta_ids))
     if hub["default_items"] != 36 or hub["default_concepts"] != 4:

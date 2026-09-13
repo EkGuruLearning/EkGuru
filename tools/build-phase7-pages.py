@@ -188,9 +188,9 @@ def languages_page():
             '  <p class="muted">A starter pack proves the engines work across languages. It is BETA reference content — '
             "not a course, and never labelled available until a full reviewed course exists.</p>\n"
             '  <div class="lang-grid">' + beta_cells + "</div>\n") if beta else "") +
-        '  <h2>Coming soon</h2>\n'
-        '  <p class="muted">These are the next targets in the architecture. Each becomes available only when its lessons, audio and review content are real.</p>\n'
-        '  <div class="lang-grid">' + planned_cells + "</div>\n"
+        (('  <h2>Coming soon</h2>\n'
+            '  <p class="muted">These are the next targets in the architecture. Each becomes available only when its lessons, audio and review content are real.</p>\n'
+            '  <div class="lang-grid">' + planned_cells + "</div>\n") if planned else "") +
         '  <div class="note"><b>Not sure where to begin?</b> Answer three quick questions and get a rule-based starting point — <a href="/start/">find your starting point</a>. This is a deterministic recommendation, not AI.</div>\n'
         + (('  <div id="lp-proof" class="lp-box">\n'
             '    <h2>Engine reuse proof — starter packs</h2>\n'

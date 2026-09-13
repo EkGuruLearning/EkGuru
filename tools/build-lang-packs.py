@@ -683,6 +683,14 @@ PACKS = {
 }
 
 
+# Stage 5: the remaining 20 starter packs live in tools/langpacks_extra.py
+# (authored the same way); merge them so this file stays the single entry point.
+import sys
+sys.path.insert(0, os.path.join(ROOT, "tools"))
+import langpacks_extra
+PACKS.update(langpacks_extra.EXTRA_PACKS)
+
+
 # ---------------------------------------------------------------- build
 def build_pack(code, spec):
     items = []

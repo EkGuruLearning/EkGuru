@@ -69,13 +69,28 @@ LANGUAGES = [
 # browser ships for these languages; RECORDED audio is none anywhere.
 def speech_tag(iso):
     return {"zh": "zh-CN", "pt": "pt-BR", "sw": "sw-KE", "en": "en-IN",
-            "bn": "bn-IN", "ta": "ta-IN", "te": "te-IN", "mr": "mr-IN",
-            "gu": "gu-IN", "pa": "pa-IN", "ur": "ur-PK"}.get(iso, iso + "-" + iso.upper())
+            "hi": "hi-IN", "bn": "bn-IN", "ta": "ta-IN", "te": "te-IN", "mr": "mr-IN",
+            "gu": "gu-IN", "pa": "pa-IN", "ur": "ur-PK", "ar": "ar-SA",
+            "fa": "fa-IR", "he": "he-IL", "ms": "ms-MY"}.get(iso, iso + "-" + iso.upper())
+
+# Phase 7C Stage 5 — authored starter packs mark a language BETA (starter
+# reference content), never PRODUCTION. Load the pack manifest if it exists
+# (it is built by tools/build-lang-packs.py, which reads THIS registry for
+# name/native/script/direction, so on first build it simply is not there yet).
+def load_packs():
+    try:
+        return {p["lang"]: p for p in json.load(open("data/language-packs.json", encoding="utf-8")).get("packs", [])}
+    except Exception:
+        return {}
 
 def build_languages():
+    packs = load_packs()
     out = []
     for iso, iso3, name, native, script, direction, translit, region in LANGUAGES:
         is_hindi = iso == "hi"
+        pack = packs.get(iso)
+        has_pack = pack is not None and not is_hindi
+        status = "PRODUCTION" if is_hindi else ("BETA" if has_pack else "PLANNED")
         out.append({
             "id": iso,                     # stable id = ISO 639-1
             "iso639_1": iso, "iso639_3": iso3,
@@ -97,7 +112,9 @@ def build_languages():
             "levels": (["beginner", "elementary"] if is_hindi else []),
             "goals": (["everyday", "travel", "reading", "speaking", "grammar"] if is_hindi else []),
             "region": region,
-            "productionStatus": "PRODUCTION" if is_hindi else "PLANNED",
+            "productionStatus": status,
+            "starterPack": has_pack,
+            "starterCounts": pack.get("counts") if pack else None,
             "referenceImplementation": is_hindi,
         })
     return out
@@ -167,9 +184,11 @@ def main():
         "generated": NOW,
         "count": len(langs),
         "production": [l["id"] for l in langs if l["productionStatus"] == "PRODUCTION"],
-        "beta": [], "planned": [l["id"] for l in langs if l["productionStatus"] == "PLANNED"],
+        "beta": [l["id"] for l in langs if l["productionStatus"] == "BETA"],
+        "planned": [l["id"] for l in langs if l["productionStatus"] == "PLANNED"],
         "paused": [],
         "policy": ("A language is PRODUCTION only when real target-language content exists. "
+                   "BETA = authored starter pack (reference content, not a course). "
                    "No public production page is generated for PLANNED languages (zero content)."),
         "languages": langs,
     }

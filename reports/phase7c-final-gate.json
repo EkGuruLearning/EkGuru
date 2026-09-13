@@ -1,9 +1,9 @@
 {
-  "generated": "2026-09-13T03:00:26Z",
-  "commit": "4c708294e04f02dcec0f935f9c93ee2802341aee",
+  "generated": "2026-09-13T03:27:30Z",
+  "commit": "e8085271791fbba316465b708fcb8b91000ab820",
   "verdict": "GREEN_GLOBAL_ENGINE_PRODUCTION_READY",
-  "green": 39,
-  "total": 39,
+  "green": 40,
+  "total": 40,
   "note": "All gate items pass with real Chromium evidence (0 page errors on every new surface; Phase 5/6/7 regression green; 36-cell viewport gate; real SEO-scale crawl with 0 duplicates/orphans/broken links). Performance numbers are measured, not estimated. LIVE deploy is verified STALE: ekguru.shop 404s on /learn/my-learning/, so it predates Phase 7C — and GitHub origin/main holds only 'Initial commit', so neither live nor GitHub reflects this work; the workspace is the continuity layer.",
   "items": [
     {
@@ -16,7 +16,7 @@
     },
     {
       "state": "GREEN",
-      "evidence": "30 langs, only hi PRODUCTION + 9 BETA starter packs, rendered in admin"
+      "evidence": "30 langs, only hi PRODUCTION + 29 BETA starter packs, 0 PLANNED, rendered in admin"
     },
     {
       "state": "GREEN",
@@ -80,11 +80,15 @@
     },
     {
       "state": "GREEN",
-      "evidence": "9 authored BETA packs (en/es/bn/ta/te/mr/gu/pa/ur) each with a unique indexable /languages/{code}/ page + home section/nav/global-nav links; PLANNED languages get no thin page (Gate J)"
+      "evidence": "29 authored BETA packs each with a unique indexable /languages/{code}/ page + home section/nav/global-nav links; no PLANNED language gets a thin page (Gate J)"
     },
     {
       "state": "GREEN",
       "evidence": "browser-TTS Listen buttons (computer voice, correct BCP-47 tag, never native) + deterministic rule-based starter check (8 fixed questions, not AI, nothing saved) on every pack page; Hindi PRODUCTION cards unchanged (Gate K)"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "29 BETA packs (incl. fr/ar/de/ja/ko/zh/ru/pt/it/nl/pl/tr/fa/he/th/vi/id/ms/sw/uk) each 24 words + 12 phrases + 4 grammar; RTL tags fixed ar-SA/fa-IR/he-IL/ms-MY; hi stays the only PRODUCTION language (Gate L)"
     },
     {
       "state": "GREEN",
