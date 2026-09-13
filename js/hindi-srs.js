@@ -179,7 +179,8 @@
         renderAddState(btn, spec);
         btn.addEventListener("click", function (e) {
           e.preventDefault();
-          var r = SRS.add({ prompt: spec.p, answer: spec.a, category: spec.c || "vocabulary" });
+          var r = SRS.add({ prompt: spec.p, answer: spec.a, category: spec.c || "vocabulary",
+                            language: spec.l || "hi", target: spec.p });
           renderAddState(btn, spec);
           if (window.EkGuruToast) window.EkGuruToast.show(r.added ? "Added to review" : "Already in review");
         });

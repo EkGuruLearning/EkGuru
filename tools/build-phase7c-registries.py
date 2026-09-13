@@ -26,6 +26,13 @@ country7 = json.load(open("reports/country-registry-phase7.json", encoding="utf-
 graph = json.load(open("data/content-graph.json", encoding="utf-8"))
 mledoze = json.load(open("tools/_countries-cache.json", encoding="utf-8"))
 
+# Phase 7C Stage 2: language packs (starter content) — BETA, never PRODUCTION
+try:
+    _packs = json.load(open("data/language-packs.json", encoding="utf-8")).get("packs", [])
+except Exception:
+    _packs = []
+packs_by_lang = {p["lang"]: p for p in _packs}
+
 # ---- real content counts per target language (from the graph) ----
 counts = {}
 for e in graph["entities"]:
@@ -64,6 +71,11 @@ for l in lang7["languages"]:
     lid = l["id"]
     cnt = counts.get(lid, {})
     lvl = level_coverage(cnt) if lid == "hi" else []
+    pack = packs_by_lang.get(lid)
+    has_pack = pack is not None
+    status = l["productionStatus"]
+    if has_pack and status != "PRODUCTION":
+        status = "BETA"  # starter pack exists, but no full reviewed course
     langs7c.append({
         "id": lid,
         "iso639_1": l["iso639_1"],
@@ -76,8 +88,8 @@ for l in lang7["languages"]:
         "segmentationModel": "word-based (space-separated)" if l["direction"] == "ltr" else "sentence-based",
         "speechLocales": [l.get("speechTag")] if l.get("speechTag") else [],
         "audioStatus": l["audioStatus"],
-        "grammarState": "PRODUCTION" if cnt.get("grammar", 0) > 0 else "PLANNED",
-        "vocabularyState": "PRODUCTION" if cnt.get("practice", 0) > 0 else "PLANNED",
+        "grammarState": "STARTER" if has_pack else ("PRODUCTION" if cnt.get("grammar", 0) > 0 else "PLANNED"),
+        "vocabularyState": "STARTER" if has_pack else ("PRODUCTION" if cnt.get("practice", 0) > 0 else "PLANNED"),
         "lessonCount": cnt.get("lesson", 0),
         "practiceCount": cnt.get("practice", 0),
         "quizCount": cnt.get("quiz", 0),
@@ -89,7 +101,10 @@ for l in lang7["languages"]:
         "sourceLanguageAvailability": ["en"],
         "countryAssociations": (["IN"] if lid == "hi" else []),
         "qualityScore": quality_score(lid, l, cnt),
-        "productionStatus": l["productionStatus"],
+        "productionStatus": status,
+        "starterPack": has_pack,
+        "starterCounts": pack.get("counts") if pack else None,
+        "starterNote": pack.get("honestNote") if pack else None,
         "referenceImplementation": l.get("referenceImplementation", False),
     })
 

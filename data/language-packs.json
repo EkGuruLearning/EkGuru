@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "generated": "2026-09-13T00:00:00Z",
+  "purpose": "Manifest of language packs (§53 Stage 2 — proof of engine reuse). A pack makes a language BETA (starter reference content) — never PRODUCTION. PRODUCTION requires a full reviewed course (lessons + practice + quiz + review) passing QA in real Chromium; today only Hindi has that.",
+  "policy": "PRODUCTION = full course with browser QA. BETA = authored starter pack rendering through the shared engines. PLANNED = registered language with no authored content yet.",
+  "packs": [
+    {
+      "lang": "es",
+      "name": "Spanish",
+      "nativeName": "Español",
+      "script": "Latin",
+      "direction": "ltr",
+      "status": "BETA",
+      "scope": "starter pack — vocab + phrases + grammar reference; no lesson pages, no audio, no quizzes",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only.",
+      "file": "data/lang-es.json",
+      "counts": { "vocab": 24, "phrase": 12, "grammar": 4 }
+    }
+  ]
+}

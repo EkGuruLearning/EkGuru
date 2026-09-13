@@ -33,6 +33,7 @@ NOW = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
 STAGES = [
     ("build: content graph", ["python3", "tools/build-phase7c-content-graph.py"], "grep", "entities"),
     ("build: registries", ["python3", "tools/build-phase7c-registries.py"], "grep", None),
+    ("build: languages/start pages", ["python3", "tools/build-phase7-pages.py"], "grep", "generated"),
     ("build: Hindi pages", ["python3", "tools/build-hindi-pages.py"], "grep", "generated pages"),
     ("build: global pages", ["python3", "tools/build-global-pages.py"], "grep", "generated"),
     ("build: search index", ["python3", "tools/build-search-index.py"], "grep", "entries"),
@@ -41,6 +42,7 @@ STAGES = [
     ("gate: engines/My Learning", ["python3", "tools/test-phase7c-engines.py"], "json", "reports/phase7c-engines-test.json"),
     ("gate: country context", ["python3", "tools/test-phase7c-context.py"], "json", "reports/phase7c-context-test.json"),
     ("gate: admin global ops", ["python3", "tools/test-phase7c-admin.py"], "json", "reports/phase7c-admin-test.json"),
+    ("gate: language pack (Stage 2)", ["python3", "tools/test-phase7c-langpack.py"], "json", "reports/phase7c-langpack-test.json"),
     ("gate: multi-viewport", ["python3", "tools/test-phase7c-viewports.py"], "json", "reports/phase7c-viewports-test.json"),
     ("seo: scale (static)", ["python3", "tools/test-phase7c-seo-scale.py"], "grep", "SEO scale"),
     ("regression: Phase 7", ["python3", "tools/test-phase7-browser.py"], "grep", "PASS"),

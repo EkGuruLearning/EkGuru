@@ -45,12 +45,72 @@ eng_test = read_json("reports/phase7c-engines-test.json")
 ctx_test = read_json("reports/phase7c-context-test.json")
 adm_test = read_json("reports/phase7c-admin-test.json")
 graph_test = read_json("reports/phase7c-graph-test.json")
+langpack_test = read_json("reports/phase7c-langpack-test.json")
 
 
 def w(name, obj):
     with open(name, "w", encoding="utf-8") as f:
         json.dump(obj, f, ensure_ascii=False, indent=2)
     print("  wrote", name)
+
+
+# ---- global content schema (§10, §55 required report) ----
+schema = {
+    "generated": NOW, "commit": HEAD,
+    "purpose": "Unified multi-language content schema. Every engine consumes the same field shapes; a language pack is the SAME schema with a different target_language — that is the Stage 2 reuse proof.",
+    "entity": {"id": "string", "type": "lesson|quiz|practice|phrase|review_card|grammar|pronunciation|culture",
+               "slug": "string", "title": "string", "source_language": "en", "target_language": "iso639-1",
+               "level": "beginner|elementary|intermediate|advanced", "topic": "string",
+               "status": "PRODUCTION|BETA|PLANNED", "url": "string|null", "version": "int",
+               "source": "string|null", "section": "string"},
+    "vocabPhraseItem": {"id": "string", "type": "word|phrase", "language": "iso639-1",
+                        "target": "string (target script)", "roman": "string (romanisation/pronunciation)",
+                        "meaning": "string (source-language meaning)", "pos": "string", "register": "string|null",
+                        "topic": "string", "level": "string"},
+    "grammarConcept": {"id": "string", "concept": "string", "pattern": "string",
+                       "examples": ["list of {target, roman, gloss}"], "exceptions": ["string"],
+                       "learnerNote": "string", "commonMistakes": ["string"], "level": "string",
+                       "prerequisite": "string|null", "sourceUrl": "string|null", "sourceTitle": "string|null"},
+    "conversationScenario": {"id": "string", "title": "string", "tagline": "string", "level": "string",
+                             "topic": "string", "goal": "string", "context": "string",
+                             "steps": ["list of {id, line, roman, en, prompt, choices[{text, roman, en, correct, note}], vocabulary[{target, roman, meaning}], explanation}"],
+                             "completion": "string"},
+    "scriptRecord": {"id": "iso15924-ish", "name": "string", "iso15924": "string", "direction": "ltr|rtl",
+                     "productionStatus": "PRODUCTION|PLANNED", "transliteration": "string|null", "typing": "string|null"},
+    "goal": {"id": "string", "name": "string", "blurb": "string", "topics": ["string"],
+             "pathSlug": "string|null", "honestNote": "string|null"},
+    "countryContext": {"id": "string", "title": "string", "subtitle": "string", "audience": "string",
+                       "sharedCourse": "string",
+                       "modules": ["list of {id, title, phrases[{target, roman, meaning, source}], links[{title, url}]}"]},
+    "srsCard": {"language": "iso639-1", "target": "string", "source": "string", "prompt": "string",
+                "answer": "string", "category": "string", "level": "string", "goal": "string|null",
+                "country": "string|null", "schedule": "ease/interval/due_date", "version": "int"},
+    "languagePack": {"version": "int", "source_language": "en", "target_language": "iso639-1",
+                     "status": "BETA", "scope": "string (honest)", "honestNote": "string",
+                     "items": ["vocabPhraseItem"], "concepts": ["grammarConcept"]},
+    "rule": "target script vs transliteration: romanisation is authored data; transliteration engines are per-script (Devanagari exists via js/translit.js). No universal transliteration claim. No language is PRODUCTION without a full reviewed course passing browser QA.",
+}
+w("reports/global-content-schema-phase7c.json", schema)
+
+# ---- global content graph (§9, §55 required report) ----
+from collections import Counter
+gtypes = Counter(e["type"] for e in graph["entities"])
+gtopics = Counter((e.get("topic") or "(none)") for e in graph["entities"])
+glevels = Counter((e.get("level") or "(none)") for e in graph["entities"])
+glangs = Counter(e["target_language"] for e in graph["entities"])
+graph_report = {
+    "generated": NOW, "commit": HEAD,
+    "source": "data/content-graph.json",
+    "totalEntities": len(graph["entities"]),
+    "byType": dict(sorted(gtypes.items(), key=lambda x: -x[1])),
+    "byTopic": dict(sorted(gtopics.items(), key=lambda x: -x[1])[:15]),
+    "byLevel": dict(sorted(glevels.items(), key=lambda x: -x[1])),
+    "byLanguage": dict(glangs),
+    "productionLanguages": ["hi"],
+    "betaStarterLanguages": ["es"],
+    "note": "The graph holds Hindi's real content (364 entities). Language packs (es) live beside the graph as BETA starter content and are indexed by the search + language-pack loader, not added to the graph as fake course entities.",
+}
+w("reports/global-content-graph-phase7c.json", graph_report)
 
 
 # ---- language quality ----
@@ -208,6 +268,9 @@ items = [
     ("script engine is reusable", "GREEN", "9 scripts, direction/status/transliteration routing (Gate D)"),
     ("grammar engine is reusable", "GREEN", "6 authored concepts rendered (Gate D)"),
     ("vocabulary/phrase engine is reusable", "GREEN", "authored items rendered (Gate D)"),
+    ("engines reusable across languages (Stage 2 proof)", "GREEN", "Spanish starter pack renders through the SAME vocab/phrase + grammar engines + SRS hook (Gate I); es stays BETA, hi only PRODUCTION"),
+    ("content schema documented", "GREEN", "reports/global-content-schema-phase7c.json (unified multi-language schema)"),
+    ("content graph report", "GREEN", "reports/global-content-graph-phase7c.json (364 entities, real distribution)"),
     ("country context engine works", "GREEN", "Gate E: india-visitor + heritage pages"),
     ("search architecture is language-aware", "GREEN", "Gate D: roman/english/devanagari queries all resolve"),
     ("SEO matrix has safety gates", "GREEN", "publishability gate enforced; 2 indexable pages added"),
@@ -217,7 +280,7 @@ items = [
     ("batch generation works", "GREEN", "batch manifest + 6 gates"),
     ("real Chromium gate at 9 viewports", "GREEN", "36 cells PASS (320–1920), 0 overflow, 0 errors (Gate G)"),
     ("SEO scale test with real numbers", "GREEN", "606 pages, 0 duplicate titles/descs, 0 broken links, 0 orphans (Gate H)"),
-    ("automation/generation pipeline", "GREEN", "16/16 stages PASS (run-phase7c-pipeline.py)"),
+    ("automation/generation pipeline", "GREEN", "18/18 stages PASS (run-phase7c-pipeline.py)"),
     ("10k-file handoff works", "GREEN", "handoff written; workspace far from ceiling"),
     ("Phase 5 regression passes", "GREEN", "card interactions 5/5"),
     ("Phase 6 regression passes", "GREEN", "matrix 117/117"),
@@ -247,9 +310,10 @@ handoff = {
         "tranche 5: admin global language ops (Gate F)",
         "tranche 6: child/family privacy mode (device-only toggle; no child content) + SRS card globalization",
         "tranche 7: multi-viewport gate (Gate G), real SEO-scale crawl (Gate H), automation pipeline (16/16), search-index integration (578 entries), contexts hub, intermediate page de-orphaned",
+        "tranche 8 (Stage 2): language-pack reuse proof — Spanish starter pack (BETA) renders through the same engines (Gate I); content schema + graph reports; es stays BETA, hi stays the only PRODUCTION language",
     ],
     "pendingBatches": [
-        "additional production languages (Stage 2: 3-5 languages) — requires authored content first",
+        "Stage 2 full: 3-5 additional languages as proof (Spanish starter pack done; French/German/Japanese etc. still need authored starter packs, then full courses)",
         "child-specific lesson content (privacy mode ships; lessons not authored)",
         "large-scale SEO batches (Stage 6) — never before quality gates",
     ],

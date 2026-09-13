@@ -22,6 +22,7 @@
 
   var cache = null;
   var readyPromise = null;
+  var packCache = {};   // Phase 7C Stage 2: per-URL cache for language packs
 
   function dataUrl() {
     try {
@@ -35,27 +36,41 @@
   }
   var DATA_URL = dataUrl();
 
-  function load() {
-    if (readyPromise) return readyPromise;
-    readyPromise = new Promise(function (resolve, reject) {
-      if (typeof root.fetch !== "function") { reject(new Error("no fetch")); return; }
-      root.fetch(DATA_URL, { cache: "no-store" })
-        .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error("vocab " + r.status)); })
-        .then(function (d) { cache = d.items || []; resolve(cache); })
-        .catch(function (e) { reject(e); });
-    });
-    return readyPromise;
+  function load(url) {
+    url = url || DATA_URL;
+    if (url === DATA_URL) {
+      if (readyPromise) return readyPromise;
+      readyPromise = fetchItems(url);
+      return readyPromise;
+    }
+    if (packCache[url]) return packCache[url];
+    packCache[url] = fetchItems(url);
+    return packCache[url];
   }
 
-  function esc(s) { return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+  function fetchItems(url) {
+    return new Promise(function (resolve, reject) {
+      if (typeof root.fetch !== "function") { reject(new Error("no fetch")); return; }
+      root.fetch(url, { cache: "no-store" })
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error("vocab " + r.status)); })
+        .then(function (d) {
+          var items = d.items || [];
+          if (url === DATA_URL) cache = items;
+          resolve(items);
+        })
+        .catch(function (e) { reject(e); });
+    });
+  }
+
+  function esc(s) { return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
 
   function find(id) {
     return (cache || []).filter(function (i) { return i.id === id; })[0] || null;
   }
 
   function itemHTML(i, compact) {
-    var h = '<article class="v-item" data-vid="' + esc(i.id) + '" data-hi-card="' + esc(JSON.stringify({ p: i.target, a: i.meaning, c: i.topic || "vocabulary" })) + '">'
-      + '<p class="v-target" lang="hi" dir="auto">' + esc(i.target) + "</p>"
+    var h = '<article class="v-item" data-vid="' + esc(i.id) + '" data-hi-card="' + esc(JSON.stringify({ p: i.target, a: i.meaning, c: i.topic || "vocabulary", l: i.language || "hi" })) + '">'
+      + '<p class="v-target" lang="' + esc(i.language || "hi") + '" dir="auto">' + esc(i.target) + "</p>"
       + '<p class="v-roman">' + esc(i.roman) + "</p>"
       + '<p class="v-meaning">' + esc(i.meaning) + "</p>";
     if (!compact) {
@@ -87,6 +102,19 @@
       if (!list.length) { el.innerHTML = '<p class="muted">No items match.</p>'; return; }
       el.innerHTML = list.map(function (i) { return itemHTML(i, true); }).join("");
       if (root.EkGuruSRS && typeof root.EkGuruSRS.mountAddButtons === "function") root.EkGuruSRS.mountAddButtons();
+    },
+    /* Phase 7C Stage 2: render an arbitrary language pack through this same
+       engine (reuse proof). Defaults to the Hindi data file. */
+    renderFrom: function (el, url, filter) {
+      if (!el) return;
+      load(url).then(function (items) {
+        var list = items.filter(function (i) { return !filter || filter(i); });
+        if (!list.length) { el.innerHTML = '<p class="muted">No items match.</p>'; return; }
+        el.innerHTML = list.map(function (i) { return itemHTML(i, true); }).join("");
+        if (root.EkGuruSRS && typeof root.EkGuruSRS.mountAddButtons === "function") root.EkGuruSRS.mountAddButtons();
+      }).catch(function () {
+        el.innerHTML = '<p class="muted">Language pack unavailable.</p>';
+      });
     }
   };
 

@@ -69,6 +69,10 @@ with sync_playwright() as p:
     note("vocab_words", vocab)
     if vocab != 24:
         fails.append("expected 24 vocab words, got %d" % vocab)
+    add_btns = pg.evaluate("() => document.querySelectorAll('#vocab-app .hi-review-add').length")
+    note("vocab_add_buttons", add_btns)
+    if add_btns != 24:
+        fails.append("expected 24 SRS add-buttons on vocab cards, got %d" % add_btns)
 
     dash = pg.evaluate("() => document.getElementById('progress-dash').innerText")
     note("progress_dash", dash.replace("\n", " / ")[:140])

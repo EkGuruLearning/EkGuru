@@ -1,0 +1,48 @@
+{
+  "generated": "2026-09-13T02:15:56Z",
+  "commit": "9d4708842c19f1c88f10064b1e57bff152faaa27",
+  "source": "data/content-graph.json",
+  "totalEntities": 364,
+  "byType": {
+    "practice": 112,
+    "phrase": 69,
+    "review_card": 65,
+    "lesson": 60,
+    "quiz": 45,
+    "grammar": 6,
+    "culture": 4,
+    "pronunciation": 3
+  },
+  "byTopic": {
+    "grammar": 49,
+    "vocabulary": 47,
+    "daily-life": 42,
+    "travel": 19,
+    "conversation": 13,
+    "basics": 12,
+    "sentences": 12,
+    "listening": 12,
+    "placement": 12,
+    "family": 11,
+    "greetings": 11,
+    "verbs": 11,
+    "pronunciation": 10,
+    "speaking": 10,
+    "courtesy": 10
+  },
+  "byLevel": {
+    "beginner": 329,
+    "elementary": 34,
+    "intermediate": 1
+  },
+  "byLanguage": {
+    "hi": 364
+  },
+  "productionLanguages": [
+    "hi"
+  ],
+  "betaStarterLanguages": [
+    "es"
+  ],
+  "note": "The graph holds Hindi's real content (364 entities). Language packs (es) live beside the graph as BETA starter content and are indexed by the search + language-pack loader, not added to the graph as fake course entities."
+}

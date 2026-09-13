@@ -19,6 +19,7 @@
 
   var cache = null;
   var readyPromise = null;
+  var packCache = {};   // Phase 7C Stage 2: per-URL cache for language packs
 
   function dataUrl() {
     try {
@@ -32,16 +33,30 @@
   }
   var DATA_URL = dataUrl();
 
-  function load() {
-    if (readyPromise) return readyPromise;
-    readyPromise = new Promise(function (resolve, reject) {
+  function load(url) {
+    url = url || DATA_URL;
+    if (url === DATA_URL) {
+      if (readyPromise) return readyPromise;
+      readyPromise = fetchConcepts(url);
+      return readyPromise;
+    }
+    if (packCache[url]) return packCache[url];
+    packCache[url] = fetchConcepts(url);
+    return packCache[url];
+  }
+
+  function fetchConcepts(url) {
+    return new Promise(function (resolve, reject) {
       if (typeof root.fetch !== "function") { reject(new Error("no fetch")); return; }
-      root.fetch(DATA_URL, { cache: "no-store" })
+      root.fetch(url, { cache: "no-store" })
         .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error("grammar " + r.status)); })
-        .then(function (d) { cache = d.concepts || []; resolve(cache); })
+        .then(function (d) {
+          var concepts = d.concepts || [];
+          if (url === DATA_URL) cache = concepts;
+          resolve(concepts);
+        })
         .catch(function (e) { reject(e); });
     });
-    return readyPromise;
   }
 
   function esc(s) { return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
@@ -89,6 +104,18 @@
       });
       if (!list.length) { el.innerHTML = '<p class="muted">No grammar concepts match.</p>'; return; }
       el.innerHTML = list.map(conceptHTML).join("");
+    },
+    /* Phase 7C Stage 2: render a language pack's grammar through this same
+       engine (reuse proof). Defaults to the Hindi data file. */
+    renderFrom: function (el, url, filter) {
+      if (!el) return;
+      load(url).then(function (concepts) {
+        var list = concepts.filter(function (c) { return !filter || filter(c); });
+        if (!list.length) { el.innerHTML = '<p class="muted">No grammar concepts match.</p>'; return; }
+        el.innerHTML = list.map(conceptHTML).join("");
+      }).catch(function () {
+        el.innerHTML = '<p class="muted">Grammar pack unavailable.</p>';
+      });
     }
   };
 

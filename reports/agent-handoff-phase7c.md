@@ -2,8 +2,8 @@
 
 - **repo**: EkGuru (GitHub Pages static site)
 - **branch**: main
-- **SHA**: 1492eb80644a28a546b60ec8c911f71d70f8243d
-- **verdict**: GREEN_GLOBAL_ENGINE_PRODUCTION_READY (34/34)
+- **SHA**: 9d4708842c19f1c88f10064b1e57bff152faaa27
+- **verdict**: GREEN_GLOBAL_ENGINE_PRODUCTION_READY (37/37)
 
 ## Completed batches
 - tranche 1: content graph + registries + live inventory
@@ -13,9 +13,10 @@
 - tranche 5: admin global language ops (Gate F)
 - tranche 6: child/family privacy mode (device-only toggle; no child content) + SRS card globalization
 - tranche 7: multi-viewport gate (Gate G), real SEO-scale crawl (Gate H), automation pipeline (16/16), search-index integration (578 entries), contexts hub, intermediate page de-orphaned
+- tranche 8 (Stage 2): language-pack reuse proof — Spanish starter pack (BETA) renders through the same engines (Gate I); content schema + graph reports; es stays BETA, hi stays the only PRODUCTION language
 
 ## Pending
-- additional production languages (Stage 2: 3-5 languages) — requires authored content first
+- Stage 2 full: 3-5 additional languages as proof (Spanish starter pack done; French/German/Japanese etc. still need authored starter packs, then full courses)
 - child-specific lesson content (privacy mode ships; lessons not authored)
 - large-scale SEO batches (Stage 6) — never before quality gates
 

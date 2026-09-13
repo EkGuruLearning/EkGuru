@@ -38,6 +38,29 @@ CORE_STYLE = """
 .tag{display:inline-block;border-radius:999px;padding:2px 10px;font-size:.72rem;font-weight:700;color:#fff}
 .tag.on{background:#1a7f37}
 .tag.soon{background:#7f8c8d}
+.tag.beta{background:#9a6700}
+.lp-box{border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:26px 0;background:var(--card,#fff)}
+.lp-box h2{font-size:1.15rem;margin:0 0 8px}
+.lp-head{margin-bottom:14px}
+.lp-head h3{font-size:1.05rem;margin:0 0 6px}
+.lp-tag{display:inline-block;border-radius:999px;padding:2px 10px;font-size:.72rem;font-weight:700;color:#fff;vertical-align:2px}
+.lp-tag.beta{background:#9a6700}
+.v-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:8px 0 16px}
+.v-item{border:1px solid var(--line);border-radius:12px;padding:12px 13px;background:var(--bg-soft)}
+.v-target{font-size:1.15rem;font-weight:600;margin:0}
+.v-roman{color:var(--muted);font-size:.85rem;margin:2px 0 6px}
+.v-meaning{margin:0;color:var(--ink-2);font-size:.92rem}
+.g-concept{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:12px 0;background:var(--bg-soft)}
+.g-concept h3{margin:0 0 6px;font-size:1.02rem}
+.g-pattern{margin:0 0 8px}
+.g-meta{font-size:.8rem;color:var(--muted);margin:0 0 10px}
+.g-ex,.g-exc,.g-mis{padding-left:20px;margin:6px 0}
+.g-ex li,.g-exc li,.g-mis li{margin:4px 0;line-height:1.55}
+.g-target{font-weight:600;font-size:1.02rem}
+.g-roman{color:var(--muted);font-size:.86rem;margin:0 6px}
+.g-gloss{color:var(--ink-2);font-size:.88rem}
+.g-note{font-size:.92rem;color:var(--ink-2)}
+.hi-review-add{margin-left:8px}
 """
 
 
@@ -105,15 +128,26 @@ def esc(s):
 
 
 def languages_page():
-    langs = json.load(open("reports/language-registry-phase7.json"))["languages"]
+    # Phase 7C: read the 7C registry (BETA packs included); fall back to Phase 7
+    try:
+        langs = json.load(open("reports/language-registry-phase7c.json"))["languages"]
+    except Exception:
+        langs = json.load(open("reports/language-registry-phase7.json"))["languages"]
     prod = [l for l in langs if l["productionStatus"] == "PRODUCTION"]
-    planned = [l for l in langs if l["productionStatus"] != "PRODUCTION"]
+    beta = [l for l in langs if l["productionStatus"] == "BETA"]
+    planned = [l for l in langs if l["productionStatus"] not in ("PRODUCTION", "BETA")]
 
     prod_cards = "".join(
         '<div class="lang-cell"><span class="nm">%s <span class="tag on">Available</span></span>' % esc(l["name"]) +
         '<span class="sub">%s · %s script · free</span>' % (esc(l["nativeName"]), esc(l["script"])) +
         '<p><a class="btn" href="/learn/hindi/">Start learning %s</a></p></div>' % esc(l["name"])
         for l in prod)
+
+    beta_cells = "".join(
+        '<div class="lang-cell"><span class="nm">%s <span class="tag beta">Starter · beta</span></span>' % esc(l["name"]) +
+        '<span class="sub">%s · %s script</span>' % (esc(l["nativeName"]), esc(l["script"])) +
+        '<p class="muted" style="margin:6px 0 0;font-size:.8rem">Starter reference content only — not a course. See the proof below.</p></div>'
+        for l in beta)
 
     planned_cells = "".join(
         '<div class="lang-cell"><span class="nm">%s</span>' % esc(l["name"]) +
@@ -129,39 +163,69 @@ def languages_page():
         '  <h2>Available now</h2>\n'
         '  <div class="lang-grid">' + prod_cards + "</div>\n"
         '  <p class="muted" id="cg-stats">Counting live content…</p>\n'
+        + (('  <h2>Beta starter</h2>\n'
+            '  <p class="muted">A starter pack proves the engines work across languages. It is BETA reference content — '
+            "not a course, and never labelled available until a full reviewed course exists.</p>\n"
+            '  <div class="lang-grid">' + beta_cells + "</div>\n") if beta else "") +
         '  <h2>Coming soon</h2>\n'
         '  <p class="muted">These are the next targets in the architecture. Each becomes available only when its lessons, audio and review content are real.</p>\n'
         '  <div class="lang-grid">' + planned_cells + "</div>\n"
         '  <div class="note"><b>Not sure where to begin?</b> Answer three quick questions and get a rule-based starting point — <a href="/start/">find your starting point</a>. This is a deterministic recommendation, not AI.</div>\n'
+        + (('  <div id="es-proof" class="lp-box">\n'
+            '    <h2>Engine reuse proof — Spanish starter pack</h2>\n'
+            '    <p class="muted">Below is a small authored Spanish starter pack rendered live by the <b>same</b> '
+            "vocabulary, phrase and grammar engines that render Hindi — including the same device-only spaced-repetition "
+            "“Add to review” hook. This is the Stage 2 architecture proof, not a Spanish course.</p>\n"
+            '    <div id="langpack-app"><p class="muted">Loading Spanish starter pack…</p></div>\n'
+            '  </div>\n') if beta else "") +
         '  <script defer>\n'
-        '  (function(){'
-        '    var el=document.getElementById("cg-stats");'
-        '    if(!el){return;}'
-        '    function whenReady(cb){'
-        '      if(window.EkGuruContent){cb(window.EkGuruContent);return;}'
-        '      var n=0,t=setInterval(function(){'
-        '        if(window.EkGuruContent){clearInterval(t);cb(window.EkGuruContent);}'
-        '        else if(++n>30){clearInterval(t);'
-        '          el.textContent="Content inventory unavailable right now — the rest of this page works normally.";}'
-        '      },100);'
-        '    }'
-        '    whenReady(function(C){'
-        '      C.ready().then(function(){'
-        '        var s=C.stats();'
+        '  (function(){\n'
+        '    var el=document.getElementById("cg-stats");\n'
+        '    if(!el){return;}\n'
+        '    function whenReady(cb){\n'
+        '      if(window.EkGuruContent){cb(window.EkGuruContent);return;}\n'
+        '      var n=0,t=setInterval(function(){\n'
+        '        if(window.EkGuruContent){clearInterval(t);cb(window.EkGuruContent);}\n'
+        '        else if(++n>30){clearInterval(t);\n'
+        '          el.textContent="Content inventory unavailable right now — the rest of this page works normally.";}\n'
+        '      },100);\n'
+        '    }\n'
+        '    whenReady(function(C){\n'
+        '      C.ready().then(function(){\n'
+        '        var s=C.stats();\n'
         '        el.textContent="Live content inventory: "+s.total+" items — "\n'
         '          +s.byType.lesson+" lessons · "+s.byType.quiz+" quiz questions · "\n'
         '          +s.byType.phrase+" phrases · "+s.byType.review_card+" review cards. "\n'
-        '          +"Counts are read from the content graph, not typed by hand.";'
-        '      }).catch(function(){'
-        '        el.textContent="Content inventory unavailable right now — the rest of this page works normally.";'
-        '      });'
-        '    });'
-        '  })();'
+        '          +"Counts are read from the content graph, not typed by hand.";\n'
+        '      }).catch(function(){\n'
+        '        el.textContent="Content inventory unavailable right now — the rest of this page works normally.";\n'
+        '      });\n'
+        '    });\n'
+        + (('    // Stage 2: render the Spanish starter pack through the shared engines\n'
+            '    var lp=document.getElementById("langpack-app");\n'
+            '    if(lp){\n'
+            '      function lpReady(cb){\n'
+            '        if(window.EkGuruLangPack && window.EkGuruVocab && window.EkGuruGrammar){cb();return;}\n'
+            '        var n=0,t=setInterval(function(){\n'
+            '          if(window.EkGuruLangPack && window.EkGuruVocab && window.EkGuruGrammar){clearInterval(t);cb();}\n'
+            '          else if(++n>40){clearInterval(t);lp.innerHTML=\'<p class="muted">Language pack unavailable right now.</p>\';}\n'
+            '        },100);\n'
+            '      }\n'
+            '      lpReady(function(){\n'
+            '        window.EkGuruLangPack.ready().then(function(){\n'
+            '          window.EkGuruLangPack.render(lp, "es");\n'
+            '        }).catch(function(){lp.innerHTML=\'<p class="muted">Language pack unavailable right now.</p>\';});\n'
+            '      });\n'
+            '    }\n') if beta else "") +
+        '  })();\n'
         '  </script>\n'
     )
     write("languages/index.html", "../", "Learn a language with EkGuru — available now and coming soon",
           "EkGuru teaches Hindi today, with more languages coming. See what is available now, and get a rule-based starting point for your goal.",
-          "languages/", body, scripts=["content-graph.js"])
+          "languages/", body, scripts=["content-graph.js", "vocab-phrase-engine.js", "grammar-engine.js",
+                                       "hindi-srs.js", "language-pack.js"])
+
+
 
 
 def start_page():
