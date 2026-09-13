@@ -130,11 +130,11 @@
     }
     return out;
   }
-  function speak(text) {
+  function speak(text, lang) {
     try {
       if (!("speechSynthesis" in window)) return false;
       var u = new SpeechSynthesisUtterance(String(text));
-      u.lang = "hi-IN";
+      u.lang = lang || "hi-IN";
       u.rate = 0.8;
       window.speechSynthesis.cancel();
       window.speechSynthesis.speak(u);
@@ -221,16 +221,16 @@
           }).join("") + "</div>";
       }
 
+      var sayLang = cfg.speechLang || "hi-IN";
+      var sayText = item.say || deva(item.q) || null;
       var listenHtml = "";
       if (item.tts) {
         listenHtml = '<button type="button" class="btn px-play">🔊 Play again</button> ' +
           '<span class="px-tts-note">(computer voice — good for recognition, not a native accent)</span>';
-      } else {
-        var dv = deva(item.q);
-        if (dv) {
-          listenHtml = '<button type="button" class="btn px-play" data-sayw="' + esc(dv) + '">🔊 Listen</button> ' +
-            '<span class="px-tts-note">(computer voice, not a native accent)</span>';
-        }
+      } else if (sayText) {
+        listenHtml = '<button type="button" class="btn px-play" data-sayw="' + esc(sayText) +
+          '" data-saylang="' + esc(sayLang) + '">🔊 Listen</button> ' +
+          '<span class="px-tts-note">(computer voice, not a native accent)</span>';
       }
 
       box.innerHTML =
@@ -330,14 +330,15 @@
       if (play) {
         if (play.getAttribute("data-sayw")) {
           var sayText = play.getAttribute("data-sayw");
+          var sayLang = play.getAttribute("data-saylang") || "hi-IN";
           play.addEventListener("click", function () {
-            if (!speak(sayText)) play.textContent = "Playback unavailable in this browser";
+            if (!speak(sayText, sayLang)) play.textContent = "Playback unavailable in this browser";
           });
         } else if (item.tts) {
           play.addEventListener("click", function () {
-            if (!speak(item.tts)) play.textContent = "Playback unavailable in this browser";
+            if (!speak(item.tts, cfg.speechLang || "hi-IN")) play.textContent = "Playback unavailable in this browser";
           });
-          speak(item.tts);   // play once on load
+          speak(item.tts, cfg.speechLang || "hi-IN");   // play once on load
         }
       }
     }

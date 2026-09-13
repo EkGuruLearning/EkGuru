@@ -33,6 +33,15 @@ except Exception:
     _packs = []
 packs_by_lang = {p["lang"]: p for p in _packs}
 
+# Phase 7C Stage 7: full courses (built by tools/build-language-course.py).
+# A course keeps a language BETA — it is still not Hindi-depth and has no
+# recorded audio. PRODUCTION remains Hindi only.
+try:
+    _courses = json.load(open("data/courses.json", encoding="utf-8")).get("courses", [])
+except Exception:
+    _courses = []
+courses_by_lang = {c["lang"]: c for c in _courses}
+
 # ---- real content counts per target language (from the graph) ----
 counts = {}
 for e in graph["entities"]:
@@ -73,6 +82,7 @@ for l in lang7["languages"]:
     lvl = level_coverage(cnt) if lid == "hi" else []
     pack = packs_by_lang.get(lid)
     has_pack = pack is not None
+    course = courses_by_lang.get(lid)
     status = l["productionStatus"]
     if has_pack and status != "PRODUCTION":
         status = "BETA"  # starter pack exists, but no full reviewed course
@@ -105,6 +115,7 @@ for l in lang7["languages"]:
         "starterPack": has_pack,
         "starterCounts": pack.get("counts") if pack else None,
         "starterNote": pack.get("honestNote") if pack else None,
+        "course": course,
         "referenceImplementation": l.get("referenceImplementation", False),
     })
 

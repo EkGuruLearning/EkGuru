@@ -170,7 +170,9 @@ def languages_page():
 
     beta_cells = "".join(
         '<div class="lang-cell lb">' +
-        '<a class="nm" href="/languages/%s/">%s <span class="tag beta">Starter · beta</span></a>' % (esc(l["id"]), esc(l["name"])) +
+        '<a class="nm" href="/languages/%s/">%s <span class="tag beta">Starter · beta</span>%s</a>' % (
+            esc(l["id"]), esc(l["name"]),
+            (' <span class="tag beta">Course</span>' if l.get("course") else "")) +
         '<span class="sub" data-say="%s" data-say-lang="%s">%s · %s script</span>' % (
             esc(l["nativeName"]), esc(_tag(l)),
             esc(l["nativeName"]), esc(l["script"])) +
@@ -334,7 +336,23 @@ def lang_pages():
             d = {}
         name = esc(p["name"])
         about = esc(d.get("about", "") or p.get("honestNote", ""))
+        course = l.get("course")
         title = "Learn %s basics — free starter pack" % p["name"]
+        course_html = ""
+        course_note = ('  <div class="note"><b>This is not a full course.</b> There are no lesson pages and no '
+                       'recorded audio here. When real lessons exist for a language, it moves up — for now the '
+                       'only full course is <a href="/learn/hindi/">Hindi</a>.</div>\n')
+        if course:
+            course_html = (
+                '  <h2>Full course — beta</h2>\n'
+                '  <div class="note"><b>This language now has a free beta course.</b> %s</div>\n'
+                '  <p><a class="btn" href="/languages/%s/course/">Open the %s course</a></p>\n'
+            ) % (esc(course.get("note", "")), esc(code), name)
+            course_note = (
+                '  <div class="note"><b>Beta course, not yet Hindi-depth.</b> %s now has lessons, practice, '
+                'a quiz and a review deck — but it is younger than the Hindi course and has no recorded '
+                'audio. <a href="/languages/%s/course/">See the course</a>.</div>\n'
+            ) % (name, esc(code))
         body = (
             '  <p class="crumb"><a href="/">EkGuru</a> › <a href="/languages/">Languages</a> › %s</p>\n'
             '  <h1>Learn %s basics</h1>\n'
@@ -342,6 +360,7 @@ def lang_pages():
             'Starter reference content, not a course.</p>\n'
             '  <div class="note"><b>Honest status.</b> %s</div>\n'
             '  <p>%s</p>\n'
+            '%s'
             '  <h2>Starter pack preview</h2>\n'
             '  <p class="muted">%d words · %d phrases · %d grammar concepts — rendered live by the same '
             'engines that render Hindi, with the same device-only “Add to review” hook. The 🔊 Listen '
@@ -351,15 +370,13 @@ def lang_pages():
             '  <p class="muted">A fixed rule-based check over this pack’s words — the same questions every '
             'time. Not an exam, not AI, nothing is saved.</p>\n'
             '  <div id="starter-check"><p class="muted">Loading starter check…</p></div>\n'
-            '  <div class="note"><b>This is not a full course.</b> There are no lesson pages and no recorded '
-            'audio here. When real lessons exist for a language, it moves up — for now the only full course '
-            'is <a href="/learn/hindi/">Hindi</a>.</div>\n'
+            '%s'
             '  <p><a class="btn" href="/languages/">All languages</a> '
             '<a class="btn" href="/learn/hindi/">Start learning Hindi</a></p>\n'
-        ) % (name, name, esc(d.get("honestNote", "") or STD_NOTE), about,
+        ) % (name, name, esc(d.get("honestNote", "") or STD_NOTE), about, course_html,
              (p.get("counts") or {}).get("vocab", 0),
              (p.get("counts") or {}).get("phrase", 0),
-             (p.get("counts") or {}).get("grammar", 0), name) + _langpack_script(code) + _startercheck_script(code)
+             (p.get("counts") or {}).get("grammar", 0), name, course_note) + _langpack_script(code) + _startercheck_script(code)
         write("languages/%s/index.html" % code, "../../", title, d.get("about", ""),
               "languages/%s/" % code, body,
               scripts=["vocab-phrase-engine.js", "grammar-engine.js", "hindi-srs.js",

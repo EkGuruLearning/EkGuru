@@ -1,8 +1,8 @@
 {
-  "generated": "2026-09-13T07:30:48Z",
+  "generated": "2026-09-13T08:03:55Z",
   "pass": true,
-  "stagesRun": 22,
-  "stagesTotal": 22,
+  "stagesRun": 24,
+  "stagesTotal": 24,
   "failures": [],
   "results": [
     {
@@ -24,6 +24,17 @@
         "  wrote data/lang-sw.json",
         "  wrote data/lang-uk.json",
         "  wrote data/language-packs.json (29 packs)"
+      ]
+    },
+    {
+      "name": "build: language courses",
+      "exit": 0,
+      "seconds": 0.0,
+      "out": "Spanish course built:\n   js/course-es.js\n   languages/es/lessons/greetings-and-introductions/index.html\n   languages/es/lessons/ser-and-estar/index.html\n   languages/es/lessons/gender-and-articles/index.html\n   languages/es/lessons/numbers-1-to-20/index.html\n   languages/es/lessons/food-and-ordering/index.html\n   languages/es/lessons/present-tense-regular-verbs/index.html\n   languages/es/course/index.html\n   languages/es/practice/index.html\n   languages/es/quiz/index.html\n   languages/es/review/index.html\n   data/courses.json\n",
+      "tail": [
+        "   languages/es/quiz/index.html",
+        "   languages/es/review/index.html",
+        "   data/courses.json"
       ]
     },
     {
@@ -83,7 +94,7 @@
     {
       "name": "gate: content graph",
       "exit": 0,
-      "seconds": 2.6,
+      "seconds": 2.5,
       "out": "phase7c graph test: PASS\n  hub.cells                  30\n  hub.available/beta/coming  [true, true, false]\n  hub.live_inventory         \"Live content inventory: 364 items — 60 lessons · 45 quiz questions · 69 phrases · 65 review cards. Counts are read from the content graph, not typed \n  graph.query                {\"total\": 364, \"stats\": {\"total\": 364, \"byType\": {\"lesson\": 60, \"quiz\": 45, \"practice\": 112, \"phrase\": 69, \"review_card\": 65, \"grammar\": 6, \"pronuncia\n  page_errors                []\n",
       "tail": [
         "  hub.live_inventory         \"Live content inventory: 364 items — 60 lessons · 45 quiz questions · 69 phrases · 65 review cards. Counts are read from the content graph, not typed ",
@@ -127,7 +138,7 @@
     {
       "name": "gate: admin global ops",
       "exit": 0,
-      "seconds": 6.4,
+      "seconds": 6.3,
       "out": "admin global language ops: PASS\n  panel_preview      \"Languages |  | 30 languages registered · PRODUCTION: hi · A language is PRODUCTION only with real content passing QA; counts below are read from data\n  language_rows      38\n  page_errors        []\n",
       "tail": [
         "  panel_preview      \"Languages |  | 30 languages registered · PRODUCTION: hi · A language is PRODUCTION only with real content passing QA; counts below are read from data",
@@ -139,9 +150,9 @@
       "name": "gate: language pack (Stage 2)",
       "exit": 0,
       "seconds": 2.4,
-      "out": "language-pack reuse proof: PASS\n  registry_production    [\"hi\"]\n  es_status              \"BETA\"\n  es_starterPack         true\n  pack_items             36\n  pack_grammar           4\n  has_hola               true\n  prod_grid              {\"count\": 1, \"texts\": [\"Hindi Available\\nहिन्दी · Devanagari script · free\\n🔊\\nListen\\n\\nStart learning Hindi\"]}\n  es_cell                \"Spanish Starter · beta\\nespañol · Latin script\\n🔊\\nListen\\n24 words · 12 phrases · 4 grammar — free\"\n  srs_card_language      \"es\"\n  page_errors            []\n",
+      "out": "language-pack reuse proof: PASS\n  registry_production    [\"hi\"]\n  es_status              \"BETA\"\n  es_starterPack         true\n  pack_items             36\n  pack_grammar           4\n  has_hola               true\n  prod_grid              {\"count\": 1, \"texts\": [\"Hindi Available\\nहिन्दी · Devanagari script · free\\n🔊\\nListen\\n\\nStart learning Hindi\"]}\n  es_cell                \"Spanish Starter · beta Course\\nespañol · Latin script\\n🔊\\nListen\\n24 words · 12 phrases · 4 grammar — free\"\n  srs_card_language      \"es\"\n  page_errors            []\n",
       "tail": [
-        "  es_cell                \"Spanish Starter · beta\\nespañol · Latin script\\n🔊\\nListen\\n24 words · 12 phrases · 4 grammar — free\"",
+        "  es_cell                \"Spanish Starter · beta Course\\nespañol · Latin script\\n🔊\\nListen\\n24 words · 12 phrases · 4 grammar — free\"",
         "  srs_card_language      \"es\"",
         "  page_errors            []"
       ]
@@ -149,7 +160,7 @@
     {
       "name": "gate: language packs (Stage 3)",
       "exit": 0,
-      "seconds": 36.9,
+      "seconds": 37.1,
       "out": "multi-language packs + reachability: PASS\n  production           [\"hi\"]\n  beta_ids             [\"ar\", \"bn\", \"de\", \"en\", \"es\", \"fa\", \"fr\", \"gu\", \"he\", \"id\", \"it\", \"ja\", \"ko\", \"mr\", \"ms\", \"nl\", \"pa\", \"pl\", \"pt\", \"ru\",\n  planned_count        0\n  home_section         true\n  home_nav             true\n  home_pills           [\"Hindi full course\", \"Arabic\", \"Bengali\", \"Chinese\", \"Dutch\", \"English\", \"French\", \"German\", \"Gujarati\", \"Hebrew\", \"Ind\n  hub                  {\"prod_cells\": 1, \"beta_cells\": 29, \"select_opts\": [\"ar\", \"bn\", \"zh\", \"nl\", \"en\", \"fr\", \"de\", \"gu\", \"he\", \"id\", \"it\", \"j\n  detail_titles        [\"Learn Arabic basics — free starter pack | EkGuru\", \"Learn Bengali basics — free starter pack | EkGuru\", \"Learn German \n  planned_with_page    0\n  page_errors          []\n",
       "tail": [
         "  detail_titles        [\"Learn Arabic basics — free starter pack | EkGuru\", \"Learn Bengali basics — free starter pack | EkGuru\", \"Learn German ",
@@ -160,7 +171,7 @@
     {
       "name": "gate: starter experience (Stage 4)",
       "exit": 0,
-      "seconds": 12.2,
+      "seconds": 12.1,
       "out": "starter-pack learning experience: PASS\n  pack_speechTags    {\"ar\": \"ar-SA\", \"bn\": \"bn-IN\", \"de\": \"de-DE\", \"en\": \"en-IN\", \"es\": \"es-ES\", \"fa\": \"fa-IR\", \"fr\": \"fr-FR\", \"gu\": \"gu-IN\", \"he\": \"he\n  es_detail          {\"listen\": 36, \"say\": 36, \"computerVoice\": true, \"checkLabel\": true, \"questions\": 1}\n  es_spoken          [{\"text\": \"hola\", \"lang\": \"es-ES\"}]\n  es_check_done      \"A fixed rule-based check — the same 8 questions every time. Not an exam, not AI, nothing is saved.\\n\\nFinished\\n\\nYou got 8 of 8.\n  bn_spoken          {\"text\": \"আমি\", \"lang\": \"bn-IN\"}\n  ar_detail          {\"listen\": 36, \"rtl\": \"rtl\"}\n  ar_spoken          {\"text\": \"أنا\", \"lang\": \"ar-SA\"}\n  zh_spoken          {\"text\": \"我\", \"lang\": \"zh-CN\"}\n  hindi_regression   {\"items\": 24, \"say\": 0, \"listen\": 0}\n  page_errors        []\n",
       "tail": [
         "  zh_spoken          {\"text\": \"我\", \"lang\": \"zh-CN\"}",
@@ -171,7 +182,7 @@
     {
       "name": "gate: everyday polish (Stage 6)",
       "exit": 0,
-      "seconds": 10.7,
+      "seconds": 10.4,
       "out": "stage6 everyday polish + honest tooling: PASS\n  nav:/                  {\"aria\": \"Learn languages\", \"heading\": \"Learn languages\"}\n  nav:/answers/          {\"aria\": \"Learn languages\", \"heading\": \"Learn languages\"}\n  hub_listen             {\"cells\": 30, \"withSay\": 30, \"listens\": 30, \"arTag\": true}\n  hub_ar_spoken          {\"text\": \"العربية\", \"lang\": \"ar-SA\"}\n  srs_review             {\"hasSay\": true, \"seen\": 16}\n  practice_listen        {\"hasListen\": true, \"hasNote\": true}\n  daily_rotation         {\"ok\": true, \"deterministic\": true, \"rotated\": true, \"note\": true}\n  page_errors            []\n",
       "tail": [
         "  practice_listen        {\"hasListen\": true, \"hasNote\": true}",
@@ -180,9 +191,19 @@
       ]
     },
     {
+      "name": "gate: Spanish course (Stage 7)",
+      "exit": 0,
+      "seconds": 7.1,
+      "out": "Phase 7C Stage 7 gate: PASS\n  hub lessons: 6 | practice banks: {'vocab': 12, 'grammar': 12} | spoken: [{'text': 'gracias', 'lang': 'es-ES'}] | quiz rotation: {'pool': 4, 'same': True, 'changed': True} | review spoken: [{'text': 'hola', 'lang': 'es-ES'}]\n",
+      "tail": [
+        "Phase 7C Stage 7 gate: PASS",
+        "  hub lessons: 6 | practice banks: {'vocab': 12, 'grammar': 12} | spoken: [{'text': 'gracias', 'lang': 'es-ES'}] | quiz rotation: {'pool': 4, 'same': True, 'changed': True} | review spoken: [{'text': 'hola', 'lang': 'es-ES'}]"
+      ]
+    },
+    {
       "name": "gate: multi-viewport",
       "exit": 0,
-      "seconds": 47.4,
+      "seconds": 43.9,
       "out": "multi-viewport gate: PASS (36 cells)\n",
       "tail": [
         "multi-viewport gate: PASS (36 cells)"
@@ -191,10 +212,10 @@
     {
       "name": "seo: scale (static)",
       "exit": 0,
-      "seconds": 0.7,
-      "out": "SEO scale (local): 635 pages, 629 indexable, 6 noindex\n  duplicate titles: 0 | duplicate descs: 0 | broken links: 0 | canonical drift: 1 | orphans: 0\n    CANON /tutor.html -> https://ekguru.shop/tutor/\n",
+      "seconds": 0.3,
+      "out": "SEO scale (local): 645 pages, 638 indexable, 7 noindex\n  duplicate titles: 0 | duplicate descs: 0 | broken links: 0 | canonical drift: 1 | orphans: 0\n    CANON /tutor.html -> https://ekguru.shop/tutor/\n",
       "tail": [
-        "SEO scale (local): 635 pages, 629 indexable, 6 noindex",
+        "SEO scale (local): 645 pages, 638 indexable, 7 noindex",
         "  duplicate titles: 0 | duplicate descs: 0 | broken links: 0 | canonical drift: 1 | orphans: 0",
         "    CANON /tutor.html -> https://ekguru.shop/tutor/"
       ]
@@ -202,7 +223,7 @@
     {
       "name": "regression: Phase 7",
       "exit": 0,
-      "seconds": 5.1,
+      "seconds": 4.3,
       "out": "phase7 browser: PASS\n  languages.cells            30\n  languages.available/beta   [True, True]\n  onboarding.hindi.result    Your starting point for Hindi. A lesson plus a practice session a day fits your time.\nHindi From Zero\n\nThe complete beginner track, in the order that actually works.\n\nStart this path\nHindi phrases for\n  onboarding.hindi.linkCount 3\n  onboarding.es.result       Spanish (español) has a free starter pack (beta). Basic words, phrases and grammar to get you started — but this is reference content, not a full course. Hindi is the only language with a full course \n  onboarding.es.link         /languages/es/\n  audioProvider              {'hi': 'BROWSER_TTS', 'es': 'BROWSER_TTS', 'desc': 'computer voice (browser TTS)'}\n",
       "tail": [
         "  onboarding.es.result       Spanish (español) has a free starter pack (beta). Basic words, phrases and grammar to get you started — but this is reference content, not a full course. Hindi is the only language with a full course ",
@@ -213,7 +234,7 @@
     {
       "name": "regression: Phase 6",
       "exit": 0,
-      "seconds": 45.2,
+      "seconds": 42.2,
       "out": "phase6 matrix: 117/117 cells ok | PASS\n",
       "tail": [
         "phase6 matrix: 117/117 cells ok | PASS"
@@ -222,7 +243,7 @@
     {
       "name": "regression: Phase 5",
       "exit": 0,
-      "seconds": 165.9,
+      "seconds": 163.6,
       "out": "card interactions: 19/19 ok\npages with errors: none\nverdict: PASS\nbrowser matrix: 146/146 cells ok\nmatrix verdict: PASS\nregression: 5/5 ok\nregression verdict: PASS\n",
       "tail": [
         "matrix verdict: PASS",
@@ -233,12 +254,12 @@
     {
       "name": "reports: final gate",
       "exit": 0,
-      "seconds": 0.1,
-      "out": "  wrote reports/global-content-schema-phase7c.json\n  wrote reports/global-content-graph-phase7c.json\n  wrote reports/language-quality-phase7c.json\n  wrote reports/country-context-phase7c.json\n  wrote reports/global-link-graph-phase7c.json\n  wrote reports/global-performance-phase7c.json\n  wrote reports/global-accessibility-phase7c.json\n  wrote reports/global-seo-scale-phase7c.json\n  wrote reports/batch-manifest-phase7c.json\n  wrote reports/phase7c-final-gate.json\n  wrote reports/agent-handoff-phase7c.json\n  wrote reports/agent-handoff-phase7c.md\n\nVERDICT: GREEN_GLOBAL_ENGINE_PRODUCTION_READY (43/43)\n",
+      "seconds": 0.0,
+      "out": "  wrote reports/global-content-schema-phase7c.json\n  wrote reports/global-content-graph-phase7c.json\n  wrote reports/language-quality-phase7c.json\n  wrote reports/country-context-phase7c.json\n  wrote reports/global-link-graph-phase7c.json\n  wrote reports/global-performance-phase7c.json\n  wrote reports/global-accessibility-phase7c.json\n  wrote reports/global-seo-scale-phase7c.json\n  wrote reports/batch-manifest-phase7c.json\n  wrote reports/phase7c-final-gate.json\n  wrote reports/agent-handoff-phase7c.json\n  wrote reports/agent-handoff-phase7c.md\n\nVERDICT: GREEN_GLOBAL_ENGINE_PRODUCTION_READY (44/44)\n",
       "tail": [
         "  wrote reports/agent-handoff-phase7c.md",
         "",
-        "VERDICT: GREEN_GLOBAL_ENGINE_PRODUCTION_READY (43/43)"
+        "VERDICT: GREEN_GLOBAL_ENGINE_PRODUCTION_READY (44/44)"
       ]
     }
   ]
