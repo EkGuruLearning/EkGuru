@@ -3,7 +3,7 @@
 
 Unlocks admin.html (session passcode, same as the existing idle test),
 opens the Learn Ops tab, then the new "Global languages" panel and checks:
-  · Languages: 29 rows, only Hindi GREEN/PRODUCTION
+  · Languages: 30 rows, only Hindi GREEN/PRODUCTION (9 BETA starter packs)
   · Country: 250 countries, India relation present
   · Content: 364 entities with per-type counts
   · APIs: keyless transliteration in use, AI APIs blocked
@@ -47,10 +47,10 @@ with sync_playwright() as p:
     note("panel_preview", panel[:180].replace("\n", " | "))
 
     langs_rows = pg.evaluate("() => document.querySelectorAll('#lo-global table tbody tr').length")
-    # first table is Languages (29 rows), second is Content (8 types)
+    # first table is Languages (30 rows), second is Content (8 types)
     note("language_rows", langs_rows)
-    if langs_rows < 29:
-        fails.append("expected 29 language rows, got %d" % langs_rows)
+    if langs_rows < 30:
+        fails.append("expected 30 language rows, got %d" % langs_rows)
 
     if "PRODUCTION: hi" not in panel:
         fails.append("language panel missing PRODUCTION: hi")

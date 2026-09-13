@@ -40,6 +40,33 @@ window.EKGURU_LANGUAGES = [
     "referenceImplementation": true
   },
   {
+    "id": "en",
+    "iso639_1": "en",
+    "iso639_3": "eng",
+    "name": "English",
+    "nativeName": "English",
+    "script": "Latin",
+    "direction": "ltr",
+    "transliteration": "n/a (same script)",
+    "speechTag": "en-IN",
+    "browserSpeech": true,
+    "audioStatus": "BROWSER_TTS",
+    "contentMaturity": {
+      "lessons": 0,
+      "vocabulary": 0,
+      "phrases": 0,
+      "grammar": 0,
+      "culture": 0,
+      "practice": 0,
+      "quizzes": 0
+    },
+    "levels": [],
+    "goals": [],
+    "region": "Europe / World",
+    "productionStatus": "PLANNED",
+    "referenceImplementation": false
+  },
+  {
     "id": "es",
     "iso639_1": "es",
     "iso639_3": "spa",

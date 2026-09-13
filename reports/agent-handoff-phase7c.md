@@ -2,8 +2,8 @@
 
 - **repo**: EkGuru (GitHub Pages static site)
 - **branch**: main
-- **SHA**: 9d4708842c19f1c88f10064b1e57bff152faaa27
-- **verdict**: GREEN_GLOBAL_ENGINE_PRODUCTION_READY (37/37)
+- **SHA**: d65a304b3c49118066dc05087d2ae8006d03778a
+- **verdict**: GREEN_GLOBAL_ENGINE_PRODUCTION_READY (38/38)
 
 ## Completed batches
 - tranche 1: content graph + registries + live inventory
@@ -14,20 +14,22 @@
 - tranche 6: child/family privacy mode (device-only toggle; no child content) + SRS card globalization
 - tranche 7: multi-viewport gate (Gate G), real SEO-scale crawl (Gate H), automation pipeline (16/16), search-index integration (578 entries), contexts hub, intermediate page de-orphaned
 - tranche 8 (Stage 2): language-pack reuse proof — Spanish starter pack (BETA) renders through the same engines (Gate I); content schema + graph reports; es stays BETA, hi stays the only PRODUCTION language
+- tranche 9 (Stage 3): multi-language starter packs — 9 authored BETA packs (en/es/bn/ta/te/mr/gu/pa/ur) with per-language indexable pages, home-page section/nav/global-nav reachability, PLANNED languages stay page-less (Gate J)
 
 ## Pending
-- Stage 2 full: 3-5 additional languages as proof (Spanish starter pack done; French/German/Japanese etc. still need authored starter packs, then full courses)
+- full courses for the 9 BETA languages (starter packs are proofs, not courses) — each needs lessons + practice + quiz + review + recorded-audio decision, then browser QA before PRODUCTION
+- the 20 remaining PLANNED languages (fr/ar/de/ja/zh/ru/pt/…) — authored starter packs when real content is written
 - child-specific lesson content (privacy mode ships; lessons not authored)
 - large-scale SEO batches (Stage 6) — never before quality gates
 
 ## Next exact command
 ```
-python3 tools/build-global-pages.py && python3 tools/test-phase7c-engines.py && python3 tools/test-phase7c-context.py
+python3 tools/build-lang-packs.py && python3 tools/build-phase7-pages.py && python3 tools/test-phase7c-langs.py
 ```
 
 ## Test command
 ```
-python3 tools/test-phase7c.py && python3 tools/test-phase7c-conversation.py && python3 tools/test-phase7c-engines.py && python3 tools/test-phase7c-context.py && python3 tools/test-phase7c-admin.py && python3 tools/test-phase7-browser.py && python3 tools/test-phase6-matrix.py && python3 tools/test-card-interactions.py
+python3 tools/test-phase7c.py && python3 tools/test-phase7c-conversation.py && python3 tools/test-phase7c-engines.py && python3 tools/test-phase7c-context.py && python3 tools/test-phase7c-admin.py && python3 tools/test-phase7c-langpack.py && python3 tools/test-phase7c-langs.py && python3 tools/test-phase7-browser.py && python3 tools/test-phase6-matrix.py && python3 tools/test-card-interactions.py
 ```
 
 ## Unresolved errors

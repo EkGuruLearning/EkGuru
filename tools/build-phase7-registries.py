@@ -34,6 +34,7 @@ COUNTRY_CACHE = os.path.join("tools", "_countries-cache.json")
 LANGUAGES = [
     # iso  iso3  name            native        script        dir   translit        region(primary)
     ("hi", "hin", "Hindi",        "हिन्दी",      "Devanagari", "ltr", "IAST/ISO 15919", "South Asia"),
+    ("en", "eng", "English",      "English",     "Latin",      "ltr", "n/a (same script)", "Europe / World"),
     ("es", "spa", "Spanish",      "español",     "Latin",      "ltr", "n/a (same script)", "Europe / Latin America"),
     ("fr", "fra", "French",       "français",    "Latin",      "ltr", "n/a", "Europe / Africa"),
     ("ar", "ara", "Arabic",       "العربية",     "Arabic",     "rtl", "ALA-LC / Buckwalter", "Middle East / North Africa"),
@@ -67,7 +68,7 @@ LANGUAGES = [
 # browser TTS (speechSynthesis) BCP-47 tags — standard tags every modern
 # browser ships for these languages; RECORDED audio is none anywhere.
 def speech_tag(iso):
-    return {"zh": "zh-CN", "pt": "pt-BR", "sw": "sw-KE"}.get(iso, iso + "-" + iso.upper())
+    return {"zh": "zh-CN", "pt": "pt-BR", "sw": "sw-KE", "en": "en-IN"}.get(iso, iso + "-" + iso.upper())
 
 def build_languages():
     out = []

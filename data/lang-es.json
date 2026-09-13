@@ -6,43 +6,404 @@
   "status": "BETA",
   "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
   "honestNote": "Hindi is the only PRODUCTION language. This Spanish starter pack exists to PROVE the engines are reusable across languages: it renders through the same vocab/phrase engine, the same grammar engine and the same spaced-repetition hook. It is BETA reference content, not a promise of a full Spanish course.",
+  "about": "Spanish (español) is spoken by nearly 600 million people across Spain, Latin America and the United States. This starter pack covers greetings, essentials and core grammar — a first taste of the language, not a full course.",
   "items": [
-    { "id": "es-w-hola", "type": "word", "language": "es", "target": "hola", "roman": "OH-lah", "meaning": "hello", "pos": "greeting", "topic": "greetings", "level": "beginner" },
-    { "id": "es-w-gracias", "type": "word", "language": "es", "target": "gracias", "roman": "GRAH-syas", "meaning": "thank you", "pos": "phrase", "topic": "courtesy", "level": "beginner" },
-    { "id": "es-w-por-favor", "type": "word", "language": "es", "target": "por favor", "roman": "por fah-VOR", "meaning": "please", "pos": "phrase", "topic": "courtesy", "level": "beginner" },
-    { "id": "es-w-si", "type": "word", "language": "es", "target": "sí", "roman": "see", "meaning": "yes", "pos": "adverb", "topic": "daily-life", "level": "beginner" },
-    { "id": "es-w-no", "type": "word", "language": "es", "target": "no", "roman": "noh", "meaning": "no / not", "pos": "adverb", "topic": "daily-life", "level": "beginner" },
-    { "id": "es-w-agua", "type": "word", "language": "es", "target": "agua", "roman": "AH-gwah", "meaning": "water", "pos": "noun (f.)", "topic": "food", "level": "beginner" },
-    { "id": "es-w-pan", "type": "word", "language": "es", "target": "pan", "roman": "pahn", "meaning": "bread", "pos": "noun (m.)", "topic": "food", "level": "beginner" },
-    { "id": "es-w-casa", "type": "word", "language": "es", "target": "casa", "roman": "KAH-sah", "meaning": "house / home", "pos": "noun (f.)", "topic": "daily-life", "level": "beginner" },
-    { "id": "es-w-libro", "type": "word", "language": "es", "target": "libro", "roman": "LEE-broh", "meaning": "book", "pos": "noun (m.)", "topic": "daily-life", "level": "beginner" },
-    { "id": "es-w-amigo", "type": "word", "language": "es", "target": "amigo", "roman": "ah-MEE-goh", "meaning": "friend", "pos": "noun (m.)", "topic": "family", "level": "beginner" },
-    { "id": "es-w-comida", "type": "word", "language": "es", "target": "comida", "roman": "koh-MEE-dah", "meaning": "food", "pos": "noun (f.)", "topic": "food", "level": "beginner" },
-    { "id": "es-w-te", "type": "word", "language": "es", "target": "té", "roman": "teh", "meaning": "tea", "pos": "noun (m.)", "topic": "food", "level": "beginner" },
-    { "id": "es-w-grande", "type": "word", "language": "es", "target": "grande", "roman": "GRAHN-deh", "meaning": "big", "pos": "adjective", "topic": "daily-life", "level": "beginner" },
-    { "id": "es-w-pequeno", "type": "word", "language": "es", "target": "pequeño", "roman": "peh-KEH-nyoh", "meaning": "small", "pos": "adjective", "topic": "daily-life", "level": "beginner" },
-    { "id": "es-w-bueno", "type": "word", "language": "es", "target": "bueno", "roman": "BWEH-noh", "meaning": "good", "pos": "adjective", "topic": "daily-life", "level": "beginner" },
-    { "id": "es-w-dinero", "type": "word", "language": "es", "target": "dinero", "roman": "dee-NEH-roh", "meaning": "money", "pos": "noun (m.)", "topic": "travel", "level": "beginner" },
-    { "id": "es-w-escuela", "type": "word", "language": "es", "target": "escuela", "roman": "es-KWEH-lah", "meaning": "school", "pos": "noun (f.)", "topic": "daily-life", "level": "beginner" },
-    { "id": "es-w-amor", "type": "word", "language": "es", "target": "amor", "roman": "ah-MOR", "meaning": "love", "pos": "noun (m.)", "topic": "family", "level": "beginner" },
-    { "id": "es-w-dia", "type": "word", "language": "es", "target": "día", "roman": "DEE-ah", "meaning": "day", "pos": "noun (m.)", "topic": "time", "level": "beginner" },
-    { "id": "es-w-noche", "type": "word", "language": "es", "target": "noche", "roman": "NOH-cheh", "meaning": "night", "pos": "noun (f.)", "topic": "time", "level": "beginner" },
-    { "id": "es-w-nuevo", "type": "word", "language": "es", "target": "nuevo", "roman": "NWEH-voh", "meaning": "new", "pos": "adjective", "topic": "daily-life", "level": "beginner" },
-    { "id": "es-w-hombre", "type": "word", "language": "es", "target": "hombre", "roman": "OM-breh", "meaning": "man", "pos": "noun (m.)", "topic": "family", "level": "beginner" },
-    { "id": "es-w-mujer", "type": "word", "language": "es", "target": "mujer", "roman": "moo-HEHR", "meaning": "woman", "pos": "noun (f.)", "topic": "family", "level": "beginner" },
-    { "id": "es-w-nino", "type": "word", "language": "es", "target": "niño", "roman": "NEE-nyoh", "meaning": "child", "pos": "noun (m.)", "topic": "family", "level": "beginner" },
-    { "id": "es-p-como-estas", "type": "phrase", "language": "es", "target": "¿Cómo estás?", "roman": "KOH-moh es-TAHS", "meaning": "How are you?", "topic": "greetings", "level": "beginner", "register": "familiar" },
-    { "id": "es-p-me-llamo", "type": "phrase", "language": "es", "target": "Me llamo ___", "roman": "meh YAH-moh", "meaning": "My name is ___", "topic": "introductions", "level": "beginner", "register": "neutral" },
-    { "id": "es-p-estoy-bien", "type": "phrase", "language": "es", "target": "Estoy bien", "roman": "es-TOY byen", "meaning": "I am fine", "topic": "greetings", "level": "beginner", "register": "neutral" },
-    { "id": "es-p-cuanto-cuesta", "type": "phrase", "language": "es", "target": "¿Cuánto cuesta?", "roman": "KWAHN-toh KWES-tah", "meaning": "How much does it cost?", "topic": "travel", "level": "beginner", "register": "neutral" },
-    { "id": "es-p-no-entiendo", "type": "phrase", "language": "es", "target": "No entiendo", "roman": "noh en-TYEN-doh", "meaning": "I don't understand", "topic": "survival", "level": "beginner", "register": "neutral" },
-    { "id": "es-p-hablas-ingles", "type": "phrase", "language": "es", "target": "¿Hablas inglés?", "roman": "AH-blahs een-GLES", "meaning": "Do you speak English?", "topic": "survival", "level": "beginner", "register": "familiar" },
-    { "id": "es-p-necesito-ayuda", "type": "phrase", "language": "es", "target": "Necesito ayuda", "roman": "neh-seh-SEE-toh ah-YOO-dah", "meaning": "I need help", "topic": "survival", "level": "beginner", "register": "neutral" },
-    { "id": "es-p-donde-esta", "type": "phrase", "language": "es", "target": "¿Dónde está…?", "roman": "DOHN-deh es-TAH", "meaning": "Where is…?", "topic": "travel", "level": "beginner", "register": "neutral" },
-    { "id": "es-p-buenos-dias", "type": "phrase", "language": "es", "target": "Buenos días", "roman": "BWEH-nohs DEE-ahs", "meaning": "Good morning", "topic": "greetings", "level": "beginner", "register": "neutral" },
-    { "id": "es-p-buenas-noches", "type": "phrase", "language": "es", "target": "Buenas noches", "roman": "BWEH-nahs NOH-ches", "meaning": "Good night", "topic": "greetings", "level": "beginner", "register": "neutral" },
-    { "id": "es-p-hasta-manana", "type": "phrase", "language": "es", "target": "Hasta mañana", "roman": "AHS-tah mah-NYAH-nah", "meaning": "See you tomorrow", "topic": "greetings", "level": "beginner", "register": "familiar" },
-    { "id": "es-p-de-donde-eres", "type": "phrase", "language": "es", "target": "¿De dónde eres?", "roman": "deh DOHN-deh EH-res", "meaning": "Where are you from?", "topic": "introductions", "level": "beginner", "register": "familiar" }
+    {
+      "id": "es-w-hola",
+      "type": "word",
+      "language": "es",
+      "target": "hola",
+      "roman": "OH-lah",
+      "meaning": "hello",
+      "pos": "greeting",
+      "topic": "greetings",
+      "level": "beginner"
+    },
+    {
+      "id": "es-w-gracias",
+      "type": "word",
+      "language": "es",
+      "target": "gracias",
+      "roman": "GRAH-syas",
+      "meaning": "thank you",
+      "pos": "phrase",
+      "topic": "courtesy",
+      "level": "beginner"
+    },
+    {
+      "id": "es-w-por-favor",
+      "type": "word",
+      "language": "es",
+      "target": "por favor",
+      "roman": "por fah-VOR",
+      "meaning": "please",
+      "pos": "phrase",
+      "topic": "courtesy",
+      "level": "beginner"
+    },
+    {
+      "id": "es-w-si",
+      "type": "word",
+      "language": "es",
+      "target": "sí",
+      "roman": "see",
+      "meaning": "yes",
+      "pos": "adverb",
+      "topic": "daily-life",
+      "level": "beginner"
+    },
+    {
+      "id": "es-w-no",
+      "type": "word",
+      "language": "es",
+      "target": "no",
+      "roman": "noh",
+      "meaning": "no / not",
+      "pos": "adverb",
+      "topic": "daily-life",
+      "level": "beginner"
+    },
+    {
+      "id": "es-w-agua",
+      "type": "word",
+      "language": "es",
+      "target": "agua",
+      "roman": "AH-gwah",
+      "meaning": "water",
+      "pos": "noun (f.)",
+      "topic": "food",
+      "level": "beginner"
+    },
+    {
+      "id": "es-w-pan",
+      "type": "word",
+      "language": "es",
+      "target": "pan",
+      "roman": "pahn",
+      "meaning": "bread",
+      "pos": "noun (m.)",
+      "topic": "food",
+      "level": "beginner"
+    },
+    {
+      "id": "es-w-casa",
+      "type": "word",
+      "language": "es",
+      "target": "casa",
+      "roman": "KAH-sah",
+      "meaning": "house / home",
+      "pos": "noun (f.)",
+      "topic": "daily-life",
+      "level": "beginner"
+    },
+    {
+      "id": "es-w-libro",
+      "type": "word",
+      "language": "es",
+      "target": "libro",
+      "roman": "LEE-broh",
+      "meaning": "book",
+      "pos": "noun (m.)",
+      "topic": "daily-life",
+      "level": "beginner"
+    },
+    {
+      "id": "es-w-amigo",
+      "type": "word",
+      "language": "es",
+      "target": "amigo",
+      "roman": "ah-MEE-goh",
+      "meaning": "friend",
+      "pos": "noun (m.)",
+      "topic": "family",
+      "level": "beginner"
+    },
+    {
+      "id": "es-w-comida",
+      "type": "word",
+      "language": "es",
+      "target": "comida",
+      "roman": "koh-MEE-dah",
+      "meaning": "food",
+      "pos": "noun (f.)",
+      "topic": "food",
+      "level": "beginner"
+    },
+    {
+      "id": "es-w-te",
+      "type": "word",
+      "language": "es",
+      "target": "té",
+      "roman": "teh",
+      "meaning": "tea",
+      "pos": "noun (m.)",
+      "topic": "food",
+      "level": "beginner"
+    },
+    {
+      "id": "es-w-grande",
+      "type": "word",
+      "language": "es",
+      "target": "grande",
+      "roman": "GRAHN-deh",
+      "meaning": "big",
+      "pos": "adjective",
+      "topic": "daily-life",
+      "level": "beginner"
+    },
+    {
+      "id": "es-w-pequeno",
+      "type": "word",
+      "language": "es",
+      "target": "pequeño",
+      "roman": "peh-KEH-nyoh",
+      "meaning": "small",
+      "pos": "adjective",
+      "topic": "daily-life",
+      "level": "beginner"
+    },
+    {
+      "id": "es-w-bueno",
+      "type": "word",
+      "language": "es",
+      "target": "bueno",
+      "roman": "BWEH-noh",
+      "meaning": "good",
+      "pos": "adjective",
+      "topic": "daily-life",
+      "level": "beginner"
+    },
+    {
+      "id": "es-w-dinero",
+      "type": "word",
+      "language": "es",
+      "target": "dinero",
+      "roman": "dee-NEH-roh",
+      "meaning": "money",
+      "pos": "noun (m.)",
+      "topic": "travel",
+      "level": "beginner"
+    },
+    {
+      "id": "es-w-escuela",
+      "type": "word",
+      "language": "es",
+      "target": "escuela",
+      "roman": "es-KWEH-lah",
+      "meaning": "school",
+      "pos": "noun (f.)",
+      "topic": "daily-life",
+      "level": "beginner"
+    },
+    {
+      "id": "es-w-amor",
+      "type": "word",
+      "language": "es",
+      "target": "amor",
+      "roman": "ah-MOR",
+      "meaning": "love",
+      "pos": "noun (m.)",
+      "topic": "family",
+      "level": "beginner"
+    },
+    {
+      "id": "es-w-dia",
+      "type": "word",
+      "language": "es",
+      "target": "día",
+      "roman": "DEE-ah",
+      "meaning": "day",
+      "pos": "noun (m.)",
+      "topic": "time",
+      "level": "beginner"
+    },
+    {
+      "id": "es-w-noche",
+      "type": "word",
+      "language": "es",
+      "target": "noche",
+      "roman": "NOH-cheh",
+      "meaning": "night",
+      "pos": "noun (f.)",
+      "topic": "time",
+      "level": "beginner"
+    },
+    {
+      "id": "es-w-nuevo",
+      "type": "word",
+      "language": "es",
+      "target": "nuevo",
+      "roman": "NWEH-voh",
+      "meaning": "new",
+      "pos": "adjective",
+      "topic": "daily-life",
+      "level": "beginner"
+    },
+    {
+      "id": "es-w-hombre",
+      "type": "word",
+      "language": "es",
+      "target": "hombre",
+      "roman": "OM-breh",
+      "meaning": "man",
+      "pos": "noun (m.)",
+      "topic": "family",
+      "level": "beginner"
+    },
+    {
+      "id": "es-w-mujer",
+      "type": "word",
+      "language": "es",
+      "target": "mujer",
+      "roman": "moo-HEHR",
+      "meaning": "woman",
+      "pos": "noun (f.)",
+      "topic": "family",
+      "level": "beginner"
+    },
+    {
+      "id": "es-w-nino",
+      "type": "word",
+      "language": "es",
+      "target": "niño",
+      "roman": "NEE-nyoh",
+      "meaning": "child",
+      "pos": "noun (m.)",
+      "topic": "family",
+      "level": "beginner"
+    },
+    {
+      "id": "es-p-como-estas",
+      "type": "phrase",
+      "language": "es",
+      "target": "¿Cómo estás?",
+      "roman": "KOH-moh es-TAHS",
+      "meaning": "How are you?",
+      "topic": "greetings",
+      "level": "beginner",
+      "register": "familiar"
+    },
+    {
+      "id": "es-p-me-llamo",
+      "type": "phrase",
+      "language": "es",
+      "target": "Me llamo ___",
+      "roman": "meh YAH-moh",
+      "meaning": "My name is ___",
+      "topic": "introductions",
+      "level": "beginner",
+      "register": "neutral"
+    },
+    {
+      "id": "es-p-estoy-bien",
+      "type": "phrase",
+      "language": "es",
+      "target": "Estoy bien",
+      "roman": "es-TOY byen",
+      "meaning": "I am fine",
+      "topic": "greetings",
+      "level": "beginner",
+      "register": "neutral"
+    },
+    {
+      "id": "es-p-cuanto-cuesta",
+      "type": "phrase",
+      "language": "es",
+      "target": "¿Cuánto cuesta?",
+      "roman": "KWAHN-toh KWES-tah",
+      "meaning": "How much does it cost?",
+      "topic": "travel",
+      "level": "beginner",
+      "register": "neutral"
+    },
+    {
+      "id": "es-p-no-entiendo",
+      "type": "phrase",
+      "language": "es",
+      "target": "No entiendo",
+      "roman": "noh en-TYEN-doh",
+      "meaning": "I don't understand",
+      "topic": "survival",
+      "level": "beginner",
+      "register": "neutral"
+    },
+    {
+      "id": "es-p-hablas-ingles",
+      "type": "phrase",
+      "language": "es",
+      "target": "¿Hablas inglés?",
+      "roman": "AH-blahs een-GLES",
+      "meaning": "Do you speak English?",
+      "topic": "survival",
+      "level": "beginner",
+      "register": "familiar"
+    },
+    {
+      "id": "es-p-necesito-ayuda",
+      "type": "phrase",
+      "language": "es",
+      "target": "Necesito ayuda",
+      "roman": "neh-seh-SEE-toh ah-YOO-dah",
+      "meaning": "I need help",
+      "topic": "survival",
+      "level": "beginner",
+      "register": "neutral"
+    },
+    {
+      "id": "es-p-donde-esta",
+      "type": "phrase",
+      "language": "es",
+      "target": "¿Dónde está…?",
+      "roman": "DOHN-deh es-TAH",
+      "meaning": "Where is…?",
+      "topic": "travel",
+      "level": "beginner",
+      "register": "neutral"
+    },
+    {
+      "id": "es-p-buenos-dias",
+      "type": "phrase",
+      "language": "es",
+      "target": "Buenos días",
+      "roman": "BWEH-nohs DEE-ahs",
+      "meaning": "Good morning",
+      "topic": "greetings",
+      "level": "beginner",
+      "register": "neutral"
+    },
+    {
+      "id": "es-p-buenas-noches",
+      "type": "phrase",
+      "language": "es",
+      "target": "Buenas noches",
+      "roman": "BWEH-nahs NOH-ches",
+      "meaning": "Good night",
+      "topic": "greetings",
+      "level": "beginner",
+      "register": "neutral"
+    },
+    {
+      "id": "es-p-hasta-manana",
+      "type": "phrase",
+      "language": "es",
+      "target": "Hasta mañana",
+      "roman": "AHS-tah mah-NYAH-nah",
+      "meaning": "See you tomorrow",
+      "topic": "greetings",
+      "level": "beginner",
+      "register": "familiar"
+    },
+    {
+      "id": "es-p-de-donde-eres",
+      "type": "phrase",
+      "language": "es",
+      "target": "¿De dónde eres?",
+      "roman": "deh DOHN-deh EH-res",
+      "meaning": "Where are you from?",
+      "topic": "introductions",
+      "level": "beginner",
+      "register": "familiar"
+    }
   ],
   "concepts": [
     {
@@ -50,13 +411,31 @@
       "concept": "Subject pronouns — who is doing the action",
       "pattern": "yo · tú · él/ella · nosotros/nosotras · vosotros/vosotras · ellos/ellas",
       "examples": [
-        { "target": "yo hablo", "roman": "yoh AH-bloh", "gloss": "I speak" },
-        { "target": "tú hablas", "roman": "too AH-blahs", "gloss": "you speak (familiar)" },
-        { "target": "usted habla", "roman": "oos-TED AH-blah", "gloss": "you speak (formal)" }
+        {
+          "target": "yo hablo",
+          "roman": "yoh AH-bloh",
+          "gloss": "I speak"
+        },
+        {
+          "target": "tú hablas",
+          "roman": "too AH-blahs",
+          "gloss": "you speak (familiar)"
+        },
+        {
+          "target": "usted habla",
+          "roman": "oos-TED AH-blah",
+          "gloss": "you speak (formal)"
+        }
       ],
-      "exceptions": ["tú (familiar) vs usted (formal): usted takes the same verb form as él/ella.", "vosotros/vosotras is used in Spain, rarely in Latin America."],
+      "exceptions": [
+        "tú (familiar) vs usted (formal): usted takes the same verb form as él/ella.",
+        "vosotros/vosotras is used in Spain, rarely in Latin America."
+      ],
       "learnerNote": "Spanish has two words for “you” — tú for friends, usted for formality — much like Hindi's aap/tum/tu distinction.",
-      "commonMistakes": ["Using tú with someone who expects usted", "Keeping the subject pronoun where Spanish only needs it for contrast or emphasis"],
+      "commonMistakes": [
+        "Using tú with someone who expects usted",
+        "Keeping the subject pronoun where Spanish only needs it for contrast or emphasis"
+      ],
       "level": "beginner",
       "prerequisite": null,
       "sourceUrl": null,
@@ -67,13 +446,31 @@
       "concept": "Gender — every noun is masculine or feminine",
       "pattern": "el + masculine (el libro) · la + feminine (la casa)",
       "examples": [
-        { "target": "el libro", "roman": "el LEE-broh", "gloss": "the book (masculine)" },
-        { "target": "la casa", "roman": "lah KAH-sah", "gloss": "the house (feminine)" },
-        { "target": "el agua", "roman": "el AH-gwah", "gloss": "the water (feminine noun, masculine article el for pronunciation)" }
+        {
+          "target": "el libro",
+          "roman": "el LEE-broh",
+          "gloss": "the book (masculine)"
+        },
+        {
+          "target": "la casa",
+          "roman": "lah KAH-sah",
+          "gloss": "the house (feminine)"
+        },
+        {
+          "target": "el agua",
+          "roman": "el AH-gwah",
+          "gloss": "the water (feminine noun, masculine article el for pronunciation)"
+        }
       ],
-      "exceptions": ["el agua / el águila: feminine nouns starting with a stressed a- take el.", "Words ending in -ma, -pa, -ta are usually masculine: el problema."],
+      "exceptions": [
+        "el agua / el águila: feminine nouns starting with a stressed a- take el.",
+        "Words ending in -ma, -pa, -ta are usually masculine: el problema."
+      ],
       "learnerNote": "Nouns ending in -o are usually masculine, -a usually feminine — with a small set of exceptions to memorise.",
-      "commonMistakes": ["“la problema” instead of “el problema”", "Treating gender as optional because English has none"],
+      "commonMistakes": [
+        "“la problema” instead of “el problema”",
+        "Treating gender as optional because English has none"
+      ],
       "level": "beginner",
       "prerequisite": "es-subject-pronouns",
       "sourceUrl": null,
@@ -84,13 +481,31 @@
       "concept": "Ser vs estar — two verbs for “to be”",
       "pattern": "ser = what something is (permanent) · estar = how/where it is (state, location)",
       "examples": [
-        { "target": "Soy de India.", "roman": "soy deh EEN-dyah", "gloss": "I am from India (origin → ser)" },
-        { "target": "Estoy bien.", "roman": "es-TOY byen", "gloss": "I am fine (state → estar)" },
-        { "target": "Está en la mesa.", "roman": "es-TAH en lah MEH-sah", "gloss": "It is on the table (location → estar)" }
+        {
+          "target": "Soy de India.",
+          "roman": "soy deh EEN-dyah",
+          "gloss": "I am from India (origin → ser)"
+        },
+        {
+          "target": "Estoy bien.",
+          "roman": "es-TOY byen",
+          "gloss": "I am fine (state → estar)"
+        },
+        {
+          "target": "Está en la mesa.",
+          "roman": "es-TAH en lah MEH-sah",
+          "gloss": "It is on the table (location → estar)"
+        }
       ],
-      "exceptions": ["Time uses ser: “Son las tres” (it is three o'clock).", "Location is always estar, even for permanent places: “Madrid está en España”."],
+      "exceptions": [
+        "Time uses ser: “Son las tres” (it is three o'clock).",
+        "Location is always estar, even for permanent places: “Madrid está en España”."
+      ],
       "learnerNote": "The two-to-be verbs split meaning: identity vs state. Get this early and a whole class of errors disappears.",
-      "commonMistakes": ["“Soy bien” instead of “Estoy bien”", "Using estar for origin: “Estoy de India” instead of “Soy de India”"],
+      "commonMistakes": [
+        "“Soy bien” instead of “Estoy bien”",
+        "Using estar for origin: “Estoy de India” instead of “Soy de India”"
+      ],
       "level": "beginner",
       "prerequisite": "es-subject-pronouns",
       "sourceUrl": null,
@@ -101,13 +516,31 @@
       "concept": "Questions — flip the order and mark both ends with ¿…?",
       "pattern": "¿ + verb + subject? — ¿Hablas inglés?",
       "examples": [
-        { "target": "¿Hablas inglés?", "roman": "AH-blahs een-GLES", "gloss": "do you speak English?" },
-        { "target": "¿Dónde está el baño?", "roman": "DOHN-deh es-TAH el BAH-nyoh", "gloss": "where is the bathroom?" },
-        { "target": "¿Cuánto cuesta?", "roman": "KWAHN-toh KWES-tah", "gloss": "how much does it cost?" }
+        {
+          "target": "¿Hablas inglés?",
+          "roman": "AH-blahs een-GLES",
+          "gloss": "do you speak English?"
+        },
+        {
+          "target": "¿Dónde está el baño?",
+          "roman": "DOHN-deh es-TAH el BAH-nyoh",
+          "gloss": "where is the bathroom?"
+        },
+        {
+          "target": "¿Cuánto cuesta?",
+          "roman": "KWAHN-toh KWES-tah",
+          "gloss": "how much does it cost?"
+        }
       ],
-      "exceptions": ["Yes/no questions can also just rise in intonation: “¿Hablas inglés?”", "Question words (dónde, cuánto, qué) carry the accent mark."],
+      "exceptions": [
+        "Yes/no questions can also just rise in intonation: “¿Hablas inglés?”",
+        "Question words (dónde, cuánto, qué) carry the accent mark."
+      ],
       "learnerNote": "Spanish marks questions at both ends — the opening ¿ is not optional.",
-      "commonMistakes": ["Dropping the opening ¿", "Keeping English word order in questions"],
+      "commonMistakes": [
+        "Dropping the opening ¿",
+        "Keeping English word order in questions"
+      ],
       "level": "beginner",
       "prerequisite": null,
       "sourceUrl": null,

@@ -6,8 +6,9 @@ js/learning-paths.js) — so a new language becomes visible on the hub by
 adding one registry row, never by editing HTML.
 
 Generated (never hand-edit; rerun this tool):
-  languages/index.html   — global language hub (indexable)
-  start/index.html       — goal-based onboarding (indexable; deterministic, not AI)
+  languages/index.html      — global language hub (indexable)
+  languages/{code}/index.html — one page per BETA starter pack (indexable)
+  start/index.html          — goal-based onboarding (indexable; deterministic, not AI)
 """
 import json, os, re, time
 
@@ -123,6 +124,10 @@ if ("serviceWorker" in navigator) {
 """ % (up, up, up, up, up, up, up, s, up)
 
 
+STD_NOTE = ("BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. "
+            "This is starter reference content only — not a course.")
+
+
 def esc(s):
     return (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
 
@@ -134,7 +139,7 @@ def languages_page():
     except Exception:
         langs = json.load(open("reports/language-registry-phase7.json"))["languages"]
     prod = [l for l in langs if l["productionStatus"] == "PRODUCTION"]
-    beta = [l for l in langs if l["productionStatus"] == "BETA"]
+    beta = sorted([l for l in langs if l["productionStatus"] == "BETA"], key=lambda x: x["name"])
     planned = [l for l in langs if l["productionStatus"] not in ("PRODUCTION", "BETA")]
 
     prod_cards = "".join(
@@ -144,9 +149,14 @@ def languages_page():
         for l in prod)
 
     beta_cells = "".join(
-        '<div class="lang-cell"><span class="nm">%s <span class="tag beta">Starter · beta</span></span>' % esc(l["name"]) +
+        '<a class="lang-cell" href="/languages/%s/">' % esc(l["id"]) +
+        '<span class="nm">%s <span class="tag beta">Starter · beta</span></span>' % esc(l["name"]) +
         '<span class="sub">%s · %s script</span>' % (esc(l["nativeName"]), esc(l["script"])) +
-        '<p class="muted" style="margin:6px 0 0;font-size:.8rem">Starter reference content only — not a course. See the proof below.</p></div>'
+        '<span class="sub">%d words · %d phrases · %d grammar — free</span>' % (
+            (l.get("starterCounts") or {}).get("vocab", 0),
+            (l.get("starterCounts") or {}).get("phrase", 0),
+            (l.get("starterCounts") or {}).get("grammar", 0)) +
+        '</a>'
         for l in beta)
 
     planned_cells = "".join(
@@ -171,11 +181,15 @@ def languages_page():
         '  <p class="muted">These are the next targets in the architecture. Each becomes available only when its lessons, audio and review content are real.</p>\n'
         '  <div class="lang-grid">' + planned_cells + "</div>\n"
         '  <div class="note"><b>Not sure where to begin?</b> Answer three quick questions and get a rule-based starting point — <a href="/start/">find your starting point</a>. This is a deterministic recommendation, not AI.</div>\n'
-        + (('  <div id="es-proof" class="lp-box">\n'
-            '    <h2>Engine reuse proof — Spanish starter pack</h2>\n'
-            '    <p class="muted">Below is a small authored Spanish starter pack rendered live by the <b>same</b> '
+        + (('  <div id="lp-proof" class="lp-box">\n'
+            '    <h2>Engine reuse proof — starter packs</h2>\n'
+            '    <p class="muted">Every starter pack below is rendered live by the <b>same</b> '
             "vocabulary, phrase and grammar engines that render Hindi — including the same device-only spaced-repetition "
-            "“Add to review” hook. This is the Stage 2 architecture proof, not a Spanish course.</p>\n"
+            "“Add to review” hook. Pick a language to see it rendered. This is an architecture proof, not a course.</p>\n"
+            '    <label class="ob-row" for="lp-select">Preview a starter pack\n'
+            '      <select id="lp-select" style="width:100%;max-width:420px">'
+            + "".join('<option value="%s"%s>%s</option>' % (esc(l["id"]), ' selected' if l["id"] == "es" else "", esc(l["name"])) for l in beta)
+            + '</select></label>\n'
             '    <div id="langpack-app"><p class="muted">Loading Spanish starter pack…</p></div>\n'
             '  </div>\n') if beta else "") +
         '  <script defer>\n'
@@ -201,8 +215,9 @@ def languages_page():
         '        el.textContent="Content inventory unavailable right now — the rest of this page works normally.";\n'
         '      });\n'
         '    });\n'
-        + (('    // Stage 2: render the Spanish starter pack through the shared engines\n'
+        + (('    // Stage 2/3: render a starter pack through the shared engines\n'
             '    var lp=document.getElementById("langpack-app");\n'
+            '    var sel=document.getElementById("lp-select");\n'
             '    if(lp){\n'
             '      function lpReady(cb){\n'
             '        if(window.EkGuruLangPack && window.EkGuruVocab && window.EkGuruGrammar){cb();return;}\n'
@@ -211,11 +226,14 @@ def languages_page():
             '          else if(++n>40){clearInterval(t);lp.innerHTML=\'<p class="muted">Language pack unavailable right now.</p>\';}\n'
             '        },100);\n'
             '      }\n'
-            '      lpReady(function(){\n'
+            '      function show(code){\n'
+            '        lp.innerHTML=\'<p class="muted">Loading starter pack…</p>\';\n'
             '        window.EkGuruLangPack.ready().then(function(){\n'
-            '          window.EkGuruLangPack.render(lp, "es");\n'
+            '          window.EkGuruLangPack.render(lp, code);\n'
             '        }).catch(function(){lp.innerHTML=\'<p class="muted">Language pack unavailable right now.</p>\';});\n'
-            '      });\n'
+            '      }\n'
+            '      lpReady(function(){ show(sel ? sel.value : "es"); });\n'
+            '      if(sel){ sel.addEventListener("change", function(){ show(sel.value); }); }\n'
             '    }\n') if beta else "") +
         '  })();\n'
         '  </script>\n'
@@ -226,6 +244,83 @@ def languages_page():
                                        "hindi-srs.js", "language-pack.js"])
 
 
+
+
+def _langpack_script(code):
+    """Deterministic inline script: render one starter pack through the shared
+    engines (vocab + phrases + grammar + SRS hook). No AI, no network beyond the
+    pack JSON already in the repo."""
+    return ('  <script defer>\n'
+            '  (function(){\n'
+            '    var el=document.getElementById("langpack-app");\n'
+            '    if(!el){return;}\n'
+            '    function ready(cb){\n'
+            '      if(window.EkGuruLangPack && window.EkGuruVocab && window.EkGuruGrammar){cb();return;}\n'
+            '      var n=0,t=setInterval(function(){\n'
+            '        if(window.EkGuruLangPack && window.EkGuruVocab && window.EkGuruGrammar){clearInterval(t);cb();}\n'
+            '        else if(++n>40){clearInterval(t);el.innerHTML=\'<p class="muted">Language pack unavailable right now.</p>\';}\n'
+            '      },100);\n'
+            '    }\n'
+            '    ready(function(){\n'
+            '      window.EkGuruLangPack.ready().then(function(){\n'
+            '        window.EkGuruLangPack.render(el, "%s");\n'
+            '      }).catch(function(){el.innerHTML=\'<p class="muted">Language pack unavailable right now.</p>\';});\n'
+            '    });\n'
+            '  })();\n'
+            '  </script>\n') % esc(code)
+
+
+def lang_pages():
+    """One indexable page per BETA starter pack, authored and honest.
+    Only languages with an authored pack get a page — PLANNED languages stay
+    on the hub (no thin pages generated for zero content)."""
+    try:
+        packs = json.load(open("data/language-packs.json", encoding="utf-8"))["packs"]
+    except Exception:
+        packs = []
+    try:
+        langs = json.load(open("reports/language-registry-phase7c.json", encoding="utf-8"))["languages"]
+    except Exception:
+        langs = []
+    by_id = {l["id"]: l for l in langs}
+    made = 0
+    for p in packs:
+        code = p["lang"]
+        l = by_id.get(code)
+        if not l or l["productionStatus"] != "BETA":
+            continue
+        try:
+            d = json.load(open(p["file"], encoding="utf-8"))
+        except Exception:
+            d = {}
+        name = esc(p["name"])
+        about = esc(d.get("about", "") or p.get("honestNote", ""))
+        title = "Learn %s basics — free starter pack" % p["name"]
+        body = (
+            '  <p class="crumb"><a href="/">EkGuru</a> › <a href="/languages/">Languages</a> › %s</p>\n'
+            '  <h1>Learn %s basics</h1>\n'
+            '  <p class="lede"><span class="tag beta" style="vertical-align:2px">BETA — starter</span> '
+            'Starter reference content, not a course.</p>\n'
+            '  <div class="note"><b>Honest status.</b> %s</div>\n'
+            '  <p>%s</p>\n'
+            '  <h2>Starter pack preview</h2>\n'
+            '  <p class="muted">%d words · %d phrases · %d grammar concepts — rendered live by the same '
+            'engines that render Hindi, with the same device-only “Add to review” hook.</p>\n'
+            '  <div class="lp-box"><div id="langpack-app"><p class="muted">Loading %s starter pack…</p></div></div>\n'
+            '  <div class="note"><b>This is not a full course.</b> There are no lesson pages, no recorded '
+            'audio and no quizzes here yet. When real lessons exist for a language, it moves up — for now '
+            'the only full course is <a href="/learn/hindi/">Hindi</a>.</div>\n'
+            '  <p><a class="btn" href="/languages/">All languages</a> '
+            '<a class="btn" href="/learn/hindi/">Start learning Hindi</a></p>\n'
+        ) % (name, name, esc(d.get("honestNote", "") or STD_NOTE), about,
+             (p.get("counts") or {}).get("vocab", 0),
+             (p.get("counts") or {}).get("phrase", 0),
+             (p.get("counts") or {}).get("grammar", 0), name) + _langpack_script(code)
+        write("languages/%s/index.html" % code, "../../", title, d.get("about", ""),
+              "languages/%s/" % code, body,
+              scripts=["vocab-phrase-engine.js", "grammar-engine.js", "hindi-srs.js", "language-pack.js"])
+        made += 1
+    return made
 
 
 def start_page():
@@ -249,10 +344,105 @@ def write(path, up, title, desc, url, body, scripts=()):
     return path
 
 
+def patch_home():
+    """Deterministic, idempotent injection into the hand-maintained home page:
+    a nav link, a 'Languages' section and a global-nav entry — so every language
+    is reachable from the home page. Guarded by markers; re-running never
+    duplicates. Reads the same registry as the hub (single source of truth)."""
+    path = "index.html"
+    html = open(path, encoding="utf-8").read()
+    orig = html
+    try:
+        langs = json.load(open("reports/language-registry-phase7c.json", encoding="utf-8"))["languages"]
+    except Exception:
+        langs = []
+    prod = [l for l in langs if l["productionStatus"] == "PRODUCTION"]
+    beta = sorted([l for l in langs if l["productionStatus"] == "BETA"], key=lambda x: x["name"])
+    planned = [l for l in langs if l["productionStatus"] not in ("PRODUCTION", "BETA")]
+    changed = False
+
+    # 1) nav link (before the Book-a-trial CTA)
+    if 'data-navlink="languages/index.html"' not in html:
+        html = html.replace(
+            '<a class="btn btn-primary btn-sm" data-navlink="find-tutors.html" data-i18n="nav.cta" href="find-tutors.html">Book a trial</a>',
+            '<a data-navlink="languages/index.html" href="languages/index.html">Languages</a>\n'
+            '      <a class="btn btn-primary btn-sm" data-navlink="find-tutors.html" data-i18n="nav.cta" href="find-tutors.html">Book a trial</a>',
+            1)
+        changed = True
+
+    # 2) Languages section (before the "Why EkGuru" section)
+    pills = "".join(
+        '<a class="lang-pill on" href="/learn/hindi/">%s <small>full course</small></a>' % esc(l["name"])
+        for l in prod)
+    pills += "".join(
+        '<a class="lang-pill beta" href="/languages/%s/">%s</a>' % (esc(l["id"]), esc(l["name"]))
+        for l in beta)
+    pills += ('<a class="lang-pill soon" href="/languages/">+ %d more coming</a>' % len(planned)) if planned else ""
+    names = ", ".join(l["name"] for l in beta[:4]) + (", …" if len(beta) > 4 else "")
+    section = (
+        '<!-- ekguru:languages-home:start (generated by tools/build-phase7-pages.py) -->\n'
+        '<section class="sec" id="languages">\n'
+        '  <div class="wrap">\n'
+        '    <div class="sec-head reveal">\n'
+        '      <span class="kicker">Free language packs</span>\n'
+        '      <h2>One engine, many languages</h2>\n'
+        '      <p class="lead">Hindi is our full course. Free starter packs — %s — run on the same '
+        'engines with the same device-only review. Beta reference content, not full courses.</p>\n'
+        '    </div>\n'
+        '    <div class="lang-strip reveal center">%s</div>\n'
+        '    <p class="center" style="margin-top:18px"><a class="btn btn-ghost btn-sm" href="/languages/">See all languages</a></p>\n'
+        '  </div>\n'
+        '</section>\n'
+        '<style>\n'
+        '.lang-strip{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:6px}\n'
+        '.lang-pill{display:inline-flex;align-items:center;gap:7px;padding:10px 16px;border-radius:999px;font-weight:700;font-size:.92rem;border:1px solid var(--line);background:var(--card,#fff);color:var(--ink)}\n'
+        '.lang-pill small{font-weight:600;color:var(--muted);font-size:.75rem}\n'
+        '.lang-pill.on{border-color:#1a7f37;color:#1a7f37}\n'
+        '.lang-pill.beta{border-color:#9a6700;color:#9a6700}\n'
+        '.lang-pill.soon{border-color:var(--line);color:var(--muted)}\n'
+        '@media(pointer:coarse){.lang-pill{min-height:44px}}\n'
+        '</style>\n'
+        '<!-- ekguru:languages-home:end -->\n'
+    ) % (names, pills)
+    if "ekguru:languages-home:start" in html:
+        i = html.index("<!-- ekguru:languages-home:start")
+        j = html.index("<!-- ekguru:languages-home:end -->") + len("<!-- ekguru:languages-home:end -->")
+        html = html[:i] + section.rstrip("\n") + html[j:]
+        changed = True
+    else:
+        anchor = ('</section>\n\n<section class="sec">\n  <div class="wrap">\n'
+                  '    <div class="sec-head reveal">\n'
+                  '      <span class="kicker" data-i18n="why.kicker">Why EkGuru</span>')
+        if anchor in html:
+            html = html.replace(anchor, '</section>\n\n' + section + '\n<section class="sec">\n  <div class="wrap">\n'
+                                '    <div class="sec-head reveal">\n'
+                                '      <span class="kicker" data-i18n="why.kicker">Why EkGuru</span>', 1)
+            changed = True
+
+    # 3) global-nav entry
+    if 'href="languages/"' not in html.split('ekguru:global-nav:start')[1].split('ekguru:global-nav:end')[0]:
+        html = html.replace(
+            '<ul class="eg-gn-list">',
+            '<ul class="eg-gn-list">\n'
+            '    <li><a href="languages/"><b>Learn other languages</b><span>Free starter packs — '
+            'Bengali, Tamil, Telugu, Marathi, Gujarati, Punjabi, Urdu, Spanish and English basics. '
+            'One engine, many languages.</span></a></li>', 1)
+        changed = True
+
+    if html != orig:
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(html)
+        print("patched: index.html (languages nav + section + global-nav)")
+    else:
+        print("home already has the languages section (no change)")
+
+
 def main():
     languages_page()
+    n = lang_pages()
     start_page()
-    print("generated: languages/index.html, start/index.html")
+    patch_home()
+    print("generated: languages/index.html, %d language pages, start/index.html, home synced" % n)
 
 
 if __name__ == "__main__":
