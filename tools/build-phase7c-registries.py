@@ -33,9 +33,10 @@ except Exception:
     _packs = []
 packs_by_lang = {p["lang"]: p for p in _packs}
 
-# Phase 7C Stage 7: full courses (built by tools/build-language-course.py).
-# A course keeps a language BETA — it is still not Hindi-depth and has no
-# recorded audio. PRODUCTION remains Hindi only.
+# Full courses (built by tools/build-world-course.py, data from
+# tools/course-data/{code}.py). A completed course marks its language
+# AVAILABLE. Honest limits stay on every course page: not Hindi-depth,
+# no recorded audio (browser voice only). PRODUCTION remains Hindi only.
 try:
     _courses = json.load(open("data/courses.json", encoding="utf-8")).get("courses", [])
 except Exception:
@@ -84,7 +85,9 @@ for l in lang7["languages"]:
     has_pack = pack is not None
     course = courses_by_lang.get(lid)
     status = l["productionStatus"]
-    if has_pack and status != "PRODUCTION":
+    if course:
+        status = "AVAILABLE"  # completed course: lessons + practice + quiz + review
+    elif has_pack and status != "PRODUCTION":
         status = "BETA"  # starter pack exists, but no full reviewed course
     langs7c.append({
         "id": lid,
@@ -151,7 +154,7 @@ for c in country7["countries"]:
 
 out_lang = {"generated": NOW, "count": len(langs7c),
             "production": [l["id"] for l in langs7c if l["productionStatus"] == "PRODUCTION"],
-            "policy": "A language is PRODUCTION only with real content passing QA; counts below are read from data/content-graph.json.",
+            "policy": "PRODUCTION = Hindi (deepest course). AVAILABLE = completed course (lessons + practice + quiz + review). BETA = starter pack only. Counts below are read from data/content-graph.json.",
             "languages": langs7c}
 out_c = {"generated": NOW, "count": len(countries7c),
          "sovereignStates": country7["sovereignStates"],

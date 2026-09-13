@@ -7,8 +7,8 @@ Content is authored by hand, not machine-translated.
 
 COURSE = {
     "lang": "fr", "name": "French", "native": "français", "speechTag": "fr-FR",
-    "status": "BETA",
-    "note": ("A real, authored French course in beta: 6 lessons, a practice lab, a topic "
+    "status": "Available",
+    "note": ("A real, authored French course: 6 lessons, a practice lab, a topic "
              "quiz and a review deck — all running on the same engines as Hindi. It is not "
              "yet as deep as the Hindi course, and all audio is your browser's computer "
              "voice, never a native recording."),

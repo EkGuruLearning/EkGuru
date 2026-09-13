@@ -75,6 +75,15 @@ CORE_STYLE = """
 .sc-opt.sc-wrong{border-color:#b42318;color:#b42318;background:#fdeceb}
 .sc-fb{font-size:.95rem;min-height:1.4em;margin:8px 0}
 .sc-nav{min-height:40px}
+.lang-finder{margin:0 0 6px}
+.lang-finder input[type=search]{width:100%;max-width:420px;padding:11px 14px;font-size:1rem;border:1px solid var(--line);border-radius:12px;background:var(--card,#fff);color:var(--ink)}
+.lang-chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
+.chip{padding:8px 16px;min-height:44px;border-radius:999px;border:1px solid var(--line);background:var(--card,#fff);color:var(--ink-2);font:inherit;font-size:.9rem;font-weight:600;cursor:pointer}
+.chip.is-on{background:var(--brand);border-color:var(--brand);color:#fff}
+.lang-cell{transition:border-color .15s ease,transform .15s ease}
+.lang-cell:hover{border-color:var(--brand-2);transform:translateY(-1px)}
+.lang-cell .btn{margin-top:8px}
+#lang-count{font-size:.85rem;margin:6px 0 0}
 """
 
 
@@ -152,8 +161,9 @@ def languages_page():
     except Exception:
         langs = json.load(open("reports/language-registry-phase7.json"))["languages"]
     prod = [l for l in langs if l["productionStatus"] == "PRODUCTION"]
+    avail = sorted([l for l in langs if l["productionStatus"] == "AVAILABLE"], key=lambda x: x["name"])
     beta = sorted([l for l in langs if l["productionStatus"] == "BETA"], key=lambda x: x["name"])
-    planned = [l for l in langs if l["productionStatus"] not in ("PRODUCTION", "BETA")]
+    planned = [l for l in langs if l["productionStatus"] not in ("PRODUCTION", "BETA", "AVAILABLE")]
 
     def _tag(l):
         loc = l.get("speechLocales") or []
@@ -167,6 +177,21 @@ def languages_page():
             esc(l["nativeName"]), esc(_tag(l)), esc(l["nativeName"]), esc(l["script"])) +
         '<p><a class="btn" href="/learn/hindi/">Start learning %s</a></p></div>' % esc(l["name"])
         for l in prod)
+
+    avail_cards = "".join(
+        '<div class="lang-cell"><span class="nm">%s <span class="tag on">Available</span></span>' % esc(l["name"]) +
+        '<span class="sub" data-say="%s" data-say-lang="%s">%s · %s script</span>' % (
+            esc(l["nativeName"]), esc(_tag(l)), esc(l["nativeName"]), esc(l["script"])) +
+        '<span class="sub">%d lessons · %d quiz questions · %d review cards — free</span>' % (
+            (l.get("course") or {}).get("lessons", 0),
+            (l.get("course") or {}).get("quizQuestions", 0),
+            (l.get("course") or {}).get("reviewCards", 0)) +
+        '<p><a class="btn" href="/languages/%s/course/">Start learning %s</a></p></div>' % (
+            esc(l["id"]), esc(l["name"]))
+        for l in avail)
+
+    _an = ["Hindi"] + [l["name"] for l in avail]
+    avail_names = _an[0] if len(_an) == 1 else ", ".join(_an[:-1]) + " and " + _an[-1]
 
     beta_cells = "".join(
         '<div class="lang-cell lb">' +
@@ -192,18 +217,29 @@ def languages_page():
     body = (
         '  <p class="crumb"><a href="/">EkGuru</a> › Languages</p>\n'
         '  <h1>Learn a language with EkGuru</h1>\n'
-        '  <p class="lede">One platform, many languages — English → Hindi today, with more targets coming. '
-        "We only list a language as available when real, reviewed content exists. No empty lessons, no placeholder courses.</p>\n"
-        '  <h2>Available now</h2>\n'
-        '  <div class="lang-grid">' + prod_cards + "</div>\n"
+        '  <p class="lede">One platform, many languages — free courses from English in ' + avail_names + ' today, '
+        'with more coming. We only list a language as available when a real, reviewed course exists. '
+        'No empty lessons, no placeholder courses.</p>\n'
+        '  <div class="lang-finder">\n'
+        '    <input id="lang-q" type="search" placeholder="Find a language" aria-label="Find a language">\n'
+        '    <div class="lang-chips" role="group" aria-label="Filter by status">\n'
+        '      <button type="button" class="chip is-on" data-f="all">All</button>\n'
+        '      <button type="button" class="chip" data-f="available">Available</button>\n'
+        '      <button type="button" class="chip" data-f="beta">Starter</button>\n'
+        '      <button type="button" class="chip" data-f="coming">Coming</button>\n'
+        '    </div>\n'
+        '    <p class="muted" id="lang-count"></p>\n'
+        '  </div>\n'
+        '  <h2 id="sec-available">Available now</h2>\n'
+        '  <div class="lang-grid" id="grid-available">' + prod_cards + avail_cards + "</div>\n"
         '  <p class="muted" id="cg-stats">Counting live content…</p>\n'
-        + (('  <h2>Beta starter</h2>\n'
-            '  <p class="muted">A starter pack proves the engines work across languages. It is BETA reference content — '
+        + (('  <h2 id="sec-beta">Beta starter</h2>\n'
+            '  <p class="muted" id="sec-beta-sub">A starter pack proves the engines work across languages. It is BETA reference content — '
             "not a course, and never labelled available until a full reviewed course exists.</p>\n"
-            '  <div class="lang-grid">' + beta_cells + "</div>\n") if beta else "") +
-        (('  <h2>Coming soon</h2>\n'
-            '  <p class="muted">These are the next targets in the architecture. Each becomes available only when its lessons, audio and review content are real.</p>\n'
-            '  <div class="lang-grid">' + planned_cells + "</div>\n") if planned else "") +
+            '  <div class="lang-grid" id="grid-beta">' + beta_cells + "</div>\n") if beta else "") +
+        (('  <h2 id="sec-coming">Coming soon</h2>\n'
+            '  <p class="muted" id="sec-coming-sub">These are the next targets in the architecture. Each becomes available only when its lessons, audio and review content are real.</p>\n'
+            '  <div class="lang-grid" id="grid-coming">' + planned_cells + "</div>\n") if planned else "") +
         '  <div class="note"><b>Not sure where to begin?</b> Answer three quick questions and get a rule-based starting point — <a href="/start/">find your starting point</a>. This is a deterministic recommendation, not AI.</div>\n'
         + (('  <div id="lp-proof" class="lp-box">\n'
             '    <h2>Engine reuse proof — starter packs</h2>\n'
@@ -259,11 +295,45 @@ def languages_page():
             '      lpReady(function(){ show(sel ? sel.value : "es"); });\n'
             '      if(sel){ sel.addEventListener("change", function(){ show(sel.value); }); }\n'
             '    }\n') if beta else "") +
+        '    // Finder: live search + status chips\n'
+        '    var q=document.getElementById("lang-q");\n'
+        '    var chips=document.querySelectorAll(".lang-chips .chip");\n'
+        '    var count=document.getElementById("lang-count");\n'
+        '    var grids=[["available","grid-available","sec-available",null],["beta","grid-beta","sec-beta","sec-beta-sub"],["coming","grid-coming","sec-coming","sec-coming-sub"]];\n'
+        '    var f="all";\n'
+        '    function apply(){\n'
+        '      var needle=(q&&q.value||"").toLowerCase().trim();\n'
+        '      var shown=0,total=0;\n'
+        '      grids.forEach(function(g){\n'
+        '        var grid=document.getElementById(g[1]);if(!grid){return;}\n'
+        '        var head=document.getElementById(g[2]);var sub=g[3]?document.getElementById(g[3]):null;\n'
+        '        var vis=0;\n'
+        '        var cells=Array.prototype.filter.call(grid.children,function(el){return el.classList&&el.classList.contains("lang-cell");});cells.forEach(function(cell){\n'
+        '          total++;\n'
+        '          var ok=(f==="all"||f===g[0])&&(!needle||cell.textContent.toLowerCase().indexOf(needle)>-1);\n'
+        '          cell.style.display=ok?"":"none";\n'
+        '          if(ok){vis++;shown++;}\n'
+        '        });\n'
+        '        var hide=vis===0;\n'
+        '        if(head){head.style.display=hide?"none":"";}\n'
+        '        if(sub){sub.style.display=hide?"none":"";}\n'
+        '        grid.style.display=hide?"none":"";\n'
+        '      });\n'
+        '      if(count){count.textContent=shown===total?total+" languages":shown+" of "+total+" languages";}\n'
+        '    }\n'
+        '    if(q){q.addEventListener("input",apply);}\n'
+        '    Array.prototype.forEach.call(chips,function(c){\n'
+        '      c.addEventListener("click",function(){\n'
+        '        Array.prototype.forEach.call(chips,function(x){x.classList.remove("is-on");});\n'
+        '        c.classList.add("is-on");f=c.getAttribute("data-f");apply();\n'
+        '      });\n'
+        '    });\n'
+        '    apply();\n'
         '  })();\n'
         '  </script>\n'
     )
     write("languages/index.html", "../", "Learn a language with EkGuru — available now and coming soon",
-          "EkGuru teaches Hindi today, with more languages coming. See what is available now, and get a rule-based starting point for your goal.",
+          "Free language courses from English: Hindi, Spanish, French, German, Portuguese and Italian available now, with starter packs and more coming.",
           "languages/", body, scripts=["content-graph.js", "vocab-phrase-engine.js", "grammar-engine.js",
                                        "hindi-srs.js", "language-pack.js", "hindi-audio.js"])
 
@@ -328,7 +398,7 @@ def lang_pages():
     for p in packs:
         code = p["lang"]
         l = by_id.get(code)
-        if not l or l["productionStatus"] != "BETA":
+        if not l or l["productionStatus"] not in ("BETA", "AVAILABLE"):
             continue
         try:
             d = json.load(open(p["file"], encoding="utf-8"))
@@ -340,24 +410,29 @@ def lang_pages():
         title = "Learn %s basics — free starter pack" % p["name"]
         course_html = ""
         course_note = ('  <div class="note"><b>This is not a full course.</b> There are no lesson pages and no '
-                       'recorded audio here. When real lessons exist for a language, it moves up — for now the '
-                       'only full course is <a href="/learn/hindi/">Hindi</a>.</div>\n')
+                       'recorded audio here. Languages with real lessons move up to '''
+                       '<a href="/languages/">available courses</a>.</div>\n')
         if course:
             course_html = (
-                '  <h2>Full course — beta</h2>\n'
-                '  <div class="note"><b>This language now has a free beta course.</b> %s</div>\n'
+                '  <h2>Full course</h2>\n'
+                '  <div class="note"><b>This language now has a free course.</b> %s</div>\n'
                 '  <p><a class="btn" href="/languages/%s/course/">Open the %s course</a></p>\n'
             ) % (esc(course.get("note", "")), esc(code), name)
             course_note = (
-                '  <div class="note"><b>Beta course, not yet Hindi-depth.</b> %s now has lessons, practice, '
+                '  <div class="note"><b>Full course — still growing.</b> %s now has lessons, practice, '
                 'a quiz and a review deck — but it is younger than the Hindi course and has no recorded '
                 'audio. <a href="/languages/%s/course/">See the course</a>.</div>\n'
             ) % (name, esc(code))
+        if course:
+            lede = ('  <p class="lede"><span class="tag on" style="vertical-align:2px">Available</span> '
+                    'Full course: 6 lessons, practice, quiz and review.</p>\n')
+        else:
+            lede = ('  <p class="lede"><span class="tag beta" style="vertical-align:2px">BETA — starter</span> '
+                    'Starter reference content, not a course.</p>\n')
         body = (
             '  <p class="crumb"><a href="/">EkGuru</a> › <a href="/languages/">Languages</a> › %s</p>\n'
             '  <h1>Learn %s basics</h1>\n'
-            '  <p class="lede"><span class="tag beta" style="vertical-align:2px">BETA — starter</span> '
-            'Starter reference content, not a course.</p>\n'
+            + lede +
             '  <div class="note"><b>Honest status.</b> %s</div>\n'
             '  <p>%s</p>\n'
             '%s'
@@ -419,8 +494,9 @@ def patch_home():
     except Exception:
         langs = []
     prod = [l for l in langs if l["productionStatus"] == "PRODUCTION"]
+    avail = sorted([l for l in langs if l["productionStatus"] == "AVAILABLE"], key=lambda x: x["name"])
     beta = sorted([l for l in langs if l["productionStatus"] == "BETA"], key=lambda x: x["name"])
-    planned = [l for l in langs if l["productionStatus"] not in ("PRODUCTION", "BETA")]
+    planned = [l for l in langs if l["productionStatus"] not in ("PRODUCTION", "BETA", "AVAILABLE")]
     changed = False
 
     # 1) nav link (before the Book-a-trial CTA)
@@ -437,10 +513,15 @@ def patch_home():
         '<a class="lang-pill on" href="/learn/hindi/">%s <small>full course</small></a>' % esc(l["name"])
         for l in prod)
     pills += "".join(
+        '<a class="lang-pill on" href="/languages/%s/course/">%s <small>course</small></a>' % (esc(l["id"]), esc(l["name"]))
+        for l in avail)
+    pills += "".join(
         '<a class="lang-pill beta" href="/languages/%s/">%s</a>' % (esc(l["id"]), esc(l["name"]))
         for l in beta)
     pills += ('<a class="lang-pill soon" href="/languages/">+ %d more coming</a>' % len(planned)) if planned else ""
     names = ", ".join(l["name"] for l in beta[:4]) + (", …" if len(beta) > 4 else "")
+    _cn = ["Hindi"] + [l["name"] for l in avail]
+    course_names = _cn[0] if len(_cn) == 1 else ", ".join(_cn[:-1]) + " and " + _cn[-1]
     section = (
         '<!-- ekguru:languages-home:start (generated by tools/build-phase7-pages.py) -->\n'
         '<section class="sec" id="languages">\n'
@@ -448,8 +529,8 @@ def patch_home():
         '    <div class="sec-head reveal">\n'
         '      <span class="kicker">Free language packs</span>\n'
         '      <h2>One engine, many languages</h2>\n'
-        '      <p class="lead">Hindi is our full course. Free starter packs — %s — run on the same '
-        'engines with the same device-only review. Beta reference content, not full courses.</p>\n'
+        '      <p class="lead">Full courses from English in %s. Free starter packs — %s — run on the same '
+        'engines with the same device-only review.</p>\n'
         '    </div>\n'
         '    <div class="lang-strip reveal center">%s</div>\n'
         '    <p class="center" style="margin-top:18px"><a class="btn btn-ghost btn-sm" href="/languages/">See all languages</a></p>\n'
@@ -465,7 +546,7 @@ def patch_home():
         '@media(pointer:coarse){.lang-pill{min-height:44px}}\n'
         '</style>\n'
         '<!-- ekguru:languages-home:end -->\n'
-    ) % (names, pills)
+    ) % (course_names, names, pills)
     if "ekguru:languages-home:start" in html:
         i = html.index("<!-- ekguru:languages-home:start")
         j = html.index("<!-- ekguru:languages-home:end -->") + len("<!-- ekguru:languages-home:end -->")

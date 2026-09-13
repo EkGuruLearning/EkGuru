@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-13T19:24:16.358Z",
+ "generated": "2026-09-13T19:40:22.767Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 939,
+  "totalHtml": 969,
   "materials": 0
  },
  "countries": {
@@ -3923,9 +3923,9 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 939,
-  "sitemapUrls": 862,
-  "sitemapFiles": 14,
+  "pages": 969,
+  "sitemapUrls": 917,
+  "sitemapFiles": 15,
   "brokenLinks": 0,
   "orphans": 0
  },
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1213 files scanned, 0 secrets"
+  "note": "1248 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "7ef48f613b922c539ecb91f59f79809b7a5a4808",
-  "subject": "v126: Punjabi + Urdu COMPLETE — 12 advanced modules (1617 words)",
-  "buildTime": "2026-09-13T19:24:16.370Z",
+  "commit": "0b75c38946de0af790b336ea08ec9631da7d1d26",
+  "subject": "Hindi Advanced COMPLETE + prev/next nav everywhere — 6 modules (807 words), bank v2 (105 Qs), hub Advanced level, prev/next on all reading pages (9 langs + Hindi topics); 0 broken, doctor 11/11, SEO 939/0/0",
+  "buildTime": "2026-09-13T19:40:22.780Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 939,
+   "totalHtml": 969,
    "tutorProfiles": 4,
    "materials": 0
   }

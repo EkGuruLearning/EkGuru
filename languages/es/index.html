@@ -73,17 +73,26 @@
 .sc-opt.sc-wrong{border-color:#b42318;color:#b42318;background:#fdeceb}
 .sc-fb{font-size:.95rem;min-height:1.4em;margin:8px 0}
 .sc-nav{min-height:40px}
+.lang-finder{margin:0 0 6px}
+.lang-finder input[type=search]{width:100%;max-width:420px;padding:11px 14px;font-size:1rem;border:1px solid var(--line);border-radius:12px;background:var(--card,#fff);color:var(--ink)}
+.lang-chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
+.chip{padding:8px 16px;min-height:44px;border-radius:999px;border:1px solid var(--line);background:var(--card,#fff);color:var(--ink-2);font:inherit;font-size:.9rem;font-weight:600;cursor:pointer}
+.chip.is-on{background:var(--brand);border-color:var(--brand);color:#fff}
+.lang-cell{transition:border-color .15s ease,transform .15s ease}
+.lang-cell:hover{border-color:var(--brand-2);transform:translateY(-1px)}
+.lang-cell .btn{margin-top:8px}
+#lang-count{font-size:.85rem;margin:6px 0 0}
 </style>
 </head>
 <body>
 <div class="art">
   <p class="crumb"><a href="/">EkGuru</a> › <a href="/languages/">Languages</a> › Spanish</p>
   <h1>Learn Spanish basics</h1>
-  <p class="lede"><span class="tag beta" style="vertical-align:2px">BETA — starter</span> Starter reference content, not a course.</p>
+  <p class="lede"><span class="tag on" style="vertical-align:2px">Available</span> Full course: 6 lessons, practice, quiz and review.</p>
   <div class="note"><b>Honest status.</b> Hindi is the only PRODUCTION language. This Spanish starter pack exists to PROVE the engines are reusable across languages: it renders through the same vocab/phrase engine, the same grammar engine and the same spaced-repetition hook. It is BETA reference content, not a promise of a full Spanish course.</div>
   <p>Spanish (español) is spoken by nearly 600 million people across Spain, Latin America and the United States. This starter pack covers greetings, essentials and core grammar — a first taste of the language, not a full course.</p>
-  <h2>Full course — beta</h2>
-  <div class="note"><b>This language now has a free beta course.</b> A real, authored Spanish course in beta: 6 lessons, a practice lab, a topic quiz and a review deck — all running on the same engines as Hindi. It is not yet as deep as the Hindi course, and all audio is your browser's computer voice, never a native recording.</div>
+  <h2>Full course</h2>
+  <div class="note"><b>This language now has a free course.</b> A real, authored Spanish course: 6 lessons, a practice lab, a topic quiz and a review deck — all running on the same engines as Hindi. It is not yet as deep as the Hindi course, and all audio is your browser's computer voice, never a native recording.</div>
   <p><a class="btn" href="/languages/es/course/">Open the Spanish course</a></p>
   <h2>Starter pack preview</h2>
   <p class="muted">24 words · 12 phrases · 4 grammar concepts — rendered live by the same engines that render Hindi, with the same device-only “Add to review” hook. The 🔊 Listen button is your browser’s computer voice, not a native recording.</p>
@@ -91,7 +100,7 @@
   <h2>Starter check</h2>
   <p class="muted">A fixed rule-based check over this pack’s words — the same questions every time. Not an exam, not AI, nothing is saved.</p>
   <div id="starter-check"><p class="muted">Loading starter check…</p></div>
-  <div class="note"><b>Beta course, not yet Hindi-depth.</b> Spanish now has lessons, practice, a quiz and a review deck — but it is younger than the Hindi course and has no recorded audio. <a href="/languages/es/course/">See the course</a>.</div>
+  <div class="note"><b>Full course — still growing.</b> Spanish now has lessons, practice, a quiz and a review deck — but it is younger than the Hindi course and has no recorded audio. <a href="/languages/es/course/">See the course</a>.</div>
   <p><a class="btn" href="/languages/">All languages</a> <a class="btn" href="/learn/hindi/">Start learning Hindi</a></p>
   <script defer>
   (function(){

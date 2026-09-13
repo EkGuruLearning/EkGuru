@@ -1,32 +1,71 @@
 {
-  "generated": "2026-09-13T08:34:00Z",
-  "policy": "A language gets a course object only when real authored lessons + practice + quiz + review exist. A course keeps a language BETA (still not Hindi-depth, still no recorded audio). PRODUCTION remains Hindi only.",
+  "generated": "2026-09-13T19:37:49Z",
+  "policy": "A language gets a course object only when real authored lessons + practice + quiz + review exist. A completed course marks its language Available (still not Hindi-depth, still no recorded audio). PRODUCTION remains Hindi only.",
   "courses": [
+    {
+      "lang": "de",
+      "name": "German",
+      "native": "Deutsch",
+      "speechTag": "de-DE",
+      "status": "Available",
+      "lessons": 6,
+      "practiceItems": 24,
+      "quizQuestions": 20,
+      "reviewCards": 24,
+      "url": "languages/de/course/",
+      "note": "A real, authored German course: 6 lessons, a practice lab, a topic quiz and a review deck — all running on the same engines as Hindi. It is not yet as deep as the Hindi course, and all audio is your browser's computer voice, never a native recording."
+    },
     {
       "lang": "es",
       "name": "Spanish",
       "native": "español",
       "speechTag": "es-ES",
-      "status": "BETA",
+      "status": "Available",
       "lessons": 6,
       "practiceItems": 24,
       "quizQuestions": 20,
       "reviewCards": 24,
       "url": "languages/es/course/",
-      "note": "A real, authored Spanish course in beta: 6 lessons, a practice lab, a topic quiz and a review deck — all running on the same engines as Hindi. It is not yet as deep as the Hindi course, and all audio is your browser's computer voice, never a native recording."
+      "note": "A real, authored Spanish course: 6 lessons, a practice lab, a topic quiz and a review deck — all running on the same engines as Hindi. It is not yet as deep as the Hindi course, and all audio is your browser's computer voice, never a native recording."
     },
     {
       "lang": "fr",
       "name": "French",
       "native": "français",
       "speechTag": "fr-FR",
-      "status": "BETA",
+      "status": "Available",
       "lessons": 6,
       "practiceItems": 24,
       "quizQuestions": 20,
       "reviewCards": 24,
       "url": "languages/fr/course/",
-      "note": "A real, authored French course in beta: 6 lessons, a practice lab, a topic quiz and a review deck — all running on the same engines as Hindi. It is not yet as deep as the Hindi course, and all audio is your browser's computer voice, never a native recording."
+      "note": "A real, authored French course: 6 lessons, a practice lab, a topic quiz and a review deck — all running on the same engines as Hindi. It is not yet as deep as the Hindi course, and all audio is your browser's computer voice, never a native recording."
+    },
+    {
+      "lang": "it",
+      "name": "Italian",
+      "native": "italiano",
+      "speechTag": "it-IT",
+      "status": "Available",
+      "lessons": 6,
+      "practiceItems": 24,
+      "quizQuestions": 20,
+      "reviewCards": 24,
+      "url": "languages/it/course/",
+      "note": "A real, authored Italian course: 6 lessons, a practice lab, a topic quiz and a review deck — all running on the same engines as Hindi. It is not yet as deep as the Hindi course, and all audio is your browser's computer voice, never a native recording."
+    },
+    {
+      "lang": "pt",
+      "name": "Portuguese",
+      "native": "português",
+      "speechTag": "pt-BR",
+      "status": "Available",
+      "lessons": 6,
+      "practiceItems": 24,
+      "quizQuestions": 20,
+      "reviewCards": 24,
+      "url": "languages/pt/course/",
+      "note": "A real, authored Portuguese course: 6 lessons, a practice lab, a topic quiz and a review deck — all running on the same engines as Hindi. It is not yet as deep as the Hindi course, and all audio is your browser's computer voice, never a native recording."
     }
   ]
 }
