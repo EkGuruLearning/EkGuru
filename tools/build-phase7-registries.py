@@ -71,7 +71,8 @@ def speech_tag(iso):
     return {"zh": "zh-CN", "pt": "pt-BR", "sw": "sw-KE", "en": "en-IN",
             "hi": "hi-IN", "bn": "bn-IN", "ta": "ta-IN", "te": "te-IN", "mr": "mr-IN",
             "gu": "gu-IN", "pa": "pa-IN", "ur": "ur-PK", "ar": "ar-SA",
-            "fa": "fa-IR", "he": "he-IL", "ms": "ms-MY"}.get(iso, iso + "-" + iso.upper())
+            "fa": "fa-IR", "he": "he-IL", "ms": "ms-MY", "ja": "ja-JP", "ko": "ko-KR",
+            "uk": "uk-UA", "vi": "vi-VN"}.get(iso, iso + "-" + iso.upper())
 
 # Phase 7C Stage 5 — authored starter packs mark a language BETA (starter
 # reference content), never PRODUCTION. Load the pack manifest if it exists

@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-13T19:40:22.767Z",
+ "generated": "2026-09-13T19:51:32.190Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 969,
+  "totalHtml": 1019,
   "materials": 0
  },
  "countries": {
@@ -3923,8 +3923,8 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 969,
-  "sitemapUrls": 917,
+  "pages": 1019,
+  "sitemapUrls": 972,
   "sitemapFiles": 15,
   "brokenLinks": 0,
   "orphans": 0
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1248 files scanned, 0 secrets"
+  "note": "1303 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "0b75c38946de0af790b336ea08ec9631da7d1d26",
-  "subject": "Hindi Advanced COMPLETE + prev/next nav everywhere — 6 modules (807 words), bank v2 (105 Qs), hub Advanced level, prev/next on all reading pages (9 langs + Hindi topics); 0 broken, doctor 11/11, SEO 939/0/0",
-  "buildTime": "2026-09-13T19:40:22.780Z",
+  "commit": "f0f818f18fe728b407205ad3a1f8b11db36502ec",
+  "subject": "World courses batch 1 + links fixed + interactive hub (v128): German/Portuguese/Italian courses (18 lessons, 72 practice, 60 quiz, 72 review — all hand-authored, EN bridge); resurrected world-course builder from git; completed courses marked Available (hub+home+registry); interactive languages hub (search+chips); tutors-sheet.csv restored; sitemap-courses.xml (56 urls); doctor 11/11, SEO 969/0/0",
+  "buildTime": "2026-09-13T19:51:32.205Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 969,
+   "totalHtml": 1019,
    "tutorProfiles": 4,
    "materials": 0
   }

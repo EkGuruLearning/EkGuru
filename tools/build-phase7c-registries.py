@@ -43,6 +43,35 @@ except Exception:
     _courses = []
 courses_by_lang = {c["lang"]: c for c in _courses}
 
+# ---- Indian courses (built by tools/build-language-course.py from
+# tools/lang-data/<slug>.json). A language counts as AVAILABLE only when its
+# data carries all 6 advanced modules — checked here, every rebuild.
+INDIAN = {"bn": ("bengali", "bn-IN"), "gu": ("gujarati", "gu-IN"),
+          "kn": ("kannada", "kn-IN"), "ml": ("malayalam", "ml-IN"),
+          "mr": ("marathi", "mr-IN"), "pa": ("punjabi", "pa-IN"),
+          "ta": ("tamil", "ta-IN"), "te": ("telugu", "te-IN"),
+          "ur": ("urdu", "ur-PK")}
+indian_by_lang = {}
+for _code, (_slug, _tag) in INDIAN.items():
+    try:
+        _d = json.load(open("tools/lang-data/%s.json" % _slug, encoding="utf-8"))
+    except Exception:
+        continue
+    _adv = _d.get("advanced_modules", [])
+    if len(_adv) != 6:
+        continue
+    _nq = len(_d.get("quiz", [])) + sum(len(m.get("quiz", [])) for m in _adv)
+    indian_by_lang[_code] = {
+        "lang": _code, "name": _d.get("name", _slug.title()),
+        "native": _d.get("native", ""), "speechTag": _tag,
+        "status": "Available", "lessons": 21, "practiceItems": 4,
+        "quizQuestions": _nq, "reviewCards": len(_d.get("review_deck", [])),
+        "url": "learn/%s/" % _slug,
+        "note": ("A complete %s course: 21 reading pages across levels and topics, "
+                 "800+ advanced words with phrases and dialogues, %d quiz questions, "
+                 "typing and worksheet labs, and a %d-card review deck."
+                 % (_d.get("name", _slug.title()), _nq, len(_d.get("review_deck", []))))}
+
 # ---- real content counts per target language (from the graph) ----
 counts = {}
 for e in graph["entities"]:
@@ -83,7 +112,7 @@ for l in lang7["languages"]:
     lvl = level_coverage(cnt) if lid == "hi" else []
     pack = packs_by_lang.get(lid)
     has_pack = pack is not None
-    course = courses_by_lang.get(lid)
+    course = courses_by_lang.get(lid) or indian_by_lang.get(lid)
     status = l["productionStatus"]
     if course:
         status = "AVAILABLE"  # completed course: lessons + practice + quiz + review
@@ -120,6 +149,41 @@ for l in lang7["languages"]:
         "starterNote": pack.get("honestNote") if pack else None,
         "course": course,
         "referenceImplementation": l.get("referenceImplementation", False),
+    })
+
+# Kannada + Malayalam are absent from the Phase 7 registry but have complete
+# /learn/ courses AND hand-maintained pack pages (languages/{kn,ml}/). Append
+# them here so the hub lists them as AVAILABLE; handPage keeps lang_pages()
+# from overwriting their pages.
+KNML = {
+    "kn": {"name": "Kannada", "nativeName": "ಕನ್ನಡ", "iso3": "kan",
+           "script": "Kannada", "speech": "kn-IN"},
+    "ml": {"name": "Malayalam", "nativeName": "മലയാളം",
+           "iso3": "mal", "script": "Malayalam", "speech": "ml-IN"},
+}
+_have = {l["id"] for l in langs7c}
+for _lid, _meta in KNML.items():
+    if _lid in _have or _lid not in indian_by_lang:
+        continue
+    _pk = packs_by_lang.get(_lid, {})
+    langs7c.append({
+        "id": _lid, "iso639_1": _lid, "iso639_3": _meta["iso3"],
+        "name": _meta["name"], "nativeName": _meta["nativeName"],
+        "script": _meta["script"], "direction": "ltr",
+        "transliterationSupport": None,
+        "segmentationModel": "word-based (space-separated)",
+        "speechLocales": [_meta["speech"]], "audioStatus": "BROWSER_TTS",
+        "grammarState": "STARTER", "vocabularyState": "STARTER",
+        "lessonCount": 0, "practiceCount": 0, "quizCount": 0,
+        "reviewCardCount": 0, "phraseCount": 0, "cultureCoverage": False,
+        "levelCoverage": [], "goalsSupported": [],
+        "sourceLanguageAvailability": ["en"], "countryAssociations": [],
+        "qualityScore": 0, "productionStatus": "AVAILABLE",
+        "starterPack": True,
+        "starterCounts": _pk.get("counts"),
+        "starterNote": _pk.get("honestNote"),
+        "course": indian_by_lang[_lid],
+        "referenceImplementation": False, "handPage": True,
     })
 
 # ---- country ↔ language relationship ----

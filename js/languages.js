@@ -215,7 +215,7 @@ window.EKGURU_LANGUAGES = [
     "script": "Kana + Kanji",
     "direction": "ltr",
     "transliteration": "Hepburn rōmaji",
-    "speechTag": "ja-JA",
+    "speechTag": "ja-JP",
     "browserSpeech": true,
     "audioStatus": "BROWSER_TTS",
     "contentMaturity": {
@@ -248,7 +248,7 @@ window.EKGURU_LANGUAGES = [
     "script": "Hangul",
     "direction": "ltr",
     "transliteration": "Revised Romanization",
-    "speechTag": "ko-KO",
+    "speechTag": "ko-KR",
     "browserSpeech": true,
     "audioStatus": "BROWSER_TTS",
     "contentMaturity": {
@@ -644,7 +644,7 @@ window.EKGURU_LANGUAGES = [
     "script": "Latin",
     "direction": "ltr",
     "transliteration": "n/a",
-    "speechTag": "vi-VI",
+    "speechTag": "vi-VN",
     "browserSpeech": true,
     "audioStatus": "BROWSER_TTS",
     "contentMaturity": {
@@ -974,7 +974,7 @@ window.EKGURU_LANGUAGES = [
     "script": "Cyrillic",
     "direction": "ltr",
     "transliteration": "BGN/PCGN",
-    "speechTag": "uk-UK",
+    "speechTag": "uk-UA",
     "browserSpeech": true,
     "audioStatus": "BROWSER_TTS",
     "contentMaturity": {
