@@ -1034,6 +1034,166 @@ window.EKGURU_BENGALI_QUIZ =
    "q": "'শীত এসেছে' means…",
    "topic": "weather",
    "type": "meaning"
+  },
+  {
+   "a": "kitchen",
+   "explain": "রান্নাঘর (rannaghor) = kitchen — রান্না = cooking.",
+   "id": "bq-65",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "kitchen",
+    "bedroom",
+    "bathroom",
+    "balcony"
+   ],
+   "q": "রান্নাঘর means…",
+   "topic": "home",
+   "type": "vocab"
+  },
+  {
+   "a": "মামা",
+   "explain": "মামা (mama) = maternal uncle; কাকা is paternal younger uncle.",
+   "id": "bq-66",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "মামা",
+    "কাকা",
+    "জ্যাঠা",
+    "দাদু"
+   ],
+   "q": "Which is 'maternal uncle'?",
+   "topic": "home",
+   "type": "vocab"
+  },
+  {
+   "a": "dinner is ready",
+   "explain": "খাবার তৈরি — তৈরি = ready.",
+   "id": "bq-67",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "dinner is ready",
+    "wash your hands",
+    "go to sleep",
+    "lock the door"
+   ],
+   "q": "'খাবার তৈরি' means…",
+   "topic": "home",
+   "type": "meaning"
+  },
+  {
+   "a": "ঘরটা গুছিয়ে রাখো",
+   "explain": "ঘরটা গুছিয়ে রাখো = tidy the room — গুছিয়ে = tidily.",
+   "id": "bq-68",
+   "lesson": "home",
+   "level": "elementary",
+   "opts": [
+    "ঘরটা গুছিয়ে রাখো",
+    "বাইরে খেলো",
+    "ঘুমিয়ে পড়ো",
+    "বই পড়ো"
+   ],
+   "q": "Guests are coming — tell the child to tidy the room…",
+   "topic": "home",
+   "type": "usage"
+  },
+  {
+   "a": "key",
+   "explain": "চাবি (chabi) = key — চাবিগুলো কোথায়? (where are the keys?)",
+   "id": "bq-69",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "key",
+    "lock",
+    "door",
+    "window"
+   ],
+   "q": "চাবি means…",
+   "topic": "home",
+   "type": "vocab"
+  },
+  {
+   "a": "afternoon nap",
+   "explain": "ভাতঘুম (bhatghum) — the sacred post-lunch nap. ভাত = rice!",
+   "id": "bq-70",
+   "lesson": "home",
+   "level": "elementary",
+   "opts": [
+    "afternoon nap",
+    "morning walk",
+    "night sleep",
+    "daydream"
+   ],
+   "q": "ভাতঘুম means…",
+   "topic": "home",
+   "type": "vocab"
+  },
+  {
+   "a": "lock the door",
+   "explain": "দরজায় তালা দাও — তালা = lock.",
+   "id": "bq-71",
+   "lesson": "home",
+   "level": "elementary",
+   "opts": [
+    "lock the door",
+    "open the window",
+    "close the gate",
+    "light the lamp"
+   ],
+   "q": "'দরজায় তালা দাও' means…",
+   "topic": "home",
+   "type": "meaning"
+  },
+  {
+   "a": "হাত ধুয়ে নাও",
+   "explain": "হাত ধুয়ে নাও = wash your hands — before every meal!",
+   "id": "bq-72",
+   "lesson": "home",
+   "level": "elementary",
+   "opts": [
+    "হাত ধুয়ে নাও",
+    "মুখ ধুয়ে নাও",
+    "চা খেয়ে নাও",
+    "ঘুমিয়ে পড়ো"
+   ],
+   "q": "Say 'wash your hands'. You say…",
+   "topic": "home",
+   "type": "usage"
+  },
+  {
+   "a": "traditional cutter",
+   "explain": "বঁটি (bõṭi) — the curved blade every Bengali kitchen owns.",
+   "id": "bq-73",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "traditional cutter",
+    "rolling pin",
+    "pressure cooker",
+    "spice box"
+   ],
+   "q": "বঁটি means…",
+   "topic": "home",
+   "type": "vocab"
+  },
+  {
+   "a": "this is my home",
+   "explain": "এটা আমার বাড়ি — এটা = this.",
+   "id": "bq-74",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "this is my home",
+    "this is my room",
+    "our family is big",
+    "sweet dreams"
+   ],
+   "q": "'এটা আমার বাড়ি' means…",
+   "topic": "home",
+   "type": "meaning"
   }
  ]
 };
