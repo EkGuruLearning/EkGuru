@@ -8,7 +8,12 @@
   "script_name": "Telugu script",
   "script_note": "Round, looping letters — the curves come from writing on palm leaves, where straight cuts would tear the leaf. Left to right and fully phonetic: 16 vowels (short and long e/o matter!) and all the consonant rows Hindi has, plus extras like ళ and a second R (ఱ).",
   "difficulty": "US Foreign Service Institute Category III (about 1,100 hours to professional proficiency) — grouped with Hindi. The script is phonetic and verbs are regular; the new habits are agglutination (long words glued from small parts) and inclusive/exclusive 'we'.",
-  "sov": {"t": "నేను అన్నం తింటాను", "r": "nēnu annaṁ tinṭānu", "hi": "मैं चावल खाता हूँ", "en": "I eat rice (word-for-word: I · rice · eat)"},
+  "sov": {
+    "t": "నేను అన్నం తింటాను",
+    "r": "nēnu annaṁ tinṭānu",
+    "hi": "मैं चावल खाता हूँ",
+    "en": "I eat rice (word-for-word: I · rice · eat)"
+  },
   "gender_title": "Gender lives in the verb (third person)",
   "gender_note": "Telugu nouns don't force masculine/feminine on you, but third-person verbs agree: వాడు తింటాడు (he eats), ఆమె తింటుంది (she eats). First and second person never split — నేను తింటాను is said by men and women alike.",
   "present_note": "One verb, seven endings: the ending tells you WHO — and in the third person, their gender. Formal మీరు shares its ending with they.",
@@ -17,404 +22,2399 @@
   "counting_note": "Telugu counts directly — but people get special number-words:",
   "survival_trio": "X ఎక్కడ ఉంది? (where is X?), ఛార్జీ ఎంత? (how much?), ఇక్కడ ఆపండి (stop here). These three handle 80% of travel.",
   "bargaining_script": "ఇది ఎంత? → చాలా ఖరీదు! → కొంచెం తగ్గించండి → సరే, తీసుకుంటాను. Smile through all four steps.",
-
   "vowels": [
-    {"t": "అ", "r": "a", "hint": "a as in 'about' — a short neutral uh"},
-    {"t": "ఆ", "r": "ā", "hint": "a as in 'father'"},
-    {"t": "ఇ", "r": "i", "hint": "i as in 'bit'"},
-    {"t": "ఈ", "r": "ī", "hint": "ee as in 'feet'"},
-    {"t": "ఉ", "r": "u", "hint": "u as in 'put'"},
-    {"t": "ఊ", "r": "ū", "hint": "oo as in 'food'"},
-    {"t": "ఋ", "r": "ṛ", "hint": "ru as in 'rude' — rare, Sanskrit loanwords only"},
-    {"t": "ౠ", "r": "ṝ", "hint": "long ṛ — almost never seen outside dictionaries"},
-    {"t": "ఎ", "r": "e", "hint": "SHORT e, as in 'pen' — contrasts with ఏ below"},
-    {"t": "ఏ", "r": "ē", "hint": "LONG ay, as in 'say' — length changes meaning!"},
-    {"t": "ఐ", "r": "ai", "hint": "ai as in 'aisle'"},
-    {"t": "ఒ", "r": "o", "hint": "SHORT o, as in 'pot' — contrasts with ఓ below"},
-    {"t": "ఓ", "r": "ō", "hint": "LONG o, as in 'go' — length changes meaning!"},
-    {"t": "ఔ", "r": "au", "hint": "ow as in 'cow'"},
-    {"t": "అం", "r": "aṁ", "hint": "nasalizes the vowel: అన్నం (cooked rice)"},
-    {"t": "అః", "r": "aha", "hint": "breathy h at word end — rare"}
+    {
+      "t": "అ",
+      "r": "a",
+      "hint": "a as in 'about' — a short neutral uh"
+    },
+    {
+      "t": "ఆ",
+      "r": "ā",
+      "hint": "a as in 'father'"
+    },
+    {
+      "t": "ఇ",
+      "r": "i",
+      "hint": "i as in 'bit'"
+    },
+    {
+      "t": "ఈ",
+      "r": "ī",
+      "hint": "ee as in 'feet'"
+    },
+    {
+      "t": "ఉ",
+      "r": "u",
+      "hint": "u as in 'put'"
+    },
+    {
+      "t": "ఊ",
+      "r": "ū",
+      "hint": "oo as in 'food'"
+    },
+    {
+      "t": "ఋ",
+      "r": "ṛ",
+      "hint": "ru as in 'rude' — rare, Sanskrit loanwords only"
+    },
+    {
+      "t": "ౠ",
+      "r": "ṝ",
+      "hint": "long ṛ — almost never seen outside dictionaries"
+    },
+    {
+      "t": "ఎ",
+      "r": "e",
+      "hint": "SHORT e, as in 'pen' — contrasts with ఏ below"
+    },
+    {
+      "t": "ఏ",
+      "r": "ē",
+      "hint": "LONG ay, as in 'say' — length changes meaning!"
+    },
+    {
+      "t": "ఐ",
+      "r": "ai",
+      "hint": "ai as in 'aisle'"
+    },
+    {
+      "t": "ఒ",
+      "r": "o",
+      "hint": "SHORT o, as in 'pot' — contrasts with ఓ below"
+    },
+    {
+      "t": "ఓ",
+      "r": "ō",
+      "hint": "LONG o, as in 'go' — length changes meaning!"
+    },
+    {
+      "t": "ఔ",
+      "r": "au",
+      "hint": "ow as in 'cow'"
+    },
+    {
+      "t": "అం",
+      "r": "aṁ",
+      "hint": "nasalizes the vowel: అన్నం (cooked rice)"
+    },
+    {
+      "t": "అః",
+      "r": "aha",
+      "hint": "breathy h at word end — rare"
+    }
   ],
   "consonants": [
-    {"t": "క", "r": "k", "hint": "k as in 'skin' (unaspirated)"},
-    {"t": "ఖ", "r": "kh", "hint": "k with a puff of air"},
-    {"t": "గ", "r": "g", "hint": "g as in 'go'"},
-    {"t": "ఘ", "r": "gh", "hint": "g with a puff of air"},
-    {"t": "ఙ", "r": "ng", "hint": "ng as in 'sing'"},
-    {"t": "చ", "r": "ch", "hint": "ch as in 'church' (coastal districts say 'tsa' — same letter, local music)"},
-    {"t": "ఛ", "r": "chh", "hint": "ch with a puff of air"},
-    {"t": "జ", "r": "j", "hint": "j as in 'jam'"},
-    {"t": "ఝ", "r": "jh", "hint": "j with a puff of air"},
-    {"t": "ఞ", "r": "n", "hint": "n as in 'inch'"},
-    {"t": "ట", "r": "ṭ", "hint": "t with tongue curled back (retroflex)"},
-    {"t": "ఠ", "r": "ṭh", "hint": "retroflex t with a puff of air"},
-    {"t": "డ", "r": "ḍ", "hint": "d with tongue curled back"},
-    {"t": "ఢ", "r": "ḍh", "hint": "retroflex d with a puff of air"},
-    {"t": "ణ", "r": "ṇ", "hint": "retroflex n"},
-    {"t": "త", "r": "t", "hint": "t with tongue on teeth (dental)"},
-    {"t": "థ", "r": "th", "hint": "dental t with a puff of air (never 'th' as in 'thin')"},
-    {"t": "ద", "r": "d", "hint": "d with tongue on teeth"},
-    {"t": "ధ", "r": "dh", "hint": "dental d with a puff of air"},
-    {"t": "న", "r": "n", "hint": "dental n"},
-    {"t": "ప", "r": "p", "hint": "p as in 'spin'"},
-    {"t": "ఫ", "r": "ph", "hint": "p with a puff of air (often 'f' in city speech)"},
-    {"t": "బ", "r": "b", "hint": "b as in 'bat'"},
-    {"t": "భ", "r": "bh", "hint": "b with a puff of air"},
-    {"t": "మ", "r": "m", "hint": "m as in 'mat'"},
-    {"t": "య", "r": "y", "hint": "y as in 'yes'"},
-    {"t": "ర", "r": "r", "hint": "trilled r — rolled, unlike the tapped Hindi/Marathi r"},
-    {"t": "ల", "r": "l", "hint": "l as in 'let'"},
-    {"t": "వ", "r": "v", "hint": "between English v and w"},
-    {"t": "శ", "r": "sh", "hint": "sh as in 'ship'"},
-    {"t": "ష", "r": "sh", "hint": "same sound as శ in daily speech"},
-    {"t": "స", "r": "s", "hint": "s as in 'sun'"},
-    {"t": "హ", "r": "h", "hint": "h as in 'hat'"},
-    {"t": "ళ", "r": "ḷ", "hint": "retroflex L, like Marathi ळ — tongue curled back"},
-    {"t": "ఱ", "r": "ṟ", "hint": "a SECOND, tapped R (బండి ర, bandi-ra) — rare in print, alive in speech"},
-    {"t": "క్ష", "r": "ksha", "hint": "as in క్షమించండి (sorry)"}
+    {
+      "t": "క",
+      "r": "k",
+      "hint": "k as in 'skin' (unaspirated)"
+    },
+    {
+      "t": "ఖ",
+      "r": "kh",
+      "hint": "k with a puff of air"
+    },
+    {
+      "t": "గ",
+      "r": "g",
+      "hint": "g as in 'go'"
+    },
+    {
+      "t": "ఘ",
+      "r": "gh",
+      "hint": "g with a puff of air"
+    },
+    {
+      "t": "ఙ",
+      "r": "ng",
+      "hint": "ng as in 'sing'"
+    },
+    {
+      "t": "చ",
+      "r": "ch",
+      "hint": "ch as in 'church' (coastal districts say 'tsa' — same letter, local music)"
+    },
+    {
+      "t": "ఛ",
+      "r": "chh",
+      "hint": "ch with a puff of air"
+    },
+    {
+      "t": "జ",
+      "r": "j",
+      "hint": "j as in 'jam'"
+    },
+    {
+      "t": "ఝ",
+      "r": "jh",
+      "hint": "j with a puff of air"
+    },
+    {
+      "t": "ఞ",
+      "r": "n",
+      "hint": "n as in 'inch'"
+    },
+    {
+      "t": "ట",
+      "r": "ṭ",
+      "hint": "t with tongue curled back (retroflex)"
+    },
+    {
+      "t": "ఠ",
+      "r": "ṭh",
+      "hint": "retroflex t with a puff of air"
+    },
+    {
+      "t": "డ",
+      "r": "ḍ",
+      "hint": "d with tongue curled back"
+    },
+    {
+      "t": "ఢ",
+      "r": "ḍh",
+      "hint": "retroflex d with a puff of air"
+    },
+    {
+      "t": "ణ",
+      "r": "ṇ",
+      "hint": "retroflex n"
+    },
+    {
+      "t": "త",
+      "r": "t",
+      "hint": "t with tongue on teeth (dental)"
+    },
+    {
+      "t": "థ",
+      "r": "th",
+      "hint": "dental t with a puff of air (never 'th' as in 'thin')"
+    },
+    {
+      "t": "ద",
+      "r": "d",
+      "hint": "d with tongue on teeth"
+    },
+    {
+      "t": "ధ",
+      "r": "dh",
+      "hint": "dental d with a puff of air"
+    },
+    {
+      "t": "న",
+      "r": "n",
+      "hint": "dental n"
+    },
+    {
+      "t": "ప",
+      "r": "p",
+      "hint": "p as in 'spin'"
+    },
+    {
+      "t": "ఫ",
+      "r": "ph",
+      "hint": "p with a puff of air (often 'f' in city speech)"
+    },
+    {
+      "t": "బ",
+      "r": "b",
+      "hint": "b as in 'bat'"
+    },
+    {
+      "t": "భ",
+      "r": "bh",
+      "hint": "b with a puff of air"
+    },
+    {
+      "t": "మ",
+      "r": "m",
+      "hint": "m as in 'mat'"
+    },
+    {
+      "t": "య",
+      "r": "y",
+      "hint": "y as in 'yes'"
+    },
+    {
+      "t": "ర",
+      "r": "r",
+      "hint": "trilled r — rolled, unlike the tapped Hindi/Marathi r"
+    },
+    {
+      "t": "ల",
+      "r": "l",
+      "hint": "l as in 'let'"
+    },
+    {
+      "t": "వ",
+      "r": "v",
+      "hint": "between English v and w"
+    },
+    {
+      "t": "శ",
+      "r": "sh",
+      "hint": "sh as in 'ship'"
+    },
+    {
+      "t": "ష",
+      "r": "sh",
+      "hint": "same sound as శ in daily speech"
+    },
+    {
+      "t": "స",
+      "r": "s",
+      "hint": "s as in 'sun'"
+    },
+    {
+      "t": "హ",
+      "r": "h",
+      "hint": "h as in 'hat'"
+    },
+    {
+      "t": "ళ",
+      "r": "ḷ",
+      "hint": "retroflex L, like Marathi ळ — tongue curled back"
+    },
+    {
+      "t": "ఱ",
+      "r": "ṟ",
+      "hint": "a SECOND, tapped R (బండి ర, bandi-ra) — rare in print, alive in speech"
+    },
+    {
+      "t": "క్ష",
+      "r": "ksha",
+      "hint": "as in క్షమించండి (sorry)"
+    }
   ],
-
   "greetings": [
-    {"en": "Hello (formal)", "hi": "नमस्ते", "t": "నమస్కారం", "r": "namaskāraṁ"},
-    {"en": "How are you? (formal)", "hi": "आप कैसे हैं?", "t": "మీరు ఎలా ఉన్నారు?", "r": "mīru elā unnāru?"},
-    {"en": "How are you? (familiar)", "hi": "तुम कैसे हो?", "t": "నువ్వు ఎలా ఉన్నావు?", "r": "nuvvu elā unnāvu?"},
-    {"en": "I'm fine", "hi": "मैं ठीक हूँ", "t": "నేను బాగున్నాను", "r": "nēnu bāgunnānu"},
-    {"en": "Thank you", "hi": "धन्यवाद", "t": "ధన్యవాదాలు", "r": "dhanyavādālu"},
-    {"en": "Yes / No", "hi": "हाँ / नहीं", "t": "అవును / కాదు", "r": "avunu / kādu"},
-    {"en": "Please", "hi": "कृपया", "t": "దయచేసి", "r": "dayachēsi"},
-    {"en": "Excuse me / Sorry", "hi": "माफ़ कीजिए", "t": "క్షమించండి", "r": "kshamin̄chaṇḍi"},
-    {"en": "Good morning", "hi": "सुप्रभात", "t": "శుభోదయం", "r": "śubhōdayaṁ"},
-    {"en": "Good night", "hi": "शुभ रात्रि", "t": "శుభ రాత్రి", "r": "śubha rātri"},
-    {"en": "Goodbye (said by the leaver)", "hi": "चलता हूँ", "t": "వస్తాను", "r": "vastānu", "note": "Literally 'I'll come (back)' — the stayer answers మళ్ళీ రండి (come again)"},
-    {"en": "See you again", "hi": "फिर मिलेंगे", "t": "మళ్ళీ కలుద్దాం", "r": "maḷḷī kaluddāṁ"},
-    {"en": "Welcome", "hi": "स्वागत है", "t": "స్వాగతం", "r": "svāgataṁ"}
+    {
+      "en": "Hello (formal)",
+      "hi": "नमस्ते",
+      "t": "నమస్కారం",
+      "r": "namaskāraṁ"
+    },
+    {
+      "en": "How are you? (formal)",
+      "hi": "आप कैसे हैं?",
+      "t": "మీరు ఎలా ఉన్నారు?",
+      "r": "mīru elā unnāru?"
+    },
+    {
+      "en": "How are you? (familiar)",
+      "hi": "तुम कैसे हो?",
+      "t": "నువ్వు ఎలా ఉన్నావు?",
+      "r": "nuvvu elā unnāvu?"
+    },
+    {
+      "en": "I'm fine",
+      "hi": "मैं ठीक हूँ",
+      "t": "నేను బాగున్నాను",
+      "r": "nēnu bāgunnānu"
+    },
+    {
+      "en": "Thank you",
+      "hi": "धन्यवाद",
+      "t": "ధన్యవాదాలు",
+      "r": "dhanyavādālu"
+    },
+    {
+      "en": "Yes / No",
+      "hi": "हाँ / नहीं",
+      "t": "అవును / కాదు",
+      "r": "avunu / kādu"
+    },
+    {
+      "en": "Please",
+      "hi": "कृपया",
+      "t": "దయచేసి",
+      "r": "dayachēsi"
+    },
+    {
+      "en": "Excuse me / Sorry",
+      "hi": "माफ़ कीजिए",
+      "t": "క్షమించండి",
+      "r": "kshamin̄chaṇḍi"
+    },
+    {
+      "en": "Good morning",
+      "hi": "सुप्रभात",
+      "t": "శుభోదయం",
+      "r": "śubhōdayaṁ"
+    },
+    {
+      "en": "Good night",
+      "hi": "शुभ रात्रि",
+      "t": "శుభ రాత్రి",
+      "r": "śubha rātri"
+    },
+    {
+      "en": "Goodbye (said by the leaver)",
+      "hi": "चलता हूँ",
+      "t": "వస్తాను",
+      "r": "vastānu",
+      "note": "Literally 'I'll come (back)' — the stayer answers మళ్ళీ రండి (come again)"
+    },
+    {
+      "en": "See you again",
+      "hi": "फिर मिलेंगे",
+      "t": "మళ్ళీ కలుద్దాం",
+      "r": "maḷḷī kaluddāṁ"
+    },
+    {
+      "en": "Welcome",
+      "hi": "स्वागत है",
+      "t": "స్వాగతం",
+      "r": "svāgataṁ"
+    }
   ],
-
   "pronouns": [
-    {"en": "I", "hi": "मैं", "t": "నేను", "r": "nēnu"},
-    {"en": "we (excluding you)", "hi": "हम", "t": "మేము", "r": "mēmu", "note": "మనం (manaṁ) = we-INCLUDING-you — Telugu splits what Hindi/English merge"},
-    {"en": "you (formal / plural)", "hi": "आप / तुम सब", "t": "మీరు", "r": "mīru"},
-    {"en": "you (intimate)", "hi": "तू", "t": "నువ్వు", "r": "nuvvu", "note": "Close friends, children — never strangers"},
-    {"en": "he", "hi": "वह", "t": "అతను", "r": "atanu", "note": "వాడు (vāḍu) is the familiar 'he' — friends only"},
-    {"en": "she", "hi": "वह", "t": "ఆమె", "r": "āme", "note": "ఈమె (īme) = this woman, near you"},
-    {"en": "it", "hi": "यह / वह", "t": "అది", "r": "adi"},
-    {"en": "they (people)", "hi": "वे", "t": "వాళ్ళు", "r": "vāḷḷu"},
-    {"en": "they (things)", "hi": "वे", "t": "అవి", "r": "avi"},
-    {"en": "this (thing)", "hi": "यह", "t": "ఇది", "r": "idi"},
-    {"en": "that (thing)", "hi": "वह", "t": "అది", "r": "adi", "note": "Same word as 'it' — context decides"},
-    {"en": "what", "hi": "क्या", "t": "ఏమిటి", "r": "ēmiṭi"},
-    {"en": "who", "hi": "कौन", "t": "ఎవరు", "r": "evaru"},
-    {"en": "where", "hi": "कहाँ", "t": "ఎక్కడ", "r": "ekkaḍa"},
-    {"en": "when", "hi": "कब", "t": "ఎప్పుడు", "r": "eppuḍu"},
-    {"en": "why", "hi": "क्यों", "t": "ఎందుకు", "r": "enduku"},
-    {"en": "how", "hi": "कैसे", "t": "ఎలా", "r": "elā"},
-    {"en": "how much / how many", "hi": "कितना", "t": "ఎంత", "r": "enta"},
-    {"en": "which (thing)", "hi": "कौन-सा", "t": "ఏది", "r": "ēdi"}
+    {
+      "en": "I",
+      "hi": "मैं",
+      "t": "నేను",
+      "r": "nēnu"
+    },
+    {
+      "en": "we (excluding you)",
+      "hi": "हम",
+      "t": "మేము",
+      "r": "mēmu",
+      "note": "మనం (manaṁ) = we-INCLUDING-you — Telugu splits what Hindi/English merge"
+    },
+    {
+      "en": "you (formal / plural)",
+      "hi": "आप / तुम सब",
+      "t": "మీరు",
+      "r": "mīru"
+    },
+    {
+      "en": "you (intimate)",
+      "hi": "तू",
+      "t": "నువ్వు",
+      "r": "nuvvu",
+      "note": "Close friends, children — never strangers"
+    },
+    {
+      "en": "he",
+      "hi": "वह",
+      "t": "అతను",
+      "r": "atanu",
+      "note": "వాడు (vāḍu) is the familiar 'he' — friends only"
+    },
+    {
+      "en": "she",
+      "hi": "वह",
+      "t": "ఆమె",
+      "r": "āme",
+      "note": "ఈమె (īme) = this woman, near you"
+    },
+    {
+      "en": "it",
+      "hi": "यह / वह",
+      "t": "అది",
+      "r": "adi"
+    },
+    {
+      "en": "they (people)",
+      "hi": "वे",
+      "t": "వాళ్ళు",
+      "r": "vāḷḷu"
+    },
+    {
+      "en": "they (things)",
+      "hi": "वे",
+      "t": "అవి",
+      "r": "avi"
+    },
+    {
+      "en": "this (thing)",
+      "hi": "यह",
+      "t": "ఇది",
+      "r": "idi"
+    },
+    {
+      "en": "that (thing)",
+      "hi": "वह",
+      "t": "అది",
+      "r": "adi",
+      "note": "Same word as 'it' — context decides"
+    },
+    {
+      "en": "what",
+      "hi": "क्या",
+      "t": "ఏమిటి",
+      "r": "ēmiṭi"
+    },
+    {
+      "en": "who",
+      "hi": "कौन",
+      "t": "ఎవరు",
+      "r": "evaru"
+    },
+    {
+      "en": "where",
+      "hi": "कहाँ",
+      "t": "ఎక్కడ",
+      "r": "ekkaḍa"
+    },
+    {
+      "en": "when",
+      "hi": "कब",
+      "t": "ఎప్పుడు",
+      "r": "eppuḍu"
+    },
+    {
+      "en": "why",
+      "hi": "क्यों",
+      "t": "ఎందుకు",
+      "r": "enduku"
+    },
+    {
+      "en": "how",
+      "hi": "कैसे",
+      "t": "ఎలా",
+      "r": "elā"
+    },
+    {
+      "en": "how much / how many",
+      "hi": "कितना",
+      "t": "ఎంత",
+      "r": "enta"
+    },
+    {
+      "en": "which (thing)",
+      "hi": "कौन-सा",
+      "t": "ఏది",
+      "r": "ēdi"
+    }
   ],
-
   "verbs": [
-    {"en": "eat", "hi": "खाना", "t": "తినడం", "r": "tinaḍaṁ", "ami": "తింటాను", "ami_r": "tinṭānu"},
-    {"en": "go", "hi": "जाना", "t": "వెళ్ళడం", "r": "veḷḷaḍaṁ", "ami": "వెళ్తాను", "ami_r": "veḷtānu", "note": "Formal books write వెళ్ళుతాను — streets say వెళ్తాను"},
-    {"en": "come", "hi": "आना", "t": "రావడం", "r": "rāvaḍaṁ", "ami": "వస్తాను", "ami_r": "vastānu", "note": "Irregular: the root changes (రా → వస్తా) — just memorize it"},
-    {"en": "do", "hi": "करना", "t": "చేయడం", "r": "chēyaḍaṁ", "ami": "చేస్తాను", "ami_r": "chēstānu"},
-    {"en": "speak", "hi": "बोलना", "t": "మాట్లాడడం", "r": "māṭlāḍaḍaṁ", "ami": "మాట్లాడతాను", "ami_r": "māṭlāḍatānu"},
-    {"en": "see", "hi": "देखना", "t": "చూడడం", "r": "chūḍaḍaṁ", "ami": "చూస్తాను", "ami_r": "chūstānu"},
-    {"en": "give", "hi": "देना", "t": "ఇవ్వడం", "r": "ivvaḍaṁ", "ami": "ఇస్తాను", "ami_r": "istānu"},
-    {"en": "take", "hi": "लेना", "t": "తీసుకోవడం", "r": "tīsukōvaḍaṁ", "ami": "తీసుకుంటాను", "ami_r": "tīsukunṭānu"},
-    {"en": "understand", "hi": "समझना", "t": "అర్థం చేసుకోవడం", "r": "arthaṁ chēsukōvaḍaṁ", "ami": "అర్థం చేసుకుంటాను", "ami_r": "arthaṁ chēsukunṭānu"},
-    {"en": "read", "hi": "पढ़ना", "t": "చదవడం", "r": "chadavaḍaṁ", "ami": "చదువుతాను", "ami_r": "chaduvutānu"},
-    {"en": "write", "hi": "लिखना", "t": "రాయడం", "r": "rāyaḍaṁ", "ami": "రాస్తాను", "ami_r": "rāstānu"},
-    {"en": "live / stay", "hi": "रहना", "t": "ఉండడం", "r": "uṇḍaḍaṁ", "ami": "ఉంటాను", "ami_r": "uṇṭānu", "note": "నివసించడం (nivasin̄chaḍaṁ) is the formal 'reside'"},
-    {"en": "like", "hi": "पसंद करना", "t": "ఇష్టపడడం", "r": "iṣṭapaḍaḍaṁ", "ami": "ఇష్టపడతాను", "ami_r": "iṣṭapaḍatānu", "note": "More common: నాకు X ఇష్టం (I like X) — see daily phrases"},
-    {"en": "love", "hi": "प्यार करना", "t": "ప్రేమించడం", "r": "prēmin̄chaḍaṁ", "ami": "ప్రేమిస్తాను", "ami_r": "prēmistānu"},
-    {"en": "sleep", "hi": "सोना", "t": "నిద్రపోవడం", "r": "nidrapōvaḍaṁ", "ami": "నిద్రపోతాను", "ami_r": "nidrapōtānu", "note": "పడుకోవడం (paḍukōvaḍaṁ) = lie down / go to bed"},
-    {"en": "buy", "hi": "खरीदना", "t": "కొనడం", "r": "konaḍaṁ", "ami": "కొంటాను", "ami_r": "konṭānu"},
-    {"en": "learn", "hi": "सीखना", "t": "నేర్చుకోవడం", "r": "nērchukōvaḍaṁ", "ami": "నేర్చుకుంటాను", "ami_r": "nērchukunṭānu"},
-    {"en": "drink", "hi": "पीना", "t": "తాగడం", "r": "tāgaḍaṁ", "ami": "తాగుతాను", "ami_r": "tāgutānu"}
+    {
+      "en": "eat",
+      "hi": "खाना",
+      "t": "తినడం",
+      "r": "tinaḍaṁ",
+      "ami": "తింటాను",
+      "ami_r": "tinṭānu"
+    },
+    {
+      "en": "go",
+      "hi": "जाना",
+      "t": "వెళ్ళడం",
+      "r": "veḷḷaḍaṁ",
+      "ami": "వెళ్తాను",
+      "ami_r": "veḷtānu",
+      "note": "Formal books write వెళ్ళుతాను — streets say వెళ్తాను"
+    },
+    {
+      "en": "come",
+      "hi": "आना",
+      "t": "రావడం",
+      "r": "rāvaḍaṁ",
+      "ami": "వస్తాను",
+      "ami_r": "vastānu",
+      "note": "Irregular: the root changes (రా → వస్తా) — just memorize it"
+    },
+    {
+      "en": "do",
+      "hi": "करना",
+      "t": "చేయడం",
+      "r": "chēyaḍaṁ",
+      "ami": "చేస్తాను",
+      "ami_r": "chēstānu"
+    },
+    {
+      "en": "speak",
+      "hi": "बोलना",
+      "t": "మాట్లాడడం",
+      "r": "māṭlāḍaḍaṁ",
+      "ami": "మాట్లాడతాను",
+      "ami_r": "māṭlāḍatānu"
+    },
+    {
+      "en": "see",
+      "hi": "देखना",
+      "t": "చూడడం",
+      "r": "chūḍaḍaṁ",
+      "ami": "చూస్తాను",
+      "ami_r": "chūstānu"
+    },
+    {
+      "en": "give",
+      "hi": "देना",
+      "t": "ఇవ్వడం",
+      "r": "ivvaḍaṁ",
+      "ami": "ఇస్తాను",
+      "ami_r": "istānu"
+    },
+    {
+      "en": "take",
+      "hi": "लेना",
+      "t": "తీసుకోవడం",
+      "r": "tīsukōvaḍaṁ",
+      "ami": "తీసుకుంటాను",
+      "ami_r": "tīsukunṭānu"
+    },
+    {
+      "en": "understand",
+      "hi": "समझना",
+      "t": "అర్థం చేసుకోవడం",
+      "r": "arthaṁ chēsukōvaḍaṁ",
+      "ami": "అర్థం చేసుకుంటాను",
+      "ami_r": "arthaṁ chēsukunṭānu"
+    },
+    {
+      "en": "read",
+      "hi": "पढ़ना",
+      "t": "చదవడం",
+      "r": "chadavaḍaṁ",
+      "ami": "చదువుతాను",
+      "ami_r": "chaduvutānu"
+    },
+    {
+      "en": "write",
+      "hi": "लिखना",
+      "t": "రాయడం",
+      "r": "rāyaḍaṁ",
+      "ami": "రాస్తాను",
+      "ami_r": "rāstānu"
+    },
+    {
+      "en": "live / stay",
+      "hi": "रहना",
+      "t": "ఉండడం",
+      "r": "uṇḍaḍaṁ",
+      "ami": "ఉంటాను",
+      "ami_r": "uṇṭānu",
+      "note": "నివసించడం (nivasin̄chaḍaṁ) is the formal 'reside'"
+    },
+    {
+      "en": "like",
+      "hi": "पसंद करना",
+      "t": "ఇష్టపడడం",
+      "r": "iṣṭapaḍaḍaṁ",
+      "ami": "ఇష్టపడతాను",
+      "ami_r": "iṣṭapaḍatānu",
+      "note": "More common: నాకు X ఇష్టం (I like X) — see daily phrases"
+    },
+    {
+      "en": "love",
+      "hi": "प्यार करना",
+      "t": "ప్రేమించడం",
+      "r": "prēmin̄chaḍaṁ",
+      "ami": "ప్రేమిస్తాను",
+      "ami_r": "prēmistānu"
+    },
+    {
+      "en": "sleep",
+      "hi": "सोना",
+      "t": "నిద్రపోవడం",
+      "r": "nidrapōvaḍaṁ",
+      "ami": "నిద్రపోతాను",
+      "ami_r": "nidrapōtānu",
+      "note": "పడుకోవడం (paḍukōvaḍaṁ) = lie down / go to bed"
+    },
+    {
+      "en": "buy",
+      "hi": "खरीदना",
+      "t": "కొనడం",
+      "r": "konaḍaṁ",
+      "ami": "కొంటాను",
+      "ami_r": "konṭānu"
+    },
+    {
+      "en": "learn",
+      "hi": "सीखना",
+      "t": "నేర్చుకోవడం",
+      "r": "nērchukōvaḍaṁ",
+      "ami": "నేర్చుకుంటాను",
+      "ami_r": "nērchukunṭānu"
+    },
+    {
+      "en": "drink",
+      "hi": "पीना",
+      "t": "తాగడం",
+      "r": "tāgaḍaṁ",
+      "ami": "తాగుతాను",
+      "ami_r": "tāgutānu"
+    }
   ],
   "present_table": [
-    {"who_en": "I", "who_t": "నేను", "verb_t": "తింటాను", "verb_r": "tinṭānu"},
-    {"who_en": "you (intimate)", "who_t": "నువ్వు", "verb_t": "తింటావు", "verb_r": "tinṭāvu"},
-    {"who_en": "you (formal)", "who_t": "మీరు", "verb_t": "తింటారు", "verb_r": "tinṭāru"},
-    {"who_en": "he", "who_t": "వాడు / అతను", "verb_t": "తింటాడు", "verb_r": "tinṭāḍu"},
-    {"who_en": "she", "who_t": "ఆమె", "verb_t": "తింటుంది", "verb_r": "tinṭundi"},
-    {"who_en": "we", "who_t": "మేము", "verb_t": "తింటాము", "verb_r": "tinṭāmu"},
-    {"who_en": "they", "who_t": "వాళ్ళు", "verb_t": "తింటారు", "verb_r": "tinṭāru"}
+    {
+      "who_en": "I",
+      "who_t": "నేను",
+      "verb_t": "తింటాను",
+      "verb_r": "tinṭānu"
+    },
+    {
+      "who_en": "you (intimate)",
+      "who_t": "నువ్వు",
+      "verb_t": "తింటావు",
+      "verb_r": "tinṭāvu"
+    },
+    {
+      "who_en": "you (formal)",
+      "who_t": "మీరు",
+      "verb_t": "తింటారు",
+      "verb_r": "tinṭāru"
+    },
+    {
+      "who_en": "he",
+      "who_t": "వాడు / అతను",
+      "verb_t": "తింటాడు",
+      "verb_r": "tinṭāḍu"
+    },
+    {
+      "who_en": "she",
+      "who_t": "ఆమె",
+      "verb_t": "తింటుంది",
+      "verb_r": "tinṭundi"
+    },
+    {
+      "who_en": "we",
+      "who_t": "మేము",
+      "verb_t": "తింటాము",
+      "verb_r": "tinṭāmu"
+    },
+    {
+      "who_en": "they",
+      "who_t": "వాళ్ళు",
+      "verb_t": "తింటారు",
+      "verb_r": "tinṭāru"
+    }
   ],
   "past_future": [
-    {"en": "I ate", "hi": "मैंने खाया", "t": "నేను తిన్నాను", "r": "nēnu tinnānu"},
-    {"en": "I went", "hi": "मैं गया", "t": "నేను వెళ్ళాను", "r": "nēnu veḷḷānu"},
-    {"en": "he ate", "hi": "उसने खाया", "t": "వాడు తిన్నాడు", "r": "vāḍu tinnāḍu"},
-    {"en": "she ate", "hi": "उसने खाया", "t": "ఆమె తిన్నది", "r": "āme tinnadi"},
-    {"en": "I will eat", "hi": "मैं खाऊँगा", "t": "నేను తింటాను", "r": "nēnu tinṭānu"}
+    {
+      "en": "I ate",
+      "hi": "मैंने खाया",
+      "t": "నేను తిన్నాను",
+      "r": "nēnu tinnānu"
+    },
+    {
+      "en": "I went",
+      "hi": "मैं गया",
+      "t": "నేను వెళ్ళాను",
+      "r": "nēnu veḷḷānu"
+    },
+    {
+      "en": "he ate",
+      "hi": "उसने खाया",
+      "t": "వాడు తిన్నాడు",
+      "r": "vāḍu tinnāḍu"
+    },
+    {
+      "en": "she ate",
+      "hi": "उसने खाया",
+      "t": "ఆమె తిన్నది",
+      "r": "āme tinnadi"
+    },
+    {
+      "en": "I will eat",
+      "hi": "मैं खाऊँगा",
+      "t": "నేను తింటాను",
+      "r": "nēnu tinṭānu"
+    }
   ],
-
   "numbers": [
-    {"n": 1, "hi": "एक", "t": "ఒకటి", "r": "okaṭi"}, {"n": 2, "hi": "दो", "t": "రెండు", "r": "reṇḍu"},
-    {"n": 3, "hi": "तीन", "t": "మూడు", "r": "mūḍu"}, {"n": 4, "hi": "चार", "t": "నాలుగు", "r": "nālugu"},
-    {"n": 5, "hi": "पाँच", "t": "ఐదు", "r": "aidu"}, {"n": 6, "hi": "छह", "t": "ఆరు", "r": "āru"},
-    {"n": 7, "hi": "सात", "t": "ఏడు", "r": "ēḍu"}, {"n": 8, "hi": "आठ", "t": "ఎనిమిది", "r": "enimidi"},
-    {"n": 9, "hi": "नौ", "t": "తొమ్మిది", "r": "tommidi"}, {"n": 10, "hi": "दस", "t": "పది", "r": "padi"},
-    {"n": 11, "hi": "ग्यारह", "t": "పదకొండు", "r": "padakoṇḍu"}, {"n": 12, "hi": "बारह", "t": "పన్నెండు", "r": "panneṇḍu"},
-    {"n": 13, "hi": "तेरह", "t": "పదమూడు", "r": "padamūḍu"}, {"n": 14, "hi": "चौदह", "t": "పద్నాలుగు", "r": "padnālugu"},
-    {"n": 15, "hi": "पंद्रह", "t": "పదిహేను", "r": "padihēnu"}, {"n": 16, "hi": "सोलह", "t": "పదహారు", "r": "padahāru"},
-    {"n": 17, "hi": "सत्रह", "t": "పదిహేడు", "r": "padihēḍu"}, {"n": 18, "hi": "अठारह", "t": "పద్దెనిమిది", "r": "paddenimidi"},
-    {"n": 19, "hi": "उन्नीस", "t": "పందొమ్మిది", "r": "pandommidi"}, {"n": 20, "hi": "बीस", "t": "ఇరవై", "r": "iravai"},
-    {"n": 30, "hi": "तीस", "t": "ముప్పై", "r": "muppai"}, {"n": 40, "hi": "चालीस", "t": "నలభై", "r": "nalabhai"},
-    {"n": 50, "hi": "पचास", "t": "యాభై", "r": "yābhai"}, {"n": 60, "hi": "साठ", "t": "అరవై", "r": "aravai"},
-    {"n": 70, "hi": "सत्तर", "t": "డెబ్బై", "r": "ḍebbai"}, {"n": 80, "hi": "अस्सी", "t": "ఎనభై", "r": "enabhai"},
-    {"n": 90, "hi": "नब्बे", "t": "తొంభై", "r": "tombhai"}, {"n": 100, "hi": "सौ", "t": "వంద", "r": "vanda"}
+    {
+      "n": 1,
+      "hi": "एक",
+      "t": "ఒకటి",
+      "r": "okaṭi"
+    },
+    {
+      "n": 2,
+      "hi": "दो",
+      "t": "రెండు",
+      "r": "reṇḍu"
+    },
+    {
+      "n": 3,
+      "hi": "तीन",
+      "t": "మూడు",
+      "r": "mūḍu"
+    },
+    {
+      "n": 4,
+      "hi": "चार",
+      "t": "నాలుగు",
+      "r": "nālugu"
+    },
+    {
+      "n": 5,
+      "hi": "पाँच",
+      "t": "ఐదు",
+      "r": "aidu"
+    },
+    {
+      "n": 6,
+      "hi": "छह",
+      "t": "ఆరు",
+      "r": "āru"
+    },
+    {
+      "n": 7,
+      "hi": "सात",
+      "t": "ఏడు",
+      "r": "ēḍu"
+    },
+    {
+      "n": 8,
+      "hi": "आठ",
+      "t": "ఎనిమిది",
+      "r": "enimidi"
+    },
+    {
+      "n": 9,
+      "hi": "नौ",
+      "t": "తొమ్మిది",
+      "r": "tommidi"
+    },
+    {
+      "n": 10,
+      "hi": "दस",
+      "t": "పది",
+      "r": "padi"
+    },
+    {
+      "n": 11,
+      "hi": "ग्यारह",
+      "t": "పదకొండు",
+      "r": "padakoṇḍu"
+    },
+    {
+      "n": 12,
+      "hi": "बारह",
+      "t": "పన్నెండు",
+      "r": "panneṇḍu"
+    },
+    {
+      "n": 13,
+      "hi": "तेरह",
+      "t": "పదమూడు",
+      "r": "padamūḍu"
+    },
+    {
+      "n": 14,
+      "hi": "चौदह",
+      "t": "పద్నాలుగు",
+      "r": "padnālugu"
+    },
+    {
+      "n": 15,
+      "hi": "पंद्रह",
+      "t": "పదిహేను",
+      "r": "padihēnu"
+    },
+    {
+      "n": 16,
+      "hi": "सोलह",
+      "t": "పదహారు",
+      "r": "padahāru"
+    },
+    {
+      "n": 17,
+      "hi": "सत्रह",
+      "t": "పదిహేడు",
+      "r": "padihēḍu"
+    },
+    {
+      "n": 18,
+      "hi": "अठारह",
+      "t": "పద్దెనిమిది",
+      "r": "paddenimidi"
+    },
+    {
+      "n": 19,
+      "hi": "उन्नीस",
+      "t": "పందొమ్మిది",
+      "r": "pandommidi"
+    },
+    {
+      "n": 20,
+      "hi": "बीस",
+      "t": "ఇరవై",
+      "r": "iravai"
+    },
+    {
+      "n": 30,
+      "hi": "तीस",
+      "t": "ముప్పై",
+      "r": "muppai"
+    },
+    {
+      "n": 40,
+      "hi": "चालीस",
+      "t": "నలభై",
+      "r": "nalabhai"
+    },
+    {
+      "n": 50,
+      "hi": "पचास",
+      "t": "యాభై",
+      "r": "yābhai"
+    },
+    {
+      "n": 60,
+      "hi": "साठ",
+      "t": "అరవై",
+      "r": "aravai"
+    },
+    {
+      "n": 70,
+      "hi": "सत्तर",
+      "t": "డెబ్బై",
+      "r": "ḍebbai"
+    },
+    {
+      "n": 80,
+      "hi": "अस्सी",
+      "t": "ఎనభై",
+      "r": "enabhai"
+    },
+    {
+      "n": 90,
+      "hi": "नब्बे",
+      "t": "తొంభై",
+      "r": "tombhai"
+    },
+    {
+      "n": 100,
+      "hi": "सौ",
+      "t": "వంద",
+      "r": "vanda"
+    }
   ],
-
   "days": [
-    {"en": "Sunday", "hi": "रविवार", "t": "ఆదివారం", "r": "ādivāraṁ"},
-    {"en": "Monday", "hi": "सोमवार", "t": "సోమవారం", "r": "sōmavāraṁ"},
-    {"en": "Tuesday", "hi": "मंगलवार", "t": "మంగళవారం", "r": "maṅgaḷavāraṁ"},
-    {"en": "Wednesday", "hi": "बुधवार", "t": "బుధవారం", "r": "budhavāraṁ"},
-    {"en": "Thursday", "hi": "बृहस्पतिवार", "t": "గురువారం", "r": "guruvāraṁ"},
-    {"en": "Friday", "hi": "शुक्रवार", "t": "శుక్రవారం", "r": "śukravāraṁ"},
-    {"en": "Saturday", "hi": "शनिवार", "t": "శనివారం", "r": "śanivāraṁ"}
+    {
+      "en": "Sunday",
+      "hi": "रविवार",
+      "t": "ఆదివారం",
+      "r": "ādivāraṁ"
+    },
+    {
+      "en": "Monday",
+      "hi": "सोमवार",
+      "t": "సోమవారం",
+      "r": "sōmavāraṁ"
+    },
+    {
+      "en": "Tuesday",
+      "hi": "मंगलवार",
+      "t": "మంగళవారం",
+      "r": "maṅgaḷavāraṁ"
+    },
+    {
+      "en": "Wednesday",
+      "hi": "बुधवार",
+      "t": "బుధవారం",
+      "r": "budhavāraṁ"
+    },
+    {
+      "en": "Thursday",
+      "hi": "बृहस्पतिवार",
+      "t": "గురువారం",
+      "r": "guruvāraṁ"
+    },
+    {
+      "en": "Friday",
+      "hi": "शुक्रवार",
+      "t": "శుక్రవారం",
+      "r": "śukravāraṁ"
+    },
+    {
+      "en": "Saturday",
+      "hi": "शनिवार",
+      "t": "శనివారం",
+      "r": "śanivāraṁ"
+    }
   ],
   "time_words": [
-    {"en": "today", "hi": "आज", "t": "ఈరోజు", "r": "īrōju"},
-    {"en": "tomorrow", "hi": "कल (आने वाला)", "t": "రేపు", "r": "rēpu"},
-    {"en": "yesterday", "hi": "कल (बीता)", "t": "నిన్న", "r": "ninna"},
-    {"en": "now", "hi": "अब", "t": "ఇప్పుడు", "r": "ippuḍu"},
-    {"en": "later", "hi": "बाद में", "t": "తర్వాత", "r": "tarvāta"},
-    {"en": "morning", "hi": "सुबह", "t": "ఉదయం", "r": "udayaṁ"},
-    {"en": "noon", "hi": "दोपहर", "t": "మధ్యాహ్నం", "r": "madhyāhnaṁ"},
-    {"en": "evening", "hi": "शाम", "t": "సాయంత్రం", "r": "sāyantraṁ"},
-    {"en": "night", "hi": "रात", "t": "రాత్రి", "r": "rātri"},
-    {"en": "What time is it?", "hi": "कितने बजे हैं?", "t": "టైమ్ ఎంత?", "r": "ṭaim enta?", "note": "Street Telugu — formal books say సమయం ఎంత?"},
-    {"en": "3 o'clock", "hi": "तीन बजे", "t": "మూడు గంటలు", "r": "mūḍu gaṇṭalu"}
+    {
+      "en": "today",
+      "hi": "आज",
+      "t": "ఈరోజు",
+      "r": "īrōju"
+    },
+    {
+      "en": "tomorrow",
+      "hi": "कल (आने वाला)",
+      "t": "రేపు",
+      "r": "rēpu"
+    },
+    {
+      "en": "yesterday",
+      "hi": "कल (बीता)",
+      "t": "నిన్న",
+      "r": "ninna"
+    },
+    {
+      "en": "now",
+      "hi": "अब",
+      "t": "ఇప్పుడు",
+      "r": "ippuḍu"
+    },
+    {
+      "en": "later",
+      "hi": "बाद में",
+      "t": "తర్వాత",
+      "r": "tarvāta"
+    },
+    {
+      "en": "morning",
+      "hi": "सुबह",
+      "t": "ఉదయం",
+      "r": "udayaṁ"
+    },
+    {
+      "en": "noon",
+      "hi": "दोपहर",
+      "t": "మధ్యాహ్నం",
+      "r": "madhyāhnaṁ"
+    },
+    {
+      "en": "evening",
+      "hi": "शाम",
+      "t": "సాయంత్రం",
+      "r": "sāyantraṁ"
+    },
+    {
+      "en": "night",
+      "hi": "रात",
+      "t": "రాత్రి",
+      "r": "rātri"
+    },
+    {
+      "en": "What time is it?",
+      "hi": "कितने बजे हैं?",
+      "t": "టైమ్ ఎంత?",
+      "r": "ṭaim enta?",
+      "note": "Street Telugu — formal books say సమయం ఎంత?"
+    },
+    {
+      "en": "3 o'clock",
+      "hi": "तीन बजे",
+      "t": "మూడు గంటలు",
+      "r": "mūḍu gaṇṭalu"
+    }
   ],
-
   "family": [
-    {"en": "mother", "hi": "माँ", "t": "అమ్మ", "r": "amma"},
-    {"en": "father", "hi": "पिता", "t": "నాన్న", "r": "nānna"},
-    {"en": "elder brother", "hi": "बड़ा भाई", "t": "అన్న", "r": "anna", "note": "Telugu splits siblings by age — అన్న (elder) vs తమ్ముడు (younger)"},
-    {"en": "younger brother", "hi": "छोटा भाई", "t": "తమ్ముడు", "r": "tammuḍu"},
-    {"en": "elder sister", "hi": "बड़ी बहन", "t": "అక్క", "r": "akka"},
-    {"en": "younger sister", "hi": "छोटी बहन", "t": "చెల్లి", "r": "chelli"},
-    {"en": "son", "hi": "बेटा", "t": "కొడుకు", "r": "koḍuku"},
-    {"en": "daughter", "hi": "बेटी", "t": "కూతురు", "r": "kūturu"},
-    {"en": "husband", "hi": "पति", "t": "భర్త", "r": "bharta"},
-    {"en": "wife", "hi": "पत्नी", "t": "భార్య", "r": "bhārya"},
-    {"en": "friend (male)", "hi": "दोस्त", "t": "స్నేహితుడు", "r": "snēhituḍu"},
-    {"en": "friend (female)", "hi": "सहेली", "t": "స్నేహితురాలు", "r": "snēhiturālu"},
-    {"en": "family", "hi": "परिवार", "t": "కుటుంబం", "r": "kuṭumbaṁ"}
+    {
+      "en": "mother",
+      "hi": "माँ",
+      "t": "అమ్మ",
+      "r": "amma"
+    },
+    {
+      "en": "father",
+      "hi": "पिता",
+      "t": "నాన్న",
+      "r": "nānna"
+    },
+    {
+      "en": "elder brother",
+      "hi": "बड़ा भाई",
+      "t": "అన్న",
+      "r": "anna",
+      "note": "Telugu splits siblings by age — అన్న (elder) vs తమ్ముడు (younger)"
+    },
+    {
+      "en": "younger brother",
+      "hi": "छोटा भाई",
+      "t": "తమ్ముడు",
+      "r": "tammuḍu"
+    },
+    {
+      "en": "elder sister",
+      "hi": "बड़ी बहन",
+      "t": "అక్క",
+      "r": "akka"
+    },
+    {
+      "en": "younger sister",
+      "hi": "छोटी बहन",
+      "t": "చెల్లి",
+      "r": "chelli"
+    },
+    {
+      "en": "son",
+      "hi": "बेटा",
+      "t": "కొడుకు",
+      "r": "koḍuku"
+    },
+    {
+      "en": "daughter",
+      "hi": "बेटी",
+      "t": "కూతురు",
+      "r": "kūturu"
+    },
+    {
+      "en": "husband",
+      "hi": "पति",
+      "t": "భర్త",
+      "r": "bharta"
+    },
+    {
+      "en": "wife",
+      "hi": "पत्नी",
+      "t": "భార్య",
+      "r": "bhārya"
+    },
+    {
+      "en": "friend (male)",
+      "hi": "दोस्त",
+      "t": "స్నేహితుడు",
+      "r": "snēhituḍu"
+    },
+    {
+      "en": "friend (female)",
+      "hi": "सहेली",
+      "t": "స్నేహితురాలు",
+      "r": "snēhiturālu"
+    },
+    {
+      "en": "family",
+      "hi": "परिवार",
+      "t": "కుటుంబం",
+      "r": "kuṭumbaṁ"
+    }
   ],
-
   "food_words": [
-    {"en": "cooked rice", "hi": "चावल (पका)", "t": "అన్నం", "r": "annaṁ"},
-    {"en": "uncooked rice", "hi": "चावल (कच्चा)", "t": "బియ్యం", "r": "biyyaṁ"},
-    {"en": "lentils / dal", "hi": "दाल", "t": "పప్పు", "r": "pappu"},
-    {"en": "fish", "hi": "मछली", "t": "చేప", "r": "chēpa"},
-    {"en": "meat", "hi": "मांस", "t": "మాంసం", "r": "mānsaṁ"},
-    {"en": "chicken", "hi": "चिकन", "t": "చికెన్", "r": "chiken"},
-    {"en": "egg", "hi": "अंडा", "t": "గుడ్డు", "r": "guḍḍu"},
-    {"en": "milk", "hi": "दूध", "t": "పాలు", "r": "pālu"},
-    {"en": "tea", "hi": "चाय", "t": "టీ", "r": "ṭī", "note": "చాయ (chāy) in old-city stalls"},
-    {"en": "water", "hi": "पानी", "t": "నీళ్ళు", "r": "nīḷḷu"},
-    {"en": "flatbread / roti", "hi": "रोटी", "t": "రొట్టె", "r": "roṭṭe"},
-    {"en": "fruit", "hi": "फल", "t": "పండ్లు", "r": "paṇḍlu"},
-    {"en": "vegetables", "hi": "सब्ज़ी", "t": "కూరగాయలు", "r": "kūragāyalu"},
-    {"en": "sweets", "hi": "मिठाई", "t": "స్వీట్లు", "r": "svīṭlu"},
-    {"en": "salt", "hi": "नमक", "t": "ఉప్పు", "r": "uppu"},
-    {"en": "sugar", "hi": "चीनी", "t": "చక్కెర", "r": "chakkera"},
-    {"en": "potato", "hi": "आलू", "t": "బంగాళాదుంప", "r": "bangāḷādumpa", "note": "The fun long word — shops just say ఆలూ"},
-    {"en": "onion", "hi": "प्याज़", "t": "ఉల్లిపాయ", "r": "ullipāya"}
+    {
+      "en": "cooked rice",
+      "hi": "चावल (पका)",
+      "t": "అన్నం",
+      "r": "annaṁ"
+    },
+    {
+      "en": "uncooked rice",
+      "hi": "चावल (कच्चा)",
+      "t": "బియ్యం",
+      "r": "biyyaṁ"
+    },
+    {
+      "en": "lentils / dal",
+      "hi": "दाल",
+      "t": "పప్పు",
+      "r": "pappu"
+    },
+    {
+      "en": "fish",
+      "hi": "मछली",
+      "t": "చేప",
+      "r": "chēpa"
+    },
+    {
+      "en": "meat",
+      "hi": "मांस",
+      "t": "మాంసం",
+      "r": "mānsaṁ"
+    },
+    {
+      "en": "chicken",
+      "hi": "चिकन",
+      "t": "చికెన్",
+      "r": "chiken"
+    },
+    {
+      "en": "egg",
+      "hi": "अंडा",
+      "t": "గుడ్డు",
+      "r": "guḍḍu"
+    },
+    {
+      "en": "milk",
+      "hi": "दूध",
+      "t": "పాలు",
+      "r": "pālu"
+    },
+    {
+      "en": "tea",
+      "hi": "चाय",
+      "t": "టీ",
+      "r": "ṭī",
+      "note": "చాయ (chāy) in old-city stalls"
+    },
+    {
+      "en": "water",
+      "hi": "पानी",
+      "t": "నీళ్ళు",
+      "r": "nīḷḷu"
+    },
+    {
+      "en": "flatbread / roti",
+      "hi": "रोटी",
+      "t": "రొట్టె",
+      "r": "roṭṭe"
+    },
+    {
+      "en": "fruit",
+      "hi": "फल",
+      "t": "పండ్లు",
+      "r": "paṇḍlu"
+    },
+    {
+      "en": "vegetables",
+      "hi": "सब्ज़ी",
+      "t": "కూరగాయలు",
+      "r": "kūragāyalu"
+    },
+    {
+      "en": "sweets",
+      "hi": "मिठाई",
+      "t": "స్వీట్లు",
+      "r": "svīṭlu"
+    },
+    {
+      "en": "salt",
+      "hi": "नमक",
+      "t": "ఉప్పు",
+      "r": "uppu"
+    },
+    {
+      "en": "sugar",
+      "hi": "चीनी",
+      "t": "చక్కెర",
+      "r": "chakkera"
+    },
+    {
+      "en": "potato",
+      "hi": "आलू",
+      "t": "బంగాళాదుంప",
+      "r": "bangāḷādumpa",
+      "note": "The fun long word — shops just say ఆలూ"
+    },
+    {
+      "en": "onion",
+      "hi": "प्याज़",
+      "t": "ఉల్లిపాయ",
+      "r": "ullipāya"
+    }
   ],
   "food_phrases": [
-    {"en": "I am hungry", "hi": "मुझे भूख लगी है", "t": "నాకు ఆకలిగా ఉంది", "r": "nāku ākaligā undi"},
-    {"en": "I am thirsty", "hi": "मुझे प्यास लगी है", "t": "నాకు దాహంగా ఉంది", "r": "nāku dāhaṅgā undi"},
-    {"en": "The food is tasty", "hi": "खाना मज़ेदार है", "t": "భోజనం బాగుంది", "r": "bhōjanaṁ bāgundi"},
-    {"en": "One tea, please", "hi": "एक चाय दीजिए", "t": "ఒక టీ ఇవ్వండి", "r": "oka ṭī ivvaṇḍi"},
-    {"en": "The bill, please", "hi": "बिल दीजिए", "t": "బిల్లు ఇవ్వండి", "r": "billu ivvaṇḍi"},
-    {"en": "Too spicy!", "hi": "बहुत तीखा", "t": "చాలా కారం!", "r": "chālā kāraṁ!"},
-    {"en": "I don't eat meat", "hi": "मैं मांस नहीं खाता", "t": "నేను మాంసం తినను", "r": "nēnu mānsaṁ tinanu"}
+    {
+      "en": "I am hungry",
+      "hi": "मुझे भूख लगी है",
+      "t": "నాకు ఆకలిగా ఉంది",
+      "r": "nāku ākaligā undi"
+    },
+    {
+      "en": "I am thirsty",
+      "hi": "मुझे प्यास लगी है",
+      "t": "నాకు దాహంగా ఉంది",
+      "r": "nāku dāhaṅgā undi"
+    },
+    {
+      "en": "The food is tasty",
+      "hi": "खाना मज़ेदार है",
+      "t": "భోజనం బాగుంది",
+      "r": "bhōjanaṁ bāgundi"
+    },
+    {
+      "en": "One tea, please",
+      "hi": "एक चाय दीजिए",
+      "t": "ఒక టీ ఇవ్వండి",
+      "r": "oka ṭī ivvaṇḍi"
+    },
+    {
+      "en": "The bill, please",
+      "hi": "बिल दीजिए",
+      "t": "బిల్లు ఇవ్వండి",
+      "r": "billu ivvaṇḍi"
+    },
+    {
+      "en": "Too spicy!",
+      "hi": "बहुत तीखा",
+      "t": "చాలా కారం!",
+      "r": "chālā kāraṁ!"
+    },
+    {
+      "en": "I don't eat meat",
+      "hi": "मैं मांस नहीं खाता",
+      "t": "నేను మాంసం తినను",
+      "r": "nēnu mānsaṁ tinanu"
+    }
   ],
-
   "colors": [
-    {"en": "red", "hi": "लाल", "t": "ఎరుపు", "r": "erupu", "note": "Colours never change for gender or number — say them as listed"},
-    {"en": "blue", "hi": "नीला", "t": "నీలం", "r": "nīlaṁ"},
-    {"en": "green", "hi": "हरा", "t": "ఆకుపచ్చ", "r": "ākupachcha"},
-    {"en": "yellow", "hi": "पीला", "t": "పసుపు", "r": "pasupu"},
-    {"en": "white", "hi": "सफ़ेद", "t": "తెలుపు", "r": "telupu"},
-    {"en": "black", "hi": "काला", "t": "నలుపు", "r": "nalupu"}
+    {
+      "en": "red",
+      "hi": "लाल",
+      "t": "ఎరుపు",
+      "r": "erupu",
+      "note": "Colours never change for gender or number — say them as listed"
+    },
+    {
+      "en": "blue",
+      "hi": "नीला",
+      "t": "నీలం",
+      "r": "nīlaṁ"
+    },
+    {
+      "en": "green",
+      "hi": "हरा",
+      "t": "ఆకుపచ్చ",
+      "r": "ākupachcha"
+    },
+    {
+      "en": "yellow",
+      "hi": "पीला",
+      "t": "పసుపు",
+      "r": "pasupu"
+    },
+    {
+      "en": "white",
+      "hi": "सफ़ेद",
+      "t": "తెలుపు",
+      "r": "telupu"
+    },
+    {
+      "en": "black",
+      "hi": "काला",
+      "t": "నలుపు",
+      "r": "nalupu"
+    }
   ],
   "core_nouns": [
-    {"en": "book", "hi": "किताब", "t": "పుస్తకం", "r": "pustakaṁ"},
-    {"en": "house / home", "hi": "घर", "t": "ఇల్లు", "r": "illu"},
-    {"en": "work", "hi": "काम", "t": "పని", "r": "pani"},
-    {"en": "school", "hi": "स्कूल", "t": "బడి", "r": "baḍi", "note": "Street word — పాఠశాల (pāṭhaśāla) is the formal one"},
-    {"en": "teacher", "hi": "शिक्षक", "t": "ఉపాధ్యాయుడు", "r": "upādhyāyuḍu", "note": "A woman teacher is ఉపాధ్యాయురాలు"},
-    {"en": "student", "hi": "छात्र / छात्रा", "t": "విద్యార్థి", "r": "vidyārthi"},
-    {"en": "car", "hi": "गाड़ी", "t": "కారు", "r": "kāru"},
-    {"en": "road", "hi": "सड़क", "t": "రోడ్డు", "r": "rōḍḍu"},
-    {"en": "money", "hi": "पैसा", "t": "డబ్బు", "r": "ḍabbu"},
-    {"en": "day", "hi": "दिन", "t": "రోజు", "r": "rōju"},
-    {"en": "week", "hi": "हफ़्ता", "t": "వారం", "r": "vāraṁ"},
-    {"en": "month", "hi": "महीना", "t": "నెల", "r": "nela"},
-    {"en": "year", "hi": "साल", "t": "సంవత్సరం", "r": "sanvatsaraṁ"}
+    {
+      "en": "book",
+      "hi": "किताब",
+      "t": "పుస్తకం",
+      "r": "pustakaṁ"
+    },
+    {
+      "en": "house / home",
+      "hi": "घर",
+      "t": "ఇల్లు",
+      "r": "illu"
+    },
+    {
+      "en": "work",
+      "hi": "काम",
+      "t": "పని",
+      "r": "pani"
+    },
+    {
+      "en": "school",
+      "hi": "स्कूल",
+      "t": "బడి",
+      "r": "baḍi",
+      "note": "Street word — పాఠశాల (pāṭhaśāla) is the formal one"
+    },
+    {
+      "en": "teacher",
+      "hi": "शिक्षक",
+      "t": "ఉపాధ్యాయుడు",
+      "r": "upādhyāyuḍu",
+      "note": "A woman teacher is ఉపాధ్యాయురాలు"
+    },
+    {
+      "en": "student",
+      "hi": "छात्र / छात्रा",
+      "t": "విద్యార్థి",
+      "r": "vidyārthi"
+    },
+    {
+      "en": "car",
+      "hi": "गाड़ी",
+      "t": "కారు",
+      "r": "kāru"
+    },
+    {
+      "en": "road",
+      "hi": "सड़क",
+      "t": "రోడ్డు",
+      "r": "rōḍḍu"
+    },
+    {
+      "en": "money",
+      "hi": "पैसा",
+      "t": "డబ్బు",
+      "r": "ḍabbu"
+    },
+    {
+      "en": "day",
+      "hi": "दिन",
+      "t": "రోజు",
+      "r": "rōju"
+    },
+    {
+      "en": "week",
+      "hi": "हफ़्ता",
+      "t": "వారం",
+      "r": "vāraṁ"
+    },
+    {
+      "en": "month",
+      "hi": "महीना",
+      "t": "నెల",
+      "r": "nela"
+    },
+    {
+      "en": "year",
+      "hi": "साल",
+      "t": "సంవత్సరం",
+      "r": "sanvatsaraṁ"
+    }
   ],
-
   "travel_words": [
-    {"en": "station", "hi": "स्टेशन", "t": "స్టేషన్", "r": "sṭēṣan"},
-    {"en": "train", "hi": "ट्रेन", "t": "రైలు", "r": "railu"},
-    {"en": "bus", "hi": "बस", "t": "బస్సు", "r": "bassu"},
-    {"en": "taxi", "hi": "टैक्सी", "t": "ట్యాక్సీ", "r": "ṭyāksī"},
-    {"en": "ticket", "hi": "टिकट", "t": "టికెట్", "r": "ṭikeṭ"},
-    {"en": "hotel", "hi": "होटल", "t": "హోటల్", "r": "hōṭal"},
-    {"en": "room", "hi": "कमरा", "t": "గది", "r": "gadi"},
-    {"en": "left", "hi": "बायाँ", "t": "ఎడమ", "r": "eḍama"},
-    {"en": "right", "hi": "दायाँ", "t": "కుడి", "r": "kuḍi"},
-    {"en": "straight", "hi": "सीधा", "t": "సరాసరి", "r": "sarāsari", "note": "నేరుగా (nērugā) works too"},
-    {"en": "near", "hi": "पास", "t": "దగ్గర", "r": "daggara"},
-    {"en": "far", "hi": "दूर", "t": "దూరం", "r": "dūraṁ"}
+    {
+      "en": "station",
+      "hi": "स्टेशन",
+      "t": "స్టేషన్",
+      "r": "sṭēṣan"
+    },
+    {
+      "en": "train",
+      "hi": "ट्रेन",
+      "t": "రైలు",
+      "r": "railu"
+    },
+    {
+      "en": "bus",
+      "hi": "बस",
+      "t": "బస్సు",
+      "r": "bassu"
+    },
+    {
+      "en": "taxi",
+      "hi": "टैक्सी",
+      "t": "ట్యాక్సీ",
+      "r": "ṭyāksī"
+    },
+    {
+      "en": "ticket",
+      "hi": "टिकट",
+      "t": "టికెట్",
+      "r": "ṭikeṭ"
+    },
+    {
+      "en": "hotel",
+      "hi": "होटल",
+      "t": "హోటల్",
+      "r": "hōṭal"
+    },
+    {
+      "en": "room",
+      "hi": "कमरा",
+      "t": "గది",
+      "r": "gadi"
+    },
+    {
+      "en": "left",
+      "hi": "बायाँ",
+      "t": "ఎడమ",
+      "r": "eḍama"
+    },
+    {
+      "en": "right",
+      "hi": "दायाँ",
+      "t": "కుడి",
+      "r": "kuḍi"
+    },
+    {
+      "en": "straight",
+      "hi": "सीधा",
+      "t": "సరాసరి",
+      "r": "sarāsari",
+      "note": "నేరుగా (nērugā) works too"
+    },
+    {
+      "en": "near",
+      "hi": "पास",
+      "t": "దగ్గర",
+      "r": "daggara"
+    },
+    {
+      "en": "far",
+      "hi": "दूर",
+      "t": "దూరం",
+      "r": "dūraṁ"
+    }
   ],
   "travel_phrases": [
-    {"en": "Where is ...?", "hi": "... कहाँ है?", "t": "... ఎక్కడ ఉంది?", "r": "... ekkaḍa undi?"},
-    {"en": "How do I go to ...?", "hi": "... कैसे जाऊँ?", "t": "... కి ఎలా వెళ్ళాలి?", "r": "... ki elā veḷḷāli?"},
-    {"en": "Stop here, please", "hi": "यहाँ रोकिए", "t": "ఇక్కడ ఆపండి", "r": "ikkaḍa āpaṇḍi"},
-    {"en": "How much is the fare?", "hi": "किराया कितना है?", "t": "ఛార్జీ ఎంత?", "r": "chārjī enta?"},
-    {"en": "I want to go to ...", "hi": "मुझे ... जाना है", "t": "నేను ... కి వెళ్ళాలి", "r": "nēnu ... ki veḷḷāli"},
-    {"en": "Is it far?", "hi": "क्या दूर है?", "t": "దూరమా?", "r": "dūramā?"}
+    {
+      "en": "Where is ...?",
+      "hi": "... कहाँ है?",
+      "t": "... ఎక్కడ ఉంది?",
+      "r": "... ekkaḍa undi?"
+    },
+    {
+      "en": "How do I go to ...?",
+      "hi": "... कैसे जाऊँ?",
+      "t": "... కి ఎలా వెళ్ళాలి?",
+      "r": "... ki elā veḷḷāli?"
+    },
+    {
+      "en": "Stop here, please",
+      "hi": "यहाँ रोकिए",
+      "t": "ఇక్కడ ఆపండి",
+      "r": "ikkaḍa āpaṇḍi"
+    },
+    {
+      "en": "How much is the fare?",
+      "hi": "किराया कितना है?",
+      "t": "ఛార్జీ ఎంత?",
+      "r": "chārjī enta?"
+    },
+    {
+      "en": "I want to go to ...",
+      "hi": "मुझे ... जाना है",
+      "t": "నేను ... కి వెళ్ళాలి",
+      "r": "nēnu ... ki veḷḷāli"
+    },
+    {
+      "en": "Is it far?",
+      "hi": "क्या दूर है?",
+      "t": "దూరమా?",
+      "r": "dūramā?"
+    }
   ],
-
   "shopping_words": [
-    {"en": "price", "hi": "कीमत", "t": "ధర", "r": "dhara"},
-    {"en": "shop", "hi": "दुकान", "t": "కొట్టు", "r": "koṭṭu", "note": "Street word — షాపు (ṣāpu) in malls"},
-    {"en": "market", "hi": "बाज़ार", "t": "బజారు", "r": "bajāru", "note": "మార్కెట్ (mārkeṭ) in cities"},
-    {"en": "cheap", "hi": "सस्ता", "t": "చౌక", "r": "chauka"},
-    {"en": "expensive", "hi": "महँगा", "t": "ఖరీదు", "r": "kharīdu", "note": "Young shops just say కాస్ట్లీ (costly)"},
-    {"en": "less", "hi": "कम", "t": "తక్కువ", "r": "takkuva"},
-    {"en": "more", "hi": "ज़्यादा", "t": "ఎక్కువ", "r": "ekkuva"}
+    {
+      "en": "price",
+      "hi": "कीमत",
+      "t": "ధర",
+      "r": "dhara"
+    },
+    {
+      "en": "shop",
+      "hi": "दुकान",
+      "t": "కొట్టు",
+      "r": "koṭṭu",
+      "note": "Street word — షాపు (ṣāpu) in malls"
+    },
+    {
+      "en": "market",
+      "hi": "बाज़ार",
+      "t": "బజారు",
+      "r": "bajāru",
+      "note": "మార్కెట్ (mārkeṭ) in cities"
+    },
+    {
+      "en": "cheap",
+      "hi": "सस्ता",
+      "t": "చౌక",
+      "r": "chauka"
+    },
+    {
+      "en": "expensive",
+      "hi": "महँगा",
+      "t": "ఖరీదు",
+      "r": "kharīdu",
+      "note": "Young shops just say కాస్ట్లీ (costly)"
+    },
+    {
+      "en": "less",
+      "hi": "कम",
+      "t": "తక్కువ",
+      "r": "takkuva"
+    },
+    {
+      "en": "more",
+      "hi": "ज़्यादा",
+      "t": "ఎక్కువ",
+      "r": "ekkuva"
+    }
   ],
   "shopping_phrases": [
-    {"en": "How much is this?", "hi": "यह कितने का है?", "t": "ఇది ఎంత?", "r": "idi enta?"},
-    {"en": "Too expensive!", "hi": "बहुत महँगा", "t": "చాలా ఖరీదు!", "r": "chālā kharīdu!"},
-    {"en": "Reduce the price a little", "hi": "थोड़ा कम कीजिए", "t": "కొంచెం తగ్గించండి", "r": "kon̄cheṁ taggin̄chaṇḍi"},
-    {"en": "OK, I'll take it", "hi": "ठीक है, लेता हूँ", "t": "సరే, తీసుకుంటాను", "r": "sarē, tīsukunṭānu"},
-    {"en": "Do you have ...?", "hi": "क्या ... है?", "t": "... ఉందా?", "r": "... undā?"},
-    {"en": "Just looking", "hi": "बस देख रहा हूँ", "t": "చూస్తున్నాను అంతే", "r": "chūstunnānu antē"}
+    {
+      "en": "How much is this?",
+      "hi": "यह कितने का है?",
+      "t": "ఇది ఎంత?",
+      "r": "idi enta?"
+    },
+    {
+      "en": "Too expensive!",
+      "hi": "बहुत महँगा",
+      "t": "చాలా ఖరీదు!",
+      "r": "chālā kharīdu!"
+    },
+    {
+      "en": "Reduce the price a little",
+      "hi": "थोड़ा कम कीजिए",
+      "t": "కొంచెం తగ్గించండి",
+      "r": "kon̄cheṁ taggin̄chaṇḍi"
+    },
+    {
+      "en": "OK, I'll take it",
+      "hi": "ठीक है, लेता हूँ",
+      "t": "సరే, తీసుకుంటాను",
+      "r": "sarē, tīsukunṭānu"
+    },
+    {
+      "en": "Do you have ...?",
+      "hi": "क्या ... है?",
+      "t": "... ఉందా?",
+      "r": "... undā?"
+    },
+    {
+      "en": "Just looking",
+      "hi": "बस देख रहा हूँ",
+      "t": "చూస్తున్నాను అంతే",
+      "r": "chūstunnānu antē"
+    }
   ],
-
   "daily_phrases": [
-    {"en": "I don't understand", "hi": "मैं नहीं समझा", "t": "నాకు అర్థం కాలేదు", "r": "nāku arthaṁ kālēdu"},
-    {"en": "I want water", "hi": "मुझे पानी चाहिए", "t": "నాకు మంచినీళ్ళు కావాలి", "r": "nāku man̄chinīḷḷu kāvāli", "note": "కావాలి (want/need) always works this way: నాకు X కావాలి"},
-    {"en": "Speak slowly, please", "hi": "धीरे बोलिए", "t": "మెల్లగా మాట్లాడండి", "r": "mellagā māṭlāḍaṇḍi"},
-    {"en": "What is this called?", "hi": "इसे क्या कहते हैं?", "t": "దీన్ని ఏమంటారు?", "r": "dīnni ēmanṭāru?"},
-    {"en": "I am learning Telugu", "hi": "मैं तेलुगु सीख रहा हूँ", "t": "నేను తెలుగు నేర్చుకుంటున్నాను", "r": "nēnu telugu nērchukunṭunnānu"},
-    {"en": "Where are you from?", "hi": "आप कहाँ से हैं?", "t": "మీది ఎక్కడ?", "r": "mīdi ekkaḍa?"},
-    {"en": "My name is ...", "hi": "मेरा नाम ... है", "t": "నా పేరు ...", "r": "nā pēru ..."},
-    {"en": "Nice to meet you", "hi": "आपसे मिलकर खुशी हुई", "t": "మిమ్మల్ని కలవడం ఆనందంగా ఉంది", "r": "mimmalni kalavaḍaṁ ānandaṅgā undi"}
+    {
+      "en": "I don't understand",
+      "hi": "मैं नहीं समझा",
+      "t": "నాకు అర్థం కాలేదు",
+      "r": "nāku arthaṁ kālēdu"
+    },
+    {
+      "en": "I want water",
+      "hi": "मुझे पानी चाहिए",
+      "t": "నాకు మంచినీళ్ళు కావాలి",
+      "r": "nāku man̄chinīḷḷu kāvāli",
+      "note": "కావాలి (want/need) always works this way: నాకు X కావాలి"
+    },
+    {
+      "en": "Speak slowly, please",
+      "hi": "धीरे बोलिए",
+      "t": "మెల్లగా మాట్లాడండి",
+      "r": "mellagā māṭlāḍaṇḍi"
+    },
+    {
+      "en": "What is this called?",
+      "hi": "इसे क्या कहते हैं?",
+      "t": "దీన్ని ఏమంటారు?",
+      "r": "dīnni ēmanṭāru?"
+    },
+    {
+      "en": "I am learning Telugu",
+      "hi": "मैं तेलुगु सीख रहा हूँ",
+      "t": "నేను తెలుగు నేర్చుకుంటున్నాను",
+      "r": "nēnu telugu nērchukunṭunnānu"
+    },
+    {
+      "en": "Where are you from?",
+      "hi": "आप कहाँ से हैं?",
+      "t": "మీది ఎక్కడ?",
+      "r": "mīdi ekkaḍa?"
+    },
+    {
+      "en": "My name is ...",
+      "hi": "मेरा नाम ... है",
+      "t": "నా పేరు ...",
+      "r": "nā pēru ..."
+    },
+    {
+      "en": "Nice to meet you",
+      "hi": "आपसे मिलकर खुशी हुई",
+      "t": "మిమ్మల్ని కలవడం ఆనందంగా ఉంది",
+      "r": "mimmalni kalavaḍaṁ ānandaṅgā undi"
+    }
   ],
   "culture": [
-    {"t": "సంక్రాంతి", "r": "Sankrānti", "en": "The Telugu harvest festival (January) — kites on every terrace, sugarcane in every hand, pongal pots boiling over in the courtyard."},
-    {"t": "ఉగాది", "r": "Ugādi", "en": "Telugu New Year — the sweet-bitter ugadi pachadi teaches the year's first lesson: life is a mix, taste it all."},
-    {"t": "బతుకమ్మ", "r": "Bathukamma", "en": "Telangana's flower festival — nine nights of stacked marigolds and circle songs. Women build it, everyone sings it."},
-    {"t": "బోనాలు", "r": "Bonālu", "en": "Ashada folk festival for Mahankali — pots of offering carried dancing through old Hyderabad's lanes."},
-    {"t": "హైదరాబాదీ బిర్యానీ", "r": "Hyderabadi biryani", "en": "The dum-cooked legend — Paradise vs Bawarchi is a friendly war. Pick a side, then eat at both."}
+    {
+      "t": "సంక్రాంతి",
+      "r": "Sankrānti",
+      "en": "The Telugu harvest festival (January) — kites on every terrace, sugarcane in every hand, pongal pots boiling over in the courtyard."
+    },
+    {
+      "t": "ఉగాది",
+      "r": "Ugādi",
+      "en": "Telugu New Year — the sweet-bitter ugadi pachadi teaches the year's first lesson: life is a mix, taste it all."
+    },
+    {
+      "t": "బతుకమ్మ",
+      "r": "Bathukamma",
+      "en": "Telangana's flower festival — nine nights of stacked marigolds and circle songs. Women build it, everyone sings it."
+    },
+    {
+      "t": "బోనాలు",
+      "r": "Bonālu",
+      "en": "Ashada folk festival for Mahankali — pots of offering carried dancing through old Hyderabad's lanes."
+    },
+    {
+      "t": "హైదరాబాదీ బిర్యానీ",
+      "r": "Hyderabadi biryani",
+      "en": "The dum-cooked legend — Paradise vs Bawarchi is a friendly war. Pick a side, then eat at both."
+    }
   ],
-
   "postpositions": [
-    {"en": "in / at", "hi": "में", "t": "-లో", "r": "-lō", "ex_t": "ఇంట్లో", "ex_r": "inṭlō", "ex_en": "at home"},
-    {"en": "to", "hi": "को", "t": "-కి", "r": "-ki", "ex_t": "నాకు ఇవ్వండి", "ex_r": "nāku ivvaṇḍi", "ex_en": "give (to) me"},
-    {"en": "from", "hi": "से", "t": "-నుండి", "r": "-nunḍi", "ex_t": "హైదరాబాద్ నుండి", "ex_r": "Hyderabad nunḍi", "ex_en": "from Hyderabad"},
-    {"en": "with (using)", "hi": "से", "t": "-తో", "r": "-tō", "ex_t": "చెంచాతో", "ex_r": "chen̄chātō", "ex_en": "with a spoon"},
-    {"en": "for", "hi": "के लिए", "t": "-కోసం", "r": "-kōsaṁ", "ex_t": "మీకోసం", "ex_r": "mīkōsaṁ", "ex_en": "for you"},
-    {"en": "with (a person)", "hi": "के साथ", "t": "-తో", "r": "-tō", "ex_t": "స్నేహితుడితో", "ex_r": "snēhituḍitō", "ex_en": "with a friend"}
+    {
+      "en": "in / at",
+      "hi": "में",
+      "t": "-లో",
+      "r": "-lō",
+      "ex_t": "ఇంట్లో",
+      "ex_r": "inṭlō",
+      "ex_en": "at home"
+    },
+    {
+      "en": "to",
+      "hi": "को",
+      "t": "-కి",
+      "r": "-ki",
+      "ex_t": "నాకు ఇవ్వండి",
+      "ex_r": "nāku ivvaṇḍi",
+      "ex_en": "give (to) me"
+    },
+    {
+      "en": "from",
+      "hi": "से",
+      "t": "-నుండి",
+      "r": "-nunḍi",
+      "ex_t": "హైదరాబాద్ నుండి",
+      "ex_r": "Hyderabad nunḍi",
+      "ex_en": "from Hyderabad"
+    },
+    {
+      "en": "with (using)",
+      "hi": "से",
+      "t": "-తో",
+      "r": "-tō",
+      "ex_t": "చెంచాతో",
+      "ex_r": "chen̄chātō",
+      "ex_en": "with a spoon"
+    },
+    {
+      "en": "for",
+      "hi": "के लिए",
+      "t": "-కోసం",
+      "r": "-kōsaṁ",
+      "ex_t": "మీకోసం",
+      "ex_r": "mīkōsaṁ",
+      "ex_en": "for you"
+    },
+    {
+      "en": "with (a person)",
+      "hi": "के साथ",
+      "t": "-తో",
+      "r": "-tō",
+      "ex_t": "స్నేహితుడితో",
+      "ex_r": "snēhituḍitō",
+      "ex_en": "with a friend"
+    }
   ],
   "classifiers": [
-    {"en": "ఒక పుస్తకం", "r": "oka pustakaṁ", "hi": "एक किताब", "note": "one book — number + noun, no extras"},
-    {"en": "రెండు పండ్లు", "r": "reṇḍu paṇḍlu", "hi": "दो फल", "note": "two fruits — counting form as listed"},
-    {"en": "ముగ్గురు మనుషులు", "r": "mugguru manuṣulu", "hi": "तीन लोग", "note": "three people — ముగ్గురు is the people-form of three; Telugu numbers change for humans"}
+    {
+      "en": "ఒక పుస్తకం",
+      "r": "oka pustakaṁ",
+      "hi": "एक किताब",
+      "note": "one book — number + noun, no extras"
+    },
+    {
+      "en": "రెండు పండ్లు",
+      "r": "reṇḍu paṇḍlu",
+      "hi": "दो फल",
+      "note": "two fruits — counting form as listed"
+    },
+    {
+      "en": "ముగ్గురు మనుషులు",
+      "r": "mugguru manuṣulu",
+      "hi": "तीन लोग",
+      "note": "three people — ముగ్గురు is the people-form of three; Telugu numbers change for humans"
+    }
   ],
-
   "dialogues": [
-    {"title": "Meeting someone",
-     "lines": [
-       {"sp": "Lakshmi", "t": "నమస్కారం! నా పేరు లక్ష్మి.", "r": "Namaskāraṁ! Nā pēru Lakṣmi.", "hi": "नमस्ते! मेरा नाम लक्ष्मी है।", "en": "Hello! My name is Lakshmi."},
-       {"sp": "Arjun", "t": "నమస్కారం! నేను అర్జున్. మీరు ఎలా ఉన్నారు?", "r": "Namaskāraṁ! Nēnu Arjun. Mīru elā unnāru?", "hi": "नमस्ते! मैं अर्जुन हूँ। आप कैसे हैं?", "en": "Hello! I'm Arjun. How are you?"},
-       {"sp": "Lakshmi", "t": "నేను బాగున్నాను, ధన్యవాదాలు. మీది ఎక్కడ?", "r": "Nēnu bāgunnānu, dhanyavādālu. Mīdi ekkaḍa?", "hi": "मैं ठीक हूँ, धन्यवाद। आप कहाँ से हैं?", "en": "I'm fine, thank you. Where are you from?"},
-       {"sp": "Arjun", "t": "నేను చెన్నై నుండి. నేను తెలుగు నేర్చుకుంటున్నాను.", "r": "Nēnu Chennai nunḍi. Nēnu telugu nērchukunṭunnānu.", "hi": "मैं चेन्नई से हूँ। मैं तेलुगु सीख रहा हूँ।", "en": "I'm from Chennai. I'm learning Telugu."},
-       {"sp": "Lakshmi", "t": "చాలా బాగుంది! మళ్ళీ కలుద్దాం.", "r": "Chālā bāgundi! Maḷḷī kaluddāṁ.", "hi": "बहुत बढ़िया! फिर मिलेंगे।", "en": "Very good! See you again."}
-     ]},
-    {"title": "At a tea stall",
-     "lines": [
-       {"sp": "You", "t": "అన్నా, ఒక టీ ఇవ్వండి.", "r": "Annā, oka ṭī ivvaṇḍi.", "hi": "भैया, एक चाय दीजिए।", "en": "Brother, one tea please. (అన్నా = elder brother — everyone calls the vendor అన్నా)"},
-       {"sp": "Vendor", "t": "చక్కెర ఎంత?", "r": "Chakkera enta?", "hi": "चीनी कितनी?", "en": "How much sugar?"},
-       {"sp": "You", "t": "ఒక చెంచా. ఎంత అయింది?", "r": "Oka chen̄chā. Enta ayindi?", "hi": "एक चम्मच। कितने हुए?", "en": "One spoon. How much?"},
-       {"sp": "Vendor", "t": "పది రూపాయలు.", "r": "Padi rūpāyalu.", "hi": "दस रुपये।", "en": "Ten rupees."},
-       {"sp": "You", "t": "సరే. ధన్యవాదాలు!", "r": "Sarē. Dhanyavādālu!", "hi": "ठीक है। धन्यवाद!", "en": "OK. Thank you!"}
-     ]},
-    {"title": "Asking the way",
-     "lines": [
-       {"sp": "You", "t": "క్షమించండి, స్టేషన్ ఎక్కడ ఉంది?", "r": "Kshamin̄chaṇḍi, sṭēṣan ekkaḍa undi?", "hi": "माफ़ कीजिए, स्टेशन कहाँ है?", "en": "Excuse me, where is the station?"},
-       {"sp": "Local", "t": "సరాసరి వెళ్ళండి, తర్వాత కుడికి.", "r": "Sarāsari veḷḷaṇḍi, tarvāta kuḍiki.", "hi": "सीधे जाइए, फिर दाएँ।", "en": "Go straight, then right."},
-       {"sp": "You", "t": "దూరమా?", "r": "Dūramā?", "hi": "क्या दूर है?", "en": "Is it far?"},
-       {"sp": "Local", "t": "కాదు, దగ్గరే. ఐదు నిమిషాలు.", "r": "Kādu, daggarē. Aidu nimiṣālu.", "hi": "नहीं, पास ही है। पाँच मिनट।", "en": "No, quite near. Five minutes."},
-       {"sp": "You", "t": "చాలా ధన్యవాదాలు!", "r": "Chālā dhanyavādālu!", "hi": "बहुत धन्यवाद!", "en": "Thank you very much!"}
-     ]}
+    {
+      "title": "Meeting someone",
+      "lines": [
+        {
+          "sp": "Lakshmi",
+          "t": "నమస్కారం! నా పేరు లక్ష్మి.",
+          "r": "Namaskāraṁ! Nā pēru Lakṣmi.",
+          "hi": "नमस्ते! मेरा नाम लक्ष्मी है।",
+          "en": "Hello! My name is Lakshmi."
+        },
+        {
+          "sp": "Arjun",
+          "t": "నమస్కారం! నేను అర్జున్. మీరు ఎలా ఉన్నారు?",
+          "r": "Namaskāraṁ! Nēnu Arjun. Mīru elā unnāru?",
+          "hi": "नमस्ते! मैं अर्जुन हूँ। आप कैसे हैं?",
+          "en": "Hello! I'm Arjun. How are you?"
+        },
+        {
+          "sp": "Lakshmi",
+          "t": "నేను బాగున్నాను, ధన్యవాదాలు. మీది ఎక్కడ?",
+          "r": "Nēnu bāgunnānu, dhanyavādālu. Mīdi ekkaḍa?",
+          "hi": "मैं ठीक हूँ, धन्यवाद। आप कहाँ से हैं?",
+          "en": "I'm fine, thank you. Where are you from?"
+        },
+        {
+          "sp": "Arjun",
+          "t": "నేను చెన్నై నుండి. నేను తెలుగు నేర్చుకుంటున్నాను.",
+          "r": "Nēnu Chennai nunḍi. Nēnu telugu nērchukunṭunnānu.",
+          "hi": "मैं चेन्नई से हूँ। मैं तेलुगु सीख रहा हूँ।",
+          "en": "I'm from Chennai. I'm learning Telugu."
+        },
+        {
+          "sp": "Lakshmi",
+          "t": "చాలా బాగుంది! మళ్ళీ కలుద్దాం.",
+          "r": "Chālā bāgundi! Maḷḷī kaluddāṁ.",
+          "hi": "बहुत बढ़िया! फिर मिलेंगे।",
+          "en": "Very good! See you again."
+        }
+      ]
+    },
+    {
+      "title": "At a tea stall",
+      "lines": [
+        {
+          "sp": "You",
+          "t": "అన్నా, ఒక టీ ఇవ్వండి.",
+          "r": "Annā, oka ṭī ivvaṇḍi.",
+          "hi": "भैया, एक चाय दीजिए।",
+          "en": "Brother, one tea please. (అన్నా = elder brother — everyone calls the vendor అన్నా)"
+        },
+        {
+          "sp": "Vendor",
+          "t": "చక్కెర ఎంత?",
+          "r": "Chakkera enta?",
+          "hi": "चीनी कितनी?",
+          "en": "How much sugar?"
+        },
+        {
+          "sp": "You",
+          "t": "ఒక చెంచా. ఎంత అయింది?",
+          "r": "Oka chen̄chā. Enta ayindi?",
+          "hi": "एक चम्मच। कितने हुए?",
+          "en": "One spoon. How much?"
+        },
+        {
+          "sp": "Vendor",
+          "t": "పది రూపాయలు.",
+          "r": "Padi rūpāyalu.",
+          "hi": "दस रुपये।",
+          "en": "Ten rupees."
+        },
+        {
+          "sp": "You",
+          "t": "సరే. ధన్యవాదాలు!",
+          "r": "Sarē. Dhanyavādālu!",
+          "hi": "ठीक है। धन्यवाद!",
+          "en": "OK. Thank you!"
+        }
+      ]
+    },
+    {
+      "title": "Asking the way",
+      "lines": [
+        {
+          "sp": "You",
+          "t": "క్షమించండి, స్టేషన్ ఎక్కడ ఉంది?",
+          "r": "Kshamin̄chaṇḍi, sṭēṣan ekkaḍa undi?",
+          "hi": "माफ़ कीजिए, स्टेशन कहाँ है?",
+          "en": "Excuse me, where is the station?"
+        },
+        {
+          "sp": "Local",
+          "t": "సరాసరి వెళ్ళండి, తర్వాత కుడికి.",
+          "r": "Sarāsari veḷḷaṇḍi, tarvāta kuḍiki.",
+          "hi": "सीधे जाइए, फिर दाएँ।",
+          "en": "Go straight, then right."
+        },
+        {
+          "sp": "You",
+          "t": "దూరమా?",
+          "r": "Dūramā?",
+          "hi": "क्या दूर है?",
+          "en": "Is it far?"
+        },
+        {
+          "sp": "Local",
+          "t": "కాదు, దగ్గరే. ఐదు నిమిషాలు.",
+          "r": "Kādu, daggarē. Aidu nimiṣālu.",
+          "hi": "नहीं, पास ही है। पाँच मिनट।",
+          "en": "No, quite near. Five minutes."
+        },
+        {
+          "sp": "You",
+          "t": "చాలా ధన్యవాదాలు!",
+          "r": "Chālā dhanyavādālu!",
+          "hi": "बहुत धन्यवाद!",
+          "en": "Thank you very much!"
+        }
+      ]
+    }
   ],
-
   "typing": [
-    ["namaskaram", "నమస్కారం"], ["dhanyavadalu", "ధన్యవాదాలు"], ["nenu", "నేను"], ["nuvvu", "నువ్వు"],
-    ["miru", "మీరు"], ["annam", "అన్నం"], ["chepa", "చేప"], ["nillu", "నీళ్ళు"], ["tea", "టీ"],
-    ["pustakam", "పుస్తకం"], ["illu", "ఇల్లు"], ["pani", "పని"], ["bagundi", "బాగుంది"], ["roju", "రోజు"],
-    ["ratri", "రాత్రి"], ["snehitudu", "స్నేహితుడు"], ["amma", "అమ్మ"], ["nanna", "నాన్న"], ["gadi", "గది"],
-    ["roadu", "రోడ్డు"], ["kottu", "కొట్టు"], ["bajaru", "బజారు"], ["udayam", "ఉదయం"], ["vastanu", "వస్తాను"]
+    [
+      "namaskaram",
+      "నమస్కారం"
+    ],
+    [
+      "dhanyavadalu",
+      "ధన్యవాదాలు"
+    ],
+    [
+      "nenu",
+      "నేను"
+    ],
+    [
+      "nuvvu",
+      "నువ్వు"
+    ],
+    [
+      "miru",
+      "మీరు"
+    ],
+    [
+      "annam",
+      "అన్నం"
+    ],
+    [
+      "chepa",
+      "చేప"
+    ],
+    [
+      "nillu",
+      "నీళ్ళు"
+    ],
+    [
+      "tea",
+      "టీ"
+    ],
+    [
+      "pustakam",
+      "పుస్తకం"
+    ],
+    [
+      "illu",
+      "ఇల్లు"
+    ],
+    [
+      "pani",
+      "పని"
+    ],
+    [
+      "bagundi",
+      "బాగుంది"
+    ],
+    [
+      "roju",
+      "రోజు"
+    ],
+    [
+      "ratri",
+      "రాత్రి"
+    ],
+    [
+      "snehitudu",
+      "స్నేహితుడు"
+    ],
+    [
+      "amma",
+      "అమ్మ"
+    ],
+    [
+      "nanna",
+      "నాన్న"
+    ],
+    [
+      "gadi",
+      "గది"
+    ],
+    [
+      "roadu",
+      "రోడ్డు"
+    ],
+    [
+      "kottu",
+      "కొట్టు"
+    ],
+    [
+      "bajaru",
+      "బజారు"
+    ],
+    [
+      "udayam",
+      "ఉదయం"
+    ],
+    [
+      "vastanu",
+      "వస్తాను"
+    ]
   ],
-
   "review_deck": [
-    {"t": "నమస్కారం", "r": "namaskāraṁ", "en": "hello"},
-    {"t": "ధన్యవాదాలు", "r": "dhanyavādālu", "en": "thank you"},
-    {"t": "నేను", "r": "nēnu", "en": "I"},
-    {"t": "నువ్వు / మీరు", "r": "nuvvu / mīru", "en": "you"},
-    {"t": "అవును / కాదు", "r": "avunu / kādu", "en": "yes / no"},
-    {"t": "అన్నం", "r": "annaṁ", "en": "rice"},
-    {"t": "నీళ్ళు", "r": "nīḷḷu", "en": "water"},
-    {"t": "టీ", "r": "ṭī", "en": "tea"},
-    {"t": "పుస్తకం", "r": "pustakaṁ", "en": "book"},
-    {"t": "ఇల్లు", "r": "illu", "en": "house"},
-    {"t": "బాగుంది", "r": "bāgundi", "en": "good / nice"},
-    {"t": "ఎంత", "r": "enta", "en": "how much"},
-    {"t": "ఎక్కడ", "r": "ekkaḍa", "en": "where"},
-    {"t": "ఈరోజు", "r": "īrōju", "en": "today"},
-    {"t": "రేపు", "r": "rēpu", "en": "tomorrow"},
-    {"t": "తింటాను", "r": "tinṭānu", "en": "I eat"},
-    {"t": "వెళ్తాను", "r": "veḷtānu", "en": "I go"},
-    {"t": "కావాలి", "r": "kāvāli", "en": "want / need (నాకు … కావాలి)"},
-    {"t": "సరే", "r": "sarē", "en": "OK"},
-    {"t": "మళ్ళీ కలుద్దాం", "r": "maḷḷī kaluddāṁ", "en": "see you again"}
+    {
+      "t": "నమస్కారం",
+      "r": "namaskāraṁ",
+      "en": "hello"
+    },
+    {
+      "t": "ధన్యవాదాలు",
+      "r": "dhanyavādālu",
+      "en": "thank you"
+    },
+    {
+      "t": "నేను",
+      "r": "nēnu",
+      "en": "I"
+    },
+    {
+      "t": "నువ్వు / మీరు",
+      "r": "nuvvu / mīru",
+      "en": "you"
+    },
+    {
+      "t": "అవును / కాదు",
+      "r": "avunu / kādu",
+      "en": "yes / no"
+    },
+    {
+      "t": "అన్నం",
+      "r": "annaṁ",
+      "en": "rice"
+    },
+    {
+      "t": "నీళ్ళు",
+      "r": "nīḷḷu",
+      "en": "water"
+    },
+    {
+      "t": "టీ",
+      "r": "ṭī",
+      "en": "tea"
+    },
+    {
+      "t": "పుస్తకం",
+      "r": "pustakaṁ",
+      "en": "book"
+    },
+    {
+      "t": "ఇల్లు",
+      "r": "illu",
+      "en": "house"
+    },
+    {
+      "t": "బాగుంది",
+      "r": "bāgundi",
+      "en": "good / nice"
+    },
+    {
+      "t": "ఎంత",
+      "r": "enta",
+      "en": "how much"
+    },
+    {
+      "t": "ఎక్కడ",
+      "r": "ekkaḍa",
+      "en": "where"
+    },
+    {
+      "t": "ఈరోజు",
+      "r": "īrōju",
+      "en": "today"
+    },
+    {
+      "t": "రేపు",
+      "r": "rēpu",
+      "en": "tomorrow"
+    },
+    {
+      "t": "తింటాను",
+      "r": "tinṭānu",
+      "en": "I eat"
+    },
+    {
+      "t": "వెళ్తాను",
+      "r": "veḷtānu",
+      "en": "I go"
+    },
+    {
+      "t": "కావాలి",
+      "r": "kāvāli",
+      "en": "want / need (నాకు … కావాలి)"
+    },
+    {
+      "t": "సరే",
+      "r": "sarē",
+      "en": "OK"
+    },
+    {
+      "t": "మళ్ళీ కలుద్దాం",
+      "r": "maḷḷī kaluddāṁ",
+      "en": "see you again"
+    }
   ],
-
   "quiz": [
-    {"id": "tq-01", "lesson": "basics", "type": "meaning", "topic": "basics", "level": "beginner", "q": "What does నమస్కారం mean?", "a": "hello", "opts": ["hello", "goodbye", "thank you", "sorry"], "explain": "నమస్కారం (namaskāraṁ) is the standard formal hello — to elders, officials, anyone you respect."},
-    {"id": "tq-02", "lesson": "basics", "type": "vocab", "topic": "basics", "level": "beginner", "q": "How do you say 'thank you' in Telugu?", "a": "ధన్యవాదాలు", "opts": ["ధన్యవాదాలు", "నమస్కారం", "క్షమించండి", "వస్తాను"], "explain": "ధన్యవాదాలు (dhanyavādālu). క్షమించండి is excuse-me/sorry — don't mix them."},
-    {"id": "tq-03", "lesson": "pronunciation", "type": "usage", "topic": "basics", "level": "beginner", "q": "Telugu ఎ and ఏ differ in…", "a": "vowel length (short e vs long ē)", "opts": ["vowel length (short e vs long ē)", "tone", "nothing — they sound the same", "gender"], "explain": "Telugu doubles its e and o: short vs long changes meaning. Same for ఒ/ఓ. Train your ear from day one."},
-    {"id": "tq-04", "lesson": "basics", "type": "meaning", "topic": "basics", "level": "beginner", "q": "మీరు ఎలా ఉన్నారు? means…", "a": "How are you? (formal)", "opts": ["How are you? (formal)", "What is your name?", "Where are you from?", "See you again"], "explain": "మీరు (mīru) is formal 'you' — safe with every stranger."},
-    {"id": "tq-05", "lesson": "numbers", "type": "vocab", "topic": "numbers", "level": "beginner", "q": "What does ఐదు mean?", "a": "five", "opts": ["four", "five", "six", "seven"], "explain": "ఐదు (aidu) = 5."},
-    {"id": "tq-06", "lesson": "numbers", "type": "vocab", "topic": "numbers", "level": "beginner", "q": "How do you say 'ten'?", "a": "పది", "opts": ["పది", "ఐదు", "ఇరవై", "వంద"], "explain": "పది (padi) = 10. ఇరవై is 20, వంద is 100."},
-    {"id": "tq-07", "lesson": "numbers", "type": "vocab", "topic": "numbers", "level": "elementary", "q": "ఇరవై means…", "a": "twenty", "opts": ["twelve", "twenty", "two hundred", "two thousand"], "explain": "ఇరవై (iravai) = 20 — its own word, like English 'twenty'."},
-    {"id": "tq-08", "lesson": "numbers", "type": "vocab", "topic": "numbers", "level": "elementary", "q": "వంద means…", "a": "one hundred", "opts": ["one thousand", "one hundred", "eleven", "ten"], "explain": "వంద (vanda) = 100 in counting; నూరు (nūru) appears in compounds."},
-    {"id": "tq-09", "lesson": "food", "type": "vocab", "topic": "food", "level": "beginner", "q": "What does అన్నం mean?", "a": "cooked rice", "opts": ["cooked rice", "bread", "fish", "lentils"], "explain": "అన్నం (annaṁ) is cooked rice — the centre of the Telugu plate. Uncooked rice is బియ్యం."},
-    {"id": "tq-10", "lesson": "food", "type": "vocab", "topic": "food", "level": "beginner", "q": "చేప means…", "a": "fish", "opts": ["meat", "fish", "egg", "milk"], "explain": "చేప (chēpa) = fish. Coastal Andhra runs on fish and rice."},
-    {"id": "tq-11", "lesson": "food", "type": "usage", "topic": "food", "level": "elementary", "q": "ఒక టీ ఇవ్వండి means…", "a": "One tea, please", "opts": ["One tea, please", "Two teas, please", "No tea", "Tea is cold"], "explain": "ఒక = one, ఇవ్వండి = give (polite). The full polite ordering pattern."},
-    {"id": "tq-12", "lesson": "travel", "type": "usage", "topic": "travel", "level": "beginner", "q": "స్టేషన్ ఎక్కడ ఉంది? means…", "a": "Where is the station?", "opts": ["Where is the station?", "The station is far", "Take me to the station", "The station is closed"], "explain": "ఎక్కడ (ekkaḍa) = where. X ఎక్కడ ఉంది? is the whole direction toolkit in three words."},
-    {"id": "tq-13", "lesson": "travel", "type": "vocab", "topic": "travel", "level": "beginner", "q": "కుడి means…", "a": "right", "opts": ["left", "right", "straight", "back"], "explain": "కుడి (kuḍi) = to the right. Left is ఎడమ, straight is సరాసరి."},
-    {"id": "tq-14", "lesson": "travel", "type": "usage", "topic": "travel", "level": "elementary", "q": "ఛార్జీ ఎంత? means…", "a": "How much is the fare?", "opts": ["How much is the fare?", "The fare is fixed", "Stop the car", "Faster, please"], "explain": "ఛార్జీ (chārjī) = fare, ఎంత = how much. Ask the auto driver before you sit down."},
-    {"id": "tq-15", "lesson": "grammar", "type": "usage", "topic": "grammar", "level": "beginner", "q": "నేను అన్నం తింటాను. The word order is…", "a": "I · rice · eat (verb last)", "opts": ["I · eat · rice (like English)", "I · rice · eat (verb last)", "Rice · I · eat", "Eat · I · rice"], "explain": "Telugu is subject–object–verb: నేను అన్నం తింటాను. The verb always goes last."},
-    {"id": "tq-16", "lesson": "grammar", "type": "usage", "topic": "grammar", "level": "beginner", "q": "Which 'you' is safe with strangers?", "a": "మీరు", "opts": ["నువ్వు", "మీరు", "అతను", "నేను"], "explain": "మీరు (mīru) is formal and safe everywhere. నువ్వు to a stranger is rude."},
-    {"id": "tq-17", "lesson": "grammar", "type": "usage", "topic": "grammar", "level": "elementary", "q": "నేను మాంసం తినను means…", "a": "I don't eat meat", "opts": ["I don't eat meat", "I eat meat daily", "I ate meat", "I will eat meat"], "explain": "తినను (tinanu) is the negative ending: తింటాను → తినను. No extra word — the ending does the work."},
-    {"id": "tq-18", "lesson": "grammar", "type": "usage", "topic": "grammar", "level": "elementary", "q": "'She eats' is…", "a": "తింటుంది", "opts": ["తింటాడు", "తింటుంది", "తింటావు", "తింటారు"], "explain": "తింటుంది (tinṭundi) — Telugu verbs agree in the third person. 'He eats' is తింటాడు."},
-    {"id": "tq-19", "lesson": "conversation", "type": "meaning", "topic": "conversation", "level": "beginner", "q": "నా పేరు … means…", "a": "My name is …", "opts": ["My name is …", "Your name is …", "What is this?", "I am lost"], "explain": "నా (nā) = my, పేరు = name. నా పేరు లక్ష్మి = my name is Lakshmi."},
-    {"id": "tq-20", "lesson": "conversation", "type": "usage", "topic": "conversation", "level": "elementary", "q": "నేను తెలుగు నేర్చుకుంటున్నాను means…", "a": "I am learning Telugu", "opts": ["I am learning Telugu", "I speak Telugu fluently", "I forgot Telugu", "I teach Telugu"], "explain": "నేర్చుకుంటున్నాను is present continuous: right now, in progress. Say it to any Telugu person and watch them smile."},
-    {"id": "tq-21", "lesson": "vocabulary", "type": "vocab", "topic": "vocabulary", "level": "beginner", "q": "పుస్తకం means…", "a": "book", "opts": ["book", "house", "school", "road"], "explain": "పుస్తకం (pustakaṁ) = book. ఒక పుస్తకం = one book."},
-    {"id": "tq-22", "lesson": "vocabulary", "type": "vocab", "topic": "vocabulary", "level": "beginner", "q": "ఇల్లు means…", "a": "house", "opts": ["house", "car", "shop", "school"], "explain": "ఇల్లు (illu) = house/home. ఇంట్లో = at home (లో = in/at)."},
-    {"id": "tq-23", "lesson": "shopping", "type": "usage", "topic": "travel", "level": "elementary", "q": "ఇది ఎంత? means…", "a": "How much is this?", "opts": ["How much is this?", "This is free", "This is mine", "Wrap this up"], "explain": "ఇది (this) + ఎంత (how much). The market survival sentence."},
-    {"id": "tq-24", "lesson": "time-dates", "type": "vocab", "topic": "basics", "level": "elementary", "q": "రేపు means…", "a": "tomorrow", "opts": ["today", "tomorrow", "yesterday", "now"], "explain": "రేపు (rēpu) = tomorrow. Yesterday is నిన్న — Telugu splits them cleanly."}
-  ]
+    {
+      "id": "tq-01",
+      "lesson": "basics",
+      "type": "meaning",
+      "topic": "basics",
+      "level": "beginner",
+      "q": "What does నమస్కారం mean?",
+      "a": "hello",
+      "opts": [
+        "hello",
+        "goodbye",
+        "thank you",
+        "sorry"
+      ],
+      "explain": "నమస్కారం (namaskāraṁ) is the standard formal hello — to elders, officials, anyone you respect."
+    },
+    {
+      "id": "tq-02",
+      "lesson": "basics",
+      "type": "vocab",
+      "topic": "basics",
+      "level": "beginner",
+      "q": "How do you say 'thank you' in Telugu?",
+      "a": "ధన్యవాదాలు",
+      "opts": [
+        "ధన్యవాదాలు",
+        "నమస్కారం",
+        "క్షమించండి",
+        "వస్తాను"
+      ],
+      "explain": "ధన్యవాదాలు (dhanyavādālu). క్షమించండి is excuse-me/sorry — don't mix them."
+    },
+    {
+      "id": "tq-03",
+      "lesson": "pronunciation",
+      "type": "usage",
+      "topic": "basics",
+      "level": "beginner",
+      "q": "Telugu ఎ and ఏ differ in…",
+      "a": "vowel length (short e vs long ē)",
+      "opts": [
+        "vowel length (short e vs long ē)",
+        "tone",
+        "nothing — they sound the same",
+        "gender"
+      ],
+      "explain": "Telugu doubles its e and o: short vs long changes meaning. Same for ఒ/ఓ. Train your ear from day one."
+    },
+    {
+      "id": "tq-04",
+      "lesson": "basics",
+      "type": "meaning",
+      "topic": "basics",
+      "level": "beginner",
+      "q": "మీరు ఎలా ఉన్నారు? means…",
+      "a": "How are you? (formal)",
+      "opts": [
+        "How are you? (formal)",
+        "What is your name?",
+        "Where are you from?",
+        "See you again"
+      ],
+      "explain": "మీరు (mīru) is formal 'you' — safe with every stranger."
+    },
+    {
+      "id": "tq-05",
+      "lesson": "numbers",
+      "type": "vocab",
+      "topic": "numbers",
+      "level": "beginner",
+      "q": "What does ఐదు mean?",
+      "a": "five",
+      "opts": [
+        "four",
+        "five",
+        "six",
+        "seven"
+      ],
+      "explain": "ఐదు (aidu) = 5."
+    },
+    {
+      "id": "tq-06",
+      "lesson": "numbers",
+      "type": "vocab",
+      "topic": "numbers",
+      "level": "beginner",
+      "q": "How do you say 'ten'?",
+      "a": "పది",
+      "opts": [
+        "పది",
+        "ఐదు",
+        "ఇరవై",
+        "వంద"
+      ],
+      "explain": "పది (padi) = 10. ఇరవై is 20, వంద is 100."
+    },
+    {
+      "id": "tq-07",
+      "lesson": "numbers",
+      "type": "vocab",
+      "topic": "numbers",
+      "level": "elementary",
+      "q": "ఇరవై means…",
+      "a": "twenty",
+      "opts": [
+        "twelve",
+        "twenty",
+        "two hundred",
+        "two thousand"
+      ],
+      "explain": "ఇరవై (iravai) = 20 — its own word, like English 'twenty'."
+    },
+    {
+      "id": "tq-08",
+      "lesson": "numbers",
+      "type": "vocab",
+      "topic": "numbers",
+      "level": "elementary",
+      "q": "వంద means…",
+      "a": "one hundred",
+      "opts": [
+        "one thousand",
+        "one hundred",
+        "eleven",
+        "ten"
+      ],
+      "explain": "వంద (vanda) = 100 in counting; నూరు (nūru) appears in compounds."
+    },
+    {
+      "id": "tq-09",
+      "lesson": "food",
+      "type": "vocab",
+      "topic": "food",
+      "level": "beginner",
+      "q": "What does అన్నం mean?",
+      "a": "cooked rice",
+      "opts": [
+        "cooked rice",
+        "bread",
+        "fish",
+        "lentils"
+      ],
+      "explain": "అన్నం (annaṁ) is cooked rice — the centre of the Telugu plate. Uncooked rice is బియ్యం."
+    },
+    {
+      "id": "tq-10",
+      "lesson": "food",
+      "type": "vocab",
+      "topic": "food",
+      "level": "beginner",
+      "q": "చేప means…",
+      "a": "fish",
+      "opts": [
+        "meat",
+        "fish",
+        "egg",
+        "milk"
+      ],
+      "explain": "చేప (chēpa) = fish. Coastal Andhra runs on fish and rice."
+    },
+    {
+      "id": "tq-11",
+      "lesson": "food",
+      "type": "usage",
+      "topic": "food",
+      "level": "elementary",
+      "q": "ఒక టీ ఇవ్వండి means…",
+      "a": "One tea, please",
+      "opts": [
+        "One tea, please",
+        "Two teas, please",
+        "No tea",
+        "Tea is cold"
+      ],
+      "explain": "ఒక = one, ఇవ్వండి = give (polite). The full polite ordering pattern."
+    },
+    {
+      "id": "tq-12",
+      "lesson": "travel",
+      "type": "usage",
+      "topic": "travel",
+      "level": "beginner",
+      "q": "స్టేషన్ ఎక్కడ ఉంది? means…",
+      "a": "Where is the station?",
+      "opts": [
+        "Where is the station?",
+        "The station is far",
+        "Take me to the station",
+        "The station is closed"
+      ],
+      "explain": "ఎక్కడ (ekkaḍa) = where. X ఎక్కడ ఉంది? is the whole direction toolkit in three words."
+    },
+    {
+      "id": "tq-13",
+      "lesson": "travel",
+      "type": "vocab",
+      "topic": "travel",
+      "level": "beginner",
+      "q": "కుడి means…",
+      "a": "right",
+      "opts": [
+        "left",
+        "right",
+        "straight",
+        "back"
+      ],
+      "explain": "కుడి (kuḍi) = to the right. Left is ఎడమ, straight is సరాసరి."
+    },
+    {
+      "id": "tq-14",
+      "lesson": "travel",
+      "type": "usage",
+      "topic": "travel",
+      "level": "elementary",
+      "q": "ఛార్జీ ఎంత? means…",
+      "a": "How much is the fare?",
+      "opts": [
+        "How much is the fare?",
+        "The fare is fixed",
+        "Stop the car",
+        "Faster, please"
+      ],
+      "explain": "ఛార్జీ (chārjī) = fare, ఎంత = how much. Ask the auto driver before you sit down."
+    },
+    {
+      "id": "tq-15",
+      "lesson": "grammar",
+      "type": "usage",
+      "topic": "grammar",
+      "level": "beginner",
+      "q": "నేను అన్నం తింటాను. The word order is…",
+      "a": "I · rice · eat (verb last)",
+      "opts": [
+        "I · eat · rice (like English)",
+        "I · rice · eat (verb last)",
+        "Rice · I · eat",
+        "Eat · I · rice"
+      ],
+      "explain": "Telugu is subject–object–verb: నేను అన్నం తింటాను. The verb always goes last."
+    },
+    {
+      "id": "tq-16",
+      "lesson": "grammar",
+      "type": "usage",
+      "topic": "grammar",
+      "level": "beginner",
+      "q": "Which 'you' is safe with strangers?",
+      "a": "మీరు",
+      "opts": [
+        "నువ్వు",
+        "మీరు",
+        "అతను",
+        "నేను"
+      ],
+      "explain": "మీరు (mīru) is formal and safe everywhere. నువ్వు to a stranger is rude."
+    },
+    {
+      "id": "tq-17",
+      "lesson": "grammar",
+      "type": "usage",
+      "topic": "grammar",
+      "level": "elementary",
+      "q": "నేను మాంసం తినను means…",
+      "a": "I don't eat meat",
+      "opts": [
+        "I don't eat meat",
+        "I eat meat daily",
+        "I ate meat",
+        "I will eat meat"
+      ],
+      "explain": "తినను (tinanu) is the negative ending: తింటాను → తినను. No extra word — the ending does the work."
+    },
+    {
+      "id": "tq-18",
+      "lesson": "grammar",
+      "type": "usage",
+      "topic": "grammar",
+      "level": "elementary",
+      "q": "'She eats' is…",
+      "a": "తింటుంది",
+      "opts": [
+        "తింటాడు",
+        "తింటుంది",
+        "తింటావు",
+        "తింటారు"
+      ],
+      "explain": "తింటుంది (tinṭundi) — Telugu verbs agree in the third person. 'He eats' is తింటాడు."
+    },
+    {
+      "id": "tq-19",
+      "lesson": "conversation",
+      "type": "meaning",
+      "topic": "conversation",
+      "level": "beginner",
+      "q": "నా పేరు … means…",
+      "a": "My name is …",
+      "opts": [
+        "My name is …",
+        "Your name is …",
+        "What is this?",
+        "I am lost"
+      ],
+      "explain": "నా (nā) = my, పేరు = name. నా పేరు లక్ష్మి = my name is Lakshmi."
+    },
+    {
+      "id": "tq-20",
+      "lesson": "conversation",
+      "type": "usage",
+      "topic": "conversation",
+      "level": "elementary",
+      "q": "నేను తెలుగు నేర్చుకుంటున్నాను means…",
+      "a": "I am learning Telugu",
+      "opts": [
+        "I am learning Telugu",
+        "I speak Telugu fluently",
+        "I forgot Telugu",
+        "I teach Telugu"
+      ],
+      "explain": "నేర్చుకుంటున్నాను is present continuous: right now, in progress. Say it to any Telugu person and watch them smile."
+    },
+    {
+      "id": "tq-21",
+      "lesson": "vocabulary",
+      "type": "vocab",
+      "topic": "vocabulary",
+      "level": "beginner",
+      "q": "పుస్తకం means…",
+      "a": "book",
+      "opts": [
+        "book",
+        "house",
+        "school",
+        "road"
+      ],
+      "explain": "పుస్తకం (pustakaṁ) = book. ఒక పుస్తకం = one book."
+    },
+    {
+      "id": "tq-22",
+      "lesson": "vocabulary",
+      "type": "vocab",
+      "topic": "vocabulary",
+      "level": "beginner",
+      "q": "ఇల్లు means…",
+      "a": "house",
+      "opts": [
+        "house",
+        "car",
+        "shop",
+        "school"
+      ],
+      "explain": "ఇల్లు (illu) = house/home. ఇంట్లో = at home (లో = in/at)."
+    },
+    {
+      "id": "tq-23",
+      "lesson": "shopping",
+      "type": "usage",
+      "topic": "travel",
+      "level": "elementary",
+      "q": "ఇది ఎంత? means…",
+      "a": "How much is this?",
+      "opts": [
+        "How much is this?",
+        "This is free",
+        "This is mine",
+        "Wrap this up"
+      ],
+      "explain": "ఇది (this) + ఎంత (how much). The market survival sentence."
+    },
+    {
+      "id": "tq-24",
+      "lesson": "time-dates",
+      "type": "vocab",
+      "topic": "basics",
+      "level": "elementary",
+      "q": "రేపు means…",
+      "a": "tomorrow",
+      "opts": [
+        "today",
+        "tomorrow",
+        "yesterday",
+        "now"
+      ],
+      "explain": "రేపు (rēpu) = tomorrow. Yesterday is నిన్న — Telugu splits them cleanly."
+    }
+  ],
+  "advanced_modules": []
 }

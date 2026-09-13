@@ -8,7 +8,12 @@
   "script_name": "Devanagari (Balbodh)",
   "script_note": "The SAME script as Hindi — if you read Hindi, you can sound out Marathi on day one. Only two surprises wait: ळ (retroflex L, unknown in Hindi) and a few spelling habits of its own.",
   "difficulty": "US Foreign Service Institute Category III (about 1,100 hours to professional proficiency) — grouped with Hindi. The shared script makes reading easy; three genders where Hindi has two make grammar harder.",
-  "sov": {"t": "मी भात खातो", "r": "mi bhat khato", "hi": "मैं चावल खाता हूँ", "en": "I eat rice (a man speaking — a woman says खाते; word-for-word: I · rice · eat)"},
+  "sov": {
+    "t": "मी भात खातो",
+    "r": "mi bhat khato",
+    "hi": "मैं चावल खाता हूँ",
+    "en": "I eat rice (a man speaking — a woman says खाते; word-for-word: I · rice · eat)"
+  },
   "gender_title": "Three genders, not two",
   "gender_note": "Marathi has masculine, feminine AND neuter — one more than Hindi. Adjectives and verbs agree: चांगला मुलगा (good boy), चांगली मुलगी (good girl), चांगले पुस्तक (good book). Learn every noun with its gender.",
   "present_note": "The verb agrees with WHO is speaking and their gender: a man says खातो, a woman says खाते. Formal तुम्ही takes its own ending — the verb tells you the relationship.",
@@ -17,404 +22,2403 @@
   "counting_note": "Marathi counts directly — number + noun, no classifier words:",
   "survival_trio": "X कुठे आहे? (where is X?), भाडे किती? (how much?), इथे थांबा (stop here). These three handle 80% of travel.",
   "bargaining_script": "हे कितीला? → खूप महाग! → थोडे कमी करा → ठीक आहे, घेतो. Smile through all four steps.",
-
   "vowels": [
-    {"t": "अ", "r": "a", "hint": "a as in 'about' — a short neutral uh"},
-    {"t": "आ", "r": "ā", "hint": "a as in 'father'"},
-    {"t": "इ", "r": "i", "hint": "i as in 'bit'"},
-    {"t": "ई", "r": "ī", "hint": "ee as in 'feet'"},
-    {"t": "उ", "r": "u", "hint": "u as in 'put'"},
-    {"t": "ऊ", "r": "ū", "hint": "oo as in 'food'"},
-    {"t": "ऋ", "r": "ṛ", "hint": "ru as in 'rude' — rare, Sanskrit loanwords only"},
-    {"t": "ए", "r": "e", "hint": "ay as in 'say' (shorter, no glide)"},
-    {"t": "ऐ", "r": "ai", "hint": "ai as in 'aisle'"},
-    {"t": "ओ", "r": "o", "hint": "o as in 'go'"},
-    {"t": "औ", "r": "au", "hint": "ow as in 'cow'"},
-    {"t": "अं", "r": "am", "hint": "nasalizes the vowel: मुंबई (Mumbai)"},
-    {"t": "अः", "r": "ah", "hint": "breathy h at word end — rare"}
+    {
+      "t": "अ",
+      "r": "a",
+      "hint": "a as in 'about' — a short neutral uh"
+    },
+    {
+      "t": "आ",
+      "r": "ā",
+      "hint": "a as in 'father'"
+    },
+    {
+      "t": "इ",
+      "r": "i",
+      "hint": "i as in 'bit'"
+    },
+    {
+      "t": "ई",
+      "r": "ī",
+      "hint": "ee as in 'feet'"
+    },
+    {
+      "t": "उ",
+      "r": "u",
+      "hint": "u as in 'put'"
+    },
+    {
+      "t": "ऊ",
+      "r": "ū",
+      "hint": "oo as in 'food'"
+    },
+    {
+      "t": "ऋ",
+      "r": "ṛ",
+      "hint": "ru as in 'rude' — rare, Sanskrit loanwords only"
+    },
+    {
+      "t": "ए",
+      "r": "e",
+      "hint": "ay as in 'say' (shorter, no glide)"
+    },
+    {
+      "t": "ऐ",
+      "r": "ai",
+      "hint": "ai as in 'aisle'"
+    },
+    {
+      "t": "ओ",
+      "r": "o",
+      "hint": "o as in 'go'"
+    },
+    {
+      "t": "औ",
+      "r": "au",
+      "hint": "ow as in 'cow'"
+    },
+    {
+      "t": "अं",
+      "r": "am",
+      "hint": "nasalizes the vowel: मुंबई (Mumbai)"
+    },
+    {
+      "t": "अः",
+      "r": "ah",
+      "hint": "breathy h at word end — rare"
+    }
   ],
   "consonants": [
-    {"t": "क", "r": "k", "hint": "k as in 'skin' (unaspirated)"},
-    {"t": "ख", "r": "kh", "hint": "k with a puff of air"},
-    {"t": "ग", "r": "g", "hint": "g as in 'go'"},
-    {"t": "घ", "r": "gh", "hint": "g with a puff of air"},
-    {"t": "ङ", "r": "ng", "hint": "ng as in 'sing' — rare in daily Marathi"},
-    {"t": "च", "r": "ch", "hint": "ch as in 'church'"},
-    {"t": "छ", "r": "chh", "hint": "ch with a puff of air"},
-    {"t": "ज", "r": "j", "hint": "j as in 'jam'"},
-    {"t": "झ", "r": "jh", "hint": "j with a puff of air"},
-    {"t": "ञ", "r": "n", "hint": "n as in 'inch' — rare in daily words"},
-    {"t": "ट", "r": "ṭ", "hint": "t with tongue curled back (retroflex)"},
-    {"t": "ठ", "r": "ṭh", "hint": "retroflex t with a puff of air"},
-    {"t": "ड", "r": "ḍ", "hint": "d with tongue curled back"},
-    {"t": "ढ", "r": "ḍh", "hint": "retroflex d with a puff of air"},
-    {"t": "ण", "r": "ṇ", "hint": "retroflex n"},
-    {"t": "त", "r": "t", "hint": "t with tongue on teeth (dental)"},
-    {"t": "थ", "r": "th", "hint": "dental t with a puff of air (never 'th' as in 'thin')"},
-    {"t": "द", "r": "d", "hint": "d with tongue on teeth"},
-    {"t": "ध", "r": "dh", "hint": "dental d with a puff of air"},
-    {"t": "न", "r": "n", "hint": "dental n"},
-    {"t": "प", "r": "p", "hint": "p as in 'spin'"},
-    {"t": "फ", "r": "ph", "hint": "p with a puff of air (often 'f' in city speech)"},
-    {"t": "ब", "r": "b", "hint": "b as in 'bat'"},
-    {"t": "भ", "r": "bh", "hint": "b with a puff of air"},
-    {"t": "म", "r": "m", "hint": "m as in 'mat'"},
-    {"t": "य", "r": "y", "hint": "y as in 'yes'"},
-    {"t": "र", "r": "r", "hint": "tapped r, like Spanish 'pero'"},
-    {"t": "ल", "r": "l", "hint": "l as in 'let'"},
-    {"t": "व", "r": "v", "hint": "between English v and w"},
-    {"t": "श", "r": "sh", "hint": "sh as in 'ship'"},
-    {"t": "ष", "r": "sh", "hint": "same sound as श in daily speech"},
-    {"t": "स", "r": "s", "hint": "s as in 'sun'"},
-    {"t": "ह", "r": "h", "hint": "h as in 'hat'"},
-    {"t": "ळ", "r": "ḷ", "hint": "THE Marathi sound: retroflex L, tongue curled back. बाळ (child) vs बाल (hair) — a true minimal pair"},
-    {"t": "क्ष", "r": "ksh", "hint": "as in 'rickshaw'"},
-    {"t": "ज्ञ", "r": "dny", "hint": "as in ज्ञान (knowledge) — say 'dnya'"}
+    {
+      "t": "क",
+      "r": "k",
+      "hint": "k as in 'skin' (unaspirated)"
+    },
+    {
+      "t": "ख",
+      "r": "kh",
+      "hint": "k with a puff of air"
+    },
+    {
+      "t": "ग",
+      "r": "g",
+      "hint": "g as in 'go'"
+    },
+    {
+      "t": "घ",
+      "r": "gh",
+      "hint": "g with a puff of air"
+    },
+    {
+      "t": "ङ",
+      "r": "ng",
+      "hint": "ng as in 'sing' — rare in daily Marathi"
+    },
+    {
+      "t": "च",
+      "r": "ch",
+      "hint": "ch as in 'church'"
+    },
+    {
+      "t": "छ",
+      "r": "chh",
+      "hint": "ch with a puff of air"
+    },
+    {
+      "t": "ज",
+      "r": "j",
+      "hint": "j as in 'jam'"
+    },
+    {
+      "t": "झ",
+      "r": "jh",
+      "hint": "j with a puff of air"
+    },
+    {
+      "t": "ञ",
+      "r": "n",
+      "hint": "n as in 'inch' — rare in daily words"
+    },
+    {
+      "t": "ट",
+      "r": "ṭ",
+      "hint": "t with tongue curled back (retroflex)"
+    },
+    {
+      "t": "ठ",
+      "r": "ṭh",
+      "hint": "retroflex t with a puff of air"
+    },
+    {
+      "t": "ड",
+      "r": "ḍ",
+      "hint": "d with tongue curled back"
+    },
+    {
+      "t": "ढ",
+      "r": "ḍh",
+      "hint": "retroflex d with a puff of air"
+    },
+    {
+      "t": "ण",
+      "r": "ṇ",
+      "hint": "retroflex n"
+    },
+    {
+      "t": "त",
+      "r": "t",
+      "hint": "t with tongue on teeth (dental)"
+    },
+    {
+      "t": "थ",
+      "r": "th",
+      "hint": "dental t with a puff of air (never 'th' as in 'thin')"
+    },
+    {
+      "t": "द",
+      "r": "d",
+      "hint": "d with tongue on teeth"
+    },
+    {
+      "t": "ध",
+      "r": "dh",
+      "hint": "dental d with a puff of air"
+    },
+    {
+      "t": "न",
+      "r": "n",
+      "hint": "dental n"
+    },
+    {
+      "t": "प",
+      "r": "p",
+      "hint": "p as in 'spin'"
+    },
+    {
+      "t": "फ",
+      "r": "ph",
+      "hint": "p with a puff of air (often 'f' in city speech)"
+    },
+    {
+      "t": "ब",
+      "r": "b",
+      "hint": "b as in 'bat'"
+    },
+    {
+      "t": "भ",
+      "r": "bh",
+      "hint": "b with a puff of air"
+    },
+    {
+      "t": "म",
+      "r": "m",
+      "hint": "m as in 'mat'"
+    },
+    {
+      "t": "य",
+      "r": "y",
+      "hint": "y as in 'yes'"
+    },
+    {
+      "t": "र",
+      "r": "r",
+      "hint": "tapped r, like Spanish 'pero'"
+    },
+    {
+      "t": "ल",
+      "r": "l",
+      "hint": "l as in 'let'"
+    },
+    {
+      "t": "व",
+      "r": "v",
+      "hint": "between English v and w"
+    },
+    {
+      "t": "श",
+      "r": "sh",
+      "hint": "sh as in 'ship'"
+    },
+    {
+      "t": "ष",
+      "r": "sh",
+      "hint": "same sound as श in daily speech"
+    },
+    {
+      "t": "स",
+      "r": "s",
+      "hint": "s as in 'sun'"
+    },
+    {
+      "t": "ह",
+      "r": "h",
+      "hint": "h as in 'hat'"
+    },
+    {
+      "t": "ळ",
+      "r": "ḷ",
+      "hint": "THE Marathi sound: retroflex L, tongue curled back. बाळ (child) vs बाल (hair) — a true minimal pair"
+    },
+    {
+      "t": "क्ष",
+      "r": "ksh",
+      "hint": "as in 'rickshaw'"
+    },
+    {
+      "t": "ज्ञ",
+      "r": "dny",
+      "hint": "as in ज्ञान (knowledge) — say 'dnya'"
+    }
   ],
-
   "greetings": [
-    {"en": "Hello (formal)", "hi": "नमस्ते", "t": "नमस्कार", "r": "namaskār"},
-    {"en": "Good day (all-day greeting)", "hi": "शुभ दिन", "t": "शुभ दिवस", "r": "śubh divas", "note": "Maharashtra's all-day greeting — use it everywhere"},
-    {"en": "How are you? (formal)", "hi": "आप कैसे हैं?", "t": "तुम्ही कसे आहात?", "r": "tumhī kase āhāt?"},
-    {"en": "How are you? (familiar, to a man)", "hi": "तुम कैसे हो?", "t": "तू कसा आहेस?", "r": "tū kasā āhes?"},
-    {"en": "How are you? (familiar, to a woman)", "hi": "तुम कैसी हो?", "t": "तू कशी आहेस?", "r": "tū kaśī āhes?"},
-    {"en": "I'm fine", "hi": "मैं ठीक हूँ", "t": "मी ठीक आहे", "r": "mī ṭhīk āhe"},
-    {"en": "Thank you", "hi": "धन्यवाद", "t": "धन्यवाद", "r": "dhanyavād"},
-    {"en": "Yes / No", "hi": "हाँ / नहीं", "t": "हो / नाही", "r": "ho / nāhī"},
-    {"en": "Please", "hi": "कृपया", "t": "कृपया", "r": "kṛpayā"},
-    {"en": "Excuse me / Sorry", "hi": "माफ़ कीजिए", "t": "माफ करा", "r": "māph karā"},
-    {"en": "Good morning", "hi": "सुप्रभात", "t": "शुभ सकाळ", "r": "śubh sakāḷ"},
-    {"en": "Good night", "hi": "शुभ रात्रि", "t": "शुभ रात्री", "r": "śubh rātrī"},
-    {"en": "Goodbye (said by the leaver)", "hi": "चलता हूँ", "t": "येतो", "r": "yeto", "note": "Said by the person LEAVING (I go) — the stayer answers या (come again)"},
-    {"en": "See you again", "hi": "फिर मिलेंगे", "t": "पुन्हा भेटू", "r": "punhā bheṭū"},
-    {"en": "Welcome", "hi": "स्वागत है", "t": "स्वागत आहे", "r": "svāgat āhe"}
+    {
+      "en": "Hello (formal)",
+      "hi": "नमस्ते",
+      "t": "नमस्कार",
+      "r": "namaskār"
+    },
+    {
+      "en": "Good day (all-day greeting)",
+      "hi": "शुभ दिन",
+      "t": "शुभ दिवस",
+      "r": "śubh divas",
+      "note": "Maharashtra's all-day greeting — use it everywhere"
+    },
+    {
+      "en": "How are you? (formal)",
+      "hi": "आप कैसे हैं?",
+      "t": "तुम्ही कसे आहात?",
+      "r": "tumhī kase āhāt?"
+    },
+    {
+      "en": "How are you? (familiar, to a man)",
+      "hi": "तुम कैसे हो?",
+      "t": "तू कसा आहेस?",
+      "r": "tū kasā āhes?"
+    },
+    {
+      "en": "How are you? (familiar, to a woman)",
+      "hi": "तुम कैसी हो?",
+      "t": "तू कशी आहेस?",
+      "r": "tū kaśī āhes?"
+    },
+    {
+      "en": "I'm fine",
+      "hi": "मैं ठीक हूँ",
+      "t": "मी ठीक आहे",
+      "r": "mī ṭhīk āhe"
+    },
+    {
+      "en": "Thank you",
+      "hi": "धन्यवाद",
+      "t": "धन्यवाद",
+      "r": "dhanyavād"
+    },
+    {
+      "en": "Yes / No",
+      "hi": "हाँ / नहीं",
+      "t": "हो / नाही",
+      "r": "ho / nāhī"
+    },
+    {
+      "en": "Please",
+      "hi": "कृपया",
+      "t": "कृपया",
+      "r": "kṛpayā"
+    },
+    {
+      "en": "Excuse me / Sorry",
+      "hi": "माफ़ कीजिए",
+      "t": "माफ करा",
+      "r": "māph karā"
+    },
+    {
+      "en": "Good morning",
+      "hi": "सुप्रभात",
+      "t": "शुभ सकाळ",
+      "r": "śubh sakāḷ"
+    },
+    {
+      "en": "Good night",
+      "hi": "शुभ रात्रि",
+      "t": "शुभ रात्री",
+      "r": "śubh rātrī"
+    },
+    {
+      "en": "Goodbye (said by the leaver)",
+      "hi": "चलता हूँ",
+      "t": "येतो",
+      "r": "yeto",
+      "note": "Said by the person LEAVING (I go) — the stayer answers या (come again)"
+    },
+    {
+      "en": "See you again",
+      "hi": "फिर मिलेंगे",
+      "t": "पुन्हा भेटू",
+      "r": "punhā bheṭū"
+    },
+    {
+      "en": "Welcome",
+      "hi": "स्वागत है",
+      "t": "स्वागत आहे",
+      "r": "svāgat āhe"
+    }
   ],
-
   "pronouns": [
-    {"en": "I", "hi": "मैं", "t": "मी", "r": "mī"},
-    {"en": "we (excluding you)", "hi": "हम", "t": "आम्ही", "r": "āmhī", "note": "आपण (āpaṇ) = we-INCLUDING-you — Marathi splits what Hindi/English merge"},
-    {"en": "you (formal / plural)", "hi": "आप / तुम सब", "t": "तुम्ही", "r": "tumhī"},
-    {"en": "you (intimate)", "hi": "तू", "t": "तू", "r": "tū", "note": "Close friends, children — never strangers"},
-    {"en": "he", "hi": "वह", "t": "तो", "r": "to", "note": "Three words where Hindi has one: तो/ती/ते (he/she/it)"},
-    {"en": "she", "hi": "वह", "t": "ती", "r": "tī"},
-    {"en": "it", "hi": "यह / वह", "t": "ते", "r": "te"},
-    {"en": "they (masculine / mixed)", "hi": "वे", "t": "ते", "r": "te"},
-    {"en": "they (feminine)", "hi": "वे", "t": "त्या", "r": "tyā"},
-    {"en": "this (near, masc)", "hi": "यह", "t": "हा", "r": "hā"},
-    {"en": "that (far, masc)", "hi": "वह", "t": "तो", "r": "to", "note": "Same word as 'he' — context decides"},
-    {"en": "what", "hi": "क्या", "t": "काय", "r": "kāy"},
-    {"en": "who", "hi": "कौन", "t": "कोण", "r": "koṇ"},
-    {"en": "where", "hi": "कहाँ", "t": "कुठे", "r": "kuṭhe"},
-    {"en": "when", "hi": "कब", "t": "केव्हा", "r": "kevhā"},
-    {"en": "why", "hi": "क्यों", "t": "का", "r": "kā"},
-    {"en": "how", "hi": "कैसे", "t": "कसा / कशी / कसे", "r": "kasā / kaśī / kase", "note": "Agrees with gender: masc / fem / neuter"},
-    {"en": "how much / how many", "hi": "कितना", "t": "किती", "r": "kitī"},
-    {"en": "which", "hi": "कौन-सा", "t": "कोणता / कोणती", "r": "koṇtā / koṇtī", "note": "कोणता (masc) / कोणती (fem)"}
+    {
+      "en": "I",
+      "hi": "मैं",
+      "t": "मी",
+      "r": "mī"
+    },
+    {
+      "en": "we (excluding you)",
+      "hi": "हम",
+      "t": "आम्ही",
+      "r": "āmhī",
+      "note": "आपण (āpaṇ) = we-INCLUDING-you — Marathi splits what Hindi/English merge"
+    },
+    {
+      "en": "you (formal / plural)",
+      "hi": "आप / तुम सब",
+      "t": "तुम्ही",
+      "r": "tumhī"
+    },
+    {
+      "en": "you (intimate)",
+      "hi": "तू",
+      "t": "तू",
+      "r": "tū",
+      "note": "Close friends, children — never strangers"
+    },
+    {
+      "en": "he",
+      "hi": "वह",
+      "t": "तो",
+      "r": "to",
+      "note": "Three words where Hindi has one: तो/ती/ते (he/she/it)"
+    },
+    {
+      "en": "she",
+      "hi": "वह",
+      "t": "ती",
+      "r": "tī"
+    },
+    {
+      "en": "it",
+      "hi": "यह / वह",
+      "t": "ते",
+      "r": "te"
+    },
+    {
+      "en": "they (masculine / mixed)",
+      "hi": "वे",
+      "t": "ते",
+      "r": "te"
+    },
+    {
+      "en": "they (feminine)",
+      "hi": "वे",
+      "t": "त्या",
+      "r": "tyā"
+    },
+    {
+      "en": "this (near, masc)",
+      "hi": "यह",
+      "t": "हा",
+      "r": "hā"
+    },
+    {
+      "en": "that (far, masc)",
+      "hi": "वह",
+      "t": "तो",
+      "r": "to",
+      "note": "Same word as 'he' — context decides"
+    },
+    {
+      "en": "what",
+      "hi": "क्या",
+      "t": "काय",
+      "r": "kāy"
+    },
+    {
+      "en": "who",
+      "hi": "कौन",
+      "t": "कोण",
+      "r": "koṇ"
+    },
+    {
+      "en": "where",
+      "hi": "कहाँ",
+      "t": "कुठे",
+      "r": "kuṭhe"
+    },
+    {
+      "en": "when",
+      "hi": "कब",
+      "t": "केव्हा",
+      "r": "kevhā"
+    },
+    {
+      "en": "why",
+      "hi": "क्यों",
+      "t": "का",
+      "r": "kā"
+    },
+    {
+      "en": "how",
+      "hi": "कैसे",
+      "t": "कसा / कशी / कसे",
+      "r": "kasā / kaśī / kase",
+      "note": "Agrees with gender: masc / fem / neuter"
+    },
+    {
+      "en": "how much / how many",
+      "hi": "कितना",
+      "t": "किती",
+      "r": "kitī"
+    },
+    {
+      "en": "which",
+      "hi": "कौन-सा",
+      "t": "कोणता / कोणती",
+      "r": "koṇtā / koṇtī",
+      "note": "कोणता (masc) / कोणती (fem)"
+    }
   ],
-
   "verbs": [
-    {"en": "eat", "hi": "खाना", "t": "खाणे", "r": "khāṇe", "ami": "खातो", "ami_r": "khāto"},
-    {"en": "go", "hi": "जाना", "t": "जाणे", "r": "jāṇe", "ami": "जातो", "ami_r": "jāto"},
-    {"en": "come", "hi": "आना", "t": "येणे", "r": "yeṇe", "ami": "येतो", "ami_r": "yeto"},
-    {"en": "do", "hi": "करना", "t": "करणे", "r": "karaṇe", "ami": "करतो", "ami_r": "karto"},
-    {"en": "speak", "hi": "बोलना", "t": "बोलणे", "r": "bolaṇe", "ami": "बोलतो", "ami_r": "bolto"},
-    {"en": "see", "hi": "देखना", "t": "पाहणे", "r": "pāhaṇe", "ami": "पाहतो", "ami_r": "pāhto", "note": "बघणे (baghaṇe) is the Mumbai street word for 'see'"},
-    {"en": "give", "hi": "देना", "t": "देणे", "r": "deṇe", "ami": "देतो", "ami_r": "deto"},
-    {"en": "take", "hi": "लेना", "t": "घेणे", "r": "gheṇe", "ami": "घेतो", "ami_r": "gheto"},
-    {"en": "understand", "hi": "समझना", "t": "समजणे", "r": "samajaṇe", "ami": "समजतो", "ami_r": "samajto"},
-    {"en": "read", "hi": "पढ़ना", "t": "वाचणे", "r": "vācaṇe", "ami": "वाचतो", "ami_r": "vācto"},
-    {"en": "write", "hi": "लिखना", "t": "लिहिणे", "r": "lihiṇe", "ami": "लिहितो", "ami_r": "lihito"},
-    {"en": "live / stay", "hi": "रहना", "t": "राहणे", "r": "rāhaṇe", "ami": "राहतो", "ami_r": "rāhto"},
-    {"en": "like", "hi": "पसंद करना", "t": "आवडणे", "r": "āvaḍaṇe", "ami": "आवडतो", "ami_r": "āvaḍto", "note": "For 'I want X', use मला X पाहिजे — see daily phrases"},
-    {"en": "love", "hi": "प्यार करना", "t": "प्रेम करणे", "r": "prem karaṇe", "ami": "प्रेम करतो", "ami_r": "prem karto", "note": "Deep love only — for food and films use आवडणे"},
-    {"en": "sleep", "hi": "सोना", "t": "झोपणे", "r": "zhopeṇe", "ami": "झोपतो", "ami_r": "zhopto"},
-    {"en": "buy", "hi": "खरीदना", "t": "विकत घेणे", "r": "vikat gheṇe", "ami": "विकत घेतो", "ami_r": "vikat gheto"},
-    {"en": "learn", "hi": "सीखना", "t": "शिकणे", "r": "śikaṇe", "ami": "शिकतो", "ami_r": "śikto"},
-    {"en": "drink", "hi": "पीना", "t": "पिणे", "r": "piṇe", "ami": "पितो", "ami_r": "pito", "note": "चहा पितो — tea is 'drunk', like Hindi"}
+    {
+      "en": "eat",
+      "hi": "खाना",
+      "t": "खाणे",
+      "r": "khāṇe",
+      "ami": "खातो",
+      "ami_r": "khāto"
+    },
+    {
+      "en": "go",
+      "hi": "जाना",
+      "t": "जाणे",
+      "r": "jāṇe",
+      "ami": "जातो",
+      "ami_r": "jāto"
+    },
+    {
+      "en": "come",
+      "hi": "आना",
+      "t": "येणे",
+      "r": "yeṇe",
+      "ami": "येतो",
+      "ami_r": "yeto"
+    },
+    {
+      "en": "do",
+      "hi": "करना",
+      "t": "करणे",
+      "r": "karaṇe",
+      "ami": "करतो",
+      "ami_r": "karto"
+    },
+    {
+      "en": "speak",
+      "hi": "बोलना",
+      "t": "बोलणे",
+      "r": "bolaṇe",
+      "ami": "बोलतो",
+      "ami_r": "bolto"
+    },
+    {
+      "en": "see",
+      "hi": "देखना",
+      "t": "पाहणे",
+      "r": "pāhaṇe",
+      "ami": "पाहतो",
+      "ami_r": "pāhto",
+      "note": "बघणे (baghaṇe) is the Mumbai street word for 'see'"
+    },
+    {
+      "en": "give",
+      "hi": "देना",
+      "t": "देणे",
+      "r": "deṇe",
+      "ami": "देतो",
+      "ami_r": "deto"
+    },
+    {
+      "en": "take",
+      "hi": "लेना",
+      "t": "घेणे",
+      "r": "gheṇe",
+      "ami": "घेतो",
+      "ami_r": "gheto"
+    },
+    {
+      "en": "understand",
+      "hi": "समझना",
+      "t": "समजणे",
+      "r": "samajaṇe",
+      "ami": "समजतो",
+      "ami_r": "samajto"
+    },
+    {
+      "en": "read",
+      "hi": "पढ़ना",
+      "t": "वाचणे",
+      "r": "vācaṇe",
+      "ami": "वाचतो",
+      "ami_r": "vācto"
+    },
+    {
+      "en": "write",
+      "hi": "लिखना",
+      "t": "लिहिणे",
+      "r": "lihiṇe",
+      "ami": "लिहितो",
+      "ami_r": "lihito"
+    },
+    {
+      "en": "live / stay",
+      "hi": "रहना",
+      "t": "राहणे",
+      "r": "rāhaṇe",
+      "ami": "राहतो",
+      "ami_r": "rāhto"
+    },
+    {
+      "en": "like",
+      "hi": "पसंद करना",
+      "t": "आवडणे",
+      "r": "āvaḍaṇe",
+      "ami": "आवडतो",
+      "ami_r": "āvaḍto",
+      "note": "For 'I want X', use मला X पाहिजे — see daily phrases"
+    },
+    {
+      "en": "love",
+      "hi": "प्यार करना",
+      "t": "प्रेम करणे",
+      "r": "prem karaṇe",
+      "ami": "प्रेम करतो",
+      "ami_r": "prem karto",
+      "note": "Deep love only — for food and films use आवडणे"
+    },
+    {
+      "en": "sleep",
+      "hi": "सोना",
+      "t": "झोपणे",
+      "r": "zhopeṇe",
+      "ami": "झोपतो",
+      "ami_r": "zhopto"
+    },
+    {
+      "en": "buy",
+      "hi": "खरीदना",
+      "t": "विकत घेणे",
+      "r": "vikat gheṇe",
+      "ami": "विकत घेतो",
+      "ami_r": "vikat gheto"
+    },
+    {
+      "en": "learn",
+      "hi": "सीखना",
+      "t": "शिकणे",
+      "r": "śikaṇe",
+      "ami": "शिकतो",
+      "ami_r": "śikto"
+    },
+    {
+      "en": "drink",
+      "hi": "पीना",
+      "t": "पिणे",
+      "r": "piṇe",
+      "ami": "पितो",
+      "ami_r": "pito",
+      "note": "चहा पितो — tea is 'drunk', like Hindi"
+    }
   ],
   "present_table": [
-    {"who_en": "I (a man)", "who_t": "मी", "verb_t": "खातो", "verb_r": "khāto"},
-    {"who_en": "I (a woman)", "who_t": "मी", "verb_t": "खाते", "verb_r": "khāte"},
-    {"who_en": "you (intimate)", "who_t": "तू", "verb_t": "खातोस", "verb_r": "khātos"},
-    {"who_en": "you (formal)", "who_t": "तुम्ही", "verb_t": "खाता", "verb_r": "khātā"},
-    {"who_en": "he", "who_t": "तो", "verb_t": "खातो", "verb_r": "khāto"},
-    {"who_en": "she", "who_t": "ती", "verb_t": "खाते", "verb_r": "khāte"},
-    {"who_en": "they", "who_t": "ते / त्या", "verb_t": "खातात", "verb_r": "khātāt"}
+    {
+      "who_en": "I (a man)",
+      "who_t": "मी",
+      "verb_t": "खातो",
+      "verb_r": "khāto"
+    },
+    {
+      "who_en": "I (a woman)",
+      "who_t": "मी",
+      "verb_t": "खाते",
+      "verb_r": "khāte"
+    },
+    {
+      "who_en": "you (intimate)",
+      "who_t": "तू",
+      "verb_t": "खातोस",
+      "verb_r": "khātos"
+    },
+    {
+      "who_en": "you (formal)",
+      "who_t": "तुम्ही",
+      "verb_t": "खाता",
+      "verb_r": "khātā"
+    },
+    {
+      "who_en": "he",
+      "who_t": "तो",
+      "verb_t": "खातो",
+      "verb_r": "khāto"
+    },
+    {
+      "who_en": "she",
+      "who_t": "ती",
+      "verb_t": "खाते",
+      "verb_r": "khāte"
+    },
+    {
+      "who_en": "they",
+      "who_t": "ते / त्या",
+      "verb_t": "खातात",
+      "verb_r": "khātāt"
+    }
   ],
   "past_future": [
-    {"en": "I ate (a man)", "hi": "मैंने खाया", "t": "मी खाल्ले", "r": "mī khālle"},
-    {"en": "I ate (a woman)", "hi": "मैंने खाया", "t": "मी खाल्ली", "r": "mī khāllī"},
-    {"en": "I went (a man)", "hi": "मैं गया", "t": "मी गेलो", "r": "mī gelo"},
-    {"en": "I went (a woman)", "hi": "मैं गई", "t": "मी गेले", "r": "mī gele"},
-    {"en": "I will eat", "hi": "मैं खाऊँगा", "t": "मी खाईन", "r": "mī khāīn"},
-    {"en": "I will go", "hi": "मैं जाऊँगा", "t": "मी जाईन", "r": "mī jāīn"}
+    {
+      "en": "I ate (a man)",
+      "hi": "मैंने खाया",
+      "t": "मी खाल्ले",
+      "r": "mī khālle"
+    },
+    {
+      "en": "I ate (a woman)",
+      "hi": "मैंने खाया",
+      "t": "मी खाल्ली",
+      "r": "mī khāllī"
+    },
+    {
+      "en": "I went (a man)",
+      "hi": "मैं गया",
+      "t": "मी गेलो",
+      "r": "mī gelo"
+    },
+    {
+      "en": "I went (a woman)",
+      "hi": "मैं गई",
+      "t": "मी गेले",
+      "r": "mī gele"
+    },
+    {
+      "en": "I will eat",
+      "hi": "मैं खाऊँगा",
+      "t": "मी खाईन",
+      "r": "mī khāīn"
+    },
+    {
+      "en": "I will go",
+      "hi": "मैं जाऊँगा",
+      "t": "मी जाईन",
+      "r": "mī jāīn"
+    }
   ],
-
   "numbers": [
-    {"n": 1, "hi": "एक", "t": "एक", "r": "ek"}, {"n": 2, "hi": "दो", "t": "दोन", "r": "don"},
-    {"n": 3, "hi": "तीन", "t": "तीन", "r": "tīn"}, {"n": 4, "hi": "चार", "t": "चार", "r": "cār"},
-    {"n": 5, "hi": "पाँच", "t": "पाच", "r": "pāc"}, {"n": 6, "hi": "छह", "t": "सहा", "r": "sahā"},
-    {"n": 7, "hi": "सात", "t": "सात", "r": "sāt"}, {"n": 8, "hi": "आठ", "t": "आठ", "r": "āṭh"},
-    {"n": 9, "hi": "नौ", "t": "नऊ", "r": "naū"}, {"n": 10, "hi": "दस", "t": "दहा", "r": "dahā"},
-    {"n": 11, "hi": "ग्यारह", "t": "अकरा", "r": "akarā"}, {"n": 12, "hi": "बारह", "t": "बारा", "r": "bārā"},
-    {"n": 13, "hi": "तेरह", "t": "तेरा", "r": "terā"}, {"n": 14, "hi": "चौदह", "t": "चौदा", "r": "caudā"},
-    {"n": 15, "hi": "पंद्रह", "t": "पंधरा", "r": "pandharā"}, {"n": 16, "hi": "सोलह", "t": "सोळा", "r": "soḷā"},
-    {"n": 17, "hi": "सत्रह", "t": "सतरा", "r": "satarā"}, {"n": 18, "hi": "अठारह", "t": "अठरा", "r": "aṭharā"},
-    {"n": 19, "hi": "उन्नीस", "t": "एकोणीस", "r": "ekoṇīs"}, {"n": 20, "hi": "बीस", "t": "वीस", "r": "vīs"},
-    {"n": 30, "hi": "तीस", "t": "तीस", "r": "tīs"}, {"n": 40, "hi": "चालीस", "t": "चाळीस", "r": "cāḷīs"},
-    {"n": 50, "hi": "पचास", "t": "पन्नास", "r": "pannās"}, {"n": 60, "hi": "साठ", "t": "साठ", "r": "sāṭh"},
-    {"n": 70, "hi": "सत्तर", "t": "सत्तर", "r": "sattar"}, {"n": 80, "hi": "अस्सी", "t": "ऐंशी", "r": "aiṁśī"},
-    {"n": 90, "hi": "नब्बे", "t": "नव्वद", "r": "navvad"}, {"n": 100, "hi": "सौ", "t": "शंभर", "r": "śambhar"}
+    {
+      "n": 1,
+      "hi": "एक",
+      "t": "एक",
+      "r": "ek"
+    },
+    {
+      "n": 2,
+      "hi": "दो",
+      "t": "दोन",
+      "r": "don"
+    },
+    {
+      "n": 3,
+      "hi": "तीन",
+      "t": "तीन",
+      "r": "tīn"
+    },
+    {
+      "n": 4,
+      "hi": "चार",
+      "t": "चार",
+      "r": "cār"
+    },
+    {
+      "n": 5,
+      "hi": "पाँच",
+      "t": "पाच",
+      "r": "pāc"
+    },
+    {
+      "n": 6,
+      "hi": "छह",
+      "t": "सहा",
+      "r": "sahā"
+    },
+    {
+      "n": 7,
+      "hi": "सात",
+      "t": "सात",
+      "r": "sāt"
+    },
+    {
+      "n": 8,
+      "hi": "आठ",
+      "t": "आठ",
+      "r": "āṭh"
+    },
+    {
+      "n": 9,
+      "hi": "नौ",
+      "t": "नऊ",
+      "r": "naū"
+    },
+    {
+      "n": 10,
+      "hi": "दस",
+      "t": "दहा",
+      "r": "dahā"
+    },
+    {
+      "n": 11,
+      "hi": "ग्यारह",
+      "t": "अकरा",
+      "r": "akarā"
+    },
+    {
+      "n": 12,
+      "hi": "बारह",
+      "t": "बारा",
+      "r": "bārā"
+    },
+    {
+      "n": 13,
+      "hi": "तेरह",
+      "t": "तेरा",
+      "r": "terā"
+    },
+    {
+      "n": 14,
+      "hi": "चौदह",
+      "t": "चौदा",
+      "r": "caudā"
+    },
+    {
+      "n": 15,
+      "hi": "पंद्रह",
+      "t": "पंधरा",
+      "r": "pandharā"
+    },
+    {
+      "n": 16,
+      "hi": "सोलह",
+      "t": "सोळा",
+      "r": "soḷā"
+    },
+    {
+      "n": 17,
+      "hi": "सत्रह",
+      "t": "सतरा",
+      "r": "satarā"
+    },
+    {
+      "n": 18,
+      "hi": "अठारह",
+      "t": "अठरा",
+      "r": "aṭharā"
+    },
+    {
+      "n": 19,
+      "hi": "उन्नीस",
+      "t": "एकोणीस",
+      "r": "ekoṇīs"
+    },
+    {
+      "n": 20,
+      "hi": "बीस",
+      "t": "वीस",
+      "r": "vīs"
+    },
+    {
+      "n": 30,
+      "hi": "तीस",
+      "t": "तीस",
+      "r": "tīs"
+    },
+    {
+      "n": 40,
+      "hi": "चालीस",
+      "t": "चाळीस",
+      "r": "cāḷīs"
+    },
+    {
+      "n": 50,
+      "hi": "पचास",
+      "t": "पन्नास",
+      "r": "pannās"
+    },
+    {
+      "n": 60,
+      "hi": "साठ",
+      "t": "साठ",
+      "r": "sāṭh"
+    },
+    {
+      "n": 70,
+      "hi": "सत्तर",
+      "t": "सत्तर",
+      "r": "sattar"
+    },
+    {
+      "n": 80,
+      "hi": "अस्सी",
+      "t": "ऐंशी",
+      "r": "aiṁśī"
+    },
+    {
+      "n": 90,
+      "hi": "नब्बे",
+      "t": "नव्वद",
+      "r": "navvad"
+    },
+    {
+      "n": 100,
+      "hi": "सौ",
+      "t": "शंभर",
+      "r": "śambhar"
+    }
   ],
-
   "days": [
-    {"en": "Sunday", "hi": "रविवार", "t": "रविवार", "r": "ravivār"},
-    {"en": "Monday", "hi": "सोमवार", "t": "सोमवार", "r": "somvār"},
-    {"en": "Tuesday", "hi": "मंगलवार", "t": "मंगळवार", "r": "mangaḷvār"},
-    {"en": "Wednesday", "hi": "बुधवार", "t": "बुधवार", "r": "budhvār"},
-    {"en": "Thursday", "hi": "बृहस्पतिवार", "t": "गुरुवार", "r": "guruvār"},
-    {"en": "Friday", "hi": "शुक्रवार", "t": "शुक्रवार", "r": "śukravār"},
-    {"en": "Saturday", "hi": "शनिवार", "t": "शनिवार", "r": "śanivār"}
+    {
+      "en": "Sunday",
+      "hi": "रविवार",
+      "t": "रविवार",
+      "r": "ravivār"
+    },
+    {
+      "en": "Monday",
+      "hi": "सोमवार",
+      "t": "सोमवार",
+      "r": "somvār"
+    },
+    {
+      "en": "Tuesday",
+      "hi": "मंगलवार",
+      "t": "मंगळवार",
+      "r": "mangaḷvār"
+    },
+    {
+      "en": "Wednesday",
+      "hi": "बुधवार",
+      "t": "बुधवार",
+      "r": "budhvār"
+    },
+    {
+      "en": "Thursday",
+      "hi": "बृहस्पतिवार",
+      "t": "गुरुवार",
+      "r": "guruvār"
+    },
+    {
+      "en": "Friday",
+      "hi": "शुक्रवार",
+      "t": "शुक्रवार",
+      "r": "śukravār"
+    },
+    {
+      "en": "Saturday",
+      "hi": "शनिवार",
+      "t": "शनिवार",
+      "r": "śanivār"
+    }
   ],
   "time_words": [
-    {"en": "today", "hi": "आज", "t": "आज", "r": "āj"},
-    {"en": "tomorrow", "hi": "कल (आने वाला)", "t": "उद्या", "r": "udyā"},
-    {"en": "yesterday", "hi": "कल (बीता)", "t": "काल", "r": "kāl", "note": "Yesterday ONLY — tomorrow is उद्या (Hindi/Bengali काल covers both)"},
-    {"en": "now", "hi": "अब", "t": "आत्ता", "r": "āttā"},
-    {"en": "later", "hi": "बाद में", "t": "नंतर", "r": "nantar"},
-    {"en": "morning", "hi": "सुबह", "t": "सकाळ", "r": "sakāḷ"},
-    {"en": "noon", "hi": "दोपहर", "t": "दुपार", "r": "dupār"},
-    {"en": "evening", "hi": "शाम", "t": "संध्याकाळ", "r": "sandhyākāḷ"},
-    {"en": "night", "hi": "रात", "t": "रात्र", "r": "rātra"},
-    {"en": "What time is it?", "hi": "कितने बजे हैं?", "t": "किती वाजले?", "r": "kitī vājle?"},
-    {"en": "3 o'clock", "hi": "तीन बजे", "t": "तीन वाजले", "r": "tīn vājle"}
+    {
+      "en": "today",
+      "hi": "आज",
+      "t": "आज",
+      "r": "āj"
+    },
+    {
+      "en": "tomorrow",
+      "hi": "कल (आने वाला)",
+      "t": "उद्या",
+      "r": "udyā"
+    },
+    {
+      "en": "yesterday",
+      "hi": "कल (बीता)",
+      "t": "काल",
+      "r": "kāl",
+      "note": "Yesterday ONLY — tomorrow is उद्या (Hindi/Bengali काल covers both)"
+    },
+    {
+      "en": "now",
+      "hi": "अब",
+      "t": "आत्ता",
+      "r": "āttā"
+    },
+    {
+      "en": "later",
+      "hi": "बाद में",
+      "t": "नंतर",
+      "r": "nantar"
+    },
+    {
+      "en": "morning",
+      "hi": "सुबह",
+      "t": "सकाळ",
+      "r": "sakāḷ"
+    },
+    {
+      "en": "noon",
+      "hi": "दोपहर",
+      "t": "दुपार",
+      "r": "dupār"
+    },
+    {
+      "en": "evening",
+      "hi": "शाम",
+      "t": "संध्याकाळ",
+      "r": "sandhyākāḷ"
+    },
+    {
+      "en": "night",
+      "hi": "रात",
+      "t": "रात्र",
+      "r": "rātra"
+    },
+    {
+      "en": "What time is it?",
+      "hi": "कितने बजे हैं?",
+      "t": "किती वाजले?",
+      "r": "kitī vājle?"
+    },
+    {
+      "en": "3 o'clock",
+      "hi": "तीन बजे",
+      "t": "तीन वाजले",
+      "r": "tīn vājle"
+    }
   ],
-
   "family": [
-    {"en": "mother", "hi": "माँ", "t": "आई", "r": "āī"},
-    {"en": "father", "hi": "पिता", "t": "बाबा", "r": "bābā", "note": "वडील (vaḍīl) is the formal word"},
-    {"en": "brother", "hi": "भाई", "t": "भाऊ", "r": "bhāū"},
-    {"en": "sister", "hi": "बहन", "t": "बहीण", "r": "bahīṇ"},
-    {"en": "son / boy", "hi": "बेटा / लड़का", "t": "मुलगा", "r": "mulgā"},
-    {"en": "daughter / girl", "hi": "बेटी / लड़की", "t": "मुलगी", "r": "mulgī"},
-    {"en": "husband", "hi": "पति", "t": "नवरा", "r": "navrā"},
-    {"en": "wife", "hi": "पत्नी", "t": "बायको", "r": "bāyko"},
-    {"en": "friend (male)", "hi": "दोस्त", "t": "मित्र", "r": "mitra"},
-    {"en": "friend (female)", "hi": "सहेली", "t": "मैत्रीण", "r": "maitrīṇ"},
-    {"en": "family", "hi": "परिवार", "t": "कुटुंब", "r": "kuṭumba"},
-    {"en": "grandmother", "hi": "दादी / नानी", "t": "आजी", "r": "ājī"},
-    {"en": "grandfather", "hi": "दादा / नाना", "t": "आजोबा", "r": "ājobā"}
+    {
+      "en": "mother",
+      "hi": "माँ",
+      "t": "आई",
+      "r": "āī"
+    },
+    {
+      "en": "father",
+      "hi": "पिता",
+      "t": "बाबा",
+      "r": "bābā",
+      "note": "वडील (vaḍīl) is the formal word"
+    },
+    {
+      "en": "brother",
+      "hi": "भाई",
+      "t": "भाऊ",
+      "r": "bhāū"
+    },
+    {
+      "en": "sister",
+      "hi": "बहन",
+      "t": "बहीण",
+      "r": "bahīṇ"
+    },
+    {
+      "en": "son / boy",
+      "hi": "बेटा / लड़का",
+      "t": "मुलगा",
+      "r": "mulgā"
+    },
+    {
+      "en": "daughter / girl",
+      "hi": "बेटी / लड़की",
+      "t": "मुलगी",
+      "r": "mulgī"
+    },
+    {
+      "en": "husband",
+      "hi": "पति",
+      "t": "नवरा",
+      "r": "navrā"
+    },
+    {
+      "en": "wife",
+      "hi": "पत्नी",
+      "t": "बायको",
+      "r": "bāyko"
+    },
+    {
+      "en": "friend (male)",
+      "hi": "दोस्त",
+      "t": "मित्र",
+      "r": "mitra"
+    },
+    {
+      "en": "friend (female)",
+      "hi": "सहेली",
+      "t": "मैत्रीण",
+      "r": "maitrīṇ"
+    },
+    {
+      "en": "family",
+      "hi": "परिवार",
+      "t": "कुटुंब",
+      "r": "kuṭumba"
+    },
+    {
+      "en": "grandmother",
+      "hi": "दादी / नानी",
+      "t": "आजी",
+      "r": "ājī"
+    },
+    {
+      "en": "grandfather",
+      "hi": "दादा / नाना",
+      "t": "आजोबा",
+      "r": "ājobā"
+    }
   ],
-
   "food_words": [
-    {"en": "cooked rice", "hi": "चावल (पका)", "t": "भात", "r": "bhāt"},
-    {"en": "uncooked rice", "hi": "चावल (कच्चा)", "t": "तांदूळ", "r": "tāndūḷ"},
-    {"en": "lentils", "hi": "दाल", "t": "डाळ", "r": "dāḷ", "note": "वरण (varaṇ) is dal thinned for rice — the comfort pairing"},
-    {"en": "fish", "hi": "मछली", "t": "मासे", "r": "māse"},
-    {"en": "meat (goat)", "hi": "मांस", "t": "मटण", "r": "maṭaṇ", "note": "Goat meat by default in Maharashtra"},
-    {"en": "chicken", "hi": "चिकन", "t": "चिकन", "r": "cikan"},
-    {"en": "egg", "hi": "अंडा", "t": "अंडे", "r": "aṇḍe"},
-    {"en": "milk", "hi": "दूध", "t": "दूध", "r": "dūdh"},
-    {"en": "tea", "hi": "चाय", "t": "चहा", "r": "cahā"},
-    {"en": "water", "hi": "पानी", "t": "पाणी", "r": "pāṇī"},
-    {"en": "flatbread (millet)", "hi": "रोटी (ज्वार/बाजरा)", "t": "भाकरी", "r": "bhākarī", "note": "The village staple — पोळी (poḷī) is the wheat one"},
-    {"en": "fruit", "hi": "फल", "t": "फळ", "r": "phaḷ"},
-    {"en": "vegetables", "hi": "सब्ज़ी", "t": "भाजी", "r": "bhājī"},
-    {"en": "sweets", "hi": "मिठाई", "t": "मिठाई", "r": "miṭhāī"},
-    {"en": "salt", "hi": "नमक", "t": "मीठ", "r": "mīṭh"},
-    {"en": "sugar", "hi": "चीनी", "t": "साखर", "r": "sākhar"},
-    {"en": "potato", "hi": "आलू", "t": "बटाटा", "r": "baṭāṭā"},
-    {"en": "onion", "hi": "प्याज़", "t": "कांदा", "r": "kāndā"}
+    {
+      "en": "cooked rice",
+      "hi": "चावल (पका)",
+      "t": "भात",
+      "r": "bhāt"
+    },
+    {
+      "en": "uncooked rice",
+      "hi": "चावल (कच्चा)",
+      "t": "तांदूळ",
+      "r": "tāndūḷ"
+    },
+    {
+      "en": "lentils",
+      "hi": "दाल",
+      "t": "डाळ",
+      "r": "dāḷ",
+      "note": "वरण (varaṇ) is dal thinned for rice — the comfort pairing"
+    },
+    {
+      "en": "fish",
+      "hi": "मछली",
+      "t": "मासे",
+      "r": "māse"
+    },
+    {
+      "en": "meat (goat)",
+      "hi": "मांस",
+      "t": "मटण",
+      "r": "maṭaṇ",
+      "note": "Goat meat by default in Maharashtra"
+    },
+    {
+      "en": "chicken",
+      "hi": "चिकन",
+      "t": "चिकन",
+      "r": "cikan"
+    },
+    {
+      "en": "egg",
+      "hi": "अंडा",
+      "t": "अंडे",
+      "r": "aṇḍe"
+    },
+    {
+      "en": "milk",
+      "hi": "दूध",
+      "t": "दूध",
+      "r": "dūdh"
+    },
+    {
+      "en": "tea",
+      "hi": "चाय",
+      "t": "चहा",
+      "r": "cahā"
+    },
+    {
+      "en": "water",
+      "hi": "पानी",
+      "t": "पाणी",
+      "r": "pāṇī"
+    },
+    {
+      "en": "flatbread (millet)",
+      "hi": "रोटी (ज्वार/बाजरा)",
+      "t": "भाकरी",
+      "r": "bhākarī",
+      "note": "The village staple — पोळी (poḷī) is the wheat one"
+    },
+    {
+      "en": "fruit",
+      "hi": "फल",
+      "t": "फळ",
+      "r": "phaḷ"
+    },
+    {
+      "en": "vegetables",
+      "hi": "सब्ज़ी",
+      "t": "भाजी",
+      "r": "bhājī"
+    },
+    {
+      "en": "sweets",
+      "hi": "मिठाई",
+      "t": "मिठाई",
+      "r": "miṭhāī"
+    },
+    {
+      "en": "salt",
+      "hi": "नमक",
+      "t": "मीठ",
+      "r": "mīṭh"
+    },
+    {
+      "en": "sugar",
+      "hi": "चीनी",
+      "t": "साखर",
+      "r": "sākhar"
+    },
+    {
+      "en": "potato",
+      "hi": "आलू",
+      "t": "बटाटा",
+      "r": "baṭāṭā"
+    },
+    {
+      "en": "onion",
+      "hi": "प्याज़",
+      "t": "कांदा",
+      "r": "kāndā"
+    }
   ],
   "food_phrases": [
-    {"en": "I am hungry", "hi": "मुझे भूख लगी है", "t": "मला भूक लागली आहे", "r": "malā bhūk lāglī āhe"},
-    {"en": "I am thirsty", "hi": "मुझे प्यास लगी है", "t": "मला तहान लागली आहे", "r": "malā tahān lāglī āhe"},
-    {"en": "The food is tasty", "hi": "खाना मज़ेदार है", "t": "जेवण छान आहे", "r": "jevaṇ chān āhe"},
-    {"en": "One tea, please", "hi": "एक चाय दीजिए", "t": "एक चहा द्या", "r": "ek cahā dyā"},
-    {"en": "The bill, please", "hi": "बिल दीजिए", "t": "बिल द्या", "r": "bil dyā"},
-    {"en": "Too spicy!", "hi": "बहुत तीखा", "t": "खूप तिखट", "r": "khūp tikhaṭ"},
-    {"en": "I don't eat meat", "hi": "मैं मांस नहीं खाता", "t": "मी मटण खात नाही", "r": "mī maṭaṇ khāt nāhī"}
+    {
+      "en": "I am hungry",
+      "hi": "मुझे भूख लगी है",
+      "t": "मला भूक लागली आहे",
+      "r": "malā bhūk lāglī āhe"
+    },
+    {
+      "en": "I am thirsty",
+      "hi": "मुझे प्यास लगी है",
+      "t": "मला तहान लागली आहे",
+      "r": "malā tahān lāglī āhe"
+    },
+    {
+      "en": "The food is tasty",
+      "hi": "खाना मज़ेदार है",
+      "t": "जेवण छान आहे",
+      "r": "jevaṇ chān āhe"
+    },
+    {
+      "en": "One tea, please",
+      "hi": "एक चाय दीजिए",
+      "t": "एक चहा द्या",
+      "r": "ek cahā dyā"
+    },
+    {
+      "en": "The bill, please",
+      "hi": "बिल दीजिए",
+      "t": "बिल द्या",
+      "r": "bil dyā"
+    },
+    {
+      "en": "Too spicy!",
+      "hi": "बहुत तीखा",
+      "t": "खूप तिखट",
+      "r": "khūp tikhaṭ"
+    },
+    {
+      "en": "I don't eat meat",
+      "hi": "मैं मांस नहीं खाता",
+      "t": "मी मटण खात नाही",
+      "r": "mī maṭaṇ khāt nāhī"
+    }
   ],
-
   "colors": [
-    {"en": "red", "hi": "लाल", "t": "लाल", "r": "lāl", "note": "Adjectives agree with gender: काळा/काळी/काळे (black m/f/n)"},
-    {"en": "blue", "hi": "नीला", "t": "निळा", "r": "niḷā"},
-    {"en": "green", "hi": "हरा", "t": "हिरवा", "r": "hiravā"},
-    {"en": "yellow", "hi": "पीला", "t": "पिवळा", "r": "pivaḷā"},
-    {"en": "white", "hi": "सफ़ेद", "t": "पांढरा", "r": "pāṇḍharā"},
-    {"en": "black", "hi": "काला", "t": "काळा", "r": "kāḷā"}
+    {
+      "en": "red",
+      "hi": "लाल",
+      "t": "लाल",
+      "r": "lāl",
+      "note": "Adjectives agree with gender: काळा/काळी/काळे (black m/f/n)"
+    },
+    {
+      "en": "blue",
+      "hi": "नीला",
+      "t": "निळा",
+      "r": "niḷā"
+    },
+    {
+      "en": "green",
+      "hi": "हरा",
+      "t": "हिरवा",
+      "r": "hiravā"
+    },
+    {
+      "en": "yellow",
+      "hi": "पीला",
+      "t": "पिवळा",
+      "r": "pivaḷā"
+    },
+    {
+      "en": "white",
+      "hi": "सफ़ेद",
+      "t": "पांढरा",
+      "r": "pāṇḍharā"
+    },
+    {
+      "en": "black",
+      "hi": "काला",
+      "t": "काळा",
+      "r": "kāḷā"
+    }
   ],
   "core_nouns": [
-    {"en": "book", "hi": "किताब", "t": "पुस्तक", "r": "pustak"},
-    {"en": "house / home", "hi": "घर", "t": "घर", "r": "ghar"},
-    {"en": "work", "hi": "काम", "t": "काम", "r": "kām"},
-    {"en": "school", "hi": "स्कूल", "t": "शाळा", "r": "śāḷā"},
-    {"en": "teacher", "hi": "शिक्षक", "t": "शिक्षक", "r": "śikṣak"},
-    {"en": "student", "hi": "छात्र / छात्रा", "t": "विद्यार्थी", "r": "vidyārthī", "note": "Same word for both — the verb shows the gender"},
-    {"en": "car", "hi": "गाड़ी", "t": "गाडी", "r": "gāḍī"},
-    {"en": "road", "hi": "सड़क", "t": "रस्ता", "r": "rastā"},
-    {"en": "money", "hi": "पैसा", "t": "पैसे", "r": "paise"},
-    {"en": "day", "hi": "दिन", "t": "दिवस", "r": "divas"},
-    {"en": "week", "hi": "हफ़्ता", "t": "आठवडा", "r": "āṭhvaḍā"},
-    {"en": "month", "hi": "महीना", "t": "महिना", "r": "mahinā"},
-    {"en": "year", "hi": "साल", "t": "वर्ष", "r": "varṣa"}
+    {
+      "en": "book",
+      "hi": "किताब",
+      "t": "पुस्तक",
+      "r": "pustak"
+    },
+    {
+      "en": "house / home",
+      "hi": "घर",
+      "t": "घर",
+      "r": "ghar"
+    },
+    {
+      "en": "work",
+      "hi": "काम",
+      "t": "काम",
+      "r": "kām"
+    },
+    {
+      "en": "school",
+      "hi": "स्कूल",
+      "t": "शाळा",
+      "r": "śāḷā"
+    },
+    {
+      "en": "teacher",
+      "hi": "शिक्षक",
+      "t": "शिक्षक",
+      "r": "śikṣak"
+    },
+    {
+      "en": "student",
+      "hi": "छात्र / छात्रा",
+      "t": "विद्यार्थी",
+      "r": "vidyārthī",
+      "note": "Same word for both — the verb shows the gender"
+    },
+    {
+      "en": "car",
+      "hi": "गाड़ी",
+      "t": "गाडी",
+      "r": "gāḍī"
+    },
+    {
+      "en": "road",
+      "hi": "सड़क",
+      "t": "रस्ता",
+      "r": "rastā"
+    },
+    {
+      "en": "money",
+      "hi": "पैसा",
+      "t": "पैसे",
+      "r": "paise"
+    },
+    {
+      "en": "day",
+      "hi": "दिन",
+      "t": "दिवस",
+      "r": "divas"
+    },
+    {
+      "en": "week",
+      "hi": "हफ़्ता",
+      "t": "आठवडा",
+      "r": "āṭhvaḍā"
+    },
+    {
+      "en": "month",
+      "hi": "महीना",
+      "t": "महिना",
+      "r": "mahinā"
+    },
+    {
+      "en": "year",
+      "hi": "साल",
+      "t": "वर्ष",
+      "r": "varṣa"
+    }
   ],
-
   "travel_words": [
-    {"en": "station", "hi": "स्टेशन", "t": "स्टेशन", "r": "sṭeśan"},
-    {"en": "train", "hi": "ट्रेन", "t": "आगगाडी", "r": "āggāḍī", "note": "Literally 'fire-cart' — ट्रेन and रेल्वे work too"},
-    {"en": "bus", "hi": "बस", "t": "बस", "r": "bas"},
-    {"en": "taxi", "hi": "टैक्सी", "t": "टॅक्सी", "r": "ṭĕksī"},
-    {"en": "ticket", "hi": "टिकट", "t": "तिकीट", "r": "tikīṭ"},
-    {"en": "hotel", "hi": "होटल", "t": "हॉटेल", "r": "hoṭel"},
-    {"en": "room", "hi": "कमरा", "t": "खोली", "r": "kholī"},
-    {"en": "left", "hi": "बायाँ", "t": "डावीकडे", "r": "ḍāvīkaḍe"},
-    {"en": "right", "hi": "दायाँ", "t": "उजवीकडे", "r": "ujavīkaḍe"},
-    {"en": "straight", "hi": "सीधा", "t": "सरळ", "r": "saraḷ"},
-    {"en": "near", "hi": "पास", "t": "जवळ", "r": "javaḷ"},
-    {"en": "far", "hi": "दूर", "t": "लांब", "r": "lāmb"}
+    {
+      "en": "station",
+      "hi": "स्टेशन",
+      "t": "स्टेशन",
+      "r": "sṭeśan"
+    },
+    {
+      "en": "train",
+      "hi": "ट्रेन",
+      "t": "आगगाडी",
+      "r": "āggāḍī",
+      "note": "Literally 'fire-cart' — ट्रेन and रेल्वे work too"
+    },
+    {
+      "en": "bus",
+      "hi": "बस",
+      "t": "बस",
+      "r": "bas"
+    },
+    {
+      "en": "taxi",
+      "hi": "टैक्सी",
+      "t": "टॅक्सी",
+      "r": "ṭĕksī"
+    },
+    {
+      "en": "ticket",
+      "hi": "टिकट",
+      "t": "तिकीट",
+      "r": "tikīṭ"
+    },
+    {
+      "en": "hotel",
+      "hi": "होटल",
+      "t": "हॉटेल",
+      "r": "hoṭel"
+    },
+    {
+      "en": "room",
+      "hi": "कमरा",
+      "t": "खोली",
+      "r": "kholī"
+    },
+    {
+      "en": "left",
+      "hi": "बायाँ",
+      "t": "डावीकडे",
+      "r": "ḍāvīkaḍe"
+    },
+    {
+      "en": "right",
+      "hi": "दायाँ",
+      "t": "उजवीकडे",
+      "r": "ujavīkaḍe"
+    },
+    {
+      "en": "straight",
+      "hi": "सीधा",
+      "t": "सरळ",
+      "r": "saraḷ"
+    },
+    {
+      "en": "near",
+      "hi": "पास",
+      "t": "जवळ",
+      "r": "javaḷ"
+    },
+    {
+      "en": "far",
+      "hi": "दूर",
+      "t": "लांब",
+      "r": "lāmb"
+    }
   ],
   "travel_phrases": [
-    {"en": "Where is ...?", "hi": "... कहाँ है?", "t": "... कुठे आहे?", "r": "... kuṭhe āhe?"},
-    {"en": "How do I go to ...?", "hi": "... कैसे जाऊँ?", "t": "... ला कसे जायचे?", "r": "... lā kase jāyce?"},
-    {"en": "Stop here, please", "hi": "यहाँ रोकिए", "t": "इथे थांबा", "r": "ithe thāmbā"},
-    {"en": "How much is the fare?", "hi": "किराया कितना है?", "t": "भाडे किती?", "r": "bhāḍe kitī?"},
-    {"en": "I want to go to ...", "hi": "मुझे ... जाना है", "t": "मला ... ला जायचे आहे", "r": "malā ... lā jāyce āhe"},
-    {"en": "Is it far?", "hi": "क्या दूर है?", "t": "लांब आहे का?", "r": "lāmb āhe kā?"}
+    {
+      "en": "Where is ...?",
+      "hi": "... कहाँ है?",
+      "t": "... कुठे आहे?",
+      "r": "... kuṭhe āhe?"
+    },
+    {
+      "en": "How do I go to ...?",
+      "hi": "... कैसे जाऊँ?",
+      "t": "... ला कसे जायचे?",
+      "r": "... lā kase jāyce?"
+    },
+    {
+      "en": "Stop here, please",
+      "hi": "यहाँ रोकिए",
+      "t": "इथे थांबा",
+      "r": "ithe thāmbā"
+    },
+    {
+      "en": "How much is the fare?",
+      "hi": "किराया कितना है?",
+      "t": "भाडे किती?",
+      "r": "bhāḍe kitī?"
+    },
+    {
+      "en": "I want to go to ...",
+      "hi": "मुझे ... जाना है",
+      "t": "मला ... ला जायचे आहे",
+      "r": "malā ... lā jāyce āhe"
+    },
+    {
+      "en": "Is it far?",
+      "hi": "क्या दूर है?",
+      "t": "लांब आहे का?",
+      "r": "lāmb āhe kā?"
+    }
   ],
-
   "shopping_words": [
-    {"en": "price", "hi": "कीमत", "t": "किंमत", "r": "kimmat"},
-    {"en": "shop", "hi": "दुकान", "t": "दुकान", "r": "dukān"},
-    {"en": "market", "hi": "बाज़ार", "t": "बाजार", "r": "bājār"},
-    {"en": "cheap", "hi": "सस्ता", "t": "स्वस्त", "r": "svasta"},
-    {"en": "expensive", "hi": "महँगा", "t": "महाग", "r": "mahāg"},
-    {"en": "less", "hi": "कम", "t": "कमी", "r": "kamī"},
-    {"en": "more", "hi": "ज़्यादा", "t": "जास्त", "r": "jāsta"}
+    {
+      "en": "price",
+      "hi": "कीमत",
+      "t": "किंमत",
+      "r": "kimmat"
+    },
+    {
+      "en": "shop",
+      "hi": "दुकान",
+      "t": "दुकान",
+      "r": "dukān"
+    },
+    {
+      "en": "market",
+      "hi": "बाज़ार",
+      "t": "बाजार",
+      "r": "bājār"
+    },
+    {
+      "en": "cheap",
+      "hi": "सस्ता",
+      "t": "स्वस्त",
+      "r": "svasta"
+    },
+    {
+      "en": "expensive",
+      "hi": "महँगा",
+      "t": "महाग",
+      "r": "mahāg"
+    },
+    {
+      "en": "less",
+      "hi": "कम",
+      "t": "कमी",
+      "r": "kamī"
+    },
+    {
+      "en": "more",
+      "hi": "ज़्यादा",
+      "t": "जास्त",
+      "r": "jāsta"
+    }
   ],
   "shopping_phrases": [
-    {"en": "How much is this?", "hi": "यह कितने का है?", "t": "हे कितीला?", "r": "he kitīlā?"},
-    {"en": "Too expensive!", "hi": "बहुत महँगा", "t": "खूप महाग!", "r": "khūp mahāg!"},
-    {"en": "Reduce the price a little", "hi": "थोड़ा कम कीजिए", "t": "थोडे कमी करा", "r": "thoḍe kamī karā"},
-    {"en": "OK, I'll take it", "hi": "ठीक है, लेता हूँ", "t": "ठीक आहे, घेतो", "r": "ṭhīk āhe, gheto", "note": "A woman says घेते (ghete)"},
-    {"en": "Do you have ...?", "hi": "क्या ... है?", "t": "... आहे का?", "r": "... āhe kā?"},
-    {"en": "Just looking", "hi": "बस देख रहा हूँ", "t": "फक्त बघतोय", "r": "phakta baghtoy", "note": "Street Marathi — बघणे is 'see' in Mumbai speech"}
+    {
+      "en": "How much is this?",
+      "hi": "यह कितने का है?",
+      "t": "हे कितीला?",
+      "r": "he kitīlā?"
+    },
+    {
+      "en": "Too expensive!",
+      "hi": "बहुत महँगा",
+      "t": "खूप महाग!",
+      "r": "khūp mahāg!"
+    },
+    {
+      "en": "Reduce the price a little",
+      "hi": "थोड़ा कम कीजिए",
+      "t": "थोडे कमी करा",
+      "r": "thoḍe kamī karā"
+    },
+    {
+      "en": "OK, I'll take it",
+      "hi": "ठीक है, लेता हूँ",
+      "t": "ठीक आहे, घेतो",
+      "r": "ṭhīk āhe, gheto",
+      "note": "A woman says घेते (ghete)"
+    },
+    {
+      "en": "Do you have ...?",
+      "hi": "क्या ... है?",
+      "t": "... आहे का?",
+      "r": "... āhe kā?"
+    },
+    {
+      "en": "Just looking",
+      "hi": "बस देख रहा हूँ",
+      "t": "फक्त बघतोय",
+      "r": "phakta baghtoy",
+      "note": "Street Marathi — बघणे is 'see' in Mumbai speech"
+    }
   ],
-
   "daily_phrases": [
-    {"en": "I don't understand", "hi": "मैं नहीं समझा", "t": "मला समजले नाही", "r": "malā samajle nāhī"},
-    {"en": "I want water", "hi": "मुझे पानी चाहिए", "t": "मला पाणी पाहिजे", "r": "malā pāṇī pāhije", "note": "पाहिजे (want/need) always works this way: मला X पाहिजे"},
-    {"en": "Speak slowly, please", "hi": "धीरे बोलिए", "t": "हळू बोला", "r": "haḷū bolā"},
-    {"en": "What is this called?", "hi": "इसे क्या कहते हैं?", "t": "याला काय म्हणतात?", "r": "yālā kāy mhaṇtāt?"},
-    {"en": "I am learning Marathi", "hi": "मैं मराठी सीख रहा हूँ", "t": "मी मराठी शिकतोय", "r": "mī marāṭhī śiktoy", "note": "A woman says शिकतेय (śiktey)"},
-    {"en": "Where are you from?", "hi": "आप कहाँ से हैं?", "t": "तुम्ही कुठले?", "r": "tumhī kuṭhle?"},
-    {"en": "My name is ...", "hi": "मेरा नाम ... है", "t": "माझे नाव ... आहे", "r": "mājhe nāv ... āhe"},
-    {"en": "Nice to meet you", "hi": "आपसे मिलकर खुशी हुई", "t": "तुम्हाला भेटून आनंद झाला", "r": "tumhālā bheṭūn ānand jhālā"}
+    {
+      "en": "I don't understand",
+      "hi": "मैं नहीं समझा",
+      "t": "मला समजले नाही",
+      "r": "malā samajle nāhī"
+    },
+    {
+      "en": "I want water",
+      "hi": "मुझे पानी चाहिए",
+      "t": "मला पाणी पाहिजे",
+      "r": "malā pāṇī pāhije",
+      "note": "पाहिजे (want/need) always works this way: मला X पाहिजे"
+    },
+    {
+      "en": "Speak slowly, please",
+      "hi": "धीरे बोलिए",
+      "t": "हळू बोला",
+      "r": "haḷū bolā"
+    },
+    {
+      "en": "What is this called?",
+      "hi": "इसे क्या कहते हैं?",
+      "t": "याला काय म्हणतात?",
+      "r": "yālā kāy mhaṇtāt?"
+    },
+    {
+      "en": "I am learning Marathi",
+      "hi": "मैं मराठी सीख रहा हूँ",
+      "t": "मी मराठी शिकतोय",
+      "r": "mī marāṭhī śiktoy",
+      "note": "A woman says शिकतेय (śiktey)"
+    },
+    {
+      "en": "Where are you from?",
+      "hi": "आप कहाँ से हैं?",
+      "t": "तुम्ही कुठले?",
+      "r": "tumhī kuṭhle?"
+    },
+    {
+      "en": "My name is ...",
+      "hi": "मेरा नाम ... है",
+      "t": "माझे नाव ... आहे",
+      "r": "mājhe nāv ... āhe"
+    },
+    {
+      "en": "Nice to meet you",
+      "hi": "आपसे मिलकर खुशी हुई",
+      "t": "तुम्हाला भेटून आनंद झाला",
+      "r": "tumhālā bheṭūn ānand jhālā"
+    }
   ],
   "culture": [
-    {"t": "गणेशोत्सव", "r": "Gaṇeśotsav", "en": "Mumbai's ten-day Ganpati festival (Aug–Sep) — drums, dancing processions and modaks. Shout गणपती बाप्पा मोरया with the crowd and you're family."},
-    {"t": "गुढी पाडवा", "r": "Guḍhī Pāḍvā", "en": "Marathi New Year in spring — a decorated gudhi flag flies outside every house, and the new almanac year begins."},
-    {"t": "वारी", "r": "Wārī", "en": "The barefoot pilgrimage to Pandharpur — lakhs walk for weeks singing abhangas. Maharashtra's moving heart; join even one day of it."},
-    {"t": "लावणी", "r": "Lāvaṇī", "en": "Fiery folk music and dance — fast drums, quicker wit. One live show teaches your ear more rhythm than a month of tapes."},
-    {"t": "मिसळ पाव", "r": "misaḷ pāv", "en": "Sprouted-bean curry crowned with farsan, mopped up with pav — Kolhapur's is famously incendiary. Order दही (curd) on the side if you're cautious."}
+    {
+      "t": "गणेशोत्सव",
+      "r": "Gaṇeśotsav",
+      "en": "Mumbai's ten-day Ganpati festival (Aug–Sep) — drums, dancing processions and modaks. Shout गणपती बाप्पा मोरया with the crowd and you're family."
+    },
+    {
+      "t": "गुढी पाडवा",
+      "r": "Guḍhī Pāḍvā",
+      "en": "Marathi New Year in spring — a decorated gudhi flag flies outside every house, and the new almanac year begins."
+    },
+    {
+      "t": "वारी",
+      "r": "Wārī",
+      "en": "The barefoot pilgrimage to Pandharpur — lakhs walk for weeks singing abhangas. Maharashtra's moving heart; join even one day of it."
+    },
+    {
+      "t": "लावणी",
+      "r": "Lāvaṇī",
+      "en": "Fiery folk music and dance — fast drums, quicker wit. One live show teaches your ear more rhythm than a month of tapes."
+    },
+    {
+      "t": "मिसळ पाव",
+      "r": "misaḷ pāv",
+      "en": "Sprouted-bean curry crowned with farsan, mopped up with pav — Kolhapur's is famously incendiary. Order दही (curd) on the side if you're cautious."
+    }
   ],
-
   "postpositions": [
-    {"en": "in / at", "hi": "में", "t": "-त / -मध्ये", "r": "-ta / -madhye", "ex_t": "घरात", "ex_r": "gharāt", "ex_en": "at home"},
-    {"en": "to", "hi": "को", "t": "-ला", "r": "-lā", "ex_t": "मला द्या", "ex_r": "malā dyā", "ex_en": "give (to) me"},
-    {"en": "from", "hi": "से", "t": "-पासून / -हून", "r": "-pāsūn / -hūn", "ex_t": "मुंबईहून", "ex_r": "mumbaīhūn", "ex_en": "from Mumbai"},
-    {"en": "with (using)", "hi": "से", "t": "-ने", "r": "-ne", "ex_t": "चमच्याने", "ex_r": "camcyāne", "ex_en": "with a spoon"},
-    {"en": "for", "hi": "के लिए", "t": "-साठी", "r": "-sāṭhī", "ex_t": "तुमच्यासाठी", "ex_r": "tumcyāsāṭhī", "ex_en": "for you"},
-    {"en": "with (a person)", "hi": "के साथ", "t": "-बरोबर", "r": "-barobar", "ex_t": "मित्राबरोबर", "ex_r": "mitrābarobar", "ex_en": "with a friend"}
+    {
+      "en": "in / at",
+      "hi": "में",
+      "t": "-त / -मध्ये",
+      "r": "-ta / -madhye",
+      "ex_t": "घरात",
+      "ex_r": "gharāt",
+      "ex_en": "at home"
+    },
+    {
+      "en": "to",
+      "hi": "को",
+      "t": "-ला",
+      "r": "-lā",
+      "ex_t": "मला द्या",
+      "ex_r": "malā dyā",
+      "ex_en": "give (to) me"
+    },
+    {
+      "en": "from",
+      "hi": "से",
+      "t": "-पासून / -हून",
+      "r": "-pāsūn / -hūn",
+      "ex_t": "मुंबईहून",
+      "ex_r": "mumbaīhūn",
+      "ex_en": "from Mumbai"
+    },
+    {
+      "en": "with (using)",
+      "hi": "से",
+      "t": "-ने",
+      "r": "-ne",
+      "ex_t": "चमच्याने",
+      "ex_r": "camcyāne",
+      "ex_en": "with a spoon"
+    },
+    {
+      "en": "for",
+      "hi": "के लिए",
+      "t": "-साठी",
+      "r": "-sāṭhī",
+      "ex_t": "तुमच्यासाठी",
+      "ex_r": "tumcyāsāṭhī",
+      "ex_en": "for you"
+    },
+    {
+      "en": "with (a person)",
+      "hi": "के साथ",
+      "t": "-बरोबर",
+      "r": "-barobar",
+      "ex_t": "मित्राबरोबर",
+      "ex_r": "mitrābarobar",
+      "ex_en": "with a friend"
+    }
   ],
   "classifiers": [
-    {"en": "एक पुस्तक", "r": "ek pustak", "hi": "एक किताब", "note": "one book — no classifier word needed"},
-    {"en": "दोन आंबे", "r": "don āmbe", "hi": "दो आम", "note": "two mangoes — number + noun, done"},
-    {"en": "तीन लोक", "r": "tīn lok", "hi": "तीन लोग", "note": "three people — people count directly too"}
+    {
+      "en": "एक पुस्तक",
+      "r": "ek pustak",
+      "hi": "एक किताब",
+      "note": "one book — no classifier word needed"
+    },
+    {
+      "en": "दोन आंबे",
+      "r": "don āmbe",
+      "hi": "दो आम",
+      "note": "two mangoes — number + noun, done"
+    },
+    {
+      "en": "तीन लोक",
+      "r": "tīn lok",
+      "hi": "तीन लोग",
+      "note": "three people — people count directly too"
+    }
   ],
-
   "dialogues": [
-    {"title": "Meeting someone",
-     "lines": [
-       {"sp": "Priya", "t": "नमस्कार! माझे नाव प्रिया आहे.", "r": "Namaskār! Mājhe nāv Priyā āhe.", "hi": "नमस्ते! मेरा नाम प्रिया है।", "en": "Hello! My name is Priya."},
-       {"sp": "Rahul", "t": "नमस्कार! मी राहुल. तुम्ही कसे आहात?", "r": "Namaskār! Mī Rāhul. Tumhī kase āhāt?", "hi": "नमस्ते! मैं राहुल हूँ। आप कैसे हैं?", "en": "Hello! I'm Rahul. How are you?"},
-       {"sp": "Priya", "t": "मी ठीक आहे, धन्यवाद. तुम्ही कुठले?", "r": "Mī ṭhīk āhe, dhanyavād. Tumhī kuṭhle?", "hi": "मैं ठीक हूँ, धन्यवाद। आप कहाँ से हैं?", "en": "I'm fine, thank you. Where are you from?"},
-       {"sp": "Rahul", "t": "मी दिल्लीचा. मी मराठी शिकतोय.", "r": "Mī dillīcā. Mī marāṭhī śiktoy.", "hi": "मैं दिल्ली से हूँ। मैं मराठी सीख रहा हूँ।", "en": "I'm from Delhi. I'm learning Marathi."},
-       {"sp": "Priya", "t": "छान! पुन्हा भेटू.", "r": "Chān! Punhā bheṭū.", "hi": "बढ़िया! फिर मिलेंगे।", "en": "Great! See you again."}
-     ]},
-    {"title": "At a tea tapri",
-     "lines": [
-       {"sp": "You", "t": "दादा, एक चहा द्या.", "r": "Dādā, ek cahā dyā.", "hi": "भैया, एक चाय दीजिए।", "en": "Brother, one tea please. (दादा = elder brother — everyone calls the vendor दादा)"},
-       {"sp": "Vendor", "t": "साखर किती?", "r": "Sākhar kitī?", "hi": "चीनी कितनी?", "en": "How much sugar?"},
-       {"sp": "You", "t": "एक चमचा. किती झाले?", "r": "Ek camcā. Kitī jhāle?", "hi": "एक चम्मच। कितने हुए?", "en": "One spoon. How much?"},
-       {"sp": "Vendor", "t": "दहा रुपये.", "r": "Dahā rupaye.", "hi": "दस रुपये।", "en": "Ten rupees."},
-       {"sp": "You", "t": "ठीक आहे. धन्यवाद!", "r": "Ṭhīk āhe. Dhanyavād!", "hi": "ठीक है। धन्यवाद!", "en": "OK. Thank you!"}
-     ]},
-    {"title": "Asking the way",
-     "lines": [
-       {"sp": "You", "t": "माफ करा, स्टेशन कुठे आहे?", "r": "Māph karā, sṭeśan kuṭhe āhe?", "hi": "माफ़ कीजिए, स्टेशन कहाँ है?", "en": "Excuse me, where is the station?"},
-       {"sp": "Local", "t": "सरळ जा, मग उजवीकडे.", "r": "Saraḷ jā, mag ujavīkaḍe.", "hi": "सीधे जाइए, फिर दाएँ।", "en": "Go straight, then right."},
-       {"sp": "You", "t": "लांब आहे का?", "r": "Lāmb āhe kā?", "hi": "क्या दूर है?", "en": "Is it far?"},
-       {"sp": "Local", "t": "नाही, जवळ आहे. पाच मिनिटे.", "r": "Nāhī, javaḷ āhe. Pāc miniṭe.", "hi": "नहीं, पास है। पाँच मिनट।", "en": "No, it's near. Five minutes."},
-       {"sp": "You", "t": "खूप खूप धन्यवाद!", "r": "Khūp khūp dhanyavād!", "hi": "बहुत-बहुत धन्यवाद!", "en": "Thank you very much!"}
-     ]}
+    {
+      "title": "Meeting someone",
+      "lines": [
+        {
+          "sp": "Priya",
+          "t": "नमस्कार! माझे नाव प्रिया आहे.",
+          "r": "Namaskār! Mājhe nāv Priyā āhe.",
+          "hi": "नमस्ते! मेरा नाम प्रिया है।",
+          "en": "Hello! My name is Priya."
+        },
+        {
+          "sp": "Rahul",
+          "t": "नमस्कार! मी राहुल. तुम्ही कसे आहात?",
+          "r": "Namaskār! Mī Rāhul. Tumhī kase āhāt?",
+          "hi": "नमस्ते! मैं राहुल हूँ। आप कैसे हैं?",
+          "en": "Hello! I'm Rahul. How are you?"
+        },
+        {
+          "sp": "Priya",
+          "t": "मी ठीक आहे, धन्यवाद. तुम्ही कुठले?",
+          "r": "Mī ṭhīk āhe, dhanyavād. Tumhī kuṭhle?",
+          "hi": "मैं ठीक हूँ, धन्यवाद। आप कहाँ से हैं?",
+          "en": "I'm fine, thank you. Where are you from?"
+        },
+        {
+          "sp": "Rahul",
+          "t": "मी दिल्लीचा. मी मराठी शिकतोय.",
+          "r": "Mī dillīcā. Mī marāṭhī śiktoy.",
+          "hi": "मैं दिल्ली से हूँ। मैं मराठी सीख रहा हूँ।",
+          "en": "I'm from Delhi. I'm learning Marathi."
+        },
+        {
+          "sp": "Priya",
+          "t": "छान! पुन्हा भेटू.",
+          "r": "Chān! Punhā bheṭū.",
+          "hi": "बढ़िया! फिर मिलेंगे।",
+          "en": "Great! See you again."
+        }
+      ]
+    },
+    {
+      "title": "At a tea tapri",
+      "lines": [
+        {
+          "sp": "You",
+          "t": "दादा, एक चहा द्या.",
+          "r": "Dādā, ek cahā dyā.",
+          "hi": "भैया, एक चाय दीजिए।",
+          "en": "Brother, one tea please. (दादा = elder brother — everyone calls the vendor दादा)"
+        },
+        {
+          "sp": "Vendor",
+          "t": "साखर किती?",
+          "r": "Sākhar kitī?",
+          "hi": "चीनी कितनी?",
+          "en": "How much sugar?"
+        },
+        {
+          "sp": "You",
+          "t": "एक चमचा. किती झाले?",
+          "r": "Ek camcā. Kitī jhāle?",
+          "hi": "एक चम्मच। कितने हुए?",
+          "en": "One spoon. How much?"
+        },
+        {
+          "sp": "Vendor",
+          "t": "दहा रुपये.",
+          "r": "Dahā rupaye.",
+          "hi": "दस रुपये।",
+          "en": "Ten rupees."
+        },
+        {
+          "sp": "You",
+          "t": "ठीक आहे. धन्यवाद!",
+          "r": "Ṭhīk āhe. Dhanyavād!",
+          "hi": "ठीक है। धन्यवाद!",
+          "en": "OK. Thank you!"
+        }
+      ]
+    },
+    {
+      "title": "Asking the way",
+      "lines": [
+        {
+          "sp": "You",
+          "t": "माफ करा, स्टेशन कुठे आहे?",
+          "r": "Māph karā, sṭeśan kuṭhe āhe?",
+          "hi": "माफ़ कीजिए, स्टेशन कहाँ है?",
+          "en": "Excuse me, where is the station?"
+        },
+        {
+          "sp": "Local",
+          "t": "सरळ जा, मग उजवीकडे.",
+          "r": "Saraḷ jā, mag ujavīkaḍe.",
+          "hi": "सीधे जाइए, फिर दाएँ।",
+          "en": "Go straight, then right."
+        },
+        {
+          "sp": "You",
+          "t": "लांब आहे का?",
+          "r": "Lāmb āhe kā?",
+          "hi": "क्या दूर है?",
+          "en": "Is it far?"
+        },
+        {
+          "sp": "Local",
+          "t": "नाही, जवळ आहे. पाच मिनिटे.",
+          "r": "Nāhī, javaḷ āhe. Pāc miniṭe.",
+          "hi": "नहीं, पास है। पाँच मिनट।",
+          "en": "No, it's near. Five minutes."
+        },
+        {
+          "sp": "You",
+          "t": "खूप खूप धन्यवाद!",
+          "r": "Khūp khūp dhanyavād!",
+          "hi": "बहुत-बहुत धन्यवाद!",
+          "en": "Thank you very much!"
+        }
+      ]
+    }
   ],
-
   "typing": [
-    ["namaskar", "नमस्कार"], ["dhanyavad", "धन्यवाद"], ["mi", "मी"], ["tu", "तू"],
-    ["tumhi", "तुम्ही"], ["bhat", "भात"], ["mase", "मासे"], ["pani", "पाणी"], ["chaha", "चहा"],
-    ["pustak", "पुस्तक"], ["ghar", "घर"], ["kam", "काम"], ["chan", "छान"], ["divas", "दिवस"],
-    ["ratra", "रात्र"], ["mitra", "मित्र"], ["aai", "आई"], ["baba", "बाबा"], ["kholi", "खोली"],
-    ["rasta", "रस्ता"], ["dukan", "दुकान"], ["bajar", "बाजार"], ["sakal", "सकाळ"], ["yeto", "येतो"]
+    [
+      "namaskar",
+      "नमस्कार"
+    ],
+    [
+      "dhanyavad",
+      "धन्यवाद"
+    ],
+    [
+      "mi",
+      "मी"
+    ],
+    [
+      "tu",
+      "तू"
+    ],
+    [
+      "tumhi",
+      "तुम्ही"
+    ],
+    [
+      "bhat",
+      "भात"
+    ],
+    [
+      "mase",
+      "मासे"
+    ],
+    [
+      "pani",
+      "पाणी"
+    ],
+    [
+      "chaha",
+      "चहा"
+    ],
+    [
+      "pustak",
+      "पुस्तक"
+    ],
+    [
+      "ghar",
+      "घर"
+    ],
+    [
+      "kam",
+      "काम"
+    ],
+    [
+      "chan",
+      "छान"
+    ],
+    [
+      "divas",
+      "दिवस"
+    ],
+    [
+      "ratra",
+      "रात्र"
+    ],
+    [
+      "mitra",
+      "मित्र"
+    ],
+    [
+      "aai",
+      "आई"
+    ],
+    [
+      "baba",
+      "बाबा"
+    ],
+    [
+      "kholi",
+      "खोली"
+    ],
+    [
+      "rasta",
+      "रस्ता"
+    ],
+    [
+      "dukan",
+      "दुकान"
+    ],
+    [
+      "bajar",
+      "बाजार"
+    ],
+    [
+      "sakal",
+      "सकाळ"
+    ],
+    [
+      "yeto",
+      "येतो"
+    ]
   ],
-
   "review_deck": [
-    {"t": "नमस्कार", "r": "namaskār", "en": "hello"},
-    {"t": "धन्यवाद", "r": "dhanyavād", "en": "thank you"},
-    {"t": "मी", "r": "mī", "en": "I"},
-    {"t": "तू / तुम्ही", "r": "tū / tumhī", "en": "you"},
-    {"t": "हो / नाही", "r": "ho / nāhī", "en": "yes / no"},
-    {"t": "भात", "r": "bhāt", "en": "rice"},
-    {"t": "पाणी", "r": "pāṇī", "en": "water"},
-    {"t": "चहा", "r": "cahā", "en": "tea"},
-    {"t": "पुस्तक", "r": "pustak", "en": "book"},
-    {"t": "घर", "r": "ghar", "en": "house"},
-    {"t": "छान", "r": "chān", "en": "good / nice"},
-    {"t": "किती", "r": "kitī", "en": "how much"},
-    {"t": "कुठे", "r": "kuṭhe", "en": "where"},
-    {"t": "आज", "r": "āj", "en": "today"},
-    {"t": "उद्या", "r": "udyā", "en": "tomorrow"},
-    {"t": "खातो", "r": "khāto", "en": "I eat (a man says)"},
-    {"t": "जातो", "r": "jāto", "en": "I go (a man says)"},
-    {"t": "पाहिजे", "r": "pāhije", "en": "want / need (मला … पाहिजे)"},
-    {"t": "ठीक आहे", "r": "ṭhīk āhe", "en": "OK"},
-    {"t": "पुन्हा भेटू", "r": "punhā bheṭū", "en": "see you again"}
+    {
+      "t": "नमस्कार",
+      "r": "namaskār",
+      "en": "hello"
+    },
+    {
+      "t": "धन्यवाद",
+      "r": "dhanyavād",
+      "en": "thank you"
+    },
+    {
+      "t": "मी",
+      "r": "mī",
+      "en": "I"
+    },
+    {
+      "t": "तू / तुम्ही",
+      "r": "tū / tumhī",
+      "en": "you"
+    },
+    {
+      "t": "हो / नाही",
+      "r": "ho / nāhī",
+      "en": "yes / no"
+    },
+    {
+      "t": "भात",
+      "r": "bhāt",
+      "en": "rice"
+    },
+    {
+      "t": "पाणी",
+      "r": "pāṇī",
+      "en": "water"
+    },
+    {
+      "t": "चहा",
+      "r": "cahā",
+      "en": "tea"
+    },
+    {
+      "t": "पुस्तक",
+      "r": "pustak",
+      "en": "book"
+    },
+    {
+      "t": "घर",
+      "r": "ghar",
+      "en": "house"
+    },
+    {
+      "t": "छान",
+      "r": "chān",
+      "en": "good / nice"
+    },
+    {
+      "t": "किती",
+      "r": "kitī",
+      "en": "how much"
+    },
+    {
+      "t": "कुठे",
+      "r": "kuṭhe",
+      "en": "where"
+    },
+    {
+      "t": "आज",
+      "r": "āj",
+      "en": "today"
+    },
+    {
+      "t": "उद्या",
+      "r": "udyā",
+      "en": "tomorrow"
+    },
+    {
+      "t": "खातो",
+      "r": "khāto",
+      "en": "I eat (a man says)"
+    },
+    {
+      "t": "जातो",
+      "r": "jāto",
+      "en": "I go (a man says)"
+    },
+    {
+      "t": "पाहिजे",
+      "r": "pāhije",
+      "en": "want / need (मला … पाहिजे)"
+    },
+    {
+      "t": "ठीक आहे",
+      "r": "ṭhīk āhe",
+      "en": "OK"
+    },
+    {
+      "t": "पुन्हा भेटू",
+      "r": "punhā bheṭū",
+      "en": "see you again"
+    }
   ],
-
   "quiz": [
-    {"id": "mq-01", "lesson": "basics", "type": "meaning", "topic": "basics", "level": "beginner", "q": "What does नमस्कार mean?", "a": "hello", "opts": ["hello", "goodbye", "thank you", "sorry"], "explain": "नमस्कार (namaskār) is the standard formal hello — to elders, officials, anyone you respect."},
-    {"id": "mq-02", "lesson": "basics", "type": "vocab", "topic": "basics", "level": "beginner", "q": "How do you say 'thank you' in Marathi?", "a": "धन्यवाद", "opts": ["धन्यवाद", "नमस्कार", "माफ करा", "येतो"], "explain": "धन्यवाद (dhanyavād). माफ करा is excuse-me/sorry — don't mix them."},
-    {"id": "mq-03", "lesson": "pronunciation", "type": "usage", "topic": "basics", "level": "beginner", "q": "The letter ळ is…", "a": "a retroflex L (tongue curled back)", "opts": ["a normal L like English", "a retroflex L (tongue curled back)", "silent", "an R sound"], "explain": "ळ (ḷ) is Marathi's signature sound. बाळ (child) vs बाल (hair) — get it right and Maharashtrians will beam."},
-    {"id": "mq-04", "lesson": "basics", "type": "meaning", "topic": "basics", "level": "beginner", "q": "तुम्ही कसे आहात? means…", "a": "How are you? (formal)", "opts": ["How are you? (formal)", "What is your name?", "Where are you from?", "See you again"], "explain": "तुम्ही (tumhī) is formal 'you' — safe with every stranger."},
-    {"id": "mq-05", "lesson": "numbers", "type": "vocab", "topic": "numbers", "level": "beginner", "q": "What does पाच mean?", "a": "five", "opts": ["four", "five", "six", "seven"], "explain": "पाच (pāc) = 5. Same root as Hindi पाँच."},
-    {"id": "mq-06", "lesson": "numbers", "type": "vocab", "topic": "numbers", "level": "beginner", "q": "How do you say 'ten'?", "a": "दहा", "opts": ["दहा", "पाच", "वीस", "शंभर"], "explain": "दहा (dahā) = 10. वीस is 20, शंभर is 100."},
-    {"id": "mq-07", "lesson": "numbers", "type": "vocab", "topic": "numbers", "level": "elementary", "q": "वीस means…", "a": "twenty", "opts": ["twelve", "twenty", "two hundred", "two thousand"], "explain": "वीस (vīs) = 20 — its own word, like English 'twenty'."},
-    {"id": "mq-08", "lesson": "numbers", "type": "vocab", "topic": "numbers", "level": "elementary", "q": "शंभर means…", "a": "one hundred", "opts": ["one thousand", "one hundred", "eleven", "ten"], "explain": "शंभर (śambhar) = 100. Don't confuse it with the South Indian dish sambar!"},
-    {"id": "mq-09", "lesson": "food", "type": "vocab", "topic": "food", "level": "beginner", "q": "What does भात mean?", "a": "cooked rice", "opts": ["cooked rice", "bread", "fish", "lentils"], "explain": "भात (bhāt) is cooked rice — uncooked rice is तांदूळ."},
-    {"id": "mq-10", "lesson": "food", "type": "vocab", "topic": "food", "level": "beginner", "q": "मासे means…", "a": "fish", "opts": ["meat", "fish", "egg", "milk"], "explain": "मासे (māse) = fish. Coastal Maharashtra runs on fish and rice."},
-    {"id": "mq-11", "lesson": "food", "type": "usage", "topic": "food", "level": "elementary", "q": "एक चहा द्या means…", "a": "One tea, please", "opts": ["One tea, please", "Two teas, please", "No tea", "Tea is cold"], "explain": "एक = one, द्या = give (polite). The full polite ordering pattern."},
-    {"id": "mq-12", "lesson": "travel", "type": "usage", "topic": "travel", "level": "beginner", "q": "स्टेशन कुठे आहे? means…", "a": "Where is the station?", "opts": ["Where is the station?", "The station is far", "Take me to the station", "The station is closed"], "explain": "कुठे (kuṭhe) = where. X कुठे आहे? is the whole direction toolkit in three words."},
-    {"id": "mq-13", "lesson": "travel", "type": "vocab", "topic": "travel", "level": "beginner", "q": "उजवीकडे means…", "a": "right", "opts": ["left", "right", "straight", "back"], "explain": "उजवीकडे (ujavīkaḍe) = to the right. Left is डावीकडे, straight is सरळ."},
-    {"id": "mq-14", "lesson": "travel", "type": "usage", "topic": "travel", "level": "elementary", "q": "भाडे किती? means…", "a": "How much is the fare?", "opts": ["How much is the fare?", "The fare is fixed", "Stop the car", "Faster, please"], "explain": "भाडे (bhāḍe) = fare, किती = how much. Ask before you sit down."},
-    {"id": "mq-15", "lesson": "grammar", "type": "usage", "topic": "grammar", "level": "beginner", "q": "मी भात खातो. The word order is…", "a": "I · rice · eat (verb last)", "opts": ["I · eat · rice (like English)", "I · rice · eat (verb last)", "Rice · I · eat", "Eat · I · rice"], "explain": "Marathi is subject–object–verb: मी भात खातो. The verb always goes last."},
-    {"id": "mq-16", "lesson": "grammar", "type": "usage", "topic": "grammar", "level": "beginner", "q": "Which 'you' is safe with strangers?", "a": "तुम्ही", "opts": ["तू", "तुम्ही", "तो", "मी"], "explain": "तुम्ही (tumhī) is formal and safe everywhere. तू to a stranger is rude."},
-    {"id": "mq-17", "lesson": "grammar", "type": "usage", "topic": "grammar", "level": "elementary", "q": "मी मटण खात नाही means…", "a": "I don't eat meat", "opts": ["I don't eat meat", "I eat meat daily", "I ate meat", "I will eat meat"], "explain": "नाही after the verb negates it: खात नाही = don't eat. Simplest negation in any major language."},
-    {"id": "mq-18", "lesson": "grammar", "type": "usage", "topic": "grammar", "level": "elementary", "q": "A woman says 'I eat'…", "a": "खाते", "opts": ["खातो", "खाते", "खातोस", "खातात"], "explain": "खाते (khāte) — Marathi verbs agree with the speaker's gender. Men say खातो."},
-    {"id": "mq-19", "lesson": "conversation", "type": "meaning", "topic": "conversation", "level": "beginner", "q": "माझे नाव … means…", "a": "My name is …", "opts": ["My name is …", "Your name is …", "What is this?", "I am lost"], "explain": "माझे (mājhe) = my, नाव = name. माझे नाव प्रिया = my name is Priya."},
-    {"id": "mq-20", "lesson": "conversation", "type": "usage", "topic": "conversation", "level": "elementary", "q": "मी मराठी शिकतोय means…", "a": "I am learning Marathi", "opts": ["I am learning Marathi", "I speak Marathi fluently", "I forgot Marathi", "I teach Marathi"], "explain": "शिकतोय (śiktoy) is present continuous: right now, in progress. A woman says शिकतेय. Say it to any Maharashtrian and watch them smile."},
-    {"id": "mq-21", "lesson": "vocabulary", "type": "vocab", "topic": "vocabulary", "level": "beginner", "q": "पुस्तक means…", "a": "book", "opts": ["book", "house", "school", "road"], "explain": "पुस्तक (pustak) = book. एक पुस्तक = one book."},
-    {"id": "mq-22", "lesson": "vocabulary", "type": "vocab", "topic": "vocabulary", "level": "beginner", "q": "घर means…", "a": "house", "opts": ["house", "car", "shop", "school"], "explain": "घर (ghar) = house/home. घरात = at home (त = in/at)."},
-    {"id": "mq-23", "lesson": "shopping", "type": "usage", "topic": "travel", "level": "elementary", "q": "हे कितीला? means…", "a": "How much is this?", "opts": ["How much is this?", "This is free", "This is mine", "Wrap this up"], "explain": "हे (this) + कितीला (for how much). The market survival sentence."},
-    {"id": "mq-24", "lesson": "time-dates", "type": "vocab", "topic": "basics", "level": "elementary", "q": "उद्या means…", "a": "tomorrow", "opts": ["today", "tomorrow", "yesterday", "now"], "explain": "उद्या (udyā) = tomorrow. Yesterday is काल — Marathi splits what Hindi/Bengali काल covers."}
-  ]
+    {
+      "id": "mq-01",
+      "lesson": "basics",
+      "type": "meaning",
+      "topic": "basics",
+      "level": "beginner",
+      "q": "What does नमस्कार mean?",
+      "a": "hello",
+      "opts": [
+        "hello",
+        "goodbye",
+        "thank you",
+        "sorry"
+      ],
+      "explain": "नमस्कार (namaskār) is the standard formal hello — to elders, officials, anyone you respect."
+    },
+    {
+      "id": "mq-02",
+      "lesson": "basics",
+      "type": "vocab",
+      "topic": "basics",
+      "level": "beginner",
+      "q": "How do you say 'thank you' in Marathi?",
+      "a": "धन्यवाद",
+      "opts": [
+        "धन्यवाद",
+        "नमस्कार",
+        "माफ करा",
+        "येतो"
+      ],
+      "explain": "धन्यवाद (dhanyavād). माफ करा is excuse-me/sorry — don't mix them."
+    },
+    {
+      "id": "mq-03",
+      "lesson": "pronunciation",
+      "type": "usage",
+      "topic": "basics",
+      "level": "beginner",
+      "q": "The letter ळ is…",
+      "a": "a retroflex L (tongue curled back)",
+      "opts": [
+        "a normal L like English",
+        "a retroflex L (tongue curled back)",
+        "silent",
+        "an R sound"
+      ],
+      "explain": "ळ (ḷ) is Marathi's signature sound. बाळ (child) vs बाल (hair) — get it right and Maharashtrians will beam."
+    },
+    {
+      "id": "mq-04",
+      "lesson": "basics",
+      "type": "meaning",
+      "topic": "basics",
+      "level": "beginner",
+      "q": "तुम्ही कसे आहात? means…",
+      "a": "How are you? (formal)",
+      "opts": [
+        "How are you? (formal)",
+        "What is your name?",
+        "Where are you from?",
+        "See you again"
+      ],
+      "explain": "तुम्ही (tumhī) is formal 'you' — safe with every stranger."
+    },
+    {
+      "id": "mq-05",
+      "lesson": "numbers",
+      "type": "vocab",
+      "topic": "numbers",
+      "level": "beginner",
+      "q": "What does पाच mean?",
+      "a": "five",
+      "opts": [
+        "four",
+        "five",
+        "six",
+        "seven"
+      ],
+      "explain": "पाच (pāc) = 5. Same root as Hindi पाँच."
+    },
+    {
+      "id": "mq-06",
+      "lesson": "numbers",
+      "type": "vocab",
+      "topic": "numbers",
+      "level": "beginner",
+      "q": "How do you say 'ten'?",
+      "a": "दहा",
+      "opts": [
+        "दहा",
+        "पाच",
+        "वीस",
+        "शंभर"
+      ],
+      "explain": "दहा (dahā) = 10. वीस is 20, शंभर is 100."
+    },
+    {
+      "id": "mq-07",
+      "lesson": "numbers",
+      "type": "vocab",
+      "topic": "numbers",
+      "level": "elementary",
+      "q": "वीस means…",
+      "a": "twenty",
+      "opts": [
+        "twelve",
+        "twenty",
+        "two hundred",
+        "two thousand"
+      ],
+      "explain": "वीस (vīs) = 20 — its own word, like English 'twenty'."
+    },
+    {
+      "id": "mq-08",
+      "lesson": "numbers",
+      "type": "vocab",
+      "topic": "numbers",
+      "level": "elementary",
+      "q": "शंभर means…",
+      "a": "one hundred",
+      "opts": [
+        "one thousand",
+        "one hundred",
+        "eleven",
+        "ten"
+      ],
+      "explain": "शंभर (śambhar) = 100. Don't confuse it with the South Indian dish sambar!"
+    },
+    {
+      "id": "mq-09",
+      "lesson": "food",
+      "type": "vocab",
+      "topic": "food",
+      "level": "beginner",
+      "q": "What does भात mean?",
+      "a": "cooked rice",
+      "opts": [
+        "cooked rice",
+        "bread",
+        "fish",
+        "lentils"
+      ],
+      "explain": "भात (bhāt) is cooked rice — uncooked rice is तांदूळ."
+    },
+    {
+      "id": "mq-10",
+      "lesson": "food",
+      "type": "vocab",
+      "topic": "food",
+      "level": "beginner",
+      "q": "मासे means…",
+      "a": "fish",
+      "opts": [
+        "meat",
+        "fish",
+        "egg",
+        "milk"
+      ],
+      "explain": "मासे (māse) = fish. Coastal Maharashtra runs on fish and rice."
+    },
+    {
+      "id": "mq-11",
+      "lesson": "food",
+      "type": "usage",
+      "topic": "food",
+      "level": "elementary",
+      "q": "एक चहा द्या means…",
+      "a": "One tea, please",
+      "opts": [
+        "One tea, please",
+        "Two teas, please",
+        "No tea",
+        "Tea is cold"
+      ],
+      "explain": "एक = one, द्या = give (polite). The full polite ordering pattern."
+    },
+    {
+      "id": "mq-12",
+      "lesson": "travel",
+      "type": "usage",
+      "topic": "travel",
+      "level": "beginner",
+      "q": "स्टेशन कुठे आहे? means…",
+      "a": "Where is the station?",
+      "opts": [
+        "Where is the station?",
+        "The station is far",
+        "Take me to the station",
+        "The station is closed"
+      ],
+      "explain": "कुठे (kuṭhe) = where. X कुठे आहे? is the whole direction toolkit in three words."
+    },
+    {
+      "id": "mq-13",
+      "lesson": "travel",
+      "type": "vocab",
+      "topic": "travel",
+      "level": "beginner",
+      "q": "उजवीकडे means…",
+      "a": "right",
+      "opts": [
+        "left",
+        "right",
+        "straight",
+        "back"
+      ],
+      "explain": "उजवीकडे (ujavīkaḍe) = to the right. Left is डावीकडे, straight is सरळ."
+    },
+    {
+      "id": "mq-14",
+      "lesson": "travel",
+      "type": "usage",
+      "topic": "travel",
+      "level": "elementary",
+      "q": "भाडे किती? means…",
+      "a": "How much is the fare?",
+      "opts": [
+        "How much is the fare?",
+        "The fare is fixed",
+        "Stop the car",
+        "Faster, please"
+      ],
+      "explain": "भाडे (bhāḍe) = fare, किती = how much. Ask before you sit down."
+    },
+    {
+      "id": "mq-15",
+      "lesson": "grammar",
+      "type": "usage",
+      "topic": "grammar",
+      "level": "beginner",
+      "q": "मी भात खातो. The word order is…",
+      "a": "I · rice · eat (verb last)",
+      "opts": [
+        "I · eat · rice (like English)",
+        "I · rice · eat (verb last)",
+        "Rice · I · eat",
+        "Eat · I · rice"
+      ],
+      "explain": "Marathi is subject–object–verb: मी भात खातो. The verb always goes last."
+    },
+    {
+      "id": "mq-16",
+      "lesson": "grammar",
+      "type": "usage",
+      "topic": "grammar",
+      "level": "beginner",
+      "q": "Which 'you' is safe with strangers?",
+      "a": "तुम्ही",
+      "opts": [
+        "तू",
+        "तुम्ही",
+        "तो",
+        "मी"
+      ],
+      "explain": "तुम्ही (tumhī) is formal and safe everywhere. तू to a stranger is rude."
+    },
+    {
+      "id": "mq-17",
+      "lesson": "grammar",
+      "type": "usage",
+      "topic": "grammar",
+      "level": "elementary",
+      "q": "मी मटण खात नाही means…",
+      "a": "I don't eat meat",
+      "opts": [
+        "I don't eat meat",
+        "I eat meat daily",
+        "I ate meat",
+        "I will eat meat"
+      ],
+      "explain": "नाही after the verb negates it: खात नाही = don't eat. Simplest negation in any major language."
+    },
+    {
+      "id": "mq-18",
+      "lesson": "grammar",
+      "type": "usage",
+      "topic": "grammar",
+      "level": "elementary",
+      "q": "A woman says 'I eat'…",
+      "a": "खाते",
+      "opts": [
+        "खातो",
+        "खाते",
+        "खातोस",
+        "खातात"
+      ],
+      "explain": "खाते (khāte) — Marathi verbs agree with the speaker's gender. Men say खातो."
+    },
+    {
+      "id": "mq-19",
+      "lesson": "conversation",
+      "type": "meaning",
+      "topic": "conversation",
+      "level": "beginner",
+      "q": "माझे नाव … means…",
+      "a": "My name is …",
+      "opts": [
+        "My name is …",
+        "Your name is …",
+        "What is this?",
+        "I am lost"
+      ],
+      "explain": "माझे (mājhe) = my, नाव = name. माझे नाव प्रिया = my name is Priya."
+    },
+    {
+      "id": "mq-20",
+      "lesson": "conversation",
+      "type": "usage",
+      "topic": "conversation",
+      "level": "elementary",
+      "q": "मी मराठी शिकतोय means…",
+      "a": "I am learning Marathi",
+      "opts": [
+        "I am learning Marathi",
+        "I speak Marathi fluently",
+        "I forgot Marathi",
+        "I teach Marathi"
+      ],
+      "explain": "शिकतोय (śiktoy) is present continuous: right now, in progress. A woman says शिकतेय. Say it to any Maharashtrian and watch them smile."
+    },
+    {
+      "id": "mq-21",
+      "lesson": "vocabulary",
+      "type": "vocab",
+      "topic": "vocabulary",
+      "level": "beginner",
+      "q": "पुस्तक means…",
+      "a": "book",
+      "opts": [
+        "book",
+        "house",
+        "school",
+        "road"
+      ],
+      "explain": "पुस्तक (pustak) = book. एक पुस्तक = one book."
+    },
+    {
+      "id": "mq-22",
+      "lesson": "vocabulary",
+      "type": "vocab",
+      "topic": "vocabulary",
+      "level": "beginner",
+      "q": "घर means…",
+      "a": "house",
+      "opts": [
+        "house",
+        "car",
+        "shop",
+        "school"
+      ],
+      "explain": "घर (ghar) = house/home. घरात = at home (त = in/at)."
+    },
+    {
+      "id": "mq-23",
+      "lesson": "shopping",
+      "type": "usage",
+      "topic": "travel",
+      "level": "elementary",
+      "q": "हे कितीला? means…",
+      "a": "How much is this?",
+      "opts": [
+        "How much is this?",
+        "This is free",
+        "This is mine",
+        "Wrap this up"
+      ],
+      "explain": "हे (this) + कितीला (for how much). The market survival sentence."
+    },
+    {
+      "id": "mq-24",
+      "lesson": "time-dates",
+      "type": "vocab",
+      "topic": "basics",
+      "level": "elementary",
+      "q": "उद्या means…",
+      "a": "tomorrow",
+      "opts": [
+        "today",
+        "tomorrow",
+        "yesterday",
+        "now"
+      ],
+      "explain": "उद्या (udyā) = tomorrow. Yesterday is काल — Marathi splits what Hindi/Bengali काल covers."
+    }
+  ],
+  "advanced_modules": []
 }

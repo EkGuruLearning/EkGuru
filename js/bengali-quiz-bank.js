@@ -394,6 +394,166 @@ window.EKGURU_BENGALI_QUIZ =
     "never"
    ],
    "explain": "কাল covers both — context decides. গতকাল pins it to yesterday."
+  },
+  {
+   "a": "fever",
+   "explain": "জ্বর (jor) = fever — আমার জ্বর এসেছে (I have a fever).",
+   "id": "bq-25",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "fever",
+    "cold",
+    "cough",
+    "pain"
+   ],
+   "q": "জ্বর means…",
+   "topic": "health",
+   "type": "vocab"
+  },
+  {
+   "a": "মাথা",
+   "explain": "মাথা (matha) = head — মাথাব্যথা is a headache.",
+   "id": "bq-26",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "মাথা",
+    "পেট",
+    "হাত",
+    "পা"
+   ],
+   "q": "Which is 'head'?",
+   "topic": "health",
+   "type": "vocab"
+  },
+  {
+   "a": "my head aches",
+   "explain": "আমার মাথা ধরেছে — literally 'my head has caught (pain)'.",
+   "id": "bq-27",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "my head aches",
+    "my stomach aches",
+    "I feel dizzy",
+    "I feel cold"
+   ],
+   "q": "'আমার মাথা ধরেছে' means…",
+   "topic": "health",
+   "type": "meaning"
+  },
+  {
+   "a": "ডাক্তার ডাকুন",
+   "explain": "ডাক্তার ডাকুন = call a doctor. ওষুধ দিন = give medicine.",
+   "id": "bq-28",
+   "lesson": "health",
+   "level": "elementary",
+   "opts": [
+    "ডাক্তার ডাকুন",
+    "ওষুধ দিন",
+    "বিল দিন",
+    "চিন্তা করবেন না"
+   ],
+   "q": "You need a doctor. You say…",
+   "topic": "health",
+   "type": "usage"
+  },
+  {
+   "a": "medicine",
+   "explain": "ওষুধ (oshudh) = medicine — আমার ওষুধ দরকার (I need medicine).",
+   "id": "bq-29",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "medicine",
+    "injection",
+    "bandage",
+    "syrup"
+   ],
+   "q": "ওষুধ means…",
+   "topic": "health",
+   "type": "vocab"
+  },
+  {
+   "a": "hospital",
+   "explain": "হাসপাতাল (haspatal) = hospital; ক্লিনিক = clinic; ফার্মেসি = pharmacy.",
+   "id": "bq-30",
+   "lesson": "health",
+   "level": "elementary",
+   "opts": [
+    "hospital",
+    "clinic",
+    "pharmacy",
+    "ward"
+   ],
+   "q": "হাসপাতাল means…",
+   "topic": "health",
+   "type": "vocab"
+  },
+  {
+   "a": "twice a day after meals",
+   "explain": "খাওয়ার পরে (after meals) দিনে দুবার (twice a day) — read every prescription line twice.",
+   "id": "bq-31",
+   "lesson": "health",
+   "level": "elementary",
+   "opts": [
+    "twice a day after meals",
+    "once a day before meals",
+    "three times a day",
+    "only at night"
+   ],
+   "q": "'খাওয়ার পরে দিনে দুবার' means…",
+   "topic": "health",
+   "type": "meaning"
+  },
+  {
+   "a": "since when?",
+   "explain": "কবে থেকে? (kobe theke?) = since when — the doctor's first question.",
+   "id": "bq-32",
+   "lesson": "health",
+   "level": "elementary",
+   "opts": [
+    "since when?",
+    "how much?",
+    "where?",
+    "who?"
+   ],
+   "q": "The doctor asks 'কবে থেকে?' — they're asking…",
+   "topic": "health",
+   "type": "usage"
+  },
+  {
+   "a": "blood",
+   "explain": "রক্ত (rokto) = blood — রক্ত পরীক্ষা is a blood test.",
+   "id": "bq-33",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "blood",
+    "bone",
+    "skin",
+    "heart"
+   ],
+   "q": "রক্ত means…",
+   "topic": "health",
+   "type": "vocab"
+  },
+  {
+   "a": "take rest",
+   "explain": "বিশ্রাম নিন (bishram nin) = take rest — the prescription everyone ignores.",
+   "id": "bq-34",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "take rest",
+    "drink water",
+    "walk daily",
+    "sleep early"
+   ],
+   "q": "'বিশ্রাম নিন' means…",
+   "topic": "health",
+   "type": "meaning"
   }
  ]
 };

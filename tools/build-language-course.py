@@ -172,6 +172,10 @@ def p_index(d):
               ("food", "Food & eating", "Ordering, tastes and table talk — in restaurants and markets."),
               ("shopping", "Shopping & money", "Prices, bargaining and the phrases for markets and shops.")]
     cards = "".join(f'<a class="hs-card" href="{s}/"><b>{t}</b><span>{x}</span></a>' for s, t, x in topics)
+    adv = ""
+    if d.get("advanced_modules"):
+        cards2 = "".join(f'<a class="hs-card" href="advanced/{m["slug"]}/"><b>{m["title"]}</b><span>{m["lede"]}</span></a>' for m in d["advanced_modules"])
+        adv = f'\n  <h2>Advanced topics</h2>\n  <div class="hs-grid">\n{cards2}\n  </div>'
     return (f"Learn {n} — the complete course",
             f"Free {n} course in three languages side by side: every word in English, Hindi and {n} — levels, topics, quizzes and practice labs.",
             f"""{crumb(d, [])}
@@ -187,7 +191,7 @@ def p_index(d):
   <h2>Topics</h2>
   <div class="hs-grid">
 {cards}
-  </div>
+  </div>{adv}
   <h2>Practice labs</h2><ul class="linklist">
     <li><a href="practice/">Practice labs</a><span>Quiz, typing trainer, worksheets and conversation scenarios.</span></li>
     <li><a href="practice/quiz/">Topic quiz</a><span>Multiple-choice questions from the lesson bank, with explanations.</span></li>
@@ -567,6 +571,8 @@ def p_progress(d):
              ("time-dates", "Time & dates"), ("daily-life", "Daily life"),
              ("practice/quiz", "Quiz (all topics)"), ("practice/typing", "Typing trainer"),
              ("practice/conversation", "Dialogues aloud"), ("review", "Review deck: 20/20")]
+    for m in d.get("advanced_modules", []):
+        pages.append((f"advanced/{m['slug']}", f"Advanced: {m['title']}"))
     items = "".join(
         f"<li><label style=\"display:flex;gap:10px;align-items:baseline;cursor:pointer\"><input type=\"checkbox\" data-w=\"{i}\"> <span><a href=\"../{s}/\">{t}</a></span></label></li>"
         for i, (s, t) in enumerate(pages))
@@ -587,6 +593,45 @@ def p_progress(d):
   <p class="note" id="prog-n"></p>
   <ul class="linklist" id="prog">{items}</ul>
   {js}""")
+
+
+def dialogue_html(lines):
+    out = []
+    for ln in lines:
+        out.append(f"<p><b>{E(ln['sp'])}:</b> {E(ln['t'])}<br><span style=\"color:var(--muted)\">{E(ln['r'])}</span> — {E(ln['hi'])} — <i>{E(ln['en'])}</i></p>")
+    return "\n".join(out)
+
+
+def p_advanced_hub(d):
+    n = d["name"]
+    items = "".join(
+        f"<li><a href=\"{m['slug']}/\">{E(m['title'])}</a><span>{E(m['lede'])}</span></li>"
+        for m in d["advanced_modules"])
+    total = sum(len(m["words"]) for m in d["advanced_modules"])
+    return (f"{n} advanced topics — beyond the basics",
+            f"Advanced {n} vocabulary by topic: {total} extra words with phrases and dialogues.",
+            f"""{crumb(d, [(None, "Advanced")])}
+  <h1>{E(n)} advanced topics</h1>
+  <p class="lede">Beyond the basics: {total} extra words across {len(d["advanced_modules"])} topics — every word in English, Hindi and {E(n)} with pronunciation. Each module adds its own quiz questions.</p>
+  <ul class="linklist">{items}</ul>""")
+
+
+def p_advanced_module(d, m):
+    n = d["name"]
+    body = f"""{crumb(d, [("{r}learn/" + d["slug"] + "/advanced/", "Advanced"), (None, m["title"])])}
+  <h1>{E(n)}: {E(m["title"])}</h1>
+  <p class="lede">{E(m["lede"])}</p>
+  <h2>Words ({len(m["words"])})</h2>
+  {tri_table(m["words"], col3=n)}
+  <h2>Phrases</h2>
+  {tri_table(m["phrases"], col3=n)}"""
+    if m.get("dialogue"):
+        dg = m["dialogue"]
+        body += f'\n  <h2>Dialogue: {E(dg["title"])}</h2>\n  {dialogue_html(dg["lines"])}'
+    body += '\n  <div class="note"><b>Quiz yourself.</b> This module adds questions to the <a href="../../practice/quiz/">topic quiz</a> — pick its topic and test yourself.</div>'
+    return (f"{n}: {m['title']} — advanced words and phrases",
+            f"Advanced {n} {m['title'].lower()}: {len(m['words'])} words, phrases and a dialogue.",
+            body)
 
 
 QUIZ_BANK_TMPL = """/* =========================================================
@@ -649,14 +694,25 @@ def build(slug):
         emit(f"practice/{kind}/", t, ds, b, 4, scripts)
     t, ds, b = p_conversation_lab(d)
     emit("practice/conversation/", t, ds, b, 4)
+    # -- advanced modules (optional; absent for most languages)
+    mods = d.get("advanced_modules", [])
+    if mods:
+        t, ds, b = p_advanced_hub(d)
+        emit("advanced/", t, ds, b, 3)
+        for m in mods:
+            t, ds, b = p_advanced_module(d, m)
+            emit(f"advanced/{m['slug']}/", t, ds, b, 4)
     # -- review + progress
     t, ds, b = p_review(d)
     emit("review/", t, ds, b, 3)
     t, ds, b = p_progress(d)
     emit("my-progress/", t, ds, b, 3)
 
-    # -- quiz bank JS
-    bank = {"version": 1, "questions": d["quiz"]}
+    # -- quiz bank JS (base bank + advanced-module questions, IDs must stay unique)
+    questions = list(d["quiz"]) + [q for m in mods for q in m.get("quiz", [])]
+    ids = [q["id"] for q in questions]
+    assert len(ids) == len(set(ids)), f"duplicate quiz ids in {slug}"
+    bank = {"version": 1, "questions": questions}
     data = json.dumps(bank, ensure_ascii=False, indent=1)
     typing = json.dumps(d["typing"], ensure_ascii=False, indent=1)
     js = QUIZ_BANK_TMPL.format(NAME=d["name"].upper(), GLOBAL=d["name"].upper(),

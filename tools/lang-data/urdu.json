@@ -1,1 +1,2415 @@
-{"bargaining_script": "یہ کتنے کا ہے؟ (how much?) → بہت مہنگا ہے! (too pricey!) → تھوڑا سستا کریں (make it cheaper) → رعایت دیں (give a discount) → اچھا، پیک کر دیں! (done, pack it!)", "classifiers": [{"en": "ایک کتاب", "hi": "एक किताब", "note": "one book — number + noun, no extras", "r": "ek kitāb"}, {"en": "دو کتابیں", "hi": "दो किताबें", "note": "two books — the noun itself goes plural (-یں)", "r": "do kitāben"}, {"en": "تین روپے", "hi": "तीन रुपये", "note": "three rupees — same pattern as Hindi", "r": "tīn rupay"}], "colors": [{"en": "red", "hi": "लाल", "note": "لال never changes for gender", "r": "lāl", "t": "لال"}, {"en": "blue", "hi": "नीला", "note": "نیلی with feminine nouns", "r": "nīlā", "t": "نیلا"}, {"en": "green", "hi": "हरा", "note": "also سبز (sabz); ہری with feminine nouns", "r": "harā", "t": "ہرا"}, {"en": "yellow", "hi": "पीला", "note": "پیلی with feminine nouns", "r": "pīlā", "t": "پیلا"}, {"en": "black", "hi": "काला", "note": "کالی with feminine nouns", "r": "kālā", "t": "کالا"}, {"en": "white", "hi": "सफ़ेद", "note": "سفید never changes for gender", "r": "safed", "t": "سفید"}], "consonants": [{"hint": "a/ā — the tall first letter; a vowel-carrier", "r": "alif", "t": "ا"}, {"hint": "aa as in father — alif with a madd cap", "r": "alif-mad", "t": "آ"}, {"hint": "b as in boy", "r": "be", "t": "ب"}, {"hint": "p as in pin — Persian addition (3 dots below)", "r": "pe", "t": "پ"}, {"hint": "soft t, tongue on teeth", "r": "te", "t": "ت"}, {"hint": "hard T, tongue curled back — Indian addition", "r": "ṭe", "t": "ٹ"}, {"hint": "s as in sun (in Urdu, just s)", "r": "se", "t": "ث"}, {"hint": "j as in jump", "r": "jīm", "t": "ج"}, {"hint": "ch as in chair — Persian addition", "r": "che", "t": "چ"}, {"hint": "h as in hat (deep, from the throat)", "r": "baṛī he", "t": "ح"}, {"hint": "throaty kh as in Khan", "r": "khe", "t": "خ"}, {"hint": "soft d, tongue on teeth", "r": "dāl", "t": "د"}, {"hint": "hard D, tongue curled back — Indian addition", "r": "ḍāl", "t": "ڈ"}, {"hint": "z as in zoo (in Urdu, just z)", "r": "zāl", "t": "ذ"}, {"hint": "rolled r", "r": "re", "t": "ر"}, {"hint": "flapped ṛ — Indian addition", "r": "ṛe", "t": "ڑ"}, {"hint": "z as in zoo", "r": "ze", "t": "ز"}, {"hint": "s as in pleasure — Persian addition (3 dots)", "r": "zhe", "t": "ژ"}, {"hint": "s as in sun", "r": "sīn", "t": "س"}, {"hint": "sh as in shoe", "r": "shīn", "t": "ش"}, {"hint": "s as in sun (in Urdu, just s)", "r": "suād", "t": "ص"}, {"hint": "z as in zoo (in Urdu, just z)", "r": "zuād", "t": "ض"}, {"hint": "hard T (in Urdu, like ٹ)", "r": "toen", "t": "ط"}, {"hint": "z as in zoo (in Urdu, just z)", "r": "zoen", "t": "ظ"}, {"hint": "a deep throaty stop — عینک (glasses); learners say a plain vowel at first", "r": "ain", "t": "ع"}, {"hint": "throaty gh — like gargling, as in غم (sorrow)", "r": "ghain", "t": "غ"}, {"hint": "f as in fan", "r": "fe", "t": "ف"}, {"hint": "deep throaty q — قمیض (shirt)", "r": "qāf", "t": "ق"}, {"hint": "k as in kite", "r": "kāf", "t": "ک"}, {"hint": "g as in go — Persian addition (extra stroke)", "r": "gāf", "t": "گ"}, {"hint": "l as in love", "r": "lām", "t": "ل"}, {"hint": "m as in man", "r": "mīm", "t": "م"}, {"hint": "n as in no", "r": "nūn", "t": "ن"}, {"hint": "nasal n — no dots, as in میں (I)", "r": "nūn-ghunna", "t": "ں"}, {"hint": "v/w between vowels; doubles as ū/o/au", "r": "vāo", "t": "و"}, {"hint": "h as in hat; silent at many word ends", "r": "choṭī he", "t": "ہ"}, {"hint": "do-chashmī he — joins to make بھ پھ تھ جھ (breathy sounds)", "r": "do-chashmī he", "t": "ھ"}, {"hint": "glottal stop — rare, mid-word breaks", "r": "hamza", "t": "ء"}, {"hint": "y as in yes; ī as in feet at word end", "r": "choṭī ye", "t": "ی"}, {"hint": "e as in say — baṛī ye, only at word end", "r": "baṛī ye", "t": "ے"}], "core_nouns": [{"en": "water", "hi": "पानी", "r": "pānī", "t": "پانی"}, {"en": "home", "hi": "घर", "r": "ghar", "t": "گھر"}, {"en": "school", "hi": "स्कूल", "r": "skūl", "t": "اسکول"}, {"en": "office", "hi": "दफ़्तर", "r": "daftar", "t": "دفتر"}, {"en": "shop", "hi": "दुकान", "r": "dukān", "t": "دکان"}, {"en": "market", "hi": "बाज़ार", "r": "bāzār", "t": "بازار"}, {"en": "hospital", "hi": "अस्पताल", "r": "haspatāl", "t": "ہسپتال"}, {"en": "station", "hi": "स्टेशन", "r": "sṭeshan", "t": "اسٹیشن"}, {"en": "airport", "hi": "हवाई अड्डा", "r": "havāī aḍḍā", "t": "ہوائی اڈا"}, {"en": "room", "hi": "कमरा", "r": "kamrā", "t": "کمرہ"}, {"en": "door", "hi": "दरवाज़ा", "r": "darvāzā", "t": "دروازہ"}, {"en": "book", "hi": "किताब", "r": "kitāb", "t": "کتاب"}, {"en": "phone", "hi": "फ़ोन", "r": "fon", "t": "فون"}], "counting_note": "Urdu has no classifiers — put the number straight before the noun. But the noun itself goes plural: ایک کتاب (one book), دو کتابیں (two books), تین روپے (three rupees). Exactly like Hindi.", "culture": [{"en": "The Mughal fort-palace in Delhi — Friday prayers, peacocks, and the flag on Independence Day.", "r": "Lāl Qila", "t": "لال قلعہ"}, {"en": "Lucknow's slow-cooked dum biryani and kebabs — dinner is an art form in Awadh.", "r": "Avadhī khāne", "t": "اودھی کھانے"}, {"en": "The poetry gathering — ghazals and nazms recited live, the audience crying واہ واہ.", "r": "mushāira", "t": "مشاعرہ"}, {"en": "The night of Eid's moon — henna, sheer khurma, and greetings till late.", "r": "Chānd Rāt", "t": "چاند رات"}, {"en": "Urdu's beloved courtesy language — آپ, فرمائیے, تشریف رکھیے — politeness as poetry.", "r": "tehzīb", "t": "تہذیب"}], "daily_phrases": [{"en": "I wake up at six in the morning", "hi": "मैं सुबह छह बजे उठता हूँ", "r": "Main subah chhe baje uṭhtā hūn", "t": "میں صبح چھ بجے اٹھتا ہوں"}, {"en": "I take a bath", "hi": "मैं नहाता हूँ", "r": "Main nahātā hūn", "t": "میں نہاتا ہوں"}, {"en": "I have breakfast", "hi": "मैं नाश्ता करता हूँ", "r": "Main nāshtā kartā hūn", "t": "میں ناشتہ کرتا ہوں"}, {"en": "I go to work", "hi": "मैं काम पर जाता हूँ", "r": "Main kām par jātā hūn", "t": "میں کام پر جاتا ہوں"}, {"en": "I eat lunch", "hi": "मैं दोपहर का खाना खाता हूँ", "r": "Main do-pahar kā khānā khātā hūn", "t": "میں دوپہر کا کھانا کھاتا ہوں"}, {"en": "I come home in the evening", "hi": "मैं शाम को घर आता हूँ", "r": "Main shām ko ghar ātā hūn", "t": "میں شام کو گھر آتا ہوں"}, {"en": "I watch TV", "hi": "मैं टीवी देखता हूँ", "r": "Main ṭī vī dekhtā hūn", "t": "میں ٹی وی دیکھتا ہوں"}, {"en": "I sleep at ten", "hi": "मैं दस बजे सोता हूँ", "r": "Main das baje sotā hūn", "t": "میں دس بجے سوتا ہوں"}], "days": [{"en": "Monday", "hi": "सोमवार", "r": "Pīr", "t": "پیر"}, {"en": "Tuesday", "hi": "मंगलवार", "r": "Mangal", "t": "منگل"}, {"en": "Wednesday", "hi": "बुधवार", "r": "Budh", "t": "بدھ"}, {"en": "Thursday", "hi": "गुरुवार", "r": "Jumerāt", "t": "جمعرات"}, {"en": "Friday", "hi": "शुक्रवार", "r": "Jumā", "t": "جمعہ"}, {"en": "Saturday", "hi": "शनिवार", "r": "Haftā", "t": "ہفتہ"}, {"en": "Sunday", "hi": "रविवार", "r": "Itvār", "t": "اتوار"}], "dialogues": [{"lines": [{"en": "Peace be upon you! My name is Ahmed.", "hi": "अस्सलाम अलैकुम! मेरा नाम अहमद है।", "r": "Assalām Alaikum! Merā nām Ahmed hai.", "sp": "Ahmed", "t": "السلام علیکم! میرا نام احمد ہے۔"}, {"en": "And upon you peace! I'm Fatima. How are you?", "hi": "वअलैकुम अस्सलाम! मैं फ़ातिमा हूँ। आप कैसी हैं?", "r": "Va Alaikum Assalām! Main Fātimā. Āp kaisī hain?", "sp": "Fatima", "t": "وعلیکم السلام! میں فاطمہ۔ آپ کیسی ہیں؟"}, {"en": "I'm fine, thanks. Where are you from?", "hi": "मैं ठीक हूँ, शुक्रिया। आप कहाँ से हैं?", "r": "Main ṭhīk hūn, shukriyā. Āp kahān se hain?", "sp": "Ahmed", "t": "میں ٹھیک ہوں، شکریہ۔ آپ کہاں سے ہیں؟"}, {"en": "I'm from Lucknow. Which city is yours?", "hi": "मैं लखनऊ से हूँ। आपका शहर कौन-सा है?", "r": "Main Lakhnaū se hūn. Āp kā shahar kaun sā hai?", "sp": "Fatima", "t": "میں لکھنؤ سے ہوں۔ آپ کا شہر کون سا ہے؟"}, {"en": "I'm from Delhi. I'm learning Urdu.", "hi": "मैं दिल्ली से हूँ। मैं उर्दू सीख रहा हूँ।", "r": "Main Dillī se hūn. Main Urdū sīkh rahā hūn.", "sp": "Ahmed", "t": "میں دلی سے ہوں۔ میں اردو سیکھ رہا ہوں۔"}], "title": "Meeting someone"}, {"lines": [{"en": "Greetings! What will you have?", "hi": "अस्सलाम अलैकुम! क्या लेंगे?", "r": "Assalām Alaikum! Kyā lenge?", "sp": "Waiter", "t": "السلام علیکم! کیا لیں گے؟"}, {"en": "Give us two plates of biryani. Do you have nihari?", "hi": "हमें दो प्लेट बिरयानी दीजिए। निहारी है?", "r": "Hamen do pleṭen biryānī den. Nahārī hai?", "sp": "You", "t": "ہمیں دو پلیٹیں بریانی دیں۔ نہاری ہے؟"}, {"en": "Yes indeed! It'll be delicious with naan.", "hi": "जी हाँ! नान के साथ बहुत मज़ा आएगा।", "r": "Jī hān! Nān ke sāth bahut mazā āegā.", "sp": "Waiter", "t": "جی ہاں! نان کے ساتھ بہت مزہ آئے گا۔"}, {"en": "Good — two sweet lassis with that too.", "hi": "अच्छा — साथ में दो मीठी लस्सी भी।", "r": "Achchhā — sāth men do mīṭhī lassiyān bhī.", "sp": "You", "t": "اچھا — ساتھ میں دو میٹھی لسیاں بھی۔"}, {"en": "Very good! It'll be here in five minutes.", "hi": "बहुत अच्छा! पाँच मिनट में आता है।", "r": "Bahut achchhā! Pānch minaṭ men ātā hai.", "sp": "Waiter", "t": "بہت اچھا! پانچ منٹ میں آتا ہے۔"}], "title": "Dinner at a dhaba"}, {"lines": [{"en": "Greetings! How much is this kurta?", "hi": "अस्सलाम अलैकुम! यह कुर्ता कितने का है?", "r": "Assalām Alaikum! Ye kurtā kitne kā hai?", "sp": "You", "t": "السلام علیکم! یہ کرتا کتنے کا ہے؟"}, {"en": "Fifteen hundred rupees, sir. Very fine stuff.", "hi": "पंद्रह सौ रुपये का है जी। बहुत उम्दा चीज़ है।", "r": "Pandrah sau rupay kā hai jī. Bahut umdā chīz hai.", "sp": "Shopkeeper", "t": "پندرہ سو روپے کا ہے جی۔ بہت عمدہ چیز ہے۔"}, {"en": "Too expensive! Give it for a thousand.", "hi": "बहुत महँगा है! हज़ार में दीजिए।", "r": "Bahut mehangā hai! Hazār men den.", "sp": "You", "t": "بہت مہنگا ہے! ہزار میں دیں۔"}, {"en": "No sir, it won't go below twelve hundred.", "hi": "नहीं जी, बारह सौ से कम नहीं होगा।", "r": "Nahīn jī, bārah sau se kam nahīn hogā.", "sp": "Shopkeeper", "t": "نہیں جی، بارہ سو سے کم نہیں ہوگا۔"}, {"en": "Fine, pack it for twelve hundred. Thanks!", "hi": "अच्छा, बारह सौ में पैक कर दीजिए। शुक्रिया!", "r": "Achchhā, bārah sau men paik kar den. Shukriyā!", "sp": "You", "t": "اچھا، بارہ سو میں پیک کر دیں۔ شکریہ!"}], "title": "Bargaining for a kurta"}], "difficulty": "Easy for Hindi speakers — same grammar, a new script, a new direction", "family": [{"en": "mother", "hi": "माँ", "note": "والدہ (vālidā) is the formal word", "r": "mān", "t": "ماں"}, {"en": "father", "hi": "पिता", "note": "والد (vālid) is formal; ابو (abbū) at home", "r": "bāp", "t": "باپ"}, {"en": "brother", "hi": "भाई", "note": "", "r": "bhāī", "t": "بھائی"}, {"en": "sister", "hi": "बहन", "note": "", "r": "behan", "t": "بہن"}, {"en": "son", "hi": "बेटा", "note": "", "r": "beṭā", "t": "بیٹا"}, {"en": "daughter", "hi": "बेटी", "note": "", "r": "beṭī", "t": "بیٹی"}, {"en": "husband", "hi": "पति", "note": "میاں (miyān) is the homely word", "r": "shauhar", "t": "شوہر"}, {"en": "wife", "hi": "पत्नी", "note": "اہلیہ (ahliyā) is the formal word", "r": "bīvī", "t": "بیوی"}, {"en": "grandfather", "hi": "दादा", "note": "father's father; mother's father is نانا (nānā)", "r": "dādā", "t": "دادا"}, {"en": "grandmother", "hi": "दादी", "note": "father's mother; mother's mother is نانی (nānī)", "r": "dādī", "t": "دادی"}, {"en": "uncle", "hi": "चाचा", "note": "father's brother; mother's brother is ماموں (māmūn)", "r": "chachā", "t": "چچا"}, {"en": "aunt", "hi": "ख़ाला", "note": "mother's sister; father's sister is پھوپھی (phūphī)", "r": "khālā", "t": "خالہ"}, {"en": "child", "hi": "बच्चा", "note": "", "r": "bachchā", "t": "بچہ"}], "food_phrases": [{"en": "I'm hungry", "hi": "मुझे भूख लगी है", "r": "Mujhe bhūk lagī hai", "t": "مجھے بھوک لگی ہے"}, {"en": "Give (me) water", "hi": "पानी दीजिए", "r": "Pānī den", "t": "پانی دیں"}, {"en": "The bill, please", "hi": "बिल दीजिए", "r": "Bill den", "t": "بل دیں"}, {"en": "This is very tasty", "hi": "यह बहुत मज़ेदार है", "r": "Ye bahut mazedār hai", "t": "یہ بہت مزیدار ہے"}, {"en": "Give a little more", "hi": "थोड़ा और दीजिए", "r": "Aur thoṛā den", "t": "اور تھوڑا دیں"}, {"en": "I'm vegetarian", "hi": "मैं शाकाहारी हूँ", "r": "Main sabzī-khor hūn", "t": "میں سبزی خور ہوں"}, {"en": "Go easy on the spice", "hi": "मसाला कम रखिए", "r": "Masālā kam rakkhen", "t": "مسالا کم رکھیں"}], "food_words": [{"en": "flatbread", "hi": "रोटी", "r": "roṭī", "t": "روٹی"}, {"en": "naan", "hi": "नान", "r": "nān", "t": "نان"}, {"en": "paratha", "hi": "पराँठा", "r": "parāṭhā", "t": "پراٹھا"}, {"en": "kulcha", "hi": "कुलचा", "r": "kulchā", "t": "کلچہ"}, {"en": "lentils", "hi": "दाल", "r": "dāl", "t": "دال"}, {"en": "vegetable curry", "hi": "सब्ज़ी", "r": "sabzī", "t": "سبزی"}, {"en": "rice", "hi": "चावल", "r": "chāval", "t": "چاول"}, {"en": "chickpeas", "hi": "छोले", "r": "chhole", "t": "چھولے"}, {"en": "kidney beans", "hi": "राजमा", "r": "rājmā", "t": "راجما"}, {"en": "paneer (cheese)", "hi": "पनीर", "r": "panīr", "t": "پنیر"}, {"en": "curd", "hi": "दही", "r": "dahī", "t": "دہی"}, {"en": "butter", "hi": "मक्खन", "r": "makkhan", "t": "مکھن"}, {"en": "ghee", "hi": "घी", "r": "ghī", "t": "گھی"}, {"en": "lassi (yogurt drink)", "hi": "लस्सी", "r": "lassī", "t": "لسی"}, {"en": "tea", "hi": "चाय", "r": "chāye", "t": "چائے"}, {"en": "samosa", "hi": "समोसा", "r": "samosā", "t": "سموسہ"}, {"en": "fritters", "hi": "पकौड़े", "r": "pakoṛe", "t": "پکوڑے"}, {"en": "jalebi", "hi": "जलेबी", "r": "jalebī", "t": "جلیبی"}], "gender_note": "Every noun is masculine or feminine, and verbs and adjectives agree with it — exactly like Hindi. کھاتا (khātā) is a man eating; کھاتی (khātī) is a woman eating. نیلا گھر (blue house, m) but نیلی قمیض (blue shirt, f). If you know Hindi, you already know this chapter.", "gender_title": "Two genders, just like Hindi", "greetings": [{"en": "Hello! (peace greeting)", "hi": "अस्सलाम अलैकुम", "note": "reply: وعلیکم السلام (Va Alaikum Assalām)", "r": "Assalām Alaikum!", "t": "السلام علیکم!"}, {"en": "Hello! (Lucknow style)", "hi": "आदाब", "note": "the tehzeeb greeting — hand raised to the forehead", "r": "Ādāb!", "t": "آداب!"}, {"en": "How are you? (formal)", "hi": "आप कैसे हैं?", "note": "", "r": "Āp kaise hain?", "t": "آپ کیسے ہیں؟"}, {"en": "I'm fine", "hi": "मैं ठीक हूँ", "note": "", "r": "Main ṭhīk hūn", "t": "میں ٹھیک ہوں"}, {"en": "What is your name?", "hi": "आपका नाम क्या है?", "note": "", "r": "Āp kā nām kyā hai?", "t": "آپ کا نام کیا ہے؟"}, {"en": "My name is …", "hi": "मेरा नाम … है", "note": "", "r": "Merā nām … hai", "t": "میرا نام … ہے"}, {"en": "Nice to meet you", "hi": "आपसे मिलकर खुशी हुई", "note": "", "r": "Āp se mil kar khushī huī", "t": "آپ سے مل کر خوشی ہوئی"}, {"en": "Thank you", "hi": "शुक्रिया", "note": "", "r": "Shukriyā", "t": "شکریہ"}, {"en": "Welcome!", "hi": "स्वागत है!", "note": "", "r": "Khush āmdīd!", "t": "خوش آمدید!"}, {"en": "See you! (we'll meet again)", "hi": "फिर मिलेंगे!", "note": "", "r": "Phir milenge!", "t": "پھر ملیں گے!"}, {"en": "Excuse me / Sorry", "hi": "माफ़ कीजिए", "note": "", "r": "Muāf kījiye", "t": "معاف کیجیے"}, {"en": "Please", "hi": "मेहरबानी करके", "note": "", "r": "Meharbānī karke", "t": "مہربانی کرکے"}, {"en": "Congratulations!", "hi": "बधाई हो!", "note": "", "r": "Mubārak ho!", "t": "مبارک ہو!"}], "name": "Urdu", "native": "اردو", "negation_note": "نہیں (nahīn) goes before the verb: میں نہیں کھاتا (I don't eat), وہ نہیں آیا (he didn't come). For commands use نہ or مت: یہاں نہ بیٹھیں (don't sit here). Exactly like Hindi.", "negation_title": "Negation with نہیں (nahīn)", "numbers": [{"hi": "एक", "n": 1, "r": "ek", "t": "ایک"}, {"hi": "दो", "n": 2, "r": "do", "t": "دو"}, {"hi": "तीन", "n": 3, "r": "tīn", "t": "تین"}, {"hi": "चार", "n": 4, "r": "chār", "t": "چار"}, {"hi": "पाँच", "n": 5, "r": "pānch", "t": "پانچ"}, {"hi": "छह", "n": 6, "r": "chhe", "t": "چھ"}, {"hi": "सात", "n": 7, "r": "sāt", "t": "سات"}, {"hi": "आठ", "n": 8, "r": "āṭh", "t": "آٹھ"}, {"hi": "नौ", "n": 9, "r": "nau", "t": "نو"}, {"hi": "दस", "n": 10, "r": "das", "t": "دس"}, {"hi": "ग्यारह", "n": 11, "r": "gyārah", "t": "گیارہ"}, {"hi": "बारह", "n": 12, "r": "bārah", "t": "بارہ"}, {"hi": "तेरह", "n": 13, "r": "terah", "t": "تیرہ"}, {"hi": "चौदह", "n": 14, "r": "chaudah", "t": "چودہ"}, {"hi": "पंद्रह", "n": 15, "r": "pandrah", "t": "پندرہ"}, {"hi": "सोलह", "n": 16, "r": "solah", "t": "سولہ"}, {"hi": "सत्रह", "n": 17, "r": "satrah", "t": "سترہ"}, {"hi": "अठारह", "n": 18, "r": "aṭhārah", "t": "اٹھارہ"}, {"hi": "उन्नीस", "n": 19, "r": "unnīs", "t": "انیس"}, {"hi": "बीस", "n": 20, "r": "bīs", "t": "بیس"}, {"hi": "तीस", "n": 30, "r": "tīs", "t": "تیس"}, {"hi": "चालीस", "n": 40, "r": "chālīs", "t": "چالیس"}, {"hi": "पचास", "n": 50, "r": "pachās", "t": "پچاس"}, {"hi": "साठ", "n": 60, "r": "sāṭh", "t": "ساٹھ"}, {"hi": "सत्तर", "n": 70, "r": "sattar", "t": "ستر"}, {"hi": "अस्सी", "n": 80, "r": "assī", "t": "اسی"}, {"hi": "नब्बे", "n": 90, "r": "nabbe", "t": "نوے"}, {"hi": "सौ", "n": 100, "r": "sau", "t": "سو"}], "past_future": [{"en": "I ate (said by a man)", "hi": "मैंने खाया", "r": "Main ne khāyā", "t": "میں نے کھایا"}, {"en": "I ate (said by a woman)", "hi": "मैंने खायी", "r": "Main ne khāī", "t": "میں نے کھائی"}, {"en": "I will eat (said by a man)", "hi": "मैं खाऊँगा", "r": "Main khāūngā", "t": "میں کھاؤں گا"}, {"en": "I will eat (said by a woman)", "hi": "मैं खाऊँगी", "r": "Main khāūngī", "t": "میں کھاؤں گی"}, {"en": "I ate bread (verb matches روٹی)", "hi": "मैंने रोटी खायी", "r": "Main ne roṭī khāī", "t": "میں نے روٹی کھائی"}, {"en": "We ate", "hi": "हमने खाया", "r": "Ham ne khāyā", "t": "ہم نے کھایا"}], "postpositions": [{"en": "to", "ex_en": "Give me water.", "ex_r": "Mujhe pānī den", "ex_t": "مجھے پانی دیں", "hi": "को", "r": "ko", "t": "کو"}, {"en": "from", "ex_en": "I'm from Delhi.", "ex_r": "Main Dillī se hūn", "ex_t": "میں دلی سے ہوں", "hi": "से", "r": "se", "t": "سے"}, {"en": "in", "ex_en": "The cat is in the house.", "ex_r": "Billī ghar men hai", "ex_t": "بلی گھر میں ہے", "hi": "में", "r": "men", "t": "میں"}, {"en": "on", "ex_en": "The book is on the table.", "ex_r": "Kitāb mez par hai", "ex_t": "کتاب میز پر ہے", "hi": "पर", "r": "par", "t": "پر"}, {"en": "with", "ex_en": "I went with a friend.", "ex_r": "Main dost ke sāth gayā", "ex_t": "میں دوست کے ساتھ گیا", "hi": "के साथ", "r": "ke sāth", "t": "کے ساتھ"}, {"en": "for", "ex_en": "This is for you.", "ex_r": "Ye āp ke liye hai", "ex_t": "یہ آپ کے لیے ہے", "hi": "के लिए", "r": "ke liye", "t": "کے لیے"}], "present_note": "The present is stem + -تا (m) / -تی (f) + helper: ہوں (I), ہو (tum), ہیں (āp and they), ہے (is). So میں کھاتا ہوں (I eat, m), آپ کھاتے ہیں (you eat, respectful), وہ کھاتی ہے (she eats). Exactly like Hindi — only the script changed.", "present_table": [{"verb_r": "khātā hūn", "verb_t": "کھاتا ہوں", "who_en": "I (male speaker)", "who_t": "میں"}, {"verb_r": "khātī hūn", "verb_t": "کھاتی ہوں", "who_en": "I (female speaker)", "who_t": "میں"}, {"verb_r": "khāte/khātī ho", "verb_t": "کھاتے/کھاتی ہو", "who_en": "you (tum — close friends)", "who_t": "تم"}, {"verb_r": "khāte/khātī hain", "verb_t": "کھاتے/کھاتی ہیں", "who_en": "you (āp — respectful)", "who_t": "آپ"}, {"verb_r": "khātā hai", "verb_t": "کھاتا ہے", "who_en": "he", "who_t": "وہ"}, {"verb_r": "khātī hai", "verb_t": "کھاتی ہے", "who_en": "she", "who_t": "وہ"}, {"verb_r": "khāte/khātī hain", "verb_t": "کھاتے/کھاتی ہیں", "who_en": "they", "who_t": "وہ"}], "pronouns": [{"en": "I", "hi": "मैं", "r": "main", "t": "میں"}, {"en": "you (informal)", "hi": "तुम", "r": "tum", "t": "تم"}, {"en": "you (formal)", "hi": "आप", "r": "āp", "t": "آپ"}, {"en": "this", "hi": "यह", "r": "ye", "t": "یہ"}, {"en": "he / she / that", "hi": "वह", "r": "vo", "t": "وہ"}, {"en": "we", "hi": "हम", "r": "ham", "t": "ہم"}, {"en": "they", "hi": "वे", "r": "vo", "t": "وہ"}, {"en": "me / to me", "hi": "मुझे", "r": "mujhe", "t": "مجھے"}, {"en": "you (informal, to)", "hi": "तुम्हें", "r": "tumhen", "t": "تمہیں"}, {"en": "you (formal, to)", "hi": "आपको", "r": "āp ko", "t": "آپ کو"}, {"en": "him / her (to)", "hi": "उसे", "r": "use", "t": "اسے"}, {"en": "us / to us", "hi": "हमें", "r": "hamen", "t": "ہمیں"}, {"en": "my", "hi": "मेरा/मेरी", "r": "merā/merī", "t": "میرا/میری"}, {"en": "your (informal)", "hi": "तुम्हारा", "r": "tumhārā", "t": "تمہارا"}, {"en": "your (formal)", "hi": "आपका", "r": "āp kā", "t": "آپ کا"}, {"en": "his / her", "hi": "उसका", "r": "us kā", "t": "اس کا"}, {"en": "our", "hi": "हमारा", "r": "hamārā", "t": "ہمارا"}, {"en": "who?", "hi": "कौन?", "r": "kaun?", "t": "کون؟"}, {"en": "what?", "hi": "क्या?", "r": "kyā?", "t": "کیا؟"}], "quiz": [{"a": "hello! (peace greeting)", "explain": "السلام علیکم (Assalām Alaikum) — 'peace be upon you' — is the standard Urdu hello. Reply: وعلیکم السلام!", "id": "ur-01", "lesson": "basics", "level": "beginner", "opts": ["hello! (peace greeting)", "goodbye!", "thank you", "sorry"], "q": "What does السلام علیکم mean?", "topic": "basics", "type": "meaning"}, {"a": "thank you", "explain": "شکریہ (shukriyā) is thanks — same word Hindi borrowed.", "id": "ur-02", "lesson": "basics", "level": "beginner", "opts": ["thank you", "please", "sorry", "welcome"], "q": "What does شکریہ mean?", "topic": "basics", "type": "meaning"}, {"a": "میرا نام … ہے", "explain": "آپ کا نام کیا ہے؟ = what's your name — answer میرا نام … ہے (my name is …).", "id": "ur-03", "lesson": "basics", "level": "beginner", "opts": ["میرا نام … ہے", "مجھے بھوک لگی ہے", "پھر ملیں گے!", "رعایت دیں"], "q": "Someone asks 'آپ کا نام کیا ہے؟' — you reply…", "topic": "basics", "type": "usage"}, {"a": "sh as in shoe", "explain": "ش (shīn) is sh — س (sīn) is the plain s. Dots decide!", "id": "ur-04", "lesson": "pronunciation", "level": "beginner", "opts": ["sh as in shoe", "s as in sun", "h as in hat", "k as in kite"], "q": "The letter ش sounds like…", "topic": "basics", "type": "vocab"}, {"a": "3", "explain": "ایک دو تین — 1, 2, 3.", "id": "ur-05", "lesson": "numbers", "level": "beginner", "opts": ["2", "3", "4", "5"], "q": "تین means…", "topic": "numbers", "type": "vocab"}, {"a": "دس", "explain": "دس (das) = 10. پانچ = 5, بیس = 20, سو = 100.", "id": "ur-06", "lesson": "numbers", "level": "beginner", "opts": ["دس", "پانچ", "بیس", "سو"], "q": "Which is 'ten'?", "topic": "numbers", "type": "vocab"}, {"a": "20", "explain": "بیس (bīs) = 20, انیس = 19, اکیس = 21.", "id": "ur-07", "lesson": "numbers", "level": "beginner", "opts": ["12", "20", "22", "200"], "q": "بیس means…", "topic": "numbers", "type": "meaning"}, {"a": "50 rupees", "explain": "پچاس (pachās) = 50. پانچ = 5, پندرہ = 15, پانچ سو = 500.", "id": "ur-08", "lesson": "numbers", "level": "elementary", "opts": ["5 rupees", "15 rupees", "50 rupees", "500 rupees"], "q": "'پچاس روپے' on a price tag means…", "topic": "numbers", "type": "usage"}, {"a": "a slow-cooked meat stew", "explain": "نہاری — simmered overnight, eaten at dawn with naan — is Old Delhi's legendary breakfast.", "id": "ur-09", "lesson": "food", "level": "beginner", "opts": ["a slow-cooked meat stew", "a lentil curry", "a flatbread", "a dessert"], "q": "نہاری is…", "topic": "food", "type": "vocab"}, {"a": "this is very tasty", "explain": "مزیدار (mazedār) = tasty — say it and any cook will beam.", "id": "ur-10", "lesson": "food", "level": "beginner", "opts": ["this is very tasty", "this is too spicy", "the bill please", "I'm hungry"], "q": "'یہ بہت مزیدار ہے' means…", "topic": "food", "type": "meaning"}, {"a": "مجھے بھوک لگی ہے", "explain": "مجھے بھوک لگی ہے = I'm hungry. پیاس = thirst, بل = bill.", "id": "ur-11", "lesson": "food", "level": "elementary", "opts": ["مجھے بھوک لگی ہے", "مجھے پیاس لگی ہے", "بل دیں", "رعایت دیں"], "q": "You're hungry in Lucknow. You say…", "topic": "food", "type": "usage"}, {"a": "where is the station?", "explain": "کہاں (kahān) = where — the traveller's most useful word.", "id": "ur-12", "lesson": "travel", "level": "beginner", "opts": ["where is the station?", "how much is the fare?", "stop here", "one ticket please"], "q": "'اسٹیشن کہاں ہے؟' means…", "topic": "travel", "type": "meaning"}, {"a": "ticket", "explain": "ٹکٹ (ṭikaṭ) = ticket; کرایہ = fare; اسٹیشن = station.", "id": "ur-13", "lesson": "travel", "level": "beginner", "opts": ["ticket", "train", "fare", "station"], "q": "ٹکٹ means…", "topic": "travel", "type": "vocab"}, {"a": "یہاں رکیں", "explain": "یہاں رکیں (yahān ruken) = stop here. آہستہ چلیں = go slowly.", "id": "ur-14", "lesson": "travel", "level": "elementary", "opts": ["یہاں رکیں", "آہستہ چلیں", "سیدھا جائیں", "ٹکٹ دیں"], "q": "To make the auto stop here, say…", "topic": "travel", "type": "usage"}, {"a": "a man saying 'I eat'", "explain": "کھاتا (khātā, -تا) marks a male speaker; a woman says کھاتی ہوں.", "id": "ur-15", "lesson": "grammar", "level": "elementary", "opts": ["a man saying 'I eat'", "a woman saying 'I eat'", "a man saying 'I ate'", "many people saying 'we eat'"], "q": "'میں کھاتا ہوں' is spoken by…", "topic": "grammar", "type": "meaning"}, {"a": "کھاتی", "explain": "کھاتا/کھاتی (m/f), کھاتے (plural/respectful) — adjectives work the same way.", "id": "ur-16", "lesson": "grammar", "level": "elementary", "opts": ["کھاتی", "کھاتے", "کھایا", "کھاؤں گا"], "q": "The feminine of کھاتا is…", "topic": "grammar", "type": "vocab"}, {"a": "کھایا", "explain": "کھایا/کھائی (m/f) = ate; کھاؤں گا/کھاؤں گی = will eat.", "id": "ur-17", "lesson": "grammar", "level": "elementary", "opts": ["کھایا", "کھائی", "کھاؤں گا", "کھاتا"], "q": "The past tense 'ate' (said by a man) is…", "topic": "grammar", "type": "vocab"}, {"a": "it agrees with روٹی (feminine)", "explain": "Urdu past tenses are ergative: the verb agrees with the object — روٹی is feminine, so کھائی.", "id": "ur-18", "lesson": "grammar", "level": "elementary", "opts": ["it agrees with روٹی (feminine)", "the speaker is female", "it's the future tense", "it's a typo"], "q": "In 'میں نے روٹی کھائی', why کھائی?", "topic": "grammar", "type": "usage"}, {"a": "see you! (we'll meet again)", "explain": "پھر ملیں گے (phir milenge) — literally 'we'll meet again' — the warm goodbye.", "id": "ur-19", "lesson": "conversation", "level": "beginner", "opts": ["see you! (we'll meet again)", "good morning!", "welcome!", "congratulations!"], "q": "'پھر ملیں گے!' means…", "topic": "conversation", "type": "meaning"}, {"a": "welcome!", "explain": "خوش آمدید (khush āmdīd) — the warm Urdu welcome.", "id": "ur-20", "lesson": "conversation", "level": "beginner", "opts": ["welcome!", "sorry!", "good luck!", "bless you!"], "q": "'خوش آمدید!' means…", "topic": "conversation", "type": "meaning"}, {"a": "book", "explain": "کتاب (kitāb) = book — قلم = pen, خط = letter.", "id": "ur-21", "lesson": "vocabulary", "level": "beginner", "opts": ["book", "pen", "school", "letter"], "q": "کتاب means…", "topic": "vocabulary", "type": "vocab"}, {"a": "friend", "explain": "دوست (dost) = friend — دشمن is the opposite!", "id": "ur-22", "lesson": "vocabulary", "level": "beginner", "opts": ["friend", "brother", "guest", "neighbour"], "q": "دوست means…", "topic": "vocabulary", "type": "vocab"}, {"a": "asking the price", "explain": "یہ کتنے کا ہے؟ = how much is this — then counter with تھوڑا سستا کریں!", "id": "ur-23", "lesson": "shopping", "level": "elementary", "opts": ["asking the price", "ordering food", "asking directions", "saying goodbye"], "q": "'یہ کتنے کا ہے؟' is asked when…", "topic": "vocabulary", "type": "usage"}, {"a": "tomorrow — or yesterday!", "explain": "کل (kal) covers both — tense and context tell you which. پرسوں = the day beyond.", "id": "ur-24", "lesson": "time-dates", "level": "elementary", "opts": ["only tomorrow", "only yesterday", "tomorrow — or yesterday!", "every day"], "q": "کل means…", "topic": "vocabulary", "type": "meaning"}], "review_deck": [{"en": "hello! (peace greeting)", "r": "Assalām Alaikum", "t": "السلام علیکم"}, {"en": "thank you", "r": "shukriyā", "t": "شکریہ"}, {"en": "yes (respectful)", "r": "jī hān", "t": "جی ہاں"}, {"en": "no; not", "r": "nahīn", "t": "نہیں"}, {"en": "I; me", "r": "main", "t": "میں"}, {"en": "you (formal)", "r": "āp", "t": "آپ"}, {"en": "what?", "r": "kyā?", "t": "کیا؟"}, {"en": "where?", "r": "kahān?", "t": "کہاں؟"}, {"en": "how much?", "r": "kitnā?", "t": "کتنا؟"}, {"en": "who?", "r": "kaun?", "t": "کون؟"}, {"en": "water", "r": "pānī", "t": "پانی"}, {"en": "bread", "r": "roṭī", "t": "روٹی"}, {"en": "home", "r": "ghar", "t": "گھر"}, {"en": "friend", "r": "dost", "t": "دوست"}, {"en": "day", "r": "din", "t": "دن"}, {"en": "night", "r": "rāt", "t": "رات"}, {"en": "good; okay", "r": "achchhā", "t": "اچھا"}, {"en": "big", "r": "baṛā", "t": "بڑا"}, {"en": "small", "r": "chhoṭā", "t": "چھوٹا"}, {"en": "happy", "r": "khush", "t": "خوش"}], "roman_native": "Urdū", "script_name": "Urdu (Nastaliq)", "script_note": "Urdu is written right to left in the beautiful Nastaliq style — start at the RIGHT end of the line! Letters change shape (start/middle/end) and join up, there are no capital letters, and short vowels (a/i/u) are usually left unwritten: you read مل as 'mil' (meet) or 'mal' by context. Dots do heavy lifting: ب ت ث ن ی are the same stroke with different dots. Persian gave Urdu پ چ ژ گ, India gave it ٹ ڈ ڑ, and nasalization comes from ں (nūn-ghunna): میں (main, I) vs مین — count the dots, then read.", "shopping_phrases": [{"en": "How much is this?", "hi": "यह कितने का है?", "r": "Ye kitne kā hai?", "t": "یہ کتنے کا ہے؟"}, {"en": "Too expensive!", "hi": "बहुत महँगा है!", "r": "Bahut mehangā hai!", "t": "بہت مہنگا ہے!"}, {"en": "Make it cheaper", "hi": "थोड़ा सस्ता करिए", "r": "Thoṛā sastā karen", "t": "تھوڑا سستا کریں"}, {"en": "I'm just looking", "hi": "मैं सिर्फ़ देख रहा हूँ", "r": "Main sirf dekh rahā hūn", "t": "میں صرف دیکھ رہا ہوں"}, {"en": "Pack this", "hi": "इसे पैक कर दीजिए", "r": "Ye paik kar den", "t": "یہ پیک کر دیں"}, {"en": "Give a discount", "hi": "छूट दीजिए", "r": "Riāyat den", "t": "رعایت دیں"}], "shopping_words": [{"en": "price", "hi": "क़ीमत", "r": "qīmat", "t": "قیمت"}, {"en": "discount", "hi": "छूट", "r": "riāyat", "t": "رعایت"}, {"en": "cash", "hi": "नक़द", "r": "naqd", "t": "نقد"}, {"en": "card", "hi": "कार्ड", "r": "kārḍ", "t": "کارڈ"}, {"en": "cheap", "hi": "सस्ता", "r": "sastā", "t": "سستا"}, {"en": "expensive", "hi": "महँगा", "r": "mehangā", "t": "مہنگا"}, {"en": "deal; groceries", "hi": "सौदा", "r": "saudā", "t": "سودا"}], "slug": "urdu", "sov": {"en": "I eat bread. (word order: I – bread – eat)", "hi": "मैं रोटी खाता हूँ।", "r": "Main roṭī khātā hūn.", "t": "میں روٹی کھاتا ہوں۔"}, "speakers": "over 170 million", "survival_trio": "السلام علیکم! (hello) · شکریہ (thanks) · یہ کتنے کا ہے؟ (how much is this?)", "time_words": [{"en": "today", "hi": "आज", "r": "āj", "t": "آج"}, {"en": "tomorrow; yesterday", "hi": "कल", "r": "kal", "t": "کل"}, {"en": "day after tomorrow; day before yesterday", "hi": "परसों", "r": "parson", "t": "پرسوں"}, {"en": "now", "hi": "अब", "r": "ab", "t": "اب"}, {"en": "morning", "hi": "सुबह", "r": "subah", "t": "صبح"}, {"en": "afternoon", "hi": "दोपहर", "r": "do-pahar", "t": "دوپہر"}, {"en": "evening", "hi": "शाम", "r": "shām", "t": "شام"}, {"en": "night", "hi": "रात", "r": "rāt", "t": "رات"}, {"en": "hour", "hi": "घंटा", "r": "ghaṇṭā", "t": "گھنٹہ"}, {"en": "minute", "hi": "मिनट", "r": "minaṭ", "t": "منٹ"}, {"en": "week", "hi": "हफ़्ता", "r": "haftā", "t": "ہفتہ"}], "travel_phrases": [{"en": "Where is the station?", "hi": "स्टेशन कहाँ है?", "r": "Sṭeshan kahān hai?", "t": "اسٹیشن کہاں ہے؟"}, {"en": "How much is the fare?", "hi": "किराया कितना है?", "r": "Kirāyā kitnā hai?", "t": "کرایہ کتنا ہے؟"}, {"en": "I want to go to …", "hi": "मुझे … जाना है", "r": "Mujhe … jānā hai", "t": "مجھے … جانا ہے"}, {"en": "Drive slowly", "hi": "धीरे चलिए", "r": "Āhistā chalen", "t": "آہستہ چلیں"}, {"en": "Stop here", "hi": "यहाँ रुकिए", "r": "Yahān ruken", "t": "یہاں رکیں"}, {"en": "Give me a ticket", "hi": "टिकट दीजिए", "r": "Ṭikaṭ den", "t": "ٹکٹ دیں"}], "travel_words": [{"en": "ticket", "hi": "टिकट", "r": "ṭikaṭ", "t": "ٹکٹ"}, {"en": "train", "hi": "रेलगाड़ी", "r": "rel gāṛī", "t": "ریل گاڑی"}, {"en": "bus", "hi": "बस", "r": "bas", "t": "بس"}, {"en": "aeroplane", "hi": "हवाई जहाज़", "r": "havāī jahāz", "t": "ہوائی جہاز"}, {"en": "taxi", "hi": "टैक्सी", "r": "ṭaiksī", "t": "ٹیکسی"}, {"en": "auto-rickshaw", "hi": "ऑटो", "r": "āṭo", "t": "آٹو"}, {"en": "station", "hi": "स्टेशन", "r": "sṭeshan", "t": "اسٹیشن"}, {"en": "bus stand", "hi": "बस अड्डा", "r": "bas aḍḍā", "t": "بس اڈا"}, {"en": "fare", "hi": "किराया", "r": "kirāyā", "t": "کرایہ"}, {"en": "road; way", "hi": "रास्ता", "r": "rāstā", "t": "راستہ"}, {"en": "hotel", "hi": "होटल", "r": "hoṭal", "t": "ہوٹل"}, {"en": "luggage", "hi": "सामान", "r": "sāmān", "t": "سامان"}], "typing": [["ماں", "maan"], ["پانی", "paani"], ["گھر", "ghar"], ["روٹی", "roti"], ["دال", "daal"], ["چائے", "chaaye"], ["لسی", "lassi"], ["کتاب", "kitaab"], ["اسکول", "school"], ["بازار", "bazaar"], ["دکان", "dukaan"], ["ٹکٹ", "ticket"], ["گاڑی", "gaadi"], ["راستہ", "raasta"], ["دن", "din"], ["رات", "raat"], ["صبح", "subah"], ["شام", "shaam"], ["لڑکا", "ladka"], ["لڑکی", "ladki"], ["دوست", "dost"], ["پیار", "pyaar"], ["خوش", "khush"], ["شکریہ", "shukriya"]], "verbs": [{"ami": "میں کھاتا/کھاتی ہوں", "ami_r": "Main khātā/khātī hūn", "en": "to eat", "hi": "खाना", "r": "khānā", "t": "کھانا"}, {"ami": "میں پیتا/پیتی ہوں", "ami_r": "Main pītā/pītī hūn", "en": "to drink", "hi": "पीना", "r": "pīnā", "t": "پینا"}, {"ami": "میں جاتا/جاتی ہوں", "ami_r": "Main jātā/jātī hūn", "en": "to go", "hi": "जाना", "r": "jānā", "t": "جانا"}, {"ami": "میں آتا/آتی ہوں", "ami_r": "Main ātā/ātī hūn", "en": "to come", "hi": "आना", "r": "ānā", "t": "آنا"}, {"ami": "میں کرتا/کرتی ہوں", "ami_r": "Main kartā/kartī hūn", "en": "to do", "hi": "करना", "r": "karnā", "t": "کرنا"}, {"ami": "میں بولتا/بولتی ہوں", "ami_r": "Main boltā/boltī hūn", "en": "to speak", "hi": "बोलना", "r": "bolnā", "t": "بولنا"}, {"ami": "میں پڑھتا/پڑھتی ہوں", "ami_r": "Main paṛhtā/paṛhtī hūn", "en": "to read; to study", "hi": "पढ़ना", "r": "paṛhnā", "t": "پڑھنا"}, {"ami": "میں لکھتا/لکھتی ہوں", "ami_r": "Main likhtā/likhtī hūn", "en": "to write", "hi": "लिखना", "r": "likhnā", "t": "لکھنا"}, {"ami": "میں سیکھتا/سیکھتی ہوں", "ami_r": "Main sīkhtā/sīkhtī hūn", "en": "to learn", "hi": "सीखना", "r": "sīkhnā", "t": "سیکھنا"}, {"ami": "میں دیکھتا/دیکھتی ہوں", "ami_r": "Main dekhtā/dekhtī hūn", "en": "to see; to watch", "hi": "देखना", "r": "dekhnā", "t": "دیکھنا"}, {"ami": "میں سنتا/سنتی ہوں", "ami_r": "Main santā/santī hūn", "en": "to listen; to hear", "hi": "सुनना", "r": "sunnā", "t": "سننا"}, {"ami": "میں لیتا/لیتی ہوں", "ami_r": "Main letā/letī hūn", "en": "to take", "hi": "लेना", "r": "lenā", "t": "لینا"}, {"ami": "میں دیتا/دیتی ہوں", "ami_r": "Main detā/detī hūn", "en": "to give", "hi": "देना", "r": "denā", "t": "دینا"}, {"ami": "میں خریدتا/خریدتی ہوں", "ami_r": "Main kharīdtā/kharīdtī hūn", "en": "to buy", "hi": "ख़रीदना", "r": "kharīdnā", "t": "خریدنا"}, {"ami": "میں بیچتا/بیچتی ہوں", "ami_r": "Main bechtā/bechtī hūn", "en": "to sell", "hi": "बेचना", "r": "bechnā", "t": "بیچنا"}, {"ami": "میں سوتا/سوتی ہوں", "ami_r": "Main sotā/sotī hūn", "en": "to sleep", "hi": "सोना", "r": "sonā", "t": "سونا"}, {"ami": "میں اٹھتا/اٹھتی ہوں", "ami_r": "Main uṭhtā/uṭhtī hūn", "en": "to wake up; to get up", "hi": "उठना", "r": "uṭhnā", "t": "اٹھنا"}, {"ami": "میں بیٹھتا/بیٹھتی ہوں", "ami_r": "Main baiṭhtā/baiṭhtī hūn", "en": "to sit", "hi": "बैठना", "r": "baiṭhnā", "t": "بیٹھنا"}], "vowels": [{"hint": "zabar mark: a as in about — usually left unwritten!", "r": "a", "t": "اَ"}, {"hint": "aa as in father — alif with a madd cap", "r": "ā", "t": "آ"}, {"hint": "zer mark: i as in bit — usually left unwritten", "r": "i", "t": "اِ"}, {"hint": "choṭī ye: ee as in feet", "r": "ī", "t": "ی"}, {"hint": "pesh mark: u as in put — usually left unwritten", "r": "u", "t": "اُ"}, {"hint": "vāo: oo as in food — also o, as in دو (two)", "r": "ū / o", "t": "و"}, {"hint": "baṛī ye, word end only: ay as in say", "r": "e", "t": "ے"}, {"hint": "vāo can also be ou: اور (and)", "r": "au", "t": "و"}], "where": "Pakistan, India and a large diaspora"}
+{
+  "bargaining_script": "یہ کتنے کا ہے؟ (how much?) → بہت مہنگا ہے! (too pricey!) → تھوڑا سستا کریں (make it cheaper) → رعایت دیں (give a discount) → اچھا، پیک کر دیں! (done, pack it!)",
+  "classifiers": [
+    {
+      "en": "ایک کتاب",
+      "hi": "एक किताब",
+      "note": "one book — number + noun, no extras",
+      "r": "ek kitāb"
+    },
+    {
+      "en": "دو کتابیں",
+      "hi": "दो किताबें",
+      "note": "two books — the noun itself goes plural (-یں)",
+      "r": "do kitāben"
+    },
+    {
+      "en": "تین روپے",
+      "hi": "तीन रुपये",
+      "note": "three rupees — same pattern as Hindi",
+      "r": "tīn rupay"
+    }
+  ],
+  "colors": [
+    {
+      "en": "red",
+      "hi": "लाल",
+      "note": "لال never changes for gender",
+      "r": "lāl",
+      "t": "لال"
+    },
+    {
+      "en": "blue",
+      "hi": "नीला",
+      "note": "نیلی with feminine nouns",
+      "r": "nīlā",
+      "t": "نیلا"
+    },
+    {
+      "en": "green",
+      "hi": "हरा",
+      "note": "also سبز (sabz); ہری with feminine nouns",
+      "r": "harā",
+      "t": "ہرا"
+    },
+    {
+      "en": "yellow",
+      "hi": "पीला",
+      "note": "پیلی with feminine nouns",
+      "r": "pīlā",
+      "t": "پیلا"
+    },
+    {
+      "en": "black",
+      "hi": "काला",
+      "note": "کالی with feminine nouns",
+      "r": "kālā",
+      "t": "کالا"
+    },
+    {
+      "en": "white",
+      "hi": "सफ़ेद",
+      "note": "سفید never changes for gender",
+      "r": "safed",
+      "t": "سفید"
+    }
+  ],
+  "consonants": [
+    {
+      "hint": "a/ā — the tall first letter; a vowel-carrier",
+      "r": "alif",
+      "t": "ا"
+    },
+    {
+      "hint": "aa as in father — alif with a madd cap",
+      "r": "alif-mad",
+      "t": "آ"
+    },
+    {
+      "hint": "b as in boy",
+      "r": "be",
+      "t": "ب"
+    },
+    {
+      "hint": "p as in pin — Persian addition (3 dots below)",
+      "r": "pe",
+      "t": "پ"
+    },
+    {
+      "hint": "soft t, tongue on teeth",
+      "r": "te",
+      "t": "ت"
+    },
+    {
+      "hint": "hard T, tongue curled back — Indian addition",
+      "r": "ṭe",
+      "t": "ٹ"
+    },
+    {
+      "hint": "s as in sun (in Urdu, just s)",
+      "r": "se",
+      "t": "ث"
+    },
+    {
+      "hint": "j as in jump",
+      "r": "jīm",
+      "t": "ج"
+    },
+    {
+      "hint": "ch as in chair — Persian addition",
+      "r": "che",
+      "t": "چ"
+    },
+    {
+      "hint": "h as in hat (deep, from the throat)",
+      "r": "baṛī he",
+      "t": "ح"
+    },
+    {
+      "hint": "throaty kh as in Khan",
+      "r": "khe",
+      "t": "خ"
+    },
+    {
+      "hint": "soft d, tongue on teeth",
+      "r": "dāl",
+      "t": "د"
+    },
+    {
+      "hint": "hard D, tongue curled back — Indian addition",
+      "r": "ḍāl",
+      "t": "ڈ"
+    },
+    {
+      "hint": "z as in zoo (in Urdu, just z)",
+      "r": "zāl",
+      "t": "ذ"
+    },
+    {
+      "hint": "rolled r",
+      "r": "re",
+      "t": "ر"
+    },
+    {
+      "hint": "flapped ṛ — Indian addition",
+      "r": "ṛe",
+      "t": "ڑ"
+    },
+    {
+      "hint": "z as in zoo",
+      "r": "ze",
+      "t": "ز"
+    },
+    {
+      "hint": "s as in pleasure — Persian addition (3 dots)",
+      "r": "zhe",
+      "t": "ژ"
+    },
+    {
+      "hint": "s as in sun",
+      "r": "sīn",
+      "t": "س"
+    },
+    {
+      "hint": "sh as in shoe",
+      "r": "shīn",
+      "t": "ش"
+    },
+    {
+      "hint": "s as in sun (in Urdu, just s)",
+      "r": "suād",
+      "t": "ص"
+    },
+    {
+      "hint": "z as in zoo (in Urdu, just z)",
+      "r": "zuād",
+      "t": "ض"
+    },
+    {
+      "hint": "hard T (in Urdu, like ٹ)",
+      "r": "toen",
+      "t": "ط"
+    },
+    {
+      "hint": "z as in zoo (in Urdu, just z)",
+      "r": "zoen",
+      "t": "ظ"
+    },
+    {
+      "hint": "a deep throaty stop — عینک (glasses); learners say a plain vowel at first",
+      "r": "ain",
+      "t": "ع"
+    },
+    {
+      "hint": "throaty gh — like gargling, as in غم (sorrow)",
+      "r": "ghain",
+      "t": "غ"
+    },
+    {
+      "hint": "f as in fan",
+      "r": "fe",
+      "t": "ف"
+    },
+    {
+      "hint": "deep throaty q — قمیض (shirt)",
+      "r": "qāf",
+      "t": "ق"
+    },
+    {
+      "hint": "k as in kite",
+      "r": "kāf",
+      "t": "ک"
+    },
+    {
+      "hint": "g as in go — Persian addition (extra stroke)",
+      "r": "gāf",
+      "t": "گ"
+    },
+    {
+      "hint": "l as in love",
+      "r": "lām",
+      "t": "ل"
+    },
+    {
+      "hint": "m as in man",
+      "r": "mīm",
+      "t": "م"
+    },
+    {
+      "hint": "n as in no",
+      "r": "nūn",
+      "t": "ن"
+    },
+    {
+      "hint": "nasal n — no dots, as in میں (I)",
+      "r": "nūn-ghunna",
+      "t": "ں"
+    },
+    {
+      "hint": "v/w between vowels; doubles as ū/o/au",
+      "r": "vāo",
+      "t": "و"
+    },
+    {
+      "hint": "h as in hat; silent at many word ends",
+      "r": "choṭī he",
+      "t": "ہ"
+    },
+    {
+      "hint": "do-chashmī he — joins to make بھ پھ تھ جھ (breathy sounds)",
+      "r": "do-chashmī he",
+      "t": "ھ"
+    },
+    {
+      "hint": "glottal stop — rare, mid-word breaks",
+      "r": "hamza",
+      "t": "ء"
+    },
+    {
+      "hint": "y as in yes; ī as in feet at word end",
+      "r": "choṭī ye",
+      "t": "ی"
+    },
+    {
+      "hint": "e as in say — baṛī ye, only at word end",
+      "r": "baṛī ye",
+      "t": "ے"
+    }
+  ],
+  "core_nouns": [
+    {
+      "en": "water",
+      "hi": "पानी",
+      "r": "pānī",
+      "t": "پانی"
+    },
+    {
+      "en": "home",
+      "hi": "घर",
+      "r": "ghar",
+      "t": "گھر"
+    },
+    {
+      "en": "school",
+      "hi": "स्कूल",
+      "r": "skūl",
+      "t": "اسکول"
+    },
+    {
+      "en": "office",
+      "hi": "दफ़्तर",
+      "r": "daftar",
+      "t": "دفتر"
+    },
+    {
+      "en": "shop",
+      "hi": "दुकान",
+      "r": "dukān",
+      "t": "دکان"
+    },
+    {
+      "en": "market",
+      "hi": "बाज़ार",
+      "r": "bāzār",
+      "t": "بازار"
+    },
+    {
+      "en": "hospital",
+      "hi": "अस्पताल",
+      "r": "haspatāl",
+      "t": "ہسپتال"
+    },
+    {
+      "en": "station",
+      "hi": "स्टेशन",
+      "r": "sṭeshan",
+      "t": "اسٹیشن"
+    },
+    {
+      "en": "airport",
+      "hi": "हवाई अड्डा",
+      "r": "havāī aḍḍā",
+      "t": "ہوائی اڈا"
+    },
+    {
+      "en": "room",
+      "hi": "कमरा",
+      "r": "kamrā",
+      "t": "کمرہ"
+    },
+    {
+      "en": "door",
+      "hi": "दरवाज़ा",
+      "r": "darvāzā",
+      "t": "دروازہ"
+    },
+    {
+      "en": "book",
+      "hi": "किताब",
+      "r": "kitāb",
+      "t": "کتاب"
+    },
+    {
+      "en": "phone",
+      "hi": "फ़ोन",
+      "r": "fon",
+      "t": "فون"
+    }
+  ],
+  "counting_note": "Urdu has no classifiers — put the number straight before the noun. But the noun itself goes plural: ایک کتاب (one book), دو کتابیں (two books), تین روپے (three rupees). Exactly like Hindi.",
+  "culture": [
+    {
+      "en": "The Mughal fort-palace in Delhi — Friday prayers, peacocks, and the flag on Independence Day.",
+      "r": "Lāl Qila",
+      "t": "لال قلعہ"
+    },
+    {
+      "en": "Lucknow's slow-cooked dum biryani and kebabs — dinner is an art form in Awadh.",
+      "r": "Avadhī khāne",
+      "t": "اودھی کھانے"
+    },
+    {
+      "en": "The poetry gathering — ghazals and nazms recited live, the audience crying واہ واہ.",
+      "r": "mushāira",
+      "t": "مشاعرہ"
+    },
+    {
+      "en": "The night of Eid's moon — henna, sheer khurma, and greetings till late.",
+      "r": "Chānd Rāt",
+      "t": "چاند رات"
+    },
+    {
+      "en": "Urdu's beloved courtesy language — آپ, فرمائیے, تشریف رکھیے — politeness as poetry.",
+      "r": "tehzīb",
+      "t": "تہذیب"
+    }
+  ],
+  "daily_phrases": [
+    {
+      "en": "I wake up at six in the morning",
+      "hi": "मैं सुबह छह बजे उठता हूँ",
+      "r": "Main subah chhe baje uṭhtā hūn",
+      "t": "میں صبح چھ بجے اٹھتا ہوں"
+    },
+    {
+      "en": "I take a bath",
+      "hi": "मैं नहाता हूँ",
+      "r": "Main nahātā hūn",
+      "t": "میں نہاتا ہوں"
+    },
+    {
+      "en": "I have breakfast",
+      "hi": "मैं नाश्ता करता हूँ",
+      "r": "Main nāshtā kartā hūn",
+      "t": "میں ناشتہ کرتا ہوں"
+    },
+    {
+      "en": "I go to work",
+      "hi": "मैं काम पर जाता हूँ",
+      "r": "Main kām par jātā hūn",
+      "t": "میں کام پر جاتا ہوں"
+    },
+    {
+      "en": "I eat lunch",
+      "hi": "मैं दोपहर का खाना खाता हूँ",
+      "r": "Main do-pahar kā khānā khātā hūn",
+      "t": "میں دوپہر کا کھانا کھاتا ہوں"
+    },
+    {
+      "en": "I come home in the evening",
+      "hi": "मैं शाम को घर आता हूँ",
+      "r": "Main shām ko ghar ātā hūn",
+      "t": "میں شام کو گھر آتا ہوں"
+    },
+    {
+      "en": "I watch TV",
+      "hi": "मैं टीवी देखता हूँ",
+      "r": "Main ṭī vī dekhtā hūn",
+      "t": "میں ٹی وی دیکھتا ہوں"
+    },
+    {
+      "en": "I sleep at ten",
+      "hi": "मैं दस बजे सोता हूँ",
+      "r": "Main das baje sotā hūn",
+      "t": "میں دس بجے سوتا ہوں"
+    }
+  ],
+  "days": [
+    {
+      "en": "Monday",
+      "hi": "सोमवार",
+      "r": "Pīr",
+      "t": "پیر"
+    },
+    {
+      "en": "Tuesday",
+      "hi": "मंगलवार",
+      "r": "Mangal",
+      "t": "منگل"
+    },
+    {
+      "en": "Wednesday",
+      "hi": "बुधवार",
+      "r": "Budh",
+      "t": "بدھ"
+    },
+    {
+      "en": "Thursday",
+      "hi": "गुरुवार",
+      "r": "Jumerāt",
+      "t": "جمعرات"
+    },
+    {
+      "en": "Friday",
+      "hi": "शुक्रवार",
+      "r": "Jumā",
+      "t": "جمعہ"
+    },
+    {
+      "en": "Saturday",
+      "hi": "शनिवार",
+      "r": "Haftā",
+      "t": "ہفتہ"
+    },
+    {
+      "en": "Sunday",
+      "hi": "रविवार",
+      "r": "Itvār",
+      "t": "اتوار"
+    }
+  ],
+  "dialogues": [
+    {
+      "lines": [
+        {
+          "en": "Peace be upon you! My name is Ahmed.",
+          "hi": "अस्सलाम अलैकुम! मेरा नाम अहमद है।",
+          "r": "Assalām Alaikum! Merā nām Ahmed hai.",
+          "sp": "Ahmed",
+          "t": "السلام علیکم! میرا نام احمد ہے۔"
+        },
+        {
+          "en": "And upon you peace! I'm Fatima. How are you?",
+          "hi": "वअलैकुम अस्सलाम! मैं फ़ातिमा हूँ। आप कैसी हैं?",
+          "r": "Va Alaikum Assalām! Main Fātimā. Āp kaisī hain?",
+          "sp": "Fatima",
+          "t": "وعلیکم السلام! میں فاطمہ۔ آپ کیسی ہیں؟"
+        },
+        {
+          "en": "I'm fine, thanks. Where are you from?",
+          "hi": "मैं ठीक हूँ, शुक्रिया। आप कहाँ से हैं?",
+          "r": "Main ṭhīk hūn, shukriyā. Āp kahān se hain?",
+          "sp": "Ahmed",
+          "t": "میں ٹھیک ہوں، شکریہ۔ آپ کہاں سے ہیں؟"
+        },
+        {
+          "en": "I'm from Lucknow. Which city is yours?",
+          "hi": "मैं लखनऊ से हूँ। आपका शहर कौन-सा है?",
+          "r": "Main Lakhnaū se hūn. Āp kā shahar kaun sā hai?",
+          "sp": "Fatima",
+          "t": "میں لکھنؤ سے ہوں۔ آپ کا شہر کون سا ہے؟"
+        },
+        {
+          "en": "I'm from Delhi. I'm learning Urdu.",
+          "hi": "मैं दिल्ली से हूँ। मैं उर्दू सीख रहा हूँ।",
+          "r": "Main Dillī se hūn. Main Urdū sīkh rahā hūn.",
+          "sp": "Ahmed",
+          "t": "میں دلی سے ہوں۔ میں اردو سیکھ رہا ہوں۔"
+        }
+      ],
+      "title": "Meeting someone"
+    },
+    {
+      "lines": [
+        {
+          "en": "Greetings! What will you have?",
+          "hi": "अस्सलाम अलैकुम! क्या लेंगे?",
+          "r": "Assalām Alaikum! Kyā lenge?",
+          "sp": "Waiter",
+          "t": "السلام علیکم! کیا لیں گے؟"
+        },
+        {
+          "en": "Give us two plates of biryani. Do you have nihari?",
+          "hi": "हमें दो प्लेट बिरयानी दीजिए। निहारी है?",
+          "r": "Hamen do pleṭen biryānī den. Nahārī hai?",
+          "sp": "You",
+          "t": "ہمیں دو پلیٹیں بریانی دیں۔ نہاری ہے؟"
+        },
+        {
+          "en": "Yes indeed! It'll be delicious with naan.",
+          "hi": "जी हाँ! नान के साथ बहुत मज़ा आएगा।",
+          "r": "Jī hān! Nān ke sāth bahut mazā āegā.",
+          "sp": "Waiter",
+          "t": "جی ہاں! نان کے ساتھ بہت مزہ آئے گا۔"
+        },
+        {
+          "en": "Good — two sweet lassis with that too.",
+          "hi": "अच्छा — साथ में दो मीठी लस्सी भी।",
+          "r": "Achchhā — sāth men do mīṭhī lassiyān bhī.",
+          "sp": "You",
+          "t": "اچھا — ساتھ میں دو میٹھی لسیاں بھی۔"
+        },
+        {
+          "en": "Very good! It'll be here in five minutes.",
+          "hi": "बहुत अच्छा! पाँच मिनट में आता है।",
+          "r": "Bahut achchhā! Pānch minaṭ men ātā hai.",
+          "sp": "Waiter",
+          "t": "بہت اچھا! پانچ منٹ میں آتا ہے۔"
+        }
+      ],
+      "title": "Dinner at a dhaba"
+    },
+    {
+      "lines": [
+        {
+          "en": "Greetings! How much is this kurta?",
+          "hi": "अस्सलाम अलैकुम! यह कुर्ता कितने का है?",
+          "r": "Assalām Alaikum! Ye kurtā kitne kā hai?",
+          "sp": "You",
+          "t": "السلام علیکم! یہ کرتا کتنے کا ہے؟"
+        },
+        {
+          "en": "Fifteen hundred rupees, sir. Very fine stuff.",
+          "hi": "पंद्रह सौ रुपये का है जी। बहुत उम्दा चीज़ है।",
+          "r": "Pandrah sau rupay kā hai jī. Bahut umdā chīz hai.",
+          "sp": "Shopkeeper",
+          "t": "پندرہ سو روپے کا ہے جی۔ بہت عمدہ چیز ہے۔"
+        },
+        {
+          "en": "Too expensive! Give it for a thousand.",
+          "hi": "बहुत महँगा है! हज़ार में दीजिए।",
+          "r": "Bahut mehangā hai! Hazār men den.",
+          "sp": "You",
+          "t": "بہت مہنگا ہے! ہزار میں دیں۔"
+        },
+        {
+          "en": "No sir, it won't go below twelve hundred.",
+          "hi": "नहीं जी, बारह सौ से कम नहीं होगा।",
+          "r": "Nahīn jī, bārah sau se kam nahīn hogā.",
+          "sp": "Shopkeeper",
+          "t": "نہیں جی، بارہ سو سے کم نہیں ہوگا۔"
+        },
+        {
+          "en": "Fine, pack it for twelve hundred. Thanks!",
+          "hi": "अच्छा, बारह सौ में पैक कर दीजिए। शुक्रिया!",
+          "r": "Achchhā, bārah sau men paik kar den. Shukriyā!",
+          "sp": "You",
+          "t": "اچھا، بارہ سو میں پیک کر دیں۔ شکریہ!"
+        }
+      ],
+      "title": "Bargaining for a kurta"
+    }
+  ],
+  "difficulty": "Easy for Hindi speakers — same grammar, a new script, a new direction",
+  "family": [
+    {
+      "en": "mother",
+      "hi": "माँ",
+      "note": "والدہ (vālidā) is the formal word",
+      "r": "mān",
+      "t": "ماں"
+    },
+    {
+      "en": "father",
+      "hi": "पिता",
+      "note": "والد (vālid) is formal; ابو (abbū) at home",
+      "r": "bāp",
+      "t": "باپ"
+    },
+    {
+      "en": "brother",
+      "hi": "भाई",
+      "note": "",
+      "r": "bhāī",
+      "t": "بھائی"
+    },
+    {
+      "en": "sister",
+      "hi": "बहन",
+      "note": "",
+      "r": "behan",
+      "t": "بہن"
+    },
+    {
+      "en": "son",
+      "hi": "बेटा",
+      "note": "",
+      "r": "beṭā",
+      "t": "بیٹا"
+    },
+    {
+      "en": "daughter",
+      "hi": "बेटी",
+      "note": "",
+      "r": "beṭī",
+      "t": "بیٹی"
+    },
+    {
+      "en": "husband",
+      "hi": "पति",
+      "note": "میاں (miyān) is the homely word",
+      "r": "shauhar",
+      "t": "شوہر"
+    },
+    {
+      "en": "wife",
+      "hi": "पत्नी",
+      "note": "اہلیہ (ahliyā) is the formal word",
+      "r": "bīvī",
+      "t": "بیوی"
+    },
+    {
+      "en": "grandfather",
+      "hi": "दादा",
+      "note": "father's father; mother's father is نانا (nānā)",
+      "r": "dādā",
+      "t": "دادا"
+    },
+    {
+      "en": "grandmother",
+      "hi": "दादी",
+      "note": "father's mother; mother's mother is نانی (nānī)",
+      "r": "dādī",
+      "t": "دادی"
+    },
+    {
+      "en": "uncle",
+      "hi": "चाचा",
+      "note": "father's brother; mother's brother is ماموں (māmūn)",
+      "r": "chachā",
+      "t": "چچا"
+    },
+    {
+      "en": "aunt",
+      "hi": "ख़ाला",
+      "note": "mother's sister; father's sister is پھوپھی (phūphī)",
+      "r": "khālā",
+      "t": "خالہ"
+    },
+    {
+      "en": "child",
+      "hi": "बच्चा",
+      "note": "",
+      "r": "bachchā",
+      "t": "بچہ"
+    }
+  ],
+  "food_phrases": [
+    {
+      "en": "I'm hungry",
+      "hi": "मुझे भूख लगी है",
+      "r": "Mujhe bhūk lagī hai",
+      "t": "مجھے بھوک لگی ہے"
+    },
+    {
+      "en": "Give (me) water",
+      "hi": "पानी दीजिए",
+      "r": "Pānī den",
+      "t": "پانی دیں"
+    },
+    {
+      "en": "The bill, please",
+      "hi": "बिल दीजिए",
+      "r": "Bill den",
+      "t": "بل دیں"
+    },
+    {
+      "en": "This is very tasty",
+      "hi": "यह बहुत मज़ेदार है",
+      "r": "Ye bahut mazedār hai",
+      "t": "یہ بہت مزیدار ہے"
+    },
+    {
+      "en": "Give a little more",
+      "hi": "थोड़ा और दीजिए",
+      "r": "Aur thoṛā den",
+      "t": "اور تھوڑا دیں"
+    },
+    {
+      "en": "I'm vegetarian",
+      "hi": "मैं शाकाहारी हूँ",
+      "r": "Main sabzī-khor hūn",
+      "t": "میں سبزی خور ہوں"
+    },
+    {
+      "en": "Go easy on the spice",
+      "hi": "मसाला कम रखिए",
+      "r": "Masālā kam rakkhen",
+      "t": "مسالا کم رکھیں"
+    }
+  ],
+  "food_words": [
+    {
+      "en": "flatbread",
+      "hi": "रोटी",
+      "r": "roṭī",
+      "t": "روٹی"
+    },
+    {
+      "en": "naan",
+      "hi": "नान",
+      "r": "nān",
+      "t": "نان"
+    },
+    {
+      "en": "paratha",
+      "hi": "पराँठा",
+      "r": "parāṭhā",
+      "t": "پراٹھا"
+    },
+    {
+      "en": "kulcha",
+      "hi": "कुलचा",
+      "r": "kulchā",
+      "t": "کلچہ"
+    },
+    {
+      "en": "lentils",
+      "hi": "दाल",
+      "r": "dāl",
+      "t": "دال"
+    },
+    {
+      "en": "vegetable curry",
+      "hi": "सब्ज़ी",
+      "r": "sabzī",
+      "t": "سبزی"
+    },
+    {
+      "en": "rice",
+      "hi": "चावल",
+      "r": "chāval",
+      "t": "چاول"
+    },
+    {
+      "en": "chickpeas",
+      "hi": "छोले",
+      "r": "chhole",
+      "t": "چھولے"
+    },
+    {
+      "en": "kidney beans",
+      "hi": "राजमा",
+      "r": "rājmā",
+      "t": "راجما"
+    },
+    {
+      "en": "paneer (cheese)",
+      "hi": "पनीर",
+      "r": "panīr",
+      "t": "پنیر"
+    },
+    {
+      "en": "curd",
+      "hi": "दही",
+      "r": "dahī",
+      "t": "دہی"
+    },
+    {
+      "en": "butter",
+      "hi": "मक्खन",
+      "r": "makkhan",
+      "t": "مکھن"
+    },
+    {
+      "en": "ghee",
+      "hi": "घी",
+      "r": "ghī",
+      "t": "گھی"
+    },
+    {
+      "en": "lassi (yogurt drink)",
+      "hi": "लस्सी",
+      "r": "lassī",
+      "t": "لسی"
+    },
+    {
+      "en": "tea",
+      "hi": "चाय",
+      "r": "chāye",
+      "t": "چائے"
+    },
+    {
+      "en": "samosa",
+      "hi": "समोसा",
+      "r": "samosā",
+      "t": "سموسہ"
+    },
+    {
+      "en": "fritters",
+      "hi": "पकौड़े",
+      "r": "pakoṛe",
+      "t": "پکوڑے"
+    },
+    {
+      "en": "jalebi",
+      "hi": "जलेबी",
+      "r": "jalebī",
+      "t": "جلیبی"
+    }
+  ],
+  "gender_note": "Every noun is masculine or feminine, and verbs and adjectives agree with it — exactly like Hindi. کھاتا (khātā) is a man eating; کھاتی (khātī) is a woman eating. نیلا گھر (blue house, m) but نیلی قمیض (blue shirt, f). If you know Hindi, you already know this chapter.",
+  "gender_title": "Two genders, just like Hindi",
+  "greetings": [
+    {
+      "en": "Hello! (peace greeting)",
+      "hi": "अस्सलाम अलैकुम",
+      "note": "reply: وعلیکم السلام (Va Alaikum Assalām)",
+      "r": "Assalām Alaikum!",
+      "t": "السلام علیکم!"
+    },
+    {
+      "en": "Hello! (Lucknow style)",
+      "hi": "आदाब",
+      "note": "the tehzeeb greeting — hand raised to the forehead",
+      "r": "Ādāb!",
+      "t": "آداب!"
+    },
+    {
+      "en": "How are you? (formal)",
+      "hi": "आप कैसे हैं?",
+      "note": "",
+      "r": "Āp kaise hain?",
+      "t": "آپ کیسے ہیں؟"
+    },
+    {
+      "en": "I'm fine",
+      "hi": "मैं ठीक हूँ",
+      "note": "",
+      "r": "Main ṭhīk hūn",
+      "t": "میں ٹھیک ہوں"
+    },
+    {
+      "en": "What is your name?",
+      "hi": "आपका नाम क्या है?",
+      "note": "",
+      "r": "Āp kā nām kyā hai?",
+      "t": "آپ کا نام کیا ہے؟"
+    },
+    {
+      "en": "My name is …",
+      "hi": "मेरा नाम … है",
+      "note": "",
+      "r": "Merā nām … hai",
+      "t": "میرا نام … ہے"
+    },
+    {
+      "en": "Nice to meet you",
+      "hi": "आपसे मिलकर खुशी हुई",
+      "note": "",
+      "r": "Āp se mil kar khushī huī",
+      "t": "آپ سے مل کر خوشی ہوئی"
+    },
+    {
+      "en": "Thank you",
+      "hi": "शुक्रिया",
+      "note": "",
+      "r": "Shukriyā",
+      "t": "شکریہ"
+    },
+    {
+      "en": "Welcome!",
+      "hi": "स्वागत है!",
+      "note": "",
+      "r": "Khush āmdīd!",
+      "t": "خوش آمدید!"
+    },
+    {
+      "en": "See you! (we'll meet again)",
+      "hi": "फिर मिलेंगे!",
+      "note": "",
+      "r": "Phir milenge!",
+      "t": "پھر ملیں گے!"
+    },
+    {
+      "en": "Excuse me / Sorry",
+      "hi": "माफ़ कीजिए",
+      "note": "",
+      "r": "Muāf kījiye",
+      "t": "معاف کیجیے"
+    },
+    {
+      "en": "Please",
+      "hi": "मेहरबानी करके",
+      "note": "",
+      "r": "Meharbānī karke",
+      "t": "مہربانی کرکے"
+    },
+    {
+      "en": "Congratulations!",
+      "hi": "बधाई हो!",
+      "note": "",
+      "r": "Mubārak ho!",
+      "t": "مبارک ہو!"
+    }
+  ],
+  "name": "Urdu",
+  "native": "اردو",
+  "negation_note": "نہیں (nahīn) goes before the verb: میں نہیں کھاتا (I don't eat), وہ نہیں آیا (he didn't come). For commands use نہ or مت: یہاں نہ بیٹھیں (don't sit here). Exactly like Hindi.",
+  "negation_title": "Negation with نہیں (nahīn)",
+  "numbers": [
+    {
+      "hi": "एक",
+      "n": 1,
+      "r": "ek",
+      "t": "ایک"
+    },
+    {
+      "hi": "दो",
+      "n": 2,
+      "r": "do",
+      "t": "دو"
+    },
+    {
+      "hi": "तीन",
+      "n": 3,
+      "r": "tīn",
+      "t": "تین"
+    },
+    {
+      "hi": "चार",
+      "n": 4,
+      "r": "chār",
+      "t": "چار"
+    },
+    {
+      "hi": "पाँच",
+      "n": 5,
+      "r": "pānch",
+      "t": "پانچ"
+    },
+    {
+      "hi": "छह",
+      "n": 6,
+      "r": "chhe",
+      "t": "چھ"
+    },
+    {
+      "hi": "सात",
+      "n": 7,
+      "r": "sāt",
+      "t": "سات"
+    },
+    {
+      "hi": "आठ",
+      "n": 8,
+      "r": "āṭh",
+      "t": "آٹھ"
+    },
+    {
+      "hi": "नौ",
+      "n": 9,
+      "r": "nau",
+      "t": "نو"
+    },
+    {
+      "hi": "दस",
+      "n": 10,
+      "r": "das",
+      "t": "دس"
+    },
+    {
+      "hi": "ग्यारह",
+      "n": 11,
+      "r": "gyārah",
+      "t": "گیارہ"
+    },
+    {
+      "hi": "बारह",
+      "n": 12,
+      "r": "bārah",
+      "t": "بارہ"
+    },
+    {
+      "hi": "तेरह",
+      "n": 13,
+      "r": "terah",
+      "t": "تیرہ"
+    },
+    {
+      "hi": "चौदह",
+      "n": 14,
+      "r": "chaudah",
+      "t": "چودہ"
+    },
+    {
+      "hi": "पंद्रह",
+      "n": 15,
+      "r": "pandrah",
+      "t": "پندرہ"
+    },
+    {
+      "hi": "सोलह",
+      "n": 16,
+      "r": "solah",
+      "t": "سولہ"
+    },
+    {
+      "hi": "सत्रह",
+      "n": 17,
+      "r": "satrah",
+      "t": "سترہ"
+    },
+    {
+      "hi": "अठारह",
+      "n": 18,
+      "r": "aṭhārah",
+      "t": "اٹھارہ"
+    },
+    {
+      "hi": "उन्नीस",
+      "n": 19,
+      "r": "unnīs",
+      "t": "انیس"
+    },
+    {
+      "hi": "बीस",
+      "n": 20,
+      "r": "bīs",
+      "t": "بیس"
+    },
+    {
+      "hi": "तीस",
+      "n": 30,
+      "r": "tīs",
+      "t": "تیس"
+    },
+    {
+      "hi": "चालीस",
+      "n": 40,
+      "r": "chālīs",
+      "t": "چالیس"
+    },
+    {
+      "hi": "पचास",
+      "n": 50,
+      "r": "pachās",
+      "t": "پچاس"
+    },
+    {
+      "hi": "साठ",
+      "n": 60,
+      "r": "sāṭh",
+      "t": "ساٹھ"
+    },
+    {
+      "hi": "सत्तर",
+      "n": 70,
+      "r": "sattar",
+      "t": "ستر"
+    },
+    {
+      "hi": "अस्सी",
+      "n": 80,
+      "r": "assī",
+      "t": "اسی"
+    },
+    {
+      "hi": "नब्बे",
+      "n": 90,
+      "r": "nabbe",
+      "t": "نوے"
+    },
+    {
+      "hi": "सौ",
+      "n": 100,
+      "r": "sau",
+      "t": "سو"
+    }
+  ],
+  "past_future": [
+    {
+      "en": "I ate (said by a man)",
+      "hi": "मैंने खाया",
+      "r": "Main ne khāyā",
+      "t": "میں نے کھایا"
+    },
+    {
+      "en": "I ate (said by a woman)",
+      "hi": "मैंने खायी",
+      "r": "Main ne khāī",
+      "t": "میں نے کھائی"
+    },
+    {
+      "en": "I will eat (said by a man)",
+      "hi": "मैं खाऊँगा",
+      "r": "Main khāūngā",
+      "t": "میں کھاؤں گا"
+    },
+    {
+      "en": "I will eat (said by a woman)",
+      "hi": "मैं खाऊँगी",
+      "r": "Main khāūngī",
+      "t": "میں کھاؤں گی"
+    },
+    {
+      "en": "I ate bread (verb matches روٹی)",
+      "hi": "मैंने रोटी खायी",
+      "r": "Main ne roṭī khāī",
+      "t": "میں نے روٹی کھائی"
+    },
+    {
+      "en": "We ate",
+      "hi": "हमने खाया",
+      "r": "Ham ne khāyā",
+      "t": "ہم نے کھایا"
+    }
+  ],
+  "postpositions": [
+    {
+      "en": "to",
+      "ex_en": "Give me water.",
+      "ex_r": "Mujhe pānī den",
+      "ex_t": "مجھے پانی دیں",
+      "hi": "को",
+      "r": "ko",
+      "t": "کو"
+    },
+    {
+      "en": "from",
+      "ex_en": "I'm from Delhi.",
+      "ex_r": "Main Dillī se hūn",
+      "ex_t": "میں دلی سے ہوں",
+      "hi": "से",
+      "r": "se",
+      "t": "سے"
+    },
+    {
+      "en": "in",
+      "ex_en": "The cat is in the house.",
+      "ex_r": "Billī ghar men hai",
+      "ex_t": "بلی گھر میں ہے",
+      "hi": "में",
+      "r": "men",
+      "t": "میں"
+    },
+    {
+      "en": "on",
+      "ex_en": "The book is on the table.",
+      "ex_r": "Kitāb mez par hai",
+      "ex_t": "کتاب میز پر ہے",
+      "hi": "पर",
+      "r": "par",
+      "t": "پر"
+    },
+    {
+      "en": "with",
+      "ex_en": "I went with a friend.",
+      "ex_r": "Main dost ke sāth gayā",
+      "ex_t": "میں دوست کے ساتھ گیا",
+      "hi": "के साथ",
+      "r": "ke sāth",
+      "t": "کے ساتھ"
+    },
+    {
+      "en": "for",
+      "ex_en": "This is for you.",
+      "ex_r": "Ye āp ke liye hai",
+      "ex_t": "یہ آپ کے لیے ہے",
+      "hi": "के लिए",
+      "r": "ke liye",
+      "t": "کے لیے"
+    }
+  ],
+  "present_note": "The present is stem + -تا (m) / -تی (f) + helper: ہوں (I), ہو (tum), ہیں (āp and they), ہے (is). So میں کھاتا ہوں (I eat, m), آپ کھاتے ہیں (you eat, respectful), وہ کھاتی ہے (she eats). Exactly like Hindi — only the script changed.",
+  "present_table": [
+    {
+      "verb_r": "khātā hūn",
+      "verb_t": "کھاتا ہوں",
+      "who_en": "I (male speaker)",
+      "who_t": "میں"
+    },
+    {
+      "verb_r": "khātī hūn",
+      "verb_t": "کھاتی ہوں",
+      "who_en": "I (female speaker)",
+      "who_t": "میں"
+    },
+    {
+      "verb_r": "khāte/khātī ho",
+      "verb_t": "کھاتے/کھاتی ہو",
+      "who_en": "you (tum — close friends)",
+      "who_t": "تم"
+    },
+    {
+      "verb_r": "khāte/khātī hain",
+      "verb_t": "کھاتے/کھاتی ہیں",
+      "who_en": "you (āp — respectful)",
+      "who_t": "آپ"
+    },
+    {
+      "verb_r": "khātā hai",
+      "verb_t": "کھاتا ہے",
+      "who_en": "he",
+      "who_t": "وہ"
+    },
+    {
+      "verb_r": "khātī hai",
+      "verb_t": "کھاتی ہے",
+      "who_en": "she",
+      "who_t": "وہ"
+    },
+    {
+      "verb_r": "khāte/khātī hain",
+      "verb_t": "کھاتے/کھاتی ہیں",
+      "who_en": "they",
+      "who_t": "وہ"
+    }
+  ],
+  "pronouns": [
+    {
+      "en": "I",
+      "hi": "मैं",
+      "r": "main",
+      "t": "میں"
+    },
+    {
+      "en": "you (informal)",
+      "hi": "तुम",
+      "r": "tum",
+      "t": "تم"
+    },
+    {
+      "en": "you (formal)",
+      "hi": "आप",
+      "r": "āp",
+      "t": "آپ"
+    },
+    {
+      "en": "this",
+      "hi": "यह",
+      "r": "ye",
+      "t": "یہ"
+    },
+    {
+      "en": "he / she / that",
+      "hi": "वह",
+      "r": "vo",
+      "t": "وہ"
+    },
+    {
+      "en": "we",
+      "hi": "हम",
+      "r": "ham",
+      "t": "ہم"
+    },
+    {
+      "en": "they",
+      "hi": "वे",
+      "r": "vo",
+      "t": "وہ"
+    },
+    {
+      "en": "me / to me",
+      "hi": "मुझे",
+      "r": "mujhe",
+      "t": "مجھے"
+    },
+    {
+      "en": "you (informal, to)",
+      "hi": "तुम्हें",
+      "r": "tumhen",
+      "t": "تمہیں"
+    },
+    {
+      "en": "you (formal, to)",
+      "hi": "आपको",
+      "r": "āp ko",
+      "t": "آپ کو"
+    },
+    {
+      "en": "him / her (to)",
+      "hi": "उसे",
+      "r": "use",
+      "t": "اسے"
+    },
+    {
+      "en": "us / to us",
+      "hi": "हमें",
+      "r": "hamen",
+      "t": "ہمیں"
+    },
+    {
+      "en": "my",
+      "hi": "मेरा/मेरी",
+      "r": "merā/merī",
+      "t": "میرا/میری"
+    },
+    {
+      "en": "your (informal)",
+      "hi": "तुम्हारा",
+      "r": "tumhārā",
+      "t": "تمہارا"
+    },
+    {
+      "en": "your (formal)",
+      "hi": "आपका",
+      "r": "āp kā",
+      "t": "آپ کا"
+    },
+    {
+      "en": "his / her",
+      "hi": "उसका",
+      "r": "us kā",
+      "t": "اس کا"
+    },
+    {
+      "en": "our",
+      "hi": "हमारा",
+      "r": "hamārā",
+      "t": "ہمارا"
+    },
+    {
+      "en": "who?",
+      "hi": "कौन?",
+      "r": "kaun?",
+      "t": "کون؟"
+    },
+    {
+      "en": "what?",
+      "hi": "क्या?",
+      "r": "kyā?",
+      "t": "کیا؟"
+    }
+  ],
+  "quiz": [
+    {
+      "a": "hello! (peace greeting)",
+      "explain": "السلام علیکم (Assalām Alaikum) — 'peace be upon you' — is the standard Urdu hello. Reply: وعلیکم السلام!",
+      "id": "ur-01",
+      "lesson": "basics",
+      "level": "beginner",
+      "opts": [
+        "hello! (peace greeting)",
+        "goodbye!",
+        "thank you",
+        "sorry"
+      ],
+      "q": "What does السلام علیکم mean?",
+      "topic": "basics",
+      "type": "meaning"
+    },
+    {
+      "a": "thank you",
+      "explain": "شکریہ (shukriyā) is thanks — same word Hindi borrowed.",
+      "id": "ur-02",
+      "lesson": "basics",
+      "level": "beginner",
+      "opts": [
+        "thank you",
+        "please",
+        "sorry",
+        "welcome"
+      ],
+      "q": "What does شکریہ mean?",
+      "topic": "basics",
+      "type": "meaning"
+    },
+    {
+      "a": "میرا نام … ہے",
+      "explain": "آپ کا نام کیا ہے؟ = what's your name — answer میرا نام … ہے (my name is …).",
+      "id": "ur-03",
+      "lesson": "basics",
+      "level": "beginner",
+      "opts": [
+        "میرا نام … ہے",
+        "مجھے بھوک لگی ہے",
+        "پھر ملیں گے!",
+        "رعایت دیں"
+      ],
+      "q": "Someone asks 'آپ کا نام کیا ہے؟' — you reply…",
+      "topic": "basics",
+      "type": "usage"
+    },
+    {
+      "a": "sh as in shoe",
+      "explain": "ش (shīn) is sh — س (sīn) is the plain s. Dots decide!",
+      "id": "ur-04",
+      "lesson": "pronunciation",
+      "level": "beginner",
+      "opts": [
+        "sh as in shoe",
+        "s as in sun",
+        "h as in hat",
+        "k as in kite"
+      ],
+      "q": "The letter ش sounds like…",
+      "topic": "basics",
+      "type": "vocab"
+    },
+    {
+      "a": "3",
+      "explain": "ایک دو تین — 1, 2, 3.",
+      "id": "ur-05",
+      "lesson": "numbers",
+      "level": "beginner",
+      "opts": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "q": "تین means…",
+      "topic": "numbers",
+      "type": "vocab"
+    },
+    {
+      "a": "دس",
+      "explain": "دس (das) = 10. پانچ = 5, بیس = 20, سو = 100.",
+      "id": "ur-06",
+      "lesson": "numbers",
+      "level": "beginner",
+      "opts": [
+        "دس",
+        "پانچ",
+        "بیس",
+        "سو"
+      ],
+      "q": "Which is 'ten'?",
+      "topic": "numbers",
+      "type": "vocab"
+    },
+    {
+      "a": "20",
+      "explain": "بیس (bīs) = 20, انیس = 19, اکیس = 21.",
+      "id": "ur-07",
+      "lesson": "numbers",
+      "level": "beginner",
+      "opts": [
+        "12",
+        "20",
+        "22",
+        "200"
+      ],
+      "q": "بیس means…",
+      "topic": "numbers",
+      "type": "meaning"
+    },
+    {
+      "a": "50 rupees",
+      "explain": "پچاس (pachās) = 50. پانچ = 5, پندرہ = 15, پانچ سو = 500.",
+      "id": "ur-08",
+      "lesson": "numbers",
+      "level": "elementary",
+      "opts": [
+        "5 rupees",
+        "15 rupees",
+        "50 rupees",
+        "500 rupees"
+      ],
+      "q": "'پچاس روپے' on a price tag means…",
+      "topic": "numbers",
+      "type": "usage"
+    },
+    {
+      "a": "a slow-cooked meat stew",
+      "explain": "نہاری — simmered overnight, eaten at dawn with naan — is Old Delhi's legendary breakfast.",
+      "id": "ur-09",
+      "lesson": "food",
+      "level": "beginner",
+      "opts": [
+        "a slow-cooked meat stew",
+        "a lentil curry",
+        "a flatbread",
+        "a dessert"
+      ],
+      "q": "نہاری is…",
+      "topic": "food",
+      "type": "vocab"
+    },
+    {
+      "a": "this is very tasty",
+      "explain": "مزیدار (mazedār) = tasty — say it and any cook will beam.",
+      "id": "ur-10",
+      "lesson": "food",
+      "level": "beginner",
+      "opts": [
+        "this is very tasty",
+        "this is too spicy",
+        "the bill please",
+        "I'm hungry"
+      ],
+      "q": "'یہ بہت مزیدار ہے' means…",
+      "topic": "food",
+      "type": "meaning"
+    },
+    {
+      "a": "مجھے بھوک لگی ہے",
+      "explain": "مجھے بھوک لگی ہے = I'm hungry. پیاس = thirst, بل = bill.",
+      "id": "ur-11",
+      "lesson": "food",
+      "level": "elementary",
+      "opts": [
+        "مجھے بھوک لگی ہے",
+        "مجھے پیاس لگی ہے",
+        "بل دیں",
+        "رعایت دیں"
+      ],
+      "q": "You're hungry in Lucknow. You say…",
+      "topic": "food",
+      "type": "usage"
+    },
+    {
+      "a": "where is the station?",
+      "explain": "کہاں (kahān) = where — the traveller's most useful word.",
+      "id": "ur-12",
+      "lesson": "travel",
+      "level": "beginner",
+      "opts": [
+        "where is the station?",
+        "how much is the fare?",
+        "stop here",
+        "one ticket please"
+      ],
+      "q": "'اسٹیشن کہاں ہے؟' means…",
+      "topic": "travel",
+      "type": "meaning"
+    },
+    {
+      "a": "ticket",
+      "explain": "ٹکٹ (ṭikaṭ) = ticket; کرایہ = fare; اسٹیشن = station.",
+      "id": "ur-13",
+      "lesson": "travel",
+      "level": "beginner",
+      "opts": [
+        "ticket",
+        "train",
+        "fare",
+        "station"
+      ],
+      "q": "ٹکٹ means…",
+      "topic": "travel",
+      "type": "vocab"
+    },
+    {
+      "a": "یہاں رکیں",
+      "explain": "یہاں رکیں (yahān ruken) = stop here. آہستہ چلیں = go slowly.",
+      "id": "ur-14",
+      "lesson": "travel",
+      "level": "elementary",
+      "opts": [
+        "یہاں رکیں",
+        "آہستہ چلیں",
+        "سیدھا جائیں",
+        "ٹکٹ دیں"
+      ],
+      "q": "To make the auto stop here, say…",
+      "topic": "travel",
+      "type": "usage"
+    },
+    {
+      "a": "a man saying 'I eat'",
+      "explain": "کھاتا (khātā, -تا) marks a male speaker; a woman says کھاتی ہوں.",
+      "id": "ur-15",
+      "lesson": "grammar",
+      "level": "elementary",
+      "opts": [
+        "a man saying 'I eat'",
+        "a woman saying 'I eat'",
+        "a man saying 'I ate'",
+        "many people saying 'we eat'"
+      ],
+      "q": "'میں کھاتا ہوں' is spoken by…",
+      "topic": "grammar",
+      "type": "meaning"
+    },
+    {
+      "a": "کھاتی",
+      "explain": "کھاتا/کھاتی (m/f), کھاتے (plural/respectful) — adjectives work the same way.",
+      "id": "ur-16",
+      "lesson": "grammar",
+      "level": "elementary",
+      "opts": [
+        "کھاتی",
+        "کھاتے",
+        "کھایا",
+        "کھاؤں گا"
+      ],
+      "q": "The feminine of کھاتا is…",
+      "topic": "grammar",
+      "type": "vocab"
+    },
+    {
+      "a": "کھایا",
+      "explain": "کھایا/کھائی (m/f) = ate; کھاؤں گا/کھاؤں گی = will eat.",
+      "id": "ur-17",
+      "lesson": "grammar",
+      "level": "elementary",
+      "opts": [
+        "کھایا",
+        "کھائی",
+        "کھاؤں گا",
+        "کھاتا"
+      ],
+      "q": "The past tense 'ate' (said by a man) is…",
+      "topic": "grammar",
+      "type": "vocab"
+    },
+    {
+      "a": "it agrees with روٹی (feminine)",
+      "explain": "Urdu past tenses are ergative: the verb agrees with the object — روٹی is feminine, so کھائی.",
+      "id": "ur-18",
+      "lesson": "grammar",
+      "level": "elementary",
+      "opts": [
+        "it agrees with روٹی (feminine)",
+        "the speaker is female",
+        "it's the future tense",
+        "it's a typo"
+      ],
+      "q": "In 'میں نے روٹی کھائی', why کھائی?",
+      "topic": "grammar",
+      "type": "usage"
+    },
+    {
+      "a": "see you! (we'll meet again)",
+      "explain": "پھر ملیں گے (phir milenge) — literally 'we'll meet again' — the warm goodbye.",
+      "id": "ur-19",
+      "lesson": "conversation",
+      "level": "beginner",
+      "opts": [
+        "see you! (we'll meet again)",
+        "good morning!",
+        "welcome!",
+        "congratulations!"
+      ],
+      "q": "'پھر ملیں گے!' means…",
+      "topic": "conversation",
+      "type": "meaning"
+    },
+    {
+      "a": "welcome!",
+      "explain": "خوش آمدید (khush āmdīd) — the warm Urdu welcome.",
+      "id": "ur-20",
+      "lesson": "conversation",
+      "level": "beginner",
+      "opts": [
+        "welcome!",
+        "sorry!",
+        "good luck!",
+        "bless you!"
+      ],
+      "q": "'خوش آمدید!' means…",
+      "topic": "conversation",
+      "type": "meaning"
+    },
+    {
+      "a": "book",
+      "explain": "کتاب (kitāb) = book — قلم = pen, خط = letter.",
+      "id": "ur-21",
+      "lesson": "vocabulary",
+      "level": "beginner",
+      "opts": [
+        "book",
+        "pen",
+        "school",
+        "letter"
+      ],
+      "q": "کتاب means…",
+      "topic": "vocabulary",
+      "type": "vocab"
+    },
+    {
+      "a": "friend",
+      "explain": "دوست (dost) = friend — دشمن is the opposite!",
+      "id": "ur-22",
+      "lesson": "vocabulary",
+      "level": "beginner",
+      "opts": [
+        "friend",
+        "brother",
+        "guest",
+        "neighbour"
+      ],
+      "q": "دوست means…",
+      "topic": "vocabulary",
+      "type": "vocab"
+    },
+    {
+      "a": "asking the price",
+      "explain": "یہ کتنے کا ہے؟ = how much is this — then counter with تھوڑا سستا کریں!",
+      "id": "ur-23",
+      "lesson": "shopping",
+      "level": "elementary",
+      "opts": [
+        "asking the price",
+        "ordering food",
+        "asking directions",
+        "saying goodbye"
+      ],
+      "q": "'یہ کتنے کا ہے؟' is asked when…",
+      "topic": "vocabulary",
+      "type": "usage"
+    },
+    {
+      "a": "tomorrow — or yesterday!",
+      "explain": "کل (kal) covers both — tense and context tell you which. پرسوں = the day beyond.",
+      "id": "ur-24",
+      "lesson": "time-dates",
+      "level": "elementary",
+      "opts": [
+        "only tomorrow",
+        "only yesterday",
+        "tomorrow — or yesterday!",
+        "every day"
+      ],
+      "q": "کل means…",
+      "topic": "vocabulary",
+      "type": "meaning"
+    }
+  ],
+  "review_deck": [
+    {
+      "en": "hello! (peace greeting)",
+      "r": "Assalām Alaikum",
+      "t": "السلام علیکم"
+    },
+    {
+      "en": "thank you",
+      "r": "shukriyā",
+      "t": "شکریہ"
+    },
+    {
+      "en": "yes (respectful)",
+      "r": "jī hān",
+      "t": "جی ہاں"
+    },
+    {
+      "en": "no; not",
+      "r": "nahīn",
+      "t": "نہیں"
+    },
+    {
+      "en": "I; me",
+      "r": "main",
+      "t": "میں"
+    },
+    {
+      "en": "you (formal)",
+      "r": "āp",
+      "t": "آپ"
+    },
+    {
+      "en": "what?",
+      "r": "kyā?",
+      "t": "کیا؟"
+    },
+    {
+      "en": "where?",
+      "r": "kahān?",
+      "t": "کہاں؟"
+    },
+    {
+      "en": "how much?",
+      "r": "kitnā?",
+      "t": "کتنا؟"
+    },
+    {
+      "en": "who?",
+      "r": "kaun?",
+      "t": "کون؟"
+    },
+    {
+      "en": "water",
+      "r": "pānī",
+      "t": "پانی"
+    },
+    {
+      "en": "bread",
+      "r": "roṭī",
+      "t": "روٹی"
+    },
+    {
+      "en": "home",
+      "r": "ghar",
+      "t": "گھر"
+    },
+    {
+      "en": "friend",
+      "r": "dost",
+      "t": "دوست"
+    },
+    {
+      "en": "day",
+      "r": "din",
+      "t": "دن"
+    },
+    {
+      "en": "night",
+      "r": "rāt",
+      "t": "رات"
+    },
+    {
+      "en": "good; okay",
+      "r": "achchhā",
+      "t": "اچھا"
+    },
+    {
+      "en": "big",
+      "r": "baṛā",
+      "t": "بڑا"
+    },
+    {
+      "en": "small",
+      "r": "chhoṭā",
+      "t": "چھوٹا"
+    },
+    {
+      "en": "happy",
+      "r": "khush",
+      "t": "خوش"
+    }
+  ],
+  "roman_native": "Urdū",
+  "script_name": "Urdu (Nastaliq)",
+  "script_note": "Urdu is written right to left in the beautiful Nastaliq style — start at the RIGHT end of the line! Letters change shape (start/middle/end) and join up, there are no capital letters, and short vowels (a/i/u) are usually left unwritten: you read مل as 'mil' (meet) or 'mal' by context. Dots do heavy lifting: ب ت ث ن ی are the same stroke with different dots. Persian gave Urdu پ چ ژ گ, India gave it ٹ ڈ ڑ, and nasalization comes from ں (nūn-ghunna): میں (main, I) vs مین — count the dots, then read.",
+  "shopping_phrases": [
+    {
+      "en": "How much is this?",
+      "hi": "यह कितने का है?",
+      "r": "Ye kitne kā hai?",
+      "t": "یہ کتنے کا ہے؟"
+    },
+    {
+      "en": "Too expensive!",
+      "hi": "बहुत महँगा है!",
+      "r": "Bahut mehangā hai!",
+      "t": "بہت مہنگا ہے!"
+    },
+    {
+      "en": "Make it cheaper",
+      "hi": "थोड़ा सस्ता करिए",
+      "r": "Thoṛā sastā karen",
+      "t": "تھوڑا سستا کریں"
+    },
+    {
+      "en": "I'm just looking",
+      "hi": "मैं सिर्फ़ देख रहा हूँ",
+      "r": "Main sirf dekh rahā hūn",
+      "t": "میں صرف دیکھ رہا ہوں"
+    },
+    {
+      "en": "Pack this",
+      "hi": "इसे पैक कर दीजिए",
+      "r": "Ye paik kar den",
+      "t": "یہ پیک کر دیں"
+    },
+    {
+      "en": "Give a discount",
+      "hi": "छूट दीजिए",
+      "r": "Riāyat den",
+      "t": "رعایت دیں"
+    }
+  ],
+  "shopping_words": [
+    {
+      "en": "price",
+      "hi": "क़ीमत",
+      "r": "qīmat",
+      "t": "قیمت"
+    },
+    {
+      "en": "discount",
+      "hi": "छूट",
+      "r": "riāyat",
+      "t": "رعایت"
+    },
+    {
+      "en": "cash",
+      "hi": "नक़द",
+      "r": "naqd",
+      "t": "نقد"
+    },
+    {
+      "en": "card",
+      "hi": "कार्ड",
+      "r": "kārḍ",
+      "t": "کارڈ"
+    },
+    {
+      "en": "cheap",
+      "hi": "सस्ता",
+      "r": "sastā",
+      "t": "سستا"
+    },
+    {
+      "en": "expensive",
+      "hi": "महँगा",
+      "r": "mehangā",
+      "t": "مہنگا"
+    },
+    {
+      "en": "deal; groceries",
+      "hi": "सौदा",
+      "r": "saudā",
+      "t": "سودا"
+    }
+  ],
+  "slug": "urdu",
+  "sov": {
+    "en": "I eat bread. (word order: I – bread – eat)",
+    "hi": "मैं रोटी खाता हूँ।",
+    "r": "Main roṭī khātā hūn.",
+    "t": "میں روٹی کھاتا ہوں۔"
+  },
+  "speakers": "over 170 million",
+  "survival_trio": "السلام علیکم! (hello) · شکریہ (thanks) · یہ کتنے کا ہے؟ (how much is this?)",
+  "time_words": [
+    {
+      "en": "today",
+      "hi": "आज",
+      "r": "āj",
+      "t": "آج"
+    },
+    {
+      "en": "tomorrow; yesterday",
+      "hi": "कल",
+      "r": "kal",
+      "t": "کل"
+    },
+    {
+      "en": "day after tomorrow; day before yesterday",
+      "hi": "परसों",
+      "r": "parson",
+      "t": "پرسوں"
+    },
+    {
+      "en": "now",
+      "hi": "अब",
+      "r": "ab",
+      "t": "اب"
+    },
+    {
+      "en": "morning",
+      "hi": "सुबह",
+      "r": "subah",
+      "t": "صبح"
+    },
+    {
+      "en": "afternoon",
+      "hi": "दोपहर",
+      "r": "do-pahar",
+      "t": "دوپہر"
+    },
+    {
+      "en": "evening",
+      "hi": "शाम",
+      "r": "shām",
+      "t": "شام"
+    },
+    {
+      "en": "night",
+      "hi": "रात",
+      "r": "rāt",
+      "t": "رات"
+    },
+    {
+      "en": "hour",
+      "hi": "घंटा",
+      "r": "ghaṇṭā",
+      "t": "گھنٹہ"
+    },
+    {
+      "en": "minute",
+      "hi": "मिनट",
+      "r": "minaṭ",
+      "t": "منٹ"
+    },
+    {
+      "en": "week",
+      "hi": "हफ़्ता",
+      "r": "haftā",
+      "t": "ہفتہ"
+    }
+  ],
+  "travel_phrases": [
+    {
+      "en": "Where is the station?",
+      "hi": "स्टेशन कहाँ है?",
+      "r": "Sṭeshan kahān hai?",
+      "t": "اسٹیشن کہاں ہے؟"
+    },
+    {
+      "en": "How much is the fare?",
+      "hi": "किराया कितना है?",
+      "r": "Kirāyā kitnā hai?",
+      "t": "کرایہ کتنا ہے؟"
+    },
+    {
+      "en": "I want to go to …",
+      "hi": "मुझे … जाना है",
+      "r": "Mujhe … jānā hai",
+      "t": "مجھے … جانا ہے"
+    },
+    {
+      "en": "Drive slowly",
+      "hi": "धीरे चलिए",
+      "r": "Āhistā chalen",
+      "t": "آہستہ چلیں"
+    },
+    {
+      "en": "Stop here",
+      "hi": "यहाँ रुकिए",
+      "r": "Yahān ruken",
+      "t": "یہاں رکیں"
+    },
+    {
+      "en": "Give me a ticket",
+      "hi": "टिकट दीजिए",
+      "r": "Ṭikaṭ den",
+      "t": "ٹکٹ دیں"
+    }
+  ],
+  "travel_words": [
+    {
+      "en": "ticket",
+      "hi": "टिकट",
+      "r": "ṭikaṭ",
+      "t": "ٹکٹ"
+    },
+    {
+      "en": "train",
+      "hi": "रेलगाड़ी",
+      "r": "rel gāṛī",
+      "t": "ریل گاڑی"
+    },
+    {
+      "en": "bus",
+      "hi": "बस",
+      "r": "bas",
+      "t": "بس"
+    },
+    {
+      "en": "aeroplane",
+      "hi": "हवाई जहाज़",
+      "r": "havāī jahāz",
+      "t": "ہوائی جہاز"
+    },
+    {
+      "en": "taxi",
+      "hi": "टैक्सी",
+      "r": "ṭaiksī",
+      "t": "ٹیکسی"
+    },
+    {
+      "en": "auto-rickshaw",
+      "hi": "ऑटो",
+      "r": "āṭo",
+      "t": "آٹو"
+    },
+    {
+      "en": "station",
+      "hi": "स्टेशन",
+      "r": "sṭeshan",
+      "t": "اسٹیشن"
+    },
+    {
+      "en": "bus stand",
+      "hi": "बस अड्डा",
+      "r": "bas aḍḍā",
+      "t": "بس اڈا"
+    },
+    {
+      "en": "fare",
+      "hi": "किराया",
+      "r": "kirāyā",
+      "t": "کرایہ"
+    },
+    {
+      "en": "road; way",
+      "hi": "रास्ता",
+      "r": "rāstā",
+      "t": "راستہ"
+    },
+    {
+      "en": "hotel",
+      "hi": "होटल",
+      "r": "hoṭal",
+      "t": "ہوٹل"
+    },
+    {
+      "en": "luggage",
+      "hi": "सामान",
+      "r": "sāmān",
+      "t": "سامان"
+    }
+  ],
+  "typing": [
+    [
+      "ماں",
+      "maan"
+    ],
+    [
+      "پانی",
+      "paani"
+    ],
+    [
+      "گھر",
+      "ghar"
+    ],
+    [
+      "روٹی",
+      "roti"
+    ],
+    [
+      "دال",
+      "daal"
+    ],
+    [
+      "چائے",
+      "chaaye"
+    ],
+    [
+      "لسی",
+      "lassi"
+    ],
+    [
+      "کتاب",
+      "kitaab"
+    ],
+    [
+      "اسکول",
+      "school"
+    ],
+    [
+      "بازار",
+      "bazaar"
+    ],
+    [
+      "دکان",
+      "dukaan"
+    ],
+    [
+      "ٹکٹ",
+      "ticket"
+    ],
+    [
+      "گاڑی",
+      "gaadi"
+    ],
+    [
+      "راستہ",
+      "raasta"
+    ],
+    [
+      "دن",
+      "din"
+    ],
+    [
+      "رات",
+      "raat"
+    ],
+    [
+      "صبح",
+      "subah"
+    ],
+    [
+      "شام",
+      "shaam"
+    ],
+    [
+      "لڑکا",
+      "ladka"
+    ],
+    [
+      "لڑکی",
+      "ladki"
+    ],
+    [
+      "دوست",
+      "dost"
+    ],
+    [
+      "پیار",
+      "pyaar"
+    ],
+    [
+      "خوش",
+      "khush"
+    ],
+    [
+      "شکریہ",
+      "shukriya"
+    ]
+  ],
+  "verbs": [
+    {
+      "ami": "میں کھاتا/کھاتی ہوں",
+      "ami_r": "Main khātā/khātī hūn",
+      "en": "to eat",
+      "hi": "खाना",
+      "r": "khānā",
+      "t": "کھانا"
+    },
+    {
+      "ami": "میں پیتا/پیتی ہوں",
+      "ami_r": "Main pītā/pītī hūn",
+      "en": "to drink",
+      "hi": "पीना",
+      "r": "pīnā",
+      "t": "پینا"
+    },
+    {
+      "ami": "میں جاتا/جاتی ہوں",
+      "ami_r": "Main jātā/jātī hūn",
+      "en": "to go",
+      "hi": "जाना",
+      "r": "jānā",
+      "t": "جانا"
+    },
+    {
+      "ami": "میں آتا/آتی ہوں",
+      "ami_r": "Main ātā/ātī hūn",
+      "en": "to come",
+      "hi": "आना",
+      "r": "ānā",
+      "t": "آنا"
+    },
+    {
+      "ami": "میں کرتا/کرتی ہوں",
+      "ami_r": "Main kartā/kartī hūn",
+      "en": "to do",
+      "hi": "करना",
+      "r": "karnā",
+      "t": "کرنا"
+    },
+    {
+      "ami": "میں بولتا/بولتی ہوں",
+      "ami_r": "Main boltā/boltī hūn",
+      "en": "to speak",
+      "hi": "बोलना",
+      "r": "bolnā",
+      "t": "بولنا"
+    },
+    {
+      "ami": "میں پڑھتا/پڑھتی ہوں",
+      "ami_r": "Main paṛhtā/paṛhtī hūn",
+      "en": "to read; to study",
+      "hi": "पढ़ना",
+      "r": "paṛhnā",
+      "t": "پڑھنا"
+    },
+    {
+      "ami": "میں لکھتا/لکھتی ہوں",
+      "ami_r": "Main likhtā/likhtī hūn",
+      "en": "to write",
+      "hi": "लिखना",
+      "r": "likhnā",
+      "t": "لکھنا"
+    },
+    {
+      "ami": "میں سیکھتا/سیکھتی ہوں",
+      "ami_r": "Main sīkhtā/sīkhtī hūn",
+      "en": "to learn",
+      "hi": "सीखना",
+      "r": "sīkhnā",
+      "t": "سیکھنا"
+    },
+    {
+      "ami": "میں دیکھتا/دیکھتی ہوں",
+      "ami_r": "Main dekhtā/dekhtī hūn",
+      "en": "to see; to watch",
+      "hi": "देखना",
+      "r": "dekhnā",
+      "t": "دیکھنا"
+    },
+    {
+      "ami": "میں سنتا/سنتی ہوں",
+      "ami_r": "Main santā/santī hūn",
+      "en": "to listen; to hear",
+      "hi": "सुनना",
+      "r": "sunnā",
+      "t": "سننا"
+    },
+    {
+      "ami": "میں لیتا/لیتی ہوں",
+      "ami_r": "Main letā/letī hūn",
+      "en": "to take",
+      "hi": "लेना",
+      "r": "lenā",
+      "t": "لینا"
+    },
+    {
+      "ami": "میں دیتا/دیتی ہوں",
+      "ami_r": "Main detā/detī hūn",
+      "en": "to give",
+      "hi": "देना",
+      "r": "denā",
+      "t": "دینا"
+    },
+    {
+      "ami": "میں خریدتا/خریدتی ہوں",
+      "ami_r": "Main kharīdtā/kharīdtī hūn",
+      "en": "to buy",
+      "hi": "ख़रीदना",
+      "r": "kharīdnā",
+      "t": "خریدنا"
+    },
+    {
+      "ami": "میں بیچتا/بیچتی ہوں",
+      "ami_r": "Main bechtā/bechtī hūn",
+      "en": "to sell",
+      "hi": "बेचना",
+      "r": "bechnā",
+      "t": "بیچنا"
+    },
+    {
+      "ami": "میں سوتا/سوتی ہوں",
+      "ami_r": "Main sotā/sotī hūn",
+      "en": "to sleep",
+      "hi": "सोना",
+      "r": "sonā",
+      "t": "سونا"
+    },
+    {
+      "ami": "میں اٹھتا/اٹھتی ہوں",
+      "ami_r": "Main uṭhtā/uṭhtī hūn",
+      "en": "to wake up; to get up",
+      "hi": "उठना",
+      "r": "uṭhnā",
+      "t": "اٹھنا"
+    },
+    {
+      "ami": "میں بیٹھتا/بیٹھتی ہوں",
+      "ami_r": "Main baiṭhtā/baiṭhtī hūn",
+      "en": "to sit",
+      "hi": "बैठना",
+      "r": "baiṭhnā",
+      "t": "بیٹھنا"
+    }
+  ],
+  "vowels": [
+    {
+      "hint": "zabar mark: a as in about — usually left unwritten!",
+      "r": "a",
+      "t": "اَ"
+    },
+    {
+      "hint": "aa as in father — alif with a madd cap",
+      "r": "ā",
+      "t": "آ"
+    },
+    {
+      "hint": "zer mark: i as in bit — usually left unwritten",
+      "r": "i",
+      "t": "اِ"
+    },
+    {
+      "hint": "choṭī ye: ee as in feet",
+      "r": "ī",
+      "t": "ی"
+    },
+    {
+      "hint": "pesh mark: u as in put — usually left unwritten",
+      "r": "u",
+      "t": "اُ"
+    },
+    {
+      "hint": "vāo: oo as in food — also o, as in دو (two)",
+      "r": "ū / o",
+      "t": "و"
+    },
+    {
+      "hint": "baṛī ye, word end only: ay as in say",
+      "r": "e",
+      "t": "ے"
+    },
+    {
+      "hint": "vāo can also be ou: اور (and)",
+      "r": "au",
+      "t": "و"
+    }
+  ],
+  "where": "Pakistan, India and a large diaspora",
+  "advanced_modules": []
+}

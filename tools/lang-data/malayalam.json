@@ -1,1 +1,2443 @@
-{"bargaining_script": "ഇതിന് എത്രയാണ്? (how much?) → വളരെ വിലകൂടിയതാണ്! (too pricey!) → കുറച്ച് കുറയ്ക്കൂ (reduce a little) → കിഴിവ് തരൂ (give a discount) → ശരി, പാക്ക് ചെയ്യൂ! (done, pack it!)", "classifiers": [{"en": "ഒരു പുസ്തകം", "hi": "एक किताब", "note": "one book — ഒരു + noun, no extras", "r": "oru pustakam"}, {"en": "രണ്ട് പുസ്തകങ്ങൾ", "hi": "दो किताबें", "note": "two books — the noun takes the -കൾ plural", "r": "raṇḍŭ pustakaṅṅaḷ"}, {"en": "മൂന്ന് രൂപ", "hi": "तीन रुपये", "note": "three rupees — currency counts directly", "r": "mūnnŭ rūpa"}], "colors": [{"en": "red", "hi": "लाल", "note": "colour words never change", "r": "chuvappŭ", "t": "ചുവപ്പ്"}, {"en": "blue", "hi": "नीला", "note": "same form for every noun", "r": "nīla", "t": "നീല"}, {"en": "green", "hi": "हरा", "note": "same form for every noun", "r": "pachcha", "t": "പച്ച"}, {"en": "yellow", "hi": "पीला", "note": "same form for every noun", "r": "mañña", "t": "മഞ്ഞ"}, {"en": "black", "hi": "काला", "note": "same form for every noun", "r": "kaṟuppŭ", "t": "കറുപ്പ്"}, {"en": "white", "hi": "सफ़ेद", "note": "same form for every noun", "r": "veḷḷa", "t": "വെള്ള"}], "consonants": [{"hint": "k as in kite", "r": "ka", "t": "ക"}, {"hint": "kh — breathy k", "r": "kha", "t": "ഖ"}, {"hint": "g as in go", "r": "ga", "t": "ഗ"}, {"hint": "gh — breathy g", "r": "gha", "t": "ഘ"}, {"hint": "ng as in sing — almost only in clusters", "r": "ṅa", "t": "ങ"}, {"hint": "ch as in chair", "r": "cha", "t": "ച"}, {"hint": "chh — breathy ch", "r": "chha", "t": "ഛ"}, {"hint": "j as in jump", "r": "ja", "t": "ജ"}, {"hint": "jh — breathy j", "r": "jha", "t": "ഝ"}, {"hint": "ny as in canyon — rare alone", "r": "ña", "t": "ഞ"}, {"hint": "hard T, tongue curled back", "r": "ṭa", "t": "ട"}, {"hint": "breathy hard T", "r": "ṭha", "t": "ഠ"}, {"hint": "hard D, tongue curled back", "r": "ḍa", "t": "ഡ"}, {"hint": "breathy hard D", "r": "ḍha", "t": "ഢ"}, {"hint": "hard N, tongue curled back", "r": "ṇa", "t": "ണ"}, {"hint": "soft t, tongue on teeth — like Spanish t", "r": "ta", "t": "ത"}, {"hint": "breathy soft t (never English th)", "r": "tha", "t": "ഥ"}, {"hint": "soft d, tongue on teeth", "r": "da", "t": "ദ"}, {"hint": "breathy soft d", "r": "dha", "t": "ധ"}, {"hint": "n as in no", "r": "na", "t": "ന"}, {"hint": "p as in pin", "r": "pa", "t": "പ"}, {"hint": "ph — breathy p", "r": "pha", "t": "ഫ"}, {"hint": "b as in boy", "r": "ba", "t": "ബ"}, {"hint": "bh — breathy b", "r": "bha", "t": "ഭ"}, {"hint": "m as in man", "r": "ma", "t": "മ"}, {"hint": "y as in yes", "r": "ya", "t": "യ"}, {"hint": "tapped r", "r": "ra", "t": "ര"}, {"hint": "l as in love", "r": "la", "t": "ല"}, {"hint": "between v and w", "r": "va", "t": "വ"}, {"hint": "sh as in shoe", "r": "sha", "t": "ശ"}, {"hint": "shh — breathy sh", "r": "ṣha", "t": "ഷ"}, {"hint": "s as in sun", "r": "sa", "t": "സ"}, {"hint": "h as in hat", "r": "ha", "t": "ഹ"}, {"hint": "retroflex L — as in മലയാളം itself!", "r": "ḷa", "t": "ള"}, {"hint": "the famous sound — between r, l and d, as in മഴ (rain)", "r": "ḻa", "t": "ഴ"}, {"hint": "hard rolling R — as in കറി (curry)", "r": "ṟa", "t": "റ"}], "core_nouns": [{"en": "water", "hi": "पानी", "r": "veḷḷam", "t": "വെള്ളം"}, {"en": "home", "hi": "घर", "r": "vīḍŭ", "t": "വീട്"}, {"en": "school", "hi": "स्कूल", "r": "skūḷ", "t": "സ്കൂൾ"}, {"en": "office", "hi": "दफ़्तर", "r": "ōphīsŭ", "t": "ഓഫീസ്"}, {"en": "shop", "hi": "दुकान", "r": "kaḍa", "t": "കട"}, {"en": "market", "hi": "बाज़ार", "r": "mārkkaṟṟŭ", "t": "മാർക്കറ്റ്"}, {"en": "hospital", "hi": "अस्पताल", "r": "āshupatri", "t": "ആശുപത്രി"}, {"en": "station", "hi": "स्टेशन", "r": "sṟṟeshan", "t": "സ്റ്റേഷൻ"}, {"en": "airport", "hi": "हवाई अड्डा", "r": "vimānattāvaḷam", "t": "വിമാനത്താവളം"}, {"en": "room", "hi": "कमरा", "r": "muṟi", "t": "മുറി"}, {"en": "door", "hi": "दरवाज़ा", "r": "vātil", "t": "വാതിൽ"}, {"en": "book", "hi": "किताब", "r": "pustakam", "t": "പുസ്തകം"}, {"en": "phone", "hi": "फ़ोन", "r": "phōn", "t": "ഫോൺ"}], "counting_note": "Malayalam has no classifiers — put the number straight before the noun. But the noun itself goes plural with -കൾ: ഒരു പുസ്തകം (one book), രണ്ട് പുസ്തകങ്ങൾ (two books), മൂന്ന് രൂപ (three rupees).", "culture": [{"en": "Kerala's harvest festival (Aug–Sep) — flower carpets, boat races and the grand സദ്യ feast on a banana leaf.", "r": "Ōṇam", "t": "ഓണം"}, {"en": "The painted-face dance-drama — one eye movement can say a whole sentence.", "r": "Kathakaḷi", "t": "കഥകളി"}, {"en": "The backwaters — a thousand kilometres of lagoons, houseboats and village life.", "r": "kāyal", "t": "കായൽ"}, {"en": "The snake-boat races of Alappuzha — a hundred oarsmen rowing as one.", "r": "vaḷḷamkaḷi", "t": "വള്ളംകളി"}, {"en": "The traditional medicine Kerala is famous for — oil massages included.", "r": "āyurvēdam", "t": "ആയുർവേദം"}], "daily_phrases": [{"en": "I wake up at six in the morning", "hi": "मैं सुबह छह बजे उठता हूँ", "r": "Ñān rāvile āṟŭ maṇikkŭ eḻunnēḷkkunnu", "t": "ഞാൻ രാവിലെ ആറ് മണിക്ക് എഴുന്നേൽക്കുന്നു"}, {"en": "I take a bath", "hi": "मैं नहाता हूँ", "r": "Ñān kuḷikkunnu", "t": "ഞാൻ കുളിക്കുന്നു"}, {"en": "I eat breakfast", "hi": "मैं नाश्ता करता हूँ", "r": "Ñān prātal kaḻikkunnu", "t": "ഞാൻ പ്രാതൽ കഴിക്കുന്നു"}, {"en": "I go to work", "hi": "मैं काम पर जाता हूँ", "r": "Ñān jōlikkŭ pōkunnu", "t": "ഞാൻ ജോലിക്ക് പോകുന്നു"}, {"en": "I eat lunch", "hi": "मैं दोपहर का खाना खाता हूँ", "r": "Ñān uchaykkŭ ūṇŭ kaḻikkunnu", "t": "ഞാൻ ഉച്ചയ്ക്ക് ഊണ് കഴിക്കുന്നു"}, {"en": "I come home in the evening", "hi": "मैं शाम को घर आता हूँ", "r": "Ñān vaikunnēram vīṭṭil varunnu", "t": "ഞാൻ വൈകുന്നേരം വീട്ടിൽ വരുന്നു"}, {"en": "I watch TV", "hi": "मैं टीवी देखता हूँ", "r": "Ñān ṭivi kāṇunnu", "t": "ഞാൻ ടിവി കാണുന്നു"}, {"en": "I sleep at ten", "hi": "मैं दस बजे सोता हूँ", "r": "Ñān pattŭ maṇikkŭ uṟaṅṅunnu", "t": "ഞാൻ പത്ത് മണിക്ക് ഉറങ്ങുന്നു"}], "days": [{"en": "Monday", "hi": "सोमवार", "r": "Tiṅkaḷ", "t": "തിങ്കൾ"}, {"en": "Tuesday", "hi": "मंगलवार", "r": "Chovva", "t": "ചൊവ്വ"}, {"en": "Wednesday", "hi": "बुधवार", "r": "Budhan", "t": "ബുധൻ"}, {"en": "Thursday", "hi": "गुरुवार", "r": "Vyāḻam", "t": "വ്യാഴം"}, {"en": "Friday", "hi": "शुक्रवार", "r": "Veḷḷi", "t": "വെള്ളി"}, {"en": "Saturday", "hi": "शनिवार", "r": "Shani", "t": "ശനി"}, {"en": "Sunday", "hi": "रविवार", "r": "Ñāyaṟ", "t": "ഞായർ"}], "dialogues": [{"lines": [{"en": "Hello! My name is Anand.", "hi": "नमस्कार! मेरा नाम आनंद है।", "r": "Namaskāram! Ente perŭ Anand.", "sp": "Anand", "t": "നമസ്കാരം! എന്റെ പേര് ആനന്ദ്."}, {"en": "Hello! I'm Lakshmi. Are you well?", "hi": "नमस्कार! मैं लक्ष्मी हूँ। आप ठीक हैं?", "r": "Namaskāram! Ñān Lakshmi. Sukhamāṇō?", "sp": "Lakshmi", "t": "നമസ്കാരം! ഞാൻ ലക്ഷ്മി. സുഖമാണോ?"}, {"en": "I'm well, thanks. Where are you from?", "hi": "मैं ठीक हूँ, धन्यवाद। आप कहाँ से हैं?", "r": "Enikkŭ sukhamāṇŭ, nandi. Niṅṅaḷ eviḍunnāṇŭ?", "sp": "Anand", "t": "എനിക്ക് സുഖമാണ്, നന്ദി. നിങ്ങൾ എവിടുന്നാണ്?"}, {"en": "I'm from Kochi. Which is your homeland?", "hi": "मैं कोच्चि से हूँ। आपका गाँव/शहर कौन-सा है?", "r": "Ñān Kochiyilninnāṇŭ. Niṅṅaḷuḍe nāḍŭ ētāṇŭ?", "sp": "Lakshmi", "t": "ഞാൻ കൊച്ചിയിൽനിന്നാണ്. നിങ്ങളുടെ നാട് ഏതാണ്?"}, {"en": "I'm from Thiruvananthapuram. I'm learning Malayalam.", "hi": "मैं तिरुवनंतपुरम से हूँ। मैं मलयालम सीख रहा हूँ।", "r": "Ñān Thiruvanantapurattuninnāṇŭ. Ñān Malayāḷam paṭhikkukayāṇŭ.", "sp": "Anand", "t": "ഞാൻ തിരുവനന്തപുരത്തുനിന്നാണ്. ഞാൻ മലയാളം പഠിക്കുകയാണ്."}], "title": "Meeting someone"}, {"lines": [{"en": "Hello! What do you want?", "hi": "नमस्कार! क्या चाहिए?", "r": "Namaskāram! Entŭ vēṇam?", "sp": "Server", "t": "നമസ്കാരം! എന്ത് വേണം?"}, {"en": "Give me one tea and two parippu vadas.", "hi": "एक चाय और दो परिप्पुवड़े दीजिए।", "r": "Oru chāyayum raṇḍŭ paṟippuvaḍayum tarū.", "sp": "You", "t": "ഒരു ചായയും രണ്ട് പരിപ്പുവടയും തരൂ."}, {"en": "I'll serve it hot. Anything else?", "hi": "गरम-गरम देता हूँ। और कुछ?", "r": "Chūṭōṭe tarām. Vēṟe entenkilum?", "sp": "Server", "t": "ചൂടോടെ തരാം. വേറെ എന്തെങ്കിലും?"}, {"en": "No, that's enough. How much is the bill?", "hi": "नहीं, इतना काफ़ी है। बिल कितना?", "r": "Illa, atŭ mati. Billŭ etrayāṇŭ?", "sp": "You", "t": "ഇല്ല, അതു മതി. ബില്ല് എത്രയാണ്?"}, {"en": "Thirty rupees. Come again!", "hi": "तीस रुपये। फिर आइए!", "r": "Muppatŭ rūpa. Vīṇḍum varū!", "sp": "Server", "t": "മുപ്പത് രൂപ. വീണ്ടും വരൂ!"}], "title": "At a chayakkada"}, {"lines": [{"en": "I need to go to the railway station. Will you come?", "hi": "मुझे रेलवे स्टेशन जाना है। चलेंगे?", "r": "Railway sṟṟeshanilēkkŭ pōkaṇam. Varumō?", "sp": "You", "t": "റെയിൽവേ സ്റ്റേഷനിലേക്ക് പോകണം. വരുമോ?"}, {"en": "I'll come. Fifty rupees above the meter.", "hi": "चलूँगा। मीटर के ऊपर पचास रुपये।", "r": "Varām. Mīṟṟaṟinŭ mugaḷil ampatŭ rūpa.", "sp": "Driver", "t": "വരാം. മീറ്ററിന് മുകളിൽ അമ്പത് രൂപ."}, {"en": "Come on the meter. How far is it?", "hi": "मीटर से चलिए। कितनी दूर है?", "r": "Mīṟṟaṟil varū. Etra dūramuṇḍŭ?", "sp": "You", "t": "മീറ്ററിൽ വരൂ. എത്ര ദൂരമുണ്ട്?"}, {"en": "Three kilometres. Hop in.", "hi": "तीन किलोमीटर। बैठ जाइए।", "r": "Mūnnŭ kilōmīṟṟaṟ. Kayaṟikkōḷḷū.", "sp": "Driver", "t": "മൂന്ന് കിലോമീറ്റർ. കയറിക്കോളൂ."}, {"en": "Fine. Stop here — near the station.", "hi": "ठीक है। यहाँ रोकिए — स्टेशन के पास।", "r": "Shari. Iviḍe nirttū — sṟṟeshanre aḍuttŭ.", "sp": "You", "t": "ശരി. ഇവിടെ നിർത്തൂ — സ്റ്റേഷന്റെ അടുത്ത്."}], "title": "To the railway station"}], "difficulty": "Medium — a new script and long agglutinative words, but verbs never conjugate", "family": [{"en": "mother", "hi": "माँ", "note": "", "r": "amma", "t": "അമ്മ"}, {"en": "father", "hi": "पिता", "note": "also അപ്പ; varies by community", "r": "achchhan", "t": "അച്ഛൻ"}, {"en": "elder brother", "hi": "बड़ा भाई", "note": "also any respected older man", "r": "chēṭṭan", "t": "ചേട്ടൻ"}, {"en": "younger brother", "hi": "छोटा भाई", "note": "", "r": "aniyan", "t": "അനിയൻ"}, {"en": "elder sister", "hi": "बड़ी बहन", "note": "also any respected older woman", "r": "chēchchi", "t": "ചേച്ചി"}, {"en": "younger sister", "hi": "छोटी बहन", "note": "", "r": "aniyatti", "t": "അനിയത്തി"}, {"en": "son", "hi": "बेटा", "note": "", "r": "makan", "t": "മകൻ"}, {"en": "daughter", "hi": "बेटी", "note": "", "r": "makaḷ", "t": "മകൾ"}, {"en": "husband", "hi": "पति", "note": "", "r": "bharttāvŭ", "t": "ഭർത്താവ്"}, {"en": "wife", "hi": "पत्नी", "note": "", "r": "bhārya", "t": "ഭാര്യ"}, {"en": "grandfather", "hi": "दादा/नाना", "note": "അപ്പൂപ്പൻ at home", "r": "muttachchhan", "t": "മുത്തച്ഛൻ"}, {"en": "grandmother", "hi": "दादी/नानी", "note": "അമ്മൂമ്മ at home", "r": "muttashshi", "t": "മുത്തശ്ശി"}, {"en": "child", "hi": "बच्चा", "note": "", "r": "kuṭṭi", "t": "കുട്ടി"}], "food_phrases": [{"en": "I'm hungry", "hi": "मुझे भूख लगी है", "r": "Enikkŭ vishakkunnu", "t": "എനിക്ക് വിശക്കുന്നു"}, {"en": "Give (me) water", "hi": "पानी दीजिए", "r": "Veḷḷam tarū", "t": "വെള്ളം തരൂ"}, {"en": "The bill, please", "hi": "बिल दीजिए", "r": "Billŭ tarū", "t": "ബില്ല് തരൂ"}, {"en": "This is very tasty", "hi": "यह बहुत स्वाद है", "r": "Itŭ vaḷare ruchiyuṇḍŭ", "t": "ഇത് വളരെ രുചിയുണ്ട്"}, {"en": "Give a little more", "hi": "थोड़ा और दीजिए", "r": "Kuṟachchūkūṭi tarū", "t": "കുറച്ചുകൂടി തരൂ"}, {"en": "I'm vegetarian", "hi": "मैं शाकाहारी हूँ", "r": "Ñān sasyabhōjiyāṇŭ", "t": "ഞാൻ സസ്യഭോജിയാണ്"}, {"en": "Make it less spicy", "hi": "मिर्च कम रखिए", "r": "Erivŭ kuṟaykkū", "t": "എരിവ് കുറയ്ക്കൂ"}], "food_words": [{"en": "rice", "hi": "चावल/भात", "r": "chōṟŭ", "t": "ചോറ്"}, {"en": "puttu (steamed rice-coconut)", "hi": "पुट्टु", "r": "puṭṭŭ", "t": "പുട്ട്"}, {"en": "appam (lacy pancake)", "hi": "अप्पम", "r": "appam", "t": "അപ്പം"}, {"en": "idiyappam (string hoppers)", "hi": "इडियप्पम", "r": "iḍiyappam", "t": "ഇടിയപ്പം"}, {"en": "dosa", "hi": "डोसा", "r": "dōsha", "t": "ദോശ"}, {"en": "idli", "hi": "इडली", "r": "iḍḍali", "t": "ഇഡ്ഡലി"}, {"en": "sambar", "hi": "सांबार", "r": "sāmpāṟ", "t": "സാമ്പാർ"}, {"en": "rasam", "hi": "रसम", "r": "rasam", "t": "രസം"}, {"en": "avial (mixed veg in coconut)", "hi": "अवियल", "r": "aviyal", "t": "അവിയൽ"}, {"en": "thoran (dry veg stir-fry)", "hi": "थोरन", "r": "tōran", "t": "തോരൻ"}, {"en": "fish curry", "hi": "मछली करी", "r": "mīn kaṟi", "t": "മീൻ കറി"}, {"en": "curd", "hi": "दही", "r": "tayirŭ", "t": "തൈര്"}, {"en": "buttermilk", "hi": "छाछ", "r": "mōrŭ", "t": "മോര്"}, {"en": "ghee", "hi": "घी", "r": "neyyŭ", "t": "നെയ്യ്"}, {"en": "butter", "hi": "मक्खन", "r": "veṇṇa", "t": "വെണ്ണ"}, {"en": "payasam (kheer)", "hi": "खीर", "r": "pāyasam", "t": "പായസം"}, {"en": "tea", "hi": "चाय", "r": "chāya", "t": "ചായ"}, {"en": "coffee", "hi": "कॉफ़ी", "r": "kāppi", "t": "കാപ്പി"}], "gender_note": "Malayalam has masculine, feminine and neuter pronouns (അവൻ/അവൾ/അത്) — but the verbs NEVER agree with any of them. കഴിക്കുന്നു means I/you/he/she/we/they eat, all at once. Adjectives don't change either: വലിയ വീട് (big house), വലിയ കുട്ടി (big child). Gender is the easiest chapter in this course.", "gender_title": "Three genders, zero verb trouble", "greetings": [{"en": "Hello! (respectful)", "hi": "नमस्कार", "note": "works any time of day, for everyone", "r": "Namaskāram!", "t": "നമസ്കാരം!"}, {"en": "Are you well?", "hi": "आप ठीक हैं?", "note": "the classic 'how are you' — സുഖം = wellness", "r": "Sukhamāṇō?", "t": "സുഖമാണോ?"}, {"en": "I'm well", "hi": "मैं ठीक हूँ", "r": "Enikkŭ sukhamāṇŭ", "t": "എനിക്ക് സുഖമാണ്"}, {"en": "What is your name?", "hi": "आपका नाम क्या है?", "note": "", "r": "Niṅṅaḷuḍe pērentāṇŭ?", "t": "നിങ്ങളുടെ പേരെന്താണ്?"}, {"en": "My name is …", "hi": "मेरा नाम … है", "note": "", "r": "Ente perŭ …", "t": "എന്റെ പേര് …"}, {"en": "Nice to meet you", "hi": "आपसे मिलकर खुशी हुई", "note": "", "r": "Niṅṅaḷe kaṇṭatil santōsham", "t": "നിങ്ങളെ കണ്ടതിൽ സന്തോഷം"}, {"en": "Thank you", "hi": "धन्यवाद", "note": "", "r": "Nandi", "t": "നന്ദി"}, {"en": "Welcome!", "hi": "स्वागत है!", "note": "", "r": "Svāgatam!", "t": "സ്വാഗതം!"}, {"en": "See you! (we'll see later)", "hi": "फिर मिलेंगे!", "note": "", "r": "Pinne kāṇām!", "t": "പിന്നെ കാണാം!"}, {"en": "Excuse me / Sorry", "hi": "माफ़ करें", "note": "", "r": "Kshamikkaṇam", "t": "ക്ഷമിക്കണം"}, {"en": "Please", "hi": "कृपया", "note": "", "r": "Dayavāyi", "t": "ദയവായി"}, {"en": "Congratulations!", "hi": "बधाई हो!", "note": "", "r": "Abhinandanaṅṅaḷ!", "t": "അഭിനന്ദനങ്ങൾ!"}, {"en": "yes / no", "hi": "हाँ / नहीं", "note": "അതെ (ate) yes · ഇല്ല (illa) no", "r": "Ate / Illa", "t": "അതെ / ഇല്ല"}], "name": "Malayalam", "native": "മലയാളം", "negation_note": "ഇല്ല (illa) melts into the verb: വരില്ല (won't come), അറിയില്ല (don't know), കഴിക്കില്ല (won't eat). Alone, ഇല്ല just means 'no'. To refuse an offer, വേണ്ട (vēṇṭa — 'don't want') is warmer: ചായ വേണ്ട (no tea for me, thanks). And അല്ല (alla) denies identity: ശരിയല്ല (that's not right).", "negation_title": "Negation with ഇല്ല (illa)", "numbers": [{"hi": "एक", "n": 1, "r": "onnŭ", "t": "ഒന്ന്"}, {"hi": "दो", "n": 2, "r": "raṇḍŭ", "t": "രണ്ട്"}, {"hi": "तीन", "n": 3, "r": "mūnnŭ", "t": "മൂന്ന്"}, {"hi": "चार", "n": 4, "r": "nālŭ", "t": "നാല്"}, {"hi": "पाँच", "n": 5, "r": "añchŭ", "t": "അഞ്ച്"}, {"hi": "छह", "n": 6, "r": "āṟŭ", "t": "ആറ്"}, {"hi": "सात", "n": 7, "r": "ēḻŭ", "t": "ഏഴ്"}, {"hi": "आठ", "n": 8, "r": "eṭṭŭ", "t": "എട്ട്"}, {"hi": "नौ", "n": 9, "r": "ompatŭ", "t": "ഒമ്പത്"}, {"hi": "दस", "n": 10, "r": "pattŭ", "t": "പത്ത്"}, {"hi": "ग्यारह", "n": 11, "r": "patinonnŭ", "t": "പതിനൊന്ന്"}, {"hi": "बारह", "n": 12, "r": "pantrandŭ", "t": "പന്ത്രണ്ട്"}, {"hi": "तेरह", "n": 13, "r": "patimūnnŭ", "t": "പതിമൂന്ന്"}, {"hi": "चौदह", "n": 14, "r": "patinālŭ", "t": "പതിനാല്"}, {"hi": "पंद्रह", "n": 15, "r": "patinañchŭ", "t": "പതിനഞ്ച്"}, {"hi": "सोलह", "n": 16, "r": "patināṟŭ", "t": "പതിനാറ്"}, {"hi": "सत्रह", "n": 17, "r": "patinēḻŭ", "t": "പതിനേഴ്"}, {"hi": "अठारह", "n": 18, "r": "patineṭṭŭ", "t": "പതിനെട്ട്"}, {"hi": "उन्नीस", "n": 19, "r": "pattompatŭ", "t": "പത്തൊമ്പത്"}, {"hi": "बीस", "n": 20, "r": "irupatŭ", "t": "ഇരുപത്"}, {"hi": "तीस", "n": 30, "r": "muppatŭ", "t": "മുപ്പത്"}, {"hi": "चालीस", "n": 40, "r": "nālpatŭ", "t": "നാല്പത്"}, {"hi": "पचास", "n": 50, "r": "ampatŭ", "t": "അമ്പത്"}, {"hi": "साठ", "n": 60, "r": "aṟupatŭ", "t": "അറുപത്"}, {"hi": "सत्तर", "n": 70, "r": "eḻupatŭ", "t": "എഴുപത്"}, {"hi": "अस्सी", "n": 80, "r": "eṇpatŭ", "t": "എൺപത്"}, {"hi": "नब्बे", "n": 90, "r": "toṇṇūṟŭ", "t": "തൊണ്ണൂറ്"}, {"hi": "सौ", "n": 100, "r": "nūṟŭ", "t": "നൂറ്"}], "past_future": [{"en": "I ate", "hi": "मैंने खाया", "r": "Ñān kaḻichu", "t": "ഞാൻ കഴിച്ചു"}, {"en": "He went", "hi": "वह गया", "r": "Avan pōyi", "t": "അവൻ പോയി"}, {"en": "She came", "hi": "वह आयी", "r": "Avaḷ vannu", "t": "അവൾ വന്നു"}, {"en": "I will eat", "hi": "मैं खाऊँगा/खाऊँगी", "r": "Ñān kaḻikkum", "t": "ഞാൻ കഴിക്കും"}, {"en": "Did you eat? (respectful)", "hi": "आपने खाया?", "r": "Niṅṅaḷ kaḻichō?", "t": "നിങ്ങൾ കഴിച്ചോ?"}, {"en": "(Someone) will come tomorrow", "hi": "कल आएगा", "r": "Nāḷe varum", "t": "നാളെ വരും"}], "postpositions": [{"en": "(object marker)", "ex_en": "Ask me.", "ex_r": "Enne chōdikkū", "ex_t": "എന്നെ ചോദിക്കൂ", "hi": "को", "r": "-e", "t": "-എ"}, {"en": "in; at", "ex_en": "I'm at home.", "ex_r": "Ñān vīṭṭiluṇḍŭ", "ex_t": "ഞാൻ വീട്ടിലുണ്ട്", "hi": "में", "r": "-il", "t": "-ഇൽ"}, {"en": "on", "ex_en": "The book is on the table.", "ex_r": "Pustakam mēshamugaḷilāṇŭ", "ex_t": "പുസ്തകം മേശമുകളിലാണ്", "hi": "पर", "r": "mugaḷil", "t": "മുകളിൽ"}, {"en": "with", "ex_en": "I went with a friend.", "ex_r": "Kūṭṭukāranōṭŭ pōyi", "ex_t": "കൂട്ടുകാരനോട് പോയി", "hi": "के साथ", "r": "-ōṭŭ", "t": "-ഓട്"}, {"en": "for", "ex_en": "I brought (it) for you.", "ex_r": "Niṅṅaḷkkuvēṇṭi koṇṭuvannu", "ex_t": "നിങ്ങൾക്കുവേണ്ടി കൊണ്ടുവന്നു", "hi": "के लिए", "r": "-vēṇṭi", "t": "-വേണ്ടി"}, {"en": "from", "ex_en": "I came from home.", "ex_r": "Vīṭṭilninnŭ vannu", "ex_t": "വീട്ടിൽനിന്ന് വന്നു", "hi": "से", "r": "-ilninnŭ", "t": "-ൽനിന്ന്"}], "present_note": "Here is Malayalam's famous gift: the present is stem + -ഉന്നു for EVERYONE. ഞാൻ, നീ, അവൻ, അവൾ, നമ്മൾ, അവർ — all take കഴിക്കുന്നു. One form, no exceptions. The table below proves it.", "present_table": [{"verb_r": "kaḻikkunnu", "verb_t": "കഴിക്കുന്നു", "who_en": "I", "who_t": "ഞാൻ"}, {"verb_r": "kaḻikkunnu", "verb_t": "കഴിക്കുന്നു", "who_en": "you (nī — close friends)", "who_t": "നീ"}, {"verb_r": "kaḻikkunnu", "verb_t": "കഴിക്കുന്നു", "who_en": "you (niṅṅaḷ — respectful)", "who_t": "നിങ്ങൾ"}, {"verb_r": "kaḻikkunnu", "verb_t": "കഴിക്കുന്നു", "who_en": "he", "who_t": "അവൻ"}, {"verb_r": "kaḻikkunnu", "verb_t": "കഴിക്കുന്നു", "who_en": "she", "who_t": "അവൾ"}, {"verb_r": "kaḻikkunnu", "verb_t": "കഴിക്കുന്നു", "who_en": "we (nammaḷ — including you!)", "who_t": "നമ്മൾ"}, {"verb_r": "kaḻikkunnu", "verb_t": "കഴിക്കുന്നു", "who_en": "they", "who_t": "അവർ"}], "pronouns": [{"en": "I", "hi": "मैं", "r": "ñān", "t": "ഞാൻ"}, {"en": "you (informal)", "hi": "तू", "r": "nī", "t": "നീ"}, {"en": "you (formal / plural)", "hi": "तुम/आप", "r": "niṅṅaḷ", "t": "നിങ്ങൾ"}, {"en": "he", "hi": "वह", "r": "avan", "t": "അവൻ"}, {"en": "she", "hi": "वह", "r": "avaḷ", "t": "അവൾ"}, {"en": "it / that", "hi": "यह/वह", "r": "atŭ", "t": "അത്"}, {"en": "we (excluding you)", "hi": "हम (तुम्हें छोड़कर)", "r": "ñaṅṅaḷ", "t": "ഞങ്ങൾ"}, {"en": "we (including you)", "hi": "हम (तुम्हें मिलाकर)", "r": "nammaḷ", "t": "നമ്മൾ"}, {"en": "they", "hi": "वे", "r": "avar", "t": "അവർ"}, {"en": "me", "hi": "मुझे", "r": "enne", "t": "എന്നെ"}, {"en": "you (informal, to)", "hi": "तुझे", "r": "ninne", "t": "നിന്നെ"}, {"en": "you (formal, to)", "hi": "तुम्हें/आपको", "r": "niṅṅaḷe", "t": "നിങ്ങളെ"}, {"en": "him", "hi": "उसे", "r": "avane", "t": "അവനെ"}, {"en": "her", "hi": "उसे", "r": "avaḷe", "t": "അവളെ"}, {"en": "us", "hi": "हमें", "r": "nammaḷe", "t": "നമ്മളെ"}, {"en": "my", "hi": "मेरा", "r": "ente", "t": "എന്റെ"}, {"en": "your (informal)", "hi": "तेरा", "r": "ninte", "t": "നിന്റെ"}, {"en": "your (formal)", "hi": "तुम्हारा/आपका", "r": "niṅṅaḷuḍe", "t": "നിങ്ങളുടെ"}, {"en": "his", "hi": "उसका", "r": "avante", "t": "അവന്റെ"}, {"en": "her", "hi": "उसका", "r": "avaḷuḍe", "t": "അവളുടെ"}, {"en": "our", "hi": "हमारा", "r": "nammuḍe", "t": "നമ്മുടെ"}, {"en": "who?", "hi": "कौन?", "r": "ārŭ?", "t": "ആര്?"}, {"en": "what?", "hi": "क्या?", "r": "entŭ?", "t": "എന്ത്?"}], "quiz": [{"a": "hello!", "explain": "നമസ്കാരം (namaskāram) is the respectful Malayalam hello — any time of day.", "id": "ml-01", "lesson": "basics", "level": "beginner", "opts": ["hello!", "goodbye!", "thank you", "sorry"], "q": "What does നമസ്കാരം mean?", "topic": "basics", "type": "meaning"}, {"a": "thank you", "explain": "നന്ദി (nandi) is thanks — short, warm, everywhere.", "id": "ml-02", "lesson": "basics", "level": "beginner", "opts": ["thank you", "please", "sorry", "welcome"], "q": "What does നന്ദി mean?", "topic": "basics", "type": "meaning"}, {"a": "എന്റെ പേര് …", "explain": "നിങ്ങളുടെ പേരെന്താണ്? = what's your name — answer എന്റെ പേര് … (my name is …).", "id": "ml-03", "lesson": "basics", "level": "beginner", "opts": ["എന്റെ പേര് …", "എനിക്ക് വിശക്കുന്നു", "പിന്നെ കാണാം!", "കിഴിവ് തരൂ"], "q": "Someone asks 'നിങ്ങളുടെ പേരെന്താണ്?' — you reply…", "topic": "basics", "type": "usage"}, {"a": "k as in kite", "explain": "ക (ka) is a plain k — ഖ (kha) is the breathy one.", "id": "ml-04", "lesson": "pronunciation", "level": "beginner", "opts": ["k as in kite", "g as in go", "s as in sun", "h as in hat"], "q": "The letter ക sounds like…", "topic": "basics", "type": "vocab"}, {"a": "3", "explain": "ഒന്ന് രണ്ട് മൂന്ന് — 1, 2, 3.", "id": "ml-05", "lesson": "numbers", "level": "beginner", "opts": ["2", "3", "4", "5"], "q": "മൂന്ന് means…", "topic": "numbers", "type": "vocab"}, {"a": "പത്ത്", "explain": "പത്ത് (pattŭ) = 10. അഞ്ച് = 5, ഇരുപത് = 20, നൂറ് = 100.", "id": "ml-06", "lesson": "numbers", "level": "beginner", "opts": ["പത്ത്", "അഞ്ച്", "ഇരുപത്", "നൂറ്"], "q": "Which is 'ten'?", "topic": "numbers", "type": "vocab"}, {"a": "20", "explain": "ഇരുപത് (irupatŭ) = 20, പത്തൊമ്പത് = 19, മുപ്പത് = 30.", "id": "ml-07", "lesson": "numbers", "level": "beginner", "opts": ["12", "20", "22", "200"], "q": "ഇരുപത് means…", "topic": "numbers", "type": "meaning"}, {"a": "50 rupees", "explain": "അമ്പത് (ampatŭ) = 50. അഞ്ച് = 5, പതിനഞ്ച് = 15, അഞ്ഞൂറ് = 500.", "id": "ml-08", "lesson": "numbers", "level": "elementary", "opts": ["5 rupees", "15 rupees", "50 rupees", "500 rupees"], "q": "'അമ്പത് രൂപ' on a price tag means…", "topic": "numbers", "type": "usage"}, {"a": "steamed rice-coconut cylinders", "explain": "പുട്ട് — steamed with coconut, eaten with kadala curry — is the Kerala breakfast.", "id": "ml-09", "lesson": "food", "level": "beginner", "opts": ["steamed rice-coconut cylinders", "a lentil curry", "a fish curry", "a dessert"], "q": "പുട്ട് is…", "topic": "food", "type": "vocab"}, {"a": "this is very tasty", "explain": "രുചി (ruchi) = taste — say it and any cook will beam.", "id": "ml-10", "lesson": "food", "level": "beginner", "opts": ["this is very tasty", "this is too spicy", "the bill please", "I'm hungry"], "q": "'ഇത് വളരെ രുചിയുണ്ട്' means…", "topic": "food", "type": "meaning"}, {"a": "എനിക്ക് വിശക്കുന്നു", "explain": "എനിക്ക് വിശക്കുന്നു = I'm hungry (hunger is to me).", "id": "ml-11", "lesson": "food", "level": "elementary", "opts": ["എനിക്ക് വിശക്കുന്നു", "എനിക്ക് ദാഹിക്കുന്നു", "ബില്ല് തരൂ", "കിഴിവ് തരൂ"], "q": "You're hungry in Kochi. You say…", "topic": "food", "type": "usage"}, {"a": "where is the station?", "explain": "എവിടെ (eviḍe) = where — the traveller's most useful word.", "id": "ml-12", "lesson": "travel", "level": "beginner", "opts": ["where is the station?", "how much is the fare?", "stop here", "one ticket please"], "q": "'സ്റ്റേഷൻ എവിടെയാണ്?' means…", "topic": "travel", "type": "meaning"}, {"a": "ticket", "explain": "ടിക്കറ്റ് (ṭikkaṟṟŭ) = ticket; കൂലി = fare; സ്റ്റേഷൻ = station.", "id": "ml-13", "lesson": "travel", "level": "beginner", "opts": ["ticket", "train", "fare", "station"], "q": "ടിക്കറ്റ് means…", "topic": "travel", "type": "vocab"}, {"a": "ഇവിടെ നിർത്തൂ", "explain": "ഇവിടെ നിർത്തൂ (iviḍe nirttū) = stop here. പതുക്കെ പോകൂ = go slowly.", "id": "ml-14", "lesson": "travel", "level": "elementary", "opts": ["ഇവിടെ നിർത്തൂ", "പതുക്കെ പോകൂ", "നേരെ പോകൂ", "ടിക്കറ്റ് തരൂ"], "q": "To make the auto stop here, say…", "topic": "travel", "type": "usage"}, {"a": "I eat (any speaker)", "explain": "കഴിക്കുന്നു never marks person or gender — it suits every speaker on earth.", "id": "ml-15", "lesson": "grammar", "level": "elementary", "opts": ["I eat (any speaker)", "I eat (men only)", "I ate yesterday", "we will eat"], "q": "'ഞാൻ കഴിക്കുന്നു' means…", "topic": "grammar", "type": "meaning"}, {"a": "അവർ കഴിക്കുന്നു", "explain": "Same verb! അവർ കഴിക്കുന്നു — Malayalam verbs never change for person. (തിന്നുക is the rude word for human eating — don't use it on people!)", "id": "ml-16", "lesson": "grammar", "level": "elementary", "opts": ["അവർ കഴിക്കുന്നു", "അവർ കഴിക്കും", "അവർ കഴിച്ചു", "അവർ തിന്നുന്നു"], "q": "'They eat' is…", "topic": "grammar", "type": "vocab"}, {"a": "അവൾ വന്നു", "explain": "വന്നു (vannu) = came — the past still never marks gender.", "id": "ml-17", "lesson": "grammar", "level": "elementary", "opts": ["അവൾ വന്നു", "അവൾ വന്നാൾ", "അവൾ വരുന്നു", "അവൾ വരും"], "q": "'She came' is…", "topic": "grammar", "type": "vocab"}, {"a": "the verb stays the same for everyone", "explain": "ഞാൻ/അവൻ/അവൾ/അവർ കഴിക്കുന്നു — one form for all. Tense still changes (കഴിച്ചു/കഴിക്കും).", "id": "ml-18", "lesson": "grammar", "level": "elementary", "opts": ["the verb stays the same for everyone", "verbs agree with gender", "verbs agree with number", "every pronoun has its own verb"], "q": "Malayalam's most famous grammar feature?", "topic": "grammar", "type": "usage"}, {"a": "see you! (we'll see later)", "explain": "പിന്നെ കാണാം (pinne kāṇām) — literally 'we'll see later' — the warm goodbye.", "id": "ml-19", "lesson": "conversation", "level": "beginner", "opts": ["see you! (we'll see later)", "good morning!", "welcome!", "congratulations!"], "q": "'പിന്നെ കാണാം!' means…", "topic": "conversation", "type": "meaning"}, {"a": "welcome!", "explain": "സ്വാഗതം (svāgatam) — the warm Malayalam welcome.", "id": "ml-20", "lesson": "conversation", "level": "beginner", "opts": ["welcome!", "sorry!", "good luck!", "bless you!"], "q": "'സ്വാഗതം!' means…", "topic": "conversation", "type": "meaning"}, {"a": "book", "explain": "പുസ്തകം (pustakam) = book — വായന is reading.", "id": "ml-21", "lesson": "vocabulary", "level": "beginner", "opts": ["book", "pen", "school", "letter"], "q": "പുസ്തകം means…", "topic": "vocabulary", "type": "vocab"}, {"a": "friend", "explain": "സുഹൃത്ത് (suhṛttŭ) = friend — കൂട്ടുകാരൻ is the casual 'buddy'.", "id": "ml-22", "lesson": "vocabulary", "level": "beginner", "opts": ["friend", "brother", "guest", "neighbour"], "q": "സുഹൃത്ത് means…", "topic": "vocabulary", "type": "vocab"}, {"a": "asking the price", "explain": "ഇതിന് എത്രയാണ്? = how much for this — then counter with കുറച്ച് കുറയ്ക്കൂ!", "id": "ml-23", "lesson": "shopping", "level": "elementary", "opts": ["asking the price", "ordering food", "asking directions", "saying goodbye"], "q": "'ഇതിന് എത്രയാണ്?' is asked when…", "topic": "vocabulary", "type": "usage"}, {"a": "tomorrow", "explain": "നാളെ (nāḷe) = tomorrow; ഇന്നലെ (innale) = yesterday. Don't mix them at the station!", "id": "ml-24", "lesson": "time-dates", "level": "elementary", "opts": ["tomorrow", "yesterday", "today", "every day"], "q": "നാളെ means…", "topic": "vocabulary", "type": "meaning"}], "review_deck": [{"en": "hello!", "r": "Namaskāram", "t": "നമസ്കാരം"}, {"en": "thank you", "r": "nandi", "t": "നന്ദി"}, {"en": "yes", "r": "ate", "t": "അതെ"}, {"en": "no; not", "r": "illa", "t": "ഇല്ല"}, {"en": "I; me", "r": "ñān", "t": "ഞാൻ"}, {"en": "you (formal)", "r": "niṅṅaḷ", "t": "നിങ്ങൾ"}, {"en": "what?", "r": "entŭ?", "t": "എന്ത്?"}, {"en": "where?", "r": "eviḍe?", "t": "എവിടെ?"}, {"en": "how much?", "r": "etra?", "t": "എത്ര?"}, {"en": "who?", "r": "ārŭ?", "t": "ആര്?"}, {"en": "water", "r": "veḷḷam", "t": "വെള്ളം"}, {"en": "rice; food", "r": "chōṟŭ", "t": "ചോറ്"}, {"en": "home", "r": "vīḍŭ", "t": "വീട്"}, {"en": "friend", "r": "suhṛttŭ", "t": "സുഹൃത്ത്"}, {"en": "day", "r": "divasam", "t": "ദിവസം"}, {"en": "night", "r": "rātri", "t": "രാത്രി"}, {"en": "wellness; health", "r": "sukham", "t": "സുഖം"}, {"en": "big", "r": "valiya", "t": "വലിയ"}, {"en": "small", "r": "cheṟiya", "t": "ചെറിയ"}, {"en": "happiness", "r": "santōsham", "t": "സന്തോഷം"}], "roman_native": "Malayāḷam", "script_name": "Malayalam", "script_note": "Malayalam has the roundest letters of any Indian script — all curves, no headline bar, written left to right. It is fully phonetic: each letter is one sound, always. There are 13 vowels (അ ആ ഇ ഈ ഉ ഊ ഋ എ ഏ ഐ ഒ ഓ ഔ, plus അം/അഃ) and 34 consonants, including the famous ഴ (ḻa) — a sound between r, l and d that even other Indians practise (മഴ, maḻa, rain). Letters stack into tall conjuncts: സ + ് + ത + ് + ര + ീ = സ്ത്രീ (strī, woman). Read slowly and sound every curve.", "shopping_phrases": [{"en": "How much for this?", "hi": "इसके कितने हैं?", "r": "Itinŭ etrayāṇŭ?", "t": "ഇതിന് എത്രയാണ്?"}, {"en": "Too expensive!", "hi": "बहुत महँगा है!", "r": "Vaḷare vilakūṭiyatāṇŭ!", "t": "വളരെ വിലകൂടിയതാണ്!"}, {"en": "Reduce it a little", "hi": "थोड़ा कम करिए", "r": "Kuṟachchŭ kuṟaykkū", "t": "കുറച്ച് കുറയ്ക്കൂ"}, {"en": "I'm just looking", "hi": "मैं सिर्फ़ देख रहा हूँ", "r": "Ñān veṟute nōkkukayāṇŭ", "t": "ഞാൻ വെറുതെ നോക്കുകയാണ്"}, {"en": "Pack this", "hi": "इसे पैक कर दीजिए", "r": "Itŭ pākkŭ cheyyū", "t": "ഇത് പാക്ക് ചെയ്യൂ"}, {"en": "Give a discount", "hi": "छूट दीजिए", "r": "Kiḻivŭ tarū", "t": "കിഴിവ് തരൂ"}], "shopping_words": [{"en": "price", "hi": "क़ीमत", "r": "vila", "t": "വില"}, {"en": "discount", "hi": "छूट", "r": "kiḻivŭ", "t": "കിഴിവ്"}, {"en": "cash; money", "hi": "नक़द", "r": "paṇam", "t": "പണം"}, {"en": "card", "hi": "कार्ड", "r": "kārḍŭ", "t": "കാർഡ്"}, {"en": "cheap (less-priced)", "hi": "सस्ता", "r": "vilakuṟañña", "t": "വിലകുറഞ്ഞ"}, {"en": "expensive (more-priced)", "hi": "महँगा", "r": "vilakūṭiya", "t": "വിലകൂടിയ"}, {"en": "bargaining", "hi": "मोलभाव", "r": "vilapēshal", "t": "വിലപേശൽ"}], "slug": "malayalam", "sov": {"en": "I eat rice. (word order: I – rice – eat)", "hi": "मैं चावल खाता हूँ।", "r": "Ñān chōṟŭ kaḻikkunnu.", "t": "ഞാൻ ചോറ് കഴിക്കുന്നു."}, "speakers": "over 35 million", "survival_trio": "നമസ്കാരം! (hello) · നന്ദി (thanks) · ഇതിന് എത്രയാണ്? (how much for this?)", "time_words": [{"en": "today", "hi": "आज", "r": "innŭ", "t": "ഇന്ന്"}, {"en": "tomorrow", "hi": "कल (आने वाला)", "r": "nāḷe", "t": "നാളെ"}, {"en": "yesterday", "hi": "कल (बीता हुआ)", "r": "innale", "t": "ഇന്നലെ"}, {"en": "day after tomorrow", "hi": "परसों", "r": "maṟṟannāḷ", "t": "മറ്റന്നാൾ"}, {"en": "now", "hi": "अब", "r": "ippōḷ", "t": "ഇപ്പോൾ"}, {"en": "morning", "hi": "सुबह", "r": "rāvile", "t": "രാവിലെ"}, {"en": "afternoon; noon", "hi": "दोपहर", "r": "ucha", "t": "ഉച്ച"}, {"en": "evening", "hi": "शाम", "r": "vaikunnēram", "t": "വൈകുന്നേരം"}, {"en": "night", "hi": "रात", "r": "rātri", "t": "രാത്രി"}, {"en": "hour", "hi": "घंटा", "r": "maṇikkūṟ", "t": "മണിക്കൂർ"}, {"en": "minute", "hi": "मिनट", "r": "miniṟṟŭ", "t": "മിനിറ്റ്"}], "travel_phrases": [{"en": "Where is the station?", "hi": "स्टेशन कहाँ है?", "r": "Sṟṟeshan eviḍeyāṇŭ?", "t": "സ്റ്റേഷൻ എവിടെയാണ്?"}, {"en": "How much is the fare?", "hi": "किराया कितना है?", "r": "Kūli etrayāṇŭ?", "t": "കൂലി എത്രയാണ്?"}, {"en": "I need to go to …", "hi": "मुझे … जाना है", "r": "Enikkŭ … pōkaṇam", "t": "എനിക്ക് … പോകണം"}, {"en": "Go slowly", "hi": "धीरे चलिए", "r": "Patukke pōkū", "t": "പതുക്കെ പോകൂ"}, {"en": "Stop here", "hi": "यहाँ रुकिए", "r": "Iviḍe nirttū", "t": "ഇവിടെ നിർത്തൂ"}, {"en": "Give me a ticket", "hi": "टिकट दीजिए", "r": "Ṭikkaṟṟŭ tarū", "t": "ടിക്കറ്റ് തരൂ"}], "travel_words": [{"en": "ticket", "hi": "टिकट", "r": "ṭikkaṟṟŭ", "t": "ടിക്കറ്റ്"}, {"en": "train", "hi": "रेलगाड़ी", "r": "ṭrain", "t": "ട്രെയിൻ"}, {"en": "bus", "hi": "बस", "r": "bassŭ", "t": "ബസ്സ്"}, {"en": "aeroplane", "hi": "हवाई जहाज़", "r": "vimānam", "t": "വിമാനം"}, {"en": "taxi", "hi": "टैक्सी", "r": "ṭāksi", "t": "ടാക്സി"}, {"en": "auto-rickshaw", "hi": "ऑटो", "r": "ōṭṭō", "t": "ഓട്ടോ"}, {"en": "station", "hi": "स्टेशन", "r": "sṟṟeshan", "t": "സ്റ്റേഷൻ"}, {"en": "bus stand", "hi": "बस अड्डा", "r": "bas sṟṟāṇḍŭ", "t": "ബസ് സ്റ്റാന്റ്"}, {"en": "fare", "hi": "किराया", "r": "kūli", "t": "കൂലി"}, {"en": "road", "hi": "सड़क", "r": "ṟōḍŭ", "t": "റോഡ്"}, {"en": "hotel", "hi": "होटल", "r": "hōṭṭal", "t": "ഹോട്ടൽ"}, {"en": "luggage", "hi": "सामान", "r": "sāmānam", "t": "സാമാനം"}], "typing": [["അമ്മ", "amma"], ["വെള്ളം", "vellam"], ["വീട്", "veedu"], ["ചോറ്", "choru"], ["ചായ", "chaaya"], ["പുട്ട്", "puttu"], ["പുസ്തകം", "pustakam"], ["സ്കൂൾ", "school"], ["കട", "kada"], ["ടിക്കറ്റ്", "ticket"], ["ട്രെയിൻ", "train"], ["റോഡ്", "road"], ["ദിവസം", "divasam"], ["രാത്രി", "raatri"], ["രാവിലെ", "raavile"], ["വൈകുന്നേരം", "vaikunneram"], ["കുട്ടി", "kutti"], ["മീൻ", "meen"], ["മരം", "maram"], ["പൂവ്", "poovu"], ["സുഹൃത്ത്", "suhruth"], ["സ്നേഹം", "sneham"], ["സന്തോഷം", "santosham"], ["നന്ദി", "nandi"]], "verbs": [{"ami": "ഞാൻ കഴിക്കുന്നു", "ami_r": "Ñān kaḻikkunnu", "en": "to eat (polite)", "hi": "खाना", "r": "kaḻikkuka", "t": "കഴിക്കുക"}, {"ami": "ഞാൻ കുടിക്കുന്നു", "ami_r": "Ñān kuḍikkunnu", "en": "to drink", "hi": "पीना", "r": "kuḍikkuka", "t": "കുടിക്കുക"}, {"ami": "ഞാൻ പോകുന്നു", "ami_r": "Ñān pōkunnu", "en": "to go", "hi": "जाना", "r": "pōkuka", "t": "പോകുക"}, {"ami": "ഞാൻ വരുന്നു", "ami_r": "Ñān varunnu", "en": "to come", "hi": "आना", "r": "varuka", "t": "വരുക"}, {"ami": "ഞാൻ ചെയ്യുന്നു", "ami_r": "Ñān cheyyunnu", "en": "to do", "hi": "करना", "r": "cheyyuka", "t": "ചെയ്യുക"}, {"ami": "ഞാൻ സംസാരിക്കുന്നു", "ami_r": "Ñān samsārikkunnu", "en": "to speak", "hi": "बोलना", "r": "samsārikkuka", "t": "സംസാരിക്കുക"}, {"ami": "ഞാൻ വായിക്കുന്നു", "ami_r": "Ñān vāyikkunnu", "en": "to read", "hi": "पढ़ना", "r": "vāyikkuka", "t": "വായിക്കുക"}, {"ami": "ഞാൻ എഴുതുന്നു", "ami_r": "Ñān eḻutunnu", "en": "to write", "hi": "लिखना", "r": "eḻutuka", "t": "എഴുതുക"}, {"ami": "ഞാൻ പഠിക്കുന്നു", "ami_r": "Ñān paṭhikkunnu", "en": "to learn; to study", "hi": "सीखना/पढ़ना", "r": "paṭhikkuka", "t": "പഠിക്കുക"}, {"ami": "ഞാൻ കാണുന്നു", "ami_r": "Ñān kāṇunnu", "en": "to see; to watch", "hi": "देखना", "r": "kāṇuka", "t": "കാണുക"}, {"ami": "ഞാൻ കേൾക്കുന്നു", "ami_r": "Ñān kēḷkkunnu", "en": "to listen", "hi": "सुनना", "r": "kēḷkkuka", "t": "കേൾക്കുക"}, {"ami": "ഞാൻ എടുക്കുന്നു", "ami_r": "Ñān eḍukkunnu", "en": "to take", "hi": "लेना", "r": "eḍukkuka", "t": "എടുക്കുക"}, {"ami": "ഞാൻ കൊടുക്കുന്നു", "ami_r": "Ñān koḍukkunnu", "en": "to give", "hi": "देना", "r": "koḍukkuka", "t": "കൊടുക്കുക"}, {"ami": "ഞാൻ വാങ്ങുന്നു", "ami_r": "Ñān vāṅṅunnu", "en": "to buy", "hi": "ख़रीदना", "r": "vāṅṅuka", "t": "വാങ്ങുക"}, {"ami": "ഞാൻ വിൽക്കുന്നു", "ami_r": "Ñān viṟkkunnu", "en": "to sell", "hi": "बेचना", "r": "viṟkkuka", "t": "വിൽക്കുക"}, {"ami": "ഞാൻ ഉറങ്ങുന്നു", "ami_r": "Ñān uṟaṅṅunnu", "en": "to sleep", "hi": "सोना", "r": "uṟaṅṅuka", "t": "ഉറങ്ങുക"}, {"ami": "ഞാൻ എഴുന്നേൽക്കുന്നു", "ami_r": "Ñān eḻunnēḷkkunnu", "en": "to wake up; to get up", "hi": "उठना", "r": "eḻunnēḷkkuka", "t": "എഴുന്നേൽക്കുക"}, {"ami": "ഞാൻ ഇരിക്കുന്നു", "ami_r": "Ñān irikkunnu", "en": "to sit", "hi": "बैठना", "r": "irikkuka", "t": "ഇരിക്കുക"}], "vowels": [{"hint": "a as in about", "r": "a", "t": "അ"}, {"hint": "aa as in father", "r": "ā", "t": "ആ"}, {"hint": "i as in bit", "r": "i", "t": "ഇ"}, {"hint": "ee as in feet", "r": "ī", "t": "ഈ"}, {"hint": "u as in put", "r": "u", "t": "ഉ"}, {"hint": "oo as in food", "r": "ū", "t": "ഊ"}, {"hint": "ru — rare, Sanskrit words (കൃഷ്ണ krishna)", "r": "ṛ", "t": "ഋ"}, {"hint": "ay as in say", "r": "e", "t": "എ"}, {"hint": "ay held longer (പേര് perŭ, name)", "r": "ē", "t": "ഏ"}, {"hint": "i as in line", "r": "ai", "t": "ഐ"}, {"hint": "o as in go", "r": "o", "t": "ഒ"}, {"hint": "o held longer (പോകുക pōkuka, to go)", "r": "ō", "t": "ഓ"}, {"hint": "ou as in loud", "r": "au", "t": "ഔ"}], "where": "Kerala and neighbouring regions"}
+{
+  "bargaining_script": "ഇതിന് എത്രയാണ്? (how much?) → വളരെ വിലകൂടിയതാണ്! (too pricey!) → കുറച്ച് കുറയ്ക്കൂ (reduce a little) → കിഴിവ് തരൂ (give a discount) → ശരി, പാക്ക് ചെയ്യൂ! (done, pack it!)",
+  "classifiers": [
+    {
+      "en": "ഒരു പുസ്തകം",
+      "hi": "एक किताब",
+      "note": "one book — ഒരു + noun, no extras",
+      "r": "oru pustakam"
+    },
+    {
+      "en": "രണ്ട് പുസ്തകങ്ങൾ",
+      "hi": "दो किताबें",
+      "note": "two books — the noun takes the -കൾ plural",
+      "r": "raṇḍŭ pustakaṅṅaḷ"
+    },
+    {
+      "en": "മൂന്ന് രൂപ",
+      "hi": "तीन रुपये",
+      "note": "three rupees — currency counts directly",
+      "r": "mūnnŭ rūpa"
+    }
+  ],
+  "colors": [
+    {
+      "en": "red",
+      "hi": "लाल",
+      "note": "colour words never change",
+      "r": "chuvappŭ",
+      "t": "ചുവപ്പ്"
+    },
+    {
+      "en": "blue",
+      "hi": "नीला",
+      "note": "same form for every noun",
+      "r": "nīla",
+      "t": "നീല"
+    },
+    {
+      "en": "green",
+      "hi": "हरा",
+      "note": "same form for every noun",
+      "r": "pachcha",
+      "t": "പച്ച"
+    },
+    {
+      "en": "yellow",
+      "hi": "पीला",
+      "note": "same form for every noun",
+      "r": "mañña",
+      "t": "മഞ്ഞ"
+    },
+    {
+      "en": "black",
+      "hi": "काला",
+      "note": "same form for every noun",
+      "r": "kaṟuppŭ",
+      "t": "കറുപ്പ്"
+    },
+    {
+      "en": "white",
+      "hi": "सफ़ेद",
+      "note": "same form for every noun",
+      "r": "veḷḷa",
+      "t": "വെള്ള"
+    }
+  ],
+  "consonants": [
+    {
+      "hint": "k as in kite",
+      "r": "ka",
+      "t": "ക"
+    },
+    {
+      "hint": "kh — breathy k",
+      "r": "kha",
+      "t": "ഖ"
+    },
+    {
+      "hint": "g as in go",
+      "r": "ga",
+      "t": "ഗ"
+    },
+    {
+      "hint": "gh — breathy g",
+      "r": "gha",
+      "t": "ഘ"
+    },
+    {
+      "hint": "ng as in sing — almost only in clusters",
+      "r": "ṅa",
+      "t": "ങ"
+    },
+    {
+      "hint": "ch as in chair",
+      "r": "cha",
+      "t": "ച"
+    },
+    {
+      "hint": "chh — breathy ch",
+      "r": "chha",
+      "t": "ഛ"
+    },
+    {
+      "hint": "j as in jump",
+      "r": "ja",
+      "t": "ജ"
+    },
+    {
+      "hint": "jh — breathy j",
+      "r": "jha",
+      "t": "ഝ"
+    },
+    {
+      "hint": "ny as in canyon — rare alone",
+      "r": "ña",
+      "t": "ഞ"
+    },
+    {
+      "hint": "hard T, tongue curled back",
+      "r": "ṭa",
+      "t": "ട"
+    },
+    {
+      "hint": "breathy hard T",
+      "r": "ṭha",
+      "t": "ഠ"
+    },
+    {
+      "hint": "hard D, tongue curled back",
+      "r": "ḍa",
+      "t": "ഡ"
+    },
+    {
+      "hint": "breathy hard D",
+      "r": "ḍha",
+      "t": "ഢ"
+    },
+    {
+      "hint": "hard N, tongue curled back",
+      "r": "ṇa",
+      "t": "ണ"
+    },
+    {
+      "hint": "soft t, tongue on teeth — like Spanish t",
+      "r": "ta",
+      "t": "ത"
+    },
+    {
+      "hint": "breathy soft t (never English th)",
+      "r": "tha",
+      "t": "ഥ"
+    },
+    {
+      "hint": "soft d, tongue on teeth",
+      "r": "da",
+      "t": "ദ"
+    },
+    {
+      "hint": "breathy soft d",
+      "r": "dha",
+      "t": "ധ"
+    },
+    {
+      "hint": "n as in no",
+      "r": "na",
+      "t": "ന"
+    },
+    {
+      "hint": "p as in pin",
+      "r": "pa",
+      "t": "പ"
+    },
+    {
+      "hint": "ph — breathy p",
+      "r": "pha",
+      "t": "ഫ"
+    },
+    {
+      "hint": "b as in boy",
+      "r": "ba",
+      "t": "ബ"
+    },
+    {
+      "hint": "bh — breathy b",
+      "r": "bha",
+      "t": "ഭ"
+    },
+    {
+      "hint": "m as in man",
+      "r": "ma",
+      "t": "മ"
+    },
+    {
+      "hint": "y as in yes",
+      "r": "ya",
+      "t": "യ"
+    },
+    {
+      "hint": "tapped r",
+      "r": "ra",
+      "t": "ര"
+    },
+    {
+      "hint": "l as in love",
+      "r": "la",
+      "t": "ല"
+    },
+    {
+      "hint": "between v and w",
+      "r": "va",
+      "t": "വ"
+    },
+    {
+      "hint": "sh as in shoe",
+      "r": "sha",
+      "t": "ശ"
+    },
+    {
+      "hint": "shh — breathy sh",
+      "r": "ṣha",
+      "t": "ഷ"
+    },
+    {
+      "hint": "s as in sun",
+      "r": "sa",
+      "t": "സ"
+    },
+    {
+      "hint": "h as in hat",
+      "r": "ha",
+      "t": "ഹ"
+    },
+    {
+      "hint": "retroflex L — as in മലയാളം itself!",
+      "r": "ḷa",
+      "t": "ള"
+    },
+    {
+      "hint": "the famous sound — between r, l and d, as in മഴ (rain)",
+      "r": "ḻa",
+      "t": "ഴ"
+    },
+    {
+      "hint": "hard rolling R — as in കറി (curry)",
+      "r": "ṟa",
+      "t": "റ"
+    }
+  ],
+  "core_nouns": [
+    {
+      "en": "water",
+      "hi": "पानी",
+      "r": "veḷḷam",
+      "t": "വെള്ളം"
+    },
+    {
+      "en": "home",
+      "hi": "घर",
+      "r": "vīḍŭ",
+      "t": "വീട്"
+    },
+    {
+      "en": "school",
+      "hi": "स्कूल",
+      "r": "skūḷ",
+      "t": "സ്കൂൾ"
+    },
+    {
+      "en": "office",
+      "hi": "दफ़्तर",
+      "r": "ōphīsŭ",
+      "t": "ഓഫീസ്"
+    },
+    {
+      "en": "shop",
+      "hi": "दुकान",
+      "r": "kaḍa",
+      "t": "കട"
+    },
+    {
+      "en": "market",
+      "hi": "बाज़ार",
+      "r": "mārkkaṟṟŭ",
+      "t": "മാർക്കറ്റ്"
+    },
+    {
+      "en": "hospital",
+      "hi": "अस्पताल",
+      "r": "āshupatri",
+      "t": "ആശുപത്രി"
+    },
+    {
+      "en": "station",
+      "hi": "स्टेशन",
+      "r": "sṟṟeshan",
+      "t": "സ്റ്റേഷൻ"
+    },
+    {
+      "en": "airport",
+      "hi": "हवाई अड्डा",
+      "r": "vimānattāvaḷam",
+      "t": "വിമാനത്താവളം"
+    },
+    {
+      "en": "room",
+      "hi": "कमरा",
+      "r": "muṟi",
+      "t": "മുറി"
+    },
+    {
+      "en": "door",
+      "hi": "दरवाज़ा",
+      "r": "vātil",
+      "t": "വാതിൽ"
+    },
+    {
+      "en": "book",
+      "hi": "किताब",
+      "r": "pustakam",
+      "t": "പുസ്തകം"
+    },
+    {
+      "en": "phone",
+      "hi": "फ़ोन",
+      "r": "phōn",
+      "t": "ഫോൺ"
+    }
+  ],
+  "counting_note": "Malayalam has no classifiers — put the number straight before the noun. But the noun itself goes plural with -കൾ: ഒരു പുസ്തകം (one book), രണ്ട് പുസ്തകങ്ങൾ (two books), മൂന്ന് രൂപ (three rupees).",
+  "culture": [
+    {
+      "en": "Kerala's harvest festival (Aug–Sep) — flower carpets, boat races and the grand സദ്യ feast on a banana leaf.",
+      "r": "Ōṇam",
+      "t": "ഓണം"
+    },
+    {
+      "en": "The painted-face dance-drama — one eye movement can say a whole sentence.",
+      "r": "Kathakaḷi",
+      "t": "കഥകളി"
+    },
+    {
+      "en": "The backwaters — a thousand kilometres of lagoons, houseboats and village life.",
+      "r": "kāyal",
+      "t": "കായൽ"
+    },
+    {
+      "en": "The snake-boat races of Alappuzha — a hundred oarsmen rowing as one.",
+      "r": "vaḷḷamkaḷi",
+      "t": "വള്ളംകളി"
+    },
+    {
+      "en": "The traditional medicine Kerala is famous for — oil massages included.",
+      "r": "āyurvēdam",
+      "t": "ആയുർവേദം"
+    }
+  ],
+  "daily_phrases": [
+    {
+      "en": "I wake up at six in the morning",
+      "hi": "मैं सुबह छह बजे उठता हूँ",
+      "r": "Ñān rāvile āṟŭ maṇikkŭ eḻunnēḷkkunnu",
+      "t": "ഞാൻ രാവിലെ ആറ് മണിക്ക് എഴുന്നേൽക്കുന്നു"
+    },
+    {
+      "en": "I take a bath",
+      "hi": "मैं नहाता हूँ",
+      "r": "Ñān kuḷikkunnu",
+      "t": "ഞാൻ കുളിക്കുന്നു"
+    },
+    {
+      "en": "I eat breakfast",
+      "hi": "मैं नाश्ता करता हूँ",
+      "r": "Ñān prātal kaḻikkunnu",
+      "t": "ഞാൻ പ്രാതൽ കഴിക്കുന്നു"
+    },
+    {
+      "en": "I go to work",
+      "hi": "मैं काम पर जाता हूँ",
+      "r": "Ñān jōlikkŭ pōkunnu",
+      "t": "ഞാൻ ജോലിക്ക് പോകുന്നു"
+    },
+    {
+      "en": "I eat lunch",
+      "hi": "मैं दोपहर का खाना खाता हूँ",
+      "r": "Ñān uchaykkŭ ūṇŭ kaḻikkunnu",
+      "t": "ഞാൻ ഉച്ചയ്ക്ക് ഊണ് കഴിക്കുന്നു"
+    },
+    {
+      "en": "I come home in the evening",
+      "hi": "मैं शाम को घर आता हूँ",
+      "r": "Ñān vaikunnēram vīṭṭil varunnu",
+      "t": "ഞാൻ വൈകുന്നേരം വീട്ടിൽ വരുന്നു"
+    },
+    {
+      "en": "I watch TV",
+      "hi": "मैं टीवी देखता हूँ",
+      "r": "Ñān ṭivi kāṇunnu",
+      "t": "ഞാൻ ടിവി കാണുന്നു"
+    },
+    {
+      "en": "I sleep at ten",
+      "hi": "मैं दस बजे सोता हूँ",
+      "r": "Ñān pattŭ maṇikkŭ uṟaṅṅunnu",
+      "t": "ഞാൻ പത്ത് മണിക്ക് ഉറങ്ങുന്നു"
+    }
+  ],
+  "days": [
+    {
+      "en": "Monday",
+      "hi": "सोमवार",
+      "r": "Tiṅkaḷ",
+      "t": "തിങ്കൾ"
+    },
+    {
+      "en": "Tuesday",
+      "hi": "मंगलवार",
+      "r": "Chovva",
+      "t": "ചൊവ്വ"
+    },
+    {
+      "en": "Wednesday",
+      "hi": "बुधवार",
+      "r": "Budhan",
+      "t": "ബുധൻ"
+    },
+    {
+      "en": "Thursday",
+      "hi": "गुरुवार",
+      "r": "Vyāḻam",
+      "t": "വ്യാഴം"
+    },
+    {
+      "en": "Friday",
+      "hi": "शुक्रवार",
+      "r": "Veḷḷi",
+      "t": "വെള്ളി"
+    },
+    {
+      "en": "Saturday",
+      "hi": "शनिवार",
+      "r": "Shani",
+      "t": "ശനി"
+    },
+    {
+      "en": "Sunday",
+      "hi": "रविवार",
+      "r": "Ñāyaṟ",
+      "t": "ഞായർ"
+    }
+  ],
+  "dialogues": [
+    {
+      "lines": [
+        {
+          "en": "Hello! My name is Anand.",
+          "hi": "नमस्कार! मेरा नाम आनंद है।",
+          "r": "Namaskāram! Ente perŭ Anand.",
+          "sp": "Anand",
+          "t": "നമസ്കാരം! എന്റെ പേര് ആനന്ദ്."
+        },
+        {
+          "en": "Hello! I'm Lakshmi. Are you well?",
+          "hi": "नमस्कार! मैं लक्ष्मी हूँ। आप ठीक हैं?",
+          "r": "Namaskāram! Ñān Lakshmi. Sukhamāṇō?",
+          "sp": "Lakshmi",
+          "t": "നമസ്കാരം! ഞാൻ ലക്ഷ്മി. സുഖമാണോ?"
+        },
+        {
+          "en": "I'm well, thanks. Where are you from?",
+          "hi": "मैं ठीक हूँ, धन्यवाद। आप कहाँ से हैं?",
+          "r": "Enikkŭ sukhamāṇŭ, nandi. Niṅṅaḷ eviḍunnāṇŭ?",
+          "sp": "Anand",
+          "t": "എനിക്ക് സുഖമാണ്, നന്ദി. നിങ്ങൾ എവിടുന്നാണ്?"
+        },
+        {
+          "en": "I'm from Kochi. Which is your homeland?",
+          "hi": "मैं कोच्चि से हूँ। आपका गाँव/शहर कौन-सा है?",
+          "r": "Ñān Kochiyilninnāṇŭ. Niṅṅaḷuḍe nāḍŭ ētāṇŭ?",
+          "sp": "Lakshmi",
+          "t": "ഞാൻ കൊച്ചിയിൽനിന്നാണ്. നിങ്ങളുടെ നാട് ഏതാണ്?"
+        },
+        {
+          "en": "I'm from Thiruvananthapuram. I'm learning Malayalam.",
+          "hi": "मैं तिरुवनंतपुरम से हूँ। मैं मलयालम सीख रहा हूँ।",
+          "r": "Ñān Thiruvanantapurattuninnāṇŭ. Ñān Malayāḷam paṭhikkukayāṇŭ.",
+          "sp": "Anand",
+          "t": "ഞാൻ തിരുവനന്തപുരത്തുനിന്നാണ്. ഞാൻ മലയാളം പഠിക്കുകയാണ്."
+        }
+      ],
+      "title": "Meeting someone"
+    },
+    {
+      "lines": [
+        {
+          "en": "Hello! What do you want?",
+          "hi": "नमस्कार! क्या चाहिए?",
+          "r": "Namaskāram! Entŭ vēṇam?",
+          "sp": "Server",
+          "t": "നമസ്കാരം! എന്ത് വേണം?"
+        },
+        {
+          "en": "Give me one tea and two parippu vadas.",
+          "hi": "एक चाय और दो परिप्पुवड़े दीजिए।",
+          "r": "Oru chāyayum raṇḍŭ paṟippuvaḍayum tarū.",
+          "sp": "You",
+          "t": "ഒരു ചായയും രണ്ട് പരിപ്പുവടയും തരൂ."
+        },
+        {
+          "en": "I'll serve it hot. Anything else?",
+          "hi": "गरम-गरम देता हूँ। और कुछ?",
+          "r": "Chūṭōṭe tarām. Vēṟe entenkilum?",
+          "sp": "Server",
+          "t": "ചൂടോടെ തരാം. വേറെ എന്തെങ്കിലും?"
+        },
+        {
+          "en": "No, that's enough. How much is the bill?",
+          "hi": "नहीं, इतना काफ़ी है। बिल कितना?",
+          "r": "Illa, atŭ mati. Billŭ etrayāṇŭ?",
+          "sp": "You",
+          "t": "ഇല്ല, അതു മതി. ബില്ല് എത്രയാണ്?"
+        },
+        {
+          "en": "Thirty rupees. Come again!",
+          "hi": "तीस रुपये। फिर आइए!",
+          "r": "Muppatŭ rūpa. Vīṇḍum varū!",
+          "sp": "Server",
+          "t": "മുപ്പത് രൂപ. വീണ്ടും വരൂ!"
+        }
+      ],
+      "title": "At a chayakkada"
+    },
+    {
+      "lines": [
+        {
+          "en": "I need to go to the railway station. Will you come?",
+          "hi": "मुझे रेलवे स्टेशन जाना है। चलेंगे?",
+          "r": "Railway sṟṟeshanilēkkŭ pōkaṇam. Varumō?",
+          "sp": "You",
+          "t": "റെയിൽവേ സ്റ്റേഷനിലേക്ക് പോകണം. വരുമോ?"
+        },
+        {
+          "en": "I'll come. Fifty rupees above the meter.",
+          "hi": "चलूँगा। मीटर के ऊपर पचास रुपये।",
+          "r": "Varām. Mīṟṟaṟinŭ mugaḷil ampatŭ rūpa.",
+          "sp": "Driver",
+          "t": "വരാം. മീറ്ററിന് മുകളിൽ അമ്പത് രൂപ."
+        },
+        {
+          "en": "Come on the meter. How far is it?",
+          "hi": "मीटर से चलिए। कितनी दूर है?",
+          "r": "Mīṟṟaṟil varū. Etra dūramuṇḍŭ?",
+          "sp": "You",
+          "t": "മീറ്ററിൽ വരൂ. എത്ര ദൂരമുണ്ട്?"
+        },
+        {
+          "en": "Three kilometres. Hop in.",
+          "hi": "तीन किलोमीटर। बैठ जाइए।",
+          "r": "Mūnnŭ kilōmīṟṟaṟ. Kayaṟikkōḷḷū.",
+          "sp": "Driver",
+          "t": "മൂന്ന് കിലോമീറ്റർ. കയറിക്കോളൂ."
+        },
+        {
+          "en": "Fine. Stop here — near the station.",
+          "hi": "ठीक है। यहाँ रोकिए — स्टेशन के पास।",
+          "r": "Shari. Iviḍe nirttū — sṟṟeshanre aḍuttŭ.",
+          "sp": "You",
+          "t": "ശരി. ഇവിടെ നിർത്തൂ — സ്റ്റേഷന്റെ അടുത്ത്."
+        }
+      ],
+      "title": "To the railway station"
+    }
+  ],
+  "difficulty": "Medium — a new script and long agglutinative words, but verbs never conjugate",
+  "family": [
+    {
+      "en": "mother",
+      "hi": "माँ",
+      "note": "",
+      "r": "amma",
+      "t": "അമ്മ"
+    },
+    {
+      "en": "father",
+      "hi": "पिता",
+      "note": "also അപ്പ; varies by community",
+      "r": "achchhan",
+      "t": "അച്ഛൻ"
+    },
+    {
+      "en": "elder brother",
+      "hi": "बड़ा भाई",
+      "note": "also any respected older man",
+      "r": "chēṭṭan",
+      "t": "ചേട്ടൻ"
+    },
+    {
+      "en": "younger brother",
+      "hi": "छोटा भाई",
+      "note": "",
+      "r": "aniyan",
+      "t": "അനിയൻ"
+    },
+    {
+      "en": "elder sister",
+      "hi": "बड़ी बहन",
+      "note": "also any respected older woman",
+      "r": "chēchchi",
+      "t": "ചേച്ചി"
+    },
+    {
+      "en": "younger sister",
+      "hi": "छोटी बहन",
+      "note": "",
+      "r": "aniyatti",
+      "t": "അനിയത്തി"
+    },
+    {
+      "en": "son",
+      "hi": "बेटा",
+      "note": "",
+      "r": "makan",
+      "t": "മകൻ"
+    },
+    {
+      "en": "daughter",
+      "hi": "बेटी",
+      "note": "",
+      "r": "makaḷ",
+      "t": "മകൾ"
+    },
+    {
+      "en": "husband",
+      "hi": "पति",
+      "note": "",
+      "r": "bharttāvŭ",
+      "t": "ഭർത്താവ്"
+    },
+    {
+      "en": "wife",
+      "hi": "पत्नी",
+      "note": "",
+      "r": "bhārya",
+      "t": "ഭാര്യ"
+    },
+    {
+      "en": "grandfather",
+      "hi": "दादा/नाना",
+      "note": "അപ്പൂപ്പൻ at home",
+      "r": "muttachchhan",
+      "t": "മുത്തച്ഛൻ"
+    },
+    {
+      "en": "grandmother",
+      "hi": "दादी/नानी",
+      "note": "അമ്മൂമ്മ at home",
+      "r": "muttashshi",
+      "t": "മുത്തശ്ശി"
+    },
+    {
+      "en": "child",
+      "hi": "बच्चा",
+      "note": "",
+      "r": "kuṭṭi",
+      "t": "കുട്ടി"
+    }
+  ],
+  "food_phrases": [
+    {
+      "en": "I'm hungry",
+      "hi": "मुझे भूख लगी है",
+      "r": "Enikkŭ vishakkunnu",
+      "t": "എനിക്ക് വിശക്കുന്നു"
+    },
+    {
+      "en": "Give (me) water",
+      "hi": "पानी दीजिए",
+      "r": "Veḷḷam tarū",
+      "t": "വെള്ളം തരൂ"
+    },
+    {
+      "en": "The bill, please",
+      "hi": "बिल दीजिए",
+      "r": "Billŭ tarū",
+      "t": "ബില്ല് തരൂ"
+    },
+    {
+      "en": "This is very tasty",
+      "hi": "यह बहुत स्वाद है",
+      "r": "Itŭ vaḷare ruchiyuṇḍŭ",
+      "t": "ഇത് വളരെ രുചിയുണ്ട്"
+    },
+    {
+      "en": "Give a little more",
+      "hi": "थोड़ा और दीजिए",
+      "r": "Kuṟachchūkūṭi tarū",
+      "t": "കുറച്ചുകൂടി തരൂ"
+    },
+    {
+      "en": "I'm vegetarian",
+      "hi": "मैं शाकाहारी हूँ",
+      "r": "Ñān sasyabhōjiyāṇŭ",
+      "t": "ഞാൻ സസ്യഭോജിയാണ്"
+    },
+    {
+      "en": "Make it less spicy",
+      "hi": "मिर्च कम रखिए",
+      "r": "Erivŭ kuṟaykkū",
+      "t": "എരിവ് കുറയ്ക്കൂ"
+    }
+  ],
+  "food_words": [
+    {
+      "en": "rice",
+      "hi": "चावल/भात",
+      "r": "chōṟŭ",
+      "t": "ചോറ്"
+    },
+    {
+      "en": "puttu (steamed rice-coconut)",
+      "hi": "पुट्टु",
+      "r": "puṭṭŭ",
+      "t": "പുട്ട്"
+    },
+    {
+      "en": "appam (lacy pancake)",
+      "hi": "अप्पम",
+      "r": "appam",
+      "t": "അപ്പം"
+    },
+    {
+      "en": "idiyappam (string hoppers)",
+      "hi": "इडियप्पम",
+      "r": "iḍiyappam",
+      "t": "ഇടിയപ്പം"
+    },
+    {
+      "en": "dosa",
+      "hi": "डोसा",
+      "r": "dōsha",
+      "t": "ദോശ"
+    },
+    {
+      "en": "idli",
+      "hi": "इडली",
+      "r": "iḍḍali",
+      "t": "ഇഡ്ഡലി"
+    },
+    {
+      "en": "sambar",
+      "hi": "सांबार",
+      "r": "sāmpāṟ",
+      "t": "സാമ്പാർ"
+    },
+    {
+      "en": "rasam",
+      "hi": "रसम",
+      "r": "rasam",
+      "t": "രസം"
+    },
+    {
+      "en": "avial (mixed veg in coconut)",
+      "hi": "अवियल",
+      "r": "aviyal",
+      "t": "അവിയൽ"
+    },
+    {
+      "en": "thoran (dry veg stir-fry)",
+      "hi": "थोरन",
+      "r": "tōran",
+      "t": "തോരൻ"
+    },
+    {
+      "en": "fish curry",
+      "hi": "मछली करी",
+      "r": "mīn kaṟi",
+      "t": "മീൻ കറി"
+    },
+    {
+      "en": "curd",
+      "hi": "दही",
+      "r": "tayirŭ",
+      "t": "തൈര്"
+    },
+    {
+      "en": "buttermilk",
+      "hi": "छाछ",
+      "r": "mōrŭ",
+      "t": "മോര്"
+    },
+    {
+      "en": "ghee",
+      "hi": "घी",
+      "r": "neyyŭ",
+      "t": "നെയ്യ്"
+    },
+    {
+      "en": "butter",
+      "hi": "मक्खन",
+      "r": "veṇṇa",
+      "t": "വെണ്ണ"
+    },
+    {
+      "en": "payasam (kheer)",
+      "hi": "खीर",
+      "r": "pāyasam",
+      "t": "പായസം"
+    },
+    {
+      "en": "tea",
+      "hi": "चाय",
+      "r": "chāya",
+      "t": "ചായ"
+    },
+    {
+      "en": "coffee",
+      "hi": "कॉफ़ी",
+      "r": "kāppi",
+      "t": "കാപ്പി"
+    }
+  ],
+  "gender_note": "Malayalam has masculine, feminine and neuter pronouns (അവൻ/അവൾ/അത്) — but the verbs NEVER agree with any of them. കഴിക്കുന്നു means I/you/he/she/we/they eat, all at once. Adjectives don't change either: വലിയ വീട് (big house), വലിയ കുട്ടി (big child). Gender is the easiest chapter in this course.",
+  "gender_title": "Three genders, zero verb trouble",
+  "greetings": [
+    {
+      "en": "Hello! (respectful)",
+      "hi": "नमस्कार",
+      "note": "works any time of day, for everyone",
+      "r": "Namaskāram!",
+      "t": "നമസ്കാരം!"
+    },
+    {
+      "en": "Are you well?",
+      "hi": "आप ठीक हैं?",
+      "note": "the classic 'how are you' — സുഖം = wellness",
+      "r": "Sukhamāṇō?",
+      "t": "സുഖമാണോ?"
+    },
+    {
+      "en": "I'm well",
+      "hi": "मैं ठीक हूँ",
+      "r": "Enikkŭ sukhamāṇŭ",
+      "t": "എനിക്ക് സുഖമാണ്"
+    },
+    {
+      "en": "What is your name?",
+      "hi": "आपका नाम क्या है?",
+      "note": "",
+      "r": "Niṅṅaḷuḍe pērentāṇŭ?",
+      "t": "നിങ്ങളുടെ പേരെന്താണ്?"
+    },
+    {
+      "en": "My name is …",
+      "hi": "मेरा नाम … है",
+      "note": "",
+      "r": "Ente perŭ …",
+      "t": "എന്റെ പേര് …"
+    },
+    {
+      "en": "Nice to meet you",
+      "hi": "आपसे मिलकर खुशी हुई",
+      "note": "",
+      "r": "Niṅṅaḷe kaṇṭatil santōsham",
+      "t": "നിങ്ങളെ കണ്ടതിൽ സന്തോഷം"
+    },
+    {
+      "en": "Thank you",
+      "hi": "धन्यवाद",
+      "note": "",
+      "r": "Nandi",
+      "t": "നന്ദി"
+    },
+    {
+      "en": "Welcome!",
+      "hi": "स्वागत है!",
+      "note": "",
+      "r": "Svāgatam!",
+      "t": "സ്വാഗതം!"
+    },
+    {
+      "en": "See you! (we'll see later)",
+      "hi": "फिर मिलेंगे!",
+      "note": "",
+      "r": "Pinne kāṇām!",
+      "t": "പിന്നെ കാണാം!"
+    },
+    {
+      "en": "Excuse me / Sorry",
+      "hi": "माफ़ करें",
+      "note": "",
+      "r": "Kshamikkaṇam",
+      "t": "ക്ഷമിക്കണം"
+    },
+    {
+      "en": "Please",
+      "hi": "कृपया",
+      "note": "",
+      "r": "Dayavāyi",
+      "t": "ദയവായി"
+    },
+    {
+      "en": "Congratulations!",
+      "hi": "बधाई हो!",
+      "note": "",
+      "r": "Abhinandanaṅṅaḷ!",
+      "t": "അഭിനന്ദനങ്ങൾ!"
+    },
+    {
+      "en": "yes / no",
+      "hi": "हाँ / नहीं",
+      "note": "അതെ (ate) yes · ഇല്ല (illa) no",
+      "r": "Ate / Illa",
+      "t": "അതെ / ഇല്ല"
+    }
+  ],
+  "name": "Malayalam",
+  "native": "മലയാളം",
+  "negation_note": "ഇല്ല (illa) melts into the verb: വരില്ല (won't come), അറിയില്ല (don't know), കഴിക്കില്ല (won't eat). Alone, ഇല്ല just means 'no'. To refuse an offer, വേണ്ട (vēṇṭa — 'don't want') is warmer: ചായ വേണ്ട (no tea for me, thanks). And അല്ല (alla) denies identity: ശരിയല്ല (that's not right).",
+  "negation_title": "Negation with ഇല്ല (illa)",
+  "numbers": [
+    {
+      "hi": "एक",
+      "n": 1,
+      "r": "onnŭ",
+      "t": "ഒന്ന്"
+    },
+    {
+      "hi": "दो",
+      "n": 2,
+      "r": "raṇḍŭ",
+      "t": "രണ്ട്"
+    },
+    {
+      "hi": "तीन",
+      "n": 3,
+      "r": "mūnnŭ",
+      "t": "മൂന്ന്"
+    },
+    {
+      "hi": "चार",
+      "n": 4,
+      "r": "nālŭ",
+      "t": "നാല്"
+    },
+    {
+      "hi": "पाँच",
+      "n": 5,
+      "r": "añchŭ",
+      "t": "അഞ്ച്"
+    },
+    {
+      "hi": "छह",
+      "n": 6,
+      "r": "āṟŭ",
+      "t": "ആറ്"
+    },
+    {
+      "hi": "सात",
+      "n": 7,
+      "r": "ēḻŭ",
+      "t": "ഏഴ്"
+    },
+    {
+      "hi": "आठ",
+      "n": 8,
+      "r": "eṭṭŭ",
+      "t": "എട്ട്"
+    },
+    {
+      "hi": "नौ",
+      "n": 9,
+      "r": "ompatŭ",
+      "t": "ഒമ്പത്"
+    },
+    {
+      "hi": "दस",
+      "n": 10,
+      "r": "pattŭ",
+      "t": "പത്ത്"
+    },
+    {
+      "hi": "ग्यारह",
+      "n": 11,
+      "r": "patinonnŭ",
+      "t": "പതിനൊന്ന്"
+    },
+    {
+      "hi": "बारह",
+      "n": 12,
+      "r": "pantrandŭ",
+      "t": "പന്ത്രണ്ട്"
+    },
+    {
+      "hi": "तेरह",
+      "n": 13,
+      "r": "patimūnnŭ",
+      "t": "പതിമൂന്ന്"
+    },
+    {
+      "hi": "चौदह",
+      "n": 14,
+      "r": "patinālŭ",
+      "t": "പതിനാല്"
+    },
+    {
+      "hi": "पंद्रह",
+      "n": 15,
+      "r": "patinañchŭ",
+      "t": "പതിനഞ്ച്"
+    },
+    {
+      "hi": "सोलह",
+      "n": 16,
+      "r": "patināṟŭ",
+      "t": "പതിനാറ്"
+    },
+    {
+      "hi": "सत्रह",
+      "n": 17,
+      "r": "patinēḻŭ",
+      "t": "പതിനേഴ്"
+    },
+    {
+      "hi": "अठारह",
+      "n": 18,
+      "r": "patineṭṭŭ",
+      "t": "പതിനെട്ട്"
+    },
+    {
+      "hi": "उन्नीस",
+      "n": 19,
+      "r": "pattompatŭ",
+      "t": "പത്തൊമ്പത്"
+    },
+    {
+      "hi": "बीस",
+      "n": 20,
+      "r": "irupatŭ",
+      "t": "ഇരുപത്"
+    },
+    {
+      "hi": "तीस",
+      "n": 30,
+      "r": "muppatŭ",
+      "t": "മുപ്പത്"
+    },
+    {
+      "hi": "चालीस",
+      "n": 40,
+      "r": "nālpatŭ",
+      "t": "നാല്പത്"
+    },
+    {
+      "hi": "पचास",
+      "n": 50,
+      "r": "ampatŭ",
+      "t": "അമ്പത്"
+    },
+    {
+      "hi": "साठ",
+      "n": 60,
+      "r": "aṟupatŭ",
+      "t": "അറുപത്"
+    },
+    {
+      "hi": "सत्तर",
+      "n": 70,
+      "r": "eḻupatŭ",
+      "t": "എഴുപത്"
+    },
+    {
+      "hi": "अस्सी",
+      "n": 80,
+      "r": "eṇpatŭ",
+      "t": "എൺപത്"
+    },
+    {
+      "hi": "नब्बे",
+      "n": 90,
+      "r": "toṇṇūṟŭ",
+      "t": "തൊണ്ണൂറ്"
+    },
+    {
+      "hi": "सौ",
+      "n": 100,
+      "r": "nūṟŭ",
+      "t": "നൂറ്"
+    }
+  ],
+  "past_future": [
+    {
+      "en": "I ate",
+      "hi": "मैंने खाया",
+      "r": "Ñān kaḻichu",
+      "t": "ഞാൻ കഴിച്ചു"
+    },
+    {
+      "en": "He went",
+      "hi": "वह गया",
+      "r": "Avan pōyi",
+      "t": "അവൻ പോയി"
+    },
+    {
+      "en": "She came",
+      "hi": "वह आयी",
+      "r": "Avaḷ vannu",
+      "t": "അവൾ വന്നു"
+    },
+    {
+      "en": "I will eat",
+      "hi": "मैं खाऊँगा/खाऊँगी",
+      "r": "Ñān kaḻikkum",
+      "t": "ഞാൻ കഴിക്കും"
+    },
+    {
+      "en": "Did you eat? (respectful)",
+      "hi": "आपने खाया?",
+      "r": "Niṅṅaḷ kaḻichō?",
+      "t": "നിങ്ങൾ കഴിച്ചോ?"
+    },
+    {
+      "en": "(Someone) will come tomorrow",
+      "hi": "कल आएगा",
+      "r": "Nāḷe varum",
+      "t": "നാളെ വരും"
+    }
+  ],
+  "postpositions": [
+    {
+      "en": "(object marker)",
+      "ex_en": "Ask me.",
+      "ex_r": "Enne chōdikkū",
+      "ex_t": "എന്നെ ചോദിക്കൂ",
+      "hi": "को",
+      "r": "-e",
+      "t": "-എ"
+    },
+    {
+      "en": "in; at",
+      "ex_en": "I'm at home.",
+      "ex_r": "Ñān vīṭṭiluṇḍŭ",
+      "ex_t": "ഞാൻ വീട്ടിലുണ്ട്",
+      "hi": "में",
+      "r": "-il",
+      "t": "-ഇൽ"
+    },
+    {
+      "en": "on",
+      "ex_en": "The book is on the table.",
+      "ex_r": "Pustakam mēshamugaḷilāṇŭ",
+      "ex_t": "പുസ്തകം മേശമുകളിലാണ്",
+      "hi": "पर",
+      "r": "mugaḷil",
+      "t": "മുകളിൽ"
+    },
+    {
+      "en": "with",
+      "ex_en": "I went with a friend.",
+      "ex_r": "Kūṭṭukāranōṭŭ pōyi",
+      "ex_t": "കൂട്ടുകാരനോട് പോയി",
+      "hi": "के साथ",
+      "r": "-ōṭŭ",
+      "t": "-ഓട്"
+    },
+    {
+      "en": "for",
+      "ex_en": "I brought (it) for you.",
+      "ex_r": "Niṅṅaḷkkuvēṇṭi koṇṭuvannu",
+      "ex_t": "നിങ്ങൾക്കുവേണ്ടി കൊണ്ടുവന്നു",
+      "hi": "के लिए",
+      "r": "-vēṇṭi",
+      "t": "-വേണ്ടി"
+    },
+    {
+      "en": "from",
+      "ex_en": "I came from home.",
+      "ex_r": "Vīṭṭilninnŭ vannu",
+      "ex_t": "വീട്ടിൽനിന്ന് വന്നു",
+      "hi": "से",
+      "r": "-ilninnŭ",
+      "t": "-ൽനിന്ന്"
+    }
+  ],
+  "present_note": "Here is Malayalam's famous gift: the present is stem + -ഉന്നു for EVERYONE. ഞാൻ, നീ, അവൻ, അവൾ, നമ്മൾ, അവർ — all take കഴിക്കുന്നു. One form, no exceptions. The table below proves it.",
+  "present_table": [
+    {
+      "verb_r": "kaḻikkunnu",
+      "verb_t": "കഴിക്കുന്നു",
+      "who_en": "I",
+      "who_t": "ഞാൻ"
+    },
+    {
+      "verb_r": "kaḻikkunnu",
+      "verb_t": "കഴിക്കുന്നു",
+      "who_en": "you (nī — close friends)",
+      "who_t": "നീ"
+    },
+    {
+      "verb_r": "kaḻikkunnu",
+      "verb_t": "കഴിക്കുന്നു",
+      "who_en": "you (niṅṅaḷ — respectful)",
+      "who_t": "നിങ്ങൾ"
+    },
+    {
+      "verb_r": "kaḻikkunnu",
+      "verb_t": "കഴിക്കുന്നു",
+      "who_en": "he",
+      "who_t": "അവൻ"
+    },
+    {
+      "verb_r": "kaḻikkunnu",
+      "verb_t": "കഴിക്കുന്നു",
+      "who_en": "she",
+      "who_t": "അവൾ"
+    },
+    {
+      "verb_r": "kaḻikkunnu",
+      "verb_t": "കഴിക്കുന്നു",
+      "who_en": "we (nammaḷ — including you!)",
+      "who_t": "നമ്മൾ"
+    },
+    {
+      "verb_r": "kaḻikkunnu",
+      "verb_t": "കഴിക്കുന്നു",
+      "who_en": "they",
+      "who_t": "അവർ"
+    }
+  ],
+  "pronouns": [
+    {
+      "en": "I",
+      "hi": "मैं",
+      "r": "ñān",
+      "t": "ഞാൻ"
+    },
+    {
+      "en": "you (informal)",
+      "hi": "तू",
+      "r": "nī",
+      "t": "നീ"
+    },
+    {
+      "en": "you (formal / plural)",
+      "hi": "तुम/आप",
+      "r": "niṅṅaḷ",
+      "t": "നിങ്ങൾ"
+    },
+    {
+      "en": "he",
+      "hi": "वह",
+      "r": "avan",
+      "t": "അവൻ"
+    },
+    {
+      "en": "she",
+      "hi": "वह",
+      "r": "avaḷ",
+      "t": "അവൾ"
+    },
+    {
+      "en": "it / that",
+      "hi": "यह/वह",
+      "r": "atŭ",
+      "t": "അത്"
+    },
+    {
+      "en": "we (excluding you)",
+      "hi": "हम (तुम्हें छोड़कर)",
+      "r": "ñaṅṅaḷ",
+      "t": "ഞങ്ങൾ"
+    },
+    {
+      "en": "we (including you)",
+      "hi": "हम (तुम्हें मिलाकर)",
+      "r": "nammaḷ",
+      "t": "നമ്മൾ"
+    },
+    {
+      "en": "they",
+      "hi": "वे",
+      "r": "avar",
+      "t": "അവർ"
+    },
+    {
+      "en": "me",
+      "hi": "मुझे",
+      "r": "enne",
+      "t": "എന്നെ"
+    },
+    {
+      "en": "you (informal, to)",
+      "hi": "तुझे",
+      "r": "ninne",
+      "t": "നിന്നെ"
+    },
+    {
+      "en": "you (formal, to)",
+      "hi": "तुम्हें/आपको",
+      "r": "niṅṅaḷe",
+      "t": "നിങ്ങളെ"
+    },
+    {
+      "en": "him",
+      "hi": "उसे",
+      "r": "avane",
+      "t": "അവനെ"
+    },
+    {
+      "en": "her",
+      "hi": "उसे",
+      "r": "avaḷe",
+      "t": "അവളെ"
+    },
+    {
+      "en": "us",
+      "hi": "हमें",
+      "r": "nammaḷe",
+      "t": "നമ്മളെ"
+    },
+    {
+      "en": "my",
+      "hi": "मेरा",
+      "r": "ente",
+      "t": "എന്റെ"
+    },
+    {
+      "en": "your (informal)",
+      "hi": "तेरा",
+      "r": "ninte",
+      "t": "നിന്റെ"
+    },
+    {
+      "en": "your (formal)",
+      "hi": "तुम्हारा/आपका",
+      "r": "niṅṅaḷuḍe",
+      "t": "നിങ്ങളുടെ"
+    },
+    {
+      "en": "his",
+      "hi": "उसका",
+      "r": "avante",
+      "t": "അവന്റെ"
+    },
+    {
+      "en": "her",
+      "hi": "उसका",
+      "r": "avaḷuḍe",
+      "t": "അവളുടെ"
+    },
+    {
+      "en": "our",
+      "hi": "हमारा",
+      "r": "nammuḍe",
+      "t": "നമ്മുടെ"
+    },
+    {
+      "en": "who?",
+      "hi": "कौन?",
+      "r": "ārŭ?",
+      "t": "ആര്?"
+    },
+    {
+      "en": "what?",
+      "hi": "क्या?",
+      "r": "entŭ?",
+      "t": "എന്ത്?"
+    }
+  ],
+  "quiz": [
+    {
+      "a": "hello!",
+      "explain": "നമസ്കാരം (namaskāram) is the respectful Malayalam hello — any time of day.",
+      "id": "ml-01",
+      "lesson": "basics",
+      "level": "beginner",
+      "opts": [
+        "hello!",
+        "goodbye!",
+        "thank you",
+        "sorry"
+      ],
+      "q": "What does നമസ്കാരം mean?",
+      "topic": "basics",
+      "type": "meaning"
+    },
+    {
+      "a": "thank you",
+      "explain": "നന്ദി (nandi) is thanks — short, warm, everywhere.",
+      "id": "ml-02",
+      "lesson": "basics",
+      "level": "beginner",
+      "opts": [
+        "thank you",
+        "please",
+        "sorry",
+        "welcome"
+      ],
+      "q": "What does നന്ദി mean?",
+      "topic": "basics",
+      "type": "meaning"
+    },
+    {
+      "a": "എന്റെ പേര് …",
+      "explain": "നിങ്ങളുടെ പേരെന്താണ്? = what's your name — answer എന്റെ പേര് … (my name is …).",
+      "id": "ml-03",
+      "lesson": "basics",
+      "level": "beginner",
+      "opts": [
+        "എന്റെ പേര് …",
+        "എനിക്ക് വിശക്കുന്നു",
+        "പിന്നെ കാണാം!",
+        "കിഴിവ് തരൂ"
+      ],
+      "q": "Someone asks 'നിങ്ങളുടെ പേരെന്താണ്?' — you reply…",
+      "topic": "basics",
+      "type": "usage"
+    },
+    {
+      "a": "k as in kite",
+      "explain": "ക (ka) is a plain k — ഖ (kha) is the breathy one.",
+      "id": "ml-04",
+      "lesson": "pronunciation",
+      "level": "beginner",
+      "opts": [
+        "k as in kite",
+        "g as in go",
+        "s as in sun",
+        "h as in hat"
+      ],
+      "q": "The letter ക sounds like…",
+      "topic": "basics",
+      "type": "vocab"
+    },
+    {
+      "a": "3",
+      "explain": "ഒന്ന് രണ്ട് മൂന്ന് — 1, 2, 3.",
+      "id": "ml-05",
+      "lesson": "numbers",
+      "level": "beginner",
+      "opts": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "q": "മൂന്ന് means…",
+      "topic": "numbers",
+      "type": "vocab"
+    },
+    {
+      "a": "പത്ത്",
+      "explain": "പത്ത് (pattŭ) = 10. അഞ്ച് = 5, ഇരുപത് = 20, നൂറ് = 100.",
+      "id": "ml-06",
+      "lesson": "numbers",
+      "level": "beginner",
+      "opts": [
+        "പത്ത്",
+        "അഞ്ച്",
+        "ഇരുപത്",
+        "നൂറ്"
+      ],
+      "q": "Which is 'ten'?",
+      "topic": "numbers",
+      "type": "vocab"
+    },
+    {
+      "a": "20",
+      "explain": "ഇരുപത് (irupatŭ) = 20, പത്തൊമ്പത് = 19, മുപ്പത് = 30.",
+      "id": "ml-07",
+      "lesson": "numbers",
+      "level": "beginner",
+      "opts": [
+        "12",
+        "20",
+        "22",
+        "200"
+      ],
+      "q": "ഇരുപത് means…",
+      "topic": "numbers",
+      "type": "meaning"
+    },
+    {
+      "a": "50 rupees",
+      "explain": "അമ്പത് (ampatŭ) = 50. അഞ്ച് = 5, പതിനഞ്ച് = 15, അഞ്ഞൂറ് = 500.",
+      "id": "ml-08",
+      "lesson": "numbers",
+      "level": "elementary",
+      "opts": [
+        "5 rupees",
+        "15 rupees",
+        "50 rupees",
+        "500 rupees"
+      ],
+      "q": "'അമ്പത് രൂപ' on a price tag means…",
+      "topic": "numbers",
+      "type": "usage"
+    },
+    {
+      "a": "steamed rice-coconut cylinders",
+      "explain": "പുട്ട് — steamed with coconut, eaten with kadala curry — is the Kerala breakfast.",
+      "id": "ml-09",
+      "lesson": "food",
+      "level": "beginner",
+      "opts": [
+        "steamed rice-coconut cylinders",
+        "a lentil curry",
+        "a fish curry",
+        "a dessert"
+      ],
+      "q": "പുട്ട് is…",
+      "topic": "food",
+      "type": "vocab"
+    },
+    {
+      "a": "this is very tasty",
+      "explain": "രുചി (ruchi) = taste — say it and any cook will beam.",
+      "id": "ml-10",
+      "lesson": "food",
+      "level": "beginner",
+      "opts": [
+        "this is very tasty",
+        "this is too spicy",
+        "the bill please",
+        "I'm hungry"
+      ],
+      "q": "'ഇത് വളരെ രുചിയുണ്ട്' means…",
+      "topic": "food",
+      "type": "meaning"
+    },
+    {
+      "a": "എനിക്ക് വിശക്കുന്നു",
+      "explain": "എനിക്ക് വിശക്കുന്നു = I'm hungry (hunger is to me).",
+      "id": "ml-11",
+      "lesson": "food",
+      "level": "elementary",
+      "opts": [
+        "എനിക്ക് വിശക്കുന്നു",
+        "എനിക്ക് ദാഹിക്കുന്നു",
+        "ബില്ല് തരൂ",
+        "കിഴിവ് തരൂ"
+      ],
+      "q": "You're hungry in Kochi. You say…",
+      "topic": "food",
+      "type": "usage"
+    },
+    {
+      "a": "where is the station?",
+      "explain": "എവിടെ (eviḍe) = where — the traveller's most useful word.",
+      "id": "ml-12",
+      "lesson": "travel",
+      "level": "beginner",
+      "opts": [
+        "where is the station?",
+        "how much is the fare?",
+        "stop here",
+        "one ticket please"
+      ],
+      "q": "'സ്റ്റേഷൻ എവിടെയാണ്?' means…",
+      "topic": "travel",
+      "type": "meaning"
+    },
+    {
+      "a": "ticket",
+      "explain": "ടിക്കറ്റ് (ṭikkaṟṟŭ) = ticket; കൂലി = fare; സ്റ്റേഷൻ = station.",
+      "id": "ml-13",
+      "lesson": "travel",
+      "level": "beginner",
+      "opts": [
+        "ticket",
+        "train",
+        "fare",
+        "station"
+      ],
+      "q": "ടിക്കറ്റ് means…",
+      "topic": "travel",
+      "type": "vocab"
+    },
+    {
+      "a": "ഇവിടെ നിർത്തൂ",
+      "explain": "ഇവിടെ നിർത്തൂ (iviḍe nirttū) = stop here. പതുക്കെ പോകൂ = go slowly.",
+      "id": "ml-14",
+      "lesson": "travel",
+      "level": "elementary",
+      "opts": [
+        "ഇവിടെ നിർത്തൂ",
+        "പതുക്കെ പോകൂ",
+        "നേരെ പോകൂ",
+        "ടിക്കറ്റ് തരൂ"
+      ],
+      "q": "To make the auto stop here, say…",
+      "topic": "travel",
+      "type": "usage"
+    },
+    {
+      "a": "I eat (any speaker)",
+      "explain": "കഴിക്കുന്നു never marks person or gender — it suits every speaker on earth.",
+      "id": "ml-15",
+      "lesson": "grammar",
+      "level": "elementary",
+      "opts": [
+        "I eat (any speaker)",
+        "I eat (men only)",
+        "I ate yesterday",
+        "we will eat"
+      ],
+      "q": "'ഞാൻ കഴിക്കുന്നു' means…",
+      "topic": "grammar",
+      "type": "meaning"
+    },
+    {
+      "a": "അവർ കഴിക്കുന്നു",
+      "explain": "Same verb! അവർ കഴിക്കുന്നു — Malayalam verbs never change for person. (തിന്നുക is the rude word for human eating — don't use it on people!)",
+      "id": "ml-16",
+      "lesson": "grammar",
+      "level": "elementary",
+      "opts": [
+        "അവർ കഴിക്കുന്നു",
+        "അവർ കഴിക്കും",
+        "അവർ കഴിച്ചു",
+        "അവർ തിന്നുന്നു"
+      ],
+      "q": "'They eat' is…",
+      "topic": "grammar",
+      "type": "vocab"
+    },
+    {
+      "a": "അവൾ വന്നു",
+      "explain": "വന്നു (vannu) = came — the past still never marks gender.",
+      "id": "ml-17",
+      "lesson": "grammar",
+      "level": "elementary",
+      "opts": [
+        "അവൾ വന്നു",
+        "അവൾ വന്നാൾ",
+        "അവൾ വരുന്നു",
+        "അവൾ വരും"
+      ],
+      "q": "'She came' is…",
+      "topic": "grammar",
+      "type": "vocab"
+    },
+    {
+      "a": "the verb stays the same for everyone",
+      "explain": "ഞാൻ/അവൻ/അവൾ/അവർ കഴിക്കുന്നു — one form for all. Tense still changes (കഴിച്ചു/കഴിക്കും).",
+      "id": "ml-18",
+      "lesson": "grammar",
+      "level": "elementary",
+      "opts": [
+        "the verb stays the same for everyone",
+        "verbs agree with gender",
+        "verbs agree with number",
+        "every pronoun has its own verb"
+      ],
+      "q": "Malayalam's most famous grammar feature?",
+      "topic": "grammar",
+      "type": "usage"
+    },
+    {
+      "a": "see you! (we'll see later)",
+      "explain": "പിന്നെ കാണാം (pinne kāṇām) — literally 'we'll see later' — the warm goodbye.",
+      "id": "ml-19",
+      "lesson": "conversation",
+      "level": "beginner",
+      "opts": [
+        "see you! (we'll see later)",
+        "good morning!",
+        "welcome!",
+        "congratulations!"
+      ],
+      "q": "'പിന്നെ കാണാം!' means…",
+      "topic": "conversation",
+      "type": "meaning"
+    },
+    {
+      "a": "welcome!",
+      "explain": "സ്വാഗതം (svāgatam) — the warm Malayalam welcome.",
+      "id": "ml-20",
+      "lesson": "conversation",
+      "level": "beginner",
+      "opts": [
+        "welcome!",
+        "sorry!",
+        "good luck!",
+        "bless you!"
+      ],
+      "q": "'സ്വാഗതം!' means…",
+      "topic": "conversation",
+      "type": "meaning"
+    },
+    {
+      "a": "book",
+      "explain": "പുസ്തകം (pustakam) = book — വായന is reading.",
+      "id": "ml-21",
+      "lesson": "vocabulary",
+      "level": "beginner",
+      "opts": [
+        "book",
+        "pen",
+        "school",
+        "letter"
+      ],
+      "q": "പുസ്തകം means…",
+      "topic": "vocabulary",
+      "type": "vocab"
+    },
+    {
+      "a": "friend",
+      "explain": "സുഹൃത്ത് (suhṛttŭ) = friend — കൂട്ടുകാരൻ is the casual 'buddy'.",
+      "id": "ml-22",
+      "lesson": "vocabulary",
+      "level": "beginner",
+      "opts": [
+        "friend",
+        "brother",
+        "guest",
+        "neighbour"
+      ],
+      "q": "സുഹൃത്ത് means…",
+      "topic": "vocabulary",
+      "type": "vocab"
+    },
+    {
+      "a": "asking the price",
+      "explain": "ഇതിന് എത്രയാണ്? = how much for this — then counter with കുറച്ച് കുറയ്ക്കൂ!",
+      "id": "ml-23",
+      "lesson": "shopping",
+      "level": "elementary",
+      "opts": [
+        "asking the price",
+        "ordering food",
+        "asking directions",
+        "saying goodbye"
+      ],
+      "q": "'ഇതിന് എത്രയാണ്?' is asked when…",
+      "topic": "vocabulary",
+      "type": "usage"
+    },
+    {
+      "a": "tomorrow",
+      "explain": "നാളെ (nāḷe) = tomorrow; ഇന്നലെ (innale) = yesterday. Don't mix them at the station!",
+      "id": "ml-24",
+      "lesson": "time-dates",
+      "level": "elementary",
+      "opts": [
+        "tomorrow",
+        "yesterday",
+        "today",
+        "every day"
+      ],
+      "q": "നാളെ means…",
+      "topic": "vocabulary",
+      "type": "meaning"
+    }
+  ],
+  "review_deck": [
+    {
+      "en": "hello!",
+      "r": "Namaskāram",
+      "t": "നമസ്കാരം"
+    },
+    {
+      "en": "thank you",
+      "r": "nandi",
+      "t": "നന്ദി"
+    },
+    {
+      "en": "yes",
+      "r": "ate",
+      "t": "അതെ"
+    },
+    {
+      "en": "no; not",
+      "r": "illa",
+      "t": "ഇല്ല"
+    },
+    {
+      "en": "I; me",
+      "r": "ñān",
+      "t": "ഞാൻ"
+    },
+    {
+      "en": "you (formal)",
+      "r": "niṅṅaḷ",
+      "t": "നിങ്ങൾ"
+    },
+    {
+      "en": "what?",
+      "r": "entŭ?",
+      "t": "എന്ത്?"
+    },
+    {
+      "en": "where?",
+      "r": "eviḍe?",
+      "t": "എവിടെ?"
+    },
+    {
+      "en": "how much?",
+      "r": "etra?",
+      "t": "എത്ര?"
+    },
+    {
+      "en": "who?",
+      "r": "ārŭ?",
+      "t": "ആര്?"
+    },
+    {
+      "en": "water",
+      "r": "veḷḷam",
+      "t": "വെള്ളം"
+    },
+    {
+      "en": "rice; food",
+      "r": "chōṟŭ",
+      "t": "ചോറ്"
+    },
+    {
+      "en": "home",
+      "r": "vīḍŭ",
+      "t": "വീട്"
+    },
+    {
+      "en": "friend",
+      "r": "suhṛttŭ",
+      "t": "സുഹൃത്ത്"
+    },
+    {
+      "en": "day",
+      "r": "divasam",
+      "t": "ദിവസം"
+    },
+    {
+      "en": "night",
+      "r": "rātri",
+      "t": "രാത്രി"
+    },
+    {
+      "en": "wellness; health",
+      "r": "sukham",
+      "t": "സുഖം"
+    },
+    {
+      "en": "big",
+      "r": "valiya",
+      "t": "വലിയ"
+    },
+    {
+      "en": "small",
+      "r": "cheṟiya",
+      "t": "ചെറിയ"
+    },
+    {
+      "en": "happiness",
+      "r": "santōsham",
+      "t": "സന്തോഷം"
+    }
+  ],
+  "roman_native": "Malayāḷam",
+  "script_name": "Malayalam",
+  "script_note": "Malayalam has the roundest letters of any Indian script — all curves, no headline bar, written left to right. It is fully phonetic: each letter is one sound, always. There are 13 vowels (അ ആ ഇ ഈ ഉ ഊ ഋ എ ഏ ഐ ഒ ഓ ഔ, plus അം/അഃ) and 34 consonants, including the famous ഴ (ḻa) — a sound between r, l and d that even other Indians practise (മഴ, maḻa, rain). Letters stack into tall conjuncts: സ + ് + ത + ് + ര + ീ = സ്ത്രീ (strī, woman). Read slowly and sound every curve.",
+  "shopping_phrases": [
+    {
+      "en": "How much for this?",
+      "hi": "इसके कितने हैं?",
+      "r": "Itinŭ etrayāṇŭ?",
+      "t": "ഇതിന് എത്രയാണ്?"
+    },
+    {
+      "en": "Too expensive!",
+      "hi": "बहुत महँगा है!",
+      "r": "Vaḷare vilakūṭiyatāṇŭ!",
+      "t": "വളരെ വിലകൂടിയതാണ്!"
+    },
+    {
+      "en": "Reduce it a little",
+      "hi": "थोड़ा कम करिए",
+      "r": "Kuṟachchŭ kuṟaykkū",
+      "t": "കുറച്ച് കുറയ്ക്കൂ"
+    },
+    {
+      "en": "I'm just looking",
+      "hi": "मैं सिर्फ़ देख रहा हूँ",
+      "r": "Ñān veṟute nōkkukayāṇŭ",
+      "t": "ഞാൻ വെറുതെ നോക്കുകയാണ്"
+    },
+    {
+      "en": "Pack this",
+      "hi": "इसे पैक कर दीजिए",
+      "r": "Itŭ pākkŭ cheyyū",
+      "t": "ഇത് പാക്ക് ചെയ്യൂ"
+    },
+    {
+      "en": "Give a discount",
+      "hi": "छूट दीजिए",
+      "r": "Kiḻivŭ tarū",
+      "t": "കിഴിവ് തരൂ"
+    }
+  ],
+  "shopping_words": [
+    {
+      "en": "price",
+      "hi": "क़ीमत",
+      "r": "vila",
+      "t": "വില"
+    },
+    {
+      "en": "discount",
+      "hi": "छूट",
+      "r": "kiḻivŭ",
+      "t": "കിഴിവ്"
+    },
+    {
+      "en": "cash; money",
+      "hi": "नक़द",
+      "r": "paṇam",
+      "t": "പണം"
+    },
+    {
+      "en": "card",
+      "hi": "कार्ड",
+      "r": "kārḍŭ",
+      "t": "കാർഡ്"
+    },
+    {
+      "en": "cheap (less-priced)",
+      "hi": "सस्ता",
+      "r": "vilakuṟañña",
+      "t": "വിലകുറഞ്ഞ"
+    },
+    {
+      "en": "expensive (more-priced)",
+      "hi": "महँगा",
+      "r": "vilakūṭiya",
+      "t": "വിലകൂടിയ"
+    },
+    {
+      "en": "bargaining",
+      "hi": "मोलभाव",
+      "r": "vilapēshal",
+      "t": "വിലപേശൽ"
+    }
+  ],
+  "slug": "malayalam",
+  "sov": {
+    "en": "I eat rice. (word order: I – rice – eat)",
+    "hi": "मैं चावल खाता हूँ।",
+    "r": "Ñān chōṟŭ kaḻikkunnu.",
+    "t": "ഞാൻ ചോറ് കഴിക്കുന്നു."
+  },
+  "speakers": "over 35 million",
+  "survival_trio": "നമസ്കാരം! (hello) · നന്ദി (thanks) · ഇതിന് എത്രയാണ്? (how much for this?)",
+  "time_words": [
+    {
+      "en": "today",
+      "hi": "आज",
+      "r": "innŭ",
+      "t": "ഇന്ന്"
+    },
+    {
+      "en": "tomorrow",
+      "hi": "कल (आने वाला)",
+      "r": "nāḷe",
+      "t": "നാളെ"
+    },
+    {
+      "en": "yesterday",
+      "hi": "कल (बीता हुआ)",
+      "r": "innale",
+      "t": "ഇന്നലെ"
+    },
+    {
+      "en": "day after tomorrow",
+      "hi": "परसों",
+      "r": "maṟṟannāḷ",
+      "t": "മറ്റന്നാൾ"
+    },
+    {
+      "en": "now",
+      "hi": "अब",
+      "r": "ippōḷ",
+      "t": "ഇപ്പോൾ"
+    },
+    {
+      "en": "morning",
+      "hi": "सुबह",
+      "r": "rāvile",
+      "t": "രാവിലെ"
+    },
+    {
+      "en": "afternoon; noon",
+      "hi": "दोपहर",
+      "r": "ucha",
+      "t": "ഉച്ച"
+    },
+    {
+      "en": "evening",
+      "hi": "शाम",
+      "r": "vaikunnēram",
+      "t": "വൈകുന്നേരം"
+    },
+    {
+      "en": "night",
+      "hi": "रात",
+      "r": "rātri",
+      "t": "രാത്രി"
+    },
+    {
+      "en": "hour",
+      "hi": "घंटा",
+      "r": "maṇikkūṟ",
+      "t": "മണിക്കൂർ"
+    },
+    {
+      "en": "minute",
+      "hi": "मिनट",
+      "r": "miniṟṟŭ",
+      "t": "മിനിറ്റ്"
+    }
+  ],
+  "travel_phrases": [
+    {
+      "en": "Where is the station?",
+      "hi": "स्टेशन कहाँ है?",
+      "r": "Sṟṟeshan eviḍeyāṇŭ?",
+      "t": "സ്റ്റേഷൻ എവിടെയാണ്?"
+    },
+    {
+      "en": "How much is the fare?",
+      "hi": "किराया कितना है?",
+      "r": "Kūli etrayāṇŭ?",
+      "t": "കൂലി എത്രയാണ്?"
+    },
+    {
+      "en": "I need to go to …",
+      "hi": "मुझे … जाना है",
+      "r": "Enikkŭ … pōkaṇam",
+      "t": "എനിക്ക് … പോകണം"
+    },
+    {
+      "en": "Go slowly",
+      "hi": "धीरे चलिए",
+      "r": "Patukke pōkū",
+      "t": "പതുക്കെ പോകൂ"
+    },
+    {
+      "en": "Stop here",
+      "hi": "यहाँ रुकिए",
+      "r": "Iviḍe nirttū",
+      "t": "ഇവിടെ നിർത്തൂ"
+    },
+    {
+      "en": "Give me a ticket",
+      "hi": "टिकट दीजिए",
+      "r": "Ṭikkaṟṟŭ tarū",
+      "t": "ടിക്കറ്റ് തരൂ"
+    }
+  ],
+  "travel_words": [
+    {
+      "en": "ticket",
+      "hi": "टिकट",
+      "r": "ṭikkaṟṟŭ",
+      "t": "ടിക്കറ്റ്"
+    },
+    {
+      "en": "train",
+      "hi": "रेलगाड़ी",
+      "r": "ṭrain",
+      "t": "ട്രെയിൻ"
+    },
+    {
+      "en": "bus",
+      "hi": "बस",
+      "r": "bassŭ",
+      "t": "ബസ്സ്"
+    },
+    {
+      "en": "aeroplane",
+      "hi": "हवाई जहाज़",
+      "r": "vimānam",
+      "t": "വിമാനം"
+    },
+    {
+      "en": "taxi",
+      "hi": "टैक्सी",
+      "r": "ṭāksi",
+      "t": "ടാക്സി"
+    },
+    {
+      "en": "auto-rickshaw",
+      "hi": "ऑटो",
+      "r": "ōṭṭō",
+      "t": "ഓട്ടോ"
+    },
+    {
+      "en": "station",
+      "hi": "स्टेशन",
+      "r": "sṟṟeshan",
+      "t": "സ്റ്റേഷൻ"
+    },
+    {
+      "en": "bus stand",
+      "hi": "बस अड्डा",
+      "r": "bas sṟṟāṇḍŭ",
+      "t": "ബസ് സ്റ്റാന്റ്"
+    },
+    {
+      "en": "fare",
+      "hi": "किराया",
+      "r": "kūli",
+      "t": "കൂലി"
+    },
+    {
+      "en": "road",
+      "hi": "सड़क",
+      "r": "ṟōḍŭ",
+      "t": "റോഡ്"
+    },
+    {
+      "en": "hotel",
+      "hi": "होटल",
+      "r": "hōṭṭal",
+      "t": "ഹോട്ടൽ"
+    },
+    {
+      "en": "luggage",
+      "hi": "सामान",
+      "r": "sāmānam",
+      "t": "സാമാനം"
+    }
+  ],
+  "typing": [
+    [
+      "അമ്മ",
+      "amma"
+    ],
+    [
+      "വെള്ളം",
+      "vellam"
+    ],
+    [
+      "വീട്",
+      "veedu"
+    ],
+    [
+      "ചോറ്",
+      "choru"
+    ],
+    [
+      "ചായ",
+      "chaaya"
+    ],
+    [
+      "പുട്ട്",
+      "puttu"
+    ],
+    [
+      "പുസ്തകം",
+      "pustakam"
+    ],
+    [
+      "സ്കൂൾ",
+      "school"
+    ],
+    [
+      "കട",
+      "kada"
+    ],
+    [
+      "ടിക്കറ്റ്",
+      "ticket"
+    ],
+    [
+      "ട്രെയിൻ",
+      "train"
+    ],
+    [
+      "റോഡ്",
+      "road"
+    ],
+    [
+      "ദിവസം",
+      "divasam"
+    ],
+    [
+      "രാത്രി",
+      "raatri"
+    ],
+    [
+      "രാവിലെ",
+      "raavile"
+    ],
+    [
+      "വൈകുന്നേരം",
+      "vaikunneram"
+    ],
+    [
+      "കുട്ടി",
+      "kutti"
+    ],
+    [
+      "മീൻ",
+      "meen"
+    ],
+    [
+      "മരം",
+      "maram"
+    ],
+    [
+      "പൂവ്",
+      "poovu"
+    ],
+    [
+      "സുഹൃത്ത്",
+      "suhruth"
+    ],
+    [
+      "സ്നേഹം",
+      "sneham"
+    ],
+    [
+      "സന്തോഷം",
+      "santosham"
+    ],
+    [
+      "നന്ദി",
+      "nandi"
+    ]
+  ],
+  "verbs": [
+    {
+      "ami": "ഞാൻ കഴിക്കുന്നു",
+      "ami_r": "Ñān kaḻikkunnu",
+      "en": "to eat (polite)",
+      "hi": "खाना",
+      "r": "kaḻikkuka",
+      "t": "കഴിക്കുക"
+    },
+    {
+      "ami": "ഞാൻ കുടിക്കുന്നു",
+      "ami_r": "Ñān kuḍikkunnu",
+      "en": "to drink",
+      "hi": "पीना",
+      "r": "kuḍikkuka",
+      "t": "കുടിക്കുക"
+    },
+    {
+      "ami": "ഞാൻ പോകുന്നു",
+      "ami_r": "Ñān pōkunnu",
+      "en": "to go",
+      "hi": "जाना",
+      "r": "pōkuka",
+      "t": "പോകുക"
+    },
+    {
+      "ami": "ഞാൻ വരുന്നു",
+      "ami_r": "Ñān varunnu",
+      "en": "to come",
+      "hi": "आना",
+      "r": "varuka",
+      "t": "വരുക"
+    },
+    {
+      "ami": "ഞാൻ ചെയ്യുന്നു",
+      "ami_r": "Ñān cheyyunnu",
+      "en": "to do",
+      "hi": "करना",
+      "r": "cheyyuka",
+      "t": "ചെയ്യുക"
+    },
+    {
+      "ami": "ഞാൻ സംസാരിക്കുന്നു",
+      "ami_r": "Ñān samsārikkunnu",
+      "en": "to speak",
+      "hi": "बोलना",
+      "r": "samsārikkuka",
+      "t": "സംസാരിക്കുക"
+    },
+    {
+      "ami": "ഞാൻ വായിക്കുന്നു",
+      "ami_r": "Ñān vāyikkunnu",
+      "en": "to read",
+      "hi": "पढ़ना",
+      "r": "vāyikkuka",
+      "t": "വായിക്കുക"
+    },
+    {
+      "ami": "ഞാൻ എഴുതുന്നു",
+      "ami_r": "Ñān eḻutunnu",
+      "en": "to write",
+      "hi": "लिखना",
+      "r": "eḻutuka",
+      "t": "എഴുതുക"
+    },
+    {
+      "ami": "ഞാൻ പഠിക്കുന്നു",
+      "ami_r": "Ñān paṭhikkunnu",
+      "en": "to learn; to study",
+      "hi": "सीखना/पढ़ना",
+      "r": "paṭhikkuka",
+      "t": "പഠിക്കുക"
+    },
+    {
+      "ami": "ഞാൻ കാണുന്നു",
+      "ami_r": "Ñān kāṇunnu",
+      "en": "to see; to watch",
+      "hi": "देखना",
+      "r": "kāṇuka",
+      "t": "കാണുക"
+    },
+    {
+      "ami": "ഞാൻ കേൾക്കുന്നു",
+      "ami_r": "Ñān kēḷkkunnu",
+      "en": "to listen",
+      "hi": "सुनना",
+      "r": "kēḷkkuka",
+      "t": "കേൾക്കുക"
+    },
+    {
+      "ami": "ഞാൻ എടുക്കുന്നു",
+      "ami_r": "Ñān eḍukkunnu",
+      "en": "to take",
+      "hi": "लेना",
+      "r": "eḍukkuka",
+      "t": "എടുക്കുക"
+    },
+    {
+      "ami": "ഞാൻ കൊടുക്കുന്നു",
+      "ami_r": "Ñān koḍukkunnu",
+      "en": "to give",
+      "hi": "देना",
+      "r": "koḍukkuka",
+      "t": "കൊടുക്കുക"
+    },
+    {
+      "ami": "ഞാൻ വാങ്ങുന്നു",
+      "ami_r": "Ñān vāṅṅunnu",
+      "en": "to buy",
+      "hi": "ख़रीदना",
+      "r": "vāṅṅuka",
+      "t": "വാങ്ങുക"
+    },
+    {
+      "ami": "ഞാൻ വിൽക്കുന്നു",
+      "ami_r": "Ñān viṟkkunnu",
+      "en": "to sell",
+      "hi": "बेचना",
+      "r": "viṟkkuka",
+      "t": "വിൽക്കുക"
+    },
+    {
+      "ami": "ഞാൻ ഉറങ്ങുന്നു",
+      "ami_r": "Ñān uṟaṅṅunnu",
+      "en": "to sleep",
+      "hi": "सोना",
+      "r": "uṟaṅṅuka",
+      "t": "ഉറങ്ങുക"
+    },
+    {
+      "ami": "ഞാൻ എഴുന്നേൽക്കുന്നു",
+      "ami_r": "Ñān eḻunnēḷkkunnu",
+      "en": "to wake up; to get up",
+      "hi": "उठना",
+      "r": "eḻunnēḷkkuka",
+      "t": "എഴുന്നേൽക്കുക"
+    },
+    {
+      "ami": "ഞാൻ ഇരിക്കുന്നു",
+      "ami_r": "Ñān irikkunnu",
+      "en": "to sit",
+      "hi": "बैठना",
+      "r": "irikkuka",
+      "t": "ഇരിക്കുക"
+    }
+  ],
+  "vowels": [
+    {
+      "hint": "a as in about",
+      "r": "a",
+      "t": "അ"
+    },
+    {
+      "hint": "aa as in father",
+      "r": "ā",
+      "t": "ആ"
+    },
+    {
+      "hint": "i as in bit",
+      "r": "i",
+      "t": "ഇ"
+    },
+    {
+      "hint": "ee as in feet",
+      "r": "ī",
+      "t": "ഈ"
+    },
+    {
+      "hint": "u as in put",
+      "r": "u",
+      "t": "ഉ"
+    },
+    {
+      "hint": "oo as in food",
+      "r": "ū",
+      "t": "ഊ"
+    },
+    {
+      "hint": "ru — rare, Sanskrit words (കൃഷ്ണ krishna)",
+      "r": "ṛ",
+      "t": "ഋ"
+    },
+    {
+      "hint": "ay as in say",
+      "r": "e",
+      "t": "എ"
+    },
+    {
+      "hint": "ay held longer (പേര് perŭ, name)",
+      "r": "ē",
+      "t": "ഏ"
+    },
+    {
+      "hint": "i as in line",
+      "r": "ai",
+      "t": "ഐ"
+    },
+    {
+      "hint": "o as in go",
+      "r": "o",
+      "t": "ഒ"
+    },
+    {
+      "hint": "o held longer (പോകുക pōkuka, to go)",
+      "r": "ō",
+      "t": "ഓ"
+    },
+    {
+      "hint": "ou as in loud",
+      "r": "au",
+      "t": "ഔ"
+    }
+  ],
+  "where": "Kerala and neighbouring regions",
+  "advanced_modules": []
+}

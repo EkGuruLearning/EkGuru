@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-13T17:34:44.609Z",
+ "generated": "2026-09-13T17:45:24.273Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 869,
+  "totalHtml": 871,
   "materials": 0
  },
  "countries": {
@@ -3923,8 +3923,8 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 869,
-  "sitemapUrls": 792,
+  "pages": 871,
+  "sitemapUrls": 794,
   "sitemapFiles": 14,
   "brokenLinks": 0,
   "orphans": 0
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1083 files scanned, 0 secrets"
+  "note": "1086 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "64f16c72c96b748bd5d31cc99852f8f7908d4277",
-  "subject": "v111: complete trilingual Malayalam course + new starter pack (22 pages + quiz/typing/worksheets)",
-  "buildTime": "2026-09-13T17:34:44.629Z",
+  "commit": "1cce2a922ea64c1c5be475e92c4c9df71f73401a",
+  "subject": "v112: complete trilingual Urdu course (22 pages + quiz/typing/worksheets) — 9/9 DONE",
+  "buildTime": "2026-09-13T17:45:24.290Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 869,
+   "totalHtml": 871,
    "tutorProfiles": 4,
    "materials": 0
   }
