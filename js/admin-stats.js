@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-13T16:12:31.235Z",
+ "generated": "2026-09-13T16:26:46.514Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -4558,10 +4558,10 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "a552046fcc2007cee5d02c03ac9935886791a9b8",
-  "subject": "v102b: stack burger-less nav below 480px + multi-page header checker",
-  "buildTime": "2026-09-13T16:12:31.257Z",
-  "dataSourceStatus": "PAUSED_FOR_REUPLOAD",
+  "commit": "df1b2a180aadbf9a3c29bf2a66595b157b478b06",
+  "subject": "v103: complete trilingual Bengali course (22 pages + quiz/typing/worksheets)",
+  "buildTime": "2026-09-13T16:26:46.536Z",
+  "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
    "pass": 12,
@@ -4596,15 +4596,15 @@ window.EKGURU_ADMIN_STATS = {
    "note": "Production serves the pre-Phase-2 build (no /materials/, /faq/, recovery.js). Live-sheets/*.csv ARE publicly reachable on the live site."
   },
   "sheets": {
-   "runtime": "PAUSED_FOR_REUPLOAD",
-   "publishedUrlsSupplied": false,
+   "runtime": "LIVE",
+   "publishedUrlsSupplied": true,
    "liveSheetsInRepo": [
     "content.csv",
     "reviews.csv",
     "settings.csv",
     "tutors.csv"
    ],
-   "note": "Owner supplied live-sheets/ CSVs in the reset commit; six published Google-Sheet URLs are still required before runtime activation."
+   "note": "Wired 13 Sep 2026 to the new production workbook (published CSVs, gids 1631273256/298809212/1658518385/1654125803). Tutors tab still lacks the canonical notification_email column — mail routing stays on the EkGuru inbox until the owner adds it."
   },
   "email": {
    "externalE2E": "BLOCKED_OWNER",

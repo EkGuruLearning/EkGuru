@@ -22,11 +22,11 @@
 const fs = require("fs");
 const path = require("path");
 
-const BASE = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRGCkYfn_JfKPGaUy7tGWRFoPvo7x6-cB4SLTbi-kzKY1f0k1hwXYCwYob-qHG5EKZeVrwcBeBD64fc/pub";
+const BASE = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQIman_Um2wQrj_3mXqqgq4k69zzmJHkhZ1TRoAnh2jcamhzoo-0VeTd55UieGMi6mEaTl3Zy84G44h/pub";
 const SRC = {
-  tutors:   `${BASE}?gid=834026040&single=true&output=csv`,
-  reviews:  `${BASE}?gid=1290168568&single=true&output=csv`,
-  settings: `${BASE}?gid=764031473&single=true&output=csv`,
+  tutors:   `${BASE}?gid=1631273256&single=true&output=csv`,
+  reviews:  `${BASE}?gid=298809212&single=true&output=csv`,
+  settings: `${BASE}?gid=1658518385&single=true&output=csv`,
 };
 
 /* ---------- CSV parser (same behaviour as js/sheet.js parseCSV) ---------- */
@@ -55,7 +55,10 @@ function toRecords(rows) {
     const o = {};
     head.forEach((h, i) => { if (h) o[h] = (r[i] || "").trim(); });
     return o;
-  }).filter(o => o.id);
+    /* v104 — reviews rows carry `tutor`, not `id`. The old filter dropped
+       the entire reviews tab, so buildReviews() always got [] and every
+       baked `reviews` array was empty (review text rendered nowhere). */
+  }).filter(o => o.id || o.tutor);
 }
 
 /* ---------- FIELDS transforms — ported from js/sheet.js ---------- */

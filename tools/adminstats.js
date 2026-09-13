@@ -83,7 +83,7 @@ function releaseBlock() {
   return {
     commit, subject,
     buildTime: new Date().toISOString(),
-    dataSourceStatus: "PAUSED_FOR_REUPLOAD",  // reflected from js/site-config.js at runtime
+    dataSourceStatus: "LIVE",  // reflected from js/site-config.js at runtime
     toolQa: qa && qa.summary ? qa.summary : null,
     idleRegression: idle ? { refreshRequiredAnywhere: idle.refreshRequiredAnywhere } : null,
     sections: { totalHtml, tutorProfiles, materials },
@@ -111,10 +111,10 @@ function phase3Block() {
       note: "Production serves the pre-Phase-2 build (no /materials/, /faq/, recovery.js). Live-sheets/*.csv ARE publicly reachable on the live site.",
     },
     sheets: {
-      runtime: "PAUSED_FOR_REUPLOAD",
-      publishedUrlsSupplied: false,
+      runtime: "LIVE",
+      publishedUrlsSupplied: true,
       liveSheetsInRepo: ["content.csv", "reviews.csv", "settings.csv", "tutors.csv"],
-      note: "Owner supplied live-sheets/ CSVs in the reset commit; six published Google-Sheet URLs are still required before runtime activation.",
+      note: "Wired 13 Sep 2026 to the new production workbook (published CSVs, gids 1631273256/298809212/1658518385/1654125803). Tutors tab still lacks the canonical notification_email column — mail routing stays on the EkGuru inbox until the owner adds it.",
     },
     email: {
       externalE2E: "BLOCKED_OWNER",

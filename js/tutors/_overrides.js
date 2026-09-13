@@ -2,7 +2,7 @@
    EkGuru — SHEET OVERRIDES  (GENERATED — DO NOT EDIT)
    ---------------------------------------------------------
    Written by tools/sheetsync.js from the Google Sheet on
-   2026-09-11T06:06:20.825Z.
+   2026-09-13T16:23:49.003Z.
 
    Loaded AFTER the hand-written tutor files, so the sheet
    wins. Delete this file and the site falls back to those
@@ -25,7 +25,7 @@ window.EKGURU_SHEET_OVERRIDES = {
     "headline": "Friendly Hindi Tutor — Speak, Read & Write with Confidence",
     "city": "Rajasthan, India",
     "country": "India",
-    "timezone": "IST (Asia/Kolkata)",
+    "timezone": "IST (GMT+5:30)",
     "subject": "Hindi",
     "lessonLength": "50 min",
     "priceUSD": 6,
@@ -143,14 +143,33 @@ window.EKGURU_SHEET_OVERRIDES = {
       ],
       "Sun": []
     },
-    "reviews": []
+    "reviews": [
+      {
+        "name": "Tomasz",
+        "date": "2026-07-12",
+        "stars": 5,
+        "text": "Sushila is a very patient teacher. She adjusts the tempo to the student's level and the content to his needs, is very calm and helpful. Her pronunciation is very clear and understandable. A lesson with Sushila is a highly enjoyable Hindi experience with lots of new knowledge. Thank you, Sushila!"
+      },
+      {
+        "name": "Jon",
+        "date": "2026-06-19",
+        "stars": 5,
+        "text": "Shashi is very patient and maintains a good pace during lessons. She plans the lessons according to my level, and we mostly converse in Hindi. She is a wonderful person with a calm and gentle nature — we even talk about Hindi culture. She is very professional and we share a great rapport. Shashi, you are amazing — thank you!"
+      },
+      {
+        "name": "Matthew",
+        "date": "2026-06-18",
+        "stars": 5,
+        "text": "Sushila is well organised, friendly, and most importantly she is patient. She is always fully present in class. She is helping me with my pronunciation, reading and speaking, and it is going well. Classes are fun — we read children's stories and other school material. I look forward to classes and I recommend her as a tutor."
+      }
+    ]
   },
   "hemlata": {
     "name": "Hemlata",
     "headline": "Native Hindi Tutor for Kids, Adults & Beginners — Read, Write & Speak",
     "city": "India",
     "country": "India",
-    "timezone": "IST (Asia/Kolkata)",
+    "timezone": "IST (GMT+5:30)",
     "subject": "Hindi",
     "lessonLength": "50 min",
     "priceUSD": 12,
@@ -260,7 +279,7 @@ window.EKGURU_SHEET_OVERRIDES = {
     "headline": "Experienced Hindi Tutor for Classes 1–10 — Devanagari, Grammar & Confident Speaking",
     "city": "Kolkata, India",
     "country": "India",
-    "timezone": "IST (Asia/Kolkata)",
+    "timezone": "IST (GMT+5:30)",
     "subject": "Hindi",
     "lessonLength": "50 min",
     "priceUSD": 8,
@@ -404,7 +423,7 @@ window.EKGURU_SHEET_OVERRIDES = {
     "headline": "Native Hindi Tutor — Conversation, Grammar & Script for Every Level",
     "city": "India",
     "country": "India",
-    "timezone": "IST (Asia/Kolkata)",
+    "timezone": "IST (GMT+5:30)",
     "subject": "Hindi",
     "lessonLength": "50 min",
     "priceUSD": 8,

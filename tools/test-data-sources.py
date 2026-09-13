@@ -79,7 +79,7 @@ sheets = {}
 if MODE == "LIVE":
     print("\n== 1. Configured CSV endpoints ==")
     urls = live_urls
-    BASE = "2PACX-1vRGCkYfn_JfKPGaUy7tGWRFoPvo7x6-cB4SLTbi-kzKY1f0k1hwXYCwYob-qHG5EKZeVrwcBeBD64fc"
+    BASE = "2PACX-1vQIman_Um2wQrj_3mXqqgq4k69zzmJHkhZ1TRoAnh2jcamhzoo-0VeTd55UieGMi6mEaTl3Zy84G44h"
     for u in urls:
         check(f"consolidated workbook: {u.split('/d/e/')[1].split('/')[0][:20]}…", BASE in u)
 
@@ -91,8 +91,8 @@ if MODE == "LIVE":
         status, ctype, text = fetch(u)
         rows = parse(text)
         head = [h.strip().lower() for h in rows[0]] if rows else []
-        label = {"1290168568": "reviews", "764031473": "settings",
-                 "2135319947": "content", "834026040": "tutors"}.get(g, g)
+        label = {"298809212": "reviews", "1658518385": "settings",
+                 "1654125803": "content", "1631273256": "tutors"}.get(g, g)
         sheets[label] = (rows, head)
         check(f"{label}: HTTP {status} text/csv", status == 200 and "csv" in ctype, f"{status} {ctype}")
         check(f"{label}: has header row", len(rows) >= 2 and len(head) > 0)

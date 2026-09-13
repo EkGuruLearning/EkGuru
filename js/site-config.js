@@ -660,20 +660,9 @@ window.EKGURU_SITE = {
      SETUP:  node tools/makereviews.js
      ========================================================= */
   reviews: {
-    /* (was LIVE from the consolidated production workbook; the URL is
-       removed per the reset command — see the v101 note below.) */
-    /* v101 — SHEET DATA SOURCE PAUSED FOR RE-UPLOAD  (EMAIL RESET COMMAND §3)
-       The four public CSV URLs were intentionally removed on 11 Sep 2026.
-       DATA_SOURCE_STATUS = PAUSED_FOR_REUPLOAD. The loaders keep working:
-       with csvUrl empty nothing is fetched, the baked-in local data
-       (tutor files, built-in settings, static content) is served, and the
-       admin dashboard shows "Sheets: PAUSED — new upload links required".
-       Fresh, schema-exact CSVs for re-upload live in /home/user/csv/.
-       When the new published URLs arrive, paste them back into the four
-       csvUrl fields below and delete this note. Do NOT guess URLs now. */
-    pausedForReupload: true,
-    status: "PAUSED_FOR_REUPLOAD",
-    csvUrl: "",
+    /* LIVE — new production workbook (reviews tab, gid=298809212).
+       Wired 13 Sep 2026 — HTTP 200, correct header row, 3 live rows. */
+    csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQIman_Um2wQrj_3mXqqgq4k69zzmJHkhZ1TRoAnh2jcamhzoo-0VeTd55UieGMi6mEaTl3Zy84G44h/pub?gid=298809212&single=true&output=csv",
     /* v62: 60 -> 5, same reason as the tutor sheet above. A review
        added in the morning could otherwise be invisible all
        afternoon to anyone who had loaded the page once. */
@@ -721,11 +710,9 @@ window.EKGURU_SITE = {
      file. So do baseUrl and brand — a typo in either renames the
      company or breaks every canonical URL at once. */
   settings: {
-    /* PAUSED_FOR_REUPLOAD — old public CSV URL removed (see the
-       sheet block note). Fresh CSV: csv/ekguru_settings.csv. */
-    pausedForReupload: true,
-    status: "PAUSED_FOR_REUPLOAD",
-    csvUrl: "",
+    /* LIVE — new production workbook (settings tab, gid=1658518385).
+       Wired 13 Sep 2026 — HTTP 200, key/value shape. */
+    csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQIman_Um2wQrj_3mXqqgq4k69zzmJHkhZ1TRoAnh2jcamhzoo-0VeTd55UieGMi6mEaTl3Zy84G44h/pub?gid=1658518385&single=true&output=csv",
     cacheMinutes: 5,
     alwaysRevalidate: true,
     /* The address that is currently baked into the generated
@@ -737,11 +724,9 @@ window.EKGURU_SITE = {
   },
 
   content: {
-    /* PAUSED_FOR_REUPLOAD — old public CSV URL removed (see the
-       sheet block note). Fresh CSV: csv/ekguru_content.csv. */
-    pausedForReupload: true,
-    status: "PAUSED_FOR_REUPLOAD",
-    csvUrl: ""},
+    /* LIVE — new production workbook (content tab, gid=1654125803).
+       Wired 13 Sep 2026 — HTTP 200, correct header row, 28 live + 1 draft. */
+    csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQIman_Um2wQrj_3mXqqgq4k69zzmJHkhZ1TRoAnh2jcamhzoo-0VeTd55UieGMi6mEaTl3Zy84G44h/pub?gid=1654125803&single=true&output=csv"},
 
   sheet: {
     /* LIVE since v54. Verified 8 Sep 2026 — returns HTTP 200 with all
@@ -782,17 +767,12 @@ window.EKGURU_SITE = {
        out of step until this change.
 
        Verified 11 Sep 2026: HTTP 200, all 47 columns, 4 tutors. */
-    /* v101 — SHEET DATA SOURCE PAUSED FOR RE-UPLOAD  (EMAIL RESET COMMAND §3)
-       The four public CSV URLs were intentionally removed on 11 Sep 2026.
-       DATA_SOURCE_STATUS = PAUSED_FOR_REUPLOAD. With csvUrl empty the
-       loader never fetches and the tutor files are the only source —
-       the site keeps working unchanged. Fresh, schema-exact CSVs for
-       re-upload live in /home/user/csv/ (ekguru_tutors.csv includes the
-       new canonical notification_email column). When the new published
-       URLs arrive, paste them back and delete this note. */
-    pausedForReupload: true,
-    status: "PAUSED_FOR_REUPLOAD",
-    csvUrl: "",
+    /* LIVE — new production workbook (tutors tab, gid=1631273256).
+       Wired 13 Sep 2026 — HTTP 200, 47 columns, 4 tutors.
+       NOTE: this tab still lacks the canonical notification_email column
+       (see csv/README.md) — tutor mail routing stays on the EkGuru inbox
+       until the owner adds that column and fills addresses. */
+    csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQIman_Um2wQrj_3mXqqgq4k69zzmJHkhZ1TRoAnh2jcamhzoo-0VeTd55UieGMi6mEaTl3Zy84G44h/pub?gid=1631273256&single=true&output=csv",
     /* v62 — WAS 60, AND THAT WAS THE BUG PRAKASH KEPT HITTING.
        A visitor's cached copy under an hour old BLOCKED the fetch
        entirely, so a price changed in the sheet stayed invisible for

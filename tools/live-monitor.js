@@ -12,7 +12,7 @@ const REPORTS = path.join(__dirname, "..", "reports");
 if (!fs.existsSync(REPORTS)) fs.mkdirSync(REPORTS, { recursive: true });
 
 const BASE = "https://ekguru.shop";
-const SS = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRGCkYfn_JfKPGaUy7tGWRFoPvo7x6-cB4SLTbi-kzKY1f0k1hwXYCwYob-qHG5EKZeVrwcBeBD64fc/pub";
+const SS = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQIman_Um2wQrj_3mXqqgq4k69zzmJHkhZ1TRoAnh2jcamhzoo-0VeTd55UieGMi6mEaTl3Zy84G44h/pub";
 const GAS = "https://script.google.com/macros/s/AKfycbwG978gM3Vspo0r8JmNxRojiUwA5h0tWoFd8p9vQf5x-NX9QGDB8VCr0j1LnTPoOjqtdA/exec";
 
 const checks = [];
@@ -59,10 +59,10 @@ async function main() {
   checks.push({ id: "gas", label: "Apps Script relay", url: GAS, status: gasState, http: gasHttp, latency_ms: Date.now() - t0, detail: gasDetail });
 
   for (const [id, gid, label] of [
-    ["csv-settings", "764031473", "Settings CSV"],
-    ["csv-content", "2135319947", "Content CSV"],
-    ["csv-reviews", "1290168568", "Reviews CSV"],
-    ["csv-tutors", "834026040", "Tutors CSV"],
+    ["csv-settings", "1658518385", "Settings CSV"],
+    ["csv-content", "1654125803", "Content CSV"],
+    ["csv-reviews", "298809212", "Reviews CSV"],
+    ["csv-tutors", "1631273256", "Tutors CSV"],
   ]) {
     await probe(id, label, `${SS}?gid=${gid}&single=true&output=csv`, (r, b) => !/^<html/i.test(b.trim()));
   }
