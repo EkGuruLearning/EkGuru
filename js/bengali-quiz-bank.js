@@ -554,6 +554,166 @@ window.EKGURU_BENGALI_QUIZ =
    "q": "'বিশ্রাম নিন' means…",
    "topic": "health",
    "type": "meaning"
+  },
+  {
+   "a": "salary",
+   "explain": "বেতন (beton) = salary — মজুরি is daily wages.",
+   "id": "bq-35",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "salary",
+    "bonus",
+    "leave",
+    "meeting"
+   ],
+   "q": "বেতন means…",
+   "topic": "office",
+   "type": "vocab"
+  },
+  {
+   "a": "মিটিং",
+   "explain": "মিটিং (miṭing) = meeting — মিটিং কয়টায়? (what time is the meeting?)",
+   "id": "bq-36",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "মিটিং",
+    "ছুটি",
+    "বেতন",
+    "খবর"
+   ],
+   "q": "Which is 'meeting'?",
+   "topic": "office",
+   "type": "vocab"
+  },
+  {
+   "a": "I work in an office",
+   "explain": "আমি অফিসে কাজ করি — অফিসে = in the office.",
+   "id": "bq-37",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "I work in an office",
+    "I go to the office",
+    "I need leave",
+    "I am the manager"
+   ],
+   "q": "'আমি অফিসে কাজ করি' means…",
+   "topic": "office",
+   "type": "meaning"
+  },
+  {
+   "a": "আমার কাল ছুটি দরকার",
+   "explain": "আমার কাল ছুটি দরকার = I need leave tomorrow. ছুটি = leave.",
+   "id": "bq-38",
+   "lesson": "office",
+   "level": "elementary",
+   "opts": [
+    "আমার কাল ছুটি দরকার",
+    "আমার বেতন চাই",
+    "মিটিং কয়টায়?",
+    "প্রিন্টার দিন"
+   ],
+   "q": "Ask for leave tomorrow. You say…",
+   "topic": "office",
+   "type": "usage"
+  },
+  {
+   "a": "signature",
+   "explain": "সই (soi) = signature — এখানে সই করুন (sign here).",
+   "id": "bq-39",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "signature",
+    "stamp",
+    "file",
+    "notice"
+   ],
+   "q": "সই means…",
+   "topic": "office",
+   "type": "vocab"
+  },
+  {
+   "a": "deadline",
+   "explain": "সময়সীমা (shomoyshima) = deadline — লক্ষ্য is the target.",
+   "id": "bq-40",
+   "lesson": "office",
+   "level": "elementary",
+   "opts": [
+    "deadline",
+    "target",
+    "plan",
+    "report"
+   ],
+   "q": "সময়সীমা means…",
+   "topic": "office",
+   "type": "vocab"
+  },
+  {
+   "a": "the printer is not working",
+   "explain": "প্রিন্টার কাজ করছে না — করছে না = is not doing.",
+   "id": "bq-41",
+   "lesson": "office",
+   "level": "elementary",
+   "opts": [
+    "the printer is not working",
+    "the printer is new",
+    "print this paper",
+    "the computer is on"
+   ],
+   "q": "'প্রিন্টার কাজ করছে না' means…",
+   "topic": "office",
+   "type": "meaning"
+  },
+  {
+   "a": "সকাল দশটায়",
+   "explain": "সকাল দশটায় = at ten in the morning.",
+   "id": "bq-42",
+   "lesson": "office",
+   "level": "elementary",
+   "opts": [
+    "সকাল দশটায়",
+    "কাল ছুটি",
+    "বেতন পেয়েছি",
+    "চা খাবো"
+   ],
+   "q": "Reply 'at ten in the morning'. You say…",
+   "topic": "office",
+   "type": "usage"
+  },
+  {
+   "a": "colleague",
+   "explain": "সহকর্মী (shohokormi) = colleague — সহ = co-, কর্মী = worker.",
+   "id": "bq-43",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "colleague",
+    "manager",
+    "guard",
+    "driver"
+   ],
+   "q": "সহকর্মী means…",
+   "topic": "office",
+   "type": "vocab"
+  },
+  {
+   "a": "see you tomorrow",
+   "explain": "কাল দেখা হবে — literally 'tomorrow meeting will happen'.",
+   "id": "bq-44",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "see you tomorrow",
+    "good morning",
+    "take care",
+    "well done"
+   ],
+   "q": "'কাল দেখা হবে' means…",
+   "topic": "office",
+   "type": "meaning"
   }
  ]
 };
