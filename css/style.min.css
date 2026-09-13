@@ -179,3 +179,20 @@ body.nav-open .nav-backdrop{opacity:1;visibility:visible;transition:opacity var(
 @media (min-width:1201px){
 .hdr .nav .hdr-search{display:none}
 }
+
+/* ============================================================
+   v102 — BURGER-LESS HEADERS STAY INLINE (ar/de/es/fr/ja/pt,
+   tutor profiles: 22 pages, no .burger element).
+   The drawer rules above assume a burger exists to re-open the
+   nav. On these pages the nav would sit translated off-screen
+   with no way back (pre-existing at <=1080px, caught 13 Sep 2026
+   while moving the breakpoint to 1200). Their 3-4 short links
+   fit inline, wrapping to a second row on the narrowest phones.
+   :has() is universal since 2023; where unsupported this block
+   is ignored and the old drawer behavior applies (no worse).
+   ============================================================ */
+@media (max-width:1200px){
+.hdr-in:not(:has(> .burger)) .nav{position:static;transform:none;margin:0;flex:1 1 auto;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:flex-end;background:none;border:0;box-shadow:none;padding:0;max-height:none}
+.hdr-in:not(:has(> .burger)) .nav a{padding:9px 12px;font-size:0.9rem}
+.hdr-in:not(:has(> .burger)) .nav > .btn{width:auto;margin:0}
+}
