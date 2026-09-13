@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-13T19:05:25.493Z",
+ "generated": "2026-09-13T19:17:09.215Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 918,
+  "totalHtml": 932,
   "materials": 0
  },
  "countries": {
@@ -3923,8 +3923,8 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 918,
-  "sitemapUrls": 841,
+  "pages": 932,
+  "sitemapUrls": 855,
   "sitemapFiles": 14,
   "brokenLinks": 0,
   "orphans": 0
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1174 files scanned, 0 secrets"
+  "note": "1200 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "795afda37c53554c607ba00f60c80d0c43732e21",
-  "subject": "v124: Kannada + Malayalam COMPLETE — 12 advanced modules (1631 words)",
-  "buildTime": "2026-09-13T19:05:25.505Z",
+  "commit": "498722c781ee374bc5df57c0c07ccb7995f71393",
+  "subject": "v125: Marathi + Gujarati COMPLETE — 12 advanced modules (1627 words)",
+  "buildTime": "2026-09-13T19:17:09.228Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 918,
+   "totalHtml": 932,
    "tutorProfiles": 4,
    "materials": 0
   }
