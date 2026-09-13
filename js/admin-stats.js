@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-13T17:07:46.150Z",
+ "generated": "2026-09-13T17:12:14.597Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 757,
+  "totalHtml": 779,
   "materials": 0
  },
  "countries": {
@@ -3923,8 +3923,8 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 757,
-  "sitemapUrls": 692,
+  "pages": 779,
+  "sitemapUrls": 712,
   "sitemapFiles": 14,
   "brokenLinks": 0,
   "orphans": 0
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "959 files scanned, 0 secrets"
+  "note": "983 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "c519f92f978401f3abb84660b48daf866c57b71b",
-  "subject": "v106: complete trilingual Telugu course (22 pages + quiz/typing/worksheets)",
-  "buildTime": "2026-09-13T17:07:46.162Z",
+  "commit": "4d133aaeb0305eac76ed50ed8595232983698a2c",
+  "subject": "v107: complete trilingual Tamil course (22 pages + quiz/typing/worksheets)",
+  "buildTime": "2026-09-13T17:12:14.610Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 757,
+   "totalHtml": 779,
    "tutorProfiles": 4,
    "materials": 0
   }
