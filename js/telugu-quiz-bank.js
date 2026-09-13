@@ -394,6 +394,326 @@ window.EKGURU_TELUGU_QUIZ =
     "now"
    ],
    "explain": "రేపు (rēpu) = tomorrow. Yesterday is నిన్న — Telugu splits them cleanly."
+  },
+  {
+   "a": "fever",
+   "explain": "జ్వరం (jvaraṁ) = fever — నాకు జ్వరం (I have a fever).",
+   "id": "tq-25",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "fever",
+    "cough",
+    "cold",
+    "pain"
+   ],
+   "q": "జ్వరం means…",
+   "topic": "health",
+   "type": "vocab"
+  },
+  {
+   "a": "డాక్టర్",
+   "explain": "డాక్టర్ (ḍākṭar) = doctor.",
+   "id": "tq-26",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "డాక్టర్",
+    "నర్సు",
+    "రోగి",
+    "సర్జన్"
+   ],
+   "q": "Which is 'doctor'?",
+   "topic": "health",
+   "type": "vocab"
+  },
+  {
+   "a": "I am not feeling well",
+   "explain": "ఒంట్లో బాగాలేదు — ఒళ్ళు = body.",
+   "id": "tq-27",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "I am not feeling well",
+    "I have a fever",
+    "take rest",
+    "get well soon"
+   ],
+   "q": "'ఒంట్లో బాగాలేదు' means…",
+   "topic": "health",
+   "type": "meaning"
+  },
+  {
+   "a": "మందుల దుకాణం ఎక్కడ?",
+   "explain": "మందుల దుకాణం ఎక్కడ? — ఎక్కడ = where.",
+   "id": "tq-28",
+   "lesson": "health",
+   "level": "elementary",
+   "opts": [
+    "మందుల దుకాణం ఎక్కడ?",
+    "ఆసుపత్రి ఎక్కడ?",
+    "డాక్టర్ ఎక్కడ?",
+    "ఇల్లు ఎక్కడ?"
+   ],
+   "q": "Ask where the pharmacy is. You say…",
+   "topic": "health",
+   "type": "usage"
+  },
+  {
+   "a": "heart",
+   "explain": "గుండె (guṇḍe) = heart.",
+   "id": "tq-29",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "heart",
+    "lung",
+    "stomach",
+    "liver"
+   ],
+   "q": "గుండె means…",
+   "topic": "health",
+   "type": "vocab"
+  },
+  {
+   "a": "medical diet",
+   "explain": "పథ్యం (pathyaṁ) — the doctor's diet rules.",
+   "id": "tq-30",
+   "lesson": "health",
+   "level": "elementary",
+   "opts": [
+    "medical diet",
+    "home remedy",
+    "herbal medicine",
+    "first aid"
+   ],
+   "q": "పథ్యం means…",
+   "topic": "health",
+   "type": "vocab"
+  },
+  {
+   "a": "get well soon",
+   "explain": "త్వరగా కోలుకోండి — త్వరగా = soon.",
+   "id": "tq-31",
+   "lesson": "health",
+   "level": "elementary",
+   "opts": [
+    "get well soon",
+    "take rest",
+    "drink hot water",
+    "call a doctor"
+   ],
+   "q": "'త్వరగా కోలుకోండి' means…",
+   "topic": "health",
+   "type": "meaning"
+  },
+  {
+   "a": "నోరు తెరవండి",
+   "explain": "నోరు తెరవండి = open your mouth — నోరు = mouth.",
+   "id": "tq-32",
+   "lesson": "health",
+   "level": "elementary",
+   "opts": [
+    "నోరు తెరవండి",
+    "కళ్ళు మూయండి",
+    "చేయి చాపండి",
+    "లేచి నిలబడండి"
+   ],
+   "q": "The doctor says 'open your mouth'. She says…",
+   "topic": "health",
+   "type": "usage"
+  },
+  {
+   "a": "injection",
+   "explain": "ఇంజెక్షన్ (iñjekshan) — injection; సూది = needle.",
+   "id": "tq-33",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "injection",
+    "tablet",
+    "syrup",
+    "ointment"
+   ],
+   "q": "ఇంజెక్షన్ means…",
+   "topic": "health",
+   "type": "vocab"
+  },
+  {
+   "a": "take rest",
+   "explain": "విశ్రాంతి తీసుకోండి — విశ్రాంతి = rest.",
+   "id": "tq-34",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "take rest",
+    "wake up",
+    "breathe deeply",
+    "walk daily"
+   ],
+   "q": "'విశ్రాంతి తీసుకోండి' means…",
+   "topic": "health",
+   "type": "meaning"
+  },
+  {
+   "a": "salary",
+   "explain": "జీతం (jītaṁ) = salary.",
+   "id": "tq-35",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "salary",
+    "bonus",
+    "loan",
+    "bill"
+   ],
+   "q": "జీతం means…",
+   "topic": "office",
+   "type": "vocab"
+  },
+  {
+   "a": "కంప్యూటర్",
+   "explain": "కంప్యూటర్ (kampyūṭar) = computer.",
+   "id": "tq-36",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "కంప్యూటర్",
+    "ప్రింటర్",
+    "ఫైలు",
+    "టేబుల్"
+   ],
+   "q": "Which is 'computer'?",
+   "topic": "office",
+   "type": "vocab"
+  },
+  {
+   "a": "come on time",
+   "explain": "సమయానికి రండి — సమయం = time.",
+   "id": "tq-37",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "come on time",
+    "go home early",
+    "work fast",
+    "take leave"
+   ],
+   "q": "'సమయానికి రండి' means…",
+   "topic": "office",
+   "type": "meaning"
+  },
+  {
+   "a": "రేపు సెలవు కావాలి",
+   "explain": "రేపు సెలవు కావాలి — సెలవు = leave.",
+   "id": "tq-38",
+   "lesson": "office",
+   "level": "elementary",
+   "opts": [
+    "రేపు సెలవు కావాలి",
+    "రేపు మీటింగ్ ఉంది",
+    "రేపు జీతం వస్తుంది",
+    "రేపు సెలవు లేదు"
+   ],
+   "q": "Ask for tomorrow's leave. You say…",
+   "topic": "office",
+   "type": "usage"
+  },
+  {
+   "a": "signature",
+   "explain": "సంతకం (santakaṁ) = signature.",
+   "id": "tq-39",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "signature",
+    "stamp",
+    "file",
+    "seal"
+   ],
+   "q": "సంతకం means…",
+   "topic": "office",
+   "type": "vocab"
+  },
+  {
+   "a": "photocopy",
+   "explain": "జిరాక్స్ (jirāks) — from Xerox! Telugu for photocopy.",
+   "id": "tq-40",
+   "lesson": "office",
+   "level": "elementary",
+   "opts": [
+    "photocopy",
+    "printout",
+    "scanner",
+    "file"
+   ],
+   "q": "జిరాక్స్ means…",
+   "topic": "office",
+   "type": "vocab"
+  },
+  {
+   "a": "the work is finished",
+   "explain": "పని పూర్తయింది — పూర్తి = complete.",
+   "id": "tq-41",
+   "lesson": "office",
+   "level": "elementary",
+   "opts": [
+    "the work is finished",
+    "the work begins",
+    "the work is difficult",
+    "the work can wait"
+   ],
+   "q": "'పని పూర్తయింది' means…",
+   "topic": "office",
+   "type": "meaning"
+  },
+  {
+   "a": "ఈమెయిల్ పంపండి",
+   "explain": "ఈమెయిల్ పంపండి — పంపండి = send.",
+   "id": "tq-42",
+   "lesson": "office",
+   "level": "elementary",
+   "opts": [
+    "ఈమెయిల్ పంపండి",
+    "ఉత్తరం రాయండి",
+    "ఫోన్ చేయండి",
+    "మీటింగ్‌కి రండి"
+   ],
+   "q": "Tell someone to send the email. You say…",
+   "topic": "office",
+   "type": "usage"
+  },
+  {
+   "a": "leave",
+   "explain": "సెలవు (selavu) = leave; సెలవు దినం = holiday.",
+   "id": "tq-43",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "leave",
+    "holiday",
+    "salary",
+    "bonus"
+   ],
+   "q": "సెలవు means…",
+   "topic": "office",
+   "type": "vocab"
+  },
+  {
+   "a": "good job!",
+   "explain": "మంచి పని! — మంచి = good.",
+   "id": "tq-44",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "good job!",
+    "go home!",
+    "sit down!",
+    "wait here!"
+   ],
+   "q": "'మంచి పని!' means…",
+   "topic": "office",
+   "type": "meaning"
   }
  ]
 };
