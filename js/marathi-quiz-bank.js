@@ -394,6 +394,966 @@ window.EKGURU_MARATHI_QUIZ =
     "now"
    ],
    "explain": "उद्या (udyā) = tomorrow. Yesterday is काल — Marathi splits what Hindi/Bengali काल covers."
+  },
+  {
+   "a": "fever",
+   "explain": "ताप (tap) = fever — मला ताप आहे (I have a fever).",
+   "id": "mq-25",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "fever",
+    "cough",
+    "cold",
+    "pain"
+   ],
+   "q": "ताप means…",
+   "topic": "health",
+   "type": "vocab"
+  },
+  {
+   "a": "डॉक्टर",
+   "explain": "डॉक्टर (doktar) = doctor.",
+   "id": "mq-26",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "डॉक्टर",
+    "नर्स",
+    "रुग्ण",
+    "सर्जन"
+   ],
+   "q": "Which is 'doctor'?",
+   "topic": "health",
+   "type": "vocab"
+  },
+  {
+   "a": "I am not feeling well",
+   "explain": "मला बरं वाटत नाही — बरं = well.",
+   "id": "mq-27",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "I am not feeling well",
+    "I have a fever",
+    "take rest",
+    "get well soon"
+   ],
+   "q": "'मला बरं वाटत नाही' means…",
+   "topic": "health",
+   "type": "meaning"
+  },
+  {
+   "a": "औषध दुकान कुठे आहे?",
+   "explain": "औषध दुकान कुठे आहे? — कुठे = where.",
+   "id": "mq-28",
+   "lesson": "health",
+   "level": "elementary",
+   "opts": [
+    "औषध दुकान कुठे आहे?",
+    "रुग्णालय कुठे आहे?",
+    "डॉक्टर कुठे आहेत?",
+    "घर कुठे आहे?"
+   ],
+   "q": "Ask where the pharmacy is. You say…",
+   "topic": "health",
+   "type": "usage"
+  },
+  {
+   "a": "heart",
+   "explain": "हृदय (hriday) = heart.",
+   "id": "mq-29",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "heart",
+    "lung",
+    "stomach",
+    "liver"
+   ],
+   "q": "हृदय means…",
+   "topic": "health",
+   "type": "vocab"
+  },
+  {
+   "a": "medical diet",
+   "explain": "पथ्य (pathya) — the doctor's diet rules.",
+   "id": "mq-30",
+   "lesson": "health",
+   "level": "elementary",
+   "opts": [
+    "medical diet",
+    "home remedy",
+    "herbal medicine",
+    "first aid"
+   ],
+   "q": "पथ्य means…",
+   "topic": "health",
+   "type": "vocab"
+  },
+  {
+   "a": "get well soon",
+   "explain": "लवकर बरे व्हा — लवकर = soon.",
+   "id": "mq-31",
+   "lesson": "health",
+   "level": "elementary",
+   "opts": [
+    "get well soon",
+    "take rest",
+    "drink hot water",
+    "call a doctor"
+   ],
+   "q": "'लवकर बरे व्हा' means…",
+   "topic": "health",
+   "type": "meaning"
+  },
+  {
+   "a": "तोंड उघडा",
+   "explain": "तोंड उघडा = open your mouth — तोंड = mouth.",
+   "id": "mq-32",
+   "lesson": "health",
+   "level": "elementary",
+   "opts": [
+    "तोंड उघडा",
+    "डोळे मिटा",
+    "हात पुढे करा",
+    "उठून उभे राहा"
+   ],
+   "q": "The doctor says 'open your mouth'. She says…",
+   "topic": "health",
+   "type": "usage"
+  },
+  {
+   "a": "injection",
+   "explain": "इंजेक्शन (injection) — injection; सुई = needle.",
+   "id": "mq-33",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "injection",
+    "tablet",
+    "syrup",
+    "ointment"
+   ],
+   "q": "इंजेक्शन means…",
+   "topic": "health",
+   "type": "vocab"
+  },
+  {
+   "a": "take rest",
+   "explain": "विश्रांती घ्या — विश्रांती = rest.",
+   "id": "mq-34",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "take rest",
+    "wake up",
+    "breathe deeply",
+    "walk daily"
+   ],
+   "q": "'विश्रांती घ्या' means…",
+   "topic": "health",
+   "type": "meaning"
+  },
+  {
+   "a": "salary",
+   "explain": "पगार (pagar) = salary.",
+   "id": "mq-35",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "salary",
+    "bonus",
+    "loan",
+    "bill"
+   ],
+   "q": "पगार means…",
+   "topic": "office",
+   "type": "vocab"
+  },
+  {
+   "a": "कॉम्प्युटर",
+   "explain": "कॉम्प्युटर (computer) = computer.",
+   "id": "mq-36",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "कॉम्प्युटर",
+    "प्रिंटर",
+    "फाईल",
+    "डेस्क"
+   ],
+   "q": "Which is 'computer'?",
+   "topic": "office",
+   "type": "vocab"
+  },
+  {
+   "a": "come on time",
+   "explain": "वेळेत या — वेळ = time.",
+   "id": "mq-37",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "come on time",
+    "go home early",
+    "work fast",
+    "take leave"
+   ],
+   "q": "'वेळेत या' means…",
+   "topic": "office",
+   "type": "meaning"
+  },
+  {
+   "a": "उद्या मला रजा हवी",
+   "explain": "उद्या मला रजा हवी — रजा = leave.",
+   "id": "mq-38",
+   "lesson": "office",
+   "level": "elementary",
+   "opts": [
+    "उद्या मला रजा हवी",
+    "उद्या मीटिंग आहे",
+    "उद्या पगार होणार",
+    "उद्या रजा नाही"
+   ],
+   "q": "Ask for tomorrow's leave. You say…",
+   "topic": "office",
+   "type": "usage"
+  },
+  {
+   "a": "signature",
+   "explain": "सही (sahi) = signature.",
+   "id": "mq-39",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "signature",
+    "stamp",
+    "file",
+    "seal"
+   ],
+   "q": "सही means…",
+   "topic": "office",
+   "type": "vocab"
+  },
+  {
+   "a": "photocopy",
+   "explain": "झेरॉक्स (jherox) — from Xerox! Marathi for photocopy.",
+   "id": "mq-40",
+   "lesson": "office",
+   "level": "elementary",
+   "opts": [
+    "photocopy",
+    "printout",
+    "scanner",
+    "file"
+   ],
+   "q": "झेरॉक्स means…",
+   "topic": "office",
+   "type": "vocab"
+  },
+  {
+   "a": "the work is finished",
+   "explain": "काम संपलं — संपणं = to finish.",
+   "id": "mq-41",
+   "lesson": "office",
+   "level": "elementary",
+   "opts": [
+    "the work is finished",
+    "the work begins",
+    "the work is difficult",
+    "the work can wait"
+   ],
+   "q": "'काम संपलं' means…",
+   "topic": "office",
+   "type": "meaning"
+  },
+  {
+   "a": "ईमेल पाठवा",
+   "explain": "ईमेल पाठवा — पाठवा = send.",
+   "id": "mq-42",
+   "lesson": "office",
+   "level": "elementary",
+   "opts": [
+    "ईमेल पाठवा",
+    "पत्र लिहा",
+    "फोन करा",
+    "मीटिंगला या"
+   ],
+   "q": "Tell someone to send the email. You say…",
+   "topic": "office",
+   "type": "usage"
+  },
+  {
+   "a": "leave",
+   "explain": "रजा (raja) = leave.",
+   "id": "mq-43",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "leave",
+    "holiday",
+    "salary",
+    "bonus"
+   ],
+   "q": "रजा means…",
+   "topic": "office",
+   "type": "vocab"
+  },
+  {
+   "a": "good job!",
+   "explain": "छान काम! — छान = nice.",
+   "id": "mq-44",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "good job!",
+    "go home!",
+    "sit down!",
+    "wait here!"
+   ],
+   "q": "'छान काम!' means…",
+   "topic": "office",
+   "type": "meaning"
+  },
+  {
+   "a": "teacher",
+   "explain": "गुरुजी (guruji) — the respectful word for teacher.",
+   "id": "mq-45",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "teacher",
+    "student",
+    "lesson",
+    "exam"
+   ],
+   "q": "गुरुजी means…",
+   "topic": "education",
+   "type": "vocab"
+  },
+  {
+   "a": "नवीन पुस्तक",
+   "explain": "नवीन पुस्तक (navin pustak) = new book.",
+   "id": "mq-46",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "नवीन पुस्तक",
+    "वही",
+    "कागद",
+    "अक्षर"
+   ],
+   "q": "Which is 'new book'?",
+   "topic": "education",
+   "type": "vocab"
+  },
+  {
+   "a": "I did not understand",
+   "explain": "समजलं नाही — नाही = not.",
+   "id": "mq-47",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "I did not understand",
+    "I understood",
+    "I forgot",
+    "I remembered"
+   ],
+   "q": "'समजलं नाही' means…",
+   "topic": "education",
+   "type": "meaning"
+  },
+  {
+   "a": "गृहपाठ काय आहे?",
+   "explain": "गृहपाठ काय आहे? — गृहपाठ = homework.",
+   "id": "mq-48",
+   "lesson": "education",
+   "level": "elementary",
+   "opts": [
+    "गृहपाठ काय आहे?",
+    "परीक्षा केव्हा आहे?",
+    "धडा काय आहे?",
+    "उत्तर काय आहे?"
+   ],
+   "q": "Ask what the homework is. You say…",
+   "topic": "education",
+   "type": "usage"
+  },
+  {
+   "a": "exam",
+   "explain": "परीक्षा (pariksha) = exam.",
+   "id": "mq-49",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "exam",
+    "lesson",
+    "homework",
+    "mark"
+   ],
+   "q": "परीक्षा means…",
+   "topic": "education",
+   "type": "vocab"
+  },
+  {
+   "a": "dictionary",
+   "explain": "शब्दकोश (shabdakosh) = dictionary.",
+   "id": "mq-50",
+   "lesson": "education",
+   "level": "elementary",
+   "opts": [
+    "dictionary",
+    "library",
+    "notebook",
+    "textbook"
+   ],
+   "q": "शब्दकोश means…",
+   "topic": "education",
+   "type": "vocab"
+  },
+  {
+   "a": "I passed!",
+   "explain": "मी पास झालो! — पास = passed.",
+   "id": "mq-51",
+   "lesson": "education",
+   "level": "elementary",
+   "opts": [
+    "I passed!",
+    "I failed!",
+    "I studied!",
+    "I wrote!"
+   ],
+   "q": "'मी पास झालो!' means…",
+   "topic": "education",
+   "type": "meaning"
+  },
+  {
+   "a": "मोठ्याने वाचा",
+   "explain": "मोठ्याने वाचा — मोठ्याने = loudly.",
+   "id": "mq-52",
+   "lesson": "education",
+   "level": "elementary",
+   "opts": [
+    "मोठ्याने वाचा",
+    "हळू वाचा",
+    "भरभर लिहा",
+    "गपचूप बसा"
+   ],
+   "q": "Tell a child to read loudly. You say…",
+   "topic": "education",
+   "type": "usage"
+  },
+  {
+   "a": "high school",
+   "explain": "माध्यमिक शाळा (madhyamik shala) = high school.",
+   "id": "mq-53",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "high school",
+    "college",
+    "library",
+    "class"
+   ],
+   "q": "माध्यमिक शाळा means…",
+   "topic": "education",
+   "type": "vocab"
+  },
+  {
+   "a": "a question",
+   "explain": "प्रश्न (prashna) = question; उत्तर = answer.",
+   "id": "mq-54",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "a question",
+    "an answer",
+    "a mark",
+    "a lesson"
+   ],
+   "q": "प्रश्न means…",
+   "topic": "education",
+   "type": "vocab"
+  },
+  {
+   "a": "rain",
+   "explain": "पाऊस (paus) = rain.",
+   "id": "mq-55",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "rain",
+    "wind",
+    "cloud",
+    "sun"
+   ],
+   "q": "पाऊस means…",
+   "topic": "weather",
+   "type": "vocab"
+  },
+  {
+   "a": "सूर्य",
+   "explain": "सूर्य (surya) = sun.",
+   "id": "mq-56",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "सूर्य",
+    "चंद्र",
+    "तारा",
+    "आकाश"
+   ],
+   "q": "Which is 'sun'?",
+   "topic": "weather",
+   "type": "vocab"
+  },
+  {
+   "a": "it is raining",
+   "explain": "पाऊस पडतोय — पडणं = to fall.",
+   "id": "mq-57",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "it is raining",
+    "it is hot",
+    "it is cold",
+    "it is windy"
+   ],
+   "q": "'पाऊस पडतोय' means…",
+   "topic": "weather",
+   "type": "meaning"
+  },
+  {
+   "a": "छत्री घे",
+   "explain": "छत्री घे — छत्री = umbrella.",
+   "id": "mq-58",
+   "lesson": "weather",
+   "level": "elementary",
+   "opts": [
+    "छत्री घे",
+    "टोपी घाल",
+    "स्वेटर घाल",
+    "बूट घाल"
+   ],
+   "q": "Tell a friend to take the umbrella. You say…",
+   "topic": "weather",
+   "type": "usage"
+  },
+  {
+   "a": "moon",
+   "explain": "चंद्र (chandra) = moon.",
+   "id": "mq-59",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "moon",
+    "sun",
+    "star",
+    "sky"
+   ],
+   "q": "चंद्र means…",
+   "topic": "weather",
+   "type": "vocab"
+  },
+  {
+   "a": "thunder",
+   "explain": "गडगडाट (gadgadat) = thunder; वीज = lightning.",
+   "id": "mq-60",
+   "lesson": "weather",
+   "level": "elementary",
+   "opts": [
+    "thunder",
+    "lightning",
+    "rain",
+    "storm"
+   ],
+   "q": "गडगडाट means…",
+   "topic": "weather",
+   "type": "vocab"
+  },
+  {
+   "a": "rain has stopped",
+   "explain": "पाऊस थांबला — थांबणं = to stop.",
+   "id": "mq-61",
+   "lesson": "weather",
+   "level": "elementary",
+   "opts": [
+    "rain has stopped",
+    "rain has started",
+    "rain is heavy",
+    "rain will come"
+   ],
+   "q": "'पाऊस थांबला' means…",
+   "topic": "weather",
+   "type": "meaning"
+  },
+  {
+   "a": "हवामान कसं आहे?",
+   "explain": "हवामान कसं आहे? — कसं = how.",
+   "id": "mq-62",
+   "lesson": "weather",
+   "level": "elementary",
+   "opts": [
+    "हवामान कसं आहे?",
+    "पाऊस पडतोय का?",
+    "उकाडा आहे का?",
+    "थंडी आहे का?"
+   ],
+   "q": "Ask how the weather is. You say…",
+   "topic": "weather",
+   "type": "usage"
+  },
+  {
+   "a": "cloud",
+   "explain": "ढग (dhag) = cloud.",
+   "id": "mq-63",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "cloud",
+    "fog",
+    "mist",
+    "smoke"
+   ],
+   "q": "ढग means…",
+   "topic": "weather",
+   "type": "vocab"
+  },
+  {
+   "a": "a rainbow",
+   "explain": "इंद्रधनुष्य (indradhanushya) — Indra's bow!",
+   "id": "mq-64",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "a rainbow",
+    "a star",
+    "a cloud",
+    "a storm"
+   ],
+   "q": "इंद्रधनुष्य means…",
+   "topic": "weather",
+   "type": "vocab"
+  },
+  {
+   "a": "food / meal",
+   "explain": "जेवण (jevan) = cooked food / meal.",
+   "id": "mq-65",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "food / meal",
+    "water",
+    "house",
+    "kitchen"
+   ],
+   "q": "जेवण means…",
+   "topic": "home",
+   "type": "vocab"
+  },
+  {
+   "a": "स्वतःचं घर",
+   "explain": "स्वतःचं घर (svatach ghar) = own house.",
+   "id": "mq-66",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "स्वतःचं घर",
+    "दरवाजा",
+    "खिडकी",
+    "खोली"
+   ],
+   "q": "Which is 'own house'?",
+   "topic": "home",
+   "type": "vocab"
+  },
+  {
+   "a": "the food is ready",
+   "explain": "जेवण तयार आहे — तयार = ready.",
+   "id": "mq-67",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "the food is ready",
+    "the food is tasty",
+    "the food is hot",
+    "the food is over"
+   ],
+   "q": "'जेवण तयार आहे' means…",
+   "topic": "home",
+   "type": "meaning"
+  },
+  {
+   "a": "हात धुवा",
+   "explain": "हात धुवा — हात = hand.",
+   "id": "mq-68",
+   "lesson": "home",
+   "level": "elementary",
+   "opts": [
+    "हात धुवा",
+    "तोंड धुवा",
+    "पाय धुवा",
+    "केस धुवा"
+   ],
+   "q": "Tell a child to wash hands. You say…",
+   "topic": "home",
+   "type": "usage"
+  },
+  {
+   "a": "door",
+   "explain": "दरवाजा (darvaja) = door.",
+   "id": "mq-69",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "door",
+    "window",
+    "wall",
+    "roof"
+   ],
+   "q": "दरवाजा means…",
+   "topic": "home",
+   "type": "vocab"
+  },
+  {
+   "a": "hot rice",
+   "explain": "गरम भात — hot rice; तांदूळ = raw rice.",
+   "id": "mq-70",
+   "lesson": "home",
+   "level": "elementary",
+   "opts": [
+    "hot rice",
+    "dal",
+    "curry",
+    "roti"
+   ],
+   "q": "गरम भात means…",
+   "topic": "home",
+   "type": "vocab"
+  },
+  {
+   "a": "it is very tasty!",
+   "explain": "खूप चविष्ट आहे! — चव = taste.",
+   "id": "mq-71",
+   "lesson": "home",
+   "level": "elementary",
+   "opts": [
+    "it is very tasty!",
+    "it is very hot!",
+    "it is very sweet!",
+    "it is enough!"
+   ],
+   "q": "'खूप चविष्ट आहे!' means…",
+   "topic": "home",
+   "type": "meaning"
+  },
+  {
+   "a": "दरवाजा बंद करा",
+   "explain": "दरवाजा बंद करा — बंद = closed.",
+   "id": "mq-72",
+   "lesson": "home",
+   "level": "elementary",
+   "opts": [
+    "दरवाजा बंद करा",
+    "खिडकी उघडा",
+    "दिवा लावा",
+    "टीव्ही चालू करा"
+   ],
+   "q": "Say 'close the door'. You say…",
+   "topic": "home",
+   "type": "usage"
+  },
+  {
+   "a": "drinking water",
+   "explain": "प्यायचं पाणी = drinking water.",
+   "id": "mq-73",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "drinking water",
+    "milk",
+    "oil",
+    "fire"
+   ],
+   "q": "प्यायचं पाणी means…",
+   "topic": "home",
+   "type": "vocab"
+  },
+  {
+   "a": "go to sleep",
+   "explain": "झोपायला जा — झोपणं = to sleep.",
+   "id": "mq-74",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "go to sleep",
+    "wake up",
+    "sit down",
+    "come here"
+   ],
+   "q": "'झोपायला जा' means…",
+   "topic": "home",
+   "type": "meaning"
+  },
+  {
+   "a": "festival",
+   "explain": "सण (san) = festival.",
+   "id": "mq-75",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "festival",
+    "fast",
+    "fair",
+    "temple"
+   ],
+   "q": "सण means…",
+   "topic": "festivals",
+   "type": "vocab"
+  },
+  {
+   "a": "गुढीपाडवा",
+   "explain": "गुढीपाडवा (gudhipadva) — the Marathi New Year!",
+   "id": "mq-76",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "गुढीपाडवा",
+    "दसरा",
+    "दिवाळी",
+    "संक्रांत"
+   ],
+   "q": "Which is the Marathi New Year?",
+   "topic": "festivals",
+   "type": "vocab"
+  },
+  {
+   "a": "happy festival!",
+   "explain": "सणाच्या शुभेच्छा! — शुभेच्छा = greetings.",
+   "id": "mq-77",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "happy festival!",
+    "happy journey!",
+    "good morning!",
+    "welcome home!"
+   ],
+   "q": "'सणाच्या शुभेच्छा!' means…",
+   "topic": "festivals",
+   "type": "meaning"
+  },
+  {
+   "a": "गोडधोड खा",
+   "explain": "गोडधोड खा — गोड = sweet.",
+   "id": "mq-78",
+   "lesson": "festivals",
+   "level": "elementary",
+   "opts": [
+    "गोडधोड खा",
+    "जेवण कर",
+    "पाणी पी",
+    "चहा पी"
+   ],
+   "q": "Offer guests sweets. You say…",
+   "topic": "festivals",
+   "type": "usage"
+  },
+  {
+   "a": "festival lamp",
+   "explain": "सणाचा दिवा — the lamp lit for the festival.",
+   "id": "mq-79",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "festival lamp",
+    "candle",
+    "fire",
+    "star"
+   ],
+   "q": "सणाचा दिवा means…",
+   "topic": "festivals",
+   "type": "vocab"
+  },
+  {
+   "a": "Ganpati immersion day",
+   "explain": "अनंत चतुर्दशी (anant chaturdashi) — Ganpati immersion day!",
+   "id": "mq-80",
+   "lesson": "festivals",
+   "level": "elementary",
+   "opts": [
+    "Ganpati immersion day",
+    "Diwali",
+    "Holi",
+    "Dussehra"
+   ],
+   "q": "अनंत चतुर्दशी is…",
+   "topic": "festivals",
+   "type": "vocab"
+  },
+  {
+   "a": "light the lamp",
+   "explain": "दिवा लावा — लावणं = to light.",
+   "id": "mq-81",
+   "lesson": "festivals",
+   "level": "elementary",
+   "opts": [
+    "light the lamp",
+    "close the door",
+    "cook the food",
+    "ring the bell"
+   ],
+   "q": "'दिवा लावा' means…",
+   "topic": "festivals",
+   "type": "meaning"
+  },
+  {
+   "a": "मंदिरात जा",
+   "explain": "मंदिरात जा — मंदिर = temple.",
+   "id": "mq-82",
+   "lesson": "festivals",
+   "level": "elementary",
+   "opts": [
+    "मंदिरात जा",
+    "घरी जा",
+    "दुकानात जा",
+    "शाळेत जा"
+   ],
+   "q": "Say 'go to the temple'. You say…",
+   "topic": "festivals",
+   "type": "usage"
+  },
+  {
+   "a": "prayer",
+   "explain": "प्रार्थना (prarthana) = prayer.",
+   "id": "mq-83",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "prayer",
+    "fast",
+    "fair",
+    "song"
+   ],
+   "q": "प्रार्थना means…",
+   "topic": "festivals",
+   "type": "vocab"
+  },
+  {
+   "a": "sweets",
+   "explain": "गोडधोड (goddhod) = sweets.",
+   "id": "mq-84",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "sweets",
+    "fruits",
+    "flowers",
+    "clothes"
+   ],
+   "q": "गोडधोड means…",
+   "topic": "festivals",
+   "type": "vocab"
   }
  ]
 };

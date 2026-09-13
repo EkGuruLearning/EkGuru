@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-13T18:52:58.994Z",
+ "generated": "2026-09-13T19:05:25.493Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 904,
+  "totalHtml": 918,
   "materials": 0
  },
  "countries": {
@@ -3923,8 +3923,8 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 904,
-  "sitemapUrls": 827,
+  "pages": 918,
+  "sitemapUrls": 841,
   "sitemapFiles": 14,
   "brokenLinks": 0,
   "orphans": 0
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1148 files scanned, 0 secrets"
+  "note": "1174 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "50dec0dc43add7c01107ea619a140ceb81f1d775",
-  "subject": "v123: Telugu COMPLETE — Education + Weather + Home + Festivals (517 words)",
-  "buildTime": "2026-09-13T18:52:59.010Z",
+  "commit": "795afda37c53554c607ba00f60c80d0c43732e21",
+  "subject": "v124: Kannada + Malayalam COMPLETE — 12 advanced modules (1631 words)",
+  "buildTime": "2026-09-13T19:05:25.505Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 904,
+   "totalHtml": 918,
    "tutorProfiles": 4,
    "materials": 0
   }
