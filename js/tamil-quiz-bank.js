@@ -394,6 +394,166 @@ window.EKGURU_TAMIL_QUIZ =
     "now"
    ],
    "explain": "நாளை (nāḷai) = tomorrow. Yesterday is நேற்று."
+  },
+  {
+   "a": "fever",
+   "explain": "காய்ச்சல் (kāychchal) = fever — எனக்கு காய்ச்சல் (I have a fever).",
+   "id": "tm-25",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "fever",
+    "cough",
+    "cold",
+    "pain"
+   ],
+   "q": "காய்ச்சல் means…",
+   "topic": "health",
+   "type": "vocab"
+  },
+  {
+   "a": "மருத்துவர்",
+   "explain": "மருத்துவர் (maruttuvam) — மருந்து = medicine.",
+   "id": "tm-26",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "மருத்துவர்",
+    "செவிலியர்",
+    "நோயாளி",
+    "மருந்தாளுநர்"
+   ],
+   "q": "Which is 'doctor'?",
+   "topic": "health",
+   "type": "vocab"
+  },
+  {
+   "a": "I am not feeling well",
+   "explain": "உடம்பு சரியில்லை — உடம்பு = body.",
+   "id": "tm-27",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "I am not feeling well",
+    "I have a fever",
+    "take rest",
+    "get well soon"
+   ],
+   "q": "'உடம்பு சரியில்லை' means…",
+   "topic": "health",
+   "type": "meaning"
+  },
+  {
+   "a": "மருந்தகம் எங்கே?",
+   "explain": "மருந்தகம் எங்கே? — எங்கே = where.",
+   "id": "tm-28",
+   "lesson": "health",
+   "level": "elementary",
+   "opts": [
+    "மருந்தகம் எங்கே?",
+    "மருத்துவமனை எங்கே?",
+    "டாக்டர் எங்கே?",
+    "வீடு எங்கே?"
+   ],
+   "q": "Ask where the pharmacy is. You say…",
+   "topic": "health",
+   "type": "usage"
+  },
+  {
+   "a": "heart",
+   "explain": "இதயம் (idayam) = heart.",
+   "id": "tm-29",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "heart",
+    "lung",
+    "stomach",
+    "liver"
+   ],
+   "q": "இதயம் means…",
+   "topic": "health",
+   "type": "vocab"
+  },
+  {
+   "a": "medical diet",
+   "explain": "பத்தியம் (pattiyam) — the doctor's diet rules. Tamil patients ask: பத்தியம் உண்டா?",
+   "id": "tm-30",
+   "lesson": "health",
+   "level": "elementary",
+   "opts": [
+    "medical diet",
+    "home remedy",
+    "herbal medicine",
+    "first aid"
+   ],
+   "q": "பத்தியம் means…",
+   "topic": "health",
+   "type": "vocab"
+  },
+  {
+   "a": "get well soon",
+   "explain": "சீக்கிரம் குணமடையுங்கள் — சீக்கிரம் = soon.",
+   "id": "tm-31",
+   "lesson": "health",
+   "level": "elementary",
+   "opts": [
+    "get well soon",
+    "take rest",
+    "drink hot water",
+    "call a doctor"
+   ],
+   "q": "'சீக்கிரம் குணமடையுங்கள்' means…",
+   "topic": "health",
+   "type": "meaning"
+  },
+  {
+   "a": "வாயைத் திறங்கள்",
+   "explain": "வாயைத் திறங்கள் = open your mouth — வாய் = mouth.",
+   "id": "tm-32",
+   "lesson": "health",
+   "level": "elementary",
+   "opts": [
+    "வாயைத் திறங்கள்",
+    "கண்ணை மூடுங்கள்",
+    "கையை நீட்டுங்கள்",
+    "எழுந்து நில்லுங்கள்"
+   ],
+   "q": "The doctor says 'open your mouth'. She says…",
+   "topic": "health",
+   "type": "usage"
+  },
+  {
+   "a": "injection",
+   "explain": "ஊசி (ūsi) — injection (also needle).",
+   "id": "tm-33",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "injection",
+    "tablet",
+    "syrup",
+    "ointment"
+   ],
+   "q": "ஊசி means…",
+   "topic": "health",
+   "type": "vocab"
+  },
+  {
+   "a": "take rest",
+   "explain": "ஓய்வெடுங்கள் — ஓய்வு = rest.",
+   "id": "tm-34",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "take rest",
+    "wake up",
+    "breathe deeply",
+    "walk daily"
+   ],
+   "q": "'ஓய்வெடுங்கள்' means…",
+   "topic": "health",
+   "type": "meaning"
   }
  ]
 };

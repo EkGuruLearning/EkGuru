@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-13T18:04:27.159Z",
+ "generated": "2026-09-13T18:08:29.699Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 876,
+  "totalHtml": 878,
   "materials": 0
  },
  "countries": {
@@ -3923,8 +3923,8 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 876,
-  "sitemapUrls": 799,
+  "pages": 878,
+  "sitemapUrls": 801,
   "sitemapFiles": 14,
   "brokenLinks": 0,
   "orphans": 0
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1096 files scanned, 0 secrets"
+  "note": "1099 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "7f474fd3654392adfc0fc7002b9e27432f7cc36e",
-  "subject": "v117: Bengali advanced module 5 — Home & family (150 words, human-authored)",
-  "buildTime": "2026-09-13T18:04:27.174Z",
+  "commit": "6a41ef437e780b1572b83d7f20c1c5d1e6232aa6",
+  "subject": "v118: Bengali advanced module 6 — Festivals (66 words) — 800+ CROSSED",
+  "buildTime": "2026-09-13T18:08:29.713Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 876,
+   "totalHtml": 878,
    "tutorProfiles": 4,
    "materials": 0
   }
