@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-13T17:25:56.421Z",
+ "generated": "2026-09-13T17:30:42.554Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 824,
+  "totalHtml": 847,
   "materials": 0
  },
  "countries": {
@@ -3923,8 +3923,8 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 824,
-  "sitemapUrls": 752,
+  "pages": 847,
+  "sitemapUrls": 772,
   "sitemapFiles": 14,
   "brokenLinks": 0,
   "orphans": 0
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1033 files scanned, 0 secrets"
+  "note": "1059 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "2bf0ace91555ea74d0e981bed8f1bf0c3d777262",
-  "subject": "v109: complete trilingual Punjabi course (22 pages + quiz/typing/worksheets)",
-  "buildTime": "2026-09-13T17:25:56.434Z",
+  "commit": "7c45f8c092d62d7c23790677e111e47dfc368b72",
+  "subject": "v110: complete trilingual Kannada course + new starter pack (22 pages + quiz/typing/worksheets)",
+  "buildTime": "2026-09-13T17:30:42.568Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 824,
+   "totalHtml": 847,
    "tutorProfiles": 4,
    "materials": 0
   }
