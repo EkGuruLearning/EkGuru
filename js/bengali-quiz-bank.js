@@ -1,0 +1,501 @@
+/* =========================================================
+   EkGuru — BENGALI QUIZ BANK  (single source of truth · v1)
+   ---------------------------------------------------------
+   Same contract as js/hindi-quiz-bank.js: the data object is
+   deliberately valid JSON; js/hindi-tools.js renders quiz,
+   typing and worksheets from the EKGURU_*_ACTIVE globals this
+   file sets. Conservative, checked bengali — quiz answers test
+   recognition, never fluency.
+   ========================================================= */
+window.EKGURU_BENGALI_QUIZ =
+{
+ "version": 1,
+ "questions": [
+  {
+   "id": "bq-01",
+   "lesson": "basics",
+   "type": "meaning",
+   "topic": "basics",
+   "level": "beginner",
+   "q": "What does নমস্কার mean?",
+   "a": "hello",
+   "opts": [
+    "hello",
+    "goodbye",
+    "thank you",
+    "sorry"
+   ],
+   "explain": "নমস্কার (nômoshkar) is the standard formal hello — to elders, officials, anyone you respect."
+  },
+  {
+   "id": "bq-02",
+   "lesson": "basics",
+   "type": "vocab",
+   "topic": "basics",
+   "level": "beginner",
+   "q": "How do you say 'thank you' in Bengali?",
+   "a": "ধন্যবাদ",
+   "opts": [
+    "ধন্যবাদ",
+    "নমস্কার",
+    "বিদায়",
+    "মাফ করবেন"
+   ],
+   "explain": "ধন্যবাদ (dhonnobad). মাফ করবেন is excuse-me/sorry — don't mix them."
+  },
+  {
+   "id": "bq-03",
+   "lesson": "pronunciation",
+   "type": "usage",
+   "topic": "basics",
+   "level": "beginner",
+   "q": "The letter ক reads as…",
+   "a": "kô (as in 'on')",
+   "opts": [
+    "ka (as in 'car')",
+    "kô (as in 'on')",
+    "ki (as in 'kit')",
+    "ku (as in 'put')"
+   ],
+   "explain": "Bengali's inherent vowel is ô, not a. ক = kô. This is the biggest shock for Hindi speakers."
+  },
+  {
+   "id": "bq-04",
+   "lesson": "basics",
+   "type": "meaning",
+   "topic": "basics",
+   "level": "beginner",
+   "q": "আপনি কেমন আছেন? means…",
+   "a": "How are you? (formal)",
+   "opts": [
+    "How are you? (formal)",
+    "What is your name?",
+    "Where are you from?",
+    "See you again"
+   ],
+   "explain": "আপনি (apni) is formal 'you' — safe with every stranger."
+  },
+  {
+   "id": "bq-05",
+   "lesson": "numbers",
+   "type": "vocab",
+   "topic": "numbers",
+   "level": "beginner",
+   "q": "What does পাঁচ mean?",
+   "a": "five",
+   "opts": [
+    "four",
+    "five",
+    "six",
+    "seven"
+   ],
+   "explain": "পাঁচ (pãch) = 5. Same root as Hindi पाँच."
+  },
+  {
+   "id": "bq-06",
+   "lesson": "numbers",
+   "type": "vocab",
+   "topic": "numbers",
+   "level": "beginner",
+   "q": "How do you say 'ten'?",
+   "a": "দশ",
+   "opts": [
+    "দশ",
+    "পাঁচ",
+    "কুড়ি",
+    "একশো"
+   ],
+   "explain": "দশ (dôsh) = 10. কুড়ি is 20, একশো is 100."
+  },
+  {
+   "id": "bq-07",
+   "lesson": "numbers",
+   "type": "vocab",
+   "topic": "numbers",
+   "level": "elementary",
+   "q": "কুড়ি means…",
+   "a": "twenty",
+   "opts": [
+    "twelve",
+    "twenty",
+    "two hundred",
+    "two thousand"
+   ],
+   "explain": "কুড়ি (kuṛi) = 20 — its own word, like English 'twenty'."
+  },
+  {
+   "id": "bq-08",
+   "lesson": "numbers",
+   "type": "vocab",
+   "topic": "numbers",
+   "level": "elementary",
+   "q": "একশো means…",
+   "a": "one hundred",
+   "opts": [
+    "one thousand",
+    "one hundred",
+    "eleven",
+    "ten"
+   ],
+   "explain": "একশো (æksho) = 100. Literally 'one-hundred'."
+  },
+  {
+   "id": "bq-09",
+   "lesson": "food",
+   "type": "vocab",
+   "topic": "food",
+   "level": "beginner",
+   "q": "What does ভাত mean?",
+   "a": "cooked rice",
+   "opts": [
+    "cooked rice",
+    "bread",
+    "fish",
+    "lentils"
+   ],
+   "explain": "ভাত (bhat) is cooked rice — the centre of the Bengali plate. Uncooked rice is চাল."
+  },
+  {
+   "id": "bq-10",
+   "lesson": "food",
+   "type": "vocab",
+   "topic": "food",
+   "level": "beginner",
+   "q": "মাছ means…",
+   "a": "fish",
+   "opts": [
+    "meat",
+    "fish",
+    "egg",
+    "milk"
+   ],
+   "explain": "মাছ (machh) = fish. মাছে-ভাতে বাঙালি: fish and rice make the Bengali."
+  },
+  {
+   "id": "bq-11",
+   "lesson": "food",
+   "type": "usage",
+   "topic": "food",
+   "level": "elementary",
+   "q": "একটা চা দিন means…",
+   "a": "One tea, please",
+   "opts": [
+    "One tea, please",
+    "Two teas, please",
+    "No tea",
+    "Tea is cold"
+   ],
+   "explain": "একটা = one (টা counts things), দিন = give (polite). The full polite ordering pattern."
+  },
+  {
+   "id": "bq-12",
+   "lesson": "travel",
+   "type": "usage",
+   "topic": "travel",
+   "level": "beginner",
+   "q": "স্টেশন কোথায়? means…",
+   "a": "Where is the station?",
+   "opts": [
+    "Where is the station?",
+    "The station is far",
+    "Take me to the station",
+    "The station is closed"
+   ],
+   "explain": "কোথায় (kothay) = where. X কোথায়? is the whole direction toolkit in three words."
+  },
+  {
+   "id": "bq-13",
+   "lesson": "travel",
+   "type": "vocab",
+   "topic": "travel",
+   "level": "beginner",
+   "q": "ডানে means…",
+   "a": "right",
+   "opts": [
+    "left",
+    "right",
+    "straight",
+    "back"
+   ],
+   "explain": "ডানে (dane) = to the right. Left is বামে, straight is সোজা."
+  },
+  {
+   "id": "bq-14",
+   "lesson": "travel",
+   "type": "usage",
+   "topic": "travel",
+   "level": "elementary",
+   "q": "ভাড়া কত? means…",
+   "a": "How much is the fare?",
+   "opts": [
+    "How much is the fare?",
+    "The fare is fixed",
+    "Stop the car",
+    "Faster, please"
+   ],
+   "explain": "ভাড়া (bhaṛa) = fare, কত = how much. Ask before you sit down."
+  },
+  {
+   "id": "bq-15",
+   "lesson": "grammar",
+   "type": "usage",
+   "topic": "grammar",
+   "level": "beginner",
+   "q": "আমি ভাত খাই. The word order is…",
+   "a": "I · rice · eat (verb last)",
+   "opts": [
+    "I · eat · rice (like English)",
+    "I · rice · eat (verb last)",
+    "Rice · I · eat",
+    "Eat · I · rice"
+   ],
+   "explain": "Bengali is subject–object–verb: আমি ভাত খাই. The verb always goes last."
+  },
+  {
+   "id": "bq-16",
+   "lesson": "grammar",
+   "type": "usage",
+   "topic": "grammar",
+   "level": "beginner",
+   "q": "Which 'you' is safe with strangers?",
+   "a": "আপনি",
+   "opts": [
+    "তুই",
+    "তুমি",
+    "আপনি",
+    "সে"
+   ],
+   "explain": "আপনি (apni) is formal and safe everywhere. তুই to a stranger is rude."
+  },
+  {
+   "id": "bq-17",
+   "lesson": "grammar",
+   "type": "usage",
+   "topic": "grammar",
+   "level": "elementary",
+   "q": "আমি মাংস খাই না means…",
+   "a": "I don't eat meat",
+   "opts": [
+    "I don't eat meat",
+    "I eat meat daily",
+    "I ate meat",
+    "I will eat meat"
+   ],
+   "explain": "না after the verb negates it: খাই না = don't eat. Simplest negation in any major language."
+  },
+  {
+   "id": "bq-18",
+   "lesson": "grammar",
+   "type": "usage",
+   "topic": "grammar",
+   "level": "elementary",
+   "q": "তারা খায়. Who is eating?",
+   "a": "they",
+   "opts": [
+    "I",
+    "you (formal)",
+    "he / she",
+    "they"
+   ],
+   "explain": "তারা (tara) = they, and the verb agrees: খায় (khay)."
+  },
+  {
+   "id": "bq-19",
+   "lesson": "conversation",
+   "type": "meaning",
+   "topic": "conversation",
+   "level": "beginner",
+   "q": "আমার নাম … means…",
+   "a": "My name is …",
+   "opts": [
+    "My name is …",
+    "Your name is …",
+    "What is this?",
+    "I am lost"
+   ],
+   "explain": "আমার (amar) = my, নাম = name. আমার নাম টম = my name is Tom."
+  },
+  {
+   "id": "bq-20",
+   "lesson": "conversation",
+   "type": "usage",
+   "topic": "conversation",
+   "level": "elementary",
+   "q": "আমি বাংলা শিখছি means…",
+   "a": "I am learning Bengali",
+   "opts": [
+    "I am learning Bengali",
+    "I speak Bengali fluently",
+    "I forgot Bengali",
+    "I teach Bengali"
+   ],
+   "explain": "শিখছি (shikhchhi) is present continuous: right now, in progress. Say it to any Bengali and watch them smile."
+  },
+  {
+   "id": "bq-21",
+   "lesson": "vocabulary",
+   "type": "vocab",
+   "topic": "vocabulary",
+   "level": "beginner",
+   "q": "বই means…",
+   "a": "book",
+   "opts": [
+    "book",
+    "house",
+    "school",
+    "road"
+   ],
+   "explain": "বই (boi) = book. একটা বই = one book (টা counts things)."
+  },
+  {
+   "id": "bq-22",
+   "lesson": "vocabulary",
+   "type": "vocab",
+   "topic": "vocabulary",
+   "level": "beginner",
+   "q": "বাড়ি means…",
+   "a": "house",
+   "opts": [
+    "house",
+    "car",
+    "shop",
+    "school"
+   ],
+   "explain": "বাড়ি (baṛi) = house/home. বাড়িতে = at home (তে = in/at)."
+  },
+  {
+   "id": "bq-23",
+   "lesson": "shopping",
+   "type": "usage",
+   "topic": "travel",
+   "level": "elementary",
+   "q": "এটার দাম কত? means…",
+   "a": "How much is this?",
+   "opts": [
+    "How much is this?",
+    "This is free",
+    "This is mine",
+    "Wrap this up"
+   ],
+   "explain": "এটার (of this) + দাম (price) + কত (how much). The market survival sentence."
+  },
+  {
+   "id": "bq-24",
+   "lesson": "time-dates",
+   "type": "vocab",
+   "topic": "basics",
+   "level": "elementary",
+   "q": "কাল means…",
+   "a": "tomorrow / yesterday (both)",
+   "opts": [
+    "today",
+    "tomorrow / yesterday (both)",
+    "now",
+    "never"
+   ],
+   "explain": "কাল covers both — context decides. গতকাল pins it to yesterday."
+  }
+ ]
+};
+window.EKGURU_QUIZ_ACTIVE = window.EKGURU_BENGALI_QUIZ;
+window.EKGURU_QUIZ_NAME = "bengali-quiz";
+window.EKGURU_COURSE_LANG = { name: "Bengali", script: "Bengali script" };
+window.EKGURU_TYPING_ACTIVE =
+[
+ [
+  "namoshkar",
+  "নমস্কার"
+ ],
+ [
+  "dhonnobad",
+  "ধন্যবাদ"
+ ],
+ [
+  "ami",
+  "আমি"
+ ],
+ [
+  "tumi",
+  "তুমি"
+ ],
+ [
+  "apni",
+  "আপনি"
+ ],
+ [
+  "bhat",
+  "ভাত"
+ ],
+ [
+  "mach",
+  "মাছ"
+ ],
+ [
+  "pani",
+  "পানি"
+ ],
+ [
+  "cha",
+  "চা"
+ ],
+ [
+  "boi",
+  "বই"
+ ],
+ [
+  "bari",
+  "বাড়ি"
+ ],
+ [
+  "kaj",
+  "কাজ"
+ ],
+ [
+  "bhalo",
+  "ভালো"
+ ],
+ [
+  "din",
+  "দিন"
+ ],
+ [
+  "rat",
+  "রাত"
+ ],
+ [
+  "bondhu",
+  "বন্ধু"
+ ],
+ [
+  "ma",
+  "মা"
+ ],
+ [
+  "baba",
+  "বাবা"
+ ],
+ [
+  "ghor",
+  "ঘর"
+ ],
+ [
+  "rasta",
+  "রাস্তা"
+ ],
+ [
+  "dokan",
+  "দোকান"
+ ],
+ [
+  "bajar",
+  "বাজার"
+ ],
+ [
+  "shokal",
+  "সকাল"
+ ],
+ [
+  "biday",
+  "বিদায়"
+ ]
+];

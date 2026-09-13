@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-13T14:42:41.486Z",
+ "generated": "2026-09-13T16:12:31.235Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 669,
+  "totalHtml": 691,
   "materials": 0
  },
  "countries": {
@@ -3923,8 +3923,8 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 669,
-  "sitemapUrls": 608,
+  "pages": 691,
+  "sitemapUrls": 632,
   "sitemapFiles": 14,
   "brokenLinks": 0,
   "orphans": 0
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "863 files scanned, 0 secrets"
+  "note": "887 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "419eda30002c08c5c7f612938a04b16f65323dfa",
-  "subject": "v102: regen doctor outputs after header/homepage work",
-  "buildTime": "2026-09-13T14:42:41.579Z",
+  "commit": "a552046fcc2007cee5d02c03ac9935886791a9b8",
+  "subject": "v102b: stack burger-less nav below 480px + multi-page header checker",
+  "buildTime": "2026-09-13T16:12:31.257Z",
   "dataSourceStatus": "PAUSED_FOR_REUPLOAD",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 669,
+   "totalHtml": 691,
    "tutorProfiles": 4,
    "materials": 0
   }

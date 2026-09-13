@@ -67,9 +67,13 @@
     ["theek", "ठीक"], ["haan", "हाँ"], ["nahin", "नहीं"], ["main", "मैं"],
     ["hum", "हम"], ["achchha", "अच्छा"]
   ];
+  TYPING = window.EKGURU_TYPING_ACTIVE || TYPING;
+
+  /* Active-course overrides (set by js/<lang>-quiz-bank.js; Hindi is the default). */
+  var LANG = window.EKGURU_COURSE_LANG || { name: "Hindi", script: "Devanagari" };
 
   var bank = function () {
-    var Q = window.EKGURU_HINDI_QUIZ;
+    var Q = window.EKGURU_QUIZ_ACTIVE || window.EKGURU_HINDI_QUIZ;
     return (Q && Q.questions) || [];
   };
 
@@ -89,7 +93,7 @@
       '<span id="tp-prompt" style="font-size:1.3rem;font-weight:700">' + esc(items[0][0]) + '</span>' +
       '</div>' +
       '<div class="row" style="align-items:center;gap:12px;flex-wrap:wrap;margin-top:10px">' +
-      '<label for="typing-in2" style="font-weight:600">Your Devanagari</label>' +
+      '<label for="typing-in2" style="font-weight:600">Your ' + LANG.script + '</label>' +
       '<input id="typing-in2" type="text" inputmode="text" autocomplete="off" ' +
       'style="flex:1;min-width:220px" aria-label="Type the Hindi word in Devanagari">' +
       '</div>' +
@@ -198,7 +202,7 @@
       if (state.i >= state.use.length) {
         var total = state.use.length;
         var per = Math.round(state.correct / total * 100);
-        if (window.EkGuruProgress) window.EkGuruProgress.recordQuiz("topic-quiz", state.correct, total);
+        if (window.EkGuruProgress) window.EkGuruProgress.recordQuiz(window.EKGURU_QUIZ_NAME || "topic-quiz", state.correct, total);
         body.innerHTML =
           '<h3>Score: ' + state.correct + ' / ' + total + ' (' + per + '%)</h3>' +
           '<p class="muted">A recognition score, not a fluency measure.</p>' +
@@ -274,10 +278,10 @@
       }).join("") : "";
       sheet.innerHTML =
         '<div class="ws-page" style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;max-width:640px">' +
-        '<h2 style="margin:0 0 4px">Hindi worksheet — ' + esc(topic) + '</h2>' +
+        '<h2 style="margin:0 0 4px">' + LANG.name + ' worksheet — ' + esc(topic) + '</h2>' +
         '<p class="muted" style="margin:0 0 14px">Write your answers, then check the answer section.</p>' +
         lines + ans +
-        '<p class="muted" style="margin-top:12px;font-size:.78rem">From the EkGuru Hindi quiz bank — free to print and share.</p>' +
+        '<p class="muted" style="margin-top:12px;font-size:.78rem">From the EkGuru ' + LANG.name + ' quiz bank — free to print and share.</p>' +
         '</div>';
     });
 
