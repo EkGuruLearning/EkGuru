@@ -1470,38 +1470,8 @@
   /* =========================================================
      5. SHARE BUTTONS
      ========================================================= */
-  /* The grouped "Learn" menu in the header. Kept deliberately
-     simple: hover to open on a mouse, click or keyboard on
-     everything else, Escape and outside-click to close. */
-  function initNavMenu() {
-    $all(".nav-more").forEach(function (wrap) {
-      var btn = $(".nav-more-btn", wrap);
-      var menu = $(".nav-more-menu", wrap);
-      if (!btn || !menu) return;
-
-      function open(v) {
-        menu.hidden = !v;
-        wrap.setAttribute("data-open", v ? "1" : "0");
-        btn.setAttribute("aria-expanded", v ? "true" : "false");
-      }
-      btn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        open(menu.hidden);
-      });
-      wrap.addEventListener("mouseenter", function () {
-        if (window.matchMedia && window.matchMedia("(hover:hover)").matches) open(true);
-      });
-      wrap.addEventListener("mouseleave", function () {
-        if (window.matchMedia && window.matchMedia("(hover:hover)").matches) open(false);
-      });
-      document.addEventListener("click", function (e) {
-        if (!wrap.contains(e.target)) open(false);
-      });
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") open(false);
-      });
-    });
-  }
+  /* v102: header Learn-dropdown wiring removed — that menu was
+   retired site-wide by tools/header-nav-cleanup.py (Phase 23). */
 
   function initShare() {
     var host = $("#share-box");
@@ -1975,7 +1945,6 @@
   function boot() {
     try { initLiveSearch(); } catch (e) { warn("live search", e); }
     try { initChips(); } catch (e) { warn("chips", e); }
-    try { initNavMenu(); } catch (e) { warn("nav menu", e); }
     try { initBooking(); } catch (e) { warn("booking", e); }
     try { initTimezoneToggle(); } catch (e) { warn("timezone", e); }
     try { initShare(); } catch (e) { warn("share", e); }

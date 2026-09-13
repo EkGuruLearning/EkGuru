@@ -110,7 +110,7 @@
 
      features.js is not "the booking modal". It is also:
 
-         initNavMenu        the header Learn dropdown
+         (Learn-dropdown wiring removed in v102 — menu retired site-wide)
          initLiveSearch     the search box
          initChips          topic filters
          initShare          share buttons
