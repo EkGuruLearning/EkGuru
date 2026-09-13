@@ -209,7 +209,12 @@ def main():
         "generated": NOW,
         "source": "mledoze/countries (ISO 3166-1) — same data as restcountries",
         "totalISO": len(countries),
-        "sovereignStates": len([c for c in countries if c["unMember"]]) + 1,  # + Vatican (non-member observer)
+        # v132 — was unMember_count + 1 ("+ Vatican"), but the source data
+        # already flags VA unMember=true, so Vatican was double-counted
+        # (195). The sovereign list above IS the 194 (193 UN members +
+        # Vatican City); count it directly. PS/XK stay excluded: the
+        # source marks them independent=false.
+        "sovereignStates": len(sovereign),
         "withSourceCountryPage": sum(1 for c in countries if c["sourceCountryPage"]),
         "policy": ("The registry is data, not a page set. No page is generated for a country "
                    "solely because it exists; country data powers context modules only where "
