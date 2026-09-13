@@ -355,30 +355,70 @@ def context_pages():
     return made
 
 
+def contexts_hub():
+    up = "../../"
+    body = """  <h1>Learn Hindi for your context</h1>
+  <p class="lede">The same Hindi course, framed for how you will actually use it.
+  A context is a lens — a curated path of real phrases and lessons — on top of the
+  shared <a href="../hindi/">Hindi course</a>. It is not a separate course and it
+  does not duplicate the lessons; it re-uses them for your situation.</p>
+  <div class="note"><b>Honest scope.</b> Today there are two contexts: the India
+  visitor and the family/heritage learner. Every phrase in them is copied from a
+  page that already exists on EkGuru — nothing here is AI-generated or invented
+  for SEO.</div>
+  <h2>Choose your context</h2>
+  <ul class="linklist">
+    <li><a href="india-visitor/">Learn Hindi for India — the visitor's path</a><span>Greetings, taxis, restaurant, shopping, trains and help — the phrases that handle a trip, organised so you can rehearse each situation.</span></li>
+    <li><a href="heritage/">Hindi for Family &amp; Heritage Learners</a><span>Family words, respectful forms, culture and reading progression — for reconnecting with family, without assuming every family speaks the same variety.</span></li>
+  </ul>
+  <h2>Prefer the full course?</h2>
+  <p>If you want the complete beginner-to-intermediate track, start with the
+  <a href="../hindi/">Hindi course hub</a> or pick a <a href="../paths/">goal-based learning path</a>.</p>
+"""
+    return write_page("learn/contexts/index.html", up,
+                      "Learn Hindi for your context — India visitor & heritage paths",
+                      "Two curated Hindi paths on top of the shared course: survive a trip to India, or reconnect with family as a heritage learner. Real phrases from real pages.",
+                      "learn/contexts/",
+                      '<a href="../../">EkGuru</a> › <a href="../">Learn</a> › Contexts',
+                      body, scripts=(), index=True, extra_style="")
+
+
 def patch_learn_hub():
-    """Idempotently add a My Learning card to /learn/index.html."""
+    """Idempotently add My Learning + Contexts cards to /learn/index.html."""
     p = "learn/index.html"
     h = open(p, encoding="utf-8").read()
-    if 'href="./my-learning/"' in h or 'href="../my-learning/"' in h:
-        return False
     anchor = '<h2>Practise, don\'t just read</h2>'
-    card = ('  <div class="lcard" style="margin-top:26px">\n'
-            '    <h2>Your learning, in one place</h2>\n'
-            '    <p>Progress, review queue, goals and a language-aware search across\n'
-            '    every lesson and phrase — saved on this device, never uploaded.</p>\n'
-            '    <a class="btn btn-ghost" href="./my-learning/">Open My Learning →</a>\n'
-            '  </div>\n\n')
-    if anchor in h:
-        h = h.replace(anchor, card + anchor, 1)
+    changed = False
+    if 'href="./my-learning/"' not in h and 'href="../my-learning/"' not in h:
+        card = ('  <div class="lcard" style="margin-top:26px">\n'
+                '    <h2>Your learning, in one place</h2>\n'
+                '    <p>Progress, review queue, goals and a language-aware search across\n'
+                '    every lesson and phrase — saved on this device, never uploaded.</p>\n'
+                '    <a class="btn btn-ghost" href="./my-learning/">Open My Learning →</a>\n'
+                '  </div>\n\n')
+        if anchor in h:
+            h = h.replace(anchor, card + anchor, 1)
+            changed = True
+    if 'href="./contexts/"' not in h:
+        ctx_card = ('  <div class="lcard" style="margin-top:26px">\n'
+                    '    <h2>Learning for your context</h2>\n'
+                    '    <p>India visitor or family/heritage learner? Two curated paths\n'
+                    '    reuse the same Hindi course for your situation.</p>\n'
+                    '    <a class="btn btn-ghost" href="./contexts/">Choose your context →</a>\n'
+                    '  </div>\n\n')
+        if anchor in h:
+            h = h.replace(anchor, ctx_card + anchor, 1)
+            changed = True
+    if changed:
         open(p, "w", encoding="utf-8").write(h)
-        return True
-    return False
+    return changed
 
 
 def main():
     made = []
     made.append(my_learning_page())
     made += context_pages()
+    made.append(contexts_hub())
     hub = patch_learn_hub()
     print("generated:")
     for m in made:

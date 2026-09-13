@@ -1,10 +1,10 @@
 {
-  "generated": "2026-09-12T21:20:34Z",
-  "commit": "3da1469e4ee3d5eb0a566e08c7d5359577dd9d5c",
+  "generated": "2026-09-13T01:47:58Z",
+  "commit": "1492eb80644a28a546b60ec8c911f71d70f8243d",
   "verdict": "GREEN_GLOBAL_ENGINE_PRODUCTION_READY",
-  "green": 31,
-  "total": 31,
-  "note": "All 31 gate items pass with real Chromium evidence (0 page errors on every new surface; Phase 5/6/7 regression green). Performance numbers are measured, not estimated; LIVE deploy status is still not verified this session (LIVE_VERSION_UNKNOWN).",
+  "green": 34,
+  "total": 34,
+  "note": "All gate items pass with real Chromium evidence (0 page errors on every new surface; Phase 5/6/7 regression green; 36-cell viewport gate; real SEO-scale crawl with 0 duplicates/orphans/broken links). Performance numbers are measured, not estimated. LIVE deploy is verified STALE: ekguru.shop 404s on /learn/my-learning/, so it predates Phase 7C — and GitHub origin/main holds only 'Initial commit', so neither live nor GitHub reflects this work; the workspace is the continuity layer.",
   "items": [
     {
       "state": "GREEN",
@@ -101,6 +101,18 @@
     {
       "state": "GREEN",
       "evidence": "batch manifest + 6 gates"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "36 cells PASS (320–1920), 0 overflow, 0 errors (Gate G)"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "606 pages, 0 duplicate titles/descs, 0 broken links, 0 orphans (Gate H)"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "16/16 stages PASS (run-phase7c-pipeline.py)"
     },
     {
       "state": "GREEN",

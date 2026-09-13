@@ -530,6 +530,20 @@ def update_hub_nav():
     p = "learn/hindi/index.html"
     h = open(p, encoding="utf-8").read()
     orig = h
+    changed = False
+
+    # Phase 7C: the intermediate page exists (built in Phase 6) but the hub still
+    # says "No Intermediate page yet" and nothing links to it — fix both so the
+    # page is discoverable (de-orphans /learn/hindi/intermediate/).
+    m = re.search(r'<p class="note">No Intermediate or Advanced page yet.*?</p>', h, re.S)
+    if m:
+        repl = ('<p class="note">There is now an <a href="intermediate/">intermediate sequence</a> — '
+                'assembled from the genuinely intermediate material the site already has: register and '
+                'politeness, the Hindi–Urdu split, learner mistakes, verb tenses, and Bollywood. '
+                'There is still no Advanced page: we will not ship an empty level.</p>')
+        h = h.replace(m.group(0), repl)
+        changed = True
+
     # fix double slash bug
     h = h.replace('href="../practice//"', 'href="../practice/"')
     # add new tools after the existing practice-labs linklist items (before </ul>)
@@ -551,9 +565,7 @@ def update_hub_nav():
         if idx > 0:
             end = h.find('</ul>', idx)
             h = h[:end] + add + h[end:]
-    if h != orig:
-        open(p, "w", encoding="utf-8").write(h)
-        return True
+            changed = True
     # Phase 7C: add the conversation link on its own (idempotent)
     if 'practice/conversation/' not in h:
         add = ('    <li><a href="practice/conversation/">Hindi Conversation Practice</a>'
@@ -563,10 +575,10 @@ def update_hub_nav():
             # insert before the <li> that holds this review link
             li_start = h.rfind('<li>', 0, idx)
             h = h[:li_start] + add + h[li_start:]
-            open(p, "w", encoding="utf-8").write(h)
-            return True
-    return False
-    return False
+            changed = True
+    if changed and h != orig:
+        open(p, "w", encoding="utf-8").write(h)
+    return changed
 
 
 def main():

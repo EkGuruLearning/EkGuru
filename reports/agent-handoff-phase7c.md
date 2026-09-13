@@ -2,8 +2,8 @@
 
 - **repo**: EkGuru (GitHub Pages static site)
 - **branch**: main
-- **SHA**: 3da1469e4ee3d5eb0a566e08c7d5359577dd9d5c
-- **verdict**: GREEN_GLOBAL_ENGINE_PRODUCTION_READY (31/31)
+- **SHA**: 1492eb80644a28a546b60ec8c911f71d70f8243d
+- **verdict**: GREEN_GLOBAL_ENGINE_PRODUCTION_READY (34/34)
 
 ## Completed batches
 - tranche 1: content graph + registries + live inventory
@@ -12,6 +12,7 @@
 - tranche 4: country-context + India visitor + heritage (Gate E)
 - tranche 5: admin global language ops (Gate F)
 - tranche 6: child/family privacy mode (device-only toggle; no child content) + SRS card globalization
+- tranche 7: multi-viewport gate (Gate G), real SEO-scale crawl (Gate H), automation pipeline (16/16), search-index integration (578 entries), contexts hub, intermediate page de-orphaned
 
 ## Pending
 - additional production languages (Stage 2: 3-5 languages) — requires authored content first
@@ -32,5 +33,6 @@ python3 tools/test-phase7c.py && python3 tools/test-phase7c-conversation.py && p
 - none
 
 ## Honesty notes
-- performance lab audit pending (YELLOW)
-- LIVE_VERSION_UNKNOWN — GitHub/live deploy not verified this session
+- LIVE deploy is STALE and behind local HEAD: live ekguru.shop returns 404 for /learn/my-learning/ and the other Phase 7C pages; only pre-7C pages are live.
+- GitHub origin/main holds only 'Initial commit' — the real history (50+ commits) exists only in this workspace; no remote URL is configured, so this agent cannot push. The workspace snapshot + git history are the continuity layer.
+- The one canonical alias tutor.html -> /tutor/ is an intentional legacy redirect, not a defect.

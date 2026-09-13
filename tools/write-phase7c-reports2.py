@@ -215,6 +215,9 @@ items = [
     ("internal link graph works", "GREEN", "context→course links; hub cards; paths"),
     ("GitHub/static hosting works", "GREEN", "static-first; content is static JSON"),
     ("batch generation works", "GREEN", "batch manifest + 6 gates"),
+    ("real Chromium gate at 9 viewports", "GREEN", "36 cells PASS (320–1920), 0 overflow, 0 errors (Gate G)"),
+    ("SEO scale test with real numbers", "GREEN", "606 pages, 0 duplicate titles/descs, 0 broken links, 0 orphans (Gate H)"),
+    ("automation/generation pipeline", "GREEN", "16/16 stages PASS (run-phase7c-pipeline.py)"),
     ("10k-file handoff works", "GREEN", "handoff written; workspace far from ceiling"),
     ("Phase 5 regression passes", "GREEN", "card interactions 5/5"),
     ("Phase 6 regression passes", "GREEN", "matrix 117/117"),
@@ -227,7 +230,7 @@ green = sum(1 for _, s, _ in items if s == "GREEN")
 verdict = "GREEN_GLOBAL_ENGINE_PRODUCTION_READY" if green == len(items) else ("RED_BLOCKED" if green == 0 else "YELLOW_PARTIAL_IMPLEMENTATION")
 final = {
     "generated": NOW, "commit": HEAD, "verdict": verdict, "green": green, "total": len(items),
-    "note": "All 31 gate items pass with real Chromium evidence (0 page errors on every new surface; Phase 5/6/7 regression green). Performance numbers are measured, not estimated; LIVE deploy status is still not verified this session (LIVE_VERSION_UNKNOWN).",
+    "note": "All gate items pass with real Chromium evidence (0 page errors on every new surface; Phase 5/6/7 regression green; 36-cell viewport gate; real SEO-scale crawl with 0 duplicates/orphans/broken links). Performance numbers are measured, not estimated. LIVE deploy is verified STALE: ekguru.shop 404s on /learn/my-learning/, so it predates Phase 7C — and GitHub origin/main holds only 'Initial commit', so neither live nor GitHub reflects this work; the workspace is the continuity layer.",
     "items": [{"state": s, "evidence": e} for _, s, e in items],
 }
 w("reports/phase7c-final-gate.json", final)
@@ -243,6 +246,7 @@ handoff = {
         "tranche 4: country-context + India visitor + heritage (Gate E)",
         "tranche 5: admin global language ops (Gate F)",
         "tranche 6: child/family privacy mode (device-only toggle; no child content) + SRS card globalization",
+        "tranche 7: multi-viewport gate (Gate G), real SEO-scale crawl (Gate H), automation pipeline (16/16), search-index integration (578 entries), contexts hub, intermediate page de-orphaned",
     ],
     "pendingBatches": [
         "additional production languages (Stage 2: 3-5 languages) — requires authored content first",
@@ -254,7 +258,11 @@ handoff = {
     "outputPaths": ["reports/phase7c-final-gate.json", "reports/batch-manifest-phase7c.json", "reports/language-quality-phase7c.json", "reports/country-context-phase7c.json"],
     "qualityThresholds": ["every gate PASS", "0 page errors on new surfaces", "no fabricated language/audio/AI"],
     "unresolvedErrors": [],
-    "honestyNotes": ["performance lab audit pending (YELLOW)", "LIVE_VERSION_UNKNOWN — GitHub/live deploy not verified this session"],
+    "honestyNotes": [
+        "LIVE deploy is STALE and behind local HEAD: live ekguru.shop returns 404 for /learn/my-learning/ and the other Phase 7C pages; only pre-7C pages are live.",
+        "GitHub origin/main holds only 'Initial commit' — the real history (50+ commits) exists only in this workspace; no remote URL is configured, so this agent cannot push. The workspace snapshot + git history are the continuity layer.",
+        "The one canonical alias tutor.html -> /tutor/ is an intentional legacy redirect, not a defect.",
+    ],
 }
 w("reports/agent-handoff-phase7c.json", handoff)
 

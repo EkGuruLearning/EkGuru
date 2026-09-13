@@ -1,8 +1,8 @@
 {
-  "generated": "2026-09-12T21:20:34Z",
+  "generated": "2026-09-13T01:47:58Z",
   "repo": "EkGuru (GitHub Pages static site)",
   "branch": "main",
-  "sha": "3da1469e4ee3d5eb0a566e08c7d5359577dd9d5c",
+  "sha": "1492eb80644a28a546b60ec8c911f71d70f8243d",
   "sourceRegistries": [
     "data/content-graph.json",
     "reports/language-registry-phase7c.json",
@@ -14,7 +14,8 @@
     "tranche 3: goals/script/grammar/vocab/search + My Learning (Gate D)",
     "tranche 4: country-context + India visitor + heritage (Gate E)",
     "tranche 5: admin global language ops (Gate F)",
-    "tranche 6: child/family privacy mode (device-only toggle; no child content) + SRS card globalization"
+    "tranche 6: child/family privacy mode (device-only toggle; no child content) + SRS card globalization",
+    "tranche 7: multi-viewport gate (Gate G), real SEO-scale crawl (Gate H), automation pipeline (16/16), search-index integration (578 entries), contexts hub, intermediate page de-orphaned"
   ],
   "pendingBatches": [
     "additional production languages (Stage 2: 3-5 languages) — requires authored content first",
@@ -36,7 +37,8 @@
   ],
   "unresolvedErrors": [],
   "honestyNotes": [
-    "performance lab audit pending (YELLOW)",
-    "LIVE_VERSION_UNKNOWN — GitHub/live deploy not verified this session"
+    "LIVE deploy is STALE and behind local HEAD: live ekguru.shop returns 404 for /learn/my-learning/ and the other Phase 7C pages; only pre-7C pages are live.",
+    "GitHub origin/main holds only 'Initial commit' — the real history (50+ commits) exists only in this workspace; no remote URL is configured, so this agent cannot push. The workspace snapshot + git history are the continuity layer.",
+    "The one canonical alias tutor.html -> /tutor/ is an intentional legacy redirect, not a defect."
   ]
 }

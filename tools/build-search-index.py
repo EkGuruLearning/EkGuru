@@ -123,6 +123,10 @@ def main():
                      ("learn/hindi/practice/typing/", "Practice"),
                      ("learn/hindi/practice/quiz/", "Practice"),
                      ("learn/hindi/practice/worksheets/", "Practice"),
+                     ("learn/hindi/practice/conversation/", "Practice"),
+                     ("learn/my-learning/", "Page"),
+                     ("learn/contexts/india-visitor/", "Page"),
+                     ("learn/contexts/heritage/", "Page"),
                      ("learn/hindi/intermediate/", "Page"),
                      ("learn/hindi/", "Page")):
         if hub in by_url or not os.path.exists(os.path.join(hub, "index.html")):
