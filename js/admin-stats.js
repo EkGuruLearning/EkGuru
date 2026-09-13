@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-13T13:24:13.388Z",
+ "generated": "2026-09-13T13:52:49.904Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "1c98845b461837f8ba23f376d23e7e40e8847e39",
-  "subject": "Phase 7C: refresh reports/handoff to Stage 8 SHA, final gate 45/45",
-  "buildTime": "2026-09-13T13:24:13.405Z",
+  "commit": "75b46b37023ca253d3b69650aaaf0a94ea14e04c",
+  "subject": "v102: keep burger-less headers inline (localized + tutor profiles)",
+  "buildTime": "2026-09-13T13:52:49.922Z",
   "dataSourceStatus": "PAUSED_FOR_REUPLOAD",
   "toolQa": {
    "tools": 12,
@@ -4635,7 +4635,7 @@ window.EKGURU_ADMIN_STATS = {
    "travel",
    "vocabulary"
   ],
-  "lessons": 15,
+  "lessons": 19,
   "materials": 15,
   "practice": 13,
   "paths": 7,
