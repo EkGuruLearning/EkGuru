@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-13T16:33:06.220Z",
+ "generated": "2026-09-13T16:50:26.783Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 713,
+  "totalHtml": 735,
   "materials": 0
  },
  "countries": {
@@ -3923,8 +3923,8 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 713,
-  "sitemapUrls": 652,
+  "pages": 735,
+  "sitemapUrls": 672,
   "sitemapFiles": 14,
   "brokenLinks": 0,
   "orphans": 0
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "911 files scanned, 0 secrets"
+  "note": "935 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "85e561d26964b5af1da9427e3b69d74340ced3a0",
-  "subject": "v104: rewire live sheets to new production workbook + fix sheetsync reviews bake",
-  "buildTime": "2026-09-13T16:33:06.235Z",
+  "commit": "9284ebb0168a71351b442951ba534b1574bd7617",
+  "subject": "v105: complete trilingual Marathi course (22 pages + quiz/typing/worksheets)",
+  "buildTime": "2026-09-13T16:50:26.804Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 713,
+   "totalHtml": 735,
    "tutorProfiles": 4,
    "materials": 0
   }
