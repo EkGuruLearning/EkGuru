@@ -714,6 +714,166 @@ window.EKGURU_BENGALI_QUIZ =
    "q": "'কাল দেখা হবে' means…",
    "topic": "office",
    "type": "meaning"
+  },
+  {
+   "a": "exam",
+   "explain": "পরীক্ষা (porikkha) = exam — পরীক্ষা সামনের সপ্তাহে (the exam is next week).",
+   "id": "bq-45",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "exam",
+    "lesson",
+    "homework",
+    "result"
+   ],
+   "q": "পরীক্ষা means…",
+   "topic": "education",
+   "type": "vocab"
+  },
+  {
+   "a": "শিক্ষিকা",
+   "explain": "শিক্ষিকা (shikkhika) = female teacher; শিক্ষক is male.",
+   "id": "bq-46",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "শিক্ষিকা",
+    "শিক্ষক",
+    "ছাত্রী",
+    "অধ্যাপক"
+   ],
+   "q": "Which is 'teacher (female)'?",
+   "topic": "education",
+   "type": "vocab"
+  },
+  {
+   "a": "do your homework",
+   "explain": "বাড়ির কাজ করো — বাড়ির কাজ = homework.",
+   "id": "bq-47",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "do your homework",
+    "open your books",
+    "read lesson five",
+    "come tomorrow"
+   ],
+   "q": "'বাড়ির কাজ করো' means…",
+   "topic": "education",
+   "type": "meaning"
+  },
+  {
+   "a": "তুমি কোন ক্লাসে পড়ো?",
+   "explain": "তুমি কোন ক্লাসে পড়ো? = which class are you in?",
+   "id": "bq-48",
+   "lesson": "education",
+   "level": "elementary",
+   "opts": [
+    "তুমি কোন ক্লাসে পড়ো?",
+    "তোমার নাম কী?",
+    "বাড়ির কাজ কী?",
+    "পরীক্ষা কবে?"
+   ],
+   "q": "Ask 'which class are you in?' You say…",
+   "topic": "education",
+   "type": "usage"
+  },
+  {
+   "a": "book",
+   "explain": "বই (boi) = book — বই খোলো (open your books).",
+   "id": "bq-49",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "book",
+    "pen",
+    "bag",
+    "bell"
+   ],
+   "q": "বই means…",
+   "topic": "education",
+   "type": "vocab"
+  },
+  {
+   "a": "result",
+   "explain": "ফলাফল (folafol) = result — নম্বর are the marks.",
+   "id": "bq-50",
+   "lesson": "education",
+   "level": "elementary",
+   "opts": [
+    "result",
+    "marks",
+    "rank",
+    "certificate"
+   ],
+   "q": "ফলাফল means…",
+   "topic": "education",
+   "type": "vocab"
+  },
+  {
+   "a": "school is closed today",
+   "explain": "আজ স্কুল বন্ধ — বন্ধ = closed.",
+   "id": "bq-51",
+   "lesson": "education",
+   "level": "elementary",
+   "opts": [
+    "school is closed today",
+    "school is far away",
+    "the exam is today",
+    "class is over"
+   ],
+   "q": "'আজ স্কুল বন্ধ' means…",
+   "topic": "education",
+   "type": "meaning"
+  },
+  {
+   "a": "ভেতরে আসতে পারি?",
+   "explain": "ভেতরে আসতে পারি? = may I come in? — every student's sentence.",
+   "id": "bq-52",
+   "lesson": "education",
+   "level": "elementary",
+   "opts": [
+    "ভেতরে আসতে পারি?",
+    "বাইরে যাবো?",
+    "বই খুলবো?",
+    "বসবো?"
+   ],
+   "q": "Ask permission to enter. You say…",
+   "topic": "education",
+   "type": "usage"
+  },
+  {
+   "a": "student (boy)",
+   "explain": "ছাত্র (chhatro) = male student; ছাত্রী is female.",
+   "id": "bq-53",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "student (boy)",
+    "teacher",
+    "friend",
+    "brother"
+   ],
+   "q": "ছাত্র means…",
+   "topic": "education",
+   "type": "vocab"
+  },
+  {
+   "a": "study with focus",
+   "explain": "মন দিয়ে (mon diye) = with heart and mind — মন দিয়ে পড়ো.",
+   "id": "bq-54",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "study with focus",
+    "read aloud",
+    "write neatly",
+    "sleep early"
+   ],
+   "q": "'মন দিয়ে পড়ো' means…",
+   "topic": "education",
+   "type": "meaning"
   }
  ]
 };

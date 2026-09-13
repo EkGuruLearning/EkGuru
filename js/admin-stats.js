@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-13T17:49:33.929Z",
+ "generated": "2026-09-13T17:52:55.865Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 872,
+  "totalHtml": 873,
   "materials": 0
  },
  "countries": {
@@ -3923,8 +3923,8 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 872,
-  "sitemapUrls": 795,
+  "pages": 873,
+  "sitemapUrls": 796,
   "sitemapFiles": 14,
   "brokenLinks": 0,
   "orphans": 0
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1088 files scanned, 0 secrets"
+  "note": "1090 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "63e9ebb9a9a77efdf22463fdb5ff581110780935",
-  "subject": "v113: advanced-modules engine + Bengali Health pilot (150 words, human-authored)",
-  "buildTime": "2026-09-13T17:49:33.943Z",
+  "commit": "aac2e5ec654fe55211af0d5f6a026034aeb550f5",
+  "subject": "v114: Bengali advanced module 2 — Office & work (152 words, human-authored)",
+  "buildTime": "2026-09-13T17:52:55.878Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 872,
+   "totalHtml": 873,
    "tutorProfiles": 4,
    "materials": 0
   }
