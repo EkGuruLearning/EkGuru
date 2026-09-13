@@ -22,25 +22,65 @@ shape belongs to the upstream data).
 - Registry header bug fixed v132: `sovereignStates` was 195
   (Vatican double-counted). Now 194.
 
-## Source hierarchy (agent assumption — owner's Phase 1 text arrived truncated)
+## Source hierarchy (owner Phase 1 — exact)
 
-Owner's spec pasted into chat was cut off at the "PHASE 1 — SOURCE
-HIERARCHY" header. Until the full text arrives, this hierarchy applies:
+PRIORITY A: national census/statistical offices · government language
+portals · constitutional/legal language records · UNESCO / World
+Atlas of Languages · Ethnologue/SIL (where accessible and licensable)
+· Glottolog · ISO 639 datasets · official linguistic surveys ·
+reputable academic linguistic databases.
 
-1. National constitutions / statutes (official status) — `constitution`
-2. National census bureaus (speaker numbers, mother tongues) — `census-<cc>-<year>`
-3. Ethnologue (living-language counts, L1 estimates) — `ethnologue-27`
-4. Glottolog (language-vs-dialect identity) — `glottolog-5.x`
-5. UNESCO / UN data — `unesco`, `un`
-6. "Languages of X" reference summaries (cross-check only, NEVER the
-   sole source for a disputed claim) — `ref-summary`
-7. EkGuru's own restcountries-derived registry (starting point only) — `ekguru-registry`
-8. Agent training knowledge, flagged explicitly — `agent-knowledge`
-   (confidence capped at `medium`; upgraded by verification passes)
+PRIORITY B: major universities · recognized linguistic institutes ·
+national education/culture ministries · high-quality research
+publications.
 
-Every language-country relationship carries `sources[]` + `confidence`.
-Where sources disagree, the disagreement is preserved in `notes` with
-`confidence: low` and `disputed: true`.
+PRIORITY C: secondary sources, cross-checking ONLY.
+
+Never a country-language relationship from an SEO article/blog alone.
+`core/_sources.json` registries every source key used in batches with
+`source_name`, `source_url` (null only with a stated reason),
+`evidence_type`, and priority A/B/C. Agent-compiled facts use key
+`agent-knowledge` (below C, confidence capped at `medium`) until a
+verification pass replaces them.
+
+## Schema map (owner Phases 2–5)
+
+Working research lives in `core/<subregion>.json` (one entry per
+country, `languages[]` with `roles[]`). The BUILD (`tools/build-
+inventory.py`) normalizes this into the owner shapes without loss:
+
+- Phase 2 country inventory: one row per role — a language with roles
+  [official, widely-spoken] appears in BOTH the official_languages
+  and widely_spoken_languages arrays. Never collapsed.
+- Phase 3 relationship record: country_id, language_id, names,
+  iso_639_1/3, glottocode (null unless certain — never guessed),
+  family, script, status_in_country, category, speaker band,
+  country evidence, structured source, confidence, ekguru_priority,
+  ekguru_reason, needs_human_review.
+- Phase 4 canonical languages: dedup key = iso639_3 (real codes
+  only). `mis` entries are NEVER canonical — each stays a
+  per-country record with id `lang:mis:<CCA2>:<slug>`.
+- Phase 5 language types: CANONICAL_LANGUAGE · VARIETY · DIALECT ·
+  MACROLANGUAGE · SIGN_LANGUAGE, plus one documented extension —
+  CLUSTER: a constitution/census-named cluster (Pashto, Nuristani,
+  Tharu…) whose members carry individual codes. Forcing CLUSTER into
+  MACROLANGUAGE would violate Phase 0 rules 12/15, so the deviation
+  is explicit here and in every build output.
+- Status enum LIVING/ENDANGERED/…: LIVING unless a Priority-A/B
+  source says otherwise. Agent suspicion goes in notes, never in
+  the status field (spec: do not infer endangered status).
+
+## Speaker bands (Phase 3/7)
+
+100M+ · 10M–100M · 1M–10M · 100K–1M · 10K–100K · <10K · unknown.
+Bands derive from L1 estimates (else totals, else unknown).
+
+## Priority + readiness (Phases 8–9)
+
+Full scoring rules live in `tools/build-inventory.py` header and are
+re-printed in every build output (transparent, no hidden weights).
+All scores are PRELIMINARY until 194/194 coverage — the
+number-of-countries component is incomplete by construction.
 
 ## Roles (closed enum)
 

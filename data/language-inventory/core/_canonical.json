@@ -1,0 +1,699 @@
+{
+ "note": "Canonical-level facts per ISO 639-3 code (batch 1). Joined by tools/build-inventory.py onto relationship records. tts/translation: true(confident yes) / false(confident no) / null(unknown→review) / na(sign language, not applicable). glottocode: null everywhere in pass 1 — never guessed (Phase 3 allows null).",
+ "canonical": {
+  "acm": {
+   "family": "Afro-Asiatic: Semitic",
+   "script": "Arab",
+   "native": "عراقي",
+   "tts": false,
+   "translation": false,
+   "notes": "MSA (ar) tools do not cover Mesopotamian dialect"
+  },
+  "aii": {
+   "family": "Afro-Asiatic: Semitic (Aramaic)",
+   "script": "Syrc",
+   "native": "ܣܘܪܝܬ",
+   "tts": false,
+   "translation": false
+  },
+  "arb": {
+   "family": "Afro-Asiatic: Semitic",
+   "script": "Arab",
+   "native": "العربية",
+   "iso639_1": "ar",
+   "tts": true,
+   "translation": true,
+   "notes": "iso639_1 'ar' is the Arabic macrolanguage; MSA coverage"
+  },
+  "asm": {
+   "family": "Indo-European: Indo-Aryan",
+   "script": "Beng",
+   "native": "অসমীয়া",
+   "iso639_1": "as",
+   "tts": true,
+   "ttsConf": "medium",
+   "translation": true,
+   "translationConf": "medium"
+  },
+  "awa": {
+   "family": "Indo-European: Indo-Aryan",
+   "script": "Deva",
+   "native": "अवधी",
+   "tts": false,
+   "translation": false
+  },
+  "azb": {
+   "family": "Turkic: Oghuz",
+   "script": "Arab",
+   "native": "تورکجه",
+   "tts": false,
+   "translation": false,
+   "notes": "Google 'az' covers North/Latin only; South/Perso-Arabic not separately"
+  },
+  "bal": {
+   "family": "Indo-European: Iranian",
+   "script": "Arab",
+   "native": "بلوچی",
+   "type": "MACROLANGUAGE",
+   "members": [
+    "bgn",
+    "bcc",
+    "bgp"
+   ],
+   "tts": false,
+   "translation": false
+  },
+  "bap": {
+   "family": "Sino-Tibetan: Kiranti",
+   "script": "Deva",
+   "native": "बान्तावा",
+   "tts": false,
+   "translation": false
+  },
+  "ben": {
+   "family": "Indo-European: Indo-Aryan",
+   "script": "Beng",
+   "native": "বাংলা",
+   "iso639_1": "bn",
+   "tts": true,
+   "translation": true
+  },
+  "bft": {
+   "family": "Sino-Tibetan: Tibetic",
+   "script": "Arab",
+   "native": "بلتی",
+   "tts": false,
+   "translation": false,
+   "notes": "Tibetic language in Perso-Arabic script — rare combination"
+  },
+  "bgn": {
+   "family": "Indo-European: Iranian",
+   "script": "Arab",
+   "native": "بلوچی",
+   "tts": false,
+   "translation": false
+  },
+  "bho": {
+   "family": "Indo-European: Indo-Aryan",
+   "script": "Deva",
+   "native": "भोजपुरी",
+   "tts": false,
+   "translation": false,
+   "notes": "Kaithi heritage script; Devanagari in practice"
+  },
+  "brh": {
+   "family": "Dravidian: Northern",
+   "script": "Arab",
+   "native": "براہوئی",
+   "tts": false,
+   "translation": false,
+   "notes": "Dravidian outlier in Balochistan; Latin orthography also used"
+  },
+  "brx": {
+   "family": "Sino-Tibetan: Bodo-Garo",
+   "script": "Deva",
+   "native": "बड़ो",
+   "tts": false,
+   "translation": false
+  },
+  "bsk": {
+   "family": "Isolate: Burushaski",
+   "script": "Arab",
+   "native": "بروشسکی",
+   "tts": false,
+   "translation": false,
+   "notes": "Unrelated to any known family; Latin orthography also used"
+  },
+  "ccp": {
+   "family": "Indo-European: Indo-Aryan",
+   "script": "Cakm",
+   "native": "𑄌𑄋𑄴𑄟𑄳𑄦",
+   "tts": false,
+   "translation": false
+  },
+  "ckb": {
+   "family": "Indo-European: Iranian",
+   "script": "Arab",
+   "native": "کوردی",
+   "tts": null,
+   "translation": true,
+   "translationConf": "medium",
+   "notes": "Google Translate Sorani present (medium); TTS unknown"
+  },
+  "div": {
+   "family": "Indo-European: Indo-Aryan",
+   "script": "Thaa",
+   "native": "ދިވެހި",
+   "iso639_1": "dv",
+   "tts": false,
+   "translation": false
+  },
+  "doi": {
+   "family": "Indo-European: Indo-Aryan",
+   "script": "Deva",
+   "native": "डोगरी",
+   "tts": false,
+   "translation": false,
+   "notes": "Takri heritage script; Devanagari official"
+  },
+  "dty": {
+   "family": "Indo-European: Indo-Aryan",
+   "script": "Deva",
+   "native": "डोटेली",
+   "tts": false,
+   "translation": false
+  },
+  "dzo": {
+   "family": "Sino-Tibetan: Bodish",
+   "script": "Tibt",
+   "native": "རྫོང་ཁ",
+   "iso639_1": "dz",
+   "tts": false,
+   "translation": false
+  },
+  "eng": {
+   "family": "Indo-European: Germanic",
+   "script": "Latn",
+   "native": "English",
+   "iso639_1": "en",
+   "tts": true,
+   "translation": true
+  },
+  "fas": {
+   "family": "Indo-European: Iranian",
+   "script": "Arab",
+   "native": "فارسی",
+   "iso639_1": "fa",
+   "type": "MACROLANGUAGE",
+   "members": [
+    "pes",
+    "prs",
+    "tgk"
+   ],
+   "tts": true,
+   "translation": true,
+   "notes": "Macro: Western Persian pes is the Iran standard; prs/tgk mutually intelligible standards"
+  },
+  "gju": {
+   "family": "Indo-European: Indo-Aryan",
+   "script": "Arab",
+   "native": "گوجری",
+   "tts": false,
+   "translation": false,
+   "notes": "Distinct from Gujarati (guj) — name-similarity trap"
+  },
+  "glk": {
+   "family": "Indo-European: Iranian",
+   "script": "Arab",
+   "native": "گیلکی",
+   "tts": false,
+   "translation": false
+  },
+  "grt": {
+   "family": "Sino-Tibetan: Bodo-Garo",
+   "script": "Latn",
+   "native": "A'chik",
+   "tts": false,
+   "translation": false
+  },
+  "guj": {
+   "family": "Indo-European: Indo-Aryan",
+   "script": "Gujr",
+   "native": "ગુજરાતી",
+   "iso639_1": "gu",
+   "tts": true,
+   "translation": true
+  },
+  "hin": {
+   "family": "Indo-European: Indo-Aryan",
+   "script": "Deva",
+   "native": "हिन्दी",
+   "iso639_1": "hi",
+   "tts": true,
+   "translation": true
+  },
+  "hnd": {
+   "family": "Indo-European: Indo-Aryan (Lahnda)",
+   "script": "Arab",
+   "native": "ہندکو",
+   "tts": false,
+   "translation": false
+  },
+  "hno": {
+   "family": "Indo-European: Indo-Aryan (Lahnda)",
+   "script": "Arab",
+   "native": "ہندکو",
+   "tts": false,
+   "translation": false
+  },
+  "hye": {
+   "family": "Indo-European: Armenian",
+   "script": "Armn",
+   "native": "Հայերեն",
+   "iso639_1": "hy",
+   "type": "MACROLANGUAGE",
+   "tts": true,
+   "ttsConf": "medium",
+   "translation": true,
+   "notes": "Covers Eastern standard here; Western Armenian (hyw) separate individual"
+  },
+  "ins": {
+   "family": null,
+   "script": null,
+   "native": null,
+   "type": "SIGN_LANGUAGE",
+   "tts": "na",
+   "translation": "na"
+  },
+  "kan": {
+   "family": "Dravidian: Southern",
+   "script": "Knda",
+   "native": "ಕನ್ನಡ",
+   "iso639_1": "kn",
+   "tts": true,
+   "translation": true
+  },
+  "kas": {
+   "family": "Indo-European: Indo-Aryan (Dardic)",
+   "script": "Arab",
+   "native": "کٲشُر",
+   "iso639_1": "ks",
+   "tts": false,
+   "translation": false,
+   "notes": "Perso-Arabic + Devanagari both notified in J&K"
+  },
+  "khw": {
+   "family": "Indo-European: Indo-Aryan (Dardic)",
+   "script": "Arab",
+   "native": "کھوار",
+   "tts": false,
+   "translation": false
+  },
+  "kmr": {
+   "family": "Indo-European: Iranian",
+   "script": "Latn",
+   "native": "Kurmancî",
+   "tts": null,
+   "translation": true,
+   "translationConf": "medium",
+   "notes": "Latin-script tradition (Perso-Arabic also used); TTS unknown"
+  },
+  "kmz": {
+   "family": "Turkic: Oghuz",
+   "script": "Arab",
+   "native": null,
+   "tts": false,
+   "translation": false,
+   "notes": "Endonym usually just 'Turki'; code treatment verify pass 2"
+  },
+  "kok": {
+   "family": "Indo-European: Indo-Aryan",
+   "script": "Deva",
+   "native": "कोंकणी",
+   "type": "MACROLANGUAGE",
+   "members": [
+    "gom"
+   ],
+   "tts": false,
+   "translation": false,
+   "notes": "Five-script tradition; Devanagari mandated in Goa"
+  },
+  "lif": {
+   "family": "Sino-Tibetan: Kiranti",
+   "script": "Limb",
+   "native": "ᤕᤰᤋᤢᤔ",
+   "tts": false,
+   "translation": false
+  },
+  "lrc": {
+   "family": "Indo-European: Iranian",
+   "script": "Arab",
+   "native": "لوری",
+   "tts": false,
+   "translation": false
+  },
+  "luz": {
+   "family": "Indo-European: Iranian",
+   "script": "Arab",
+   "native": "لوری",
+   "tts": false,
+   "translation": false,
+   "notes": "Includes Bakhtiari per Ethnologue treatment — pass-2 check"
+  },
+  "mai": {
+   "family": "Indo-European: Indo-Aryan",
+   "script": "Deva",
+   "native": "मैथिली",
+   "tts": false,
+   "translation": false,
+   "notes": "Tirhuta/Mithilakshar heritage; Devanagari in practice"
+  },
+  "mal": {
+   "family": "Dravidian: Southern",
+   "script": "Mlym",
+   "native": "മലയാളം",
+   "iso639_1": "ml",
+   "tts": true,
+   "translation": true
+  },
+  "mar": {
+   "family": "Indo-European: Indo-Aryan",
+   "script": "Deva",
+   "native": "मराठी",
+   "iso639_1": "mr",
+   "tts": true,
+   "translation": true
+  },
+  "mby": {
+   "family": "Indo-European: Indo-Aryan",
+   "script": "Gujr",
+   "native": null,
+   "tts": false,
+   "translation": false,
+   "notes": "Gujarati + Perso-Arabic both used; endonym spelling verify"
+  },
+  "mni": {
+   "family": "Sino-Tibetan: Kuki-Chin/Naga?",
+   "script": "Beng",
+   "native": "মৈতৈলোন্",
+   "type": "MACROLANGUAGE",
+   "tts": false,
+   "translation": null,
+   "notes": "Macro treatment + Meitei Mayek (Mtei) revival; family subgroup verify pass 2; Google Translate Meitei presence uncertain"
+  },
+  "mzn": {
+   "family": "Indo-European: Iranian",
+   "script": "Arab",
+   "native": "مازرونی",
+   "tts": false,
+   "translation": false
+  },
+  "nep": {
+   "family": "Indo-European: Indo-Aryan",
+   "script": "Deva",
+   "native": "नेपाली",
+   "iso639_1": "ne",
+   "type": "MACROLANGUAGE",
+   "members": [
+    "npi"
+   ],
+   "tts": true,
+   "translation": true,
+   "notes": "Macro wrapper; sole living member npi (Nepal entry) — same language, dual-code treatment documented"
+  },
+  "new": {
+   "family": "Sino-Tibetan: Himalayish",
+   "script": "Deva",
+   "native": "नेवाः",
+   "tts": false,
+   "translation": false,
+   "notes": "Ranjana/Prachalit heritage scripts; Devanagari modern"
+  },
+  "npi": {
+   "family": "Indo-European: Indo-Aryan",
+   "script": "Deva",
+   "native": "नेपाली",
+   "iso639_1": "ne",
+   "tts": true,
+   "ttsConf": "medium",
+   "translation": true,
+   "notes": "Individual code; India's scheduled entry uses macro 'nep' — same language"
+  },
+  "nsp": {
+   "family": null,
+   "script": null,
+   "native": null,
+   "type": "SIGN_LANGUAGE",
+   "tts": "na",
+   "translation": "na"
+  },
+  "ory": {
+   "family": "Indo-European: Indo-Aryan",
+   "script": "Orya",
+   "native": "ଓଡ଼ିଆ",
+   "iso639_1": "or",
+   "tts": true,
+   "translation": true
+  },
+  "pan": {
+   "family": "Indo-European: Indo-Aryan",
+   "script": "Guru",
+   "native": "ਪੰਜਾਬੀ",
+   "iso639_1": "pa",
+   "tts": true,
+   "translation": true,
+   "notes": "Eastern Punjabi (Gurmukhi); Western/Shahmukhi is pnb — distinct"
+  },
+  "pbu": {
+   "family": "Indo-European: Iranian",
+   "script": "Arab",
+   "native": "پښتو",
+   "tts": null,
+   "translation": true,
+   "notes": "Google 'ps' collective covers Pashto; per-variety TTS unknown"
+  },
+  "pks": {
+   "family": null,
+   "script": null,
+   "native": null,
+   "type": "SIGN_LANGUAGE",
+   "tts": "na",
+   "translation": "na"
+  },
+  "pnb": {
+   "family": "Indo-European: Indo-Aryan (Lahnda)",
+   "script": "Arab",
+   "native": "پنجابی",
+   "tts": false,
+   "translation": false,
+   "notes": "Western Panjabi (Shahmukhi); Google 'pa' is Eastern/Gurmukhi only"
+  },
+  "prs": {
+   "family": "Indo-European: Iranian",
+   "script": "Arab",
+   "native": "دری",
+   "tts": null,
+   "translation": true,
+   "notes": "Translation via Persian (fa); Dari-specific TTS unknown"
+  },
+  "psc": {
+   "family": null,
+   "script": null,
+   "native": null,
+   "type": "SIGN_LANGUAGE",
+   "tts": "na",
+   "translation": "na"
+  },
+  "qxq": {
+   "family": "Turkic: Oghuz",
+   "script": "Arab",
+   "native": "قشقایی",
+   "tts": false,
+   "translation": false
+  },
+  "rhg": {
+   "family": "Indo-European: Indo-Aryan",
+   "script": "Rohg",
+   "native": "𐴌𐴟𐴇𐴥𐴝",
+   "tts": false,
+   "translation": false,
+   "notes": "Hanifi Rohingya script (Rohg, Unicode); Arabic + Latin also used"
+  },
+  "rjs": {
+   "family": "Indo-European: Indo-Aryan",
+   "script": "Deva",
+   "native": "राजबंशी",
+   "tts": false,
+   "translation": false,
+   "notes": "Devanagari in NP; Bengali script across border; Kamtapuri continuum dispute"
+  },
+  "rki": {
+   "family": "Sino-Tibetan: Burmish",
+   "script": "Mymr",
+   "native": "ရခိုင်",
+   "tts": false,
+   "translation": false
+  },
+  "rmz": {
+   "family": "Sino-Tibetan: Burmish",
+   "script": "Mymr",
+   "native": null,
+   "tts": false,
+   "translation": false,
+   "notes": "Burmese-script endonym spelling verify pass 2"
+  },
+  "san": {
+   "family": "Indo-European: Indo-Aryan",
+   "script": "Deva",
+   "native": "संस्कृतम्",
+   "iso639_1": "sa",
+   "tts": false,
+   "translation": false,
+   "notes": "Liturgical/scholarly; census L1 is symbolic self-report"
+  },
+  "sat": {
+   "family": "Austroasiatic: Munda",
+   "script": "Olck",
+   "native": "ᱥᱟᱱᱛᱟᱲᱤ",
+   "tts": false,
+   "translation": true,
+   "translationConf": "medium",
+   "notes": "Google Translate added Santali (Ol Chiki) 2024 — medium confidence; TTS absent"
+  },
+  "sci": {
+   "family": "Creole: Malay-based",
+   "script": "Latn",
+   "native": null,
+   "tts": false,
+   "translation": false,
+   "notes": "Endangered; shifting to Tamil/Sinhala"
+  },
+  "sck": {
+   "family": "Indo-European: Indo-Aryan",
+   "script": "Deva",
+   "native": "सदरी",
+   "tts": false,
+   "translation": false,
+   "notes": "Code 'sck' treatment medium — verify pass 2"
+  },
+  "scl": {
+   "family": "Indo-European: Indo-Aryan (Dardic)",
+   "script": "Arab",
+   "native": "شینا",
+   "tts": false,
+   "translation": false
+  },
+  "sdh": {
+   "family": "Indo-European: Iranian",
+   "script": "Arab",
+   "native": null,
+   "tts": false,
+   "translation": false,
+   "notes": "Endonym varies by tribe ('Kordi'); verify"
+  },
+  "sin": {
+   "family": "Indo-European: Indo-Aryan",
+   "script": "Sinh",
+   "native": "සිංහල",
+   "iso639_1": "si",
+   "tts": true,
+   "ttsConf": "medium",
+   "translation": true,
+   "notes": "Diglossic — course must teach spoken first"
+  },
+  "skr": {
+   "family": "Indo-European: Indo-Aryan (Lahnda)",
+   "script": "Arab",
+   "native": "سرائیکی",
+   "tts": false,
+   "translation": false
+  },
+  "snd": {
+   "family": "Indo-European: Indo-Aryan",
+   "script": "Arab",
+   "native": "سنڌي",
+   "iso639_1": "sd",
+   "tts": null,
+   "translation": true,
+   "notes": "Perso-Arabic (52 letters) + Devanagari in India; TTS unknown"
+  },
+  "sqs": {
+   "family": null,
+   "script": null,
+   "native": null,
+   "type": "SIGN_LANGUAGE",
+   "tts": "na",
+   "translation": "na"
+  },
+  "tam": {
+   "family": "Dravidian: Southern",
+   "script": "Taml",
+   "native": "தமிழ்",
+   "iso639_1": "ta",
+   "tts": true,
+   "translation": true
+  },
+  "tel": {
+   "family": "Dravidian: South-Central",
+   "script": "Telu",
+   "native": "తెలుగు",
+   "iso639_1": "te",
+   "tts": true,
+   "translation": true
+  },
+  "tly": {
+   "family": "Indo-European: Iranian",
+   "script": "Arab",
+   "native": "Tolışi",
+   "tts": false,
+   "translation": false,
+   "notes": "Latin/Cyrillic used across border in Azerbaijan republic"
+  },
+  "trp": {
+   "family": "Sino-Tibetan: Bodo-Garo",
+   "script": "Beng",
+   "native": "Kokborok",
+   "tts": false,
+   "translation": false,
+   "notes": "Bengali + Latin both used"
+  },
+  "tsj": {
+   "family": "Sino-Tibetan: Bodish",
+   "script": "Tibt",
+   "native": "ཚང་ལ",
+   "tts": false,
+   "translation": false,
+   "notes": "Primarily oral; Tibetan script where written"
+  },
+  "tuk": {
+   "family": "Turkic: Oghuz",
+   "script": "Arab",
+   "native": "Türkmençe",
+   "iso639_1": "tk",
+   "tts": null,
+   "translation": true,
+   "translationConf": "medium",
+   "notes": "Perso-Arabic in IR/AF; Latin in Turkmenistan"
+  },
+  "urd": {
+   "family": "Indo-European: Indo-Aryan",
+   "script": "Arab",
+   "native": "اردو",
+   "iso639_1": "ur",
+   "tts": true,
+   "translation": true
+  },
+  "uzn": {
+   "family": "Turkic: Karluk",
+   "script": "Arab",
+   "native": "Oʻzbekcha",
+   "tts": true,
+   "ttsConf": "medium",
+   "translation": true,
+   "notes": "Perso-Arabic in Afghanistan; Latin/Cyrillic in Uzbekistan — script split noted"
+  },
+  "ved": {
+   "family": null,
+   "script": null,
+   "native": null,
+   "tts": false,
+   "translation": false,
+   "notes": "Affiliation disputed (isolate vs Indo-Aryan); moribund, primarily oral — do not assign family/script without source"
+  },
+  "xct": {
+   "family": "Sino-Tibetan: Tibetic",
+   "script": "Tibt",
+   "native": "ཆོས་སྐད",
+   "tts": false,
+   "translation": false,
+   "notes": "Chöke — monastic register, not modern spoken Tibetan (bod)"
+  },
+  "xsr": {
+   "family": "Sino-Tibetan: Tibetic",
+   "script": "Tibt",
+   "native": "ཤར་པ།",
+   "tts": false,
+   "translation": false
+  }
+ }
+}
