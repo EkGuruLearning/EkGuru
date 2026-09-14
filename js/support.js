@@ -83,11 +83,14 @@
         }
       }
       /* Quick amounts are DERIVED from the sheet URL, never hardcoded:
-         paypal.me/NAME + /5USD etc. Only the PayPal card has them. */
+         paypal.me/NAME + /5USD etc. Only the PayPal card has them.
+         Query/hash (?locale.x=...) is stripped first — amounts must
+         attach to the bare path or PayPal ignores them. */
       var amts = el.querySelectorAll("[data-amt]");
+      var amtBase = v.split(/[?#]/)[0].replace(/\/+$/, "");
       for (var i = 0; i < amts.length; i++) {
         amts[i].setAttribute("href",
-          v.replace(/\/+$/, "") + "/" + amts[i].getAttribute("data-amt") + "USD");
+          amtBase + "/" + amts[i].getAttribute("data-amt") + "USD");
       }
       var cp = el.querySelector("[data-copy]");
       if (cp) cp.setAttribute("data-copy-text", v);
