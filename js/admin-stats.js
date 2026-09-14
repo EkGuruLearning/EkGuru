@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T07:13:19.402Z",
+ "generated": "2026-09-14T07:19:42.714Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 1524,
+  "totalHtml": 1562,
   "materials": 0
  },
  "countries": {
@@ -3923,8 +3923,8 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 1524,
-  "sitemapUrls": 1171,
+  "pages": 1562,
+  "sitemapUrls": 1209,
   "sitemapFiles": 16,
   "brokenLinks": 0,
   "orphans": 0
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1866 files scanned, 0 secrets"
+  "note": "1904 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "a31cc0dbf0ffb61b2f942f7225b3b56c739062ae",
-  "subject": "Audit-14 (Ethiopia) step 2: +7 missing-major entries, Gurage ruling, 1345 total",
-  "buildTime": "2026-09-14T07:13:19.415Z",
+  "commit": "bff24ccc5fecfee340af8c0a84292cc7536ac8b0",
+  "subject": "World-languages 194/194: all country guides + TTS buttons + backlinks (doctor PASS, 1524 pages)",
+  "buildTime": "2026-09-14T07:19:42.726Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 1524,
+   "totalHtml": 1562,
    "tutorProfiles": 4,
    "materials": 0
   }
