@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T03:27:23.010Z",
+ "generated": "2026-09-14T03:34:06.716Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "8c4c5339f66992c8a4786b4d8343823dfc1f184f",
-  "subject": "v146: wire owner support tab (gid=1041390059) as second settings source — merged under main tab, build + runtime",
-  "buildTime": "2026-09-14T03:27:23.023Z",
+  "commit": "aed1d88ad6d4deae07f4b8c9b400d195aa3b79ac",
+  "subject": "v147: chapter worlds — per-chapter full-page themes + banners on 494 pages, child-friendly book animations, themed hub cards",
+  "buildTime": "2026-09-14T03:34:06.728Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,

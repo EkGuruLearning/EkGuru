@@ -33,7 +33,15 @@
     }
     bindFlip(document);
 
-    /* ---- speech: any .spk / [data-say] speaks Hindi ---- */
+    /* ---- speech: any .spk / [data-say] speaks Hindi ----
+       Rate is global + persisted: the speed pill writes
+       ekguru_tts_rate and every speak uses it. */
+    var RATE_KEY = "ekguru_tts_rate";
+    var ttsRate = 0.85;
+    try {
+      var r0 = parseFloat(window.localStorage && localStorage.getItem(RATE_KEY));
+      if (r0 >= 0.5 && r0 <= 1.5) ttsRate = r0;
+    } catch (eRate) {}
     var hindiVoice = null, voiceTried = false;
     function pickVoice() {
       if (voiceTried || !("speechSynthesis" in window)) return hindiVoice;
@@ -225,24 +233,37 @@
       if (!("speechSynthesis" in window)) return;
       var DEVA = /[\u0900-\u097F]/;
       var ONLY = /^[\u0900-\u097F\s\u200C\u200D।?!·,;:'"()\-–—\/]+$/;
-      /* Wrappers differ by section: .art (learn/materials),
-         .pw (hindi/toolbox/daily-hindi/global), .answer (ask),
-         .ans (answers). All get speakers. */
+      /* Wrappers differ by section — always the OUTER one, because
+         on ask/answers pages the h2s and lists live outside the
+         inner .answer/.ans: .art (learn/materials), .pw
+         (hindi/toolbox/daily-hindi/global), .qw (ask), .aw (answers). */
+      /* p and linklist spans join the list: the pure-Devanagari +
+         42-char gates keep long/mixed text untouched. */
       var els = document.querySelectorAll(
-        ".art td,.art li,.art strong,.art .quiz summary," +
-        ".pw td,.pw li,.pw strong,.answer td,.answer li,.answer strong," +
-        ".ans td,.ans li,.ans strong");
+        ".art td,.art li,.art strong,.art p,.art .quiz summary," +
+        ".pw td,.pw li,.pw strong,.pw p,.qw td,.qw li,.qw strong,.qw p," +
+        ".aw td,.aw li,.aw strong,.aw p,.art .linklist span");
       var added = 0;
       for (var i = 0; i < els.length && added < 80; i++) {
         var el = els[i];
         if (el.querySelector("a,button,input,select,textarea,[data-sb-say]")) continue;
         var t = (el.textContent || "").replace(/\s+/g, " ").trim();
-        if (t.length < 1 || t.length > 42 || !DEVA.test(t) || !ONLY.test(t)) continue;
+        if (t.length < 1 || t.length > 120 || !DEVA.test(t)) continue;
+        /* Speak the longest Hindi phrase inside — pure lines speak
+           whole, mixed lines ("1 — एक (ek)") speak just "एक". The
+           Hindi voice never has to chew English. */
+        var phrases = t.match(/[\u0900-\u097F][\u0900-\u097F ]{0,41}/g) || [];
+        var best = "";
+        for (var pi = 0; pi < phrases.length; pi++) {
+          var cand = phrases[pi].trim().replace(/ +/g, " ");
+          if (cand.length > best.length) best = cand;
+        }
+        if (best.length < 2 || !/[अ-ह]/.test(best)) continue;
         var b = document.createElement("button");
         b.type = "button";
         b.className = "say say-auto";
-        b.setAttribute("data-sb-say", t);
-        b.setAttribute("aria-label", "Listen: " + t);
+        b.setAttribute("data-sb-say", best);
+        b.setAttribute("aria-label", "Listen: " + best);
         b.textContent = "🔊";
         el.appendChild(document.createTextNode(" "));
         el.appendChild(b);
@@ -330,7 +351,7 @@
 
     /* auto table of contents from the page's own h2s */
     try {
-      var wrap = document.querySelector(".art,.pw,.answer,.ans");
+      var wrap = document.querySelector(".art,.pw,.qw,.aw");
       if (wrap) {
         var h2s = wrap.querySelectorAll("h2");
         if (h2s.length >= 3) {
@@ -363,7 +384,7 @@
 
     /* key-words strip: the page's own Hindi words as TTS chips */
     try {
-      var wrap2 = document.querySelector(".art,.pw,.answer,.ans");
+      var wrap2 = document.querySelector(".art,.pw,.qw,.aw");
       if (wrap2) {
         var seenW = {}, words = [];
         var STOP = {"मैं": 1, "हम": 1, "तुम": 1, "आप": 1, "वह": 1, "वे": 1,
@@ -409,7 +430,7 @@
         var store = {};
         try { store = JSON.parse(window.localStorage.getItem("ekguru_mastery_v1") || "{}") || {}; }
         catch (e3b) { store = {}; }
-        var w3 = document.querySelector(".art,.pw,.answer,.ans") || document.body;
+        var w3 = document.querySelector(".art,.pw,.qw,.aw") || document.body;
         var mdiv = document.createElement("div");
         mdiv.className = "sb-mastery";
         var ids = Object.keys(store);
