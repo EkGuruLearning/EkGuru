@@ -120,7 +120,7 @@ Researched living estimate: 25 (agent-knowledge, low). Entries below: 9.
 
 **REGIONAL** (1): Paraguayan Guarani (grn, medium).
 
-**INDIGENOUS** (3): Mapudungun (arn, low); Santiago del Estero Quichua (qus, low); Toba Qom (qom, low).
+**INDIGENOUS** (3): Mapudungun (arn, low); Santiago del Estero Quichua (qus, low); Toba Qom (tob, low).
 
 **MINORITY** (1): Welsh (cym, medium).
 
@@ -1094,7 +1094,7 @@ Researched living estimate: 4 (agent-knowledge, low). Entries below: 4.
 
 **WIDELY_SPOKEN** (2): English (eng, low); Haitian (hat, medium).
 
-**SIGN_LANGUAGE** (1): Haitian Sign Language (hps, medium).
+**SIGN_LANGUAGE** (1): Haitian Sign Language (mis, medium).
 
 
 ## HU — Hungary (Central Europe)
@@ -1862,7 +1862,7 @@ Researched living estimate: 30 (agent-knowledge, low). Entries below: 7.
 
 **OFFICIAL** (1): English (eng, medium).
 
-**NATIONAL** (5): Afrikaans (afr, medium); Khoekhoe (naq, low); Oshiwambo (kua, low); Otjiherero (hez, low); Rukwangali (kwn, low).
+**NATIONAL** (5): Afrikaans (afr, medium); Khoekhoe (naq, low); Oshiwambo (kua, low); Otjiherero (her, low); Rukwangali (kwn, low).
 
 **WIDELY_SPOKEN** (3): Afrikaans (afr, medium); Afrikaans (afr, medium); Oshiwambo (kua, low).
 
@@ -2033,7 +2033,7 @@ Researched living estimate: 100 (agent-knowledge, low). Entries below: 9.
 
 **INDIGENOUS** (6): Aguaruna (agr, low); Ashaninka (cni, low); Ayacucho Quechua (quy, low); Central Aymara (aym, medium); Cusco Quechua (qvc, low); Shipibo-Conibo (shp, low).
 
-**SIGN_LANGUAGE** (1): Peruvian Sign Language (psl, medium).
+**SIGN_LANGUAGE** (1): Peruvian Sign Language (prl, medium).
 
 
 ## PG — Papua New Guinea (Melanesia)
@@ -2109,7 +2109,7 @@ Researched living estimate: 18 (agent-knowledge, low). Entries below: 8.
 
 **IMMIGRANT** (1): Ukrainian (ukr, medium).
 
-**SIGN_LANGUAGE** (1): Polish Sign Language (pjm, medium).
+**SIGN_LANGUAGE** (1): Polish Sign Language (pso, medium).
 
 
 ## PT — Portugal (Southern Europe)
@@ -2777,13 +2777,13 @@ Researched living estimate: 3 (agent-knowledge, low). Entries below: 2.
 
 Researched living estimate: 40 (agent-knowledge, low). Entries below: 7.
 
-**OFFICIAL** (5): Pemon (aoc, low); Spanish (spa, medium); Warao (wra, low); Wayuu (guc, medium); Yanomamo (wca, low).
+**OFFICIAL** (5): Pemon (aoc, low); Spanish (spa, medium); Warao (wba, low); Wayuu (guc, medium); Yanomamo (wca, low).
 
 **NATIONAL** (1): Spanish (spa, medium).
 
 **WIDELY_SPOKEN** (2): English (eng, low); Spanish (spa, medium).
 
-**INDIGENOUS** (4): Pemon (aoc, low); Warao (wra, low); Wayuu (guc, medium); Yanomamo (wca, low).
+**INDIGENOUS** (4): Pemon (aoc, low); Warao (wba, low); Wayuu (guc, medium); Yanomamo (wca, low).
 
 **SIGN_LANGUAGE** (1): Venezuelan Sign Language (vsl, medium).
 

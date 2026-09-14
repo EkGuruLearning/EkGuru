@@ -42,9 +42,17 @@ dataset (press-estimates, ~2x variance, no-fabrication protocol enforced).
 1. **Ethnologue paywall**: 73 citations trace to edition 27 via secondary
    knowledge, not the live database. Any figure challenged in review must be
    re-sourced to the edition or replaced.
-2. **Sign languages** (9 entries): code audit done 2026-09-14 (afg fixed ex-mis; ins/nsp/pks/psc/sqs
-   confirmed; BD/BT/MV genuinely uncoded). Direct deaf-org consultation STILL pending; ISL dialect
-   spread unresolved. Text-first readiness cap (PARTIAL) is a policy choice, documented in METHOD.
+2. **Sign languages**: pass-2 SIL-table audit 2026-09-14 (7927-code
+   table, 161 sign) resolved the code layer fully: 20 countries SIL-confirmed
+   genuinely uncoded (BD/MV/KZ/KG/TJ/TM/UZ/AE/QA/KW/BH/OM/IQ/SY/LB/YE/AZ/
+   GE/BN/TL + HT — wbs is IN-side, not BD; hps is Hawai'i, not Haitian);
+   BT dyl confirmed CORRECT (batch-11 Damin claim was false memory).
+   Fixed: pjm→pso (Polish), PE psl→prl (Peruvian; psl is Puerto Rican),
+   hez→her (Herero), qom→tob (Toba), wra→wba (Warao) — 4 fabricated codes
+   caught. Canonical hps/psl relabelled per SIL (spares, no relations).
+   Direct deaf-org consultation STILL pending; ISL dialect spread
+   unresolved. Text-first readiness cap (PARTIAL) is a policy choice,
+   documented in METHOD.
 3. **Macro/code disputes** (pass-2 SIL bulk 2026-09-14 resolved the batch-1 set: mni/hye are scope=I
    individuals, NOT macros — claims withdrawn; doi/san ARE macros — members recorded; mrd retired→mgp;
    fas−tgk). Still open: Rajasthani macro; Hazaragi haz (may deserve PK entry); Pothohari pho;

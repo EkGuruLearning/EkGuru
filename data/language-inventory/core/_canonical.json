@@ -308,7 +308,7 @@
    "type": "SIGN_LANGUAGE",
    "tts": false,
    "translation": false,
-   "notes": "Batch-3 sign hunt: code dyl confirmed (was mis/disputed in batch 1). Batch 11 top-up (2026-09-14). BT Bhutanese Sign Language (code dyl reused for this in-inventory; ISO dyl is Damin — do not confuse). TTS/MT not applicable to sign. Endonym TBD pass 3."
+   "notes": "Batch-3 sign hunt: code dyl confirmed (was mis/disputed in batch 1). Batch 11 top-up (2026-09-14). BT Bhutanese Sign Language (SIL confirms dyl = Bhutanese Sign Language; batch-11 Damin claim was false memory — corrected). TTS/MT not applicable to sign. Endonym TBD pass 3."
   },
   "dzo": {
    "family": "Sino-Tibetan: Bodish",
@@ -1017,7 +1017,7 @@
    "native": "Wanniyala-aetto",
    "tts": false,
    "translation": false,
-   "notes": "Affiliation disputed (isolate vs Indo-Aryan); moribund, primarily oral — do not assign family/script without source SIL bulk 2026-09-14: confirmed ved = Veddah (scope I, living). Batch 11 top-up (2026-09-14). LK Vedda; moribund, primarily oral (Zxxx); do not merge with Sinhala."
+   "notes": "Affiliation disputed (isolate vs Indo-Aryan); moribund, primarily oral — do not assign family/script without source SIL bulk 2026-09-14: confirmed ved = Veddah (scope I, living). Batch 11 top-up (2026-09-14). LK Vedda; moribund, primarily oral (Zxxx); do not merge with Sinhala. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL Ref_Name spells 'Veddah'."
   },
   "xct": {
    "family": "Sino-Tibetan: Tibetic",
@@ -3376,14 +3376,6 @@
    "translation": false,
    "notes": "Batch 6b (pass 1, agent-compiled; verification pass 2 confirms). TG coast (Aného; ~200K; Mina)."
   },
-  "hez": {
-   "family": "Atlantic-Congo: Bantu",
-   "script": "Latn",
-   "native": "otjiherero",
-   "tts": false,
-   "translation": false,
-   "notes": "Batch 6b (pass 1, agent-compiled; verification pass 2 confirms). NA national (~200K; Big-Tech MT unconfirmed). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Neither engine lists it; no plausible third engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
-  },
   "naq": {
    "family": "Khoe-Kwadi",
    "script": "Latn",
@@ -4891,14 +4883,6 @@
    "translation": false,
    "notes": "Batch 10a (pass 2 agent-compiled + voice-list verified 2026-09-14). FM Pohnpei (~30K). No voice/MT. P2 voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list."
   },
-  "qom": {
-   "family": "Guaicuruan (Qom)",
-   "script": "Latn",
-   "native": "qom",
-   "tts": false,
-   "translation": false,
-   "notes": "Batch 10a (pass 2 agent-compiled + voice-list verified 2026-09-14). AR Chaco (~30K; Toba exonym; Google bbc is Batak Toba, not Qom). No voice/MT. P2 voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list."
-  },
   "rue": {
    "family": "Indo-European: Slavic (East, Rusyn)",
    "script": "Cyrl",
@@ -4995,14 +4979,6 @@
    "translation": false,
    "iso639_1": "se",
    "notes": "Batch 10b (pass 2 agent-compiled + voice-list verified 2026-09-14). NO/SE/FI (~20K; largest Sami). No voice/MT either engine. P2 voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list."
-  },
-  "wra": {
-   "family": "Language isolate (Warao)",
-   "script": "Latn",
-   "native": "warao",
-   "tts": false,
-   "translation": false,
-   "notes": "Batch 10b (pass 2 agent-compiled + voice-list verified 2026-09-14). VE Orinoco delta (~20K). No voice/MT. P2 voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list."
   },
   "yrl": {
    "family": "Tupian (Nheengatu)",
@@ -5654,12 +5630,12 @@
    "translation": false
   },
   "hps": {
-   "native": "lang siy ayisyen",
-   "notes": "Batch 11 (pass 2 agent-compiled 2026-09-14). HT Haitian Sign Language (ASL-influenced). TTS/MT not applicable to sign (flags FALSE).",
    "family": "Sign language",
    "script": "Sgnw",
+   "native": "Hawai'i Sign Language",
    "tts": false,
-   "translation": false
+   "translation": false,
+   "notes": "Pass 2 code-fix 2026-09-14 [sil-iso639-3-tab-2026]: hps is HAWAI'I SL per SIL (batch-11 Haitian label was wrong); Haitian SL is uncoded (HT entry → mis). No relation yet — spare. TTS/MT not applicable."
   },
   "hsh": {
    "native": "magyar jelnyelv",
@@ -5765,21 +5741,13 @@
    "tts": false,
    "translation": false
   },
-  "pjm": {
-   "native": "polski język migowy",
-   "notes": "Batch 11 (pass 2 agent-compiled 2026-09-14). PL Polish Sign Language (PJM). TTS/MT not applicable to sign (flags FALSE).",
-   "family": "Sign language",
-   "script": "Sgnw",
-   "tts": false,
-   "translation": false
-  },
   "psl": {
-   "native": "lengua de señas peruana",
-   "notes": "Batch 11 (pass 2 agent-compiled 2026-09-14). PE Peruvian Sign Language. TTS/MT not applicable to sign (flags FALSE).",
    "family": "Sign language",
    "script": "Sgnw",
+   "native": "lengua de señas puertorriqueña",
    "tts": false,
-   "translation": false
+   "translation": false,
+   "notes": "Pass 2 code-fix 2026-09-14 [sil-iso639-3-tab-2026]: psl is PUERTO Rican SL per SIL (batch-11 Peruvian label was wrong); Peruvian SL moved to prl. No sovereign relation (PR out of scope) — spare. TTS/MT not applicable."
   },
   "psr": {
    "native": "língua gestual portuguesa",
@@ -5900,6 +5868,46 @@
    "script": "Sgnw",
    "tts": false,
    "translation": false
+  },
+  "pso": {
+   "family": "Sign language",
+   "script": "Sgnw",
+   "native": "polski język migowy",
+   "tts": false,
+   "translation": false,
+   "notes": "Pass 2 code-fix 2026-09-14 [sil-iso639-3-tab-2026]: pso is Polish Sign Language (PJM); batch-11 pjm code never existed in SIL — deleted. TTS/MT not applicable to sign."
+  },
+  "prl": {
+   "family": "Sign language",
+   "script": "Sgnw",
+   "native": "lengua de señas peruana",
+   "tts": false,
+   "translation": false,
+   "notes": "Pass 2 code-fix 2026-09-14 [sil-iso639-3-tab-2026]: prl is Peruvian Sign Language. TTS/MT not applicable to sign."
+  },
+  "her": {
+   "family": "Atlantic-Congo: Bantu",
+   "script": "Latn",
+   "native": "otjiherero",
+   "tts": false,
+   "translation": false,
+   "notes": "Batch 6b (pass 1, agent-compiled; verification pass 2 confirms). NA national (~200K; Big-Tech MT unconfirmed). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Neither engine lists it; no plausible third engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: code hez never existed in SIL — entry moved to her (Herero)."
+  },
+  "tob": {
+   "family": "Guaicuruan (Qom)",
+   "script": "Latn",
+   "native": "qom",
+   "tts": false,
+   "translation": false,
+   "notes": "Batch 10a (pass 2 agent-compiled + voice-list verified 2026-09-14). AR Chaco (~30K; Toba exonym; Google bbc is Batak Toba, not Qom). No voice/MT. P2 voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: code qom never existed in SIL — entry moved to tob (Toba)."
+  },
+  "wba": {
+   "family": "Language isolate (Warao)",
+   "script": "Latn",
+   "native": "warao",
+   "tts": false,
+   "translation": false,
+   "notes": "Batch 10b (pass 2 agent-compiled + voice-list verified 2026-09-14). VE Orinoco delta (~20K). No voice/MT. P2 voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: code wra never existed in SIL — entry moved to wba (Warao)."
   }
  }
 }

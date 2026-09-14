@@ -1,7 +1,7 @@
 {
  "preliminary": false,
  "coverage": "194/194",
- "count": 694,
+ "count": 693,
  "languages": [
   {
    "language_id": "lang:abk",
@@ -235,8 +235,10 @@
     "regional"
    ],
    "sources_all": [
+    "ady-diaspora-speakers-1997",
     "agent-knowledge",
-    "ethnologue-27"
+    "ethnologue-27",
+    "sil-iso639-3-tab-2026"
    ],
    "statuses": [
     "LIVING"
@@ -2736,7 +2738,7 @@
    "min_confidence": "medium",
    "tts": false,
    "translation": false,
-   "canonical_note": "Batch-3 sign hunt: code dyl confirmed (was mis/disputed in batch 1). Batch 11 top-up (2026-09-14). BT Bhutanese Sign Language (code dyl reused for this in-inventory; ISO dyl is Damin — do not confuse). TTS/MT not applicable to sign. Endonym TBD pass 3."
+   "canonical_note": "Batch-3 sign hunt: code dyl confirmed (was mis/disputed in batch 1). Batch 11 top-up (2026-09-14). BT Bhutanese Sign Language (SIL confirms dyl = Bhutanese Sign Language; batch-11 Damin claim was false memory — corrected). TTS/MT not applicable to sign. Endonym TBD pass 3."
   },
   {
    "language_id": "lang:bik",
@@ -9442,44 +9444,6 @@
    "tts": false,
    "translation": true,
    "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). HT official; large US/DO/CL diaspora. No ht- voice on either engine (batch-3 overclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
-  },
-  {
-   "language_id": "lang:hps",
-   "canonical_name": "Haitian Sign Language",
-   "aliases": [],
-   "native_name": "lang siy ayisyen",
-   "iso_639_1": null,
-   "iso_639_3": "hps",
-   "glottocode": null,
-   "language_family": "Sign language",
-   "language_type": "SIGN_LANGUAGE",
-   "script": "Sgnw",
-   "countries": [
-    "HT"
-   ],
-   "bands": [
-    "unknown"
-   ],
-   "confidences": [
-    "medium"
-   ],
-   "roles_all": [
-    "sign"
-   ],
-   "sources_all": [
-    "agent-knowledge"
-   ],
-   "statuses": [
-    "LIVING"
-   ],
-   "ekguru_statuses": [
-    "none"
-   ],
-   "max_band": "unknown",
-   "min_confidence": "medium",
-   "tts": false,
-   "translation": false,
-   "canonical_note": "Batch 11 (pass 2 agent-compiled 2026-09-14). HT Haitian Sign Language (ASL-influenced). TTS/MT not applicable to sign (flags FALSE)."
   },
   {
    "language_id": "lang:hak",
@@ -16818,7 +16782,8 @@
    "sources_all": [
     "agent-knowledge",
     "ethnologue-27",
-    "ge-census-2014"
+    "ge-census-2014",
+    "sil-iso639-3-tab-2026"
    ],
    "statuses": [
     "LIVING"
@@ -19624,12 +19589,12 @@
    "canonical_note": "Batch 9a (pass 2 agent-compiled + voice-list verified 2026-09-14). RU/GE (~450K; steppe relic; Digor/Iron dialects). No voice/MT. P2 voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list."
   },
   {
-   "language_id": "lang:hez",
+   "language_id": "lang:her",
    "canonical_name": "Otjiherero",
    "aliases": [],
    "native_name": "otjiherero",
    "iso_639_1": null,
-   "iso_639_3": "hez",
+   "iso_639_3": "her",
    "glottocode": null,
    "language_family": "Atlantic-Congo: Bantu",
    "language_type": "CANONICAL_LANGUAGE",
@@ -19647,7 +19612,8 @@
     "national"
    ],
    "sources_all": [
-    "agent-knowledge"
+    "agent-knowledge",
+    "sil-iso639-3-tab-2026"
    ],
    "statuses": [
     "LIVING"
@@ -19659,7 +19625,7 @@
    "min_confidence": "low",
    "tts": false,
    "translation": false,
-   "canonical_note": "Batch 6b (pass 1, agent-compiled; verification pass 2 confirms). NA national (~200K; Big-Tech MT unconfirmed). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Neither engine lists it; no plausible third engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
+   "canonical_note": "Batch 6b (pass 1, agent-compiled; verification pass 2 confirms). NA national (~200K; Big-Tech MT unconfirmed). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Neither engine lists it; no plausible third engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: code hez never existed in SIL — entry moved to her (Herero)."
   },
   {
    "language_id": "lang:blk",
@@ -20384,12 +20350,12 @@
    "canonical_note": "Batch 11 top-up (2026-09-14). IR Persian Sign Language. TTS/MT not applicable to sign. Endonym TBD pass 3."
   },
   {
-   "language_id": "lang:psl",
+   "language_id": "lang:prl",
    "canonical_name": "Peruvian Sign Language",
    "aliases": [],
    "native_name": "lengua de señas peruana",
    "iso_639_1": null,
-   "iso_639_3": "psl",
+   "iso_639_3": "prl",
    "glottocode": null,
    "language_family": "Sign language",
    "language_type": "SIGN_LANGUAGE",
@@ -20407,7 +20373,8 @@
     "sign"
    ],
    "sources_all": [
-    "agent-knowledge"
+    "agent-knowledge",
+    "sil-iso639-3-tab-2026"
    ],
    "statuses": [
     "LIVING"
@@ -20419,7 +20386,7 @@
    "min_confidence": "medium",
    "tts": false,
    "translation": false,
-   "canonical_note": "Batch 11 (pass 2 agent-compiled 2026-09-14). PE Peruvian Sign Language. TTS/MT not applicable to sign (flags FALSE)."
+   "canonical_note": "Pass 2 code-fix 2026-09-14 [sil-iso639-3-tab-2026]: prl is Peruvian Sign Language. TTS/MT not applicable to sign."
   },
   {
    "language_id": "lang:psp",
@@ -20853,12 +20820,12 @@
    "canonical_note": "Batch 2 (pass 1, agent-compiled). PL official; large GB/DE/US diaspora."
   },
   {
-   "language_id": "lang:pjm",
+   "language_id": "lang:pso",
    "canonical_name": "Polish Sign Language",
    "aliases": [],
    "native_name": "polski język migowy",
    "iso_639_1": null,
-   "iso_639_3": "pjm",
+   "iso_639_3": "pso",
    "glottocode": null,
    "language_family": "Sign language",
    "language_type": "SIGN_LANGUAGE",
@@ -20876,7 +20843,8 @@
     "sign"
    ],
    "sources_all": [
-    "agent-knowledge"
+    "agent-knowledge",
+    "sil-iso639-3-tab-2026"
    ],
    "statuses": [
     "LIVING"
@@ -20888,7 +20856,7 @@
    "min_confidence": "medium",
    "tts": false,
    "translation": false,
-   "canonical_note": "Batch 11 (pass 2 agent-compiled 2026-09-14). PL Polish Sign Language (PJM). TTS/MT not applicable to sign (flags FALSE)."
+   "canonical_note": "Pass 2 code-fix 2026-09-14 [sil-iso639-3-tab-2026]: pso is Polish Sign Language (PJM); batch-11 pjm code never existed in SIL — deleted. TTS/MT not applicable to sign."
   },
   {
    "language_id": "lang:por",
@@ -27187,12 +27155,12 @@
    "canonical_note": "Batch 8 (pass 2 agent-compiled + voice-list verified 2026-09-14). NG Benue/Nasarawa/Plateau (~4M; NOT Bantu). P2 voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list."
   },
   {
-   "language_id": "lang:qom",
+   "language_id": "lang:tob",
    "canonical_name": "Toba Qom",
    "aliases": [],
    "native_name": "qom",
    "iso_639_1": null,
-   "iso_639_3": "qom",
+   "iso_639_3": "tob",
    "glottocode": null,
    "language_family": "Guaicuruan (Qom)",
    "language_type": "CANONICAL_LANGUAGE",
@@ -27210,7 +27178,8 @@
     "indigenous"
    ],
    "sources_all": [
-    "agent-knowledge"
+    "agent-knowledge",
+    "sil-iso639-3-tab-2026"
    ],
    "statuses": [
     "LIVING"
@@ -27222,7 +27191,7 @@
    "min_confidence": "low",
    "tts": false,
    "translation": false,
-   "canonical_note": "Batch 10a (pass 2 agent-compiled + voice-list verified 2026-09-14). AR Chaco (~30K; Toba exonym; Google bbc is Batak Toba, not Qom). No voice/MT. P2 voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list."
+   "canonical_note": "Batch 10a (pass 2 agent-compiled + voice-list verified 2026-09-14). AR Chaco (~30K; Toba exonym; Google bbc is Batak Toba, not Qom). No voice/MT. P2 voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: code qom never existed in SIL — entry moved to tob (Toba)."
   },
   {
    "language_id": "lang:tox",
@@ -28885,7 +28854,7 @@
    "min_confidence": "low",
    "tts": false,
    "translation": false,
-   "canonical_note": "Affiliation disputed (isolate vs Indo-Aryan); moribund, primarily oral — do not assign family/script without source SIL bulk 2026-09-14: confirmed ved = Veddah (scope I, living). Batch 11 top-up (2026-09-14). LK Vedda; moribund, primarily oral (Zxxx); do not merge with Sinhala."
+   "canonical_note": "Affiliation disputed (isolate vs Indo-Aryan); moribund, primarily oral — do not assign family/script without source SIL bulk 2026-09-14: confirmed ved = Veddah (scope I, living). Batch 11 top-up (2026-09-14). LK Vedda; moribund, primarily oral (Zxxx); do not merge with Sinhala. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL Ref_Name spells 'Veddah'."
   },
   {
    "language_id": "lang:ven",
@@ -29194,12 +29163,12 @@
    "canonical_note": "Batch 10b (pass 2 agent-compiled + voice-list verified 2026-09-14). GY/BR (~6K). No voice/MT. P2 voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list."
   },
   {
-   "language_id": "lang:wra",
+   "language_id": "lang:wba",
    "canonical_name": "Warao",
    "aliases": [],
    "native_name": "warao",
    "iso_639_1": null,
-   "iso_639_3": "wra",
+   "iso_639_3": "wba",
    "glottocode": null,
    "language_family": "Language isolate (Warao)",
    "language_type": "CANONICAL_LANGUAGE",
@@ -29220,7 +29189,8 @@
     "official-regional"
    ],
    "sources_all": [
-    "agent-knowledge"
+    "agent-knowledge",
+    "sil-iso639-3-tab-2026"
    ],
    "statuses": [
     "LIVING"
@@ -29232,7 +29202,7 @@
    "min_confidence": "low",
    "tts": false,
    "translation": false,
-   "canonical_note": "Batch 10b (pass 2 agent-compiled + voice-list verified 2026-09-14). VE Orinoco delta (~20K). No voice/MT. P2 voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list."
+   "canonical_note": "Batch 10b (pass 2 agent-compiled + voice-list verified 2026-09-14). VE Orinoco delta (~20K). No voice/MT. P2 voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: code wra never existed in SIL — entry moved to wba (Warao)."
   },
   {
    "language_id": "lang:war",

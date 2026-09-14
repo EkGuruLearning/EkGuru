@@ -3233,24 +3233,24 @@
    "review_flags": []
   },
   {
-   "relationship_id": "lang:hps:HT:SIGN_LANGUAGE",
+   "relationship_id": "lang:mis:HT:haitian-sign-language:HT:SIGN_LANGUAGE",
    "country_id": "HT",
-   "language_id": "lang:hps",
+   "language_id": "lang:mis:HT:haitian-sign-language",
    "language_name": "Haitian Sign Language",
    "native_name": "lang siy ayisyen",
    "iso_639_1": null,
-   "iso_639_3": "hps",
+   "iso_639_3": "mis",
    "glottocode": null,
-   "language_family": "Sign language",
+   "language_family": null,
    "language_type": "SIGN_LANGUAGE",
    "cluster_members": null,
-   "script": "Sgnw",
+   "script": null,
    "status_in_country": "LIVING",
    "category": "SIGN_LANGUAGE",
    "role_detail": null,
    "estimated_speaker_band": "unknown",
    "speaker_estimate": {},
-   "country_specific_evidence": "Used in deaf schools — pass-2 verify code.",
+   "country_specific_evidence": "Used in deaf schools — pass-2 verify code. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: code hps is Hawai'i SL per SIL; Haitian SL is uncoded — entry moved to mis.",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -3259,6 +3259,13 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "medium",
@@ -3273,7 +3280,7 @@
    },
    "needs_human_review": false,
    "ekguru_priority": "P4",
-   "ekguru_reason": "score 10/100 (speakerReach=3, countryCount=2, education=0, travel=0, business=0, migration=0, internetContentProxy=1, learningDemandProxy=1, ttsAsr=0, translation=0, dataConfidence=3)",
+   "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
    "review_flags": []
   },
   {
@@ -8696,7 +8703,7 @@
    "role_detail": null,
    "estimated_speaker_band": "unknown",
    "speaker_estimate": {},
-   "country_specific_evidence": "No ISO code; Soviet boarding-school legacy means heavy Russian-SL influence. Almaty/Astana varieties. Verify pass 2 (WFD/KZ deaf orgs).",
+   "country_specific_evidence": "No ISO code; Soviet boarding-school legacy means heavy Russian-SL influence. Almaty/Astana varieties. Verify pass 2 (WFD/KZ deaf orgs). Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -8705,10 +8712,17 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "low",
-   "disputed": true,
+   "disputed": false,
    "ekguru_status": "none",
    "ekguru_recommendation": "none — inventoried only.",
    "learning_intent": {
@@ -8721,8 +8735,7 @@
    "ekguru_priority": "P4",
    "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
    "review_flags": [
-    "low-confidence",
-    "disputed"
+    "low-confidence"
    ]
   },
   {
@@ -9325,7 +9338,7 @@
    "role_detail": null,
    "estimated_speaker_band": "unknown",
    "speaker_estimate": {},
-   "country_specific_evidence": "No ISO code; Bishkek-based, Russian-SL influence (Soviet legacy). Verify pass 2 (WFD/KG deaf orgs).",
+   "country_specific_evidence": "No ISO code; Bishkek-based, Russian-SL influence (Soviet legacy). Verify pass 2 (WFD/KG deaf orgs). Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -9334,10 +9347,17 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "low",
-   "disputed": true,
+   "disputed": false,
    "ekguru_status": "none",
    "ekguru_recommendation": "none — inventoried only.",
    "learning_intent": {
@@ -9350,8 +9370,7 @@
    "ekguru_priority": "P4",
    "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
    "review_flags": [
-    "low-confidence",
-    "disputed"
+    "low-confidence"
    ]
   },
   {
@@ -10021,7 +10040,7 @@
    "role_detail": null,
    "estimated_speaker_band": "unknown",
    "speaker_estimate": {},
-   "country_specific_evidence": "No ISO code; Dushanbe-based, Russian-SL influence. Verify pass 2 (WFD/TJ deaf orgs).",
+   "country_specific_evidence": "No ISO code; Dushanbe-based, Russian-SL influence. Verify pass 2 (WFD/TJ deaf orgs). Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -10030,10 +10049,17 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "low",
-   "disputed": true,
+   "disputed": false,
    "ekguru_status": "none",
    "ekguru_recommendation": "none — inventoried only.",
    "learning_intent": {
@@ -10046,8 +10072,7 @@
    "ekguru_priority": "P4",
    "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
    "review_flags": [
-    "low-confidence",
-    "disputed"
+    "low-confidence"
    ]
   },
   {
@@ -10539,7 +10564,7 @@
    "role_detail": null,
    "estimated_speaker_band": "unknown",
    "speaker_estimate": {},
-   "country_specific_evidence": "No ISO code; Ashgabat-based, Russian-SL influence. Documentation thinnest in CA. Verify pass 2.",
+   "country_specific_evidence": "No ISO code; Ashgabat-based, Russian-SL influence. Documentation thinnest in CA. Verify pass 2. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -10548,10 +10573,17 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "low",
-   "disputed": true,
+   "disputed": false,
    "ekguru_status": "none",
    "ekguru_recommendation": "none — inventoried only.",
    "learning_intent": {
@@ -10564,8 +10596,7 @@
    "ekguru_priority": "P4",
    "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
    "review_flags": [
-    "low-confidence",
-    "disputed"
+    "low-confidence"
    ]
   },
   {
@@ -11551,7 +11582,7 @@
    "role_detail": null,
    "estimated_speaker_band": "unknown",
    "speaker_estimate": {},
-   "country_specific_evidence": "No ISO code; Tashkent-based, Russian-SL influence. Verify pass 2 (WFD/UZ deaf orgs).",
+   "country_specific_evidence": "No ISO code; Tashkent-based, Russian-SL influence. Verify pass 2 (WFD/UZ deaf orgs). Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -11560,10 +11591,17 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "low",
-   "disputed": true,
+   "disputed": false,
    "ekguru_status": "none",
    "ekguru_recommendation": "none — inventoried only.",
    "learning_intent": {
@@ -11576,8 +11614,7 @@
    "ekguru_priority": "P4",
    "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
    "review_flags": [
-    "low-confidence",
-    "disputed"
+    "low-confidence"
    ]
   },
   {
@@ -13821,13 +13858,13 @@
    "review_flags": []
   },
   {
-   "relationship_id": "lang:pjm:PL:SIGN_LANGUAGE",
+   "relationship_id": "lang:pso:PL:SIGN_LANGUAGE",
    "country_id": "PL",
-   "language_id": "lang:pjm",
+   "language_id": "lang:pso",
    "language_name": "Polish Sign Language",
    "native_name": "polski język migowy",
    "iso_639_1": null,
-   "iso_639_3": "pjm",
+   "iso_639_3": "pso",
    "glottocode": null,
    "language_family": "Sign language",
    "language_type": "SIGN_LANGUAGE",
@@ -13838,7 +13875,7 @@
    "role_detail": null,
    "estimated_speaker_band": "unknown",
    "speaker_estimate": {},
-   "country_specific_evidence": "Legally recognised (2011).",
+   "country_specific_evidence": "Legally recognised (2011). Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: code pjm does not exist in SIL — corrected to pso (Polish Sign Language).",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -13847,6 +13884,13 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "medium",
@@ -47658,13 +47702,13 @@
    ]
   },
   {
-   "relationship_id": "lang:qom:AR:INDIGENOUS",
+   "relationship_id": "lang:tob:AR:INDIGENOUS",
    "country_id": "AR",
-   "language_id": "lang:qom",
+   "language_id": "lang:tob",
    "language_name": "Toba Qom",
    "native_name": "qom",
    "iso_639_1": null,
-   "iso_639_3": "qom",
+   "iso_639_3": "tob",
    "glottocode": null,
    "language_family": "Guaicuruan (Qom)",
    "language_type": "CANONICAL_LANGUAGE",
@@ -47678,7 +47722,7 @@
     "confidence": "low",
     "total": 30000
    },
-   "country_specific_evidence": "Gran Chaco (Chaco/Formosa/Santa Fe) — pass-2 verify code.",
+   "country_specific_evidence": "Gran Chaco (Chaco/Formosa/Santa Fe) — pass-2 verify code. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: code qom does not exist in SIL — corrected to tob (Toba).",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -47687,6 +47731,13 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "low",
@@ -51911,13 +51962,13 @@
    ]
   },
   {
-   "relationship_id": "lang:psl:PE:SIGN_LANGUAGE",
+   "relationship_id": "lang:prl:PE:SIGN_LANGUAGE",
    "country_id": "PE",
-   "language_id": "lang:psl",
+   "language_id": "lang:prl",
    "language_name": "Peruvian Sign Language",
    "native_name": "lengua de señas peruana",
    "iso_639_1": null,
-   "iso_639_3": "psl",
+   "iso_639_3": "prl",
    "glottocode": null,
    "language_family": "Sign language",
    "language_type": "SIGN_LANGUAGE",
@@ -51928,7 +51979,7 @@
    "role_detail": null,
    "estimated_speaker_band": "unknown",
    "speaker_estimate": {},
-   "country_specific_evidence": "Legally recognised — pass-2 verify code.",
+   "country_specific_evidence": "Legally recognised — pass-2 verify code. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: code psl is Puerto Rican SL per SIL — corrected to prl (Peruvian Sign Language).",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -51937,6 +51988,13 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "medium",
@@ -53294,13 +53352,13 @@
    "review_flags": []
   },
   {
-   "relationship_id": "lang:wra:VE:OFFICIAL:official-regional",
+   "relationship_id": "lang:wba:VE:OFFICIAL:official-regional",
    "country_id": "VE",
-   "language_id": "lang:wra",
+   "language_id": "lang:wba",
    "language_name": "Warao",
    "native_name": "warao",
    "iso_639_1": null,
-   "iso_639_3": "wra",
+   "iso_639_3": "wba",
    "glottocode": null,
    "language_family": "Language isolate (Warao)",
    "language_type": "CANONICAL_LANGUAGE",
@@ -53314,7 +53372,7 @@
     "confidence": "low",
     "total": 20000
    },
-   "country_specific_evidence": "Orinoco Delta isolate (~20K; displacement to BR/CO — pass-2 verify code.",
+   "country_specific_evidence": "Orinoco Delta isolate (~20K; displacement to BR/CO — pass-2 verify code. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: code wra does not exist in SIL — corrected to wba (Warao).",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -53323,6 +53381,13 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "low",
@@ -53346,13 +53411,13 @@
    ]
   },
   {
-   "relationship_id": "lang:wra:VE:INDIGENOUS",
+   "relationship_id": "lang:wba:VE:INDIGENOUS",
    "country_id": "VE",
-   "language_id": "lang:wra",
+   "language_id": "lang:wba",
    "language_name": "Warao",
    "native_name": "warao",
    "iso_639_1": null,
-   "iso_639_3": "wra",
+   "iso_639_3": "wba",
    "glottocode": null,
    "language_family": "Language isolate (Warao)",
    "language_type": "CANONICAL_LANGUAGE",
@@ -53366,7 +53431,7 @@
     "confidence": "low",
     "total": 20000
    },
-   "country_specific_evidence": "Orinoco Delta isolate (~20K; displacement to BR/CO — pass-2 verify code.",
+   "country_specific_evidence": "Orinoco Delta isolate (~20K; displacement to BR/CO — pass-2 verify code. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: code wra does not exist in SIL — corrected to wba (Warao).",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -53375,6 +53440,13 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "low",
@@ -54004,7 +54076,7 @@
    "role_detail": null,
    "estimated_speaker_band": "unknown",
    "speaker_estimate": {},
-   "country_specific_evidence": "Name provisional; no ISO code (VERIFY deaf-org — may relate to Malaysian SL xml).",
+   "country_specific_evidence": "Name provisional; no ISO code (VERIFY deaf-org — may relate to Malaysian SL xml). Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -54013,10 +54085,17 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "low",
-   "disputed": true,
+   "disputed": false,
    "ekguru_status": "none",
    "ekguru_recommendation": "none — inventoried only.",
    "learning_intent": {
@@ -54029,8 +54108,7 @@
    "ekguru_priority": "P4",
    "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
    "review_flags": [
-    "low-confidence",
-    "disputed"
+    "low-confidence"
    ]
   },
   {
@@ -60794,7 +60872,7 @@
    "role_detail": null,
    "estimated_speaker_band": "unknown",
    "speaker_estimate": {},
-   "country_specific_evidence": "Name provisional; no ISO code (VERIFY deaf-org). Dili school network.",
+   "country_specific_evidence": "Name provisional; no ISO code (VERIFY deaf-org). Dili school network. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -60803,10 +60881,17 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "low",
-   "disputed": true,
+   "disputed": false,
    "ekguru_status": "none",
    "ekguru_recommendation": "none — inventoried only.",
    "learning_intent": {
@@ -60819,8 +60904,7 @@
    "ekguru_priority": "P4",
    "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
    "review_flags": [
-    "low-confidence",
-    "disputed"
+    "low-confidence"
    ]
   },
   {
@@ -66974,13 +67058,13 @@
    "review_flags": []
   },
   {
-   "relationship_id": "lang:hez:NA:NATIONAL",
+   "relationship_id": "lang:her:NA:NATIONAL",
    "country_id": "NA",
-   "language_id": "lang:hez",
+   "language_id": "lang:her",
    "language_name": "Otjiherero",
    "native_name": "otjiherero",
    "iso_639_1": null,
-   "iso_639_3": "hez",
+   "iso_639_3": "her",
    "glottocode": null,
    "language_family": "Atlantic-Congo: Bantu",
    "language_type": "CANONICAL_LANGUAGE",
@@ -66994,7 +67078,7 @@
     "confidence": "low",
     "total": 200000
    },
-   "country_specific_evidence": "Centre/north (~200K+) — pass-2 verify code.",
+   "country_specific_evidence": "Centre/north (~200K+) — pass-2 verify code. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: code hez does not exist in SIL — corrected to her (Herero).",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -67003,6 +67087,13 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "low",
@@ -70350,7 +70441,7 @@
    "role_detail": null,
    "estimated_speaker_band": "unknown",
    "speaker_estimate": {},
-   "country_specific_evidence": "No distinct ISO 639-3 code; related to Indian/Pakistani signing (shared ISL-family). Whether BdSL is a distinct language vs ISL dialect is disputed — do not code as 'ins'. Verify pass 2 (WFD). Separately-coded wbs is the Kolkata/India-side variety, not BdSL — BdSL itself remains uncoded.",
+   "country_specific_evidence": "No distinct ISO 639-3 code; related to Indian/Pakistani signing (shared ISL-family). Whether BdSL is a distinct language vs ISL dialect is disputed — do not code as 'ins'. Verify pass 2 (WFD). Separately-coded wbs is the Kolkata/India-side variety, not BdSL — BdSL itself remains uncoded. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; SIL wbs (West Bengal SL) is IN-side, not BD. code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -70359,10 +70450,17 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "low",
-   "disputed": true,
+   "disputed": false,
    "ekguru_status": "none",
    "ekguru_recommendation": "none — inventoried only.",
    "learning_intent": {
@@ -70375,8 +70473,7 @@
    "ekguru_priority": "P4",
    "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
    "review_flags": [
-    "low-confidence",
-    "disputed"
+    "low-confidence"
    ]
   },
   {
@@ -76392,7 +76489,7 @@
    "role_detail": null,
    "estimated_speaker_band": "unknown",
    "speaker_estimate": {},
-   "country_specific_evidence": "No distinct ISO code established; documentation thin. Verify pass 2 (WFD/Maldives deaf orgs).",
+   "country_specific_evidence": "No distinct ISO code established; documentation thin. Verify pass 2 (WFD/Maldives deaf orgs). Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -76401,10 +76498,17 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "low",
-   "disputed": true,
+   "disputed": false,
    "ekguru_status": "none",
    "ekguru_recommendation": "none — inventoried only.",
    "learning_intent": {
@@ -76417,8 +76521,7 @@
    "ekguru_priority": "P4",
    "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
    "review_flags": [
-    "low-confidence",
-    "disputed"
+    "low-confidence"
    ]
   },
   {
@@ -91421,10 +91524,10 @@
    "speaker_estimate": {
     "asOf": "agent-knowledge",
     "confidence": "low",
-    "l1": 200000,
-    "total": 250000
+    "l1": 100000,
+    "total": 120000
    },
-   "country_specific_evidence": "L1 estimates span 100–300k (diaspora fog — disputed range, VERIFY). Code 'ady' (pre-verification caught adh=Adhola trap). TR community uses Latin; homeland (RU) uses Cyrillic — canonical primary Latn (bigger community), RU entry will override.",
+   "country_specific_evidence": "L1 ~70–120K and falling (TR largest community; ethnic Circassians ~2M — do not confuse). Last sourced diaspora split 1997: TR 71K / JO 44K / SY 25K; global ~300–500K. DISPUTE RESOLVED 2026-09-14 (range narrowed 100–300k → 70–120k; shift ongoing). Code ady SIL-confirmed. TR Latin / RU Cyrillic — canonical primary Latn (bigger community), RU entry overrides.",
    "sources": [
     {
      "key": "ethnologue-27",
@@ -91440,10 +91543,24 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
+    },
+    {
+     "key": "ady-diaspora-speakers-1997",
+     "source_name": "1997 Adyghe diaspora speaker estimate (TR 71K / JO 44K / SY 25K) via encyclopedia mirror",
+     "source_url": "https://en.everybodywiki.com/Adyghe_people",
+     "evidence_type": "encyclopedia-mirror",
+     "priority": "C"
     }
    ],
    "confidence": "medium",
-   "disputed": true,
+   "disputed": false,
    "ekguru_status": "none",
    "ekguru_recommendation": "watch — diaspora (TR/JO/IL) + homeland (RU, future batch); joint planning later.",
    "learning_intent": {
@@ -91453,12 +91570,10 @@
     ],
     "variation_note": null
    },
-   "needs_human_review": true,
+   "needs_human_review": false,
    "ekguru_priority": "P3",
    "ekguru_reason": "score 29/100 (speakerReach=12, countryCount=4, education=3, travel=2, business=0, migration=3, internetContentProxy=2, learningDemandProxy=2, ttsAsr=0, translation=0, dataConfidence=1)",
-   "review_flags": [
-    "disputed"
-   ]
+   "review_flags": []
   },
   {
    "relationship_id": "lang:eng:TR:WIDELY_SPOKEN",
@@ -93011,7 +93126,7 @@
    "role_detail": null,
    "estimated_speaker_band": "unknown",
    "speaker_estimate": {},
-   "country_specific_evidence": "Name provisional; no ISO code (VERIFY against deaf-org sources — may fold into ArSL-family coding later). Zayed Higher Organisation standardisation efforts ongoing.",
+   "country_specific_evidence": "Name provisional; no ISO code (VERIFY against deaf-org sources — may fold into ArSL-family coding later). Zayed Higher Organisation standardisation efforts ongoing. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -93020,10 +93135,17 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "low",
-   "disputed": true,
+   "disputed": false,
    "ekguru_status": "none",
    "ekguru_recommendation": "none — inventoried only.",
    "learning_intent": {
@@ -93036,8 +93158,7 @@
    "ekguru_priority": "P4",
    "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
    "review_flags": [
-    "low-confidence",
-    "disputed"
+    "low-confidence"
    ]
   },
   {
@@ -93614,7 +93735,7 @@
    "role_detail": null,
    "estimated_speaker_band": "unknown",
    "speaker_estimate": {},
-   "country_specific_evidence": "Name provisional; no ISO code (VERIFY deaf-org sources).",
+   "country_specific_evidence": "Name provisional; no ISO code (VERIFY deaf-org sources). Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -93623,10 +93744,17 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "low",
-   "disputed": true,
+   "disputed": false,
    "ekguru_status": "none",
    "ekguru_recommendation": "none — inventoried only.",
    "learning_intent": {
@@ -93639,8 +93767,7 @@
    "ekguru_priority": "P4",
    "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
    "review_flags": [
-    "low-confidence",
-    "disputed"
+    "low-confidence"
    ]
   },
   {
@@ -94158,7 +94285,7 @@
    "role_detail": null,
    "estimated_speaker_band": "unknown",
    "speaker_estimate": {},
-   "country_specific_evidence": "Name provisional; no ISO code (VERIFY deaf-org sources).",
+   "country_specific_evidence": "Name provisional; no ISO code (VERIFY deaf-org sources). Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -94167,10 +94294,17 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "low",
-   "disputed": true,
+   "disputed": false,
    "ekguru_status": "none",
    "ekguru_recommendation": "none — inventoried only.",
    "learning_intent": {
@@ -94183,8 +94317,7 @@
    "ekguru_priority": "P4",
    "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
    "review_flags": [
-    "low-confidence",
-    "disputed"
+    "low-confidence"
    ]
   },
   {
@@ -94525,7 +94658,7 @@
    "role_detail": null,
    "estimated_speaker_band": "unknown",
    "speaker_estimate": {},
-   "country_specific_evidence": "Name provisional; no ISO code (VERIFY deaf-org sources).",
+   "country_specific_evidence": "Name provisional; no ISO code (VERIFY deaf-org sources). Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -94534,10 +94667,17 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "low",
-   "disputed": true,
+   "disputed": false,
    "ekguru_status": "none",
    "ekguru_recommendation": "none — inventoried only.",
    "learning_intent": {
@@ -94550,8 +94690,7 @@
    "ekguru_priority": "P4",
    "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
    "review_flags": [
-    "low-confidence",
-    "disputed"
+    "low-confidence"
    ]
   },
   {
@@ -94906,7 +95045,7 @@
    "role_detail": null,
    "estimated_speaker_band": "unknown",
    "speaker_estimate": {},
-   "country_specific_evidence": "Name provisional; no ISO code (VERIFY deaf-org sources).",
+   "country_specific_evidence": "Name provisional; no ISO code (VERIFY deaf-org sources). Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -94915,10 +95054,17 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "low",
-   "disputed": true,
+   "disputed": false,
    "ekguru_status": "none",
    "ekguru_recommendation": "none — inventoried only.",
    "learning_intent": {
@@ -94931,8 +95077,7 @@
    "ekguru_priority": "P4",
    "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
    "review_flags": [
-    "low-confidence",
-    "disputed"
+    "low-confidence"
    ]
   },
   {
@@ -95573,7 +95718,7 @@
    "role_detail": null,
    "estimated_speaker_band": "unknown",
    "speaker_estimate": {},
-   "country_specific_evidence": "No ISO code for Iraqi SL proper (VERIFY deaf-org). NOTE: Kurdish SL (zhk) is separately coded — KRG signing may be zhk, not this entry; do not merge blindly.",
+   "country_specific_evidence": "No ISO code for Iraqi SL proper (VERIFY deaf-org). NOTE: Kurdish SL (zhk) is separately coded — KRG signing may be zhk, not this entry; do not merge blindly. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -95582,10 +95727,17 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "low",
-   "disputed": true,
+   "disputed": false,
    "ekguru_status": "none",
    "ekguru_recommendation": "none — inventoried only.",
    "learning_intent": {
@@ -95598,8 +95750,7 @@
    "ekguru_priority": "P4",
    "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
    "review_flags": [
-    "low-confidence",
-    "disputed"
+    "low-confidence"
    ]
   },
   {
@@ -95952,7 +96103,7 @@
    "role_detail": null,
    "estimated_speaker_band": "unknown",
    "speaker_estimate": {},
-   "country_specific_evidence": "No ISO code (VERIFY deaf-org). War scattered the community — documentation thin.",
+   "country_specific_evidence": "No ISO code (VERIFY deaf-org). War scattered the community — documentation thin. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -95961,10 +96112,17 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "low",
-   "disputed": true,
+   "disputed": false,
    "ekguru_status": "none",
    "ekguru_recommendation": "none — inventoried only.",
    "learning_intent": {
@@ -95977,8 +96135,7 @@
    "ekguru_priority": "P4",
    "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
    "review_flags": [
-    "low-confidence",
-    "disputed"
+    "low-confidence"
    ]
   },
   {
@@ -96545,7 +96702,7 @@
    "role_detail": null,
    "estimated_speaker_band": "unknown",
    "speaker_estimate": {},
-   "country_specific_evidence": "No ISO code (VERIFY deaf-org). Beirut school network.",
+   "country_specific_evidence": "No ISO code (VERIFY deaf-org). Beirut school network. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -96554,10 +96711,17 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "low",
-   "disputed": true,
+   "disputed": false,
    "ekguru_status": "none",
    "ekguru_recommendation": "none — inventoried only.",
    "learning_intent": {
@@ -96570,8 +96734,7 @@
    "ekguru_priority": "P4",
    "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
    "review_flags": [
-    "low-confidence",
-    "disputed"
+    "low-confidence"
    ]
   },
   {
@@ -97508,7 +97671,7 @@
    "role_detail": null,
    "estimated_speaker_band": "unknown",
    "speaker_estimate": {},
-   "country_specific_evidence": "No ISO code (VERIFY deaf-org). War scattered documentation.",
+   "country_specific_evidence": "No ISO code (VERIFY deaf-org). War scattered documentation. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -97517,10 +97680,17 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "low",
-   "disputed": true,
+   "disputed": false,
    "ekguru_status": "none",
    "ekguru_recommendation": "none — inventoried only.",
    "learning_intent": {
@@ -97533,8 +97703,7 @@
    "ekguru_priority": "P4",
    "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
    "review_flags": [
-    "low-confidence",
-    "disputed"
+    "low-confidence"
    ]
   },
   {
@@ -98314,7 +98483,7 @@
    "role_detail": null,
    "estimated_speaker_band": "unknown",
    "speaker_estimate": {},
-   "country_specific_evidence": "No ISO code (VERIFY deaf-org). Baku school network; Russian-SL legacy influence.",
+   "country_specific_evidence": "No ISO code (VERIFY deaf-org). Baku school network; Russian-SL legacy influence. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -98323,10 +98492,17 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "low",
-   "disputed": true,
+   "disputed": false,
    "ekguru_status": "none",
    "ekguru_recommendation": "none — inventoried only.",
    "learning_intent": {
@@ -98339,8 +98515,7 @@
    "ekguru_priority": "P4",
    "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
    "review_flags": [
-    "low-confidence",
-    "disputed"
+    "low-confidence"
    ]
   },
   {
@@ -98684,7 +98859,7 @@
     "l1": 300000,
     "total": 320000
    },
-   "country_specific_evidence": "DISPUTED IDENTITY: GE state treats Mingrelian as a Georgian dialect; Ethnologue/ISO treat it as a language (xmf) — rule 12: follow Ethnologue, flag disputed, record BOTH treatments here. L1 ~300k+ (Samegrelo). No recognition, no schools. (Svan sva ~30k sibling — long-tail.)",
+   "country_specific_evidence": "DISPUTED IDENTITY: GE state treats Mingrelian as a Georgian dialect; Ethnologue/ISO treat it as a language (xmf) — rule 12: follow Ethnologue, flag disputed, record BOTH treatments here. L1 ~300k+ (Samegrelo). No recognition, no schools. (Svan sva ~30k sibling — long-tail.) Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: xmf SIL-confirmed individual/living — ISO treatment stands; GE-state dialect treatment recorded. Identity dispute is POLITICAL, unresolvable from desk — disputed HELD, expert escalation (report §5.4).",
    "sources": [
     {
      "key": "ge-census-2014",
@@ -98708,6 +98883,13 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "medium",
@@ -98918,7 +99100,7 @@
    "role_detail": null,
    "estimated_speaker_band": "unknown",
    "speaker_estimate": {},
-   "country_specific_evidence": "No ISO code (VERIFY deaf-org). Tbilisi school network; Russian-SL legacy influence.",
+   "country_specific_evidence": "No ISO code (VERIFY deaf-org). Tbilisi school network; Russian-SL legacy influence. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -98927,10 +99109,17 @@
      "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
      "evidence_type": "agent-compiled",
      "priority": "D-agent"
+    },
+    {
+     "key": "sil-iso639-3-tab-2026",
+     "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+     "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+     "evidence_type": "code-registry",
+     "priority": "A"
     }
    ],
    "confidence": "low",
-   "disputed": true,
+   "disputed": false,
    "ekguru_status": "none",
    "ekguru_recommendation": "none — inventoried only.",
    "learning_intent": {
@@ -98943,8 +99132,7 @@
    "ekguru_priority": "P4",
    "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
    "review_flags": [
-    "low-confidence",
-    "disputed"
+    "low-confidence"
    ]
   },
   {

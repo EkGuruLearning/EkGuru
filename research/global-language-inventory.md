@@ -413,7 +413,6 @@ Guyanese Creole | GY | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Hadrami Arabic | YE | 1M-10M | Arab | P3 | RESEARCH_REQUIRED
 Haiphong Sign Language | VN | unknown | Sgnw | P4 | PARTIAL
 Haitian | BS,CL,CU,DO,HT,US | 10M-100M | Latn | P1 | PARTIAL
-Haitian Sign Language | HT | unknown | Sgnw | P4 | PARTIAL
 Hakka | CN,ID,MY | 10M-100M | Latn | P3 | RESEARCH_REQUIRED
 Halh Mongolian | MN | 1M-10M | Cyrl | P2 | READY
 Hanoi Sign Language | VN | unknown | Sgnw | P4 | PARTIAL
@@ -908,7 +907,7 @@ P0 | 12 | immediate production (or in production — maintain)
 P1 | 54 | next production
 P2 | 82 | expansion
 P3 | 363 | research-only
-P4 | 183 | insufficient reliable learning data
+P4 | 182 | insufficient reliable learning data
 
 ## Scoring rules (transparency)
 
