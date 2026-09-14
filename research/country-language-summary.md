@@ -819,11 +819,11 @@ Researched living estimate: 15 (agent-knowledge, low). Entries below: 9.
 
 Researched living estimate: 90 (agent-knowledge, low). Entries below: 8.
 
-**OFFICIAL** (5): Afar (aar, low); Amharic (amh, medium); Oromo (gaz, medium); Somali (som, medium); Tigrinya (tir, medium).
+**OFFICIAL** (5): Afar (aar, medium); Amharic (amh, medium); Oromo (gaz, medium); Somali (som, medium); Tigrinya (tir, medium).
 
 **WIDELY_SPOKEN** (3): Amharic (amh, medium); English (eng, medium); Oromo (gaz, medium).
 
-**REGIONAL** (2): Sidamo (sid, low); Wolaytta (wal, low).
+**REGIONAL** (2): Sidamo (sid, medium); Wolaytta (wal, medium).
 
 
 ## FI — Finland (Northern Europe)
