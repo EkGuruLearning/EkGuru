@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T05:28:41.979Z",
+ "generated": "2026-09-14T05:35:10.318Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 1133,
+  "totalHtml": 1167,
   "materials": 0
  },
  "countries": {
@@ -3923,7 +3923,7 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 1133,
+  "pages": 1167,
   "sitemapUrls": 1018,
   "sitemapFiles": 16,
   "brokenLinks": 0,
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1435 files scanned, 0 secrets"
+  "note": "1470 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "3cb36249ff2447e48a19cf54839299f9da3b3288",
-  "subject": "Tamil track batch-5: speaking/listening/reading/writing/structure/name/slang/kids (25/33)",
-  "buildTime": "2026-09-14T05:28:41.992Z",
+  "commit": "19f3026bf342f4329f12d5e1d208732f13115710",
+  "subject": "Telugu track batch-5: speaking/listening/reading/writing/structure/name/slang/kids (25/33)",
+  "buildTime": "2026-09-14T05:35:10.332Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 1133,
+   "totalHtml": 1167,
    "tutorProfiles": 4,
    "materials": 0
   }
