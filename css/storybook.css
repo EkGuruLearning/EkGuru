@@ -213,9 +213,9 @@ body[data-sub="paths"]{--sb-accent:#0d9488}
 .sb-toc li.more{color:var(--muted);list-style:none}
 .sb-toc a{color:var(--ink-2,#3d4257)}
 @media(max-width:560px){.sb-toc ol{columns:1}}
-.sb-keys{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--bg-soft);border:1px dashed var(--sb-accent,#4f32d9);border-radius:12px;padding:10px 14px;margin:14px 0;animation:sb-keys-in .5s ease both}
+.sb-keys{display:flex;flex-wrap:wrap;gap:9px;align-items:center;background:var(--sb-tint,#f4f1ff);border:1px solid var(--line);border-left:4px solid var(--sb-accent,#4f32d9);border-radius:14px;padding:12px 16px;margin:14px 0;box-shadow:var(--sh-1);animation:sb-keys-in .5s ease both}
 .sb-keys-label{font-size:.85rem;font-weight:700;color:var(--ink-2,#3d4257);margin-right:2px}
-.sb-keys .say{margin:0;font-size:.85rem;background:#fff}
+.sb-keys .say{margin:0;font-size:.85rem;font-weight:700;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 14px;min-height:40px;box-shadow:var(--sh-1)}
 @keyframes sb-keys-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .sb-mastery{background:linear-gradient(135deg,#f4f1ff,#fdf3f8);border:1px solid #ddd8ff;border-radius:12px;padding:10px 14px;margin:14px 0;font-size:.9rem;color:var(--ink-2,#3d4257)}
 .sb-mastery .sb-streak{color:#c2410c}

@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T05:08:18.175Z",
+ "generated": "2026-09-14T05:13:25.378Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "46494d83e4ffce917522c46ff1492db0c7c0bca1",
-  "subject": "v159 loop-1: Start-Learning cards, footer, AdSense T&C, consent",
-  "buildTime": "2026-09-14T05:08:18.187Z",
+  "commit": "a6946ea7e55d9e40cce4a4f718b944df0c897364",
+  "subject": "v160 loop-3: learn hub hero, reveal everywhere, pro articles",
+  "buildTime": "2026-09-14T05:13:25.391Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
