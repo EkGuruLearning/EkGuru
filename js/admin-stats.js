@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T06:39:07.304Z",
+ "generated": "2026-09-14T06:53:31.023Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1707 files scanned, 0 secrets"
+  "note": "1712 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "b5de3726e6fc031a4386e7267b1bc65be647ba0c",
-  "subject": "Inventory: Russia deep audit (Phase 6) — 7 giant audits complete",
-  "buildTime": "2026-09-14T06:39:07.317Z",
+  "commit": "19b37679175fe7381889fdb38a21fdf64a54f34b",
+  "subject": "Inventory pass-2 pilot: 89 TTS + 45 MT flag verdicts from live engine lists",
+  "buildTime": "2026-09-14T06:53:31.035Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
