@@ -13,8 +13,9 @@ deploys:
   4  phase7 registries (source of truth for speech tags, countries)
   5  phase7c registries (PRODUCTION/AVAILABLE/BETA split)
   6  phase7c pages (hub, per-language pages, home sync)
-  7  search index
-  8  doctor (SEO + privacy + gate + admin stats)
+  7  inventory (validate + build data/global + country language pages)
+  8  search index
+  9  doctor (SEO + privacy + gate + admin stats)
 
 Steps 2-3 both feed data/courses.json + sitemap-courses.xml; steps
 4-6 read those, so the order above is load-bearing — do not reorder.
@@ -59,6 +60,9 @@ def main():
     run("phase7 registries", ["python3", "tools/build-phase7-registries.py"])
     run("phase7c registries", ["python3", "tools/build-phase7c-registries.py"])
     run("phase7c pages", ["python3", "tools/build-phase7-pages.py"])
+    run("inventory validate", ["python3", "tools/validate-inventory.py"])
+    run("inventory build", ["python3", "tools/build-inventory.py"])
+    run("country language pages", ["python3", "tools/build-country-language-pages.py"])
     run("search index", ["python3", "tools/build-search-index.py"])
     run("doctor", ["node", "tools/doctor.js"])
     print("\n══════════════════════════════════════════")

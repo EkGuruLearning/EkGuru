@@ -60,7 +60,37 @@
 .rel-list li:last-child{border-bottom:0}
 .rel-list a{font-weight:600;display:block}
 .rel-list span{display:block;color:var(--muted);font-size:.88rem;margin-top:2px;line-height:1.5}
-@media(pointer:coarse){.chips a,.chips button,.pill,.rel a,.art-nav a,.crumbs a,.ftr a,.tag,.chip-btn{min-height:44px}.rel a,.art-nav a,.crumbs a,.ftr a{display:inline-block;padding-block:10px}b>a,strong>a,h3>a,h2>a{display:inline-block;padding-block:12px}input,select,textarea,button{min-height:44px}}</style>
+@media(pointer:coarse){.chips a,.chips button,.pill,.rel a,.art-nav a,.crumbs a,.ftr a,.tag,.chip-btn{min-height:44px}.rel a,.art-nav a,.crumbs a,.ftr a{display:inline-block;padding-block:10px}b>a,strong>a,h3>a,h2>a{display:inline-block;padding-block:12px}input,select,textarea,button{min-height:44px}}
+/* --- Storybook demo (v137): hero, vowel cards, trace box --- */
+.sb-hero{position:relative;margin:20px 0 6px;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+.sb-hero img{display:block;width:100%;height:auto}
+.sb-hero figcaption{font-size:.85rem;color:var(--muted);padding:8px 14px;background:var(--bg-soft)}
+.sb-float{position:absolute;font-weight:700;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.45);opacity:.9;pointer-events:none;animation:sbdrift 7s ease-in-out infinite}
+@keyframes sbdrift{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-14px) rotate(5deg)}}
+.vcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:12px;margin:18px 0 6px}
+.vcard{perspective:700px;cursor:pointer}
+.vcard .in{position:relative;min-height:148px;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.2,.7,.3,1.2)}
+.vcard.flip .in{transform:rotateY(180deg)}
+.vface{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;border:1px solid var(--line);background:linear-gradient(160deg,#fff8ec,#ffeecd);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:10px;text-align:center}
+.vface .lt{font-size:2.5rem;line-height:1.2;color:#7c2d12}
+.vface .sd{font-size:.85rem;color:var(--muted)}
+.vface.back{transform:rotateY(180deg);background:linear-gradient(160deg,#f3e8ff,#e7d9ff)}
+.vface.back .ex{font-size:1.3rem}
+.vface.back .en{font-size:.78rem;color:var(--ink-2)}
+.vface.back .mt{font-size:.78rem;color:var(--muted)}
+.vface .spk{margin-top:4px;font-size:.78rem;border:1px solid var(--line);background:#fff;border-radius:14px;padding:2px 10px;cursor:pointer}
+.vcard{opacity:0;transform:translateY(18px)}
+.vcard.shown{opacity:1;transform:none;transition:opacity .5s ease,transform .5s ease}
+.tracebox{border:1px solid var(--line);border-radius:16px;background:var(--bg-soft);padding:18px;text-align:center;margin:20px 0}
+.tracebox svg{width:min(300px,70vw);height:auto}
+.tracebox text{font-size:150px;text-anchor:middle;fill:transparent;stroke:#c2410c;stroke-width:2.5;stroke-dasharray:520;stroke-dashoffset:520;animation:trace 4s ease forwards infinite}
+@keyframes trace{0%{stroke-dashoffset:520}55%{stroke-dashoffset:0}80%{stroke-dashoffset:0}100%{stroke-dashoffset:-520}}
+.tracebox p{margin:8px 0 0;font-size:.9rem;color:var(--muted)}
+.sb-fig{margin:22px 0;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+.sb-fig img{display:block;width:100%;height:auto}
+@media(prefers-reduced-motion:reduce){.sb-float,.tracebox text,.vcard .in{animation:none!important;transition:none!important}.vcard{opacity:1;transform:none}}
+
+</style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://ekguru.shop/learn/hindi-alphabet-for-beginners/#article","headline":"The Hindi Alphabet: A Complete Beginner's Guide to Devanagari","description":"Learn every Hindi letter with its sound and an English example. Vowels, consonants and matras explained simply, with a printable chart and the order to learn them in.","inLanguage":"en","datePublished":"2026-09-11","dateModified":"2026-09-11","author":{"@type":"Organization","name":"EkGuru","url":"https://ekguru.shop/"},"publisher":{"@type":"Organization","name":"EkGuru","url":"https://ekguru.shop/","logo":{"@type":"ImageObject","url":"https://ekguru.shop/images/logo.svg"}},"mainEntityOfPage":"https://ekguru.shop/learn/hindi-alphabet-for-beginners/","about":{"@type":"Thing","name":"Hindi language"},"isAccessibleForFree":true},{"@type":"BreadcrumbList","@id":"https://ekguru.shop/learn/hindi-alphabet-for-beginners/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"EkGuru","item":"https://ekguru.shop/"},{"@type":"ListItem","position":2,"name":"Learn Hindi","item":"https://ekguru.shop/learn/"},{"@type":"ListItem","position":3,"name":"Hindi","item":"https://ekguru.shop/learn/hindi/"},{"@type":"ListItem","position":4,"name":"Beginner","item":"https://ekguru.shop/learn/hindi/beginner/"},{"@type":"ListItem","position":5,"name":"Basics","item":"https://ekguru.shop/learn/hindi/basics/"},{"@type":"ListItem","position":6,"name":"The Hindi Alphabet: A Complete Beginner's Guide to Devanagari","item":"https://ekguru.shop/learn/hindi-alphabet-for-beginners/"}]},{"@type":"LearningResource","@id":"https://ekguru.shop/learn/hindi-alphabet-for-beginners/#resource","name":"The Hindi Alphabet: A Complete Beginner's Guide to Devanagari","description":"Learn every Hindi letter with its sound and an English example. Vowels, consonants and matras explained simply, with a printable chart and the order to learn them in.","educationalLevel":"Beginner","learningResourceType":"Guide","teaches":"Hindi language","inLanguage":"en","isAccessibleForFree":true,"provider":{"@type":"Organization","name":"EkGuru","url":"https://ekguru.shop/"}}]}</script>
 <!-- ekguru:adsense:start -->
 <!-- Google AdSense. Emitted only because ads.client is set to a valid
@@ -80,6 +110,14 @@
   <div id="lesson-complete"></div>
   <div id="offline-ctl"></div>
   <p class="meta">A free guide from EkGuru · updated 2026-09-11</p>
+
+<figure class="sb-hero">
+<img src="../../images/alphabet-hero.jpg" alt="Storybook scene: a grandmother and granddaughter reading glowing Devanagari letters together" fetchpriority="high">
+<span class="sb-float" style="top:8%;left:6%;font-size:2rem;animation-delay:-1s">अ</span>
+<span class="sb-float" style="top:14%;right:8%;font-size:1.6rem;animation-delay:-3s">आ</span>
+<span class="sb-float" style="bottom:22%;left:12%;font-size:1.4rem;animation-delay:-5s">इ</span>
+<figcaption>Everyone starts with अ आ इ — this guide makes each letter stick with pictures, sound and play.</figcaption>
+</figure>
 
   <aside class="pg-note" role="note">
     <b>A note on the Hindi spellings</b>
@@ -128,6 +166,26 @@ this out long before phonetics existed as a science.</p>
 </tbody>
 </table>
 
+<p><b>Try them:</b> tap any card to flip it — sound, example word, and matra. Press the speaker to hear it spoken.</p>
+<div class="vcards">
+<div class="vcard" tabindex="0" role="button" aria-label="Vowel अ, a as in a in about"><div class="in"><div class="vface"><span class="lt">अ</span><span class="sd">a · tap me</span></div><div class="vface back"><span class="sd">a in about</span><span class="ex">अनार</span><span class="en">pomegranate</span><span class="mt">(none — full letter)</span><button class="spk" data-say="अनार">🔊 hear it</button></div></div></div>
+<div class="vcard" tabindex="0" role="button" aria-label="Vowel आ, aa as in a in father"><div class="in"><div class="vface"><span class="lt">आ</span><span class="sd">aa · tap me</span></div><div class="vface back"><span class="sd">a in father</span><span class="ex">आम</span><span class="en">mango</span><span class="mt">matra: ा</span><button class="spk" data-say="आम">🔊 hear it</button></div></div></div>
+<div class="vcard" tabindex="0" role="button" aria-label="Vowel इ, i as in i in sit"><div class="in"><div class="vface"><span class="lt">इ</span><span class="sd">i · tap me</span></div><div class="vface back"><span class="sd">i in sit</span><span class="ex">इमली</span><span class="en">tamarind</span><span class="mt">matra: ि</span><button class="spk" data-say="इमली">🔊 hear it</button></div></div></div>
+<div class="vcard" tabindex="0" role="button" aria-label="Vowel ई, ee as in ee in see"><div class="in"><div class="vface"><span class="lt">ई</span><span class="sd">ee · tap me</span></div><div class="vface back"><span class="sd">ee in see</span><span class="ex">ईख</span><span class="en">sugarcane</span><span class="mt">matra: ी</span><button class="spk" data-say="ईख">🔊 hear it</button></div></div></div>
+<div class="vcard" tabindex="0" role="button" aria-label="Vowel उ, u as in u in put"><div class="in"><div class="vface"><span class="lt">उ</span><span class="sd">u · tap me</span></div><div class="vface back"><span class="sd">u in put</span><span class="ex">उल्लू</span><span class="en">owl</span><span class="mt">matra: ु</span><button class="spk" data-say="उल्लू">🔊 hear it</button></div></div></div>
+<div class="vcard" tabindex="0" role="button" aria-label="Vowel ऊ, oo as in oo in food"><div class="in"><div class="vface"><span class="lt">ऊ</span><span class="sd">oo · tap me</span></div><div class="vface back"><span class="sd">oo in food</span><span class="ex">ऊन</span><span class="en">wool</span><span class="mt">matra: ू</span><button class="spk" data-say="ऊन">🔊 hear it</button></div></div></div>
+<div class="vcard" tabindex="0" role="button" aria-label="Vowel ऋ, ri as in ri in rich"><div class="in"><div class="vface"><span class="lt">ऋ</span><span class="sd">ri · tap me</span></div><div class="vface back"><span class="sd">ri in rich</span><span class="ex">ऋषि</span><span class="en">sage</span><span class="mt">matra: ृ</span><button class="spk" data-say="ऋषि">🔊 hear it</button></div></div></div>
+<div class="vcard" tabindex="0" role="button" aria-label="Vowel ए, e as in a in gate"><div class="in"><div class="vface"><span class="lt">ए</span><span class="sd">e · tap me</span></div><div class="vface back"><span class="sd">a in gate</span><span class="ex">एक</span><span class="en">one</span><span class="mt">matra: े</span><button class="spk" data-say="एक">🔊 hear it</button></div></div></div>
+<div class="vcard" tabindex="0" role="button" aria-label="Vowel ऐ, ai as in a in cat"><div class="in"><div class="vface"><span class="lt">ऐ</span><span class="sd">ai · tap me</span></div><div class="vface back"><span class="sd">a in cat</span><span class="ex">ऐनक</span><span class="en">spectacles</span><span class="mt">matra: ै</span><button class="spk" data-say="ऐनक">🔊 hear it</button></div></div></div>
+<div class="vcard" tabindex="0" role="button" aria-label="Vowel ओ, o as in o in go"><div class="in"><div class="vface"><span class="lt">ओ</span><span class="sd">o · tap me</span></div><div class="vface back"><span class="sd">o in go</span><span class="ex">ओस</span><span class="en">dew</span><span class="mt">matra: ो</span><button class="spk" data-say="ओस">🔊 hear it</button></div></div></div>
+<div class="vcard" tabindex="0" role="button" aria-label="Vowel औ, au as in ou in ought"><div class="in"><div class="vface"><span class="lt">औ</span><span class="sd">au · tap me</span></div><div class="vface back"><span class="sd">ou in ought</span><span class="ex">औरत</span><span class="en">woman</span><span class="mt">matra: ौ</span><button class="spk" data-say="औरत">🔊 hear it</button></div></div></div>
+</div>
+
+<div class="tracebox" aria-hidden="true">
+<svg viewBox="0 0 220 190"><text x="110" y="150">अ</text></svg>
+<p>Watch अ write itself — every Hindi letter is drawn in flowing strokes, not printed blocks.</p>
+</div>
+
 <h2>Matras — the single idea that unlocks reading</h2>
 <p>A vowel has two forms. Standing alone at the start of a word it is written in
 full: <strong>आम</strong> (aam, mango). Attached to a consonant it shrinks to a
@@ -138,6 +196,10 @@ mark called a <strong>matra</strong>.</p>
 <p>Every consonant carries a hidden "a" already. That is why <strong>क</strong>
 is "ka" and not just "k". This one fact explains most of Devanagari.</p>
 
+
+<figure class="sb-fig">
+<img src="../../images/alphabet-kites.jpg" alt="Storybook scene: children flying kites shaped like Hindi consonant letters" loading="lazy">
+</figure>
 <h2>The consonants, in their proper order</h2>
 <p><strong>Throat (kanthya):</strong> क ka · ख kha · ग ga · घ gha · ङ nga<br>
 <strong>Palate (talavya):</strong> च cha · छ chha · ज ja · झ jha · ञ nya<br>
@@ -299,5 +361,37 @@ if ("serviceWorker" in navigator) {
   </p>
 </footer>
 <!-- ekguru:trust-footer:end -->
+
+<script>
+/* Storybook demo interactions: flip cards, scroll reveal, speech */
+(function(){
+try{
+  var cards=document.querySelectorAll('.vcard');
+  cards.forEach(function(c){
+    function flip(ev){ if(ev.target.closest('.spk'))return; c.classList.toggle('flip'); }
+    c.addEventListener('click',flip);
+    c.addEventListener('keydown',function(ev){ if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();c.classList.toggle('flip');} });
+  });
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('shown');io.unobserve(e.target);}});},{threshold:.15});
+    cards.forEach(function(c){io.observe(c);});
+  } else { cards.forEach(function(c){c.classList.add('shown');}); }
+  document.addEventListener('click',function(ev){
+    var b=ev.target.closest('.spk'); if(!b)return;
+    ev.stopPropagation();
+    try{
+      if(!('speechSynthesis' in window))return;
+      var u=new SpeechSynthesisUtterance(b.getAttribute('data-say'));
+      u.lang='hi-IN'; u.rate=.8;
+      var vs=speechSynthesis.getVoices(), hv=null;
+      for(var i=0;i<vs.length;i++){ if(vs[i].lang&&vs[i].lang.toLowerCase().indexOf('hi')===0){hv=vs[i];break;} }
+      if(hv)u.voice=hv;
+      speechSynthesis.cancel(); speechSynthesis.speak(u);
+    }catch(e){}
+  });
+}catch(e){}
+})();
+</script>
+
 </body>
 </html>
