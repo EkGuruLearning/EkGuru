@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T05:13:25.378Z",
+ "generated": "2026-09-14T05:28:41.979Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 1099,
+  "totalHtml": 1133,
   "materials": 0
  },
  "countries": {
@@ -3923,7 +3923,7 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 1099,
+  "pages": 1133,
   "sitemapUrls": 1018,
   "sitemapFiles": 16,
   "brokenLinks": 0,
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1400 files scanned, 0 secrets"
+  "note": "1435 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "a6946ea7e55d9e40cce4a4f718b944df0c897364",
-  "subject": "v160 loop-3: learn hub hero, reveal everywhere, pro articles",
-  "buildTime": "2026-09-14T05:13:25.391Z",
+  "commit": "3cb36249ff2447e48a19cf54839299f9da3b3288",
+  "subject": "Tamil track batch-5: speaking/listening/reading/writing/structure/name/slang/kids (25/33)",
+  "buildTime": "2026-09-14T05:28:41.992Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 1099,
+   "totalHtml": 1133,
    "tutorProfiles": 4,
    "materials": 0
   }
