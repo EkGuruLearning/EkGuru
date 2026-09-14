@@ -445,7 +445,7 @@ Indian Sign Language | IN | unknown | (sign) | P4 | PARTIAL
 Indonesian | ID,TL | 10M-100M | Latn | P1 | READY
 Indonesian Sign Language | ID | unknown | (sign) | P4 | PARTIAL
 Inuktitut | CA | 10K-100K | — | P4 | RESEARCH_REQUIRED
-Irish | GB,IE | 100K-1M | — | P3 | RESEARCH_REQUIRED
+Irish | GB,IE | 100K-1M | Latn | P2 | PARTIAL
 Irish Sign Language | IE | unknown | (sign) | P4 | PARTIAL
 Israeli Sign Language | IL | unknown | (sign) | P4 | PARTIAL
 Isthmus Zapotec | MX | 10K-100K | — | P4 | RESEARCH_REQUIRED
@@ -798,7 +798,7 @@ Tai Dón (White Tai) | VN | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Tajik | TJ,UZ | 1M-10M | Cyrl | P2 | PARTIAL
 Talian | BR,IT | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Talysh | AZ,IR | 100K-1M | Arab | P3 | RESEARCH_REQUIRED
-Tamasheq | LY | unknown | — | P4 | RESEARCH_REQUIRED
+Tamasheq | LY | unknown | Latn | P4 | RESEARCH_REQUIRED
 Tamasheq | ML,NE | 100K-1M | — | P3 | RESEARCH_REQUIRED
 Tamil | IN,LK,MY,SG | 10M-100M | Taml | P0 | READY
 Tarifit | MA | 1M-10M | — | P3 | RESEARCH_REQUIRED
@@ -901,8 +901,8 @@ Priority | Languages | Recommendation
 ---|---|---
 P0 | 12 | immediate production (or in production — maintain)
 P1 | 52 | next production
-P2 | 61 | expansion
-P3 | 376 | research-only
+P2 | 62 | expansion
+P3 | 375 | research-only
 P4 | 188 | insufficient reliable learning data
 
 ## Scoring rules (transparency)
