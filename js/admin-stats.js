@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T05:44:11.429Z",
+ "generated": "2026-09-14T05:58:07.047Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 1235,
+  "totalHtml": 1269,
   "materials": 0
  },
  "countries": {
@@ -3923,7 +3923,7 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 1235,
+  "pages": 1269,
   "sitemapUrls": 1018,
   "sitemapFiles": 16,
   "brokenLinks": 0,
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1540 files scanned, 0 secrets"
+  "note": "1575 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "8602447dabf458738a8d44022308e7c2054b3d46",
-  "subject": "Malayalam track final: business/heritage/how-long/indian-languages/malayalam-vs-tamil/mollywood/relationships/flashcards (33/33 COMPLETE)",
-  "buildTime": "2026-09-14T05:44:11.440Z",
+  "commit": "fcf2c19b7433ec4ec398fc18af3fc1db68d69776",
+  "subject": "Marathi track batch-5: speaking/listening/reading/writing/structure/name/slang/kids (25/33)",
+  "buildTime": "2026-09-14T05:58:07.062Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 1235,
+   "totalHtml": 1269,
    "tutorProfiles": 4,
    "materials": 0
   }
