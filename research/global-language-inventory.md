@@ -13,13 +13,14 @@ India | Hindi, English, Bengali, Marathi, Telugu, Tamil, Gujarati, Urdu, Kannada
 Iran | Persian, South Azerbaijani | Central Kurdish (Sorani), Northern Kurdish (Kurmanji), Southern Kurdish, Gilaki, Mazanderani, Northern Luri | Persian Sign Language | 75 | medium
 Sri Lanka | Sinhala, Tamil, English | Sri Lankan Creole Malay, Vedda | Sri Lankan Sign Language | 8 | medium
 Maldives | Dhivehi, English | Bengali | Maldivian Sign Language | 3 | low
-Nepal | Nepali, Maithili, Bhojpuri, Newar, Hindi, English | Tharu languages, Tamang languages, Magar languages, Awadhi, Doteli, Urdu | Nepali Sign Language | 124 | high
+Nepal | Nepali, Maithili, Bhojpuri, Newar, Hindi, English | Tharu languages, Tamang languages, Magar, Awadhi, Doteli, Urdu | Nepali Sign Language | 124 | high
 Pakistan | Urdu, English, Western Panjabi, Sindhi, Saraiki, Northern Pashto, Balochi | Southern Hindko, Northern Hindko, Brahui, Gujari, Khowar, Shina | Pakistani Sign Language | 75 | medium
 
 ## Canonical languages
 
 Language | Countries | Band | Script | Priority | Readiness
 ---|---|---|---|---|---
+Afghan Sign Language | AF | unknown | (sign) | P4 | PARTIAL
 Armenian | IR | 100K-1M | Armn | P3 | PARTIAL
 Assamese | IN | 10M-100M | Beng | P1 | READY
 Assyrian Neo-Aramaic | IR | 10K-100K | Syrc | P4 | RESEARCH_REQUIRED
@@ -54,6 +55,7 @@ Khowar | PK | 100K-1M | Arab | P3 | RESEARCH_REQUIRED
 Kokborok | BD | 100K-1M | Beng | P3 | RESEARCH_REQUIRED
 Konkani | IN | 1M-10M | Deva | P3 | RESEARCH_REQUIRED
 Limbu | NP | 100K-1M | Limb | P3 | RESEARCH_REQUIRED
+Magar | NP | 100K-1M | Deva | P3 | RESEARCH_REQUIRED
 Maithili | IN,NP | 10M-100M | Deva | P3 | RESEARCH_REQUIRED
 Malayalam | IN | 10M-100M | Mlym | P0 | READY
 Manipuri (Meitei) | IN | 1M-10M | Beng | P3 | RESEARCH_REQUIRED
@@ -112,8 +114,8 @@ Priority | Languages | Recommendation
 P0 | 10 | immediate production (or in production — maintain)
 P1 | 7 | next production
 P2 | 6 | expansion
-P3 | 52 | research-only
-P4 | 9 | insufficient reliable learning data
+P3 | 53 | research-only
+P4 | 10 | insufficient reliable learning data
 
 ## Scoring rules (transparency)
 

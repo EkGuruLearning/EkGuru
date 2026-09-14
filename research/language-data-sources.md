@@ -44,22 +44,22 @@ Full names/URLs in `_sources.json`; URL-null entries carry a reason
 - **unhcr-2024** (1): Rohingya figures (no census covers refugees).
 - **agent-knowledge** (61): the honest pile. Every one is a pass-2 task.
 
-## 3. Unused registry keys (reserved for pass 2)
+## 3. Registry keys: used vs reserved
 
-iso-639-3 (SIL table bulk check), unesco-wal (Atlas endangerment flags),
-wfd (sign-language authority). Registered now so batch authors cite them
-uniformly later; the build's iso-bulk-verification OPEN item tracks this.
+iso-639-3 (SIL table bulk check) — NOW USED (NP Magar mrd→mgp merger, AF afg code confirmation).
+Still reserved for later passes: unesco-wal (Atlas endangerment flags — WAL fetch failed, manual pass),
+wfd (sign-language authority — direct deaf-org consultation pending).
 
 ## 4. API / database cross-check log (Phase 11)
 
 | Check | Method | Result (pass 1) |
 |-------|--------|-----------------|
-| ISO 639-3 code shapes | build QC: regex + 639-2 trap list + 639-1 pairing table (37 pairs) | 84/84 valid; 1 real bug caught & fixed (Kannada knn→kan, 2026-09-14); guard negative-tested |
-| SIL iso639-3.tab bulk | not yet run (needs table download) | OPEN — pass 2 |
+| ISO 639-3 code shapes | build QC: regex + 639-2 trap list + 639-1 pairing table | pass-1: Kannada knn→kan caught; pass-2 (2026-09-14): full SIL bulk check — see next row |
+| SIL bulk (tab + macrolanguages + retirements, downloaded 2026-09-14) | 113 cited codes checked (entries + members): scope/type/Part1/retired | DONE batch-1 — 11 findings, all fixed: mrd retired→mgp (2026-07-15 merge), hye/mni demacroed (scope=I), doi/san macroed (dgo+xnr / cls+vsn), arb/npi/ory Part1→macro (ara/nep/ori), fas−tgk, kok+knn, nep+dty, san+xct→HISTORICAL. MUST re-run per batch (METHOD rule) |
 | Ethnologue live | NOT queried (paywall; edition-pinned instead) | documented deviation, see §2 |
 | Glottolog | consulted for 2 branch rulings (manual) | done for batch-1 needs |
-| UNESCO WAL | not yet queried | pass 2 (endangerment flags) |
-| WFD / deaf-org | not yet queried | pass 2 (all 5 sign entries + ISL) |
+| UNESCO WAL | fetch attempted 2026-09-14 — app is JS-only, no API/dump reachable | DEFERRED to manual pass (honest): endangerment flags unjoined; candidates noted in limitations §3 |
+| Sign codes (web check 2026-09-14, WFD-adjacent sources) | afg/ins/nsp/pks/psc/sqs/wbs verified in SIL table; IPSL unity dispute (Zeshan 2000) noted on ins | PARTIAL — Afghan SL mis→afg fixed; BdSL/BT/MV genuinely uncoded (disputes stand, narrowed); direct deaf-org consultation still pending |
 | Census portals | India 2011 tables (manual, prior knowledge); PK 2023 press releases; NP 2021 report | re-verify with URLs in pass 2 |
 
 ## 5. Rules for batch authors (binding)

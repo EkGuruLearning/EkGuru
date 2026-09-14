@@ -80,25 +80,27 @@ ROLE2CAT = {"official": "OFFICIAL", "official-regional": "OFFICIAL",
 CATS = ["OFFICIAL", "NATIONAL", "WIDELY_SPOKEN", "REGIONAL",
         "INDIGENOUS", "MINORITY", "IMMIGRANT", "SIGN_LANGUAGE", "OTHER"]
 TOURISM_BOOST = {"div", "dzo", "xsr", "khw", "scl", "bft"}
-MACRO_MUST_HAVE_MEMBERS = {"bal", "kok", "mni", "nep", "fas", "hye"}
+MACRO_MUST_HAVE_MEMBERS = {"bal", "kok", "nep", "fas", "doi", "san", "pus", "ori"}  # SIL-verified batch-1 set (pass 2: mni/hye delisted, doi/san added)
 DIALECT_WATCH = {"bajjika", "rodiya", "pothohari", "marwari", "rangpuri"}
 TRAP_639_2 = {"pus": "ISO 639-2 collective for Pashto — use pbt/pbu/pst or a CLUSTER record"}
+# Registry-type overrides (SIL type=H but living liturgical/official use — status HISTORICAL, roles kept).
+STATUS_OVERRIDE = {"san": "HISTORICAL", "xct": "HISTORICAL"}
 
 # QC guard (added after the knn/Kannada mixup, batch 1): unambiguous ISO 639-1↔639-3
 # pairings. A mismatch means the 639-3 code is almost certainly wrong (e.g. Kannada
 # filed under knn instead of kan). Extend as new batches add coded languages.
 PAIR_639_1 = {"kan": "kn", "hin": "hi", "ben": "bn", "tam": "ta", "tel": "te",
               "mar": "mr", "guj": "gu", "mal": "ml", "pan": "pa", "urd": "ur",
-              "asm": "as", "ory": "or", "nep": "ne", "npi": "ne", "sin": "si",
-              "fas": "fa", "snd": "sd", "kas": "ks", "eng": "en", "arb": "ar",
-              "tuk": "tk", "tgk": "tg", "mya": "my", "tha": "th", "vie": "vi",
+              "asm": "as", "nep": "ne", "sin": "si",
+              "fas": "fa", "snd": "sd", "kas": "ks", "eng": "en",               "tuk": "tk", "tgk": "tg", "mya": "my", "tha": "th", "vie": "vi",
               "zho": "zh", "jpn": "ja", "kor": "ko", "rus": "ru", "fra": "fr",
               "spa": "es", "deu": "de", "por": "pt", "ita": "it", "tur": "tr"}
 # Individual codes that must NEVER carry a 639-1 (it belongs to the macro/collective).
 NO_639_1 = {"prs": "fa belongs to fas", "kok": "Konkani has no 639-1",
             "pus": "639-2 collective, no 639-3/639-1 use", "bal": "macrolanguage, no 639-1",
             "doi": "no 639-1", "mai": "no 639-1", "sat": "no 639-1",
-            "pnb": "pa belongs to pan", "knn": "Konkani individual, no 639-1"}
+            "pnb": "pa belongs to pan", "knn": "Konkani individual, no 639-1",
+            "arb": "ar belongs to ara", "npi": "ne belongs to nep", "ory": "or belongs to ori"}
 
 # Phase 10: variation notes allowed ONLY from here (each traces to batch notes).
 VARIATION_NOTES = {
@@ -198,7 +200,7 @@ def build():
                 band = band_of(lang.get("speakers", {}))
                 for role in lang["roles"]:
                     cat = ROLE2CAT[role]
-                    status = ("HISTORICAL" if role == "historical"
+                    status = STATUS_OVERRIDE.get(iso3) or ("HISTORICAL" if role == "historical"
                               else "EXTINCT" if role == "extinct" else "LIVING")
                     role_detail = (role if role in ("official-regional", "lingua-franca", "liturgical", "historical", "extinct") else None)
                     if role in ("sign",) and len(lang["roles"]) > 1:
@@ -486,7 +488,11 @@ def build():
                 status="open" if missing else "resolved-documented",
                 rationale="" if missing else "all 194 covered")
     need_review("iso-bulk-verification",
-                "all %d codes shape-valid; SIL iso639-3.tab cross-check is verification pass 2" % len(canonical))
+                "batch-1: 113 cited codes (entries + members) checked against SIL 2026-09-14 download "
+                "(iso-639-3.tab + macrolanguages + retirements); 11 findings, all fixed: mrd retired->mgp, "
+                "hye/mni demacroed, doi/san macroed, arb/npi/ory Part1->macro, fas members -tgk, kok+knn, nep+dty",
+                status="resolved-documented",
+                rationale="Pass-2 bulk check complete for batch-1 codes. MUST re-run for every new batch (METHOD rule).")
 
     # Phase 7 totals.
     living_canon = [c for c in canonical.values() if "LIVING" in c["statuses"]]

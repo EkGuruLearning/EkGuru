@@ -1,8 +1,47 @@
 {
  "preliminary": true,
  "coverage": "9/194",
- "count": 84,
+ "count": 86,
  "languages": [
+  {
+   "language_id": "lang:afg",
+   "canonical_name": "Afghan Sign Language",
+   "aliases": [],
+   "native_name": null,
+   "iso_639_1": null,
+   "iso_639_3": "afg",
+   "glottocode": null,
+   "language_family": null,
+   "language_type": "SIGN_LANGUAGE",
+   "script": null,
+   "countries": [
+    "AF"
+   ],
+   "bands": [
+    "unknown"
+   ],
+   "confidences": [
+    "medium"
+   ],
+   "roles_all": [
+    "sign"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "iso-639-3"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "unknown",
+   "min_confidence": "medium",
+   "tts": "na",
+   "translation": "na",
+   "canonical_note": "Verification pass 2: code afg confirmed (SIL: Afghan Sign Language; Ethnologue notes Jalalabad variety). Kabul-variety relationship still needs deaf-org sources."
+  },
   {
    "language_id": "lang:hye",
    "canonical_name": "Armenian",
@@ -12,7 +51,7 @@
    "iso_639_3": "hye",
    "glottocode": null,
    "language_family": "Indo-European: Armenian",
-   "language_type": "MACROLANGUAGE",
+   "language_type": "CANONICAL_LANGUAGE",
    "script": "Armn",
    "countries": [
     "IR"
@@ -40,7 +79,7 @@
    "min_confidence": "medium",
    "tts": true,
    "translation": true,
-   "canonical_note": "Covers Eastern standard here; Western Armenian (hyw) separate individual"
+   "canonical_note": "Covers Eastern standard here; Western Armenian (hyw) separate individual SIL bulk 2026-09-14: scope=I individual (Eastern Armenian); Western Armenian is hyw — macro claim withdrawn."
   },
   {
    "language_id": "lang:asm",
@@ -622,7 +661,7 @@
     "agent-knowledge"
    ],
    "statuses": [
-    "LIVING"
+    "HISTORICAL"
    ],
    "ekguru_statuses": [
     "none"
@@ -631,7 +670,7 @@
    "min_confidence": "medium",
    "tts": false,
    "translation": false,
-   "canonical_note": "Chöke — monastic register, not modern spoken Tibetan (bod)"
+   "canonical_note": "Chöke — monastic register, not modern spoken Tibetan (bod) SIL bulk 2026-09-14: type=H Historical (Classical Tibetan) — status HISTORICAL."
   },
   {
    "language_id": "lang:prs",
@@ -734,7 +773,7 @@
    "iso_639_3": "doi",
    "glottocode": null,
    "language_family": "Indo-European: Indo-Aryan",
-   "language_type": "CANONICAL_LANGUAGE",
+   "language_type": "MACROLANGUAGE",
    "script": "Deva",
    "countries": [
     "IN"
@@ -766,7 +805,7 @@
    "min_confidence": "high",
    "tts": false,
    "translation": false,
-   "canonical_note": "Takri heritage script; Devanagari official"
+   "canonical_note": "Takri heritage script; Devanagari official SIL bulk 2026-09-14: scope=M (Dogri macro: dgo individual + xnr Kangri)."
   },
   {
    "language_id": "lang:dty",
@@ -1423,7 +1462,7 @@
    "min_confidence": "high",
    "tts": false,
    "translation": false,
-   "canonical_note": "Five-script tradition; Devanagari mandated in Goa"
+   "canonical_note": "Five-script tradition; Devanagari mandated in Goa SIL bulk 2026-09-14: members gom + knn (Konkani individual)."
   },
   {
    "language_id": "lang:lif",
@@ -1466,6 +1505,49 @@
    "tts": false,
    "translation": false,
    "canonical_note": null
+  },
+  {
+   "language_id": "lang:mgp",
+   "canonical_name": "Magar",
+   "aliases": [],
+   "native_name": "मगर",
+   "iso_639_1": null,
+   "iso_639_3": "mgp",
+   "glottocode": null,
+   "language_family": "Sino-Tibetan: Magaric",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Deva",
+   "countries": [
+    "NP"
+   ],
+   "bands": [
+    "100K-1M",
+    "100K-1M"
+   ],
+   "confidences": [
+    "medium",
+    "medium"
+   ],
+   "roles_all": [
+    "indigenous",
+    "regional"
+   ],
+   "sources_all": [
+    "census-2021",
+    "ethnologue-27",
+    "iso-639-3"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "100K-1M",
+   "min_confidence": "medium",
+   "tts": false,
+   "translation": false,
+   "canonical_note": "NP entry (verification pass 2: absorbed retired mrd 2026-07-15). Devanagari rendering per NP census; autonym nuance verify."
   },
   {
    "language_id": "lang:mai",
@@ -1573,7 +1655,7 @@
    "iso_639_3": "mni",
    "glottocode": null,
    "language_family": "Sino-Tibetan: Kuki-Chin/Naga?",
-   "language_type": "MACROLANGUAGE",
+   "language_type": "CANONICAL_LANGUAGE",
    "script": "Beng",
    "countries": [
     "IN"
@@ -1604,7 +1686,7 @@
    "min_confidence": "high",
    "tts": false,
    "translation": null,
-   "canonical_note": "Macro treatment + Meitei Mayek (Mtei) revival; family subgroup verify pass 2; Google Translate Meitei presence uncertain"
+   "canonical_note": "Macro treatment + Meitei Mayek (Mtei) revival; family subgroup verify pass 2; Google Translate Meitei presence uncertain SIL bulk 2026-09-14: scope=I individual — macro claim withdrawn."
   },
   {
    "language_id": "lang:mar",
@@ -1815,7 +1897,7 @@
    "canonical_name": "Nepali",
    "aliases": [],
    "native_name": "नेपाली",
-   "iso_639_1": "ne",
+   "iso_639_1": null,
    "iso_639_3": "npi",
    "glottocode": null,
    "language_family": "Indo-European: Indo-Aryan",
@@ -1861,7 +1943,7 @@
    "min_confidence": "medium",
    "tts": true,
    "translation": true,
-   "canonical_note": "Individual code; India's scheduled entry uses macro 'nep' — same language"
+   "canonical_note": "Individual code; India's scheduled entry uses macro 'nep' — same language SIL bulk 2026-09-14: no Part1 on this code; 639-1 belongs to macro 'nep'."
   },
   {
    "language_id": "lang:nep",
@@ -1903,7 +1985,7 @@
    "min_confidence": "high",
    "tts": true,
    "translation": true,
-   "canonical_note": "Macro wrapper; sole living member npi (Nepal entry) — same language, dual-code treatment documented"
+   "canonical_note": "Macro wrapper; sole living member npi (Nepal entry) — same language, dual-code treatment documented SIL bulk 2026-09-14: members dty (Dotyali) + npi."
   },
   {
    "language_id": "lang:nsp",
@@ -2147,7 +2229,7 @@
    "canonical_name": "Odia",
    "aliases": [],
    "native_name": "ଓଡ଼ିଆ",
-   "iso_639_1": "or",
+   "iso_639_1": null,
    "iso_639_3": "ory",
    "glottocode": null,
    "language_family": "Indo-European: Indo-Aryan",
@@ -2185,7 +2267,7 @@
    "min_confidence": "high",
    "tts": true,
    "translation": true,
-   "canonical_note": null
+   "canonical_note": "SIL bulk 2026-09-14: no Part1 on this code; 639-1 belongs to macro 'ori'."
   },
   {
    "language_id": "lang:pks",
@@ -2269,7 +2351,7 @@
    "min_confidence": "high",
    "tts": true,
    "translation": true,
-   "canonical_note": "Macro: Western Persian pes is the Iran standard; prs/tgk mutually intelligible standards"
+   "canonical_note": "Macro: Western Persian pes is the Iran standard; prs/tgk mutually intelligible standards SIL bulk 2026-09-14: Tajik (tgk) is Persian linguistically but NOT a fas member per SIL (standalone code) — removed."
   },
   {
    "language_id": "lang:psc",
@@ -2561,7 +2643,7 @@
    "iso_639_3": "san",
    "glottocode": null,
    "language_family": "Indo-European: Indo-Aryan",
-   "language_type": "CANONICAL_LANGUAGE",
+   "language_type": "MACROLANGUAGE",
    "script": "Deva",
    "countries": [
     "IN"
@@ -2586,7 +2668,7 @@
     "constitution-8th-schedule"
    ],
    "statuses": [
-    "LIVING"
+    "HISTORICAL"
    ],
    "ekguru_statuses": [
     "none"
@@ -2595,7 +2677,7 @@
    "min_confidence": "high",
    "tts": false,
    "translation": false,
-   "canonical_note": "Liturgical/scholarly; census L1 is symbolic self-report"
+   "canonical_note": "Liturgical/scholarly; census L1 is symbolic self-report SIL bulk 2026-09-14: scope=M (cls Classical + vsn Vedic), type=H Historical — living liturgical/official use noted, registry type stands."
   },
   {
    "language_id": "lang:sat",
@@ -3131,7 +3213,7 @@
    "canonical_name": "Standard Arabic",
    "aliases": [],
    "native_name": "العربية",
-   "iso_639_1": "ar",
+   "iso_639_1": null,
    "iso_639_3": "arb",
    "glottocode": null,
    "language_family": "Afro-Asiatic: Semitic",
@@ -3168,7 +3250,7 @@
    "min_confidence": "medium",
    "tts": true,
    "translation": true,
-   "canonical_note": "iso639_1 'ar' is the Arabic macrolanguage; MSA coverage"
+   "canonical_note": "iso639_1 'ar' is the Arabic macrolanguage; MSA coverage SIL bulk 2026-09-14: no Part1 on this code; 639-1 belongs to macro 'ara'."
   },
   {
    "language_id": "lang:tly",
@@ -3495,7 +3577,7 @@
    "min_confidence": "low",
    "tts": false,
    "translation": false,
-   "canonical_note": "Affiliation disputed (isolate vs Indo-Aryan); moribund, primarily oral — do not assign family/script without source"
+   "canonical_note": "Affiliation disputed (isolate vs Indo-Aryan); moribund, primarily oral — do not assign family/script without source SIL bulk 2026-09-14: confirmed ved = Veddah (scope I, living)."
   },
   {
    "language_id": "lang:bgn",

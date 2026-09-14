@@ -9,6 +9,15 @@
    "translation": false,
    "notes": "MSA (ar) tools do not cover Mesopotamian dialect"
   },
+  "afg": {
+   "family": null,
+   "script": null,
+   "native": null,
+   "type": "SIGN_LANGUAGE",
+   "tts": "na",
+   "translation": "na",
+   "notes": "Verification pass 2: code afg confirmed (SIL: Afghan Sign Language; Ethnologue notes Jalalabad variety). Kabul-variety relationship still needs deaf-org sources."
+  },
   "aii": {
    "family": "Afro-Asiatic: Semitic (Aramaic)",
    "script": "Syrc",
@@ -20,10 +29,9 @@
    "family": "Afro-Asiatic: Semitic",
    "script": "Arab",
    "native": "العربية",
-   "iso639_1": "ar",
    "tts": true,
    "translation": true,
-   "notes": "iso639_1 'ar' is the Arabic macrolanguage; MSA coverage"
+   "notes": "iso639_1 'ar' is the Arabic macrolanguage; MSA coverage SIL bulk 2026-09-14: no Part1 on this code; 639-1 belongs to macro 'ara'."
   },
   "asm": {
    "family": "Indo-European: Indo-Aryan",
@@ -154,7 +162,12 @@
    "native": "डोगरी",
    "tts": false,
    "translation": false,
-   "notes": "Takri heritage script; Devanagari official"
+   "notes": "Takri heritage script; Devanagari official SIL bulk 2026-09-14: scope=M (Dogri macro: dgo individual + xnr Kangri).",
+   "type": "MACROLANGUAGE",
+   "members": [
+    "dgo",
+    "xnr"
+   ]
   },
   "dty": {
    "family": "Indo-European: Indo-Aryan",
@@ -187,12 +200,11 @@
    "type": "MACROLANGUAGE",
    "members": [
     "pes",
-    "prs",
-    "tgk"
+    "prs"
    ],
    "tts": true,
    "translation": true,
-   "notes": "Macro: Western Persian pes is the Iran standard; prs/tgk mutually intelligible standards"
+   "notes": "Macro: Western Persian pes is the Iran standard; prs/tgk mutually intelligible standards SIL bulk 2026-09-14: Tajik (tgk) is Persian linguistically but NOT a fas member per SIL (standalone code) — removed."
   },
   "gju": {
    "family": "Indo-European: Indo-Aryan",
@@ -251,11 +263,10 @@
    "script": "Armn",
    "native": "Հայերեն",
    "iso639_1": "hy",
-   "type": "MACROLANGUAGE",
    "tts": true,
    "ttsConf": "medium",
    "translation": true,
-   "notes": "Covers Eastern standard here; Western Armenian (hyw) separate individual"
+   "notes": "Covers Eastern standard here; Western Armenian (hyw) separate individual SIL bulk 2026-09-14: scope=I individual (Eastern Armenian); Western Armenian is hyw — macro claim withdrawn."
   },
   "ins": {
    "family": null,
@@ -312,11 +323,12 @@
    "native": "कोंकणी",
    "type": "MACROLANGUAGE",
    "members": [
-    "gom"
+    "gom",
+    "knn"
    ],
    "tts": false,
    "translation": false,
-   "notes": "Five-script tradition; Devanagari mandated in Goa"
+   "notes": "Five-script tradition; Devanagari mandated in Goa SIL bulk 2026-09-14: members gom + knn (Konkani individual)."
   },
   "lif": {
    "family": "Sino-Tibetan: Kiranti",
@@ -372,14 +384,21 @@
    "translation": false,
    "notes": "Gujarati + Perso-Arabic both used; endonym spelling verify"
   },
+  "mgp": {
+   "family": "Sino-Tibetan: Magaric",
+   "script": "Deva",
+   "native": "मगर",
+   "tts": false,
+   "translation": false,
+   "notes": "NP entry (verification pass 2: absorbed retired mrd 2026-07-15). Devanagari rendering per NP census; autonym nuance verify."
+  },
   "mni": {
    "family": "Sino-Tibetan: Kuki-Chin/Naga?",
    "script": "Beng",
    "native": "মৈতৈলোন্",
-   "type": "MACROLANGUAGE",
    "tts": false,
    "translation": null,
-   "notes": "Macro treatment + Meitei Mayek (Mtei) revival; family subgroup verify pass 2; Google Translate Meitei presence uncertain"
+   "notes": "Macro treatment + Meitei Mayek (Mtei) revival; family subgroup verify pass 2; Google Translate Meitei presence uncertain SIL bulk 2026-09-14: scope=I individual — macro claim withdrawn."
   },
   "mzn": {
    "family": "Indo-European: Iranian",
@@ -395,11 +414,12 @@
    "iso639_1": "ne",
    "type": "MACROLANGUAGE",
    "members": [
+    "dty",
     "npi"
    ],
    "tts": true,
    "translation": true,
-   "notes": "Macro wrapper; sole living member npi (Nepal entry) — same language, dual-code treatment documented"
+   "notes": "Macro wrapper; sole living member npi (Nepal entry) — same language, dual-code treatment documented SIL bulk 2026-09-14: members dty (Dotyali) + npi."
   },
   "new": {
    "family": "Sino-Tibetan: Himalayish",
@@ -413,11 +433,10 @@
    "family": "Indo-European: Indo-Aryan",
    "script": "Deva",
    "native": "नेपाली",
-   "iso639_1": "ne",
    "tts": true,
    "ttsConf": "medium",
    "translation": true,
-   "notes": "Individual code; India's scheduled entry uses macro 'nep' — same language"
+   "notes": "Individual code; India's scheduled entry uses macro 'nep' — same language SIL bulk 2026-09-14: no Part1 on this code; 639-1 belongs to macro 'nep'."
   },
   "nsp": {
    "family": null,
@@ -431,9 +450,9 @@
    "family": "Indo-European: Indo-Aryan",
    "script": "Orya",
    "native": "ଓଡ଼ିଆ",
-   "iso639_1": "or",
    "tts": true,
-   "translation": true
+   "translation": true,
+   "notes": "SIL bulk 2026-09-14: no Part1 on this code; 639-1 belongs to macro 'ori'."
   },
   "pan": {
    "family": "Indo-European: Indo-Aryan",
@@ -529,7 +548,12 @@
    "iso639_1": "sa",
    "tts": false,
    "translation": false,
-   "notes": "Liturgical/scholarly; census L1 is symbolic self-report"
+   "notes": "Liturgical/scholarly; census L1 is symbolic self-report SIL bulk 2026-09-14: scope=M (cls Classical + vsn Vedic), type=H Historical — living liturgical/official use noted, registry type stands.",
+   "type": "MACROLANGUAGE",
+   "members": [
+    "cls",
+    "vsn"
+   ]
   },
   "sat": {
    "family": "Austroasiatic: Munda",
@@ -678,7 +702,7 @@
    "native": null,
    "tts": false,
    "translation": false,
-   "notes": "Affiliation disputed (isolate vs Indo-Aryan); moribund, primarily oral — do not assign family/script without source"
+   "notes": "Affiliation disputed (isolate vs Indo-Aryan); moribund, primarily oral — do not assign family/script without source SIL bulk 2026-09-14: confirmed ved = Veddah (scope I, living)."
   },
   "xct": {
    "family": "Sino-Tibetan: Tibetic",
@@ -686,7 +710,7 @@
    "native": "ཆོས་སྐད",
    "tts": false,
    "translation": false,
-   "notes": "Chöke — monastic register, not modern spoken Tibetan (bod)"
+   "notes": "Chöke — monastic register, not modern spoken Tibetan (bod) SIL bulk 2026-09-14: type=H Historical (Classical Tibetan) — status HISTORICAL."
   },
   "xsr": {
    "family": "Sino-Tibetan: Tibetic",

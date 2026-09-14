@@ -261,17 +261,17 @@
     },
     {
      "name": "Afghan Sign Language",
-     "iso639_3": "mis",
+     "iso639_3": "afg",
      "roles": [
       "sign"
      ],
      "speakers": {},
      "sources": [
+      "iso-639-3",
       "agent-knowledge"
      ],
-     "confidence": "low",
-     "disputed": true,
-     "notes": "Treatment uncertain: no distinct ISO 639-3 code established; may share Kabul variety with broader regional signing. Verification pass 2 must confirm against WFD/deaf-org sources.",
+     "confidence": "medium",
+     "notes": "Code 'afg' confirmed (SIL: Afghan Sign Language; Jalalabad variety per Ethnologue). Verification pass 2 closed the no-code dispute; Kabul-variety relationship still needs deaf-org sources.",
      "ekguru": {
       "status": "none",
       "recommendation": "none — inventoried only."
@@ -580,7 +580,7 @@
      ],
      "confidence": "low",
      "disputed": true,
-     "notes": "No distinct ISO 639-3 code; related to Indian/Pakistani signing (shared ISL-family). Whether BdSL is a distinct language vs ISL dialect is disputed — do not code as 'ins'. Verify pass 2 (WFD).",
+     "notes": "No distinct ISO 639-3 code; related to Indian/Pakistani signing (shared ISL-family). Whether BdSL is a distinct language vs ISL dialect is disputed — do not code as 'ins'. Verify pass 2 (WFD). Separately-coded wbs is the Kolkata/India-side variety, not BdSL — BdSL itself remains uncoded.",
      "ekguru": {
       "status": "none",
       "recommendation": "none — inventoried only."
@@ -1229,7 +1229,7 @@
       "jk-official-languages-act-2020"
      ],
      "confidence": "high",
-     "notes": "8th Schedule (2003); official in J&K (2020). Census vs Ethnologue totals differ (Kangri overlap debate) — numbers low-confidence.",
+     "notes": "8th Schedule (2003); official in J&K (2020). Census vs Ethnologue totals differ (Kangri overlap debate) — numbers low-confidence. SIL bulk 2026-09-14: 'doi' is the MACRO (dgo Dogri individual + xnr Kangri).",
      "ekguru": {
       "status": "none",
       "recommendation": "recommended-pack."
@@ -1304,7 +1304,7 @@
       "census-2011"
      ],
      "confidence": "high",
-     "notes": "8th Schedule; official in Manipur. 'Manipuri' is the constitutional name, 'Meitei/Meiteilon' the endonym; Meitei Mayek script revival ongoing. Code 'mni' macrolanguage treatment — verify pass 2.",
+     "notes": "8th Schedule; official in Manipur. 'Manipuri' is the constitutional name, 'Meitei/Meiteilon' the endonym; Meitei Mayek script revival ongoing. SIL bulk 2026-09-14: 'mni' is scope=I INDIVIDUAL (not a macro) — macro question closed.",
      "ekguru": {
       "status": "none",
       "recommendation": "recommended-pack."
@@ -1330,7 +1330,7 @@
       "census-2011"
      ],
      "confidence": "high",
-     "notes": "8th Schedule; 2nd-official in Uttarakhand (+ Himachal). Census L1 (~25k) is symbolic self-report, not a speech community — liturgical/scholarly role is the honest frame. Classical language.",
+     "notes": "8th Schedule; 2nd-official in Uttarakhand (+ Himachal). Census L1 (~25k) is symbolic self-report, not a speech community — liturgical/scholarly role is the honest frame. Classical language. SIL type=H Historical (registry fact); 25k L1 + Uttarakhand official status are living-use overlays, honestly framed above.",
      "ekguru": {
       "status": "none",
       "recommendation": "recommended-pack — liturgical/heritage demand; teach as classical, never as vernacular."
@@ -1373,7 +1373,7 @@
       "agent-knowledge"
      ],
      "confidence": "medium",
-     "notes": "Code 'ins'. ISLRTC (2015) standardising; no constitutional status. Shared signing family with Pakistan/Bangladesh/Nepal varieties — related, not identical; do not merge (see BD/PK/NP notes).",
+     "notes": "Code 'ins'. ISLRTC (2015) standardising; no constitutional status. Shared signing family with Pakistan/Bangladesh/Nepal varieties — related, not identical; do not merge (see BD/PK/NP notes). West Bengal SL (wbs, Kolkata) is separately coded, but Zeshan (2000) treats IPSL as one language — dispute noted, codes stand.",
      "ekguru": {
       "status": "none",
       "recommendation": "watch — video-first medium; EkGuru is text-first today."
@@ -1767,7 +1767,7 @@
       "ethnologue-27"
      ],
      "confidence": "medium",
-     "notes": "Constitutionally recognised religious minority (Art.13) with schools/press (Isfahan Jolfa, Tehran). Code 'hye' covers both standards here; Western/Eastern split note for AM entry.",
+     "notes": "Constitutionally recognised religious minority (Art.13) with schools/press (Isfahan Jolfa, Tehran). SIL bulk 2026-09-14: 'hye' = Eastern Armenian (individual); Western = hyw. Iranian community is Eastern-speaking — confirm school standard in AM entry.",
      "ekguru": {
       "status": "none",
       "recommendation": "Shared with Armenia entry — one Armenian pack serves both."
@@ -1809,7 +1809,7 @@
       "agent-knowledge"
      ],
      "confidence": "medium",
-     "notes": "Code 'psc' established. Distinct from Arabic SLs.",
+     "notes": "Code 'psc' established. Distinct from Arabic SLs. SIL Ref_Name is 'Iranian Sign Language' (alias recorded).",
      "ekguru": {
       "status": "none",
       "recommendation": "none — inventoried only."
@@ -2241,13 +2241,8 @@
      }
     },
     {
-     "name": "Magar languages",
-     "iso639_3": "mis",
-     "group": true,
-     "members": [
-      "mgp",
-      "mrd"
-     ],
+     "name": "Magar",
+     "iso639_3": "mgp",
      "roles": [
       "regional",
       "indigenous"
@@ -2260,10 +2255,11 @@
      },
      "sources": [
       "census-2021",
-      "ethnologue-27"
+      "ethnologue-27",
+      "iso-639-3"
      ],
      "confidence": "medium",
-     "notes": "Census 'Magar' covers Eastern (mgp) + Western (mrd) — distinct codes, group entry.",
+     "notes": "Census 'Magar' now = single code mgp: Western Magar [mrd] was RETIRED 2026-07-15 and merged into mgp per SIL. Group entry converted to regular entry (verification pass 2).",
      "ekguru": {
       "status": "none",
       "recommendation": "watch."

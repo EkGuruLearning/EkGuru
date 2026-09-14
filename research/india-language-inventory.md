@@ -109,6 +109,8 @@ Consequences for the inventory:
 
 ## 6. Code treatments specific to India
 
+- **Dogri macro**: `doi` is scope=M per SIL bulk (2026-09-14) — members dgo (individual) + xnr (Kangri).
+  The census/Ethnologue Kangri-overlap debate is now grounded: overlap is with a macro MEMBER.
 - **Nepali dual-code**: IN entry uses macro `nep` (India schedules the
   diaspora umbrella incl. Sikkim/WB varieties); NP/BT entries use individual
   `npi`. Same language, never merged silently (METHOD §Phase-4 note).
@@ -116,10 +118,10 @@ Consequences for the inventory:
   Shahmukhi) — distinct codes AND scripts, cross-noted, never merged.
 - **Konkani macro**: `kok` (macro; members incl. `gom` Goan Konkani).
   Five-script tradition; Goa mandates Devanagari.
-- **Manipuri macro**: `mni` (macro per registry; Meitei individual `mni`… —
-  registry nuance flagged OPEN in build review as macro-without-members;
-  pass-2 must resolve member split before any course planning).
-- **Sanskrit**: `san`; liturgical + national + official-regional (Uttarakhand).
+- **Manipuri individual**: `mni` is scope=I per SIL bulk (2026-09-14) — the macro question is CLOSED,
+  no member split exists. Course planning unblocked on codes.
+- **Sanskrit**: `san` (SIL macro: cls + vsn; type=H Historical — relations carry HISTORICAL status);
+  liturgical + national + official-regional (Uttarakhand).
 - **Bodo**: `brx` (Boro); BTC official.
 - **Sindhi**: `snd` (individual; Pakistan side same code, Perso-Arabic both).
 
@@ -140,7 +142,7 @@ Consequences for the inventory:
 
 1. Rajasthani macro question (mwr vs umbrella) — census + Linguistic Survey of India.
 2. Magahi/Chhattisgarhi/Haryanvi entries vs long-tail (threshold ruling).
-3. `mni` member split resolution (macro-without-members OPEN item).
+3. `mni` macro question — CLOSED by SIL bulk (scope=I individual).
 4. ISL (ins): ISLRTC + Deaf community sources; dialect spread (Delhi/Mumbai/
    Kolkata varieties vs one-code treatment).
 5. Sanskrit L1 figure (25k, census "mother tongue" gaming is well documented).

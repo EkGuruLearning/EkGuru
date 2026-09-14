@@ -15,7 +15,7 @@ Researched living estimate: 40 (ethnologue-27, medium). Entries below: 10.
 
 **INDIGENOUS** (3): Nuristani languages (mis, medium); Pamiri languages (mis, medium); Pashayi languages (mis, medium).
 
-**SIGN_LANGUAGE** (1): Afghan Sign Language (mis, low).
+**SIGN_LANGUAGE** (1): Afghan Sign Language (afg, medium).
 
 **OTHER** (1): Standard Arabic (arb, medium).
 
@@ -138,9 +138,9 @@ Researched living estimate: 124 (census-2021, high). Entries below: 18.
 
 **WIDELY_SPOKEN** (7): Bhojpuri (bho, medium); English (eng, high); Hindi (hin, medium); Maithili (mai, medium); Nepali (npi, high); Nepali (npi, high); Newar (new, medium).
 
-**REGIONAL** (8): Awadhi (awa, medium); Doteli (dty, medium); Gurung languages (mis, low); Limbu (lif, medium); Magar languages (mis, medium); Newar (new, medium); Tamang languages (mis, medium); Tharu languages (mis, medium).
+**REGIONAL** (8): Awadhi (awa, medium); Doteli (dty, medium); Gurung languages (mis, low); Limbu (lif, medium); Magar (mgp, medium); Newar (new, medium); Tamang languages (mis, medium); Tharu languages (mis, medium).
 
-**INDIGENOUS** (7): Bantawa (bap, medium); Gurung languages (mis, low); Limbu (lif, medium); Magar languages (mis, medium); Sherpa (xsr, medium); Tamang languages (mis, medium); Tharu languages (mis, medium).
+**INDIGENOUS** (7): Bantawa (bap, medium); Gurung languages (mis, low); Limbu (lif, medium); Magar (mgp, medium); Sherpa (xsr, medium); Tamang languages (mis, medium); Tharu languages (mis, medium).
 
 **MINORITY** (2): Rajbanshi (rjs, low); Urdu (urd, medium).
 

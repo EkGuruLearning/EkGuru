@@ -137,8 +137,15 @@ Tiny languages are inventoried, never auto-promoted (rule 8).
 ## Verification passes
 
 - Pass 1 (this build): agent-compiled from hierarchy above.
-- Pass 2 (planned): per-country source re-check of every `medium`/
-  `low` item against primary sources; upgrades confidence.
+- Pass 2 (batch-1 done 2026-09-14): SIL bulk check (tab +
+  macrolanguages + retirements, fresh download) over EVERY cited code
+  incl. members; sign-code audit; findings fixed + recorded in
+  `research/language-data-sources.md` §4. RULE: re-run the SIL bulk for
+  every new batch before commit — retirements happen mid-project
+  (mrd→mgp merged 2026-07-15).
+- Pass 2 (still pending): per-country source re-check of every `medium`/
+  `low` item against primary sources; deaf-org consultation; UNESCO WAL
+  manual flags. Upgrades confidence.
 - The validator (`tools/validate-inventory.py`) enforces schema +
   reports coverage; it cannot verify facts — facts are verified by
   passes, recorded in `sources`/`confidence`.

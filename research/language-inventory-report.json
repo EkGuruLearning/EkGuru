@@ -3,18 +3,18 @@
   "preliminary": true,
   "phase7_totals": {
     "A_unique_canonical_living": 84,
-    "A_spoken": 79,
-    "A_sign": 5,
+    "A_spoken": 78,
+    "A_sign": 6,
     "B_unique_living_evidenced_use": 77,
     "C_country_language_relationships": 187,
     "D_learner_priority_P0_P1": 17,
-    "needing_human_review_relations": 41
+    "needing_human_review_relations": 38
   },
   "phase17_gate": {
     "countries": "9/194 researched",
     "countries_pass": false,
     "relationships_source_confidence": "all 187 records carry sources + confidence",
-    "canonical_dedup": "PASS (84 canonical, mis never canonical)",
+    "canonical_dedup": "PASS (86 canonical, mis never canonical)",
     "iso_shape": "PASS",
     "country_ids": "PASS (all in sovereign-194)",
     "scripts": "shape PASS; SIL/Unicode verification = pass 2",
@@ -23,7 +23,7 @@
     "india_deep_audit": "research/india-language-inventory.md (this build)",
     "multilingual_audits": "AF/BD/BT/IN/IR/LK/MV/NP/PK in batch 1; ID/NG/PG/PH/ZA/CN/RU/... pending",
     "api_licensing": "research/language-data-sources.md (this build)",
-    "qa": "OPEN items: 4 (see review list)"
+    "qa": "OPEN items: 1 (see review list)"
   },
   "review_required": [
     {
@@ -33,18 +33,6 @@
       "rationale": "Dual-code treatment: scheduled macro 'nep' (IN) and individual 'npi' (NP/BT) are the SAME language; documented in METHOD + batch notes, never merged silently."
     },
     {
-      "check": "macro-without-members",
-      "detail": "lang:mni",
-      "status": "open",
-      "rationale": ""
-    },
-    {
-      "check": "macro-without-members",
-      "detail": "lang:hye",
-      "status": "open",
-      "rationale": ""
-    },
-    {
       "check": "country-coverage",
       "detail": "9/194 researched; 185 pending",
       "status": "open",
@@ -52,9 +40,9 @@
     },
     {
       "check": "iso-bulk-verification",
-      "detail": "all 84 codes shape-valid; SIL iso639-3.tab cross-check is verification pass 2",
-      "status": "open",
-      "rationale": ""
+      "detail": "batch-1: 113 cited codes (entries + members) checked against SIL 2026-09-14 download (iso-639-3.tab + macrolanguages + retirements); 11 findings, all fixed: mrd retired->mgp, hye/mni demacroed, doi/san macroed, arb/npi/ory Part1->macro, fas members -tgk, kok+knn, nep+dty",
+      "status": "resolved-documented",
+      "rationale": "Pass-2 bulk check complete for batch-1 codes. MUST re-run for every new batch (METHOD rule)."
     }
   ]
 }

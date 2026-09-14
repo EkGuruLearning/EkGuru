@@ -801,7 +801,7 @@
    "language_id": "lang:arb",
    "language_name": "Standard Arabic",
    "native_name": "العربية",
-   "iso_639_1": "ar",
+   "iso_639_1": null,
    "iso_639_3": "arb",
    "glottocode": null,
    "language_family": "Afro-Asiatic: Semitic",
@@ -840,13 +840,13 @@
    "review_flags": []
   },
   {
-   "relationship_id": "lang:mis:AF:afghan-sign-language:AF:SIGN_LANGUAGE",
+   "relationship_id": "lang:afg:AF:SIGN_LANGUAGE",
    "country_id": "AF",
-   "language_id": "lang:mis:AF:afghan-sign-language",
+   "language_id": "lang:afg",
    "language_name": "Afghan Sign Language",
    "native_name": null,
    "iso_639_1": null,
-   "iso_639_3": "mis",
+   "iso_639_3": "afg",
    "glottocode": null,
    "language_family": null,
    "language_type": "SIGN_LANGUAGE",
@@ -857,8 +857,15 @@
    "role_detail": null,
    "estimated_speaker_band": "unknown",
    "speaker_estimate": {},
-   "country_specific_evidence": "Treatment uncertain: no distinct ISO 639-3 code established; may share Kabul variety with broader regional signing. Verification pass 2 must confirm against WFD/deaf-org sources.",
+   "country_specific_evidence": "Code 'afg' confirmed (SIL: Afghan Sign Language; Jalalabad variety per Ethnologue). Verification pass 2 closed the no-code dispute; Kabul-variety relationship still needs deaf-org sources.",
    "sources": [
+    {
+     "key": "iso-639-3",
+     "source_name": "ISO 639-3 registry (SIL International)",
+     "source_url": "https://iso639-3.sil.org",
+     "evidence_type": "iso-dataset",
+     "priority": "A"
+    },
     {
      "key": "agent-knowledge",
      "source_name": "EkGuru agent training knowledge (compiled, unverified)",
@@ -868,27 +875,20 @@
      "priority": "D-agent"
     }
    ],
-   "confidence": "low",
-   "disputed": true,
+   "confidence": "medium",
+   "disputed": false,
    "ekguru_status": "none",
    "ekguru_recommendation": "none — inventoried only.",
    "learning_intent": {
     "contexts": [
-     "school",
-     "work",
-     "business",
-     "travel",
      "daily conversation"
     ],
     "variation_note": null
    },
-   "needs_human_review": true,
+   "needs_human_review": false,
    "ekguru_priority": "P4",
-   "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
-   "review_flags": [
-    "low-confidence",
-    "disputed"
-   ]
+   "ekguru_reason": "score 10/100 (speakerReach=3, countryCount=2, education=0, travel=0, business=0, migration=0, internetContentProxy=1, learningDemandProxy=1, ttsAsr=0, translation=0, dataConfidence=3)",
+   "review_flags": []
   },
   {
    "relationship_id": "lang:ben:BD:OFFICIAL",
@@ -1716,7 +1716,7 @@
    "language_id": "lang:arb",
    "language_name": "Standard Arabic",
    "native_name": "العربية",
-   "iso_639_1": "ar",
+   "iso_639_1": null,
    "iso_639_3": "arb",
    "glottocode": null,
    "language_family": "Afro-Asiatic: Semitic",
@@ -1772,7 +1772,7 @@
    "role_detail": null,
    "estimated_speaker_band": "unknown",
    "speaker_estimate": {},
-   "country_specific_evidence": "No distinct ISO 639-3 code; related to Indian/Pakistani signing (shared ISL-family). Whether BdSL is a distinct language vs ISL dialect is disputed — do not code as 'ins'. Verify pass 2 (WFD).",
+   "country_specific_evidence": "No distinct ISO 639-3 code; related to Indian/Pakistani signing (shared ISL-family). Whether BdSL is a distinct language vs ISL dialect is disputed — do not code as 'ins'. Verify pass 2 (WFD). Separately-coded wbs is the Kolkata/India-side variety, not BdSL — BdSL itself remains uncoded.",
    "sources": [
     {
      "key": "agent-knowledge",
@@ -2065,7 +2065,7 @@
    "language_id": "lang:npi",
    "language_name": "Nepali",
    "native_name": "नेपाली",
-   "iso_639_1": "ne",
+   "iso_639_1": null,
    "iso_639_3": "npi",
    "glottocode": null,
    "language_family": "Indo-European: Indo-Aryan",
@@ -2124,7 +2124,7 @@
    "language_id": "lang:npi",
    "language_name": "Nepali",
    "native_name": "नेपाली",
-   "iso_639_1": "ne",
+   "iso_639_1": null,
    "iso_639_3": "npi",
    "glottocode": null,
    "language_family": "Indo-European: Indo-Aryan",
@@ -2235,7 +2235,7 @@
    "language_type": "CANONICAL_LANGUAGE",
    "cluster_members": null,
    "script": "Tibt",
-   "status_in_country": "LIVING",
+   "status_in_country": "HISTORICAL",
    "category": "OTHER",
    "role_detail": "liturgical",
    "estimated_speaker_band": "unknown",
@@ -3888,7 +3888,7 @@
    "language_id": "lang:ory",
    "language_name": "Odia",
    "native_name": "ଓଡ଼ିଆ",
-   "iso_639_1": "or",
+   "iso_639_1": null,
    "iso_639_3": "ory",
    "glottocode": null,
    "language_family": "Indo-European: Indo-Aryan",
@@ -3947,7 +3947,7 @@
    "language_id": "lang:ory",
    "language_name": "Odia",
    "native_name": "ଓଡ଼ିଆ",
-   "iso_639_1": "or",
+   "iso_639_1": null,
    "iso_639_3": "ory",
    "glottocode": null,
    "language_family": "Indo-European: Indo-Aryan",
@@ -4006,7 +4006,7 @@
    "language_id": "lang:ory",
    "language_name": "Odia",
    "native_name": "ଓଡ଼ିଆ",
-   "iso_639_1": "or",
+   "iso_639_1": null,
    "iso_639_3": "ory",
    "glottocode": null,
    "language_family": "Indo-European: Indo-Aryan",
@@ -5113,7 +5113,7 @@
    "iso_639_3": "doi",
    "glottocode": null,
    "language_family": "Indo-European: Indo-Aryan",
-   "language_type": "CANONICAL_LANGUAGE",
+   "language_type": "MACROLANGUAGE",
    "cluster_members": null,
    "script": "Deva",
    "status_in_country": "LIVING",
@@ -5126,7 +5126,7 @@
     "asOf": "census-2011",
     "confidence": "low"
    },
-   "country_specific_evidence": "8th Schedule (2003); official in J&K (2020). Census vs Ethnologue totals differ (Kangri overlap debate) — numbers low-confidence.",
+   "country_specific_evidence": "8th Schedule (2003); official in J&K (2020). Census vs Ethnologue totals differ (Kangri overlap debate) — numbers low-confidence. SIL bulk 2026-09-14: 'doi' is the MACRO (dgo Dogri individual + xnr Kangri).",
    "sources": [
     {
      "key": "constitution-8th-schedule",
@@ -5178,7 +5178,7 @@
    "iso_639_3": "doi",
    "glottocode": null,
    "language_family": "Indo-European: Indo-Aryan",
-   "language_type": "CANONICAL_LANGUAGE",
+   "language_type": "MACROLANGUAGE",
    "cluster_members": null,
    "script": "Deva",
    "status_in_country": "LIVING",
@@ -5191,7 +5191,7 @@
     "asOf": "census-2011",
     "confidence": "low"
    },
-   "country_specific_evidence": "8th Schedule (2003); official in J&K (2020). Census vs Ethnologue totals differ (Kangri overlap debate) — numbers low-confidence.",
+   "country_specific_evidence": "8th Schedule (2003); official in J&K (2020). Census vs Ethnologue totals differ (Kangri overlap debate) — numbers low-confidence. SIL bulk 2026-09-14: 'doi' is the MACRO (dgo Dogri individual + xnr Kangri).",
    "sources": [
     {
      "key": "constitution-8th-schedule",
@@ -5471,7 +5471,7 @@
    "iso_639_3": "mni",
    "glottocode": null,
    "language_family": "Sino-Tibetan: Kuki-Chin/Naga?",
-   "language_type": "MACROLANGUAGE",
+   "language_type": "CANONICAL_LANGUAGE",
    "cluster_members": null,
    "script": "Beng",
    "status_in_country": "LIVING",
@@ -5484,7 +5484,7 @@
     "asOf": "census-2011",
     "confidence": "medium"
    },
-   "country_specific_evidence": "8th Schedule; official in Manipur. 'Manipuri' is the constitutional name, 'Meitei/Meiteilon' the endonym; Meitei Mayek script revival ongoing. Code 'mni' macrolanguage treatment — verify pass 2.",
+   "country_specific_evidence": "8th Schedule; official in Manipur. 'Manipuri' is the constitutional name, 'Meitei/Meiteilon' the endonym; Meitei Mayek script revival ongoing. SIL bulk 2026-09-14: 'mni' is scope=I INDIVIDUAL (not a macro) — macro question closed.",
    "sources": [
     {
      "key": "constitution-8th-schedule",
@@ -5530,7 +5530,7 @@
    "iso_639_3": "mni",
    "glottocode": null,
    "language_family": "Sino-Tibetan: Kuki-Chin/Naga?",
-   "language_type": "MACROLANGUAGE",
+   "language_type": "CANONICAL_LANGUAGE",
    "cluster_members": null,
    "script": "Beng",
    "status_in_country": "LIVING",
@@ -5543,7 +5543,7 @@
     "asOf": "census-2011",
     "confidence": "medium"
    },
-   "country_specific_evidence": "8th Schedule; official in Manipur. 'Manipuri' is the constitutional name, 'Meitei/Meiteilon' the endonym; Meitei Mayek script revival ongoing. Code 'mni' macrolanguage treatment — verify pass 2.",
+   "country_specific_evidence": "8th Schedule; official in Manipur. 'Manipuri' is the constitutional name, 'Meitei/Meiteilon' the endonym; Meitei Mayek script revival ongoing. SIL bulk 2026-09-14: 'mni' is scope=I INDIVIDUAL (not a macro) — macro question closed.",
    "sources": [
     {
      "key": "constitution-8th-schedule",
@@ -5589,10 +5589,10 @@
    "iso_639_3": "san",
    "glottocode": null,
    "language_family": "Indo-European: Indo-Aryan",
-   "language_type": "CANONICAL_LANGUAGE",
+   "language_type": "MACROLANGUAGE",
    "cluster_members": null,
    "script": "Deva",
-   "status_in_country": "LIVING",
+   "status_in_country": "HISTORICAL",
    "category": "NATIONAL",
    "role_detail": null,
    "estimated_speaker_band": "10K-100K",
@@ -5602,7 +5602,7 @@
     "asOf": "census-2011",
     "confidence": "low"
    },
-   "country_specific_evidence": "8th Schedule; 2nd-official in Uttarakhand (+ Himachal). Census L1 (~25k) is symbolic self-report, not a speech community — liturgical/scholarly role is the honest frame. Classical language.",
+   "country_specific_evidence": "8th Schedule; 2nd-official in Uttarakhand (+ Himachal). Census L1 (~25k) is symbolic self-report, not a speech community — liturgical/scholarly role is the honest frame. Classical language. SIL type=H Historical (registry fact); 25k L1 + Uttarakhand official status are living-use overlays, honestly framed above.",
    "sources": [
     {
      "key": "constitution-8th-schedule",
@@ -5647,10 +5647,10 @@
    "iso_639_3": "san",
    "glottocode": null,
    "language_family": "Indo-European: Indo-Aryan",
-   "language_type": "CANONICAL_LANGUAGE",
+   "language_type": "MACROLANGUAGE",
    "cluster_members": null,
    "script": "Deva",
-   "status_in_country": "LIVING",
+   "status_in_country": "HISTORICAL",
    "category": "OTHER",
    "role_detail": "liturgical",
    "estimated_speaker_band": "10K-100K",
@@ -5660,7 +5660,7 @@
     "asOf": "census-2011",
     "confidence": "low"
    },
-   "country_specific_evidence": "8th Schedule; 2nd-official in Uttarakhand (+ Himachal). Census L1 (~25k) is symbolic self-report, not a speech community — liturgical/scholarly role is the honest frame. Classical language.",
+   "country_specific_evidence": "8th Schedule; 2nd-official in Uttarakhand (+ Himachal). Census L1 (~25k) is symbolic self-report, not a speech community — liturgical/scholarly role is the honest frame. Classical language. SIL type=H Historical (registry fact); 25k L1 + Uttarakhand official status are living-use overlays, honestly framed above.",
    "sources": [
     {
      "key": "constitution-8th-schedule",
@@ -5705,10 +5705,10 @@
    "iso_639_3": "san",
    "glottocode": null,
    "language_family": "Indo-European: Indo-Aryan",
-   "language_type": "CANONICAL_LANGUAGE",
+   "language_type": "MACROLANGUAGE",
    "cluster_members": null,
    "script": "Deva",
-   "status_in_country": "LIVING",
+   "status_in_country": "HISTORICAL",
    "category": "OFFICIAL",
    "role_detail": "official-regional",
    "estimated_speaker_band": "10K-100K",
@@ -5718,7 +5718,7 @@
     "asOf": "census-2011",
     "confidence": "low"
    },
-   "country_specific_evidence": "8th Schedule; 2nd-official in Uttarakhand (+ Himachal). Census L1 (~25k) is symbolic self-report, not a speech community — liturgical/scholarly role is the honest frame. Classical language.",
+   "country_specific_evidence": "8th Schedule; 2nd-official in Uttarakhand (+ Himachal). Census L1 (~25k) is symbolic self-report, not a speech community — liturgical/scholarly role is the honest frame. Classical language. SIL type=H Historical (registry fact); 25k L1 + Uttarakhand official status are living-use overlays, honestly framed above.",
    "sources": [
     {
      "key": "constitution-8th-schedule",
@@ -5827,7 +5827,7 @@
    "role_detail": null,
    "estimated_speaker_band": "unknown",
    "speaker_estimate": {},
-   "country_specific_evidence": "Code 'ins'. ISLRTC (2015) standardising; no constitutional status. Shared signing family with Pakistan/Bangladesh/Nepal varieties — related, not identical; do not merge (see BD/PK/NP notes).",
+   "country_specific_evidence": "Code 'ins'. ISLRTC (2015) standardising; no constitutional status. Shared signing family with Pakistan/Bangladesh/Nepal varieties — related, not identical; do not merge (see BD/PK/NP notes). West Bengal SL (wbs, Kolkata) is separately coded, but Zeshan (2000) treats IPSL as one language — dispute noted, codes stand.",
    "sources": [
     {
      "key": "islrtc",
@@ -6841,7 +6841,7 @@
    "iso_639_3": "hye",
    "glottocode": null,
    "language_family": "Indo-European: Armenian",
-   "language_type": "MACROLANGUAGE",
+   "language_type": "CANONICAL_LANGUAGE",
    "cluster_members": null,
    "script": "Armn",
    "status_in_country": "LIVING",
@@ -6854,7 +6854,7 @@
     "asOf": "ethnologue-27",
     "confidence": "low"
    },
-   "country_specific_evidence": "Constitutionally recognised religious minority (Art.13) with schools/press (Isfahan Jolfa, Tehran). Code 'hye' covers both standards here; Western/Eastern split note for AM entry.",
+   "country_specific_evidence": "Constitutionally recognised religious minority (Art.13) with schools/press (Isfahan Jolfa, Tehran). SIL bulk 2026-09-14: 'hye' = Eastern Armenian (individual); Western = hyw. Iranian community is Eastern-speaking — confirm school standard in AM entry.",
    "sources": [
     {
      "key": "constitution-art13",
@@ -6961,7 +6961,7 @@
    "role_detail": null,
    "estimated_speaker_band": "unknown",
    "speaker_estimate": {},
-   "country_specific_evidence": "Code 'psc' established. Distinct from Arabic SLs.",
+   "country_specific_evidence": "Code 'psc' established. Distinct from Arabic SLs. SIL Ref_Name is 'Iranian Sign Language' (alias recorded).",
    "sources": [
     {
      "key": "ethnologue-27",
@@ -7864,7 +7864,7 @@
    "language_id": "lang:npi",
    "language_name": "Nepali",
    "native_name": "नेपाली",
-   "iso_639_1": "ne",
+   "iso_639_1": null,
    "iso_639_3": "npi",
    "glottocode": null,
    "language_family": "Indo-European: Indo-Aryan",
@@ -7923,7 +7923,7 @@
    "language_id": "lang:npi",
    "language_name": "Nepali",
    "native_name": "नेपाली",
-   "iso_639_1": "ne",
+   "iso_639_1": null,
    "iso_639_3": "npi",
    "glottocode": null,
    "language_family": "Indo-European: Indo-Aryan",
@@ -7982,7 +7982,7 @@
    "language_id": "lang:npi",
    "language_name": "Nepali",
    "native_name": "नेपाली",
-   "iso_639_1": "ne",
+   "iso_639_1": null,
    "iso_639_3": "npi",
    "glottocode": null,
    "language_family": "Indo-European: Indo-Aryan",
@@ -8660,21 +8660,18 @@
    "review_flags": []
   },
   {
-   "relationship_id": "lang:mis:NP:magar-languages:NP:REGIONAL",
+   "relationship_id": "lang:mgp:NP:REGIONAL",
    "country_id": "NP",
-   "language_id": "lang:mis:NP:magar-languages",
-   "language_name": "Magar languages",
-   "native_name": null,
+   "language_id": "lang:mgp",
+   "language_name": "Magar",
+   "native_name": "मगर",
    "iso_639_1": null,
-   "iso_639_3": "mis",
+   "iso_639_3": "mgp",
    "glottocode": null,
-   "language_family": null,
-   "language_type": "CLUSTER",
-   "cluster_members": [
-    "mgp",
-    "mrd"
-   ],
-   "script": null,
+   "language_family": "Sino-Tibetan: Magaric",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Deva",
    "status_in_country": "LIVING",
    "category": "REGIONAL",
    "role_detail": null,
@@ -8685,7 +8682,7 @@
     "asOf": "census-2021",
     "confidence": "medium"
    },
-   "country_specific_evidence": "Census 'Magar' covers Eastern (mgp) + Western (mrd) — distinct codes, group entry.",
+   "country_specific_evidence": "Census 'Magar' now = single code mgp: Western Magar [mrd] was RETIRED 2026-07-15 and merged into mgp per SIL. Group entry converted to regular entry (verification pass 2).",
    "sources": [
     {
      "key": "census-2021",
@@ -8699,6 +8696,13 @@
      "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
      "source_url": "https://www.ethnologue.com",
      "evidence_type": "linguistic-database",
+     "priority": "A"
+    },
+    {
+     "key": "iso-639-3",
+     "source_name": "ISO 639-3 registry (SIL International)",
+     "source_url": "https://iso639-3.sil.org",
+     "evidence_type": "iso-dataset",
      "priority": "A"
     }
    ],
@@ -8715,31 +8719,24 @@
     ],
     "variation_note": null
    },
-   "needs_human_review": true,
-   "ekguru_priority": "P4",
-   "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
-   "review_flags": [
-    "tts-unknown",
-    "translation-unknown",
-    "native-missing"
-   ]
+   "needs_human_review": false,
+   "ekguru_priority": "P3",
+   "ekguru_reason": "score 23/100 (speakerReach=12, countryCount=2, education=0, travel=2, business=0, migration=0, internetContentProxy=2, learningDemandProxy=2, ttsAsr=0, translation=0, dataConfidence=3)",
+   "review_flags": []
   },
   {
-   "relationship_id": "lang:mis:NP:magar-languages:NP:INDIGENOUS",
+   "relationship_id": "lang:mgp:NP:INDIGENOUS",
    "country_id": "NP",
-   "language_id": "lang:mis:NP:magar-languages",
-   "language_name": "Magar languages",
-   "native_name": null,
+   "language_id": "lang:mgp",
+   "language_name": "Magar",
+   "native_name": "मगर",
    "iso_639_1": null,
-   "iso_639_3": "mis",
+   "iso_639_3": "mgp",
    "glottocode": null,
-   "language_family": null,
-   "language_type": "CLUSTER",
-   "cluster_members": [
-    "mgp",
-    "mrd"
-   ],
-   "script": null,
+   "language_family": "Sino-Tibetan: Magaric",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Deva",
    "status_in_country": "LIVING",
    "category": "INDIGENOUS",
    "role_detail": null,
@@ -8750,7 +8747,7 @@
     "asOf": "census-2021",
     "confidence": "medium"
    },
-   "country_specific_evidence": "Census 'Magar' covers Eastern (mgp) + Western (mrd) — distinct codes, group entry.",
+   "country_specific_evidence": "Census 'Magar' now = single code mgp: Western Magar [mrd] was RETIRED 2026-07-15 and merged into mgp per SIL. Group entry converted to regular entry (verification pass 2).",
    "sources": [
     {
      "key": "census-2021",
@@ -8764,6 +8761,13 @@
      "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
      "source_url": "https://www.ethnologue.com",
      "evidence_type": "linguistic-database",
+     "priority": "A"
+    },
+    {
+     "key": "iso-639-3",
+     "source_name": "ISO 639-3 registry (SIL International)",
+     "source_url": "https://iso639-3.sil.org",
+     "evidence_type": "iso-dataset",
      "priority": "A"
     }
    ],
@@ -8780,14 +8784,10 @@
     ],
     "variation_note": null
    },
-   "needs_human_review": true,
-   "ekguru_priority": "P4",
-   "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
-   "review_flags": [
-    "tts-unknown",
-    "translation-unknown",
-    "native-missing"
-   ]
+   "needs_human_review": false,
+   "ekguru_priority": "P3",
+   "ekguru_reason": "score 23/100 (speakerReach=12, countryCount=2, education=0, travel=2, business=0, migration=0, internetContentProxy=2, learningDemandProxy=2, ttsAsr=0, translation=0, dataConfidence=3)",
+   "review_flags": []
   },
   {
    "relationship_id": "lang:awa:NP:REGIONAL",
@@ -10912,7 +10912,7 @@
    "language_id": "lang:arb",
    "language_name": "Standard Arabic",
    "native_name": "العربية",
-   "iso_639_1": "ar",
+   "iso_639_1": null,
    "iso_639_3": "arb",
    "glottocode": null,
    "language_family": "Afro-Asiatic: Semitic",
