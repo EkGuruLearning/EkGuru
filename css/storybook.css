@@ -318,3 +318,67 @@ html.sb-js body[data-topic] table.phr tbody tr:nth-child(n+9){animation-delay:.4
 html.sb-js .lang-cell,html.sb-js .v-item,html.sb-js .ob-card,html.sb-js .card,html.sb-js .fact,html.sb-js .howto,html.sb-js .faq{opacity:1 !important;transform:none !important}
 html.sb-js body[data-topic] table.phr tbody tr{opacity:1 !important;animation:none !important}
 }
+
+/* ================= VISUAL v155: content-matched modern layer ================
+   Additive only: themed pages (body[data-topic]) get accent-driven
+   components; everything else keeps the brand fallback. Print + 
+   reduced-motion neutralised at the end. */
+/* banner sheen sweep */
+.sb-chapter{position:relative;overflow:hidden}
+.sb-chapter::after{content:"";position:absolute;top:0;bottom:0;width:38%;left:-45%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);
+  animation:sb-sheen 7s ease-in-out infinite;pointer-events:none}
+@keyframes sb-sheen{0%,72%{left:-45%}92%,100%{left:130%}}
+/* phrase tables: tinted head, hover rows, soft shell */
+.twrap{border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh-1);background:var(--card,#fff)}
+.twrap table.phr{margin:0;border:0}
+table.phr thead th{background:var(--sb-tint,#f4f1ff);color:var(--ink);font-size:.82rem;
+  text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+body[data-topic] table.phr tbody tr{transition:background .15s ease}
+body[data-topic] table.phr tbody tr:hover{background:var(--sb-tint,#f4f1ff)}
+/* speaker buttons: circular accent */
+.ssay,.sb-keys .say{border-radius:999px !important;border:1px solid var(--sb-accent,#4f32d9) !important;
+  transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
+.ssay:hover,.sb-keys .say:hover{transform:scale(1.08);box-shadow:var(--sh-2);background:var(--sb-tint,#f4f1ff)}
+.ssay:focus-visible,.sb-keys .say:focus-visible{outline:2px solid var(--sb-accent,#4f32d9);outline-offset:2px}
+.sb-keys .say.tapped,.ssay.tapped{transform:scale(.92)}
+/* FAQ: Q badge + accent edge + lift */
+.faq{position:relative;transition:transform .18s ease,box-shadow .18s ease}
+.faq:hover{transform:translateY(-2px);box-shadow:var(--sh-2)}
+.faq b::before{content:"Q";display:inline-flex;align-items:center;justify-content:center;
+  width:1.5em;height:1.5em;border-radius:50%;margin-right:.55em;font-size:.8em;
+  background:var(--sb-accent,#4f32d9);color:#fff;vertical-align:1px}
+/* notes + callouts: gradient edge */
+.note,.sb-callout{border-left:5px solid transparent !important;
+  border-image:linear-gradient(180deg,var(--sb-accent,#4f32d9),var(--brand-3,#ec4899)) 1}
+/* chips: hover fill */
+.chips a{transition:transform .15s ease,background .15s ease,color .15s ease,border-color .15s ease}
+.chips a:hover{background:var(--sb-accent,#4f32d9);border-color:var(--sb-accent,#4f32d9);
+  color:#fff;transform:translateY(-1px)}
+.chips a:hover b,.chips a:hover span{color:#fff}
+/* cards: top accent bar */
+.card,.fact,.howto,.lang-cell,.v-item,.ob-card{position:relative;overflow:hidden}
+body[data-topic] .card::before,body[data-topic] .fact::before,body[data-topic] .howto::before,
+.lang-cell::before,.v-item::before,.ob-card::before{content:"";position:absolute;top:0;left:14px;right:14px;
+  height:3px;border-radius:0 0 4px 4px;background:linear-gradient(90deg,var(--sb-accent,var(--brand)),var(--brand-3,#ec4899))}
+/* TOC links: hover slide */
+.sb-toc a{display:inline-block;transition:transform .15s ease,color .15s ease}
+.sb-toc a:hover{transform:translateX(3px);color:var(--sb-accent,#4f32d9)}
+/* content band: tinted section shell (builders opt in) */
+.band{background:var(--sb-tint,#f4f1ff);border:1px solid var(--line);border-radius:16px;
+  padding:6px 20px 18px;margin:26px 0}
+/* gradient rule */
+.pw hr,.art hr{border:0;height:2px;margin:30px 0;
+  background:linear-gradient(90deg,transparent,var(--sb-accent,#4f32d9),transparent)}
+/* lede: refined readable measure */
+.pw .lede::first-letter,.art .lede::first-letter{font-weight:800;color:var(--sb-accent,#4f32d9)}
+@media print{
+.sb-chapter::after{display:none}
+.twrap{box-shadow:none}
+.faq:hover,.card:hover{transform:none;box-shadow:none}
+.chips a:hover{background:#fff;color:var(--brand)}
+}
+@media(prefers-reduced-motion:reduce){
+.sb-chapter::after{display:none}
+.ssay,.sb-keys .say,.faq,.chips a,.sb-toc a{transition:none !important}
+}

@@ -284,11 +284,12 @@
       }
     }
 
-    if (n) {
-      try {
-        root.dispatchEvent(new CustomEvent("ekguru:settings", { detail: { painted: n } }));
-      } catch (e) {}
-    }
+    /* v155 fix: ALWAYS notify. /support/ has no [data-s] nodes, so n
+       stays 0 there and the old if(n) gate meant payment cards never
+       repainted after the sheet arrived. Listeners repaint idempotently. */
+    try {
+      root.dispatchEvent(new CustomEvent("ekguru:settings", { detail: { painted: n } }));
+    } catch (e) {}
     return n;
   }
 
