@@ -463,6 +463,14 @@ def build():
                 need_review("duplicate-name", "%r → %s" % (nm, lids),
                             status="resolved-documented",
                             rationale="Dual-code treatment: scheduled macro 'nep' (IN) and individual 'npi' (NP/BT) are the SAME language; documented in METHOD + batch notes, never merged silently.")
+            elif set(lids) == {"lang:ktu", "lang:mkw"}:
+                need_review("duplicate-name", "%r → %s" % (nm, lids),
+                            status="resolved-documented",
+                            rationale="Shared exonym, distinct ISO codes: Kituba-DRC (ktu, Kikongo-based, CD national) vs Kituba-Congo (mkw, CG national). Never merged; boundary TBD pass 2.")
+            elif set(lids) == {"lang:tmh", "lang:taq"}:
+                need_review("duplicate-name", "%r → %s" % (nm, lids),
+                            status="resolved-documented",
+                            rationale="Shared exonym, distinct ISO codes: Tamasheq-Tawallammat (tmh, southern Tuareg NE/ML/BF/DZ) vs Tamasheq-Tayart (taq, northern Tuareg ML/NE/DZ). Never merged.")
             else:
                 need_review("duplicate-name", "%r → %s" % (nm, lids))
     for w in DIALECT_WATCH:

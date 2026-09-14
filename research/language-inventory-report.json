@@ -23,7 +23,7 @@
     "india_deep_audit": "research/india-language-inventory.md (this build)",
     "multilingual_audits": "AF/BD/BT/IN/IR/LK/MV/NP/PK in batch 1; ID/NG/PG/PH/ZA/CN/RU/... pending",
     "api_licensing": "research/language-data-sources.md (this build)",
-    "qa": "OPEN items: 4 (see review list)"
+    "qa": "OPEN items: 2 (see review list)"
   },
   "review_required": [
     {
@@ -41,14 +41,14 @@
     {
       "check": "duplicate-name",
       "detail": "'kituba' → ['lang:ktu', 'lang:mkw']",
-      "status": "open",
-      "rationale": ""
+      "status": "resolved-documented",
+      "rationale": "Shared exonym, distinct ISO codes: Kituba-DRC (ktu, Kikongo-based, CD national) vs Kituba-Congo (mkw, CG national). Never merged; boundary TBD pass 2."
     },
     {
       "check": "duplicate-name",
       "detail": "'tamasheq' → ['lang:tmh', 'lang:taq']",
-      "status": "open",
-      "rationale": ""
+      "status": "resolved-documented",
+      "rationale": "Shared exonym, distinct ISO codes: Tamasheq-Tawallammat (tmh, southern Tuareg NE/ML/BF/DZ) vs Tamasheq-Tayart (taq, northern Tuareg ML/NE/DZ). Never merged."
     },
     {
       "check": "duplicate-name",
