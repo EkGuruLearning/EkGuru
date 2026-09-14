@@ -69,6 +69,10 @@
         if (v) u.voice = v;
         window.speechSynthesis.cancel();
         window.speechSynthesis.speak(u);
+        try {
+          b.classList.add("tapped");
+          setTimeout(function () { b.classList.remove("tapped"); }, 550);
+        } catch (eTap) {}
       } catch (e) {}
     });
 
@@ -490,5 +494,20 @@
         obs.observe(pxRoot, { childList: true, subtree: true });
       }
     } catch (e6) {}
+    /* chapter theming (v147): the baked banner carries the
+       chapter palette; copy it to the page so progress bar, TOC,
+       key-words and background all follow the chapter. */
+    try {
+      var ch = document.querySelector(".sb-chapter");
+      if (ch && ch.style && ch.style.getPropertyValue) {
+        var acc = ch.style.getPropertyValue("--sb-accent");
+        var tint = ch.style.getPropertyValue("--sb-tint");
+        if (acc) document.body.style.setProperty("--sb-accent", acc);
+        if (tint) {
+          document.body.style.setProperty("--sb-tint", tint);
+          document.body.classList.add("sb-themed");
+        }
+      }
+    } catch (e7) {}
   } catch (e) { /* storybook never breaks the page */ }
 })();

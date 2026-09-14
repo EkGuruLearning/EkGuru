@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T03:16:07.426Z",
+ "generated": "2026-09-14T03:27:23.010Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1363 files scanned, 0 secrets"
+  "note": "1364 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "0bd741e750c5b99d303e420a50df7a7d684b72b4",
-  "subject": "v145: ultra visuals — reading progress, auto-TOC, key-words TTS strip, per-section themes, practice mastery stats + finish confetti",
-  "buildTime": "2026-09-14T03:16:07.438Z",
+  "commit": "8c4c5339f66992c8a4786b4d8343823dfc1f184f",
+  "subject": "v146: wire owner support tab (gid=1041390059) as second settings source — merged under main tab, build + runtime",
+  "buildTime": "2026-09-14T03:27:23.023Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,

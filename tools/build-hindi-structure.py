@@ -26,6 +26,23 @@ BASE = "https://ekguru.shop"
 NOW = time.strftime("%Y-%m-%d", time.gmtime())
 GEN = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
 
+# Chapter themes (mascot + accent per card). Built by
+# tools/build-topic-map.py; missing file = plain cards, never a crash.
+try:
+    with open(os.path.join(ROOT, "tools", "topic-meta.json"), encoding="utf-8") as _f:
+        CHAPTER_META = json.load(_f)["topics"]
+except (OSError, ValueError):
+    CHAPTER_META = {}
+
+
+def _card_face(key):
+    """(style-attr, mascot-prefix) for a hub card, or ('','') unknown."""
+    cm = CHAPTER_META.get(key, {})
+    if not cm:
+        return "", ""
+    return (' style="border-top:4px solid %s"' % cm["accent"],
+            cm.get("mascot", "") + " ")
+
 # ---------------------------------------------------------------- helpers
 def read(p):
     with open(p, encoding="utf-8") as f:
@@ -658,22 +675,22 @@ def render_hub():
     # Level selector — only real levels
     body.append('  <h2>Choose your level</h2>')
     body.append('  <div class="hs-grid">')
-    body.append('<a class="hs-card" href="beginner/"><b>Beginner</b>'
-                '<span>From zero: the script, first words and simple sentences.</span></a>')
-    body.append('<a class="hs-card" href="elementary/"><b>Elementary</b>'
-                '<span>Past the plateau: real conversation, tenses, register.</span></a>')
-    body.append('<a class="hs-card" href="intermediate/"><b>Intermediate</b>'
-                '<span>Politeness, the Hindi–Urdu split, verb tenses, mistakes, Bollywood.</span></a>')
-    body.append('<a class="hs-card" href="advanced/"><b>Advanced</b>'
-                '<span>Six real topics: clinic, office, school, weather, home, festivals.</span></a>')
+    for lv, blurb in (("beginner", "From zero: the script, first words and simple sentences."),
+                      ("elementary", "Past the plateau: real conversation, tenses, register."),
+                      ("intermediate", "Politeness, the Hindi–Urdu split, verb tenses, mistakes, Bollywood."),
+                      ("advanced", "Six real topics: clinic, office, school, weather, home, festivals.")):
+        st, face = _card_face("level-" + lv)
+        body.append('<a class="hs-card" href="%s/"%s><b>%s%s</b><span>%s</span></a>'
+                    % (lv, st, face, lv.capitalize(), blurb))
     body.append('  </div>')
 
     # Topic selector
     body.append('  <h2>Topics</h2>')
     body.append('  <div class="hs-grid">')
     for tp, meta in TOPIC_META.items():
-        body.append('<a class="hs-card" href="%s/"><b>%s</b><span>%s</span></a>'
-                    % (tp, meta[0].split(" — ")[0], meta[1]))
+        st, face = _card_face(tp)
+        body.append('<a class="hs-card" href="%s/"%s><b>%s%s</b><span>%s</span></a>'
+                    % (tp, st, face, meta[0].split(" — ")[0], meta[1]))
     body.append('  </div>')
 
     # Paths
