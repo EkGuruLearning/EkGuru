@@ -36,7 +36,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
 
 SECTIONS = ["learn", "hindi", "materials", "toolbox", "ask", "answers",
-            "daily-hindi", "languages"]
+            "daily-hindi", "languages", "bengali"]
 MARK = "<!-- ekguru:storybook -->"
 HINT = ('<p class="sb-hint">🔊 <b>Tap any speaker button to hear Hindi spoken.</b> '
         "Too fast or slow? Use the <b>speed</b> button at the "
@@ -50,6 +50,7 @@ CHAPTERS = ["basics", "conversation", "pronunciation", "grammar",
 LEVELS = ["beginner", "elementary", "intermediate", "advanced"]
 LANGS = ["bengali", "gujarati", "kannada", "malayalam", "marathi",
          "punjabi", "tamil", "telugu", "urdu"]
+ROOT_LANGS = ["bengali"]
 
 
 def load_meta():
@@ -98,6 +99,9 @@ def resolve(path):
     # world courses: honest generic banner, name read from the page H1
     if parts[0] == "languages" and len(parts) >= 2:
         return "section-language"
+    # root topic hubs (v152 pilot: /bengali/): per-language banner
+    if parts[0] in ROOT_LANGS:
+        return "lang-" + parts[0]
     return None
 
 
@@ -156,7 +160,7 @@ def process(path):
                 did.append("topic")
             mh = re.search(HT + "[\\s>]", h)
             h1name = None
-            if key == "section-language":
+            if key == "section-language" or (key.startswith("lang-") and not path.startswith("learn/")):
                 H1 = "<h" + "1"
                 m1 = re.search(H1 + "[^>]*>(.*?)<" + "/h1>", h, re.S)
                 if m1:

@@ -44,8 +44,8 @@
     } catch (eRate) {}
     /* ---- page language (v151): every language speaks its own ----
        Derived from the URL: /languages/<code>/ uses the code,
-       /learn/<indian-slug>/ maps to its ISO code, everything else
-       is Hindi context. Latin-script pages keep pill+dock+themes
+       /learn/<indian-slug>/ maps to its ISO code, root /<slug>/
+       topic hubs (v152) do the same, everything else is Hindi context. Latin-script pages keep pill+dock+themes
        but skip script-based buttons (English cannot be told apart
        from French by script, so guessing would mis-speak). */
     var LANG_SLUG = { bengali: "bn", gujarati: "gu", kannada: "kn",
@@ -68,6 +68,9 @@
         }
         if (langParts[langIdx] === "learn" && LANG_SLUG[langParts[langIdx + 1]]) {
           pageLang = LANG_SLUG[langParts[langIdx + 1]]; break;
+        }
+        if (langIdx === 1 && LANG_SLUG[langParts[langIdx]]) {
+          pageLang = LANG_SLUG[langParts[langIdx]]; break;
         }
       }
       scriptRange = SCRIPTS[pageLang] || "";

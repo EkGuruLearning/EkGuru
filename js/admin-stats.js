@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T03:53:07.908Z",
+ "generated": "2026-09-14T04:03:19.620Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 1065,
+  "totalHtml": 1069,
   "materials": 0
  },
  "countries": {
@@ -3923,7 +3923,7 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 1065,
+  "pages": 1069,
   "sitemapUrls": 1018,
   "sitemapFiles": 16,
   "brokenLinks": 0,
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1364 files scanned, 0 secrets"
+  "note": "1369 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "ee230aa30d61a7ba71744daf89c761e118b9d518",
-  "subject": "v150: app dock (Back/Home/Next-Up) on every Hindi page with entrance + fade animations; 40/40 jsdom proof",
-  "buildTime": "2026-09-14T03:53:07.923Z",
+  "commit": "a361a1e1b5b4354e0fb7629c0ebe8a1d0d814baf",
+  "subject": "v151: every language speaks its own (per-language TTS voices+scripts), turtle 0.4x slow speed, world-course banners+dock; 63/63 jsdom proof",
+  "buildTime": "2026-09-14T04:03:19.634Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 1065,
+   "totalHtml": 1069,
    "tutorProfiles": 4,
    "materials": 0
   }
