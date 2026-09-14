@@ -205,7 +205,7 @@ Zimbabwe | Shona, Northern Ndebele, English, Chewa, Kalanga, Ndau | — | — | 
 
 Language | Countries | Band | Script | Priority | Readiness
 ---|---|---|---|---|---
-Abkhaz | GE | 100K-1M | Cyrl | P3 | RESEARCH_REQUIRED
+Abkhaz | GE | 100K-1M | Cyrl | P3 | PARTIAL
 Acehnese | ID | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Achi | GT | 10K-100K | Latn | P4 | RESEARCH_REQUIRED
 Acholi | UG | 1M-10M | Latn | P3 | PARTIAL
@@ -345,14 +345,14 @@ Duala | CM | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Dungan | KG,KZ | 10K-100K | Cyrl | P4 | RESEARCH_REQUIRED
 Dutch | BE,NL,SR | 10M-100M | Latn | P1 | READY
 Dutch Sign Language | NL | unknown | Sgnw | P4 | PARTIAL
-Dyula | BF,CI | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
+Dyula | BF,CI | 1M-10M | Latn | P2 | PARTIAL
 Dzongkha | BT | 100K-1M | Tibt | P2 | PARTIAL
 East Limba | SL | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Eastern Arrernte | AU | <10K | Latn | P4 | RESEARCH_REQUIRED
 Eastern Bolivian Guarani | BO | 10K-100K | Latn | P3 | RESEARCH_REQUIRED
 Eastern Cham | VN | 100K-1M | Cham | P3 | RESEARCH_REQUIRED
 Eastern Krahn | LR | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
-Eastern Maninkakan | GN | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
+Eastern Maninkakan | GN | 1M-10M | Latn | P2 | PARTIAL
 Ecuadorian Sign Language | EC | unknown | Sgnw | P4 | PARTIAL
 Edo | NG | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Efik | NG | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
@@ -523,7 +523,7 @@ Lezgian | AZ,RU | 100K-1M | Cyrl | P3 | RESEARCH_REQUIRED
 Liberia Kpelle | LR | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Libyan Spoken Arabic | LY | 1M-10M | Arab | P3 | RESEARCH_REQUIRED
 Limbu | NP | 100K-1M | Limb | P3 | RESEARCH_REQUIRED
-Limburgish | BE,NL | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
+Limburgish | BE,NL | 1M-10M | Latn | P2 | PARTIAL
 Lingala | CD,CG | 10M-100M | Latn | P2 | PARTIAL
 Lisu | MM | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Lithuanian | LT | 1M-10M | Latn | P2 | READY
@@ -725,7 +725,7 @@ Sanaani Arabic | YE | 10M-100M | Arab | P3 | RESEARCH_REQUIRED
 Sango | CF | 1M-10M | Latn | P2 | PARTIAL
 Sanskrit | IN | 10K-100K | Deva | P3 | PARTIAL
 Santali | BD,IN | 1M-10M | Olck | P3 | RESEARCH_REQUIRED
-Santiago del Estero Quichua | AR | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
+Santiago del Estero Quichua | AR | 100K-1M | Latn | P3 | PARTIAL
 Saraiki | PK | 10M-100M | Arab | P3 | RESEARCH_REQUIRED
 Saramaccan | SR | 10K-100K | Latn | P4 | RESEARCH_REQUIRED
 Sardinian | IT | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
@@ -905,8 +905,8 @@ Priority | Languages | Recommendation
 ---|---|---
 P0 | 12 | immediate production (or in production — maintain)
 P1 | 54 | next production
-P2 | 82 | expansion
-P3 | 363 | research-only
+P2 | 85 | expansion
+P3 | 360 | research-only
 P4 | 182 | insufficient reliable learning data
 
 ## Scoring rules (transparency)

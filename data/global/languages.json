@@ -40,8 +40,8 @@
    "max_band": "100K-1M",
    "min_confidence": "medium",
    "tts": false,
-   "translation": false,
-   "canonical_note": "639-1 ab (SIL). De-facto official (Abkhazia constitution); Cyrillic official, Mkhedruli historic."
+   "translation": true,
+   "canonical_note": "639-1 ab (SIL). De-facto official (Abkhazia constitution); Cyrillic official, Mkhedruli historic. Pass-2 null-resolution 2026-09-14: Google 'Abkhaz | ab' row; MS absent — FALSE→TRUE, Google-only."
   },
   {
    "language_id": "lang:ace",
@@ -4251,8 +4251,8 @@
    "max_band": "1M-10M",
    "min_confidence": "medium",
    "tts": false,
-   "translation": null,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). RU Chechnya co-official (~1.4M); Yandex MT exists, Big-Tech TBD pass 2. No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
+   "translation": false,
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). RU Chechnya co-official (~1.4M); Yandex MT exists, Big-Tech TBD pass 2. No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Pass-2 null-resolution 2026-09-14: no Chechen row either engine (verified); Yandex-only MT is out of flag scope (flags = Big-Tech proxies, report §3.6) — NULL→FALSE."
   },
   {
    "language_id": "lang:chr",
@@ -5969,8 +5969,8 @@
    "max_band": "1M-10M",
    "min_confidence": "medium",
    "tts": false,
-   "translation": null,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). CI/BF lingua franca (~5M+); Bambara-MT overlap unconfirmed. No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
+   "translation": true,
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). CI/BF lingua franca (~5M+); Bambara-MT overlap unconfirmed. No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Pass-2 null-resolution 2026-09-14: no dyu row either engine, but Jula↔Bambara explicitly mutually intelligible [dyula-wikipedia][manding-mi-ankataa] — served via Google bm row — NULL→TRUE."
   },
   {
    "language_id": "lang:dzo",
@@ -6247,8 +6247,8 @@
    "max_band": "1M-10M",
    "min_confidence": "low",
    "tts": false,
-   "translation": null,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). GN Upper Guinea (Kankan; ~3M+). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
+   "translation": true,
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). GN Upper Guinea (Kankan; ~3M+). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Pass-2 null-resolution 2026-09-14: no emk/Maninka/Nko row either engine, but Maninka↔Bambara mutually intelligible Eastern Manding [manding-mi-ankataa] — served via Google bm row — NULL→TRUE."
   },
   {
    "language_id": "lang:ecs",
@@ -10633,8 +10633,8 @@
    "max_band": "100K-1M",
    "min_confidence": "low",
    "tts": false,
-   "translation": null,
-   "canonical_note": "Batch 6a (pass 1, agent-compiled; verification pass 2 confirms). EC Imbabura (~300K; Quechua-MT variety match TBD pass 2). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
+   "translation": false,
+   "canonical_note": "Batch 6a (pass 1, agent-compiled; verification pass 2 confirms). EC Imbabura (~300K; Quechua-MT variety match TBD pass 2). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Pass-2 null-resolution 2026-09-14: Google qu is Southern-based; Northern Kichwa not intelligible to it ('completely unrecognizable' [kichwa-southern-gap]) — NULL→FALSE."
   },
   {
    "language_id": "lang:smn",
@@ -12794,8 +12794,8 @@
    "max_band": "1M-10M",
    "min_confidence": "medium",
    "tts": false,
-   "translation": null,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). AO (Luanda hinterland; ~3M+); MT support unconfirmed. No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
+   "translation": false,
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). AO (Luanda hinterland; ~3M+); MT support unconfirmed. No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Pass-2 null-resolution 2026-09-14: no Kimbundu/Mbundu row either engine (verified) — NULL→FALSE."
   },
   {
    "language_id": "lang:kin",
@@ -14179,8 +14179,8 @@
    "max_band": "1M-10M",
    "min_confidence": "low",
    "tts": false,
-   "translation": null,
-   "canonical_note": "Batch 8 (pass 2 agent-compiled + voice-list verified 2026-09-14). BE/NL/DE (~1M; EU Charter). MT: Google li row is Limburgan, NOT lim — match TBD; no voice either engine. P2 voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list."
+   "translation": true,
+   "canonical_note": "Batch 8 (pass 2 agent-compiled + voice-list verified 2026-09-14). BE/NL/DE (~1M; EU Charter). MT: Google li row is Limburgan, NOT lim — match TBD; no voice either engine. P2 voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list. Pass-2 null-resolution 2026-09-14: Google 'Limburgan | li' row IS this language (li = ISO 639-1 for lim) — NULL→TRUE, Google-only. [sil-iso639-3-tab-2026]"
   },
   {
    "language_id": "lang:lin",
@@ -19064,8 +19064,8 @@
    "max_band": "1M-10M",
    "min_confidence": "medium",
    "tts": false,
-   "translation": null,
-   "canonical_note": "Batch 8 (pass 2 agent-compiled + voice-list verified 2026-09-14). CN Nuosu, Sichuan/Yunnan (~8M; standardized Yi script). MT unverified (page 'Yi' hit was Yiddish yi); no voice either engine. P2 voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list."
+   "translation": false,
+   "canonical_note": "Batch 8 (pass 2 agent-compiled + voice-list verified 2026-09-14). CN Nuosu, Sichuan/Yunnan (~8M; standardized Yi script). MT unverified (page 'Yi' hit was Yiddish yi); no voice either engine. P2 voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list. Pass-2 null-resolution 2026-09-14: no Yi/Nuosu row either engine (verified; page 'Yi' hit was Yiddish yi) — NULL→FALSE."
   },
   {
    "language_id": "lang:nup",
@@ -22758,8 +22758,8 @@
    "max_band": "100K-1M",
    "min_confidence": "low",
    "tts": false,
-   "translation": null,
-   "canonical_note": "Batch 9b (pass 2 agent-compiled + voice-list verified 2026-09-14). AR Santiago del Estero (~100K). MT: Google qu is Cusco/Ayacucho-based; Argentine-branch match TBD. P2 voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list."
+   "translation": true,
+   "canonical_note": "Batch 9b (pass 2 agent-compiled + voice-list verified 2026-09-14). AR Santiago del Estero (~100K). MT: Google qu is Cusco/Ayacucho-based; Argentine-branch match TBD. P2 voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list. Pass-2 null-resolution 2026-09-14: Southern Chinchay with quh/qul [ethnologue-southern-chinchay], 'close to Cusco & Bolivian' [grn-qus-profile] — served by Google qu like quy/qvc/quh — NULL→TRUE."
   },
   {
    "language_id": "lang:skr",
