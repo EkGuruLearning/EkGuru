@@ -4,11 +4,14 @@ Pass 1 · Date: 2026-09-14. Read this before trusting any number in the inventor
 
 ## 1. What this dataset is (and isn't)
 
-- A **desk-research compilation** (pass 1), not fieldwork. No speaker was
-  interviewed; no community was consulted. 61/187 relations lean partly on
-  `agent-knowledge`.
-- **Preliminary by construction**: all scores carry `"preliminary": true`
-  until 194/194. The countryCount component is incomplete with 9 countries.
+- A **desk-research compilation** (pass 1 complete 2026-09-14: 194/194
+  countries, 1338 entries, 1976 relations, 692 living canonical), not
+  fieldwork. No speaker was interviewed; no community was consulted.
+  1692/1976 relations lean partly on `agent-knowledge` (86%).
+- **Preliminary flag is OFF** (`"preliminary": false` — coverage-gated at
+  194/194), but pass-1 agent-compiled status stands until verification
+  pass 2 replaces sources. Review queue: 0 open; report status COMPLETE
+  (pass-1 sense only).
 - **No learning pages may be generated from it yet** (Phase 16 gate).
   Course planning use of P0/P1 is indicative only.
 
@@ -89,7 +92,40 @@ dataset (press-estimates, ~2x variance, no-fabrication protocol enforced).
    list) resolved or escalated to an expert with a dated record.
 5. Census URLs archived per figure (Wayback where portals rot).
 6. Independent re-check of a 10% sample by a second compiler.
-7. 194/194 coverage — scores recomputed final, `"preliminary": false`.
+7. 194/194 coverage — scores recomputed final, `"preliminary": false` — DONE 2026-09-14.
 
 Until then: this inventory is a **working map with the swamps marked**, not a
 survey. The swamps are marked honestly — that is its current value.
+
+## 6. Pass-1 completion record (2026-09-14 — canonical + audits + flags)
+
+- **Canonical 100%**: all 447 `_canonical.json` entries cover every
+  official/national/widely-spoken code incl. group members
+  (pbt/pst, kab/tmh/mzb/shy, nch/ncj/nhe/nhw, wlc/wni/zdj, mig/mks/mxb).
+  Derived canonical: 694 living+historical; curated: 447.
+- **P0 = 12** (ben/fil/guj/hin/kan/mal/mar/pan/ron/tam/tel/urd): Romanian
+  joined P0 on the final recompute — score mechanics working as designed
+  (EU official + 25M + diaspora + full TTS/MT). P1 = 52, P0/P1 = 64.
+- **13 deep audits** in research/: IN/NG/ID/PG/PH/ZA/CN/RU/TR/IR/MY/TH/VN.
+  Two "serious" gaps found by audits were closed same-day as pass-1
+  entries: CN cjy/cdo/mnp, RU lez/dar/inh/ady, ID nan (+8 entries, 1338).
+- **TTS/MT flags**: every P0 flag resolved (true/false, no nulls). MT
+  resolved for all P0/P1. TTS stays honestly null for 9 P1 codes —
+  pass-2 MUST verify each against live engines (Google Cloud TTS /
+  Azure / Translate-app audio) before any voice-feature planning:
+
+| # | Code | Language | MT | TTS | Why suspected-but-unconfirmed |
+|---|------|----------|----|-----|-------------------------------|
+| 1 | hau | Hausa | ✓ | ? | major-engine audio likely; untested |
+| 2 | kmr | Kurmanji | ✓ | ? | Kurdish audio exists? variety unclear |
+| 3 | nya | Chichewa | ✓ | ? | Nyanja audio unconfirmed |
+| 4 | sna | Shona | ✓ | ? | audio unconfirmed |
+| 5 | snd | Sindhi | ✓ | ? | text yes; audio likely absent |
+| 6 | som | Somali | ✓ | ? | audio likely; untested |
+| 7 | sot | Southern Sotho | ✓ | ? | audio unconfirmed |
+| 8 | wol | Wolof | ✓ | ? | audio unconfirmed |
+| 9 | yor | Yoruba | ✓ | ? | audio likely; untested |
+
+- Deliberate nulls elsewhere (Fula varieties, Quechua/Kichwa, Pashto
+  varieties, Kituba pair) record VARIETY-match uncertainty, not engine
+  ignorance — pass 2 resolves per-variety, never by macro assumption.
