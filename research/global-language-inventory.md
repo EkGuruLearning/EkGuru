@@ -215,7 +215,7 @@ Afar | DJ,ER,ET | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Afghan Sign Language | AF | unknown | (sign) | P4 | PARTIAL
 Afrikaans | NA,ZA | 10M-100M | Latn | P1 | READY
 Aguaruna | PE | 10K-100K | Latn | P4 | RESEARCH_REQUIRED
-Ainu | JP | unknown | — | P4 | RESEARCH_REQUIRED
+Ainu | JP | unknown | Jpan | P4 | RESEARCH_REQUIRED
 Aja | BJ | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Albanian | AL,CH,GR,IT,ME,MK,RS | 1M-10M | Latn | P1 | READY
 Albanian Sign Language | AL | unknown | (sign) | P4 | PARTIAL
@@ -305,7 +305,7 @@ Chadian Spoken Arabic | TD | 1M-10M | Arab | P3 | RESEARCH_REQUIRED
 Chakma | BD | 100K-1M | Cakm | P3 | RESEARCH_REQUIRED
 Chavacano | PH | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Chechen | RU | 1M-10M | Cyrl | P3 | RESEARCH_REQUIRED
-Cherokee | US | <10K | — | P4 | RESEARCH_REQUIRED
+Cherokee | US | <10K | Cher | P4 | RESEARCH_REQUIRED
 Chichewa | MW,ZM,ZW | 10M-100M | Latn | P1 | PARTIAL
 Chilean Sign Language | CL | unknown | (sign) | P4 | PARTIAL
 Chinese Sign Language | CN | unknown | (sign) | P4 | PARTIAL
@@ -315,8 +315,8 @@ Chuvash | RU | 1M-10M | Cyrl | P2 | PARTIAL
 Classical Tibetan | BT | unknown | Tibt | P4 | RESEARCH_REQUIRED
 Colombian Sign Language | CO | unknown | (sign) | P4 | PARTIAL
 Cook Islands Maori | NZ | 10K-100K | Latn | P4 | RESEARCH_REQUIRED
-Coptic | EG | unknown | — | P4 | RESEARCH_REQUIRED
-Cornish | GB | <10K | — | P4 | RESEARCH_REQUIRED
+Coptic | EG | unknown | Copt | P4 | RESEARCH_REQUIRED
+Cornish | GB | <10K | Latn | P4 | RESEARCH_REQUIRED
 Corsican | FR | 100K-1M | Latn | P3 | PARTIAL
 Costa Rican Sign Language | CR | unknown | (sign) | P4 | PARTIAL
 Crimean Tatar | UA | 100K-1M | Latn | P3 | PARTIAL
@@ -324,7 +324,7 @@ Croatian | AT,BA,HR,ME,RS,SI | 1M-10M | Latn | P1 | READY
 Croatian Sign Language | HR | unknown | (sign) | P4 | PARTIAL
 Cuban Sign Language | CU | unknown | (sign) | P4 | PARTIAL
 Cusco Quechua | PE | 100K-1M | Latn | P3 | PARTIAL
-Cypriot Arabic | CY | <10K | — | P4 | RESEARCH_REQUIRED
+Cypriot Arabic | CY | <10K | Latn | P4 | RESEARCH_REQUIRED
 Czech | CZ,SK | 10M-100M | Latn | P1 | READY
 Czech Sign Language | CZ | unknown | (sign) | P4 | PARTIAL
 Dagbani | GH | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
@@ -348,7 +348,7 @@ Dutch Sign Language | NL | unknown | (sign) | P4 | PARTIAL
 Dyula | BF,CI | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Dzongkha | BT | 100K-1M | Tibt | P2 | PARTIAL
 East Limba | SL | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
-Eastern Arrernte | AU | <10K | — | P4 | RESEARCH_REQUIRED
+Eastern Arrernte | AU | <10K | Latn | P4 | RESEARCH_REQUIRED
 Eastern Bolivian Guarani | BO | 10K-100K | Latn | P3 | RESEARCH_REQUIRED
 Eastern Cham | VN | 100K-1M | Cham | P3 | RESEARCH_REQUIRED
 Eastern Krahn | LR | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
@@ -365,7 +365,7 @@ Estonian | EE | 100K-1M | Latn | P2 | PARTIAL
 Estonian Sign Language | EE | unknown | (sign) | P4 | PARTIAL
 Ewe | GH,TG | 1M-10M | Latn | P2 | PARTIAL
 Ewondo | CM | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
-Faa | GQ | <10K | — | P4 | RESEARCH_REQUIRED
+Faa | GQ | <10K | Latn | P4 | RESEARCH_REQUIRED
 Fang | GA,GQ | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Fante | GH | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Faroese | DK | 10K-100K | Latn | P3 | PARTIAL
@@ -441,7 +441,7 @@ Icelandic Sign Language | IS | unknown | (sign) | P4 | PARTIAL
 Igbo | NG | 10M-100M | Latn | P2 | PARTIAL
 Ilokano | PH | 10M-100M | Latn | P3 | RESEARCH_REQUIRED
 Imbabura Kichwa | EC | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
-Inari Sami | FI | <10K | — | P4 | RESEARCH_REQUIRED
+Inari Sami | FI | <10K | Latn | P4 | RESEARCH_REQUIRED
 Indian Sign Language | IN | unknown | (sign) | P4 | PARTIAL
 Indonesian | ID,TL | 10M-100M | Latn | P1 | READY
 Indonesian Sign Language | ID | unknown | (sign) | P4 | PARTIAL
@@ -507,7 +507,7 @@ Krio | SL | 1M-10M | Latn | P2 | PARTIAL
 Kriol | AU | 10K-100K | Latn | P4 | RESEARCH_REQUIRED
 Kuman | PG | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Kuranko | SL | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
-Kven | NO | <10K | — | P4 | RESEARCH_REQUIRED
+Kven | NO | <10K | Latn | P4 | RESEARCH_REQUIRED
 Kwanyama | AO,NA | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Kwaraae | SB | 10K-100K | Latn | P4 | RESEARCH_REQUIRED
 Kyrgyz | KG,UZ | 1M-10M | Cyrl | P2 | PARTIAL
@@ -529,7 +529,7 @@ Lingala | CD,CG | 10M-100M | Latn | P2 | PARTIAL
 Lisu | MM | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Lithuanian | LT | 1M-10M | Latn | P2 | READY
 Lithuanian Sign Language | LT | unknown | (sign) | P4 | PARTIAL
-Livonian | LV | unknown | — | P4 | RESEARCH_REQUIRED
+Livonian | LV | unknown | Latn | P4 | RESEARCH_REQUIRED
 Lomwe | MZ | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Low German | DE,NL | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Lower Sorbian | DE | <10K | Latn | P4 | PARTIAL
@@ -538,7 +538,7 @@ Luba-Kasai | CD | 10M-100M | Latn | P3 | RESEARCH_REQUIRED
 Luganda | UG | 10M-100M | Latn | P2 | PARTIAL
 Lugbara | UG | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Luhya | KE | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
-Lule Sami | NO | <10K | — | P4 | RESEARCH_REQUIRED
+Lule Sami | NO | <10K | Latn | P4 | RESEARCH_REQUIRED
 Lunda | ZM | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Luxembourgish | BE,LU | 100K-1M | Latn | P2 | PARTIAL
 Maasai | KE,TZ | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
@@ -660,14 +660,14 @@ Otjiherero | NA | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Pa'o Karen | MM | 100K-1M | Mymr | P3 | RESEARCH_REQUIRED
 Pakistani Sign Language | PK | unknown | (sign) | P4 | PARTIAL
 Palauan | PW | 10K-100K | Latn | P3 | RESEARCH_REQUIRED
-Palenquero | CO | <10K | — | P4 | RESEARCH_REQUIRED
+Palenquero | CO | <10K | Latn | P4 | RESEARCH_REQUIRED
 Pangasinan | PH | 1M-10M | Latn | P2 | PARTIAL
 Panjabi | CA,GB,IN | 10M-100M | Guru | P0 | READY
 Papantla Totonac | MX | 10K-100K | Latn | P4 | RESEARCH_REQUIRED
 Papiamento | NL | 10K-100K | Latn | P3 | PARTIAL
 Paraguayan Guarani | AR,PY | 1M-10M | Latn | P2 | PARTIAL
 Pattani Malay | TH | 1M-10M | Arab | P3 | RESEARCH_REQUIRED
-Pech | HN | <10K | — | P4 | RESEARCH_REQUIRED
+Pech | HN | <10K | Latn | P4 | RESEARCH_REQUIRED
 Pemon | VE | <10K | Latn | P4 | RESEARCH_REQUIRED
 Pennsylvania German | US | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Pepel | GW | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
@@ -679,8 +679,8 @@ Philippine Sign Language | PH | unknown | (sign) | P4 | PARTIAL
 Phu Thai | LA | 100K-1M | Laoo | P3 | RESEARCH_REQUIRED
 Picard | BE | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Pijin | SB | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
-Pipil | SV | unknown | — | P4 | RESEARCH_REQUIRED
-Pitjantjatjara | AU | <10K | — | P4 | RESEARCH_REQUIRED
+Pipil | SV | unknown | Latn | P4 | RESEARCH_REQUIRED
+Pitjantjatjara | AU | <10K | Latn | P4 | RESEARCH_REQUIRED
 Plains Cree | CA | 10K-100K | Cans | P4 | RESEARCH_REQUIRED
 Plautdietsch | BO,BZ,MX,PY | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Pohnpeian | FM | 10K-100K | Latn | P4 | RESEARCH_REQUIRED
@@ -688,7 +688,7 @@ Polish | BY,CZ,GB,IE,IS,LT,NO,PL,UA | 10M-100M | Latn | P1 | READY
 Polish Sign Language | PL | unknown | (sign) | P4 | PARTIAL
 Portuguese | AD,AO,BR,CH,CV,FR,GQ,GW,JP,LU,MZ,PT,PY,ST,TL,UY | 100M+ | Latn | P1 | READY
 Portuguese Sign Language | PT | unknown | (sign) | P4 | PARTIAL
-Principense | ST | <10K | — | P4 | RESEARCH_REQUIRED
+Principense | ST | <10K | Latn | P4 | RESEARCH_REQUIRED
 Pulaar | MR,SN | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Pular | GM,GN,GW | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Punu | GA | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
@@ -700,8 +700,8 @@ Quebec Sign Language | CA | unknown | (sign) | P4 | PARTIAL
 Rade (Ê Đê) | VN | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Rajbanshi | NP | 100K-1M | Deva | P3 | RESEARCH_REQUIRED
 Rakhine (Arakanese) | BD,MM | 1M-10M | Mymr | P3 | RESEARCH_REQUIRED
-Rama | NI | unknown | — | P4 | RESEARCH_REQUIRED
-Rapa Nui | CL | <10K | — | P4 | RESEARCH_REQUIRED
+Rama | NI | unknown | Latn | P4 | RESEARCH_REQUIRED
+Rapa Nui | CL | <10K | Latn | P4 | RESEARCH_REQUIRED
 Rohingya | BD,MM,SA | 1M-10M | Rohg | P3 | RESEARCH_REQUIRED
 Romagnol | SM | 10K-100K | Latn | P4 | RESEARCH_REQUIRED
 Romani | AL,BA,BG,HR,MK,RO,RS,SE | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
@@ -732,7 +732,7 @@ Saramaccan | SR | 10K-100K | Latn | P4 | RESEARCH_REQUIRED
 Sardinian | IT | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Sarnami Hindustani | SR | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Sasak | ID | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
-Saterland Frisian | DE | <10K | — | P4 | RESEARCH_REQUIRED
+Saterland Frisian | DE | <10K | Latn | P4 | RESEARCH_REQUIRED
 Saudi Arabian Sign Language | SA | unknown | (sign) | P4 | PARTIAL
 Scots | GB | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Scottish Gaelic | GB | 10K-100K | Latn | P3 | PARTIAL
@@ -755,17 +755,17 @@ Sindhi | IN,PK | 10M-100M | Arab | P1 | PARTIAL
 Singapore Sign Language | SG | unknown | (sign) | P4 | PARTIAL
 Sinhala | LK,SA | 10M-100M | Sinh | P1 | READY
 Siwi | EG | 10K-100K | Latn | P4 | RESEARCH_REQUIRED
-Skolt Sami | FI | <10K | — | P4 | RESEARCH_REQUIRED
+Skolt Sami | FI | <10K | Latn | P4 | RESEARCH_REQUIRED
 Slovak | CZ,RS,SK | 1M-10M | Latn | P2 | READY
 Slovak Sign Language | SK | unknown | (sign) | P4 | PARTIAL
 Slovene | AT,IT,SI | 1M-10M | Latn | P2 | READY
 Somali | DJ,ET,KE,SO | 10M-100M | Latn | P1 | READY
 Soninke | ML,MR,SN | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
-Sonsorolese | PW | <10K | — | P4 | RESEARCH_REQUIRED
+Sonsorolese | PW | <10K | Latn | P4 | RESEARCH_REQUIRED
 South African Sign Language | ZA | unknown | Sgnw | P3 | RESEARCH_REQUIRED
 South Azerbaijani | IQ,IR | 10M-100M | Arab | P3 | RESEARCH_REQUIRED
 South Bolivian Quechua | BO | 1M-10M | Latn | P2 | PARTIAL
-South Sami | NO | <10K | — | P4 | RESEARCH_REQUIRED
+South Sami | NO | <10K | Latn | P4 | RESEARCH_REQUIRED
 Southern Dagaare | GH | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Southern Grebo | LR | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Southern Hindko | PK | 1M-10M | Arab | P3 | RESEARCH_REQUIRED
@@ -814,7 +814,7 @@ Tedaga | LY | 10K-100K | Latn | P4 | RESEARCH_REQUIRED
 Telugu | IN | 10M-100M | Telu | P0 | READY
 Tem | TG | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Temne | SL | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
-Teribe | PA | <10K | — | P4 | RESEARCH_REQUIRED
+Teribe | PA | <10K | Latn | P4 | RESEARCH_REQUIRED
 Teso | UG | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Tetum | TL | 100K-1M | Latn | P2 | PARTIAL
 Thai | TH | 10M-100M | Thai | P1 | READY
@@ -825,9 +825,9 @@ Tigre | ER | 1M-10M | Ethi | P3 | RESEARCH_REQUIRED
 Tigrinya | ER,ET | 1M-10M | Ethi | P2 | PARTIAL
 Tiv | NG | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Toba Qom | AR | 10K-100K | Latn | P4 | RESEARCH_REQUIRED
-Tobian | PW | <10K | — | P4 | RESEARCH_REQUIRED
+Tobian | PW | <10K | Latn | P4 | RESEARCH_REQUIRED
 Tok Pisin | PG | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
-Tol | HN | <10K | — | P4 | RESEARCH_REQUIRED
+Tol | HN | <10K | Latn | P4 | RESEARCH_REQUIRED
 Toma | GN | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Tonga | ZM | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Tongan | TO | 100K-1M | Latn | P2 | PARTIAL
@@ -851,8 +851,8 @@ Tzutujil | GT | 10K-100K | Latn | P4 | RESEARCH_REQUIRED
 Udmurt | RU | 100K-1M | Cyrl | P3 | RESEARCH_REQUIRED
 Ukrainian | BY,CZ,EE,HU,LT,LV,MD,PL,PT,RO,RU,SK,UA | 10M-100M | Cyrl | P1 | READY
 Ukrainian Sign Language | UA | unknown | (sign) | P4 | PARTIAL
-Ulithian | FM | <10K | — | P4 | RESEARCH_REQUIRED
-Ulwa | NI | <10K | — | P4 | RESEARCH_REQUIRED
+Ulithian | FM | <10K | Latn | P4 | RESEARCH_REQUIRED
+Ulwa | NI | <10K | Latn | P4 | RESEARCH_REQUIRED
 Umbundu | AO | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Upper Sorbian | DE | 10K-100K | Latn | P3 | PARTIAL
 Urdu | AE,BD,GB,IN,KW,NP,PK,QA,SA | 10M-100M | Arab | P0 | READY
@@ -870,7 +870,7 @@ Walloon | BE | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Wapishana | GY | <10K | Latn | P4 | RESEARCH_REQUIRED
 Warao | VE | 10K-100K | Latn | P4 | RESEARCH_REQUIRED
 Waray | PH | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
-Warlpiri | AU | <10K | — | P4 | RESEARCH_REQUIRED
+Warlpiri | AU | <10K | Latn | P4 | RESEARCH_REQUIRED
 Wayuu | CO,VE | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Welsh | AR,GB | 100K-1M | Latn | P2 | PARTIAL
 West Frisian | NL | 100K-1M | Latn | P3 | PARTIAL
@@ -881,7 +881,7 @@ Western Panjabi | PK | 10M-100M | Arab | P2 | PARTIAL
 White Hmong | LA,VN | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Wolaytta | ET | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Wolof | GM,MR,SN | 10M-100M | Latn | P3 | RESEARCH_REQUIRED
-Woun Meu | PA | <10K | — | P4 | RESEARCH_REQUIRED
+Woun Meu | PA | <10K | Latn | P4 | RESEARCH_REQUIRED
 Wu | CN | 10M-100M | Hans | P2 | PARTIAL
 Xhosa | ZA | 10M-100M | Latn | P2 | PARTIAL
 Xiang | CN | 10M-100M | Hans | P3 | RESEARCH_REQUIRED
@@ -894,7 +894,7 @@ Yiddish | IL,SE | 100K-1M | Hebr | P3 | PARTIAL
 Yoruba | BJ,NG | 10M-100M | Latn | P1 | PARTIAL
 Yucatec Maya | MX | 100K-1M | Latn | P3 | PARTIAL
 Yugoslav Sign Language | BA,ME,RS | unknown | (sign) | P4 | PARTIAL
-Zaghawa | SD | unknown | — | P4 | RESEARCH_REQUIRED
+Zaghawa | SD | unknown | Latn | P4 | RESEARCH_REQUIRED
 Zande | SS | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Zarma | NE | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Zhuang | CN | 10M-100M | Latn | P3 | RESEARCH_REQUIRED
