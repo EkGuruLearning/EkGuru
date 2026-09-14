@@ -32,13 +32,14 @@ CORE_STYLE = """
 .ob-row select,.ob-row input{width:100%;max-width:420px;padding:10px 12px;font-size:1rem;border:1px solid var(--line);border-radius:10px;background:var(--card,#fff);color:var(--ink)}
 .ob-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:14px 0}
 .ob-card{border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;justify-content:space-between;gap:10px;background:var(--card,#fff)}
-.lang-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:12px;margin:14px 0}
-.lang-cell{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--card,#fff);min-width:0;overflow-wrap:break-word;display:flex;flex-direction:column}
-.lang-cell .nm{font-weight:700}
+.lang-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:16px;margin:18px 0}
+.lang-cell{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:18px;padding:20px 18px 18px;background:var(--card,#fff);min-width:0;overflow-wrap:break-word;display:flex;flex-direction:column;box-shadow:var(--sh-1)}
+.lang-cell::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:linear-gradient(90deg,#4f32d9,#8b5cf6,#ec4899)}
+.lang-cell .nm{font-weight:800;font-size:1.06rem;letter-spacing:-.005em}
 .lang-cell a.nm{color:var(--ink);text-decoration:none;display:inline-block;margin-bottom:2px}
 .lang-cell a.nm:hover{color:var(--brand)}
-.lang-cell .sub{display:block;color:var(--muted);font-size:.82rem;margin-top:2px}
-.tag{display:inline-block;border-radius:999px;padding:2px 10px;font-size:.72rem;font-weight:700;color:#fff}
+.lang-cell .sub{display:block;color:var(--muted);font-size:.84rem;margin-top:3px}
+.tag{display:inline-block;border-radius:999px;padding:3px 11px;font-size:.7rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#fff;vertical-align:2px}
 .tag.on{background:#1a7f37}
 .tag.soon{background:#7f8c8d}
 .tag.beta{background:#9a6700}
@@ -88,9 +89,10 @@ CORE_STYLE = """
 .lang-chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
 .chip{padding:8px 16px;min-height:44px;border-radius:999px;border:1px solid var(--line);background:var(--card,#fff);color:var(--ink-2);font:inherit;font-size:.9rem;font-weight:600;cursor:pointer}
 .chip.is-on{background:var(--brand);border-color:var(--brand);color:#fff}
-.lang-cell{transition:border-color .15s ease,transform .15s ease}
-.lang-cell:hover{border-color:var(--brand-2);transform:translateY(-1px)}
-.lang-cell p{display:flex;margin:auto 0 0;padding-top:10px}.lang-cell .btn{flex:1;white-space:normal;text-align:center;padding:11px 12px;font-size:.87rem}
+.lang-cell{transition:transform .18s ease,box-shadow .18s ease}
+.lang-cell:hover{transform:translateY(-4px);box-shadow:var(--sh-2)}
+.lang-cell p{display:flex;margin:auto 0 0;padding-top:14px}.lang-cell .btn{flex:1;white-space:normal;text-align:center;padding:12px;font-size:.9rem;font-weight:800;background:var(--grad);color:#fff;border:none;border-radius:999px;box-shadow:var(--sh-1)}
+.lang-cell .btn:hover{transform:translateY(-1px);box-shadow:var(--sh-2);color:#fff}
 #lang-count{font-size:.85rem;margin:6px 0 0}
 """
 

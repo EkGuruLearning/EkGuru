@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T04:51:36.607Z",
+ "generated": "2026-09-14T04:58:30.228Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1391 files scanned, 0 secrets"
+  "note": "1392 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "b0801690fc0d32a9ab0ae18e814d4de1ebe6b0b7",
-  "subject": "Bengali batch-4: 8 topics live (25/33)",
-  "buildTime": "2026-09-14T04:51:36.620Z",
+  "commit": "7fb251729b43d8e211bb9bc3d9be30ff01b62eb7",
+  "subject": "v158 Modern-Pro + AdSense care: support, language pages, site layer",
+  "buildTime": "2026-09-14T04:58:30.239Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,

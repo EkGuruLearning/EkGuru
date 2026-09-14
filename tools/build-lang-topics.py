@@ -124,7 +124,7 @@ table.phr td.bn{font-size:1.1rem}
 .prevnext a:hover{border-color:var(--sb-accent,#4f32d9);box-shadow:var(--sh-2);transform:translateY(-2px)}
 .prevnext span{flex:1 1 220px}
 /* footer */
-.pw-ftr{border-top:1px solid var(--line);margin-top:44px;padding:26px 20px 44px;text-align:center;
+.pw-ftr{border-top:3px solid var(--sb-accent,#4f32d9);border-radius:18px 18px 0 0;background:linear-gradient(180deg,var(--sb-tint,#f4f1ff),rgba(255,255,255,0) 90%);margin-top:48px;padding:26px 20px 44px;text-align:center;
   color:var(--muted);font-size:.86rem}
 .pw-ftr nav{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;margin-bottom:12px}
 .pw-ftr a{color:var(--muted)}

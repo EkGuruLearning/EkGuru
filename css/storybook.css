@@ -443,3 +443,11 @@ details.pro[open] summary::before{content:"\2212"}
 ::selection{background:var(--sb-tint,#f4f1ff)}
 @media print{.sb-speed,.sb-voicenudge,.sb-pill{display:none !important}}
 @media(prefers-reduced-motion:reduce){.sb-dock,.sb-dock-btn,.sb-speed{transition:none !important}}
+
+/* ---------- Pro footer (v159) ---------- */
+.pw-ftr{border-top:3px solid var(--sb-accent,#4f32d9);border-radius:18px 18px 0 0;
+  background:linear-gradient(180deg,var(--sb-tint,#f4f1ff),rgba(255,255,255,0) 90%);
+  padding-top:26px;margin-top:48px}
+.pw-ftr nav a{font-weight:600;padding:6px 12px;border-radius:999px}
+.pw-ftr nav a:hover{background:var(--sb-tint,#f4f1ff);text-decoration:none}
+.pw-ftr p strong,.pw-ftr p b{color:var(--ink)}

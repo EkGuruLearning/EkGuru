@@ -161,6 +161,11 @@ this site free. When advertising is enabled:</p>
   <li>Google's use of advertising cookies enables it and its partners to serve
   ads to you based on your visit to this site and/or other sites on the
   internet.</li>
+  <li>Google uses the DoubleClick DART cookie on AdSense partner sites: it
+  enables Google and its partners to serve ads based on your visits to this
+  site and other sites on the internet. You may opt out of the use of the DART
+  cookie for interest-based advertising at
+  <a href="https://policies.google.com/technologies/ads" rel="nofollow noopener" target="_blank">Google's Ads &amp; Privacy page</a>.</li>
   <li>You may opt out of personalised advertising by visiting
   <a href="https://www.google.com/settings/ads" rel="nofollow noopener" target="_blank">Google Ads Settings</a>.</li>
   <li>You can opt out of a third-party vendor's use of cookies for personalised
@@ -375,5 +380,7 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
 <!-- v78 — without this the footer address is frozen at build time.
      See the note in tools/patch.js. -->
 <script src="../js/settings.js" defer></script>
+<!-- ekguru:consent -->
+<script src="../js/cookie-consent.js" defer></script>
 </body>
 </html>

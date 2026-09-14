@@ -67,6 +67,7 @@ def main():
     run("search index", ["python3", "tools/build-search-index.py"])
     run("storybook injector (Hindi TTS + design)", ["python3", "tools/inject-storybook.py"])
     run("ads injector (AdSense Auto Ads)", ["python3", "tools/inject-ads.py"])
+    run("consent injector (cookie notice)", ["python3", "tools/inject-consent.py"])
     run("doctor", ["node", "tools/doctor.js"])
     print("\n══════════════════════════════════════════")
     print("build-all complete — every step passed.")
