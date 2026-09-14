@@ -302,7 +302,9 @@ body[data-topic] .ssay{border-color:var(--sb-accent,#4f32d9)}
 body[data-topic] .chips a:hover,body[data-topic] .card:hover,body[data-topic] .prevnext a:hover{border-color:var(--sb-accent,#4f32d9)}
 /* reveal states for cards/boxes (JS adds .shown on scroll) */
 html.sb-js .lang-cell,html.sb-js .v-item,html.sb-js .ob-card,html.sb-js .card,html.sb-js .fact,html.sb-js .howto,html.sb-js .faq{opacity:0;transform:translateY(14px)}
+html.sb-js .lcard,html.sb-js .lw h2,html.sb-js .stage-list a{opacity:0;transform:translateY(14px)}
 html.sb-js .lang-cell.shown,html.sb-js .v-item.shown,html.sb-js .ob-card.shown,html.sb-js .card.shown,html.sb-js .fact.shown,html.sb-js .howto.shown,html.sb-js .faq.shown{opacity:1;transform:none;transition:opacity .45s ease,transform .45s ease}
+html.sb-js .lcard.shown,html.sb-js .lw h2.shown,html.sb-js .stage-list a.shown{opacity:1;transform:none;transition:opacity .45s ease,transform .45s ease}
 /* phrase-row cascade on themed pages */
 html.sb-js body[data-topic] table.phr tbody tr{opacity:0;animation:sb-row-in .4s ease forwards}
 html.sb-js body[data-topic] table.phr tbody tr:nth-child(2){animation-delay:.05s}
@@ -316,6 +318,7 @@ html.sb-js body[data-topic] table.phr tbody tr:nth-child(n+9){animation-delay:.4
 @keyframes sb-row-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){
 html.sb-js .lang-cell,html.sb-js .v-item,html.sb-js .ob-card,html.sb-js .card,html.sb-js .fact,html.sb-js .howto,html.sb-js .faq{opacity:1 !important;transform:none !important}
+html.sb-js .lcard,html.sb-js .lw h2,html.sb-js .stage-list a{opacity:1 !important;transform:none !important}
 html.sb-js body[data-topic] table.phr tbody tr{opacity:1 !important;animation:none !important}
 }
 
@@ -451,3 +454,17 @@ details.pro[open] summary::before{content:"\2212"}
 .pw-ftr nav a{font-weight:600;padding:6px 12px;border-radius:999px}
 .pw-ftr nav a:hover{background:var(--sb-tint,#f4f1ff);text-decoration:none}
 .pw-ftr p strong,.pw-ftr p b{color:var(--ink)}
+/* ---------- Pro article layer (v160 loop-3): answers/ask/learn reading ---------- */
+.ans h1,.answer h1{letter-spacing:-.015em;text-wrap:balance;line-height:1.18}
+.ans .lede,.answer .lede{font-size:1.08rem;color:var(--ink-2)}
+.ans blockquote,.answer blockquote{margin:18px 0;padding:14px 18px;border-left:4px solid var(--sb-accent,#4f32d9);
+  background:var(--sb-tint,#f4f1ff);border-radius:0 14px 14px 0;color:var(--ink-2);line-height:1.7}
+.ans table,.answer table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.94rem;
+  border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.ans th,.ans td,.answer th,.answer td{border-bottom:1px solid var(--line);padding:10px 13px;text-align:left;line-height:1.6}
+.ans thead th,.answer thead th{background:var(--sb-tint,#f4f1ff);font-size:.8rem;text-transform:uppercase;
+  letter-spacing:.05em;color:var(--ink-2)}
+.ans tbody tr:nth-child(even),.answer tbody tr:nth-child(even){background:var(--bg-soft)}
+.sb-toc{box-shadow:var(--sh-1)}
+.sb-toc summary{min-height:44px;display:flex;align-items:center}
+@media print{.ans blockquote,.answer blockquote{background:none}}

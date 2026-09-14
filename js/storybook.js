@@ -524,7 +524,7 @@
       ".sb-fig,.tracebox,.sb-band,.sb-callout," +
       ".bara-wrap,.art table,.pw table,.answer table,.ans table," +
       ".quiz details,.hs-card,.linklist li,.prevnext a," +
-      ".lang-cell,.v-item,.ob-card,.card,.fact,.howto,.faq");
+      ".lang-cell,.v-item,.ob-card,.card,.fact,.howto,.faq,.lcard,.lw h2,.stage-list a");
     if ("IntersectionObserver" in window && !reduceMotion) {
       var io = new IntersectionObserver(function (entries) {
         for (var i = 0; i < entries.length; i++) {

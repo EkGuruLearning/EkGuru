@@ -45,6 +45,23 @@
 .lcard h2 a{text-decoration:none}
 .lcard p{margin:0 0 12px;color:var(--muted);line-height:1.65;font-size:.95rem}
 .crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0}
+/* v160 loop-3: hub hero + pro rows */
+.lw .hero{border:1px solid var(--line);border-radius:22px;padding:clamp(22px,4.5vw,34px);margin:14px 0 20px;
+  background:linear-gradient(135deg,#f4f1ff 0%,var(--card,#fff) 80%);box-shadow:var(--sh-1)}
+.lw .hero h1{margin:0 0 10px;font-size:clamp(1.7rem,4.6vw,2.2rem);letter-spacing:-.01em;text-wrap:balance}
+.lw .hero .lede{margin:0}
+.kicker{display:inline-block;font-size:.74rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
+  color:#4f32d9;background:rgba(255,255,255,.8);border:1px solid var(--line);border-radius:999px;
+  padding:5px 13px;margin-bottom:12px}
+.callout{border:1px solid #ddd8ff;border-left:4px solid #4f32d9;border-radius:14px;padding:15px 18px;
+  margin:0 0 14px;background:var(--card,#fff);box-shadow:var(--sh-1);line-height:1.65}
+.stage-list a{transition:transform .15s ease,box-shadow .15s ease}
+.stage-list a:hover{transform:translateX(4px);box-shadow:var(--sh-1)}
+.lcard{position:relative;overflow:hidden;border-radius:18px;transition:transform .18s ease,box-shadow .18s ease}
+.lcard::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;
+  background:linear-gradient(90deg,#4f32d9,#8b5cf6)}
+.lcard:hover{transform:translateY(-3px);box-shadow:var(--sh-2)}
+@media(prefers-reduced-motion:reduce){.stage-list a,.lcard{transition:none}}
 .crumb a{color:var(--muted)}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://ekguru.shop/learn/#page","name":"Learn Hindi — Free Guides","description":"Free, practical guides to learning Hindi: the alphabet, greetings, numbers, travel phrases and how to actually get fluent.","url":"https://ekguru.shop/learn/","inLanguage":"en","isPartOf":{"@id":"https://ekguru.shop/#website"}},{"@type":"ItemList","@id":"https://ekguru.shop/learn/#list","name":"The Hindi learning path","numberOfItems":15,"itemListOrder":"https://schema.org/ItemListOrderAscending","itemListElement":[{"@type":"ListItem","position":1,"name":"The Hindi Alphabet: A Complete Beginner's Guide to Devanagari","url":"https://ekguru.shop/learn/hindi-alphabet-for-beginners/"},{"@type":"ListItem","position":2,"name":"How to Write Your Name in Hindi — With the Full Letter Guide","url":"https://ekguru.shop/learn/write-your-name-in-hindi/"},{"@type":"ListItem","position":3,"name":"Hindi Numbers 1 to 100 — Why They Are Hard, and How to Learn Them Anyway","url":"https://ekguru.shop/learn/hindi-numbers-1-to-100/"},{"@type":"ListItem","position":4,"name":"How to Say Hello in Hindi — And When Namaste Is the Wrong Word","url":"https://ekguru.shop/learn/how-to-say-hello-in-hindi/"},{"@type":"ListItem","position":5,"name":"50 Hindi Phrases for Travelling in India — What You Will Actually Use","url":"https://ekguru.shop/learn/hindi-phrases-for-travel/"},{"@type":"ListItem","position":6,"name":"Hindi Family Words — Why There Are Twelve Words for Cousin","url":"https://ekguru.shop/learn/hindi-family-words/"},{"@type":"ListItem","position":7,"name":"Days, Months and Telling the Time in Hindi","url":"https://ekguru.shop/learn/hindi-days-months-time/"},{"@type":"ListItem","position":8,"name":"Hindi Word Order — Why the Verb Goes Last","url":"https://ekguru.shop/learn/hindi-sentence-structure/"},{"@type":"ListItem","position":9,"name":"Hindi Gender — Why Your Verb Changes Depending on Who Is Speaking","url":"https://ekguru.shop/learn/hindi-gender-masculine-feminine/"},{"@type":"ListItem","position":10,"name":"Hindi Verbs — Present, Past and Future in One Page","url":"https://ekguru.shop/learn/hindi-verbs-present-past-future/"},{"@type":"ListItem","position":11,"name":"Aap, Tum or Tu — Getting Politeness Right in Hindi","url":"https://ekguru.shop/learn/aap-tum-tu-hindi/"},{"@type":"ListItem","position":12,"name":"10 Mistakes Every Hindi Learner Makes — And How to Stop","url":"https://ekguru.shop/learn/common-hindi-mistakes/"},{"@type":"ListItem","position":13,"name":"How to Actually Learn Hindi Online in 2026 — An Honest Guide","url":"https://ekguru.shop/learn/learn-hindi-online-guide/"},{"@type":"ListItem","position":14,"name":"Learning Hindi from Bollywood — Which Films, and What It Will Not Teach You","url":"https://ekguru.shop/learn/learn-hindi-from-bollywood/"},{"@type":"ListItem","position":15,"name":"Hindi vs Urdu — What Is Actually Different, and What Is Not","url":"https://ekguru.shop/learn/hindi-or-urdu-difference/"}]},{"@type":"Course","@id":"https://ekguru.shop/learn/#course","name":"Learn Hindi from scratch — the free EkGuru path","description":"Four stages from the Devanagari alphabet to verb tenses. Free, self-paced, no sign-up.","url":"https://ekguru.shop/learn/","inLanguage":"en","teaches":"Hindi","isAccessibleForFree":true,"provider":{"@type":"Organization","name":"EkGuru","url":"https://ekguru.shop/"},"hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"PT8H"}}]}</script>
@@ -61,18 +78,21 @@
 <body>
 <div class="lw">
   <p class="crumb"><a href="../">EkGuru</a> › Learn Hindi</p>
+  <div class="hero">
+  <span class="kicker">Free Hindi guides</span>
   <h1>Learn Hindi — free guides</h1>
   <p class="lede">Practical, honest guides written for people actually trying to
   learn. No sign-up, no email required. If you want someone to correct your
   pronunciation afterwards, <a href="../find-tutors.html">our tutors</a> teach
   one to one from $6 a lesson.</p>
+  </div>
 <!-- ekguru:hindi-hub-pointer -->
-<p style="background:var(--bg-soft,#f7f6ff);border:1px solid #ddd8ff;border-radius:12px;padding:16px 18px;margin:0 0 24px"><strong>New:</strong> the complete Hindi structure is at <a href="hindi/">Learn Hindi — the complete structure</a> — choose a goal, pick your level, work through a topic, then learn, practise, quiz and review.</p>
+<p class="callout"><strong>New:</strong> the complete Hindi structure is at <a href="hindi/">Learn Hindi — the complete structure</a> — choose a goal, pick your level, work through a topic, then learn, practise, quiz and review.</p>
 
 <!-- v51: the name tool is the most-used page for the highest-volume
      query in this section. It must be reachable from the hub, not
      only from one guide, or it is effectively orphaned. -->
-<p style="background:var(--bg-soft,#f7f6ff);border:1px solid #ddd8ff;border-radius:12px;padding:16px 18px;margin:0 0 24px">
+<p class="callout">
 <strong>Free tool:</strong> <a href="../name-in-hindi/">Write your name in Hindi</a>
 — type any name and see it in Devanagari, with every letter explained.
 
