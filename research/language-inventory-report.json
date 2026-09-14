@@ -2,19 +2,19 @@
   "status": "IN PROGRESS — DO NOT CLAIM COMPLETE",
   "preliminary": true,
   "phase7_totals": {
-    "A_unique_canonical_living": 97,
-    "A_spoken": 91,
-    "A_sign": 6,
-    "B_unique_living_evidenced_use": 90,
-    "C_country_language_relationships": 245,
-    "D_learner_priority_P0_P1": 20,
-    "needing_human_review_relations": 52
+    "A_unique_canonical_living": 123,
+    "A_spoken": 111,
+    "A_sign": 12,
+    "B_unique_living_evidenced_use": 111,
+    "C_country_language_relationships": 386,
+    "D_learner_priority_P0_P1": 22,
+    "needing_human_review_relations": 77
   },
   "phase17_gate": {
-    "countries": "14/194 researched",
+    "countries": "30/194 researched",
     "countries_pass": false,
-    "relationships_source_confidence": "all 245 records carry sources + confidence",
-    "canonical_dedup": "PASS (99 canonical, mis never canonical)",
+    "relationships_source_confidence": "all 386 records carry sources + confidence",
+    "canonical_dedup": "PASS (125 canonical, mis never canonical)",
     "iso_shape": "PASS",
     "country_ids": "PASS (all in sovereign-194)",
     "scripts": "shape PASS; SIL/Unicode verification = pass 2",
@@ -34,15 +34,15 @@
     },
     {
       "check": "country-coverage",
-      "detail": "14/194 researched; 180 pending",
+      "detail": "30/194 researched; 164 pending",
       "status": "open",
       "rationale": ""
     },
     {
       "check": "iso-bulk-verification",
-      "detail": "batch-1: 113 cited codes checked (SIL 2026-09-14 download); 11 findings fixed. batch-2: 13 new entry codes pre-verified (existence/scope/Part1/retirements clean) + uzn/uzs identity audit (AF Southern corrected uzn->uzs, canonical split) + name-identity audit all batch-1 entries (1 real swap caught, rest spelling variants) + long-tail hunt (Rushani/Bartangi/Khufi/Lyuli confirmed uncoded; paq/yah/isk/sgy/srh/abh/crh/pdt/jpr/xal confirmed).",
+      "detail": "batch-1: 113 cited codes checked (SIL 2026-09-14 download); 11 findings fixed. batch-2: 13 new entry codes pre-verified (existence/scope/Part1/retirements clean) + uzn/uzs identity audit (AF Southern corrected uzn->uzs, canonical split) + name-identity audit all batch-1 entries (1 real swap caught, rest spelling variants) + long-tail hunt (Rushani/Bartangi/Khufi/Lyuli confirmed uncoded; paq/yah/isk/sgy/srh/abh/crh/pdt/jpr/xal confirmed). batch-3: 25 new entry codes pre-verified + traps caught upfront (adh=Adhola not Adyghe->ady; sqh=Shau not Socotri->sqt; jor=Jora extinct not Jordanian SL->jos; che not ce [batch-2 long-tail fixed]; BT sign mis->dyl); ajp->apc 2023 merger applied; yid macro (ydd+yih-extinct); zza macro (diq+kiu); long-tail hunt (adf/amw/jdt/lad/mid/rmt/sva/syc/ttt/xmf/tkr/udi confirmed).",
       "status": "resolved-documented",
-      "rationale": "Bulk checks complete for batch-1+2 codes. MUST re-run for every new batch (METHOD rule)."
+      "rationale": "Bulk checks complete for batch-1+2+3 codes. MUST re-run for every new batch (METHOD rule)."
     }
   ]
 }

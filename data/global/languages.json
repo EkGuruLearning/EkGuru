@@ -1,8 +1,87 @@
 {
  "preliminary": true,
- "coverage": "14/194",
- "count": 99,
+ "coverage": "30/194",
+ "count": 125,
  "languages": [
+  {
+   "language_id": "lang:abk",
+   "canonical_name": "Abkhaz",
+   "aliases": [],
+   "native_name": "Аҧсуа бызшәа",
+   "iso_639_1": "ab",
+   "iso_639_3": "abk",
+   "glottocode": null,
+   "language_family": "Northwest Caucasian",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Cyrl",
+   "countries": [
+    "GE"
+   ],
+   "bands": [
+    "100K-1M"
+   ],
+   "confidences": [
+    "medium"
+   ],
+   "roles_all": [
+    "regional"
+   ],
+   "sources_all": [
+    "abkhazia-constitution",
+    "ethnologue-27",
+    "ge-constitution"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "100K-1M",
+   "min_confidence": "medium",
+   "tts": false,
+   "translation": false,
+   "canonical_note": "639-1 ab (SIL). De-facto official (Abkhazia constitution); Cyrillic official, Mkhedruli historic."
+  },
+  {
+   "language_id": "lang:ady",
+   "canonical_name": "Adyghe (Circassian)",
+   "aliases": [],
+   "native_name": "Адыгабзэ",
+   "iso_639_1": null,
+   "iso_639_3": "ady",
+   "glottocode": null,
+   "language_family": "Northwest Caucasian",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Latn",
+   "countries": [
+    "TR"
+   ],
+   "bands": [
+    "100K-1M"
+   ],
+   "confidences": [
+    "medium"
+   ],
+   "roles_all": [
+    "minority"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "ethnologue-27"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "100K-1M",
+   "min_confidence": "medium",
+   "tts": false,
+   "translation": false,
+   "canonical_note": "Adyghe/Circassian. Canonical Latn (bigger TR-diaspora community); RU homeland uses Cyrillic (override later). Pre-verification caught adh=Adhola trap."
+  },
   {
    "language_id": "lang:afg",
    "canonical_name": "Afghan Sign Language",
@@ -43,6 +122,46 @@
    "canonical_note": "Verification pass 2: code afg confirmed (SIL: Afghan Sign Language; Ethnologue notes Jalalabad variety). Kabul-variety relationship still needs deaf-org sources."
   },
   {
+   "language_id": "lang:amh",
+   "canonical_name": "Amharic",
+   "aliases": [],
+   "native_name": "አማርኛ",
+   "iso_639_1": "am",
+   "iso_639_3": "amh",
+   "glottocode": null,
+   "language_family": "Afro-Asiatic: Semitic: Ethiosemitic",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Ethi",
+   "countries": [
+    "IL"
+   ],
+   "bands": [
+    "100K-1M"
+   ],
+   "confidences": [
+    "medium"
+   ],
+   "roles_all": [
+    "immigrant"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "ethnologue-27",
+    "il-cbs-surveys"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "100K-1M",
+   "min_confidence": "medium",
+   "tts": false,
+   "translation": true,
+   "canonical_note": "639-1 am (SIL). IL Ethiopian-Jewish community; ET homeland in future batch."
+  },
+  {
    "language_id": "lang:hye",
    "canonical_name": "Armenian",
    "aliases": [],
@@ -54,20 +173,37 @@
    "language_type": "CANONICAL_LANGUAGE",
    "script": "Armn",
    "countries": [
+    "AM",
+    "GE",
     "IR"
    ],
    "bands": [
+    "100K-1M",
+    "1M-10M",
+    "1M-10M",
+    "1M-10M",
     "100K-1M"
    ],
    "confidences": [
-    "medium"
+    "medium",
+    "high",
+    "high",
+    "high",
+    "high"
    ],
    "roles_all": [
-    "minority"
+    "minority",
+    "national",
+    "official",
+    "regional",
+    "widely-spoken"
    ],
    "sources_all": [
+    "am-census-2022",
+    "am-constitution",
     "constitution-art13",
-    "ethnologue-27"
+    "ethnologue-27",
+    "ge-census-2014"
    ],
    "statuses": [
     "LIVING"
@@ -75,11 +211,50 @@
    "ekguru_statuses": [
     "none"
    ],
-   "max_band": "100K-1M",
+   "max_band": "1M-10M",
    "min_confidence": "medium",
    "tts": true,
    "translation": true,
    "canonical_note": "Covers Eastern standard here; Western Armenian (hyw) separate individual SIL bulk 2026-09-14: scope=I individual (Eastern Armenian); Western Armenian is hyw — macro claim withdrawn."
+  },
+  {
+   "language_id": "lang:aen",
+   "canonical_name": "Armenian Sign Language",
+   "aliases": [],
+   "native_name": null,
+   "iso_639_1": null,
+   "iso_639_3": "aen",
+   "glottocode": null,
+   "language_family": null,
+   "language_type": "SIGN_LANGUAGE",
+   "script": null,
+   "countries": [
+    "AM"
+   ],
+   "bands": [
+    "unknown"
+   ],
+   "confidences": [
+    "medium"
+   ],
+   "roles_all": [
+    "sign"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "iso-639-3"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "unknown",
+   "min_confidence": "medium",
+   "tts": "na",
+   "translation": "na",
+   "canonical_note": "Armenian SL; Yerevan network, post-Soviet standardisation."
   },
   {
    "language_id": "lang:asm",
@@ -138,20 +313,25 @@
    "language_type": "CANONICAL_LANGUAGE",
    "script": "Syrc",
    "countries": [
+    "IQ",
     "IR"
    ],
    "bands": [
-    "10K-100K"
+    "10K-100K",
+    "100K-1M"
    ],
    "confidences": [
+    "medium",
     "medium"
    ],
    "roles_all": [
     "minority"
    ],
    "sources_all": [
+    "agent-knowledge",
     "constitution-art13",
-    "ethnologue-27"
+    "ethnologue-27",
+    "iq-constitution-art125"
    ],
    "statuses": [
     "LIVING"
@@ -159,7 +339,7 @@
    "ekguru_statuses": [
     "none"
    ],
-   "max_band": "10K-100K",
+   "max_band": "100K-1M",
    "min_confidence": "medium",
    "tts": false,
    "translation": false,
@@ -216,19 +396,36 @@
    "language_type": "CANONICAL_LANGUAGE",
    "script": "Latn",
    "countries": [
+    "AZ",
+    "GE",
     "KZ"
    ],
    "bands": [
+    "100K-1M",
+    "1M-10M",
+    "1M-10M",
+    "1M-10M",
     "100K-1M"
    ],
    "confidences": [
-    "medium"
+    "medium",
+    "high",
+    "high",
+    "high",
+    "high"
    ],
    "roles_all": [
-    "minority"
+    "minority",
+    "national",
+    "official",
+    "regional",
+    "widely-spoken"
    ],
    "sources_all": [
+    "az-census-2019",
+    "az-constitution-art21",
     "ethnologue-27",
+    "ge-census-2014",
     "kz-census-2021"
    ],
    "statuses": [
@@ -237,7 +434,7 @@
    "ekguru_statuses": [
     "none"
    ],
-   "max_band": "100K-1M",
+   "max_band": "1M-10M",
    "min_confidence": "medium",
    "tts": true,
    "translation": true,
@@ -379,9 +576,14 @@
    "language_type": "CANONICAL_LANGUAGE",
    "script": "Beng",
    "countries": [
+    "AE",
     "BD",
     "IN",
-    "MV"
+    "KW",
+    "MV",
+    "OM",
+    "QA",
+    "SA"
    ],
    "bands": [
     "100M+",
@@ -390,6 +592,11 @@
     "10M-100M",
     "10M-100M",
     "10M-100M",
+    "100K-1M",
+    "1M-10M",
+    "100K-1M",
+    "100K-1M",
+    "100K-1M",
     "100K-1M"
    ],
    "confidences": [
@@ -399,6 +606,11 @@
     "high",
     "high",
     "high",
+    "medium",
+    "medium",
+    "medium",
+    "medium",
+    "medium",
     "medium"
    ],
    "roles_all": [
@@ -414,7 +626,9 @@
     "census-2022",
     "constitution-8th-schedule",
     "constitution-art3",
-    "ref-summary"
+    "gulf-press-estimates",
+    "ref-summary",
+    "sa-gastat"
    ],
    "statuses": [
     "LIVING"
@@ -474,6 +688,45 @@
    "tts": false,
    "translation": false,
    "canonical_note": "Kaithi heritage script; Devanagari in practice"
+  },
+  {
+   "language_id": "lang:dyl",
+   "canonical_name": "Bhutanese Sign Language",
+   "aliases": [],
+   "native_name": null,
+   "iso_639_1": null,
+   "iso_639_3": "dyl",
+   "glottocode": null,
+   "language_family": null,
+   "language_type": "SIGN_LANGUAGE",
+   "script": null,
+   "countries": [
+    "BT"
+   ],
+   "bands": [
+    "unknown"
+   ],
+   "confidences": [
+    "medium"
+   ],
+   "roles_all": [
+    "sign"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "iso-639-3"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "unknown",
+   "min_confidence": "medium",
+   "tts": "na",
+   "translation": "na",
+   "canonical_note": "Batch-3 sign hunt: code dyl confirmed (was mis/disputed in batch 1)."
   },
   {
    "language_id": "lang:brx",
@@ -607,20 +860,28 @@
    "language_type": "CANONICAL_LANGUAGE",
    "script": "Arab",
    "countries": [
+    "IQ",
     "IR"
    ],
    "bands": [
+    "1M-10M",
+    "1M-10M",
     "1M-10M"
    ],
    "confidences": [
-    "medium"
+    "medium",
+    "high",
+    "high"
    ],
    "roles_all": [
+    "official",
     "regional"
    ],
    "sources_all": [
     "agent-knowledge",
-    "ethnologue-27"
+    "ethnologue-27",
+    "iq-census-2024",
+    "iq-constitution-art4"
    ],
    "statuses": [
     "LIVING"
@@ -975,6 +1236,46 @@
    "canonical_note": null
   },
   {
+   "language_id": "lang:ydd",
+   "canonical_name": "Eastern Yiddish",
+   "aliases": [],
+   "native_name": "ייִדיש",
+   "iso_639_1": null,
+   "iso_639_3": "ydd",
+   "glottocode": null,
+   "language_family": "Indo-European: Germanic",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Hebr",
+   "countries": [
+    "IL"
+   ],
+   "bands": [
+    "100K-1M"
+   ],
+   "confidences": [
+    "medium"
+   ],
+   "roles_all": [
+    "minority"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "ethnologue-27",
+    "il-cbs-surveys"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "100K-1M",
+   "min_confidence": "medium",
+   "tts": false,
+   "translation": true,
+   "canonical_note": "EASTERN Yiddish (IL Haredi L1, growing). Macro yid = ydd + yih; Western (yih) is EXTINCT per SIL."
+  },
+  {
    "language_id": "lang:eng",
    "canonical_name": "English",
    "aliases": [],
@@ -986,19 +1287,49 @@
    "language_type": "CANONICAL_LANGUAGE",
    "script": "Latn",
    "countries": [
+    "AE",
     "BD",
+    "BH",
     "BT",
+    "GE",
+    "IL",
     "IN",
+    "IQ",
+    "JO",
+    "KW",
+    "LB",
     "LK",
     "MV",
     "NP",
-    "PK"
+    "OM",
+    "PK",
+    "QA",
+    "SA",
+    "SY",
+    "TR"
    ],
    "bands": [
     "unknown",
     "unknown",
     "100K-1M",
     "100K-1M",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
     "unknown",
     "unknown",
     "unknown",
@@ -1016,7 +1347,24 @@
     "high",
     "high",
     "high",
-    "high"
+    "high",
+    "medium",
+    "medium",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "medium",
+    "low",
+    "low",
+    "high",
+    "medium",
+    "high",
+    "low"
    ],
    "roles_all": [
     "lingua-franca",
@@ -1029,6 +1377,8 @@
     "constitution-art343",
     "constitution-ch4",
     "ethnologue-27",
+    "il-cbs-surveys",
+    "jo-census-2015",
     "official-languages-act-1963"
    ],
    "statuses": [
@@ -1038,10 +1388,98 @@
     "pack"
    ],
    "max_band": "100K-1M",
-   "min_confidence": "high",
+   "min_confidence": "low",
    "tts": true,
    "translation": true,
    "canonical_note": null
+  },
+  {
+   "language_id": "lang:fil",
+   "canonical_name": "Filipino",
+   "aliases": [],
+   "native_name": "Filipino",
+   "iso_639_1": null,
+   "iso_639_3": "fil",
+   "glottocode": null,
+   "language_family": "Austronesian: Malayo-Polynesian",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Latn",
+   "countries": [
+    "AE",
+    "KW",
+    "QA",
+    "SA"
+   ],
+   "bands": [
+    "100K-1M",
+    "100K-1M",
+    "100K-1M",
+    "100K-1M"
+   ],
+   "confidences": [
+    "medium",
+    "medium",
+    "medium",
+    "medium"
+   ],
+   "roles_all": [
+    "immigrant"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "gulf-press-estimates",
+    "sa-gastat"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "100K-1M",
+   "min_confidence": "medium",
+   "tts": true,
+   "translation": true,
+   "canonical_note": "PH official (Tagalog-based); Gulf L1≈community clean case. 639-1 'tl' belongs to tgl — fil carries none."
+  },
+  {
+   "language_id": "lang:fra",
+   "canonical_name": "French",
+   "aliases": [],
+   "native_name": "français",
+   "iso_639_1": "fr",
+   "iso_639_3": "fra",
+   "glottocode": null,
+   "language_family": "Indo-European: Romance",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Latn",
+   "countries": [
+    "LB"
+   ],
+   "bands": [
+    "unknown"
+   ],
+   "confidences": [
+    "high"
+   ],
+   "roles_all": [
+    "widely-spoken"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "lb-constitution-art11"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "unknown",
+   "min_confidence": "high",
+   "tts": true,
+   "translation": true,
+   "canonical_note": "639-1 fr (SIL). LB Art.11 footnote + francophonie; world language, EkGuru Hindi-first."
   },
   {
    "language_id": "lang:grt",
@@ -1081,6 +1519,52 @@
    "tts": false,
    "translation": false,
    "canonical_note": null
+  },
+  {
+   "language_id": "lang:kat",
+   "canonical_name": "Georgian",
+   "aliases": [],
+   "native_name": "ქართული",
+   "iso_639_1": "ka",
+   "iso_639_3": "kat",
+   "glottocode": null,
+   "language_family": "Kartvelian",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Geor",
+   "countries": [
+    "GE"
+   ],
+   "bands": [
+    "1M-10M",
+    "1M-10M",
+    "1M-10M"
+   ],
+   "confidences": [
+    "high",
+    "high",
+    "high"
+   ],
+   "roles_all": [
+    "national",
+    "official",
+    "widely-spoken"
+   ],
+   "sources_all": [
+    "ethnologue-27",
+    "ge-census-2014",
+    "ge-constitution"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "1M-10M",
+   "min_confidence": "high",
+   "tts": false,
+   "translation": true,
+   "canonical_note": "639-1 ka (SIL). Mkhedruli script (one of ~14 world scripts); GE state language."
   },
   {
    "language_id": "lang:glk",
@@ -1206,6 +1690,182 @@
    "canonical_note": "Distinct from Gujarati (guj) — name-similarity trap"
   },
   {
+   "language_id": "lang:afb",
+   "canonical_name": "Gulf Arabic",
+   "aliases": [],
+   "native_name": "خليجي",
+   "iso_639_1": null,
+   "iso_639_3": "afb",
+   "glottocode": null,
+   "language_family": "Afro-Asiatic: Semitic",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Arab",
+   "countries": [
+    "AE",
+    "BH",
+    "KW",
+    "QA"
+   ],
+   "bands": [
+    "100K-1M",
+    "100K-1M",
+    "1M-10M",
+    "100K-1M"
+   ],
+   "confidences": [
+    "high",
+    "high",
+    "high",
+    "high"
+   ],
+   "roles_all": [
+    "widely-spoken"
+   ],
+   "sources_all": [
+    "ae-constitution-art7",
+    "agent-knowledge",
+    "bh-constitution",
+    "ethnologue-27",
+    "kw-constitution-art3",
+    "qa-constitution-art1"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "1M-10M",
+   "min_confidence": "high",
+   "tts": false,
+   "translation": false,
+   "canonical_note": "MSA (arb) tools do not cover this variety. Gulf koine (AE/SA-East/QA/KW/BH); Kuwaiti drama-dialect famous."
+  },
+  {
+   "language_id": "lang:ayh",
+   "canonical_name": "Hadrami Arabic",
+   "aliases": [],
+   "native_name": "حضرمي",
+   "iso_639_1": null,
+   "iso_639_3": "ayh",
+   "glottocode": null,
+   "language_family": "Afro-Asiatic: Semitic",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Arab",
+   "countries": [
+    "YE"
+   ],
+   "bands": [
+    "1M-10M"
+   ],
+   "confidences": [
+    "medium"
+   ],
+   "roles_all": [
+    "regional"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "ethnologue-27"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "1M-10M",
+   "min_confidence": "medium",
+   "tts": false,
+   "translation": false,
+   "canonical_note": "MSA (arb) tools do not cover this variety. Hadramawt + sleeper diaspora (SE Asia/E. Africa heritage demand)."
+  },
+  {
+   "language_id": "lang:heb",
+   "canonical_name": "Hebrew",
+   "aliases": [],
+   "native_name": "עברית",
+   "iso_639_1": "he",
+   "iso_639_3": "heb",
+   "glottocode": null,
+   "language_family": "Afro-Asiatic: Semitic: Canaanite",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Hebr",
+   "countries": [
+    "IL"
+   ],
+   "bands": [
+    "1M-10M",
+    "1M-10M",
+    "1M-10M"
+   ],
+   "confidences": [
+    "high",
+    "high",
+    "high"
+   ],
+   "roles_all": [
+    "national",
+    "official",
+    "widely-spoken"
+   ],
+   "sources_all": [
+    "il-cbs-surveys",
+    "il-nation-state-law-2018"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "1M-10M",
+   "min_confidence": "high",
+   "tts": true,
+   "translation": true,
+   "canonical_note": "639-1 he (SIL). Only fully successful revival on Earth; IL state language (2018 law)."
+  },
+  {
+   "language_id": "lang:acw",
+   "canonical_name": "Hejazi Arabic",
+   "aliases": [],
+   "native_name": "حجازي",
+   "iso_639_1": null,
+   "iso_639_3": "acw",
+   "glottocode": null,
+   "language_family": "Afro-Asiatic: Semitic",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Arab",
+   "countries": [
+    "SA"
+   ],
+   "bands": [
+    "10M-100M"
+   ],
+   "confidences": [
+    "high"
+   ],
+   "roles_all": [
+    "regional"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "ethnologue-27",
+    "sa-gastat"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "10M-100M",
+   "min_confidence": "high",
+   "tts": false,
+   "translation": false,
+   "canonical_note": "MSA (arb) tools do not cover this variety. Hejaz; pilgrim-city contact effects."
+  },
+  {
    "language_id": "lang:hin",
    "canonical_name": "Hindi",
    "aliases": [],
@@ -1217,22 +1877,41 @@
    "language_type": "CANONICAL_LANGUAGE",
    "script": "Deva",
    "countries": [
+    "AE",
+    "BH",
     "IN",
-    "NP"
+    "KW",
+    "NP",
+    "OM",
+    "QA",
+    "SA"
    ],
    "bands": [
     "100M+",
     "100M+",
     "100M+",
-    "unknown"
+    "unknown",
+    "1M-10M",
+    "1M-10M",
+    "100K-1M",
+    "100K-1M",
+    "100K-1M",
+    "100K-1M"
    ],
    "confidences": [
     "high",
     "high",
     "high",
+    "medium",
+    "medium",
+    "medium",
+    "medium",
+    "medium",
+    "medium",
     "medium"
    ],
    "roles_all": [
+    "immigrant",
     "lingua-franca",
     "official",
     "widely-spoken"
@@ -1241,7 +1920,9 @@
     "agent-knowledge",
     "census-2011",
     "constitution-art343",
-    "ethnologue-27"
+    "ethnologue-27",
+    "gulf-press-estimates",
+    "sa-gastat"
    ],
    "statuses": [
     "LIVING"
@@ -1293,6 +1974,84 @@
    "tts": "na",
    "translation": "na",
    "canonical_note": null
+  },
+  {
+   "language_id": "lang:isr",
+   "canonical_name": "Israeli Sign Language",
+   "aliases": [],
+   "native_name": null,
+   "iso_639_1": null,
+   "iso_639_3": "isr",
+   "glottocode": null,
+   "language_family": null,
+   "language_type": "SIGN_LANGUAGE",
+   "script": null,
+   "countries": [
+    "IL"
+   ],
+   "bands": [
+    "unknown"
+   ],
+   "confidences": [
+    "medium"
+   ],
+   "roles_all": [
+    "sign"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "iso-639-3"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "unknown",
+   "min_confidence": "medium",
+   "tts": "na",
+   "translation": "na",
+   "canonical_note": "Israeli SL; village signs sqx/syy are separately coded — do not merge."
+  },
+  {
+   "language_id": "lang:jos",
+   "canonical_name": "Jordanian Sign Language",
+   "aliases": [],
+   "native_name": null,
+   "iso_639_1": null,
+   "iso_639_3": "jos",
+   "glottocode": null,
+   "language_family": null,
+   "language_type": "SIGN_LANGUAGE",
+   "script": null,
+   "countries": [
+    "JO"
+   ],
+   "bands": [
+    "unknown"
+   ],
+   "confidences": [
+    "medium"
+   ],
+   "roles_all": [
+    "sign"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "iso-639-3"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "unknown",
+   "min_confidence": "medium",
+   "tts": "na",
+   "translation": "na",
+   "canonical_note": "Jordanian SL; pre-verification caught jor=Jorá trap."
   },
   {
    "language_id": "lang:kan",
@@ -1692,6 +2451,107 @@
    "canonical_note": "SIL Ref_Name 'Kirghiz' (old spelling). 639-1 ky (SIL)."
   },
   {
+   "language_id": "lang:apc",
+   "canonical_name": "Levantine Arabic",
+   "aliases": [],
+   "native_name": "شامي",
+   "iso_639_1": null,
+   "iso_639_3": "apc",
+   "glottocode": null,
+   "language_family": "Afro-Asiatic: Semitic",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Arab",
+   "countries": [
+    "IL",
+    "JO",
+    "LB",
+    "SY",
+    "TR"
+   ],
+   "bands": [
+    "1M-10M",
+    "1M-10M",
+    "10M-100M",
+    "1M-10M",
+    "1M-10M",
+    "1M-10M",
+    "1M-10M"
+   ],
+   "confidences": [
+    "medium",
+    "medium",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high"
+   ],
+   "roles_all": [
+    "immigrant",
+    "minority",
+    "widely-spoken"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "ethnologue-27",
+    "il-cbs-surveys",
+    "iso-639-3",
+    "jo-census-2015",
+    "lb-no-census-1932",
+    "sy-constitution"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "10M-100M",
+   "min_confidence": "medium",
+   "tts": false,
+   "translation": false,
+   "canonical_note": "MSA (arb) tools do not cover this variety. ajp (South Levantine) retired 2023-01-20 → merged here; JO/Palestinian/Syrian/LB/IL all apc."
+  },
+  {
+   "language_id": "lang:lez",
+   "canonical_name": "Lezgian",
+   "aliases": [],
+   "native_name": "лезги чӀал",
+   "iso_639_1": null,
+   "iso_639_3": "lez",
+   "glottocode": null,
+   "language_family": "Northeast Caucasian: Lezgic",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Cyrl",
+   "countries": [
+    "AZ"
+   ],
+   "bands": [
+    "100K-1M"
+   ],
+   "confidences": [
+    "medium"
+   ],
+   "roles_all": [
+    "minority"
+   ],
+   "sources_all": [
+    "az-census-2019",
+    "ethnologue-27"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "100K-1M",
+   "min_confidence": "medium",
+   "tts": false,
+   "translation": false,
+   "canonical_note": "SIL spells 'Lezghian'. AZ highlands + bigger RU-Dagestan side (future batch)."
+  },
+  {
    "language_id": "lang:lif",
    "canonical_name": "Limbu",
    "aliases": [],
@@ -1840,26 +2700,36 @@
    "language_type": "CANONICAL_LANGUAGE",
    "script": "Mlym",
    "countries": [
-    "IN"
+    "AE",
+    "IN",
+    "SA"
    ],
    "bands": [
     "10M-100M",
     "10M-100M",
-    "10M-100M"
+    "10M-100M",
+    "100K-1M",
+    "100K-1M"
    ],
    "confidences": [
     "high",
     "high",
-    "high"
+    "high",
+    "medium",
+    "medium"
    ],
    "roles_all": [
+    "immigrant",
     "national",
     "official-regional",
     "widely-spoken"
    ],
    "sources_all": [
+    "agent-knowledge",
     "census-2011",
-    "constitution-8th-schedule"
+    "constitution-8th-schedule",
+    "gulf-press-estimates",
+    "sa-gastat"
    ],
    "statuses": [
     "LIVING"
@@ -1868,7 +2738,7 @@
     "course"
    ],
    "max_band": "10M-100M",
-   "min_confidence": "high",
+   "min_confidence": "medium",
    "tts": true,
    "translation": true,
    "canonical_note": null
@@ -2092,20 +2962,30 @@
    "language_type": "CANONICAL_LANGUAGE",
    "script": "Arab",
    "countries": [
-    "IR"
+    "IQ",
+    "IR",
+    "SY"
    ],
    "bands": [
+    "1M-10M",
+    "10M-100M",
     "1M-10M"
    ],
    "confidences": [
+    "medium",
+    "high",
     "medium"
    ],
    "roles_all": [
-    "minority"
+    "minority",
+    "regional",
+    "widely-spoken"
    ],
    "sources_all": [
+    "agent-knowledge",
     "constitution-art16",
-    "ethnologue-27"
+    "ethnologue-27",
+    "iq-census-2024"
    ],
    "statuses": [
     "LIVING"
@@ -2113,11 +2993,91 @@
    "ekguru_statuses": [
     "none"
    ],
-   "max_band": "1M-10M",
+   "max_band": "10M-100M",
    "min_confidence": "medium",
    "tts": false,
    "translation": false,
    "canonical_note": "MSA (ar) tools do not cover Mesopotamian dialect"
+  },
+  {
+   "language_id": "lang:xmf",
+   "canonical_name": "Mingrelian",
+   "aliases": [],
+   "native_name": "მარგალური",
+   "iso_639_1": null,
+   "iso_639_3": "xmf",
+   "glottocode": null,
+   "language_family": "Kartvelian",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Geor",
+   "countries": [
+    "GE"
+   ],
+   "bands": [
+    "100K-1M"
+   ],
+   "confidences": [
+    "medium"
+   ],
+   "roles_all": [
+    "regional"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "ethnologue-27",
+    "ge-census-2014"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "100K-1M",
+   "min_confidence": "medium",
+   "tts": false,
+   "translation": false,
+   "canonical_note": "DISPUTED: GE state = dialect of Georgian; ISO/Ethnologue = language. Rule 12: follow Ethnologue + disputed flag."
+  },
+  {
+   "language_id": "lang:ars",
+   "canonical_name": "Najdi Arabic",
+   "aliases": [],
+   "native_name": "نجدي",
+   "iso_639_1": null,
+   "iso_639_3": "ars",
+   "glottocode": null,
+   "language_family": "Afro-Asiatic: Semitic",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Arab",
+   "countries": [
+    "SA"
+   ],
+   "bands": [
+    "10M-100M"
+   ],
+   "confidences": [
+    "high"
+   ],
+   "roles_all": [
+    "widely-spoken"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "ethnologue-27",
+    "sa-gastat"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "10M-100M",
+   "min_confidence": "high",
+   "tts": false,
+   "translation": false,
+   "canonical_note": "MSA (arb) tools do not cover this variety. Riyadh-media prestige; E. Syria/SW Iraq spillover."
   },
   {
    "language_id": "lang:npi",
@@ -2132,23 +3092,27 @@
    "script": "Deva",
    "countries": [
     "BT",
-    "NP"
+    "NP",
+    "QA"
    ],
    "bands": [
     "100K-1M",
     "100K-1M",
     "10M-100M",
     "10M-100M",
-    "10M-100M"
+    "10M-100M",
+    "100K-1M"
    ],
    "confidences": [
     "medium",
     "medium",
     "high",
     "high",
-    "high"
+    "high",
+    "medium"
    ],
    "roles_all": [
+    "immigrant",
     "lingua-franca",
     "minority",
     "official",
@@ -2158,7 +3122,8 @@
     "agent-knowledge",
     "census-2021",
     "constitution-art7",
-    "ethnologue-27"
+    "ethnologue-27",
+    "gulf-press-estimates"
    ],
    "statuses": [
     "LIVING"
@@ -2346,20 +3311,35 @@
    "language_type": "CANONICAL_LANGUAGE",
    "script": "Latn",
    "countries": [
-    "IR"
+    "IQ",
+    "IR",
+    "SY",
+    "TR"
    ],
    "bands": [
+    "1M-10M",
+    "10M-100M",
+    "1M-10M",
+    "1M-10M",
     "1M-10M"
    ],
    "confidences": [
+    "medium",
+    "high",
+    "high",
+    "high",
     "medium"
    ],
    "roles_all": [
+    "official",
     "regional"
    ],
    "sources_all": [
     "agent-knowledge",
-    "ethnologue-27"
+    "ethnologue-27",
+    "iq-census-2024",
+    "iq-constitution-art4",
+    "tr-constitution-art3"
    ],
    "statuses": [
     "LIVING"
@@ -2367,7 +3347,7 @@
    "ekguru_statuses": [
     "none"
    ],
-   "max_band": "1M-10M",
+   "max_band": "10M-100M",
    "min_confidence": "medium",
    "tts": null,
    "translation": true,
@@ -2452,6 +3432,45 @@
    "canonical_note": "Google 'ps' collective covers Pashto; per-variety TTS unknown"
   },
   {
+   "language_id": "lang:kiu",
+   "canonical_name": "Northern Zaza (Kirmanjki)",
+   "aliases": [],
+   "native_name": null,
+   "iso_639_1": null,
+   "iso_639_3": "kiu",
+   "glottocode": null,
+   "language_family": "Indo-European: Iranian: Zaza",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Latn",
+   "countries": [
+    "TR"
+   ],
+   "bands": [
+    "1M-10M"
+   ],
+   "confidences": [
+    "medium"
+   ],
+   "roles_all": [
+    "regional"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "ethnologue-27"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "1M-10M",
+   "min_confidence": "medium",
+   "tts": false,
+   "translation": false,
+   "canonical_note": "SIL 'Kirmanjki (individual language)'; zza member. Tunceli/Dersim-side, Alevi-majority. Native verify."
+  },
+  {
    "language_id": "lang:ory",
    "canonical_name": "Odia",
    "aliases": [],
@@ -2495,6 +3514,46 @@
    "tts": true,
    "translation": true,
    "canonical_note": "SIL bulk 2026-09-14: no Part1 on this code; 639-1 belongs to macro 'ori'."
+  },
+  {
+   "language_id": "lang:acx",
+   "canonical_name": "Omani Arabic",
+   "aliases": [],
+   "native_name": "عماني",
+   "iso_639_1": null,
+   "iso_639_3": "acx",
+   "glottocode": null,
+   "language_family": "Afro-Asiatic: Semitic",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Arab",
+   "countries": [
+    "OM"
+   ],
+   "bands": [
+    "1M-10M"
+   ],
+   "confidences": [
+    "high"
+   ],
+   "roles_all": [
+    "widely-spoken"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "ethnologue-27",
+    "om-basic-law"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "1M-10M",
+   "min_confidence": "high",
+   "tts": false,
+   "translation": false,
+   "canonical_note": "MSA (arb) tools do not cover this variety. Most conservative Gulf variety (interdentals kept). Distinct from Shihhi."
   },
   {
    "language_id": "lang:pks",
@@ -2547,26 +3606,35 @@
    "language_type": "MACROLANGUAGE",
    "script": "Arab",
    "countries": [
+    "AE",
     "IR"
    ],
    "bands": [
     "10M-100M",
     "10M-100M",
-    "10M-100M"
+    "10M-100M",
+    "100K-1M",
+    "100K-1M"
    ],
    "confidences": [
     "high",
     "high",
-    "high"
+    "high",
+    "medium",
+    "medium"
    ],
    "roles_all": [
+    "immigrant",
     "lingua-franca",
+    "minority",
     "official",
     "widely-spoken"
    ],
    "sources_all": [
+    "agent-knowledge",
     "constitution-art15",
-    "ethnologue-27"
+    "ethnologue-27",
+    "gulf-press-estimates"
    ],
    "statuses": [
     "LIVING"
@@ -2575,7 +3643,7 @@
     "none"
    ],
    "max_band": "10M-100M",
-   "min_confidence": "high",
+   "min_confidence": "medium",
    "tts": true,
    "translation": true,
    "canonical_note": "Macro: Western Persian pes is the Iran standard; prs/tgk mutually intelligible standards SIL bulk 2026-09-14: Tajik (tgk) is Persian linguistically but NOT a fas member per SIL (standalone code) — removed."
@@ -2795,19 +3863,25 @@
    "language_type": "CANONICAL_LANGUAGE",
    "script": "Rohg",
    "countries": [
-    "BD"
+    "BD",
+    "SA"
    ],
    "bands": [
-    "1M-10M"
+    "1M-10M",
+    "100K-1M"
    ],
    "confidences": [
-    "medium"
+    "medium",
+    "low"
    ],
    "roles_all": [
+    "immigrant",
     "minority"
    ],
    "sources_all": [
+    "agent-knowledge",
     "ethnologue-27",
+    "gulf-press-estimates",
     "unhcr-2024"
    ],
    "statuses": [
@@ -2817,7 +3891,7 @@
     "none"
    ],
    "max_band": "1M-10M",
-   "min_confidence": "medium",
+   "min_confidence": "low",
    "tts": false,
    "translation": false,
    "canonical_note": "Hanifi Rohingya script (Rohg, Unicode); Arabic + Latin also used"
@@ -2834,6 +3908,10 @@
    "language_type": "CANONICAL_LANGUAGE",
    "script": "Cyrl",
    "countries": [
+    "AM",
+    "AZ",
+    "GE",
+    "IL",
     "KG",
     "KZ",
     "TJ",
@@ -2853,7 +3931,12 @@
     "100K-1M",
     "100K-1M",
     "100K-1M",
-    "100K-1M"
+    "100K-1M",
+    "100K-1M",
+    "100K-1M",
+    "100K-1M",
+    "100K-1M",
+    "10K-100K"
    ],
    "confidences": [
     "high",
@@ -2868,9 +3951,15 @@
     "medium",
     "medium",
     "medium",
-    "medium"
+    "medium",
+    "high",
+    "medium",
+    "medium",
+    "medium",
+    "low"
    ],
    "roles_all": [
+    "immigrant",
     "lingua-franca",
     "minority",
     "official",
@@ -2878,7 +3967,11 @@
    ],
    "sources_all": [
     "agent-knowledge",
+    "am-census-2022",
+    "az-census-2019",
     "ethnologue-27",
+    "ge-census-2014",
+    "il-cbs-surveys",
     "kg-census-2022",
     "kg-constitution",
     "kz-census-2021",
@@ -2895,7 +3988,7 @@
     "none"
    ],
    "max_band": "1M-10M",
-   "min_confidence": "medium",
+   "min_confidence": "low",
    "tts": true,
    "translation": true,
    "canonical_note": "639-1 ru (SIL). Official KZ/KG; interethnic TJ/UZ; lapsed TM. EkGuru teaches Hindi TO Russian speakers — never a Russian course."
@@ -2938,6 +4031,45 @@
    "tts": false,
    "translation": false,
    "canonical_note": "Code 'sck' treatment medium — verify pass 2"
+  },
+  {
+   "language_id": "lang:ayn",
+   "canonical_name": "Sanaani Arabic",
+   "aliases": [],
+   "native_name": "صنعاني",
+   "iso_639_1": null,
+   "iso_639_3": "ayn",
+   "glottocode": null,
+   "language_family": "Afro-Asiatic: Semitic",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Arab",
+   "countries": [
+    "YE"
+   ],
+   "bands": [
+    "10M-100M"
+   ],
+   "confidences": [
+    "medium"
+   ],
+   "roles_all": [
+    "regional"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "ethnologue-27"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "10M-100M",
+   "min_confidence": "medium",
+   "tts": false,
+   "translation": false,
+   "canonical_note": "MSA (arb) tools do not cover this variety. Highland Yemen; qaf-shibboleth famous; war-soft figures."
   },
   {
    "language_id": "lang:san",
@@ -3067,6 +4199,45 @@
    "tts": false,
    "translation": false,
    "canonical_note": null
+  },
+  {
+   "language_id": "lang:sdl",
+   "canonical_name": "Saudi Arabian Sign Language",
+   "aliases": [],
+   "native_name": null,
+   "iso_639_1": null,
+   "iso_639_3": "sdl",
+   "glottocode": null,
+   "language_family": null,
+   "language_type": "SIGN_LANGUAGE",
+   "script": null,
+   "countries": [
+    "SA"
+   ],
+   "bands": [
+    "unknown"
+   ],
+   "confidences": [
+    "medium"
+   ],
+   "roles_all": [
+    "sign"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "iso-639-3"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "unknown",
+   "min_confidence": "medium",
+   "tts": "na",
+   "translation": "na",
+   "canonical_note": "Saudi Arabian SL; ArSL-family related."
   },
   {
    "language_id": "lang:xsr",
@@ -3247,23 +4418,29 @@
    "language_type": "CANONICAL_LANGUAGE",
    "script": "Sinh",
    "countries": [
-    "LK"
+    "LK",
+    "SA"
    ],
    "bands": [
     "10M-100M",
-    "10M-100M"
+    "10M-100M",
+    "100K-1M"
    ],
    "confidences": [
     "high",
-    "high"
+    "high",
+    "medium"
    ],
    "roles_all": [
+    "immigrant",
     "official",
     "widely-spoken"
    ],
    "sources_all": [
     "census-2012",
-    "constitution-art18-19"
+    "constitution-art18-19",
+    "gulf-press-estimates",
+    "sa-gastat"
    ],
    "statuses": [
     "LIVING"
@@ -3272,7 +4449,7 @@
     "none"
    ],
    "max_band": "10M-100M",
-   "min_confidence": "high",
+   "min_confidence": "medium",
    "tts": true,
    "translation": true,
    "canonical_note": "Diglossic — course must teach spoken first"
@@ -3280,7 +4457,9 @@
   {
    "language_id": "lang:azb",
    "canonical_name": "South Azerbaijani",
-   "aliases": [],
+   "aliases": [
+    "South Azerbaijani (Iraqi Turkmen)"
+   ],
    "native_name": "تۆرکجه",
    "iso_639_1": null,
    "iso_639_3": "azb",
@@ -3289,20 +4468,25 @@
    "language_type": "CANONICAL_LANGUAGE",
    "script": "Arab",
    "countries": [
+    "IQ",
     "IR"
    ],
    "bands": [
-    "10M-100M"
+    "10M-100M",
+    "100K-1M"
    ],
    "confidences": [
-    "high"
+    "high",
+    "medium"
    ],
    "roles_all": [
+    "minority",
     "widely-spoken"
    ],
    "sources_all": [
     "agent-knowledge",
-    "ethnologue-27"
+    "ethnologue-27",
+    "iq-constitution-art125"
    ],
    "statuses": [
     "LIVING"
@@ -3311,7 +4495,7 @@
     "none"
    ],
    "max_band": "10M-100M",
-   "min_confidence": "high",
+   "min_confidence": "medium",
    "tts": false,
    "translation": false,
    "canonical_note": "Google 'az' covers North/Latin only; South/Perso-Arabic not separately"
@@ -3476,6 +4660,45 @@
    "canonical_note": "SOUTHERN Uzbek (Afghanistan, Perso-Arabic). Split from uzn in 2026-09-14 identity audit; native Perso-Arabic form verify."
   },
   {
+   "language_id": "lang:diq",
+   "canonical_name": "Southern Zaza (Dimli)",
+   "aliases": [],
+   "native_name": null,
+   "iso_639_1": null,
+   "iso_639_3": "diq",
+   "glottocode": null,
+   "language_family": "Indo-European: Iranian: Zaza",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Latn",
+   "countries": [
+    "TR"
+   ],
+   "bands": [
+    "1M-10M"
+   ],
+   "confidences": [
+    "medium"
+   ],
+   "roles_all": [
+    "regional"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "ethnologue-27"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "1M-10M",
+   "min_confidence": "medium",
+   "tts": false,
+   "translation": false,
+   "canonical_note": "SIL 'Dimli (individual language)'; Zaza macro (zza) member with kiu. Diyarbakır-side. Native verify (Jacobson Latin)."
+  },
+  {
    "language_id": "lang:sci",
    "canonical_name": "Sri Lankan Creole Malay",
    "aliases": [],
@@ -3565,11 +4788,46 @@
    "language_type": "CANONICAL_LANGUAGE",
    "script": "Arab",
    "countries": [
+    "AE",
     "AF",
     "BD",
-    "PK"
+    "BH",
+    "IL",
+    "IQ",
+    "JO",
+    "KW",
+    "LB",
+    "OM",
+    "PK",
+    "QA",
+    "SA",
+    "SY",
+    "YE"
    ],
    "bands": [
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
+    "unknown",
     "unknown",
     "unknown",
     "unknown"
@@ -3577,13 +4835,52 @@
    "confidences": [
     "medium",
     "medium",
-    "medium"
+    "medium",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high"
    ],
    "roles_all": [
-    "liturgical"
+    "liturgical",
+    "national",
+    "official"
    ],
    "sources_all": [
-    "agent-knowledge"
+    "ae-constitution-art7",
+    "agent-knowledge",
+    "bh-constitution",
+    "ethnologue-27",
+    "il-nation-state-law-2018",
+    "iq-constitution-art4",
+    "jo-constitution-art2",
+    "kw-constitution-art3",
+    "lb-constitution-art11",
+    "lb-no-census-1932",
+    "om-basic-law",
+    "qa-constitution-art1",
+    "sa-basic-law-art1",
+    "sy-constitution",
+    "ye-constitution"
    ],
    "statuses": [
     "LIVING"
@@ -3596,6 +4893,45 @@
    "tts": true,
    "translation": true,
    "canonical_note": "iso639_1 'ar' is the Arabic macrolanguage; MSA coverage SIL bulk 2026-09-14: no Part1 on this code; 639-1 belongs to macro 'ara'."
+  },
+  {
+   "language_id": "lang:acq",
+   "canonical_name": "Ta'izzi-Adeni Arabic",
+   "aliases": [],
+   "native_name": "تعزي-عدني",
+   "iso_639_1": null,
+   "iso_639_3": "acq",
+   "glottocode": null,
+   "language_family": "Afro-Asiatic: Semitic",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Arab",
+   "countries": [
+    "YE"
+   ],
+   "bands": [
+    "10M-100M"
+   ],
+   "confidences": [
+    "medium"
+   ],
+   "roles_all": [
+    "regional"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "ethnologue-27"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "10M-100M",
+   "min_confidence": "medium",
+   "tts": false,
+   "translation": false,
+   "canonical_note": "MSA (arb) tools do not cover this variety. South Yemen; war-soft figures."
   },
   {
    "language_id": "lang:tgk",
@@ -3666,12 +5002,15 @@
    "language_type": "CANONICAL_LANGUAGE",
    "script": "Arab",
    "countries": [
+    "AZ",
     "IR"
    ],
    "bands": [
+    "100K-1M",
     "100K-1M"
    ],
    "confidences": [
+    "medium",
     "medium"
    ],
    "roles_all": [
@@ -3679,6 +5018,7 @@
    ],
    "sources_all": [
     "agent-knowledge",
+    "az-census-2019",
     "ethnologue-27"
    ],
    "statuses": [
@@ -3885,21 +5225,32 @@
    "language_type": "CANONICAL_LANGUAGE",
    "script": "Latn",
    "countries": [
-    "KZ"
+    "KZ",
+    "TR"
    ],
    "bands": [
-    "100K-1M"
+    "100K-1M",
+    "10M-100M",
+    "10M-100M",
+    "10M-100M"
    ],
    "confidences": [
-    "medium"
+    "medium",
+    "high",
+    "high",
+    "high"
    ],
    "roles_all": [
-    "regional"
+    "national",
+    "official",
+    "regional",
+    "widely-spoken"
    ],
    "sources_all": [
     "agent-knowledge",
     "ethnologue-27",
-    "kz-census-2021"
+    "kz-census-2021",
+    "tr-constitution-art3"
    ],
    "statuses": [
     "LIVING"
@@ -3907,11 +5258,50 @@
    "ekguru_statuses": [
     "none"
    ],
-   "max_band": "100K-1M",
+   "max_band": "10M-100M",
    "min_confidence": "medium",
    "tts": true,
    "translation": true,
    "canonical_note": "CA entries are mostly Meskhetian-deportee communities (Istanbul standard in school, dialect at home)."
+  },
+  {
+   "language_id": "lang:tsm",
+   "canonical_name": "Turkish Sign Language",
+   "aliases": [],
+   "native_name": null,
+   "iso_639_1": null,
+   "iso_639_3": "tsm",
+   "glottocode": null,
+   "language_family": null,
+   "language_type": "SIGN_LANGUAGE",
+   "script": null,
+   "countries": [
+    "TR"
+   ],
+   "bands": [
+    "unknown"
+   ],
+   "confidences": [
+    "medium"
+   ],
+   "roles_all": [
+    "sign"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "iso-639-3"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "unknown",
+   "min_confidence": "medium",
+   "tts": "na",
+   "translation": "na",
+   "canonical_note": "Turkish SL (TİD); village sign Mardin (dsz) is separate."
   },
   {
    "language_id": "lang:tuk",
@@ -3988,10 +5378,14 @@
    "language_type": "CANONICAL_LANGUAGE",
    "script": "Arab",
    "countries": [
+    "AE",
     "BD",
     "IN",
+    "KW",
     "NP",
-    "PK"
+    "PK",
+    "QA",
+    "SA"
    ],
    "bands": [
     "100K-1M",
@@ -4002,7 +5396,11 @@
     "10M-100M",
     "10M-100M",
     "10M-100M",
-    "10M-100M"
+    "10M-100M",
+    "100K-1M",
+    "100K-1M",
+    "100K-1M",
+    "100K-1M"
    ],
    "confidences": [
     "medium",
@@ -4013,9 +5411,14 @@
     "high",
     "high",
     "high",
-    "high"
+    "high",
+    "medium",
+    "medium",
+    "medium",
+    "medium"
    ],
    "roles_all": [
+    "immigrant",
     "lingua-franca",
     "minority",
     "national",
@@ -4030,7 +5433,9 @@
     "constitution-8th-schedule",
     "constitution-art251",
     "ethnologue-27",
-    "ref-summary"
+    "gulf-press-estimates",
+    "ref-summary",
+    "sa-gastat"
    ],
    "statuses": [
     "LIVING"

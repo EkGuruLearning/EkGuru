@@ -1,12 +1,61 @@
 {
  "note": "Every source key used in core batches. Priority = owner Phase 1 (A/B/C). source_url null ONLY with url_null_reason. Agent-compiled facts stay 'agent-knowledge' (below C) until verification pass 2 replaces them.",
  "sources": {
+  "abkhazia-constitution": {
+   "source_name": "Constitution of Abkhazia, DE-FACTO authority (Abkhaz + Russian official)",
+   "source_url": null,
+   "url_null_reason": "de-facto status explicit; GE claims the territory — record both, take no side",
+   "evidence_type": "constitution-de-facto",
+   "priority": "A"
+  },
+  "ae-constitution-art7": {
+   "source_name": "UAE Constitution, Art.7 (Arabic is the official language)",
+   "source_url": null,
+   "url_null_reason": "official text at elaws.gov.ae; direct link archive pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
   "agent-knowledge": {
    "source_name": "EkGuru agent training knowledge (compiled, unverified)",
    "source_url": null,
    "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
    "evidence_type": "agent-compiled",
    "priority": "D-agent"
+  },
+  "am-census-2022": {
+   "source_name": "Armenia Census 2022 (~2.9M)",
+   "source_url": null,
+   "url_null_reason": "armstat.am census volumes; table links archive pass 2",
+   "evidence_type": "census",
+   "priority": "B"
+  },
+  "am-constitution": {
+   "source_name": "Armenian Constitution (Armenian is the official language)",
+   "source_url": null,
+   "url_null_reason": "article number + official text (arlis.am) verify pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "az-census-2019": {
+   "source_name": "Azerbaijan Census 2019 (~10.1M)",
+   "source_url": null,
+   "url_null_reason": "stat.gov.az census volumes; table links archive pass 2",
+   "evidence_type": "census",
+   "priority": "B"
+  },
+  "az-constitution-art21": {
+   "source_name": "Azerbaijani Constitution, Art.21 (Azerbaijani is the state language)",
+   "source_url": null,
+   "url_null_reason": "official text at president.az / e-qanun.az; direct link archive pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "bh-constitution": {
+   "source_name": "Bahrain Constitution 2002 (Arabic is the official language)",
+   "source_url": null,
+   "url_null_reason": "article number + official text (legalaffairs.gov.bh) verify pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
   },
   "census-2011": {
    "source_name": "Census of India 2011 — Language data (C-16)",
@@ -135,10 +184,66 @@
    "evidence_type": "linguistic-database",
    "priority": "A"
   },
+  "ge-census-2014": {
+   "source_name": "Georgia Census 2014 (~3.7M, excl. breakaway territories)",
+   "source_url": null,
+   "url_null_reason": "geostat.ge census volumes; table links archive pass 2",
+   "evidence_type": "census",
+   "priority": "B"
+  },
+  "ge-constitution": {
+   "source_name": "Georgian Constitution (Georgian official; Abkhaz official in Abkhazia — de-facto split)",
+   "source_url": null,
+   "url_null_reason": "article number + official text (matsne.gov.ge) verify pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
   "glottolog-5.x": {
    "source_name": "Glottolog 5.x (Max Planck Institute) — language-vs-dialect identity",
    "source_url": "https://glottolog.org",
    "evidence_type": "linguistic-database",
+   "priority": "A"
+  },
+  "gulf-press-estimates": {
+   "source_name": "Gulf expat-community sizes via embassy statements/press (vary ~2x; L1 splits mostly unavailable)",
+   "source_url": null,
+   "url_null_reason": "softest numbers in the dataset; ranges + low confidence mandatory",
+   "evidence_type": "press-estimate",
+   "priority": "C"
+  },
+  "il-cbs-surveys": {
+   "source_name": "Israel CBS social-survey language data (no census language question)",
+   "source_url": null,
+   "url_null_reason": "cbs.gov.il survey tables; links archive pass 2",
+   "evidence_type": "official-survey",
+   "priority": "B"
+  },
+  "il-nation-state-law-2018": {
+   "source_name": "Israel Basic Law: Nation-State 2018 (Hebrew is THE state language; Arabic has 'special status')",
+   "source_url": null,
+   "url_null_reason": "Knesset official text; direct link archive pass 2",
+   "evidence_type": "statute",
+   "priority": "A"
+  },
+  "iq-census-2024": {
+   "source_name": "Iraq Census Nov 2024 (first since 1987; language detail partial)",
+   "source_url": null,
+   "url_null_reason": "results still publishing as of 2026; language tables verify pass 2",
+   "evidence_type": "census",
+   "priority": "B"
+  },
+  "iq-constitution-art125": {
+   "source_name": "Iraqi Constitution, Art.125 (administrative/educational rights: Turkmen, Chaldeans, Assyrians)",
+   "source_url": null,
+   "url_null_reason": "official text via iraqld.iq; direct link archive pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "iq-constitution-art4": {
+   "source_name": "Iraqi Constitution 2005, Art.4 (Arabic AND Kurdish are the two official languages)",
+   "source_url": null,
+   "url_null_reason": "official text via iraqld.iq; direct link archive pass 2",
+   "evidence_type": "constitution",
    "priority": "A"
   },
   "islrtc": {
@@ -158,6 +263,20 @@
    "source_url": null,
    "url_null_reason": "Act cited by name; gazette URL to be added in verification pass 2",
    "evidence_type": "legal-record-cited",
+   "priority": "A"
+  },
+  "jo-census-2015": {
+   "source_name": "Jordan Census 2015 (~9.5M incl. refugees)",
+   "source_url": null,
+   "url_null_reason": "dosweb.dos.gov.jo census tables; links archive pass 2",
+   "evidence_type": "census",
+   "priority": "B"
+  },
+  "jo-constitution-art2": {
+   "source_name": "Jordanian Constitution, Art.2 (Arabic is the official language)",
+   "source_url": null,
+   "url_null_reason": "official text via pm.gov.jo; direct link archive pass 2",
+   "evidence_type": "constitution",
    "priority": "A"
   },
   "karakalpakstan-constitution": {
@@ -181,6 +300,13 @@
    "evidence_type": "constitution",
    "priority": "A"
   },
+  "kw-constitution-art3": {
+   "source_name": "Kuwait Constitution, Art.3 (Arabic is the official language)",
+   "source_url": null,
+   "url_null_reason": "official text via kuwaitconstitution.org / cmgs.gov.kw; direct link archive pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
   "kz-census-2021": {
    "source_name": "Kazakhstan National Census 2021 (19.17M)",
    "source_url": null,
@@ -195,6 +321,20 @@
    "evidence_type": "constitution",
    "priority": "A"
   },
+  "lb-constitution-art11": {
+   "source_name": "Lebanese Constitution, Art.11 (Arabic official; law determines cases where French is used)",
+   "source_url": null,
+   "url_null_reason": "official text via presidency.gov.lb; direct link archive pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "lb-no-census-1932": {
+   "source_name": "Lebanon: NO census since 1932 (figures via voter rolls/UN/estimates — soft by construction)",
+   "source_url": null,
+   "url_null_reason": "absence-of-source recorded as a source; do not invent precision",
+   "evidence_type": "census-gap",
+   "priority": "B"
+  },
   "madhesh-province-2021": {
    "source_name": "Madhesh Province official-language decision 2021 (Maithili + Bhojpuri)",
    "source_url": null,
@@ -208,6 +348,20 @@
    "evidence_type": "legal-record",
    "priority": "A"
   },
+  "om-basic-law": {
+   "source_name": "Oman Basic Law of the State (Arabic is the official language)",
+   "source_url": null,
+   "url_null_reason": "article number + official text verify pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "qa-constitution-art1": {
+   "source_name": "Qatar Constitution 2003, Art.1 (Arabic is the official language)",
+   "source_url": null,
+   "url_null_reason": "official text via diwan.gov.qa; direct link archive pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
   "ref-summary": {
    "source_name": "General reference summaries (cross-check only, never sole source for disputes)",
    "source_url": null,
@@ -215,11 +369,32 @@
    "evidence_type": "secondary-crosscheck",
    "priority": "C"
   },
+  "sa-basic-law-art1": {
+   "source_name": "Saudi Basic Law of Governance, Art.1 (Arabic is the official language)",
+   "source_url": null,
+   "url_null_reason": "official text via laws.boe.gov.sa; direct link archive pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "sa-gastat": {
+   "source_name": "Saudi GASTAT population-by-nationality totals (L1 splits mostly unavailable — no-fabrication anchor)",
+   "source_url": null,
+   "url_null_reason": "stats.gov.sa bulletins; nationality != L1, record the gap",
+   "evidence_type": "official-estimate",
+   "priority": "B"
+  },
   "sindh-official-status": {
    "source_name": "Sindhi official standing in Sindh province (provincial law and practice)",
    "source_url": null,
    "url_null_reason": "standing cited by name; statute URL to be added in verification pass 2",
    "evidence_type": "legal-record-cited",
+   "priority": "A"
+  },
+  "sy-constitution": {
+   "source_name": "Syrian Constitution (pre-war Art.4: Arabic official; POST-DEC-2024 TRANSITIONAL — fluid)",
+   "source_url": null,
+   "url_null_reason": "constitutional order in transition as of 2026; article + text verify pass 2",
+   "evidence_type": "constitution",
    "priority": "A"
   },
   "tj-census-2020": {
@@ -247,6 +422,13 @@
    "source_name": "Constitution of Turkmenistan (Turkmen state language)",
    "source_url": null,
    "url_null_reason": "official text via turkmenistan.gov.tm; article number + direct link verify pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "tr-constitution-art3": {
+   "source_name": "Constitution of Türkiye, Art.3 (Turkish is the language of the State; no other language may be taught as mother tongue)",
+   "source_url": null,
+   "url_null_reason": "official text at anayasa.gov.tr / mevzuat.gov.tr; direct link archive pass 2",
    "evidence_type": "constitution",
    "priority": "A"
   },
@@ -281,6 +463,13 @@
    "source_url": "https://wfdeaf.org",
    "evidence_type": "linguistic-database",
    "priority": "B"
+  },
+  "ye-constitution": {
+   "source_name": "Yemeni Constitution (Arabic is the official language; war — enforcement nominal)",
+   "source_url": null,
+   "url_null_reason": "article number + text verify pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
   }
  }
 }

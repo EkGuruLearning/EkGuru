@@ -18,6 +18,11 @@ Batch-2 additions: Uzbekistan has had NO census since 1989 (all figures estimate
 Turkmenistan's 2022 census published ~no language detail (all figures soft);
 the UZ Tajik count (~1.7M official) is widely believed undercounted (dispute recorded
 on the entry).
+Batch-3 additions: Türkiye asks NO language question (all TR figures estimated);
+Lebanon has had NO census since 1932 (lb-no-census-1932 gap-record cited);
+Iraq's 2024 language detail still publishing; Syria's constitutional order is
+transitional (post-Dec-2024); Gulf expat L1 splits are the softest numbers in the
+dataset (press-estimates, ~2x variance, no-fabrication protocol enforced).
 
 | Country | Latest usable round | Problem |
 |---------|--------------------|---------|
@@ -56,7 +61,11 @@ on the entry).
 9. **Diaspora unmodelled**: learner demand from diaspora (Punjabi-Canada,
    Bengali-UK, Tamil-Malaysia…) is invisible to this schema. Phase 8's
    learningDemandProxy is a band proxy, not demand data.
-10. **The knn incident**: Kannada shipped one build under the wrong code
+10. **L1-less officials score artificially low** (known formula artifact): arb sits P2-40
+    (speakerReach bottom band — MSA has no L1) despite 13 official statuses and 400M+ users.
+    The final Phase-8 formula needs an official-reach/L2 term; until then the ekguru
+    recommendation text (arb: recommended-course) carries the true verdict, not the band.
+11. **The knn incident**: Kannada shipped one build under the wrong code
     (knn) and was caught by review, not by automation — the 639-1 guard now
     covers 37 pairs, but unlisted pairs have no net. Extend the table per batch.
 

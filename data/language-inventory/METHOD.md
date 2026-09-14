@@ -126,6 +126,11 @@ figures, never present a sum as exact.
   reserved code for uncoded-in-one-code cases) and explicit
   `members[]` of individual codes. This names what the state names
   without pretending a cluster is one language.
+- Established multi-code standards under ONE constitutional name list
+  SEPARATELY with a note (e.g. IQ Art.4 "Kurdish" = kur macro, but
+  ckb + kmr have separate standards/schools/media → two `official`
+  entries). Grouping is for varieties WITHOUT separate standard
+  identity (AF Pashto-cluster precedent).
 
 ## EkGuru recommendation (per language)
 

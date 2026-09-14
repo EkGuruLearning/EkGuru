@@ -5,10 +5,10 @@
   {
    "language_id": "lang:ben",
    "canonical_name": "Bengali",
-   "score": 79,
+   "score": 83,
    "parts": {
     "speakerReach": 30,
-    "countryCount": 6,
+    "countryCount": 10,
     "education": 5,
     "travel": 5,
     "business": 5,
@@ -20,22 +20,43 @@
     "dataConfidence": 3
    },
    "priority": "P0",
-   "reason": "in production — maintain (score 79 overridden)",
+   "reason": "in production — maintain (score 83 overridden)",
    "preliminary": true
   },
   {
    "language_id": "lang:hin",
    "canonical_name": "Hindi",
-   "score": 75,
+   "score": 83,
    "parts": {
     "speakerReach": 30,
-    "countryCount": 4,
+    "countryCount": 10,
     "education": 5,
     "travel": 5,
     "business": 5,
-    "migration": 3,
+    "migration": 5,
     "internetContentProxy": 5,
     "learningDemandProxy": 5,
+    "ttsAsr": 5,
+    "translation": 5,
+    "dataConfidence": 3
+   },
+   "priority": "P0",
+   "reason": "in production — maintain (score 83 overridden)",
+   "preliminary": true
+  },
+  {
+   "language_id": "lang:urd",
+   "canonical_name": "Urdu",
+   "score": 75,
+   "parts": {
+    "speakerReach": 24,
+    "countryCount": 10,
+    "education": 5,
+    "travel": 5,
+    "business": 5,
+    "migration": 5,
+    "internetContentProxy": 4,
+    "learningDemandProxy": 4,
     "ttsAsr": 5,
     "translation": 5,
     "dataConfidence": 3
@@ -66,24 +87,66 @@
    "preliminary": true
   },
   {
-   "language_id": "lang:urd",
-   "canonical_name": "Urdu",
+   "language_id": "lang:npi",
+   "canonical_name": "Nepali",
    "score": 71,
    "parts": {
     "speakerReach": 24,
-    "countryCount": 8,
+    "countryCount": 6,
     "education": 5,
     "travel": 5,
     "business": 5,
-    "migration": 3,
+    "migration": 5,
     "internetContentProxy": 4,
     "learningDemandProxy": 4,
     "ttsAsr": 5,
     "translation": 5,
     "dataConfidence": 3
    },
-   "priority": "P0",
-   "reason": "in production — maintain (score 71 overridden)",
+   "priority": "P1",
+   "reason": "score 71/100 (speakerReach=24, countryCount=6, education=5, travel=5, business=5, migration=5, internetContentProxy=4, learningDemandProxy=4, ttsAsr=5, translation=5, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
+   "language_id": "lang:fas",
+   "canonical_name": "Persian",
+   "score": 69,
+   "parts": {
+    "speakerReach": 24,
+    "countryCount": 4,
+    "education": 5,
+    "travel": 5,
+    "business": 5,
+    "migration": 5,
+    "internetContentProxy": 4,
+    "learningDemandProxy": 4,
+    "ttsAsr": 5,
+    "translation": 5,
+    "dataConfidence": 3
+   },
+   "priority": "P1",
+   "reason": "score 69/100 (speakerReach=24, countryCount=4, education=5, travel=5, business=5, migration=5, internetContentProxy=4, learningDemandProxy=4, ttsAsr=5, translation=5, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
+   "language_id": "lang:sin",
+   "canonical_name": "Sinhala",
+   "score": 69,
+   "parts": {
+    "speakerReach": 24,
+    "countryCount": 4,
+    "education": 5,
+    "travel": 5,
+    "business": 5,
+    "migration": 5,
+    "internetContentProxy": 4,
+    "learningDemandProxy": 4,
+    "ttsAsr": 5,
+    "translation": 5,
+    "dataConfidence": 3
+   },
+   "priority": "P1",
+   "reason": "score 69/100 (speakerReach=24, countryCount=4, education=5, travel=5, business=5, migration=5, internetContentProxy=4, learningDemandProxy=4, ttsAsr=5, translation=5, dataConfidence=3)",
    "preliminary": true
   },
   {
@@ -108,6 +171,27 @@
    "preliminary": true
   },
   {
+   "language_id": "lang:mal",
+   "canonical_name": "Malayalam",
+   "score": 68,
+   "parts": {
+    "speakerReach": 24,
+    "countryCount": 6,
+    "education": 5,
+    "travel": 5,
+    "business": 2,
+    "migration": 5,
+    "internetContentProxy": 4,
+    "learningDemandProxy": 4,
+    "ttsAsr": 5,
+    "translation": 5,
+    "dataConfidence": 3
+   },
+   "priority": "P0",
+   "reason": "in production — maintain (score 68 overridden)",
+   "preliminary": true
+  },
+  {
    "language_id": "lang:kaz",
    "canonical_name": "Kazakh",
    "score": 67,
@@ -129,8 +213,29 @@
    "preliminary": true
   },
   {
-   "language_id": "lang:npi",
-   "canonical_name": "Nepali",
+   "language_id": "lang:kmr",
+   "canonical_name": "Northern Kurdish (Kurmanji)",
+   "score": 67,
+   "parts": {
+    "speakerReach": 24,
+    "countryCount": 8,
+    "education": 5,
+    "travel": 4,
+    "business": 5,
+    "migration": 3,
+    "internetContentProxy": 4,
+    "learningDemandProxy": 4,
+    "ttsAsr": 2,
+    "translation": 5,
+    "dataConfidence": 3
+   },
+   "priority": "P1",
+   "reason": "score 67/100 (speakerReach=24, countryCount=8, education=5, travel=4, business=5, migration=3, internetContentProxy=4, learningDemandProxy=4, ttsAsr=2, translation=5, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
+   "language_id": "lang:tur",
+   "canonical_name": "Turkish",
    "score": 67,
    "parts": {
     "speakerReach": 24,
@@ -150,48 +255,6 @@
    "preliminary": true
   },
   {
-   "language_id": "lang:fas",
-   "canonical_name": "Persian",
-   "score": 64,
-   "parts": {
-    "speakerReach": 24,
-    "countryCount": 2,
-    "education": 5,
-    "travel": 5,
-    "business": 5,
-    "migration": 0,
-    "internetContentProxy": 4,
-    "learningDemandProxy": 4,
-    "ttsAsr": 5,
-    "translation": 5,
-    "dataConfidence": 5
-   },
-   "priority": "P1",
-   "reason": "score 64/100 (speakerReach=24, countryCount=2, education=5, travel=5, business=5, migration=0, internetContentProxy=4, learningDemandProxy=4, ttsAsr=5, translation=5, dataConfidence=5)",
-   "preliminary": true
-  },
-  {
-   "language_id": "lang:sin",
-   "canonical_name": "Sinhala",
-   "score": 64,
-   "parts": {
-    "speakerReach": 24,
-    "countryCount": 2,
-    "education": 5,
-    "travel": 5,
-    "business": 5,
-    "migration": 0,
-    "internetContentProxy": 4,
-    "learningDemandProxy": 4,
-    "ttsAsr": 5,
-    "translation": 5,
-    "dataConfidence": 5
-   },
-   "priority": "P1",
-   "reason": "score 64/100 (speakerReach=24, countryCount=2, education=5, travel=5, business=5, migration=0, internetContentProxy=4, learningDemandProxy=4, ttsAsr=5, translation=5, dataConfidence=5)",
-   "preliminary": true
-  },
-  {
    "language_id": "lang:rus",
    "canonical_name": "Russian",
    "score": 63,
@@ -201,15 +264,15 @@
     "education": 5,
     "travel": 5,
     "business": 3,
-    "migration": 3,
+    "migration": 5,
     "internetContentProxy": 3,
     "learningDemandProxy": 3,
     "ttsAsr": 5,
     "translation": 5,
-    "dataConfidence": 3
+    "dataConfidence": 1
    },
    "priority": "P1",
-   "reason": "score 63/100 (speakerReach=18, countryCount=10, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=5, translation=5, dataConfidence=3)",
+   "reason": "score 63/100 (speakerReach=18, countryCount=10, education=5, travel=5, business=3, migration=5, internetContentProxy=3, learningDemandProxy=3, ttsAsr=5, translation=5, dataConfidence=1)",
    "preliminary": true
   },
   {
@@ -278,27 +341,6 @@
   {
    "language_id": "lang:kan",
    "canonical_name": "Kannada",
-   "score": 61,
-   "parts": {
-    "speakerReach": 24,
-    "countryCount": 2,
-    "education": 5,
-    "travel": 5,
-    "business": 2,
-    "migration": 0,
-    "internetContentProxy": 4,
-    "learningDemandProxy": 4,
-    "ttsAsr": 5,
-    "translation": 5,
-    "dataConfidence": 5
-   },
-   "priority": "P0",
-   "reason": "in production — maintain (score 61 overridden)",
-   "preliminary": true
-  },
-  {
-   "language_id": "lang:mal",
-   "canonical_name": "Malayalam",
    "score": 61,
    "parts": {
     "speakerReach": 24,
@@ -402,6 +444,48 @@
    "preliminary": true
   },
   {
+   "language_id": "lang:hye",
+   "canonical_name": "Armenian",
+   "score": 59,
+   "parts": {
+    "speakerReach": 18,
+    "countryCount": 6,
+    "education": 5,
+    "travel": 5,
+    "business": 3,
+    "migration": 3,
+    "internetContentProxy": 3,
+    "learningDemandProxy": 3,
+    "ttsAsr": 5,
+    "translation": 5,
+    "dataConfidence": 3
+   },
+   "priority": "P2",
+   "reason": "score 59/100 (speakerReach=18, countryCount=6, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=5, translation=5, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
+   "language_id": "lang:azj",
+   "canonical_name": "Azerbaijani",
+   "score": 59,
+   "parts": {
+    "speakerReach": 18,
+    "countryCount": 6,
+    "education": 5,
+    "travel": 5,
+    "business": 3,
+    "migration": 3,
+    "internetContentProxy": 3,
+    "learningDemandProxy": 3,
+    "ttsAsr": 5,
+    "translation": 5,
+    "dataConfidence": 3
+   },
+   "priority": "P2",
+   "reason": "score 59/100 (speakerReach=18, countryCount=6, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=5, translation=5, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
    "language_id": "lang:tuk",
    "canonical_name": "Turkmen",
    "score": 58,
@@ -423,27 +507,6 @@
    "preliminary": true
   },
   {
-   "language_id": "lang:eng",
-   "canonical_name": "English",
-   "score": 57,
-   "parts": {
-    "speakerReach": 12,
-    "countryCount": 10,
-    "education": 5,
-    "travel": 5,
-    "business": 3,
-    "migration": 3,
-    "internetContentProxy": 2,
-    "learningDemandProxy": 2,
-    "ttsAsr": 5,
-    "translation": 5,
-    "dataConfidence": 5
-   },
-   "priority": "P1",
-   "reason": "pack live — full course candidate (score 57 overridden)",
-   "preliminary": true
-  },
-  {
    "language_id": "lang:kir",
    "canonical_name": "Kyrgyz",
    "score": 57,
@@ -462,6 +525,48 @@
    },
    "priority": "P2",
    "reason": "score 57/100 (speakerReach=18, countryCount=4, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=5, translation=5, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
+   "language_id": "lang:apc",
+   "canonical_name": "Levantine Arabic",
+   "score": 57,
+   "parts": {
+    "speakerReach": 24,
+    "countryCount": 10,
+    "education": 0,
+    "travel": 5,
+    "business": 2,
+    "migration": 5,
+    "internetContentProxy": 4,
+    "learningDemandProxy": 4,
+    "ttsAsr": 0,
+    "translation": 0,
+    "dataConfidence": 3
+   },
+   "priority": "P3",
+   "reason": "score 57/100 (speakerReach=24, countryCount=10, education=0, travel=5, business=2, migration=5, internetContentProxy=4, learningDemandProxy=4, ttsAsr=0, translation=0, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
+   "language_id": "lang:heb",
+   "canonical_name": "Hebrew",
+   "score": 54,
+   "parts": {
+    "speakerReach": 18,
+    "countryCount": 2,
+    "education": 5,
+    "travel": 5,
+    "business": 3,
+    "migration": 0,
+    "internetContentProxy": 3,
+    "learningDemandProxy": 3,
+    "ttsAsr": 5,
+    "translation": 5,
+    "dataConfidence": 5
+   },
+   "priority": "P2",
+   "reason": "score 54/100 (speakerReach=18, countryCount=2, education=5, travel=5, business=3, migration=0, internetContentProxy=3, learningDemandProxy=3, ttsAsr=5, translation=5, dataConfidence=5)",
    "preliminary": true
   },
   {
@@ -507,6 +612,48 @@
    "preliminary": true
   },
   {
+   "language_id": "lang:ckb",
+   "canonical_name": "Central Kurdish (Sorani)",
+   "score": 53,
+   "parts": {
+    "speakerReach": 18,
+    "countryCount": 4,
+    "education": 5,
+    "travel": 4,
+    "business": 3,
+    "migration": 3,
+    "internetContentProxy": 3,
+    "learningDemandProxy": 3,
+    "ttsAsr": 2,
+    "translation": 5,
+    "dataConfidence": 3
+   },
+   "priority": "P2",
+   "reason": "score 53/100 (speakerReach=18, countryCount=4, education=5, travel=4, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=2, translation=5, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
+   "language_id": "lang:eng",
+   "canonical_name": "English",
+   "score": 53,
+   "parts": {
+    "speakerReach": 12,
+    "countryCount": 10,
+    "education": 5,
+    "travel": 5,
+    "business": 3,
+    "migration": 3,
+    "internetContentProxy": 2,
+    "learningDemandProxy": 2,
+    "ttsAsr": 5,
+    "translation": 5,
+    "dataConfidence": 1
+   },
+   "priority": "P1",
+   "reason": "pack live — full course candidate (score 53 overridden)",
+   "preliminary": true
+  },
+  {
    "language_id": "lang:bho",
    "canonical_name": "Bhojpuri",
    "score": 52,
@@ -549,6 +696,48 @@
    "preliminary": true
   },
   {
+   "language_id": "lang:kat",
+   "canonical_name": "Georgian",
+   "score": 51,
+   "parts": {
+    "speakerReach": 18,
+    "countryCount": 2,
+    "education": 5,
+    "travel": 5,
+    "business": 3,
+    "migration": 0,
+    "internetContentProxy": 3,
+    "learningDemandProxy": 3,
+    "ttsAsr": 2,
+    "translation": 5,
+    "dataConfidence": 5
+   },
+   "priority": "P2",
+   "reason": "score 51/100 (speakerReach=18, countryCount=2, education=5, travel=5, business=3, migration=0, internetContentProxy=3, learningDemandProxy=3, ttsAsr=2, translation=5, dataConfidence=5)",
+   "preliminary": true
+  },
+  {
+   "language_id": "lang:acm",
+   "canonical_name": "Mesopotamian Arabic",
+   "score": 51,
+   "parts": {
+    "speakerReach": 24,
+    "countryCount": 6,
+    "education": 0,
+    "travel": 5,
+    "business": 2,
+    "migration": 3,
+    "internetContentProxy": 4,
+    "learningDemandProxy": 4,
+    "ttsAsr": 0,
+    "translation": 0,
+    "dataConfidence": 3
+   },
+   "priority": "P3",
+   "reason": "score 51/100 (speakerReach=24, countryCount=6, education=0, travel=5, business=2, migration=3, internetContentProxy=4, learningDemandProxy=4, ttsAsr=0, translation=0, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
    "language_id": "lang:pbu",
    "canonical_name": "Northern Pashto",
    "score": 51,
@@ -570,6 +759,48 @@
    "preliminary": true
   },
   {
+   "language_id": "lang:azb",
+   "canonical_name": "South Azerbaijani",
+   "score": 49,
+   "parts": {
+    "speakerReach": 24,
+    "countryCount": 4,
+    "education": 0,
+    "travel": 5,
+    "business": 2,
+    "migration": 3,
+    "internetContentProxy": 4,
+    "learningDemandProxy": 4,
+    "ttsAsr": 0,
+    "translation": 0,
+    "dataConfidence": 3
+   },
+   "priority": "P3",
+   "reason": "score 49/100 (speakerReach=24, countryCount=4, education=0, travel=5, business=2, migration=3, internetContentProxy=4, learningDemandProxy=4, ttsAsr=0, translation=0, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
+   "language_id": "lang:afb",
+   "canonical_name": "Gulf Arabic",
+   "score": 47,
+   "parts": {
+    "speakerReach": 18,
+    "countryCount": 8,
+    "education": 0,
+    "travel": 5,
+    "business": 2,
+    "migration": 3,
+    "internetContentProxy": 3,
+    "learningDemandProxy": 3,
+    "ttsAsr": 0,
+    "translation": 0,
+    "dataConfidence": 5
+   },
+   "priority": "P3",
+   "reason": "score 47/100 (speakerReach=18, countryCount=8, education=0, travel=5, business=2, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=0, translation=0, dataConfidence=5)",
+   "preliminary": true
+  },
+  {
    "language_id": "lang:sat",
    "canonical_name": "Santali",
    "score": 47,
@@ -588,6 +819,27 @@
    },
    "priority": "P2",
    "reason": "score 47/100 (speakerReach=18, countryCount=4, education=5, travel=1, business=0, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=2, translation=5, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
+   "language_id": "lang:ars",
+   "canonical_name": "Najdi Arabic",
+   "score": 46,
+   "parts": {
+    "speakerReach": 24,
+    "countryCount": 2,
+    "education": 0,
+    "travel": 5,
+    "business": 2,
+    "migration": 0,
+    "internetContentProxy": 4,
+    "learningDemandProxy": 4,
+    "ttsAsr": 0,
+    "translation": 0,
+    "dataConfidence": 5
+   },
+   "priority": "P3",
+   "reason": "score 46/100 (speakerReach=24, countryCount=2, education=0, travel=5, business=2, migration=0, internetContentProxy=4, learningDemandProxy=4, ttsAsr=0, translation=0, dataConfidence=5)",
    "preliminary": true
   },
   {
@@ -633,8 +885,8 @@
    "preliminary": true
   },
   {
-   "language_id": "lang:azb",
-   "canonical_name": "South Azerbaijani",
+   "language_id": "lang:pnb",
+   "canonical_name": "Western Panjabi",
    "score": 46,
    "parts": {
     "speakerReach": 24,
@@ -654,24 +906,24 @@
    "preliminary": true
   },
   {
-   "language_id": "lang:pnb",
-   "canonical_name": "Western Panjabi",
-   "score": 46,
+   "language_id": "lang:fil",
+   "canonical_name": "Filipino",
+   "score": 42,
    "parts": {
-    "speakerReach": 24,
-    "countryCount": 2,
+    "speakerReach": 12,
+    "countryCount": 8,
     "education": 0,
-    "travel": 5,
-    "business": 2,
-    "migration": 0,
-    "internetContentProxy": 4,
-    "learningDemandProxy": 4,
-    "ttsAsr": 0,
-    "translation": 0,
-    "dataConfidence": 5
+    "travel": 0,
+    "business": 0,
+    "migration": 5,
+    "internetContentProxy": 2,
+    "learningDemandProxy": 2,
+    "ttsAsr": 5,
+    "translation": 5,
+    "dataConfidence": 3
    },
-   "priority": "P3",
-   "reason": "score 46/100 (speakerReach=24, countryCount=2, education=0, travel=5, business=2, migration=0, internetContentProxy=4, learningDemandProxy=4, ttsAsr=0, translation=0, dataConfidence=5)",
+   "priority": "P2",
+   "reason": "score 42/100 (speakerReach=12, countryCount=8, education=0, travel=0, business=0, migration=5, internetContentProxy=2, learningDemandProxy=2, ttsAsr=5, translation=5, dataConfidence=3)",
    "preliminary": true
   },
   {
@@ -696,24 +948,87 @@
    "preliminary": true
   },
   {
-   "language_id": "lang:ckb",
-   "canonical_name": "Central Kurdish (Sorani)",
-   "score": 38,
+   "language_id": "lang:acw",
+   "canonical_name": "Hejazi Arabic",
+   "score": 41,
    "parts": {
-    "speakerReach": 18,
+    "speakerReach": 24,
     "countryCount": 2,
     "education": 0,
     "travel": 2,
     "business": 0,
     "migration": 0,
-    "internetContentProxy": 3,
-    "learningDemandProxy": 3,
-    "ttsAsr": 2,
+    "internetContentProxy": 4,
+    "learningDemandProxy": 4,
+    "ttsAsr": 0,
+    "translation": 0,
+    "dataConfidence": 5
+   },
+   "priority": "P3",
+   "reason": "score 41/100 (speakerReach=24, countryCount=2, education=0, travel=2, business=0, migration=0, internetContentProxy=4, learningDemandProxy=4, ttsAsr=0, translation=0, dataConfidence=5)",
+   "preliminary": true
+  },
+  {
+   "language_id": "lang:arb",
+   "canonical_name": "Standard Arabic",
+   "score": 40,
+   "parts": {
+    "speakerReach": 3,
+    "countryCount": 10,
+    "education": 5,
+    "travel": 4,
+    "business": 3,
+    "migration": 0,
+    "internetContentProxy": 1,
+    "learningDemandProxy": 1,
+    "ttsAsr": 5,
     "translation": 5,
     "dataConfidence": 3
    },
+   "priority": "P2",
+   "reason": "score 40/100 (speakerReach=3, countryCount=10, education=5, travel=4, business=3, migration=0, internetContentProxy=1, learningDemandProxy=1, ttsAsr=5, translation=5, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
+   "language_id": "lang:ayn",
+   "canonical_name": "Sanaani Arabic",
+   "score": 39,
+   "parts": {
+    "speakerReach": 24,
+    "countryCount": 2,
+    "education": 0,
+    "travel": 2,
+    "business": 0,
+    "migration": 0,
+    "internetContentProxy": 4,
+    "learningDemandProxy": 4,
+    "ttsAsr": 0,
+    "translation": 0,
+    "dataConfidence": 3
+   },
    "priority": "P3",
-   "reason": "score 38/100 (speakerReach=18, countryCount=2, education=0, travel=2, business=0, migration=0, internetContentProxy=3, learningDemandProxy=3, ttsAsr=2, translation=5, dataConfidence=3)",
+   "reason": "score 39/100 (speakerReach=24, countryCount=2, education=0, travel=2, business=0, migration=0, internetContentProxy=4, learningDemandProxy=4, ttsAsr=0, translation=0, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
+   "language_id": "lang:acq",
+   "canonical_name": "Ta'izzi-Adeni Arabic",
+   "score": 39,
+   "parts": {
+    "speakerReach": 24,
+    "countryCount": 2,
+    "education": 0,
+    "travel": 2,
+    "business": 0,
+    "migration": 0,
+    "internetContentProxy": 4,
+    "learningDemandProxy": 4,
+    "ttsAsr": 0,
+    "translation": 0,
+    "dataConfidence": 3
+   },
+   "priority": "P3",
+   "reason": "score 39/100 (speakerReach=24, countryCount=2, education=0, travel=2, business=0, migration=0, internetContentProxy=4, learningDemandProxy=4, ttsAsr=0, translation=0, dataConfidence=3)",
    "preliminary": true
   },
   {
@@ -738,24 +1053,24 @@
    "preliminary": true
   },
   {
-   "language_id": "lang:kmr",
-   "canonical_name": "Northern Kurdish (Kurmanji)",
+   "language_id": "lang:acx",
+   "canonical_name": "Omani Arabic",
    "score": 38,
    "parts": {
     "speakerReach": 18,
     "countryCount": 2,
     "education": 0,
-    "travel": 2,
-    "business": 0,
+    "travel": 5,
+    "business": 2,
     "migration": 0,
     "internetContentProxy": 3,
     "learningDemandProxy": 3,
-    "ttsAsr": 2,
-    "translation": 5,
-    "dataConfidence": 3
+    "ttsAsr": 0,
+    "translation": 0,
+    "dataConfidence": 5
    },
    "priority": "P3",
-   "reason": "score 38/100 (speakerReach=18, countryCount=2, education=0, travel=2, business=0, migration=0, internetContentProxy=3, learningDemandProxy=3, ttsAsr=2, translation=5, dataConfidence=3)",
+   "reason": "score 38/100 (speakerReach=18, countryCount=2, education=0, travel=5, business=2, migration=0, internetContentProxy=3, learningDemandProxy=3, ttsAsr=0, translation=0, dataConfidence=5)",
    "preliminary": true
   },
   {
@@ -906,6 +1221,27 @@
    "preliminary": true
   },
   {
+   "language_id": "lang:rhg",
+   "canonical_name": "Rohingya",
+   "score": 35,
+   "parts": {
+    "speakerReach": 18,
+    "countryCount": 4,
+    "education": 0,
+    "travel": 1,
+    "business": 0,
+    "migration": 5,
+    "internetContentProxy": 3,
+    "learningDemandProxy": 3,
+    "ttsAsr": 0,
+    "translation": 0,
+    "dataConfidence": 1
+   },
+   "priority": "P3",
+   "reason": "score 35/100 (speakerReach=18, countryCount=4, education=0, travel=1, business=0, migration=5, internetContentProxy=3, learningDemandProxy=3, ttsAsr=0, translation=0, dataConfidence=1)",
+   "preliminary": true
+  },
+  {
    "language_id": "lang:tat",
    "canonical_name": "Tatar",
    "score": 34,
@@ -924,69 +1260,6 @@
    },
    "priority": "P3",
    "reason": "score 34/100 (speakerReach=12, countryCount=4, education=0, travel=1, business=0, migration=3, internetContentProxy=2, learningDemandProxy=2, ttsAsr=2, translation=5, dataConfidence=3)",
-   "preliminary": true
-  },
-  {
-   "language_id": "lang:tur",
-   "canonical_name": "Turkish",
-   "score": 33,
-   "parts": {
-    "speakerReach": 12,
-    "countryCount": 2,
-    "education": 0,
-    "travel": 2,
-    "business": 0,
-    "migration": 0,
-    "internetContentProxy": 2,
-    "learningDemandProxy": 2,
-    "ttsAsr": 5,
-    "translation": 5,
-    "dataConfidence": 3
-   },
-   "priority": "P3",
-   "reason": "score 33/100 (speakerReach=12, countryCount=2, education=0, travel=2, business=0, migration=0, internetContentProxy=2, learningDemandProxy=2, ttsAsr=5, translation=5, dataConfidence=3)",
-   "preliminary": true
-  },
-  {
-   "language_id": "lang:hye",
-   "canonical_name": "Armenian",
-   "score": 32,
-   "parts": {
-    "speakerReach": 12,
-    "countryCount": 2,
-    "education": 0,
-    "travel": 1,
-    "business": 0,
-    "migration": 0,
-    "internetContentProxy": 2,
-    "learningDemandProxy": 2,
-    "ttsAsr": 5,
-    "translation": 5,
-    "dataConfidence": 3
-   },
-   "priority": "P3",
-   "reason": "score 32/100 (speakerReach=12, countryCount=2, education=0, travel=1, business=0, migration=0, internetContentProxy=2, learningDemandProxy=2, ttsAsr=5, translation=5, dataConfidence=3)",
-   "preliminary": true
-  },
-  {
-   "language_id": "lang:azj",
-   "canonical_name": "Azerbaijani",
-   "score": 32,
-   "parts": {
-    "speakerReach": 12,
-    "countryCount": 2,
-    "education": 0,
-    "travel": 1,
-    "business": 0,
-    "migration": 0,
-    "internetContentProxy": 2,
-    "learningDemandProxy": 2,
-    "ttsAsr": 5,
-    "translation": 5,
-    "dataConfidence": 3
-   },
-   "priority": "P3",
-   "reason": "score 32/100 (speakerReach=12, countryCount=2, education=0, travel=1, business=0, migration=0, internetContentProxy=2, learningDemandProxy=2, ttsAsr=5, translation=5, dataConfidence=3)",
    "preliminary": true
   },
   {
@@ -1013,6 +1286,27 @@
   {
    "language_id": "lang:glk",
    "canonical_name": "Gilaki",
+   "score": 31,
+   "parts": {
+    "speakerReach": 18,
+    "countryCount": 2,
+    "education": 0,
+    "travel": 2,
+    "business": 0,
+    "migration": 0,
+    "internetContentProxy": 3,
+    "learningDemandProxy": 3,
+    "ttsAsr": 0,
+    "translation": 0,
+    "dataConfidence": 3
+   },
+   "priority": "P3",
+   "reason": "score 31/100 (speakerReach=18, countryCount=2, education=0, travel=2, business=0, migration=0, internetContentProxy=3, learningDemandProxy=3, ttsAsr=0, translation=0, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
+   "language_id": "lang:ayh",
+   "canonical_name": "Hadrami Arabic",
    "score": 31,
    "parts": {
     "speakerReach": 18,
@@ -1095,6 +1389,27 @@
    "preliminary": true
   },
   {
+   "language_id": "lang:kiu",
+   "canonical_name": "Northern Zaza (Kirmanjki)",
+   "score": 31,
+   "parts": {
+    "speakerReach": 18,
+    "countryCount": 2,
+    "education": 0,
+    "travel": 2,
+    "business": 0,
+    "migration": 0,
+    "internetContentProxy": 3,
+    "learningDemandProxy": 3,
+    "ttsAsr": 0,
+    "translation": 0,
+    "dataConfidence": 3
+   },
+   "priority": "P3",
+   "reason": "score 31/100 (speakerReach=18, countryCount=2, education=0, travel=2, business=0, migration=0, internetContentProxy=3, learningDemandProxy=3, ttsAsr=0, translation=0, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
    "language_id": "lang:hnd",
    "canonical_name": "Southern Hindko",
    "score": 31,
@@ -1158,6 +1473,27 @@
    "preliminary": true
   },
   {
+   "language_id": "lang:diq",
+   "canonical_name": "Southern Zaza (Dimli)",
+   "score": 31,
+   "parts": {
+    "speakerReach": 18,
+    "countryCount": 2,
+    "education": 0,
+    "travel": 2,
+    "business": 0,
+    "migration": 0,
+    "internetContentProxy": 3,
+    "learningDemandProxy": 3,
+    "ttsAsr": 0,
+    "translation": 0,
+    "dataConfidence": 3
+   },
+   "priority": "P3",
+   "reason": "score 31/100 (speakerReach=18, countryCount=2, education=0, travel=2, business=0, migration=0, internetContentProxy=3, learningDemandProxy=3, ttsAsr=0, translation=0, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
    "language_id": "lang:bgn",
    "canonical_name": "Western Balochi",
    "score": 31,
@@ -1179,50 +1515,29 @@
    "preliminary": true
   },
   {
+   "language_id": "lang:amh",
+   "canonical_name": "Amharic",
+   "score": 30,
+   "parts": {
+    "speakerReach": 12,
+    "countryCount": 2,
+    "education": 0,
+    "travel": 0,
+    "business": 0,
+    "migration": 2,
+    "internetContentProxy": 2,
+    "learningDemandProxy": 2,
+    "ttsAsr": 2,
+    "translation": 5,
+    "dataConfidence": 3
+   },
+   "priority": "P3",
+   "reason": "score 30/100 (speakerReach=12, countryCount=2, education=0, travel=0, business=0, migration=2, internetContentProxy=2, learningDemandProxy=2, ttsAsr=2, translation=5, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
    "language_id": "lang:gju",
    "canonical_name": "Gujari",
-   "score": 30,
-   "parts": {
-    "speakerReach": 18,
-    "countryCount": 2,
-    "education": 0,
-    "travel": 1,
-    "business": 0,
-    "migration": 0,
-    "internetContentProxy": 3,
-    "learningDemandProxy": 3,
-    "ttsAsr": 0,
-    "translation": 0,
-    "dataConfidence": 3
-   },
-   "priority": "P3",
-   "reason": "score 30/100 (speakerReach=18, countryCount=2, education=0, travel=1, business=0, migration=0, internetContentProxy=3, learningDemandProxy=3, ttsAsr=0, translation=0, dataConfidence=3)",
-   "preliminary": true
-  },
-  {
-   "language_id": "lang:acm",
-   "canonical_name": "Mesopotamian Arabic",
-   "score": 30,
-   "parts": {
-    "speakerReach": 18,
-    "countryCount": 2,
-    "education": 0,
-    "travel": 1,
-    "business": 0,
-    "migration": 0,
-    "internetContentProxy": 3,
-    "learningDemandProxy": 3,
-    "ttsAsr": 0,
-    "translation": 0,
-    "dataConfidence": 3
-   },
-   "priority": "P3",
-   "reason": "score 30/100 (speakerReach=18, countryCount=2, education=0, travel=1, business=0, migration=0, internetContentProxy=3, learningDemandProxy=3, ttsAsr=0, translation=0, dataConfidence=3)",
-   "preliminary": true
-  },
-  {
-   "language_id": "lang:rhg",
-   "canonical_name": "Rohingya",
    "score": 30,
    "parts": {
     "speakerReach": 18,
@@ -1281,6 +1596,48 @@
    },
    "priority": "P3",
    "reason": "score 30/100 (speakerReach=12, countryCount=2, education=0, travel=2, business=0, migration=0, internetContentProxy=2, learningDemandProxy=2, ttsAsr=2, translation=5, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
+   "language_id": "lang:ydd",
+   "canonical_name": "Eastern Yiddish",
+   "score": 29,
+   "parts": {
+    "speakerReach": 12,
+    "countryCount": 2,
+    "education": 0,
+    "travel": 1,
+    "business": 0,
+    "migration": 0,
+    "internetContentProxy": 2,
+    "learningDemandProxy": 2,
+    "ttsAsr": 2,
+    "translation": 5,
+    "dataConfidence": 3
+   },
+   "priority": "P3",
+   "reason": "score 29/100 (speakerReach=12, countryCount=2, education=0, travel=1, business=0, migration=0, internetContentProxy=2, learningDemandProxy=2, ttsAsr=2, translation=5, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
+   "language_id": "lang:fra",
+   "canonical_name": "French",
+   "score": 29,
+   "parts": {
+    "speakerReach": 3,
+    "countryCount": 2,
+    "education": 0,
+    "travel": 5,
+    "business": 2,
+    "migration": 0,
+    "internetContentProxy": 1,
+    "learningDemandProxy": 1,
+    "ttsAsr": 5,
+    "translation": 5,
+    "dataConfidence": 5
+   },
+   "priority": "P3",
+   "reason": "score 29/100 (speakerReach=3, countryCount=2, education=0, travel=5, business=2, migration=0, internetContentProxy=1, learningDemandProxy=1, ttsAsr=5, translation=5, dataConfidence=5)",
    "preliminary": true
   },
   {
@@ -1368,6 +1725,48 @@
    "preliminary": true
   },
   {
+   "language_id": "lang:aii",
+   "canonical_name": "Assyrian Neo-Aramaic",
+   "score": 27,
+   "parts": {
+    "speakerReach": 12,
+    "countryCount": 4,
+    "education": 0,
+    "travel": 1,
+    "business": 0,
+    "migration": 3,
+    "internetContentProxy": 2,
+    "learningDemandProxy": 2,
+    "ttsAsr": 0,
+    "translation": 0,
+    "dataConfidence": 3
+   },
+   "priority": "P3",
+   "reason": "score 27/100 (speakerReach=12, countryCount=4, education=0, travel=1, business=0, migration=3, internetContentProxy=2, learningDemandProxy=2, ttsAsr=0, translation=0, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
+   "language_id": "lang:tly",
+   "canonical_name": "Talysh",
+   "score": 27,
+   "parts": {
+    "speakerReach": 12,
+    "countryCount": 4,
+    "education": 0,
+    "travel": 1,
+    "business": 0,
+    "migration": 3,
+    "internetContentProxy": 2,
+    "learningDemandProxy": 2,
+    "ttsAsr": 0,
+    "translation": 0,
+    "dataConfidence": 3
+   },
+   "priority": "P3",
+   "reason": "score 27/100 (speakerReach=12, countryCount=4, education=0, travel=1, business=0, migration=3, internetContentProxy=2, learningDemandProxy=2, ttsAsr=0, translation=0, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
    "language_id": "lang:bft",
    "canonical_name": "Balti",
    "score": 25,
@@ -1452,24 +1851,24 @@
    "preliminary": true
   },
   {
-   "language_id": "lang:arb",
-   "canonical_name": "Standard Arabic",
-   "score": 24,
+   "language_id": "lang:abk",
+   "canonical_name": "Abkhaz",
+   "score": 23,
    "parts": {
-    "speakerReach": 3,
-    "countryCount": 6,
+    "speakerReach": 12,
+    "countryCount": 2,
     "education": 0,
-    "travel": 0,
+    "travel": 2,
     "business": 0,
     "migration": 0,
-    "internetContentProxy": 1,
-    "learningDemandProxy": 1,
-    "ttsAsr": 5,
-    "translation": 5,
+    "internetContentProxy": 2,
+    "learningDemandProxy": 2,
+    "ttsAsr": 0,
+    "translation": 0,
     "dataConfidence": 3
    },
    "priority": "P3",
-   "reason": "score 24/100 (speakerReach=3, countryCount=6, education=0, travel=0, business=0, migration=0, internetContentProxy=1, learningDemandProxy=1, ttsAsr=5, translation=5, dataConfidence=3)",
+   "reason": "score 23/100 (speakerReach=12, countryCount=2, education=0, travel=2, business=0, migration=0, internetContentProxy=2, learningDemandProxy=2, ttsAsr=0, translation=0, dataConfidence=3)",
    "preliminary": true
   },
   {
@@ -1554,6 +1953,48 @@
    },
    "priority": "P3",
    "reason": "score 23/100 (speakerReach=12, countryCount=2, education=0, travel=2, business=0, migration=0, internetContentProxy=2, learningDemandProxy=2, ttsAsr=0, translation=0, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
+   "language_id": "lang:xmf",
+   "canonical_name": "Mingrelian",
+   "score": 23,
+   "parts": {
+    "speakerReach": 12,
+    "countryCount": 2,
+    "education": 0,
+    "travel": 2,
+    "business": 0,
+    "migration": 0,
+    "internetContentProxy": 2,
+    "learningDemandProxy": 2,
+    "ttsAsr": 0,
+    "translation": 0,
+    "dataConfidence": 3
+   },
+   "priority": "P3",
+   "reason": "score 23/100 (speakerReach=12, countryCount=2, education=0, travel=2, business=0, migration=0, internetContentProxy=2, learningDemandProxy=2, ttsAsr=0, translation=0, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
+   "language_id": "lang:ady",
+   "canonical_name": "Adyghe (Circassian)",
+   "score": 22,
+   "parts": {
+    "speakerReach": 12,
+    "countryCount": 2,
+    "education": 0,
+    "travel": 1,
+    "business": 0,
+    "migration": 0,
+    "internetContentProxy": 2,
+    "learningDemandProxy": 2,
+    "ttsAsr": 0,
+    "translation": 0,
+    "dataConfidence": 3
+   },
+   "priority": "P3",
+   "reason": "score 22/100 (speakerReach=12, countryCount=2, education=0, travel=1, business=0, migration=0, internetContentProxy=2, learningDemandProxy=2, ttsAsr=0, translation=0, dataConfidence=3)",
    "preliminary": true
   },
   {
@@ -1662,6 +2103,27 @@
    "preliminary": true
   },
   {
+   "language_id": "lang:lez",
+   "canonical_name": "Lezgian",
+   "score": 22,
+   "parts": {
+    "speakerReach": 12,
+    "countryCount": 2,
+    "education": 0,
+    "travel": 1,
+    "business": 0,
+    "migration": 0,
+    "internetContentProxy": 2,
+    "learningDemandProxy": 2,
+    "ttsAsr": 0,
+    "translation": 0,
+    "dataConfidence": 3
+   },
+   "priority": "P3",
+   "reason": "score 22/100 (speakerReach=12, countryCount=2, education=0, travel=1, business=0, migration=0, internetContentProxy=2, learningDemandProxy=2, ttsAsr=0, translation=0, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
    "language_id": "lang:rmz",
    "canonical_name": "Marma",
    "score": 22,
@@ -1706,27 +2168,6 @@
   {
    "language_id": "lang:rki",
    "canonical_name": "Rakhine",
-   "score": 22,
-   "parts": {
-    "speakerReach": 12,
-    "countryCount": 2,
-    "education": 0,
-    "travel": 1,
-    "business": 0,
-    "migration": 0,
-    "internetContentProxy": 2,
-    "learningDemandProxy": 2,
-    "ttsAsr": 0,
-    "translation": 0,
-    "dataConfidence": 3
-   },
-   "priority": "P3",
-   "reason": "score 22/100 (speakerReach=12, countryCount=2, education=0, travel=1, business=0, migration=0, internetContentProxy=2, learningDemandProxy=2, ttsAsr=0, translation=0, dataConfidence=3)",
-   "preliminary": true
-  },
-  {
-   "language_id": "lang:tly",
-   "canonical_name": "Talysh",
    "score": 22,
    "parts": {
     "speakerReach": 12,
@@ -1830,27 +2271,6 @@
    "preliminary": true
   },
   {
-   "language_id": "lang:aii",
-   "canonical_name": "Assyrian Neo-Aramaic",
-   "score": 14,
-   "parts": {
-    "speakerReach": 6,
-    "countryCount": 2,
-    "education": 0,
-    "travel": 1,
-    "business": 0,
-    "migration": 0,
-    "internetContentProxy": 1,
-    "learningDemandProxy": 1,
-    "ttsAsr": 0,
-    "translation": 0,
-    "dataConfidence": 3
-   },
-   "priority": "P4",
-   "reason": "score 14/100 (speakerReach=6, countryCount=2, education=0, travel=1, business=0, migration=0, internetContentProxy=1, learningDemandProxy=1, ttsAsr=0, translation=0, dataConfidence=3)",
-   "preliminary": true
-  },
-  {
    "language_id": "lang:sgh",
    "canonical_name": "Shughni",
    "score": 14,
@@ -1935,6 +2355,48 @@
    "preliminary": true
   },
   {
+   "language_id": "lang:aen",
+   "canonical_name": "Armenian Sign Language",
+   "score": 10,
+   "parts": {
+    "speakerReach": 3,
+    "countryCount": 2,
+    "education": 0,
+    "travel": 0,
+    "business": 0,
+    "migration": 0,
+    "internetContentProxy": 1,
+    "learningDemandProxy": 1,
+    "ttsAsr": 0,
+    "translation": 0,
+    "dataConfidence": 3
+   },
+   "priority": "P4",
+   "reason": "score 10/100 (speakerReach=3, countryCount=2, education=0, travel=0, business=0, migration=0, internetContentProxy=1, learningDemandProxy=1, ttsAsr=0, translation=0, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
+   "language_id": "lang:dyl",
+   "canonical_name": "Bhutanese Sign Language",
+   "score": 10,
+   "parts": {
+    "speakerReach": 3,
+    "countryCount": 2,
+    "education": 0,
+    "travel": 0,
+    "business": 0,
+    "migration": 0,
+    "internetContentProxy": 1,
+    "learningDemandProxy": 1,
+    "ttsAsr": 0,
+    "translation": 0,
+    "dataConfidence": 3
+   },
+   "priority": "P4",
+   "reason": "score 10/100 (speakerReach=3, countryCount=2, education=0, travel=0, business=0, migration=0, internetContentProxy=1, learningDemandProxy=1, ttsAsr=0, translation=0, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
    "language_id": "lang:xct",
    "canonical_name": "Classical Tibetan",
    "score": 10,
@@ -1958,6 +2420,48 @@
   {
    "language_id": "lang:ins",
    "canonical_name": "Indian Sign Language",
+   "score": 10,
+   "parts": {
+    "speakerReach": 3,
+    "countryCount": 2,
+    "education": 0,
+    "travel": 0,
+    "business": 0,
+    "migration": 0,
+    "internetContentProxy": 1,
+    "learningDemandProxy": 1,
+    "ttsAsr": 0,
+    "translation": 0,
+    "dataConfidence": 3
+   },
+   "priority": "P4",
+   "reason": "score 10/100 (speakerReach=3, countryCount=2, education=0, travel=0, business=0, migration=0, internetContentProxy=1, learningDemandProxy=1, ttsAsr=0, translation=0, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
+   "language_id": "lang:isr",
+   "canonical_name": "Israeli Sign Language",
+   "score": 10,
+   "parts": {
+    "speakerReach": 3,
+    "countryCount": 2,
+    "education": 0,
+    "travel": 0,
+    "business": 0,
+    "migration": 0,
+    "internetContentProxy": 1,
+    "learningDemandProxy": 1,
+    "ttsAsr": 0,
+    "translation": 0,
+    "dataConfidence": 3
+   },
+   "priority": "P4",
+   "reason": "score 10/100 (speakerReach=3, countryCount=2, education=0, travel=0, business=0, migration=0, internetContentProxy=1, learningDemandProxy=1, ttsAsr=0, translation=0, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
+   "language_id": "lang:jos",
+   "canonical_name": "Jordanian Sign Language",
    "score": 10,
    "parts": {
     "speakerReach": 3,
@@ -2040,8 +2544,50 @@
    "preliminary": true
   },
   {
+   "language_id": "lang:sdl",
+   "canonical_name": "Saudi Arabian Sign Language",
+   "score": 10,
+   "parts": {
+    "speakerReach": 3,
+    "countryCount": 2,
+    "education": 0,
+    "travel": 0,
+    "business": 0,
+    "migration": 0,
+    "internetContentProxy": 1,
+    "learningDemandProxy": 1,
+    "ttsAsr": 0,
+    "translation": 0,
+    "dataConfidence": 3
+   },
+   "priority": "P4",
+   "reason": "score 10/100 (speakerReach=3, countryCount=2, education=0, travel=0, business=0, migration=0, internetContentProxy=1, learningDemandProxy=1, ttsAsr=0, translation=0, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
    "language_id": "lang:sqs",
    "canonical_name": "Sri Lankan Sign Language",
+   "score": 10,
+   "parts": {
+    "speakerReach": 3,
+    "countryCount": 2,
+    "education": 0,
+    "travel": 0,
+    "business": 0,
+    "migration": 0,
+    "internetContentProxy": 1,
+    "learningDemandProxy": 1,
+    "ttsAsr": 0,
+    "translation": 0,
+    "dataConfidence": 3
+   },
+   "priority": "P4",
+   "reason": "score 10/100 (speakerReach=3, countryCount=2, education=0, travel=0, business=0, migration=0, internetContentProxy=1, learningDemandProxy=1, ttsAsr=0, translation=0, dataConfidence=3)",
+   "preliminary": true
+  },
+  {
+   "language_id": "lang:tsm",
+   "canonical_name": "Turkish Sign Language",
    "score": 10,
    "parts": {
     "speakerReach": 3,

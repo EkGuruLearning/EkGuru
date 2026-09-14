@@ -1,7 +1,7 @@
 # Language Data Sources (Phase 13) + API Cross-Check Log (Phase 11)
 
 Pass 1 · Date: 2026-09-14. Machine-readable registry:
-`data/language-inventory/core/_sources.json` (44 keys: 33 batch-1 + 11 batch-2).
+`data/language-inventory/core/_sources.json` (71 keys: 33 batch-1 + 11 batch-2 + 27 batch-3).
 Usage counts below are batch-1 actuals (southern-asia, 9 countries).
 
 ## 1. Source hierarchy (METHOD Phase 1 — applied)
@@ -54,6 +54,17 @@ Tier B: kz-census-2021 (19.17M), kg-census-2022 (6.94M), tj-census-2020
 uz-stat-committee (ESTIMATES — last full census 1989).
 All URLs null-with-portal-reason (archive pass 2).
 
+## 2c. Batch-3 keys (western-asia, 16 countries) + Gulf-immigrant protocol
+
+18 tier-A (constitutions/statutes incl. TR Art.3, IQ Art.4+125, IL 2018 law,
+de-facto abkhazia-constitution) + 9 tier-B/C (AM/AZ/GE/JO censuses, IQ-2024 partial,
+IL-CBS surveys, lb-no-census-1932 gap-record, sa-gastat, gulf-press-estimates).
+Gulf-immigrant protocol (applied uniformly, documented here): enter (a) community-L1
+cases (fil/ben/npi/sin), (b) community lingua-francas (hin/urd), (c) unambiguous
+state groups (mal in AE/SA only); long-tail everything softer (tam/tel/splits) with
+a NO-FABRICATION clause; arz folds into MSA planning everywhere (counts in long-tail);
+entries require a citable size basis (pure guesses long-tail regardless of size).
+
 ## 3. Registry keys: used vs reserved
 
 iso-639-3 (SIL table bulk check) — NOW USED (NP Magar mrd→mgp merger, AF afg code confirmation).
@@ -72,6 +83,7 @@ wfd (sign-language authority — direct deaf-org consultation pending).
 | Sign codes (web check 2026-09-14, WFD-adjacent sources) | afg/ins/nsp/pks/psc/sqs/wbs verified in SIL table; IPSL unity dispute (Zeshan 2000) noted on ins | PARTIAL — Afghan SL mis→afg fixed; BdSL/BT/MV genuinely uncoded (disputes stand, narrowed); direct deaf-org consultation still pending |
 | Census portals | India 2011 tables (manual, prior knowledge); PK 2023 press releases; NP 2021 report | re-verify with URLs in pass 2 |
 | Batch-2 pre-verification (2026-09-14) | 13 new codes vs SIL download (existence/scope/Part1/retirements) + full name-identity audit of batch-1 + long-tail code hunt | CLEAN except 1 real catch: uzn/uzs North/South swap (AF entry + canonical fixed). Rushani/Bartangi/Khufi/Lyuli confirmed uncoded |
+| Batch-3 pre-verification (2026-09-14) | 25 new codes vs SIL + full sign-code hunt + long-tail hunt + retro batch-2 long-tail audit | 5 traps caught UPFRONT (adh=Adhola→ady, sqh=Shau→sqt, jor=Jorá→jos, ce→che incl. batch-2 fix, BT sign mis→dyl); ajp→apc 2023 merger applied; yid/zza/kur macro maps recorded |
 
 ## 5. Rules for batch authors (binding)
 

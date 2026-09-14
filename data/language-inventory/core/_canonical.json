@@ -1,6 +1,15 @@
 {
  "note": "Canonical-level facts per ISO 639-3 code (batch 1). Joined by tools/build-inventory.py onto relationship records. tts/translation: true(confident yes) / false(confident no) / null(unknown→review) / na(sign language, not applicable). glottocode: null everywhere in pass 1 — never guessed (Phase 3 allows null).",
  "canonical": {
+  "abk": {
+   "family": "Northwest Caucasian",
+   "script": "Cyrl",
+   "native": "Аҧсуа бызшәа",
+   "tts": false,
+   "translation": false,
+   "notes": "639-1 ab (SIL). De-facto official (Abkhazia constitution); Cyrillic official, Mkhedruli historic.",
+   "iso639_1": "ab"
+  },
   "acm": {
    "family": "Afro-Asiatic: Semitic",
    "script": "Arab",
@@ -8,6 +17,55 @@
    "tts": false,
    "translation": false,
    "notes": "MSA (ar) tools do not cover Mesopotamian dialect"
+  },
+  "acq": {
+   "family": "Afro-Asiatic: Semitic",
+   "script": "Arab",
+   "native": "تعزي-عدني",
+   "tts": false,
+   "translation": false,
+   "notes": "MSA (arb) tools do not cover this variety. South Yemen; war-soft figures."
+  },
+  "acw": {
+   "family": "Afro-Asiatic: Semitic",
+   "script": "Arab",
+   "native": "حجازي",
+   "tts": false,
+   "translation": false,
+   "notes": "MSA (arb) tools do not cover this variety. Hejaz; pilgrim-city contact effects."
+  },
+  "acx": {
+   "family": "Afro-Asiatic: Semitic",
+   "script": "Arab",
+   "native": "عماني",
+   "tts": false,
+   "translation": false,
+   "notes": "MSA (arb) tools do not cover this variety. Most conservative Gulf variety (interdentals kept). Distinct from Shihhi."
+  },
+  "ady": {
+   "family": "Northwest Caucasian",
+   "script": "Latn",
+   "native": "Адыгабзэ",
+   "tts": false,
+   "translation": false,
+   "notes": "Adyghe/Circassian. Canonical Latn (bigger TR-diaspora community); RU homeland uses Cyrillic (override later). Pre-verification caught adh=Adhola trap."
+  },
+  "aen": {
+   "family": null,
+   "script": null,
+   "native": null,
+   "type": "SIGN_LANGUAGE",
+   "tts": "na",
+   "translation": "na",
+   "notes": "Armenian SL; Yerevan network, post-Soviet standardisation."
+  },
+  "afb": {
+   "family": "Afro-Asiatic: Semitic",
+   "script": "Arab",
+   "native": "خليجي",
+   "tts": false,
+   "translation": false,
+   "notes": "MSA (arb) tools do not cover this variety. Gulf koine (AE/SA-East/QA/KW/BH); Kuwaiti drama-dialect famous."
   },
   "afg": {
    "family": null,
@@ -25,6 +83,23 @@
    "tts": false,
    "translation": false
   },
+  "amh": {
+   "family": "Afro-Asiatic: Semitic: Ethiosemitic",
+   "script": "Ethi",
+   "native": "አማርኛ",
+   "tts": false,
+   "translation": true,
+   "notes": "639-1 am (SIL). IL Ethiopian-Jewish community; ET homeland in future batch.",
+   "iso639_1": "am"
+  },
+  "apc": {
+   "family": "Afro-Asiatic: Semitic",
+   "script": "Arab",
+   "native": "شامي",
+   "tts": false,
+   "translation": false,
+   "notes": "MSA (arb) tools do not cover this variety. ajp (South Levantine) retired 2023-01-20 → merged here; JO/Palestinian/Syrian/LB/IL all apc."
+  },
   "arb": {
    "family": "Afro-Asiatic: Semitic",
    "script": "Arab",
@@ -32,6 +107,14 @@
    "tts": true,
    "translation": true,
    "notes": "iso639_1 'ar' is the Arabic macrolanguage; MSA coverage SIL bulk 2026-09-14: no Part1 on this code; 639-1 belongs to macro 'ara'."
+  },
+  "ars": {
+   "family": "Afro-Asiatic: Semitic",
+   "script": "Arab",
+   "native": "نجدي",
+   "tts": false,
+   "translation": false,
+   "notes": "MSA (arb) tools do not cover this variety. Riyadh-media prestige; E. Syria/SW Iraq spillover."
   },
   "asm": {
    "family": "Indo-European: Indo-Aryan",
@@ -49,6 +132,22 @@
    "native": "अवधी",
    "tts": false,
    "translation": false
+  },
+  "ayh": {
+   "family": "Afro-Asiatic: Semitic",
+   "script": "Arab",
+   "native": "حضرمي",
+   "tts": false,
+   "translation": false,
+   "notes": "MSA (arb) tools do not cover this variety. Hadramawt + sleeper diaspora (SE Asia/E. Africa heritage demand)."
+  },
+  "ayn": {
+   "family": "Afro-Asiatic: Semitic",
+   "script": "Arab",
+   "native": "صنعاني",
+   "tts": false,
+   "translation": false,
+   "notes": "MSA (arb) tools do not cover this variety. Highland Yemen; qaf-shibboleth famous; war-soft figures."
   },
   "azb": {
    "family": "Turkic: Oghuz",
@@ -156,6 +255,14 @@
    "translationConf": "medium",
    "notes": "Google Translate Sorani present (medium); TTS unknown"
   },
+  "diq": {
+   "family": "Indo-European: Iranian: Zaza",
+   "script": "Latn",
+   "native": null,
+   "tts": false,
+   "translation": false,
+   "notes": "SIL 'Dimli (individual language)'; Zaza macro (zza) member with kiu. Diyarbakır-side. Native verify (Jacobson Latin)."
+  },
   "div": {
    "family": "Indo-European: Indo-Aryan",
    "script": "Thaa",
@@ -192,6 +299,15 @@
    "tts": false,
    "translation": false
   },
+  "dyl": {
+   "family": null,
+   "script": null,
+   "native": null,
+   "type": "SIGN_LANGUAGE",
+   "tts": "na",
+   "translation": "na",
+   "notes": "Batch-3 sign hunt: code dyl confirmed (was mis/disputed in batch 1)."
+  },
   "dzo": {
    "family": "Sino-Tibetan: Bodish",
    "script": "Tibt",
@@ -222,6 +338,23 @@
    "translation": true,
    "notes": "Macro: Western Persian pes is the Iran standard; prs/tgk mutually intelligible standards SIL bulk 2026-09-14: Tajik (tgk) is Persian linguistically but NOT a fas member per SIL (standalone code) — removed."
   },
+  "fil": {
+   "family": "Austronesian: Malayo-Polynesian",
+   "script": "Latn",
+   "native": "Filipino",
+   "tts": true,
+   "translation": true,
+   "notes": "PH official (Tagalog-based); Gulf L1≈community clean case. 639-1 'tl' belongs to tgl — fil carries none."
+  },
+  "fra": {
+   "family": "Indo-European: Romance",
+   "script": "Latn",
+   "native": "français",
+   "tts": true,
+   "translation": true,
+   "notes": "639-1 fr (SIL). LB Art.11 footnote + francophonie; world language, EkGuru Hindi-first.",
+   "iso639_1": "fr"
+  },
   "gju": {
    "family": "Indo-European: Indo-Aryan",
    "script": "Arab",
@@ -251,6 +384,15 @@
    "iso639_1": "gu",
    "tts": true,
    "translation": true
+  },
+  "heb": {
+   "family": "Afro-Asiatic: Semitic: Canaanite",
+   "script": "Hebr",
+   "native": "עברית",
+   "tts": true,
+   "translation": true,
+   "notes": "639-1 he (SIL). Only fully successful revival on Earth; IL state language (2018 law).",
+   "iso639_1": "he"
   },
   "hin": {
    "family": "Indo-European: Indo-Aryan",
@@ -292,6 +434,24 @@
    "tts": "na",
    "translation": "na"
   },
+  "isr": {
+   "family": null,
+   "script": null,
+   "native": null,
+   "type": "SIGN_LANGUAGE",
+   "tts": "na",
+   "translation": "na",
+   "notes": "Israeli SL; village signs sqx/syy are separately coded — do not merge."
+  },
+  "jos": {
+   "family": null,
+   "script": null,
+   "native": null,
+   "type": "SIGN_LANGUAGE",
+   "tts": "na",
+   "translation": "na",
+   "notes": "Jordanian SL; pre-verification caught jor=Jorá trap."
+  },
   "kaa": {
    "family": "Turkic: Kipchak",
    "script": "Latn",
@@ -316,6 +476,15 @@
    "tts": false,
    "translation": false,
    "notes": "Perso-Arabic + Devanagari both notified in J&K"
+  },
+  "kat": {
+   "family": "Kartvelian",
+   "script": "Geor",
+   "native": "ქართული",
+   "tts": false,
+   "translation": true,
+   "notes": "639-1 ka (SIL). Mkhedruli script (one of ~14 world scripts); GE state language.",
+   "iso639_1": "ka"
   },
   "kaz": {
    "family": "Turkic: Kipchak",
@@ -342,6 +511,14 @@
    "notes": "SIL Ref_Name 'Kirghiz' (old spelling). 639-1 ky (SIL).",
    "ttsConf": "medium",
    "iso639_1": "ky"
+  },
+  "kiu": {
+   "family": "Indo-European: Iranian: Zaza",
+   "script": "Latn",
+   "native": null,
+   "tts": false,
+   "translation": false,
+   "notes": "SIL 'Kirmanjki (individual language)'; zza member. Tunceli/Dersim-side, Alevi-majority. Native verify."
   },
   "kmr": {
    "family": "Indo-European: Iranian",
@@ -372,6 +549,14 @@
    "tts": false,
    "translation": false,
    "notes": "Five-script tradition; Devanagari mandated in Goa SIL bulk 2026-09-14: members gom + knn (Konkani individual)."
+  },
+  "lez": {
+   "family": "Northeast Caucasian: Lezgic",
+   "script": "Cyrl",
+   "native": "лезги чӀал",
+   "tts": false,
+   "translation": false,
+   "notes": "SIL spells 'Lezghian'. AZ highlands + bigger RU-Dagestan side (future batch)."
   },
   "lif": {
    "family": "Sino-Tibetan: Kiranti",
@@ -647,6 +832,15 @@
    "translation": false,
    "notes": "Endonym varies by tribe ('Kordi'); verify"
   },
+  "sdl": {
+   "family": null,
+   "script": null,
+   "native": null,
+   "type": "SIGN_LANGUAGE",
+   "tts": "na",
+   "translation": "na",
+   "notes": "Saudi Arabian SL; ArSL-family related."
+  },
   "sgh": {
    "family": "Indo-European: Iranian: Pamiri",
    "script": "Cyrl",
@@ -747,6 +941,15 @@
    "translation": false,
    "notes": "Primarily oral; Tibetan script where written"
   },
+  "tsm": {
+   "family": null,
+   "script": null,
+   "native": null,
+   "type": "SIGN_LANGUAGE",
+   "tts": "na",
+   "translation": "na",
+   "notes": "Turkish SL (TİD); village sign Mardin (dsz) is separate."
+  },
   "tuk": {
    "family": "Turkic: Oghuz",
    "script": "Arab",
@@ -816,6 +1019,14 @@
    "translation": false,
    "notes": "Chöke — monastic register, not modern spoken Tibetan (bod) SIL bulk 2026-09-14: type=H Historical (Classical Tibetan) — status HISTORICAL."
   },
+  "xmf": {
+   "family": "Kartvelian",
+   "script": "Geor",
+   "native": "მარგాలుრი",
+   "tts": false,
+   "translation": false,
+   "notes": "DISPUTED: GE state = dialect of Georgian; ISO/Ethnologue = language. Rule 12: follow Ethnologue + disputed flag."
+  },
   "xsr": {
    "family": "Sino-Tibetan: Tibetic",
    "script": "Tibt",
@@ -830,6 +1041,14 @@
    "tts": false,
    "translation": false,
    "notes": "SIL spells 'Yagnobi'. Primarily oral; Vedda-class threshold exception."
+  },
+  "ydd": {
+   "family": "Indo-European: Germanic",
+   "script": "Hebr",
+   "native": "ייִדיש",
+   "tts": false,
+   "translation": true,
+   "notes": "EASTERN Yiddish (IL Haredi L1, growing). Macro yid = ydd + yih; Western (yih) is EXTINCT per SIL."
   }
  }
 }

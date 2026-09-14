@@ -96,14 +96,16 @@ PAIR_639_1 = {"kan": "kn", "hin": "hi", "ben": "bn", "tam": "ta", "tel": "te",
               "zho": "zh", "jpn": "ja", "kor": "ko", "rus": "ru", "fra": "fr",
               "spa": "es", "deu": "de", "por": "pt", "ita": "it", "tur": "tr",
               "kaz": "kk", "rus": "ru", "uig": "ug", "tat": "tt",
-              "kir": "ky", "tgk": "tg"}
+              "kir": "ky", "tgk": "tg",
+              "heb": "he", "kat": "ka", "amh": "am", "fra": "fr", "abk": "ab"}
 # Individual codes that must NEVER carry a 639-1 (it belongs to the macro/collective).
 NO_639_1 = {"prs": "fa belongs to fas", "kok": "Konkani has no 639-1",
             "pus": "639-2 collective, no 639-3/639-1 use", "bal": "macrolanguage, no 639-1",
             "doi": "no 639-1", "mai": "no 639-1", "sat": "no 639-1",
             "pnb": "pa belongs to pan", "knn": "Konkani individual, no 639-1",
             "arb": "ar belongs to ara", "npi": "ne belongs to nep", "ory": "or belongs to ori",
-            "uzn": "uz belongs to uzb", "uzs": "uz belongs to uzb", "azj": "az belongs to aze"}
+            "uzn": "uz belongs to uzb", "uzs": "uz belongs to uzb", "azj": "az belongs to aze",
+            "fil": "tl belongs to tgl", "ydd": "yi belongs to yid"}
 
 # Phase 10: variation notes allowed ONLY from here (each traces to batch notes).
 VARIATION_NOTES = {
@@ -495,9 +497,13 @@ def build():
                 "batch-2: 13 new entry codes pre-verified (existence/scope/Part1/retirements clean) + "
                 "uzn/uzs identity audit (AF Southern corrected uzn->uzs, canonical split) + name-identity "
                 "audit all batch-1 entries (1 real swap caught, rest spelling variants) + long-tail hunt "
-                "(Rushani/Bartangi/Khufi/Lyuli confirmed uncoded; paq/yah/isk/sgy/srh/abh/crh/pdt/jpr/xal confirmed).",
+                "(Rushani/Bartangi/Khufi/Lyuli confirmed uncoded; paq/yah/isk/sgy/srh/abh/crh/pdt/jpr/xal confirmed). "
+                "batch-3: 25 new entry codes pre-verified + traps caught upfront (adh=Adhola not Adyghe->ady; "
+                "sqh=Shau not Socotri->sqt; jor=Jora extinct not Jordanian SL->jos; che not ce [batch-2 long-tail fixed]; "
+                "BT sign mis->dyl); ajp->apc 2023 merger applied; yid macro (ydd+yih-extinct); zza macro (diq+kiu); "
+                "long-tail hunt (adf/amw/jdt/lad/mid/rmt/sva/syc/ttt/xmf/tkr/udi confirmed).",
                 status="resolved-documented",
-                rationale="Bulk checks complete for batch-1+2 codes. MUST re-run for every new batch (METHOD rule).")
+                rationale="Bulk checks complete for batch-1+2+3 codes. MUST re-run for every new batch (METHOD rule).")
 
     # Phase 7 totals.
     living_canon = [c for c in canonical.values() if "LIVING" in c["statuses"]]
