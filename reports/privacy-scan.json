@@ -3,7 +3,7 @@
     "scanned_files": 1904,
     "findings": {
       "secret": 0,
-      "sensitive": 3,
+      "sensitive": 4,
       "internal": 0,
       "public": 1
     },
@@ -26,6 +26,12 @@
     {
       "category": "sensitive",
       "file": "data/language-inventory/core/_sources.json",
+      "detail": "phone-like: 9810017001",
+      "note": ""
+    },
+    {
+      "category": "sensitive",
+      "file": "research/language-research-limitations.md",
       "detail": "phone-like: 9810017001",
       "note": ""
     },

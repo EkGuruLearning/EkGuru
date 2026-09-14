@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T07:26:47.649Z",
+ "generated": "2026-09-14T07:27:49.770Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -3931,7 +3931,7 @@ window.EKGURU_ADMIN_STATS = {
  },
  "privacy": {
   "state": "PASS",
-  "fails": 3,
+  "fails": 4,
   "blocked": 0,
   "note": "1904 files scanned, 0 secrets"
  },
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "8fe437953ea4a4b9b79a5272aad12c5f66752480",
-  "subject": "Limitations §10: audit-14 (Ethiopia) close-out record — ET 8→15, 1345 total, deep-audit program closed",
-  "buildTime": "2026-09-14T07:26:47.661Z",
+  "commit": "e9719b5d6b1b56e4fd36f0594403a1b2bb4adb7d",
+  "subject": "P0 per-entry sourcing closed: 23→0 agent-only (12 source keys, 121 total); guides +49; limitations §11; VALID + doctor PASS",
+  "buildTime": "2026-09-14T07:27:49.782Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
