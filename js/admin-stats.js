@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T03:34:06.716Z",
+ "generated": "2026-09-14T03:42:03.243Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "aed1d88ad6d4deae07f4b8c9b400d195aa3b79ac",
-  "subject": "v147: chapter worlds — per-chapter full-page themes + banners on 494 pages, child-friendly book animations, themed hub cards",
-  "buildTime": "2026-09-14T03:34:06.728Z",
+  "commit": "d958b3c2da565e1db7a28eb344d96cdeb4c674d4",
+  "subject": "v149: PayPal quick-amounts strip query/hash (real owner link exposed the bug); verified live link resolves",
+  "buildTime": "2026-09-14T03:42:03.256Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,

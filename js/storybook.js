@@ -530,5 +530,67 @@
         }
       }
     } catch (e7) {}
+
+    /* ---- app dock (v150): Back · Home · Next/Up on every page ----
+       All targets derived — history, the page's own prevnext chain,
+       URL parents. Nothing invented, nothing hardcoded. */
+    try {
+      var dock = document.createElement("nav");
+      dock.className = "sb-dock";
+      dock.setAttribute("aria-label", "Page navigation");
+      /* Site root from our own script URL: correct on a domain root
+         and on a /subpath/ deploy alike. */
+      var sbRoot = "/";
+      try {
+        var meSrc = document.currentScript && document.currentScript.src;
+        if (meSrc && meSrc.indexOf("/js/storybook.js") > -1) {
+          sbRoot = meSrc.split("/js/storybook.js")[0] + "/";
+        }
+      } catch (eD0) {}
+      var dSegs = (location.pathname || "").split("/").filter(function (x) { return !!x; });
+      var upHref = dSegs.length > 1 ? "../" : "";
+      /* Next = the page's own "Next →" link when it has one (topic
+         chain), else Up to the parent section. */
+      var nxHref = "", nxLabel = "Up ↑";
+      var pnx = document.querySelectorAll(".prevnext a");
+      for (var pni = 0; pni < pnx.length; pni++) {
+        if ((pnx[pni].textContent || "").indexOf("Next") > -1) {
+          nxHref = pnx[pni].getAttribute("href") || "";
+          nxLabel = "Next →";
+          break;
+        }
+      }
+      if (!nxHref) nxHref = upHref;
+      function dockBtn(href, label, cls, act) {
+        var a = document.createElement("a");
+        a.className = "sb-dock-btn " + cls;
+        a.textContent = label;
+        a.setAttribute("href", href || "#");
+        if (act) a.setAttribute("data-act", act);
+        return a;
+      }
+      dock.appendChild(dockBtn("#", "← Back", "sb-d-back", "back"));
+      dock.appendChild(dockBtn(sbRoot, "🏠 Home", "sb-d-home", ""));
+      if (nxHref) dock.appendChild(dockBtn(nxHref, nxLabel, "sb-d-next", ""));
+      document.body.appendChild(dock);
+      dock.addEventListener("click", function (ev) {
+        var a = ev.target.closest ? ev.target.closest("a") : null;
+        if (!a) return;
+        if (a.getAttribute("data-act") === "back") {
+          ev.preventDefault();
+          try {
+            if (window.history && history.length > 1) { history.back(); return; }
+          } catch (eD1) {}
+          if (upHref) location.href = upHref;
+          return;
+        }
+        var href = a.getAttribute("href");
+        if (!href || href === "#" || reduceMotion) return;
+        ev.preventDefault();
+        try { document.body.classList.add("sb-leaving"); } catch (eD2) {}
+        setTimeout(function () { location.href = href; }, 180);
+      });
+      setTimeout(function () { try { dock.classList.add("in"); } catch (eD3) {} }, 60);
+    } catch (e8) {}
   } catch (e) { /* storybook never breaks the page */ }
 })();
