@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T04:03:19.620Z",
+ "generated": "2026-09-14T04:11:38.741Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "a361a1e1b5b4354e0fb7629c0ebe8a1d0d814baf",
-  "subject": "v151: every language speaks its own (per-language TTS voices+scripts), turtle 0.4x slow speed, world-course banners+dock; 63/63 jsdom proof",
-  "buildTime": "2026-09-14T04:03:19.634Z",
+  "commit": "4cc7503eccace3c06eb1ff44c75d40249dc853a3",
+  "subject": "v152: Bengali pilot next-level - /bengali/ hub + 3 Hindi-standard topics (greetings/alphabet/numbers), generic lang-topics builder, root-hub TTS+banners; 84/84 jsdom proof",
+  "buildTime": "2026-09-14T04:11:38.757Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,

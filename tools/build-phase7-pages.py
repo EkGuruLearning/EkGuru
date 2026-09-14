@@ -32,8 +32,8 @@ CORE_STYLE = """
 .ob-row select,.ob-row input{width:100%;max-width:420px;padding:10px 12px;font-size:1rem;border:1px solid var(--line);border-radius:10px;background:var(--card,#fff);color:var(--ink)}
 .ob-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:14px 0}
 .ob-card{border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;justify-content:space-between;gap:10px;background:var(--card,#fff)}
-.lang-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:14px 0}
-.lang-cell{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--card,#fff)}
+.lang-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:12px;margin:14px 0}
+.lang-cell{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--card,#fff);min-width:0;overflow-wrap:break-word;display:flex;flex-direction:column}
 .lang-cell .nm{font-weight:700}
 .lang-cell a.nm{color:var(--ink);text-decoration:none;display:inline-block;margin-bottom:2px}
 .lang-cell a.nm:hover{color:var(--brand)}
@@ -48,7 +48,7 @@ CORE_STYLE = """
 .lp-head h3{font-size:1.05rem;margin:0 0 6px}
 .lp-tag{display:inline-block;border-radius:999px;padding:2px 10px;font-size:.72rem;font-weight:700;color:#fff;vertical-align:2px}
 .lp-tag.beta{background:#9a6700}
-.v-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:8px 0 16px}
+.v-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr));gap:10px;margin:8px 0 16px}
 .v-item{border:1px solid var(--line);border-radius:12px;padding:12px 13px;background:var(--bg-soft)}
 .v-target{font-size:1.15rem;font-weight:600;margin:0}
 .v-roman{color:var(--muted);font-size:.85rem;margin:2px 0 6px}
@@ -82,7 +82,7 @@ CORE_STYLE = """
 .chip.is-on{background:var(--brand);border-color:var(--brand);color:#fff}
 .lang-cell{transition:border-color .15s ease,transform .15s ease}
 .lang-cell:hover{border-color:var(--brand-2);transform:translateY(-1px)}
-.lang-cell .btn{margin-top:8px}
+.lang-cell p{display:flex;margin:auto 0 0;padding-top:10px}.lang-cell .btn{flex:1;white-space:normal;text-align:center;padding:11px 12px;font-size:.87rem}
 #lang-count{font-size:.85rem;margin:6px 0 0}
 """
 
@@ -150,6 +150,13 @@ STD_NOTE = ("BETA proof of engine reuse. Not PRODUCTION: Hindi is the only produ
             "This is starter reference content only — not a course.")
 
 
+def course_url(l):
+    """Where a language's Start-learning button goes (bn has a topic hub)."""
+    if l["id"] == "bn":
+        return "bengali/"
+    return (l.get("course") or {}).get("url", "languages/" + l["id"] + "/course/")
+
+
 def esc(s):
     return (s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
 
@@ -171,6 +178,7 @@ def languages_page():
             return loc[0]
         return l.get("speechTag") or (l["id"] + "-" + l["id"].upper())
 
+
     prod_cards = "".join(
         '<div class="lang-cell"><span class="nm">%s <span class="tag on">Available</span></span>' % esc(l["name"]) +
         '<span class="sub" data-say="%s" data-say-lang="%s">%s · %s script · free</span>' % (
@@ -187,7 +195,7 @@ def languages_page():
             (l.get("course") or {}).get("quizQuestions", 0),
             (l.get("course") or {}).get("reviewCards", 0)) +
         '<p><a class="btn" href="/%s">Start learning %s</a></p></div>' % (
-            esc((l.get("course") or {}).get("url", "languages/" + l["id"] + "/course/")), esc(l["name"]))
+            esc(course_url(l)), esc(l["name"]))
         for l in avail)
 
     _an = ["Hindi"] + [l["name"] for l in avail]
@@ -518,7 +526,7 @@ def patch_home():
         for l in prod)
     pills += "".join(
         '<a class="lang-pill on" href="/%s">%s <small>course</small></a>' % (
-            esc((l.get("course") or {}).get("url", "languages/" + l["id"] + "/course/")), esc(l["name"]))
+            esc(course_url(l)), esc(l["name"]))
         for l in avail)
     pills += "".join(
         '<a class="lang-pill beta" href="/languages/%s/">%s</a>' % (esc(l["id"]), esc(l["name"]))

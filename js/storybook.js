@@ -40,7 +40,7 @@
     var ttsRate = 0.85;
     try {
       var r0 = parseFloat(window.localStorage && localStorage.getItem(RATE_KEY));
-      if (r0 >= 0.3 && r0 <= 1.5) ttsRate = r0;
+      if (r0 >= 0.15 && r0 <= 1.5) ttsRate = r0;
     } catch (eRate) {}
     /* ---- page language (v151): every language speaks its own ----
        Derived from the URL: /languages/<code>/ uses the code,
@@ -235,7 +235,7 @@
        carries the Hindi. Shown whenever speech works. */
     if ("speechSynthesis" in window) {
       try {
-        var RATES = [0.4, 0.6, 0.85, 1, 1.25];
+        var RATES = [0.2, 0.4, 0.6, 0.85, 1, 1.25];
         var pill = document.createElement("button");
         pill.type = "button";
         pill.className = "sb-speed";

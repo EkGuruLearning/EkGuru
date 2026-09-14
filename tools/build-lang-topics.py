@@ -72,6 +72,23 @@ table.phr td.bn{font-size:1.08rem}
 .pw-ftr{border-top:1px solid var(--line);margin-top:40px;padding:22px 20px 40px;text-align:center;color:var(--muted);font-size:.86rem}
 .pw-ftr nav{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;margin-bottom:12px}
 .pw-ftr a{color:var(--muted)}
+.note{background:var(--bg-soft);border:1px solid #ddd8ff;border-radius:12px;padding:14px 16px;margin:16px 0;font-size:.94rem;color:var(--ink-2);max-width:72ch}
+.linklist{list-style:none;padding:0;margin:12px 0 0;max-width:72ch}
+.linklist li{padding:10px 0;border-bottom:1px solid var(--line)}
+.linklist li:last-child{border-bottom:0}
+.linklist a{font-weight:600}
+.linklist span{display:block;color:var(--muted);font-size:.87rem;margin-top:2px;line-height:1.5}
+.card{transition:transform .18s ease,box-shadow .18s ease}
+.card a:hover b{color:var(--brand)}
+.card:hover{transform:translateY(-2px);box-shadow:var(--sh-2)}
+.twrap{overflow-x:auto;max-width:72ch}
+table.phr thead th{position:sticky;top:0;background:var(--bg-soft)}
+.pw h1,.pw h2{text-wrap:balance}
+.pw,.card,.fact{overflow-wrap:break-word}
+.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:16px 0}
+.howto{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--bg-soft)}
+.howto b{display:block;margin-bottom:4px}
+.howto span{font-size:.9rem;color:var(--ink-2);line-height:1.6}
 """
 
 
@@ -137,7 +154,7 @@ def hint(lang_title):
             'the bottom-right of the page.</p>') % H.escape(lang_title)
 
 
-def topic_page(cfg, tp, prev_tp, next_tp):
+def topic_page(cfg, tp, prev_tp, next_tp, live):
     d, pre = cfg["dir"], "../../"
     url = "%s/%s/" % (d, tp["slug"])
     rows = []
@@ -183,8 +200,14 @@ def topic_page(cfg, tp, prev_tp, next_tp):
             "<p class=\"lede\">%s</p>" % H.escape(tp["lede"])]
     body += ["<p>%s</p>" % p for p in tp["paras"]]
     body += ["<h2>Words and phrases for this topic</h2>",
-             "<table class=\"phr\"><thead><tr><th>%s</th><th>%s</th><th>%s</th></tr></thead>"
-             "<tbody>%s</tbody></table>" % (tuple(H.escape(x) for x in tp["table_head"]) + ("".join(rows),))]
+             "<div class=\"twrap\"><table class=\"phr\"><thead><tr><th>%s</th><th>%s</th><th>%s</th></tr></thead>"
+             "<tbody>%s</tbody></table></div>" % (tuple(H.escape(x) for x in tp["table_head"]) + ("".join(rows),))]
+    body += ['<div class="note">%s</div>' % tp["note"]]
+    body += ["<h2>Everything on this topic</h2>",
+             '<ul class="linklist">' + "".join(
+                 '<li><a href="%s">%s</a><span>%s</span></li>'
+                 % (l["url"], H.escape(l["label"]), H.escape(l["desc"]))
+                 for l in tp["links"]) + "</ul>"]
     body += ["<h2>Questions learners ask</h2>", faqs,
              "<h2>Keep learning %s</h2>" % H.escape(cfg["title"]),
              '<div class="chips"><a href="%s">Full %s course</a>'
@@ -192,6 +215,10 @@ def topic_page(cfg, tp, prev_tp, next_tp):
              '<a href="%s">Quiz yourself</a></div>'
              % (cfg["course_url"], H.escape(cfg["title"]),
                 cfg["world_url"], H.escape(cfg["title"]), cfg["quiz_url"]),
+             "<h2>Related topics</h2>",
+             '<div class="chips">' + "".join(
+                 '<a href="../%s/">%s</a>' % (t["slug"], H.escape(t["title"]))
+                 for t in live if t["slug"] != tp["slug"]) + "</div>",
              nav, "</div>"]
     page = (head(tp["title"], tp["desc"], url, pre,
                  json.dumps(ld, ensure_ascii=False))
@@ -213,7 +240,14 @@ def hub_page(cfg, live, coming):
     cards += "".join(
         '<div class="card soon"><b>%s</b><br><span class="soonbadge">Coming soon</span></div>'
         % H.escape(title) for _, title in coming)
+    nphr = sum(len(t["phrases"]) for t in live)
+    stats = "%d lessons · %d speakable phrases · free forever" % (len(live), nphr)
     ld = {"@context": "https://schema.org", "@graph": [
+        {"@type": "FAQPage", "@id": "%s/%s/#faq" % (BASE, d),
+         "mainEntity": [
+             {"@type": "Question", "name": f["q"],
+              "acceptedAnswer": {"@type": "Answer", "text": f["a"]}}
+             for f in cfg["hfaqs"]]},
         {"@type": "CollectionPage", "@id": "%s/%s/#hub" % (BASE, d),
          "name": cfg["hub_title"], "description": cfg["hub_lede"],
          "inLanguage": "en",
@@ -231,6 +265,7 @@ def hub_page(cfg, live, coming):
             "<h1>%s</h1>" % H.escape(cfg["hub_title"]),
             hint(cfg["title"]),
             "<p class=\"lede\">%s</p>" % H.escape(cfg["hub_lede"]),
+            "<p><b>%s</b></p>" % stats,
             '<div class="facts">%s</div>' % facts,
             "<h2>Start here</h2>",
             '<div class="chips"><a href="%s">Full %s course (29 lessons)</a>'
@@ -241,6 +276,13 @@ def hub_page(cfg, live, coming):
             "<h2>Topics (%d ready, %d coming soon)</h2>"
             % (len(live), len(coming)),
             '<div class="cards">%s</div>' % cards,
+            "<h2>How this course works</h2>",
+            '<div class="how">' + "".join(
+                '<div class="howto"><b>%s</b><span>%s</span></div>'
+                % (H.escape(s["t"]), H.escape(s["d"])) for s in cfg["how"]) + "</div>",
+            "<h2>Questions about this course</h2>",
+            "".join('<div class="faq"><b>%s</b><p>%s</p></div>'
+                    % (H.escape(f["q"]), H.escape(f["a"])) for f in cfg["hfaqs"]),
             "<h2>New lessons every week</h2>",
             "<p>Each topic is written fresh for this course — real explanations, "
             "real phrases, every word speakable. Bookmark this page; the "
@@ -270,7 +312,8 @@ def main():
                   encoding="utf-8") as f:
             f.write(topic_page(cfg, tp,
                                live[i - 1] if i > 0 else None,
-                               live[i + 1] if i + 1 < len(live) else None))
+                               live[i + 1] if i + 1 < len(live) else None,
+                               live))
     print("lang-topics [%s]: hub + %d topics, %d coming-soon cards."
           % (code, len(live), len(coming)))
 
