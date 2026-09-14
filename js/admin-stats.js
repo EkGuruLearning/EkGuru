@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-13T20:03:56.346Z",
+ "generated": "2026-09-14T01:58:29.735Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 1019,
+  "totalHtml": 1061,
   "materials": 0
  },
  "countries": {
@@ -3923,9 +3923,9 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 1019,
-  "sitemapUrls": 972,
-  "sitemapFiles": 15,
+  "pages": 1061,
+  "sitemapUrls": 1014,
+  "sitemapFiles": 16,
   "brokenLinks": 0,
   "orphans": 0
  },
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1303 files scanned, 0 secrets"
+  "note": "1365 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "027350922009440f145d487677074fb6ec31ad5f",
-  "subject": "Tutor sheet-hiding fixed end-to-end (v130): sheetsync respects active=no + bakes EKGURU_SHEET_HIDDEN; tutors-data excludes hidden on first paint; sheet.js stores hidden stubs on TUTORS-less pages + warns on availability=no trap; livepatch removes hidden rows on city/directory/locale pages (was dead code) with reversible first-paint concealment + unavailable banner on hidden profiles with CTA retarget; renderProfile unknown-id shows not-found instead of wrong tutor; 6 locale find-tutors wired to live sheet; verified 9 surfaces + reactivation both ways, 0 pageerrors; doctor 11/11, SEO 1019/0/0",
-  "buildTime": "2026-09-13T20:03:56.360Z",
+  "commit": "07a21f9ab546c0929f205f932b299d0161bf0236",
+  "subject": "Country language guides + storybook demo (v137): NEW world-languages/ section — 30 'Languages of X' pages generated from audited inventory (tables by role, speaker bands, scripts, unique notes, research honesty box, course cross-links) + index + sitemap-world-languages.xml (index patched); backlinks inserted in 30 learn-hindi-from-X pages (idempotent); tools/build-country-language-pages.py wired into build-all (step 7); DEMO: Hindi alphabet lesson storybook revamp (2 AI illustrations, 11 flip vowel cards with TTS, SVG trace animation, reduced-motion safe); SEO PASS 1050/0/0",
+  "buildTime": "2026-09-14T01:58:29.751Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 1019,
+   "totalHtml": 1061,
    "tutorProfiles": 4,
    "materials": 0
   }

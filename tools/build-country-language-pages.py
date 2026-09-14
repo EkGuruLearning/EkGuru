@@ -40,6 +40,9 @@ SLUGS = {
     "IQ": "iraq", "JO": "jordan", "KW": "kuwait", "LB": "lebanon",
     "OM": "oman", "QA": "qatar", "SA": "saudi-arabia", "SY": "syria",
     "TR": "turkiye", "YE": "yemen",
+    "BN": "brunei", "KH": "cambodia", "ID": "indonesia", "LA": "laos",
+    "MM": "myanmar", "MY": "malaysia", "PH": "philippines", "SG": "singapore",
+    "TH": "thailand", "TL": "timor-leste", "VN": "vietnam",
 }
 COURSE_URL = {"hin": "learn/hindi/", "ben": "learn/bengali/",
               "tam": "learn/tamil/", "tel": "learn/telugu/",
@@ -223,10 +226,18 @@ def country_page(cc, cname, subregion, living, longtail, rels, sibs):
     # de-dup: one row per language per group (keep richest roles in badges)
     official = [r for r in rels if r["category"] in ("OFFICIAL", "NATIONAL")]
     off_names = ", ".join(sorted({r["language_name"] for r in official})) or "—"
-    top = sorted(
-        (r for r in rels if (r.get("speaker_estimate") or {}).get("l1")),
-        key=lambda r: -(r.get("speaker_estimate") or {}).get("l1", 0))[:5]
-    top_names = ", ".join(r["language_name"] for r in top)
+    off_set = {r["language_name"] for r in official}
+    seen, top = set(), []
+    for r in sorted((x for x in rels if (x.get("speaker_estimate") or {}).get("l1")),
+                    key=lambda x: -(x.get("speaker_estimate") or {}).get("l1", 0)):
+        if r["language_id"] in seen:
+            continue
+        seen.add(r["language_id"])
+        top.append(r)
+        if len(top) == 6:
+            break
+    also_names = [r["language_name"] for r in top if r["language_name"] not in off_set][:5]
+    top_names = ", ".join(also_names)
     lede = ("The languages of %s at a glance: %s %s the official language%s. "
             % (cname, off_names,
                "is" if len(official) <= 2 else "are among",

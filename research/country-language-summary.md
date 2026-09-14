@@ -1,4 +1,4 @@
-# Country–Language Summary (PRELIMINARY — 30/194)
+# Country–Language Summary (PRELIMINARY — 41/194)
 
 Per-country category split (owner Phase 2). Categories are never collapsed: a
 language with several roles appears under each. Generated — do not hand-edit.
@@ -111,6 +111,21 @@ Researched living estimate: 14 (ethnologue-27, low). Entries below: 5.
 Long tail / notes: Below-threshold/notes-only: Urdu urd (Pakistanis ~120k, L1 Urdu ~50k — BELOW 100k line, no entry per discipline); Bengali ben (~100k edge — long-tail per discipline); Filipino fil (~40k); Malayalam (~80k?); Persian fas (Huwala Sunnis + Ajami Shia — Persian-L1 citizens, small — celebrity note); Najdi ars spillover (tribal links); pnb splits (no-fabrication).
 
 
+## BN — Brunei (South-Eastern Asia)
+
+Researched living estimate: 12 (ethnologue-27, medium). Entries below: 4.
+
+**OFFICIAL** (1): Standard Malay (zsm, high).
+
+**NATIONAL** (1): Standard Malay (zsm, high).
+
+**WIDELY_SPOKEN** (3): Brunei Malay (kxd, medium); English (eng, medium); Standard Malay (zsm, high).
+
+**SIGN_LANGUAGE** (1): Brunei Sign Language (mis, low).
+
+Long tail / notes: Below-threshold/notes-only: Chinese dialects yue/hak/min (~50k, soft splits — no-fabrication); Iban iba (~30k — MY entry covers planning); Dusun dialects; Kedayan; Quranic Arabic per AF/PK treatment (no entry).
+
+
 ## BT — Bhutan (Southern Asia)
 
 Researched living estimate: 19 (dzongkha-development-commission, medium). Entries below: 6.
@@ -145,6 +160,25 @@ Researched living estimate: 12 (ethnologue-27, medium). Entries below: 8.
 **SIGN_LANGUAGE** (1): Georgian Sign Language (mis, low).
 
 Long tail / notes: Below-threshold/notes-only: Svan sva (~30k highlands — Kartvelian celebrity); Ossetic oss (~30k South Ossetia — de-facto-recognised but tiny + very soft, long-tail JUDGMENT CALL documented here); Kists (Pankisi ~10k — che L1!); Pontic Greek/Urum (few); Assyrian aii (few); Bats (Tush ~3k — Nakh enclave, celebrity); Laz lzz spillover (few, see TR).
+
+
+## ID — Indonesia (South-Eastern Asia)
+
+Researched living estimate: 700 (ethnologue-27, medium). Entries below: 15.
+
+**OFFICIAL** (1): Indonesian (ind, high).
+
+**NATIONAL** (1): Indonesian (ind, high).
+
+**WIDELY_SPOKEN** (3): English (eng, medium); Indonesian (ind, high); Indonesian (ind, high).
+
+**REGIONAL** (11): Acehnese (ace, medium); Balinese (ban, medium); Banjar (bjn, medium); Batak Toba (bbc, medium); Buginese (bug, medium); Javanese (jav, high); Madurese (mad, medium); Makassar (mak, medium); Minangkabau (min, medium); Sasak (sas, medium); Sundanese (sun, high).
+
+**MINORITY** (1): Hakka (hak, medium).
+
+**SIGN_LANGUAGE** (1): Indonesian Sign Language (inl, medium).
+
+Long tail / notes: Below-threshold/notes-only (a hundred could go here — the famous ones): Batak sisters Karo btx / Simalungun bts / Angkola akb / Mandailing btm / Dairi btd; Lampung Api ljp?? (code UNVERIFIED — prose only, do not cite); Lampung Nyo abl?? (UNVERIFIED — prose only); Rejang (UNVERIFIED code — prose only); Gorontalo (UNVERIFIED — prose only); Toraja-Sa'dan; Mandar; Buton; Bima; Sumbawa; Flores (Manggarai/Kambera/Ngada — each 100k+!); Tetun tet (W. Timor — TL entry covers); Kupang Malay (UNVERIFIED — prose); Ambon Malay (UNVERIFIED — prose); N. Maluku (Ternate/Tidore); Papuan umbrella (250+ language
 
 
 ## IL — Israel (Western Asia)
@@ -251,6 +285,23 @@ Researched living estimate: 34 (ethnologue-27, medium). Entries below: 5.
 Long tail / notes: Below-threshold/notes-only: Tajik tgk (~60k Batken/Chon-Alai — no entry, TJ entry covers planning); Uyghur uig (~60k — no entry, KZ entry covers); Turkish tur (~40k Meskhetian); Kazakh kaz (~30k north); Tatar tat (~30k); German deu + Plautdietsch pdt (Talas Mennonites, few k — most emigrated); Korean kor (~15k); Sart-Kalmak (Issyk-Kul ~12k, Oirat xal — Mongolic enclave celebrity, below threshold); Uzbek dialects (Osh); Kyrgyz N/S dialects; Quranic Arabic per AF/PK treatment (no entry).
 
 
+## KH — Cambodia (South-Eastern Asia)
+
+Researched living estimate: 24 (ethnologue-27, medium). Entries below: 5.
+
+**OFFICIAL** (1): Khmer (khm, high).
+
+**NATIONAL** (1): Khmer (khm, high).
+
+**WIDELY_SPOKEN** (3): English (eng, medium); Khmer (khm, high); Khmer (khm, high).
+
+**MINORITY** (2): Vietnamese (vie, medium); Western Cham (cja, medium).
+
+**SIGN_LANGUAGE** (1): Cambodian Sign Language (csx, medium).
+
+Long tail / notes: Below-threshold/notes-only: Lao lao (Stung Treng/Kratie ~100k?? soft+edge — long-tail per discipline); Jarai jra (Ratanakiri ~100k?? — VN entry covers, long-tail here); Tampuan tpu (~50k); Kreung/Kavet; Chinese yue (urban); French fra (older educated); Thai tha (border + media, L1 small); Vietnamese dialects.
+
+
 ## KW — Kuwait (Western Asia)
 
 Researched living estimate: 18 (ethnologue-27, low). Entries below: 8.
@@ -287,6 +338,23 @@ Researched living estimate: 44 (ethnologue-27, medium). Entries below: 9.
 Long tail / notes: Below-threshold/notes-only: German deu (~180k ethnic, L1 German only ~30k — deeply Russified, no entry); Ukrainian ukr (~260k ethnic north, L1 small — Russified); Korean kor Koryo-saram (~120k ethnic, L1 ~25k Koryo-mar dialect, barely intelligible with Seoul standard — no entry); Kurdish kmr (~50k deportee community); Tajik tgk (~50k south); Kyrgyz kir (border villages); Turkmen tuk (Mangystau ~3k); Karakalpak kaa (~5k); Belarusian bel; Polish pol; Chechen che (~30k+ deportee community — VERIFY, threshold edge); Ingush inh; Bashkir bak; Kazakh dialects (NE/S/SW — mutually intelligible, correct
 
 
+## LA — Laos (South-Eastern Asia)
+
+Researched living estimate: 80 (ethnologue-27, medium). Entries below: 7.
+
+**OFFICIAL** (1): Lao (lao, high).
+
+**NATIONAL** (1): Lao (lao, high).
+
+**WIDELY_SPOKEN** (3): English (eng, low); Lao (lao, high); Lao (lao, high).
+
+**INDIGENOUS** (4): Hmong Njua (Green Mong) (hnj, medium); Khmu (kjg, medium); Phu Thai (pht, medium); White Hmong (mww, medium).
+
+**SIGN_LANGUAGE** (1): Laos Sign Language (lso, medium).
+
+Long tail / notes: Below-threshold/notes-only: Tai Dam blt (small LA side — VN entry covers); Alak alk?? (UNVERIFIED — prose only); Katang (UNVERIFIED — prose only); Hani hni?? (UNVERIFIED — prose only); Mien (UNVERIFIED — prose only); Vietnamese vie (traders/urban); Chinese (traders, soft); French fra (older educated); Thai tha (media-intelligible — see lao note); Hmong dialects beyond hnj/mww (soft).
+
+
 ## LB — Lebanon (Western Asia)
 
 Researched living estimate: 12 (ethnologue-27, medium). Entries below: 5.
@@ -319,6 +387,27 @@ Researched living estimate: 8 (ethnologue-27, medium). Entries below: 6.
 Long tail / notes: Deliberately NOT entries (rule 16): Rodiya (Sinhala sociolect, not a language). Indian Tamil ≈ plantation Tamil — same code 'tam'. Malayalam: small trader community, no entry. Arabic arb liturgical (Muslim education). Portuguese creole (Sri Lanka Portuguese, moribund — 'historical' candidate, verify pass 2). Dutch burgher community shifted to English.
 
 
+## MM — Myanmar (South-Eastern Asia)
+
+Researched living estimate: 100 (ethnologue-27, medium). Entries below: 12.
+
+**OFFICIAL** (1): Burmese (mya, high).
+
+**NATIONAL** (1): Burmese (mya, high).
+
+**WIDELY_SPOKEN** (3): Burmese (mya, high); Burmese (mya, high); English (eng, low).
+
+**REGIONAL** (6): Jingpho (Kachin) (kac, medium); Mon (mnw, medium); Pa'o Karen (blk, medium); Rakhine (Arakanese) (rki, medium); S'gaw Karen (ksw, medium); Shan (shn, medium).
+
+**INDIGENOUS** (2): Chin languages (mis, medium); Lisu (lis, medium).
+
+**MINORITY** (1): Rohingya (rhg, medium).
+
+**SIGN_LANGUAGE** (1): Myanmar Sign Language (ysm, medium).
+
+Long tail / notes: Below-threshold/notes-only: Western Pwo pwo?? (UNVERIFIED — prose only); Palaung (UNVERIFIED code — prose only, ~500k?? split — VERIFY before citing); Wa (UNVERIFIED — prose only); Lahu (UNVERIFIED — prose); Akha (UNVERIFIED — prose); Kayah (UNVERIFIED — prose); southern Chin (Mindat/Matu/Asho/Cho + Khumi cnk + Bawm bgr — codes cited, small); Naga cluster (UNVERIFIED codes — prose only); Kokang (Yunnanese cmn — prose); Panthay (Yunnanese Muslims); Gurkha nep?? (UNVERIFIED — prose); Chinese yue/hak (traders, soft); Tamil tam + Telugu tel + Bengali ben (plantation-history minorities, soft); Port
+
+
 ## MV — Maldives (Southern Asia)
 
 Researched living estimate: 3 (ethnologue-27, low). Entries below: 4.
@@ -334,6 +423,25 @@ Researched living estimate: 3 (ethnologue-27, low). Entries below: 4.
 **SIGN_LANGUAGE** (1): Maldivian Sign Language (mis, low).
 
 Long tail / notes: Other worker languages (Sinhala, Tamil, Hindi/Urdu) transient — notes only. Arabic arb liturgical (100% Muslim; Islamic education).
+
+
+## MY — Malaysia (South-Eastern Asia)
+
+Researched living estimate: 130 (ethnologue-27, medium). Entries below: 9.
+
+**OFFICIAL** (1): Standard Malay (zsm, high).
+
+**NATIONAL** (1): Standard Malay (zsm, high).
+
+**WIDELY_SPOKEN** (3): English (eng, high); Standard Malay (zsm, high); Standard Malay (zsm, high).
+
+**REGIONAL** (2): Iban (iba, medium); Kadazan-Dusun (dtp, medium).
+
+**MINORITY** (4): Cantonese (Yue) (yue, medium); Hakka (hak, medium); Hokkien (Min Nan) (nan, medium); Tamil (tam, medium).
+
+**SIGN_LANGUAGE** (1): Malaysian Sign Language (xml, medium).
+
+Long tail / notes: Below-threshold/notes-only: Teochew (UNVERIFIED code — prose only, soft splits); Mandarin cmn (L1 growing among Chinese youth — SG entry covers the code; MY note here, no separate entry: L1-vs-school-Mandarin unmeasurable); Bajau (Sabah/Semporna — UNVERIFIED code — prose only); Murut (UNVERIFIED — prose); Kelantan-Pattani mfa (Kelantan — TH entry covers); Terengganu Malay (UNVERIFIED — prose); Sarawak Malay (UNVERIFIED — prose); Orang Asli (Semai/Temiar/Jakun — UNVERIFIED codes — prose only, VERIFY before citing); Kristang mcm?? (UNVERIFIED — Portuguese creole ~2k, celebrity — prose only); Pen
 
 
 ## NP — Nepal (Southern Asia)
@@ -370,6 +478,25 @@ Researched living estimate: 18 (ethnologue-27, medium). Entries below: 6.
 **SIGN_LANGUAGE** (1): Omani Sign Language (mis, low).
 
 Long tail / notes: Below-threshold/notes-only: Urdu urd (Pakistanis ~250k, L1 ~100k?? — THRESHOLD EDGE + soft, long-tail per TM-kaz discipline); Filipino fil (~50k); Malayalam (~150k soft); Dhofari Arabic adf (~70k); Mehri gdq (~70k OM-side — Modern South Arabian, non-Arabic Semitic — CELEBRITY); Swahili swh (Zanzibar-returnee few k + Omani-empire history — celebrity); Balochi bcc (Batinah ~200k+?? — VERIFY, could be entry); Shihhi (Musandam); Kumzari (village Iranian, tiny — celebrity); Persian fas (Muscat); Egyptian arz (teachers).
+
+
+## PH — Philippines (South-Eastern Asia)
+
+Researched living estimate: 180 (ethnologue-27, medium). Entries below: 15.
+
+**OFFICIAL** (2): English (eng, high); Filipino (fil, high).
+
+**NATIONAL** (1): Filipino (fil, high).
+
+**WIDELY_SPOKEN** (3): English (eng, high); Filipino (fil, high); Filipino (fil, high).
+
+**REGIONAL** (11): Bikol (bik, high); Cebuano (ceb, high); Chavacano (cbk, medium); Hiligaynon (hil, high); Ilokano (ilo, high); Kapampangan (pam, high); Maguindanao (mdh, medium); Maranao (mrw, medium); Pangasinan (pag, high); Tausug (tsg, medium); Waray (war, high).
+
+**MINORITY** (1): Hokkien (Min Nan) (nan, medium).
+
+**SIGN_LANGUAGE** (1): Philippine Sign Language (psp, medium).
+
+Long tail / notes: Below-threshold/notes-only: Tagalog tgl (the BASE of fil — same community, no separate entry: diglossia note on fil, do not double-count!); Aklanon/Kinaray-a/Capiznon (W. Visayas sisters); Romblomanon; Cuyonon; Kalinga cluster (UNVERIFIED codes — prose only); Ifugao cluster (UNVERIFIED — prose); Bontok cluster (UNVERIFIED — prose); Kankanaey (UNVERIFIED — prose); Isneg; Gaddang; Ibanag; Ivatan (UNVERIFIED — prose); Sambal; Sinaunang? no; Maranao dialects; Iranun (UNVERIFIED — prose); Yakan (UNVERIFIED — prose); Sama cluster (UNVERIFIED — prose); Pangutaran? no; Spanish spa (elderly few k — Zob
 
 
 ## PK — Pakistan (Southern Asia)
@@ -433,6 +560,21 @@ Researched living estimate: 20 (ethnologue-27, medium). Entries below: 12.
 Long tail / notes: Below-threshold/notes-only: Egyptian Arabic arz (Egyptians ~1M+ — LARGEST long-tail; folds into MSA planning per protocol, counts here); Sudanese apd (workers); Ethiopians/Amharic amh (large but undocumented — NO-FABRICATION clause: pure-guess populations long-tail regardless of size); Indonesians (~400k, jav/sun/ind split unknowable — no-fabrication); Tamil tam (~400k soft); Telugu tel (~300k soft); Punjabi pnb / Pashto / Sindhi splits (unavailable — see PK entries); Persian fas (E. Province few); Turkish tur (few); Mehri gdq (Empty Quarter few k); Faifi (Jizan mountains, uncoded? — VERIFY).
 
 
+## SG — Singapore (South-Eastern Asia)
+
+Researched living estimate: 25 (ethnologue-27, low). Entries below: 5.
+
+**OFFICIAL** (4): English (eng, high); Mandarin (cmn, high); Standard Malay (zsm, high); Tamil (tam, high).
+
+**NATIONAL** (1): Standard Malay (zsm, high).
+
+**WIDELY_SPOKEN** (3): English (eng, high); English (eng, high); Mandarin (cmn, high).
+
+**SIGN_LANGUAGE** (1): Singapore Sign Language (sls, medium).
+
+Long tail / notes: Below-threshold/notes-only: Hokkien nan (declining, elderly — SG entry would double-count MY; long-tail + decline note); Teochew (UNVERIFIED — prose, declining); Cantonese yue (declining); Hakka hak (declining); Hindi hin / Malayalam mal / Punjabi pan / Bengali ben (Indian/worker L1s — course-exists cross-refs, no SG entries); Tagalog fil (Filipina helpers ~200k+!); Burmese mya (workers); Vietnamese vie (brides/workers — record factually); Kristang mcm?? (UNVERIFIED — prose, moribund celebrity); Baba Malay (UNVERIFIED — prose, moribund).
+
+
 ## SY — Syria (Western Asia)
 
 Researched living estimate: 20 (ethnologue-27, medium). Entries below: 6.
@@ -448,6 +590,23 @@ Researched living estimate: 20 (ethnologue-27, medium). Entries below: 6.
 **SIGN_LANGUAGE** (1): Syrian Sign Language (mis, low).
 
 Long tail / notes: Below-threshold/notes-only: Turkish tur (Turkmen — numbers WILDLY politicised 100k–1.5M ethnic; no-fabrication, VERIFY); Armenian hye (Aleppo remnant ~30k); Assyrian aii (Khabur remnant few k); Western Neo-Aramaic amw (Maaloula — last Western Aramaic, CELEBRITY); French fra (older educated); Chechen che (few); Domari rmt; Najdi ars (Palmyra/Badia Bedouin).
+
+
+## TH — Thailand (South-Eastern Asia)
+
+Researched living estimate: 70 (ethnologue-27, medium). Entries below: 9.
+
+**OFFICIAL** (1): Thai (tha, high).
+
+**NATIONAL** (1): Thai (tha, high).
+
+**WIDELY_SPOKEN** (3): English (eng, medium); Thai (tha, high); Thai (tha, high).
+
+**REGIONAL** (6): Northeastern Thai (Isan) (tts, medium); Northern Khmer (kxm, medium); Northern Thai (Lanna) (nod, medium); Pattani Malay (mfa, medium); S'gaw Karen (ksw, medium); Southern Thai (Dambro) (sou, medium).
+
+**SIGN_LANGUAGE** (1): Thai Sign Language (tsq, medium).
+
+Long tail / notes: Below-threshold/notes-only: Mon mnw (~100k?? soft+edge — long-tail per discipline, MM entry covers); Phu Thai pht (Mukdahan/Kalasin — LA entry covers); Western Pwo (UNVERIFIED — prose); Lawa/Luwa (UNVERIFIED — prose); Hmong hnj/mww (north — LA/VN entries cover); Mien (UNVERIFIED — prose); Akha (UNVERIFIED — prose, Doi Tung); Lisu lis (north — MM entry covers); Lahu (UNVERIFIED — prose); Karen Kayah (UNVERIFIED — prose); Moken mwt + Moklen mkm (sea nomads — CELEBRITY, coded!); Urak Lawoi (UNVERIFIED — prose); Kensiu/Kintaq (Negrito, tiny — celebrity prose); Chinese Teochew/Hakka/Hainanese (UNVE
 
 
 ## TJ — Tajikistan (Central Asia)
@@ -467,6 +626,23 @@ Researched living estimate: 30 (ethnologue-27, medium). Entries below: 6.
 **SIGN_LANGUAGE** (1): Tajik Sign Language (mis, low).
 
 Long tail / notes: Below-threshold/notes-only: Kyrgyz kir (~60k Murghab/Jirgatol — no entry, KG entry covers); Wakhi wbl (~20k TJ side of ~60k global); Yazgulyam yah (~4k); Ishkashimi isk (~2k TJ side); Sanglechi sgy (~2k); Sarikoli srh (~1k TJ side, mostly CN); Rushani/Roshani + Bartangi + Khufi (uncoded Shughni-cluster varieties — NO ISO codes, do not invent); Turkmen tuk (~15k north); Kazakh kaz (~10k); Tatar tat (~20k); Tajiki Arabic abh (~2k Khatlon, moribund — Arabic enclave celebrity); Tajik dialects (Northern/Central/Southern); Quranic Arabic per AF/PK treatment (no entry).
+
+
+## TL — Timor-Leste (South-Eastern Asia)
+
+Researched living estimate: 20 (ethnologue-27, medium). Entries below: 6.
+
+**OFFICIAL** (2): Portuguese (por, high); Tetum (tet, high).
+
+**NATIONAL** (1): Tetum (tet, high).
+
+**WIDELY_SPOKEN** (3): English (eng, low); Indonesian (ind, medium); Tetum (tet, high).
+
+**INDIGENOUS** (1): Mambae (mgm, medium).
+
+**SIGN_LANGUAGE** (1): Timorese Sign Language (mis, low).
+
+Long tail / notes: Below-threshold/notes-only: Makasae mkz (~100k?? soft+edge — long-tail per discipline); Bunak bnk?? (UNVERIFIED — prose only); Fataluku ddw?? (UNVERIFIED — prose, Papuan! — celebrity); Makalero (UNVERIFIED — prose, Papuan); Kemak (UNVERIFIED — prose); Baikeno (UNVERIFIED — prose, Oecusse); Habun (UNVERIFIED — prose); Indonesian dialects (Kupang); Chinese (traders few).
 
 
 ## TM — Turkmenistan (Central Asia)
@@ -526,6 +702,23 @@ Researched living estimate: 40 (ethnologue-27, low). Entries below: 9.
 **SIGN_LANGUAGE** (1): Uzbek Sign Language (mis, low).
 
 Long tail / notes: Below-threshold/notes-only: Turkish tur (~50–70k Meskhetian remnant; 1989 Ferghana pogrom drove most out — record factually); Uyghur uig (~50k east); Crimean Tatar crh (~10k remnant); Tajiki Arabic abh (~3k Bukhara/Qashqadarya villages, moribund — Arabic enclave celebrity); Parya paq (~7k Hisor, Indo-Aryan enclave — celebrity); Bukharian (jpr variety, ~1k remnant — emigration to Israel/US); Lyuli/Central Asian Roma (NO ISO code — VERIFY treatment); Persian pes (Bukhara few); Uzbek dialects (Qarluq literary base vs Qipchaq vs Khorezm-Oghuz — Khorezm speech is Oghuz, closest to Turkmen!); Tajik 
+
+
+## VN — Vietnam (South-Eastern Asia)
+
+Researched living estimate: 110 (ethnologue-27, medium). Entries below: 18.
+
+**OFFICIAL** (1): Vietnamese (vie, high).
+
+**NATIONAL** (1): Vietnamese (vie, high).
+
+**WIDELY_SPOKEN** (3): English (eng, medium); Vietnamese (vie, high); Vietnamese (vie, high).
+
+**MINORITY** (13): Bahnar (bdq, medium); Cantonese (Yue) (yue, medium); Eastern Cham (cjm, medium); Hmong Njua (Green Mong) (hnj, medium); Jarai (jra, medium); Khmer (khm, medium); Muong (mtq, medium); Nung (nut, medium); Rade (Ê Đê) (rad, medium); Tai Dam (Black Tai) (blt, medium); Tai Dón (White Tai) (twh, medium); Tay (Tày) (tyz, medium); White Hmong (mww, medium).
+
+**SIGN_LANGUAGE** (3): Haiphong Sign Language (haf, medium); Hanoi Sign Language (hab, medium); Ho Chi Minh City Sign Language (hos, medium).
+
+Long tail / notes: Below-threshold/notes-only: Sedang sed?? (UNVERIFIED — prose only, ~100k?? edge); Koho kpm?? (UNVERIFIED — prose); Stieng (UNVERIFIED — prose); Mnong (UNVERIFIED — prose); Bru (UNVERIFIED — prose); Pacoh (UNVERIFIED — prose); Ta Oi (UNVERIFIED — prose); Gie-Trieng (UNVERIFIED — prose); Dao cluster (UNVERIFIED — prose, Hmong-Mien sisters); San Diu (UNVERIFIED — prose); Ngai (UNVERIFIED — prose); San Chay (UNVERIFIED — prose); Co Tu (UNVERIFIED — prose); Cham dialects (Phan Rang vs Châu Đốc); Khmer dialects (An Giang vs Kiên Giang); French fra (older educated, fading); Russian rus (older, Soviet
 
 
 ## YE — Yemen (Western Asia)

@@ -1,0 +1,2612 @@
+{
+ "batch": "southeast-asia",
+ "note": "Pass 1: agent-compiled per METHOD.md source hierarchy. Every entry code pre-verified against SIL 2026-09-14 download (btk-macro absent; bik/msa/zho member maps recorded; NO 639-1s placed on macros). Medium/low items await verification pass 2.",
+ "pass": 1,
+ "countries": [
+  {
+   "cca2": "BN",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "Shared with Indonesia/Malaysia entries — one Malay-Indonesian course serves all (Jawi-script note for BN).",
+      "status": "none"
+     },
+     "iso639_3": "zsm",
+     "name": "Standard Malay",
+     "native": "Bahasa Melayu",
+     "notes": "Constitution: Malay is the official language. Jawi (Arabic script) is CO-OFFICIAL with Latin in BN (road signs, schools) — the strongest Jawi state on Earth. Code 'zsm' (msa member; 639-1 'ms' belongs to the macro).",
+     "roles": [
+      "national",
+      "official",
+      "widely-spoken"
+     ],
+     "sources": [
+      "bn-constitution",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 250000,
+      "total": 400000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — fold into Malay-Indonesian planning (vernacular notes).",
+      "status": "none"
+     },
+     "iso639_3": "kxd",
+     "name": "Brunei Malay",
+     "native": "Bahasa Brunei",
+     "notes": "De-facto spoken standard (~300k); SIL Ref_Name is just 'Brunei'. DIGLOSSIA WARNING: zsm (standard) and kxd (vernacular) share the same community — do not sum the figures. msa member.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "bn-constitution",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 280000,
+      "total": 300000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "No action.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "native": "English",
+     "notes": "Co-working language (oil sector/education); no constitutional official status but entrenched. No L1 community of note.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "low",
+     "disputed": true,
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "mis",
+     "name": "Brunei Sign Language",
+     "notes": "Name provisional; no ISO code (VERIFY deaf-org — may relate to Malaysian SL xml).",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "medium",
+    "count": 12,
+    "source": "ethnologue-27"
+   },
+   "name": "Brunei",
+   "notesLongTail": "Below-threshold/notes-only: Chinese dialects yue/hak/min (~50k, soft splits — no-fabrication); Iban iba (~30k — MY entry covers planning); Dusun dialects; Kedayan; Quranic Arabic per AF/PK treatment (no entry).",
+   "region": "Asia",
+   "subregion": "South-Eastern Asia"
+  },
+  {
+   "cca2": "KH",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-pack — 16M state language + unique script + Angkor-tourism demand.",
+      "status": "none"
+     },
+     "iso639_3": "khm",
+     "name": "Khmer",
+     "native": "ខ្មែរ",
+     "notes": "Constitution: Khmer official. Austroasiatic giant (only official Austroasiatic state language besides Vietnamese). 639-1 'km' (SIL). Internal LF (Cham/Vietnamese minorities learn it).",
+     "roles": [
+      "national",
+      "official",
+      "widely-spoken",
+      "lingua-franca"
+     ],
+     "sources": [
+      "kh-constitution",
+      "kh-census-2019",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "kh-census-2019",
+      "confidence": "low",
+      "l1": 15000000,
+      "total": 16000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Shared with Vietnam entry — one Vietnamese course serves all.",
+      "status": "none"
+     },
+     "iso639_3": "vie",
+     "name": "Vietnamese",
+     "native": "Tiếng Việt",
+     "notes": "Floating villages (Tonlé Sap) + urban community; estimates span 100–400k (politically loaded counting — soft, low). Historic Khmer-Vietnamese tensions — record factually, neutrally.",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "kh-census-2019",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 200000,
+      "total": 250000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Cham cluster (cja+cjm); shared planning with VN.",
+      "status": "none"
+     },
+     "iso639_3": "cja",
+     "name": "Western Cham",
+     "native": "Cham",
+     "notes": "KH Cham ~300k (Kampong Cham). WESTERN Cham uses ARABIC script (unlike Eastern cjm's Cham script) — the script split inside one people is the pack note. Austronesian enclave in Austroasiatic sea.",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "kh-census-2019",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 300000,
+      "total": 320000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "No action.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "native": "English",
+     "notes": "Tourism/NGO/business English (Siem Reap/Phnom Penh). No official function.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "csx",
+     "name": "Cambodian Sign Language",
+     "notes": "Code 'csx' confirmed. Phnom Penh school network; young standard.",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "iso-639-3",
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "medium",
+    "count": 24,
+    "source": "ethnologue-27"
+   },
+   "name": "Cambodia",
+   "notesLongTail": "Below-threshold/notes-only: Lao lao (Stung Treng/Kratie ~100k?? soft+edge — long-tail per discipline); Jarai jra (Ratanakiri ~100k?? — VN entry covers, long-tail here); Tampuan tpu (~50k); Kreung/Kavet; Chinese yue (urban); French fra (older educated); Thai tha (border + media, L1 small); Vietnamese dialects.",
+   "region": "Asia",
+   "subregion": "South-Eastern Asia"
+  },
+  {
+   "cca2": "ID",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-course — 200M+ total, Latin script, THE SE Asia course case; one Malay-Indonesian course serves zsm too (standards note).",
+      "status": "none"
+     },
+     "iso639_3": "ind",
+     "name": "Indonesian",
+     "native": "Bahasa Indonesia",
+     "notes": "Art.36 state language; Youth Pledge 1928 (Sumpah Pemuda) root — a trade Malay elevated to unifier of 700 languages. 639-1 'id' (SIL). L1 ~45M (Jakarta + youth) but L2 ~160M+ — the L1/L2 inversion is the famous fact. msa member.",
+     "roles": [
+      "national",
+      "official",
+      "widely-spoken",
+      "lingua-franca"
+     ],
+     "sources": [
+      "id-constitution-art36",
+      "id-census-2020",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "ethnologue-27",
+      "confidence": "low",
+      "l1": 45000000,
+      "total": 210000000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-course — 85M+ L1, biggest Austronesian language on Earth; speech-levels (ngoko/krama) are the pedagogy.",
+      "status": "none"
+     },
+     "iso639_3": "jav",
+     "name": "Javanese",
+     "native": "Basa Jawa",
+     "notes": "L1 ~85M+ (Java + transmigration + Suriname/MY/SG diaspora!). 639-1 'jv' (SIL). Speech levels (ngoko/madya/krama) — teach the sociolinguistics, not just words. Javanese script heritage (Latin dominant now).",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "id-census-2020",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "ethnologue-27",
+      "confidence": "low",
+      "l1": 85000000,
+      "total": 90000000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-pack — 40M Sundanese; pack first, course if ID cluster funds.",
+      "status": "none"
+     },
+     "iso639_3": "sun",
+     "name": "Sundanese",
+     "native": "Basa Sunda",
+     "notes": "West Java ~40M. 639-1 'su' (SIL). Own script heritage (Aksara Sunda revival in Bandung signage — nice pack hook). Speech levels like Javanese, gentler.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "id-census-2020",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "ethnologue-27",
+      "confidence": "low",
+      "l1": 40000000,
+      "total": 42000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Madurese 15M; pack only if ID cluster funds deep.",
+      "status": "none"
+     },
+     "iso639_3": "mad",
+     "name": "Madurese",
+     "native": "Basa Madura",
+     "notes": "Madura + E. Java + Kalimantan diaspora ~15M. Famous for... being famously blunt (record the stereotype as linguistics, gently: direct speech style). Latin + Pegon heritage.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "id-census-2020",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "ethnologue-27",
+      "confidence": "low",
+      "l1": 15000000,
+      "total": 16000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Minangkabau (matrilineal-merchant culture hook); shared notes with zsm.",
+      "status": "none"
+     },
+     "iso639_3": "min",
+     "name": "Minangkabau",
+     "native": "Baso Minangkabau",
+     "notes": "West Sumatra ~8M + rantau (wandering-merchant) diaspora across ID/MY/SG. msa member (closest to Malay proper). Matrilineal adat — the culture hook. Jawi heritage.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "id-census-2020",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "ethnologue-27",
+      "confidence": "low",
+      "l1": 8000000,
+      "total": 9000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Buginese seafarers; Lontara-script hook.",
+      "status": "none"
+     },
+     "iso639_3": "bug",
+     "name": "Buginese",
+     "native": "Basa Ugi",
+     "notes": "South Sulawesi ~5M + seafaring diaspora (MY/SG/Borneo). Lontara (Bugi) script still seen — the pack hook. Pinisi-boat culture.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "id-census-2020",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "ethnologue-27",
+      "confidence": "low",
+      "l1": 5000000,
+      "total": 6000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Banjar river-culture; msa-member note.",
+      "status": "none"
+     },
+     "iso639_3": "bjn",
+     "name": "Banjar",
+     "native": "Bahasa Banjar",
+     "notes": "SE Kalimantan ~4M (Banjarmasin river culture). msa member. Malay-based but distinct — do not fold into ind.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "id-census-2020",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "ethnologue-27",
+      "confidence": "low",
+      "l1": 4000000,
+      "total": 4500000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Acehnese; Helsinki-MoU peace note (2005), neutral framing.",
+      "status": "none"
+     },
+     "iso639_3": "ace",
+     "name": "Acehnese",
+     "native": "Bahsa Acèh",
+     "notes": "Aceh ~3.5M. SIL spells 'Achinese'. Jawoë (Jawi-Arab) heritage. Post-2004-tsunami + post-conflict revival — record factually.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "id-census-2020",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "ethnologue-27",
+      "confidence": "low",
+      "l1": 3500000,
+      "total": 3700000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Toba Batak (largest Batak group); sisters in long-tail.",
+      "status": "none"
+     },
+     "iso639_3": "bbc",
+     "name": "Batak Toba",
+     "native": "Hata Batak",
+     "notes": "N. Sumatra ~2M (Toba highlands + Medan). NO Batak macro code exists (btk absent from SIL — verified) — sisters (Karo btx, Simalungun bts, Angkola akb, Mandailing btm, Dairi btd) are separate codes, long-tailed. Batak-script (Surat Batak) heritage.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "id-census-2020",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "ethnologue-27",
+      "confidence": "low",
+      "l1": 2000000,
+      "total": 2500000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Balinese (tourism demand!); script-ceremony hook.",
+      "status": "none"
+     },
+     "iso639_3": "ban",
+     "name": "Balinese",
+     "native": "Basa Bali",
+     "notes": "Bali ~3.5M + tourism-learner demand (Ubud effect — real niche). Balinese-script ceremonial use (temples/signage). Speech levels (like Javanese).",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "id-census-2020",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "ethnologue-27",
+      "confidence": "low",
+      "l1": 3500000,
+      "total": 3700000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Sasak (Lombok tourism spillover).",
+      "status": "none"
+     },
+     "iso639_3": "sas",
+     "name": "Sasak",
+     "native": "Base Sasak",
+     "notes": "Lombok ~2.5M. Five dialects (Ngeno-ngene etc. — one line, not a split). Next-door-to-Bali tourism spillover.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "id-census-2020",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "ethnologue-27",
+      "confidence": "low",
+      "l1": 2500000,
+      "total": 2700000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Makassar (port-city language); Lontara hook shared with bug.",
+      "status": "none"
+     },
+     "iso639_3": "mak",
+     "name": "Makassar",
+     "native": "Basa Makassar",
+     "notes": "SW Sulawesi ~2M. SIL spells 'Makasar'. Lontara script shared with Buginese (same script, different language — say it plainly). Gowa-Tallo history.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "id-census-2020",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "ethnologue-27",
+      "confidence": "low",
+      "l1": 2000000,
+      "total": 2200000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Hakka (Medan/Singkawang/Bangka); soft-split note.",
+      "status": "none"
+     },
+     "iso639_3": "hak",
+     "name": "Hakka",
+     "native": "客家话",
+     "notes": "ID Chinese ~2.5M split Hakka/Hokkien/Teochew/Cantonese — splits SOFT (no-fabrication: only Hakka entered as largest, rest long-tailed). Singkawang = Hakka-majority city (unique!). zho member.",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "id-census-2020",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 1000000,
+      "total": 1200000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "No action.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "native": "English",
+     "notes": "Business/tourism/higher-education English (Jakarta/Bali). No official function; Dutch colonial layer is gone (see long-tail).",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "inl",
+     "name": "Indonesian Sign Language",
+     "notes": "Code 'inl' confirmed. NOTE: Jakarta (JakSL?) vs Yogyakarta (YogSL?) varieties are distinct systems — one code covers a split reality (note, don't split unilaterally).",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "iso-639-3",
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "medium",
+    "count": 700,
+    "note": "Ethnologue ~700+ — densest after PNG; this file lists 15 (the honest gap is the point)",
+    "source": "ethnologue-27"
+   },
+   "name": "Indonesia",
+   "notesLongTail": "Below-threshold/notes-only (a hundred could go here — the famous ones): Batak sisters Karo btx / Simalungun bts / Angkola akb / Mandailing btm / Dairi btd; Lampung Api ljp?? (code UNVERIFIED — prose only, do not cite); Lampung Nyo abl?? (UNVERIFIED — prose only); Rejang (UNVERIFIED code — prose only); Gorontalo (UNVERIFIED — prose only); Toraja-Sa'dan; Mandar; Buton; Bima; Sumbawa; Flores (Manggarai/Kambera/Ngada — each 100k+!); Tetun tet (W. Timor — TL entry covers); Kupang Malay (UNVERIFIED — prose); Ambon Malay (UNVERIFIED — prose); N. Maluku (Ternate/Tidore); Papuan umbrella (250+ languages: Dani/Ekari/Asmat/Biak/Yali — each needs its own survey, VERIFY codes before citing); Hokkien nan + Teochew + Cantonese yue (soft splits — see hak note); Javanese dialects (Osing/Tengger/Banyumasan — dialects, correctly unlisted); Sundanese Baduy; Arabic arb (pesantren liturgical per protocol); Portuguese por (Flores few); Dutch nld?? (UNVERIFIED — elderly few k, prose only).",
+   "region": "Asia",
+   "subregion": "South-Eastern Asia"
+  },
+  {
+   "cca2": "LA",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-pack — 5M Lao + Thai-mutual-intelligibility bridge (pack sells itself to Thai learners).",
+      "status": "none"
+     },
+     "iso639_3": "lao",
+     "name": "Lao",
+     "native": "ລາວ",
+     "notes": "Constitution: Lao official. 639-1 'lo' (SIL). MUTUALLY INTELLIGIBLE with Thai/Isan (same family, open border, Thai TV everywhere) — the bridge note writes the pack. Vientiane standard.",
+     "roles": [
+      "national",
+      "official",
+      "widely-spoken",
+      "lingua-franca"
+     ],
+     "sources": [
+      "la-constitution",
+      "la-census-2015",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 3500000,
+      "total": 5000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Khmu highlanders; no action.",
+      "status": "none"
+     },
+     "iso639_3": "kjg",
+     "name": "Khmu",
+     "native": "Khmu",
+     "notes": "Biggest Mon-Khmer group in LA (~600k, northern highlands + cross-border TH/VN/CN). Autochthonous ('original inhabitants' claim — record respectfully). No standard orthography (Lao/Latin ad hoc).",
+     "roles": [
+      "indigenous"
+     ],
+     "sources": [
+      "la-census-2015",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 600000,
+      "total": 700000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Green Mong; shared with VN entry.",
+      "status": "none"
+     },
+     "iso639_3": "hnj",
+     "name": "Hmong Njua (Green Mong)",
+     "native": "Hmoob Ntsuab",
+     "notes": "LA Hmong ~450k split White (mww) / Green (hnj) — splits SOFT (intermarried villages, soft line — low explicit). Secret-War history (Long Cheng) — record sensitively, factually. Cross-border VN/TH/CN/US-diaspora.",
+     "roles": [
+      "indigenous"
+     ],
+     "sources": [
+      "la-census-2015",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 250000,
+      "total": 300000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — White Hmong; shared with VN entry (+ US-diaspora demand note).",
+      "status": "none"
+     },
+     "iso639_3": "mww",
+     "name": "White Hmong",
+     "native": "Hmoob Dawb",
+     "notes": "Same soft-split caveat as hnj (sister entry). White Hmong has the bigger US diaspora (Minnesota/Wisconsin) — the demand footnote. RPA (Romanized Popular Alphabet) script.",
+     "roles": [
+      "indigenous"
+     ],
+     "sources": [
+      "la-census-2015",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 200000,
+      "total": 250000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Phu Thai; no action.",
+      "status": "none"
+     },
+     "iso639_3": "pht",
+     "name": "Phu Thai",
+     "native": "ผู้ไท",
+     "notes": "Savannakhet/Khammouane ~150k + bigger TH side (Mukdahan/Kalasin — TH long-tail). No standard orthography (Thai/Lao ad hoc).",
+     "roles": [
+      "indigenous"
+     ],
+     "sources": [
+      "la-census-2015",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 150000,
+      "total": 180000
+     }
+    },
+    {
+     "confidence": "low",
+     "ekguru": {
+      "recommendation": "No action.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "native": "English",
+     "notes": "Tourism/business English (Vientiane/Luang Prabang), growing from thin. Low on 'widely' — kept: ASEAN working language + youth.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "lso",
+     "name": "Laos Sign Language",
+     "notes": "Code 'lso' confirmed. Vientiane school network; young standard.",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "iso-639-3",
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "medium",
+    "count": 80,
+    "source": "ethnologue-27"
+   },
+   "name": "Laos",
+   "notesLongTail": "Below-threshold/notes-only: Tai Dam blt (small LA side — VN entry covers); Alak alk?? (UNVERIFIED — prose only); Katang (UNVERIFIED — prose only); Hani hni?? (UNVERIFIED — prose only); Mien (UNVERIFIED — prose only); Vietnamese vie (traders/urban); Chinese (traders, soft); French fra (older educated); Thai tha (media-intelligible — see lao note); Hmong dialects beyond hnj/mww (soft).",
+   "region": "Asia",
+   "subregion": "South-Eastern Asia"
+  },
+  {
+   "cca2": "MY",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "Shared with Indonesia entry — one Malay-Indonesian course serves both (Jawi + DBP-standard notes).",
+      "status": "none"
+     },
+     "iso639_3": "zsm",
+     "name": "Standard Malay",
+     "native": "Bahasa Melayu",
+     "notes": "Art.152: Malay is THE national language. DBP (Dewan Bahasa) standard; Jawi co-official script (schools/signs). msa member. Internal LF across Malay/Chinese/Indian communities.",
+     "roles": [
+      "national",
+      "official",
+      "widely-spoken",
+      "lingua-franca"
+     ],
+     "sources": [
+      "my-constitution-art152",
+      "my-census-2020",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 15000000,
+      "total": 25000000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "No action.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "native": "English",
+     "notes": "Working language (Sabah/Sarawak courts still run English!) + business/education. MANGLISH (Manglish) = the famous contact register — note on this entry, not a split. No constitutional official status.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "my-census-2020",
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Hokkien (Penang/Medan corridor); soft-split note.",
+      "status": "none"
+     },
+     "iso639_3": "nan",
+     "name": "Hokkien (Min Nan)",
+     "native": "闽南语",
+     "notes": "MY Chinese ~2M Hokkien (Penang Hokkien = prestige street-dialect!). POJ (Pe̍h-ōe-jī Latin) church/literary tradition — the script note. zho member. Splits vs Mandarin-loyal youth — soft, low.",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "my-census-2020",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 2000000,
+      "total": 2200000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Cantonese (KL/Ipoh); no action.",
+      "status": "none"
+     },
+     "iso639_3": "yue",
+     "name": "Cantonese (Yue)",
+     "native": "粵語",
+     "notes": "KL/Ipoh Chinese ~1.5M. HK-media reinforcement (TVB generation). zho member. Youth shifting to Mandarin — note the shift.",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "my-census-2020",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 1500000,
+      "total": 1700000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Hakka (Sabah stronghold); no action.",
+      "status": "none"
+     },
+     "iso639_3": "hak",
+     "name": "Hakka",
+     "native": "客家话",
+     "notes": "Sabah + peninsula ~1M. Sabah Hakka = Sabahan-Chinese street language (not Mandarin!). zho member. Pha̍k-fa-sṳ Latin church tradition — note.",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "my-census-2020",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 1000000,
+      "total": 1200000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Course exists — MY Tamil-estate + urban demand.",
+      "status": "course"
+     },
+     "iso639_3": "tam",
+     "name": "Tamil",
+     "native": "தமிழ்",
+     "notes": "MY Indians ~2M (plantation-history + urban); Tamil L1 ~2M. Tamil schools (SJKT) + media — strongest Tamil infrastructure outside IN/LK/SG. Estate-vs-urban dialect note.",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "my-census-2020",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 2000000,
+      "total": 2200000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Iban (Sarawak's largest people); Dunging-script hook.",
+      "status": "none"
+     },
+     "iso639_3": "iba",
+     "name": "Iban",
+     "native": "Jaku Iban",
+     "notes": "Sarawak ~700k+ (largest Sarawakian people!) + cross-border Kalimantan. Dunging script heritage (revival) — the pack hook. Longhouse culture. Radio/TV Iban exists.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "my-census-2020",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 700000,
+      "total": 800000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Kadazan-Dusun (Sabah's largest); Kaamatan-festival hook.",
+      "status": "none"
+     },
+     "iso639_3": "dtp",
+     "name": "Kadazan-Dusun",
+     "native": "Kadazan Dusun",
+     "notes": "Sabah ~600k+ (largest Sabahan people). SIL 'Kadazan Dusun' covers the cluster (Coastal Kadazan + Central Dusun — note, don't split). Kaamatan harvest festival — the culture hook.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "my-census-2020",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 600000,
+      "total": 650000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "xml",
+     "name": "Malaysian Sign Language",
+     "notes": "Code 'xml' confirmed. NOTE: Penang SL (psg) is SEPARATELY coded — distinct system, do not merge (long-tail pointer). KL/Selangor BIM vs KTBM school-split — note.",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "iso-639-3",
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "medium",
+    "count": 130,
+    "note": "Ethnologue figure; Borneo holds most of them",
+    "source": "ethnologue-27"
+   },
+   "name": "Malaysia",
+   "notesLongTail": "Below-threshold/notes-only: Teochew (UNVERIFIED code — prose only, soft splits); Mandarin cmn (L1 growing among Chinese youth — SG entry covers the code; MY note here, no separate entry: L1-vs-school-Mandarin unmeasurable); Bajau (Sabah/Semporna — UNVERIFIED code — prose only); Murut (UNVERIFIED — prose); Kelantan-Pattani mfa (Kelantan — TH entry covers); Terengganu Malay (UNVERIFIED — prose); Sarawak Malay (UNVERIFIED — prose); Orang Asli (Semai/Temiar/Jakun — UNVERIFIED codes — prose only, VERIFY before citing); Kristang mcm?? (UNVERIFIED — Portuguese creole ~2k, celebrity — prose only); Penang SL psg (coded, distinct — see xml note); Punjabi pan (MY Sikhs ~100k?? soft+edge — long-tail per discipline); Telugu tel / Malayalam mal (estate minorities, soft); Sindhi/Gujarati (traders); Thai tha (Kelantan); Quranic Arabic per protocol.",
+   "region": "Asia",
+   "subregion": "South-Eastern Asia"
+  },
+  {
+   "cca2": "MM",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-pack — 45M Burmese; junta sensitivity — strictly neutral framing, no action beyond pack.",
+      "status": "none"
+     },
+     "iso639_3": "mya",
+     "name": "Burmese",
+     "native": "မြန်မာ",
+     "notes": "2008 Constitution: Burmese official (post-2021 junta order — record factually). 639-1 'my' (SIL). Internal LF (all minorities learn it). Round script (palm-leaf origin — the pack hook).",
+     "roles": [
+      "national",
+      "official",
+      "widely-spoken",
+      "lingua-franca"
+     ],
+     "sources": [
+      "mm-constitution-2008",
+      "mm-census-2014",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 33000000,
+      "total": 45000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Shan (largest minority state); Thai-script bridge note.",
+      "status": "none"
+     },
+     "iso639_3": "shn",
+     "name": "Shan",
+     "native": "ရှမ်း",
+     "notes": "Shan State ~3M + cross-border TH/CN. Tai language (Thai/Lao cousin — bridge note). Myanmar-script-based orthography. Conflict zone — figures soft, record factually.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "mm-census-2014",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 3000000,
+      "total": 3500000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "recommended-pack — 4M+ cross-border Sgaw (MM/TH) + refugee-diaspora demand (US/TH camps).",
+      "status": "none"
+     },
+     "iso639_3": "ksw",
+     "name": "S'gaw Karen",
+     "native": "S'gaw",
+     "notes": "Kayin State + Delta + TH side ~3M MM-side. Missionary Latin + Myanmar-script traditions (two orthographies — note). Refugee-camp schools (Mae La) teach it — the demand footnote. Distinct from Pwo (pwo long-tail) and Pa'o (blk entry).",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "mm-census-2014",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 3000000,
+      "total": 3500000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Mon (ancient literary language); script-ancestor hook.",
+      "status": "none"
+     },
+     "iso639_3": "mnw",
+     "name": "Mon",
+     "notes": "Mon State ~800k + TH side (long-tailed there per discipline — MM entry covers planning). ANCIENT literary language (Dvaravati) — Burmese/Thai/Khmer scripts descend from Mon-related roots (the prestige hook). Myanmar-script orthography.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "mm-census-2014",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 800000,
+      "total": 900000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Jingpho (Kachin); Latin-orthography hook.",
+      "status": "none"
+     },
+     "iso639_3": "kac",
+     "name": "Jingpho (Kachin)",
+     "native": "Jingpho",
+     "notes": "Kachin State ~1M + cross-border CN/IN. SIL Ref_Name 'Kachin'; endonym Jingpho. Missionary-Latin orthography (Maran script politics — note briefly, neutrally). Conflict zone — soft.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "mm-census-2014",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 1000000,
+      "total": 1200000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — inventoried only (dozens of small languages; no course case).",
+      "status": "none"
+     },
+     "iso639_3": "mis",
+     "group": true,
+     "members": [
+      "ctd",
+      "cnh",
+      "cfm",
+      "tcz"
+     ],
+     "notes": "Constitution-named CLUSTER ('Chin' is a recognised nationality; dozens of distinct Chin languages). Members = 4 biggest northern/central (Tedim ctd, Hakha cnh, Falam cfm, Thado tcz) — southern Chin (Mindat/Matu/Asho/Cho/Khumi cnk/Bawm bgr + more) long-tailed. Do not present as one language.",
+     "roles": [
+      "indigenous"
+     ],
+     "sources": [
+      "mm-constitution-2008",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 1500000,
+      "total": 1700000
+     },
+     "name": "Chin languages"
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Rakhine (Arakan); shared with BD entry.",
+      "status": "none"
+     },
+     "iso639_3": "rki",
+     "name": "Rakhine (Arakanese)",
+     "notes": "Rakhine State ~2M. Same code as BD entry (rki) — cross-border, Marma (rmz) is the sibling code (see BD note, don't re-litigate). Burmese-related but distinct.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "mm-census-2014",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 2000000,
+      "total": 2200000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Shared with Bangladesh entry (recommended-pack there); stateless-community sensitivity — neutral framing.",
+      "status": "none"
+     },
+     "iso639_3": "rhg",
+     "name": "Rohingya",
+     "notes": "Remaining MM-side ~600k+ (post-2017 exodus; BD camps hold ~1M — see BD entry). 2014 census INFAMOUSLY excluded Rohingya self-identification (record factually). Hanifi script (invented 1980s) + Arabic + Latin — the script-succession note.",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "mm-census-2014",
+      "unhcr-2024",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 600000,
+      "total": 700000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Pa'o (red-karen); no action.",
+      "status": "none"
+     },
+     "iso639_3": "blk",
+     "name": "Pa'o Karen",
+     "native": "Pa'o",
+     "notes": "Shan/Kayah borderlands ~600k?? soft (census thin + conflict — low explicit). 'Red Karen' (headwear). Myanmar-script orthography. Distinct from Sgaw (ksw) and Pwo — three Karen entries total, don't conflate.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "mm-census-2014",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 600000,
+      "total": 700000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Lisu (Fraser-script story); cross-border cluster.",
+      "status": "none"
+     },
+     "iso639_3": "lis",
+     "name": "Lisu",
+     "native": "Lisu",
+     "notes": "MM-side ~300k?? soft (Kachin/Shan hills + cross-border CN/TH/IN ~1M+ total). FRASER SCRIPT (Latin-based, 1910s missionary — still used!) — the pack hook. Cross-border planning unit.",
+     "roles": [
+      "indigenous"
+     ],
+     "sources": [
+      "mm-census-2014",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 300000,
+      "total": 1000000
+     }
+    },
+    {
+     "confidence": "low",
+     "ekguru": {
+      "recommendation": "No action.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "native": "English",
+     "notes": "Colonial-legacy + business/NGO English (Yangon). Junta-era education decay — thin and thinning (low on 'widely').",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "ysm",
+     "name": "Myanmar Sign Language",
+     "notes": "Code 'ysm' confirmed. Yangon/Mandalay school network.",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "iso-639-3",
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "medium",
+    "count": 100,
+    "note": "Ethnologue figure; conflict zones uncountable — soft floor, not ceiling",
+    "source": "ethnologue-27"
+   },
+   "name": "Myanmar",
+   "notesLongTail": "Below-threshold/notes-only: Western Pwo pwo?? (UNVERIFIED — prose only); Palaung (UNVERIFIED code — prose only, ~500k?? split — VERIFY before citing); Wa (UNVERIFIED — prose only); Lahu (UNVERIFIED — prose); Akha (UNVERIFIED — prose); Kayah (UNVERIFIED — prose); southern Chin (Mindat/Matu/Asho/Cho + Khumi cnk + Bawm bgr — codes cited, small); Naga cluster (UNVERIFIED codes — prose only); Kokang (Yunnanese cmn — prose); Panthay (Yunnanese Muslims); Gurkha nep?? (UNVERIFIED — prose); Chinese yue/hak (traders, soft); Tamil tam + Telugu tel + Bengali ben (plantation-history minorities, soft); Portuguese por (Bayingyi few — celebrity!); Andamanese?? no — stop.",
+   "region": "Asia",
+   "subregion": "South-Eastern Asia"
+  },
+  {
+   "cca2": "PH",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-course — 100M+ Filipino; THE PH course case SET HERE (Gulf base strengthens it). Latin script.",
+      "status": "none"
+     },
+     "iso639_3": "fil",
+     "name": "Filipino",
+     "native": "Filipino",
+     "notes": "Art.XIV: Filipino is THE national language (official with English). Tagalog-based (Manila) but constitutionally open to other PH languages (the endless debate — one line). L1 ~30M, L2 ~70M+. 639-1 'tl' belongs to tgl — fil carries none.",
+     "roles": [
+      "national",
+      "official",
+      "widely-spoken",
+      "lingua-franca"
+     ],
+     "sources": [
+      "ph-constitution-art14",
+      "ph-census-2020",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "ph-census-2020",
+      "confidence": "medium",
+      "l1": 30000000,
+      "total": 100000000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "No action.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "native": "English",
+     "notes": "Co-official (Art.XIV); schools/courts/business. PH English (call-center standard!) is a world variety — the prestige note. L1 small (speakers {}).",
+     "roles": [
+      "official",
+      "widely-spoken"
+     ],
+     "sources": [
+      "ph-constitution-art14",
+      "ph-census-2020"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-pack — 25M+ Cebuano; VisMin anchor.",
+      "status": "none"
+     },
+     "iso639_3": "ceb",
+     "name": "Cebuano",
+     "native": "Bisaya",
+     "notes": "Visayas + Mindanao ~25M+ (bigger than many state languages!). 'Bisaya' vs 'Cebuano' naming (insiders say Bisaya — one line). Media/migration spreading it.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "ph-census-2020",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "ph-census-2020",
+      "confidence": "medium",
+      "l1": 25000000,
+      "total": 27000000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "watch — Ilokano (north Luzon + Hawaii diaspora!); pack only if PH cluster funds deep.",
+      "status": "none"
+     },
+     "iso639_3": "ilo",
+     "name": "Ilokano",
+     "native": "Ilokano",
+     "notes": "N. Luzon ~10M + HAWAII diaspora (plantation history — the demand footnote!). SIL spells 'Iloko'. Marcos-era history — record neutrally.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "ph-census-2020",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "ph-census-2020",
+      "confidence": "medium",
+      "l1": 10000000,
+      "total": 11000000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "watch — Hiligaynon (sweet-accent fame); no action.",
+      "status": "none"
+     },
+     "iso639_3": "hil",
+     "name": "Hiligaynon",
+     "native": "Hiligaynon",
+     "notes": "W. Visayas (Iloilo/Negros) ~10M. Famous 'sweetest accent' reputation (say it — it's the hook). Sugar-plantation history.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "ph-census-2020",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "ph-census-2020",
+      "confidence": "medium",
+      "l1": 10000000,
+      "total": 11000000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "watch — Bikol (Mayon-volcano hook); macro note inside.",
+      "status": "none"
+     },
+     "iso639_3": "bik",
+     "name": "Bikol",
+     "native": "Bikol",
+     "notes": "Bicol ~6M. MACRO (bik): members Central bcl (~2.5M) + Buhinon bln + Libon bto + N. Catanduanes cts + S. Catanduanes fbl + Masbateño lbl + Rinconada rbl + W. Albay ubl (bhk retired). Census says 'Bikol' — macro entry + member map.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "ph-census-2020",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "ph-census-2020",
+      "confidence": "medium",
+      "l1": 6000000,
+      "total": 6500000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "watch — Waray (E. Visayas); no action.",
+      "status": "none"
+     },
+     "iso639_3": "war",
+     "name": "Waray",
+     "native": "Winaray",
+     "notes": "E. Visayas (Samar/Leyte) ~3M+. SIL 'Waray (Philippines)' (Waray-Waray). Yolanda-typhoon resilience footnote (record respectfully).",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "ph-census-2020",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "ph-census-2020",
+      "confidence": "medium",
+      "l1": 3000000,
+      "total": 3500000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "watch — Kapampangan (culinary fame); no action.",
+      "status": "none"
+     },
+     "iso639_3": "pam",
+     "name": "Kapampangan",
+     "native": "Kapampangan",
+     "notes": "Pampanga ~3M. SIL 'Pampanga'. Culinary-capital fame (sisig! — the hook). Kulitan script heritage (revival).",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "ph-census-2020",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "ph-census-2020",
+      "confidence": "medium",
+      "l1": 3000000,
+      "total": 3200000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "watch — Pangasinan (salt-land hook); no action.",
+      "status": "none"
+     },
+     "iso639_3": "pag",
+     "name": "Pangasinan",
+     "native": "Pangasinan",
+     "notes": "Pangasinan ~2M+ ('land of salt' — the hook). Shifting to Ilokano/Filipino among youth — note the shift.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "ph-census-2020",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "ph-census-2020",
+      "confidence": "medium",
+      "l1": 2000000,
+      "total": 2200000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Maguindanao (BARMM); conflict-soft figures.",
+      "status": "none"
+     },
+     "iso639_3": "mdh",
+     "name": "Maguindanao",
+     "native": "Maguindanaon",
+     "notes": "BARMM ~2M+. SIL 'Maguindanaon'. Jawi-Arab heritage script (Islamic schools) + Latin. Conflict-census thin — low.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "ph-census-2020",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 2000000,
+      "total": 2200000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Maranao (lake people); shared with mdh planning.",
+      "status": "none"
+     },
+     "iso639_3": "mrw",
+     "name": "Maranao",
+     "native": "Maranao",
+     "notes": "'People of the lake' (Lanao — the hook) ~2M+. Marawi siege (2017) displacement — record factually, figures soft. Jawi-Arab + Latin.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "ph-census-2020",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 2000000,
+      "total": 2200000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Tausug (Sulu sea people); no action.",
+      "status": "none"
+     },
+     "iso639_3": "tsg",
+     "name": "Tausug",
+     "native": "Tausug",
+     "notes": "'People of the current' (Sulu archipelago ~1.5M+ + Sabah spillover). Sulu-sultanate history. Jawi-Arab + Latin.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "ph-census-2020",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 1500000,
+      "total": 1800000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Chavacano (Asia's Spanish creole — CELEBRITY); heritage demand.",
+      "status": "none"
+     },
+     "iso639_3": "cbk",
+     "name": "Chavacano",
+     "native": "Chavacano",
+     "notes": "Zamboanga ~700k+ — Asia's biggest Spanish creole (400 years!). 'Es pañaol pero hindi' jokes aside — distinct language, entry earned. Cavite/Ternataeño sisters long-tailed.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "ph-census-2020",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 700000,
+      "total": 800000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Hokkien (Binondo); soft-split note.",
+      "status": "none"
+     },
+     "iso639_3": "nan",
+     "name": "Hokkien (Min Nan)",
+     "native": "閩南語",
+     "notes": "Chinese-Filipinos ~1.5M ethnic (Binondo = world's oldest Chinatown!); Hokkien L1 ~800k?? soft (Mandarin/English shift — low explicit). Shared with MY entry.",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "ph-census-2020",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 800000,
+      "total": 1000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "psp",
+     "name": "Philippine Sign Language",
+     "notes": "Code 'psp' confirmed. FSL law (2018, RA 11106 — national SL recognition!) — the policy hook. Distinct from ASL (often confused — say it).",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "iso-639-3",
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "medium",
+    "count": 180,
+    "note": "Ethnologue figure; archipelago density",
+    "source": "ethnologue-27"
+   },
+   "name": "Philippines",
+   "notesLongTail": "Below-threshold/notes-only: Tagalog tgl (the BASE of fil — same community, no separate entry: diglossia note on fil, do not double-count!); Aklanon/Kinaray-a/Capiznon (W. Visayas sisters); Romblomanon; Cuyonon; Kalinga cluster (UNVERIFIED codes — prose only); Ifugao cluster (UNVERIFIED — prose); Bontok cluster (UNVERIFIED — prose); Kankanaey (UNVERIFIED — prose); Isneg; Gaddang; Ibanag; Ivatan (UNVERIFIED — prose); Sambal; Sinaunang? no; Maranao dialects; Iranun (UNVERIFIED — prose); Yakan (UNVERIFIED — prose); Sama cluster (UNVERIFIED — prose); Pangutaran? no; Spanish spa (elderly few k — Zobel-generation remnant); Chavacano sisters (Caviteño/Ternataeño); Surigaonon; Butuanon; Tausug dialects; Ilokano dialects.",
+   "region": "Asia",
+   "subregion": "South-Eastern Asia"
+  },
+  {
+   "cca2": "SG",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "No action.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "native": "English",
+     "notes": "Official + de-facto main (home language ~48% and rising — 2020 census!). SINGLISH = the famous contact register (lah!) — note on this entry, not a split. Schools/courts/business.",
+     "roles": [
+      "official",
+      "widely-spoken",
+      "lingua-franca"
+     ],
+     "sources": [
+      "sg-constitution",
+      "sg-census-2020"
+     ],
+     "speakers": {
+      "asOf": "sg-census-2020",
+      "confidence": "medium",
+      "l1": 1500000,
+      "total": 3500000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "Shared with Indonesia/Malaysia entries — one Malay-Indonesian course serves all (anthem-note: Majulah Singapura is MALAY).",
+      "status": "none"
+     },
+     "iso639_3": "zsm",
+     "name": "Standard Malay",
+     "native": "Bahasa Melayu",
+     "notes": "THE NATIONAL language (anthem + military commands!) + official. Malays ~13%. msa member. Speak-Mandarin-Campaign era squeezed it — record historically.",
+     "roles": [
+      "national",
+      "official"
+     ],
+     "sources": [
+      "sg-constitution",
+      "sg-census-2020"
+     ],
+     "speakers": {
+      "asOf": "sg-census-2020",
+      "confidence": "medium",
+      "l1": 500000,
+      "total": 600000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "Mandarin case is pan-Chinese (future batches) — inventoried here.",
+      "status": "none"
+     },
+     "iso639_3": "cmn",
+     "name": "Mandarin",
+     "native": "华语",
+     "notes": "Official; Speak Mandarin Campaign (1979!) crushed the dialects (Hokkien/Teochew/Cantonese collapse — the policy parable, one line). 'Huayu' = what SG/MY call it. Simplified script. zho member.",
+     "roles": [
+      "official",
+      "widely-spoken"
+     ],
+     "sources": [
+      "sg-constitution",
+      "sg-census-2020"
+     ],
+     "speakers": {
+      "asOf": "sg-census-2020",
+      "confidence": "medium",
+      "l1": 1000000,
+      "total": 2000000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "Course exists — SG Tamil-media demand.",
+      "status": "course"
+     },
+     "iso639_3": "tam",
+     "name": "Tamil",
+     "native": "தமிழ்",
+     "notes": "Official (one of four). Tamils ~9%?? (Indians ~9%, Tamil L1 ~150k — census-backed). Vasantham/Tamil Murasu media. Other Indian L1s (Hindi/Malayalam/Punjabi) long-tailed.",
+     "roles": [
+      "official"
+     ],
+     "sources": [
+      "sg-constitution",
+      "sg-census-2020"
+     ],
+     "speakers": {
+      "asOf": "sg-census-2020",
+      "confidence": "medium",
+      "l1": 150000,
+      "total": 200000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "sls",
+     "name": "Singapore Sign Language",
+     "notes": "Code 'sls' confirmed. SEE2-influenced school history vs SgSL community push (the policy tension — one line).",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "iso-639-3",
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "low",
+    "count": 25,
+    "note": "Ethnologue figure; expat snapshot (Tagalog/Bengali/Burmese workers!)",
+    "source": "ethnologue-27"
+   },
+   "name": "Singapore",
+   "notesLongTail": "Below-threshold/notes-only: Hokkien nan (declining, elderly — SG entry would double-count MY; long-tail + decline note); Teochew (UNVERIFIED — prose, declining); Cantonese yue (declining); Hakka hak (declining); Hindi hin / Malayalam mal / Punjabi pan / Bengali ben (Indian/worker L1s — course-exists cross-refs, no SG entries); Tagalog fil (Filipina helpers ~200k+!); Burmese mya (workers); Vietnamese vie (brides/workers — record factually); Kristang mcm?? (UNVERIFIED — prose, moribund celebrity); Baba Malay (UNVERIFIED — prose, moribund).",
+   "region": "Asia",
+   "subregion": "South-Eastern Asia"
+  },
+  {
+   "cca2": "TH",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-course — 70M+ Thai + tourism millions; the tonal-course flagship.",
+      "status": "none"
+     },
+     "iso639_3": "tha",
+     "name": "Thai",
+     "native": "ภาษาไทย",
+     "notes": "De-facto official — NO constitutional designation exists (all charters silent!) + Royal Society sets the standard (record the gap, it's famous). 639-1 'th' (SIL). Bangkok standard; 5 tones. Internal LF.",
+     "roles": [
+      "national",
+      "official",
+      "widely-spoken",
+      "lingua-franca"
+     ],
+     "sources": [
+      "th-constitution",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 25000000,
+      "total": 60000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Isan 15M; fold into Thai planning (bridge notes) unless demand splits.",
+      "status": "none"
+     },
+     "iso639_3": "tts",
+     "name": "Northeastern Thai (Isan)",
+     "native": "ภาษาอีสาน",
+     "notes": "Isan ~15M — mutually intelligible with LAO (same language continuum, border in between — the bridge note). State treats as Thai dialect; ISO codes it — record both, entry stands (rule 12). Thai-script schooling.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "th-constitution",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 15000000,
+      "total": 16000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Lanna (script-revival hook); no action.",
+      "status": "none"
+     },
+     "iso639_3": "nod",
+     "name": "Northern Thai (Lanna)",
+     "native": "คำเมือง",
+     "notes": "Lanna ~6M (Chiang Mai). LANA (Tai Tham) script revival (temples/signage — the hook). 'Kam Mueang' endonym. State-dialect view noted (see tts note).",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "th-constitution",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 6000000,
+      "total": 6500000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Dambro (fast-speech fame); no action.",
+      "status": "none"
+     },
+     "iso639_3": "sou",
+     "name": "Southern Thai (Dambro)",
+     "native": "ภาษาใต้",
+     "notes": "South ~5M. Famous fast/shortened speech (Bangkokians joke they can't follow — say it, it's the hook). State-dialect view noted.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "th-constitution",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 5000000,
+      "total": 5500000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Pattani Malay (Yawi-script hook); conflict-sensitive, neutral.",
+      "status": "none"
+     },
+     "iso639_3": "mfa",
+     "name": "Pattani Malay",
+     "native": "جاوي",
+     "notes": "Deep South ~1M+ (Pattani/Yala/Narathiwat). YAWI (Jawi-Arab) identity script vs Thai-script schooling (the split — note). msa member. Conflict zone — strictly neutral, figures soft.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "th-constitution",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 1000000,
+      "total": 1200000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Surin Khmer; shared with KH entry (script note: TH-side uses THAI script!).",
+      "status": "none"
+     },
+     "iso639_3": "kxm",
+     "name": "Northern Khmer",
+     "native": "เขมรสุรินทร์",
+     "notes": "Surin/Buriram/Sisaket ~1M+. TH-side schooled in THAI script (no Khmer-script schooling — the split note vs KH khm). Elephant-festival hook (Surin!).",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "th-constitution",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 1000000,
+      "total": 1200000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Shared with Myanmar entry — one Sgaw pack serves both (TH-side uses THAI script!).",
+      "status": "none"
+     },
+     "iso639_3": "ksw",
+     "name": "S'gaw Karen",
+     "native": "S'gaw",
+     "notes": "Tak/Mae Hong Son + refugee camps ~300k+ TH-side. TH-side orthography = Thai script (vs MM Myanmar-script — the split note). Mae La camp schools.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "th-constitution",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 300000,
+      "total": 400000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "No action.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "native": "English",
+     "notes": "Tourism/business English (Bangkok/Phuket/Chiang Mai) — strongest mainland-SE-Asia tourism English. Schools; no official function.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "tsq",
+     "name": "Thai Sign Language",
+     "notes": "Code 'tsq' confirmed. Bangkok standard; related Ban Khor village sign (bfk!) is separately coded — pointer, don't merge.",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "iso-639-3",
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "medium",
+    "count": 70,
+    "source": "ethnologue-27"
+   },
+   "name": "Thailand",
+   "notesLongTail": "Below-threshold/notes-only: Mon mnw (~100k?? soft+edge — long-tail per discipline, MM entry covers); Phu Thai pht (Mukdahan/Kalasin — LA entry covers); Western Pwo (UNVERIFIED — prose); Lawa/Luwa (UNVERIFIED — prose); Hmong hnj/mww (north — LA/VN entries cover); Mien (UNVERIFIED — prose); Akha (UNVERIFIED — prose, Doi Tung); Lisu lis (north — MM entry covers); Lahu (UNVERIFIED — prose); Karen Kayah (UNVERIFIED — prose); Moken mwt + Moklen mkm (sea nomads — CELEBRITY, coded!); Urak Lawoi (UNVERIFIED — prose); Kensiu/Kintaq (Negrito, tiny — celebrity prose); Chinese Teochew/Hakka/Hainanese (UNVERIFIED splits — prose, assimilated); Malay dialects (Satun/Songkhla — mfa-adjacent prose); Ban Khor SL bfk?? (UNVERIFIED — prose pointer, don't merge into tsq); Pattani Yawi dialects.",
+   "region": "Asia",
+   "subregion": "South-Eastern Asia"
+  },
+  {
+   "cca2": "TL",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "watch — Tetum (tiny state, full official function); pack only if Lusophone cluster funds.",
+      "status": "none"
+     },
+     "iso639_3": "tet",
+     "name": "Tetum",
+     "native": "Tetun",
+     "notes": "Sec.13: Tetum + Portuguese official. Tetum L1 ~400k but L2 ~700k+ (Dili lingua franca — the inversion). Tetun Dili vs Tetun Terik (one code, note). Catholic-liturgy history.",
+     "roles": [
+      "national",
+      "official",
+      "widely-spoken"
+     ],
+     "sources": [
+      "tl-constitution-sec13",
+      "tl-census-2022",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "tl-census-2022",
+      "confidence": "low",
+      "l1": 400000,
+      "total": 1100000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "none — world language; Lusophone case is pan-Portuguese (future batches).",
+      "status": "none"
+     },
+     "iso639_3": "por",
+     "name": "Portuguese",
+     "native": "Português",
+     "notes": "Sec.13 official (resistance-identity choice, 2002!). L1 tiny (few k) — official-by-history, L2 growing via CPLP teachers. 639-1 'pt' (SIL). Speakers {} honest.",
+     "roles": [
+      "official"
+     ],
+     "sources": [
+      "tl-constitution-sec13",
+      "ethnologue-27"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Shared with Indonesia entry — one Indonesian course serves all (TL working-language note).",
+      "status": "none"
+     },
+     "iso639_3": "ind",
+     "name": "Indonesian",
+     "native": "Bahasa Indonesia",
+     "notes": "Sec.13 WORKING language (alongside English) — occupation-legacy turned practical bridge (trade/older educated). Fading among youth (→Tetum/English/Portuguese) — note the shift.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "tl-constitution-sec13",
+      "ethnologue-27"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "low",
+     "ekguru": {
+      "recommendation": "No action.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "native": "English",
+     "notes": "Sec.13 working language (UN-mission legacy + youth). Thin (low on 'widely') — kept: constitutional working status + ASEAN.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "tl-constitution-sec13",
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "mgm",
+     "name": "Mambae",
+     "native": "Mambae",
+     "notes": "Biggest indigenous (~200k+, central mountains). No standard orthography (Tetun/Portuguese ad hoc). Coffee-highlands culture.",
+     "roles": [
+      "indigenous"
+     ],
+     "sources": [
+      "tl-census-2022",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "tl-census-2022",
+      "confidence": "low",
+      "l1": 200000,
+      "total": 220000
+     }
+    },
+    {
+     "confidence": "low",
+     "disputed": true,
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "mis",
+     "name": "Timorese Sign Language",
+     "notes": "Name provisional; no ISO code (VERIFY deaf-org). Dili school network.",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "medium",
+    "count": 20,
+    "source": "ethnologue-27"
+   },
+   "name": "Timor-Leste",
+   "notesLongTail": "Below-threshold/notes-only: Makasae mkz (~100k?? soft+edge — long-tail per discipline); Bunak bnk?? (UNVERIFIED — prose only); Fataluku ddw?? (UNVERIFIED — prose, Papuan! — celebrity); Makalero (UNVERIFIED — prose, Papuan); Kemak (UNVERIFIED — prose); Baikeno (UNVERIFIED — prose, Oecusse); Habun (UNVERIFIED — prose); Indonesian dialects (Kupang); Chinese (traders few).",
+   "region": "Asia",
+   "subregion": "South-Eastern Asia"
+  },
+  {
+   "cca2": "VN",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-course — 100M Vietnamese + US/diaspora millions; Latin script (етес low cost); THE VN course case.",
+      "status": "none"
+     },
+     "iso639_3": "vie",
+     "name": "Vietnamese",
+     "native": "Tiếng Việt",
+     "notes": "Art.5: Vietnamese is national + official. 639-1 'vi' (SIL). Quốc-ngữ (Latin) script — missionary-made, now universal. 6 tones (north) — the pedagogy. Internal LF. Figures via ethnicity proxy (Kinh 85% — proxy gap noted).",
+     "roles": [
+      "national",
+      "official",
+      "widely-spoken",
+      "lingua-franca"
+     ],
+     "sources": [
+      "vn-constitution-art5",
+      "vn-census-2019",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "vn-census-2019",
+      "confidence": "low",
+      "l1": 86000000,
+      "total": 95000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Tay (biggest minority); no action.",
+      "status": "none"
+     },
+     "iso639_3": "tyz",
+     "name": "Tay (Tày)",
+     "native": "Tày",
+     "notes": "Biggest minority ~1.8M (NE highlands). Tai language. Nôm-Tày script heritage (now Vietnamese-Latin ad hoc). Ethnicity-proxy figures (see vn-census note).",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "vn-census-2019",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "vn-census-2019",
+      "confidence": "low",
+      "l1": 1800000,
+      "total": 2000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Muong (closest Vietic kin); no action.",
+      "status": "none"
+     },
+     "iso639_3": "mtq",
+     "name": "Muong",
+     "native": "Mường",
+     "notes": "~1.4M (Hòa Bình). CLOSEST kin to Vietnamese (Vietic sisters — the linguistics hook: mutually unintelligible but visibly related). Vietnamese-Latin ad hoc script.",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "vn-census-2019",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "vn-census-2019",
+      "confidence": "low",
+      "l1": 1400000,
+      "total": 1500000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Shared with Cambodia entry — one Khmer pack serves both (Delta-dialect notes).",
+      "status": "none"
+     },
+     "iso639_3": "khm",
+     "name": "Khmer",
+     "native": "ខ្មែរ",
+     "notes": "Mekong Delta (Khmer Krom) ~1.3M — the cross-border half of the Khmer people (record sensitively: Krom identity politics, one neutral line). Same code as KH.",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "vn-census-2019",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "vn-census-2019",
+      "confidence": "low",
+      "l1": 1300000,
+      "total": 1400000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — White Hmong; shared with LA entry.",
+      "status": "none"
+     },
+     "iso639_3": "mww",
+     "name": "White Hmong",
+     "native": "Hmoob Dawb",
+     "notes": "VN Hmong ~1M+ split White/Green — splits SOFT (see LA soft-split note, same caveat). Sapa-tourism visibility (trekking guides!) — the demand footnote. RPA script.",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "vn-census-2019",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 600000,
+      "total": 700000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Green Mong; shared with LA entry.",
+      "status": "none"
+     },
+     "iso639_3": "hnj",
+     "name": "Hmong Njua (Green Mong)",
+     "native": "Hmoob Ntsuab",
+     "notes": "Sister entry to mww (same soft-split caveat). Flower-Hmong markets (Bắc Hà — the culture hook).",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "vn-census-2019",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 500000,
+      "total": 600000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Nung; no action.",
+      "status": "none"
+     },
+     "iso639_3": "nut",
+     "name": "Nung",
+     "native": "Nùng",
+     "notes": "~1M+ (NE, Tay-adjacent). Tai language. SIL 'Nung (Viet Nam)' (vs other Nungs — the disambiguator).",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "vn-census-2019",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "vn-census-2019",
+      "confidence": "low",
+      "l1": 1000000,
+      "total": 1100000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Jarai (highland + US-diaspora!); no action.",
+      "status": "none"
+     },
+     "iso639_3": "jra",
+     "name": "Jarai",
+     "native": "Jarai",
+     "notes": "Central Highlands ~400k+ + NORTH CAROLINA diaspora (refugee resettlement — the demand footnote!). Malayo-Polynesian (Austronesian enclave). Missionary Latin.",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "vn-census-2019",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "vn-census-2019",
+      "confidence": "low",
+      "l1": 400000,
+      "total": 450000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Rade (gong-culture hook); no action.",
+      "status": "none"
+     },
+     "iso639_3": "rad",
+     "name": "Rade (Ê Đê)",
+     "native": "Rade",
+     "notes": "~350k+ (Đắk Lắk). SIL 'Rade'. Gong-ensemble culture (UNESCO heritage — the hook). Matrilineal longhouses. Missionary Latin.",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "vn-census-2019",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "vn-census-2019",
+      "confidence": "low",
+      "l1": 350000,
+      "total": 400000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Bahnar (highland cluster); no action.",
+      "status": "none"
+     },
+     "iso639_3": "bdq",
+     "name": "Bahnar",
+     "native": "Bahnar",
+     "notes": "~250k+ (Kon Tum). Austroasiatic (Bahnaric branch NAMESAKE — the linguistics hook). Rong-house culture. Missionary Latin.",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "vn-census-2019",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "vn-census-2019",
+      "confidence": "low",
+      "l1": 250000,
+      "total": 300000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Eastern Cham (temple-tower hook); shared with KH cja.",
+      "status": "none"
+     },
+     "iso639_3": "cjm",
+     "name": "Eastern Cham",
+     "native": "Cham",
+     "notes": "~160k (Ninh Thuận/Bình Thuận). CHAM SCRIPT still used (temples/manuscripts — vs Western cja's Arabic script: the split note). Panduranga history (Mỹ Sơn towers — the hook).",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "vn-census-2019",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "vn-census-2019",
+      "confidence": "low",
+      "l1": 160000,
+      "total": 180000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Tai Dam (Tai-Viet-script hook); no action.",
+      "status": "none"
+     },
+     "iso639_3": "blt",
+     "name": "Tai Dam (Black Tai)",
+     "native": "Tai Dam",
+     "notes": "~800k (Điện Biên/Sơn La). TAI VIET script (Tavt — own script, revived in schools!) — the hook. 'Black' = clothing (vs White Tai twh — sister entry).",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "vn-census-2019",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "vn-census-2019",
+      "confidence": "low",
+      "l1": 800000,
+      "total": 850000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — White Tai; shared with blt.",
+      "status": "none"
+     },
+     "iso639_3": "twh",
+     "name": "Tai Dón (White Tai)",
+     "native": "Tai Dón",
+     "notes": "~300k. SIL 'Tai Dón'. Sister to Tai Dam (blt) — clothing-colour naming pair (say it once). Latin ad hoc (Tai Viet less used here — note).",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "vn-census-2019",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "vn-census-2019",
+      "confidence": "low",
+      "l1": 300000,
+      "total": 350000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Cantonese (Cholon); soft-split note.",
+      "status": "none"
+     },
+     "iso639_3": "yue",
+     "name": "Cantonese (Yue)",
+     "native": "粵語",
+     "notes": "Hoa (ethnic Chinese) ~800k+, Cholon (HCMC Chinatown) Cantonese-dominant. Splits vs Teochew/Hokkien/Hakka SOFT (no-fabrication: only Yue entered). Shared with MY entry. zho member.",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "vn-census-2019",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 800000,
+      "total": 900000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "No action.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "native": "English",
+     "notes": "Business/tourism/education English (HCMC/Hanoi/Da Nang) — booming (Samsung-economy effect). No official function.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — inventoried only (three systems, one country — the famous fact).",
+      "status": "none"
+     },
+     "iso639_3": "hab",
+     "name": "Hanoi Sign Language",
+     "notes": "Code 'hab' confirmed. North system (Hanoi/Haiphong-area? — Haiphong haf is SEPARATE, see below; French-influenced history).",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "iso-639-3",
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "hos",
+     "name": "Ho Chi Minh City Sign Language",
+     "notes": "Code 'hos' confirmed. South system (HCMC). Distinct from hab/haf — three codes, don't merge.",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "iso-639-3",
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "haf",
+     "name": "Haiphong Sign Language",
+     "notes": "Code 'haf' confirmed. Haiphong system (distinct from Hanoi hab despite proximity — the famous split).",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "iso-639-3",
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "medium",
+    "count": 110,
+    "note": "Ethnologue figure; 54 recognised ethnicities vs 110 languages (the mismatch is the story)",
+    "source": "ethnologue-27"
+   },
+   "name": "Vietnam",
+   "notesLongTail": "Below-threshold/notes-only: Sedang sed?? (UNVERIFIED — prose only, ~100k?? edge); Koho kpm?? (UNVERIFIED — prose); Stieng (UNVERIFIED — prose); Mnong (UNVERIFIED — prose); Bru (UNVERIFIED — prose); Pacoh (UNVERIFIED — prose); Ta Oi (UNVERIFIED — prose); Gie-Trieng (UNVERIFIED — prose); Dao cluster (UNVERIFIED — prose, Hmong-Mien sisters); San Diu (UNVERIFIED — prose); Ngai (UNVERIFIED — prose); San Chay (UNVERIFIED — prose); Co Tu (UNVERIFIED — prose); Cham dialects (Phan Rang vs Châu Đốc); Khmer dialects (An Giang vs Kiên Giang); French fra (older educated, fading); Russian rus (older, Soviet-era); Korean kor (K-drama learners + expats — L1 tiny); Khmu kjg spillover (LA entry covers); La Ha?? no — stop.",
+   "region": "Asia",
+   "subregion": "South-Eastern Asia"
+  }
+ ]
+}

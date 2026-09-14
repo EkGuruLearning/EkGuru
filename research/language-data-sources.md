@@ -84,6 +84,7 @@ wfd (sign-language authority — direct deaf-org consultation pending).
 | Census portals | India 2011 tables (manual, prior knowledge); PK 2023 press releases; NP 2021 report | re-verify with URLs in pass 2 |
 | Batch-2 pre-verification (2026-09-14) | 13 new codes vs SIL download (existence/scope/Part1/retirements) + full name-identity audit of batch-1 + long-tail code hunt | CLEAN except 1 real catch: uzn/uzs North/South swap (AF entry + canonical fixed). Rushani/Bartangi/Khufi/Lyuli confirmed uncoded |
 | Batch-3 pre-verification (2026-09-14) | 25 new codes vs SIL + full sign-code hunt + long-tail hunt + retro batch-2 long-tail audit | 5 traps caught UPFRONT (adh=Adhola→ady, sqh=Shau→sqt, jor=Jorá→jos, ce→che incl. batch-2 fix, BT sign mis→dyl); ajp→apc 2023 merger applied; yid/zza/kur macro maps recorded |
+| Batch-4 pre-verification (2026-09-14) | 75 new entry codes vs SIL download (existence/scope/Part1/retirements) + 10 sign codes + macro member maps | NO Batak macro (btk absent — bbc/btx/bts/akb/btm/btd peer codes); kxd Ref_Name IS 'Brunei'; bik scope=M (8 active, bhk retired); msa/zho member maps recorded; cnk=Khumi Chin; marma=rmz sibling of rki; traps caught upfront, zero post-author fixes |
 
 ## 5. Rules for batch authors (binding)
 

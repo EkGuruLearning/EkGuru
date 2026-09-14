@@ -80,7 +80,7 @@ ROLE2CAT = {"official": "OFFICIAL", "official-regional": "OFFICIAL",
 CATS = ["OFFICIAL", "NATIONAL", "WIDELY_SPOKEN", "REGIONAL",
         "INDIGENOUS", "MINORITY", "IMMIGRANT", "SIGN_LANGUAGE", "OTHER"]
 TOURISM_BOOST = {"div", "dzo", "xsr", "khw", "scl", "bft"}
-MACRO_MUST_HAVE_MEMBERS = {"bal", "kok", "nep", "fas", "doi", "san", "pus", "ori"}  # SIL-verified batch-1 set (pass 2: mni/hye delisted, doi/san added)
+MACRO_MUST_HAVE_MEMBERS = {"bal", "kok", "nep", "fas", "doi", "san", "pus", "ori", "bik", "msa", "zho"}  # SIL-verified batch-1 set (pass 2: mni/hye delisted, doi/san added) + batch-4 bik/msa/zho (SIL bulk 2026-09-14)
 DIALECT_WATCH = {"bajjika", "rodiya", "pothohari", "marwari", "rangpuri"}
 TRAP_639_2 = {"pus": "ISO 639-2 collective for Pashto — use pbt/pbu/pst or a CLUSTER record"}
 # Registry-type overrides (SIL type=H but living liturgical/official use — status HISTORICAL, roles kept).
@@ -91,7 +91,8 @@ STATUS_OVERRIDE = {"san": "HISTORICAL", "xct": "HISTORICAL"}
 # filed under knn instead of kan). Extend as new batches add coded languages.
 PAIR_639_1 = {"kan": "kn", "hin": "hi", "ben": "bn", "tam": "ta", "tel": "te",
               "mar": "mr", "guj": "gu", "mal": "ml", "pan": "pa", "urd": "ur",
-              "asm": "as", "nep": "ne", "sin": "si",
+              "asm": "as", "nep": "ne", "sin": "si", "ind": "id", "jav": "jv", "sun": "su",
+              "khm": "km", "lao": "lo",
               "fas": "fa", "snd": "sd", "kas": "ks", "eng": "en",               "tuk": "tk", "tgk": "tg", "mya": "my", "tha": "th", "vie": "vi",
               "zho": "zh", "jpn": "ja", "kor": "ko", "rus": "ru", "fra": "fr",
               "spa": "es", "deu": "de", "por": "pt", "ita": "it", "tur": "tr",
@@ -105,7 +106,10 @@ NO_639_1 = {"prs": "fa belongs to fas", "kok": "Konkani has no 639-1",
             "pnb": "pa belongs to pan", "knn": "Konkani individual, no 639-1",
             "arb": "ar belongs to ara", "npi": "ne belongs to nep", "ory": "or belongs to ori",
             "uzn": "uz belongs to uzb", "uzs": "uz belongs to uzb", "azj": "az belongs to aze",
-            "fil": "tl belongs to tgl", "ydd": "yi belongs to yid"}
+            "fil": "tl belongs to tgl", "ydd": "yi belongs to yid",
+            "zsm": "ms belongs to msa", "kxd": "ms belongs to msa", "mfa": "ms belongs to msa",
+            "min": "ms belongs to msa", "bjn": "ms belongs to msa",
+            "cmn": "zh belongs to zho", "nan": "zh belongs to zho", "yue": "zh belongs to zho", "hak": "zh belongs to zho"}
 
 # Phase 10: variation notes allowed ONLY from here (each traces to batch notes).
 VARIATION_NOTES = {
@@ -501,9 +505,13 @@ def build():
                 "batch-3: 25 new entry codes pre-verified + traps caught upfront (adh=Adhola not Adyghe->ady; "
                 "sqh=Shau not Socotri->sqt; jor=Jora extinct not Jordanian SL->jos; che not ce [batch-2 long-tail fixed]; "
                 "BT sign mis->dyl); ajp->apc 2023 merger applied; yid macro (ydd+yih-extinct); zza macro (diq+kiu); "
-                "long-tail hunt (adf/amw/jdt/lad/mid/rmt/sva/syc/ttt/xmf/tkr/udi confirmed).",
+                "long-tail hunt (adf/amw/jdt/lad/mid/rmt/sva/syc/ttt/xmf/tkr/udi confirmed). "\
+                "batch-4: 75 new entry codes pre-verified + traps caught upfront (NO Batak macro — btk absent, "\
+                "sisters are peer codes bbc/btx/bts/akb/btm/btd; kxd Ref_Name IS 'Brunei'; cnk=Khumi Chin not Awa; "\
+                "marma is rmz sibling of rki); bik macro (8 active members, bhk retired); msa/zho member maps "\
+                "recorded; 10 sign codes confirmed (psp/sls/inl/tsq/csx/lso/ysm/hab/hos/haf).",
                 status="resolved-documented",
-                rationale="Bulk checks complete for batch-1+2+3 codes. MUST re-run for every new batch (METHOD rule).")
+                rationale="Bulk checks complete for batch-1+2+3+4 codes. MUST re-run for every new batch (METHOD rule).")
 
     # Phase 7 totals.
     living_canon = [c for c in canonical.values() if "LIVING" in c["statuses"]]
