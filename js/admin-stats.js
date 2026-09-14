@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T06:14:45.259Z",
+ "generated": "2026-09-14T06:30:31.381Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1680 files scanned, 0 secrets"
+  "note": "1700 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "8ff47b0b583f9fa083dd9bd4715da7a689ed99fa",
-  "subject": "Urdu track batch-6: business/heritage/how-long/languages/vs-hindi/lollywood/relationships/flashcards (33/33)",
-  "buildTime": "2026-09-14T06:14:45.272Z",
+  "commit": "152d4c5296477200f58abb87aa6e1e7ab7438721",
+  "subject": "Inventory batch micronesia: FM/KI/MH/NR/PW (191/194)",
+  "buildTime": "2026-09-14T06:30:31.394Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,

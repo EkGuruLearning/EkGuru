@@ -2,30 +2,54 @@
   "status": "IN PROGRESS — DO NOT CLAIM COMPLETE",
   "preliminary": true,
   "phase7_totals": {
-    "A_unique_canonical_living": 198,
-    "A_spoken": 175,
-    "A_sign": 23,
-    "B_unique_living_evidenced_use": 175,
-    "C_country_language_relationships": 524,
-    "D_learner_priority_P0_P1": 29,
-    "needing_human_review_relations": 84
+    "A_unique_canonical_living": 687,
+    "A_spoken": 603,
+    "A_sign": 84,
+    "B_unique_living_evidenced_use": 597,
+    "C_country_language_relationships": 1964,
+    "D_learner_priority_P0_P1": 45,
+    "needing_human_review_relations": 1187
   },
   "phase17_gate": {
-    "countries": "41/194 researched",
-    "countries_pass": false,
-    "relationships_source_confidence": "all 524 records carry sources + confidence",
-    "canonical_dedup": "PASS (200 canonical, mis never canonical)",
+    "countries": "194/194 researched",
+    "countries_pass": true,
+    "relationships_source_confidence": "all 1964 records carry sources + confidence",
+    "canonical_dedup": "PASS (689 canonical, mis never canonical)",
     "iso_shape": "PASS",
     "country_ids": "PASS (all in sovereign-194)",
     "scripts": "shape PASS; SIL/Unicode verification = pass 2",
-    "sign_separate": "PASS (SIGN_LANGUAGE category + type; no mixing)",
+    "sign_separate": "FAIL",
     "dialects_separate": "PASS (watchlist clean)",
     "india_deep_audit": "research/india-language-inventory.md (this build)",
     "multilingual_audits": "AF/BD/BT/IN/IR/LK/MV/NP/PK in batch 1; ID/NG/PG/PH/ZA/CN/RU/... pending",
     "api_licensing": "research/language-data-sources.md (this build)",
-    "qa": "OPEN items: 1 (see review list)"
+    "qa": "OPEN items: 9 (see review list)"
   },
   "review_required": [
+    {
+      "check": "sign-mixed-with-spoken",
+      "detail": "NZ New Zealand Sign Language roles=['sign', 'official']",
+      "status": "open",
+      "rationale": ""
+    },
+    {
+      "check": "sign-mixed-with-spoken",
+      "detail": "ZA South African Sign Language roles=['official', 'sign']",
+      "status": "open",
+      "rationale": ""
+    },
+    {
+      "check": "duplicate-name",
+      "detail": "'kituba' → ['lang:ktu', 'lang:mkw']",
+      "status": "open",
+      "rationale": ""
+    },
+    {
+      "check": "duplicate-name",
+      "detail": "'tamasheq' → ['lang:tmh', 'lang:taq']",
+      "status": "open",
+      "rationale": ""
+    },
     {
       "check": "duplicate-name",
       "detail": "'nepali' → ['lang:npi', 'lang:nep']",
@@ -33,10 +57,40 @@
       "rationale": "Dual-code treatment: scheduled macro 'nep' (IN) and individual 'npi' (NP/BT) are the SAME language; documented in METHOD + batch notes, never merged silently."
     },
     {
-      "check": "country-coverage",
-      "detail": "41/194 researched; 153 pending",
+      "check": "639-1-mismatch",
+      "detail": "lang:ita: iso639_1=None, expected 'it' — 639-3 code suspect",
       "status": "open",
       "rationale": ""
+    },
+    {
+      "check": "639-1-mismatch",
+      "detail": "lang:spa: iso639_1=None, expected 'es' — 639-3 code suspect",
+      "status": "open",
+      "rationale": ""
+    },
+    {
+      "check": "639-1-mismatch",
+      "detail": "lang:deu: iso639_1=None, expected 'de' — 639-3 code suspect",
+      "status": "open",
+      "rationale": ""
+    },
+    {
+      "check": "639-1-mismatch",
+      "detail": "lang:kor: iso639_1=None, expected 'ko' — 639-3 code suspect",
+      "status": "open",
+      "rationale": ""
+    },
+    {
+      "check": "639-1-mismatch",
+      "detail": "lang:jpn: iso639_1=None, expected 'ja' — 639-3 code suspect",
+      "status": "open",
+      "rationale": ""
+    },
+    {
+      "check": "country-coverage",
+      "detail": "194/194 researched; 0 pending",
+      "status": "resolved-documented",
+      "rationale": "all 194 covered"
     },
     {
       "check": "iso-bulk-verification",
