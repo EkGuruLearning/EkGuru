@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T02:35:20.655Z",
+ "generated": "2026-09-14T02:39:15.724Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1370 files scanned, 0 secrets"
+  "note": "1361 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "322ac93d6ce69298414e5509b4a8788346c61a83",
-  "subject": "v139 full Hindi course storybook revamp (44 pages, rebuild-proof)",
-  "buildTime": "2026-09-14T02:35:20.670Z",
+  "commit": "5eefefe9fde73dfd0f8c00b01d7f4cf746733bbc",
+  "subject": "v140 Hindi writing power-pack: vowels + consonants + Barakhadi (3 new lessons)",
+  "buildTime": "2026-09-14T02:39:15.736Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4634,7 +4634,7 @@ window.EKGURU_ADMIN_STATS = {
    "travel",
    "vocabulary"
   ],
-  "lessons": 280,
+  "lessons": 283,
   "materials": 15,
   "practice": 13,
   "paths": 7,

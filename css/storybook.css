@@ -157,9 +157,14 @@ table.bara td button{border:1px solid transparent;background:transparent;border-
 table.bara td button:hover{background:#fff3df;border-color:var(--line)}
 table.bara td button small{display:block;font-size:.68rem;color:var(--muted);font-weight:400}
 table.bara caption{text-align:left;padding:10px 12px;font-size:.86rem;color:var(--muted);caption-side:bottom}
+.bara-jump{font-size:.9rem;color:var(--muted)}
+.bara-jump a{font-weight:600}
 
 /* ---------- print: static, ink-friendly ---------- */
 @media print{
+  .say,.spk,.bara-btns{display:none !important}
+  table.bara td button{border:none !important;padding:4px 6px}
+  .bara-wrap{overflow:visible}
   .tracebox text,.trace-cell text{fill:#000 !important;stroke:none !important;animation:none !important}
   .sb-float,.sb-band::after,.sb-strip{display:none !important}
   .sb-scene svg .sb-steam,.sb-scene svg .sb-tw,.sb-scene svg .sb-wave{animation:none !important}
