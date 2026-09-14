@@ -1,6 +1,6 @@
 {
  "preliminary": false,
- "count": 1964,
+ "count": 1976,
  "relations": [
   {
    "relationship_id": "lang:eng:AU:NATIONAL",
@@ -22067,7 +22067,7 @@
    },
    "needs_human_review": false,
    "ekguru_priority": "P3",
-   "ekguru_reason": "score 46/100 (speakerReach=24, countryCount=6, education=0, travel=2, business=0, migration=3, internetContentProxy=4, learningDemandProxy=4, ttsAsr=0, translation=0, dataConfidence=3)",
+   "ekguru_reason": "score 46/100 (speakerReach=24, countryCount=8, education=0, travel=2, business=0, migration=3, internetContentProxy=4, learningDemandProxy=4, ttsAsr=0, translation=0, dataConfidence=1)",
    "review_flags": []
   },
   {
@@ -23021,6 +23021,156 @@
    "ekguru_priority": "P1",
    "ekguru_reason": "pack live — full course candidate (score 79 overridden)",
    "review_flags": []
+  },
+  {
+   "relationship_id": "lang:cjy:CN:REGIONAL",
+   "country_id": "CN",
+   "language_id": "lang:cjy",
+   "language_name": "Jin",
+   "native_name": "晋语",
+   "iso_639_1": null,
+   "iso_639_3": "cjy",
+   "glottocode": null,
+   "language_family": "Sino-Tibetan: Sinitic (Jin)",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Hans",
+   "status_in_country": "LIVING",
+   "category": "REGIONAL",
+   "role_detail": null,
+   "estimated_speaker_band": "10M-100M",
+   "speaker_estimate": {
+    "confidence": "low",
+    "total": 45000000
+   },
+   "country_specific_evidence": "Shanxi + Inner Mongolia fringe (~45M); sometimes folded into Mandarin — kept separate per ISO. Added by CN audit §3.",
+   "sources": [
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "low",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried (audit-gap add).",
+   "learning_intent": {
+    "contexts": [
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": true,
+   "ekguru_priority": "P3",
+   "ekguru_reason": "score 37/100 (speakerReach=24, countryCount=2, education=0, travel=2, business=0, migration=0, internetContentProxy=4, learningDemandProxy=4, ttsAsr=0, translation=0, dataConfidence=1)",
+   "review_flags": [
+    "low-confidence"
+   ]
+  },
+  {
+   "relationship_id": "lang:cdo:CN:REGIONAL",
+   "country_id": "CN",
+   "language_id": "lang:cdo",
+   "language_name": "Min Dong",
+   "native_name": "閩東語",
+   "iso_639_1": null,
+   "iso_639_3": "cdo",
+   "glottocode": null,
+   "language_family": "Sino-Tibetan: Sinitic (Min)",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Hans",
+   "status_in_country": "LIVING",
+   "category": "REGIONAL",
+   "role_detail": null,
+   "estimated_speaker_band": "10M-100M",
+   "speaker_estimate": {
+    "confidence": "low",
+    "total": 10000000
+   },
+   "country_specific_evidence": "Fuzhou + E. Fujian (~10M; Fuzhou prestige). Added by CN audit §3.",
+   "sources": [
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "low",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried (audit-gap add).",
+   "learning_intent": {
+    "contexts": [
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": true,
+   "ekguru_priority": "P3",
+   "ekguru_reason": "score 37/100 (speakerReach=24, countryCount=2, education=0, travel=2, business=0, migration=0, internetContentProxy=4, learningDemandProxy=4, ttsAsr=0, translation=0, dataConfidence=1)",
+   "review_flags": [
+    "low-confidence"
+   ]
+  },
+  {
+   "relationship_id": "lang:mnp:CN:REGIONAL",
+   "country_id": "CN",
+   "language_id": "lang:mnp",
+   "language_name": "Min Bei",
+   "native_name": "闽北语",
+   "iso_639_1": null,
+   "iso_639_3": "mnp",
+   "glottocode": null,
+   "language_family": "Sino-Tibetan: Sinitic (Min)",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Hans",
+   "status_in_country": "LIVING",
+   "category": "REGIONAL",
+   "role_detail": null,
+   "estimated_speaker_band": "10M-100M",
+   "speaker_estimate": {
+    "confidence": "low",
+    "total": 10000000
+   },
+   "country_specific_evidence": "N. Fujian (Jianzhou; ~10M). Added by CN audit §3.",
+   "sources": [
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "low",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried (audit-gap add).",
+   "learning_intent": {
+    "contexts": [
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": true,
+   "ekguru_priority": "P3",
+   "ekguru_reason": "score 37/100 (speakerReach=24, countryCount=2, education=0, travel=2, business=0, migration=0, internetContentProxy=4, learningDemandProxy=4, ttsAsr=0, translation=0, dataConfidence=1)",
+   "review_flags": [
+    "low-confidence"
+   ]
   },
   {
    "relationship_id": "lang:jpn:JP:OFFICIAL",
@@ -27461,6 +27611,422 @@
    "ekguru_priority": "P1",
    "ekguru_reason": "pack live — full course candidate (score 79 overridden)",
    "review_flags": []
+  },
+  {
+   "relationship_id": "lang:lez:RU:OFFICIAL:official-regional",
+   "country_id": "RU",
+   "language_id": "lang:lez",
+   "language_name": "Lezgian",
+   "native_name": "лезги чӀал",
+   "iso_639_1": null,
+   "iso_639_3": "lez",
+   "glottocode": null,
+   "language_family": "Northeast Caucasian: Lezgic",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "OFFICIAL",
+   "role_detail": "official-regional",
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "confidence": "low",
+    "total": 500000
+   },
+   "country_specific_evidence": "Dagestan written-14 (Samur valley; ~500K RU-share; AZ spillover). Added by RU audit §3.",
+   "sources": [
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "low",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried (audit-gap add).",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": true,
+   "ekguru_priority": "P3",
+   "ekguru_reason": "score 29/100 (speakerReach=12, countryCount=4, education=3, travel=2, business=0, migration=3, internetContentProxy=2, learningDemandProxy=2, ttsAsr=0, translation=0, dataConfidence=1)",
+   "review_flags": [
+    "low-confidence"
+   ]
+  },
+  {
+   "relationship_id": "lang:lez:RU:REGIONAL",
+   "country_id": "RU",
+   "language_id": "lang:lez",
+   "language_name": "Lezgian",
+   "native_name": "лезги чӀал",
+   "iso_639_1": null,
+   "iso_639_3": "lez",
+   "glottocode": null,
+   "language_family": "Northeast Caucasian: Lezgic",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "REGIONAL",
+   "role_detail": null,
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "confidence": "low",
+    "total": 500000
+   },
+   "country_specific_evidence": "Dagestan written-14 (Samur valley; ~500K RU-share; AZ spillover). Added by RU audit §3.",
+   "sources": [
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "low",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried (audit-gap add).",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": true,
+   "ekguru_priority": "P3",
+   "ekguru_reason": "score 29/100 (speakerReach=12, countryCount=4, education=3, travel=2, business=0, migration=3, internetContentProxy=2, learningDemandProxy=2, ttsAsr=0, translation=0, dataConfidence=1)",
+   "review_flags": [
+    "low-confidence"
+   ]
+  },
+  {
+   "relationship_id": "lang:dar:RU:OFFICIAL:official-regional",
+   "country_id": "RU",
+   "language_id": "lang:dar",
+   "language_name": "Dargwa",
+   "native_name": "дарган мез",
+   "iso_639_1": null,
+   "iso_639_3": "dar",
+   "glottocode": null,
+   "language_family": "Northeast Caucasian (Dargic)",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "OFFICIAL",
+   "role_detail": "official-regional",
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "confidence": "low",
+    "total": 450000
+   },
+   "country_specific_evidence": "Dagestan written-14 (standard + divergent dialects). Added by RU audit §3.",
+   "sources": [
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "low",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried (audit-gap add).",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": true,
+   "ekguru_priority": "P3",
+   "ekguru_reason": "score 24/100 (speakerReach=12, countryCount=2, education=3, travel=2, business=0, migration=0, internetContentProxy=2, learningDemandProxy=2, ttsAsr=0, translation=0, dataConfidence=1)",
+   "review_flags": [
+    "low-confidence"
+   ]
+  },
+  {
+   "relationship_id": "lang:dar:RU:REGIONAL",
+   "country_id": "RU",
+   "language_id": "lang:dar",
+   "language_name": "Dargwa",
+   "native_name": "дарган мез",
+   "iso_639_1": null,
+   "iso_639_3": "dar",
+   "glottocode": null,
+   "language_family": "Northeast Caucasian (Dargic)",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "REGIONAL",
+   "role_detail": null,
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "confidence": "low",
+    "total": 450000
+   },
+   "country_specific_evidence": "Dagestan written-14 (standard + divergent dialects). Added by RU audit §3.",
+   "sources": [
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "low",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried (audit-gap add).",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": true,
+   "ekguru_priority": "P3",
+   "ekguru_reason": "score 24/100 (speakerReach=12, countryCount=2, education=3, travel=2, business=0, migration=0, internetContentProxy=2, learningDemandProxy=2, ttsAsr=0, translation=0, dataConfidence=1)",
+   "review_flags": [
+    "low-confidence"
+   ]
+  },
+  {
+   "relationship_id": "lang:inh:RU:OFFICIAL:official-regional",
+   "country_id": "RU",
+   "language_id": "lang:inh",
+   "language_name": "Ingush",
+   "native_name": "гӀалгӀай мотт",
+   "iso_639_1": null,
+   "iso_639_3": "inh",
+   "glottocode": null,
+   "language_family": "Northeast Caucasian (Nakh)",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "OFFICIAL",
+   "role_detail": "official-regional",
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "confidence": "low",
+    "total": 400000
+   },
+   "country_specific_evidence": "Ingushetia co-official (Chechen sister). Added by RU audit §3.",
+   "sources": [
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "low",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried (audit-gap add).",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": true,
+   "ekguru_priority": "P3",
+   "ekguru_reason": "score 24/100 (speakerReach=12, countryCount=2, education=3, travel=2, business=0, migration=0, internetContentProxy=2, learningDemandProxy=2, ttsAsr=0, translation=0, dataConfidence=1)",
+   "review_flags": [
+    "low-confidence"
+   ]
+  },
+  {
+   "relationship_id": "lang:inh:RU:REGIONAL",
+   "country_id": "RU",
+   "language_id": "lang:inh",
+   "language_name": "Ingush",
+   "native_name": "гӀалгӀай мотт",
+   "iso_639_1": null,
+   "iso_639_3": "inh",
+   "glottocode": null,
+   "language_family": "Northeast Caucasian (Nakh)",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "REGIONAL",
+   "role_detail": null,
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "confidence": "low",
+    "total": 400000
+   },
+   "country_specific_evidence": "Ingushetia co-official (Chechen sister). Added by RU audit §3.",
+   "sources": [
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "low",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried (audit-gap add).",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": true,
+   "ekguru_priority": "P3",
+   "ekguru_reason": "score 24/100 (speakerReach=12, countryCount=2, education=3, travel=2, business=0, migration=0, internetContentProxy=2, learningDemandProxy=2, ttsAsr=0, translation=0, dataConfidence=1)",
+   "review_flags": [
+    "low-confidence"
+   ]
+  },
+  {
+   "relationship_id": "lang:ady:RU:OFFICIAL:official-regional",
+   "country_id": "RU",
+   "language_id": "lang:ady",
+   "language_name": "Adyghe",
+   "native_name": "адыгабзэ",
+   "iso_639_1": null,
+   "iso_639_3": "ady",
+   "glottocode": null,
+   "language_family": "Northwest Caucasian",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Latn",
+   "status_in_country": "LIVING",
+   "category": "OFFICIAL",
+   "role_detail": "official-regional",
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "confidence": "low",
+    "total": 150000
+   },
+   "country_specific_evidence": "Adygea co-official (~150K RU-share; global ~500K incl. TR diaspora). Added by RU audit §3.",
+   "sources": [
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "low",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried (audit-gap add).",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": true,
+   "ekguru_priority": "P3",
+   "ekguru_reason": "score 29/100 (speakerReach=12, countryCount=4, education=3, travel=2, business=0, migration=3, internetContentProxy=2, learningDemandProxy=2, ttsAsr=0, translation=0, dataConfidence=1)",
+   "review_flags": [
+    "low-confidence"
+   ]
+  },
+  {
+   "relationship_id": "lang:ady:RU:REGIONAL",
+   "country_id": "RU",
+   "language_id": "lang:ady",
+   "language_name": "Adyghe",
+   "native_name": "адыгабзэ",
+   "iso_639_1": null,
+   "iso_639_3": "ady",
+   "glottocode": null,
+   "language_family": "Northwest Caucasian",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Latn",
+   "status_in_country": "LIVING",
+   "category": "REGIONAL",
+   "role_detail": null,
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "confidence": "low",
+    "total": 150000
+   },
+   "country_specific_evidence": "Adygea co-official (~150K RU-share; global ~500K incl. TR diaspora). Added by RU audit §3.",
+   "sources": [
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "low",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried (audit-gap add).",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": true,
+   "ekguru_priority": "P3",
+   "ekguru_reason": "score 29/100 (speakerReach=12, countryCount=4, education=3, travel=2, business=0, migration=3, internetContentProxy=2, learningDemandProxy=2, ttsAsr=0, translation=0, dataConfidence=1)",
+   "review_flags": [
+    "low-confidence"
+   ]
   },
   {
    "relationship_id": "lang:ukr:UA:OFFICIAL",
@@ -55993,6 +56559,56 @@
    "review_flags": []
   },
   {
+   "relationship_id": "lang:nan:ID:MINORITY",
+   "country_id": "ID",
+   "language_id": "lang:nan",
+   "language_name": "Hokkien",
+   "native_name": "閩南語",
+   "iso_639_1": null,
+   "iso_639_3": "nan",
+   "glottocode": null,
+   "language_family": "Sino-Tibetan: Sinitic",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Latn",
+   "status_in_country": "LIVING",
+   "category": "MINORITY",
+   "role_detail": null,
+   "estimated_speaker_band": "1M-10M",
+   "speaker_estimate": {
+    "confidence": "low",
+    "total": 1500000
+   },
+   "country_specific_evidence": "Medan Chinese community (~1.5M; bigger than Hakka there). Added by ID audit §3.",
+   "sources": [
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "low",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried (audit-gap add).",
+   "learning_intent": {
+    "contexts": [
+     "heritage",
+     "family"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": true,
+   "ekguru_priority": "P3",
+   "ekguru_reason": "score 46/100 (speakerReach=24, countryCount=8, education=0, travel=2, business=0, migration=3, internetContentProxy=4, learningDemandProxy=4, ttsAsr=0, translation=0, dataConfidence=1)",
+   "review_flags": [
+    "low-confidence"
+   ]
+  },
+  {
    "relationship_id": "lang:lao:LA:NATIONAL",
    "country_id": "LA",
    "language_id": "lang:lao",
@@ -57001,7 +57617,7 @@
    },
    "needs_human_review": false,
    "ekguru_priority": "P3",
-   "ekguru_reason": "score 46/100 (speakerReach=24, countryCount=6, education=0, travel=2, business=0, migration=3, internetContentProxy=4, learningDemandProxy=4, ttsAsr=0, translation=0, dataConfidence=3)",
+   "ekguru_reason": "score 46/100 (speakerReach=24, countryCount=8, education=0, travel=2, business=0, migration=3, internetContentProxy=4, learningDemandProxy=4, ttsAsr=0, translation=0, dataConfidence=1)",
    "review_flags": []
   },
   {
@@ -59395,7 +60011,7 @@
    },
    "needs_human_review": false,
    "ekguru_priority": "P3",
-   "ekguru_reason": "score 46/100 (speakerReach=24, countryCount=6, education=0, travel=2, business=0, migration=3, internetContentProxy=4, learningDemandProxy=4, ttsAsr=0, translation=0, dataConfidence=3)",
+   "ekguru_reason": "score 46/100 (speakerReach=24, countryCount=8, education=0, travel=2, business=0, migration=3, internetContentProxy=4, learningDemandProxy=4, ttsAsr=0, translation=0, dataConfidence=1)",
    "review_flags": []
   },
   {
@@ -92141,7 +92757,7 @@
    },
    "needs_human_review": true,
    "ekguru_priority": "P3",
-   "ekguru_reason": "score 22/100 (speakerReach=12, countryCount=2, education=0, travel=1, business=0, migration=0, internetContentProxy=2, learningDemandProxy=2, ttsAsr=0, translation=0, dataConfidence=3)",
+   "ekguru_reason": "score 29/100 (speakerReach=12, countryCount=4, education=3, travel=2, business=0, migration=3, internetContentProxy=2, learningDemandProxy=2, ttsAsr=0, translation=0, dataConfidence=1)",
    "review_flags": [
     "disputed"
    ]
@@ -98924,7 +99540,7 @@
    },
    "needs_human_review": false,
    "ekguru_priority": "P3",
-   "ekguru_reason": "score 22/100 (speakerReach=12, countryCount=2, education=0, travel=1, business=0, migration=0, internetContentProxy=2, learningDemandProxy=2, ttsAsr=0, translation=0, dataConfidence=3)",
+   "ekguru_reason": "score 29/100 (speakerReach=12, countryCount=4, education=3, travel=2, business=0, migration=3, internetContentProxy=2, learningDemandProxy=2, ttsAsr=0, translation=0, dataConfidence=1)",
    "review_flags": []
   },
   {

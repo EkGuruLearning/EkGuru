@@ -46,8 +46,9 @@ backbone (1945 Constitution Art.36 + Youth Pledge 1928), the Javanese paradox
 - Papuan long-tail (≈270 languages, incl. Dani `dni` cluster, Asmat `asc`
   cluster, Ekari `ekg`) is entirely uninventoried below entry level: each
   <500K, jointly ≈3M. Pass 2 ruling on a "Papuan survey" concept.
-- Hokkien (`nan`, Medan — likely >1M, bigger than Hakka there) is MISSING —
-  flag added to pass-2 list; the hak entry alone misrepresents Chinese-ID.
+- Hokkien (`nan`, Medan ~1.5M) was MISSING — added same-day as a pass-1
+  entry (audit-gap commit, low confidence); hak+nan now jointly represent
+  Chinese-ID. Pass 2 still splits Teochew/Cantonese shares (§8).
 
 ## 4. Constitutional backbone (what the entries cite)
 
@@ -112,7 +113,7 @@ level) competence is collapsing faster than Ngoko. Consequences:
 ## 8. Pass-2 verification list (Indonesia)
 
 1. BPS 2020 census language tables (coarse top-20) vs Ethnologue figures.
-2. Hokkien (nan) Medan entry — add alongside hak with split figures.
+2. Hokkien (nan) Medan entry — DONE as pass-1 entry (audit-gap commit); verify split figures.
 3. Tetun (tet) West-Timor entry (cross-border with TL official).
 4. Javanese transmission-decline quantification (urban youth surveys).
 5. Batak sisters threshold ruling (btx/bts/akb/btm/btd individual entries?).

@@ -1,7 +1,7 @@
 {
  "preliminary": false,
  "coverage": "194/194",
- "count": 689,
+ "count": 694,
  "languages": [
   {
    "language_id": "lang:abk",
@@ -204,9 +204,11 @@
   },
   {
    "language_id": "lang:ady",
-   "canonical_name": "Adyghe (Circassian)",
-   "aliases": [],
-   "native_name": "Адыгабзэ",
+   "canonical_name": "Adyghe",
+   "aliases": [
+    "Adyghe (Circassian)"
+   ],
+   "native_name": "адыгабзэ",
    "iso_639_1": null,
    "iso_639_3": "ady",
    "glottocode": null,
@@ -214,16 +216,23 @@
    "language_type": "CANONICAL_LANGUAGE",
    "script": "Latn",
    "countries": [
+    "RU",
     "TR"
    ],
    "bands": [
+    "100K-1M",
+    "100K-1M",
     "100K-1M"
    ],
    "confidences": [
+    "low",
+    "low",
     "medium"
    ],
    "roles_all": [
-    "minority"
+    "minority",
+    "official-regional",
+    "regional"
    ],
    "sources_all": [
     "agent-knowledge",
@@ -236,7 +245,7 @@
     "none"
    ],
    "max_band": "100K-1M",
-   "min_confidence": "medium",
+   "min_confidence": "low",
    "tts": false,
    "translation": false,
    "canonical_note": "Adyghe/Circassian. Canonical Latn (bigger TR-diaspora community); RU homeland uses Cyrillic (override later). Pre-verification caught adh=Adhola trap."
@@ -5316,6 +5325,47 @@
    "tts": null,
    "translation": null,
    "canonical_note": null
+  },
+  {
+   "language_id": "lang:dar",
+   "canonical_name": "Dargwa",
+   "aliases": [],
+   "native_name": "дарган мез",
+   "iso_639_1": null,
+   "iso_639_3": "dar",
+   "glottocode": null,
+   "language_family": "Northeast Caucasian (Dargic)",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Cyrl",
+   "countries": [
+    "RU"
+   ],
+   "bands": [
+    "100K-1M",
+    "100K-1M"
+   ],
+   "confidences": [
+    "low",
+    "low"
+   ],
+   "roles_all": [
+    "official-regional",
+    "regional"
+   ],
+   "sources_all": [
+    "agent-knowledge"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "100K-1M",
+   "min_confidence": "low",
+   "tts": false,
+   "translation": false,
+   "canonical_note": "Audit-gap add (pass 1, agent-compiled; verification pass 2 confirms). Dagestan written-14 (~450K; dialect chain)."
   },
   {
    "language_id": "lang:prs",
@@ -10792,6 +10842,47 @@
    "canonical_note": null
   },
   {
+   "language_id": "lang:inh",
+   "canonical_name": "Ingush",
+   "aliases": [],
+   "native_name": "гӀалгӀай мотт",
+   "iso_639_1": null,
+   "iso_639_3": "inh",
+   "glottocode": null,
+   "language_family": "Northeast Caucasian (Nakh)",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Cyrl",
+   "countries": [
+    "RU"
+   ],
+   "bands": [
+    "100K-1M",
+    "100K-1M"
+   ],
+   "confidences": [
+    "low",
+    "low"
+   ],
+   "roles_all": [
+    "official-regional",
+    "regional"
+   ],
+   "sources_all": [
+    "agent-knowledge"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "100K-1M",
+   "min_confidence": "low",
+   "tts": false,
+   "translation": false,
+   "canonical_note": "Audit-gap add (pass 1, agent-compiled; verification pass 2 confirms). Ingushetia co-official (~400K; Chechen sister)."
+  },
+  {
    "language_id": "lang:iku",
    "canonical_name": "Inuktitut",
    "aliases": [],
@@ -11455,6 +11546,44 @@
    "tts": null,
    "translation": null,
    "canonical_note": null
+  },
+  {
+   "language_id": "lang:cjy",
+   "canonical_name": "Jin",
+   "aliases": [],
+   "native_name": "晋语",
+   "iso_639_1": null,
+   "iso_639_3": "cjy",
+   "glottocode": null,
+   "language_family": "Sino-Tibetan: Sinitic (Jin)",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Hans",
+   "countries": [
+    "CN"
+   ],
+   "bands": [
+    "10M-100M"
+   ],
+   "confidences": [
+    "low"
+   ],
+   "roles_all": [
+    "regional"
+   ],
+   "sources_all": [
+    "agent-knowledge"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "10M-100M",
+   "min_confidence": "low",
+   "tts": false,
+   "translation": false,
+   "canonical_note": "Audit-gap add (pass 1, agent-compiled; verification pass 2 confirms). Shanxi (~45M; Mandarin-folding dispute — kept separate per ISO)."
   },
   {
    "language_id": "lang:kac",
@@ -13892,18 +14021,26 @@
    "language_type": "CANONICAL_LANGUAGE",
    "script": "Cyrl",
    "countries": [
-    "AZ"
+    "AZ",
+    "RU"
    ],
    "bands": [
+    "100K-1M",
+    "100K-1M",
     "100K-1M"
    ],
    "confidences": [
+    "low",
+    "low",
     "medium"
    ],
    "roles_all": [
-    "minority"
+    "minority",
+    "official-regional",
+    "regional"
    ],
    "sources_all": [
+    "agent-knowledge",
     "az-census-2019",
     "ethnologue-27"
    ],
@@ -13914,7 +14051,7 @@
     "none"
    ],
    "max_band": "100K-1M",
-   "min_confidence": "medium",
+   "min_confidence": "low",
    "tts": false,
    "translation": false,
    "canonical_note": "SIL spells 'Lezghian'. AZ highlands + bigger RU-Dagestan side (future batch)."
@@ -16487,9 +16624,86 @@
    "canonical_note": null
   },
   {
+   "language_id": "lang:mnp",
+   "canonical_name": "Min Bei",
+   "aliases": [],
+   "native_name": "闽北语",
+   "iso_639_1": null,
+   "iso_639_3": "mnp",
+   "glottocode": null,
+   "language_family": "Sino-Tibetan: Sinitic (Min)",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Hans",
+   "countries": [
+    "CN"
+   ],
+   "bands": [
+    "10M-100M"
+   ],
+   "confidences": [
+    "low"
+   ],
+   "roles_all": [
+    "regional"
+   ],
+   "sources_all": [
+    "agent-knowledge"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "10M-100M",
+   "min_confidence": "low",
+   "tts": false,
+   "translation": false,
+   "canonical_note": "Audit-gap add (pass 1, agent-compiled; verification pass 2 confirms). N. Fujian Jianzhou (~10M)."
+  },
+  {
+   "language_id": "lang:cdo",
+   "canonical_name": "Min Dong",
+   "aliases": [],
+   "native_name": "閩東語",
+   "iso_639_1": null,
+   "iso_639_3": "cdo",
+   "glottocode": null,
+   "language_family": "Sino-Tibetan: Sinitic (Min)",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Hans",
+   "countries": [
+    "CN"
+   ],
+   "bands": [
+    "10M-100M"
+   ],
+   "confidences": [
+    "low"
+   ],
+   "roles_all": [
+    "regional"
+   ],
+   "sources_all": [
+    "agent-knowledge"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "10M-100M",
+   "min_confidence": "low",
+   "tts": false,
+   "translation": false,
+   "canonical_note": "Audit-gap add (pass 1, agent-compiled; verification pass 2 confirms). Fuzhou + E. Fujian (~10M)."
+  },
+  {
    "language_id": "lang:nan",
    "canonical_name": "Min Nan",
    "aliases": [
+    "Hokkien",
     "Hokkien (Min Nan)"
    ],
    "native_name": "閩南語",
@@ -16501,16 +16715,19 @@
    "script": "Latn",
    "countries": [
     "CN",
+    "ID",
     "MY",
     "PH"
    ],
    "bands": [
     "10M-100M",
     "1M-10M",
+    "1M-10M",
     "100K-1M"
    ],
    "confidences": [
     "medium",
+    "low",
     "medium",
     "medium"
    ],
@@ -16531,7 +16748,7 @@
     "none"
    ],
    "max_band": "10M-100M",
-   "min_confidence": "medium",
+   "min_confidence": "low",
    "tts": false,
    "translation": false,
    "canonical_note": "Hokkien (Min Nan); POJ Latin + Han mixed. Binondo/Binamarkets; zho member; no 639-1."

@@ -545,7 +545,7 @@ Researched living estimate: 280 (agent-knowledge, low). Entries below: 8.
 
 ## CN — China (Eastern Asia)
 
-Researched living estimate: 300 (agent-knowledge, low). Entries below: 17.
+Researched living estimate: 300 (agent-knowledge, low). Entries below: 20.
 
 **OFFICIAL** (8): Cantonese (yue, medium); Kazakh (kaz, medium); Korean (kor, medium); Mandarin (cmn, medium); Peripheral Mongolian (mvf, medium); Tibetan (bod, low); Uyghur (uig, medium); Zhuang (zha, medium).
 
@@ -553,7 +553,7 @@ Researched living estimate: 300 (agent-knowledge, low). Entries below: 17.
 
 **WIDELY_SPOKEN** (3): Cantonese (yue, medium); English (eng, medium); Mandarin (cmn, medium).
 
-**REGIONAL** (12): Cantonese (yue, medium); Gan (gan, medium); Hakka (hak, medium); Hmong/Miao (hmn, low); Min Nan (nan, medium); Nuosu Yi (iii, medium); Peripheral Mongolian (mvf, medium); Tibetan (bod, low); Uyghur (uig, medium); Wu (wuu, medium); Xiang (hsn, medium); Zhuang (zha, medium).
+**REGIONAL** (15): Cantonese (yue, medium); Gan (gan, medium); Hakka (hak, medium); Hmong/Miao (hmn, low); Jin (cjy, low); Min Bei (mnp, low); Min Dong (cdo, low); Min Nan (nan, medium); Nuosu Yi (iii, medium); Peripheral Mongolian (mvf, medium); Tibetan (bod, low); Uyghur (uig, medium); Wu (wuu, medium); Xiang (hsn, medium); Zhuang (zha, medium).
 
 **MINORITY** (2): Kazakh (kaz, medium); Korean (kor, medium).
 
@@ -1116,7 +1116,7 @@ Researched living estimate: 12 (agent-knowledge, low). Entries below: 6.
 
 ## ID — Indonesia (South-Eastern Asia)
 
-Researched living estimate: 700 (ethnologue-27, medium). Entries below: 15.
+Researched living estimate: 700 (ethnologue-27, medium). Entries below: 16.
 
 **OFFICIAL** (1): Indonesian (ind, high).
 
@@ -1126,7 +1126,7 @@ Researched living estimate: 700 (ethnologue-27, medium). Entries below: 15.
 
 **REGIONAL** (11): Acehnese (ace, medium); Balinese (ban, medium); Banjar (bjn, medium); Batak Toba (bbc, medium); Buginese (bug, medium); Javanese (jav, high); Madurese (mad, medium); Makassar (mak, medium); Minangkabau (min, medium); Sasak (sas, medium); Sundanese (sun, high).
 
-**MINORITY** (1): Hakka (hak, medium).
+**MINORITY** (2): Hakka (hak, medium); Hokkien (nan, low).
 
 **SIGN_LANGUAGE** (1): Indonesian Sign Language (inl, medium).
 
@@ -2206,15 +2206,15 @@ Researched living estimate: 15 (agent-knowledge, low). Entries below: 10.
 
 ## RU — Russia (Eastern Europe)
 
-Researched living estimate: 150 (agent-knowledge, low). Entries below: 18.
+Researched living estimate: 150 (agent-knowledge, low). Entries below: 22.
 
-**OFFICIAL** (14): Bashkir (bak, medium); Buryat (bua, low); Chechen (che, medium); Chuvash (chv, medium); Kabardian (kbd, medium); Kalmyk (xal, medium); Komi-Zyrian (kpv, medium); Meadow Mari (mhr, medium); Ossetic (oss, medium); Russian (rus, medium); Tatar (tat, medium); Tuvan (tyv, medium); Udmurt (udm, medium); Yakut (sah, medium).
+**OFFICIAL** (18): Adyghe (ady, low); Bashkir (bak, medium); Buryat (bua, low); Chechen (che, medium); Chuvash (chv, medium); Dargwa (dar, low); Ingush (inh, low); Kabardian (kbd, medium); Kalmyk (xal, medium); Komi-Zyrian (kpv, medium); Lezgian (lez, low); Meadow Mari (mhr, medium); Ossetic (oss, medium); Russian (rus, medium); Tatar (tat, medium); Tuvan (tyv, medium); Udmurt (udm, medium); Yakut (sah, medium).
 
 **NATIONAL** (1): Russian (rus, medium).
 
 **WIDELY_SPOKEN** (4): Avar (ava, medium); English (eng, medium); Russian (rus, medium); Tatar (tat, medium).
 
-**REGIONAL** (14): Avar (ava, medium); Bashkir (bak, medium); Buryat (bua, low); Chechen (che, medium); Chuvash (chv, medium); Kabardian (kbd, medium); Kalmyk (xal, medium); Komi-Zyrian (kpv, medium); Meadow Mari (mhr, medium); Ossetic (oss, medium); Tatar (tat, medium); Tuvan (tyv, medium); Udmurt (udm, medium); Yakut (sah, medium).
+**REGIONAL** (18): Adyghe (ady, low); Avar (ava, medium); Bashkir (bak, medium); Buryat (bua, low); Chechen (che, medium); Chuvash (chv, medium); Dargwa (dar, low); Ingush (inh, low); Kabardian (kbd, medium); Kalmyk (xal, medium); Komi-Zyrian (kpv, medium); Lezgian (lez, low); Meadow Mari (mhr, medium); Ossetic (oss, medium); Tatar (tat, medium); Tuvan (tyv, medium); Udmurt (udm, medium); Yakut (sah, medium).
 
 **MINORITY** (1): Ukrainian (ukr, low).
 

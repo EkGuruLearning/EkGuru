@@ -45,10 +45,10 @@ pass 2 must make.
 
 - P1 plan for rus is correct (post-Soviet lingua franca + official in 4
   states + UN language).
-- **Missing-Dagestan gap (serious)**: Lezgian (`lez` ~700K), Dargwa (`dar`
-  ~500K), Ingush (`inh` ~400K) and Adyghe (`ady` ~500K incl. diaspora) are
-  NOT entered — jointly ≈2M speakers, all republic-official (Dagestan/
-  Ingushetia/Adygea), absent from the data. Pass-2 entries mandatory (§8).
+- **Missing-Dagestan gap — CLOSED same-day**: Lezgian (`lez`), Dargwa
+  (`dar`), Ingush (`inh`) and Adyghe (`ady`) were added as pass-1 entries
+  (audit-gap commit, low confidence); all republic-official coverage
+  restored. Pass 2 still verifies figures + Lak/Tabasaran thresholds (§8).
 - tat (4.5M, Kazan — the Volga pillar) is the largest entered `none`.
 - Siberian small peoples (Evenki `evn`, Nenets `yrk`, Khanty `kca`) sit
   correctly in long-tail (<100K each); confirm no entry-class miss in §8.
@@ -122,7 +122,7 @@ even where the titular language is "official". Consequences:
 
 ## 8. Pass-2 verification list (Russia)
 
-1. ADD Lezgian (lez), Dargwa (dar), Ingush (inh), Adyghe (ady) entries.
+1. Lezgian/Dargwa/Ingush/Adyghe figures — DONE as pass-1 entries (audit-gap commit); verify.
 2. 2021 census language tables (exact L1/proficiency → bands).
 3. 2018-law effects (minority-medium enrolment time series, Kazan/Ufa).
 4. Tatar Latin question (current status; internet-Latin vs Cyrillic law).

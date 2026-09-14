@@ -43,9 +43,10 @@ autonomous-area rulings pass 2 must make.
 ## 3. Gap analysis (EkGuru coverage)
 
 - P1 plans for cmn/yue are correct; cmn is the flagship Sinitic course.
-- **Missing-Sinitic gap (serious)**: Jin (`cjy`, Shanxi ~45M), Min Dong
-  (`cdo`, Fuzhou ~10M) and Min Bei (`mnp`, N. Fujian ~10M) are NOT entered —
-  jointly ≈65M speakers absent from the data. Pass-2 entries mandatory (§8).
+- **Missing-Sinitic gap — CLOSED same-day**: Jin (`cjy` ~45M), Min Dong
+  (`cdo` ~10M) and Min Bei (`mnp` ~10M) were added as pass-1 entries
+  (audit-gap commit, low confidence); ≈65M speakers restored to the data.
+  Pass 2 still verifies figures + Teochew/Huizhou splits (§8).
 - wuu (80M, Shanghai — measurable youth-transmission decline) + nan (50M,
   cross-Strait) are the largest entered `none` Sinitic entries.
 - Tujia (`tji`, 8M ethnicity / <100K speakers — the ethnicity≠language
@@ -120,7 +121,7 @@ Two artefacts compound in China:
 
 ## 8. Pass-2 verification list (China)
 
-1. ADD Jin (cjy), Min Dong (cdo), Min Bei (mnp) entries (missing ≈65M).
+1. Jin/Min-Dong/Min-Bei figures — DONE as pass-1 entries (audit-gap commit); verify + Teochew/Huizhou splits.
 2. Mandarin-umbrella split (Putonghua-L2 vs dialect-L1 quantification).
 3. Tibetan split ruling (bod vs khg/adx entries?).
 4. Hmong/Miao macro ruling (hmn members audit).

@@ -210,7 +210,7 @@ Acehnese | ID | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Achi | GT | 10K-100K | Latn | P4 | RESEARCH_REQUIRED
 Acholi | UG | 1M-10M | — | P3 | RESEARCH_REQUIRED
 Adamawa Fulfulde | CM | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
-Adyghe (Circassian) | TR | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
+Adyghe | RU,TR | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Afar | DJ,ER,ET | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Afghan Sign Language | AF | unknown | (sign) | P4 | PARTIAL
 Afrikaans | NA,ZA | 10M-100M | Latn | P1 | READY
@@ -331,6 +331,7 @@ Dagbani | GH | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Dan | CI | 1M-10M | — | P3 | RESEARCH_REQUIRED
 Danish | DE,DK,IS | 1M-10M | Latn | P2 | READY
 Danish Sign Language | DK | unknown | (sign) | P4 | PARTIAL
+Dargwa | RU | 100K-1M | Cyrl | P3 | RESEARCH_REQUIRED
 Dari | AF | 1M-10M | Arab | P2 | PARTIAL
 Dazaga | TD | 100K-1M | — | P3 | RESEARCH_REQUIRED
 Dendi | BJ | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
@@ -444,6 +445,7 @@ Inari Sami | FI | <10K | — | P4 | RESEARCH_REQUIRED
 Indian Sign Language | IN | unknown | (sign) | P4 | PARTIAL
 Indonesian | ID,TL | 10M-100M | Latn | P1 | READY
 Indonesian Sign Language | ID | unknown | (sign) | P4 | PARTIAL
+Ingush | RU | 100K-1M | Cyrl | P3 | RESEARCH_REQUIRED
 Inuktitut | CA | 10K-100K | — | P4 | RESEARCH_REQUIRED
 Irish | GB,IE | 100K-1M | Latn | P2 | PARTIAL
 Irish Sign Language | IE | unknown | (sign) | P4 | PARTIAL
@@ -459,6 +461,7 @@ Japanese Sign Language | JP | unknown | (sign) | P4 | PARTIAL
 Jarai | VN | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Javanese | ID | 10M-100M | Latn | P2 | PARTIAL
 Jeju | KR | 10K-100K | — | P4 | RESEARCH_REQUIRED
+Jin | CN | 10M-100M | Hans | P3 | RESEARCH_REQUIRED
 Jingpho (Kachin) | MM | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Jola-Fonyi | GM,SN | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Jordanian Sign Language | JO | unknown | (sign) | P4 | PARTIAL
@@ -517,7 +520,7 @@ Latin | VA | unknown | Latn | P3 | PARTIAL
 Latvian | LV | 1M-10M | Latn | P2 | READY
 Latvian Sign Language | LV | unknown | (sign) | P4 | PARTIAL
 Lenakel | VU | 10K-100K | — | P4 | RESEARCH_REQUIRED
-Lezgian | AZ | 100K-1M | Cyrl | P3 | RESEARCH_REQUIRED
+Lezgian | AZ,RU | 100K-1M | Cyrl | P3 | RESEARCH_REQUIRED
 Liberia Kpelle | LR | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Libyan Spoken Arabic | LY | 1M-10M | Arab | P3 | RESEARCH_REQUIRED
 Limbu | NP | 100K-1M | Limb | P3 | RESEARCH_REQUIRED
@@ -580,7 +583,9 @@ Mesopotamian Arabic | IQ,IR,SY | 10M-100M | Arab | P3 | RESEARCH_REQUIRED
 Mexican Sign Language | MX | unknown | (sign) | P4 | PARTIAL
 Mezquital Otomi | MX | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Meänkieli | SE | 10K-100K | — | P4 | RESEARCH_REQUIRED
-Min Nan | CN,MY,PH | 10M-100M | Latn | P3 | RESEARCH_REQUIRED
+Min Bei | CN | 10M-100M | Hans | P3 | RESEARCH_REQUIRED
+Min Dong | CN | 10M-100M | Hans | P3 | RESEARCH_REQUIRED
+Min Nan | CN,ID,MY,PH | 10M-100M | Latn | P3 | RESEARCH_REQUIRED
 Minangkabau | ID | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Mingrelian | GE | 100K-1M | Geor | P3 | RESEARCH_REQUIRED
 Mirandese | PT | 10K-100K | — | P4 | RESEARCH_REQUIRED
@@ -902,7 +907,7 @@ Priority | Languages | Recommendation
 P0 | 12 | immediate production (or in production — maintain)
 P1 | 52 | next production
 P2 | 70 | expansion
-P3 | 367 | research-only
+P3 | 372 | research-only
 P4 | 188 | insufficient reliable learning data
 
 ## Scoring rules (transparency)
