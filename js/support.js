@@ -6,7 +6,10 @@
 
        key              value
        supportUpi       owner@upi
+       supportRazorpay  https://rzp.io/l/...
        supportPaypal    https://paypal.me/ownername
+       supportStripe    https://buy.stripe.com/...
+       supportRevolut   https://revolut.me/username
        supportBtc       bc1...
        supportEth       0x...
        supportUsdt      T... (or 0x...)
@@ -23,7 +26,7 @@
 (function () {
   "use strict";
 
-  var METHODS = ["upi", "paypal", "btc", "eth", "usdt"];
+  var METHODS = ["upi", "razorpay", "paypal", "stripe", "revolut", "btc", "eth", "usdt"];
 
   function val(card) {
     var key = "support" + card.charAt(0).toUpperCase() + card.slice(1);
@@ -73,17 +76,18 @@
         if (card === "upi") {
           go.setAttribute("href", "upi://pay?pa=" + encodeURIComponent(v) +
             "&pn=" + encodeURIComponent("EkGuru") + "&cu=INR");
-        } else if (card === "paypal") {
+        } else {
+          /* Link-type cards (PayPal/Razorpay/Stripe/Revolut): the
+             sheet URL opens the provider's secure page. */
           go.setAttribute("href", v);
-          /* Quick amounts are DERIVED from the sheet URL, never
-             hardcoded: paypal.me/NAME + /5USD etc. */
-          var base = v.replace(/\/+$/, "");
-          var amts = el.querySelectorAll("[data-amt]");
-          for (var i = 0; i < amts.length; i++) {
-            amts[i].setAttribute("href",
-              base + "/" + amts[i].getAttribute("data-amt") + "USD");
-          }
         }
+      }
+      /* Quick amounts are DERIVED from the sheet URL, never hardcoded:
+         paypal.me/NAME + /5USD etc. Only the PayPal card has them. */
+      var amts = el.querySelectorAll("[data-amt]");
+      for (var i = 0; i < amts.length; i++) {
+        amts[i].setAttribute("href",
+          v.replace(/\/+$/, "") + "/" + amts[i].getAttribute("data-amt") + "USD");
       }
       var cp = el.querySelector("[data-copy]");
       if (cp) cp.setAttribute("data-copy-text", v);

@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T03:04:32.692Z",
+ "generated": "2026-09-14T03:08:59.166Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "78b11808b87ef20c76f51d8ec8db01d0a4bcbc3e",
-  "subject": "v142: global TTS speed pill + auto-speak, Hindi structure upgrades (counts/path/hint), /support/ page with sheet-driven UPI/PayPal/crypto, homepage Support buttons",
-  "buildTime": "2026-09-14T03:04:32.705Z",
+  "commit": "253d8f738bac262d86361cc5d020fc846b658d64",
+  "subject": "v143: storybook injector — all 501 Hindi pages get TTS+speed+reveal+hint; fixed scripts-after-html in 4 builders; /support/ quick amounts + impact box; settings CSV for owner",
+  "buildTime": "2026-09-14T03:08:59.179Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,

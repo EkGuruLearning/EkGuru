@@ -142,6 +142,22 @@
     supportUsdt: function (v) {
       if (/^(none|no|off)$/i.test(v)) return "";
       return /^[A-Za-z0-9]{20,100}$/.test(v) ? v : null;
+    },
+    /* ---- Payment providers (v144). All three work as LINKS the
+       owner creates in the provider dashboard (no API keys, no
+       backend — the only thing a static site can safely do).
+       Razorpay/Stripe links carry their own fixed amount. */
+    supportRazorpay: function (v) {
+      if (/^(none|no|off)$/i.test(v)) return "";
+      return /^https:\/\/(www\.)?(razorpay\.com|rzp\.io|pages\.razorpay\.com)\//.test(v) ? v : null;
+    },
+    supportStripe: function (v) {
+      if (/^(none|no|off)$/i.test(v)) return "";
+      return /^https:\/\/(www\.)?(stripe\.com|buy\.stripe\.com)\//.test(v) ? v : null;
+    },
+    supportRevolut: function (v) {
+      if (/^(none|no|off)$/i.test(v)) return "";
+      return /^https:\/\/(www\.)?revolut\.me\//.test(v) ? v : null;
     }
   };
 
