@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T03:08:59.166Z",
+ "generated": "2026-09-14T03:14:02.005Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "253d8f738bac262d86361cc5d020fc846b658d64",
-  "subject": "v143: storybook injector — all 501 Hindi pages get TTS+speed+reveal+hint; fixed scripts-after-html in 4 builders; /support/ quick amounts + impact box; settings CSV for owner",
-  "buildTime": "2026-09-14T03:08:59.179Z",
+  "commit": "e2193c0a3330aab78a40645fcc3b668a13018656",
+  "subject": "v144: payment providers on /support/ — Razorpay + Stripe + Revolut as sheet-driven secure links (8 methods total)",
+  "buildTime": "2026-09-14T03:14:02.017Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,

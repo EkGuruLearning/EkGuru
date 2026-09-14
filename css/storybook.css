@@ -192,3 +192,39 @@ table.bara caption{text-align:left;padding:10px 12px;font-size:.86rem;color:var(
   html.sb-js .vcard,html.sb-js .sb-reveal{opacity:1 !important;transform:none !important}
   html.sb-js .art h2::after{transform:scaleX(1)}
 }
+
+/* ============ v145 ultra visuals: progress, TOC, keys, mastery, themes ============ */
+.sb-progress{position:fixed;top:0;left:0;right:0;height:4px;z-index:200;background:transparent;pointer-events:none}
+.sb-progress i{display:block;height:100%;width:0;background:var(--sb-accent,#4f32d9);border-radius:0 4px 4px 0;transition:width .1s linear}
+/* per-section accent: every section gets its own colour */
+body[data-section="ask"]{--sb-accent:#b45309}
+body[data-section="answers"]{--sb-accent:#147a3d}
+body[data-section="learn"]{--sb-accent:#4f32d9}
+body[data-section="hindi"]{--sb-accent:#c2407d}
+body[data-section="materials"]{--sb-accent:#0e7490}
+body[data-section="toolbox"]{--sb-accent:#6d28d9}
+body[data-section="daily-hindi"]{--sb-accent:#ea580c}
+body[data-sub="practice"]{--sb-accent:#7c3aed}
+body[data-sub="paths"]{--sb-accent:#0d9488}
+.sb-toc{border:1px solid var(--line);border-left:4px solid var(--sb-accent,#4f32d9);border-radius:12px;padding:10px 16px;margin:16px 0;background:var(--card,#fff)}
+.sb-toc summary{cursor:pointer;font-weight:700;color:var(--ink-2,#3d4257)}
+.sb-toc ol{margin:8px 0 4px;padding-left:22px;columns:2;column-gap:28px}
+.sb-toc li{margin:3px 0;font-size:.9rem;break-inside:avoid}
+.sb-toc li.more{color:var(--muted);list-style:none}
+.sb-toc a{color:var(--ink-2,#3d4257)}
+@media(max-width:560px){.sb-toc ol{columns:1}}
+.sb-keys{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--bg-soft);border:1px dashed var(--sb-accent,#4f32d9);border-radius:12px;padding:10px 14px;margin:14px 0;animation:sb-keys-in .5s ease both}
+.sb-keys-label{font-size:.85rem;font-weight:700;color:var(--ink-2,#3d4257);margin-right:2px}
+.sb-keys .say{margin:0;font-size:.85rem;background:#fff}
+@keyframes sb-keys-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.sb-mastery{background:linear-gradient(135deg,#f4f1ff,#fdf3f8);border:1px solid #ddd8ff;border-radius:12px;padding:10px 14px;margin:14px 0;font-size:.9rem;color:var(--ink-2,#3d4257)}
+.sb-mastery .sb-streak{color:#c2410c}
+.sb-confetti{position:fixed;inset:0;z-index:300;pointer-events:none}
+.art h2[id],.pw h2[id],.answer h2[id],.ans h2[id]{scroll-margin-top:76px}
+@media print{
+  .sb-progress,.sb-keys,.sb-mastery,.sb-confetti{display:none !important}
+}
+@media(prefers-reduced-motion:reduce){
+  .sb-keys{animation:none}
+  .sb-progress i{transition:none}
+}

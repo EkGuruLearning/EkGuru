@@ -284,5 +284,211 @@
         })(heroes[m]);
       }
     }
+
+    /* ---- ultra visuals (v145): progress, TOC, key words, mastery, confetti ----
+       Everything here is DERIVED from the page itself or the visitor's
+       own device data. No invented content, ever. Each block is wrapped
+       so one failure cannot stop the others. */
+    try {
+      var segs = (location.pathname || "").split("/");
+      document.body.setAttribute("data-section", segs[1] || "home");
+      if (segs[1] === "learn" && segs[2]) {
+        document.body.setAttribute("data-sub", segs[2]);
+      }
+    } catch (e0) {}
+
+    /* reading progress bar */
+    try {
+      var prog = document.createElement("div");
+      prog.className = "sb-progress";
+      prog.setAttribute("aria-hidden", "true");
+      var progFill = document.createElement("i");
+      prog.appendChild(progFill);
+      document.body.appendChild(prog);
+      var progTick = false;
+      function progUpdate() {
+        progTick = false;
+        var h = document.documentElement;
+        var max = h.scrollHeight - h.clientHeight;
+        if (max < 60) { prog.style.display = "none"; return; }
+        var st = h.scrollTop || document.body.scrollTop || 0;
+        var p = Math.max(0, Math.min(1, st / max));
+        progFill.style.width = (p * 100).toFixed(1) + "%";
+      }
+      window.addEventListener("scroll", function () {
+        if (progTick) return;
+        progTick = true;
+        if (window.requestAnimationFrame) window.requestAnimationFrame(progUpdate);
+        else setTimeout(progUpdate, 80);
+      });
+      progUpdate();
+    } catch (e1) {}
+
+    /* auto table of contents from the page's own h2s */
+    try {
+      var wrap = document.querySelector(".art,.pw,.answer,.ans");
+      if (wrap) {
+        var h2s = wrap.querySelectorAll("h2");
+        if (h2s.length >= 3) {
+          var toc = document.createElement("details");
+          toc.className = "sb-toc";
+          toc.setAttribute("open", "");
+          var shown = Math.min(h2s.length, 14);
+          var ol = "";
+          for (var ti = 0; ti < shown; ti++) {
+            var hid = "sb-s" + (ti + 1);
+            h2s[ti].setAttribute("id", hid);
+            var ht = (h2s[ti].textContent || "").replace(/\s+/g, " ").trim().slice(0, 70);
+            ol += '<li><a href="#' + hid + '">' +
+              ht.replace(/&/g, "&amp;").replace(/</g, "&lt;") + "</a></li>";
+          }
+          if (h2s.length > shown) {
+            ol += '<li class="more">+' + (h2s.length - shown) + " more below ↓</li>";
+          }
+          toc.innerHTML = "<summary>On this page · इस पेज पर (" + h2s.length +
+            ")</summary><ol>" + ol + "</ol>";
+          var tocAnchor = wrap.querySelector(".sb-hint") || wrap.querySelector("h1");
+          if (tocAnchor && tocAnchor.parentNode) {
+            tocAnchor.parentNode.insertBefore(toc, tocAnchor.nextSibling);
+          } else if (wrap.firstChild) {
+            wrap.insertBefore(toc, wrap.firstChild);
+          }
+        }
+      }
+    } catch (e2) {}
+
+    /* key-words strip: the page's own Hindi words as TTS chips */
+    try {
+      var wrap2 = document.querySelector(".art,.pw,.answer,.ans");
+      if (wrap2) {
+        var seenW = {}, words = [];
+        var STOP = {"मैं": 1, "हम": 1, "तुम": 1, "आप": 1, "वह": 1, "वे": 1,
+          "यह": 1, "ये": 1, "वो": 1, "जो": 1, "है": 1, "हैं": 1, "हूँ": 1,
+          "हूं": 1, "हो": 1, "हों": 1, "था": 1, "थे": 1, "थी": 1, "थीं": 1};
+        var knodes = wrap2.querySelectorAll("p,li,td");
+        var TRIMRE = /^[।?!·,;:'"“”‘’()\[\]–—-]+|[।?!·,;:'"“”‘’()\[\]–—-]+$/g;
+        for (var ni = 0; ni < knodes.length && words.length < 14; ni++) {
+          var chunks = (knodes[ni].textContent || "").split(/\s+/);
+          for (var ci = 0; ci < chunks.length && words.length < 14; ci++) {
+            var w = chunks[ci].replace(TRIMRE, "");
+            TRIMRE.lastIndex = 0;
+            if (w.length < 2 || w.length > 24) continue;
+            if (!/^[\u0900-\u097F]+$/.test(w)) continue;
+            if (STOP[w]) continue;
+            if (seenW[w]) continue;
+            seenW[w] = 1;
+            words.push(w);
+          }
+        }
+        if (words.length >= 3) {
+          var keys = document.createElement("div");
+          keys.className = "sb-keys";
+          var kh = '<span class="sb-keys-label">Key words — tap to hear · सुनने के लिए दबाएँ:</span>';
+          for (var wi = 0; wi < words.length; wi++) {
+            var we = words[wi].replace(/&/g, "&amp;");
+            kh += ' <button type="button" class="say" data-sb-say="' +
+              we.replace(/"/g, "&quot;") + '">🔊 ' + we.replace(/</g, "&lt;") + "</button>";
+          }
+          keys.innerHTML = kh;
+          var kAnchor = wrap2.querySelector(".sb-toc") ||
+            wrap2.querySelector(".sb-hint") || wrap2.querySelector("h1");
+          if (kAnchor && kAnchor.parentNode) {
+            kAnchor.parentNode.insertBefore(keys, kAnchor.nextSibling);
+          }
+        }
+      }
+    } catch (e3) {}
+
+    /* practice stats strip: the visitor's OWN device data, read-only */
+    try {
+      if (location.pathname.indexOf("/practice") > -1) {
+        var store = {};
+        try { store = JSON.parse(window.localStorage.getItem("ekguru_mastery_v1") || "{}") || {}; }
+        catch (e3b) { store = {}; }
+        var w3 = document.querySelector(".art,.pw,.answer,.ans") || document.body;
+        var mdiv = document.createElement("div");
+        mdiv.className = "sb-mastery";
+        var ids = Object.keys(store);
+        if (!ids.length) {
+          mdiv.innerHTML = "📊 <b>Your progress saves on this device.</b> " +
+            "Finish a round below and your stats appear here.";
+        } else {
+          var touched = ids.length, answers = 0, days = {};
+          for (var mi = 0; mi < ids.length; mi++) {
+            var rec = store[ids[mi]] || {};
+            answers += Number(rec.seen) || 0;
+            if (rec.last) {
+              var dd = new Date(rec.last);
+              days[dd.getFullYear() + "-" + dd.getMonth() + "-" + dd.getDate()] = 1;
+            }
+          }
+          var dayCount = Object.keys(days).length;
+          function dkey(d) { return d.getFullYear() + "-" + d.getMonth() + "-" + d.getDate(); }
+          var streak = 0;
+          var cursor = new Date();
+          if (!days[dkey(cursor)]) cursor = new Date(cursor.getTime() - 86400000);
+          while (days[dkey(cursor)]) {
+            streak++;
+            cursor = new Date(cursor.getTime() - 86400000);
+          }
+          mdiv.innerHTML = "📊 <b>Your practice on this device:</b> " + touched +
+            " words touched · " + answers + " answers · " + dayCount +
+            " day" + (dayCount === 1 ? "" : "s") +
+            (streak > 1 ? ' · <b class="sb-streak">🔥 ' + streak + "-day streak</b>" : "");
+        }
+        var mAnchor = w3.querySelector ? (w3.querySelector(".sb-hint") || w3.querySelector("h1")) : null;
+        if (mAnchor && mAnchor.parentNode) {
+          mAnchor.parentNode.insertBefore(mdiv, mAnchor.nextSibling);
+        } else if (w3.firstChild) {
+          w3.insertBefore(mdiv, w3.firstChild);
+        }
+      }
+    } catch (e4) {}
+
+    /* celebration when a practice round finishes */
+    try {
+      var pxRoot = document.getElementById("practice-root");
+      if (pxRoot && "MutationObserver" in window && !reduceMotion) {
+        var celebrated = false;
+        var raf2 = window.requestAnimationFrame || function (f) { return setTimeout(f, 16); };
+        function burstFn() {
+          var cv = document.createElement("canvas");
+          cv.className = "sb-confetti";
+          cv.width = window.innerWidth; cv.height = window.innerHeight;
+          document.body.appendChild(cv);
+          var cx = cv.getContext("2d");
+          if (!cx) { cv.parentNode.removeChild(cv); return; }
+          var cols = ["#4f32d9", "#c2407d", "#ffb703", "#2a9d8f", "#e63946"];
+          var ps = [];
+          for (var cpi = 0; cpi < 130; cpi++) {
+            ps.push({ x: cv.width / 2, y: cv.height * 0.35,
+              vx: (Math.random() - 0.5) * 14, vy: Math.random() * -11 - 3,
+              s: Math.random() * 7 + 3, c: cols[cpi % cols.length], r: Math.random() * 6.28 });
+          }
+          var t0 = Date.now();
+          (function frame() {
+            var el = Date.now() - t0;
+            cx.clearRect(0, 0, cv.width, cv.height);
+            for (var ki = 0; ki < ps.length; ki++) {
+              var p = ps[ki];
+              p.vy += 0.35; p.x += p.vx; p.y += p.vy; p.r += 0.1;
+              cx.save(); cx.translate(p.x, p.y); cx.rotate(p.r);
+              cx.fillStyle = p.c;
+              cx.globalAlpha = el > 1600 ? Math.max(0, 1 - (el - 1600) / 800) : 1;
+              cx.fillRect(-p.s / 2, -p.s / 4, p.s, p.s / 2);
+              cx.restore();
+            }
+            if (el < 2500) { raf2(frame); }
+            else if (cv.parentNode) { cv.parentNode.removeChild(cv); }
+          })();
+        }
+        var obs = new MutationObserver(function () {
+          var done = pxRoot.querySelector(".px-done");
+          if (done && !celebrated) { celebrated = true; try { burstFn(); } catch (e5) {} }
+          if (!done) { celebrated = false; }
+        });
+        obs.observe(pxRoot, { childList: true, subtree: true });
+      }
+    } catch (e6) {}
   } catch (e) { /* storybook never breaks the page */ }
 })();
