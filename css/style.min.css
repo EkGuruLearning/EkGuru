@@ -13,7 +13,7 @@
   --ease-exit:cubic-bezier(.4,0,1,1);
   --radius-sm:var(--r-sm);--radius-md:var(--r);--radius-lg:var(--r-lg);
   --shadow-rest:var(--sh-1);--shadow-hover:var(--sh-2);--shadow-focus:var(--sh-3)
-}/* Drawer backdrop — fades in/out, blocks clicks behind the menu. */.nav-backdrop{position:fixed;inset:0;background:rgba(15,18,34,.35);opacity:0;visibility:hidden;transition:opacity var(--motion-normal) var(--ease-standard),visibility 0s linear var(--motion-normal);z-index:99}body.nav-open .nav-backdrop{opacity:1;visibility:visible;transition:opacity var(--motion-normal) var(--ease-standard)}/* Cards/buttons/links: consistent micro-interactions via tokens. */.tcard,.mkt,.tool-card,.step,.method .m,.panel{transition-duration:var(--motion-normal);transition-timing-function:var(--ease-standard)}.btn,.nav a,.chip-btn,.lang-btn{transition-duration:var(--motion-fast);transition-timing-function:var(--ease-standard)}/* ── motion §23/§24: toasts + skeletons ─────────────────────────── */.toast-stack{position:fixed;right:16px;bottom:16px;z-index:999999;display:flex;flex-direction:column;gap:10px;max-width:min(360px,calc(100vw - 32px));pointer-events:none}.toast{pointer-events:auto;padding:12px 14px;border-radius:12px;background:#1c1f26;color:#f7f8fa;font-size:.925rem;line-height:1.45;box-shadow:var(--shadow-hover,0 10px 30px rgba(0,0,0,.25));opacity:0;transform:translateY(8px);transition:opacity .18s var(--ease-enter,ease),transform .18s var(--ease-enter,ease);cursor:pointer;word-break:break-word}.toast.is-in{opacity:1;transform:none}.toast.is-out{opacity:0;transform:translateY(8px)}.toast--ok{border-left:4px solid #2f9e5f}.toast--err{border-left:4px solid #d6492f}.toast--info{border-left:4px solid #3d7bd9}.skel{position:relative;overflow:hidden;border-radius:8px;background:#e8eaef;min-height:1em}.skel::after{content:"";position:absolute;inset:0;transform:translateX(-100%);background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);animation:skel-shimmer 1.4s infinite}@keyframes skel-shimmer{to{transform:translateX(100%)}}
+}/* Drawer backdrop — fades in/out, blocks clicks behind the menu. */.nav-backdrop{position:fixed;inset:0;background:rgba(15,18,34,.45);opacity:0;visibility:hidden;transition:opacity var(--motion-normal) var(--ease-standard),visibility 0s linear var(--motion-normal);z-index:99}body.nav-open .nav-backdrop{opacity:1;visibility:visible;transition:opacity var(--motion-normal) var(--ease-standard)}/* Cards/buttons/links: consistent micro-interactions via tokens. */.tcard,.mkt,.tool-card,.step,.method .m,.panel{transition-duration:var(--motion-normal);transition-timing-function:var(--ease-standard)}.btn,.nav a,.chip-btn,.lang-btn{transition-duration:var(--motion-fast);transition-timing-function:var(--ease-standard)}/* ── motion §23/§24: toasts + skeletons ─────────────────────────── */.toast-stack{position:fixed;right:16px;bottom:16px;z-index:999999;display:flex;flex-direction:column;gap:10px;max-width:min(360px,calc(100vw - 32px));pointer-events:none}.toast{pointer-events:auto;padding:12px 14px;border-radius:12px;background:#1c1f26;color:#f7f8fa;font-size:.925rem;line-height:1.45;box-shadow:var(--shadow-hover,0 10px 30px rgba(0,0,0,.25));opacity:0;transform:translateY(8px);transition:opacity .18s var(--ease-enter,ease),transform .18s var(--ease-enter,ease);cursor:pointer;word-break:break-word}.toast.is-in{opacity:1;transform:none}.toast.is-out{opacity:0;transform:translateY(8px)}.toast--ok{border-left:4px solid #2f9e5f}.toast--err{border-left:4px solid #d6492f}.toast--info{border-left:4px solid #3d7bd9}.skel{position:relative;overflow:hidden;border-radius:8px;background:#e8eaef;min-height:1em}.skel::after{content:"";position:absolute;inset:0;transform:translateX(-100%);background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);animation:skel-shimmer 1.4s infinite}@keyframes skel-shimmer{to{transform:translateX(100%)}}
 @media (prefers-reduced-motion:reduce){.toast{opacity:1;transform:none;transition:none}.toast.is-out{opacity:0}.skel::after{animation:none;background:rgba(255,255,255,.35)}}/* =========================================================
    MOTION SYSTEM UPGRADE (ULTRA Modern Motion Command)
    §9 search stagger · §12 tutor photo · §13 tool chips
@@ -185,15 +185,15 @@ body.nav-open .burger span::after{top:0;transform:rotate(-45deg)}
 [dir="rtl"] .lang-btn .car{margin-left:0;margin-right:auto}
 [dir="rtl"] .lang-menu{left:auto;right:auto}
 .burger{display:flex}
-.nav{position:fixed;top:var(--hdr-h);right:0;height:calc(100vh - var(--hdr-h));height:calc(100dvh - var(--hdr-h));width:min(340px,88vw);background:#fff;flex-direction:column;align-items:stretch;justify-content:flex-start;padding:18px 20px 26px;gap:6px;border-left:1px solid var(--line);border-radius:20px 0 0 20px;box-shadow:-18px 0 50px rgba(15,18,34,.18);transform:translateX(106%);transition:transform .42s var(--ease);margin-left:0;overflow-y:auto;overscroll-behavior:contain}
-.nav.open{transform:translateX(0)}
+.nav{position:fixed;top:var(--hdr-h);right:0;height:calc(100vh - var(--hdr-h));height:calc(100dvh - var(--hdr-h));width:min(300px,80vw);background:#fff;flex-direction:column;align-items:stretch;justify-content:flex-start;padding:18px 20px 26px;gap:6px;border-left:1px solid var(--line);border-radius:20px 0 0 20px;box-shadow:-18px 0 50px rgba(15,18,34,.22);transform:translateX(106%);visibility:hidden;transition:transform .3s var(--ease-standard),visibility 0s .3s;margin-left:0;overflow-y:auto;overscroll-behavior:contain;will-change:transform}
+.nav.open{transform:translateX(0);visibility:visible;transition:transform .45s var(--ease),visibility 0s}
 .nav a{padding:13px 14px;font-size:1rem;border-radius:12px}
 .nav .btn{margin:8px 0 0;justify-content:center;padding:13px 20px}
 .hdr-search{width:100%;margin:0 0 8px}
 .hdr-search input,.hdr-search input:focus{width:100%}
 .lang-wrap{width:100%;margin:8px 0 0}
 [dir="rtl"] .nav{margin-right:0}
-.nav{transition-duration:var(--motion-slow)}
+
 }
 
 /* ---- header: (max-width:1200px) ---- */
@@ -201,8 +201,8 @@ body.nav-open .burger span::after{top:0;transform:rotate(-45deg)}
 .nav a[data-navlink="join.html"]{display:none}
 .burger{display:flex}
 .nav-desktop-only{display:none!important}
-.nav{position:fixed;top:var(--hdr-h);right:0;height:calc(100vh - var(--hdr-h));height:calc(100dvh - var(--hdr-h));width:min(340px,88vw);background:#fff;flex-direction:column;align-items:stretch;justify-content:flex-start;padding:18px 20px 26px;gap:6px;border-left:1px solid var(--line);border-radius:20px 0 0 20px;box-shadow:-18px 0 50px rgba(15,18,34,.18);transform:translateX(106%);transition:transform .42s var(--ease);margin-left:0;overflow-y:auto;overscroll-behavior:contain}
-.nav.open{transform:translateX(0)}
+.nav{position:fixed;top:var(--hdr-h);right:0;height:calc(100vh - var(--hdr-h));height:calc(100dvh - var(--hdr-h));width:min(300px,80vw);background:#fff;flex-direction:column;align-items:stretch;justify-content:flex-start;padding:18px 20px 26px;gap:6px;border-left:1px solid var(--line);border-radius:20px 0 0 20px;box-shadow:-18px 0 50px rgba(15,18,34,.22);transform:translateX(106%);visibility:hidden;transition:transform .3s var(--ease-standard),visibility 0s .3s;margin-left:0;overflow-y:auto;overscroll-behavior:contain;will-change:transform}
+.nav.open{transform:translateX(0);visibility:visible;transition:transform .45s var(--ease),visibility 0s}
 .nav a{padding:13px 14px;font-size:1rem;border-radius:12px}
 .nav>.btn{margin:8px 0 0;justify-content:center;padding:13px 20px;width:100%}
 .hdr .logo small{display:block}
@@ -222,8 +222,8 @@ body.nav-open .burger span::after{top:0;transform:rotate(-45deg)}
 .cur-menu{position:static;width:100%;box-shadow:none;margin-top:6px;opacity:1;visibility:visible;transform:none;display:none}
 .cur-wrap.open .cur-menu{display:block}
 [dir="rtl"] .cur-btn .car{margin-left:0;margin-right:auto}
-.nav{transition-duration:var(--motion-slow)}
-.hdr-in:not(:has(> .burger)) .nav{position:static;transform:none;margin:0;flex:1 1 auto;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:flex-end;background:none;border:0;box-shadow:none;padding:0;max-height:none;width:auto;height:auto;top:auto;right:auto;bottom:auto;left:auto;border-radius:0}
+
+.hdr-in:not(:has(> .burger)) .nav{position:static;transform:none;visibility:visible;margin:0;flex:1 1 auto;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:flex-end;background:none;border:0;box-shadow:none;padding:0;max-height:none;width:auto;height:auto;top:auto;right:auto;bottom:auto;left:auto;border-radius:0}
 .hdr-in:not(:has(> .burger)) .nav a{padding:9px 12px;font-size:0.9rem}
 .hdr-in:not(:has(> .burger)) .nav > .btn{width:auto;margin:0}
 }

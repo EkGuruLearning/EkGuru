@@ -394,6 +394,22 @@
         isOpen ? closeNav() : openNav();
       });
 
+      /* v163 — swipe-to-close. A rightward flick anywhere inside
+         the drawer dismisses it, like a native app sheet. Mostly
+         vertical movement (scrolling the menu) is ignored. */
+      var touchX = null, touchY = null;
+      nav.addEventListener("touchstart", function (e) {
+        if (!isOpen || !e.touches.length) return;
+        touchX = e.touches[0].clientX; touchY = e.touches[0].clientY;
+      }, { passive: true });
+      nav.addEventListener("touchend", function (e) {
+        if (!isOpen || touchX === null || !e.changedTouches.length) return;
+        var dx = e.changedTouches[0].clientX - touchX;
+        var dy = e.changedTouches[0].clientY - touchY;
+        touchX = null; touchY = null;
+        if (dx > 70 && Math.abs(dy) < 60) closeNav(false);
+      }, { passive: true });
+
       /* A link inside the drawer navigates. Unlock WITHOUT
          restoring scroll — the browser is about to change page
          or jump to an anchor, and forcing the old offset back
