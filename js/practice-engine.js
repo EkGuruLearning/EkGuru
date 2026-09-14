@@ -130,11 +130,25 @@
     }
     return out;
   }
+  /* v154: default speech language follows the page, never forced Hindi. */
+  var DEF_LANG = (function () {
+    try {
+      var M = { bengali: "bn", gujarati: "gu", kannada: "kn", malayalam: "ml",
+        marathi: "mr", punjabi: "pa", tamil: "ta", telugu: "te", urdu: "ur" };
+      var p = String(location.pathname || "").split("/");
+      for (var i = 0; i < p.length; i++) {
+        if (p[i] === "languages" && p[i + 1]) return p[i + 1];
+        if (p[i] === "learn" && M[p[i + 1]]) return M[p[i + 1]];
+        if (i === 1 && M[p[i]]) return M[p[i]];
+      }
+    } catch (e) {}
+    return "hi-IN";
+  })();
   function speak(text, lang) {
     try {
       if (!("speechSynthesis" in window)) return false;
       var u = new SpeechSynthesisUtterance(String(text));
-      u.lang = lang || "hi-IN";
+      u.lang = lang || DEF_LANG;
       u.rate = 0.8;
       window.speechSynthesis.cancel();
       window.speechSynthesis.speak(u);
@@ -221,7 +235,7 @@
           }).join("") + "</div>";
       }
 
-      var sayLang = cfg.speechLang || "hi-IN";
+      var sayLang = cfg.speechLang || DEF_LANG;
       var sayText = item.say || deva(item.q) || null;
       var listenHtml = "";
       if (item.tts) {
@@ -330,15 +344,15 @@
       if (play) {
         if (play.getAttribute("data-sayw")) {
           var sayText = play.getAttribute("data-sayw");
-          var sayLang = play.getAttribute("data-saylang") || "hi-IN";
+          var sayLang = play.getAttribute("data-saylang") || DEF_LANG;
           play.addEventListener("click", function () {
             if (!speak(sayText, sayLang)) play.textContent = "Playback unavailable in this browser";
           });
         } else if (item.tts) {
           play.addEventListener("click", function () {
-            if (!speak(item.tts, cfg.speechLang || "hi-IN")) play.textContent = "Playback unavailable in this browser";
+            if (!speak(item.tts, cfg.speechLang || DEF_LANG)) play.textContent = "Playback unavailable in this browser";
           });
-          speak(item.tts, cfg.speechLang || "hi-IN");   // play once on load
+          speak(item.tts, cfg.speechLang || DEF_LANG);   // play once on load
         }
       }
     }

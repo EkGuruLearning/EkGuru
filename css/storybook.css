@@ -286,3 +286,35 @@ body.sb-leaving{animation:sb-leave .18s ease both}
   .sb-dock{transition:none;transform:translate(-50%,0)}
   body.sb-leaving{animation:none}
 }
+
+/* ---------- voice nudge (v154): no native voice on this device ---------- */
+.sb-voicenudge{display:flex;gap:12px;align-items:center;justify-content:space-between;
+  border:1px solid #f0dfae;border-left:5px solid #f59e0b;background:#fff8e6;border-radius:12px;
+  padding:11px 14px;margin:14px 0;font-size:.88rem;line-height:1.55;color:var(--ink-2)}
+.sb-voicenudge-x{flex:none;border:1px solid var(--line);background:#fff;border-radius:999px;
+  padding:7px 16px;min-height:40px;font:inherit;font-weight:700;cursor:pointer;color:var(--ink)}
+.sb-voicenudge-x:hover{border-color:var(--brand)}
+
+/* ---------- page theming (v154): banner palette drives page accents ---------- */
+body[data-topic] .pw h1,body[data-topic] .art h1{text-decoration:underline;text-decoration-color:var(--sb-accent,#4f32d9);text-decoration-thickness:3px;text-underline-offset:7px}
+body[data-topic] table.phr thead th{background:var(--sb-tint,#f4f1ff)}
+body[data-topic] .ssay{border-color:var(--sb-accent,#4f32d9)}
+body[data-topic] .chips a:hover,body[data-topic] .card:hover,body[data-topic] .prevnext a:hover{border-color:var(--sb-accent,#4f32d9)}
+/* reveal states for cards/boxes (JS adds .shown on scroll) */
+html.sb-js .lang-cell,html.sb-js .v-item,html.sb-js .ob-card,html.sb-js .card,html.sb-js .fact,html.sb-js .howto,html.sb-js .faq{opacity:0;transform:translateY(14px)}
+html.sb-js .lang-cell.shown,html.sb-js .v-item.shown,html.sb-js .ob-card.shown,html.sb-js .card.shown,html.sb-js .fact.shown,html.sb-js .howto.shown,html.sb-js .faq.shown{opacity:1;transform:none;transition:opacity .45s ease,transform .45s ease}
+/* phrase-row cascade on themed pages */
+html.sb-js body[data-topic] table.phr tbody tr{opacity:0;animation:sb-row-in .4s ease forwards}
+html.sb-js body[data-topic] table.phr tbody tr:nth-child(2){animation-delay:.05s}
+html.sb-js body[data-topic] table.phr tbody tr:nth-child(3){animation-delay:.1s}
+html.sb-js body[data-topic] table.phr tbody tr:nth-child(4){animation-delay:.15s}
+html.sb-js body[data-topic] table.phr tbody tr:nth-child(5){animation-delay:.2s}
+html.sb-js body[data-topic] table.phr tbody tr:nth-child(6){animation-delay:.25s}
+html.sb-js body[data-topic] table.phr tbody tr:nth-child(7){animation-delay:.3s}
+html.sb-js body[data-topic] table.phr tbody tr:nth-child(8){animation-delay:.35s}
+html.sb-js body[data-topic] table.phr tbody tr:nth-child(n+9){animation-delay:.4s}
+@keyframes sb-row-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){
+html.sb-js .lang-cell,html.sb-js .v-item,html.sb-js .ob-card,html.sb-js .card,html.sb-js .fact,html.sb-js .howto,html.sb-js .faq{opacity:1 !important;transform:none !important}
+html.sb-js body[data-topic] table.phr tbody tr{opacity:1 !important;animation:none !important}
+}

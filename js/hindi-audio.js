@@ -34,12 +34,26 @@
     if (supported()) { try { window.speechSynthesis.cancel(); } catch (e) {} }
   }
 
+  /* v154: default speech language follows the page, never forced Hindi. */
+  var DEF_LANG = (function () {
+    try {
+      var M = { bengali: "bn", gujarati: "gu", kannada: "kn", malayalam: "ml",
+        marathi: "mr", punjabi: "pa", tamil: "ta", telugu: "te", urdu: "ur" };
+      var p = String(location.pathname || "").split("/");
+      for (var i = 0; i < p.length; i++) {
+        if (p[i] === "languages" && p[i + 1]) return p[i + 1];
+        if (p[i] === "learn" && M[p[i + 1]]) return M[p[i + 1]];
+        if (i === 1 && M[p[i]]) return M[p[i]];
+      }
+    } catch (e) {}
+    return "hi-IN";
+  })();
   function speak(text, btn, langTag) {
     if (!supported()) return false;
     stop();
     try {
       var u = new SpeechSynthesisUtterance(String(text));
-      u.lang = langTag || "hi-IN";
+      u.lang = langTag || DEF_LANG;
       u.rate = 0.8;
       u.onend = function () {
         if (active && active.btn === btn) stop();
@@ -127,7 +141,7 @@
       if (el.getAttribute("data-say-mounted")) return;
       el.setAttribute("data-say-mounted", "1");
       var text = el.getAttribute("data-say");
-      var langTag = el.getAttribute("data-say-lang") || "hi-IN";
+      var langTag = el.getAttribute("data-say-lang") || DEF_LANG;
       var prov = (window.EkGuruAudioProvider && typeof window.EkGuruAudioProvider.describe === "function")
         ? window.EkGuruAudioProvider.describe(langTag) : { provider: supported() ? "BROWSER_TTS" : "UNAVAILABLE" };
       var btn = document.createElement("button");

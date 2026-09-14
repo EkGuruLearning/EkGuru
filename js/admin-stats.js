@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T04:11:38.741Z",
+ "generated": "2026-09-14T04:20:55.182Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "4cc7503eccace3c06eb1ff44c75d40249dc853a3",
-  "subject": "v152: Bengali pilot next-level - /bengali/ hub + 3 Hindi-standard topics (greetings/alphabet/numbers), generic lang-topics builder, root-hub TTS+banners; 84/84 jsdom proof",
-  "buildTime": "2026-09-14T04:11:38.757Z",
+  "commit": "9265f718ccd9803fe5c2f5d3dc3d2f871b58d61d",
+  "subject": "v153: 0.2x pro-minimum turtle speed, complete Bengali pages (notes+everything-links+related+hub FAQ), languages-hub overflow fix (buttons inside cards, bn->/bengali/); 94/94 proof",
+  "buildTime": "2026-09-14T04:20:55.196Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,

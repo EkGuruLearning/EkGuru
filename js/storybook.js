@@ -80,34 +80,114 @@
       new RegExp("[" + scriptRange + "][" + scriptRange + " ]{0,41}", "g") : null;
     var RX_WORD = scriptRange ?
       new RegExp("^[\\u200C\\u200D" + scriptRange + "]+$") : null;
-    var hindiVoice = null, voiceTried = false;
+    var pageVoice = null, voiceTried = false;
     function pickVoice() {
-      if (voiceTried || !("speechSynthesis" in window)) return hindiVoice;
+      if (voiceTried || !("speechSynthesis" in window)) return pageVoice;
       voiceTried = true;
       try {
         var vs = window.speechSynthesis.getVoices() || [];
         for (var i = 0; i < vs.length; i++) {
           if (vs[i].lang && (vs[i].lang.toLowerCase().indexOf(pageLang) === 0 ||
               (pageLang === "he" && vs[i].lang.toLowerCase().indexOf("iw") === 0))) {
-            hindiVoice = vs[i]; break;
+            pageVoice = vs[i]; break;
           }
         }
       } catch (e) {}
-      return hindiVoice;
+      return pageVoice;
+    }
+    /* ---- voice nudge (v154): when this device has no voice for the
+       page language, the browser falls back to its default voice — on
+       Indian phones often Hindi — so Bengali/Tamil/French sound wrong.
+       Say so honestly, once per language, with install steps. ---- */
+    var LANG_NAMES = { hi: "Hindi", bn: "Bengali", gu: "Gujarati",
+      kn: "Kannada", ml: "Malayalam", mr: "Marathi", pa: "Punjabi",
+      ta: "Tamil", te: "Telugu", ur: "Urdu", ar: "Arabic", fr: "French",
+      es: "Spanish", de: "German", ja: "Japanese", ko: "Korean",
+      zh: "Chinese", ru: "Russian", pt: "Portuguese", it: "Italian",
+      he: "Hebrew", th: "Thai", fa: "Persian", tr: "Turkish" };
+    /* UI strings follow the page language (v154): TOC + key-words labels
+       are no longer hardcoded Hindi. Unmapped codes fall back to
+       English-only — never another language's words. */
+    var UI_STRINGS = {
+      hi: ["इस पेज पर", "सुनने के लिए दबाएँ"],
+      bn: ["এই পাতায়", "শোনার জন্য চাপ দিন"],
+      gu: ["આ પાના પર", "સાંભળવા માટે દબાવો"],
+      kn: ["ಈ ಪುಟದಲ್ಲಿ", "ಕೇಳಲು ಒತ್ತಿರಿ"],
+      ml: ["ഈ പേജിൽ", "കേൾക്കാൻ അമർത്തുക"],
+      mr: ["या पानावर", "ऐकण्यासाठी दाबा"],
+      pa: ["ਇਸ ਪੰਨੇ ’ਤੇ", "ਸੁਣਨ ਲਈ ਦਬਾਓ"],
+      ta: ["இந்தப் பக்கத்தில்", "கேட்க அழுத்தவும்"],
+      te: ["ఈ పేజీలో", "వినడానికి నొక్కండి"],
+      ur: ["اس صفحے پر", "سننے کے لیے دبائیں"],
+      ar: ["في هذه الصفحة", "اضغط للاستماع"],
+      fr: ["Sur cette page", "Touchez pour écouter"],
+      es: ["En esta página", "Toca para escuchar"],
+      de: ["Auf dieser Seite", "Zum Anhören tippen"],
+      ja: ["このページ", "タップして聞く"],
+      ko: ["이 페이지에서", "탭하여 듣기"],
+      zh: ["本页", "点击收听"],
+      ru: ["На этой странице", "Нажмите, чтобы прослушать"],
+      pt: ["Nesta página", "Toque para ouvir"],
+      it: ["In questa pagina", "Tocca per ascoltare"],
+      he: ["בדף זה", "הקש/י להאזנה"],
+      th: ["ในหน้านี้", "แตะเพื่อฟัง"],
+      fa: ["در این صفحه", "برای شنیدن ضربه بزنید"],
+      tr: ["Bu sayfada", "Dinlemek için dokunun"] };
+    function uiToc() {
+      var s = UI_STRINGS[pageLang];
+      return s ? "On this page · " + s[0] : "On this page";
+    }
+    function uiKeys() {
+      var s = UI_STRINGS[pageLang];
+      return s ? "Key words — tap to hear · " + s[1] + ":" : "Key words — tap to hear:";
+    }
+    function voiceNudge() {
+      try {
+        if (!("speechSynthesis" in window)) return;
+        var vs0 = [];
+        try { vs0 = window.speechSynthesis.getVoices() || []; } catch (eVs) {}
+        if (!vs0.length) return; /* not enumerated yet; voiceschanged retries */
+        if (pickVoice()) return; /* native voice present: stay silent */
+        var k = "ekguru_voice_nudge_" + pageLang, dismissed = false;
+        try { dismissed = window.localStorage.getItem(k) === "1"; } catch (eLs) {}
+        if (dismissed || document.querySelector(".sb-voicenudge")) return;
+        var nm = LANG_NAMES[pageLang] || "this language";
+        var bar = document.createElement("div");
+        bar.className = "sb-voicenudge";
+        bar.setAttribute("role", "note");
+        var tx = document.createElement("span");
+        tx.textContent = "🔊 No " + nm + " voice on this device, so speech may sound wrong. " +
+          "Install one free: Android Settings → System → Languages → " +
+          "Text-to-speech → Google TTS ⚙ → Install voice data.";
+        var x = document.createElement("button");
+        x.type = "button"; x.className = "sb-voicenudge-x";
+        x.setAttribute("aria-label", "Dismiss");
+        x.textContent = "Got it";
+        x.addEventListener("click", function () {
+          try { window.localStorage.setItem(k, "1"); } catch (eDs) {}
+          if (bar.parentNode) bar.parentNode.removeChild(bar);
+        });
+        bar.appendChild(tx); bar.appendChild(x);
+        var host = document.querySelector(".sb-chapter") || document.querySelector("h1");
+        if (host && host.parentNode) host.parentNode.insertBefore(bar, host.nextSibling);
+        else if (document.body) document.body.insertBefore(bar, document.body.firstChild);
+      } catch (eN) {}
     }
     if ("speechSynthesis" in window) {
       try {
         window.speechSynthesis.getVoices();
         window.speechSynthesis.onvoiceschanged = function () {
-          voiceTried = false; pickVoice();
+          voiceTried = false; pickVoice(); voiceNudge();
         };
       } catch (e) {}
     }
+    try { voiceNudge(); } catch (eNudge) {}
     document.addEventListener("click", function (ev) {
       var b = ev.target.closest ? ev.target.closest(".spk,[data-sb-say]") : null;
       if (!b || !("speechSynthesis" in window)) return;
       ev.stopPropagation();
       ev.preventDefault();
+      voiceNudge();
       try {
         var text = b.getAttribute("data-sb-say") || b.textContent;
         var u = new SpeechSynthesisUtterance((text || "").trim());
@@ -201,12 +281,32 @@
       render(0);
     })();
 
+    /* ---- theme lift (v154): the banner palette becomes the page
+       palette, so headings/tables/buttons follow the content theme. ---- */
+    try {
+      var chEl = document.querySelector(".sb-chapter");
+      if (chEl && document.body) {
+        var chAc = "", chTi = "";
+        try { chAc = chEl.style.getPropertyValue("--sb-accent") || ""; } catch (eA) {}
+        try { chTi = chEl.style.getPropertyValue("--sb-tint") || ""; } catch (eT) {}
+        if ((!chAc || !chTi) && window.getComputedStyle) {
+          try {
+            var chCs = window.getComputedStyle(chEl);
+            chAc = chAc || chCs.getPropertyValue("--sb-accent") || "";
+            chTi = chTi || chCs.getPropertyValue("--sb-tint") || "";
+          } catch (eC) {}
+        }
+        if (chAc) document.body.style.setProperty("--sb-accent", chAc.trim());
+        if (chTi) document.body.style.setProperty("--sb-tint", chTi.trim());
+      }
+    } catch (eTheme) {}
     /* ---- scroll reveal ---- */
     var targets = document.querySelectorAll(
       ".sb-reveal,.vcard,.trace-cell,.art h2,.pw h2,.answer h2,.ans h2," +
       ".sb-fig,.tracebox,.sb-band,.sb-callout," +
       ".bara-wrap,.art table,.pw table,.answer table,.ans table," +
-      ".quiz details,.hs-card,.linklist li,.prevnext a");
+      ".quiz details,.hs-card,.linklist li,.prevnext a," +
+      ".lang-cell,.v-item,.ob-card,.card,.fact,.howto,.faq");
     if ("IntersectionObserver" in window && !reduceMotion) {
       var io = new IntersectionObserver(function (entries) {
         for (var i = 0; i < entries.length; i++) {
@@ -409,7 +509,7 @@
           if (h2s.length > shown) {
             ol += '<li class="more">+' + (h2s.length - shown) + " more below ↓</li>";
           }
-          toc.innerHTML = "<summary>On this page · इस पेज पर (" + h2s.length +
+          toc.innerHTML = "<summary>" + uiToc() + " (" + h2s.length +
             ")</summary><ol>" + ol + "</ol>";
           var tocAnchor = wrap.querySelector(".sb-hint") || wrap.querySelector("h1");
           if (tocAnchor && tocAnchor.parentNode) {
@@ -447,7 +547,7 @@
         if (words.length >= 3) {
           var keys = document.createElement("div");
           keys.className = "sb-keys";
-          var kh = '<span class="sb-keys-label">Key words — tap to hear · सुनने के लिए दबाएँ:</span>';
+          var kh = '<span class="sb-keys-label">' + uiKeys() + '</span>';
           for (var wi = 0; wi < words.length; wi++) {
             var we = words[wi].replace(/&/g, "&amp;");
             kh += ' <button type="button" class="say" data-sb-say="' +

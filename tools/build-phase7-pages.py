@@ -42,6 +42,14 @@ CORE_STYLE = """
 .tag.on{background:#1a7f37}
 .tag.soon{background:#7f8c8d}
 .tag.beta{background:#9a6700}
+.tag.new{background:linear-gradient(135deg,#5b3df5,#ec4899)}
+.hero-h1{font-size:clamp(1.7rem,4.6vw,2.3rem);line-height:1.2;text-wrap:balance}
+.hero-stats{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 6px}
+.hero-stats div{flex:1 1 120px;background:var(--grad);color:#fff;border-radius:14px;padding:12px 16px;text-align:center}
+.hero-stats b{display:block;font-size:1.35rem}
+.hero-stats span{font-size:.8rem;opacity:.92}
+.lang-finder{position:sticky;top:0;z-index:5;background:var(--bg,#fff);padding:10px 2px;border-bottom:1px solid var(--line)}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 .lp-box{border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:26px 0;background:var(--card,#fff)}
 .lp-box h2{font-size:1.15rem;margin:0 0 8px}
 .lp-head{margin-bottom:14px}
@@ -187,7 +195,9 @@ def languages_page():
         for l in prod)
 
     avail_cards = "".join(
-        '<div class="lang-cell"><span class="nm">%s <span class="tag on">Available</span></span>' % esc(l["name"]) +
+        '<div class="lang-cell"><span class="nm">%s <span class="tag on">Available</span>%s</span>' % (
+            esc(l["name"]),
+            ' <span class="tag new">\u2728 New hub</span>' if l["id"] == "bn" else "") +
         '<span class="sub" data-say="%s" data-say-lang="%s">%s · %s script</span>' % (
             esc(l["nativeName"]), esc(_tag(l)), esc(l["nativeName"]), esc(l["script"])) +
         '<span class="sub">%d lessons · %d quiz questions · %d review cards — free</span>' % (
@@ -222,12 +232,23 @@ def languages_page():
         '<span class="tag soon" style="margin-top:6px">Coming</span></div>'
         for l in planned)
 
+    n_full = len(prod) + len(avail)
+    n_start = len(beta)
+    n_items = sum((l.get("course") or {}).get("lessons", 0) +
+                  (l.get("course") or {}).get("quizQuestions", 0) for l in avail)
+    stats_band = (
+        '  <div class="hero-stats" role="list">'
+        '<div role="listitem"><b>%d</b><span>full courses</span></div>'
+        '<div role="listitem"><b>%d</b><span>starter packs</span></div>'
+        '<div role="listitem"><b>%d</b><span>lessons + quizzes</span></div></div>\n'
+        ) % (n_full, n_start, n_items)
     body = (
         '  <p class="crumb"><a href="/">EkGuru</a> › Languages</p>\n'
-        '  <h1>Learn a language with EkGuru</h1>\n'
+        '  <h1 class="hero-h1">Learn a language with EkGuru</h1>\n'
         '  <p class="lede">One platform, many languages — free courses from English in ' + avail_names + ' today, '
         'with more coming. We only list a language as available when a real, reviewed course exists. '
         'No empty lessons, no placeholder courses.</p>\n'
+        + stats_band +
         '  <div class="lang-finder">\n'
         '    <input id="lang-q" type="search" placeholder="Find a language" aria-label="Find a language">\n'
         '    <div class="lang-chips" role="group" aria-label="Filter by status">\n'
