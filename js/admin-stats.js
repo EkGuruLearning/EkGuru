@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T07:19:42.714Z",
+ "generated": "2026-09-14T07:26:47.649Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -3931,7 +3931,7 @@ window.EKGURU_ADMIN_STATS = {
  },
  "privacy": {
   "state": "PASS",
-  "fails": 0,
+  "fails": 3,
   "blocked": 0,
   "note": "1904 files scanned, 0 secrets"
  },
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "bff24ccc5fecfee340af8c0a84292cc7536ac8b0",
-  "subject": "World-languages 194/194: all country guides + TTS buttons + backlinks (doctor PASS, 1524 pages)",
-  "buildTime": "2026-09-14T07:19:42.726Z",
+  "commit": "8fe437953ea4a4b9b79a5272aad12c5f66752480",
+  "subject": "Limitations §10: audit-14 (Ethiopia) close-out record — ET 8→15, 1345 total, deep-audit program closed",
+  "buildTime": "2026-09-14T07:26:47.661Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,

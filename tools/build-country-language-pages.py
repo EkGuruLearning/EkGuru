@@ -11,9 +11,9 @@ plus living-language counts from data/language-inventory/core/*.json, and writes
     sitemap-world-languages.xml         (+ patch sitemap-index.xml)
 
 Then inserts a "Languages of X" link block into the matching
-learn-hindi-from-X page (all 194; the 38 countries without such a page are skipped), before the
-"Learning Hindi from somewhere else?" section. Idempotent: re-runs
-replace the inserted block instead of duplicating it.
+learn-hindi-from-X page (all 194 funnel pages exist since 2026-09-14),
+before the "Learning Hindi from somewhere else?" section. Idempotent:
+re-runs replace the inserted block instead of duplicating it.
 
 Content is data + the inventory's own per-language notes (unique per
 country). Template wrapper is kept thin on purpose (de-templating).

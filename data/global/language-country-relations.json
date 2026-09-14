@@ -1375,23 +1375,22 @@
    "status_in_country": "LIVING",
    "category": "IMMIGRANT",
    "role_detail": null,
-   "estimated_speaker_band": "100K-1M",
+   "estimated_speaker_band": "10K-100K",
    "speaker_estimate": {
-    "confidence": "low",
-    "total": 100000
+    "confidence": "medium",
+    "total": 77985
    },
-   "country_specific_evidence": "Fast-growing South-Asian community (~100K+ incl. Fiji Hindi speakers).",
+   "country_specific_evidence": "Fast-growing South-Asian community (~100K+ incl. Fiji Hindi speakers). P0 sourcing 2026-09-14: Stats NZ 2023 Census — 77,985 Hindi speakers (4th language); Fiji Hindi counted separately (~27K, 2018).",
    "sources": [
     {
-     "key": "agent-knowledge",
-     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
-     "source_url": null,
-     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
-     "evidence_type": "agent-compiled",
-     "priority": "D-agent"
+     "key": "nz-census-2023",
+     "source_name": "Stats NZ — 2023 Census language data (total responses, 4th language Hindi 77,985)",
+     "source_url": "https://www.stats.govt.nz/news/census-results-reflect-aotearoa-new-zealands-diversity/",
+     "evidence_type": "national-census",
+     "priority": "A"
     }
    ],
-   "confidence": "medium",
+   "confidence": "high",
    "disputed": false,
    "ekguru_status": "course",
    "ekguru_recommendation": "course live.",
@@ -1426,23 +1425,22 @@
    "status_in_country": "LIVING",
    "category": "WIDELY_SPOKEN",
    "role_detail": null,
-   "estimated_speaker_band": "100K-1M",
+   "estimated_speaker_band": "10K-100K",
    "speaker_estimate": {
-    "confidence": "low",
-    "total": 100000
+    "confidence": "medium",
+    "total": 77985
    },
-   "country_specific_evidence": "Fast-growing South-Asian community (~100K+ incl. Fiji Hindi speakers).",
+   "country_specific_evidence": "Fast-growing South-Asian community (~100K+ incl. Fiji Hindi speakers). P0 sourcing 2026-09-14: Stats NZ 2023 Census — 77,985 Hindi speakers (4th language); Fiji Hindi counted separately (~27K, 2018).",
    "sources": [
     {
-     "key": "agent-knowledge",
-     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
-     "source_url": null,
-     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
-     "evidence_type": "agent-compiled",
-     "priority": "D-agent"
+     "key": "nz-census-2023",
+     "source_name": "Stats NZ — 2023 Census language data (total responses, 4th language Hindi 77,985)",
+     "source_url": "https://www.stats.govt.nz/news/census-results-reflect-aotearoa-new-zealands-diversity/",
+     "evidence_type": "national-census",
+     "priority": "A"
     }
    ],
-   "confidence": "medium",
+   "confidence": "high",
    "disputed": false,
    "ekguru_status": "course",
    "ekguru_recommendation": "course live.",
@@ -25681,18 +25679,24 @@
    "role_detail": null,
    "estimated_speaker_band": "1M-10M",
    "speaker_estimate": {
-    "confidence": "low",
-    "total": 2500000
+    "confidence": "medium",
+    "total": 2180000
    },
-   "country_specific_evidence": "Official; 2013 Constitutional Court equated 'Moldovan' with Romanian, 2023 law renamed it.",
+   "country_specific_evidence": "Official; 2013 Constitutional Court equated 'Moldovan' with Romanian, 2023 law renamed it. P0 sourcing 2026-09-14: 2014 census — Moldovan MT 56.7% + Romanian MT 23.5% of 2.72M declared (≈2.18M Romanian-variety MT, excl. Transnistria); 16 Mar 2023 law replaced 'Moldovan' with 'Romanian' in constitution.",
    "sources": [
     {
-     "key": "agent-knowledge",
-     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
-     "source_url": null,
-     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
-     "evidence_type": "agent-compiled",
-     "priority": "D-agent"
+     "key": "md-census-2014",
+     "source_name": "Moldova NBS — 2014 census key results (Moldovan MT 56.7% + Romanian MT 23.5% of 2.72M declared)",
+     "source_url": "https://statistica.gov.md/en/key-results-of-the-2014-population-and-housing-census-34_2854.html",
+     "evidence_type": "national-census",
+     "priority": "A"
+    },
+    {
+     "key": "md-lang-law-2023",
+     "source_name": "Moldovan parliament 16 Mar 2023 final reading replacing 'Moldovan' with 'Romanian' in constitution (via ZDG)",
+     "source_url": "https://www.zdg.md/en/the-moldovan-language-replaced-by-romanian-now-also-in-the-constitution/",
+     "evidence_type": "legal-record-via-press",
+     "priority": "C"
     }
    ],
    "confidence": "medium",
@@ -25732,18 +25736,24 @@
    "role_detail": null,
    "estimated_speaker_band": "1M-10M",
    "speaker_estimate": {
-    "confidence": "low",
-    "total": 2500000
+    "confidence": "medium",
+    "total": 2180000
    },
-   "country_specific_evidence": "Official; 2013 Constitutional Court equated 'Moldovan' with Romanian, 2023 law renamed it.",
+   "country_specific_evidence": "Official; 2013 Constitutional Court equated 'Moldovan' with Romanian, 2023 law renamed it. P0 sourcing 2026-09-14: 2014 census — Moldovan MT 56.7% + Romanian MT 23.5% of 2.72M declared (≈2.18M Romanian-variety MT, excl. Transnistria); 16 Mar 2023 law replaced 'Moldovan' with 'Romanian' in constitution.",
    "sources": [
     {
-     "key": "agent-knowledge",
-     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
-     "source_url": null,
-     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
-     "evidence_type": "agent-compiled",
-     "priority": "D-agent"
+     "key": "md-census-2014",
+     "source_name": "Moldova NBS — 2014 census key results (Moldovan MT 56.7% + Romanian MT 23.5% of 2.72M declared)",
+     "source_url": "https://statistica.gov.md/en/key-results-of-the-2014-population-and-housing-census-34_2854.html",
+     "evidence_type": "national-census",
+     "priority": "A"
+    },
+    {
+     "key": "md-lang-law-2023",
+     "source_name": "Moldovan parliament 16 Mar 2023 final reading replacing 'Moldovan' with 'Romanian' in constitution (via ZDG)",
+     "source_url": "https://www.zdg.md/en/the-moldovan-language-replaced-by-romanian-now-also-in-the-constitution/",
+     "evidence_type": "legal-record-via-press",
+     "priority": "C"
     }
    ],
    "confidence": "medium",
@@ -25783,18 +25793,24 @@
    "role_detail": null,
    "estimated_speaker_band": "1M-10M",
    "speaker_estimate": {
-    "confidence": "low",
-    "total": 2500000
+    "confidence": "medium",
+    "total": 2180000
    },
-   "country_specific_evidence": "Official; 2013 Constitutional Court equated 'Moldovan' with Romanian, 2023 law renamed it.",
+   "country_specific_evidence": "Official; 2013 Constitutional Court equated 'Moldovan' with Romanian, 2023 law renamed it. P0 sourcing 2026-09-14: 2014 census — Moldovan MT 56.7% + Romanian MT 23.5% of 2.72M declared (≈2.18M Romanian-variety MT, excl. Transnistria); 16 Mar 2023 law replaced 'Moldovan' with 'Romanian' in constitution.",
    "sources": [
     {
-     "key": "agent-knowledge",
-     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
-     "source_url": null,
-     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
-     "evidence_type": "agent-compiled",
-     "priority": "D-agent"
+     "key": "md-census-2014",
+     "source_name": "Moldova NBS — 2014 census key results (Moldovan MT 56.7% + Romanian MT 23.5% of 2.72M declared)",
+     "source_url": "https://statistica.gov.md/en/key-results-of-the-2014-population-and-housing-census-34_2854.html",
+     "evidence_type": "national-census",
+     "priority": "A"
+    },
+    {
+     "key": "md-lang-law-2023",
+     "source_name": "Moldovan parliament 16 Mar 2023 final reading replacing 'Moldovan' with 'Romanian' in constitution (via ZDG)",
+     "source_url": "https://www.zdg.md/en/the-moldovan-language-replaced-by-romanian-now-also-in-the-constitution/",
+     "evidence_type": "legal-record-via-press",
+     "priority": "C"
     }
    ],
    "confidence": "medium",
@@ -28737,18 +28753,17 @@
    "role_detail": null,
    "estimated_speaker_band": "100K-1M",
    "speaker_estimate": {
-    "confidence": "low",
-    "total": 150000
+    "confidence": "medium",
+    "total": 327703
    },
-   "country_specific_evidence": "Chernivtsi/Zakarpattia (Moldovan-vs-Romanian census split — pass 2).",
+   "country_specific_evidence": "Chernivtsi/Zakarpattia (Moldovan-vs-Romanian census split — pass 2). P0 sourcing 2026-09-14: 2001 census (only one to date) — Romanian+Moldovan native language 327,703 (ethnic Romanians 151K + Moldovan-declared balance); resolves the pass-2 split note.",
    "sources": [
     {
-     "key": "agent-knowledge",
-     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
-     "source_url": null,
-     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
-     "evidence_type": "agent-compiled",
-     "priority": "D-agent"
+     "key": "ua-census-2001",
+     "source_name": "Ukraine 2001 census via Languages of Ukraine table (Romanian+Moldovan native 327,703 — only census to date)",
+     "source_url": "https://en.wikipedia.org/wiki/Languages_of_Ukraine",
+     "evidence_type": "national-census-via-encyclopedia",
+     "priority": "C"
     }
    ],
    "confidence": "medium",
@@ -36502,21 +36517,20 @@
    "role_detail": null,
    "estimated_speaker_band": "100K-1M",
    "speaker_estimate": {
-    "confidence": "low",
-    "total": 500000
+    "confidence": "medium",
+    "total": 666585
    },
-   "country_specific_evidence": "Largest non-official home language in several censuses (~500K+; Brampton/Surrey).",
+   "country_specific_evidence": "Largest non-official home language in several censuses (~500K+; Brampton/Surrey). P0 sourcing 2026-09-14: StatCan 2021 Census table 98-10-0170-01 — Punjabi mother tongue 666,585 (single responses); 942K report knowledge.",
    "sources": [
     {
-     "key": "agent-knowledge",
-     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
-     "source_url": null,
-     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
-     "evidence_type": "agent-compiled",
-     "priority": "D-agent"
+     "key": "ca-census-2021",
+     "source_name": "Statistics Canada — 2021 Census mother-tongue table 98-10-0170-01 (Punjabi MT 666,585)",
+     "source_url": "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=9810017001",
+     "evidence_type": "national-census",
+     "priority": "A"
     }
    ],
-   "confidence": "medium",
+   "confidence": "high",
    "disputed": false,
    "ekguru_status": "course",
    "ekguru_recommendation": "course live.",
@@ -36532,7 +36546,7 @@
    },
    "needs_human_review": false,
    "ekguru_priority": "P0",
-   "ekguru_reason": "in production — maintain (score 68 overridden)",
+   "ekguru_reason": "in production — maintain (score 70 overridden)",
    "review_flags": []
   },
   {
@@ -36553,21 +36567,20 @@
    "role_detail": null,
    "estimated_speaker_band": "100K-1M",
    "speaker_estimate": {
-    "confidence": "low",
-    "total": 500000
+    "confidence": "medium",
+    "total": 666585
    },
-   "country_specific_evidence": "Largest non-official home language in several censuses (~500K+; Brampton/Surrey).",
+   "country_specific_evidence": "Largest non-official home language in several censuses (~500K+; Brampton/Surrey). P0 sourcing 2026-09-14: StatCan 2021 Census table 98-10-0170-01 — Punjabi mother tongue 666,585 (single responses); 942K report knowledge.",
    "sources": [
     {
-     "key": "agent-knowledge",
-     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
-     "source_url": null,
-     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
-     "evidence_type": "agent-compiled",
-     "priority": "D-agent"
+     "key": "ca-census-2021",
+     "source_name": "Statistics Canada — 2021 Census mother-tongue table 98-10-0170-01 (Punjabi MT 666,585)",
+     "source_url": "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=9810017001",
+     "evidence_type": "national-census",
+     "priority": "A"
     }
    ],
-   "confidence": "medium",
+   "confidence": "high",
    "disputed": false,
    "ekguru_status": "course",
    "ekguru_recommendation": "course live.",
@@ -36583,7 +36596,7 @@
    },
    "needs_human_review": false,
    "ekguru_priority": "P0",
-   "ekguru_reason": "in production — maintain (score 68 overridden)",
+   "ekguru_reason": "in production — maintain (score 70 overridden)",
    "review_flags": []
   },
   {
@@ -39311,21 +39324,20 @@
    "role_detail": null,
    "estimated_speaker_band": "100K-1M",
    "speaker_estimate": {
-    "confidence": "low",
-    "total": 600000
+    "confidence": "medium",
+    "total": 892596
    },
-   "country_specific_evidence": "Fast-growing South-Asian diaspora language (~600K+ declared; NJ/CA/TX).",
+   "country_specific_evidence": "Fast-growing South-Asian diaspora language (~600K+ declared; NJ/CA/TX). P0 sourcing 2026-09-14: ACS 2019 1-year (report ACS-50, Table 1) — 892,596 speak Hindi at home (population 5+).",
    "sources": [
     {
-     "key": "agent-knowledge",
-     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
-     "source_url": null,
-     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
-     "evidence_type": "agent-compiled",
-     "priority": "D-agent"
+     "key": "us-acs-2019",
+     "source_name": "US Census Bureau — ACS 2019 1-year, report ACS-50 Table 1 (Hindi spoken at home 892,596)",
+     "source_url": "https://www.census.gov/library/publications/2022/acs/acs-50.html",
+     "evidence_type": "national-census",
+     "priority": "A"
     }
    ],
-   "confidence": "medium",
+   "confidence": "high",
    "disputed": false,
    "ekguru_status": "course",
    "ekguru_recommendation": "course live.",
@@ -39362,21 +39374,20 @@
    "role_detail": null,
    "estimated_speaker_band": "100K-1M",
    "speaker_estimate": {
-    "confidence": "low",
-    "total": 600000
+    "confidence": "medium",
+    "total": 892596
    },
-   "country_specific_evidence": "Fast-growing South-Asian diaspora language (~600K+ declared; NJ/CA/TX).",
+   "country_specific_evidence": "Fast-growing South-Asian diaspora language (~600K+ declared; NJ/CA/TX). P0 sourcing 2026-09-14: ACS 2019 1-year (report ACS-50, Table 1) — 892,596 speak Hindi at home (population 5+).",
    "sources": [
     {
-     "key": "agent-knowledge",
-     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
-     "source_url": null,
-     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
-     "evidence_type": "agent-compiled",
-     "priority": "D-agent"
+     "key": "us-acs-2019",
+     "source_name": "US Census Bureau — ACS 2019 1-year, report ACS-50 Table 1 (Hindi spoken at home 892,596)",
+     "source_url": "https://www.census.gov/library/publications/2022/acs/acs-50.html",
+     "evidence_type": "national-census",
+     "priority": "A"
     }
    ],
-   "confidence": "medium",
+   "confidence": "high",
    "disputed": false,
    "ekguru_status": "course",
    "ekguru_recommendation": "course live.",
@@ -44529,21 +44540,20 @@
    "role_detail": null,
    "estimated_speaker_band": "100K-1M",
    "speaker_estimate": {
-    "confidence": "low",
-    "total": 400000
+    "confidence": "medium",
+    "total": 291000
    },
-   "country_specific_evidence": "Major British South-Asian community language.",
+   "country_specific_evidence": "Major British South-Asian community language. P0 sourcing 2026-09-14: ONS Census 2021 (England & Wales) — Panjabi main language 291,000 (main-language question; multilinguals undercounted).",
    "sources": [
     {
-     "key": "agent-knowledge",
-     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
-     "source_url": null,
-     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
-     "evidence_type": "agent-compiled",
-     "priority": "D-agent"
+     "key": "uk-census-2021",
+     "source_name": "ONS — Census 2021 main language, England & Wales (Panjabi 291K, Urdu 270K)",
+     "source_url": "https://www.ons.gov.uk/peoplepopulationandcommunity/culturalidentity/language/bulletins/languageenglandandwales/census2021",
+     "evidence_type": "national-census",
+     "priority": "A"
     }
    ],
-   "confidence": "medium",
+   "confidence": "high",
    "disputed": false,
    "ekguru_status": "course",
    "ekguru_recommendation": "course live.",
@@ -44559,7 +44569,7 @@
    },
    "needs_human_review": false,
    "ekguru_priority": "P0",
-   "ekguru_reason": "in production — maintain (score 68 overridden)",
+   "ekguru_reason": "in production — maintain (score 70 overridden)",
    "review_flags": []
   },
   {
@@ -44580,21 +44590,20 @@
    "role_detail": null,
    "estimated_speaker_band": "100K-1M",
    "speaker_estimate": {
-    "confidence": "low",
-    "total": 400000
+    "confidence": "medium",
+    "total": 291000
    },
-   "country_specific_evidence": "Major British South-Asian community language.",
+   "country_specific_evidence": "Major British South-Asian community language. P0 sourcing 2026-09-14: ONS Census 2021 (England & Wales) — Panjabi main language 291,000 (main-language question; multilinguals undercounted).",
    "sources": [
     {
-     "key": "agent-knowledge",
-     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
-     "source_url": null,
-     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
-     "evidence_type": "agent-compiled",
-     "priority": "D-agent"
+     "key": "uk-census-2021",
+     "source_name": "ONS — Census 2021 main language, England & Wales (Panjabi 291K, Urdu 270K)",
+     "source_url": "https://www.ons.gov.uk/peoplepopulationandcommunity/culturalidentity/language/bulletins/languageenglandandwales/census2021",
+     "evidence_type": "national-census",
+     "priority": "A"
     }
    ],
-   "confidence": "medium",
+   "confidence": "high",
    "disputed": false,
    "ekguru_status": "course",
    "ekguru_recommendation": "course live.",
@@ -44610,7 +44619,7 @@
    },
    "needs_human_review": false,
    "ekguru_priority": "P0",
-   "ekguru_reason": "in production — maintain (score 68 overridden)",
+   "ekguru_reason": "in production — maintain (score 70 overridden)",
    "review_flags": []
   },
   {
@@ -44631,21 +44640,20 @@
    "role_detail": null,
    "estimated_speaker_band": "100K-1M",
    "speaker_estimate": {
-    "confidence": "low",
-    "total": 400000
+    "confidence": "medium",
+    "total": 270000
    },
-   "country_specific_evidence": "Major British Pakistani community language.",
+   "country_specific_evidence": "Major British Pakistani community language. P0 sourcing 2026-09-14: ONS Census 2021 (England & Wales) — Urdu main language 270,000 (main-language question; multilinguals undercounted).",
    "sources": [
     {
-     "key": "agent-knowledge",
-     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
-     "source_url": null,
-     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
-     "evidence_type": "agent-compiled",
-     "priority": "D-agent"
+     "key": "uk-census-2021",
+     "source_name": "ONS — Census 2021 main language, England & Wales (Panjabi 291K, Urdu 270K)",
+     "source_url": "https://www.ons.gov.uk/peoplepopulationandcommunity/culturalidentity/language/bulletins/languageenglandandwales/census2021",
+     "evidence_type": "national-census",
+     "priority": "A"
     }
    ],
-   "confidence": "medium",
+   "confidence": "high",
    "disputed": false,
    "ekguru_status": "course",
    "ekguru_recommendation": "course live.",
@@ -44682,21 +44690,20 @@
    "role_detail": null,
    "estimated_speaker_band": "100K-1M",
    "speaker_estimate": {
-    "confidence": "low",
-    "total": 400000
+    "confidence": "medium",
+    "total": 270000
    },
-   "country_specific_evidence": "Major British Pakistani community language.",
+   "country_specific_evidence": "Major British Pakistani community language. P0 sourcing 2026-09-14: ONS Census 2021 (England & Wales) — Urdu main language 270,000 (main-language question; multilinguals undercounted).",
    "sources": [
     {
-     "key": "agent-knowledge",
-     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
-     "source_url": null,
-     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
-     "evidence_type": "agent-compiled",
-     "priority": "D-agent"
+     "key": "uk-census-2021",
+     "source_name": "ONS — Census 2021 main language, England & Wales (Panjabi 291K, Urdu 270K)",
+     "source_url": "https://www.ons.gov.uk/peoplepopulationandcommunity/culturalidentity/language/bulletins/languageenglandandwales/census2021",
+     "evidence_type": "national-census",
+     "priority": "A"
     }
    ],
-   "confidence": "medium",
+   "confidence": "high",
    "disputed": false,
    "ekguru_status": "course",
    "ekguru_recommendation": "course live.",
@@ -65544,8 +65551,15 @@
     "l1": 19000000,
     "total": 20000000
    },
-   "country_specific_evidence": "Official (constitution Art. 13).",
+   "country_specific_evidence": "Official (constitution Art. 13). P0 sourcing 2026-09-14: Constitution Art. 13 carries official/national status; speaker totals still agent-compiled (medium) — Ethnologue cross-check pending.",
    "sources": [
+    {
+     "key": "ro-constitution-art13",
+     "source_name": "Constitution of Romania, Art. 13 (official language is Romanian) — presidency.ro",
+     "source_url": "https://www.presidency.ro/en/the-constitution-of-romania",
+     "evidence_type": "constitutional-record",
+     "priority": "A"
+    },
     {
      "key": "agent-knowledge",
      "source_name": "EkGuru agent training knowledge (compiled, unverified)",
@@ -65596,8 +65610,15 @@
     "l1": 19000000,
     "total": 20000000
    },
-   "country_specific_evidence": "Official (constitution Art. 13).",
+   "country_specific_evidence": "Official (constitution Art. 13). P0 sourcing 2026-09-14: Constitution Art. 13 carries official/national status; speaker totals still agent-compiled (medium) — Ethnologue cross-check pending.",
    "sources": [
+    {
+     "key": "ro-constitution-art13",
+     "source_name": "Constitution of Romania, Art. 13 (official language is Romanian) — presidency.ro",
+     "source_url": "https://www.presidency.ro/en/the-constitution-of-romania",
+     "evidence_type": "constitutional-record",
+     "priority": "A"
+    },
     {
      "key": "agent-knowledge",
      "source_name": "EkGuru agent training knowledge (compiled, unverified)",
@@ -65648,8 +65669,15 @@
     "l1": 19000000,
     "total": 20000000
    },
-   "country_specific_evidence": "Official (constitution Art. 13).",
+   "country_specific_evidence": "Official (constitution Art. 13). P0 sourcing 2026-09-14: Constitution Art. 13 carries official/national status; speaker totals still agent-compiled (medium) — Ethnologue cross-check pending.",
    "sources": [
+    {
+     "key": "ro-constitution-art13",
+     "source_name": "Constitution of Romania, Art. 13 (official language is Romanian) — presidency.ro",
+     "source_url": "https://www.presidency.ro/en/the-constitution-of-romania",
+     "evidence_type": "constitutional-record",
+     "priority": "A"
+    },
     {
      "key": "agent-knowledge",
      "source_name": "EkGuru agent training knowledge (compiled, unverified)",
@@ -66680,18 +66708,17 @@
    "role_detail": null,
    "estimated_speaker_band": "10K-100K",
    "speaker_estimate": {
-    "confidence": "low",
-    "total": 30000
+    "confidence": "medium",
+    "total": 43500
    },
-   "country_specific_evidence": "Vojvodina + Timok Vlach communities (Vlach/Romanian identity dispute — pass 2).",
+   "country_specific_evidence": "Vojvodina + Timok Vlach communities (Vlach/Romanian identity dispute — pass 2). P0 sourcing 2026-09-14: 2022 census — Romanian MT ~20K (0.3%) + Vlach MT 23,216 ≈ 43K Romanian-variety speakers; Vlach/Romanian identity dispute stands (pass-2 flag kept).",
    "sources": [
     {
-     "key": "agent-knowledge",
-     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
-     "source_url": null,
-     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
-     "evidence_type": "agent-compiled",
-     "priority": "D-agent"
+     "key": "rs-census-2022",
+     "source_name": "Serbia 2022 census via Vlachs of Serbia (Romanian MT ~20K + Vlach MT 23,216)",
+     "source_url": "https://en.wikipedia.org/wiki/Vlach_minority_in_Serbia",
+     "evidence_type": "national-census-via-encyclopedia",
+     "priority": "C"
     }
    ],
    "confidence": "medium",
@@ -73626,7 +73653,7 @@
    },
    "needs_human_review": false,
    "ekguru_priority": "P0",
-   "ekguru_reason": "in production — maintain (score 68 overridden)",
+   "ekguru_reason": "in production — maintain (score 70 overridden)",
    "review_flags": []
   },
   {
@@ -73692,7 +73719,7 @@
    },
    "needs_human_review": false,
    "ekguru_priority": "P0",
-   "ekguru_reason": "in production — maintain (score 68 overridden)",
+   "ekguru_reason": "in production — maintain (score 70 overridden)",
    "review_flags": []
   },
   {
@@ -73758,7 +73785,7 @@
    },
    "needs_human_review": false,
    "ekguru_priority": "P0",
-   "ekguru_reason": "in production — maintain (score 68 overridden)",
+   "ekguru_reason": "in production — maintain (score 70 overridden)",
    "review_flags": []
   },
   {
@@ -78690,17 +78717,19 @@
    "status_in_country": "LIVING",
    "category": "WIDELY_SPOKEN",
    "role_detail": null,
-   "estimated_speaker_band": "unknown",
-   "speaker_estimate": {},
-   "country_specific_evidence": "Terai lingua franca via media/schooling; small L1 base in Nepal. No official status.",
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "confidence": "medium",
+    "total": 322000
+   },
+   "country_specific_evidence": "Terai lingua franca via media/schooling; small L1 base in Nepal. No official status. P0 sourcing 2026-09-14: NPHC 2021 — Hindi L1 0.34% (~99K) + second-language 223,106 ≈ 322K Hindi-knowing; Terai lingua-franca role confirmed.",
    "sources": [
     {
-     "key": "agent-knowledge",
-     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
-     "source_url": null,
-     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
-     "evidence_type": "agent-compiled",
-     "priority": "D-agent"
+     "key": "np-census-2021",
+     "source_name": "Nepal NSO — National Population and Housing Census 2021 national report (Hindi L1 0.34%, L2 223,106)",
+     "source_url": "https://docs.censusnepal.cbs.gov.np/Documents/00871279-1fea-425d-8703-3f58e5bd5018.pdf",
+     "evidence_type": "national-census",
+     "priority": "A"
     }
    ],
    "confidence": "medium",
@@ -81662,10 +81691,17 @@
    "estimated_speaker_band": "100K-1M",
    "speaker_estimate": {
     "confidence": "low",
-    "total": 700000
+    "total": 630000
    },
-   "country_specific_evidence": "Largest immigrant community language (~700K).",
+   "country_specific_evidence": "Largest immigrant community language (~700K). P0 sourcing 2026-09-14: INE padrón 2023 — 629,755 Romanian citizens (2nd foreign group); citizenship-as-speakers proxy, naturalized/second-gen excluded — confidence stays low.",
    "sources": [
+    {
+     "key": "es-ine-padron-2023",
+     "source_name": "Spain INE padrón via Romanians in Spain (629,755 Romanian citizens 2023 — citizenship-as-speakers proxy)",
+     "source_url": "https://en.wikipedia.org/wiki/Romanians_in_Spain",
+     "evidence_type": "admin-register-via-encyclopedia",
+     "priority": "C"
+    },
     {
      "key": "agent-knowledge",
      "source_name": "EkGuru agent training knowledge (compiled, unverified)",
@@ -81713,10 +81749,17 @@
    "estimated_speaker_band": "100K-1M",
    "speaker_estimate": {
     "confidence": "low",
-    "total": 700000
+    "total": 630000
    },
-   "country_specific_evidence": "Largest immigrant community language (~700K).",
+   "country_specific_evidence": "Largest immigrant community language (~700K). P0 sourcing 2026-09-14: INE padrón 2023 — 629,755 Romanian citizens (2nd foreign group); citizenship-as-speakers proxy, naturalized/second-gen excluded — confidence stays low.",
    "sources": [
+    {
+     "key": "es-ine-padron-2023",
+     "source_name": "Spain INE padrón via Romanians in Spain (629,755 Romanian citizens 2023 — citizenship-as-speakers proxy)",
+     "source_url": "https://en.wikipedia.org/wiki/Romanians_in_Spain",
+     "evidence_type": "admin-register-via-encyclopedia",
+     "priority": "C"
+    },
     {
      "key": "agent-knowledge",
      "source_name": "EkGuru agent training knowledge (compiled, unverified)",
@@ -82950,10 +82993,17 @@
    "estimated_speaker_band": "1M-10M",
    "speaker_estimate": {
     "confidence": "low",
-    "total": 1000000
+    "total": 1071000
    },
-   "country_specific_evidence": "Largest immigrant community (~1M).",
+   "country_specific_evidence": "Largest immigrant community (~1M). P0 sourcing 2026-09-14: ISTAT 2023 — Romanian citizens ~1.07M at 31 Dec 2023 (20.4% of 5.25M foreign residents, largest group); citizenship proxy — confidence stays low.",
    "sources": [
+    {
+     "key": "it-istat-2023",
+     "source_name": "ISTAT 2023 via Cinformi (Romanian citizens ~1.07M, 20.4% of 5.25M foreign residents — citizenship proxy)",
+     "source_url": "https://www.cinformi.it/Comunicazione/Notizie/Gli-stranieri-in-Italia-ecco-i-dati-Istat-piu-aggiornati",
+     "evidence_type": "statistical-office-via-gov-press",
+     "priority": "C"
+    },
     {
      "key": "agent-knowledge",
      "source_name": "EkGuru agent training knowledge (compiled, unverified)",
@@ -83001,10 +83051,17 @@
    "estimated_speaker_band": "1M-10M",
    "speaker_estimate": {
     "confidence": "low",
-    "total": 1000000
+    "total": 1071000
    },
-   "country_specific_evidence": "Largest immigrant community (~1M).",
+   "country_specific_evidence": "Largest immigrant community (~1M). P0 sourcing 2026-09-14: ISTAT 2023 — Romanian citizens ~1.07M at 31 Dec 2023 (20.4% of 5.25M foreign residents, largest group); citizenship proxy — confidence stays low.",
    "sources": [
+    {
+     "key": "it-istat-2023",
+     "source_name": "ISTAT 2023 via Cinformi (Romanian citizens ~1.07M, 20.4% of 5.25M foreign residents — citizenship proxy)",
+     "source_url": "https://www.cinformi.it/Comunicazione/Notizie/Gli-stranieri-in-Italia-ecco-i-dati-Istat-piu-aggiornati",
+     "evidence_type": "statistical-office-via-gov-press",
+     "priority": "C"
+    },
     {
      "key": "agent-knowledge",
      "source_name": "EkGuru agent training knowledge (compiled, unverified)",

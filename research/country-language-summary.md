@@ -439,11 +439,11 @@ Researched living estimate: 200 (agent-knowledge, low). Entries below: 10.
 
 **OFFICIAL** (3): English (eng, medium); French (fra, medium); Inuktitut (iku, medium).
 
-**WIDELY_SPOKEN** (5): English (eng, medium); French (fra, medium); Mandarin (cmn, medium); Panjabi (pan, medium); Standard Arabic (arb, low).
+**WIDELY_SPOKEN** (5): English (eng, medium); French (fra, medium); Mandarin (cmn, medium); Panjabi (pan, high); Standard Arabic (arb, low).
 
 **INDIGENOUS** (3): Inuktitut (iku, medium); Ojibwe (oji, low); Plains Cree (crk, low).
 
-**IMMIGRANT** (3): Mandarin (cmn, medium); Panjabi (pan, medium); Standard Arabic (arb, low).
+**IMMIGRANT** (3): Mandarin (cmn, medium); Panjabi (pan, high); Standard Arabic (arb, low).
 
 **SIGN_LANGUAGE** (2): American Sign Language (ase, medium); Quebec Sign Language (fcs, medium).
 
@@ -903,13 +903,13 @@ Researched living estimate: 40 (agent-knowledge, low). Entries below: 10.
 
 **NATIONAL** (1): English (eng, medium).
 
-**WIDELY_SPOKEN** (4): English (eng, medium); Panjabi (pan, medium); Polish (pol, medium); Urdu (urd, medium).
+**WIDELY_SPOKEN** (4): English (eng, medium); Panjabi (pan, high); Polish (pol, medium); Urdu (urd, high).
 
 **REGIONAL** (4): Irish (gle, medium); Scots (sco, low); Scottish Gaelic (gla, medium); Welsh (cym, medium).
 
 **MINORITY** (1): Cornish (cor, medium).
 
-**IMMIGRANT** (3): Panjabi (pan, medium); Polish (pol, medium); Urdu (urd, medium).
+**IMMIGRANT** (3): Panjabi (pan, high); Polish (pol, medium); Urdu (urd, high).
 
 **SIGN_LANGUAGE** (1): British Sign Language (bfi, medium).
 
@@ -1984,9 +1984,9 @@ Researched living estimate: 20 (agent-knowledge, low). Entries below: 7.
 
 **NATIONAL** (2): English (eng, medium); Maori (mri, medium).
 
-**WIDELY_SPOKEN** (4): English (eng, medium); Hindi (hin, medium); Mandarin (cmn, medium); Samoan (smo, medium).
+**WIDELY_SPOKEN** (4): English (eng, medium); Hindi (hin, high); Mandarin (cmn, medium); Samoan (smo, medium).
 
-**IMMIGRANT** (4): Cook Islands Maori (rar, low); Hindi (hin, medium); Mandarin (cmn, medium); Samoan (smo, medium).
+**IMMIGRANT** (4): Cook Islands Maori (rar, low); Hindi (hin, high); Mandarin (cmn, medium); Samoan (smo, medium).
 
 **SIGN_LANGUAGE** (1): New Zealand Sign Language (nzs, medium).
 
@@ -2702,7 +2702,7 @@ Researched living estimate: 350 (agent-knowledge, low). Entries below: 16.
 
 **NATIONAL** (1): English (eng, medium).
 
-**WIDELY_SPOKEN** (9): English (eng, medium); Haitian (hat, medium); Hindi (hin, medium); Korean (kor, medium); Mandarin (cmn, medium); Spanish (spa, medium); Standard Arabic (arb, low); Tagalog (tgl, medium); Vietnamese (vie, medium).
+**WIDELY_SPOKEN** (9): English (eng, medium); Haitian (hat, medium); Hindi (hin, high); Korean (kor, medium); Mandarin (cmn, medium); Spanish (spa, medium); Standard Arabic (arb, low); Tagalog (tgl, medium); Vietnamese (vie, medium).
 
 **REGIONAL** (1): French (fra, low).
 
@@ -2710,7 +2710,7 @@ Researched living estimate: 350 (agent-knowledge, low). Entries below: 16.
 
 **MINORITY** (1): Pennsylvania German (pdc, low).
 
-**IMMIGRANT** (7): Haitian (hat, medium); Hindi (hin, medium); Korean (kor, medium); Mandarin (cmn, medium); Standard Arabic (arb, low); Tagalog (tgl, medium); Vietnamese (vie, medium).
+**IMMIGRANT** (7): Haitian (hat, medium); Hindi (hin, high); Korean (kor, medium); Mandarin (cmn, medium); Standard Arabic (arb, low); Tagalog (tgl, medium); Vietnamese (vie, medium).
 
 **SIGN_LANGUAGE** (1): American Sign Language (ase, medium).
 

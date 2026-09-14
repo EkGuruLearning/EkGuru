@@ -241,3 +241,37 @@ survey. The swamps are marked honestly — that is its current value.
   research/ethiopia-language-inventory.md.
 - **No P0/P1 impact** (all ET additions long-tail by formula,
   correctly). Audits 1–14 complete; the deep-audit program is closed.
+
+## 11. P0 per-entry sourcing (2026-09-14 — deferred item closed)
+
+- **P0 agent-knowledge-only 23 → 0.** All 92 P0 relations now carry
+  ≥1 registered non-agent source. 12 source keys registered (109 →
+  121: 7 A-grade census/constitutional, 5 C-grade census-or-register
+  via verified secondary with provenance explicit in the key name).
+- Figures replaced with hard counts (all dated 2026-09-14 in notes):
+  NZ Hindi 100K→77,985 (Stats NZ 2023; band →10K-100K), CA Panjabi
+  500K→666,585 (StatCan 2021 MT), US Hindi 600K→892,596 (ACS 2019
+  Table 1), GB Panjabi 400K→291,000 + Urdu 400K→270,000 (ONS 2021
+  main-language), NP Hindi unknown→322K incl. L2 (NPHC 2021),
+  MD Romanian 2.5M→2.18M (2014 census shares + 2023 law), UA
+  150K→327,703 (2001 census Romanian+Moldovan native — resolves the
+  pass-2 split flag), RS 30K→43K (Romanian+Vlach MT 2022).
+- **Honest holds**: RO figures still agent-compiled (constitution
+  carries status only — Ethnologue cross-check pending); ES/IT stay
+  low-confidence (INE/ISTAT citizenship-as-speakers proxies, stated
+  as such); RS Vlach identity dispute flag kept. Entry confidence →
+  high only for the 5 fresh-census entries (NZ/CA/US/GB×2).
+- Process notes: (1) `open(f,"w")` truncates BEFORE `write()` args
+  evaluate — a buggy updater left northern-europe.json 0 bytes;
+  recovered via git, re-ran with serialize-first discipline. Never
+  `open(w).write(compute())` on data files. (2) Core batch files use
+  TWO formats (compact default vs indent=1) — updaters must detect
+  per file. (3) `band_of` is l1-first: NP Hindi keeps total-only
+  speakers (322K) with the L1/L2 split in notes, else the band
+  understates an L2-dominant entry. (4) Doctor privacy "3 sensitive"
+  = false positive on the StatCan table id `pid=9810017001` in the
+  new source URL (verdict still PASS).
+- Downstream: guides for the 11 touched countries regenerated, plus
+  funnel-link chips added to the 38 guides whose funnel pages are new
+  (49 guides total); funnel pages untouched (0); VALID 194/1345,
+  review-open 0, doctor PASS 1562.
