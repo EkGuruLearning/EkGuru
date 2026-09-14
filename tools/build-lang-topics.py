@@ -383,8 +383,10 @@ def main():
         cfg = json.load(f)
     live = cfg["topics"]
     live_slugs = {t["slug"] for t in live}
+    skip = set(cfg.get("mirror_skip", []))
+    order = [s for s in list(MIRROR) + list(cfg.get("mirror_extra", [])) if s not in skip]
     coming = [(s, cfg["coming_titles"].get(s, s.replace("-", " ").title()))
-              for s in MIRROR if s not in live_slugs]
+              for s in order if s not in live_slugs]
     os.makedirs(cfg["dir"], exist_ok=True)
     with open("%s/index.html" % cfg["dir"], "w", encoding="utf-8") as f:
         f.write(hub_page(cfg, live, coming))
