@@ -36,7 +36,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
 
 SECTIONS = ["learn", "hindi", "materials", "toolbox", "ask", "answers",
-            "daily-hindi"]
+            "daily-hindi", "languages"]
 MARK = "<!-- ekguru:storybook -->"
 HINT = ('<p class="sb-hint">🔊 <b>Tap any speaker button to hear Hindi spoken.</b> '
         "Too fast or slow? Use the <b>speed</b> button at the "
@@ -95,17 +95,20 @@ def resolve(path):
             return "section-paths"
         if parts[1] == "practice":
             return "section-practice"
+    # world courses: honest generic banner, name read from the page H1
+    if parts[0] == "languages" and len(parts) >= 2:
+        return "section-language"
     return None
 
 
-def banner(key):
+def banner(key, name=None):
     t = META["topics"][key]
     return ('<div class="sb-chapter" style="--sb-accent:%s;--sb-tint:%s">'
             '<span class="sb-ch-mascot" aria-hidden="true">%s</span>'
             '<span class="sb-ch-name">%s <i>%s</i></span>'
             '<span class="sb-ch-kind">%s</span>'
             '<span class="sb-ch-floats" aria-hidden="true">%s</span></div>'
-            % (t["accent"], t["tint"], t["mascot"], t["en"], t["hi"],
+            % (t["accent"], t["tint"], t["mascot"], (name or t["en"]), t["hi"],
                t["kind"], t["floats"]))
 
 
@@ -152,9 +155,16 @@ def process(path):
                 h = h[:mb.end(1)] + ' data-topic="%s"' % key + h[mb.end(1):]
                 did.append("topic")
             mh = re.search(HT + "[\\s>]", h)
+            h1name = None
+            if key == "section-language":
+                H1 = "<h" + "1"
+                m1 = re.search(H1 + "[^>]*>(.*?)<" + "/h1>", h, re.S)
+                if m1:
+                    # direct text only: drops status pills like "Available"
+                    h1name = " ".join(m1.group(1).split("<")[0].split())[:60]
             sc, sc2 = "<scr" + "ipt", "</scr" + "ipt>"
             if mh and h.count(sc, 0, mh.start()) == h.count(sc2, 0, mh.start()):
-                h = h[:mh.start()] + MARK2 + "\n" + banner(key) + "\n" + h[mh.start():]
+                h = h[:mh.start()] + MARK2 + "\n" + banner(key, h1name) + "\n" + h[mh.start():]
                 did.append("chapter")
 
     # JS, unless the page's own builder already added it.

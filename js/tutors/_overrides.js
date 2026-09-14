@@ -2,7 +2,7 @@
    EkGuru — SHEET OVERRIDES  (GENERATED — DO NOT EDIT)
    ---------------------------------------------------------
    Written by tools/sheetsync.js from the Google Sheet on
-   2026-09-14T03:41:54.286Z.
+   2026-09-14T03:53:02.071Z.
 
    Loaded AFTER the hand-written tutor files, so the sheet
    wins. Delete this file and the site falls back to those
@@ -313,7 +313,8 @@ window.EKGURU_SHEET_SETTINGS = {
   "email": "EkGuruLearning@gmail.com",
   "applyFormUrl": "https://forms.gle/xtnT1mwuDvSKxn8F6",
   "youtubeChannel": "https://www.youtube.com/@Sashi-e3s",
-  "tagline": "One Student. One Goal. One Guru."
+  "tagline": "One Student. One Goal. One Guru.",
+  "supportPaypal": "https://paypal.me/itsThePrakas?locale.x=en_GB&country.x=IN"
 };
 /* v130 — ids whose sheet row says active=no, as of this build.
    js/tutors-data.js excludes them from the first paint; the live

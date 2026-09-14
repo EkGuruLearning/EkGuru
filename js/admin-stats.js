@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T03:42:03.243Z",
+ "generated": "2026-09-14T03:53:07.908Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "d958b3c2da565e1db7a28eb344d96cdeb4c674d4",
-  "subject": "v149: PayPal quick-amounts strip query/hash (real owner link exposed the bug); verified live link resolves",
-  "buildTime": "2026-09-14T03:42:03.256Z",
+  "commit": "ee230aa30d61a7ba71744daf89c761e118b9d518",
+  "subject": "v150: app dock (Back/Home/Next-Up) on every Hindi page with entrance + fade animations; 40/40 jsdom proof",
+  "buildTime": "2026-09-14T03:53:07.923Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,

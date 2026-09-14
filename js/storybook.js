@@ -40,8 +40,43 @@
     var ttsRate = 0.85;
     try {
       var r0 = parseFloat(window.localStorage && localStorage.getItem(RATE_KEY));
-      if (r0 >= 0.5 && r0 <= 1.5) ttsRate = r0;
+      if (r0 >= 0.3 && r0 <= 1.5) ttsRate = r0;
     } catch (eRate) {}
+    /* ---- page language (v151): every language speaks its own ----
+       Derived from the URL: /languages/<code>/ uses the code,
+       /learn/<indian-slug>/ maps to its ISO code, everything else
+       is Hindi context. Latin-script pages keep pill+dock+themes
+       but skip script-based buttons (English cannot be told apart
+       from French by script, so guessing would mis-speak). */
+    var LANG_SLUG = { bengali: "bn", gujarati: "gu", kannada: "kn",
+      malayalam: "ml", marathi: "mr", punjabi: "pa", tamil: "ta",
+      telugu: "te", urdu: "ur" };
+    var SCRIPTS = {
+      hi: "\\u0900-\\u097F", mr: "\\u0900-\\u097F", bn: "\\u0980-\\u09FF",
+      pa: "\\u0A00-\\u0A7F", gu: "\\u0A80-\\u0AFF", ta: "\\u0B80-\\u0BFF",
+      te: "\\u0C00-\\u0C7F", kn: "\\u0C80-\\u0CFF", ml: "\\u0D00-\\u0D7F",
+      ur: "\\u0600-\\u06FF", ar: "\\u0600-\\u06FF", fa: "\\u0600-\\u06FF",
+      he: "\\u0590-\\u05FF", ru: "\\u0400-\\u04FF", uk: "\\u0400-\\u04FF",
+      th: "\\u0E00-\\u0E7F", ko: "\\uAC00-\\uD7AF\\u1100-\\u11FF",
+      ja: "\\u3040-\\u309F\\u30A0-\\u30FF\\u4E00-\\u9FFF" };
+    var pageLang = "hi", scriptRange = "";
+    try {
+      var langParts = (location.pathname || "").split("/");
+      for (var langIdx = 0; langIdx < langParts.length; langIdx++) {
+        if (langParts[langIdx] === "languages" && langParts[langIdx + 1]) {
+          pageLang = langParts[langIdx + 1]; break;
+        }
+        if (langParts[langIdx] === "learn" && LANG_SLUG[langParts[langIdx + 1]]) {
+          pageLang = LANG_SLUG[langParts[langIdx + 1]]; break;
+        }
+      }
+      scriptRange = SCRIPTS[pageLang] || "";
+    } catch (eLang) {}
+    var RX_ANY = scriptRange ? new RegExp("[" + scriptRange + "]") : null;
+    var RX_PHRASE = scriptRange ?
+      new RegExp("[" + scriptRange + "][" + scriptRange + " ]{0,41}", "g") : null;
+    var RX_WORD = scriptRange ?
+      new RegExp("^[\\u200C\\u200D" + scriptRange + "]+$") : null;
     var hindiVoice = null, voiceTried = false;
     function pickVoice() {
       if (voiceTried || !("speechSynthesis" in window)) return hindiVoice;
@@ -49,7 +84,8 @@
       try {
         var vs = window.speechSynthesis.getVoices() || [];
         for (var i = 0; i < vs.length; i++) {
-          if (vs[i].lang && vs[i].lang.toLowerCase().indexOf("hi") === 0) {
+          if (vs[i].lang && (vs[i].lang.toLowerCase().indexOf(pageLang) === 0 ||
+              (pageLang === "he" && vs[i].lang.toLowerCase().indexOf("iw") === 0))) {
             hindiVoice = vs[i]; break;
           }
         }
@@ -72,7 +108,7 @@
       try {
         var text = b.getAttribute("data-sb-say") || b.textContent;
         var u = new SpeechSynthesisUtterance((text || "").trim());
-        u.lang = "hi-IN"; u.rate = ttsRate;
+        u.lang = pageLang === "hi" ? "hi-IN" : pageLang; u.rate = ttsRate;
         var v = pickVoice();
         if (v) u.voice = v;
         window.speechSynthesis.cancel();
@@ -196,7 +232,7 @@
        carries the Hindi. Shown whenever speech works. */
     if ("speechSynthesis" in window) {
       try {
-        var RATES = [0.6, 0.85, 1, 1.25];
+        var RATES = [0.4, 0.6, 0.85, 1, 1.25];
         var pill = document.createElement("button");
         pill.type = "button";
         pill.className = "sb-speed";
@@ -208,7 +244,8 @@
         }
         function paintRate() {
           ttsRate = RATES[ri];
-          pill.innerHTML = "🎙 <b>" + (RATES[ri] === 1 ? "1" : RATES[ri]) +
+          var icon = RATES[ri] < 0.6 ? "🐢" : (RATES[ri] >= 1 ? "🐇" : "🎙");
+          pill.innerHTML = icon + " <b>" + (RATES[ri] === 1 ? "1" : RATES[ri]) +
             "×</b> <span>speed</span>";
           try {
             if (window.localStorage) localStorage.setItem(RATE_KEY, String(RATES[ri]));
@@ -230,9 +267,8 @@
        buttons (barakhadi cells already speak). Capped so giant
        tables stay fast. */
     (function autoSpeak() {
-      if (!("speechSynthesis" in window)) return;
-      var DEVA = /[\u0900-\u097F]/;
-      var ONLY = /^[\u0900-\u097F\s\u200C\u200D।?!·,;:'"()\-–—\/]+$/;
+      if (!("speechSynthesis" in window) || !RX_ANY) return;
+      var DEVA = RX_ANY;
       /* Wrappers differ by section — always the OUTER one, because
          on ask/answers pages the h2s and lists live outside the
          inner .answer/.ans: .art (learn/materials), .pw
@@ -252,13 +288,13 @@
         /* Speak the longest Hindi phrase inside — pure lines speak
            whole, mixed lines ("1 — एक (ek)") speak just "एक". The
            Hindi voice never has to chew English. */
-        var phrases = t.match(/[\u0900-\u097F][\u0900-\u097F ]{0,41}/g) || [];
+        var phrases = RX_PHRASE ? (t.match(RX_PHRASE) || []) : [];
         var best = "";
         for (var pi = 0; pi < phrases.length; pi++) {
           var cand = phrases[pi].trim().replace(/ +/g, " ");
           if (cand.length > best.length) best = cand;
         }
-        if (best.length < 2 || !/[अ-ह]/.test(best)) continue;
+        if (best.length < 2) continue;
         var b = document.createElement("button");
         b.type = "button";
         b.className = "say say-auto";
@@ -398,7 +434,7 @@
             var w = chunks[ci].replace(TRIMRE, "");
             TRIMRE.lastIndex = 0;
             if (w.length < 2 || w.length > 24) continue;
-            if (!/^[\u0900-\u097F]+$/.test(w)) continue;
+            if (!RX_WORD || !RX_WORD.test(w)) continue;
             if (STOP[w]) continue;
             if (seenW[w]) continue;
             seenW[w] = 1;

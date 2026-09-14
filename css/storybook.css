@@ -244,6 +244,7 @@ body.sb-themed{background:linear-gradient(180deg,var(--sb-tint,#ffffff) 0,#fffff
   border-radius:999px;padding:2px 10px;white-space:nowrap}
 .sb-ch-floats{margin-left:auto;font-size:1.15rem;letter-spacing:.3em;white-space:nowrap;
   color:var(--sb-accent,#4f32d9);animation:sb-twinkle 3s ease-in-out infinite}
+.sb-ch-floats:empty{display:none}
 @keyframes sb-wave{0%,100%{transform:rotate(0)}25%{transform:rotate(-12deg)}75%{transform:rotate(10deg)}}
 @keyframes sb-twinkle{0%,100%{opacity:.45;transform:translateY(0)}50%{opacity:.95;transform:translateY(-3px)}}
 /* speaker tap bounce (child-friendly feedback) */

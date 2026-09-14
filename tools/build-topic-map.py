@@ -52,6 +52,8 @@ THEMES = {
     "section-practice": ("Practice", "Practice", "अभ्यास", "✏️", "अभ्यास", "#7c3aed", "#f3efff"),
     "section-progress": ("Progress", "My progress", "मेरी प्रगति", "📈", "आगे", "#4f32d9", "#f1edfe"),
     "section-review": ("Review", "Review", "दोहराव", "🔁", "फिर", "#0284c7", "#eef7ff"),
+    # en filled from each page H1 at inject time; floats empty by design.
+    "section-language": ("Course", "", "पाठ्यक्रम", "🌍", "", "#0f766e", "#ecfdfb"),
     "lang-bengali": ("Language", "Bengali", "बांग्ला", "🗣️", "অ আ ই", "#0f766e", "#ecfdfb"),
     "lang-gujarati": ("Language", "Gujarati", "गुजराती", "🗣️", "અ આ ઇ", "#0f766e", "#ecfdfb"),
     "lang-kannada": ("Language", "Kannada", "कन्नड़", "🗣️", "ಅ ಆ ಇ", "#0f766e", "#ecfdfb"),
