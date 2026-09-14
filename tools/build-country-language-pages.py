@@ -1,23 +1,26 @@
 #!/usr/bin/env python3
-"""EkGuru — country language-guide pages from the audited inventory.
+"""EkGuru — country language-guide pages from the inventory (all 194).
 
     python3 tools/build-country-language-pages.py
 
 Reads data/global/*.json (built by tools/build-inventory.py — run that first)
 plus living-language counts from data/language-inventory/core/*.json, and writes:
 
-    world-languages/<slug>/index.html   (one per AUDITED country only)
-    world-languages/index.html          (index of audited countries)
+    world-languages/<slug>/index.html   (one per sovereign country, all 194)
+    world-languages/index.html          (index of all 194)
     sitemap-world-languages.xml         (+ patch sitemap-index.xml)
 
 Then inserts a "Languages of X" link block into the matching
-learn-hindi-from-X page (audited countries only), before the
+learn-hindi-from-X page (all 194; the 38 countries without such a page are skipped), before the
 "Learning Hindi from somewhere else?" section. Idempotent: re-runs
 replace the inserted block instead of duplicating it.
 
 Content is data + the inventory's own per-language notes (unique per
 country). Template wrapper is kept thin on purpose (de-templating).
-Phase-16 safe: reference pages, not learning pages; audited countries only.
+Phase-16 safe: reference pages, not learning pages. Full-194 scope since
+inventory pass-2 verification completed 2026-09-14 (canonical 100%,
+flags row-verified, SIL cross-check green) — the audit gate now guards
+methodology, not per-country publishing.
 """
 import glob
 import html
@@ -32,17 +35,200 @@ SITE = "https://ekguru.shop"
 TODAY = "2026-09-14"
 
 SLUGS = {
-    "AF": "afghanistan", "BD": "bangladesh", "BT": "bhutan", "IN": "india",
-    "IR": "iran", "LK": "sri-lanka", "MV": "maldives", "NP": "nepal",
-    "PK": "pakistan", "KZ": "kazakhstan", "KG": "kyrgyzstan", "TJ": "tajikistan",
-    "TM": "turkmenistan", "UZ": "uzbekistan", "AE": "uae", "AM": "armenia",
-    "AZ": "azerbaijan", "BH": "bahrain", "GE": "georgia", "IL": "israel",
-    "IQ": "iraq", "JO": "jordan", "KW": "kuwait", "LB": "lebanon",
-    "OM": "oman", "QA": "qatar", "SA": "saudi-arabia", "SY": "syria",
-    "TR": "turkiye", "YE": "yemen",
-    "BN": "brunei", "KH": "cambodia", "ID": "indonesia", "LA": "laos",
-    "MM": "myanmar", "MY": "malaysia", "PH": "philippines", "SG": "singapore",
-    "TH": "thailand", "TL": "timor-leste", "VN": "vietnam",
+    "AD": "andorra",
+    "AE": "uae",
+    "AF": "afghanistan",
+    "AG": "antigua-and-barbuda",
+    "AL": "albania",
+    "AM": "armenia",
+    "AO": "angola",
+    "AR": "argentina",
+    "AT": "austria",
+    "AU": "australia",
+    "AZ": "azerbaijan",
+    "BA": "bosnia-and-herzegovina",
+    "BB": "barbados",
+    "BD": "bangladesh",
+    "BE": "belgium",
+    "BF": "burkina-faso",
+    "BG": "bulgaria",
+    "BH": "bahrain",
+    "BI": "burundi",
+    "BJ": "benin",
+    "BN": "brunei",
+    "BO": "bolivia",
+    "BR": "brazil",
+    "BS": "bahamas",
+    "BT": "bhutan",
+    "BW": "botswana",
+    "BY": "belarus",
+    "BZ": "belize",
+    "CA": "canada",
+    "CD": "dr-congo",
+    "CF": "central-african-republic",
+    "CG": "congo",
+    "CH": "switzerland",
+    "CI": "cote-divoire",
+    "CL": "chile",
+    "CM": "cameroon",
+    "CN": "china",
+    "CO": "colombia",
+    "CR": "costa-rica",
+    "CU": "cuba",
+    "CV": "cape-verde",
+    "CY": "cyprus",
+    "CZ": "czechia",
+    "DE": "germany",
+    "DJ": "djibouti",
+    "DK": "denmark",
+    "DM": "dominica",
+    "DO": "dominican-republic",
+    "DZ": "algeria",
+    "EC": "ecuador",
+    "EE": "estonia",
+    "EG": "egypt",
+    "ER": "eritrea",
+    "ES": "spain",
+    "ET": "ethiopia",
+    "FI": "finland",
+    "FJ": "fiji",
+    "FM": "micronesia",
+    "FR": "france",
+    "GA": "gabon",
+    "GB": "uk",
+    "GD": "grenada",
+    "GE": "georgia",
+    "GH": "ghana",
+    "GM": "gambia",
+    "GN": "guinea",
+    "GQ": "equatorial-guinea",
+    "GR": "greece",
+    "GT": "guatemala",
+    "GW": "guinea-bissau",
+    "GY": "guyana",
+    "HN": "honduras",
+    "HR": "croatia",
+    "HT": "haiti",
+    "HU": "hungary",
+    "ID": "indonesia",
+    "IE": "ireland",
+    "IL": "israel",
+    "IN": "india",
+    "IQ": "iraq",
+    "IR": "iran",
+    "IS": "iceland",
+    "IT": "italy",
+    "JM": "jamaica",
+    "JO": "jordan",
+    "JP": "japan",
+    "KE": "kenya",
+    "KG": "kyrgyzstan",
+    "KH": "cambodia",
+    "KI": "kiribati",
+    "KM": "comoros",
+    "KN": "saint-kitts-and-nevis",
+    "KP": "north-korea",
+    "KR": "south-korea",
+    "KW": "kuwait",
+    "KZ": "kazakhstan",
+    "LA": "laos",
+    "LB": "lebanon",
+    "LC": "saint-lucia",
+    "LI": "liechtenstein",
+    "LK": "sri-lanka",
+    "LR": "liberia",
+    "LS": "lesotho",
+    "LT": "lithuania",
+    "LU": "luxembourg",
+    "LV": "latvia",
+    "LY": "libya",
+    "MA": "morocco",
+    "MC": "monaco",
+    "MD": "moldova",
+    "ME": "montenegro",
+    "MG": "madagascar",
+    "MH": "marshall-islands",
+    "MK": "north-macedonia",
+    "ML": "mali",
+    "MM": "myanmar",
+    "MN": "mongolia",
+    "MR": "mauritania",
+    "MT": "malta",
+    "MU": "mauritius",
+    "MV": "maldives",
+    "MW": "malawi",
+    "MX": "mexico",
+    "MY": "malaysia",
+    "MZ": "mozambique",
+    "NA": "namibia",
+    "NE": "niger",
+    "NG": "nigeria",
+    "NI": "nicaragua",
+    "NL": "netherlands",
+    "NO": "norway",
+    "NP": "nepal",
+    "NR": "nauru",
+    "NZ": "new-zealand",
+    "OM": "oman",
+    "PA": "panama",
+    "PE": "peru",
+    "PG": "papua-new-guinea",
+    "PH": "philippines",
+    "PK": "pakistan",
+    "PL": "poland",
+    "PT": "portugal",
+    "PW": "palau",
+    "PY": "paraguay",
+    "QA": "qatar",
+    "RO": "romania",
+    "RS": "serbia",
+    "RU": "russia",
+    "RW": "rwanda",
+    "SA": "saudi-arabia",
+    "SB": "solomon-islands",
+    "SC": "seychelles",
+    "SD": "sudan",
+    "SE": "sweden",
+    "SG": "singapore",
+    "SI": "slovenia",
+    "SK": "slovakia",
+    "SL": "sierra-leone",
+    "SM": "san-marino",
+    "SN": "senegal",
+    "SO": "somalia",
+    "SR": "suriname",
+    "SS": "south-sudan",
+    "ST": "sao-tome-and-principe",
+    "SV": "el-salvador",
+    "SY": "syria",
+    "SZ": "eswatini",
+    "TD": "chad",
+    "TG": "togo",
+    "TH": "thailand",
+    "TJ": "tajikistan",
+    "TL": "timor-leste",
+    "TM": "turkmenistan",
+    "TN": "tunisia",
+    "TO": "tonga",
+    "TR": "turkiye",
+    "TT": "trinidad-and-tobago",
+    "TV": "tuvalu",
+    "TZ": "tanzania",
+    "UA": "ukraine",
+    "UG": "uganda",
+    "US": "usa",
+    "UY": "uruguay",
+    "UZ": "uzbekistan",
+    "VA": "vatican-city",
+    "VC": "saint-vincent-and-the-grenadines",
+    "VE": "venezuela",
+    "VN": "vietnam",
+    "VU": "vanuatu",
+    "WS": "samoa",
+    "YE": "yemen",
+    "ZA": "south-africa",
+    "ZM": "zambia",
+    "ZW": "zimbabwe",
 }
 COURSE_URL = {"hin": "learn/hindi/", "ben": "learn/bengali/",
               "tam": "learn/tamil/", "tel": "learn/telugu/",
@@ -140,6 +326,9 @@ table.lang td.nt{font-size:.9rem;color:var(--ink-2)}
 details.more{margin:10px 0 26px;border:1px solid var(--line);border-radius:12px;padding:12px 16px;background:var(--card,#fff)}
 details.more summary{cursor:pointer;font-weight:600}
 @media(max-width:640px){table.lang th:nth-child(4),table.lang td:nth-child(4){display:none}}
+.say{border:1px solid var(--line);background:var(--card,#fff);border-radius:8px;cursor:pointer;font-size:.8rem;padding:2px 8px;margin-left:8px;color:var(--brand);vertical-align:middle}
+.say:hover{border-color:var(--brand-2)}
+@media(pointer:coarse){.say{min-height:44px;min-width:44px}}
 """
 
 
@@ -207,6 +396,17 @@ document.addEventListener("DOMContentLoaded",function(){
   function paint(){try{var P=window.EkGuruPrice;if(P&&P.redraw)P.redraw();}catch(e){}}
   paint();window.addEventListener("ekguru:rates",paint);
 });
+var sayBtns=document.querySelectorAll("button.say");
+if(sayBtns.length&&"speechSynthesis" in window){
+  document.addEventListener("click",function(ev){
+    var b=ev.target.closest?ev.target.closest("button.say"):null;
+    if(!b)return;
+    try{speechSynthesis.cancel();
+      var u=new SpeechSynthesisUtterance(b.getAttribute("data-say"));
+      u.lang=b.getAttribute("data-lang")||"en";u.rate=.92;
+      speechSynthesis.speak(u);}catch(e){}
+  });
+}else{for(var i=0;i<sayBtns.length;i++)sayBtns[i].style.display="none";}
 if("serviceWorker" in navigator){window.addEventListener("load",function(){
   navigator.serviceWorker.register("../../sw.js").catch(function(){});
 });}
@@ -219,7 +419,7 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
        json.dumps(ld, ensure_ascii=False), crumb_html, body_html)
 
 
-def country_page(cc, cname, subregion, living, longtail, rels, sibs):
+def country_page(cc, cname, subregion, living, longtail, rels, sibs, say_lang):
     by_group = {}
     for r in rels:
         by_group.setdefault(GROUP_OF[r["category"]], []).append(r)
@@ -280,6 +480,10 @@ def country_page(cc, cname, subregion, living, longtail, rels, sibs):
             nm = esc(r["language_name"])
             if r.get("native_name"):
                 nm += "<br><span style='font-weight:400;color:var(--muted)'>%s</span>" % esc(r["native_name"])
+                if say_lang.get(r.get("iso_639_3")):
+                    nm += (" <button class='say' type='button' data-say='%s' data-lang='%s' "
+                           "aria-label='Hear the name in %s'>\U0001F50A</button>"
+                           % (esc(r["native_name"]), say_lang[r["iso_639_3"]], esc(r["language_name"])))
             badges = "".join('<span class="badge">%s</span>' % esc(b) for b in sorted(m["badges"]))
             note = esc(r.get("country_specific_evidence") or "")
             if r.get("cluster_members"):
@@ -305,7 +509,8 @@ def country_page(cc, cname, subregion, living, longtail, rels, sibs):
     for nm, iso in have_course:
         if iso in COURSE_URL:
             chips.append('<a href="../../%s">Learn %s →</a>' % (COURSE_URL[iso], esc(nm)))
-    chips.append('<a href="../../learn-hindi-from-%s/">Learn Hindi from %s →</a>'
+    if os.path.exists("learn-hindi-from-%s/index.html" % SLUGS[cc]):
+        chips.append('<a href="../../learn-hindi-from-%s/">Learn Hindi from %s →</a>'
                  % (SLUGS[cc], esc(cname)))
     chips.append('<a href="../../find-tutors.html">Find a tutor →</a>')
     chips_html = "<h2>Learn with EkGuru</h2>\n<div class='chips'>\n%s\n</div>" % "\n".join(chips)
@@ -320,8 +525,9 @@ def country_page(cc, cname, subregion, living, longtail, rels, sibs):
 
     research = ("<div class='research'><b>Research note.</b> This guide is built from EkGuru's "
                 "language inventory (pass-1 desk research: constitutions, censuses, Ethnologue 27, "
-                "SIL ISO 639-3). Figures are order-of-magnitude estimates; %d of 194 countries "
-                "are covered so far and every figure is being re-verified.</div>" % len(SLUGS))
+                "SIL ISO 639-3). Figures are order-of-magnitude estimates still being re-verified; "
+                "language codes are verified against SIL and voice/translation coverage against "
+                "the live Google/Microsoft engine lists (pass 2, 2026-09-14). All 194 countries covered.</div>")
 
     crumb = ('<p class="crumb"><a href="../../">EkGuru</a> › '
              '<a href="../">World languages</a> › %s</p>\n\n<h1>Languages of %s</h1>\n\n'
@@ -347,14 +553,13 @@ def index_page(countries):
              '<h1>Languages of the world, country by country</h1>\n\n'
              '<p class="lede">Which languages are spoken where — official languages, speaker '
              'numbers, scripts and honest notes, from EkGuru\'s ongoing language inventory. '
-             '%d of 194 countries are covered so far; new countries are added as research '
-             'completes.</p>' % len(countries))
+             'All %d countries are covered, from Afghanistan to Zimbabwe.</p>' % len(countries))
     body = "\n".join(items) + ("\n<div class='research'><b>Research note.</b> Pass-1 desk research "
         "(constitutions, censuses, Ethnologue 27, SIL ISO 639-3); figures are "
         "order-of-magnitude estimates being re-verified.</div>")
     # index lives one level up: fix relative depths
     html_out = page_shell("World languages by country | EkGuru",
-                          "Languages spoken in each country: official languages, speaker numbers, scripts and notes. %d countries covered so far."
+                          "Languages spoken in each country: official languages, speaker numbers, scripts and notes. All %d countries covered."
                           % len(countries),
                           "/world-languages/", crumb, body)
     return html_out.replace("../../", "../")
@@ -410,17 +615,20 @@ def build():
     by_country = {}
     for r in rels:
         by_country.setdefault(r["country_id"], []).append(r)
+    canon = load("data/language-inventory/core/_canonical.json")["canonical"]
+    say_lang = {cd: c["iso639_1"] for cd, c in canon.items() if c.get("iso639_1")}
 
     audited = sorted((cc for cc in by_country if cc in SLUGS and cc in sov),
                      key=lambda cc: sov[cc]["name"])
-    assert audited, "no audited countries found — run tools/build-inventory.py first"
+    assert audited, "no countries found — run tools/build-inventory.py first"
+    assert len(audited) == 194, "expected 194 countries, got %d" % len(audited)
     countries_meta = []
     for cc in audited:
         c = sov[cc]
         sibs = [(s, sov[s]["name"]) for s in audited if sov[s].get("subregion") == c.get("subregion")]
         out = country_page(cc, c["name"], c.get("subregion", ""),
                            living.get(cc, {}), longtail.get(cc, ""),
-                           by_country[cc], sibs)
+                           by_country[cc], sibs, say_lang)
         d = "world-languages/%s" % SLUGS[cc]
         os.makedirs(d, exist_ok=True)
         open(d + "/index.html", "w", encoding="utf-8").write(out)

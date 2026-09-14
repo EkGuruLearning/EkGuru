@@ -51,12 +51,12 @@ table.lang td.nt{font-size:.9rem;color:var(--ink-2)}
 details.more{margin:10px 0 26px;border:1px solid var(--line);border-radius:12px;padding:12px 16px;background:var(--card,#fff)}
 details.more summary{cursor:pointer;font-weight:600}
 @media(max-width:640px){table.lang th:nth-child(4),table.lang td:nth-child(4){display:none}}
+.say{border:1px solid var(--line);background:var(--card,#fff);border-radius:8px;cursor:pointer;font-size:.8rem;padding:2px 8px;margin-left:8px;color:var(--brand);vertical-align:middle}
+.say:hover{border-color:var(--brand-2)}
+@media(pointer:coarse){.say{min-height:44px;min-width:44px}}
 
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://ekguru.shop/world-languages/brunei/#page", "name": "Languages of Brunei", "description": "Languages of Brunei: Standard Malay; also Brunei Malay. Official languages, speaker numbers, scripts and notes.", "url": "https://ekguru.shop/world-languages/brunei/", "inLanguage": "en", "isPartOf": {"@id": "https://ekguru.shop/#website"}}]}</script>
-<!-- ekguru:ads -->
-<meta name="google-adsense-account" content="ca-pub-8175326569491671">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8175326569491671" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="pw">
@@ -75,16 +75,16 @@ details.more summary{cursor:pointer;font-weight:600}
 <table class='lang'>
 <tr><th>Language</th><th>ISO</th><th>Speakers</th><th>Script</th><th>Notes</th></tr>
 <tr><td class='nm'>Brunei Malay<br><span style='font-weight:400;color:var(--muted)'>Bahasa Brunei</span><br><span class="badge">Widely Spoken</span></td><td><code>kxd</code></td><td>≈280k L1</td><td>Latn</td><td class='nt'>De-facto spoken standard (~300k); SIL Ref_Name is just &#x27;Brunei&#x27;. DIGLOSSIA WARNING: zsm (standard) and kxd (vernacular) share the same community — do not sum the figures. msa member.</td></tr>
-<tr><td class='nm'>English<br><span style='font-weight:400;color:var(--muted)'>English</span><br><span class="badge">Widely Spoken</span></td><td><code>eng</code></td><td>unknown</td><td>Latn</td><td class='nt'>Co-working language (oil sector/education); no constitutional official status but entrenched. No L1 community of note.</td></tr>
+<tr><td class='nm'>English<br><span style='font-weight:400;color:var(--muted)'>English</span> <button class='say' type='button' data-say='English' data-lang='en' aria-label='Hear the name in English'>🔊</button><br><span class="badge">Widely Spoken</span></td><td><code>eng</code></td><td>unknown</td><td>Latn</td><td class='nt'>Co-working language (oil sector/education); no constitutional official status but entrenched. No L1 community of note.</td></tr>
 <tr><td class='nm'>Standard Malay<br><span style='font-weight:400;color:var(--muted)'>Bahasa Melayu</span><br><span class="badge">Widely Spoken</span></td><td><code>zsm</code></td><td>≈250k L1</td><td>Latn</td><td class='nt'>Constitution: Malay is the official language. Jawi (Arabic script) is CO-OFFICIAL with Latin in BN (road signs, schools) — the strongest Jawi state on Earth. Code &#x27;zsm&#x27; (msa member; 639-1 &#x27;ms&#x27; belongs to the macro).</td></tr>
 </table>
 <h2>Sign languages</h2>
 <table class='lang'>
 <tr><th>Language</th><th>ISO</th><th>Speakers</th><th>Script</th><th>Notes</th></tr>
-<tr><td class='nm'>Brunei Sign Language<br><span class="badge">Sign Language</span></td><td><code>mis</code></td><td>unknown</td><td>—</td><td class='nt'>Name provisional; no ISO code (VERIFY deaf-org — may relate to Malaysian SL xml).</td></tr>
+<tr><td class='nm'>Brunei Sign Language<br><span class="badge">Sign Language</span></td><td><code>mis</code></td><td>unknown</td><td>—</td><td class='nt'>Name provisional; no ISO code (VERIFY deaf-org — may relate to Malaysian SL xml). Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).</td></tr>
 </table>
 <details class='more'><summary>More languages spoken in Brunei (below listing threshold)</summary><p>Below-threshold/notes-only: Chinese dialects yue/hak/min (~50k, soft splits — no-fabrication); Iban iba (~30k — MY entry covers planning); Dusun dialects; Kedayan; Quranic Arabic per AF/PK treatment (no entry).</p></details>
-<div class='research'><b>Research note.</b> This guide is built from EkGuru's language inventory (pass-1 desk research: constitutions, censuses, Ethnologue 27, SIL ISO 639-3). Figures are order-of-magnitude estimates; 41 of 194 countries are covered so far and every figure is being re-verified.</div>
+<div class='research'><b>Research note.</b> This guide is built from EkGuru's language inventory (pass-1 desk research: constitutions, censuses, Ethnologue 27, SIL ISO 639-3). Figures are order-of-magnitude estimates still being re-verified; language codes are verified against SIL and voice/translation coverage against the live Google/Microsoft engine lists (pass 2, 2026-09-14). All 194 countries covered.</div>
 <h2>Learn with EkGuru</h2>
 <div class='chips'>
 <a href="../../learn-hindi-from-brunei/">Learn Hindi from Brunei →</a>
@@ -123,11 +123,20 @@ document.addEventListener("DOMContentLoaded",function(){
   function paint(){try{var P=window.EkGuruPrice;if(P&&P.redraw)P.redraw();}catch(e){}}
   paint();window.addEventListener("ekguru:rates",paint);
 });
+var sayBtns=document.querySelectorAll("button.say");
+if(sayBtns.length&&"speechSynthesis" in window){
+  document.addEventListener("click",function(ev){
+    var b=ev.target.closest?ev.target.closest("button.say"):null;
+    if(!b)return;
+    try{speechSynthesis.cancel();
+      var u=new SpeechSynthesisUtterance(b.getAttribute("data-say"));
+      u.lang=b.getAttribute("data-lang")||"en";u.rate=.92;
+      speechSynthesis.speak(u);}catch(e){}
+  });
+}else{for(var i=0;i<sayBtns.length;i++)sayBtns[i].style.display="none";}
 if("serviceWorker" in navigator){window.addEventListener("load",function(){
   navigator.serviceWorker.register("../../sw.js").catch(function(){});
 });}
 </script>
-<!-- ekguru:consent -->
-<script src="../../js/cookie-consent.js" defer></script>
 </body>
 </html>

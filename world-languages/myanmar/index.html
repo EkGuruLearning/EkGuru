@@ -51,12 +51,12 @@ table.lang td.nt{font-size:.9rem;color:var(--ink-2)}
 details.more{margin:10px 0 26px;border:1px solid var(--line);border-radius:12px;padding:12px 16px;background:var(--card,#fff)}
 details.more summary{cursor:pointer;font-weight:600}
 @media(max-width:640px){table.lang th:nth-child(4),table.lang td:nth-child(4){display:none}}
+.say{border:1px solid var(--line);background:var(--card,#fff);border-radius:8px;cursor:pointer;font-size:.8rem;padding:2px 8px;margin-left:8px;color:var(--brand);vertical-align:middle}
+.say:hover{border-color:var(--brand-2)}
+@media(pointer:coarse){.say{min-height:44px;min-width:44px}}
 
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://ekguru.shop/world-languages/myanmar/#page", "name": "Languages of Myanmar", "description": "Languages of Myanmar: Burmese; also Shan, S'gaw Karen, Rakhine (Arakanese), Chin languages, Jingpho (Kachin). Official languages, speaker numbers, scripts and notes.", "url": "https://ekguru.shop/world-languages/myanmar/", "inLanguage": "en", "isPartOf": {"@id": "https://ekguru.shop/#website"}}]}</script>
-<!-- ekguru:ads -->
-<meta name="google-adsense-account" content="ca-pub-8175326569491671">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8175326569491671" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="pw">
@@ -69,13 +69,13 @@ details.more summary{cursor:pointer;font-weight:600}
 <h2>Official & national languages</h2>
 <table class='lang'>
 <tr><th>Language</th><th>ISO</th><th>Speakers</th><th>Script</th><th>Notes</th></tr>
-<tr><td class='nm'>Burmese<br><span style='font-weight:400;color:var(--muted)'>မြန်မာ</span><br><span class="badge">National</span><span class="badge">Official</span></td><td><code>mya</code></td><td>≈33M L1</td><td>Mymr</td><td class='nt'>2008 Constitution: Burmese official (post-2021 junta order — record factually). 639-1 &#x27;my&#x27; (SIL). Internal LF (all minorities learn it). Round script (palm-leaf origin — the pack hook).</td></tr>
+<tr><td class='nm'>Burmese<br><span style='font-weight:400;color:var(--muted)'>မြန်မာ</span> <button class='say' type='button' data-say='မြန်မာ' data-lang='my' aria-label='Hear the name in Burmese'>🔊</button><br><span class="badge">National</span><span class="badge">Official</span></td><td><code>mya</code></td><td>≈33M L1</td><td>Mymr</td><td class='nt'>2008 Constitution: Burmese official (post-2021 junta order — record factually). 639-1 &#x27;my&#x27; (SIL). Internal LF (all minorities learn it). Round script (palm-leaf origin — the pack hook).</td></tr>
 </table>
 <h2>Widely spoken</h2>
 <table class='lang'>
 <tr><th>Language</th><th>ISO</th><th>Speakers</th><th>Script</th><th>Notes</th></tr>
-<tr><td class='nm'>Burmese<br><span style='font-weight:400;color:var(--muted)'>မြန်မာ</span><br><span class="badge">Widely Spoken</span><span class="badge">Widely Spoken · lingua franca</span></td><td><code>mya</code></td><td>≈33M L1</td><td>Mymr</td><td class='nt'>2008 Constitution: Burmese official (post-2021 junta order — record factually). 639-1 &#x27;my&#x27; (SIL). Internal LF (all minorities learn it). Round script (palm-leaf origin — the pack hook).</td></tr>
-<tr><td class='nm'>English<br><span style='font-weight:400;color:var(--muted)'>English</span><br><span class="badge">Widely Spoken</span></td><td><code>eng</code></td><td>unknown</td><td>Latn</td><td class='nt'>Colonial-legacy + business/NGO English (Yangon). Junta-era education decay — thin and thinning (low on &#x27;widely&#x27;).</td></tr>
+<tr><td class='nm'>Burmese<br><span style='font-weight:400;color:var(--muted)'>မြန်မာ</span> <button class='say' type='button' data-say='မြန်မာ' data-lang='my' aria-label='Hear the name in Burmese'>🔊</button><br><span class="badge">Widely Spoken</span><span class="badge">Widely Spoken · lingua franca</span></td><td><code>mya</code></td><td>≈33M L1</td><td>Mymr</td><td class='nt'>2008 Constitution: Burmese official (post-2021 junta order — record factually). 639-1 &#x27;my&#x27; (SIL). Internal LF (all minorities learn it). Round script (palm-leaf origin — the pack hook).</td></tr>
+<tr><td class='nm'>English<br><span style='font-weight:400;color:var(--muted)'>English</span> <button class='say' type='button' data-say='English' data-lang='en' aria-label='Hear the name in English'>🔊</button><br><span class="badge">Widely Spoken</span></td><td><code>eng</code></td><td>unknown</td><td>Latn</td><td class='nt'>Colonial-legacy + business/NGO English (Yangon). Junta-era education decay — thin and thinning (low on &#x27;widely&#x27;).</td></tr>
 </table>
 <h2>Regional, indigenous & minority languages</h2>
 <table class='lang'>
@@ -83,7 +83,7 @@ details.more summary{cursor:pointer;font-weight:600}
 <tr><td class='nm'>Chin languages<br><span class="badge">Indigenous</span></td><td><code>mis</code></td><td>≈1.5M L1</td><td>—</td><td class='nt'>Covers: ctd, cnh, cfm, tcz. Constitution-named CLUSTER (&#x27;Chin&#x27; is a recognised nationality; dozens of distinct Chin languages). Members = 4 biggest northern/central (Tedim ctd, Hakha cnh, Falam cfm, Thado tcz) — southern Chin (Mindat/Matu/Asho/Cho/Khumi cnk/Bawm bgr + more) long-tailed. Do not present as one language.</td></tr>
 <tr><td class='nm'>Jingpho (Kachin)<br><span style='font-weight:400;color:var(--muted)'>Jingpho</span><br><span class="badge">Regional</span></td><td><code>kac</code></td><td>≈1M L1</td><td>Latn</td><td class='nt'>Kachin State ~1M + cross-border CN/IN. SIL Ref_Name &#x27;Kachin&#x27;; endonym Jingpho. Missionary-Latin orthography (Maran script politics — note briefly, neutrally). Conflict zone — soft.</td></tr>
 <tr><td class='nm'>Lisu<br><span style='font-weight:400;color:var(--muted)'>Lisu</span><br><span class="badge">Indigenous</span></td><td><code>lis</code></td><td>≈300k L1</td><td>Latn</td><td class='nt'>MM-side ~300k?? soft (Kachin/Shan hills + cross-border CN/TH/IN ~1M+ total). FRASER SCRIPT (Latin-based, 1910s missionary — still used!) — the pack hook. Cross-border planning unit.</td></tr>
-<tr><td class='nm'>Mon<br><span class="badge">Regional</span></td><td><code>mnw</code></td><td>≈800k L1</td><td>Mymr</td><td class='nt'>Mon State ~800k + TH side (long-tailed there per discipline — MM entry covers planning). ANCIENT literary language (Dvaravati) — Burmese/Thai/Khmer scripts descend from Mon-related roots (the prestige hook). Myanmar-script orthography.</td></tr>
+<tr><td class='nm'>Mon<br><span style='font-weight:400;color:var(--muted)'>မန်</span><br><span class="badge">Regional</span></td><td><code>mnw</code></td><td>≈800k L1</td><td>Mymr</td><td class='nt'>Mon State ~800k + TH side (long-tailed there per discipline — MM entry covers planning). ANCIENT literary language (Dvaravati) — Burmese/Thai/Khmer scripts descend from Mon-related roots (the prestige hook). Myanmar-script orthography.</td></tr>
 <tr><td class='nm'>Pa&#x27;o Karen<br><span style='font-weight:400;color:var(--muted)'>Pa&#x27;o</span><br><span class="badge">Regional</span></td><td><code>blk</code></td><td>≈600k L1</td><td>Mymr</td><td class='nt'>Shan/Kayah borderlands ~600k?? soft (census thin + conflict — low explicit). &#x27;Red Karen&#x27; (headwear). Myanmar-script orthography. Distinct from Sgaw (ksw) and Pwo — three Karen entries total, don&#x27;t conflate.</td></tr>
 <tr><td class='nm'>Rakhine (Arakanese)<br><span style='font-weight:400;color:var(--muted)'>ရခိုင်</span><br><span class="badge">Regional</span></td><td><code>rki</code></td><td>≈2M L1</td><td>Mymr</td><td class='nt'>Rakhine State ~2M. Same code as BD entry (rki) — cross-border, Marma (rmz) is the sibling code (see BD note, don&#x27;t re-litigate). Burmese-related but distinct.</td></tr>
 <tr><td class='nm'>Rohingya<br><span style='font-weight:400;color:var(--muted)'>𐴌𐴟𐴇𐴥𐴝</span><br><span class="badge">Minority</span></td><td><code>rhg</code></td><td>≈600k L1</td><td>Rohg</td><td class='nt'>Remaining MM-side ~600k+ (post-2017 exodus; BD camps hold ~1M — see BD entry). 2014 census INFAMOUSLY excluded Rohingya self-identification (record factually). Hanifi script (invented 1980s) + Arabic + Latin — the script-succession note.</td></tr>
@@ -93,10 +93,10 @@ details.more summary{cursor:pointer;font-weight:600}
 <h2>Sign languages</h2>
 <table class='lang'>
 <tr><th>Language</th><th>ISO</th><th>Speakers</th><th>Script</th><th>Notes</th></tr>
-<tr><td class='nm'>Myanmar Sign Language<br><span class="badge">Sign Language</span></td><td><code>ysm</code></td><td>unknown</td><td>—</td><td class='nt'>Code &#x27;ysm&#x27; confirmed. Yangon/Mandalay school network.</td></tr>
+<tr><td class='nm'>Myanmar Sign Language<br><span style='font-weight:400;color:var(--muted)'>Myanmar Sign Language</span><br><span class="badge">Sign Language</span></td><td><code>ysm</code></td><td>unknown</td><td>Sgnw</td><td class='nt'>Code &#x27;ysm&#x27; confirmed. Yangon/Mandalay school network.</td></tr>
 </table>
 <details class='more'><summary>More languages spoken in Myanmar (below listing threshold)</summary><p>Below-threshold/notes-only: Western Pwo pwo?? (UNVERIFIED — prose only); Palaung (UNVERIFIED code — prose only, ~500k?? split — VERIFY before citing); Wa (UNVERIFIED — prose only); Lahu (UNVERIFIED — prose); Akha (UNVERIFIED — prose); Kayah (UNVERIFIED — prose); southern Chin (Mindat/Matu/Asho/Cho + Khumi cnk + Bawm bgr — codes cited, small); Naga cluster (UNVERIFIED codes — prose only); Kokang (Yunnanese cmn — prose); Panthay (Yunnanese Muslims); Gurkha nep?? (UNVERIFIED — prose); Chinese yue/hak (traders, soft); Tamil tam + Telugu tel + Bengali ben (plantation-history minorities, soft); Portuguese por (Bayingyi few — celebrity!); Andamanese?? no — stop.</p></details>
-<div class='research'><b>Research note.</b> This guide is built from EkGuru's language inventory (pass-1 desk research: constitutions, censuses, Ethnologue 27, SIL ISO 639-3). Figures are order-of-magnitude estimates; 41 of 194 countries are covered so far and every figure is being re-verified.</div>
+<div class='research'><b>Research note.</b> This guide is built from EkGuru's language inventory (pass-1 desk research: constitutions, censuses, Ethnologue 27, SIL ISO 639-3). Figures are order-of-magnitude estimates still being re-verified; language codes are verified against SIL and voice/translation coverage against the live Google/Microsoft engine lists (pass 2, 2026-09-14). All 194 countries covered.</div>
 <h2>Learn with EkGuru</h2>
 <div class='chips'>
 <a href="../../learn-hindi-from-myanmar/">Learn Hindi from Myanmar →</a>
@@ -135,11 +135,20 @@ document.addEventListener("DOMContentLoaded",function(){
   function paint(){try{var P=window.EkGuruPrice;if(P&&P.redraw)P.redraw();}catch(e){}}
   paint();window.addEventListener("ekguru:rates",paint);
 });
+var sayBtns=document.querySelectorAll("button.say");
+if(sayBtns.length&&"speechSynthesis" in window){
+  document.addEventListener("click",function(ev){
+    var b=ev.target.closest?ev.target.closest("button.say"):null;
+    if(!b)return;
+    try{speechSynthesis.cancel();
+      var u=new SpeechSynthesisUtterance(b.getAttribute("data-say"));
+      u.lang=b.getAttribute("data-lang")||"en";u.rate=.92;
+      speechSynthesis.speak(u);}catch(e){}
+  });
+}else{for(var i=0;i<sayBtns.length;i++)sayBtns[i].style.display="none";}
 if("serviceWorker" in navigator){window.addEventListener("load",function(){
   navigator.serviceWorker.register("../../sw.js").catch(function(){});
 });}
 </script>
-<!-- ekguru:consent -->
-<script src="../../js/cookie-consent.js" defer></script>
 </body>
 </html>
