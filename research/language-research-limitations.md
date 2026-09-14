@@ -217,3 +217,27 @@ survey. The swamps are marked honestly — that is its current value.
   is green: every other MT flag matches the engine rows (twi TRUE via
   'Twi (Akan) | ak', fat correctly FALSE, mon→khk, orm→gaz, pus/ps
   held, que members resolved, uzb→uzn Northern-only correct).
+
+## 10. Audit-14 record (2026-09-14 — Ethiopia deep audit, pass-2 close)
+
+- **ET 8 → 15 entries; inventory 1345 total / 719 raw canonical.**
+  Step 1 pinned all 8 existing entries to the 2007 census shares
+  (Oromo 33.8 → Kafa 1.1) + the 29 Feb 2020 federal-5 decision
+  (Amharic + Afar/Oromo/Somali/Tigrinya); sid/wal/aar upgraded
+  low → medium; all 7 spoken codes SIL-verified; eng correctly L2-only.
+  Step 2 added the 7 missing majors (hdy Hadiyya, kbr Kafa, drs Gedeo,
+  gmv Gamo, gof Gofa, dwr Dawro, sgw Sebat Bet Gurage) with
+  Gamo-Gofa-Dawro splits (1.6M/360K/510K) and the Gurage-cluster
+  ruling (sgw entered LOW with documented 200K–1.5M span; stv Silt'e
+  HELD — separate identity since the 2000 referendum, figure unpinned,
+  no-fabrication rule; retired gmo correctly not used). 5 sources
+  registered (109 total: et-census-2007 B + 4 C).
+- **Held/flagged honestly**: Tigray watch (tir 'official' reflects the
+  pre-war constitutional order — fluid post-2022, recheck before any
+  course commitment); sid should gain official-regional (Sidama a
+  Regional State since 2020); census-politics note (2007 shares are
+  pre-2020-regions; next census will move several numbers — totals are
+  projections, not measurements). Full record:
+  research/ethiopia-language-inventory.md.
+- **No P0/P1 impact** (all ET additions long-tail by formula,
+  correctly). Audits 1–14 complete; the deep-audit program is closed.
