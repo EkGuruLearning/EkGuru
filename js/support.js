@@ -75,6 +75,14 @@
             "&pn=" + encodeURIComponent("EkGuru") + "&cu=INR");
         } else if (card === "paypal") {
           go.setAttribute("href", v);
+          /* Quick amounts are DERIVED from the sheet URL, never
+             hardcoded: paypal.me/NAME + /5USD etc. */
+          var base = v.replace(/\/+$/, "");
+          var amts = el.querySelectorAll("[data-amt]");
+          for (var i = 0; i < amts.length; i++) {
+            amts[i].setAttribute("href",
+              base + "/" + amts[i].getAttribute("data-amt") + "USD");
+          }
         }
       }
       var cp = el.querySelector("[data-copy]");

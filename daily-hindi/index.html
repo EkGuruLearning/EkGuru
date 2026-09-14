@@ -35,6 +35,8 @@
 <link rel="manifest" href="../manifest.webmanifest">
 <meta name="theme-color" content="#4f32d9">
 <link rel="stylesheet" href="../css/style.min.css">
+<!-- ekguru:storybook -->
+<link rel="stylesheet" href="../css/storybook.css">
 <style>
 .pw{max-width:820px;margin:0 auto;padding:0 20px 64px}
 .pw h1{font-size:clamp(1.6rem,4.4vw,2.05rem);line-height:1.24;margin:24px 0 14px}
@@ -105,6 +107,8 @@
 
 <p class="crumb"><a href="../">EkGuru</a> › <a href="../learn/">Learn Hindi</a> › Daily Hindi</p>
 <h1>Daily Hindi — thirty days</h1>
+<!-- ekguru:storybook -->
+<p class="sb-hint">🔊 <b>Tap any speaker button to hear Hindi spoken.</b> Too fast or slow? Use the <b>speed</b> button at the bottom-right of the page.</p>
 <p class="lede">One idea, one task and a short word list each day. About twenty minutes.
 No account, no email, no app: your progress is ticked off in your own browser and
 never leaves it. Start at day 1 or jump to whatever you need.</p>
@@ -413,5 +417,7 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
 @media(max-width:520px){.eg-globalnav{padding:18px 15px 4px;margin-top:32px}}
 @media(pointer:coarse){.chips a,.chips button,.pill,.rel a,.art-nav a,.crumbs a,.ftr a,.tag,.chip-btn{min-height:44px}.rel a,.art-nav a,.crumbs a,.ftr a{display:inline-block;padding-block:10px}b>a,strong>a,h3>a,h2>a{display:inline-block;padding-block:12px}input,select,textarea,button{min-height:44px}}</style>
 <!-- ekguru:global-nav:end -->
+<!-- ekguru:storybook -->
+<script src="../js/storybook.js" defer></script>
 </body>
 </html>

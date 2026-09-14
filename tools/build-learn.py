@@ -150,8 +150,6 @@ FOOT = """
   </p>
 </footer>
 <!-- ekguru:trust-footer:end -->
-</body>
-</html>
 """
 
 SCRIPTS_COMMON = """<script src="__REL__js/site-config.js" defer></script>
@@ -163,6 +161,8 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
+</body>
+</html>
 """
 
 
@@ -323,9 +323,9 @@ def build_paths(paths):
             html += f'      <li><a href="../{o["slug"]}/">{o["title"]}</a><span>{o["tagline"]}</span></li>\n'
         html += '    </ul>\n  </section>\n'
         html += FOOT.replace("__REL__", rel)
-        html += SCRIPTS_COMMON.replace("__REL__", rel)
         html += '<script src="' + rel + 'js/learning-paths.js" defer></script>\n'
         html += '<script src="' + rel + 'js/path-progress.js" defer></script>\n'
+        html += SCRIPTS_COMMON.replace("__REL__", rel)
         os.makedirs(os.path.join(ROOT, "learn", "paths", p["slug"]), exist_ok=True)
         with open(os.path.join(ROOT, "learn", "paths", p["slug"], "index.html"), "w", encoding="utf-8") as f:
             f.write(html)
@@ -581,10 +581,10 @@ def build_practice(bank):
                 html += '    </ul>\n  </section>\n'
 
         html += FOOT.replace("__REL__", rel)
-        html += SCRIPTS_COMMON.replace("__REL__", rel)
         if not cfg.get("hub"):
             html += '<script src="' + rel + 'js/practice-bank.js" defer></script>\n'
             html += '<script src="' + rel + 'js/practice-engine.js" defer></script>\n'
+        html += SCRIPTS_COMMON.replace("__REL__", rel)
 
         rel_dir = os.path.join(ROOT, "learn", "practice", key.replace("index.html", ""))
         if key == "index.html":

@@ -15,7 +15,8 @@ deploys:
   6  phase7c pages (hub, per-language pages, home sync)
   7  inventory (validate + build data/global + country language pages)
   8  search index
-  9  doctor (SEO + privacy + gate + admin stats)
+  9  storybook injector (Hindi pages get TTS + design)
+  10 doctor (SEO + privacy + gate + admin stats)
 
 Steps 2-3 both feed data/courses.json + sitemap-courses.xml; steps
 4-6 read those, so the order above is load-bearing — do not reorder.
@@ -64,6 +65,7 @@ def main():
     run("inventory build", ["python3", "tools/build-inventory.py"])
     run("country language pages", ["python3", "tools/build-country-language-pages.py"])
     run("search index", ["python3", "tools/build-search-index.py"])
+    run("storybook injector (Hindi TTS + design)", ["python3", "tools/inject-storybook.py"])
     run("doctor", ["node", "tools/doctor.js"])
     print("\n══════════════════════════════════════════")
     print("build-all complete — every step passed.")

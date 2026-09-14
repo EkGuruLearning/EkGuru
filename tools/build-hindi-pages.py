@@ -113,8 +113,6 @@ def foot(up, scripts=()):
   </p>
 </footer>
 <!-- ekguru:trust-footer:end -->
-</body>
-</html>
 <script src="%sjs/site-config.js" defer></script>
 <script src="%sjs/analytics.js" defer></script>
 <script src="%sjs/toast.js" defer></script>
@@ -130,6 +128,8 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
+</body>
+</html>
 """ % (up, up, up, up, up, up, up, up, up, up, s, up, up)
 
 

@@ -128,9 +128,10 @@ def shell(d, path, title, desc, body, depth, extra_scripts="", robots="index, fo
 <div class="art">
 {body}</div>
 {TRUST_FTR.format(r=r, name=E(d['name']))}
+{SCRIPTS.format(r=r, extra=extra_scripts)}
 </body>
 </html>
-{SCRIPTS.format(r=r, extra=extra_scripts)}"""
+"""
 
 
 def crumb(d, trail):

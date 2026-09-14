@@ -152,8 +152,10 @@
 
     /* ---- scroll reveal ---- */
     var targets = document.querySelectorAll(
-      ".sb-reveal,.vcard,.trace-cell,.art h2,.sb-fig,.tracebox,.sb-band,.sb-callout," +
-      ".bara-wrap,.art table,.quiz details,.hs-card,.linklist li,.prevnext a");
+      ".sb-reveal,.vcard,.trace-cell,.art h2,.pw h2,.answer h2,.ans h2," +
+      ".sb-fig,.tracebox,.sb-band,.sb-callout," +
+      ".bara-wrap,.art table,.pw table,.answer table,.ans table," +
+      ".quiz details,.hs-card,.linklist li,.prevnext a");
     if ("IntersectionObserver" in window && !reduceMotion) {
       var io = new IntersectionObserver(function (entries) {
         for (var i = 0; i < entries.length; i++) {
@@ -219,7 +221,13 @@
       if (!("speechSynthesis" in window)) return;
       var DEVA = /[\u0900-\u097F]/;
       var ONLY = /^[\u0900-\u097F\s\u200C\u200D।?!·,;:'"()\-–—\/]+$/;
-      var els = document.querySelectorAll(".art td,.art li,.art strong,.art .quiz summary");
+      /* Wrappers differ by section: .art (learn/materials),
+         .pw (hindi/toolbox/daily-hindi/global), .answer (ask),
+         .ans (answers). All get speakers. */
+      var els = document.querySelectorAll(
+        ".art td,.art li,.art strong,.art .quiz summary," +
+        ".pw td,.pw li,.pw strong,.answer td,.answer li,.answer strong," +
+        ".ans td,.ans li,.ans strong");
       var added = 0;
       for (var i = 0; i < els.length && added < 80; i++) {
         var el = els[i];

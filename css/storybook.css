@@ -87,6 +87,9 @@ html.sb-js .art h2.shown::after{transform:scaleX(1)}
 .sb-speed b{color:var(--brand)}
 .sb-speed span{font-weight:600}
 .sb-speed:hover{border-color:var(--brand-2)}
+/* v143 — TTS hint line for injected pages (structure shell has its own copy) */
+.sb-hint{background:#fff8e6;border:1px solid #f0dfae;border-radius:12px;padding:10px 14px;
+  font-size:.88rem;color:var(--ink-2,#3d4257);margin:14px 0}
 
 /* ---------- quiz sections: playful restyle, zero markup change ---------- */
 .art .quiz{border-radius:16px !important;overflow:hidden}

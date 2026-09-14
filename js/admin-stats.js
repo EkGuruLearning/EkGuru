@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T02:52:03.799Z",
+ "generated": "2026-09-14T03:04:32.692Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "ad578232f461a33ba7aed394e25ea8249e7bb303",
-  "subject": "v141 workspace cleanup (70MB) + POORI Barakhadi (all 33 x 13 static)",
-  "buildTime": "2026-09-14T02:52:03.812Z",
+  "commit": "78b11808b87ef20c76f51d8ec8db01d0a4bcbc3e",
+  "subject": "v142: global TTS speed pill + auto-speak, Hindi structure upgrades (counts/path/hint), /support/ page with sheet-driven UPI/PayPal/crypto, homepage Support buttons",
+  "buildTime": "2026-09-14T03:04:32.705Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,

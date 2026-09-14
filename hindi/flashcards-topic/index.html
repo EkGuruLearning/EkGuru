@@ -35,6 +35,8 @@
 <link rel="manifest" href="../../manifest.webmanifest">
 <meta name="theme-color" content="#4f32d9">
 <link rel="stylesheet" href="../../css/style.min.css">
+<!-- ekguru:storybook -->
+<link rel="stylesheet" href="../../css/storybook.css">
 <style>
 .pw{max-width:820px;margin:0 auto;padding:0 20px 64px}
 .pw h1{font-size:clamp(1.6rem,4.4vw,2.05rem);line-height:1.24;margin:24px 0 14px}
@@ -100,6 +102,8 @@
 
 <p class="crumb"><a href="../../">EkGuru</a> › <a href="../../learn/">Learn Hindi</a> › <a href="../../hindi/">Topics</a> › Memorising Hindi vocabulary</p>
 <h1>How to actually remember words</h1>
+<!-- ekguru:storybook -->
+<p class="sb-hint">🔊 <b>Tap any speaker button to hear Hindi spoken.</b> Too fast or slow? Use the <b>speed</b> button at the bottom-right of the page.</p>
 <p class="lede">Spaced repetition, what it is good at, and the point at which it stops helping.</p>
 
 <p>Spaced repetition is the best-evidenced technique in language learning for one narrow job: moving individual items into long-term memory. Review a word just as you are about to forget it, and the interval before the next review lengthens. It works, it is not controversial, and most of the benefit comes from spacing at all rather than from any particular algorithm.</p>
@@ -315,5 +319,7 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
   navigator.serviceWorker.register("../../sw.js").catch(function(){});
 });}
 </script>
+<!-- ekguru:storybook -->
+<script src="../../js/storybook.js" defer></script>
 </body>
 </html>

@@ -35,6 +35,8 @@
 <link rel="manifest" href="../../manifest.webmanifest">
 <meta name="theme-color" content="#4f32d9">
 <link rel="stylesheet" href="../../css/style.min.css">
+<!-- ekguru:storybook -->
+<link rel="stylesheet" href="../../css/storybook.css">
 <style>
 .pw{max-width:820px;margin:0 auto;padding:0 20px 64px}
 .pw h1{font-size:clamp(1.6rem,4.4vw,2.05rem);line-height:1.24;margin:24px 0 14px}
@@ -100,6 +102,8 @@
 
 <p class="crumb"><a href="../../">EkGuru</a> › <a href="../../learn/">Learn Hindi</a> › <a href="../../hindi/">Topics</a> › Hindi for work and business</p>
 <h1>Professional Hindi</h1>
+<!-- ekguru:storybook -->
+<p class="sb-hint">🔊 <b>Tap any speaker button to hear Hindi spoken.</b> Too fast or slow? Use the <b>speed</b> button at the bottom-right of the page.</p>
 <p class="lede">What is actually spoken in an Indian workplace, and why the textbook register is the wrong one.</p>
 
 <p>The first thing to know is that a great deal of Indian professional life runs in English. Contracts, email, presentations and formal meetings are usually English in the corporate sector. Hindi is what happens around them: the corridor, the site, the factory floor, the driver, the vendor, the small talk before a meeting that decides how the meeting goes.</p>
@@ -303,5 +307,7 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
   navigator.serviceWorker.register("../../sw.js").catch(function(){});
 });}
 </script>
+<!-- ekguru:storybook -->
+<script src="../../js/storybook.js" defer></script>
 </body>
 </html>
