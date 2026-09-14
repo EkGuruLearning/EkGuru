@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T04:58:30.228Z",
+ "generated": "2026-09-14T05:08:18.175Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 1091,
+  "totalHtml": 1099,
   "materials": 0
  },
  "countries": {
@@ -3923,7 +3923,7 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 1091,
+  "pages": 1099,
   "sitemapUrls": 1018,
   "sitemapFiles": 16,
   "brokenLinks": 0,
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1392 files scanned, 0 secrets"
+  "note": "1400 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "7fb251729b43d8e211bb9bc3d9be30ff01b62eb7",
-  "subject": "v158 Modern-Pro + AdSense care: support, language pages, site layer",
-  "buildTime": "2026-09-14T04:58:30.239Z",
+  "commit": "46494d83e4ffce917522c46ff1492db0c7c0bca1",
+  "subject": "v159 loop-1: Start-Learning cards, footer, AdSense T&C, consent",
+  "buildTime": "2026-09-14T05:08:18.187Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 1091,
+   "totalHtml": 1099,
    "tutorProfiles": 4,
    "materials": 0
   }
