@@ -64,7 +64,7 @@
       try {
         var text = b.getAttribute("data-sb-say") || b.textContent;
         var u = new SpeechSynthesisUtterance((text || "").trim());
-        u.lang = "hi-IN"; u.rate = 0.85;
+        u.lang = "hi-IN"; u.rate = ttsRate;
         var v = pickVoice();
         if (v) u.voice = v;
         window.speechSynthesis.cancel();
@@ -175,6 +175,68 @@
         targets[k].classList.add("shown");
       }
     }
+
+    /* ---- speed pill: one global TTS speed control (v142) ----
+       Fixed bottom-right, cycles 0.6× → 0.85× → 1× → 1.25×.
+       Label is English-first so foreign learners get it; title
+       carries the Hindi. Shown whenever speech works. */
+    if ("speechSynthesis" in window) {
+      try {
+        var RATES = [0.6, 0.85, 1, 1.25];
+        var pill = document.createElement("button");
+        pill.type = "button";
+        pill.className = "sb-speed";
+        pill.title = "Speech speed · बोलने की गति — tap to change";
+        pill.setAttribute("aria-label", "Change speech speed");
+        var ri = 0;
+        for (var q = 0; q < RATES.length; q++) {
+          if (Math.abs(RATES[q] - ttsRate) < 0.01) ri = q;
+        }
+        function paintRate() {
+          ttsRate = RATES[ri];
+          pill.innerHTML = "🎙 <b>" + (RATES[ri] === 1 ? "1" : RATES[ri]) +
+            "×</b> <span>speed</span>";
+          try {
+            if (window.localStorage) localStorage.setItem(RATE_KEY, String(RATES[ri]));
+          } catch (e) {}
+        }
+        paintRate();
+        pill.addEventListener("click", function (ev) {
+          ev.stopPropagation();
+          ri = (ri + 1) % RATES.length;
+          paintRate();
+        });
+        document.body.appendChild(pill);
+      } catch (e) {}
+    }
+
+    /* ---- auto-mount: Devanagari cells get a speaker (v142) ----
+       Any .art td/li/strong/quiz-summary that is pure short
+       Devanagari text and has no interactive child gets a mini 🔊. Skips links and
+       buttons (barakhadi cells already speak). Capped so giant
+       tables stay fast. */
+    (function autoSpeak() {
+      if (!("speechSynthesis" in window)) return;
+      var DEVA = /[\u0900-\u097F]/;
+      var ONLY = /^[\u0900-\u097F\s\u200C\u200D।?!·,;:'"()\-–—\/]+$/;
+      var els = document.querySelectorAll(".art td,.art li,.art strong,.art .quiz summary");
+      var added = 0;
+      for (var i = 0; i < els.length && added < 80; i++) {
+        var el = els[i];
+        if (el.querySelector("a,button,input,select,textarea,[data-sb-say]")) continue;
+        var t = (el.textContent || "").replace(/\s+/g, " ").trim();
+        if (t.length < 1 || t.length > 42 || !DEVA.test(t) || !ONLY.test(t)) continue;
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "say say-auto";
+        b.setAttribute("data-sb-say", t);
+        b.setAttribute("aria-label", "Listen: " + t);
+        b.textContent = "🔊";
+        el.appendChild(document.createTextNode(" "));
+        el.appendChild(b);
+        added++;
+      }
+    })();
 
     /* ---- marquee: duplicate strip content for a seamless loop ---- */
     var strips = document.querySelectorAll(".sb-strip .row");

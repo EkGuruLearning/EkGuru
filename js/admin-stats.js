@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T02:39:15.724Z",
+ "generated": "2026-09-14T02:52:03.799Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 1064,
+  "totalHtml": 1065,
   "materials": 0
  },
  "countries": {
@@ -3923,8 +3923,8 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 1064,
-  "sitemapUrls": 1017,
+  "pages": 1065,
+  "sitemapUrls": 1018,
   "sitemapFiles": 16,
   "brokenLinks": 0,
   "orphans": 0
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1361 files scanned, 0 secrets"
+  "note": "1363 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "5eefefe9fde73dfd0f8c00b01d7f4cf746733bbc",
-  "subject": "v140 Hindi writing power-pack: vowels + consonants + Barakhadi (3 new lessons)",
-  "buildTime": "2026-09-14T02:39:15.736Z",
+  "commit": "ad578232f461a33ba7aed394e25ea8249e7bb303",
+  "subject": "v141 workspace cleanup (70MB) + POORI Barakhadi (all 33 x 13 static)",
+  "buildTime": "2026-09-14T02:52:03.812Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 1064,
+   "totalHtml": 1065,
    "tutorProfiles": 4,
    "materials": 0
   }

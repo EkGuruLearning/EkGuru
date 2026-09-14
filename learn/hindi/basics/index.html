@@ -47,6 +47,12 @@
 .linklist a{font-weight:600}
 .linklist span{display:block;color:var(--muted);font-size:.87rem;margin-top:2px;line-height:1.5}
 .note{background:var(--bg-soft);border:1px solid #ddd8ff;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:.94rem;color:var(--ink-2)}
+.sb-counts{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 4px}
+.sb-counts span{background:var(--bg-soft);border:1px solid #ddd8ff;border-radius:999px;padding:5px 13px;font-size:.84rem;color:var(--ink-2)}
+.sb-counts b{color:var(--brand)}
+.sb-path{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:.9rem;color:var(--ink-2)}
+.sb-path b{color:var(--brand)}
+.sb-hint{background:#fff8e6;border:1px solid #f0dfae;border-radius:12px;padding:10px 14px;font-size:.88rem;color:var(--ink-2);margin:14px 0}
 @media(pointer:coarse){.hs-card,.linklist a{min-height:44px;display:block}input,select,textarea,button{min-height:44px}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "CollectionPage", "@id": "https://ekguru.shop/learn/hindi/basics/#page", "name": "Basics — the script, sounds and first steps", "description": "The starting point: the Devanagari alphabet, your first words, and the honest answer to where to begin.", "url": "https://ekguru.shop/learn/hindi/basics/", "inLanguage": "en"}]}</script>
@@ -66,6 +72,8 @@
 <span class="sb-float" style="top:14%;right:8%;font-size:1.6rem;animation-delay:-3s">आ</span>
 <span class="sb-float" style="bottom:24%;left:12%;font-size:1.4rem;animation-delay:-5s">इ</span>
 </figure>
+  <p class="sb-counts"><span><b>14</b> lessons</span><span><b>1</b> practice</span><span><b>2</b> printables</span><span><b>3</b> tools</span><span><b>1</b> paths</span><span><b>1</b> answers</span><span><b>3</b> Q&A</span></p>
+  <p class="sb-hint">🔊 <b>Tap any speaker button to hear Hindi spoken.</b> Too fast or slow? Use the <b>speed</b> button at the bottom-right of the page.</p>
   <h2>Guides</h2><ul class="linklist">
     <li><a href="../../hindi-alphabet-for-beginners/">The Hindi Alphabet — A Beginner's Guide</a><span>Learn every Hindi letter with its sound and an English example. Vowels, consonants and matras explained…</span></li>
     <li><a href="../../hindi-how-to-write-vowels/">How to Write Hindi Vowels</a><span>Learn to write all 13 Hindi vowels with animated tracing, stroke tips and a practice order. Free guide with…</span></li>
@@ -126,8 +134,6 @@
   </p>
 </footer>
 <!-- ekguru:trust-footer:end -->
-</body>
-</html>
 <script src="../../../js/storybook.js" defer></script>
 <script src="../../../js/site-config.js" defer></script>
 <script src="../../../js/analytics.js" defer></script>
@@ -141,3 +147,5 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
+</body>
+</html>

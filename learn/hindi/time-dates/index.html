@@ -47,6 +47,12 @@
 .linklist a{font-weight:600}
 .linklist span{display:block;color:var(--muted);font-size:.87rem;margin-top:2px;line-height:1.5}
 .note{background:var(--bg-soft);border:1px solid #ddd8ff;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:.94rem;color:var(--ink-2)}
+.sb-counts{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 4px}
+.sb-counts span{background:var(--bg-soft);border:1px solid #ddd8ff;border-radius:999px;padding:5px 13px;font-size:.84rem;color:var(--ink-2)}
+.sb-counts b{color:var(--brand)}
+.sb-path{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:.9rem;color:var(--ink-2)}
+.sb-path b{color:var(--brand)}
+.sb-hint{background:#fff8e6;border:1px solid #f0dfae;border-radius:12px;padding:10px 14px;font-size:.88rem;color:var(--ink-2);margin:14px 0}
 @media(pointer:coarse){.hs-card,.linklist a{min-height:44px;display:block}input,select,textarea,button{min-height:44px}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "CollectionPage", "@id": "https://ekguru.shop/learn/hindi/time-dates/#page", "name": "Time & dates", "description": "Days, months and telling the time — including the half-hour words that confuse every learner.", "url": "https://ekguru.shop/learn/hindi/time-dates/", "inLanguage": "en"}]}</script>
@@ -66,6 +72,8 @@
 <span class="sb-float" style="top:14%;right:8%;font-size:1.6rem;animation-delay:-3s">कल</span>
 <span class="sb-float" style="bottom:24%;left:12%;font-size:1.4rem;animation-delay:-5s">समय</span>
 </figure>
+  <p class="sb-counts"><span><b>2</b> lessons</span><span><b>2</b> tools</span><span><b>1</b> answers</span></p>
+  <p class="sb-hint">🔊 <b>Tap any speaker button to hear Hindi spoken.</b> Too fast or slow? Use the <b>speed</b> button at the bottom-right of the page.</p>
   <h2>Guides</h2><ul class="linklist">
     <li><a href="../../hindi-days-months-time/">Days, Months and Telling the Time in Hindi</a><span>The days of the week, the months, and how to tell the time in Hindi — including dhai and saadhe, the…</span></li>
 </ul>
@@ -98,8 +106,6 @@
   </p>
 </footer>
 <!-- ekguru:trust-footer:end -->
-</body>
-</html>
 <script src="../../../js/storybook.js" defer></script>
 <script src="../../../js/site-config.js" defer></script>
 <script src="../../../js/analytics.js" defer></script>
@@ -113,3 +119,5 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
+</body>
+</html>

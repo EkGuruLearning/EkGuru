@@ -119,7 +119,30 @@
                      company on every page.
          passcodeHash, mail keys   secrets never go in a public
                      sheet, and this one is published to the web. */
-    supportHours: function (v) { return v.length <= 60 ? v : null; }
+    supportHours: function (v) { return v.length <= 60 ? v : null; },
+    /* ---- Support / donations (v142). Receiving details are public
+       by nature (you share them to get paid), so the sheet may hold
+       them. Never put secret API keys here — this sheet is public. */
+    supportUpi: function (v) {
+      if (/^(none|no|off)$/i.test(v)) return "";
+      return /^[\w.\-]{2,256}@[a-zA-Z]{2,64}$/.test(v) ? v : null;
+    },
+    supportPaypal: function (v) {
+      if (/^(none|no|off)$/i.test(v)) return "";
+      return /^https:\/\/(www\.)?paypal\.me\//.test(v) ? v : null;
+    },
+    supportBtc: function (v) {
+      if (/^(none|no|off)$/i.test(v)) return "";
+      return /^[A-Za-z0-9]{20,100}$/.test(v) ? v : null;
+    },
+    supportEth: function (v) {
+      if (/^(none|no|off)$/i.test(v)) return "";
+      return /^[A-Za-z0-9]{20,100}$/.test(v) ? v : null;
+    },
+    supportUsdt: function (v) {
+      if (/^(none|no|off)$/i.test(v)) return "";
+      return /^[A-Za-z0-9]{20,100}$/.test(v) ? v : null;
+    }
   };
 
   function parseCSV(text) {

@@ -318,6 +318,12 @@ def shell(depth, title, desc, canon, h1, lede, body, jsonld):
 .linklist a{{font-weight:600}}
 .linklist span{{display:block;color:var(--muted);font-size:.87rem;margin-top:2px;line-height:1.5}}
 .note{{background:var(--bg-soft);border:1px solid #ddd8ff;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:.94rem;color:var(--ink-2)}}
+.sb-counts{{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 4px}}
+.sb-counts span{{background:var(--bg-soft);border:1px solid #ddd8ff;border-radius:999px;padding:5px 13px;font-size:.84rem;color:var(--ink-2)}}
+.sb-counts b{{color:var(--brand)}}
+.sb-path{{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:.9rem;color:var(--ink-2)}}
+.sb-path b{{color:var(--brand)}}
+.sb-hint{{background:#fff8e6;border:1px solid #f0dfae;border-radius:12px;padding:10px 14px;font-size:.88rem;color:var(--ink-2);margin:14px 0}}
 @media(pointer:coarse){{.hs-card,.linklist a{{min-height:44px;display:block}}input,select,textarea,button{{min-height:44px}}}}
 </style>
 {jsonld}
@@ -342,8 +348,6 @@ def shell(depth, title, desc, canon, h1, lede, body, jsonld):
   </p>
 </footer>
 <!-- ekguru:trust-footer:end -->
-</body>
-</html>
 <script src="{pre}js/storybook.js" defer></script>
 <script src="{pre}js/site-config.js" defer></script>
 <script src="{pre}js/analytics.js" defer></script>
@@ -357,6 +361,8 @@ if ("serviceWorker" in navigator) {{
   }});
 }}
 </script>
+</body>
+</html>
 """
 
 def jsonld(typename, name, desc, url, extra=""):
@@ -506,6 +512,15 @@ def render_topic(topic, meta):
     body.append(f'  <h1>{t_h1}</h1>')
     body.append(f'  <p class="lede">{t_lede}</p>')
     body.append("  " + hero_for_topic("../../../", topic))
+    counts = [(len(b["lessons"]) + len(b["topics"]), "lessons"),
+              (len(b["practice"]), "practice"), (len(b["materials"]), "printables"),
+              (len(b["tools"]), "tools"), (len(b["paths"]), "paths"),
+              (len(b["answers"]), "answers"), (len(b["ask"]), "Q&A")]
+    bits = ["<span><b>%d</b> %s</span>" % (n, label) for n, label in counts if n]
+    if bits:
+        body.append('  <p class="sb-counts">' + "".join(bits) + "</p>")
+    body.append('  <p class="sb-hint">🔊 <b>Tap any speaker button to hear Hindi spoken.</b> '
+                "Too fast or slow? Use the <b>speed</b> button at the bottom-right of the page.</p>")
     if b["lessons"]:
         body.append('  <h2>Guides</h2><ul class="linklist">')
         body += [li(base, t) for t in b["lessons"]]
@@ -563,6 +578,14 @@ def render_level(level):
     body.append(f'  <h1>{meta["h1"]}</h1>')
     body.append(f'  <p class="lede">{meta["who"]}</p>')
     body.append("  " + hero_img("../../../", *LEVEL_HERO[level]))
+    strip = []
+    for lv in ("beginner", "elementary", "intermediate", "advanced"):
+        name = lv.capitalize()
+        strip.append("<b>%s ← you are here</b>" % name if lv == level
+                     else '<a href="../%s/">%s</a>' % (lv, name))
+    body.append('  <p class="sb-path">Your path: ' + " → ".join(strip) + "</p>")
+    body.append('  <p class="sb-hint">🔊 <b>Tap any speaker button to hear Hindi spoken.</b> '
+                "Too fast or slow? Use the <b>speed</b> button at the bottom-right of the page.</p>")
     body.append('  <h2>Who this is for</h2>')
     body.append(f'  <p>{meta["who"]}</p>')
     body.append('  <h2>What you will be able to do</h2>')
@@ -609,6 +632,8 @@ def render_hub():
     body.append("  " + hero_img("../../", "hindi-hub.jpg",
                 "Storybook scene: a grandmother reading a glowing book with two children",
                 ["अ", "ज्ञ", "ह"], "One journey — letters to conversation."))
+    body.append('  <p class="sb-hint">🔊 <b>Tap any speaker button to hear Hindi spoken.</b> '
+                "Too fast or slow? Use the <b>speed</b> button at the bottom-right of the page.</p>")
     # Quick start — 8 intents
     body.append('  <h2>Quick start — what do you want?</h2>')
     body.append('  <div class="hs-grid">')
@@ -706,14 +731,20 @@ def update_search_index(new_entries):
     return added
 
 # ---------------------------------------------------------------- main
+def write_page(base, html):
+    """Write one page; refuse to save a truncated file (v140 lesson)."""
+    assert html.rstrip().endswith("</html>"), "truncated page: " + base
+    os.makedirs(os.path.join(ROOT, base), exist_ok=True)
+    open(page_path(base), "w", encoding="utf-8").write(html)
+
+
 def main():
     made = []
     entries = []
 
     # hub
     html, base = render_hub()
-    os.makedirs(os.path.join(ROOT, base), exist_ok=True)
-    open(page_path(base), "w", encoding="utf-8").write(html)
+    write_page(base, html)
     made.append(base + "/")
     entries.append({"u": "learn/hindi/", "t": "Learn Hindi — the complete structure",
                     "d": "Everything EkGuru teaches about Hindi in one journey: choose a goal, level and topic, then learn, practise, quiz and review.",
@@ -722,8 +753,7 @@ def main():
     # levels
     for lv in LEVELS:
         html, base = render_level(lv)
-        os.makedirs(os.path.join(ROOT, base), exist_ok=True)
-        open(page_path(base), "w", encoding="utf-8").write(html)
+        write_page(base, html)
         made.append(base + "/")
         entries.append({"u": base + "/", "t": LEVELS[lv]["h1"],
                         "d": LEVELS[lv]["outcomes"], "s": "Page",
@@ -732,8 +762,7 @@ def main():
     # topics
     for tp, meta in TOPIC_META.items():
         html, base = render_topic(tp, meta)
-        os.makedirs(os.path.join(ROOT, base), exist_ok=True)
-        open(page_path(base), "w", encoding="utf-8").write(html)
+        write_page(base, html)
         made.append(base + "/")
         entries.append({"u": base + "/", "t": meta[0],
                         "d": meta[1], "s": "Page",

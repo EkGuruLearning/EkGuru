@@ -47,6 +47,12 @@
 .linklist a{font-weight:600}
 .linklist span{display:block;color:var(--muted);font-size:.87rem;margin-top:2px;line-height:1.5}
 .note{background:var(--bg-soft);border:1px solid #ddd8ff;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:.94rem;color:var(--ink-2)}
+.sb-counts{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 4px}
+.sb-counts span{background:var(--bg-soft);border:1px solid #ddd8ff;border-radius:999px;padding:5px 13px;font-size:.84rem;color:var(--ink-2)}
+.sb-counts b{color:var(--brand)}
+.sb-path{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:.9rem;color:var(--ink-2)}
+.sb-path b{color:var(--brand)}
+.sb-hint{background:#fff8e6;border:1px solid #f0dfae;border-radius:12px;padding:10px 14px;font-size:.88rem;color:var(--ink-2);margin:14px 0}
 @media(pointer:coarse){.hs-card,.linklist a{min-height:44px;display:block}input,select,textarea,button{min-height:44px}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "CollectionPage", "@id": "https://ekguru.shop/learn/hindi/#page", "name": "EkGuru Learn Hindi structure", "description": "Everything EkGuru teaches about Hindi, in one journey: choose a goal, pick your level, work through a topic, then read, practise, quiz and review — with a tutor available when you want one, never required.", "url": "https://ekguru.shop/learn/hindi/", "inLanguage": "en"}]}</script>
@@ -64,6 +70,7 @@
 <span class="sb-float" style="bottom:24%;left:12%;font-size:1.4rem;animation-delay:-5s">ह</span>
 <figcaption>One journey — letters to conversation.</figcaption>
 </figure>
+  <p class="sb-hint">🔊 <b>Tap any speaker button to hear Hindi spoken.</b> Too fast or slow? Use the <b>speed</b> button at the bottom-right of the page.</p>
   <h2>Quick start — what do you want?</h2>
   <div class="hs-grid">
 <a class="hs-card" href="../paths/hindi-from-zero/"><b>Start from zero</b><span>Hindi From Zero</span></a>
@@ -111,15 +118,9 @@
     <li><a href="../hindi-sentence-structure/">Hindi Word Order — Why the Verb Goes Last</a><span>Hindi puts the verb at the end and postpositions after the noun. Once you see the pattern, sentences stop…</span></li>
 </ul>
   <h2>Practice labs</h2><ul class="linklist">
-    <li><a href="../practice/">Hindi Practice — Drills That Actually Help</a><span>Free Hindi practice labs: vocabulary, grammar, sentence building, verbs, listening and a placement check.…</span></li>
+    <li><a href="../practice//">Hindi Practice — Drills That Actually Help</a><span>Free Hindi practice labs: vocabulary, grammar, sentence building, verbs, listening and a placement check.…</span></li>
     <li><a href="../practice/vocabulary/">Hindi Vocabulary Practice — Word Meaning Drill</a><span>Practise the most useful Hindi words: see the Devanagari, pick the meaning, get the explanation. Free, no…</span></li>
     <li><a href="../practice/placement/">Hindi Placement Check — Where Should You Start?</a><span>Twelve quick questions that suggest where to start or continue. A rough guide, not a certified placement test.</span></li>
-    <li><a href="practice/quiz/">Hindi Topic Quiz</a><span>Multiple-choice questions from the lesson bank, with explanations.</span></li>
-    <li><a href="practice/typing/">Hindi Typing Trainer</a><span>Roman prompt → type it in Devanagari.</span></li>
-    <li><a href="practice/worksheets/">Hindi Worksheets</a><span>Printable prompts with writing space and answers.</span></li>
-    <li><a href="practice/conversation/">Hindi Conversation Practice</a><span>Deterministic scenario simulator — rule-based, not AI.</span></li>
-    <li><a href="review/">Hindi Review</a><span>Spaced repetition for the words you save.</span></li>
-    <li><a href="my-progress/">My Hindi</a><span>Your local progress checklist (this device only).</span></li>
 </ul>
   <h2>Before you start</h2><ul class="linklist">
     <li><a href="../../faq/">Hindi Learning FAQ — Real Answers to Real Questions</a><span>Honest answers to the questions learners actually ask: is Hindi hard, do I need the script, where do I start,…</span></li>
@@ -144,8 +145,6 @@
   </p>
 </footer>
 <!-- ekguru:trust-footer:end -->
-</body>
-</html>
 <script src="../../js/storybook.js" defer></script>
 <script src="../../js/site-config.js" defer></script>
 <script src="../../js/analytics.js" defer></script>
@@ -159,3 +158,5 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
+</body>
+</html>

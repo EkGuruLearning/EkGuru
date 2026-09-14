@@ -79,6 +79,14 @@ html.sb-js .art h2.shown::after{transform:scaleX(1)}
 .say{display:inline-block;margin-left:6px;font-size:.8rem;border:1px solid var(--line);background:var(--bg-soft);
   border-radius:12px;padding:1px 9px;cursor:pointer;color:var(--ink-2);vertical-align:middle;white-space:nowrap}
 .say:hover{border-color:var(--brand-2);color:var(--brand)}
+.say-auto{font-size:.72rem;padding:0 8px;border-radius:999px}
+/* v142 — global TTS speed pill (fixed, print-hidden) */
+.sb-speed{position:fixed;right:14px;bottom:14px;z-index:120;display:inline-flex;align-items:center;
+  gap:6px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 14px;
+  font-size:.82rem;box-shadow:var(--sh-2,0 4px 16px rgba(15,18,34,.12));cursor:pointer;color:var(--ink-2)}
+.sb-speed b{color:var(--brand)}
+.sb-speed span{font-weight:600}
+.sb-speed:hover{border-color:var(--brand-2)}
 
 /* ---------- quiz sections: playful restyle, zero markup change ---------- */
 .art .quiz{border-radius:16px !important;overflow:hidden}
