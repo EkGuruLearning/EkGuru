@@ -99,10 +99,11 @@ survey. The swamps are marked honestly — that is its current value.
 
 ## 6. Pass-1 completion record (2026-09-14 — canonical + audits + flags)
 
-- **Canonical 100%**: all 447 `_canonical.json` entries cover every
-  official/national/widely-spoken code incl. group members
-  (pbt/pst, kab/tmh/mzb/shy, nch/ncj/nhe/nhw, wlc/wni/zdj, mig/mks/mxb).
-  Derived canonical: 694 living+historical; curated: 447.
+- **Canonical 100% (pass-1 sense: 447; pass-2 final: 711 — see §7)**:
+  all `_canonical.json` entries cover every official/national/
+  widely-spoken code incl. group members (pbt/pst, kab/tmh/mzb/shy,
+  nch/ncj/nhe/nhw, wlc/wni/zdj, mig/mks/mxb). Derived canonical: 694
+  living+historical; curated: 711 (every derived code + spares).
 - **P0 = 12** (ben/fil/guj/hin/kan/mal/mar/pan/ron/tam/tel/urd): Romanian
   joined P0 on the final recompute — score mechanics working as designed
   (EU official + 25M + diaspora + full TTS/MT). P1 = 54 (bho/mai promoted
@@ -130,3 +131,33 @@ survey. The swamps are marked honestly — that is its current value.
 - Deliberate nulls elsewhere (Fula varieties, Quechua/Kichwa, Pashto
   varieties, Kituba pair) record VARIETY-match uncertainty, not engine
   ignorance — pass 2 resolves per-variety, never by macro assumption.
+
+## 7. Pass-2 canonical completion (2026-09-14 — batches 8–11)
+
+- **Canonical 711/711 = 100% TRUE**: every derived code (694) now has a
+  curated canonical entry; codes lacking canonical = 0; script-null = 0;
+  native-null = 1 (sgh, deliberate — no standard orthography).
+  Batches: 8 (41 codes, 1M+ band incl. wuu/hsn/gan/aec/hmn),
+  9a/9b (73, 100K–1M band), 10a/10b/10c (90, sub-100K spoken),
+  11 (60 sign languages), + top-up (21 thin sign, 31 spoken natives).
+- **Every batch-8–11 MT verdict is row-verified** against the saved
+  Google-Translate (394 rows) + MS-Translator (288 rows) tables, not
+  assumed. Surprises caught by probing: scn/ach/hrx/szl/bua/mhr(chm-row)/
+  ltg/crh/haw TRUE (Google); pap TRUE Google-only (MS memory corrected);
+  fao/hsb/dsb/iku TRUE MS-only; gla TRUE (gd experimental row).
+  False memories corrected by probes: jje/esu/rue have NO row either
+  engine (FALSE, not TRUE); Toba hit was Batak bbc, not Qom; Scots hits
+  were Scots Gaelic only (sco FALSE); Limburgan li ≠ lim (NULL).
+- **Corrections folded in**: xml canonical was Dravidian/Malayalam while
+  relations use it as Malaysian Sign — fixed to Sign/Sgnw (ISO agrees);
+  arn note wording fixed; tah confirmed absent from relations (no
+  canonical needed — PF out of sovereign scope).
+- **Deliberate MT-nulls now 24** (bxm/jvn/frr/stq/fui/qus/rmn/rmc/iii/
+  lim added to the pilot set): each records a variety/code-match question
+  (Google jv/bua/fy/ff/qu/rom/li rows, retired chm, Argentine Quichua),
+  never engine ignorance. TTS-nulls: pbt/pbu/pst only (ps-voice
+  variety TBD); all other 708 canonical carry explicit TRUE/FALSE both
+  flags.
+- Relation-grain backlog after completion: low-confidence ≈ 360 entries
+  (medium 853 — the default band for speaker figures, §4), disputed 23;
+  flag-unknowns are now confined to the deliberate-null set above.
