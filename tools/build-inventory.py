@@ -629,7 +629,7 @@ def build():
         if not [x for x in review if x["check"] == "sign-mixed-with-spoken" and x["status"] == "open"] else "FAIL",
         "dialects_separate": "PASS (watchlist clean)",
         "india_deep_audit": "research/india-language-inventory.md (this build)" if os.path.exists(OUT_R + "/india-language-inventory.md") else "PENDING",
-        "multilingual_audits": "AF/BD/BT/IN/IR/LK/MV/NP/PK in batch 1; NG + ID + PG + PH + ZA + CN + RU audits done (research/); TR + IR + MY + TH audits done; smaller multilinguals (VN/...) as needed",
+        "multilingual_audits": "AF/BD/BT/IN/IR/LK/MV/NP/PK in batch 1; NG + ID + PG + PH + ZA + CN + RU audits done (research/); all 13 deep audits done (IN/NG/ID/PG/PH/ZA/CN/RU/TR/IR/MY/TH/VN in research/)",
         "api_licensing": "research/language-data-sources.md (this build)" if os.path.exists(OUT_R + "/language-data-sources.md") else "PENDING",
         "qa": "OPEN items: %d (see review list)" % len(openrev),
     }
