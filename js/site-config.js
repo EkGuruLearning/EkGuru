@@ -713,6 +713,11 @@ window.EKGURU_SITE = {
     /* LIVE — new production workbook (settings tab, gid=1658518385).
        Wired 13 Sep 2026 — HTTP 200, key/value shape. */
     csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQIman_Um2wQrj_3mXqqgq4k69zzmJHkhZ1TRoAnh2jcamhzoo-0VeTd55UieGMi6mEaTl3Zy84G44h/pub?gid=1658518385&single=true&output=csv",
+    /* LIVE — support/payments tab (gid=1041390059), same workbook.
+       Wired 14 Sep 2026 — HTTP 200, key/value shape, 8 support* keys.
+       js/settings.js merges it UNDER the main tab: on a conflict the
+       main tab wins, so this tab can only ADD keys, never move email. */
+    supportCsvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQIman_Um2wQrj_3mXqqgq4k69zzmJHkhZ1TRoAnh2jcamhzoo-0VeTd55UieGMi6mEaTl3Zy84G44h/pub?gid=1041390059&single=true&output=csv",
     cacheMinutes: 5,
     alwaysRevalidate: true,
     /* The address that is currently baked into the generated

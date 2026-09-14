@@ -27,6 +27,7 @@ const SRC = {
   tutors:   `${BASE}?gid=1631273256&single=true&output=csv`,
   reviews:  `${BASE}?gid=298809212&single=true&output=csv`,
   settings: `${BASE}?gid=1658518385&single=true&output=csv`,
+  support:  `${BASE}?gid=1041390059&single=true&output=csv`,
 };
 
 /* ---------- CSV parser (same behaviour as js/sheet.js parseCSV) ---------- */
@@ -227,9 +228,19 @@ async function fetchSettings(url) {
 }
 
 (async function main() {
-  const [tutors, reviews, settings] = await Promise.all([
+  const [tutors, reviews, settings, support] = await Promise.all([
     fetchCSV(SRC.tutors), fetchCSV(SRC.reviews), fetchSettings(SRC.settings),
+    fetchSettings(SRC.support),
   ]);
+  /* Support tab merges UNDER the main settings tab: on a conflict
+     the main tab wins, so payments can only ADD keys. */
+  const have = new Set(settings.map(s => String(s.key || "").toLowerCase()));
+  for (const s of support) {
+    const k = String(s.key || "").trim();
+    if (k && !have.has(k.toLowerCase())) {
+      settings.push({ key: k, value: s.value }); have.add(k.toLowerCase());
+    }
+  }
 
   const reviewMap = buildReviews(reviews);
   const overrides = {};

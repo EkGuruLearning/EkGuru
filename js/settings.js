@@ -67,8 +67,11 @@
   var S = root.EKGURU_SITE || {};
   var CFG = S.settings || {};
   var url = String(CFG.csvUrl || "").trim();
+  /* Support/payments tab: merged UNDER the main tab — it can only
+     add keys, never override them (see fetchSheet). */
+  var supportUrl = String(CFG.supportCsvUrl || "").trim();
 
-  var CACHE_KEY = "ekguru_settings_v1";
+  var CACHE_KEY = "ekguru_settings_v2";
   var MAX_AGE = (Number(CFG.cacheMinutes) || 5) * 60 * 1000;
 
   /* ---------------------------------------------------------
@@ -305,17 +308,45 @@
     } catch (e) {}
   }
 
-  function fetchSheet() {
+  function fetchOne(u) {
     var ctrl = null, timer = null;
     try { ctrl = new AbortController(); } catch (e) {}
     if (ctrl) timer = setTimeout(function () { try { ctrl.abort(); } catch (e) {} }, 8000);
 
-    return root.fetch(url, { signal: ctrl ? ctrl.signal : undefined })
+    return root.fetch(u, { signal: ctrl ? ctrl.signal : undefined })
       .then(function (r) { return r.ok ? r.text() : Promise.reject(new Error("HTTP " + r.status)); })
       .then(function (text) {
         if (timer) clearTimeout(timer);
         if (/^\s*</.test(text)) throw new Error("that URL returns a page, not CSV");
-        var pairs = toPairs(parseCSV(text));
+        return toPairs(parseCSV(text));
+      })
+      .catch(function (e) { if (timer) clearTimeout(timer); throw e; });
+  }
+
+  function fetchSheet() {
+    var jobs = [fetchOne(url)];
+    if (supportUrl) {
+      /* The support tab is optional: if it fails, the main tab's
+         values still apply and only a warning is logged. */
+      jobs.push(fetchOne(supportUrl).catch(function (e) {
+        if (root.console && console.warn) {
+          console.warn("[EkGuru] support sheet not loaded: " + e.message +
+            " — main settings still applied.");
+        }
+        return null;
+      }));
+    }
+    return Promise.all(jobs)
+      .then(function (all) {
+        var pairs = all[0] || {};
+        var extra = all[1] || {};
+        /* Merge UNDER (case-insensitive): the support tab can only
+           add keys the main tab does not already set. */
+        var have = {};
+        Object.keys(pairs).forEach(function (k) { have[k.toLowerCase()] = 1; });
+        Object.keys(extra).forEach(function (k) {
+          if (!have[k.toLowerCase()]) { pairs[k] = extra[k]; have[k.toLowerCase()] = 1; }
+        });
         if (!Object.keys(pairs).length) throw new Error("no key/value rows");
         writeCache(pairs);
         if (apply(pairs)) paint();
