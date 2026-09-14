@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T06:07:04.593Z",
+ "generated": "2026-09-14T06:10:50.337Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 1303,
+  "totalHtml": 1337,
   "materials": 0
  },
  "countries": {
@@ -3923,7 +3923,7 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 1303,
+  "pages": 1337,
   "sitemapUrls": 1018,
   "sitemapFiles": 16,
   "brokenLinks": 0,
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1610 files scanned, 0 secrets"
+  "note": "1645 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "22bf1e37cd8cbcfb0c8132b230c4416268f1418c",
-  "subject": "Gujarati track batch-5: speaking/listening/reading/writing/structure/name/slang/kids (25/33)",
-  "buildTime": "2026-09-14T06:07:04.605Z",
+  "commit": "134837f4849c748e6fc8fbd02b980517d3bbbad1",
+  "subject": "Punjabi track batch-5: speaking/listening/reading/writing/structure/name/slang/kids (25/33)",
+  "buildTime": "2026-09-14T06:10:50.349Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 1303,
+   "totalHtml": 1337,
    "tutorProfiles": 4,
    "materials": 0
   }
