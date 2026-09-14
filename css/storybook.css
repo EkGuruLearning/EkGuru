@@ -408,3 +408,38 @@ body[data-topic] .card::before,body[data-topic] .fact::before,body[data-topic] .
 @media print{.sb-vpanel{display:none !important}}
 @media(prefers-reduced-motion:reduce){.sb-vpanel{transition:none}}
 @media(max-width:380px){.sb-dock-btn{padding:8px 11px;font-size:.8rem}}
+
+/* ---------- Modern-Pro site layer (v158) ---------- */
+/* Hint bar: tint card with accent edge */
+.sb-hint{background:var(--sb-tint,#f4f1ff) !important;border:1px solid var(--line) !important;
+  border-left:4px solid var(--sb-accent,#4f32d9) !important;border-radius:14px !important;
+  padding:12px 16px !important;box-shadow:var(--sh-1)}
+/* Speed pill + nudge: glassy, pro */
+.sb-speed{background:rgba(255,255,255,.9) !important;backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);border-radius:999px !important;
+  padding:9px 16px !important;box-shadow:var(--sh-2) !important;font-weight:700}
+.sb-voicenudge{background:rgba(255,248,230,.94);backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);border:1px solid #ecdcab;border-left:4px solid #d9a419;
+  border-radius:14px;padding:12px 14px;box-shadow:var(--sh-1)}
+.sb-voicenudge-x{font-weight:700;padding:8px 16px;min-height:40px}
+.sb-voicenudge-x:hover{background:var(--sb-accent,#4f32d9);color:#fff;border-color:var(--sb-accent,#4f32d9)}
+/* Dock buttons: crisper hover */
+.sb-dock{box-shadow:var(--sh-2)}
+.sb-dock-btn{font-weight:700}
+/* Pro details accordions anywhere */
+details.pro{border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:12px 0;
+  background:var(--card,#fff);box-shadow:var(--sh-1)}
+details.pro summary{font-weight:700;cursor:pointer;min-height:44px;list-style:none}
+details.pro summary::-webkit-details-marker{display:none}
+details.pro summary::before{content:"+";display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;border-radius:50%;background:var(--sb-tint,#f4f1ff);
+  color:var(--sb-accent,#4f32d9);font-weight:800;margin-right:10px}
+details.pro[open] summary::before{content:"\2212"}
+/* Safer content images (CLS + polish) */
+.pw img{max-width:100%;height:auto;border-radius:12px}
+.pw a{ text-underline-offset:3px}
+/* Focus + selection */
+:focus-visible{outline:3px solid var(--sb-accent,#4f32d9);outline-offset:2px}
+::selection{background:var(--sb-tint,#f4f1ff)}
+@media print{.sb-speed,.sb-voicenudge,.sb-pill{display:none !important}}
+@media(prefers-reduced-motion:reduce){.sb-dock,.sb-dock-btn,.sb-speed{transition:none !important}}

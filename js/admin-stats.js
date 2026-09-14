@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T04:46:27.262Z",
+ "generated": "2026-09-14T04:51:36.607Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "af3e6de10cc577c1d3c525645baa5f21afd689d7",
-  "subject": "Bengali batch-3: 8 topics live (17/33)",
-  "buildTime": "2026-09-14T04:46:27.276Z",
+  "commit": "b0801690fc0d32a9ab0ae18e814d4de1ebe6b0b7",
+  "subject": "Bengali batch-4: 8 topics live (25/33)",
+  "buildTime": "2026-09-14T04:51:36.620Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,

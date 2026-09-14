@@ -66,6 +66,7 @@ def main():
     run("country language pages", ["python3", "tools/build-country-language-pages.py"])
     run("search index", ["python3", "tools/build-search-index.py"])
     run("storybook injector (Hindi TTS + design)", ["python3", "tools/inject-storybook.py"])
+    run("ads injector (AdSense Auto Ads)", ["python3", "tools/inject-ads.py"])
     run("doctor", ["node", "tools/doctor.js"])
     print("\n══════════════════════════════════════════")
     print("build-all complete — every step passed.")

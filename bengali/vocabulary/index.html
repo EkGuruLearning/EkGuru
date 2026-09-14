@@ -29,70 +29,148 @@
 <!-- ekguru:storybook -->
 <link rel="stylesheet" href="../../css/storybook.css">
 <style>
-.pw{max-width:820px;margin:0 auto;padding:0 20px 64px}
-.pw h1{font-size:clamp(1.6rem,4.4vw,2.05rem);line-height:1.24;margin:24px 0 14px}
-.pw h2{font-size:clamp(1.12rem,3vw,1.3rem);line-height:1.3;margin:34px 0 12px}
+/* Modern-Pro topic system (v158): theme-aware via --sb-accent/--sb-tint. */
+.pw{max-width:880px;margin:0 auto;padding:0 20px 64px}
+.pw h1{font-size:clamp(1.7rem,4.6vw,2.3rem);line-height:1.2;margin:14px 0;letter-spacing:-.01em}
+.pw h2{font-size:clamp(1.15rem,3vw,1.35rem);line-height:1.3;margin:36px 0 12px;letter-spacing:-.005em}
 .pw h3{font-size:1.02rem;margin:24px 0 8px}
 .pw p,.pw li{line-height:1.72;font-size:1rem}
 .pw p,.pw ul,.pw ol{max-width:72ch}
-.lede{color:var(--ink-2);font-size:1.06rem;line-height:1.7}
+.lede{color:var(--ink-2);font-size:1.08rem;line-height:1.7}
 .crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0;word-break:break-word}
 .crumb a{color:var(--muted)}
+/* hero band */
+.hero{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:22px;
+  padding:clamp(22px,4.5vw,36px);margin:14px 0 8px;color:var(--ink);
+  background:linear-gradient(135deg,var(--sb-tint,#f4f1ff) 0%,var(--card,#fff) 78%);
+  box-shadow:var(--sh-1)}
+.hero::after{content:"";position:absolute;right:-70px;top:-70px;width:220px;height:220px;border-radius:50%;
+  background:radial-gradient(circle,var(--sb-tint,#f4f1ff) 0%,transparent 70%);opacity:.9;pointer-events:none}
+.hero h1{margin:10px 0 8px}
+.hero .lede{margin:0;max-width:60ch}
+.kicker{display:inline-flex;align-items:center;gap:7px;font-size:.74rem;font-weight:800;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--sb-accent,#4f32d9);background:rgba(255,255,255,.75);
+  border:1px solid var(--line);border-radius:999px;padding:5px 13px}
+.statline{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px}
+.statline span{display:inline-flex;align-items:center;gap:7px;font-size:.85rem;font-weight:600;
+  border:1px solid var(--line);border-radius:999px;padding:7px 14px;background:var(--card,#fff);color:var(--ink-2)}
+.statline i{width:8px;height:8px;border-radius:50%;background:var(--sb-accent,#4f32d9);font-style:normal}
+/* facts */
 .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
-.fact{border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:var(--bg-soft)}
-.fact b{display:block;font-size:1.12rem;margin-bottom:2px;color:var(--ink)}
-.fact span{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
-.faq{border:1px solid var(--line);border-radius:12px;padding:15px 17px;margin:12px 0;background:var(--card,#fff)}
-.faq b{display:block;margin-bottom:6px;color:var(--ink)}
+.fact{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--card,#fff);box-shadow:var(--sh-1)}
+.fact b{display:block;font-size:1.25rem;margin-bottom:2px;color:var(--sb-accent,#4f32d9);letter-spacing:-.01em}
+.fact span{font-size:.76rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+/* faq */
+.faq{position:relative;border:1px solid var(--line);border-radius:14px;padding:16px 18px 16px 20px;margin:12px 0;
+  background:var(--card,#fff);box-shadow:var(--sh-1);overflow:hidden}
+.faq::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--sb-accent,#4f32d9)}
+.faq b{display:block;margin-bottom:6px;color:var(--ink);font-size:1.02rem}
 .faq p{margin:0;color:var(--ink-2)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
-.chips a{font-size:.87rem;border:1px solid var(--line);border-radius:20px;padding:7px 13px;text-decoration:none;background:var(--card,#fff);color:var(--brand);min-height:44px;display:inline-flex;align-items:center}
-table.phr{border-collapse:collapse;width:100%;margin:16px 0;max-width:72ch}
-table.phr th,table.phr td{border:1px solid var(--line);padding:9px 12px;text-align:left;font-size:.95rem;line-height:1.6}
-table.phr th{background:var(--bg-soft)}
-table.phr td.bn{font-size:1.08rem}
-.ssay{border:1px solid var(--line);background:var(--card,#fff);border-radius:8px;cursor:pointer;font-size:.95rem;padding:2px 8px;margin-left:8px;min-height:34px}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin:18px 0}
-.card{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--card,#fff)}
-.card b{display:block;margin-bottom:4px}
-.card span{font-size:.88rem;color:var(--muted);line-height:1.5}
-.card a{text-decoration:none;color:var(--ink)}
-.card.soon{opacity:.75;background:var(--bg-soft)}
-.soonbadge{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;border:1px solid var(--line);border-radius:20px;padding:3px 10px;margin-top:8px;color:var(--muted)}
-.prevnext{display:flex;justify-content:space-between;gap:12px;margin:36px 0 0;flex-wrap:wrap}
-.prevnext a{border:1px solid var(--line);border-radius:12px;padding:12px 16px;text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
-.pw-ftr{border-top:1px solid var(--line);margin-top:40px;padding:22px 20px 40px;text-align:center;color:var(--muted);font-size:.86rem}
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0}
+.chips a{font-size:.88rem;font-weight:600;border:1px solid var(--line);border-radius:999px;padding:9px 16px;
+  text-decoration:none;background:var(--card,#fff);color:var(--brand);min-height:44px;display:inline-flex;
+  align-items:center;transition:all .18s ease;box-shadow:var(--sh-1)}
+.chips a:hover{background:var(--sb-accent,#4f32d9);border-color:var(--sb-accent,#4f32d9);color:#fff;
+  transform:translateY(-1px)}
+/* phrase table */
+.twrap{overflow-x:auto;max-width:72ch;border:1px solid var(--line);border-radius:16px;margin:16px 0;
+  box-shadow:var(--sh-1);background:var(--card,#fff)}
+table.phr{border-collapse:collapse;width:100%;margin:0}
+table.phr th,table.phr td{border:0;border-bottom:1px solid var(--line);padding:11px 14px;text-align:left;
+  font-size:.95rem;line-height:1.6}
+table.phr tbody tr:last-child td{border-bottom:0}
+table.phr tbody tr:nth-child(even){background:var(--bg-soft)}
+table.phr thead th{position:sticky;top:0;background:var(--sb-tint,#f4f1ff);font-size:.8rem;
+  text-transform:uppercase;letter-spacing:.05em;color:var(--ink-2);white-space:nowrap}
+table.phr td.bn{font-size:1.1rem}
+.ssay{border:1px solid var(--sb-accent,#4f32d9);background:var(--sb-tint,#f4f1ff);color:var(--sb-accent,#4f32d9);
+  border-radius:999px;cursor:pointer;font-size:.85rem;padding:4px 12px;margin-left:10px;min-height:36px;
+  font-weight:700;transition:all .15s ease;vertical-align:middle}
+.ssay:hover{background:var(--sb-accent,#4f32d9);color:#fff}
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;margin:20px 0}
+.card{position:relative;border:1px solid var(--line);border-radius:16px;padding:18px;background:var(--card,#fff);
+  overflow:hidden;transition:transform .18s ease,box-shadow .18s ease}
+.card::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;
+  background:linear-gradient(90deg,var(--sb-accent,#4f32d9),transparent);opacity:.85}
+.card b{display:block;margin-bottom:5px;font-size:1.02rem}
+.card span{font-size:.88rem;color:var(--muted);line-height:1.55}
+.card a{text-decoration:none;color:var(--ink);display:block}
+.card a::after{content:"\2192";display:inline-block;margin-top:10px;font-weight:800;color:var(--sb-accent,#4f32d9);
+  transition:transform .18s ease}
+.card a:hover b{color:var(--brand)}
+.card:hover{transform:translateY(-3px);box-shadow:var(--sh-2)}
+.card:hover a::after{transform:translateX(5px)}
+.card.soon{opacity:1;background:var(--bg-soft);border-style:dashed}
+.card.soon::before{background:var(--line)}
+.card.soon:hover{transform:none;box-shadow:none}
+.soonbadge{display:inline-block;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;
+  border:1px solid var(--line);border-radius:999px;padding:4px 12px;margin-top:10px;color:var(--muted);
+  background:var(--card,#fff)}
+/* prev/next */
+.prevnext{display:flex;justify-content:space-between;gap:12px;margin:40px 0 0;flex-wrap:wrap}
+.prevnext a{flex:1 1 220px;border:1px solid var(--line);border-radius:14px;padding:14px 18px;text-decoration:none;
+  min-height:44px;display:inline-flex;align-items:center;font-weight:600;background:var(--card,#fff);
+  box-shadow:var(--sh-1);transition:all .18s ease}
+.prevnext a:hover{border-color:var(--sb-accent,#4f32d9);box-shadow:var(--sh-2);transform:translateY(-2px)}
+.prevnext span{flex:1 1 220px}
+/* footer */
+.pw-ftr{border-top:1px solid var(--line);margin-top:44px;padding:26px 20px 44px;text-align:center;
+  color:var(--muted);font-size:.86rem}
 .pw-ftr nav{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;margin-bottom:12px}
 .pw-ftr a{color:var(--muted)}
-.note{background:var(--bg-soft);border:1px solid #ddd8ff;border-radius:12px;padding:14px 16px;margin:16px 0;font-size:.94rem;color:var(--ink-2);max-width:72ch}
+/* note + linklist */
+.note{background:var(--sb-tint,#f4f1ff);border:1px solid var(--line);border-left:4px solid var(--sb-accent,#4f32d9);
+  border-radius:12px;padding:15px 18px;margin:18px 0;font-size:.94rem;color:var(--ink-2);max-width:72ch}
 .linklist{list-style:none;padding:0;margin:12px 0 0;max-width:72ch}
-.linklist li{padding:10px 0;border-bottom:1px solid var(--line)}
-.linklist li:last-child{border-bottom:0}
-.linklist a{font-weight:600}
+.linklist li{padding:12px 14px;border:1px solid var(--line);border-radius:12px;margin-bottom:10px;
+  background:var(--card,#fff);transition:all .15s ease}
+.linklist li:hover{box-shadow:var(--sh-1);transform:translateX(3px)}
+.linklist a{font-weight:700}
 .linklist span{display:block;color:var(--muted);font-size:.87rem;margin-top:2px;line-height:1.5}
-.card{transition:transform .18s ease,box-shadow .18s ease}
-.card a:hover b{color:var(--brand)}
-.card:hover{transform:translateY(-2px);box-shadow:var(--sh-2)}
-.twrap{overflow-x:auto;max-width:72ch}
-table.phr thead th{position:sticky;top:0;background:var(--bg-soft)}
-.pw h1,.pw h2{text-wrap:balance}
-.pw,.card,.fact{overflow-wrap:break-word}
-.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:16px 0}
-.howto{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--bg-soft)}
+/* how-it-works steps */
+.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:16px 0;counter-reset:step}
+.howto{position:relative;border:1px solid var(--line);border-radius:14px;padding:16px 16px 16px 58px;background:var(--card,#fff)}
+.howto::before{counter-increment:step;content:counter(step);position:absolute;left:16px;top:14px;width:30px;height:30px;
+  border-radius:50%;background:var(--sb-accent,#4f32d9);color:#fff;font-weight:800;font-size:.9rem;
+  display:flex;align-items:center;justify-content:center}
 .howto b{display:block;margin-bottom:4px}
 .howto span{font-size:.9rem;color:var(--ink-2);line-height:1.6}
+/* CTA band */
+.cta{position:relative;overflow:hidden;margin:32px 0 8px;border-radius:20px;padding:clamp(24px,4.5vw,34px);
+  background:linear-gradient(135deg,var(--sb-accent,#4f32d9),#6d4de0);color:#fff;text-align:center;box-shadow:var(--sh-2)}
+.cta h2{margin:0 0 8px;color:#fff}
+.cta p{margin:0 auto 18px;color:rgba(255,255,255,.88);max-width:52ch}
+.cta a.cta-btn{display:inline-block;background:#fff;color:var(--sb-accent,#4f32d9);font-weight:800;
+  border-radius:999px;padding:12px 30px;text-decoration:none;min-height:48px;transition:transform .15s ease}
+.cta a.cta-btn:hover{transform:scale(1.04)}
+/* pro touches */
+.pw h1,.pw h2{text-wrap:balance}
+.pw,.card,.fact{overflow-wrap:break-word}
+::selection{background:var(--sb-tint,#f4f1ff)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--sb-accent,#4f32d9);outline-offset:2px;border-radius:6px}
+@media(prefers-reduced-motion:reduce){.card,.card a::after,.chips a,.prevnext a,.linklist li,.cta a.cta-btn{transition:none}}
+@media(max-width:480px){.hero{border-radius:18px}.fact b{font-size:1.1rem}.pw{padding:0 16px 56px}}
+@media print{.hero::after,.cta{display:none}.card a::after{content:""}}
 
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://ekguru.shop/bengali/vocabulary/#article", "headline": "Core Bengali vocabulary", "description": "Family, colours and the hundred words that carry daily life — including জল vs পানি. Free, no sign-up.", "inLanguage": "en", "about": {"@type": "Language", "name": "Learn Bengali", "alternateName": "বাংলা"}, "author": {"@type": "Organization", "name": "EkGuru", "url": "https://ekguru.shop/"}, "publisher": {"@type": "Organization", "name": "EkGuru", "url": "https://ekguru.shop/"}, "mainEntityOfPage": "https://ekguru.shop/bengali/vocabulary/"}, {"@type": "FAQPage", "@id": "https://ekguru.shop/bengali/vocabulary/#faq", "mainEntity": [{"@type": "Question", "name": "জল or পানি — which word for water?", "acceptedAnswer": {"@type": "Answer", "text": "Both mean water, split by community: Hindu families tend to say জল (jol), Muslim families পানি (pani). Everyone understands both. Use whichever you hear around you — matching your surroundings is the whole trick."}}, {"@type": "Question", "name": "Why does everyone call strangers দাদা?", "acceptedAnswer": {"@type": "Answer", "text": "দাদা (dada — elder brother) and দিদি (didi — elder sister) stretch far beyond blood: use them for any slightly-older man or woman and doors open. It is respect disguised as family."}}, {"@type": "Question", "name": "How many words should I learn daily?", "acceptedAnswer": {"@type": "Answer", "text": "Ten a day, out loud, in sentences — never bare lists. বড় বাড়ি (big house) sticks; বড় alone evaporates. Attach every new word to something you can see."}}]}]}</script>
+<!-- ekguru:ads -->
+<meta name="google-adsense-account" content="ca-pub-8175326569491671">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8175326569491671" crossorigin="anonymous"></script>
 </head>
 <body data-topic="lang-bengali">
 <div class="pw">
 <p class="crumb"><a href="../../">EkGuru</a> › <a href="../">Learn Bengali (বাংলা)</a> › Core Bengali vocabulary</p>
+<div class="hero">
+<span class="kicker">Learn Bengali</span>
 <!-- ekguru:chapter -->
 <div class="sb-chapter" style="--sb-accent:#0f766e;--sb-tint:#ecfdfb"><span class="sb-ch-mascot" aria-hidden="true">🗣️</span><span class="sb-ch-name">Core Bengali vocabulary: the words that do the work <i>बांग्ला</i></span><span class="sb-ch-kind">Language</span><span class="sb-ch-floats" aria-hidden="true">অ আ ই</span></div>
 <h1>Core Bengali vocabulary: the words that do the work</h1>
-<p class="sb-hint">🔊 <b>Tap any speaker button to hear Learn Bengali spoken.</b> Too fast or slow? Use the <b>speed</b> button at the bottom-right of the page.</p>
 <p class="lede">Family, colours and daily-life words — the small set that carries most of what you will ever say.</p>
+</div>
+<p class="sb-hint">🔊 <b>Tap any speaker button to hear Learn Bengali spoken.</b> Too fast or slow? Use the <b>speed</b> button at the bottom-right of the page.</p>
 <p>A hundred words carry most of daily life, and this page holds the first third of them. Start with people: বাবা (baba — father), মা (ma — mother), ভাই (bhai — brother), বোন (bon — sister), ছেলে (chhele — boy/son), মেয়ে (meye — girl/daughter). Then stretch দাদা and দিদি to every slightly-older stranger — family words are also respect words.</p>
 <p>Colours come next because the market demands them: লাল (lal — red), নীল (neel — blue), সবুজ (shobuj — green), হলুদ (holud — yellow), সাদা (shada — white), কালো (kalo — black). Point and ask এটা কী রঙ? (eta ki rong — what colour is this?) and shopkeepers become teachers.</p>
 <p>Then the adjectives that judge everything: ভালো (bhalo — good), খারাপ (kharap — bad), বড় (boro — big), ছোট (chhoto — small), নতুন (notun — new), পুরনো (purono — old). And the nouns of home: বাড়ি (bari — house), জল (jol — water), ভাত (bhat — rice), বই (boi — book). Twenty words, and you can already want things out loud.</p>
@@ -108,6 +186,7 @@ table.phr thead th{position:sticky;top:0;background:var(--bg-soft)}
 <div class="chips"><a href="/learn/bengali/">Full Learn Bengali course</a><a href="/languages/bn/">Learn Bengali world course</a><a href="/learn/bengali/practice/quiz/">Quiz yourself</a></div>
 <h2>Related topics</h2>
 <div class="chips"><a href="../greetings/">Saying hello the Bengali way</a><a href="../alphabet/">The Bengali alphabet</a><a href="../numbers/">Bengali numbers 1–100</a><a href="../conversation/">Real Bengali conversation</a><a href="../verbs/">Bengali verbs</a><a href="../phrases-food/">Bengali food phrases</a><a href="../pronunciation/">Bengali pronunciation</a><a href="../grammar/">Bengali grammar</a><a href="../beginners/">Bengali for absolute beginners</a><a href="../family/">Family words</a><a href="../time-date/">Time and dates</a><a href="../phrases-travel/">Travel phrases</a><a href="../shopping/">Shopping and bargaining</a><a href="../emergency/">Emergency Bengali</a><a href="../formal-informal/">Formal and informal Bengali</a><a href="../mistakes/">Mistakes every learner makes</a><a href="../speaking/">Speaking practice</a><a href="../listening/">Understanding spoken Bengali</a><a href="../reading/">Reading Bengali</a><a href="../writing/">Writing Bengali</a><a href="../sentence-structure/">Bengali sentence structure</a><a href="../name-topic/">Write your name in Bengali</a><a href="../slang/">Bengali slang</a><a href="../for-kids/">Bengali for kids</a></div>
+<div class="cta"><h2>Ready to test yourself?</h2><p>Turn this topic into lasting memory — quiz, practice and review, all free.</p><a class="cta-btn" href="/learn/bengali/practice/quiz/">Quiz yourself</a></div>
 <nav class="prevnext" aria-label="More Learn Bengali topics"><a href="../verbs/">&larr; Bengali verbs</a><a href="../phrases-food/">Bengali food phrases &rarr;</a></nav>
 </div>
 <footer class="pw-ftr">
