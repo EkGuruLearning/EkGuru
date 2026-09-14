@@ -84,8 +84,10 @@ number-of-countries component is incomplete by construction.
 
 ## Roles (closed enum)
 
-`official` (state-wide) · `official-regional` · `national` (symbolic/
-national language without full official function) · `widely-spoken`
+`official` (state-wide) · `official-regional` · `national` (state/
+national language: MAY coincide with `official` for state languages
+e.g. BD Bengali, KZ Kazakh — or stand alone for scheduled-type
+recognition without official function, e.g. IN Santali) · `widely-spoken`
 · `lingua-franca` · `regional` · `indigenous` · `minority` ·
 `immigrant` · `sign` · `liturgical` · `historical` (no L1 community)
 · `extinct`.

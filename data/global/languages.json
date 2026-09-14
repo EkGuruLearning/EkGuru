@@ -1,7 +1,7 @@
 {
  "preliminary": true,
- "coverage": "9/194",
- "count": 86,
+ "coverage": "14/194",
+ "count": 99,
  "languages": [
   {
    "language_id": "lang:afg",
@@ -203,6 +203,45 @@
    "tts": false,
    "translation": false,
    "canonical_note": null
+  },
+  {
+   "language_id": "lang:azj",
+   "canonical_name": "Azerbaijani",
+   "aliases": [],
+   "native_name": "Azərbaycanca",
+   "iso_639_1": null,
+   "iso_639_3": "azj",
+   "glottocode": null,
+   "language_family": "Turkic: Oghuz",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Latn",
+   "countries": [
+    "KZ"
+   ],
+   "bands": [
+    "100K-1M"
+   ],
+   "confidences": [
+    "medium"
+   ],
+   "roles_all": [
+    "minority"
+   ],
+   "sources_all": [
+    "ethnologue-27",
+    "kz-census-2021"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "100K-1M",
+   "min_confidence": "medium",
+   "tts": true,
+   "translation": true,
+   "canonical_note": "NORTH Azerbaijani — engines serve this standard (unlike South azb: false/false). Split class pan/pnb."
   },
   {
    "language_id": "lang:bal",
@@ -847,6 +886,49 @@
    "canonical_note": null
   },
   {
+   "language_id": "lang:dng",
+   "canonical_name": "Dungan",
+   "aliases": [],
+   "native_name": "Хуэйзў",
+   "iso_639_1": null,
+   "iso_639_3": "dng",
+   "glottocode": null,
+   "language_family": "Sino-Tibetan: Sinitic",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Cyrl",
+   "countries": [
+    "KG",
+    "KZ"
+   ],
+   "bands": [
+    "10K-100K",
+    "10K-100K"
+   ],
+   "confidences": [
+    "medium",
+    "medium"
+   ],
+   "roles_all": [
+    "regional"
+   ],
+   "sources_all": [
+    "ethnologue-27",
+    "kg-census-2022",
+    "kz-census-2021"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "10K-100K",
+   "min_confidence": "medium",
+   "tts": false,
+   "translation": false,
+   "canonical_note": "World's only Cyrillic Sinitic; Hui-Muslim ancestry. KZ+KG cross-border planning unit (~130k)."
+  },
+  {
    "language_id": "lang:dzo",
    "canonical_name": "Dzongkha",
    "aliases": [],
@@ -1258,6 +1340,49 @@
    "canonical_note": null
   },
   {
+   "language_id": "lang:kaa",
+   "canonical_name": "Karakalpak",
+   "aliases": [],
+   "native_name": "Qaraqalpaqsha",
+   "iso_639_1": null,
+   "iso_639_3": "kaa",
+   "glottocode": null,
+   "language_family": "Turkic: Kipchak",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Latn",
+   "countries": [
+    "UZ"
+   ],
+   "bands": [
+    "100K-1M",
+    "100K-1M"
+   ],
+   "confidences": [
+    "high",
+    "high"
+   ],
+   "roles_all": [
+    "official-regional",
+    "regional"
+   ],
+   "sources_all": [
+    "ethnologue-27",
+    "karakalpakstan-constitution",
+    "uz-stat-committee"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "100K-1M",
+   "min_confidence": "high",
+   "tts": false,
+   "translation": false,
+   "canonical_note": "SIL Ref_Name 'Kara-Kalpak'. Official in Karakalpakstan; Latin (1995) + Cyrillic legacy. Closest relative Kazakh, not Uzbek."
+  },
+  {
    "language_id": "lang:kas",
    "canonical_name": "Kashmiri",
    "aliases": [],
@@ -1305,6 +1430,57 @@
    "tts": false,
    "translation": false,
    "canonical_note": "Perso-Arabic + Devanagari both notified in J&K"
+  },
+  {
+   "language_id": "lang:kaz",
+   "canonical_name": "Kazakh",
+   "aliases": [],
+   "native_name": "Қазақша",
+   "iso_639_1": "kk",
+   "iso_639_3": "kaz",
+   "glottocode": null,
+   "language_family": "Turkic: Kipchak",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Cyrl",
+   "countries": [
+    "KZ",
+    "UZ"
+   ],
+   "bands": [
+    "10M-100M",
+    "10M-100M",
+    "10M-100M",
+    "100K-1M"
+   ],
+   "confidences": [
+    "high",
+    "high",
+    "high",
+    "medium"
+   ],
+   "roles_all": [
+    "national",
+    "official",
+    "regional",
+    "widely-spoken"
+   ],
+   "sources_all": [
+    "ethnologue-27",
+    "kz-census-2021",
+    "kz-constitution-art7",
+    "uz-stat-committee"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "10M-100M",
+   "min_confidence": "medium",
+   "tts": true,
+   "translation": true,
+   "canonical_note": "State language KZ (+ UZ minority). Cyrillic now; KZ Latin-transition roadmap underway; Perso-Arabic in CN — multi-script note."
   },
   {
    "language_id": "lang:kmz",
@@ -1463,6 +1639,57 @@
    "tts": false,
    "translation": false,
    "canonical_note": "Five-script tradition; Devanagari mandated in Goa SIL bulk 2026-09-14: members gom + knn (Konkani individual)."
+  },
+  {
+   "language_id": "lang:kir",
+   "canonical_name": "Kyrgyz",
+   "aliases": [],
+   "native_name": "Кыргызча",
+   "iso_639_1": "ky",
+   "iso_639_3": "kir",
+   "glottocode": null,
+   "language_family": "Turkic: Kipchak",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Cyrl",
+   "countries": [
+    "KG",
+    "UZ"
+   ],
+   "bands": [
+    "1M-10M",
+    "1M-10M",
+    "1M-10M",
+    "100K-1M"
+   ],
+   "confidences": [
+    "high",
+    "high",
+    "high",
+    "medium"
+   ],
+   "roles_all": [
+    "national",
+    "official",
+    "regional",
+    "widely-spoken"
+   ],
+   "sources_all": [
+    "ethnologue-27",
+    "kg-census-2022",
+    "kg-constitution",
+    "uz-stat-committee"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "1M-10M",
+   "min_confidence": "medium",
+   "tts": true,
+   "translation": true,
+   "canonical_note": "SIL Ref_Name 'Kirghiz' (old spelling). 639-1 ky (SIL)."
   },
   {
    "language_id": "lang:lif",
@@ -2028,7 +2255,7 @@
   },
   {
    "language_id": "lang:new",
-   "canonical_name": "Newar",
+   "canonical_name": "Newari (Nepal Bhasa)",
    "aliases": [],
    "native_name": "नेवाः",
    "iso_639_1": null,
@@ -2596,6 +2823,84 @@
    "canonical_note": "Hanifi Rohingya script (Rohg, Unicode); Arabic + Latin also used"
   },
   {
+   "language_id": "lang:rus",
+   "canonical_name": "Russian",
+   "aliases": [],
+   "native_name": "Русский",
+   "iso_639_1": "ru",
+   "iso_639_3": "rus",
+   "glottocode": null,
+   "language_family": "Indo-European: Slavic: East",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Cyrl",
+   "countries": [
+    "KG",
+    "KZ",
+    "TJ",
+    "TM",
+    "UZ"
+   ],
+   "bands": [
+    "1M-10M",
+    "1M-10M",
+    "1M-10M",
+    "100K-1M",
+    "100K-1M",
+    "100K-1M",
+    "10K-100K",
+    "10K-100K",
+    "100K-1M",
+    "100K-1M",
+    "100K-1M",
+    "100K-1M",
+    "100K-1M"
+   ],
+   "confidences": [
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "high",
+    "medium",
+    "medium",
+    "medium",
+    "medium",
+    "medium"
+   ],
+   "roles_all": [
+    "lingua-franca",
+    "minority",
+    "official",
+    "widely-spoken"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "ethnologue-27",
+    "kg-census-2022",
+    "kg-constitution",
+    "kz-census-2021",
+    "kz-constitution-art7",
+    "tj-census-2020",
+    "tj-language-law",
+    "tm-census-2022",
+    "uz-stat-committee"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "1M-10M",
+   "min_confidence": "medium",
+   "tts": true,
+   "translation": true,
+   "canonical_note": "639-1 ru (SIL). Official KZ/KG; interethnic TJ/UZ; lapsed TM. EkGuru teaches Hindi TO Russian speakers — never a Russian course."
+  },
+  {
    "language_id": "lang:sck",
    "canonical_name": "Sadri",
    "aliases": [],
@@ -2840,6 +3145,46 @@
    "tts": false,
    "translation": false,
    "canonical_note": null
+  },
+  {
+   "language_id": "lang:sgh",
+   "canonical_name": "Shughni",
+   "aliases": [],
+   "native_name": null,
+   "iso_639_1": null,
+   "iso_639_3": "sgh",
+   "glottocode": null,
+   "language_family": "Indo-European: Iranian: Pamiri",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Cyrl",
+   "countries": [
+    "TJ"
+   ],
+   "bands": [
+    "10K-100K"
+   ],
+   "confidences": [
+    "medium"
+   ],
+   "roles_all": [
+    "indigenous"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "ethnologue-27",
+    "tj-census-2020"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "10K-100K",
+   "min_confidence": "medium",
+   "tts": false,
+   "translation": false,
+   "canonical_note": "No standard orthography (Tajik-Cyrillic ad hoc + scholarly Latin); native null honestly. State broadcast recognition (Khorog)."
   },
   {
    "language_id": "lang:snd",
@@ -3089,12 +3434,12 @@
    "canonical_note": "Includes Bakhtiari per Ethnologue treatment — pass-2 check"
   },
   {
-   "language_id": "lang:uzn",
+   "language_id": "lang:uzs",
    "canonical_name": "Southern Uzbek",
    "aliases": [],
-   "native_name": "Ўзбекча",
+   "native_name": null,
    "iso_639_1": null,
-   "iso_639_3": "uzn",
+   "iso_639_3": "uzs",
    "glottocode": null,
    "language_family": "Turkic: Karluk",
    "language_type": "CANONICAL_LANGUAGE",
@@ -3126,9 +3471,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "high",
-   "tts": true,
-   "translation": true,
-   "canonical_note": "Perso-Arabic in Afghanistan; Latin/Cyrillic in Uzbekistan — script split noted"
+   "tts": false,
+   "translation": false,
+   "canonical_note": "SOUTHERN Uzbek (Afghanistan, Perso-Arabic). Split from uzn in 2026-09-14 identity audit; native Perso-Arabic form verify."
   },
   {
    "language_id": "lang:sci",
@@ -3253,6 +3598,63 @@
    "canonical_note": "iso639_1 'ar' is the Arabic macrolanguage; MSA coverage SIL bulk 2026-09-14: no Part1 on this code; 639-1 belongs to macro 'ara'."
   },
   {
+   "language_id": "lang:tgk",
+   "canonical_name": "Tajik",
+   "aliases": [],
+   "native_name": "тоҷикӣ",
+   "iso_639_1": "tg",
+   "iso_639_3": "tgk",
+   "glottocode": null,
+   "language_family": "Indo-European: Iranian",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Cyrl",
+   "countries": [
+    "TJ",
+    "UZ"
+   ],
+   "bands": [
+    "1M-10M",
+    "1M-10M",
+    "1M-10M",
+    "1M-10M",
+    "1M-10M",
+    "1M-10M"
+   ],
+   "confidences": [
+    "high",
+    "high",
+    "high",
+    "high",
+    "medium",
+    "medium"
+   ],
+   "roles_all": [
+    "lingua-franca",
+    "national",
+    "official",
+    "regional",
+    "widely-spoken"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "ethnologue-27",
+    "tj-census-2020",
+    "tj-language-law",
+    "uz-stat-committee"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "1M-10M",
+   "min_confidence": "medium",
+   "tts": false,
+   "translation": true,
+   "canonical_note": "639-1 tg (SIL). Persian linguistically but NOT a fas member per SIL (standalone). Internal LF TJ + UZ Samarkand/Bukhara."
+  },
+  {
    "language_id": "lang:tly",
    "canonical_name": "Talysh",
    "aliases": [],
@@ -3345,6 +3747,49 @@
    "canonical_note": null
   },
   {
+   "language_id": "lang:tat",
+   "canonical_name": "Tatar",
+   "aliases": [],
+   "native_name": "Татарча",
+   "iso_639_1": "tt",
+   "iso_639_3": "tat",
+   "glottocode": null,
+   "language_family": "Turkic: Kipchak",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Cyrl",
+   "countries": [
+    "KZ",
+    "UZ"
+   ],
+   "bands": [
+    "100K-1M",
+    "100K-1M"
+   ],
+   "confidences": [
+    "medium",
+    "medium"
+   ],
+   "roles_all": [
+    "minority"
+   ],
+   "sources_all": [
+    "ethnologue-27",
+    "kz-census-2021",
+    "uz-stat-committee"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "100K-1M",
+   "min_confidence": "medium",
+   "tts": false,
+   "translation": true,
+   "canonical_note": "Kazan/Mishar mix in CA. Distinct from Crimean Tatar (crh)."
+  },
+  {
    "language_id": "lang:tel",
    "canonical_name": "Telugu",
    "aliases": [],
@@ -3429,6 +3874,46 @@
    "canonical_note": "Primarily oral; Tibetan script where written"
   },
   {
+   "language_id": "lang:tur",
+   "canonical_name": "Turkish",
+   "aliases": [],
+   "native_name": "Türkçe",
+   "iso_639_1": "tr",
+   "iso_639_3": "tur",
+   "glottocode": null,
+   "language_family": "Turkic: Oghuz",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Latn",
+   "countries": [
+    "KZ"
+   ],
+   "bands": [
+    "100K-1M"
+   ],
+   "confidences": [
+    "medium"
+   ],
+   "roles_all": [
+    "regional"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "ethnologue-27",
+    "kz-census-2021"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "100K-1M",
+   "min_confidence": "medium",
+   "tts": true,
+   "translation": true,
+   "canonical_note": "CA entries are mostly Meskhetian-deportee communities (Istanbul standard in school, dialect at home)."
+  },
+  {
    "language_id": "lang:tuk",
    "canonical_name": "Turkmen",
    "aliases": [],
@@ -3438,27 +3923,46 @@
    "glottocode": null,
    "language_family": "Turkic: Oghuz",
    "language_type": "CANONICAL_LANGUAGE",
-   "script": "Arab",
+   "script": "Latn",
    "countries": [
     "AF",
-    "IR"
+    "IR",
+    "TM",
+    "UZ"
    ],
    "bands": [
+    "1M-10M",
+    "1M-10M",
+    "1M-10M",
+    "1M-10M",
+    "100K-1M",
     "1M-10M",
     "100K-1M"
    ],
    "confidences": [
     "high",
+    "high",
+    "high",
+    "high",
+    "medium",
+    "high",
     "medium"
    ],
    "roles_all": [
+    "lingua-franca",
     "minority",
-    "regional"
+    "national",
+    "official",
+    "regional",
+    "widely-spoken"
    ],
    "sources_all": [
     "agent-knowledge",
     "constitution-2004-art16",
-    "ethnologue-27"
+    "ethnologue-27",
+    "tm-census-2022",
+    "tm-constitution",
+    "uz-stat-committee"
    ],
    "statuses": [
     "LIVING"
@@ -3539,6 +4043,117 @@
    "tts": true,
    "translation": true,
    "canonical_note": null
+  },
+  {
+   "language_id": "lang:uig",
+   "canonical_name": "Uyghur",
+   "aliases": [],
+   "native_name": "ئۇيغۇرچە",
+   "iso_639_1": "ug",
+   "iso_639_3": "uig",
+   "glottocode": null,
+   "language_family": "Turkic: Karluk",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Arab",
+   "countries": [
+    "KZ"
+   ],
+   "bands": [
+    "100K-1M"
+   ],
+   "confidences": [
+    "medium"
+   ],
+   "roles_all": [
+    "regional"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "ethnologue-27",
+    "kz-census-2021"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "100K-1M",
+   "min_confidence": "medium",
+   "tts": false,
+   "translation": true,
+   "canonical_note": "SIL Ref_Name 'Uighur' (old spelling). Soviet-Cyrillic legacy, now Perso-Arabic; exile-Latin exists — script choice political."
+  },
+  {
+   "language_id": "lang:uzn",
+   "canonical_name": "Uzbek",
+   "aliases": [],
+   "native_name": "Oʻzbekcha",
+   "iso_639_1": null,
+   "iso_639_3": "uzn",
+   "glottocode": null,
+   "language_family": "Turkic: Karluk",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": "Latn",
+   "countries": [
+    "KG",
+    "KZ",
+    "TJ",
+    "TM",
+    "UZ"
+   ],
+   "bands": [
+    "100K-1M",
+    "100K-1M",
+    "100K-1M",
+    "1M-10M",
+    "1M-10M",
+    "100K-1M",
+    "10M-100M",
+    "10M-100M",
+    "10M-100M",
+    "10M-100M"
+   ],
+   "confidences": [
+    "medium",
+    "high",
+    "high",
+    "high",
+    "high",
+    "medium",
+    "high",
+    "high",
+    "high",
+    "high"
+   ],
+   "roles_all": [
+    "lingua-franca",
+    "national",
+    "official",
+    "regional",
+    "widely-spoken"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "ethnologue-27",
+    "kg-census-2022",
+    "kz-census-2021",
+    "tj-census-2020",
+    "tm-census-2022",
+    "uz-language-law",
+    "uz-stat-committee"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "10M-100M",
+   "min_confidence": "medium",
+   "tts": true,
+   "translation": true,
+   "canonical_note": "NORTHERN Uzbek (Uzbekistan/CA standard); Latin official (UZ 1993 law), Cyrillic legacy (TJ/KG/UZ print). SIL identity audit 2026-09-14: corrected ex-Southern misfile (AF side is now uzs)."
   },
   {
    "language_id": "lang:ved",
@@ -3656,6 +4271,46 @@
    "tts": false,
    "translation": false,
    "canonical_note": "Western Panjabi (Shahmukhi); Google 'pa' is Eastern/Gurmukhi only"
+  },
+  {
+   "language_id": "lang:yai",
+   "canonical_name": "Yaghnobi",
+   "aliases": [],
+   "native_name": null,
+   "iso_639_1": null,
+   "iso_639_3": "yai",
+   "glottocode": null,
+   "language_family": "Indo-European: Iranian: Eastern (Sogdian-descendant)",
+   "language_type": "CANONICAL_LANGUAGE",
+   "script": null,
+   "countries": [
+    "TJ"
+   ],
+   "bands": [
+    "10K-100K"
+   ],
+   "confidences": [
+    "medium"
+   ],
+   "roles_all": [
+    "indigenous"
+   ],
+   "sources_all": [
+    "agent-knowledge",
+    "ethnologue-27",
+    "glottolog-5.x"
+   ],
+   "statuses": [
+    "LIVING"
+   ],
+   "ekguru_statuses": [
+    "none"
+   ],
+   "max_band": "10K-100K",
+   "min_confidence": "medium",
+   "tts": false,
+   "translation": false,
+   "canonical_note": "SIL spells 'Yagnobi'. Primarily oral; Vedda-class threshold exception."
   }
  ]
 }

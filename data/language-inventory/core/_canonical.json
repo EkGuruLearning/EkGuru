@@ -58,6 +58,14 @@
    "translation": false,
    "notes": "Google 'az' covers North/Latin only; South/Perso-Arabic not separately"
   },
+  "azj": {
+   "family": "Turkic: Oghuz",
+   "script": "Latn",
+   "native": "Azərbaycanca",
+   "tts": true,
+   "translation": true,
+   "notes": "NORTH Azerbaijani — engines serve this standard (unlike South azb: false/false). Split class pan/pnb."
+  },
   "bal": {
    "family": "Indo-European: Iranian",
    "script": "Arab",
@@ -155,6 +163,14 @@
    "iso639_1": "dv",
    "tts": false,
    "translation": false
+  },
+  "dng": {
+   "family": "Sino-Tibetan: Sinitic",
+   "script": "Cyrl",
+   "native": "Хуэйзў",
+   "tts": false,
+   "translation": false,
+   "notes": "World's only Cyrillic Sinitic; Hui-Muslim ancestry. KZ+KG cross-border planning unit (~130k)."
   },
   "doi": {
    "family": "Indo-European: Indo-Aryan",
@@ -276,6 +292,14 @@
    "tts": "na",
    "translation": "na"
   },
+  "kaa": {
+   "family": "Turkic: Kipchak",
+   "script": "Latn",
+   "native": "Qaraqalpaqsha",
+   "tts": false,
+   "translation": false,
+   "notes": "SIL Ref_Name 'Kara-Kalpak'. Official in Karakalpakstan; Latin (1995) + Cyrillic legacy. Closest relative Kazakh, not Uzbek."
+  },
   "kan": {
    "family": "Dravidian: Southern",
    "script": "Knda",
@@ -293,12 +317,31 @@
    "translation": false,
    "notes": "Perso-Arabic + Devanagari both notified in J&K"
   },
+  "kaz": {
+   "family": "Turkic: Kipchak",
+   "script": "Cyrl",
+   "native": "Қазақша",
+   "tts": true,
+   "translation": true,
+   "notes": "State language KZ (+ UZ minority). Cyrillic now; KZ Latin-transition roadmap underway; Perso-Arabic in CN — multi-script note.",
+   "iso639_1": "kk"
+  },
   "khw": {
    "family": "Indo-European: Indo-Aryan (Dardic)",
    "script": "Arab",
    "native": "کھوار",
    "tts": false,
    "translation": false
+  },
+  "kir": {
+   "family": "Turkic: Kipchak",
+   "script": "Cyrl",
+   "native": "Кыргызча",
+   "tts": true,
+   "translation": true,
+   "notes": "SIL Ref_Name 'Kirghiz' (old spelling). 639-1 ky (SIL).",
+   "ttsConf": "medium",
+   "iso639_1": "ky"
   },
   "kmr": {
    "family": "Indo-European: Iranian",
@@ -541,6 +584,15 @@
    "translation": false,
    "notes": "Burmese-script endonym spelling verify pass 2"
   },
+  "rus": {
+   "family": "Indo-European: Slavic: East",
+   "script": "Cyrl",
+   "native": "Русский",
+   "tts": true,
+   "translation": true,
+   "notes": "639-1 ru (SIL). Official KZ/KG; interethnic TJ/UZ; lapsed TM. EkGuru teaches Hindi TO Russian speakers — never a Russian course.",
+   "iso639_1": "ru"
+  },
   "san": {
    "family": "Indo-European: Indo-Aryan",
    "script": "Deva",
@@ -595,6 +647,14 @@
    "translation": false,
    "notes": "Endonym varies by tribe ('Kordi'); verify"
   },
+  "sgh": {
+   "family": "Indo-European: Iranian: Pamiri",
+   "script": "Cyrl",
+   "native": null,
+   "tts": false,
+   "translation": false,
+   "notes": "No standard orthography (Tajik-Cyrillic ad hoc + scholarly Latin); native null honestly. State broadcast recognition (Khorog)."
+  },
   "sin": {
    "family": "Indo-European: Indo-Aryan",
    "script": "Sinh",
@@ -637,6 +697,15 @@
    "tts": true,
    "translation": true
   },
+  "tat": {
+   "family": "Turkic: Kipchak",
+   "script": "Cyrl",
+   "native": "Татарча",
+   "tts": false,
+   "translation": true,
+   "notes": "Kazan/Mishar mix in CA. Distinct from Crimean Tatar (crh).",
+   "iso639_1": "tt"
+  },
   "tel": {
    "family": "Dravidian: South-Central",
    "script": "Telu",
@@ -644,6 +713,15 @@
    "iso639_1": "te",
    "tts": true,
    "translation": true
+  },
+  "tgk": {
+   "family": "Indo-European: Iranian",
+   "script": "Cyrl",
+   "native": "тоҷикӣ",
+   "tts": false,
+   "translation": true,
+   "notes": "639-1 tg (SIL). Persian linguistically but NOT a fas member per SIL (standalone). Internal LF TJ + UZ Samarkand/Bukhara.",
+   "iso639_1": "tg"
   },
   "tly": {
    "family": "Indo-European: Iranian",
@@ -679,6 +757,24 @@
    "translationConf": "medium",
    "notes": "Perso-Arabic in IR/AF; Latin in Turkmenistan"
   },
+  "tur": {
+   "family": "Turkic: Oghuz",
+   "script": "Latn",
+   "native": "Türkçe",
+   "tts": true,
+   "translation": true,
+   "notes": "CA entries are mostly Meskhetian-deportee communities (Istanbul standard in school, dialect at home).",
+   "iso639_1": "tr"
+  },
+  "uig": {
+   "family": "Turkic: Karluk",
+   "script": "Arab",
+   "native": "ئۇيغۇرچە",
+   "tts": false,
+   "translation": true,
+   "notes": "SIL Ref_Name 'Uighur' (old spelling). Soviet-Cyrillic legacy, now Perso-Arabic; exile-Latin exists — script choice political.",
+   "iso639_1": "ug"
+  },
   "urd": {
    "family": "Indo-European: Indo-Aryan",
    "script": "Arab",
@@ -689,12 +785,20 @@
   },
   "uzn": {
    "family": "Turkic: Karluk",
-   "script": "Arab",
+   "script": "Latn",
    "native": "Oʻzbekcha",
    "tts": true,
    "ttsConf": "medium",
    "translation": true,
-   "notes": "Perso-Arabic in Afghanistan; Latin/Cyrillic in Uzbekistan — script split noted"
+   "notes": "NORTHERN Uzbek (Uzbekistan/CA standard); Latin official (UZ 1993 law), Cyrillic legacy (TJ/KG/UZ print). SIL identity audit 2026-09-14: corrected ex-Southern misfile (AF side is now uzs)."
+  },
+  "uzs": {
+   "family": "Turkic: Karluk",
+   "script": "Arab",
+   "native": null,
+   "tts": false,
+   "translation": false,
+   "notes": "SOUTHERN Uzbek (Afghanistan, Perso-Arabic). Split from uzn in 2026-09-14 identity audit; native Perso-Arabic form verify."
   },
   "ved": {
    "family": null,
@@ -718,6 +822,14 @@
    "native": "ཤར་པ།",
    "tts": false,
    "translation": false
+  },
+  "yai": {
+   "family": "Indo-European: Iranian: Eastern (Sogdian-descendant)",
+   "script": null,
+   "native": null,
+   "tts": false,
+   "translation": false,
+   "notes": "SIL spells 'Yagnobi'. Primarily oral; Vedda-class threshold exception."
   }
  }
 }

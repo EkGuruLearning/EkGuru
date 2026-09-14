@@ -1,7 +1,3691 @@
 {
  "preliminary": true,
- "count": 187,
+ "count": 245,
  "relations": [
+  {
+   "relationship_id": "lang:kaz:KZ:NATIONAL",
+   "country_id": "KZ",
+   "language_id": "lang:kaz",
+   "language_name": "Kazakh",
+   "native_name": "Қазақша",
+   "iso_639_1": "kk",
+   "iso_639_3": "kaz",
+   "glottocode": null,
+   "language_family": "Turkic: Kipchak",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "NATIONAL",
+   "role_detail": null,
+   "estimated_speaker_band": "10M-100M",
+   "speaker_estimate": {
+    "asOf": "kz-census-2021",
+    "confidence": "medium",
+    "l1": 12000000,
+    "total": 14000000
+   },
+   "country_specific_evidence": "State language (Constitution Art.7); Russian 'officially used on equal grounds' — Kazakh is the state language, NOT co-official in the same clause. Latin-transition roadmap in progress (Cyrillic still dominant in print/schooling).",
+   "sources": [
+    {
+     "key": "kz-constitution-art7",
+     "source_name": "Constitution of Kazakhstan, Art.7 (Kazakh state language; Russian officially used)",
+     "source_url": null,
+     "url_null_reason": "official text at adilet.zan.kz (Adilet legal DB); direct link archive pass 2",
+     "evidence_type": "constitution",
+     "priority": "A"
+    },
+    {
+     "key": "kz-census-2021",
+     "source_name": "Kazakhstan National Census 2021 (19.17M)",
+     "source_url": null,
+     "url_null_reason": "stat.gov.kz census volumes; table links archive pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "recommended-course — 12M+ state language, zero EkGuru coverage; Cyrillic now with official Latin transition underway (script-note cost, not blocker).",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "business",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P1",
+   "ekguru_reason": "score 67/100 (speakerReach=24, countryCount=4, education=5, travel=5, business=5, migration=3, internetContentProxy=4, learningDemandProxy=4, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:kaz:KZ:OFFICIAL",
+   "country_id": "KZ",
+   "language_id": "lang:kaz",
+   "language_name": "Kazakh",
+   "native_name": "Қазақша",
+   "iso_639_1": "kk",
+   "iso_639_3": "kaz",
+   "glottocode": null,
+   "language_family": "Turkic: Kipchak",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "OFFICIAL",
+   "role_detail": null,
+   "estimated_speaker_band": "10M-100M",
+   "speaker_estimate": {
+    "asOf": "kz-census-2021",
+    "confidence": "medium",
+    "l1": 12000000,
+    "total": 14000000
+   },
+   "country_specific_evidence": "State language (Constitution Art.7); Russian 'officially used on equal grounds' — Kazakh is the state language, NOT co-official in the same clause. Latin-transition roadmap in progress (Cyrillic still dominant in print/schooling).",
+   "sources": [
+    {
+     "key": "kz-constitution-art7",
+     "source_name": "Constitution of Kazakhstan, Art.7 (Kazakh state language; Russian officially used)",
+     "source_url": null,
+     "url_null_reason": "official text at adilet.zan.kz (Adilet legal DB); direct link archive pass 2",
+     "evidence_type": "constitution",
+     "priority": "A"
+    },
+    {
+     "key": "kz-census-2021",
+     "source_name": "Kazakhstan National Census 2021 (19.17M)",
+     "source_url": null,
+     "url_null_reason": "stat.gov.kz census volumes; table links archive pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "recommended-course — 12M+ state language, zero EkGuru coverage; Cyrillic now with official Latin transition underway (script-note cost, not blocker).",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "business",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P1",
+   "ekguru_reason": "score 67/100 (speakerReach=24, countryCount=4, education=5, travel=5, business=5, migration=3, internetContentProxy=4, learningDemandProxy=4, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:kaz:KZ:WIDELY_SPOKEN",
+   "country_id": "KZ",
+   "language_id": "lang:kaz",
+   "language_name": "Kazakh",
+   "native_name": "Қазақша",
+   "iso_639_1": "kk",
+   "iso_639_3": "kaz",
+   "glottocode": null,
+   "language_family": "Turkic: Kipchak",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "WIDELY_SPOKEN",
+   "role_detail": null,
+   "estimated_speaker_band": "10M-100M",
+   "speaker_estimate": {
+    "asOf": "kz-census-2021",
+    "confidence": "medium",
+    "l1": 12000000,
+    "total": 14000000
+   },
+   "country_specific_evidence": "State language (Constitution Art.7); Russian 'officially used on equal grounds' — Kazakh is the state language, NOT co-official in the same clause. Latin-transition roadmap in progress (Cyrillic still dominant in print/schooling).",
+   "sources": [
+    {
+     "key": "kz-constitution-art7",
+     "source_name": "Constitution of Kazakhstan, Art.7 (Kazakh state language; Russian officially used)",
+     "source_url": null,
+     "url_null_reason": "official text at adilet.zan.kz (Adilet legal DB); direct link archive pass 2",
+     "evidence_type": "constitution",
+     "priority": "A"
+    },
+    {
+     "key": "kz-census-2021",
+     "source_name": "Kazakhstan National Census 2021 (19.17M)",
+     "source_url": null,
+     "url_null_reason": "stat.gov.kz census volumes; table links archive pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "recommended-course — 12M+ state language, zero EkGuru coverage; Cyrillic now with official Latin transition underway (script-note cost, not blocker).",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "business",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P1",
+   "ekguru_reason": "score 67/100 (speakerReach=24, countryCount=4, education=5, travel=5, business=5, migration=3, internetContentProxy=4, learningDemandProxy=4, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:rus:KZ:OFFICIAL",
+   "country_id": "KZ",
+   "language_id": "lang:rus",
+   "language_name": "Russian",
+   "native_name": "Русский",
+   "iso_639_1": "ru",
+   "iso_639_3": "rus",
+   "glottocode": null,
+   "language_family": "Indo-European: Slavic: East",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "OFFICIAL",
+   "role_detail": null,
+   "estimated_speaker_band": "1M-10M",
+   "speaker_estimate": {
+    "asOf": "kz-census-2021",
+    "confidence": "low",
+    "l1": 3000000,
+    "total": 13000000
+   },
+   "country_specific_evidence": "Officially used on equal grounds with Kazakh (Art.7) — still the interethnic lingua franca, though Kazakh-medium schooling keeps gaining. L1 ~3M (Russians 15% + others); L2 base very large, soft numbers.",
+   "sources": [
+    {
+     "key": "kz-constitution-art7",
+     "source_name": "Constitution of Kazakhstan, Art.7 (Kazakh state language; Russian officially used)",
+     "source_url": null,
+     "url_null_reason": "official text at adilet.zan.kz (Adilet legal DB); direct link archive pass 2",
+     "evidence_type": "constitution",
+     "priority": "A"
+    },
+    {
+     "key": "kz-census-2021",
+     "source_name": "Kazakhstan National Census 2021 (19.17M)",
+     "source_url": null,
+     "url_null_reason": "stat.gov.kz census volumes; table links archive pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried only. (EkGuru teaches Hindi TO Russian speakers via learn-hindi-for-russian-speakers — audience bridge, never a Russian course.)",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "business",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P1",
+   "ekguru_reason": "score 63/100 (speakerReach=18, countryCount=10, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:rus:KZ:WIDELY_SPOKEN",
+   "country_id": "KZ",
+   "language_id": "lang:rus",
+   "language_name": "Russian",
+   "native_name": "Русский",
+   "iso_639_1": "ru",
+   "iso_639_3": "rus",
+   "glottocode": null,
+   "language_family": "Indo-European: Slavic: East",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "WIDELY_SPOKEN",
+   "role_detail": null,
+   "estimated_speaker_band": "1M-10M",
+   "speaker_estimate": {
+    "asOf": "kz-census-2021",
+    "confidence": "low",
+    "l1": 3000000,
+    "total": 13000000
+   },
+   "country_specific_evidence": "Officially used on equal grounds with Kazakh (Art.7) — still the interethnic lingua franca, though Kazakh-medium schooling keeps gaining. L1 ~3M (Russians 15% + others); L2 base very large, soft numbers.",
+   "sources": [
+    {
+     "key": "kz-constitution-art7",
+     "source_name": "Constitution of Kazakhstan, Art.7 (Kazakh state language; Russian officially used)",
+     "source_url": null,
+     "url_null_reason": "official text at adilet.zan.kz (Adilet legal DB); direct link archive pass 2",
+     "evidence_type": "constitution",
+     "priority": "A"
+    },
+    {
+     "key": "kz-census-2021",
+     "source_name": "Kazakhstan National Census 2021 (19.17M)",
+     "source_url": null,
+     "url_null_reason": "stat.gov.kz census volumes; table links archive pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried only. (EkGuru teaches Hindi TO Russian speakers via learn-hindi-for-russian-speakers — audience bridge, never a Russian course.)",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "business",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P1",
+   "ekguru_reason": "score 63/100 (speakerReach=18, countryCount=10, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:rus:KZ:WIDELY_SPOKEN:lingua-franca",
+   "country_id": "KZ",
+   "language_id": "lang:rus",
+   "language_name": "Russian",
+   "native_name": "Русский",
+   "iso_639_1": "ru",
+   "iso_639_3": "rus",
+   "glottocode": null,
+   "language_family": "Indo-European: Slavic: East",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "WIDELY_SPOKEN",
+   "role_detail": "lingua-franca",
+   "estimated_speaker_band": "1M-10M",
+   "speaker_estimate": {
+    "asOf": "kz-census-2021",
+    "confidence": "low",
+    "l1": 3000000,
+    "total": 13000000
+   },
+   "country_specific_evidence": "Officially used on equal grounds with Kazakh (Art.7) — still the interethnic lingua franca, though Kazakh-medium schooling keeps gaining. L1 ~3M (Russians 15% + others); L2 base very large, soft numbers.",
+   "sources": [
+    {
+     "key": "kz-constitution-art7",
+     "source_name": "Constitution of Kazakhstan, Art.7 (Kazakh state language; Russian officially used)",
+     "source_url": null,
+     "url_null_reason": "official text at adilet.zan.kz (Adilet legal DB); direct link archive pass 2",
+     "evidence_type": "constitution",
+     "priority": "A"
+    },
+    {
+     "key": "kz-census-2021",
+     "source_name": "Kazakhstan National Census 2021 (19.17M)",
+     "source_url": null,
+     "url_null_reason": "stat.gov.kz census volumes; table links archive pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried only. (EkGuru teaches Hindi TO Russian speakers via learn-hindi-for-russian-speakers — audience bridge, never a Russian course.)",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "business",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P1",
+   "ekguru_reason": "score 63/100 (speakerReach=18, countryCount=10, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:uzn:KZ:REGIONAL",
+   "country_id": "KZ",
+   "language_id": "lang:uzn",
+   "language_name": "Uzbek",
+   "native_name": "Oʻzbekcha",
+   "iso_639_1": null,
+   "iso_639_3": "uzn",
+   "glottocode": null,
+   "language_family": "Turkic: Karluk",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Latn",
+   "status_in_country": "LIVING",
+   "category": "REGIONAL",
+   "role_detail": null,
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "asOf": "kz-census-2021",
+    "confidence": "medium",
+    "l1": 600000,
+    "total": 650000
+   },
+   "country_specific_evidence": "Concentrated south (Turkestan region, Shymkent). Code 'uzn' = NORTHERN Uzbek (SIL identity audit 2026-09-14 — not uzs). Latin in principle, Cyrillic common in practice.",
+   "sources": [
+    {
+     "key": "kz-census-2021",
+     "source_name": "Kazakhstan National Census 2021 (19.17M)",
+     "source_url": null,
+     "url_null_reason": "stat.gov.kz census volumes; table links archive pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "medium",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "Shared with Uzbekistan entry — one Northern Uzbek course serves all (notes on Kazakh-Uzbek contact).",
+   "learning_intent": {
+    "contexts": [
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": "Perso-Arabic in Afghanistan; Latin/Cyrillic in Uzbekistan — script split by country."
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P1",
+   "ekguru_reason": "score 73/100 (speakerReach=24, countryCount=10, education=5, travel=5, business=5, migration=3, internetContentProxy=4, learningDemandProxy=4, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:uig:KZ:REGIONAL",
+   "country_id": "KZ",
+   "language_id": "lang:uig",
+   "language_name": "Uyghur",
+   "native_name": "ئۇيغۇرچە",
+   "iso_639_1": "ug",
+   "iso_639_3": "uig",
+   "glottocode": null,
+   "language_family": "Turkic: Karluk",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Arab",
+   "status_in_country": "LIVING",
+   "category": "REGIONAL",
+   "role_detail": null,
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "asOf": "kz-census-2021",
+    "confidence": "low",
+    "l1": 250000,
+    "total": 280000
+   },
+   "country_specific_evidence": "Concentrated Jetisu/Almaty region (Zharkent/Panfilov). SIL Ref_Name keeps old spelling 'Uighur'. Soviet-era Cyrillic publishing, now mostly Perso-Arabic; exile-Latin exists — script choice is political, note it.",
+   "sources": [
+    {
+     "key": "kz-census-2021",
+     "source_name": "Kazakhstan National Census 2021 (19.17M)",
+     "source_url": null,
+     "url_null_reason": "stat.gov.kz census volumes; table links archive pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    },
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "medium",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "watch — diaspora demand, script politics (Perso-Arabic vs exile-Latin use); shared planning with KG entry.",
+   "learning_intent": {
+    "contexts": [
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P3",
+   "ekguru_reason": "score 30/100 (speakerReach=12, countryCount=2, education=0, travel=2, business=0, migration=0, internetContentProxy=2, learningDemandProxy=2, ttsAsr=2, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:tat:KZ:MINORITY",
+   "country_id": "KZ",
+   "language_id": "lang:tat",
+   "language_name": "Tatar",
+   "native_name": "Татарча",
+   "iso_639_1": "tt",
+   "iso_639_3": "tat",
+   "glottocode": null,
+   "language_family": "Turkic: Kipchak",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "MINORITY",
+   "role_detail": null,
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "asOf": "kz-census-2021",
+    "confidence": "low",
+    "l1": 180000,
+    "total": 200000
+   },
+   "country_specific_evidence": "Dispersed urban minority (Almaty/Karaganda). Cyrillic. Mishar/Kazan dialect mix from deportation + labour migration layers.",
+   "sources": [
+    {
+     "key": "kz-census-2021",
+     "source_name": "Kazakhstan National Census 2021 (19.17M)",
+     "source_url": null,
+     "url_null_reason": "stat.gov.kz census volumes; table links archive pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "medium",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "watch — dispersed urban; any Tatar action keys off the RU/Tatarstan entry (future batch).",
+   "learning_intent": {
+    "contexts": [
+     "heritage",
+     "family"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P3",
+   "ekguru_reason": "score 34/100 (speakerReach=12, countryCount=4, education=0, travel=1, business=0, migration=3, internetContentProxy=2, learningDemandProxy=2, ttsAsr=2, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:tur:KZ:REGIONAL",
+   "country_id": "KZ",
+   "language_id": "lang:tur",
+   "language_name": "Turkish",
+   "native_name": "Türkçe",
+   "iso_639_1": "tr",
+   "iso_639_3": "tur",
+   "glottocode": null,
+   "language_family": "Turkic: Oghuz",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Latn",
+   "status_in_country": "LIVING",
+   "category": "REGIONAL",
+   "role_detail": null,
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "asOf": "kz-census-2021",
+    "confidence": "low",
+    "l1": 120000,
+    "total": 150000
+   },
+   "country_specific_evidence": "Mostly Meskhetian Turks (deportee community, south) + recent Turkey-linked migrants. Istanbul standard in schools/media; Meskhetian dialect at home — diglossia note, not a split.",
+   "sources": [
+    {
+     "key": "kz-census-2021",
+     "source_name": "Kazakhstan National Census 2021 (19.17M)",
+     "source_url": null,
+     "url_null_reason": "stat.gov.kz census volumes; table links archive pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    },
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "medium",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "watch — Meskhetian community + Turkey-ties demand; a pan-Turkish course would subsume (not planned).",
+   "learning_intent": {
+    "contexts": [
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P3",
+   "ekguru_reason": "score 33/100 (speakerReach=12, countryCount=2, education=0, travel=2, business=0, migration=0, internetContentProxy=2, learningDemandProxy=2, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:dng:KZ:REGIONAL",
+   "country_id": "KZ",
+   "language_id": "lang:dng",
+   "language_name": "Dungan",
+   "native_name": "Хуэйзў",
+   "iso_639_1": null,
+   "iso_639_3": "dng",
+   "glottocode": null,
+   "language_family": "Sino-Tibetan: Sinitic",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "REGIONAL",
+   "role_detail": null,
+   "estimated_speaker_band": "10K-100K",
+   "speaker_estimate": {
+    "asOf": "kz-census-2021",
+    "confidence": "low",
+    "l1": 70000,
+    "total": 80000
+   },
+   "country_specific_evidence": "THRESHOLD EXCEPTION (~70k L1): the world's only Cyrillic-script Sinitic language, compact high-retention villages (Sortobe/Masanchi, Zhambyl). Hui-Muslim ancestry, Gansu/Shaanxi roots. Cross-border planning unit with KG (~130k combined).",
+   "sources": [
+    {
+     "key": "kz-census-2021",
+     "source_name": "Kazakhstan National Census 2021 (19.17M)",
+     "source_url": null,
+     "url_null_reason": "stat.gov.kz census volumes; table links archive pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "medium",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried only; unique script story, tiny base. Shared with KG entry.",
+   "learning_intent": {
+    "contexts": [
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P4",
+   "ekguru_reason": "score 17/100 (speakerReach=6, countryCount=4, education=0, travel=2, business=0, migration=0, internetContentProxy=1, learningDemandProxy=1, ttsAsr=0, translation=0, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:azj:KZ:MINORITY",
+   "country_id": "KZ",
+   "language_id": "lang:azj",
+   "language_name": "Azerbaijani",
+   "native_name": "Azərbaycanca",
+   "iso_639_1": null,
+   "iso_639_3": "azj",
+   "glottocode": null,
+   "language_family": "Turkic: Oghuz",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Latn",
+   "status_in_country": "LIVING",
+   "category": "MINORITY",
+   "role_detail": null,
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "asOf": "kz-census-2021",
+    "confidence": "low",
+    "l1": 130000,
+    "total": 150000
+   },
+   "country_specific_evidence": "Code 'azj' = NORTH Azerbaijani (Latin); distinct from Iranian South (azb, Perso-Arabic) — same split class as pan/pnb. Semi-dispersed south + cities.",
+   "sources": [
+    {
+     "key": "kz-census-2021",
+     "source_name": "Kazakhstan National Census 2021 (19.17M)",
+     "source_url": null,
+     "url_null_reason": "stat.gov.kz census volumes; table links archive pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "medium",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "watch — Baku standard; small KZ base, real planning keys off the AZ entry (future batch).",
+   "learning_intent": {
+    "contexts": [
+     "heritage",
+     "family"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P3",
+   "ekguru_reason": "score 32/100 (speakerReach=12, countryCount=2, education=0, travel=1, business=0, migration=0, internetContentProxy=2, learningDemandProxy=2, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:mis:KZ:kazakhstani-sign-language:KZ:SIGN_LANGUAGE",
+   "country_id": "KZ",
+   "language_id": "lang:mis:KZ:kazakhstani-sign-language",
+   "language_name": "Kazakhstani Sign Language",
+   "native_name": null,
+   "iso_639_1": null,
+   "iso_639_3": "mis",
+   "glottocode": null,
+   "language_family": null,
+   "language_type": "SIGN_LANGUAGE",
+   "cluster_members": null,
+   "script": null,
+   "status_in_country": "LIVING",
+   "category": "SIGN_LANGUAGE",
+   "role_detail": null,
+   "estimated_speaker_band": "unknown",
+   "speaker_estimate": {},
+   "country_specific_evidence": "No ISO code; Soviet boarding-school legacy means heavy Russian-SL influence. Almaty/Astana varieties. Verify pass 2 (WFD/KZ deaf orgs).",
+   "sources": [
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "low",
+   "disputed": true,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried only.",
+   "learning_intent": {
+    "contexts": [
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": true,
+   "ekguru_priority": "P4",
+   "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
+   "review_flags": [
+    "low-confidence",
+    "disputed"
+   ]
+  },
+  {
+   "relationship_id": "lang:kir:KG:NATIONAL",
+   "country_id": "KG",
+   "language_id": "lang:kir",
+   "language_name": "Kyrgyz",
+   "native_name": "Кыргызча",
+   "iso_639_1": "ky",
+   "iso_639_3": "kir",
+   "glottocode": null,
+   "language_family": "Turkic: Kipchak",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "NATIONAL",
+   "role_detail": null,
+   "estimated_speaker_band": "1M-10M",
+   "speaker_estimate": {
+    "asOf": "kg-census-2022",
+    "confidence": "medium",
+    "l1": 5000000,
+    "total": 5500000
+   },
+   "country_specific_evidence": "State language; Russian official alongside. SIL Ref_Name keeps old spelling 'Kirghiz'. North/South dialect split is real but one standard (Bishkek-based).",
+   "sources": [
+    {
+     "key": "kg-constitution",
+     "source_name": "Constitution of the Kyrgyz Republic (Kyrgyz state language; Russian official)",
+     "source_url": null,
+     "url_null_reason": "official text at cbd.minjust.gov.kg; article number + direct link verify pass 2",
+     "evidence_type": "constitution",
+     "priority": "A"
+    },
+    {
+     "key": "kg-census-2022",
+     "source_name": "Kyrgyzstan Population Census 2022 (6.94M)",
+     "source_url": null,
+     "url_null_reason": "stat.kg census publications; table links archive pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "recommended-pack — 5M state language; pack first, course only if Turkic cluster funds together.",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "business",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P2",
+   "ekguru_reason": "score 57/100 (speakerReach=18, countryCount=4, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:kir:KG:OFFICIAL",
+   "country_id": "KG",
+   "language_id": "lang:kir",
+   "language_name": "Kyrgyz",
+   "native_name": "Кыргызча",
+   "iso_639_1": "ky",
+   "iso_639_3": "kir",
+   "glottocode": null,
+   "language_family": "Turkic: Kipchak",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "OFFICIAL",
+   "role_detail": null,
+   "estimated_speaker_band": "1M-10M",
+   "speaker_estimate": {
+    "asOf": "kg-census-2022",
+    "confidence": "medium",
+    "l1": 5000000,
+    "total": 5500000
+   },
+   "country_specific_evidence": "State language; Russian official alongside. SIL Ref_Name keeps old spelling 'Kirghiz'. North/South dialect split is real but one standard (Bishkek-based).",
+   "sources": [
+    {
+     "key": "kg-constitution",
+     "source_name": "Constitution of the Kyrgyz Republic (Kyrgyz state language; Russian official)",
+     "source_url": null,
+     "url_null_reason": "official text at cbd.minjust.gov.kg; article number + direct link verify pass 2",
+     "evidence_type": "constitution",
+     "priority": "A"
+    },
+    {
+     "key": "kg-census-2022",
+     "source_name": "Kyrgyzstan Population Census 2022 (6.94M)",
+     "source_url": null,
+     "url_null_reason": "stat.kg census publications; table links archive pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "recommended-pack — 5M state language; pack first, course only if Turkic cluster funds together.",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "business",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P2",
+   "ekguru_reason": "score 57/100 (speakerReach=18, countryCount=4, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:kir:KG:WIDELY_SPOKEN",
+   "country_id": "KG",
+   "language_id": "lang:kir",
+   "language_name": "Kyrgyz",
+   "native_name": "Кыргызча",
+   "iso_639_1": "ky",
+   "iso_639_3": "kir",
+   "glottocode": null,
+   "language_family": "Turkic: Kipchak",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "WIDELY_SPOKEN",
+   "role_detail": null,
+   "estimated_speaker_band": "1M-10M",
+   "speaker_estimate": {
+    "asOf": "kg-census-2022",
+    "confidence": "medium",
+    "l1": 5000000,
+    "total": 5500000
+   },
+   "country_specific_evidence": "State language; Russian official alongside. SIL Ref_Name keeps old spelling 'Kirghiz'. North/South dialect split is real but one standard (Bishkek-based).",
+   "sources": [
+    {
+     "key": "kg-constitution",
+     "source_name": "Constitution of the Kyrgyz Republic (Kyrgyz state language; Russian official)",
+     "source_url": null,
+     "url_null_reason": "official text at cbd.minjust.gov.kg; article number + direct link verify pass 2",
+     "evidence_type": "constitution",
+     "priority": "A"
+    },
+    {
+     "key": "kg-census-2022",
+     "source_name": "Kyrgyzstan Population Census 2022 (6.94M)",
+     "source_url": null,
+     "url_null_reason": "stat.kg census publications; table links archive pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "recommended-pack — 5M state language; pack first, course only if Turkic cluster funds together.",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "business",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P2",
+   "ekguru_reason": "score 57/100 (speakerReach=18, countryCount=4, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:rus:KG:OFFICIAL",
+   "country_id": "KG",
+   "language_id": "lang:rus",
+   "language_name": "Russian",
+   "native_name": "Русский",
+   "iso_639_1": "ru",
+   "iso_639_3": "rus",
+   "glottocode": null,
+   "language_family": "Indo-European: Slavic: East",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "OFFICIAL",
+   "role_detail": null,
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "asOf": "kg-census-2022",
+    "confidence": "low",
+    "l1": 350000,
+    "total": 2500000
+   },
+   "country_specific_evidence": "Official language (constitution) + Bishkek business/interethnic lingua franca. L1 base shrank with 1990s–2010s emigration; L2 stays high via labour migration to Russia.",
+   "sources": [
+    {
+     "key": "kg-constitution",
+     "source_name": "Constitution of the Kyrgyz Republic (Kyrgyz state language; Russian official)",
+     "source_url": null,
+     "url_null_reason": "official text at cbd.minjust.gov.kg; article number + direct link verify pass 2",
+     "evidence_type": "constitution",
+     "priority": "A"
+    },
+    {
+     "key": "kg-census-2022",
+     "source_name": "Kyrgyzstan Population Census 2022 (6.94M)",
+     "source_url": null,
+     "url_null_reason": "stat.kg census publications; table links archive pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried only (Hindi-for-Russian-speakers page is the audience bridge).",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "business",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P1",
+   "ekguru_reason": "score 63/100 (speakerReach=18, countryCount=10, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:rus:KG:WIDELY_SPOKEN",
+   "country_id": "KG",
+   "language_id": "lang:rus",
+   "language_name": "Russian",
+   "native_name": "Русский",
+   "iso_639_1": "ru",
+   "iso_639_3": "rus",
+   "glottocode": null,
+   "language_family": "Indo-European: Slavic: East",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "WIDELY_SPOKEN",
+   "role_detail": null,
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "asOf": "kg-census-2022",
+    "confidence": "low",
+    "l1": 350000,
+    "total": 2500000
+   },
+   "country_specific_evidence": "Official language (constitution) + Bishkek business/interethnic lingua franca. L1 base shrank with 1990s–2010s emigration; L2 stays high via labour migration to Russia.",
+   "sources": [
+    {
+     "key": "kg-constitution",
+     "source_name": "Constitution of the Kyrgyz Republic (Kyrgyz state language; Russian official)",
+     "source_url": null,
+     "url_null_reason": "official text at cbd.minjust.gov.kg; article number + direct link verify pass 2",
+     "evidence_type": "constitution",
+     "priority": "A"
+    },
+    {
+     "key": "kg-census-2022",
+     "source_name": "Kyrgyzstan Population Census 2022 (6.94M)",
+     "source_url": null,
+     "url_null_reason": "stat.kg census publications; table links archive pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried only (Hindi-for-Russian-speakers page is the audience bridge).",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "business",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P1",
+   "ekguru_reason": "score 63/100 (speakerReach=18, countryCount=10, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:rus:KG:WIDELY_SPOKEN:lingua-franca",
+   "country_id": "KG",
+   "language_id": "lang:rus",
+   "language_name": "Russian",
+   "native_name": "Русский",
+   "iso_639_1": "ru",
+   "iso_639_3": "rus",
+   "glottocode": null,
+   "language_family": "Indo-European: Slavic: East",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "WIDELY_SPOKEN",
+   "role_detail": "lingua-franca",
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "asOf": "kg-census-2022",
+    "confidence": "low",
+    "l1": 350000,
+    "total": 2500000
+   },
+   "country_specific_evidence": "Official language (constitution) + Bishkek business/interethnic lingua franca. L1 base shrank with 1990s–2010s emigration; L2 stays high via labour migration to Russia.",
+   "sources": [
+    {
+     "key": "kg-constitution",
+     "source_name": "Constitution of the Kyrgyz Republic (Kyrgyz state language; Russian official)",
+     "source_url": null,
+     "url_null_reason": "official text at cbd.minjust.gov.kg; article number + direct link verify pass 2",
+     "evidence_type": "constitution",
+     "priority": "A"
+    },
+    {
+     "key": "kg-census-2022",
+     "source_name": "Kyrgyzstan Population Census 2022 (6.94M)",
+     "source_url": null,
+     "url_null_reason": "stat.kg census publications; table links archive pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried only (Hindi-for-Russian-speakers page is the audience bridge).",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "business",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P1",
+   "ekguru_reason": "score 63/100 (speakerReach=18, countryCount=10, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:uzn:KG:REGIONAL",
+   "country_id": "KG",
+   "language_id": "lang:uzn",
+   "language_name": "Uzbek",
+   "native_name": "Oʻzbekcha",
+   "iso_639_1": null,
+   "iso_639_3": "uzn",
+   "glottocode": null,
+   "language_family": "Turkic: Karluk",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Latn",
+   "status_in_country": "LIVING",
+   "category": "REGIONAL",
+   "role_detail": null,
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "asOf": "kg-census-2022",
+    "confidence": "medium",
+    "l1": 950000,
+    "total": 1000000
+   },
+   "country_specific_evidence": "Concentrated Osh/Jalal-Abad (~15% of country). Uzbek-medium schooling contested after 2010 interethnic violence — status quo is politically loaded, record without taking sides. Code 'uzn' Northern.",
+   "sources": [
+    {
+     "key": "kg-census-2022",
+     "source_name": "Kyrgyzstan Population Census 2022 (6.94M)",
+     "source_url": null,
+     "url_null_reason": "stat.kg census publications; table links archive pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "Shared with Uzbekistan entry — one Northern Uzbek course serves all (Osh-dialect notes).",
+   "learning_intent": {
+    "contexts": [
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": "Perso-Arabic in Afghanistan; Latin/Cyrillic in Uzbekistan — script split by country."
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P1",
+   "ekguru_reason": "score 73/100 (speakerReach=24, countryCount=10, education=5, travel=5, business=5, migration=3, internetContentProxy=4, learningDemandProxy=4, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:uzn:KG:WIDELY_SPOKEN",
+   "country_id": "KG",
+   "language_id": "lang:uzn",
+   "language_name": "Uzbek",
+   "native_name": "Oʻzbekcha",
+   "iso_639_1": null,
+   "iso_639_3": "uzn",
+   "glottocode": null,
+   "language_family": "Turkic: Karluk",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Latn",
+   "status_in_country": "LIVING",
+   "category": "WIDELY_SPOKEN",
+   "role_detail": null,
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "asOf": "kg-census-2022",
+    "confidence": "medium",
+    "l1": 950000,
+    "total": 1000000
+   },
+   "country_specific_evidence": "Concentrated Osh/Jalal-Abad (~15% of country). Uzbek-medium schooling contested after 2010 interethnic violence — status quo is politically loaded, record without taking sides. Code 'uzn' Northern.",
+   "sources": [
+    {
+     "key": "kg-census-2022",
+     "source_name": "Kyrgyzstan Population Census 2022 (6.94M)",
+     "source_url": null,
+     "url_null_reason": "stat.kg census publications; table links archive pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "Shared with Uzbekistan entry — one Northern Uzbek course serves all (Osh-dialect notes).",
+   "learning_intent": {
+    "contexts": [
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": "Perso-Arabic in Afghanistan; Latin/Cyrillic in Uzbekistan — script split by country."
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P1",
+   "ekguru_reason": "score 73/100 (speakerReach=24, countryCount=10, education=5, travel=5, business=5, migration=3, internetContentProxy=4, learningDemandProxy=4, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:dng:KG:REGIONAL",
+   "country_id": "KG",
+   "language_id": "lang:dng",
+   "language_name": "Dungan",
+   "native_name": "Хуэйзў",
+   "iso_639_1": null,
+   "iso_639_3": "dng",
+   "glottocode": null,
+   "language_family": "Sino-Tibetan: Sinitic",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "REGIONAL",
+   "role_detail": null,
+   "estimated_speaker_band": "10K-100K",
+   "speaker_estimate": {
+    "asOf": "kg-census-2022",
+    "confidence": "low",
+    "l1": 60000,
+    "total": 70000
+   },
+   "country_specific_evidence": "THRESHOLD EXCEPTION (~60k L1, see KZ note): compact Chuy villages (Ivanovka/Alexandrovka) with Dungan-medium primary schooling — the only place on Earth teaching in Dungan. Cross-border unit with KZ.",
+   "sources": [
+    {
+     "key": "kg-census-2022",
+     "source_name": "Kyrgyzstan Population Census 2022 (6.94M)",
+     "source_url": null,
+     "url_null_reason": "stat.kg census publications; table links archive pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "medium",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried only. Shared with KZ entry.",
+   "learning_intent": {
+    "contexts": [
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P4",
+   "ekguru_reason": "score 17/100 (speakerReach=6, countryCount=4, education=0, travel=2, business=0, migration=0, internetContentProxy=1, learningDemandProxy=1, ttsAsr=0, translation=0, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:mis:KG:kyrgyz-sign-language:KG:SIGN_LANGUAGE",
+   "country_id": "KG",
+   "language_id": "lang:mis:KG:kyrgyz-sign-language",
+   "language_name": "Kyrgyz Sign Language",
+   "native_name": null,
+   "iso_639_1": null,
+   "iso_639_3": "mis",
+   "glottocode": null,
+   "language_family": null,
+   "language_type": "SIGN_LANGUAGE",
+   "cluster_members": null,
+   "script": null,
+   "status_in_country": "LIVING",
+   "category": "SIGN_LANGUAGE",
+   "role_detail": null,
+   "estimated_speaker_band": "unknown",
+   "speaker_estimate": {},
+   "country_specific_evidence": "No ISO code; Bishkek-based, Russian-SL influence (Soviet legacy). Verify pass 2 (WFD/KG deaf orgs).",
+   "sources": [
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "low",
+   "disputed": true,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried only.",
+   "learning_intent": {
+    "contexts": [
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": true,
+   "ekguru_priority": "P4",
+   "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
+   "review_flags": [
+    "low-confidence",
+    "disputed"
+   ]
+  },
+  {
+   "relationship_id": "lang:tgk:TJ:NATIONAL",
+   "country_id": "TJ",
+   "language_id": "lang:tgk",
+   "language_name": "Tajik",
+   "native_name": "тоҷикӣ",
+   "iso_639_1": "tg",
+   "iso_639_3": "tgk",
+   "glottocode": null,
+   "language_family": "Indo-European: Iranian",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "NATIONAL",
+   "role_detail": null,
+   "estimated_speaker_band": "1M-10M",
+   "speaker_estimate": {
+    "asOf": "tj-census-2020",
+    "confidence": "medium",
+    "l1": 8000000,
+    "total": 9000000
+   },
+   "country_specific_evidence": "State language (2009 Language Law spine + constitution). SIL 639-1 'tg' confirmed. NOT a fas member per SIL (standalone code) though Persian linguistically — same treatment note as fas canonical. Internal lingua franca (Pamiris, Uzbeks learn it).",
+   "sources": [
+    {
+     "key": "tj-language-law",
+     "source_name": "Tajikistan Law on the State Language 2009 (Tajik state; Russian interethnic)",
+     "source_url": null,
+     "url_null_reason": "official text via president.tj / adlia portal; direct link verify pass 2",
+     "evidence_type": "statute",
+     "priority": "A"
+    },
+    {
+     "key": "tj-census-2020",
+     "source_name": "Tajikistan Population Census 2020 (~9.5M)",
+     "source_url": null,
+     "url_null_reason": "stat.tj census report; table links + Pamiri-category check pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "recommended-course — 8M+ state language + Samarkand/Bukhara cross-border (UZ); Cyrillic; plan inside the Persian cluster (fas/prs/tgk shared backbone).",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "business",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P2",
+   "ekguru_reason": "score 54/100 (speakerReach=18, countryCount=4, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=2, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:tgk:TJ:OFFICIAL",
+   "country_id": "TJ",
+   "language_id": "lang:tgk",
+   "language_name": "Tajik",
+   "native_name": "тоҷикӣ",
+   "iso_639_1": "tg",
+   "iso_639_3": "tgk",
+   "glottocode": null,
+   "language_family": "Indo-European: Iranian",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "OFFICIAL",
+   "role_detail": null,
+   "estimated_speaker_band": "1M-10M",
+   "speaker_estimate": {
+    "asOf": "tj-census-2020",
+    "confidence": "medium",
+    "l1": 8000000,
+    "total": 9000000
+   },
+   "country_specific_evidence": "State language (2009 Language Law spine + constitution). SIL 639-1 'tg' confirmed. NOT a fas member per SIL (standalone code) though Persian linguistically — same treatment note as fas canonical. Internal lingua franca (Pamiris, Uzbeks learn it).",
+   "sources": [
+    {
+     "key": "tj-language-law",
+     "source_name": "Tajikistan Law on the State Language 2009 (Tajik state; Russian interethnic)",
+     "source_url": null,
+     "url_null_reason": "official text via president.tj / adlia portal; direct link verify pass 2",
+     "evidence_type": "statute",
+     "priority": "A"
+    },
+    {
+     "key": "tj-census-2020",
+     "source_name": "Tajikistan Population Census 2020 (~9.5M)",
+     "source_url": null,
+     "url_null_reason": "stat.tj census report; table links + Pamiri-category check pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "recommended-course — 8M+ state language + Samarkand/Bukhara cross-border (UZ); Cyrillic; plan inside the Persian cluster (fas/prs/tgk shared backbone).",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "business",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P2",
+   "ekguru_reason": "score 54/100 (speakerReach=18, countryCount=4, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=2, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:tgk:TJ:WIDELY_SPOKEN",
+   "country_id": "TJ",
+   "language_id": "lang:tgk",
+   "language_name": "Tajik",
+   "native_name": "тоҷикӣ",
+   "iso_639_1": "tg",
+   "iso_639_3": "tgk",
+   "glottocode": null,
+   "language_family": "Indo-European: Iranian",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "WIDELY_SPOKEN",
+   "role_detail": null,
+   "estimated_speaker_band": "1M-10M",
+   "speaker_estimate": {
+    "asOf": "tj-census-2020",
+    "confidence": "medium",
+    "l1": 8000000,
+    "total": 9000000
+   },
+   "country_specific_evidence": "State language (2009 Language Law spine + constitution). SIL 639-1 'tg' confirmed. NOT a fas member per SIL (standalone code) though Persian linguistically — same treatment note as fas canonical. Internal lingua franca (Pamiris, Uzbeks learn it).",
+   "sources": [
+    {
+     "key": "tj-language-law",
+     "source_name": "Tajikistan Law on the State Language 2009 (Tajik state; Russian interethnic)",
+     "source_url": null,
+     "url_null_reason": "official text via president.tj / adlia portal; direct link verify pass 2",
+     "evidence_type": "statute",
+     "priority": "A"
+    },
+    {
+     "key": "tj-census-2020",
+     "source_name": "Tajikistan Population Census 2020 (~9.5M)",
+     "source_url": null,
+     "url_null_reason": "stat.tj census report; table links + Pamiri-category check pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "recommended-course — 8M+ state language + Samarkand/Bukhara cross-border (UZ); Cyrillic; plan inside the Persian cluster (fas/prs/tgk shared backbone).",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "business",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P2",
+   "ekguru_reason": "score 54/100 (speakerReach=18, countryCount=4, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=2, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:tgk:TJ:WIDELY_SPOKEN:lingua-franca",
+   "country_id": "TJ",
+   "language_id": "lang:tgk",
+   "language_name": "Tajik",
+   "native_name": "тоҷикӣ",
+   "iso_639_1": "tg",
+   "iso_639_3": "tgk",
+   "glottocode": null,
+   "language_family": "Indo-European: Iranian",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "WIDELY_SPOKEN",
+   "role_detail": "lingua-franca",
+   "estimated_speaker_band": "1M-10M",
+   "speaker_estimate": {
+    "asOf": "tj-census-2020",
+    "confidence": "medium",
+    "l1": 8000000,
+    "total": 9000000
+   },
+   "country_specific_evidence": "State language (2009 Language Law spine + constitution). SIL 639-1 'tg' confirmed. NOT a fas member per SIL (standalone code) though Persian linguistically — same treatment note as fas canonical. Internal lingua franca (Pamiris, Uzbeks learn it).",
+   "sources": [
+    {
+     "key": "tj-language-law",
+     "source_name": "Tajikistan Law on the State Language 2009 (Tajik state; Russian interethnic)",
+     "source_url": null,
+     "url_null_reason": "official text via president.tj / adlia portal; direct link verify pass 2",
+     "evidence_type": "statute",
+     "priority": "A"
+    },
+    {
+     "key": "tj-census-2020",
+     "source_name": "Tajikistan Population Census 2020 (~9.5M)",
+     "source_url": null,
+     "url_null_reason": "stat.tj census report; table links + Pamiri-category check pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "recommended-course — 8M+ state language + Samarkand/Bukhara cross-border (UZ); Cyrillic; plan inside the Persian cluster (fas/prs/tgk shared backbone).",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "business",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P2",
+   "ekguru_reason": "score 54/100 (speakerReach=18, countryCount=4, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=2, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:rus:TJ:WIDELY_SPOKEN",
+   "country_id": "TJ",
+   "language_id": "lang:rus",
+   "language_name": "Russian",
+   "native_name": "Русский",
+   "iso_639_1": "ru",
+   "iso_639_3": "rus",
+   "glottocode": null,
+   "language_family": "Indo-European: Slavic: East",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "WIDELY_SPOKEN",
+   "role_detail": null,
+   "estimated_speaker_band": "10K-100K",
+   "speaker_estimate": {
+    "asOf": "tj-census-2020",
+    "confidence": "low",
+    "l1": 35000,
+    "total": 2000000
+   },
+   "country_specific_evidence": "Language of interethnic communication — NOT an official language (common misstatement; mirror of the BD-English note). L1 tiny post-emigration (~35k); L2 massive via Russia labour migration (remittance economy runs on Russian).",
+   "sources": [
+    {
+     "key": "tj-language-law",
+     "source_name": "Tajikistan Law on the State Language 2009 (Tajik state; Russian interethnic)",
+     "source_url": null,
+     "url_null_reason": "official text via president.tj / adlia portal; direct link verify pass 2",
+     "evidence_type": "statute",
+     "priority": "A"
+    },
+    {
+     "key": "tj-census-2020",
+     "source_name": "Tajikistan Population Census 2020 (~9.5M)",
+     "source_url": null,
+     "url_null_reason": "stat.tj census report; table links + Pamiri-category check pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried only (Hindi-for-Russian-speakers page is the audience bridge).",
+   "learning_intent": {
+    "contexts": [
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P1",
+   "ekguru_reason": "score 63/100 (speakerReach=18, countryCount=10, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:rus:TJ:WIDELY_SPOKEN:lingua-franca",
+   "country_id": "TJ",
+   "language_id": "lang:rus",
+   "language_name": "Russian",
+   "native_name": "Русский",
+   "iso_639_1": "ru",
+   "iso_639_3": "rus",
+   "glottocode": null,
+   "language_family": "Indo-European: Slavic: East",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "WIDELY_SPOKEN",
+   "role_detail": "lingua-franca",
+   "estimated_speaker_band": "10K-100K",
+   "speaker_estimate": {
+    "asOf": "tj-census-2020",
+    "confidence": "low",
+    "l1": 35000,
+    "total": 2000000
+   },
+   "country_specific_evidence": "Language of interethnic communication — NOT an official language (common misstatement; mirror of the BD-English note). L1 tiny post-emigration (~35k); L2 massive via Russia labour migration (remittance economy runs on Russian).",
+   "sources": [
+    {
+     "key": "tj-language-law",
+     "source_name": "Tajikistan Law on the State Language 2009 (Tajik state; Russian interethnic)",
+     "source_url": null,
+     "url_null_reason": "official text via president.tj / adlia portal; direct link verify pass 2",
+     "evidence_type": "statute",
+     "priority": "A"
+    },
+    {
+     "key": "tj-census-2020",
+     "source_name": "Tajikistan Population Census 2020 (~9.5M)",
+     "source_url": null,
+     "url_null_reason": "stat.tj census report; table links + Pamiri-category check pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried only (Hindi-for-Russian-speakers page is the audience bridge).",
+   "learning_intent": {
+    "contexts": [
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P1",
+   "ekguru_reason": "score 63/100 (speakerReach=18, countryCount=10, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:uzn:TJ:REGIONAL",
+   "country_id": "TJ",
+   "language_id": "lang:uzn",
+   "language_name": "Uzbek",
+   "native_name": "Oʻzbekcha",
+   "iso_639_1": null,
+   "iso_639_3": "uzn",
+   "glottocode": null,
+   "language_family": "Turkic: Karluk",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Latn",
+   "status_in_country": "LIVING",
+   "category": "REGIONAL",
+   "role_detail": null,
+   "estimated_speaker_band": "1M-10M",
+   "speaker_estimate": {
+    "asOf": "tj-census-2020",
+    "confidence": "medium",
+    "l1": 1100000,
+    "total": 1200000
+   },
+   "country_specific_evidence": "Concentrated Sughd/Khatlon (~12%). Uzbek-medium schools exist but shrinking share. Code 'uzn' Northern; Cyrillic in TJ (differs from UZ Latin — script note for shared course).",
+   "sources": [
+    {
+     "key": "tj-census-2020",
+     "source_name": "Tajikistan Population Census 2020 (~9.5M)",
+     "source_url": null,
+     "url_null_reason": "stat.tj census report; table links + Pamiri-category check pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "Shared with Uzbekistan entry — one Northern Uzbek course serves all.",
+   "learning_intent": {
+    "contexts": [
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": "Perso-Arabic in Afghanistan; Latin/Cyrillic in Uzbekistan — script split by country."
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P1",
+   "ekguru_reason": "score 73/100 (speakerReach=24, countryCount=10, education=5, travel=5, business=5, migration=3, internetContentProxy=4, learningDemandProxy=4, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:uzn:TJ:WIDELY_SPOKEN",
+   "country_id": "TJ",
+   "language_id": "lang:uzn",
+   "language_name": "Uzbek",
+   "native_name": "Oʻzbekcha",
+   "iso_639_1": null,
+   "iso_639_3": "uzn",
+   "glottocode": null,
+   "language_family": "Turkic: Karluk",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Latn",
+   "status_in_country": "LIVING",
+   "category": "WIDELY_SPOKEN",
+   "role_detail": null,
+   "estimated_speaker_band": "1M-10M",
+   "speaker_estimate": {
+    "asOf": "tj-census-2020",
+    "confidence": "medium",
+    "l1": 1100000,
+    "total": 1200000
+   },
+   "country_specific_evidence": "Concentrated Sughd/Khatlon (~12%). Uzbek-medium schools exist but shrinking share. Code 'uzn' Northern; Cyrillic in TJ (differs from UZ Latin — script note for shared course).",
+   "sources": [
+    {
+     "key": "tj-census-2020",
+     "source_name": "Tajikistan Population Census 2020 (~9.5M)",
+     "source_url": null,
+     "url_null_reason": "stat.tj census report; table links + Pamiri-category check pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "Shared with Uzbekistan entry — one Northern Uzbek course serves all.",
+   "learning_intent": {
+    "contexts": [
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": "Perso-Arabic in Afghanistan; Latin/Cyrillic in Uzbekistan — script split by country."
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P1",
+   "ekguru_reason": "score 73/100 (speakerReach=24, countryCount=10, education=5, travel=5, business=5, migration=3, internetContentProxy=4, learningDemandProxy=4, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:sgh:TJ:INDIGENOUS",
+   "country_id": "TJ",
+   "language_id": "lang:sgh",
+   "language_name": "Shughni",
+   "native_name": null,
+   "iso_639_1": null,
+   "iso_639_3": "sgh",
+   "glottocode": null,
+   "language_family": "Indo-European: Iranian: Pamiri",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "INDIGENOUS",
+   "role_detail": null,
+   "estimated_speaker_band": "10K-100K",
+   "speaker_estimate": {
+    "asOf": "ethnologue-27",
+    "confidence": "low",
+    "l1": 80000,
+    "total": 110000
+   },
+   "country_specific_evidence": "THRESHOLD EXCEPTION (~80k TJ L1): GBAO's principal indigenous language with state broadcast recognition (Khorog TV/radio) — the only Pamiri language with institutional foothold. Cross-border unit with AF side (total ~110k+). No standard orthography (Tajik-Cyrillic ad hoc + scholarly Latin); endonym form verify, native left null honestly.",
+   "sources": [
+    {
+     "key": "tj-census-2020",
+     "source_name": "Tajikistan Population Census 2020 (~9.5M)",
+     "source_url": null,
+     "url_null_reason": "stat.tj census report; table links + Pamiri-category check pass 2",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    },
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "medium",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried only; GBAO tourism/development niche, no course case.",
+   "learning_intent": {
+    "contexts": [
+     "heritage",
+     "family"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": true,
+   "ekguru_priority": "P4",
+   "ekguru_reason": "score 14/100 (speakerReach=6, countryCount=2, education=0, travel=1, business=0, migration=0, internetContentProxy=1, learningDemandProxy=1, ttsAsr=0, translation=0, dataConfidence=3)",
+   "review_flags": [
+    "native-missing"
+   ]
+  },
+  {
+   "relationship_id": "lang:yai:TJ:INDIGENOUS",
+   "country_id": "TJ",
+   "language_id": "lang:yai",
+   "language_name": "Yaghnobi",
+   "native_name": null,
+   "iso_639_1": null,
+   "iso_639_3": "yai",
+   "glottocode": null,
+   "language_family": "Indo-European: Iranian: Eastern (Sogdian-descendant)",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": null,
+   "status_in_country": "LIVING",
+   "category": "INDIGENOUS",
+   "role_detail": null,
+   "estimated_speaker_band": "10K-100K",
+   "speaker_estimate": {
+    "asOf": "ethnologue-27",
+    "confidence": "low",
+    "l1": 13000,
+    "total": 13000
+   },
+   "country_specific_evidence": "THRESHOLD EXCEPTION (~13k L1, Vedda-class): direct descendant of Sogdian, Yaghnob valley + resettled communities. SIL spells 'Yagnobi'. Primarily oral; no standard orthography (native null honestly).",
+   "sources": [
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    },
+    {
+     "key": "glottolog-5.x",
+     "source_name": "Glottolog 5.x (Max Planck Institute) — language-vs-dialect identity",
+     "source_url": "https://glottolog.org",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    },
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "medium",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried only; direct Sogdian descendant — linguistic-celebrity value, zero course case.",
+   "learning_intent": {
+    "contexts": [
+     "heritage",
+     "family"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": true,
+   "ekguru_priority": "P4",
+   "ekguru_reason": "score 14/100 (speakerReach=6, countryCount=2, education=0, travel=1, business=0, migration=0, internetContentProxy=1, learningDemandProxy=1, ttsAsr=0, translation=0, dataConfidence=3)",
+   "review_flags": [
+    "native-missing",
+    "script-missing"
+   ]
+  },
+  {
+   "relationship_id": "lang:mis:TJ:tajik-sign-language:TJ:SIGN_LANGUAGE",
+   "country_id": "TJ",
+   "language_id": "lang:mis:TJ:tajik-sign-language",
+   "language_name": "Tajik Sign Language",
+   "native_name": null,
+   "iso_639_1": null,
+   "iso_639_3": "mis",
+   "glottocode": null,
+   "language_family": null,
+   "language_type": "SIGN_LANGUAGE",
+   "cluster_members": null,
+   "script": null,
+   "status_in_country": "LIVING",
+   "category": "SIGN_LANGUAGE",
+   "role_detail": null,
+   "estimated_speaker_band": "unknown",
+   "speaker_estimate": {},
+   "country_specific_evidence": "No ISO code; Dushanbe-based, Russian-SL influence. Verify pass 2 (WFD/TJ deaf orgs).",
+   "sources": [
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "low",
+   "disputed": true,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried only.",
+   "learning_intent": {
+    "contexts": [
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": true,
+   "ekguru_priority": "P4",
+   "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
+   "review_flags": [
+    "low-confidence",
+    "disputed"
+   ]
+  },
+  {
+   "relationship_id": "lang:tuk:TM:NATIONAL",
+   "country_id": "TM",
+   "language_id": "lang:tuk",
+   "language_name": "Turkmen",
+   "native_name": "Türkmençe",
+   "iso_639_1": "tk",
+   "iso_639_3": "tuk",
+   "glottocode": null,
+   "language_family": "Turkic: Oghuz",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Latn",
+   "status_in_country": "LIVING",
+   "category": "NATIONAL",
+   "role_detail": null,
+   "estimated_speaker_band": "1M-10M",
+   "speaker_estimate": {
+    "asOf": "tm-census-2022",
+    "confidence": "low",
+    "l1": 5800000,
+    "total": 6000000
+   },
+   "country_specific_evidence": "State language; Latin script since 1993–2000 reform (script override on this entry — canonical 'tuk' is Perso-Arabic for the AF/IR side). Teke-based standard; Yomut/Ersari dialects. All TM figures low-confidence (opaque stats).",
+   "sources": [
+    {
+     "key": "tm-constitution",
+     "source_name": "Constitution of Turkmenistan (Turkmen state language)",
+     "source_url": null,
+     "url_null_reason": "official text via turkmenistan.gov.tm; article number + direct link verify pass 2",
+     "evidence_type": "constitution",
+     "priority": "A"
+    },
+    {
+     "key": "tm-census-2022",
+     "source_name": "Turkmenistan Census 2022 (7.06M claimed; almost no language detail published)",
+     "source_url": null,
+     "url_null_reason": "detail unpublished — figures soft by construction; revisit if tables appear",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "recommended-pack — 6M state language, LATIN script (cheap content cost); opaque market, pack first, course later.",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "business",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": "Perso-Arabic in IR/AF; Latin in Turkmenistan — script split by country."
+   },
+   "needs_human_review": true,
+   "ekguru_priority": "P2",
+   "ekguru_reason": "score 58/100 (speakerReach=18, countryCount=8, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=2, translation=5, dataConfidence=3)",
+   "review_flags": [
+    "tts-unknown"
+   ]
+  },
+  {
+   "relationship_id": "lang:tuk:TM:OFFICIAL",
+   "country_id": "TM",
+   "language_id": "lang:tuk",
+   "language_name": "Turkmen",
+   "native_name": "Türkmençe",
+   "iso_639_1": "tk",
+   "iso_639_3": "tuk",
+   "glottocode": null,
+   "language_family": "Turkic: Oghuz",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Latn",
+   "status_in_country": "LIVING",
+   "category": "OFFICIAL",
+   "role_detail": null,
+   "estimated_speaker_band": "1M-10M",
+   "speaker_estimate": {
+    "asOf": "tm-census-2022",
+    "confidence": "low",
+    "l1": 5800000,
+    "total": 6000000
+   },
+   "country_specific_evidence": "State language; Latin script since 1993–2000 reform (script override on this entry — canonical 'tuk' is Perso-Arabic for the AF/IR side). Teke-based standard; Yomut/Ersari dialects. All TM figures low-confidence (opaque stats).",
+   "sources": [
+    {
+     "key": "tm-constitution",
+     "source_name": "Constitution of Turkmenistan (Turkmen state language)",
+     "source_url": null,
+     "url_null_reason": "official text via turkmenistan.gov.tm; article number + direct link verify pass 2",
+     "evidence_type": "constitution",
+     "priority": "A"
+    },
+    {
+     "key": "tm-census-2022",
+     "source_name": "Turkmenistan Census 2022 (7.06M claimed; almost no language detail published)",
+     "source_url": null,
+     "url_null_reason": "detail unpublished — figures soft by construction; revisit if tables appear",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "recommended-pack — 6M state language, LATIN script (cheap content cost); opaque market, pack first, course later.",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "business",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": "Perso-Arabic in IR/AF; Latin in Turkmenistan — script split by country."
+   },
+   "needs_human_review": true,
+   "ekguru_priority": "P2",
+   "ekguru_reason": "score 58/100 (speakerReach=18, countryCount=8, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=2, translation=5, dataConfidence=3)",
+   "review_flags": [
+    "tts-unknown"
+   ]
+  },
+  {
+   "relationship_id": "lang:tuk:TM:WIDELY_SPOKEN",
+   "country_id": "TM",
+   "language_id": "lang:tuk",
+   "language_name": "Turkmen",
+   "native_name": "Türkmençe",
+   "iso_639_1": "tk",
+   "iso_639_3": "tuk",
+   "glottocode": null,
+   "language_family": "Turkic: Oghuz",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Latn",
+   "status_in_country": "LIVING",
+   "category": "WIDELY_SPOKEN",
+   "role_detail": null,
+   "estimated_speaker_band": "1M-10M",
+   "speaker_estimate": {
+    "asOf": "tm-census-2022",
+    "confidence": "low",
+    "l1": 5800000,
+    "total": 6000000
+   },
+   "country_specific_evidence": "State language; Latin script since 1993–2000 reform (script override on this entry — canonical 'tuk' is Perso-Arabic for the AF/IR side). Teke-based standard; Yomut/Ersari dialects. All TM figures low-confidence (opaque stats).",
+   "sources": [
+    {
+     "key": "tm-constitution",
+     "source_name": "Constitution of Turkmenistan (Turkmen state language)",
+     "source_url": null,
+     "url_null_reason": "official text via turkmenistan.gov.tm; article number + direct link verify pass 2",
+     "evidence_type": "constitution",
+     "priority": "A"
+    },
+    {
+     "key": "tm-census-2022",
+     "source_name": "Turkmenistan Census 2022 (7.06M claimed; almost no language detail published)",
+     "source_url": null,
+     "url_null_reason": "detail unpublished — figures soft by construction; revisit if tables appear",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "recommended-pack — 6M state language, LATIN script (cheap content cost); opaque market, pack first, course later.",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "business",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": "Perso-Arabic in IR/AF; Latin in Turkmenistan — script split by country."
+   },
+   "needs_human_review": true,
+   "ekguru_priority": "P2",
+   "ekguru_reason": "score 58/100 (speakerReach=18, countryCount=8, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=2, translation=5, dataConfidence=3)",
+   "review_flags": [
+    "tts-unknown"
+   ]
+  },
+  {
+   "relationship_id": "lang:tuk:TM:WIDELY_SPOKEN:lingua-franca",
+   "country_id": "TM",
+   "language_id": "lang:tuk",
+   "language_name": "Turkmen",
+   "native_name": "Türkmençe",
+   "iso_639_1": "tk",
+   "iso_639_3": "tuk",
+   "glottocode": null,
+   "language_family": "Turkic: Oghuz",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Latn",
+   "status_in_country": "LIVING",
+   "category": "WIDELY_SPOKEN",
+   "role_detail": "lingua-franca",
+   "estimated_speaker_band": "1M-10M",
+   "speaker_estimate": {
+    "asOf": "tm-census-2022",
+    "confidence": "low",
+    "l1": 5800000,
+    "total": 6000000
+   },
+   "country_specific_evidence": "State language; Latin script since 1993–2000 reform (script override on this entry — canonical 'tuk' is Perso-Arabic for the AF/IR side). Teke-based standard; Yomut/Ersari dialects. All TM figures low-confidence (opaque stats).",
+   "sources": [
+    {
+     "key": "tm-constitution",
+     "source_name": "Constitution of Turkmenistan (Turkmen state language)",
+     "source_url": null,
+     "url_null_reason": "official text via turkmenistan.gov.tm; article number + direct link verify pass 2",
+     "evidence_type": "constitution",
+     "priority": "A"
+    },
+    {
+     "key": "tm-census-2022",
+     "source_name": "Turkmenistan Census 2022 (7.06M claimed; almost no language detail published)",
+     "source_url": null,
+     "url_null_reason": "detail unpublished — figures soft by construction; revisit if tables appear",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "recommended-pack — 6M state language, LATIN script (cheap content cost); opaque market, pack first, course later.",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "business",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": "Perso-Arabic in IR/AF; Latin in Turkmenistan — script split by country."
+   },
+   "needs_human_review": true,
+   "ekguru_priority": "P2",
+   "ekguru_reason": "score 58/100 (speakerReach=18, countryCount=8, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=2, translation=5, dataConfidence=3)",
+   "review_flags": [
+    "tts-unknown"
+   ]
+  },
+  {
+   "relationship_id": "lang:uzn:TM:REGIONAL",
+   "country_id": "TM",
+   "language_id": "lang:uzn",
+   "language_name": "Uzbek",
+   "native_name": "Oʻzbekcha",
+   "iso_639_1": null,
+   "iso_639_3": "uzn",
+   "glottocode": null,
+   "language_family": "Turkic: Karluk",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Latn",
+   "status_in_country": "LIVING",
+   "category": "REGIONAL",
+   "role_detail": null,
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "asOf": "agent-knowledge",
+    "confidence": "low",
+    "l1": 400000,
+    "total": 450000
+   },
+   "country_specific_evidence": "Concentrated north (Dashoguz/Lebap). Code 'uzn' Northern. Figures soft (census detail unpublished).",
+   "sources": [
+    {
+     "key": "tm-census-2022",
+     "source_name": "Turkmenistan Census 2022 (7.06M claimed; almost no language detail published)",
+     "source_url": null,
+     "url_null_reason": "detail unpublished — figures soft by construction; revisit if tables appear",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    },
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "medium",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "Shared with Uzbekistan entry — one Northern Uzbek course serves all.",
+   "learning_intent": {
+    "contexts": [
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": "Perso-Arabic in Afghanistan; Latin/Cyrillic in Uzbekistan — script split by country."
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P1",
+   "ekguru_reason": "score 73/100 (speakerReach=24, countryCount=10, education=5, travel=5, business=5, migration=3, internetContentProxy=4, learningDemandProxy=4, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:rus:TM:MINORITY",
+   "country_id": "TM",
+   "language_id": "lang:rus",
+   "language_name": "Russian",
+   "native_name": "Русский",
+   "iso_639_1": "ru",
+   "iso_639_3": "rus",
+   "glottocode": null,
+   "language_family": "Indo-European: Slavic: East",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "MINORITY",
+   "role_detail": null,
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "asOf": "agent-knowledge",
+    "confidence": "low",
+    "l1": 100000,
+    "total": 500000
+   },
+   "country_specific_evidence": "NOT official (Soviet status lapsed 1990s, never restored). Urban/older lingua-franca residue + Ashgabat minority L1 (~100k). Russian-medium schooling nearly gone — steepest decline in CA.",
+   "sources": [
+    {
+     "key": "tm-census-2022",
+     "source_name": "Turkmenistan Census 2022 (7.06M claimed; almost no language detail published)",
+     "source_url": null,
+     "url_null_reason": "detail unpublished — figures soft by construction; revisit if tables appear",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    },
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "medium",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried only (Hindi-for-Russian-speakers page is the audience bridge).",
+   "learning_intent": {
+    "contexts": [
+     "travel",
+     "daily conversation",
+     "heritage",
+     "family"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P1",
+   "ekguru_reason": "score 63/100 (speakerReach=18, countryCount=10, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:rus:TM:WIDELY_SPOKEN",
+   "country_id": "TM",
+   "language_id": "lang:rus",
+   "language_name": "Russian",
+   "native_name": "Русский",
+   "iso_639_1": "ru",
+   "iso_639_3": "rus",
+   "glottocode": null,
+   "language_family": "Indo-European: Slavic: East",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "WIDELY_SPOKEN",
+   "role_detail": null,
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "asOf": "agent-knowledge",
+    "confidence": "low",
+    "l1": 100000,
+    "total": 500000
+   },
+   "country_specific_evidence": "NOT official (Soviet status lapsed 1990s, never restored). Urban/older lingua-franca residue + Ashgabat minority L1 (~100k). Russian-medium schooling nearly gone — steepest decline in CA.",
+   "sources": [
+    {
+     "key": "tm-census-2022",
+     "source_name": "Turkmenistan Census 2022 (7.06M claimed; almost no language detail published)",
+     "source_url": null,
+     "url_null_reason": "detail unpublished — figures soft by construction; revisit if tables appear",
+     "evidence_type": "census",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    },
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "medium",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried only (Hindi-for-Russian-speakers page is the audience bridge).",
+   "learning_intent": {
+    "contexts": [
+     "travel",
+     "daily conversation",
+     "heritage",
+     "family"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P1",
+   "ekguru_reason": "score 63/100 (speakerReach=18, countryCount=10, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:mis:TM:turkmen-sign-language:TM:SIGN_LANGUAGE",
+   "country_id": "TM",
+   "language_id": "lang:mis:TM:turkmen-sign-language",
+   "language_name": "Turkmen Sign Language",
+   "native_name": null,
+   "iso_639_1": null,
+   "iso_639_3": "mis",
+   "glottocode": null,
+   "language_family": null,
+   "language_type": "SIGN_LANGUAGE",
+   "cluster_members": null,
+   "script": null,
+   "status_in_country": "LIVING",
+   "category": "SIGN_LANGUAGE",
+   "role_detail": null,
+   "estimated_speaker_band": "unknown",
+   "speaker_estimate": {},
+   "country_specific_evidence": "No ISO code; Ashgabat-based, Russian-SL influence. Documentation thinnest in CA. Verify pass 2.",
+   "sources": [
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "low",
+   "disputed": true,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried only.",
+   "learning_intent": {
+    "contexts": [
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": true,
+   "ekguru_priority": "P4",
+   "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
+   "review_flags": [
+    "low-confidence",
+    "disputed"
+   ]
+  },
+  {
+   "relationship_id": "lang:uzn:UZ:NATIONAL",
+   "country_id": "UZ",
+   "language_id": "lang:uzn",
+   "language_name": "Uzbek",
+   "native_name": "Oʻzbekcha",
+   "iso_639_1": null,
+   "iso_639_3": "uzn",
+   "glottocode": null,
+   "language_family": "Turkic: Karluk",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Latn",
+   "status_in_country": "LIVING",
+   "category": "NATIONAL",
+   "role_detail": null,
+   "estimated_speaker_band": "10M-100M",
+   "speaker_estimate": {
+    "asOf": "uz-stat-committee",
+    "confidence": "low",
+    "l1": 29000000,
+    "total": 31000000
+   },
+   "country_specific_evidence": "State language (1989 law + constitution); Latin script official since 1993 (Cyrillic legacy still widespread in print). Code 'uzn' NORTHERN Uzbek — the UZ standard. Last full census 1989 (Soviet) — ALL UZ figures are estimates.",
+   "sources": [
+    {
+     "key": "uz-language-law",
+     "source_name": "Uzbekistan Law on the State Language 1989/1995 + Latin-script law 1993",
+     "source_url": null,
+     "url_null_reason": "official text at lex.uz; direct links archive pass 2",
+     "evidence_type": "statute",
+     "priority": "A"
+    },
+    {
+     "key": "uz-stat-committee",
+     "source_name": "Uzbekistan State Statistics Committee estimates (LAST full census 1989)",
+     "source_url": null,
+     "url_null_reason": "stat.uz estimates; no census language tables exist — all UZ figures estimated",
+     "evidence_type": "official-estimate",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "recommended-course — 30M+ state language, LATIN script (low cost), zero EkGuru coverage; the single biggest CA course case.",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "business",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": "Perso-Arabic in Afghanistan; Latin/Cyrillic in Uzbekistan — script split by country."
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P1",
+   "ekguru_reason": "score 73/100 (speakerReach=24, countryCount=10, education=5, travel=5, business=5, migration=3, internetContentProxy=4, learningDemandProxy=4, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:uzn:UZ:OFFICIAL",
+   "country_id": "UZ",
+   "language_id": "lang:uzn",
+   "language_name": "Uzbek",
+   "native_name": "Oʻzbekcha",
+   "iso_639_1": null,
+   "iso_639_3": "uzn",
+   "glottocode": null,
+   "language_family": "Turkic: Karluk",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Latn",
+   "status_in_country": "LIVING",
+   "category": "OFFICIAL",
+   "role_detail": null,
+   "estimated_speaker_band": "10M-100M",
+   "speaker_estimate": {
+    "asOf": "uz-stat-committee",
+    "confidence": "low",
+    "l1": 29000000,
+    "total": 31000000
+   },
+   "country_specific_evidence": "State language (1989 law + constitution); Latin script official since 1993 (Cyrillic legacy still widespread in print). Code 'uzn' NORTHERN Uzbek — the UZ standard. Last full census 1989 (Soviet) — ALL UZ figures are estimates.",
+   "sources": [
+    {
+     "key": "uz-language-law",
+     "source_name": "Uzbekistan Law on the State Language 1989/1995 + Latin-script law 1993",
+     "source_url": null,
+     "url_null_reason": "official text at lex.uz; direct links archive pass 2",
+     "evidence_type": "statute",
+     "priority": "A"
+    },
+    {
+     "key": "uz-stat-committee",
+     "source_name": "Uzbekistan State Statistics Committee estimates (LAST full census 1989)",
+     "source_url": null,
+     "url_null_reason": "stat.uz estimates; no census language tables exist — all UZ figures estimated",
+     "evidence_type": "official-estimate",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "recommended-course — 30M+ state language, LATIN script (low cost), zero EkGuru coverage; the single biggest CA course case.",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "business",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": "Perso-Arabic in Afghanistan; Latin/Cyrillic in Uzbekistan — script split by country."
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P1",
+   "ekguru_reason": "score 73/100 (speakerReach=24, countryCount=10, education=5, travel=5, business=5, migration=3, internetContentProxy=4, learningDemandProxy=4, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:uzn:UZ:WIDELY_SPOKEN",
+   "country_id": "UZ",
+   "language_id": "lang:uzn",
+   "language_name": "Uzbek",
+   "native_name": "Oʻzbekcha",
+   "iso_639_1": null,
+   "iso_639_3": "uzn",
+   "glottocode": null,
+   "language_family": "Turkic: Karluk",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Latn",
+   "status_in_country": "LIVING",
+   "category": "WIDELY_SPOKEN",
+   "role_detail": null,
+   "estimated_speaker_band": "10M-100M",
+   "speaker_estimate": {
+    "asOf": "uz-stat-committee",
+    "confidence": "low",
+    "l1": 29000000,
+    "total": 31000000
+   },
+   "country_specific_evidence": "State language (1989 law + constitution); Latin script official since 1993 (Cyrillic legacy still widespread in print). Code 'uzn' NORTHERN Uzbek — the UZ standard. Last full census 1989 (Soviet) — ALL UZ figures are estimates.",
+   "sources": [
+    {
+     "key": "uz-language-law",
+     "source_name": "Uzbekistan Law on the State Language 1989/1995 + Latin-script law 1993",
+     "source_url": null,
+     "url_null_reason": "official text at lex.uz; direct links archive pass 2",
+     "evidence_type": "statute",
+     "priority": "A"
+    },
+    {
+     "key": "uz-stat-committee",
+     "source_name": "Uzbekistan State Statistics Committee estimates (LAST full census 1989)",
+     "source_url": null,
+     "url_null_reason": "stat.uz estimates; no census language tables exist — all UZ figures estimated",
+     "evidence_type": "official-estimate",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "recommended-course — 30M+ state language, LATIN script (low cost), zero EkGuru coverage; the single biggest CA course case.",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "business",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": "Perso-Arabic in Afghanistan; Latin/Cyrillic in Uzbekistan — script split by country."
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P1",
+   "ekguru_reason": "score 73/100 (speakerReach=24, countryCount=10, education=5, travel=5, business=5, migration=3, internetContentProxy=4, learningDemandProxy=4, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:uzn:UZ:WIDELY_SPOKEN:lingua-franca",
+   "country_id": "UZ",
+   "language_id": "lang:uzn",
+   "language_name": "Uzbek",
+   "native_name": "Oʻzbekcha",
+   "iso_639_1": null,
+   "iso_639_3": "uzn",
+   "glottocode": null,
+   "language_family": "Turkic: Karluk",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Latn",
+   "status_in_country": "LIVING",
+   "category": "WIDELY_SPOKEN",
+   "role_detail": "lingua-franca",
+   "estimated_speaker_band": "10M-100M",
+   "speaker_estimate": {
+    "asOf": "uz-stat-committee",
+    "confidence": "low",
+    "l1": 29000000,
+    "total": 31000000
+   },
+   "country_specific_evidence": "State language (1989 law + constitution); Latin script official since 1993 (Cyrillic legacy still widespread in print). Code 'uzn' NORTHERN Uzbek — the UZ standard. Last full census 1989 (Soviet) — ALL UZ figures are estimates.",
+   "sources": [
+    {
+     "key": "uz-language-law",
+     "source_name": "Uzbekistan Law on the State Language 1989/1995 + Latin-script law 1993",
+     "source_url": null,
+     "url_null_reason": "official text at lex.uz; direct links archive pass 2",
+     "evidence_type": "statute",
+     "priority": "A"
+    },
+    {
+     "key": "uz-stat-committee",
+     "source_name": "Uzbekistan State Statistics Committee estimates (LAST full census 1989)",
+     "source_url": null,
+     "url_null_reason": "stat.uz estimates; no census language tables exist — all UZ figures estimated",
+     "evidence_type": "official-estimate",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "recommended-course — 30M+ state language, LATIN script (low cost), zero EkGuru coverage; the single biggest CA course case.",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "business",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": "Perso-Arabic in Afghanistan; Latin/Cyrillic in Uzbekistan — script split by country."
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P1",
+   "ekguru_reason": "score 73/100 (speakerReach=24, countryCount=10, education=5, travel=5, business=5, migration=3, internetContentProxy=4, learningDemandProxy=4, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:kaa:UZ:OFFICIAL:official-regional",
+   "country_id": "UZ",
+   "language_id": "lang:kaa",
+   "language_name": "Karakalpak",
+   "native_name": "Qaraqalpaqsha",
+   "iso_639_1": null,
+   "iso_639_3": "kaa",
+   "glottocode": null,
+   "language_family": "Turkic: Kipchak",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Latn",
+   "status_in_country": "LIVING",
+   "category": "OFFICIAL",
+   "role_detail": "official-regional",
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "asOf": "uz-stat-committee",
+    "confidence": "low",
+    "l1": 750000,
+    "total": 800000
+   },
+   "country_specific_evidence": "Official in the Republic of Karakalpakstan (sovereign-within-UZ; 2022 reform crisis left the status intact — record factually). SIL Ref_Name 'Kara-Kalpak'. Latin script (1995 reform) + Cyrillic legacy. Kipchak — closest major relative is Kazakh, NOT Uzbek.",
+   "sources": [
+    {
+     "key": "karakalpakstan-constitution",
+     "source_name": "Constitution of the Republic of Karakalpakstan (Karakalpak official)",
+     "source_url": null,
+     "url_null_reason": "official text via sovminrk.gov.uz; direct link verify pass 2",
+     "evidence_type": "constitution",
+     "priority": "A"
+    },
+    {
+     "key": "uz-stat-committee",
+     "source_name": "Uzbekistan State Statistics Committee estimates (LAST full census 1989)",
+     "source_url": null,
+     "url_null_reason": "stat.uz estimates; no census language tables exist — all UZ figures estimated",
+     "evidence_type": "official-estimate",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "recommended-pack — 800k + official status + Latin script; autonomy sensitivities (2022) — strictly neutral framing.",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P3",
+   "ekguru_reason": "score 28/100 (speakerReach=12, countryCount=2, education=3, travel=2, business=0, migration=0, internetContentProxy=2, learningDemandProxy=2, ttsAsr=0, translation=0, dataConfidence=5)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:kaa:UZ:REGIONAL",
+   "country_id": "UZ",
+   "language_id": "lang:kaa",
+   "language_name": "Karakalpak",
+   "native_name": "Qaraqalpaqsha",
+   "iso_639_1": null,
+   "iso_639_3": "kaa",
+   "glottocode": null,
+   "language_family": "Turkic: Kipchak",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Latn",
+   "status_in_country": "LIVING",
+   "category": "REGIONAL",
+   "role_detail": null,
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "asOf": "uz-stat-committee",
+    "confidence": "low",
+    "l1": 750000,
+    "total": 800000
+   },
+   "country_specific_evidence": "Official in the Republic of Karakalpakstan (sovereign-within-UZ; 2022 reform crisis left the status intact — record factually). SIL Ref_Name 'Kara-Kalpak'. Latin script (1995 reform) + Cyrillic legacy. Kipchak — closest major relative is Kazakh, NOT Uzbek.",
+   "sources": [
+    {
+     "key": "karakalpakstan-constitution",
+     "source_name": "Constitution of the Republic of Karakalpakstan (Karakalpak official)",
+     "source_url": null,
+     "url_null_reason": "official text via sovminrk.gov.uz; direct link verify pass 2",
+     "evidence_type": "constitution",
+     "priority": "A"
+    },
+    {
+     "key": "uz-stat-committee",
+     "source_name": "Uzbekistan State Statistics Committee estimates (LAST full census 1989)",
+     "source_url": null,
+     "url_null_reason": "stat.uz estimates; no census language tables exist — all UZ figures estimated",
+     "evidence_type": "official-estimate",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "high",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "recommended-pack — 800k + official status + Latin script; autonomy sensitivities (2022) — strictly neutral framing.",
+   "learning_intent": {
+    "contexts": [
+     "school",
+     "work",
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P3",
+   "ekguru_reason": "score 28/100 (speakerReach=12, countryCount=2, education=3, travel=2, business=0, migration=0, internetContentProxy=2, learningDemandProxy=2, ttsAsr=0, translation=0, dataConfidence=5)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:tgk:UZ:REGIONAL",
+   "country_id": "UZ",
+   "language_id": "lang:tgk",
+   "language_name": "Tajik",
+   "native_name": "тоҷикӣ",
+   "iso_639_1": "tg",
+   "iso_639_3": "tgk",
+   "glottocode": null,
+   "language_family": "Indo-European: Iranian",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "REGIONAL",
+   "role_detail": null,
+   "estimated_speaker_band": "1M-10M",
+   "speaker_estimate": {
+    "asOf": "uz-stat-committee",
+    "confidence": "low",
+    "l1": 1700000,
+    "total": 2000000
+   },
+   "country_specific_evidence": "CENTRAL ASIAN STATISTICAL DISPUTE: official ~1.7M (4.8%) but widely believed undercounted (many Tajiks registered as Uzbek; Samarkand/Bukhara are historically Tajik cities). Scholarly guesses run to 4M+. Figure carried as official-with-dispute, low confidence. Cyrillic in UZ.",
+   "sources": [
+    {
+     "key": "uz-stat-committee",
+     "source_name": "Uzbekistan State Statistics Committee estimates (LAST full census 1989)",
+     "source_url": null,
+     "url_null_reason": "stat.uz estimates; no census language tables exist — all UZ figures estimated",
+     "evidence_type": "official-estimate",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    },
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "medium",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "Shared with Tajikistan entry — one Tajik course serves both (Samarkand/Bukhara prestige-dialect notes).",
+   "learning_intent": {
+    "contexts": [
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P2",
+   "ekguru_reason": "score 54/100 (speakerReach=18, countryCount=4, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=2, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:tgk:UZ:WIDELY_SPOKEN",
+   "country_id": "UZ",
+   "language_id": "lang:tgk",
+   "language_name": "Tajik",
+   "native_name": "тоҷикӣ",
+   "iso_639_1": "tg",
+   "iso_639_3": "tgk",
+   "glottocode": null,
+   "language_family": "Indo-European: Iranian",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "WIDELY_SPOKEN",
+   "role_detail": null,
+   "estimated_speaker_band": "1M-10M",
+   "speaker_estimate": {
+    "asOf": "uz-stat-committee",
+    "confidence": "low",
+    "l1": 1700000,
+    "total": 2000000
+   },
+   "country_specific_evidence": "CENTRAL ASIAN STATISTICAL DISPUTE: official ~1.7M (4.8%) but widely believed undercounted (many Tajiks registered as Uzbek; Samarkand/Bukhara are historically Tajik cities). Scholarly guesses run to 4M+. Figure carried as official-with-dispute, low confidence. Cyrillic in UZ.",
+   "sources": [
+    {
+     "key": "uz-stat-committee",
+     "source_name": "Uzbekistan State Statistics Committee estimates (LAST full census 1989)",
+     "source_url": null,
+     "url_null_reason": "stat.uz estimates; no census language tables exist — all UZ figures estimated",
+     "evidence_type": "official-estimate",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    },
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "medium",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "Shared with Tajikistan entry — one Tajik course serves both (Samarkand/Bukhara prestige-dialect notes).",
+   "learning_intent": {
+    "contexts": [
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P2",
+   "ekguru_reason": "score 54/100 (speakerReach=18, countryCount=4, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=2, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:rus:UZ:MINORITY",
+   "country_id": "UZ",
+   "language_id": "lang:rus",
+   "language_name": "Russian",
+   "native_name": "Русский",
+   "iso_639_1": "ru",
+   "iso_639_3": "rus",
+   "glottocode": null,
+   "language_family": "Indo-European: Slavic: East",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "MINORITY",
+   "role_detail": null,
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "asOf": "uz-stat-committee",
+    "confidence": "low",
+    "l1": 650000,
+    "total": 5000000
+   },
+   "country_specific_evidence": "NOT official. Tashkent business/interethnic lingua franca + large urban L1 minority (~650k). Labour-migration L2 (Russia-bound) keeps demand high despite no official function.",
+   "sources": [
+    {
+     "key": "uz-stat-committee",
+     "source_name": "Uzbekistan State Statistics Committee estimates (LAST full census 1989)",
+     "source_url": null,
+     "url_null_reason": "stat.uz estimates; no census language tables exist — all UZ figures estimated",
+     "evidence_type": "official-estimate",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    },
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "medium",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried only (Hindi-for-Russian-speakers page is the audience bridge).",
+   "learning_intent": {
+    "contexts": [
+     "travel",
+     "daily conversation",
+     "heritage",
+     "family"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P1",
+   "ekguru_reason": "score 63/100 (speakerReach=18, countryCount=10, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:rus:UZ:WIDELY_SPOKEN",
+   "country_id": "UZ",
+   "language_id": "lang:rus",
+   "language_name": "Russian",
+   "native_name": "Русский",
+   "iso_639_1": "ru",
+   "iso_639_3": "rus",
+   "glottocode": null,
+   "language_family": "Indo-European: Slavic: East",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "WIDELY_SPOKEN",
+   "role_detail": null,
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "asOf": "uz-stat-committee",
+    "confidence": "low",
+    "l1": 650000,
+    "total": 5000000
+   },
+   "country_specific_evidence": "NOT official. Tashkent business/interethnic lingua franca + large urban L1 minority (~650k). Labour-migration L2 (Russia-bound) keeps demand high despite no official function.",
+   "sources": [
+    {
+     "key": "uz-stat-committee",
+     "source_name": "Uzbekistan State Statistics Committee estimates (LAST full census 1989)",
+     "source_url": null,
+     "url_null_reason": "stat.uz estimates; no census language tables exist — all UZ figures estimated",
+     "evidence_type": "official-estimate",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    },
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "medium",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried only (Hindi-for-Russian-speakers page is the audience bridge).",
+   "learning_intent": {
+    "contexts": [
+     "travel",
+     "daily conversation",
+     "heritage",
+     "family"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P1",
+   "ekguru_reason": "score 63/100 (speakerReach=18, countryCount=10, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:rus:UZ:WIDELY_SPOKEN:lingua-franca",
+   "country_id": "UZ",
+   "language_id": "lang:rus",
+   "language_name": "Russian",
+   "native_name": "Русский",
+   "iso_639_1": "ru",
+   "iso_639_3": "rus",
+   "glottocode": null,
+   "language_family": "Indo-European: Slavic: East",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "WIDELY_SPOKEN",
+   "role_detail": "lingua-franca",
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "asOf": "uz-stat-committee",
+    "confidence": "low",
+    "l1": 650000,
+    "total": 5000000
+   },
+   "country_specific_evidence": "NOT official. Tashkent business/interethnic lingua franca + large urban L1 minority (~650k). Labour-migration L2 (Russia-bound) keeps demand high despite no official function.",
+   "sources": [
+    {
+     "key": "uz-stat-committee",
+     "source_name": "Uzbekistan State Statistics Committee estimates (LAST full census 1989)",
+     "source_url": null,
+     "url_null_reason": "stat.uz estimates; no census language tables exist — all UZ figures estimated",
+     "evidence_type": "official-estimate",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    },
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "medium",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried only (Hindi-for-Russian-speakers page is the audience bridge).",
+   "learning_intent": {
+    "contexts": [
+     "travel",
+     "daily conversation",
+     "heritage",
+     "family"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P1",
+   "ekguru_reason": "score 63/100 (speakerReach=18, countryCount=10, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:kaz:UZ:REGIONAL",
+   "country_id": "UZ",
+   "language_id": "lang:kaz",
+   "language_name": "Kazakh",
+   "native_name": "Қазақша",
+   "iso_639_1": "kk",
+   "iso_639_3": "kaz",
+   "glottocode": null,
+   "language_family": "Turkic: Kipchak",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "REGIONAL",
+   "role_detail": null,
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "asOf": "uz-stat-committee",
+    "confidence": "low",
+    "l1": 800000,
+    "total": 850000
+   },
+   "country_specific_evidence": "Concentrated northwest (Karakalpakstan/Nukus). Cyrillic (KZ Latin transition does not apply here). Cross-border with KZ entry.",
+   "sources": [
+    {
+     "key": "uz-stat-committee",
+     "source_name": "Uzbekistan State Statistics Committee estimates (LAST full census 1989)",
+     "source_url": null,
+     "url_null_reason": "stat.uz estimates; no census language tables exist — all UZ figures estimated",
+     "evidence_type": "official-estimate",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "medium",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "Shared with Kazakhstan entry — one Kazakh course serves both.",
+   "learning_intent": {
+    "contexts": [
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P1",
+   "ekguru_reason": "score 67/100 (speakerReach=24, countryCount=4, education=5, travel=5, business=5, migration=3, internetContentProxy=4, learningDemandProxy=4, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:kir:UZ:REGIONAL",
+   "country_id": "UZ",
+   "language_id": "lang:kir",
+   "language_name": "Kyrgyz",
+   "native_name": "Кыргызча",
+   "iso_639_1": "ky",
+   "iso_639_3": "kir",
+   "glottocode": null,
+   "language_family": "Turkic: Kipchak",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "REGIONAL",
+   "role_detail": null,
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "asOf": "uz-stat-committee",
+    "confidence": "low",
+    "l1": 500000,
+    "total": 550000
+   },
+   "country_specific_evidence": "Concentrated east (Andijan/Ferghana). Cross-border with KG entry.",
+   "sources": [
+    {
+     "key": "uz-stat-committee",
+     "source_name": "Uzbekistan State Statistics Committee estimates (LAST full census 1989)",
+     "source_url": null,
+     "url_null_reason": "stat.uz estimates; no census language tables exist — all UZ figures estimated",
+     "evidence_type": "official-estimate",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "medium",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "Shared with Kyrgyzstan entry — one Kyrgyz pack serves both.",
+   "learning_intent": {
+    "contexts": [
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P2",
+   "ekguru_reason": "score 57/100 (speakerReach=18, countryCount=4, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=5, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:tuk:UZ:REGIONAL",
+   "country_id": "UZ",
+   "language_id": "lang:tuk",
+   "language_name": "Turkmen",
+   "native_name": "Türkmençe",
+   "iso_639_1": "tk",
+   "iso_639_3": "tuk",
+   "glottocode": null,
+   "language_family": "Turkic: Oghuz",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "REGIONAL",
+   "role_detail": null,
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "asOf": "uz-stat-committee",
+    "confidence": "low",
+    "l1": 200000,
+    "total": 220000
+   },
+   "country_specific_evidence": "Concentrated Khorezm/south-Karakalpakstan. SCRIPT SPLIT inside one code: TM-side Latin (entry override), UZ-side mostly Cyrillic, AF/IR-side Perso-Arabic — the shared-pack script note writes itself.",
+   "sources": [
+    {
+     "key": "uz-stat-committee",
+     "source_name": "Uzbekistan State Statistics Committee estimates (LAST full census 1989)",
+     "source_url": null,
+     "url_null_reason": "stat.uz estimates; no census language tables exist — all UZ figures estimated",
+     "evidence_type": "official-estimate",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "medium",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "Shared with Turkmenistan entry — one Turkmen pack serves both (script note: UZ-side Turkmen mostly Cyrillic, TM-side Latin!).",
+   "learning_intent": {
+    "contexts": [
+     "travel",
+     "daily conversation"
+    ],
+    "variation_note": "Perso-Arabic in IR/AF; Latin in Turkmenistan — script split by country."
+   },
+   "needs_human_review": true,
+   "ekguru_priority": "P2",
+   "ekguru_reason": "score 58/100 (speakerReach=18, countryCount=8, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=2, translation=5, dataConfidence=3)",
+   "review_flags": [
+    "tts-unknown"
+   ]
+  },
+  {
+   "relationship_id": "lang:tat:UZ:MINORITY",
+   "country_id": "UZ",
+   "language_id": "lang:tat",
+   "language_name": "Tatar",
+   "native_name": "Татарча",
+   "iso_639_1": "tt",
+   "iso_639_3": "tat",
+   "glottocode": null,
+   "language_family": "Turkic: Kipchak",
+   "language_type": "CANONICAL_LANGUAGE",
+   "cluster_members": null,
+   "script": "Cyrl",
+   "status_in_country": "LIVING",
+   "category": "MINORITY",
+   "role_detail": null,
+   "estimated_speaker_band": "100K-1M",
+   "speaker_estimate": {
+    "asOf": "uz-stat-committee",
+    "confidence": "low",
+    "l1": 200000,
+    "total": 220000
+   },
+   "country_specific_evidence": "Dispersed urban (Tashkent/Ferghana). Distinct from Crimean Tatar (crh, ~10k remnant — long-tail, most returned to Crimea).",
+   "sources": [
+    {
+     "key": "uz-stat-committee",
+     "source_name": "Uzbekistan State Statistics Committee estimates (LAST full census 1989)",
+     "source_url": null,
+     "url_null_reason": "stat.uz estimates; no census language tables exist — all UZ figures estimated",
+     "evidence_type": "official-estimate",
+     "priority": "B"
+    },
+    {
+     "key": "ethnologue-27",
+     "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+     "source_url": "https://www.ethnologue.com",
+     "evidence_type": "linguistic-database",
+     "priority": "A"
+    }
+   ],
+   "confidence": "medium",
+   "disputed": false,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "watch — dispersed urban; any Tatar action keys off the RU/Tatarstan entry (future batch).",
+   "learning_intent": {
+    "contexts": [
+     "heritage",
+     "family"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": false,
+   "ekguru_priority": "P3",
+   "ekguru_reason": "score 34/100 (speakerReach=12, countryCount=4, education=0, travel=1, business=0, migration=3, internetContentProxy=2, learningDemandProxy=2, ttsAsr=2, translation=5, dataConfidence=3)",
+   "review_flags": []
+  },
+  {
+   "relationship_id": "lang:mis:UZ:uzbek-sign-language:UZ:SIGN_LANGUAGE",
+   "country_id": "UZ",
+   "language_id": "lang:mis:UZ:uzbek-sign-language",
+   "language_name": "Uzbek Sign Language",
+   "native_name": null,
+   "iso_639_1": null,
+   "iso_639_3": "mis",
+   "glottocode": null,
+   "language_family": null,
+   "language_type": "SIGN_LANGUAGE",
+   "cluster_members": null,
+   "script": null,
+   "status_in_country": "LIVING",
+   "category": "SIGN_LANGUAGE",
+   "role_detail": null,
+   "estimated_speaker_band": "unknown",
+   "speaker_estimate": {},
+   "country_specific_evidence": "No ISO code; Tashkent-based, Russian-SL influence. Verify pass 2 (WFD/UZ deaf orgs).",
+   "sources": [
+    {
+     "key": "agent-knowledge",
+     "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+     "source_url": null,
+     "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+     "evidence_type": "agent-compiled",
+     "priority": "D-agent"
+    }
+   ],
+   "confidence": "low",
+   "disputed": true,
+   "ekguru_status": "none",
+   "ekguru_recommendation": "none — inventoried only.",
+   "learning_intent": {
+    "contexts": [
+     "daily conversation"
+    ],
+    "variation_note": null
+   },
+   "needs_human_review": true,
+   "ekguru_priority": "P4",
+   "ekguru_reason": "cluster/uncoded — research-only, never auto-promoted",
+   "review_flags": [
+    "low-confidence",
+    "disputed"
+   ]
+  },
   {
    "relationship_id": "lang:prs:AF:OFFICIAL",
    "country_id": "AF",
@@ -356,13 +4040,13 @@
    ]
   },
   {
-   "relationship_id": "lang:uzn:AF:REGIONAL",
+   "relationship_id": "lang:uzs:AF:REGIONAL",
    "country_id": "AF",
-   "language_id": "lang:uzn",
+   "language_id": "lang:uzs",
    "language_name": "Southern Uzbek",
-   "native_name": "Ўзбекча",
+   "native_name": null,
    "iso_639_1": null,
-   "iso_639_3": "uzn",
+   "iso_639_3": "uzs",
    "glottocode": null,
    "language_family": "Turkic: Karluk",
    "language_type": "CANONICAL_LANGUAGE",
@@ -378,7 +4062,7 @@
     "asOf": "ethnologue-27",
     "confidence": "medium"
    },
-   "country_specific_evidence": "Named in Art.16 ('Uzbeki') with official standing in Uzbek-majority areas. Distinct code from Northern Uzbek (uzn vs uzs).",
+   "country_specific_evidence": "Named in Art.16 ('Uzbeki') with official standing in Uzbek-majority areas. Distinct code from Northern Uzbek (uzs vs uzn). SIL identity audit 2026-09-14: AF Southern corrected ex-uzn misfile.",
    "sources": [
     {
      "key": "constitution-2004-art16",
@@ -404,21 +4088,23 @@
      "travel",
      "daily conversation"
     ],
-    "variation_note": "Perso-Arabic in Afghanistan; Latin/Cyrillic in Uzbekistan — script split by country."
+    "variation_note": null
    },
-   "needs_human_review": false,
-   "ekguru_priority": "P2",
-   "ekguru_reason": "score 48/100 (speakerReach=18, countryCount=2, education=0, travel=5, business=2, migration=0, internetContentProxy=3, learningDemandProxy=3, ttsAsr=5, translation=5, dataConfidence=5)",
-   "review_flags": []
+   "needs_human_review": true,
+   "ekguru_priority": "P3",
+   "ekguru_reason": "score 38/100 (speakerReach=18, countryCount=2, education=0, travel=5, business=2, migration=0, internetContentProxy=3, learningDemandProxy=3, ttsAsr=0, translation=0, dataConfidence=5)",
+   "review_flags": [
+    "native-missing"
+   ]
   },
   {
-   "relationship_id": "lang:uzn:AF:WIDELY_SPOKEN",
+   "relationship_id": "lang:uzs:AF:WIDELY_SPOKEN",
    "country_id": "AF",
-   "language_id": "lang:uzn",
+   "language_id": "lang:uzs",
    "language_name": "Southern Uzbek",
-   "native_name": "Ўзбекча",
+   "native_name": null,
    "iso_639_1": null,
-   "iso_639_3": "uzn",
+   "iso_639_3": "uzs",
    "glottocode": null,
    "language_family": "Turkic: Karluk",
    "language_type": "CANONICAL_LANGUAGE",
@@ -434,7 +4120,7 @@
     "asOf": "ethnologue-27",
     "confidence": "medium"
    },
-   "country_specific_evidence": "Named in Art.16 ('Uzbeki') with official standing in Uzbek-majority areas. Distinct code from Northern Uzbek (uzn vs uzs).",
+   "country_specific_evidence": "Named in Art.16 ('Uzbeki') with official standing in Uzbek-majority areas. Distinct code from Northern Uzbek (uzs vs uzn). SIL identity audit 2026-09-14: AF Southern corrected ex-uzn misfile.",
    "sources": [
     {
      "key": "constitution-2004-art16",
@@ -460,12 +4146,14 @@
      "travel",
      "daily conversation"
     ],
-    "variation_note": "Perso-Arabic in Afghanistan; Latin/Cyrillic in Uzbekistan — script split by country."
+    "variation_note": null
    },
-   "needs_human_review": false,
-   "ekguru_priority": "P2",
-   "ekguru_reason": "score 48/100 (speakerReach=18, countryCount=2, education=0, travel=5, business=2, migration=0, internetContentProxy=3, learningDemandProxy=3, ttsAsr=5, translation=5, dataConfidence=5)",
-   "review_flags": []
+   "needs_human_review": true,
+   "ekguru_priority": "P3",
+   "ekguru_reason": "score 38/100 (speakerReach=18, countryCount=2, education=0, travel=5, business=2, migration=0, internetContentProxy=3, learningDemandProxy=3, ttsAsr=0, translation=0, dataConfidence=5)",
+   "review_flags": [
+    "native-missing"
+   ]
   },
   {
    "relationship_id": "lang:tuk:AF:REGIONAL",
@@ -520,7 +4208,7 @@
    },
    "needs_human_review": true,
    "ekguru_priority": "P2",
-   "ekguru_reason": "score 43/100 (speakerReach=18, countryCount=4, education=0, travel=2, business=0, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=2, translation=5, dataConfidence=3)",
+   "ekguru_reason": "score 58/100 (speakerReach=18, countryCount=8, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=2, translation=5, dataConfidence=3)",
    "review_flags": [
     "tts-unknown"
    ]
@@ -6666,7 +10354,7 @@
    },
    "needs_human_review": true,
    "ekguru_priority": "P2",
-   "ekguru_reason": "score 43/100 (speakerReach=18, countryCount=4, education=0, travel=2, business=0, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=2, translation=5, dataConfidence=3)",
+   "ekguru_reason": "score 58/100 (speakerReach=18, countryCount=8, education=5, travel=5, business=3, migration=3, internetContentProxy=3, learningDemandProxy=3, ttsAsr=2, translation=5, dataConfidence=3)",
    "review_flags": [
     "tts-unknown"
    ]
@@ -8551,7 +12239,7 @@
    "relationship_id": "lang:new:NP:REGIONAL",
    "country_id": "NP",
    "language_id": "lang:new",
-   "language_name": "Newar",
+   "language_name": "Newari (Nepal Bhasa)",
    "native_name": "नेवाः",
    "iso_639_1": null,
    "iso_639_3": "new",
@@ -8570,7 +12258,7 @@
     "asOf": "census-2021",
     "confidence": "medium"
    },
-   "country_specific_evidence": "Kathmandu Valley (Nepal Bhasa). Bagmati-province recognition reported — NOT confirmed as official function; kept 'regional' + note (honest downgrade, verify pass 2). Ranjana/Prachalit scripts.",
+   "country_specific_evidence": "Kathmandu Valley (Nepal Bhasa). Bagmati-province recognition reported — NOT confirmed as official function; kept 'regional' + note (honest downgrade, verify pass 2). Ranjana/Prachalit scripts. Entry renamed 2026-09-14 (Newar = the people; SIL Ref_Name 'Nepal Bhasa').",
    "sources": [
     {
      "key": "census-2021",
@@ -8607,7 +12295,7 @@
    "relationship_id": "lang:new:NP:WIDELY_SPOKEN",
    "country_id": "NP",
    "language_id": "lang:new",
-   "language_name": "Newar",
+   "language_name": "Newari (Nepal Bhasa)",
    "native_name": "नेवाः",
    "iso_639_1": null,
    "iso_639_3": "new",
@@ -8626,7 +12314,7 @@
     "asOf": "census-2021",
     "confidence": "medium"
    },
-   "country_specific_evidence": "Kathmandu Valley (Nepal Bhasa). Bagmati-province recognition reported — NOT confirmed as official function; kept 'regional' + note (honest downgrade, verify pass 2). Ranjana/Prachalit scripts.",
+   "country_specific_evidence": "Kathmandu Valley (Nepal Bhasa). Bagmati-province recognition reported — NOT confirmed as official function; kept 'regional' + note (honest downgrade, verify pass 2). Ranjana/Prachalit scripts. Entry renamed 2026-09-14 (Newar = the people; SIL Ref_Name 'Nepal Bhasa').",
    "sources": [
     {
      "key": "census-2021",

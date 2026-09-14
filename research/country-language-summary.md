@@ -1,4 +1,4 @@
-# Country–Language Summary (PRELIMINARY — 9/194)
+# Country–Language Summary (PRELIMINARY — 14/194)
 
 Per-country category split (owner Phase 2). Categories are never collapsed: a
 language with several roles appears under each. Generated — do not hand-edit.
@@ -9,9 +9,9 @@ Researched living estimate: 40 (ethnologue-27, medium). Entries below: 10.
 
 **OFFICIAL** (2): Dari (prs, high); Pashto (mis, high).
 
-**WIDELY_SPOKEN** (4): Dari (prs, high); Dari (prs, high); Pashto (mis, high); Southern Uzbek (uzn, high).
+**WIDELY_SPOKEN** (4): Dari (prs, high); Dari (prs, high); Pashto (mis, high); Southern Uzbek (uzs, high).
 
-**REGIONAL** (3): Balochi (bal, medium); Southern Uzbek (uzn, high); Turkmen (tuk, high).
+**REGIONAL** (3): Balochi (bal, medium); Southern Uzbek (uzs, high); Turkmen (tuk, high).
 
 **INDIGENOUS** (3): Nuristani languages (mis, medium); Pamiri languages (mis, medium); Pashayi languages (mis, medium).
 
@@ -96,6 +96,42 @@ Researched living estimate: 75 (ethnologue-27, medium). Entries below: 18.
 Long tail / notes: Below-threshold/notes-only: Tati group (tks?/esh? — Tati is a cluster, pass-2 split), Semnani smy, Sangsari sgr, Caspian Taleshi dialects, Vafsi vaf, Hawrami hac (Kurdish-cluster edge — Gorani; listed under Kurdish dispute), Zazaki? no (Turkey only), Georgian kat (Fereydan, ~50k), Circassian? no, Brahui brh (small pockets), Domari rmt (tiny), Mandaic mid (Khuzestan, ~few hundred speakers, endangered), Hebrew hbo liturgical (Jewish community ~10k), Syriac syc liturgical (Assyrian church). Azeri vs Khalaj klj (Qom, ~40k, arguable Turkic isolate) — notes. Dari/Zoroastrian gbz (~10k, NOT Afghan Da
 
 
+## KG — Kyrgyzstan (Central Asia)
+
+Researched living estimate: 34 (ethnologue-27, medium). Entries below: 5.
+
+**OFFICIAL** (2): Kyrgyz (kir, high); Russian (rus, high).
+
+**NATIONAL** (1): Kyrgyz (kir, high).
+
+**WIDELY_SPOKEN** (4): Kyrgyz (kir, high); Russian (rus, high); Russian (rus, high); Uzbek (uzn, high).
+
+**REGIONAL** (2): Dungan (dng, medium); Uzbek (uzn, high).
+
+**SIGN_LANGUAGE** (1): Kyrgyz Sign Language (mis, low).
+
+Long tail / notes: Below-threshold/notes-only: Tajik tgk (~60k Batken/Chon-Alai — no entry, TJ entry covers planning); Uyghur uig (~60k — no entry, KZ entry covers); Turkish tur (~40k Meskhetian); Kazakh kaz (~30k north); Tatar tat (~30k); German deu + Plautdietsch pdt (Talas Mennonites, few k — most emigrated); Korean kor (~15k); Sart-Kalmak (Issyk-Kul ~12k, Oirat xal — Mongolic enclave celebrity, below threshold); Uzbek dialects (Osh); Kyrgyz N/S dialects; Quranic Arabic per AF/PK treatment (no entry).
+
+
+## KZ — Kazakhstan (Central Asia)
+
+Researched living estimate: 44 (ethnologue-27, medium). Entries below: 9.
+
+**OFFICIAL** (2): Kazakh (kaz, high); Russian (rus, high).
+
+**NATIONAL** (1): Kazakh (kaz, high).
+
+**WIDELY_SPOKEN** (3): Kazakh (kaz, high); Russian (rus, high); Russian (rus, high).
+
+**REGIONAL** (4): Dungan (dng, medium); Turkish (tur, medium); Uyghur (uig, medium); Uzbek (uzn, medium).
+
+**MINORITY** (2): Azerbaijani (azj, medium); Tatar (tat, medium).
+
+**SIGN_LANGUAGE** (1): Kazakhstani Sign Language (mis, low).
+
+Long tail / notes: Below-threshold/notes-only: German deu (~180k ethnic, L1 German only ~30k — deeply Russified, no entry); Ukrainian ukr (~260k ethnic north, L1 small — Russified); Korean kor Koryo-saram (~120k ethnic, L1 ~25k Koryo-mar dialect, barely intelligible with Seoul standard — no entry); Kurdish kmr (~50k deportee community); Tajik tgk (~50k south); Kyrgyz kir (border villages); Turkmen tuk (Mangystau ~3k); Karakalpak kaa (~5k); Belarusian bel; Polish pol; Chechen ce (~30k+ deportee community — VERIFY, threshold edge); Ingush inh; Bashkir bak; Kazakh dialects (NE/S/SW — mutually intelligible, correctl
+
+
 ## LK — Sri Lanka (Southern Asia)
 
 Researched living estimate: 8 (ethnologue-27, medium). Entries below: 6.
@@ -136,9 +172,9 @@ Researched living estimate: 124 (census-2021, high). Entries below: 18.
 
 **OFFICIAL** (3): Bhojpuri (bho, medium); Maithili (mai, medium); Nepali (npi, high).
 
-**WIDELY_SPOKEN** (7): Bhojpuri (bho, medium); English (eng, high); Hindi (hin, medium); Maithili (mai, medium); Nepali (npi, high); Nepali (npi, high); Newar (new, medium).
+**WIDELY_SPOKEN** (7): Bhojpuri (bho, medium); English (eng, high); Hindi (hin, medium); Maithili (mai, medium); Nepali (npi, high); Nepali (npi, high); Newari (Nepal Bhasa) (new, medium).
 
-**REGIONAL** (8): Awadhi (awa, medium); Doteli (dty, medium); Gurung languages (mis, low); Limbu (lif, medium); Magar (mgp, medium); Newar (new, medium); Tamang languages (mis, medium); Tharu languages (mis, medium).
+**REGIONAL** (8): Awadhi (awa, medium); Doteli (dty, medium); Gurung languages (mis, low); Limbu (lif, medium); Magar (mgp, medium); Newari (Nepal Bhasa) (new, medium); Tamang languages (mis, medium); Tharu languages (mis, medium).
 
 **INDIGENOUS** (7): Bantawa (bap, medium); Gurung languages (mis, low); Limbu (lif, medium); Magar (mgp, medium); Sherpa (xsr, medium); Tamang languages (mis, medium); Tharu languages (mis, medium).
 
@@ -172,4 +208,61 @@ Researched living estimate: 75 (ethnologue-27, medium). Entries below: 19.
 **OTHER** (1): Standard Arabic (arb, medium).
 
 Long tail / notes: Below-threshold/notes-only: Kalasha kls (~5k, famous; Hindu Kush isolate-adjacent Dardic), Khowar dialects, Wakhi wbl (~20k PK side), Dameli dml (~5k), Gawar-Bati gwt (~10k), Kalami kal (Kalam Kohistani ~100k? — threshold edge, verify pass 2), Torwali trw (~130k? — threshold edge, verify pass 2; Swat), Indus Kohistani mvy (~200k+? — VERIFY, may deserve entry), Bateri btv, Chilisso clh, Kalkoti xka, Wotapuri wsv (moribund), Ushojo ush, Palula phl (~10k), Savi sda, Yidgha ydg (Chitral/Lotkoh, ~6k), Sarikoli srh (Taxkorgan spillover, tiny), Kyrgyz kir (Broghil, ~few hundred), Gojri/Ahirani?, Marw
+
+
+## TJ — Tajikistan (Central Asia)
+
+Researched living estimate: 30 (ethnologue-27, medium). Entries below: 6.
+
+**OFFICIAL** (1): Tajik (tgk, high).
+
+**NATIONAL** (1): Tajik (tgk, high).
+
+**WIDELY_SPOKEN** (5): Russian (rus, high); Russian (rus, high); Tajik (tgk, high); Tajik (tgk, high); Uzbek (uzn, high).
+
+**REGIONAL** (1): Uzbek (uzn, high).
+
+**INDIGENOUS** (2): Shughni (sgh, medium); Yaghnobi (yai, medium).
+
+**SIGN_LANGUAGE** (1): Tajik Sign Language (mis, low).
+
+Long tail / notes: Below-threshold/notes-only: Kyrgyz kir (~60k Murghab/Jirgatol — no entry, KG entry covers); Wakhi wbl (~20k TJ side of ~60k global); Yazgulyam yah (~4k); Ishkashimi isk (~2k TJ side); Sanglechi sgy (~2k); Sarikoli srh (~1k TJ side, mostly CN); Rushani/Roshani + Bartangi + Khufi (uncoded Shughni-cluster varieties — NO ISO codes, do not invent); Turkmen tuk (~15k north); Kazakh kaz (~10k); Tatar tat (~20k); Tajiki Arabic abh (~2k Khatlon, moribund — Arabic enclave celebrity); Tajik dialects (Northern/Central/Southern); Quranic Arabic per AF/PK treatment (no entry).
+
+
+## TM — Turkmenistan (Central Asia)
+
+Researched living estimate: 32 (ethnologue-27, low). Entries below: 4.
+
+**OFFICIAL** (1): Turkmen (tuk, high).
+
+**NATIONAL** (1): Turkmen (tuk, high).
+
+**WIDELY_SPOKEN** (3): Russian (rus, medium); Turkmen (tuk, high); Turkmen (tuk, high).
+
+**REGIONAL** (1): Uzbek (uzn, medium).
+
+**MINORITY** (1): Russian (rus, medium).
+
+**SIGN_LANGUAGE** (1): Turkmen Sign Language (mis, low).
+
+Long tail / notes: Below-threshold/notes-only: Kazakh kaz (~90k — THRESHOLD EDGE, pass-2 VERIFY priority); Tatar tat (~30k); Balochi bgn (Mary/Merv ~30–100k, disputed — VERIFY); Persian pes (border, small); Kurdish kmr (small); Armenian hye (Ashgabat ethnic ~20k, L1 small); Azerbaijani azj (~20k west); Turkmen dialects (Teke/Yomut/Ersari — Yomut spans into IR); Quranic Arabic per AF/PK treatment (no entry).
+
+
+## UZ — Uzbekistan (Central Asia)
+
+Researched living estimate: 40 (ethnologue-27, low). Entries below: 9.
+
+**OFFICIAL** (2): Karakalpak (kaa, high); Uzbek (uzn, high).
+
+**NATIONAL** (1): Uzbek (uzn, high).
+
+**WIDELY_SPOKEN** (5): Russian (rus, medium); Russian (rus, medium); Tajik (tgk, medium); Uzbek (uzn, high); Uzbek (uzn, high).
+
+**REGIONAL** (5): Karakalpak (kaa, high); Kazakh (kaz, medium); Kyrgyz (kir, medium); Tajik (tgk, medium); Turkmen (tuk, medium).
+
+**MINORITY** (2): Russian (rus, medium); Tatar (tat, medium).
+
+**SIGN_LANGUAGE** (1): Uzbek Sign Language (mis, low).
+
+Long tail / notes: Below-threshold/notes-only: Turkish tur (~50–70k Meskhetian remnant; 1989 Ferghana pogrom drove most out — record factually); Uyghur uig (~50k east); Crimean Tatar crh (~10k remnant); Tajiki Arabic abh (~3k Bukhara/Qashqadarya villages, moribund — Arabic enclave celebrity); Parya paq (~7k Hisor, Indo-Aryan enclave — celebrity); Bukharian (jpr variety, ~1k remnant — emigration to Israel/US); Lyuli/Central Asian Roma (NO ISO code — VERIFY treatment); Persian pes (Bukhara few); Uzbek dialects (Qarluq literary base vs Qipchaq vs Khorezm-Oghuz — Khorezm speech is Oghuz, closest to Turkmen!); Tajik 
 

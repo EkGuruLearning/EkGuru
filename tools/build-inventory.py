@@ -94,13 +94,16 @@ PAIR_639_1 = {"kan": "kn", "hin": "hi", "ben": "bn", "tam": "ta", "tel": "te",
               "asm": "as", "nep": "ne", "sin": "si",
               "fas": "fa", "snd": "sd", "kas": "ks", "eng": "en",               "tuk": "tk", "tgk": "tg", "mya": "my", "tha": "th", "vie": "vi",
               "zho": "zh", "jpn": "ja", "kor": "ko", "rus": "ru", "fra": "fr",
-              "spa": "es", "deu": "de", "por": "pt", "ita": "it", "tur": "tr"}
+              "spa": "es", "deu": "de", "por": "pt", "ita": "it", "tur": "tr",
+              "kaz": "kk", "rus": "ru", "uig": "ug", "tat": "tt",
+              "kir": "ky", "tgk": "tg"}
 # Individual codes that must NEVER carry a 639-1 (it belongs to the macro/collective).
 NO_639_1 = {"prs": "fa belongs to fas", "kok": "Konkani has no 639-1",
             "pus": "639-2 collective, no 639-3/639-1 use", "bal": "macrolanguage, no 639-1",
             "doi": "no 639-1", "mai": "no 639-1", "sat": "no 639-1",
             "pnb": "pa belongs to pan", "knn": "Konkani individual, no 639-1",
-            "arb": "ar belongs to ara", "npi": "ne belongs to nep", "ory": "or belongs to ori"}
+            "arb": "ar belongs to ara", "npi": "ne belongs to nep", "ory": "or belongs to ori",
+            "uzn": "uz belongs to uzb", "uzs": "uz belongs to uzb", "azj": "az belongs to aze"}
 
 # Phase 10: variation notes allowed ONLY from here (each traces to batch notes).
 VARIATION_NOTES = {
@@ -226,7 +229,7 @@ def build():
                                           else "CLUSTER" if lang.get("group")
                                           else c.get("type", "CANONICAL_LANGUAGE")),
                         "cluster_members": lang.get("members") if lang.get("group") else None,
-                        "script": c.get("script"),
+                        "script": lang.get("script") or c.get("script"),  # entry override wins (e.g. TM tuk Latn vs canonical Arab)
                         "status_in_country": status, "category": cat,
                         "role_detail": role_detail,
                         "estimated_speaker_band": band,
@@ -488,11 +491,13 @@ def build():
                 status="open" if missing else "resolved-documented",
                 rationale="" if missing else "all 194 covered")
     need_review("iso-bulk-verification",
-                "batch-1: 113 cited codes (entries + members) checked against SIL 2026-09-14 download "
-                "(iso-639-3.tab + macrolanguages + retirements); 11 findings, all fixed: mrd retired->mgp, "
-                "hye/mni demacroed, doi/san macroed, arb/npi/ory Part1->macro, fas members -tgk, kok+knn, nep+dty",
+                "batch-1: 113 cited codes checked (SIL 2026-09-14 download); 11 findings fixed. "
+                "batch-2: 13 new entry codes pre-verified (existence/scope/Part1/retirements clean) + "
+                "uzn/uzs identity audit (AF Southern corrected uzn->uzs, canonical split) + name-identity "
+                "audit all batch-1 entries (1 real swap caught, rest spelling variants) + long-tail hunt "
+                "(Rushani/Bartangi/Khufi/Lyuli confirmed uncoded; paq/yah/isk/sgy/srh/abh/crh/pdt/jpr/xal confirmed).",
                 status="resolved-documented",
-                rationale="Pass-2 bulk check complete for batch-1 codes. MUST re-run for every new batch (METHOD rule).")
+                rationale="Bulk checks complete for batch-1+2 codes. MUST re-run for every new batch (METHOD rule).")
 
     # Phase 7 totals.
     living_canon = [c for c in canonical.values() if "LIVING" in c["statuses"]]

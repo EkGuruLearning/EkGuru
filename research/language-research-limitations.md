@@ -14,6 +14,11 @@ Pass 1 · Date: 2026-09-14. Read this before trusting any number in the inventor
 
 ## 2. Census staleness & politics (the big one)
 
+Batch-2 additions: Uzbekistan has had NO census since 1989 (all figures estimated);
+Turkmenistan's 2022 census published ~no language detail (all figures soft);
+the UZ Tajik count (~1.7M official) is widely believed undercounted (dispute recorded
+on the entry).
+
 | Country | Latest usable round | Problem |
 |---------|--------------------|---------|
 | India | 2011 | 15 years old; no 2021 round; Hindi umbrella folds 100M+ non-Hindi returns |

@@ -1,8 +1,8 @@
 # Language Data Sources (Phase 13) + API Cross-Check Log (Phase 11)
 
 Pass 1 · Date: 2026-09-14. Machine-readable registry:
-`data/language-inventory/core/_sources.json` (33 keys). Usage counts below are
-batch-1 actuals (southern-asia, 9 countries).
+`data/language-inventory/core/_sources.json` (44 keys: 33 batch-1 + 11 batch-2).
+Usage counts below are batch-1 actuals (southern-asia, 9 countries).
 
 ## 1. Source hierarchy (METHOD Phase 1 — applied)
 
@@ -44,6 +44,16 @@ Full names/URLs in `_sources.json`; URL-null entries carry a reason
 - **unhcr-2024** (1): Rohingya figures (no census covers refugees).
 - **agent-knowledge** (61): the honest pile. Every one is a pass-2 task.
 
+## 2b. Batch-2 keys (central-asia, 5 countries)
+
+Tier A: kz-constitution-art7, kg-constitution, tj-language-law (2009),
+tm-constitution, uz-language-law (1989/1995 + Latin 1993),
+karakalpakstan-constitution (Karakalpak official).
+Tier B: kz-census-2021 (19.17M), kg-census-2022 (6.94M), tj-census-2020
+(~9.5M), tm-census-2022 (7.06M claimed, no language detail),
+uz-stat-committee (ESTIMATES — last full census 1989).
+All URLs null-with-portal-reason (archive pass 2).
+
 ## 3. Registry keys: used vs reserved
 
 iso-639-3 (SIL table bulk check) — NOW USED (NP Magar mrd→mgp merger, AF afg code confirmation).
@@ -61,6 +71,7 @@ wfd (sign-language authority — direct deaf-org consultation pending).
 | UNESCO WAL | fetch attempted 2026-09-14 — app is JS-only, no API/dump reachable | DEFERRED to manual pass (honest): endangerment flags unjoined; candidates noted in limitations §3 |
 | Sign codes (web check 2026-09-14, WFD-adjacent sources) | afg/ins/nsp/pks/psc/sqs/wbs verified in SIL table; IPSL unity dispute (Zeshan 2000) noted on ins | PARTIAL — Afghan SL mis→afg fixed; BdSL/BT/MV genuinely uncoded (disputes stand, narrowed); direct deaf-org consultation still pending |
 | Census portals | India 2011 tables (manual, prior knowledge); PK 2023 press releases; NP 2021 report | re-verify with URLs in pass 2 |
+| Batch-2 pre-verification (2026-09-14) | 13 new codes vs SIL download (existence/scope/Part1/retirements) + full name-identity audit of batch-1 + long-tail code hunt | CLEAN except 1 real catch: uzn/uzs North/South swap (AF entry + canonical fixed). Rushani/Bartangi/Khufi/Lyuli confirmed uncoded |
 
 ## 5. Rules for batch authors (binding)
 
