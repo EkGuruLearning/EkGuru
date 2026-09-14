@@ -1,6 +1,6 @@
 {
   "status": "IN PROGRESS — DO NOT CLAIM COMPLETE",
-  "preliminary": true,
+  "preliminary": false,
   "phase7_totals": {
     "A_unique_canonical_living": 687,
     "A_spoken": 603,
@@ -8,7 +8,7 @@
     "B_unique_living_evidenced_use": 597,
     "C_country_language_relationships": 1964,
     "D_learner_priority_P0_P1": 45,
-    "needing_human_review_relations": 1187
+    "needing_human_review_relations": 1027
   },
   "phase17_gate": {
     "countries": "194/194 researched",
@@ -23,7 +23,7 @@
     "india_deep_audit": "research/india-language-inventory.md (this build)",
     "multilingual_audits": "AF/BD/BT/IN/IR/LK/MV/NP/PK in batch 1; ID/NG/PG/PH/ZA/CN/RU/... pending",
     "api_licensing": "research/language-data-sources.md (this build)",
-    "qa": "OPEN items: 9 (see review list)"
+    "qa": "OPEN items: 4 (see review list)"
   },
   "review_required": [
     {
@@ -55,36 +55,6 @@
       "detail": "'nepali' → ['lang:npi', 'lang:nep']",
       "status": "resolved-documented",
       "rationale": "Dual-code treatment: scheduled macro 'nep' (IN) and individual 'npi' (NP/BT) are the SAME language; documented in METHOD + batch notes, never merged silently."
-    },
-    {
-      "check": "639-1-mismatch",
-      "detail": "lang:ita: iso639_1=None, expected 'it' — 639-3 code suspect",
-      "status": "open",
-      "rationale": ""
-    },
-    {
-      "check": "639-1-mismatch",
-      "detail": "lang:spa: iso639_1=None, expected 'es' — 639-3 code suspect",
-      "status": "open",
-      "rationale": ""
-    },
-    {
-      "check": "639-1-mismatch",
-      "detail": "lang:deu: iso639_1=None, expected 'de' — 639-3 code suspect",
-      "status": "open",
-      "rationale": ""
-    },
-    {
-      "check": "639-1-mismatch",
-      "detail": "lang:kor: iso639_1=None, expected 'ko' — 639-3 code suspect",
-      "status": "open",
-      "rationale": ""
-    },
-    {
-      "check": "639-1-mismatch",
-      "detail": "lang:jpn: iso639_1=None, expected 'ja' — 639-3 code suspect",
-      "status": "open",
-      "rationale": ""
     },
     {
       "check": "country-coverage",

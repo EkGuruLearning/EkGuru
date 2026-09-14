@@ -366,6 +366,7 @@ def build():
                 "inputs": {"hasISO": False}, "missing": ["no single ISO code (cluster/uncoded sign)"]}
 
     # Phase 8: priority scores (canonical).
+    PRELIM = len(countries_seen) < 194  # coverage gate: 194/194 flips outputs to non-preliminary
     priorities = {}
     for lid, c in canonical.items():
         maxband = c["max_band"]
@@ -418,7 +419,7 @@ def build():
             level, reason = "P1", "pack live — full course candidate (score %d overridden)" % total
         priorities[lid] = {"language_id": lid, "canonical_name": c["canonical_name"],
                            "score": total, "parts": parts, "priority": level,
-                           "reason": reason, "preliminary": True}
+                           "reason": reason, "preliminary": PRELIM}
 
     # per-relationship priority + review flags.
     for r in relations:
@@ -527,18 +528,18 @@ def build():
     os.makedirs(OUT_D, exist_ok=True)
     os.makedirs(OUT_R, exist_ok=True)
     with open(OUT_D + "/languages.json", "w", encoding="utf-8") as f:
-        json.dump({"preliminary": True, "coverage": "%d/194" % len(countries_seen),
+        json.dump({"preliminary": PRELIM, "coverage": "%d/194" % len(countries_seen),
                    "count": len(canonical), "languages": sorted(canonical.values(), key=lambda c: c["canonical_name"])},
                   f, ensure_ascii=False, indent=1)
     with open(OUT_D + "/language-country-relations.json", "w", encoding="utf-8") as f:
-        json.dump({"preliminary": True, "count": len(relations), "relations": relations},
+        json.dump({"preliminary": PRELIM, "count": len(relations), "relations": relations},
                   f, ensure_ascii=False, indent=1)
     with open(OUT_D + "/language-priority.json", "w", encoding="utf-8") as f:
-        json.dump({"preliminary": True, "rules": "see tools/build-inventory.py header (printed in research/global-language-inventory.md)",
+        json.dump({"preliminary": PRELIM, "rules": "see tools/build-inventory.py header (printed in research/global-language-inventory.md)",
                    "priorities": sorted(priorities.values(), key=lambda p: (-p["score"], p["canonical_name"]))},
                   f, ensure_ascii=False, indent=1)
     with open(OUT_D + "/language-support-readiness.json", "w", encoding="utf-8") as f:
-        json.dump({"preliminary": True, "readiness": sorted(readiness.values(), key=lambda r: r["language_id"])},
+        json.dump({"preliminary": PRELIM, "readiness": sorted(readiness.values(), key=lambda r: r["language_id"])},
                   f, ensure_ascii=False, indent=1)
 
     # Phase 2 country summary (research md).
@@ -621,7 +622,7 @@ def build():
     complete = all([gate["countries_pass"], gate["countries_pass"]])
     report = {
         "status": "COMPLETE" if (len(countries_seen) == 194 and not openrev) else "IN PROGRESS — DO NOT CLAIM COMPLETE",
-        "preliminary": True,
+        "preliminary": PRELIM,
         "phase7_totals": {
             "A_unique_canonical_living": len(living_canon),
             "A_spoken": len(spoken_canon), "A_sign": len(sign_canon),
