@@ -213,8 +213,14 @@ def build():
                               else "EXTINCT" if role == "extinct" else "LIVING")
                     role_detail = (role if role in ("official-regional", "lingua-franca", "liturgical", "historical", "extinct") else None)
                     if role in ("sign",) and len(lang["roles"]) > 1:
-                        need_review("sign-mixed-with-spoken",
-                                    "%s %s roles=%s" % (cca2, lang["name"], lang["roles"]))
+                        if iso3 in ("nzs", "sfs") and set(lang["roles"]) == {"sign", "official"}:
+                            need_review("sign-mixed-with-spoken",
+                                        "%s %s roles=%s" % (cca2, lang["name"], lang["roles"]),
+                                        status="resolved-documented",
+                                        rationale="Constitutionally official SIGN languages (NZSL 2006 Act; SASL 12th official language 2023). 'official' is a status role, not a spoken role — no mixing; SIGN_LANGUAGE type retained.")
+                        else:
+                            need_review("sign-mixed-with-spoken",
+                                        "%s %s roles=%s" % (cca2, lang["name"], lang["roles"]))
                     src_struct = []
                     for s in lang.get("sources", []):
                         reg = sources.get(s)

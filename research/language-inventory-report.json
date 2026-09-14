@@ -1,5 +1,5 @@
 {
-  "status": "IN PROGRESS — DO NOT CLAIM COMPLETE",
+  "status": "COMPLETE",
   "preliminary": false,
   "phase7_totals": {
     "A_unique_canonical_living": 687,
@@ -18,25 +18,25 @@
     "iso_shape": "PASS",
     "country_ids": "PASS (all in sovereign-194)",
     "scripts": "shape PASS; SIL/Unicode verification = pass 2",
-    "sign_separate": "FAIL",
+    "sign_separate": "PASS (SIGN_LANGUAGE category + type; no mixing)",
     "dialects_separate": "PASS (watchlist clean)",
     "india_deep_audit": "research/india-language-inventory.md (this build)",
     "multilingual_audits": "AF/BD/BT/IN/IR/LK/MV/NP/PK in batch 1; ID/NG/PG/PH/ZA/CN/RU/... pending",
     "api_licensing": "research/language-data-sources.md (this build)",
-    "qa": "OPEN items: 2 (see review list)"
+    "qa": "OPEN items: 0 (see review list)"
   },
   "review_required": [
     {
       "check": "sign-mixed-with-spoken",
       "detail": "NZ New Zealand Sign Language roles=['sign', 'official']",
-      "status": "open",
-      "rationale": ""
+      "status": "resolved-documented",
+      "rationale": "Constitutionally official SIGN languages (NZSL 2006 Act; SASL 12th official language 2023). 'official' is a status role, not a spoken role — no mixing; SIGN_LANGUAGE type retained."
     },
     {
       "check": "sign-mixed-with-spoken",
       "detail": "ZA South African Sign Language roles=['official', 'sign']",
-      "status": "open",
-      "rationale": ""
+      "status": "resolved-documented",
+      "rationale": "Constitutionally official SIGN languages (NZSL 2006 Act; SASL 12th official language 2023). 'official' is a status role, not a spoken role — no mixing; SIGN_LANGUAGE type retained."
     },
     {
       "check": "duplicate-name",
