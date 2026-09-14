@@ -24,6 +24,7 @@
 <link rel="manifest" href="../../../../manifest.webmanifest">
 <meta name="theme-color" content="#4f32d9">
 <link rel="stylesheet" href="../../../../css/style.min.css">
+<link rel="stylesheet" href="../../../../css/storybook.css">
 <style>
 .art{max-width:760px;margin:0 auto;padding:0 20px 60px}
 .art h1{font-size:2rem;line-height:1.25;margin:26px 0 10px}
@@ -64,6 +65,8 @@
     <p class="crumb"><a href="../../../../">EkGuru</a> › <a href="../../../">Learn Hindi</a> › <a href="../../">Hindi</a> › <a href="../">Practice</a> › Conversation</p>
   <h1>Hindi Conversation Practice</h1>
   <p class="lede">A deterministic conversation simulator: you read a line, pick the reply, and get the reasoning behind the right answer. Every line is authored, basic, reviewed Hindi — a rule-based state machine, <b>not AI</b>.</p>
+  <div class="sb-band"><span class="dev">बातचीत</span>Pick the reply, learn the why.</div>
+
   <div class="note"><b>Honest scope.</b> This teaches the shape of a conversation (greet → reply → close). It cannot listen to your pronunciation and it is not a live tutor — for real speaking practice, book a one-to-one lesson.</div>
   <div id="conv-app"><p class="muted">Loading scenarios…</p></div>
   <script defer>
@@ -128,6 +131,7 @@
 
 <script src="../../../../js/conversation-engine.js" defer></script>
 <script src="../../../../js/hindi-progress.js" defer></script>
+<script src="../../../../js/storybook.js" defer></script>
 <script defer>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {

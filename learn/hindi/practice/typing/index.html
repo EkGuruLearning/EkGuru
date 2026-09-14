@@ -24,6 +24,7 @@
 <link rel="manifest" href="../../../../manifest.webmanifest">
 <meta name="theme-color" content="#4f32d9">
 <link rel="stylesheet" href="../../../../css/style.min.css">
+<link rel="stylesheet" href="../../../../css/storybook.css">
 <style>
 .art{max-width:760px;margin:0 auto;padding:0 20px 60px}
 .art h1{font-size:2rem;line-height:1.25;margin:26px 0 10px}
@@ -49,6 +50,8 @@
     <p class="crumb"><a href="../../../../">EkGuru</a> › <a href="../../../">Learn Hindi</a> › <a href="../../">Hindi</a> › <a href="../">Practice</a> › Typing</p>
   <h1>Hindi Typing Trainer — Roman to Devanagari</h1>
   <p class="lede">See a Roman prompt, type the word in Devanagari. Small differences in spacing or punctuation are accepted as “minor format”, not marked wrong.</p>
+  <div class="sb-band"><span class="dev">लिखो</span>Type it in Devanagari.</div>
+
   <div id="typing-app"></div>
   <div class="note">This trainer checks your typed Devanagari against a curated word list from the lessons. It is not a full transliteration engine and makes no claim to be one.</div>
 
@@ -80,6 +83,7 @@
 
 <script src="../../../../js/hindi-fuzzy.js" defer></script>
 <script src="../../../../js/hindi-tools.js" defer></script>
+<script src="../../../../js/storybook.js" defer></script>
 <script defer>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {

@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T01:58:29.735Z",
+ "generated": "2026-09-14T02:22:59.082Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1365 files scanned, 0 secrets"
+  "note": "1367 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "07a21f9ab546c0929f205f932b299d0161bf0236",
-  "subject": "Country language guides + storybook demo (v137): NEW world-languages/ section — 30 'Languages of X' pages generated from audited inventory (tables by role, speaker bands, scripts, unique notes, research honesty box, course cross-links) + index + sitemap-world-languages.xml (index patched); backlinks inserted in 30 learn-hindi-from-X pages (idempotent); tools/build-country-language-pages.py wired into build-all (step 7); DEMO: Hindi alphabet lesson storybook revamp (2 AI illustrations, 11 flip vowel cards with TTS, SVG trace animation, reduced-motion safe); SEO PASS 1050/0/0",
-  "buildTime": "2026-09-14T01:58:29.751Z",
+  "commit": "677927810996e451f68ebc4cd1e3e01930c4f59b",
+  "subject": "v138 batch-4 SE Asia inventory (11 countries, 105 entries) + world-languages 30→41",
+  "buildTime": "2026-09-14T02:22:59.093Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4634,7 +4634,7 @@ window.EKGURU_ADMIN_STATS = {
    "travel",
    "vocabulary"
   ],
-  "lessons": 19,
+  "lessons": 280,
   "materials": 15,
   "practice": 13,
   "paths": 7,

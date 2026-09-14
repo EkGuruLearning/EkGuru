@@ -81,12 +81,13 @@ def head(title, desc, url, up, index=True, extra_style=""):
 <link rel="manifest" href="%smanifest.webmanifest">
 <meta name="theme-color" content="#4f32d9">
 <link rel="stylesheet" href="%scss/style.min.css">
+<link rel="stylesheet" href="%scss/storybook.css">
 <style>%s%s</style>
 </head>
 <body>
 <div class="art">
 """ % (title, desc, robots, BASE, url, title, desc, BASE, url, BASE, title, desc,
-       up, up, up, up, CORE_STYLE, extra_style)
+       up, up, up, up, up, CORE_STYLE, extra_style)
 
 
 def foot(up, scripts=()):
@@ -120,6 +121,7 @@ def foot(up, scripts=()):
 <script src="%sjs/recovery.js" defer></script>
 <!-- ekguru:recovery:end -->
 %s
+<script src="%sjs/storybook.js" defer></script>
 <script defer>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
@@ -127,7 +129,7 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
-""" % (up, up, up, up, up, up, up, up, up, up, s, up)
+""" % (up, up, up, up, up, up, up, up, up, up, s, up, up)
 
 
 def write_page(path, up, title, desc, url, crumb, body, scripts=(), index=True,
@@ -145,10 +147,26 @@ def write_page(path, up, title, desc, url, crumb, body, scripts=(), index=True,
 # ---------------------------------------------------------------------------
 # §6  REVIEW
 # ---------------------------------------------------------------------------
+def sb_band(dev, en):
+    return ('  <div class="sb-band"><span class="dev">%s</span>%s</div>\n') % (dev, en)
+
+def sb_hero(up, file, alt, floats, caption):
+    fl = []
+    slots = [("top:8%;left:6%", "2rem", "-1s"), ("top:14%;right:8%", "1.6rem", "-3s"),
+             ("bottom:24%;left:12%", "1.4rem", "-5s")]
+    for i, t in enumerate(floats[:3]):
+        pos, size, delay = slots[i % 3]
+        fl.append('<span class="sb-float" style="%s;font-size:%s;animation-delay:%s">%s</span>'
+                  % (pos, size, delay, t))
+    return ('  <figure class="sb-hero">\n  <img src="%simages/%s" alt="%s" width="1536" height="1024" fetchpriority="high">\n  %s\n'
+            '  <figcaption>%s</figcaption>\n  </figure>\n') % (up, file, alt, "\n  ".join(fl), caption)
+
+
 def review_page():
     up = "../../../"
     body = """  <h1>Hindi Review — spaced repetition</h1>
   <p class="lede">A simple, transparent review system for the words and ideas you saved. It lives entirely in this browser.</p>
+""" + sb_band("दोहराओ", "Repeat it till it sticks.") + """
   <div class="note"><b>How it works.</b> Each card is shown again on a schedule that grows with each correct answer. Four buttons: <b>Again</b> (starts over), <b>Hard</b>, <b>Good</b>, <b>Easy</b>. This is a simple SM-2-style schedule — not scientific perfection and not “AI personalisation”.</div>
   <div id="srs-stats" style="margin:12px 0;font-weight:600"></div>
   <div id="srs-card" style="border:1px solid var(--line);border-radius:14px;padding:20px;background:var(--card,#fff)"></div>
@@ -255,6 +273,7 @@ def progress_page():
     up = "../../../"
     body = """  <h1>My Hindi — progress on this device</h1>
   <p class="lede">Your own checklist: what you have read, finished and reviewed. <b>Saved on this device only</b> — no account, no upload, no cross-device sync.</p>
+""" + sb_band("प्रगति", "Your journey, on this device.") + """
   <div id="my-hindi"></div>
   <div style="margin-top:18px">
     <button type="button" class="btn" id="mp-export">Export JSON</button>
@@ -344,6 +363,7 @@ def practice_hub():
     up = "../../../"
     body = """  <h1>Hindi Practice</h1>
   <p class="lede">Three small, honest practice tools that work in your browser — a typing trainer, a topic quiz and printable worksheets — plus the review deck and your local progress.</p>
+""" + sb_band("अभ्यास", "Practice makes permanent.") + """
   <ul class="linklist">
     <li><a href="typing/">Hindi Typing Trainer</a><span>Roman prompt → type it in Devanagari, with harmless formatting differences accepted.</span></li>
     <li><a href="quiz/">Hindi Topic Quiz</a><span>Pick a topic and level, answer 5–15 questions, get an explanation with every answer.</span></li>
@@ -375,6 +395,7 @@ def tool_pages():
         "learn/hindi/practice/typing/", crumb_base + "Typing",
         """  <h1>Hindi Typing Trainer — Roman to Devanagari</h1>
   <p class="lede">See a Roman prompt, type the word in Devanagari. Small differences in spacing or punctuation are accepted as “minor format”, not marked wrong.</p>
+""" + sb_band("लिखो", "Type it in Devanagari.") + """
   <div id="typing-app"></div>
   <div class="note">This trainer checks your typed Devanagari against a curated word list from the lessons. It is not a full transliteration engine and makes no claim to be one.</div>
 """, scripts=["hindi-fuzzy.js", "hindi-tools.js"])
@@ -385,6 +406,7 @@ def tool_pages():
         "learn/hindi/practice/quiz/", crumb_base + "Quiz",
         """  <h1>Hindi Topic Quiz</h1>
   <p class="lede">Pick a topic and level, then answer 5, 10 or 15 questions. Every answer comes with an explanation and a link back to the source lesson.</p>
+""" + sb_band("बताओ", "Answer with reasons.") + """
   <div id="quiz-app"></div>
   <div class="note">The score is a recognition score, not a fluency measure — nothing here is a certified test.</div>
 """, scripts=["hindi-quiz-bank.js", "hindi-progress.js", "hindi-tools.js"])
@@ -395,6 +417,7 @@ def tool_pages():
         "learn/hindi/practice/worksheets/", crumb_base + "Worksheets",
         """  <h1>Hindi Worksheets — printable practice</h1>
   <p class="lede">Build a worksheet from the quiz bank: choose a topic and a number of prompts, then print. Answers are included at the end unless you turn them off.</p>
+""" + sb_band("काग़ज़", "Print it, write on it.") + """
   <div id="ws-app"></div>
 """, scripts=["hindi-quiz-bank.js", "hindi-tools.js"])
 
@@ -426,6 +449,7 @@ def conversation_page():
                   '<a href="../../">Hindi</a> › <a href="../">Practice</a> › ')
     body = """  <h1>Hindi Conversation Practice</h1>
   <p class="lede">A deterministic conversation simulator: you read a line, pick the reply, and get the reasoning behind the right answer. Every line is authored, basic, reviewed Hindi — a rule-based state machine, <b>not AI</b>.</p>
+""" + sb_band("बातचीत", "Pick the reply, learn the why.") + """
   <div class="note"><b>Honest scope.</b> This teaches the shape of a conversation (greet → reply → close). It cannot listen to your pronunciation and it is not a live tutor — for real speaking practice, book a one-to-one lesson.</div>
   <div id="conv-app"><p class="muted">Loading scenarios…</p></div>
   <script defer>
@@ -477,6 +501,7 @@ def intermediate_page():
     up = "../../../"
     body = """  <h1>Intermediate Hindi — assembled from real content</h1>
   <p class="lede">There is no invented “intermediate textbook” here. This is a sequence built from the genuinely intermediate material EkGuru already has: register and politeness, the Hindi–Urdu split, learner mistakes, verb tenses, and Bollywood as a learning tool.</p>
+""" + sb_hero(up, "level-intermediate.jpg", "Storybook bazaar: fabric stalls, spices and a rickshaw", ["आप", "तुम", "तू"], "Politeness, tenses, and the real split.") + """
   <h2>Who this is for</h2>
   <p>You can read Devanagari and hold a basic conversation. You want to sound more natural and understand the choices real speakers make.</p>
   <h2>What you will be able to do</h2>
@@ -537,6 +562,15 @@ def decorate_lessons():
             # the whole Phase 6 block.
             h = h.replace('<script src="../../js/site-config.js" defer>',
                           '<script src="../../js/toast.js" defer></script>\n'
+                          '<script src="../../js/site-config.js" defer>', 1)
+        # 4) storybook visuals (v139): shared CSS + interactions, idempotent
+        if 'css/storybook.css' not in h:
+            h = h.replace('<link rel="stylesheet" href="../../css/style.min.css">',
+                          '<link rel="stylesheet" href="../../css/style.min.css">\n'
+                          '<link rel="stylesheet" href="../../css/storybook.css">', 1)
+        if 'js/storybook.js' not in h:
+            h = h.replace('<script src="../../js/site-config.js" defer>',
+                          '<script src="../../js/storybook.js" defer></script>\n'
                           '<script src="../../js/site-config.js" defer>', 1)
         if h != orig:
             open(p, "w", encoding="utf-8").write(h)

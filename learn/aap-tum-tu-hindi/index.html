@@ -24,6 +24,7 @@
 <link rel="manifest" href="../../manifest.webmanifest">
 <meta name="theme-color" content="#4f32d9">
 <link rel="stylesheet" href="../../css/style.min.css">
+<link rel="stylesheet" href="../../css/storybook.css">
 <style>
 .art{max-width:760px;margin:0 auto;padding:0 20px 60px}
 .art h1{font-size:2rem;line-height:1.25;margin:26px 0 10px}
@@ -81,6 +82,14 @@
   <div id="offline-ctl"></div>
   <p class="meta">A free guide from EkGuru · updated 2026-09-11</p>
 
+<figure class="sb-scene dusk">
+<svg viewBox="0 0 720 300" aria-hidden="true"><circle class="sb-sun" cx="588" cy="76" r="62" fill="#ffb703" opacity=".25"/><circle class="sb-sun" cx="588" cy="76" r="44" fill="#ffb703" opacity=".9"/><circle class="sb-tw" cx="90" cy="52" r="4" fill="#fff"/><circle class="sb-tw" cx="180" cy="96" r="3" fill="#fff" style="animation-delay:-1s"/><circle class="sb-tw" cx="330" cy="44" r="3.5" fill="#fff" style="animation-delay:-2s"/><ellipse class="sb-hill" cx="170" cy="340" rx="290" ry="112" fill="#7fb069" opacity=".8"/><ellipse cx="580" cy="356" rx="330" ry="122" fill="#5c9248" opacity=".85"/><text x="118" y="205" font-size="128" fill="#ffffff" opacity=".55" font-weight="700">आ</text></svg>
+<span class="sb-float" style="top:8%;left:6%;font-size:2rem;animation-delay:-1s">आप</span>
+<span class="sb-float" style="top:14%;right:8%;font-size:1.6rem;animation-delay:-3s">तुम</span>
+<span class="sb-float" style="bottom:24%;left:12%;font-size:1.4rem;animation-delay:-5s">तू</span>
+</figure>
+
+
   <aside class="pg-note" role="note">
     <b>A note on the Hindi spellings</b>
     <p>These guides are written and typed by hand, and Devanagari is easy to
@@ -107,6 +116,13 @@ is not a small error — it can be genuinely offensive, or unintentionally cold.
 <tr><td><strong>तू</strong> <em>tu</em></td><td>very close friends, small children, and God in prayer</td><td>तू कैसा <strong>है</strong>?</td></tr>
 </tbody>
 </table>
+
+<p><b>Tap to flip — the three yous:</b></p>
+<div class="vcards">
+<div class="vcard wide" aria-label="आप"><div class="in"><div class="vface"><span class="lt">आप</span><span class="sd">aap · elders & strangers</span></div><div class="vface back"><span class="en">आप कैसे हैं?</span><span class="mt">formal · safe default</span><button class="spk" data-sb-say="आप कैसे हैं">🔊 hear it</button></div></div></div>
+<div class="vcard wide" aria-label="तुम"><div class="in"><div class="vface"><span class="lt">तुम</span><span class="sd">tum · friends & siblings</span></div><div class="vface back"><span class="en">तुम कैसे हो?</span><span class="mt">informal · friendly</span><button class="spk" data-sb-say="तुम कैसे हो">🔊 hear it</button></div></div></div>
+<div class="vcard wide" aria-label="तू"><div class="in"><div class="vface"><span class="lt">तू</span><span class="sd">tu · be careful!</span></div><div class="vface back"><span class="en">तू कैसा है?</span><span class="mt">intimate · or rude</span><button class="spk" data-sb-say="तू कैसा है">🔊 hear it</button></div></div></div>
+</div>
 
 <h2>The safe default</h2>
 <p><strong>Always start with आप.</strong> Nobody has ever been offended by being
@@ -160,6 +176,12 @@ guessing.</p>
 
   <!-- v70 — cross-section links, same reason as the /ask/ pages. -->
   <div class="rel">
+    
+    
+    
+    
+    
+    
     
     <!-- quiz:auto:aap-1,aap-2,aap-3 -->
     <section class="quiz" aria-label="Quick check" style="background:var(--bg-soft);border:1px solid #ddd8ff;border-radius:14px;padding:16px 18px;margin:30px 0"><h2 style="margin:0 0 12px;font-size:1.15rem">Quick check</h2><details style="margin:10px 0;border:1px solid var(--line);border-radius:10px;padding:12px 14px"><summary style="cursor:pointer;font-weight:600;color:var(--ink)">How many words for “you” does Hindi have?</summary><p style="margin:10px 0 0;color:var(--ink-2)">Three — Three — आप (aap, respectful), तुम (tum, familiar) and तू (tu, intimate).</p></details><details style="margin:10px 0;border:1px solid var(--line);border-radius:10px;padding:12px 14px"><summary style="cursor:pointer;font-weight:600;color:var(--ink)">Which word for “you” is the safe default with strangers?</summary><p style="margin:10px 0 0;color:var(--ink-2)">आप (aap) — आप (aap) is the respectful default; तुम (tum) is for friends and तू (tu) for very close intimates.</p></details><details style="margin:10px 0;border:1px solid var(--line);border-radius:10px;padding:12px 14px"><summary style="cursor:pointer;font-weight:600;color:var(--ink)">What can choosing the wrong “you” do?</summary><p style="margin:10px 0 0;color:var(--ink-2)">Sound genuinely rude — Choosing wrong can be genuinely rude — the three words carry real social weight.</p></details></section>
@@ -215,6 +237,7 @@ guessing.</p>
 <script src="../../js/hindi-audio.js" defer></script>
 <script src="../../js/hindi-offline.js" defer></script>
 <script src="../../js/toast.js" defer></script>
+<script src="../../js/storybook.js" defer></script>
 <script src="../../js/site-config.js" defer></script>
 <!-- ekguru:scroll-restore:start -->
 <!-- v79 — back returns you where you were. NOT deferred: it must set

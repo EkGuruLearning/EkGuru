@@ -24,6 +24,7 @@
 <link rel="manifest" href="../../manifest.webmanifest">
 <meta name="theme-color" content="#4f32d9">
 <link rel="stylesheet" href="../../css/style.min.css">
+<link rel="stylesheet" href="../../css/storybook.css">
 <style>
 .art{max-width:760px;margin:0 auto;padding:0 20px 60px}
 .art h1{font-size:2rem;line-height:1.25;margin:26px 0 10px}
@@ -80,6 +81,14 @@
   <div id="lesson-complete"></div>
   <div id="offline-ctl"></div>
   <p class="meta">A free guide from EkGuru · updated 2026-09-11</p>
+
+<figure class="sb-scene day">
+<svg viewBox="0 0 720 300" aria-hidden="true"><circle class="sb-sun" cx="588" cy="76" r="62" fill="#ffb703" opacity=".25"/><circle class="sb-sun" cx="588" cy="76" r="44" fill="#ffb703" opacity=".9"/><circle class="sb-tw" cx="90" cy="52" r="4" fill="#fff"/><circle class="sb-tw" cx="180" cy="96" r="3" fill="#fff" style="animation-delay:-1s"/><circle class="sb-tw" cx="330" cy="44" r="3.5" fill="#fff" style="animation-delay:-2s"/><ellipse class="sb-hill" cx="170" cy="340" rx="290" ry="112" fill="#7fb069" opacity=".8"/><ellipse cx="580" cy="356" rx="330" ry="122" fill="#5c9248" opacity=".85"/><text x="118" y="205" font-size="128" fill="#ffffff" opacity=".55" font-weight="700">व</text></svg>
+<span class="sb-float" style="top:8%;left:6%;font-size:2rem;animation-delay:-1s">मैं</span>
+<span class="sb-float" style="top:14%;right:8%;font-size:1.6rem;animation-delay:-3s">रोटी</span>
+<span class="sb-float" style="bottom:24%;left:12%;font-size:1.4rem;animation-delay:-5s">खाता हूँ</span>
+</figure>
+
 
   <aside class="pg-note" role="note">
     <b>A note on the Hindi spellings</b>
@@ -145,6 +154,14 @@ verb</strong>, not at the start as in English:</p>
 <li>यह <strong>कितने</strong> का है? — How much is this?</li>
 </ul>
 
+<p><b>Tap to flip — the question words from this guide:</b></p>
+<div class="vcards">
+<div class="vcard wide" aria-label="कहाँ"><div class="in"><div class="vface"><span class="lt">कहाँ</span><span class="sd">kahaan · where · tap me</span></div><div class="vface back"><span class="en">आप कहाँ रहते हैं?</span><span class="mt">Where do you live?</span><button class="spk" data-sb-say="आप कहाँ रहते हैं">🔊 hear it</button></div></div></div>
+<div class="vcard wide" aria-label="क्या"><div class="in"><div class="vface"><span class="lt">क्या</span><span class="sd">kya · what · tap me</span></div><div class="vface back"><span class="en">यह क्या है?</span><span class="mt">What is this?</span><button class="spk" data-sb-say="यह क्या है">🔊 hear it</button></div></div></div>
+<div class="vcard wide" aria-label="कब"><div class="in"><div class="vface"><span class="lt">कब</span><span class="sd">kab · when · tap me</span></div><div class="vface back"><span class="en">आप कब आएँगे?</span><span class="mt">When will you come?</span><button class="spk" data-sb-say="आप कब आएँगे">🔊 hear it</button></div></div></div>
+<div class="vcard wide" aria-label="कितने"><div class="in"><div class="vface"><span class="lt">कितने</span><span class="sd">kitne · how much · tap me</span></div><div class="vface back"><span class="en">यह कितने का है?</span><span class="mt">How much is this?</span><button class="spk" data-sb-say="यह कितने का है">🔊 hear it</button></div></div></div>
+</div>
+
 <h2>Negatives</h2>
 <p><strong>नहीं</strong> goes immediately before the verb:</p>
 <p>मैं हिंदी बोलता हूँ → मैं हिंदी <strong>नहीं</strong> बोलता<br>
@@ -158,6 +175,8 @@ actually say.</p>
 कल मैं दिल्ली जाऊँगा — <em>Tomorrow</em> I will go to Delhi</p>
 <p>The one thing that does not move is the verb. It stays at the end. Everything
 else can shuffle.</p>
+
+<div class="sb-band"><span class="dev">क्रिया सबसे आख़िर में</span>The verb goes last. Always.</div>
 
 <h2>What to practise first</h2>
 <p>Build ten sentences a day using this frame: <em>subject + place/object +
@@ -173,6 +192,12 @@ our <a href="../hindi-gender-masculine-feminine/">guide to Hindi gender</a>.</p>
     
 
   
+    
+    
+    
+    
+    
+    
     
     
     <!-- quiz:auto:sent-1,sent-2,sent-3 -->
@@ -229,6 +254,7 @@ our <a href="../hindi-gender-masculine-feminine/">guide to Hindi gender</a>.</p>
 <script src="../../js/hindi-audio.js" defer></script>
 <script src="../../js/hindi-offline.js" defer></script>
 <script src="../../js/toast.js" defer></script>
+<script src="../../js/storybook.js" defer></script>
 <script src="../../js/site-config.js" defer></script>
 <!-- ekguru:scroll-restore:start -->
 <!-- v79 — back returns you where you were. NOT deferred: it must set

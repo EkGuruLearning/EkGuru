@@ -290,6 +290,7 @@ def shell(depth, title, desc, canon, h1, lede, body, jsonld):
 <link rel="manifest" href="{pre}manifest.webmanifest">
 <meta name="theme-color" content="#4f32d9">
 <link rel="stylesheet" href="{pre}css/style.min.css">
+<link rel="stylesheet" href="{pre}css/storybook.css">
 <style>
 .art{{max-width:760px;margin:0 auto;padding:0 20px 60px}}
 .art h1{{font-size:2rem;line-height:1.25;margin:26px 0 10px}}
@@ -338,6 +339,7 @@ def shell(depth, title, desc, canon, h1, lede, body, jsonld):
 <!-- ekguru:trust-footer:end -->
 </body>
 </html>
+<script src="{pre}js/storybook.js" defer></script>
 <script src="{pre}js/site-config.js" defer></script>
 <script src="{pre}js/analytics.js" defer></script>
 <!-- ekguru:recovery:start -->
@@ -396,6 +398,68 @@ def hs_card(base, target, label, short=None):
     return (f'<a class="hs-card" href="{rel(base, target)}"><b>{label}</b>'
             f'<span>{t}</span></a>')
 
+# ---------------------------------------------------------------- storybook
+_FLOAT_SLOTS = [(("top:8%;left:6%", "2rem", "-1s")),
+                (("top:14%;right:8%", "1.6rem", "-3s")),
+                (("bottom:24%;left:12%", "1.4rem", "-5s"))]
+
+def _floats_html(floats):
+    out = []
+    for i, t in enumerate(floats[:3]):
+        pos, size, delay = _FLOAT_SLOTS[i % 3]
+        out.append('<span class="sb-float" style="%s;font-size:%s;animation-delay:%s">%s</span>'
+                   % (pos, size, delay, t))
+    return "\n".join(out)
+
+def hero_img(pre, file, alt, floats, caption):
+    return ('<figure class="sb-hero">\n<img src="%simages/%s" alt="%s" width="1536" height="1024" fetchpriority="high">\n%s\n'
+            '<figcaption>%s</figcaption>\n</figure>') % (pre, file, alt, _floats_html(floats), caption)
+
+def hero_scene(theme, big, floats, caption, celestial="#ffb703", hill1="#7fb069", hill2="#5c9248"):
+    return ('<figure class="sb-scene %s" aria-hidden="false">\n'
+            '<svg viewBox="0 0 720 300" aria-hidden="true">'
+            '<circle class="sb-sun" cx="588" cy="76" r="62" fill="%s" opacity=".25"/>'
+            '<circle class="sb-sun" cx="588" cy="76" r="44" fill="%s" opacity=".9"/>'
+            '<circle class="sb-tw" cx="90" cy="52" r="4" fill="#fff"/>'
+            '<circle class="sb-tw" cx="180" cy="96" r="3" fill="#fff" style="animation-delay:-1s"/>'
+            '<circle class="sb-tw" cx="330" cy="44" r="3.5" fill="#fff" style="animation-delay:-2s"/>'
+            '<ellipse class="sb-hill" cx="170" cy="340" rx="290" ry="112" fill="%s" opacity=".8"/>'
+            '<ellipse cx="580" cy="356" rx="330" ry="122" fill="%s" opacity=".85"/>'
+            '<text x="118" y="205" font-size="128" fill="#ffffff" opacity=".55" font-weight="700">%s</text>'
+            '</svg>\n%s\n</figure>') % (theme, celestial, celestial, hill1, hill2, big, _floats_html(floats))
+
+TOPIC_HERO = {
+    "basics": ("scene", ("dawn", "अ", ["अ", "आ", "इ"], "First letters, first words.")),
+    "conversation": ("scene", ("day", "बा", ["नमस्ते", "शुक्रिया", "अच्छा"], "Say it out loud.")),
+    "daily-life": ("scene", ("day", "ज", ["चाय", "घर", "बाज़ार"], "Everyday Hindi.")),
+    "food": ("img", ("topic-food.jpg", "Storybook feast: an Indian thali on a banana leaf",
+                      ["रोटी", "दाल", "मीठा"], "Order it, eat it, say it.")),
+    "grammar": ("scene", ("dusk", "क", ["संज्ञा", "क्रिया", "विशेषण"], "The rules, plainly.")),
+    "numbers": ("img", ("lesson-numbers.jpg", "Storybook market: children counting mangoes and marigolds",
+                         ["एक", "दो", "तीन"], "Ginti that sticks.")),
+    "pronunciation": ("img", ("alphabet-kites.jpg", "Storybook scene: children flying kites shaped like Hindi letters",
+                               ["ट", "त", "ण"], "Train your tongue.")),
+    "shopping": ("img", ("level-intermediate.jpg", "Storybook bazaar: fabric stalls, spices and a rickshaw",
+                          ["कितना", "सस्ता", "बाज़ार"], "Bargain with a smile.")),
+    "time-dates": ("scene", ("night", "स", ["आज", "कल", "समय"], "Today, tomorrow, time.", "#f4f1de", "#3d5a45", "#2d4a35")),
+    "travel": ("img", ("lesson-travel.jpg", "Storybook scene: a little blue train in desert hills",
+                        ["टिकट", "स्टेशन", "यात्रा"], "Ticket to anywhere.")),
+    "vocabulary": ("scene", ("dawn", "श", ["शब्द", "अर्थ", "याद"], "Words that stay.")),
+}
+LEVEL_HERO = {
+    "beginner": ("level-beginner.jpg", "Storybook sunrise over an Indian village, a child with a slate",
+                 ["अ", "क", "म"], "Start here — letters, sounds, first words."),
+    "elementary": ("level-elementary.jpg", "Storybook monsoon garden with a peacock and paper boats",
+                   ["मैं", "तुम", "हम"], "Sentences, tenses, everyday talk."),
+}
+
+def hero_for_topic(pre, topic):
+    kind, spec = TOPIC_HERO[topic]
+    if kind == "img":
+        return hero_img(pre, *spec)
+    return hero_scene(*spec)
+
+
 def topic_bucket(topic):
     """Gather every real asset for a topic, grouped by kind."""
     b = {"lessons": [], "topics": [], "materials": [], "tools": [], "practice": [], "paths": [], "answers": [], "ask": []}
@@ -436,6 +500,7 @@ def render_topic(topic, meta):
     body.append(f'  <p class="crumb"><a href="../../../">EkGuru</a> › <a href="../../">Learn Hindi</a> › <a href="../">Hindi</a> › {t_h1.split(" — ")[0]}</p>')
     body.append(f'  <h1>{t_h1}</h1>')
     body.append(f'  <p class="lede">{t_lede}</p>')
+    body.append("  " + hero_for_topic("../../../", topic))
     if b["lessons"]:
         body.append('  <h2>Guides</h2><ul class="linklist">')
         body += [li(base, t) for t in b["lessons"]]
@@ -492,6 +557,7 @@ def render_level(level):
     body.append(f'  <p class="crumb"><a href="../../../">EkGuru</a> › <a href="../../">Learn Hindi</a> › <a href="../">Hindi</a> › {meta["h1"].split(" — ")[0]}</p>')
     body.append(f'  <h1>{meta["h1"]}</h1>')
     body.append(f'  <p class="lede">{meta["who"]}</p>')
+    body.append("  " + hero_img("../../../", *LEVEL_HERO[level]))
     body.append('  <h2>Who this is for</h2>')
     body.append(f'  <p>{meta["who"]}</p>')
     body.append('  <h2>What you will be able to do</h2>')
@@ -535,7 +601,9 @@ def render_hub():
     body.append('  <p class="crumb"><a href="../../">EkGuru</a> › <a href="../">Learn Hindi</a> › Hindi</p>')
     body.append('  <h1>Learn Hindi — the complete structure</h1>')
     body.append(f'  <p class="lede">{lede}</p>')
-
+    body.append("  " + hero_img("../../", "hindi-hub.jpg",
+                "Storybook scene: a grandmother reading a glowing book with two children",
+                ["अ", "ज्ञ", "ह"], "One journey — letters to conversation."))
     # Quick start — 8 intents
     body.append('  <h2>Quick start — what do you want?</h2>')
     body.append('  <div class="hs-grid">')
@@ -564,15 +632,11 @@ def render_hub():
                 '<span>From zero: the script, first words and simple sentences.</span></a>')
     body.append('<a class="hs-card" href="elementary/"><b>Elementary</b>'
                 '<span>Past the plateau: real conversation, tenses, register.</span></a>')
+    body.append('<a class="hs-card" href="intermediate/"><b>Intermediate</b>'
+                '<span>Politeness, the Hindi–Urdu split, verb tenses, mistakes, Bollywood.</span></a>')
     body.append('<a class="hs-card" href="advanced/"><b>Advanced</b>'
                 '<span>Six real topics: clinic, office, school, weather, home, festivals.</span></a>')
     body.append('  </div>')
-    body.append('  <p class="note">No Intermediate page yet — we will not ship an empty '
-                'level page. The site has a handful of intermediate-leaning pages (Bollywood, slang, '
-                'Hinglish, heritage) inside <a href="daily-life/">Daily life &amp; culture</a>, and that '
-                'is where they live until there is enough real content for a level of their own. '
-                'Advanced, on the other hand, is now real: 800+ words across '
-                '<a href="advanced/">six everyday topics</a>.</p>')
 
     # Topic selector
     body.append('  <h2>Topics</h2>')

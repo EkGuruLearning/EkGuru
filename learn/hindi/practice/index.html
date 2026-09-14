@@ -24,6 +24,7 @@
 <link rel="manifest" href="../../../manifest.webmanifest">
 <meta name="theme-color" content="#4f32d9">
 <link rel="stylesheet" href="../../../css/style.min.css">
+<link rel="stylesheet" href="../../../css/storybook.css">
 <style>
 .art{max-width:760px;margin:0 auto;padding:0 20px 60px}
 .art h1{font-size:2rem;line-height:1.25;margin:26px 0 10px}
@@ -49,6 +50,8 @@
     <p class="crumb"><a href="../../../">EkGuru</a> › <a href="../../">Learn Hindi</a> › <a href="../">Hindi</a> › Practice</p>
   <h1>Hindi Practice</h1>
   <p class="lede">Three small, honest practice tools that work in your browser — a typing trainer, a topic quiz and printable worksheets — plus the review deck and your local progress.</p>
+  <div class="sb-band"><span class="dev">अभ्यास</span>Practice makes permanent.</div>
+
   <ul class="linklist">
     <li><a href="typing/">Hindi Typing Trainer</a><span>Roman prompt → type it in Devanagari, with harmless formatting differences accepted.</span></li>
     <li><a href="quiz/">Hindi Topic Quiz</a><span>Pick a topic and level, answer 5–15 questions, get an explanation with every answer.</span></li>
@@ -85,6 +88,7 @@
 <script src="../../../js/recovery.js" defer></script>
 <!-- ekguru:recovery:end -->
 
+<script src="../../../js/storybook.js" defer></script>
 <script defer>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {

@@ -76,6 +76,30 @@ def prevnext(prev_pair, next_pair):
             + "".join(cells) + "</nav>")
 
 
+ADV_HERO = {
+    "health": ("day", "स", ["बुख़ार", "दवा", "डॉक्टर"], "At the clinic."),
+    "office": ("day", "का", ["फ़ाइल", "मीटिंग", "काम"], "At work."),
+    "education": ("dawn", "वि", ["स्कूल", "किताब", "पढ़ाई"], "At school."),
+    "weather": ("dusk", "बा", ["बारिश", "बादल", "मानसून"], "Rain or shine."),
+    "home": ("dusk", "घ", ["परिवार", "खाना", "घर"], "At home."),
+    "festivals": ("night", "दी", ["दिवाली", "होली", "ईद"], "Festival calendar.", "#ffd97a", "#3d5a45", "#2d4a35"),
+}
+
+def flip_cards(words):
+    out = ['  <p><b>Tap to flip:</b> Hindi on the front, English on the back — and a speaker button.</p>',
+           '  <div class="vcards">']
+    for w in words[:8]:
+        out.append(
+            '  <div class="vcard wide" aria-label="Word %s"><div class="in">'
+            '<div class="vface"><span class="lt">%s</span><span class="sd">%s · tap me</span></div>'
+            '<div class="vface back"><span class="en">%s</span><span class="mt">%s</span>'
+            '<button class="spk" data-sb-say="%s">\U0001F50A hear it</button></div></div></div>'
+            % (esc(w["en"]), esc(w["t"]), esc(w["r"]),
+               esc(w["en"]), esc(w["r"]), esc(w["t"])))
+    out.append('  </div>')
+    return "\n".join(out)
+
+
 def module_page(d, prev_pair, next_pair):
     title = "Hindi: " + d["title"]
     canon = struct.BASE + "/learn/hindi/advanced/" + d["slug"] + "/"
@@ -86,27 +110,29 @@ def module_page(d, prev_pair, next_pair):
              '<a href="../">Advanced</a> › %s</p>' % esc(d["title"].split(" &")[0]))
     b.append("  <h1>%s</h1>" % esc(title))
     b.append('  <p class="lede">%s</p>' % esc(d["lede"]))
+    b.append("  " + struct.hero_scene(*ADV_HERO[d["slug"]]))
     b.append("  <h2>Words (%d)</h2>" % len(d["words"]))
     b.append('  <table class="tbl"><thead><tr><th>English</th><th>Hindi</th>'
              "<th>Say it</th></tr></thead><tbody>")
     for w in d["words"]:
-        b.append("<tr><td>%s</td><td>%s</td><td>%s</td></tr>"
-                 % (esc(w["en"]), esc(w["t"]), esc(w["r"])))
+        b.append('<tr><td>%s</td><td>%s <button class="say" data-sb-say="%s">\U0001F50A</button></td><td>%s</td></tr>'
+                 % (esc(w["en"]), esc(w["t"]), esc(w["t"]), esc(w["r"])))
     b.append("  </tbody></table>")
+    b.append(flip_cards(d["words"]))
     b.append("  <h2>Phrases</h2>")
     b.append('  <table class="tbl"><thead><tr><th>English</th><th>Hindi</th>'
              "<th>Say it</th></tr></thead><tbody>")
     for p in d["phrases"]:
-        b.append("<tr><td>%s</td><td>%s</td><td>%s</td></tr>"
-                 % (esc(p["en"]), esc(p["t"]), esc(p["r"])))
+        b.append('<tr><td>%s</td><td>%s <button class="say" data-sb-say="%s">\U0001F50A</button></td><td>%s</td></tr>'
+                 % (esc(p["en"]), esc(p["t"]), esc(p["t"]), esc(p["r"])))
     b.append("  </tbody></table>")
     dg = d["dialogue"]
     b.append("  <h2>Dialogue — %s</h2>" % esc(dg["title"]))
     b.append('  <div class="dlg">')
     for ln in dg["lines"]:
-        b.append('  <p><b>%s:</b> %s <span class="muted">(%s)</span><br>'
+        b.append('  <p><b>%s:</b> %s <button class="say" data-sb-say="%s">\U0001F50A</button> <span class="muted">(%s)</span><br>'
                  '<span class="muted">%s</span></p>'
-                 % (esc(ln["sp"]), esc(ln["t"]), esc(ln["r"]), esc(ln["en"])))
+                 % (esc(ln["sp"]), esc(ln["t"]), esc(ln["t"]), esc(ln["r"]), esc(ln["en"])))
     b.append("  </div>")
     b.append(prevnext(prev_pair, next_pair))
     b.append('  <div class="rel">')
@@ -136,6 +162,9 @@ def hub_page(mods):
              '<a href="../">Hindi</a> › Advanced</p>')
     b.append("  <h1>Advanced Hindi</h1>")
     b.append('  <p class="lede">%s</p>' % esc(lede))
+    b.append("  " + struct.hero_img("../../../", "level-advanced.jpg",
+                "Storybook scene: Varanasi ghats at dusk with floating oil lamps",
+                ["ज्ञ", "क्ष", "त्र"], "Real adult life, in Hindi."))
     b.append("  <h2>Who this is for</h2>")
     b.append("  <p>You hold conversations, read paragraphs and handle tenses — "
              "now you want the vocabulary of real adult life: symptoms at the "
@@ -194,10 +223,21 @@ def validate(mods):
     if set(ids) != expect:
         errs.append("quiz ids != hi-25..84: missing=%s extra=%s"
                     % (sorted(expect - set(ids)), sorted(set(ids) - expect)))
-    bank_ids = {q["id"] for q in quizzes.load_bank()["questions"]}
-    clash = set(ids) & bank_ids
+    # v139 idempotency fix: the bank already holds this tool's own prior output
+    # (hi-25..84, version>=2). An id already in the bank is only a clash when
+    # the bank's copy DIFFERS from the module's — identical copies are reruns.
+    norm0 = lambda s: re.sub(r"\s+", " ", s).strip().lower()  # noqa: E731
+    mod_sig = {}
+    for d in mods:
+        for q in d["quiz"]:
+            mod_sig[q["id"]] = (norm0(q["q"]), q["a"])
+    bank = quizzes.load_bank()["questions"]
+    clash = sorted(i for i in set(ids)
+                   if any((qq["id"] == i and
+                            (norm0(qq["q"]), qq["a"]) != mod_sig.get(i))
+                           for qq in bank))
     if clash:
-        errs.append("quiz id clash with bank: %s" % sorted(clash))
+        errs.append("quiz id clash with bank: %s" % clash)
     for d in mods:
         for q in d["quiz"]:
             if q["a"] not in q["opts"] or len(q["opts"]) != 4:
@@ -207,7 +247,10 @@ def validate(mods):
     # q-text uniqueness (injector rule: normalised-lowercase across whole bank)
     norm = lambda s: re.sub(r"\s+", " ", s).strip().lower()  # noqa: E731
     seen_q = {}
-    for q in quizzes.load_bank()["questions"]:
+    for q in bank:
+        # skip the tool's own prior output (same id + text + answer)
+        if mod_sig.get(q["id"]) == (norm(q["q"]), q["a"]):
+            continue
         seen_q[norm(q["q"])] = q["id"]
     for d in mods:
         for q in d["quiz"]:

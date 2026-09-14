@@ -24,6 +24,7 @@
 <link rel="manifest" href="../../manifest.webmanifest">
 <meta name="theme-color" content="#4f32d9">
 <link rel="stylesheet" href="../../css/style.min.css">
+<link rel="stylesheet" href="../../css/storybook.css">
 <style>
 .art{max-width:760px;margin:0 auto;padding:0 20px 60px}
 .art h1{font-size:2rem;line-height:1.25;margin:26px 0 10px}
@@ -80,6 +81,14 @@
   <div id="lesson-complete"></div>
   <div id="offline-ctl"></div>
   <p class="meta">A free guide from EkGuru · updated 2026-09-11</p>
+
+<figure class="sb-scene dawn">
+<svg viewBox="0 0 720 300" aria-hidden="true"><circle class="sb-sun" cx="588" cy="76" r="62" fill="#ffb703" opacity=".25"/><circle class="sb-sun" cx="588" cy="76" r="44" fill="#ffb703" opacity=".9"/><circle class="sb-tw" cx="90" cy="52" r="4" fill="#fff"/><circle class="sb-tw" cx="180" cy="96" r="3" fill="#fff" style="animation-delay:-1s"/><circle class="sb-tw" cx="330" cy="44" r="3.5" fill="#fff" style="animation-delay:-2s"/><ellipse class="sb-hill" cx="170" cy="340" rx="290" ry="112" fill="#7fb069" opacity=".8"/><ellipse cx="580" cy="356" rx="330" ry="122" fill="#5c9248" opacity=".85"/><text x="118" y="205" font-size="128" fill="#ffffff" opacity=".55" font-weight="700">ज</text></svg>
+<span class="sb-float" style="top:8%;left:6%;font-size:2rem;animation-delay:-1s">सारा</span>
+<span class="sb-float" style="top:14%;right:8%;font-size:1.6rem;animation-delay:-3s">जॉन</span>
+<span class="sb-float" style="bottom:24%;left:12%;font-size:1.4rem;animation-delay:-5s">एमा</span>
+</figure>
+
 
   <aside class="pg-note" role="note">
     <b>A note on the Hindi spellings</b>
@@ -154,6 +163,16 @@ English are usually written once in Hindi.</p>
 <p><strong>MOHAMMED</strong> → mo + ha + m + mad → <strong>मोहम्मद</strong>.
 Here the double m is real and is written with a conjunct म्म.</p>
 
+<p><b>Tap to flip — the worked examples:</b></p>
+<div class="vcards">
+<div class="vcard wide" aria-label="SARAH"><div class="in"><div class="vface"><span class="lt">SARAH</span><span class="sd">English · tap me</span></div><div class="vface back"><span class="en">सारा</span><span class="mt">sa + ra — final h dropped</span><button class="spk" data-sb-say="सारा">🔊 hear it</button></div></div></div>
+<div class="vcard wide" aria-label="JOHN"><div class="in"><div class="vface"><span class="lt">JOHN</span><span class="sd">English · tap me</span></div><div class="vface back"><span class="en">जॉन</span><span class="mt">jo + n with halant</span><button class="spk" data-sb-say="जॉन">🔊 hear it</button></div></div></div>
+<div class="vcard wide" aria-label="DAVID"><div class="in"><div class="vface"><span class="lt">DAVID</span><span class="sd">English · tap me</span></div><div class="vface back"><span class="en">डेविड</span><span class="mt">de + vi + d — hard ड</span><button class="spk" data-sb-say="डेविड">🔊 hear it</button></div></div></div>
+<div class="vcard wide" aria-label="MARIA"><div class="in"><div class="vface"><span class="lt">MARIA</span><span class="sd">English · tap me</span></div><div class="vface back"><span class="en">मारिया</span><span class="mt">ma + ri + yaa</span><button class="spk" data-sb-say="मारिया">🔊 hear it</button></div></div></div>
+<div class="vcard wide" aria-label="ALEX"><div class="in"><div class="vface"><span class="lt">ALEX</span><span class="sd">English · tap me</span></div><div class="vface back"><span class="en">ऐलेक्स</span><span class="mt">a + le + ks — x becomes क्स</span><button class="spk" data-sb-say="ऐलेक्स">🔊 hear it</button></div></div></div>
+<div class="vcard wide" aria-label="EMMA"><div class="in"><div class="vface"><span class="lt">EMMA</span><span class="sd">English · tap me</span></div><div class="vface back"><span class="en">एमा</span><span class="mt">e + maa — one m sound</span><button class="spk" data-sb-say="एमा">🔊 hear it</button></div></div></div>
+</div>
+
 <h2>The four mistakes everyone makes</h2>
 <ol>
 <li><strong>Forgetting the halant.</strong> Writing "John" as जोन reads
@@ -184,6 +203,12 @@ letter.</p>
 
   <!-- v70 — cross-section links, same reason as the /ask/ pages. -->
   <div class="rel">
+    
+    
+    
+    
+    
+    
     
     
     
@@ -241,6 +266,7 @@ letter.</p>
 <script src="../../js/hindi-audio.js" defer></script>
 <script src="../../js/hindi-offline.js" defer></script>
 <script src="../../js/toast.js" defer></script>
+<script src="../../js/storybook.js" defer></script>
 <script src="../../js/site-config.js" defer></script>
 <!-- ekguru:scroll-restore:start -->
 <!-- v79 — back returns you where you were. NOT deferred: it must set

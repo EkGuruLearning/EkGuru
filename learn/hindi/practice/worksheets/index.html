@@ -24,6 +24,7 @@
 <link rel="manifest" href="../../../../manifest.webmanifest">
 <meta name="theme-color" content="#4f32d9">
 <link rel="stylesheet" href="../../../../css/style.min.css">
+<link rel="stylesheet" href="../../../../css/storybook.css">
 <style>
 .art{max-width:760px;margin:0 auto;padding:0 20px 60px}
 .art h1{font-size:2rem;line-height:1.25;margin:26px 0 10px}
@@ -49,6 +50,8 @@
     <p class="crumb"><a href="../../../../">EkGuru</a> › <a href="../../../">Learn Hindi</a> › <a href="../../">Hindi</a> › <a href="../">Practice</a> › Worksheets</p>
   <h1>Hindi Worksheets — printable practice</h1>
   <p class="lede">Build a worksheet from the quiz bank: choose a topic and a number of prompts, then print. Answers are included at the end unless you turn them off.</p>
+  <div class="sb-band"><span class="dev">काग़ज़</span>Print it, write on it.</div>
+
   <div id="ws-app"></div>
 
 </div>
@@ -79,6 +82,7 @@
 
 <script src="../../../../js/hindi-quiz-bank.js" defer></script>
 <script src="../../../../js/hindi-tools.js" defer></script>
+<script src="../../../../js/storybook.js" defer></script>
 <script defer>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
