@@ -19,8 +19,11 @@
   "use strict";
 
   function supported() {
-    return typeof window !== "undefined" && "speechSynthesis" in window &&
-           typeof window.SpeechSynthesisUtterance === "function";
+    if (typeof window === "undefined") return false;
+    if ("speechSynthesis" in window &&
+        typeof window.SpeechSynthesisUtterance === "function") return true;
+    /* v156: API voice needs only <audio> — no local voices required. */
+    return typeof Audio !== "undefined";
   }
 
   var active = null;
@@ -32,6 +35,7 @@
       active = null;
     }
     if (supported()) { try { window.speechSynthesis.cancel(); } catch (e) {} }
+    try { if (window.EkGuruVoice) window.EkGuruVoice.stop(); } catch (e) {}
   }
 
   /* v154: default speech language follows the page, never forced Hindi. */
@@ -51,6 +55,21 @@
   function speak(text, btn, langTag) {
     if (!supported()) return false;
     stop();
+    /* v156: API voice engine when storybook.js is on the page. */
+    if (window.EkGuruVoice && window.EkGuruVoice.speak) {
+      try {
+        var tag = langTag || DEF_LANG;
+        btn.classList.add("playing");
+        btn.setAttribute("aria-pressed", "true");
+        var lblA = btn.querySelector(".hi-listen-lbl");
+        if (lblA) lblA.textContent = "Stop";
+        active = { btn: btn };
+        window.EkGuruVoice.speak(String(text), tag, 0.8, function () {
+          if (active && active.btn === btn) stop();
+        });
+        return true;
+      } catch (e) {}
+    }
     try {
       var u = new SpeechSynthesisUtterance(String(text));
       u.lang = langTag || DEF_LANG;

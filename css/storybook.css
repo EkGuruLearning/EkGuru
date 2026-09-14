@@ -382,3 +382,29 @@ body[data-topic] .card::before,body[data-topic] .fact::before,body[data-topic] .
 .sb-chapter::after{display:none}
 .ssay,.sb-keys .say,.faq,.chips a,.sb-toc a{transition:none !important}
 }
+
+/* ---------- voice picker panel (v157) ---------- */
+.sb-vpanel{position:fixed;left:50%;transform:translate(-50%,24px);bottom:calc(76px + env(safe-area-inset-bottom,0px));
+  width:min(440px,calc(100vw - 32px));max-height:min(60vh,420px);display:flex;flex-direction:column;
+  background:var(--card,#fff);border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh-3);
+  z-index:300;opacity:0;transition:opacity .25s ease,transform .25s ease;overflow:hidden}
+.sb-vpanel.in{opacity:1;transform:translate(-50%,0)}
+.sb-vpanel-h{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:13px 16px;border-bottom:1px solid var(--line);background:var(--sb-tint,#f4f1ff)}
+.sb-vpanel-h b{font-size:.95rem}
+.sb-vpanel-x{border:1px solid var(--line);background:#fff;border-radius:999px;min-width:40px;min-height:40px;
+  font-size:.9rem;cursor:pointer;color:var(--ink-2)}
+.sb-vpanel-list{overflow-y:auto;padding:8px 12px 14px}
+.sb-vpanel-row{display:flex;align-items:center;gap:8px;padding:9px 4px;border-bottom:1px solid var(--line)}
+.sb-vpanel-row:last-child{border-bottom:0}
+.sb-vpanel-row.is-pref{background:var(--sb-tint,#f4f1ff);border-radius:10px}
+.sb-vpanel-name{flex:1;font-size:.85rem;min-width:0;overflow-wrap:break-word}
+.sb-vpanel-try,.sb-vpanel-use{flex:none;border-radius:999px;min-height:40px;padding:7px 14px;font:inherit;
+  font-size:.82rem;font-weight:700;cursor:pointer}
+.sb-vpanel-try{border:1px solid var(--line);background:var(--bg-soft)}
+.sb-vpanel-use{border:1px solid var(--sb-accent,#4f32d9);background:var(--sb-accent,#4f32d9);color:#fff}
+.sb-vpanel-empty{font-size:.87rem;line-height:1.6;color:var(--ink-2);padding:6px 4px}
+.sb-d-voice{font-size:1rem !important}
+@media print{.sb-vpanel{display:none !important}}
+@media(prefers-reduced-motion:reduce){.sb-vpanel{transition:none}}
+@media(max-width:380px){.sb-dock-btn{padding:8px 11px;font-size:.8rem}}

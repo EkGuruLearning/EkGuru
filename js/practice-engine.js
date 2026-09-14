@@ -146,9 +146,14 @@
   })();
   function speak(text, lang) {
     try {
+      var tag = lang || DEF_LANG;
+      /* v156: API voice engine when storybook.js is on the page. */
+      if (window.EkGuruVoice && window.EkGuruVoice.speak) {
+        return window.EkGuruVoice.speak(String(text), tag, 0.8);
+      }
       if (!("speechSynthesis" in window)) return false;
       var u = new SpeechSynthesisUtterance(String(text));
-      u.lang = lang || DEF_LANG;
+      u.lang = tag;
       u.rate = 0.8;
       window.speechSynthesis.cancel();
       window.speechSynthesis.speak(u);

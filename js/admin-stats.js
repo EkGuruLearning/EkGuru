@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T04:26:52.882Z",
+ "generated": "2026-09-14T04:36:20.959Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "5cc77e143635b2dbdf4e0a5367095d5567df2c97",
-  "subject": "v154: voice-per-language fix (native-voice nudge, engines page-aware, UI strings per language), content theming+animations, advanced languages hub; 120/120 proof",
-  "buildTime": "2026-09-14T04:26:52.895Z",
+  "commit": "66874e03d065fefbc319ddfda9d96d9f5e45bc44",
+  "subject": "v157 advance voice: local-first engine + voice picker + keepalive",
+  "buildTime": "2026-09-14T04:36:20.972Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
