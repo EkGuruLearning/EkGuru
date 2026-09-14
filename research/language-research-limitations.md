@@ -169,3 +169,49 @@ survey. The swamps are marked honestly — that is its current value.
 - Relation-grain backlog after completion: low-confidence ≈ 360 entries
   (medium 853 — the default band for speaker figures, §4), disputed 23;
   flag-unknowns are now confined to the deliberate-null set above.
+
+## 8. Pass-2 dispute resolution (2026-09-14 — SIL-table audit)
+
+- **Disputed 23 → 2.** Resolved 21: 20 uncoded-sign code disputes
+  (SIL-table-confirmed genuinely uncoded, dated notes, disputed=false,
+  confidence stays low, WFD consultation pending §5.3) + TR Adyghe
+  speaker range narrowed 100–300k → 70–120k (last sourced diaspora
+  split 1997: TR 71K/JO 44K/SY 25K; l1 set 100K, total 120K).
+- **Held 2 (correctly)**: GE xmf (state-dialect vs ISO-language —
+  political, unresolvable from desk; SIL xmf individual/living cited,
+  expert escalation §5.4) and LK ved (isolate vs Indo-Aryan identity).
+- **4 fabricated codes caught and fixed** (pjm/hez/qom/wra never in
+  SIL) + 2 mislabelled sign codes (hps→Hawai'i, psl→Puerto Rican;
+  Peruvian→prl, Haitian→mis). Full 711-canonical × SIL cross-check is
+  now green. 2 A/C sources registered (97 total).
+- Process note: the `_sources.json` top-level/inner-`sources` shape
+  bit once (review-open jumped to 30 — new keys at wrong level);
+  fixed same run, review-open back to 0.
+- Tooling note: parallel same-file edits race (last write wins) — the
+  §8 append was silently lost once and re-applied sequentially. Never
+  batch two edits to one file.
+
+## 9. Pass-2 null resolution (2026-09-14 — 639-1 audit + MI evidence)
+
+- **MT-nulls 24 → 14.** Resolved 10: lim→TRUE (Google li IS 639-1 for
+  lim — the batch-8 TBD was wrong), abk→TRUE (Google ab row found by
+  systematic audit), dyu/emk→TRUE (explicit Bambara mutual
+  intelligibility, served via Google bm), qus→TRUE (Southern Chinchay
+  with quh, close to Cusco), qvi→FALSE (Northern Kichwa unintelligible
+  to Southern-based qu), iii/kmb→FALSE (verified absent both engines),
+  che→FALSE (Big-Tech absent; Yandex out of flag scope §3.6),
+  frr/stq→FALSE (fy is Western-only; N/Saterland unintelligible).
+  Plus msa/zho FALSE→TRUE (literal macro verdicts; spares, members
+  carry practical verdicts). 7 C/D/B sources registered (104 total).
+- **Held 14 (all documented variety-match questions)**: Fula set
+  (fub/fuc/fuf/fuh/fum/fuv/fui — Google 'Fulfulde | ff' cover-term,
+  training variety undocumented), ps set (pbt/pst MT + pbt/pbu/pst
+  TTS — ps collective, variety TBD), rom set (rmn/rmc — macro row),
+  mkw (ktu-only listing), bxm (weak MI evidence only), jvn
+  (Surinamese-Javanese divergence unmeasured). Rule: flip only on
+  explicit evidence, never by macro assumption (dyu/emk/qus had it;
+  these 14 do not).
+- Full 639-1→639-3 row-code audit (Google 188 + MS 128 distinct codes)
+  is green: every other MT flag matches the engine rows (twi TRUE via
+  'Twi (Akan) | ak', fat correctly FALSE, mon→khk, orm→gaz, pus/ps
+  held, que members resolved, uzb→uzn Northern-only correct).
