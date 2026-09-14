@@ -198,9 +198,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "low",
-   "tts": null,
+   "tts": false,
    "translation": null,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). CM northern lingua franca (~3M+)."
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). CM northern lingua franca (~3M+). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:ady",
@@ -742,9 +742,9 @@
    ],
    "max_band": "10M-100M",
    "min_confidence": "medium",
-   "tts": false,
+   "tts": true,
    "translation": true,
-   "canonical_note": "639-1 am (SIL). IL Ethiopian-Jewish community; ET homeland in future batch."
+   "canonical_note": "639-1 am (SIL). IL Ethiopian-Jewish community; ET homeland in future batch. Azure am-ET voice. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:aoa",
@@ -905,9 +905,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "low",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). FR regional; ES Aranese co-official (Val d'Aran)."
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). FR regional; ES Aranese co-official (Val d'Aran). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:alu",
@@ -1910,9 +1910,9 @@
    ],
    "max_band": "10M-100M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). ML official + lingua franca (~15M+); N'Ko secondary script."
+   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). ML official + lingua franca (~15M+); N'Ko secondary script. No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:bqu",
@@ -2184,9 +2184,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "medium",
-   "tts": null,
-   "translation": null,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). RU Bashkortostan co-official (~1.2M); Yandex MT exists, Big-Tech TBD pass 2."
+   "tts": false,
+   "translation": true,
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). RU Bashkortostan co-official (~1.2M); Yandex MT exists, Big-Tech TBD pass 2. No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Google ba + MS ba rows (batch-4 Yandex-caveat superseded). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:eus",
@@ -2430,9 +2430,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "low",
-   "tts": true,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). BY co-official; Trasianka mixing widespread."
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). BY co-official; Trasianka mixing widespread. No be- voice on either engine (batch-4 overclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:bzj",
@@ -2696,8 +2696,8 @@
    "max_band": "10M-100M",
    "min_confidence": "low",
    "tts": false,
-   "translation": false,
-   "canonical_note": "Kaithi heritage script; Devanagari in practice"
+   "translation": true,
+   "canonical_note": "Kaithi heritage script; Devanagari in practice Google bho + MS bho rows (batch-1 underclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:dyl",
@@ -2774,8 +2774,8 @@
    "max_band": "1M-10M",
    "min_confidence": "high",
    "tts": false,
-   "translation": false,
-   "canonical_note": "SIL scope=M (batch-4 round-2): 8 ACTIVE members listed (bhk retired — excluded). PH census reports 'Bikol' as one line."
+   "translation": true,
+   "canonical_note": "SIL scope=M (batch-4 round-2): 8 ACTIVE members listed (bhk retired — excluded). PH census reports 'Bikol' as one line. Google bik row (batch-1 underclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:byn",
@@ -2901,8 +2901,8 @@
    "max_band": "1M-10M",
    "min_confidence": "high",
    "tts": false,
-   "translation": false,
-   "canonical_note": null
+   "translation": true,
+   "canonical_note": " MS brx row (batch-1 underclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:bos",
@@ -3397,9 +3397,9 @@
    ],
    "max_band": "10M-100M",
    "min_confidence": "high",
-   "tts": false,
+   "tts": true,
    "translation": true,
-   "canonical_note": "639-1 'my' (SIL). 2008 Constitution official; round palm-leaf script — hook."
+   "canonical_note": "639-1 'my' (SIL). 2008 Constitution official; round palm-leaf script — hook. Azure my-MM voice. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:bsk",
@@ -3866,9 +3866,9 @@
    ],
    "max_band": "10M-100M",
    "min_confidence": "high",
-   "tts": true,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Cebuano; Latin. 'Bisaya' endonym; VisMin spread via media/migration."
+   "canonical_note": "Cebuano; Latin. 'Bisaya' endonym; VisMin spread via media/migration. No ceb- voice on either engine (batch-1 overclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:tzm",
@@ -3958,9 +3958,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "low",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). BO/PE/CL Altiplano (~2M+; umbrella, pass-2 split candidate)."
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). BO/PE/CL Altiplano (~2M+; umbrella, pass-2 split candidate). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:knc",
@@ -4047,9 +4047,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Google Translate Sorani present (medium); TTS unknown"
+   "canonical_note": "Google Translate Sorani present (medium); TTS unknown No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:esu",
@@ -4248,9 +4248,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": null,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). RU Chechnya co-official (~1.4M); Yandex MT exists, Big-Tech TBD pass 2."
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). RU Chechnya co-official (~1.4M); Yandex MT exists, Big-Tech TBD pass 2. No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:chr",
@@ -4346,9 +4346,9 @@
    ],
    "max_band": "10M-100M",
    "min_confidence": "low",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). MW/ZM/ZW (Chichewa/Nyanja/Chewa — one code)."
+   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). MW/ZM/ZW (Chichewa/Nyanja/Chewa — one code). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:csg",
@@ -4542,9 +4542,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "medium",
-   "tts": null,
-   "translation": null,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). RU Chuvashia co-official (~1M; only living Oghur)."
+   "tts": false,
+   "translation": true,
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). RU Chuvashia co-official (~1M; only living Oghur). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Google cv row (batch-4 underclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:xct",
@@ -5409,9 +5409,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "high",
-   "tts": null,
+   "tts": true,
    "translation": true,
-   "canonical_note": "Translation via Persian (fa); Dari-specific TTS unknown"
+   "canonical_note": "Translation via Persian (fa); Dari-specific TTS unknown Azure fa-IR voice serves Persian incl. Dari (intelligible; Iranian accent). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:dzg",
@@ -5532,8 +5532,8 @@
    "max_band": "100K-1M",
    "min_confidence": "high",
    "tts": false,
-   "translation": false,
-   "canonical_note": null
+   "translation": true,
+   "canonical_note": " Google dv + MS dv rows (batch-1 underclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:luo",
@@ -5569,9 +5569,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). KE Nyanza (~5M+)."
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). KE Nyanza (~5M+). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:din",
@@ -5607,9 +5607,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "low",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). SS largest group umbrella (~4M+; 5 coded varieties)."
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). SS largest group umbrella (~4M+; 5 coded varieties). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:doi",
@@ -5651,8 +5651,8 @@
    "max_band": "1M-10M",
    "min_confidence": "high",
    "tts": false,
-   "translation": false,
-   "canonical_note": "Takri heritage script; Devanagari official SIL bulk 2026-09-14: scope=M (Dogri macro: dgo individual + xnr Kangri)."
+   "translation": true,
+   "canonical_note": "Takri heritage script; Devanagari official SIL bulk 2026-09-14: scope=M (Dogri macro: dgo individual + xnr Kangri). Google doi + MS doi rows (batch-1 underclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:acf",
@@ -5966,9 +5966,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": null,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). CI/BF lingua franca (~5M+); Bambara-MT overlap unconfirmed."
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). CI/BF lingua franca (~5M+); Bambara-MT overlap unconfirmed. No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:dzo",
@@ -6013,8 +6013,8 @@
    "max_band": "100K-1M",
    "min_confidence": "high",
    "tts": false,
-   "translation": false,
-   "canonical_note": null
+   "translation": true,
+   "canonical_note": " Google dz row (batch-1 underclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:lma",
@@ -6244,9 +6244,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "low",
-   "tts": null,
+   "tts": false,
    "translation": null,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). GN Upper Guinea (Kankan; ~3M+)."
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). GN Upper Guinea (Kankan; ~3M+). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:ecs",
@@ -7196,9 +7196,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). GH/TG national (~6M+)."
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). GH/TG national (~6M+). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:ewo",
@@ -7474,9 +7474,9 @@
    ],
    "max_band": "100K-1M",
    "min_confidence": "medium",
-   "tts": null,
-   "translation": null,
-   "canonical_note": "Batch 6a (pass 1, agent-compiled; verification pass 2 confirms). FJ official (Bauan standard; ~450K; Big-Tech MT unconfirmed)."
+   "tts": false,
+   "translation": true,
+   "canonical_note": "Batch 6a (pass 1, agent-compiled; verification pass 2 confirms). FJ official (Bauan standard; ~450K; Big-Tech MT unconfirmed). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Google fj + MS fj rows. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:fil",
@@ -7742,9 +7742,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "medium",
-   "tts": null,
-   "translation": true,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). BJ largest national (south; ~2M+)."
+   "tts": false,
+   "translation": false,
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). BJ largest national (south; ~2M+). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Neither lists Fon (batch-4 overclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:cri",
@@ -8153,9 +8153,9 @@
    ],
    "max_band": "100K-1M",
    "min_confidence": "medium",
-   "tts": null,
-   "translation": null,
-   "canonical_note": "Batch 6a (pass 1, agent-compiled; verification pass 2 confirms). GH government-sponsored (Accra; ~600K; Big-Tech MT unconfirmed)."
+   "tts": false,
+   "translation": true,
+   "canonical_note": "Batch 6a (pass 1, agent-compiled; verification pass 2 confirms). GH government-sponsored (Accra; ~600K; Big-Tech MT unconfirmed). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Google gaa row. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:gag",
@@ -8481,9 +8481,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "high",
-   "tts": false,
+   "tts": true,
    "translation": true,
-   "canonical_note": "639-1 ka (SIL). Mkhedruli script (one of ~14 world scripts); GE state language."
+   "canonical_note": "639-1 ka (SIL). Mkhedruli script (one of ~14 world scripts); GE state language. Azure ka-GE voice. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:deu",
@@ -8781,9 +8781,9 @@
    ],
    "max_band": "100K-1M",
    "min_confidence": "medium",
-   "tts": null,
-   "translation": null,
-   "canonical_note": "Batch 6b (pass 1, agent-compiled; verification pass 2 confirms). KI official + national (~all ~120K; Big-Tech MT unconfirmed)."
+   "tts": false,
+   "translation": false,
+   "canonical_note": "Batch 6b (pass 1, agent-compiled; verification pass 2 confirms). KI official + national (~all ~120K; Big-Tech MT unconfirmed). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Neither engine lists it; no plausible third engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:gux",
@@ -9439,9 +9439,9 @@
    ],
    "max_band": "10M-100M",
    "min_confidence": "low",
-   "tts": true,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). HT official; large US/DO/CL diaspora."
+   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). HT official; large US/DO/CL diaspora. No ht- voice on either engine (batch-3 overclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:hps",
@@ -9569,9 +9569,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": true,
    "translation": true,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). MN official (~3M; Cyrillic + returning traditional script)."
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). MN official (~3M; Cyrillic + returning traditional script). Azure mn-MN voice (Google mn experimental). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:hab",
@@ -9710,9 +9710,9 @@
    ],
    "max_band": "10M-100M",
    "min_confidence": "low",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). NG/NE national giant (~60M+); Boko script (Ajami secondary)."
+   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). NG/NE national giant (~60M+); Boko script (Ajami secondary). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:haw",
@@ -9914,8 +9914,8 @@
    "max_band": "10M-100M",
    "min_confidence": "high",
    "tts": false,
-   "translation": false,
-   "canonical_note": "Hiligaynon; Latin. 'Sweetest accent' fame; sugar-plantation history."
+   "translation": true,
+   "canonical_note": "Hiligaynon; Latin. 'Sweetest accent' fame; sugar-plantation history. Google hil row (batch-1 underclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:hin",
@@ -10588,9 +10588,9 @@
    ],
    "max_band": "10M-100M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). NG national (~30M+)."
+   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). NG national (~30M+). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:ilo",
@@ -10668,9 +10668,9 @@
    ],
    "max_band": "100K-1M",
    "min_confidence": "low",
-   "tts": null,
+   "tts": false,
    "translation": null,
-   "canonical_note": "Batch 6a (pass 1, agent-compiled; verification pass 2 confirms). EC Imbabura (~300K; Quechua-MT variety match TBD pass 2)."
+   "canonical_note": "Batch 6a (pass 1, agent-compiled; verification pass 2 confirms). EC Imbabura (~300K; Quechua-MT variety match TBD pass 2). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:smn",
@@ -12187,8 +12187,8 @@
    "max_band": "1M-10M",
    "min_confidence": "high",
    "tts": false,
-   "translation": false,
-   "canonical_note": "Kapampangan (SIL 'Pampanga'); Latin. Kulitan-script revival; culinary-capital fame."
+   "translation": true,
+   "canonical_note": "Kapampangan (SIL 'Pampanga'); Latin. Kulitan-script revival; culinary-capital fame. Google pam row (batch-1 underclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:cak",
@@ -12358,8 +12358,8 @@
    "max_band": "1M-10M",
    "min_confidence": "low",
    "tts": false,
-   "translation": false,
-   "canonical_note": "Perso-Arabic + Devanagari both notified in J&K"
+   "translation": true,
+   "canonical_note": "Perso-Arabic + Devanagari both notified in J&K MS ks row (batch-1 underclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:csb",
@@ -12554,9 +12554,9 @@
    ],
    "max_band": "10M-100M",
    "min_confidence": "medium",
-   "tts": false,
+   "tts": true,
    "translation": true,
-   "canonical_note": "639-1 'km' (SIL). Art.5 official; Angkor-script prestige. Delta (Krom) half in VN — same code."
+   "canonical_note": "639-1 'km' (SIL). Art.5 official; Angkor-script prestige. Delta (Krom) half in VN — same code. Azure km-KH voice. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:kjg",
@@ -12750,9 +12750,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "medium",
-   "tts": null,
-   "translation": null,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). GT largest Mayan (~1M+) (no 639-1; Kʼicheʼ has none — never use Quechua qu).."
+   "tts": false,
+   "translation": false,
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). GT largest Mayan (~1M+) (no 639-1; Kʼicheʼ has none — never use Quechua qu).. No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Neither engine lists it; no plausible third engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:kik",
@@ -12788,9 +12788,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "medium",
-   "tts": null,
-   "translation": true,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). KE largest home language (~8M+)."
+   "tts": false,
+   "translation": false,
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). KE largest home language (~8M+). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Neither lists Kikuyu/Gikuyu (batch-1 overclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:kmb",
@@ -12829,9 +12829,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": null,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). AO (Luanda hinterland; ~3M+); MT support unconfirmed."
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). AO (Luanda hinterland; ~3M+); MT support unconfirmed. No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:kin",
@@ -12873,9 +12873,9 @@
    ],
    "max_band": "10M-100M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). RW official + national (~14M)."
+   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). RW official + national (~14M). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:ktu",
@@ -12914,9 +12914,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). CD national (Kwilu; ~5M+; Kikongo-based)."
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). CD national (Kwilu; ~5M+; Kikongo-based). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:mkw",
@@ -12958,9 +12958,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "low",
-   "tts": null,
-   "translation": true,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). CG national (south; ~1M+; Kikongo-based)."
+   "tts": false,
+   "translation": null,
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). CG national (south; ~1M+; Kikongo-based). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Google lists Kituba as ktu only; mkw variety-match TBD (batch-4 TRUE downgraded). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:trp",
@@ -13080,9 +13080,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "low",
-   "tts": null,
-   "translation": true,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). CD/CG/AO umbrella (~8M+; pass-2 split candidate)."
+   "tts": false,
+   "translation": false,
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). CD/CG/AO umbrella (~8M+; pass-2 split candidate). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Neither lists Kongo/Kikongo (batch-3 overclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:kok",
@@ -13124,7 +13124,7 @@
    "min_confidence": "high",
    "tts": false,
    "translation": false,
-   "canonical_note": "Five-script tradition; Devanagari mandated in Goa SIL bulk 2026-09-14: members gom + knn (Konkani individual)."
+   "canonical_note": "Five-script tradition; Devanagari mandated in Goa SIL bulk 2026-09-14: members gom + knn (Konkani individual). Google/MS Konkani rows are member gom (Goan) only; kok macro itself uncovered. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:kor",
@@ -13353,8 +13353,8 @@
    "max_band": "1M-10M",
    "min_confidence": "medium",
    "tts": false,
-   "translation": false,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). SL national lingua franca (~5M L2)."
+   "translation": true,
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). SL national lingua franca (~5M L2). Google kri row (batch-4 underclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:rop",
@@ -13642,9 +13642,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "medium",
-   "tts": true,
+   "tts": false,
    "translation": true,
-   "canonical_note": "SIL Ref_Name 'Kirghiz' (old spelling). 639-1 ky (SIL)."
+   "canonical_note": "SIL Ref_Name 'Kirghiz' (old spelling). 639-1 ky (SIL). No ky- voice on either engine (batch-1 overclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:lld",
@@ -13767,9 +13767,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "high",
-   "tts": false,
+   "tts": true,
    "translation": true,
-   "canonical_note": "639-1 'lo' (SIL). Art.13 official; Tham-script heritage, Lao-script standard."
+   "canonical_note": "639-1 'lo' (SIL). Art.13 official; Tham-script heritage, Lao-script standard. Azure lo-LA voice. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:lso",
@@ -13885,9 +13885,9 @@
    ],
    "max_band": "unknown",
    "min_confidence": "medium",
-   "tts": true,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 7 (pass 1, agent-compiled; verification pass 2 confirms). VA official (Catholic liturgy; learned L2 worldwide)."
+   "canonical_note": "Batch 7 (pass 1, agent-compiled; verification pass 2 confirms). VA official (Catholic liturgy; learned L2 worldwide). No la- voice on either engine; page hits were UI text (batch-7 overclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:lav",
@@ -14263,9 +14263,9 @@
    ],
    "max_band": "10M-100M",
    "min_confidence": "low",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). CD/CG national; rumba lingua franca (~25M+)."
+   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). CD/CG national; rumba lingua franca (~25M+). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:lis",
@@ -14659,9 +14659,9 @@
    ],
    "max_band": "10M-100M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). UG largest home language (~10M+)."
+   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). UG largest home language (~10M+). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:lgg",
@@ -14859,9 +14859,9 @@
    ],
    "max_band": "100K-1M",
    "min_confidence": "low",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 6a (pass 1, agent-compiled; verification pass 2 confirms). LU national (~400K+; trilingual state)."
+   "canonical_note": "Batch 6a (pass 1, agent-compiled; verification pass 2 confirms). LU national (~400K+; trilingual state). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:mas",
@@ -15309,8 +15309,8 @@
    "max_band": "10M-100M",
    "min_confidence": "medium",
    "tts": false,
-   "translation": false,
-   "canonical_note": "Tirhuta/Mithilakshar heritage; Devanagari in practice"
+   "translation": true,
+   "canonical_note": "Tirhuta/Mithilakshar heritage; Devanagari in practice Google mai + MS mai rows (batch-1 underclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:mak",
@@ -15429,9 +15429,9 @@
    ],
    "max_band": "10M-100M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). MG official + national (~28M; dialect chain)."
+   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). MG official + national (~28M; dialect chain). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:lon",
@@ -15561,9 +15561,9 @@
    ],
    "max_band": "unknown",
    "min_confidence": "medium",
-   "tts": true,
-   "translation": true,
-   "canonical_note": "Malayalam; Gulf-worker L1 + Kerala base. Shared pack logic with tam."
+   "tts": false,
+   "translation": false,
+   "canonical_note": "Malayalam; Gulf-worker L1 + Kerala base. Shared pack logic with tam. SIGN language: TTS/MT not applicable (batch-1 error corrected; cf. nzs/sfs). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:mlt",
@@ -15605,9 +15605,9 @@
    ],
    "max_band": "100K-1M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": true,
    "translation": true,
-   "canonical_note": "Batch 6a (pass 1, agent-compiled; verification pass 2 confirms). MT national; EU official (only Semitic official EU language; ~450K)."
+   "canonical_note": "Batch 6a (pass 1, agent-compiled; verification pass 2 confirms). MT national; EU official (only Semitic official EU language; ~450K). Azure mt-MT voice. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:mam",
@@ -15892,8 +15892,8 @@
    "max_band": "1M-10M",
    "min_confidence": "high",
    "tts": false,
-   "translation": null,
-   "canonical_note": "Macro treatment + Meitei Mayek (Mtei) revival; family subgroup verify pass 2; Google Translate Meitei presence uncertain SIL bulk 2026-09-14: scope=I individual — macro claim withdrawn."
+   "translation": true,
+   "canonical_note": "Macro treatment + Meitei Mayek (Mtei) revival; family subgroup verify pass 2; Google Translate Meitei presence uncertain SIL bulk 2026-09-14: scope=I individual — macro claim withdrawn. Google mni-Mtei + MS mni rows. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:mev",
@@ -15970,9 +15970,9 @@
    ],
    "max_band": "100K-1M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 6b (pass 1, agent-compiled; verification pass 2 confirms). NZ official (~185K; kōhanga reo revitalization)."
+   "canonical_note": "Batch 6b (pass 1, agent-compiled; verification pass 2 confirms). NZ official (~185K; kōhanga reo revitalization). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:arn",
@@ -16179,9 +16179,9 @@
    ],
    "max_band": "10K-100K",
    "min_confidence": "medium",
-   "tts": null,
-   "translation": true,
-   "canonical_note": "Batch 6b (pass 1, agent-compiled; verification pass 2 confirms). MH official + national (~all ~60K; Rālik/Ratak dialects)."
+   "tts": false,
+   "translation": false,
+   "canonical_note": "Batch 6b (pass 1, agent-compiled; verification pass 2 confirms). MH official + national (~all ~60K; Rālik/Ratak dialects). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Neither lists Marshallese (batch-6b overclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:mls",
@@ -16255,9 +16255,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "low",
-   "tts": null,
+   "tts": false,
    "translation": null,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). ML official (Macina; ~1M+)."
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). ML official (Macina; ~1M+). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:mzn",
@@ -16583,7 +16583,7 @@
    "min_confidence": "medium",
    "tts": false,
    "translation": false,
-   "canonical_note": "Batch 6b (pass 1, agent-compiled; verification pass 2 confirms). MX Mezquital Valley (~100K)."
+   "canonical_note": "Batch 6b (pass 1, agent-compiled; verification pass 2 confirms). MX Mezquital Valley (~100K). MS Otomi row is otq (Queretaro) only; Mezquital (ote) uncovered. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:fit",
@@ -17069,9 +17069,9 @@
    ],
    "max_band": "100K-1M",
    "min_confidence": "medium",
-   "tts": null,
-   "translation": true,
-   "canonical_note": "Batch 6b (pass 1, agent-compiled; verification pass 2 confirms). ME official (adds ś/ź; mutually intelligible srp/hrv/bos)."
+   "tts": false,
+   "translation": false,
+   "canonical_note": "Batch 6b (pass 1, agent-compiled; verification pass 2 confirms). ME official (adds ś/ź; mutually intelligible srp/hrv/bos). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Neither lists Montenegrin (batch-6b overclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:lij",
@@ -17151,9 +17151,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "medium",
-   "tts": null,
-   "translation": true,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). BF largest national (Mossi ~50%; ~7M+)."
+   "tts": false,
+   "translation": false,
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). BF largest national (Mossi ~50%; ~7M+). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Neither lists Mossi/Moore (batch-4 overclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:mop",
@@ -18168,9 +18168,9 @@
    ],
    "max_band": "10M-100M",
    "min_confidence": "low",
-   "tts": null,
+   "tts": false,
    "translation": null,
-   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). NG north (~15M+); Fulani-MT variety match unconfirmed (Ajami secondary)."
+   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). NG north (~15M+); Fulani-MT variety match unconfirmed (Ajami secondary). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:pcm",
@@ -18663,9 +18663,9 @@
    ],
    "max_band": "10M-100M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Latin-script tradition (Perso-Arabic also used); TTS unknown"
+   "canonical_note": "Latin-script tradition (Perso-Arabic also used); TTS unknown No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:lrc",
@@ -18743,9 +18743,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "medium",
-   "tts": null,
-   "translation": true,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). ZW official (~2M+)."
+   "tts": false,
+   "translation": false,
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). ZW official (~2M+). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Google lists Ndebele-South (nr) only; no Northern (nd); MS neither (batch-4 overclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:pbu",
@@ -18784,7 +18784,7 @@
    "min_confidence": "medium",
    "tts": null,
    "translation": true,
-   "canonical_note": "Google 'ps' collective covers Pashto; per-variety TTS unknown"
+   "canonical_note": "Google 'ps' collective covers Pashto; per-variety TTS unknown Google ps + Azure ps-AF + MS ps all exist; per-variety (pbu) match still TBD. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:nso",
@@ -18823,9 +18823,9 @@
    ],
    "max_band": "10M-100M",
    "min_confidence": "medium",
-   "tts": null,
-   "translation": null,
-   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). ZA official (Sepedi standard; ~15M); MT support unconfirmed."
+   "tts": false,
+   "translation": true,
+   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). ZA official (Sepedi standard; ~15M); MT support unconfirmed. No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Google nso row + MS 2023 African set. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:nod",
@@ -19578,9 +19578,9 @@
    ],
    "max_band": "10M-100M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). ET federal working; largest ET L1 (~40M+); Qubee script."
+   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). ET federal working; largest ET L1 (~40M+); Qubee script. No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:oss",
@@ -19657,9 +19657,9 @@
    ],
    "max_band": "100K-1M",
    "min_confidence": "low",
-   "tts": null,
-   "translation": null,
-   "canonical_note": "Batch 6b (pass 1, agent-compiled; verification pass 2 confirms). NA national (~200K; Big-Tech MT unconfirmed)."
+   "tts": false,
+   "translation": false,
+   "canonical_note": "Batch 6b (pass 1, agent-compiled; verification pass 2 confirms). NA national (~200K; Big-Tech MT unconfirmed). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Neither engine lists it; no plausible third engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:blk",
@@ -19858,8 +19858,8 @@
    "max_band": "1M-10M",
    "min_confidence": "high",
    "tts": false,
-   "translation": false,
-   "canonical_note": "Pangasinan ('land of salt'); Latin. Youth shift to Ilokano/Filipino."
+   "translation": true,
+   "canonical_note": "Pangasinan ('land of salt'); Latin. Youth shift to Ilokano/Filipino. Google pag row (batch-1 underclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:pan",
@@ -20050,9 +20050,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). PY official (~90% speak); AR Corrientes co-official."
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). PY official (~90% speak); AR Corrientes co-official. No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:mfa",
@@ -21107,9 +21107,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": null,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). SN/MR Pulaar (~3M+); Fulani-MT variety match unconfirmed."
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). SN/MR Pulaar (~3M+); Fulani-MT variety match unconfirmed. No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:fuf",
@@ -21155,9 +21155,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "low",
-   "tts": null,
+   "tts": false,
    "translation": null,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). GN/GM/GW Pular (~3M+); Fulani-MT variety match unconfirmed (Ajami/Arabic secondary)."
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). GN/GM/GW Pular (~3M+); Fulani-MT variety match unconfirmed (Ajami/Arabic secondary). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:puu",
@@ -21234,9 +21234,9 @@
    ],
    "max_band": "100K-1M",
    "min_confidence": "medium",
-   "tts": null,
-   "translation": null,
-   "canonical_note": "Batch 6b (pass 1, agent-compiled; verification pass 2 confirms). MX Michoacán (~120K; Big-Tech MT unconfirmed)."
+   "tts": false,
+   "translation": false,
+   "canonical_note": "Batch 6b (pass 1, agent-compiled; verification pass 2 confirms). MX Michoacán (~120K; Big-Tech MT unconfirmed). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Neither engine lists it; no plausible third engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:kjh",
@@ -21899,9 +21899,9 @@
    ],
    "max_band": "10K-100K",
    "min_confidence": "medium",
-   "tts": null,
-   "translation": true,
-   "canonical_note": "Batch 6b (pass 1, agent-compiled; verification pass 2 confirms). CH national (~60K; Rumantsch Grischun standard; 5 idioms)."
+   "tts": false,
+   "translation": false,
+   "canonical_note": "Batch 6b (pass 1, agent-compiled; verification pass 2 confirms). CH national (~60K; Rumantsch Grischun standard; 5 idioms). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Neither lists Romansh (batch-6b overclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:rtm",
@@ -22019,9 +22019,9 @@
    ],
    "max_band": "10M-100M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). BI official + national (~13M)."
+   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). BI official + national (~13M). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:rus",
@@ -22496,9 +22496,9 @@
    ],
    "max_band": "100K-1M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 6b (pass 1, agent-compiled; verification pass 2 confirms). WS/AS official (~200K+; ~500K+ worldwide incl. diaspora)."
+   "canonical_note": "Batch 6b (pass 1, agent-compiled; verification pass 2 confirms). WS/AS official (~200K+; ~500K+ worldwide incl. diaspora). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:icr",
@@ -22661,9 +22661,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). CF official + lingua franca (~5M+ L2)."
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). CF official + lingua franca (~5M+ L2). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:san",
@@ -22707,8 +22707,8 @@
    "max_band": "10K-100K",
    "min_confidence": "high",
    "tts": false,
-   "translation": false,
-   "canonical_note": "Liturgical/scholarly; census L1 is symbolic self-report SIL bulk 2026-09-14: scope=M (cls Classical + vsn Vedic), type=H Historical — living liturgical/official use noted, registry type stands."
+   "translation": true,
+   "canonical_note": "Liturgical/scholarly; census L1 is symbolic self-report SIL bulk 2026-09-14: scope=M (cls Classical + vsn Vedic), type=H Historical — living liturgical/official use noted, registry type stands. Google sa row (batch-1 underclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:sat",
@@ -22752,8 +22752,8 @@
    "max_band": "1M-10M",
    "min_confidence": "medium",
    "tts": false,
-   "translation": true,
-   "canonical_note": "Google Translate added Santali (Ol Chiki) 2024 — medium confidence; TTS absent"
+   "translation": false,
+   "canonical_note": "Google Translate added Santali (Ol Chiki) 2024 — medium confidence; TTS absent Neither lists Santali (batch-1 overclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:qus",
@@ -23574,9 +23574,9 @@
    ],
    "max_band": "10M-100M",
    "min_confidence": "low",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). ZW official (~14M+); ZA immigrant community."
+   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). ZW official (~14M+); ZA immigrant community. No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:jiv",
@@ -23818,9 +23818,9 @@
    ],
    "max_band": "10M-100M",
    "min_confidence": "high",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Perso-Arabic (52 letters) + Devanagari in India; TTS unknown"
+   "canonical_note": "Perso-Arabic (52 letters) + Devanagari in India; TTS unknown No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:sls",
@@ -24179,9 +24179,9 @@
    ],
    "max_band": "10M-100M",
    "min_confidence": "low",
-   "tts": null,
+   "tts": true,
    "translation": true,
-   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). SO/DJ/ET official; Horn lingua franca."
+   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). SO/DJ/ET official; Horn lingua franca. Azure so-SO UbaxNeural voice. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:snk",
@@ -24393,9 +24393,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). BO largest Indigenous (~2M+; Quechua-MT variety match TBD pass 2)."
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). BO largest Indigenous (~2M+; Quechua-MT variety match TBD pass 2). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). MT is Google-only (qu row; MS lacks Quechua). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:sma",
@@ -24662,9 +24662,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "low",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). ZA official (Mpumalanga; ~2M)."
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). ZA official (Mpumalanga; ~2M). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:sot",
@@ -24711,9 +24711,9 @@
    ],
    "max_band": "10M-100M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). LS/ZA official (~12M+)."
+   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). LS/ZA official (~12M+). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:sou",
@@ -25457,9 +25457,9 @@
    ],
    "max_band": "unknown",
    "min_confidence": "medium",
-   "tts": null,
-   "translation": true,
-   "canonical_note": "Batch 7 (pass 1, agent-compiled; verification pass 2 confirms). MA official standard (2011 constitution; Tifinagh; taught in schools)."
+   "tts": false,
+   "translation": false,
+   "canonical_note": "Batch 7 (pass 1, agent-compiled; verification pass 2 confirms). MA official standard (2011 constitution; Tifinagh; taught in schools). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Neither lists Tamazight (batch-7 overclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:apd",
@@ -25780,9 +25780,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "medium",
-   "tts": null,
-   "translation": null,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). SZ/ZA official (~5M+); MT support unconfirmed."
+   "tts": false,
+   "translation": true,
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). SZ/ZA official (~5M+); MT support unconfirmed. No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Google ss row. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:swe",
@@ -26076,7 +26076,7 @@
    "min_confidence": "medium",
    "tts": true,
    "translation": true,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). PH national base (Filipino); big US/SA diaspora."
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). PH national base (Filipino); big US/SA diaspora. TTS is fil-PH shared voice (no separate tgl voice). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:blt",
@@ -26896,8 +26896,8 @@
    "max_band": "100K-1M",
    "min_confidence": "high",
    "tts": false,
-   "translation": false,
-   "canonical_note": "Tetum; Latin. Tetun Dili vs Terik under one code; Dili LF inversion (L2>L1)."
+   "translation": true,
+   "canonical_note": "Tetum; Latin. Tetun Dili vs Terik under one code; Dili LF inversion (L2>L1). Google tet row (batch-1 underclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:tha",
@@ -27024,9 +27024,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "low",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). CN co-official (Tibet/Qinghai; umbrella, pass-2 split candidate)."
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). CN co-official (Tibet/Qinghai; umbrella, pass-2 split candidate). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). MT is MS-confirmed (MS bo row; Google absent). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:tca",
@@ -27144,9 +27144,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). ER/ET working (~11M+; Ge'ez script)."
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). ER/ET working (~11M+; Ge'ez script). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:tiv",
@@ -27466,9 +27466,9 @@
    ],
    "max_band": "100K-1M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 6b (pass 1, agent-compiled; verification pass 2 confirms). TO official (~100K+; ~200K+ incl. diaspora; NOT Zambian toi)."
+   "canonical_note": "Batch 6b (pass 1, agent-compiled; verification pass 2 confirms). TO official (~100K+; ~200K+ incl. diaspora; NOT Zambian toi). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). MT is MS-only evidence (MS to row; Google absent). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:dts",
@@ -27667,9 +27667,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "low",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). ZA/MZ official (~7M+)."
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). ZA/MZ official (~7M+). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:tsn",
@@ -27714,9 +27714,9 @@
    ],
    "max_band": "10M-100M",
    "min_confidence": "medium",
-   "tts": null,
-   "translation": null,
-   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). BW/ZA national (~13M+); MT support unconfirmed."
+   "tts": false,
+   "translation": true,
+   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). BW/ZA national (~13M+); MT support unconfirmed. No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Google tn row + MS 2023 African set. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:tum",
@@ -27985,9 +27985,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Perso-Arabic in IR/AF; Latin in Turkmenistan"
+   "canonical_note": "Perso-Arabic in IR/AF; Latin in Turkmenistan No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:tvl",
@@ -28111,9 +28111,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). GH government-sponsored Akan (~9M+ incl. L2)."
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). GH government-sponsored Akan (~9M+ incl. L2). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:tzh",
@@ -28525,9 +28525,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "medium",
-   "tts": null,
-   "translation": true,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). AO largest national (highlands; ~6M+)."
+   "tts": false,
+   "translation": false,
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). AO largest national (highlands; ~6M+). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Neither lists Umbundu (batch-4 overclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:hsb",
@@ -28808,7 +28808,7 @@
    "min_confidence": "medium",
    "tts": true,
    "translation": true,
-   "canonical_note": "NORTHERN Uzbek (Uzbekistan/CA standard); Latin official (UZ 1993 law), Cyrillic legacy (TJ/KG/UZ print). SIL identity audit 2026-09-14: corrected ex-Southern misfile (AF side is now uzs)."
+   "canonical_note": "NORTHERN Uzbek (Uzbekistan/CA standard); Latin official (UZ 1993 law), Cyrillic legacy (TJ/KG/UZ print). SIL identity audit 2026-09-14: corrected ex-Southern misfile (AF side is now uzs). MT is MS-confirmed (MS uz Latin row; Google absent). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:vai",
@@ -28921,9 +28921,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "low",
-   "tts": null,
-   "translation": true,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). ZA official (far-north Limpopo; ~2.5M)."
+   "tts": false,
+   "translation": false,
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). ZA official (far-north Limpopo; ~2.5M). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Neither lists Venda (batch-4 overclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:vsl",
@@ -29564,9 +29564,9 @@
    ],
    "max_band": "1M-10M",
    "min_confidence": "low",
-   "tts": null,
+   "tts": false,
    "translation": null,
-   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). BF/NE/BJ Sahel (~2M+); code boundary TBD pass 2."
+   "canonical_note": "Batch 4 (pass 1, agent-compiled; verification pass 2 confirms). BF/NE/BJ Sahel (~2M+); code boundary TBD pass 2. No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:pnb",
@@ -29604,8 +29604,8 @@
    "max_band": "10M-100M",
    "min_confidence": "high",
    "tts": false,
-   "translation": false,
-   "canonical_note": "Western Panjabi (Shahmukhi); Google 'pa' is Eastern/Gurmukhi only"
+   "translation": true,
+   "canonical_note": "Western Panjabi (Shahmukhi); Google 'pa' is Eastern/Gurmukhi only Google pa-PK row (batch-1 underclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:mww",
@@ -29740,9 +29740,9 @@
    ],
    "max_band": "10M-100M",
    "min_confidence": "medium",
-   "tts": null,
-   "translation": true,
-   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). SN/GM lingua franca (~12M+)."
+   "tts": false,
+   "translation": false,
+   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). SN/GM lingua franca (~12M+). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Neither Google nor MS lists Wolof (batch-3 overclaim corrected). P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:noa",
@@ -29857,9 +29857,9 @@
    ],
    "max_band": "10M-100M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). ZA official (~19M; clicks)."
+   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). ZA official (~19M; clicks). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:hsn",
@@ -30184,9 +30184,9 @@
    ],
    "max_band": "10M-100M",
    "min_confidence": "medium",
-   "tts": null,
+   "tts": false,
    "translation": true,
-   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). NG/BJ national (~40M+)."
+   "canonical_note": "Batch 3 (pass 1, agent-compiled; verification pass 2 confirms). NG/BJ national (~40M+). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:yua",
@@ -30225,9 +30225,9 @@
    ],
    "max_band": "100K-1M",
    "min_confidence": "medium",
-   "tts": null,
-   "translation": null,
-   "canonical_note": "Batch 6a (pass 1, agent-compiled; verification pass 2 confirms). MX/BZ Yucatán (~800K; Big-Tech MT unconfirmed)."
+   "tts": false,
+   "translation": true,
+   "canonical_note": "Batch 6a (pass 1, agent-compiled; verification pass 2 confirms). MX/BZ Yucatán (~800K; Big-Tech MT unconfirmed). No voice on either engine. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list). Google yua + MS yua rows. P2 2026-09-14 (voice-list evidence: G-Cloud-TTS + Azure-Speech-TTS + G-Translate-list + MS-Translator-list)."
   },
   {
    "language_id": "lang:ysl",

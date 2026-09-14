@@ -105,26 +105,27 @@ survey. The swamps are marked honestly — that is its current value.
   Derived canonical: 694 living+historical; curated: 447.
 - **P0 = 12** (ben/fil/guj/hin/kan/mal/mar/pan/ron/tam/tel/urd): Romanian
   joined P0 on the final recompute — score mechanics working as designed
-  (EU official + 25M + diaspora + full TTS/MT). P1 = 52, P0/P1 = 64.
+  (EU official + 25M + diaspora + full TTS/MT). P1 = 54 (bho/mai promoted
+  by pass-2 MT evidence), P0/P1 = 66. **Zero null flags** across all P0/P1.
 - **13 deep audits** in research/: IN/NG/ID/PG/PH/ZA/CN/RU/TR/IR/MY/TH/VN.
   Two "serious" gaps found by audits were closed same-day as pass-1
   entries: CN cjy/cdo/mnp, RU lez/dar/inh/ady, ID nan (+8 entries, 1338).
-- **TTS/MT flags**: every P0 flag resolved (true/false, no nulls). MT
-  resolved for all P0/P1. TTS stays honestly null for 9 P1 codes —
-  pass-2 MUST verify each against live engines (Google Cloud TTS /
-  Azure / Translate-app audio) before any voice-feature planning:
-
-| # | Code | Language | MT | TTS | Why suspected-but-unconfirmed |
-|---|------|----------|----|-----|-------------------------------|
-| 1 | hau | Hausa | ✓ | ? | major-engine audio likely; untested |
-| 2 | kmr | Kurmanji | ✓ | ? | Kurdish audio exists? variety unclear |
-| 3 | nya | Chichewa | ✓ | ? | Nyanja audio unconfirmed |
-| 4 | sna | Shona | ✓ | ? | audio unconfirmed |
-| 5 | snd | Sindhi | ✓ | ? | text yes; audio likely absent |
-| 6 | som | Somali | ✓ | ? | audio likely; untested |
-| 7 | sot | Southern Sotho | ✓ | ? | audio unconfirmed |
-| 8 | wol | Wolof | ✓ | ? | audio unconfirmed |
-| 9 | yor | Yoruba | ✓ | ? | audio likely; untested |
+- **TTS/MT flags — PASS-2 PILOT DONE 2026-09-14** (89 TTS + 45 MT flips,
+  evidence: Google-Cloud-TTS 61-locale list + Azure-Speech-TTS 125-locale
+  list + Google-Translate language table + MS-Translator language table;
+  4 A-priority sources registered in `_sources.json`). The 9-code TTS
+  hit-list resolved: **som TRUE** (Azure so-SO UbaxNeural — the ONLY one);
+  hau/yor/snd/sna/nya/sot/wol/kmr all FALSE (no voice on either engine).
+  MT corrections: 14 TRUE→FALSE overclaims fixed (wol/fon/mos/umb/ven/mah/
+  zgh/nhe/nde/kon/roh/cnr/sat/kik), 24 FALSE/NULL→TRUE underclaims fixed
+  (kri/mai/bho/div/dzo/tet/hil/pam/pag/pnb/san/doi/bik/bak/chv/kas/brx +
+  gaa/yua/fij/ssw/nso/tsn/mni), mkw TRUE→NULL (Google lists ktu only),
+  kab/gil/hez/tsz/quc NULL→FALSE (both engines absent). TTS corrections:
+  bel/hat/lat/kir/ceb TRUE→FALSE, kat/lao/khm/mya/amh/mlt/khk/prs→TRUE,
+  xml→FALSE/FALSE (sign n/a). MS-only MT evidence: ton/bod/uzn/iu/quh stays;
+  Google-only: quh/grn/aym/bam/gaz/san. Deliberate nulls kept: pbu/pbt/pst
+  (ps voices exist, variety TBD), Fula varieties (ff MT exists, variety
+  TBD), che (Yandex-only MT).
 
 - Deliberate nulls elsewhere (Fula varieties, Quechua/Kichwa, Pashto
   varieties, Kituba pair) record VARIETY-match uncertainty, not engine
