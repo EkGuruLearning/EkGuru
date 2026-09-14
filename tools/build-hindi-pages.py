@@ -25,7 +25,8 @@ os.chdir(ROOT)
 BASE = "https://ekguru.shop"
 
 LESSONS = [
-    "hindi-alphabet-for-beginners", "how-to-say-hello-in-hindi", "hindi-sentence-structure",
+    "hindi-alphabet-for-beginners", "hindi-how-to-write-vowels", "hindi-how-to-write-consonants",
+    "hindi-barakhadi", "how-to-say-hello-in-hindi", "hindi-sentence-structure",
     "aap-tum-tu-hindi", "common-hindi-mistakes", "hindi-days-months-time",
     "hindi-family-words", "hindi-gender-masculine-feminine", "hindi-numbers-1-to-100",
     "hindi-or-urdu-difference", "hindi-phrases-for-travel", "hindi-verbs-present-past-future",

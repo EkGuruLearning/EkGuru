@@ -76,6 +76,9 @@ def page_path(target):
 # Every value is a site-root-relative directory of a REAL page.
 LESSONS = {
     "hindi-alphabet-for-beginners": "basics",
+    "hindi-how-to-write-vowels": "basics",
+    "hindi-how-to-write-consonants": "basics",
+    "hindi-barakhadi": "basics",
     "write-your-name-in-hindi": "basics",
     "learn-hindi-online-guide": "basics",
     "how-to-say-hello-in-hindi": "conversation",
@@ -228,7 +231,9 @@ LEVELS = {
         "h1": "Beginner Hindi — start here",
         "who": "You have never studied Hindi, or you tried and stalled. You can read nothing yet, or only a few letters.",
         "outcomes": "Read and sound out Devanagari, count to 100, greet people correctly, build simple SOV sentences, and use the right 'you' (aap/tum/tu).",
-        "order": ["learn/hindi-alphabet-for-beginners", "learn/write-your-name-in-hindi",
+        "order": ["learn/hindi-alphabet-for-beginners", "learn/hindi-how-to-write-vowels",
+                  "learn/hindi-how-to-write-consonants", "learn/hindi-barakhadi",
+                  "learn/write-your-name-in-hindi",
                   "learn/hindi-numbers-1-to-100", "learn/how-to-say-hello-in-hindi",
                   "learn/hindi-phrases-for-travel", "learn/hindi-sentence-structure",
                   "learn/hindi-verbs-present-past-future", "learn/hindi-gender-masculine-feminine",

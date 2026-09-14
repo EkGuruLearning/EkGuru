@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T02:22:59.082Z",
+ "generated": "2026-09-14T02:35:20.655Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 1061,
+  "totalHtml": 1064,
   "materials": 0
  },
  "countries": {
@@ -3923,8 +3923,8 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 1061,
-  "sitemapUrls": 1014,
+  "pages": 1064,
+  "sitemapUrls": 1017,
   "sitemapFiles": 16,
   "brokenLinks": 0,
   "orphans": 0
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1367 files scanned, 0 secrets"
+  "note": "1370 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "677927810996e451f68ebc4cd1e3e01930c4f59b",
-  "subject": "v138 batch-4 SE Asia inventory (11 countries, 105 entries) + world-languages 30→41",
-  "buildTime": "2026-09-14T02:22:59.093Z",
+  "commit": "322ac93d6ce69298414e5509b4a8788346c61a83",
+  "subject": "v139 full Hindi course storybook revamp (44 pages, rebuild-proof)",
+  "buildTime": "2026-09-14T02:35:20.670Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 1061,
+   "totalHtml": 1064,
    "tutorProfiles": 4,
    "materials": 0
   }

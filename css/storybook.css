@@ -130,8 +130,37 @@ html.sb-js .art h2.shown::after{transform:scaleX(1)}
 .prevnext a,.art-nav a{transition:transform .2s ease,border-color .2s ease !important}
 .prevnext a:hover,.art-nav a:hover{transform:translateY(-2px)}
 
+/* ---------- trace grids: whole alphabets that write themselves ---------- */
+.trace-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px;margin:16px 0}
+.trace-cell{border:1px solid var(--line);border-radius:14px;background:linear-gradient(165deg,#fffdf6,#fdf3e0);
+  padding:8px 4px 6px;text-align:center}
+.trace-cell svg{width:72px;height:72px}
+.trace-cell text{font-size:64px;text-anchor:middle;fill:transparent;stroke:#c2410c;stroke-width:2;
+  stroke-dasharray:400;stroke-dashoffset:400;animation:trace 3.6s ease forwards infinite}
+.trace-cell .rm{display:block;font-size:.8rem;color:var(--ink-2);font-weight:600}
+.trace-cell .say{margin:4px 0 0;font-size:.72rem;padding:0 8px}
+html.sb-js .trace-cell{opacity:0;transform:translateY(14px)}
+html.sb-js .trace-cell.shown{opacity:1;transform:none;transition:opacity .45s ease,transform .45s ease}
+
+/* ---------- barakhadi lab ---------- */
+.bara-btns{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.bara-btns button{border:1px solid var(--line);background:#fff;border-radius:20px;padding:6px 14px;
+  font-size:.88rem;font-weight:600;cursor:pointer;color:var(--ink-2)}
+.bara-btns button.on{background:#4f32d9;border-color:#4f32d9;color:#fff}
+.bara-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;margin:10px 0}
+table.bara{border-collapse:collapse;min-width:640px;width:100%;margin:0;font-size:1.02rem}
+table.bara th,table.bara td{border-bottom:1px solid var(--line);padding:8px 6px;text-align:center;white-space:nowrap}
+table.bara thead th{background:#4f32d9;color:#fff;font-size:.85rem;position:sticky;top:0}
+table.bara tbody th{background:var(--bg-soft);position:sticky;left:0;font-size:1.05rem;min-width:64px}
+table.bara td button{border:1px solid transparent;background:transparent;border-radius:10px;padding:4px 8px;
+  font-size:1.05rem;cursor:pointer;color:var(--ink);line-height:1.5}
+table.bara td button:hover{background:#fff3df;border-color:var(--line)}
+table.bara td button small{display:block;font-size:.68rem;color:var(--muted);font-weight:400}
+table.bara caption{text-align:left;padding:10px 12px;font-size:.86rem;color:var(--muted);caption-side:bottom}
+
 /* ---------- print: static, ink-friendly ---------- */
 @media print{
+  .tracebox text,.trace-cell text{fill:#000 !important;stroke:none !important;animation:none !important}
   .sb-float,.sb-band::after,.sb-strip{display:none !important}
   .sb-scene svg .sb-steam,.sb-scene svg .sb-tw,.sb-scene svg .sb-wave{animation:none !important}
   .vface{position:static;backface-visibility:visible;-webkit-backface-visibility:visible}
@@ -142,7 +171,7 @@ html.sb-js .art h2.shown::after{transform:scaleX(1)}
 
 /* ---------- reduced motion: everything still, everything visible ---------- */
 @media(prefers-reduced-motion:reduce){
-  .sb-float,.tracebox text,.vcard .in,.sb-band::after,.sb-strip .row,
+  .sb-float,.tracebox text,.trace-cell text,.vcard .in,.sb-band::after,.sb-strip .row,
   .sb-sun,.sb-hill,.sb-tw,.sb-steam,.sb-wave,.sb-chug,.art .quiz details p{animation:none !important;transition:none !important}
   html.sb-js .vcard,html.sb-js .sb-reveal{opacity:1 !important;transform:none !important}
   html.sb-js .art h2::after{transform:scaleX(1)}

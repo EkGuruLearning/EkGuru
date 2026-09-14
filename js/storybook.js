@@ -72,10 +72,88 @@
       } catch (e) {}
     });
 
+    /* ---- trace grids: [data-traces] renders self-drawing letters ----
+       data-traces="अ,आ,इ"  data-roman="a,aa,i" (parallel, comma lists) */
+    (function traces() {
+      var grids = document.querySelectorAll("[data-traces]");
+      for (var g = 0; g < grids.length; g++) {
+        var letters = (grids[g].getAttribute("data-traces") || "").split(",");
+        var romans = (grids[g].getAttribute("data-roman") || "").split(",");
+        var html = "";
+        for (var i = 0; i < letters.length; i++) {
+          var L = (letters[i] || "").trim();
+          if (!L) continue;
+          var R = ((romans[i] || "").trim() || "·");
+          html += '<div class="trace-cell" style="transition-delay:' + Math.min(i, 12) * 45 + 'ms">' +
+            '<svg viewBox="0 0 80 80" aria-hidden="true"><text x="40" y="62">' +
+            L.replace(/&/g, "&amp;").replace(/</g, "&lt;") + "</text></svg>" +
+            '<span class="rm">' + R.replace(/</g, "&lt;") + "</span>" +
+            '<button class="say" data-sb-say="' + L.replace(/"/g, "&quot;") + '">🔊</button></div>';
+        }
+        grids[g].innerHTML = html;
+      }
+    })();
+
+    /* ---- barakhadi lab: [data-bara] renders the 12-form chart ----
+       Consonants × the 12 matra signs; varga filter buttons switch rows. */
+    (function bara() {
+      var host = document.querySelector("[data-bara]");
+      if (!host) return;
+      var MATRA = ["", "ा", "ि", "ी", "ु", "ू", "ृ", "े", "ै", "ो", "ौ", "ं", "ः"];
+      var VROM = ["a", "aa", "i", "ee", "u", "oo", "ri", "e", "ai", "o", "au", "an", "ah"];
+      var VARGAS = [
+        { n: "क वर्ग · throat", rows: [["क", "k"], ["ख", "kh"], ["ग", "g"], ["घ", "gh"], ["ङ", "ng"]] },
+        { n: "च वर्ग · palate", rows: [["च", "ch"], ["छ", "chh"], ["ज", "j"], ["झ", "jh"], ["ञ", "ny"]] },
+        { n: "ट वर्ग · roof", rows: [["ट", "ṭ"], ["ठ", "ṭh"], ["ड", "ḍ"], ["ढ", "ḍh"], ["ण", "ṇ"]] },
+        { n: "त वर्ग · teeth", rows: [["त", "t"], ["थ", "th"], ["द", "d"], ["ध", "dh"], ["न", "n"]] },
+        { n: "प वर्ग · lips", rows: [["प", "p"], ["फ", "ph"], ["ब", "b"], ["भ", "bh"], ["म", "m"]] },
+        { n: "अंतस्थ + ऊष्म · rest", rows: [["य", "y"], ["र", "r"], ["ल", "l"], ["व", "v"], ["श", "sh"], ["ष", "sh"], ["स", "s"], ["ह", "h"]] }
+      ];
+      var btns = document.createElement("div");
+      btns.className = "bara-btns";
+      var wrap = document.createElement("div");
+      wrap.className = "bara-wrap";
+      host.appendChild(btns);
+      host.appendChild(wrap);
+      function esc(s) { return s.replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+      function render(vi) {
+        var h = '<table class="bara"><caption>Tap any cell to hear it. 12 forms × ' +
+          VARGAS[vi].rows.length + " letters.</caption><thead><tr><th></th>";
+        for (var m = 0; m < 13; m++) h += "<th>" + VROM[m] + "</th>";
+        h += "</tr></thead><tbody>";
+        var rows = VARGAS[vi].rows;
+        for (var r = 0; r < rows.length; r++) {
+          h += "<tr><th>" + esc(rows[r][0]) + "</th>";
+          for (var c = 0; c < 13; c++) {
+            var form = rows[r][0] + MATRA[c];
+            var rom = rows[r][1] + VROM[c];
+            h += '<td><button data-sb-say="' + esc(form) + '">' + esc(form) +
+              "<small>" + esc(rom) + "</small></button></td>";
+          }
+          h += "</tr>";
+        }
+        wrap.innerHTML = h + "</tbody></table>";
+        var all = btns.querySelectorAll("button");
+        for (var b = 0; b < all.length; b++) {
+          all[b].classList.toggle("on", b === vi);
+        }
+      }
+      for (var v = 0; v < VARGAS.length; v++) {
+        (function (vi) {
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.textContent = VARGAS[vi].n;
+          btn.addEventListener("click", function () { render(vi); });
+          btns.appendChild(btn);
+        })(v);
+      }
+      render(0);
+    })();
+
     /* ---- scroll reveal ---- */
     var targets = document.querySelectorAll(
-      ".sb-reveal,.vcard,.art h2,.sb-fig,.tracebox,.sb-band,.sb-callout," +
-      ".art table,.quiz details,.hs-card,.linklist li,.prevnext a");
+      ".sb-reveal,.vcard,.trace-cell,.art h2,.sb-fig,.tracebox,.sb-band,.sb-callout," +
+      ".bara-wrap,.art table,.quiz details,.hs-card,.linklist li,.prevnext a");
     if ("IntersectionObserver" in window && !reduceMotion) {
       var io = new IntersectionObserver(function (entries) {
         for (var i = 0; i < entries.length; i++) {
