@@ -60,7 +60,7 @@ Estonia | Estonian, Russian, English | Võro, Ukrainian | Estonian Sign Language
 Egypt | Standard Arabic, Egyptian Spoken Arabic, English | Saidi Spoken Arabic, Siwi, Nobiin, Coptic | Egyptian Sign Language | 15 | low
 Eritrea | Tigrinya, Standard Arabic, English, Tigre | Afar, Saho, Bilen | — | 15 | low
 Spain | Spanish, Catalan, Romanian, English | Galician, Basque, Aranese | Spanish Sign Language, Catalan Sign Language | 15 | low
-Ethiopia | Amharic, Oromo, Somali, Tigrinya, Afar, English | Sidamo, Wolaytta | — | 90 | low
+Ethiopia | Amharic, Oromo, Somali, Tigrinya, Afar, English | Sidamo, Wolaytta, Hadiyya, Kafa, Gedeo, Gamo | — | 90 | low
 Finland | Finnish, Swedish, English | North Sami, Inari Sami, Skolt Sami, Russian, Karelian | Finnish Sign Language, Finland-Swedish Sign Language | 15 | low
 Fiji | English, Fijian, Fiji Hindi | Rotuman | — | 10 | low
 Micronesia | English, Chuukese | Pohnpeian, Kosraean, Yapese, Ulithian | — | 10 | low
@@ -333,6 +333,7 @@ Danish | DE,DK,IS | 1M-10M | Latn | P2 | READY
 Danish Sign Language | DK | unknown | Sgnw | P4 | PARTIAL
 Dargwa | RU | 100K-1M | Cyrl | P3 | RESEARCH_REQUIRED
 Dari | AF | 1M-10M | Arab | P2 | READY
+Dawro | ET | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Dazaga | TD | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Dendi | BJ | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Dhivehi | MV | 100K-1M | Thaa | P2 | PARTIAL
@@ -386,10 +387,12 @@ Fur | SD | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Ga | GH | 100K-1M | Latn | P3 | PARTIAL
 Gagauz | MD | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Galician | ES | 1M-10M | Latn | P2 | PARTIAL
+Gamo | ET | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Gan | CN | 10M-100M | Hans | P3 | RESEARCH_REQUIRED
 Garifuna | BZ,GT,HN | 10K-100K | Latn | P3 | RESEARCH_REQUIRED
 Garo | BD | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Gbaya | CF | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
+Gedeo | ET | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Gen | BJ | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Georgian | GE | 1M-10M | Geor | P2 | READY
 German | AT,BE,CH,CL,DE,DK,HR,HU,IT,LI,LU,NA,PL,RO,VA | 10M-100M | Latn | P1 | READY
@@ -398,6 +401,7 @@ Ghanaian Sign Language | GH | unknown | Sgnw | P4 | PARTIAL
 Ghomala | CM | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Gilaki | IR | 1M-10M | Arab | P3 | RESEARCH_REQUIRED
 Gilbertese | KI | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
+Gofa | ET | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Gourmanchema | BF | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Greek | AL,CY,GR | 10M-100M | Grek | P1 | READY
 Greek Sign Language | GR | unknown | Sgnw | P4 | PARTIAL
@@ -410,6 +414,7 @@ Gujarati | IN | 10M-100M | Gujr | P0 | READY
 Gujari | PK | 1M-10M | Arab | P3 | RESEARCH_REQUIRED
 Gulf Arabic | AE,BH,KW,QA | 1M-10M | Arab | P3 | RESEARCH_REQUIRED
 Guyanese Creole | GY | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
+Hadiyya | ET | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Hadrami Arabic | YE | 1M-10M | Arab | P3 | RESEARCH_REQUIRED
 Haiphong Sign Language | VN | unknown | Sgnw | P4 | PARTIAL
 Haitian | BS,CL,CU,DO,HT,US | 10M-100M | Latn | P1 | PARTIAL
@@ -469,6 +474,7 @@ Kabardian | RU | 100K-1M | Cyrl | P3 | RESEARCH_REQUIRED
 Kabiye | TG | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Kabuverdianu | CV,PT | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Kadazan-Dusun | MY | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
+Kafa | ET | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Kaingang | BR | 10K-100K | Latn | P4 | RESEARCH_REQUIRED
 Kalanga | BW,ZW | 100K-1M | Latn | P3 | RESEARCH_REQUIRED
 Kalenjin | KE | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
@@ -735,6 +741,7 @@ Saterland Frisian | DE | <10K | Latn | P4 | RESEARCH_REQUIRED
 Saudi Arabian Sign Language | SA | unknown | Sgnw | P4 | PARTIAL
 Scots | GB | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Scottish Gaelic | GB | 10K-100K | Latn | P3 | PARTIAL
+Sebat Bet Gurage | ET | 1M-10M | Ethi | P3 | RESEARCH_REQUIRED
 Sena | MZ | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
 Serbian | AT,BA,HR,ME,MK,RS,SI | 1M-10M | Cyrl | P1 | READY
 Serer | SN | 1M-10M | Latn | P3 | RESEARCH_REQUIRED
@@ -906,7 +913,7 @@ Priority | Languages | Recommendation
 P0 | 12 | immediate production (or in production — maintain)
 P1 | 54 | next production
 P2 | 85 | expansion
-P3 | 360 | research-only
+P3 | 367 | research-only
 P4 | 182 | insufficient reliable learning data
 
 ## Scoring rules (transparency)

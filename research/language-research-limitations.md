@@ -116,7 +116,9 @@ survey. The swamps are marked honestly — that is its current value.
   joined P0 on the final recompute — score mechanics working as designed
   (EU official + 25M + diaspora + full TTS/MT). P1 = 54 (bho/mai promoted
   by pass-2 MT evidence), P0/P1 = 66. **Zero null flags** across all P0/P1.
-- **13 deep audits** in research/: IN/NG/ID/PG/PH/ZA/CN/RU/TR/IR/MY/TH/VN.
+- **14 deep audits** in research/: IN/NG/ID/PG/PH/ZA/CN/RU/TR/IR/MY/TH/VN
+  + ET (audit-14, pass-2: 8 entries census-pinned, +7 missing majors —
+  hdy/kbr/drs/gmv/gof/dwr/sgw — 1345 entries; stv held, Gurage ruling).
   Two "serious" gaps found by audits were closed same-day as pass-1
   entries: CN cjy/cdo/mnp, RU lez/dar/inh/ady, ID nan (+8 entries, 1338).
 - **TTS/MT flags — PASS-2 PILOT DONE 2026-09-14** (89 TTS + 45 MT flips,

@@ -1,14 +1,13 @@
 # Ethiopia Language Inventory — Deep Audit (Audit-14, Pass 2)
 
-Status: STEP 1 COMPLETE (8/8 entries sourced) · Date: 2026-09-14
+Status: COMPLETE (15 entries, steps 1+2) · Date: 2026-09-14
 
 Ethiopia is Africa's linguistic heavyweight after Nigeria/DRC (~90–109
 languages), but its inventory shape is unusually clean: a 2007 census
 with FULL language shares (rare in Africa) + a crisp 29 Feb 2020 federal
 decision (Amharic + Afar/Oromo/Somali/Tigrinya = 5 federal working
-languages). Step 1 pins all 8 existing entries to that evidence. Step 2
-(the missing-majors ruling: Gurage cluster, Hadiyya, Gamo, Gedeo, Kafa)
-is scoped in §8 and NOT YET EXECUTED.
+languages). Step 1 pinned all 8 existing entries to that evidence;
+step 2 added the 7 missing majors (§4) with the Gurage-cluster ruling.
 
 ## 1. Coverage
 
@@ -47,14 +46,19 @@ low→medium (census shares). eng: no L1 claim (correct as-is).
 - No P0/P1 impact (amh/gaz already tiered; som/tir/aar/sid/wal long-tail
   by formula, correctly).
 
-## 4. What step 1 did NOT do (step-2 scope, §8)
+## 4. Step 2 — EXECUTED 2026-09-14 (+7 entries, 1345 total)
 
-Missing 1M+ census languages with NO entry: Gurage cluster 2.0%
-(~2.4M — GROUP: chaha/soddo/inor/silt'e split problem), Hadiyya 1.7%
-(~2M, hdy — clean single entry), Gamo 1.5% (~1.7M), Gedeo 1.3%
-(~1.5M), Kafa 1.1% (~1.3M). Hadiyya alone outranks 100+ inventoried
-languages worldwide. Ruling + entries = audit-14 step 2 (next loop
-unit), needs codes/figures per language + canonical top-up.
+- Added: hdy Hadiyya (~2.1M), kbr Kafa (~1.4M), drs Gedeo (~1.5M),
+  gmv Gamo (~1.6M), gof Gofa (~360K), dwr Dawro (~510K),
+  sgw Sebat Bet Gurage (~1M LOW — span 200K–1.5M documented, VERIFY).
+  All regional; MT/TSS probes 0/0 (FALSE); 7 canonical added (719).
+- Gamo-Gofa-Dawro splits from wiki (1.6M/360K/510K); retired gmo
+  correctly NOT used (SIL-absent). Gurage ruling: sgw entered as
+  largest variety (45% ethnic 1994); **stv Silt'e HELD** (separate
+  identity since 2000 referendum, figure unpinned — no-fabrication
+  rule); gru Soddo/Kistane long-tail.
+- Census 'Gurage 2.0%' treated as cluster ceiling (incl Silt'e
+  answers); ET entries 8→15. No P0/P1 impact (all long-tail).
 
 ## 5. Census politics note
 

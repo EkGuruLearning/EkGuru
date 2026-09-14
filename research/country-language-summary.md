@@ -817,13 +817,13 @@ Researched living estimate: 15 (agent-knowledge, low). Entries below: 9.
 
 ## ET — Ethiopia (Eastern Africa)
 
-Researched living estimate: 90 (agent-knowledge, low). Entries below: 8.
+Researched living estimate: 90 (agent-knowledge, low). Entries below: 15.
 
 **OFFICIAL** (5): Afar (aar, medium); Amharic (amh, medium); Oromo (gaz, medium); Somali (som, medium); Tigrinya (tir, medium).
 
 **WIDELY_SPOKEN** (3): Amharic (amh, medium); English (eng, medium); Oromo (gaz, medium).
 
-**REGIONAL** (2): Sidamo (sid, medium); Wolaytta (wal, medium).
+**REGIONAL** (9): Dawro (dwr, medium); Gamo (gmv, medium); Gedeo (drs, medium); Gofa (gof, medium); Hadiyya (hdy, medium); Kafa (kbr, medium); Sebat Bet Gurage (sgw, low); Sidamo (sid, medium); Wolaytta (wal, medium).
 
 
 ## FI — Finland (Northern Europe)
