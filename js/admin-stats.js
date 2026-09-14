@@ -5,7 +5,7 @@
    publicly like every other file here.
    Regenerate: node tools/adminstats.js */
 window.EKGURU_ADMIN_STATS = {
- "generated": "2026-09-14T04:36:20.959Z",
+ "generated": "2026-09-14T04:39:38.951Z",
  "sections": {
   "countryPages": 158,
   "languagePages": 30,
@@ -18,7 +18,7 @@ window.EKGURU_ADMIN_STATS = {
   "answers": 28,
   "locations": 32,
   "tutorProfiles": 4,
-  "totalHtml": 1075,
+  "totalHtml": 1083,
   "materials": 0
  },
  "countries": {
@@ -3923,7 +3923,7 @@ window.EKGURU_ADMIN_STATS = {
   "pass": true,
   "critical": 0,
   "warnings": 0,
-  "pages": 1075,
+  "pages": 1083,
   "sitemapUrls": 1018,
   "sitemapFiles": 16,
   "brokenLinks": 0,
@@ -3933,7 +3933,7 @@ window.EKGURU_ADMIN_STATS = {
   "state": "PASS",
   "fails": 0,
   "blocked": 0,
-  "note": "1375 files scanned, 0 secrets"
+  "note": "1383 files scanned, 0 secrets"
  },
  "gate": {
   "doctorProblems": 0,
@@ -4558,9 +4558,9 @@ window.EKGURU_ADMIN_STATS = {
   "ar/join.html"
  ],
  "release": {
-  "commit": "66874e03d065fefbc319ddfda9d96d9f5e45bc44",
+  "commit": "b697569bfd56ae0005e0c66654e20dd7545dc4d4",
   "subject": "v157 advance voice: local-first engine + voice picker + keepalive",
-  "buildTime": "2026-09-14T04:36:20.972Z",
+  "buildTime": "2026-09-14T04:39:38.970Z",
   "dataSourceStatus": "LIVE",
   "toolQa": {
    "tools": 12,
@@ -4572,7 +4572,7 @@ window.EKGURU_ADMIN_STATS = {
    "refreshRequiredAnywhere": false
   },
   "sections": {
-   "totalHtml": 1075,
+   "totalHtml": 1083,
    "tutorProfiles": 4,
    "materials": 0
   }
