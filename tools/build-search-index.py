@@ -157,6 +157,21 @@ def main():
             idx.append({"u": u, "t": t, "d": d, "s": "Page", "k": k})
             added += 1
 
+    # 7) country funnel pages (learn-hindi-from-*) — the page is the source
+    #    of truth for title/description. Add-only: existing entries keep
+    #    their hand-tuned keywords; new pages get title+desc keywords.
+    import glob as _glob
+    for d in sorted(_glob.glob("learn-hindi-from-*/")):
+        f = os.path.join(d, "index.html")
+        if not os.path.exists(f) or d in by_url:
+            continue
+        t = title_of(f) or d.strip("/").replace("learn-hindi-from-", "").replace("-", " ").title()
+        t = t if t.startswith("Learn Hindi from ") else "Learn Hindi from " + t
+        dd = desc_of(f) or ""
+        idx.append({"u": d, "t": t, "d": dd, "s": "Country", "k": keywords(t, dd)})
+        by_url[d] = idx[-1]
+        added += 1
+
     # 4) sort by section order then title, write
     order = {s: i for i, s in enumerate(SECTION_ORDER)}
     idx.sort(key=lambda e: (order.get(e["s"], 99), e["t"].lower()))
