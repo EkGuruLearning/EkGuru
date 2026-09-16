@@ -5,7 +5,7 @@
 "use strict";
 
 var TTS_LANG = { es: "es-ES", fr: "fr-FR", de: "de-DE", it: "it-IT", pt: "pt-BR", ru: "ru-RU", ar: "ar-SA", ja: "ja-JP", ko: "ko-KR", zh: "zh-CN", hi: "hi-IN", bn: "bn-IN", pa: "pa-IN", ur: "ur-PK", ta: "ta-IN", te: "te-IN", mr: "mr-IN", gu: "gu-IN", kn: "kn-IN", ml: "ml-IN" };
-var LEVEL_NAMES = { A1: "Beginner", A2: "Elementary", B1: "Intermediate", B2: "Advanced" };
+var LEVEL_NAMES = { A1: "Beginner", A2: "Elementary", B1: "Intermediate", B2: "Advanced", C1: "Proficient", C2: "Mastery" };
 var LS_KEY = "eg-course-progress-v1";
 
 function esc(s) {
@@ -179,11 +179,11 @@ Player.prototype.langMeta = function (code) {
   for (var i = 0; i < courses.length; i++) {
     if (courses[i].code === code) return courses[i];
   }
-  return { code: code, name: code, native: "", levels: { A1: 1, A2: 1, B1: 1, B2: 1 } };
+  return { code: code, name: code, native: "", levels: { A1: 1, A2: 1, B1: 1, B2: 1, C1: 1, C2: 1 } };
 };
 Player.prototype.renderLang = function (code) {
   var meta = this.langMeta(code);
-  var levels = Object.keys(meta.levels || { A1: 1, A2: 1, B1: 1, B2: 1 });
+  var levels = Object.keys(meta.levels || { A1: 1, A2: 1, B1: 1, B2: 1, C1: 1, C2: 1 });
   var p = loadProgress();
   var h = '<div class="egc">' + this.crumbs([{ t: "Courses", href: "#/" }, { t: meta.name }]);
   h += "<h1>" + esc(meta.name) + " (" + esc(meta.code) + ")</h1>";

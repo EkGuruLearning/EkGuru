@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Course builder/validator — Phase program (10 languages per phase).
 
-Reads :  data/courses/phase-N/<code>_<LV>.json   (LV = A1 A2 A1 B1 B2)
+Reads :  data/courses/phase-N/<code>_<LV>.json   (LV = A1 A2 B1 B2 C1 C2)
 Writes:  data/courses/index.json                 (manifest grouped by course)
 
-Every course = 4 levels (A1 beginner -> B2 advanced), 6 lessons per level
+Every course = 6 levels (A1 beginner -> C2 mastery), 6 lessons per level
 (3 units x 2 lessons) = 24 lessons. A1 file ALSO holds alphabet + counting.
 Every lesson holds: learn, vocab>=8, grammar, dialogue>=4, practice>=5,
 quiz==5, flashcards, worksheet(>=3 tasks with keys). Every level: goals>=3
@@ -20,7 +20,7 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 COURSES = os.path.join(ROOT, "data", "courses")
-LEVELS = ("A1", "A2", "B1", "B2")
+LEVELS = ("A1", "A2", "B1", "B2", "C1", "C2")
 PTYPES = ("translate_en", "translate_t", "fill", "choose", "reorder", "speak")
 ERRORS = []
 
@@ -191,11 +191,11 @@ def main():
         for fn in sorted(os.listdir(pdir)):
             if not fn.endswith(".json") or fn.startswith("_"):
                 continue
-            m = re.match(r"^([a-z]{2,3})_(A1|A2|B1|B2)\.json$", fn)
+            m = re.match(r"^([a-z]{2,3})_(A1|A2|B1|B2|C1|C2)\.json$", fn)
             fpath = os.path.join(pdir, fn)
             cpath = f"{phase}/{fn}"
             if not m:
-                err(cpath, "filename must be <code>_<A1|A2|B1|B2>.json"); continue
+                err(cpath, "filename must be <code>_<A1|A2|B1|B2|C1|C2>.json"); continue
             code, lv = m.group(1), m.group(2)
             try:
                 with open(fpath, encoding="utf-8") as f:
