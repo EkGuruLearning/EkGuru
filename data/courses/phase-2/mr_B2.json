@@ -124,35 +124,91 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate in context: नख (nakh)",
-                "answer": "nail"
-              },
-              {
-                "type": "translate_t",
-                "q": "Write in Marathi: chest",
-                "answer": "छाती (chhati)"
-              },
-              {
-                "type": "fill",
-                "q": "Produce the complete Marathi expression: I am not feeling well",
-                "answer": "मला बरं वाटत नाही (Mala bara vatat nahi)"
-              },
-              {
-                "type": "choose",
-                "q": "Choose the Marathi expression for “heart”.",
+                "type": "multiple_choice",
+                "q": "Practice 1 [multiple choice] — Health and Wellbeing — B2: Choose the lesson meaning of नख (nakh).",
+                "answer": "nail",
+                "skill_target": "Marathi multiple choice: Marathi gender/agreement, postpositions, aspect, and respectful register",
                 "options": [
-                  "हृदय",
-                  "फुफ्फुस",
-                  "पोट",
-                  "पाठ"
-                ],
-                "answer": "हृदय"
+                  "nail",
+                  "chest",
+                  "heart"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say naturally in Marathi: My head aches",
-                "answer": "डोकं दुखतंय (Doka dukhtay)"
+                "type": "fill_in_the_blank",
+                "q": "Practice 2 [fill in the blank] — Health and Wellbeing — B2: Type the complete Devanagari form for “chest”.",
+                "answer": "छाती",
+                "skill_target": "Marathi fill in the blank: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3 [translation] — Health and Wellbeing — B2: Read हृदय (hriday) and give its contextual English meaning.",
+                "answer": "heart",
+                "skill_target": "Marathi translation: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4 [reverse translation] — Health and Wellbeing — B2: Write “lung” in Devanagari, not romanisation alone.",
+                "answer": "फुफ्फुस",
+                "skill_target": "Marathi reverse translation: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5 [matching] — Health and Wellbeing — B2: Match पोट to its meaning in this lesson.",
+                "answer": "stomach",
+                "skill_target": "Marathi matching: Marathi gender/agreement, postpositions, aspect, and respectful register",
+                "options": [
+                  "back",
+                  "stomach",
+                  "waist"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6 [reorder] — Health and Wellbeing — B2: Rebuild this model with correct Marathi gender/agreement, postpositions, aspect, and respectful register: My head aches",
+                "answer": "डोकं दुखतंय",
+                "skill_target": "Marathi reorder: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7 [sentence building] — Health and Wellbeing — B2: Rebuild this model with correct Marathi gender/agreement, postpositions, aspect, and respectful register: I am not feeling well",
+                "answer": "मला बरं वाटत नाही",
+                "skill_target": "Marathi sentence building: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8 [word selection] — Health and Wellbeing — B2: Select the Devanagari form for “leg”.",
+                "answer": "पाय",
+                "skill_target": "Marathi word selection: Marathi gender/agreement, postpositions, aspect, and respectful register",
+                "options": [
+                  "नख",
+                  "छाती",
+                  "पाय"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9 [error correction] — Health and Wellbeing — B2: Replace a literal, agreement, or register error with the taught model for “My head aches”.",
+                "answer": "डोकं दुखतंय",
+                "skill_target": "Marathi error correction: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10 [dialogue completion] — Health and Wellbeing — B2: Complete Patient’s turn: Doctor, fever for two days.",
+                "answer": "डॉक्टर, दोन दिवसांपासून ताप आहे.",
+                "skill_target": "Marathi dialogue completion: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11 [reading comprehension] — Health and Wellbeing — B2: Read खोकला-सर्दी आहे का? (Khokala-sardi ahe ka?). What exact detail does it communicate?",
+                "answer": "Any cough or cold?",
+                "skill_target": "Marathi reading comprehension: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12 [paragraph comprehension] — Health and Wellbeing — B2: Read the whole dialogue and explain this turn’s contribution: फक्त खोकला आहे.",
+                "answer": "Only a cough.",
+                "skill_target": "Marathi paragraph comprehension: Marathi gender/agreement, postpositions, aspect, and respectful register"
               }
             ],
             "quiz": [
@@ -248,9 +304,28 @@
                     "फुफ्फुस (phupphus)",
                     "पोट (pot)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Marathi offline lab: read, transform in Devanagari, and rehearse aloud. Check Marathi gender/agreement, postpositions, aspect, and respectful register.",
+                  "items": [
+                    "मला बरं वाटत नाही",
+                    "तुम्हाला काय झालं?"
+                  ],
+                  "key": [
+                    "I am not feeling well",
+                    "What happened to you?"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "नख",
+              "छाती",
+              "हृदय",
+              "फुफ्फुस"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
           },
           {
             "id": "mr-b2-l2",
@@ -359,35 +434,89 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate in context: टेप (tape)",
-                "answer": "tape"
+                "type": "main_idea",
+                "q": "Practice 2 [main idea] — Work and Professional Life — B2: State the main communicative purpose of “Work and Professional Life — B2”.",
+                "answer": "Compare evidence, report viewpoints, negotiate, and control formal and informal Marathi in professional and public settings.",
+                "skill_target": "Marathi main idea: Marathi gender/agreement, postpositions, aspect, and respectful register"
               },
               {
-                "type": "translate_t",
-                "q": "Write in Marathi: envelope",
-                "answer": "लखोटा (lakhota)"
+                "type": "detail_identification",
+                "q": "Practice 3 [detail identification] — Work and Professional Life — B2: Read हे तुमचं टेबल. कॉम्प्युटर चालू करा. (He tumcha table. Computer chalu kara.). What exact detail does it communicate?",
+                "answer": "This is your desk. Switch on the computer.",
+                "skill_target": "Marathi detail identification: Marathi gender/agreement, postpositions, aspect, and respectful register"
               },
               {
-                "type": "fill",
-                "q": "Produce the complete Marathi expression: I have a meeting",
-                "answer": "माझी मीटिंग आहे (Majhi meeting ahe)"
+                "type": "inference",
+                "q": "Practice 4 [inference] — Work and Professional Life — B2: Infer the intended meaning of माझी मीटिंग आहे without losing its qualification or social force.",
+                "answer": "I have a meeting",
+                "skill_target": "Marathi inference: Marathi gender/agreement, postpositions, aspect, and respectful register"
               },
               {
-                "type": "choose",
-                "q": "Choose the Marathi expression for “stamp”.",
+                "type": "listening_comprehension",
+                "q": "Practice 5 [listening comprehension] — Work and Professional Life — B2: Play the synthetic audio and give its precise contextual meaning.",
+                "answer": "Welcome! What is your name?",
+                "skill_target": "Marathi listening comprehension: Marathi gender/agreement, postpositions, aspect, and respectful register",
+                "audio_source": "या! तुमचं नाव काय?"
+              },
+              {
+                "type": "dictation",
+                "q": "Practice 6 [dictation] — Work and Professional Life — B2: Play the labeled synthetic Marathi audio and type the complete line in Devanagari.",
+                "answer": "माझं नाव कुमार.",
+                "skill_target": "Marathi dictation: Marathi gender/agreement, postpositions, aspect, and respectful register",
+                "audio_source": "माझं नाव कुमार."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Practice 7 [listen and choose] — Work and Professional Life — B2: Play the synthetic audio and choose its contextual meaning.",
+                "answer": "This is your desk. Switch on the computer.",
+                "skill_target": "Marathi listen and choose: Marathi gender/agreement, postpositions, aspect, and respectful register",
+                "audio_source": "हे तुमचं टेबल. कॉम्प्युटर चालू करा.",
                 "options": [
-                  "स्टॅम्प",
-                  "सही",
-                  "डेस्क",
-                  "खुर्ची"
-                ],
-                "answer": "स्टॅम्प"
+                  "This is your desk. Switch on the computer.",
+                  "OK. What is the email address?",
+                  "shelf"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say naturally in Marathi: Sign here",
-                "answer": "इथे सही करा (Ithe sahi kara)"
+                "type": "listen_and_reorder",
+                "q": "Practice 8 [listen and reorder] — Work and Professional Life — B2: Rebuild this model with correct Marathi gender/agreement, postpositions, aspect, and respectful register: The boss called you",
+                "answer": "बॉसनी तुम्हाला बोलावलं",
+                "skill_target": "Marathi listen and reorder: Marathi gender/agreement, postpositions, aspect, and respectful register",
+                "audio_source": "या! तुमचं नाव काय?"
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Practice 9 [listen and fill] — Work and Professional Life — B2: Play the synthetic audio and complete the line beginning “या!…”.",
+                "answer": "या! तुमचं नाव काय?",
+                "skill_target": "Marathi listen and fill: Marathi gender/agreement, postpositions, aspect, and respectful register",
+                "audio_source": "या! तुमचं नाव काय?"
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Practice 10 [repeat after audio] — Work and Professional Life — B2: Repeat the synthetic model with its phrase grouping; no microphone score is claimed.",
+                "answer": "माझं नाव कुमार.",
+                "skill_target": "Marathi repeat after audio: Marathi gender/agreement, postpositions, aspect, and respectful register",
+                "audio_source": "माझं नाव कुमार."
+              },
+              {
+                "type": "pronunciation",
+                "q": "Practice 11 [pronunciation] — Work and Professional Life — B2: Practise स्टॅम्प (stamp) with the lesson-specific sound pattern. Self-check only.",
+                "answer": "स्टॅम्प",
+                "skill_target": "Marathi pronunciation: Marathi gender/agreement, postpositions, aspect, and respectful register",
+                "audio_source": "स्टॅम्प"
+              },
+              {
+                "type": "shadowing",
+                "q": "Practice 12 [shadowing] — Work and Professional Life — B2: Shadow the synthetic Marathi model, preserving rhythm and target-language sounds. Self-check only.",
+                "answer": "ठीक आहे. ईमेल पत्ता काय?",
+                "skill_target": "Marathi shadowing: Marathi gender/agreement, postpositions, aspect, and respectful register",
+                "audio_source": "ठीक आहे. ईमेल पत्ता काय?"
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Practice 13 [guided speaking] — Work and Professional Life — B2: Produce a spoken response demonstrating “Work and Professional Life — B2”; compare with the model.",
+                "answer": "माझी मीटिंग आहे",
+                "skill_target": "Marathi guided speaking: Marathi gender/agreement, postpositions, aspect, and respectful register"
               }
             ],
             "quiz": [
@@ -483,9 +612,28 @@
                     "सही (sahi)",
                     "डेस्क (desk)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Marathi offline lab: read, transform in Devanagari, and rehearse aloud. Check Marathi gender/agreement, postpositions, aspect, and respectful register.",
+                  "items": [
+                    "माझी मीटिंग आहे",
+                    "या! तुमचं नाव काय?"
+                  ],
+                  "key": [
+                    "I have a meeting",
+                    "Welcome! What is your name?"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "टेप",
+              "लखोटा",
+              "स्टॅम्प",
+              "सही"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
           }
         ]
       },
@@ -600,35 +748,76 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate in context: मराठी (marathi)",
-                "answer": "Marathi"
+                "type": "free_response",
+                "q": "Practice 3 [free response] — Education and Learning — B2: Produce a spoken response demonstrating “Education and Learning — B2”; compare with the model.",
+                "answer": "निटनिटकं लिहा",
+                "skill_target": "Marathi free response: Marathi gender/agreement, postpositions, aspect, and respectful register"
               },
               {
-                "type": "translate_t",
-                "q": "Write in Marathi: Hindi",
-                "answer": "हिंदी (hindi)"
+                "type": "roleplay",
+                "q": "Practice 4 [roleplay] — Education and Learning — B2: Role-play Teacher with appropriate register: Look in the dictionary.",
+                "answer": "शब्दकोशात बघ.",
+                "skill_target": "Marathi roleplay: Marathi gender/agreement, postpositions, aspect, and respectful register"
               },
               {
-                "type": "fill",
-                "q": "Produce the complete Marathi expression: Open the book",
-                "answer": "पुस्तक उघडा (Pustak ughada)"
+                "type": "sentence_writing",
+                "q": "Practice 5 [sentence writing] — Education and Learning — B2: Write one accurate Devanagari sentence using गणित.",
+                "answer": "मोठ्याने वाचा",
+                "skill_target": "Marathi sentence writing: Marathi gender/agreement, postpositions, aspect, and respectful register"
               },
               {
-                "type": "choose",
-                "q": "Choose the Marathi expression for “English”.",
-                "options": [
-                  "इंग्रजी",
-                  "संस्कृत",
-                  "गणित",
-                  "विज्ञान"
-                ],
-                "answer": "इंग्रजी"
+                "type": "short_writing",
+                "q": "Practice 6 [short writing] — Education and Learning — B2: Write 2–3 connected Marathi sentences applying Education and Learning — B2.",
+                "answer": "निटनिटकं लिहा पुस्तक उघडा",
+                "skill_target": "Marathi short writing: Marathi gender/agreement, postpositions, aspect, and respectful register"
               },
               {
-                "type": "speak",
-                "q": "Say naturally in Marathi: Write neatly",
-                "answer": "निटनिटकं लिहा (Nitnitka liha)"
+                "type": "paraphrase",
+                "q": "Practice 7 [paraphrase] — Education and Learning — B2: Paraphrase without changing meaning, morphology, or register: पुस्तक उघडा",
+                "answer": "पुस्तक उघडा",
+                "skill_target": "Marathi paraphrase: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "summary",
+                "q": "Practice 8 [summary] — Education and Learning — B2: Summarize the dialogue in one precise Marathi sentence.",
+                "answer": "शब्दकोशात बघ.",
+                "skill_target": "Marathi summary: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Practice 9 [guided composition] — Education and Learning — B2: Compose a short response with the taught pattern “context + marked participants + object/complement + finite verb”.",
+                "answer": "निटनिटकं लिहा",
+                "skill_target": "Marathi guided composition: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Practice 10 [register transformation] — Education and Learning — B2: Recast “Open the book” in the formal/respectful or colloquial register taught here.",
+                "answer": "पुस्तक उघडा",
+                "skill_target": "Marathi register transformation: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "tone_identification",
+                "q": "Practice 11 [tone identification] — Education and Learning — B2: Identify the tone or stance of मोठ्याने वाचा.",
+                "answer": "The wording realizes Education and Learning structures with the lesson-appropriate stance and register.",
+                "skill_target": "Marathi tone identification: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "semantic_distinction",
+                "q": "Practice 12 [semantic distinction] — Education and Learning — B2: Distinguish संस्कृत from गणित in meaning and use.",
+                "answer": "संस्कृत means “Sanskrit”; गणित means “mathematics”. Grammar and context determine the choice.",
+                "skill_target": "Marathi semantic distinction: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "contextual_meaning",
+                "q": "Practice 13 [contextual meaning] — Education and Learning — B2: Explain the contextual force of गणित in this lesson.",
+                "answer": "Here it contributes “mathematics” within Education and Learning structures.",
+                "skill_target": "Marathi contextual meaning: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "argument_construction",
+                "q": "Practice 14 [argument construction] — Education and Learning — B2: Build a claim and support in the register of “Education and Learning — B2”.",
+                "answer": "मोठ्याने वाचा निटनिटकं लिहा",
+                "skill_target": "Marathi argument construction: Marathi gender/agreement, postpositions, aspect, and respectful register"
               }
             ],
             "quiz": [
@@ -724,9 +913,28 @@
                     "संस्कृत (sanskrut)",
                     "गणित (ganit)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Marathi offline lab: read, transform in Devanagari, and rehearse aloud. Check Marathi gender/agreement, postpositions, aspect, and respectful register.",
+                  "items": [
+                    "पुस्तक उघडा",
+                    "गुरुजी, माझा गृहपाठ संपला."
+                  ],
+                  "key": [
+                    "Open the book",
+                    "Teacher, I finished my homework."
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "मराठी",
+              "हिंदी",
+              "इंग्रजी",
+              "संस्कृत"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
           },
           {
             "id": "mr-b2-l4",
@@ -835,35 +1043,91 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate in context: पूर्व (purva)",
-                "answer": "east"
+                "type": "discourse_ordering",
+                "q": "Practice 4 [discourse ordering] — Weather and Environment — B2: Rebuild this model with correct Marathi gender/agreement, postpositions, aspect, and respectful register: It is raining",
+                "answer": "पाऊस पडतोय",
+                "skill_target": "Marathi discourse ordering: Marathi gender/agreement, postpositions, aspect, and respectful register"
               },
               {
-                "type": "translate_t",
-                "q": "Write in Marathi: west",
-                "answer": "पश्चिम (paschim)"
+                "type": "style_rewriting",
+                "q": "Practice 5 [style rewriting] — Weather and Environment — B2: Rewrite “It is very hot today” in this lesson’s genre and style.",
+                "answer": "आज खूप उकाडा आहे",
+                "skill_target": "Marathi style rewriting: Marathi gender/agreement, postpositions, aspect, and respectful register"
               },
               {
-                "type": "fill",
-                "q": "Produce the complete Marathi expression: It is raining",
-                "answer": "पाऊस पडतोय (Paus padtoy)"
-              },
-              {
-                "type": "choose",
-                "q": "Choose the Marathi expression for “north”.",
+                "type": "multiple_choice",
+                "q": "Practice 6 [multiple choice] — Weather and Environment — B2: Choose the lesson meaning of डोंगर (dongar).",
+                "answer": "mountain",
+                "skill_target": "Marathi multiple choice: Marathi gender/agreement, postpositions, aspect, and respectful register",
                 "options": [
-                  "उत्तर",
-                  "दक्षिण",
-                  "पृथ्वी",
-                  "डोंगर"
-                ],
-                "answer": "उत्तर"
+                  "mountain",
+                  "hill",
+                  "peak"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say naturally in Marathi: It is cold today",
-                "answer": "आज थंडी आहे (Aaj thandi ahe)"
+                "type": "fill_in_the_blank",
+                "q": "Practice 7 [fill in the blank] — Weather and Environment — B2: Type the complete Devanagari form for “hill”.",
+                "answer": "टेकडी",
+                "skill_target": "Marathi fill in the blank: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 8 [translation] — Weather and Environment — B2: Read शिखर (shikhar) and give its contextual English meaning.",
+                "answer": "peak",
+                "skill_target": "Marathi translation: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 9 [reverse translation] — Weather and Environment — B2: Write “east” in Devanagari, not romanisation alone.",
+                "answer": "पूर्व",
+                "skill_target": "Marathi reverse translation: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 10 [matching] — Weather and Environment — B2: Match पश्चिम to its meaning in this lesson.",
+                "answer": "west",
+                "skill_target": "Marathi matching: Marathi gender/agreement, postpositions, aspect, and respectful register",
+                "options": [
+                  "north",
+                  "west",
+                  "south"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 11 [reorder] — Weather and Environment — B2: Rebuild this model with correct Marathi gender/agreement, postpositions, aspect, and respectful register: It is very hot today",
+                "answer": "आज खूप उकाडा आहे",
+                "skill_target": "Marathi reorder: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 12 [sentence building] — Weather and Environment — B2: Rebuild this model with correct Marathi gender/agreement, postpositions, aspect, and respectful register: It is cold today",
+                "answer": "आज थंडी आहे",
+                "skill_target": "Marathi sentence building: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 13 [word selection] — Weather and Environment — B2: Select the Devanagari form for “earth”.",
+                "answer": "पृथ्वी",
+                "skill_target": "Marathi word selection: Marathi gender/agreement, postpositions, aspect, and respectful register",
+                "options": [
+                  "डोंगर",
+                  "टेकडी",
+                  "पृथ्वी"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 14 [error correction] — Weather and Environment — B2: Replace a literal, agreement, or register error with the taught model for “It is very hot today”.",
+                "answer": "आज खूप उकाडा आहे",
+                "skill_target": "Marathi error correction: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 15 [dialogue completion] — Weather and Environment — B2: Complete Brother’s turn: Take the umbrella. The wind is strong.",
+                "answer": "छत्री घे. वारा जोरदार आहे.",
+                "skill_target": "Marathi dialogue completion: Marathi gender/agreement, postpositions, aspect, and respectful register"
               }
             ],
             "quiz": [
@@ -959,9 +1223,28 @@
                     "दक्षिण (dakshin)",
                     "पृथ्वी (pruthvi)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Marathi offline lab: read, transform in Devanagari, and rehearse aloud. Check Marathi gender/agreement, postpositions, aspect, and respectful register.",
+                  "items": [
+                    "पाऊस पडतोय",
+                    "बघ, आकाशात काळे ढग!"
+                  ],
+                  "key": [
+                    "It is raining",
+                    "Look, dark clouds in the sky!"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "पूर्व",
+              "पश्चिम",
+              "उत्तर",
+              "दक्षिण"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
           }
         ]
       },
@@ -1076,35 +1359,88 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate in context: सार (saar)",
-                "answer": "saar (rasam)"
+                "type": "reading_comprehension",
+                "q": "Practice 5 [reading comprehension] — Home and Relationships — B2: Read आजी, काय शिजतंय? (Aaji, kay shijtay?). What exact detail does it communicate?",
+                "answer": "Grandma, what is cooking?",
+                "skill_target": "Marathi reading comprehension: Marathi gender/agreement, postpositions, aspect, and respectful register"
               },
               {
-                "type": "translate_t",
-                "q": "Write in Marathi: curd rice",
-                "answer": "दहीभात (dahibhat)"
+                "type": "paragraph_comprehension",
+                "q": "Practice 6 [paragraph comprehension] — Home and Relationships — B2: Read the whole dialogue and explain this turn’s contribution: पुरणपोळी, माझ्या बाळा!",
+                "answer": "Puran poli, my dear!",
+                "skill_target": "Marathi paragraph comprehension: Marathi gender/agreement, postpositions, aspect, and respectful register"
               },
               {
-                "type": "fill",
-                "q": "Produce the complete Marathi expression: Come, let's eat",
-                "answer": "या, जेऊया (Ya, jevuya)"
+                "type": "main_idea",
+                "q": "Practice 7 [main idea] — Home and Relationships — B2: State the main communicative purpose of “Home and Relationships — B2”.",
+                "answer": "Compare evidence, report viewpoints, negotiate, and control formal and informal Marathi in professional and public settings.",
+                "skill_target": "Marathi main idea: Marathi gender/agreement, postpositions, aspect, and respectful register"
               },
               {
-                "type": "choose",
-                "q": "Choose the Marathi expression for “dal”.",
+                "type": "detail_identification",
+                "q": "Practice 8 [detail identification] — Home and Relationships — B2: Read आजी, जेवण खमंगतंय! (Aaji, jevan khamangtay!). What exact detail does it communicate?",
+                "answer": "Grandma, the food smells nice!",
+                "skill_target": "Marathi detail identification: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "inference",
+                "q": "Practice 9 [inference] — Home and Relationships — B2: Infer the intended meaning of हात धुवा without losing its qualification or social force.",
+                "answer": "Wash your hands",
+                "skill_target": "Marathi inference: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Practice 10 [listening comprehension] — Home and Relationships — B2: Play the synthetic audio and give its precise contextual meaning.",
+                "answer": "Puran poli, my dear!",
+                "skill_target": "Marathi listening comprehension: Marathi gender/agreement, postpositions, aspect, and respectful register",
+                "audio_source": "पुरणपोळी, माझ्या बाळा!"
+              },
+              {
+                "type": "dictation",
+                "q": "Practice 11 [dictation] — Home and Relationships — B2: Play the labeled synthetic Marathi audio and type the complete line in Devanagari.",
+                "answer": "हात धुऊन बस.",
+                "skill_target": "Marathi dictation: Marathi gender/agreement, postpositions, aspect, and respectful register",
+                "audio_source": "हात धुऊन बस."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Practice 12 [listen and choose] — Home and Relationships — B2: Play the synthetic audio and choose its contextual meaning.",
+                "answer": "Grandma, the food smells nice!",
+                "skill_target": "Marathi listen and choose: Marathi gender/agreement, postpositions, aspect, and respectful register",
+                "audio_source": "आजी, जेवण खमंगतंय!",
                 "options": [
-                  "वरण",
-                  "रोजची भाजी",
-                  "चटणी",
-                  "लोणचं"
-                ],
-                "answer": "वरण"
+                  "Grandma, the food smells nice!",
+                  "Grandma, what is cooking?",
+                  "daily curry"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say naturally in Marathi: Wash your hands",
-                "answer": "हात धुवा (Hat dhua)"
+                "type": "listen_and_reorder",
+                "q": "Practice 13 [listen and reorder] — Home and Relationships — B2: Rebuild this model with correct Marathi gender/agreement, postpositions, aspect, and respectful register: Come, let's eat",
+                "answer": "या, जेऊया",
+                "skill_target": "Marathi listen and reorder: Marathi gender/agreement, postpositions, aspect, and respectful register",
+                "audio_source": "आजी, काय शिजतंय?"
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Practice 14 [listen and fill] — Home and Relationships — B2: Play the synthetic audio and complete the line beginning “पुरणपोळी,…”.",
+                "answer": "पुरणपोळी, माझ्या बाळा!",
+                "skill_target": "Marathi listen and fill: Marathi gender/agreement, postpositions, aspect, and respectful register",
+                "audio_source": "पुरणपोळी, माझ्या बाळा!"
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Practice 15 [repeat after audio] — Home and Relationships — B2: Repeat the synthetic model with its phrase grouping; no microphone score is claimed.",
+                "answer": "हात धुऊन बस.",
+                "skill_target": "Marathi repeat after audio: Marathi gender/agreement, postpositions, aspect, and respectful register",
+                "audio_source": "हात धुऊन बस."
+              },
+              {
+                "type": "pronunciation",
+                "q": "Practice 16 [pronunciation] — Home and Relationships — B2: Practise इडली (idli) with the lesson-specific sound pattern. Self-check only.",
+                "answer": "इडली",
+                "skill_target": "Marathi pronunciation: Marathi gender/agreement, postpositions, aspect, and respectful register",
+                "audio_source": "इडली"
               }
             ],
             "quiz": [
@@ -1200,9 +1536,28 @@
                     "रोजची भाजी (rojchi bhaji)",
                     "चटणी (chatni)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Marathi offline lab: read, transform in Devanagari, and rehearse aloud. Check Marathi gender/agreement, postpositions, aspect, and respectful register.",
+                  "items": [
+                    "या, जेऊया",
+                    "आजी, काय शिजतंय?"
+                  ],
+                  "key": [
+                    "Come, let's eat",
+                    "Grandma, what is cooking?"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "सार",
+              "दहीभात",
+              "वरण",
+              "रोजची भाजी"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
           },
           {
             "id": "mr-b2-l6",
@@ -1311,35 +1666,77 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate in context: पणत्यांची रांग (pantyanchi rang)",
-                "answer": "row of lamps"
+                "type": "shadowing",
+                "q": "Practice 6 [shadowing] — Culture and Community — B2: Shadow the synthetic Marathi model, preserving rhythm and target-language sounds. Self-check only.",
+                "answer": "तुम्हालाही! या, गोड खा.",
+                "skill_target": "Marathi shadowing: Marathi gender/agreement, postpositions, aspect, and respectful register",
+                "audio_source": "तुम्हालाही! या, गोड खा."
               },
               {
-                "type": "translate_t",
-                "q": "Write in Marathi: firecracker",
-                "answer": "फटाका (phataka)"
+                "type": "guided_speaking",
+                "q": "Practice 7 [guided speaking] — Culture and Community — B2: Produce a spoken response demonstrating “Culture and Community — B2”; compare with the model.",
+                "answer": "सणाच्या शुभेच्छा!",
+                "skill_target": "Marathi guided speaking: Marathi gender/agreement, postpositions, aspect, and respectful register"
               },
               {
-                "type": "fill",
-                "q": "Produce the complete Marathi expression: Happy festival!",
-                "answer": "सणाच्या शुभेच्छा! (Sanachya shubhechha!)"
+                "type": "free_response",
+                "q": "Practice 8 [free response] — Culture and Community — B2: Produce a spoken response demonstrating “Culture and Community — B2”; compare with the model.",
+                "answer": "नवीन वर्षाच्या शुभेच्छा!",
+                "skill_target": "Marathi free response: Marathi gender/agreement, postpositions, aspect, and respectful register"
               },
               {
-                "type": "choose",
-                "q": "Choose the Marathi expression for “sparkler”.",
-                "options": [
-                  "फुलबाजी",
-                  "शिवरात्री",
-                  "उपास",
-                  "नवस"
-                ],
-                "answer": "फुलबाजी"
+                "type": "roleplay",
+                "q": "Practice 9 [roleplay] — Culture and Community — B2: Role-play Neighbour with appropriate register: Happy Gudhi Padwa! New Year greetings!",
+                "answer": "गुढीपाडव्याच्या शुभेच्छा!",
+                "skill_target": "Marathi roleplay: Marathi gender/agreement, postpositions, aspect, and respectful register"
               },
               {
-                "type": "speak",
-                "q": "Say naturally in Marathi: Come to our house",
-                "answer": "आमच्या घरी या (Aamchya ghari ya)"
+                "type": "sentence_writing",
+                "q": "Practice 10 [sentence writing] — Culture and Community — B2: Write one accurate Devanagari sentence using फटाका.",
+                "answer": "सणाच्या शुभेच्छा!",
+                "skill_target": "Marathi sentence writing: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "short_writing",
+                "q": "Practice 11 [short writing] — Culture and Community — B2: Write 2–3 connected Marathi sentences applying Culture and Community — B2.",
+                "answer": "नवीन वर्षाच्या शुभेच्छा! आमच्या घरी या",
+                "skill_target": "Marathi short writing: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "paraphrase",
+                "q": "Practice 12 [paraphrase] — Culture and Community — B2: Paraphrase without changing meaning, morphology, or register: आमच्या घरी या",
+                "answer": "आमच्या घरी या",
+                "skill_target": "Marathi paraphrase: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "summary",
+                "q": "Practice 13 [summary] — Culture and Community — B2: Summarize the dialogue in one precise Marathi sentence.",
+                "answer": "गुढीपाडव्याच्या शुभेच्छा!",
+                "skill_target": "Marathi summary: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Practice 14 [guided composition] — Culture and Community — B2: Compose a short response with the taught pattern “context + marked participants + object/complement + finite verb”.",
+                "answer": "नवीन वर्षाच्या शुभेच्छा!",
+                "skill_target": "Marathi guided composition: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Practice 15 [register transformation] — Culture and Community — B2: Recast “Come to our house” in the formal/respectful or colloquial register taught here.",
+                "answer": "आमच्या घरी या",
+                "skill_target": "Marathi register transformation: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "tone_identification",
+                "q": "Practice 16 [tone identification] — Culture and Community — B2: Identify the tone or stance of सणाच्या शुभेच्छा!.",
+                "answer": "The wording realizes Culture and Community structures with the lesson-appropriate stance and register.",
+                "skill_target": "Marathi tone identification: Marathi gender/agreement, postpositions, aspect, and respectful register"
+              },
+              {
+                "type": "semantic_distinction",
+                "q": "Practice 17 [semantic distinction] — Culture and Community — B2: Distinguish पणत्यांची रांग from फटाका in meaning and use.",
+                "answer": "पणत्यांची रांग means “row of lamps”; फटाका means “firecracker”. Grammar and context determine the choice.",
+                "skill_target": "Marathi semantic distinction: Marathi gender/agreement, postpositions, aspect, and respectful register"
               }
             ],
             "quiz": [
@@ -1435,9 +1832,28 @@
                     "शिवरात्री (shivratri)",
                     "उपास (upas)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Marathi offline lab: read, transform in Devanagari, and rehearse aloud. Check Marathi gender/agreement, postpositions, aspect, and respectful register.",
+                  "items": [
+                    "सणाच्या शुभेच्छा!",
+                    "गुढीपाडव्याच्या शुभेच्छा!"
+                  ],
+                  "key": [
+                    "Happy festival!",
+                    "Happy Gudhi Padwa! New Year greetings!"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "पणत्यांची रांग",
+              "फटाका",
+              "फुलबाजी",
+              "शिवरात्री"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
           }
         ]
       }

@@ -124,35 +124,91 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate in context: હોસ્પિટલ (hospital)",
-                "answer": "hospital"
-              },
-              {
-                "type": "translate_t",
-                "q": "Write in Gujarati: doctor",
-                "answer": "ડૉક્ટર (doktar)"
-              },
-              {
-                "type": "fill",
-                "q": "Produce the complete Gujarati expression: I am not feeling well",
-                "answer": "મને સારું લાગતું નથી (Mane saru lagtu nathi)"
-              },
-              {
-                "type": "choose",
-                "q": "Choose the Gujarati expression for “nurse”.",
+                "type": "multiple_choice",
+                "q": "Practice 1 [multiple choice] — Health and Wellbeing — A1: Choose the lesson meaning of હોસ્પિટલ (hospital).",
+                "answer": "hospital",
+                "skill_target": "Gujarati multiple choice: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
                 "options": [
-                  "નર્સ",
-                  "દર્દી",
-                  "દવાની દુકાન",
-                  "સર્જન"
-                ],
-                "answer": "નર્સ"
+                  "hospital",
+                  "doctor",
+                  "nurse"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say naturally in Gujarati: My head aches",
-                "answer": "માથું દુખે છે (Mathu dukhe chhe)"
+                "type": "fill_in_the_blank",
+                "q": "Practice 2 [fill in the blank] — Health and Wellbeing — A1: Type the complete Gujarati script form for “doctor”.",
+                "answer": "ડૉક્ટર",
+                "skill_target": "Gujarati fill in the blank: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3 [translation] — Health and Wellbeing — A1: Read નર્સ (nars) and give its contextual English meaning.",
+                "answer": "nurse",
+                "skill_target": "Gujarati translation: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4 [reverse translation] — Health and Wellbeing — A1: Write “patient” in Gujarati script, not romanisation alone.",
+                "answer": "દર્દી",
+                "skill_target": "Gujarati reverse translation: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5 [matching] — Health and Wellbeing — A1: Match દવાની દુકાન to its meaning in this lesson.",
+                "answer": "pharmacy",
+                "skill_target": "Gujarati matching: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "options": [
+                  "surgeon",
+                  "pharmacy",
+                  "dentist"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6 [reorder] — Health and Wellbeing — A1: Rebuild this model with correct Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register: My head aches",
+                "answer": "માથું દુખે છે",
+                "skill_target": "Gujarati reorder: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7 [sentence building] — Health and Wellbeing — A1: Rebuild this model with correct Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register: I am not feeling well",
+                "answer": "મને સારું લાગતું નથી",
+                "skill_target": "Gujarati sentence building: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8 [word selection] — Health and Wellbeing — A1: Select the Gujarati script form for “eye doctor”.",
+                "answer": "આંખના ડૉક્ટર",
+                "skill_target": "Gujarati word selection: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "options": [
+                  "હોસ્પિટલ",
+                  "ડૉક્ટર",
+                  "આંખના ડૉક્ટર"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9 [error correction] — Health and Wellbeing — A1: Replace a literal, agreement, or register error with the taught model for “My head aches”.",
+                "answer": "માથું દુખે છે",
+                "skill_target": "Gujarati error correction: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10 [dialogue completion] — Health and Wellbeing — A1: Complete Patient’s turn: Doctor, fever for two days.",
+                "answer": "ડૉક્ટર, બે દિવસથી તાવ છે.",
+                "skill_target": "Gujarati dialogue completion: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11 [reading comprehension] — Health and Wellbeing — A1: Read ઉધરસ-શરદી છે? (Udharas-shardi chhe?). What exact detail does it communicate?",
+                "answer": "Any cough or cold?",
+                "skill_target": "Gujarati reading comprehension: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12 [paragraph comprehension] — Health and Wellbeing — A1: Read the whole dialogue and explain this turn’s contribution: ફક્ત ઉધરસ છે.",
+                "answer": "Only a cough.",
+                "skill_target": "Gujarati paragraph comprehension: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
               }
             ],
             "quiz": [
@@ -248,9 +304,28 @@
                     "દર્દી (dardi)",
                     "દવાની દુકાન (davani dukan)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Gujarati offline lab: read, transform in Gujarati script, and rehearse aloud. Check Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register.",
+                  "items": [
+                    "મને સારું લાગતું નથી",
+                    "તમને શું થયું?"
+                  ],
+                  "key": [
+                    "I am not feeling well",
+                    "What happened to you?"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "હોસ્પિટલ",
+              "ડૉક્ટર",
+              "નર્સ",
+              "દર્દી"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
           },
           {
             "id": "gu-a1-l2",
@@ -359,35 +434,92 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate in context: મીટિંગ (meeting)",
-                "answer": "meeting"
+                "type": "main_idea",
+                "q": "Practice 2 [main idea] — Work and Professional Life — A1: State the main communicative purpose of “Work and Professional Life — A1”.",
+                "answer": "Use short Gujarati sentences for basic recognition and respectful interaction.",
+                "skill_target": "Gujarati main idea: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
               },
               {
-                "type": "translate_t",
-                "q": "Write in Gujarati: conference",
-                "answer": "સંમેલન (sammelan)"
+                "type": "detail_identification",
+                "q": "Practice 3 [detail identification] — Work and Professional Life — A1: Read આ તમારું ટેબલ. કમ્પ્યૂટર ચાલુ કરો. (Aa tamaru table. Computer chalu karo.). What exact detail does it communicate?",
+                "answer": "This is your desk. Switch on the computer.",
+                "skill_target": "Gujarati detail identification: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
               },
               {
-                "type": "fill",
-                "q": "Produce the complete Gujarati expression: I have a meeting",
-                "answer": "મારી મીટિંગ છે (Maari meeting chhe)"
+                "type": "inference",
+                "q": "Practice 4 [inference] — Work and Professional Life — A1: Infer the intended meaning of મારી મીટિંગ છે without losing its qualification or social force.",
+                "answer": "I have a meeting",
+                "skill_target": "Gujarati inference: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
               },
               {
-                "type": "choose",
-                "q": "Choose the Gujarati expression for “cabin”.",
+                "type": "listening_comprehension",
+                "q": "Practice 5 [listening comprehension] — Work and Professional Life — A1: Play the synthetic audio and give its precise contextual meaning.",
+                "answer": "Welcome! What is your name?",
+                "skill_target": "Gujarati listening comprehension: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "આવો! તમારું નામ શું?"
+              },
+              {
+                "type": "dictation",
+                "q": "Practice 6 [dictation] — Work and Professional Life — A1: Play the labeled synthetic Gujarati audio and type the complete line in Gujarati script.",
+                "answer": "મારું નામ કુમાર.",
+                "skill_target": "Gujarati dictation: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "મારું નામ કુમાર."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Practice 7 [listen and choose] — Work and Professional Life — A1: Play the synthetic audio and choose its contextual meaning.",
+                "answer": "This is your desk. Switch on the computer.",
+                "skill_target": "Gujarati listen and choose: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "આ તમારું ટેબલ. કમ્પ્યૂટર ચાલુ કરો.",
                 "options": [
-                  "કૅબિન",
-                  "રિસેપ્શન",
-                  "રિસેપ્શનિસ્ટ",
-                  "ચોકીદાર"
-                ],
-                "answer": "કૅબિન"
+                  "This is your desk. Switch on the computer.",
+                  "OK. What is the email address?",
+                  "peon"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say naturally in Gujarati: Sign here",
-                "answer": "અહીંયા સહી કરો (Ahiya sahi karo)"
+                "type": "listen_and_reorder",
+                "q": "Practice 8 [listen and reorder] — Work and Professional Life — A1: Rebuild this model with correct Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register: The boss called you",
+                "answer": "બૉસ તમને બોલાવ્યા",
+                "skill_target": "Gujarati listen and reorder: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "આવો! તમારું નામ શું?"
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Practice 9 [listen and fill] — Work and Professional Life — A1: Play the synthetic audio and complete the line beginning “આવો!…”.",
+                "answer": "આવો! તમારું નામ શું?",
+                "skill_target": "Gujarati listen and fill: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "આવો! તમારું નામ શું?"
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Practice 10 [repeat after audio] — Work and Professional Life — A1: Repeat the synthetic model with its phrase grouping; no microphone score is claimed.",
+                "answer": "મારું નામ કુમાર.",
+                "skill_target": "Gujarati repeat after audio: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "મારું નામ કુમાર."
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Practice 11 [multiple choice] — Work and Professional Life — A1: Choose the lesson meaning of કૅબિન (cabin).",
+                "answer": "cabin",
+                "skill_target": "Gujarati multiple choice: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "options": [
+                  "cabin",
+                  "reception",
+                  "receptionist"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 12 [fill in the blank] — Work and Professional Life — A1: Type the complete Gujarati script form for “reception”.",
+                "answer": "રિસેપ્શન",
+                "skill_target": "Gujarati fill in the blank: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 13 [translation] — Work and Professional Life — A1: Read રિસેપ્શનિસ્ટ (receptionist) and give its contextual English meaning.",
+                "answer": "receptionist",
+                "skill_target": "Gujarati translation: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
               }
             ],
             "quiz": [
@@ -483,9 +615,28 @@
                     "રિસેપ્શન (reception)",
                     "રિસેપ્શનિસ્ટ (receptionist)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Gujarati offline lab: read, transform in Gujarati script, and rehearse aloud. Check Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register.",
+                  "items": [
+                    "મારી મીટિંગ છે",
+                    "આવો! તમારું નામ શું?"
+                  ],
+                  "key": [
+                    "I have a meeting",
+                    "Welcome! What is your name?"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "મીટિંગ",
+              "સંમેલન",
+              "કૅબિન",
+              "રિસેપ્શન"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
           }
         ]
       },
@@ -600,35 +751,86 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate in context: સ્કૂલ ડેસ્ક (school desk)",
-                "answer": "desk"
+                "type": "reverse_translation",
+                "q": "Practice 3 [reverse translation] — Education and Learning — A1: Write “chalk” in Gujarati script, not romanisation alone.",
+                "answer": "ચોક",
+                "skill_target": "Gujarati reverse translation: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
               },
               {
-                "type": "translate_t",
-                "q": "Write in Gujarati: blackboard",
-                "answer": "કાળુંપાટ (kalupat)"
-              },
-              {
-                "type": "fill",
-                "q": "Produce the complete Gujarati expression: Open your book",
-                "answer": "તમારી ચોપડી ખોલો (Tamari chopdi kholo)"
-              },
-              {
-                "type": "choose",
-                "q": "Choose the Gujarati expression for “chalk”.",
+                "type": "matching",
+                "q": "Practice 4 [matching] — Education and Learning — A1: Match ડસ્ટર to its meaning in this lesson.",
+                "answer": "duster",
+                "skill_target": "Gujarati matching: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
                 "options": [
-                  "ચોક",
-                  "ડસ્ટર",
-                  "ઘંટડી",
-                  "હાજરી"
-                ],
-                "answer": "ચોક"
+                  "bell",
+                  "duster",
+                  "attendance"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say naturally in Gujarati: Write neatly",
-                "answer": "ચોખ્ખું લખો (Chokhkhu lakho)"
+                "type": "reorder",
+                "q": "Practice 5 [reorder] — Education and Learning — A1: Rebuild this model with correct Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register: Read aloud",
+                "answer": "મોટેથી વાંચો",
+                "skill_target": "Gujarati reorder: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 6 [sentence building] — Education and Learning — A1: Rebuild this model with correct Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register: Write neatly",
+                "answer": "ચોખ્ખું લખો",
+                "skill_target": "Gujarati sentence building: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 7 [word selection] — Education and Learning — A1: Select the Gujarati script form for “roll number”.",
+                "answer": "રોલ નંબર",
+                "skill_target": "Gujarati word selection: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "options": [
+                  "યુનિફૉર્મ",
+                  "સ્કૂલ ડેસ્ક",
+                  "રોલ નંબર"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 8 [error correction] — Education and Learning — A1: Replace a literal, agreement, or register error with the taught model for “Read aloud”.",
+                "answer": "મોટેથી વાંચો",
+                "skill_target": "Gujarati error correction: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 9 [dialogue completion] — Education and Learning — A1: Complete Student’s turn: Good morning, teacher!",
+                "answer": "સાહેબ, પ્રણામ!",
+                "skill_target": "Gujarati dialogue completion: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 10 [reading comprehension] — Education and Learning — A1: Read પ્રણામ! લેસન પૂરું કર્યું? (Pranam! Lesan puru karyu?). What exact detail does it communicate?",
+                "answer": "Pranam! Did you finish the homework?",
+                "skill_target": "Gujarati reading comprehension: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 11 [paragraph comprehension] — Education and Learning — A1: Read the whole dialogue and explain this turn’s contribution: હા સાહેબ. મારો નિબંધ લાંબો છે!",
+                "answer": "Yes teacher. My essay is long!",
+                "skill_target": "Gujarati paragraph comprehension: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "main_idea",
+                "q": "Practice 12 [main idea] — Education and Learning — A1: State the main communicative purpose of “Education and Learning — A1”.",
+                "answer": "Use short Gujarati sentences for basic recognition and respectful interaction.",
+                "skill_target": "Gujarati main idea: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Practice 13 [detail identification] — Education and Learning — A1: Read સાહેબ, પ્રણામ! (Sahab, pranam!). What exact detail does it communicate?",
+                "answer": "Good morning, teacher!",
+                "skill_target": "Gujarati detail identification: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "inference",
+                "q": "Practice 14 [inference] — Education and Learning — A1: Infer the intended meaning of મોટેથી વાંચો without losing its qualification or social force.",
+                "answer": "Read aloud",
+                "skill_target": "Gujarati inference: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
               }
             ],
             "quiz": [
@@ -724,9 +926,28 @@
                     "ડસ્ટર (dastar)",
                     "ઘંટડી (ghantadi)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Gujarati offline lab: read, transform in Gujarati script, and rehearse aloud. Check Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register.",
+                  "items": [
+                    "તમારી ચોપડી ખોલો",
+                    "સાહેબ, પ્રણામ!"
+                  ],
+                  "key": [
+                    "Open your book",
+                    "Good morning, teacher!"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "સ્કૂલ ડેસ્ક",
+              "કાળુંપાટ",
+              "ચોક",
+              "ડસ્ટર"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
           },
           {
             "id": "gu-a1-l4",
@@ -835,35 +1056,97 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate in context: ગરમી (garami)",
-                "answer": "heat"
+                "type": "listening_comprehension",
+                "q": "Practice 4 [listening comprehension] — Weather and Environment — A1: Play the synthetic audio and give its precise contextual meaning.",
+                "answer": "Good rain means good crops.",
+                "skill_target": "Gujarati listening comprehension: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "સારો વરસાદ એટલે સારો પાક."
               },
               {
-                "type": "translate_t",
-                "q": "Write in Gujarati: hot sun",
-                "answer": "આકરો તડકો (aakro taadko)"
+                "type": "dictation",
+                "q": "Practice 5 [dictation] — Weather and Environment — A1: Play the labeled synthetic Gujarati audio and type the complete line in Gujarati script.",
+                "answer": "આજે હવામાન કેવું છે?",
+                "skill_target": "Gujarati dictation: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "આજે હવામાન કેવું છે?"
               },
               {
-                "type": "fill",
-                "q": "Produce the complete Gujarati expression: It is raining",
-                "answer": "વરસાદ પડે છે (Varsad pade chhe)"
-              },
-              {
-                "type": "choose",
-                "q": "Choose the Gujarati expression for “sunshine”.",
+                "type": "listen_and_choose",
+                "q": "Practice 6 [listen and choose] — Weather and Environment — A1: Play the synthetic audio and choose its contextual meaning.",
+                "answer": "It will rain. Take an umbrella.",
+                "skill_target": "Gujarati listen and choose: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "વરસાદ આવશે. છત્રી લઈ લો.",
                 "options": [
-                  "તડકો",
-                  "છાંયો",
-                  "પરસેવો",
-                  "તરસ"
-                ],
-                "answer": "તડકો"
+                  "It will rain. Take an umbrella.",
+                  "It rained yesterday too.",
+                  "thirst"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say naturally in Gujarati: It is cold today",
-                "answer": "આજે ઠંડી છે (Aaje thandi chhe)"
+                "type": "listen_and_reorder",
+                "q": "Practice 7 [listen and reorder] — Weather and Environment — A1: Rebuild this model with correct Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register: It is raining",
+                "answer": "વરસાદ પડે છે",
+                "skill_target": "Gujarati listen and reorder: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "આજે હવામાન કેવું છે?"
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Practice 8 [listen and fill] — Weather and Environment — A1: Play the synthetic audio and complete the line beginning “સારો…”.",
+                "answer": "સારો વરસાદ એટલે સારો પાક.",
+                "skill_target": "Gujarati listen and fill: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "સારો વરસાદ એટલે સારો પાક."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Practice 9 [repeat after audio] — Weather and Environment — A1: Repeat the synthetic model with its phrase grouping; no microphone score is claimed.",
+                "answer": "આજે હવામાન કેવું છે?",
+                "skill_target": "Gujarati repeat after audio: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "આજે હવામાન કેવું છે?"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Practice 10 [multiple choice] — Weather and Environment — A1: Choose the lesson meaning of આકરો તડકો (aakro taadko).",
+                "answer": "hot sun",
+                "skill_target": "Gujarati multiple choice: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "options": [
+                  "hot sun",
+                  "sunshine",
+                  "shadow"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 11 [fill in the blank] — Weather and Environment — A1: Type the complete Gujarati script form for “sunshine”.",
+                "answer": "તડકો",
+                "skill_target": "Gujarati fill in the blank: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 12 [translation] — Weather and Environment — A1: Read છાંયો (chhanyo) and give its contextual English meaning.",
+                "answer": "shadow",
+                "skill_target": "Gujarati translation: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 13 [reverse translation] — Weather and Environment — A1: Write “sweat” in Gujarati script, not romanisation alone.",
+                "answer": "પરસેવો",
+                "skill_target": "Gujarati reverse translation: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 14 [matching] — Weather and Environment — A1: Match તરસ to its meaning in this lesson.",
+                "answer": "thirst",
+                "skill_target": "Gujarati matching: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "options": [
+                  "winter",
+                  "thirst",
+                  "cold"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 15 [reorder] — Weather and Environment — A1: Rebuild this model with correct Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register: It is cold today",
+                "answer": "આજે ઠંડી છે",
+                "skill_target": "Gujarati reorder: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
               }
             ],
             "quiz": [
@@ -959,9 +1242,28 @@
                     "છાંયો (chhanyo)",
                     "પરસેવો (parsevo)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Gujarati offline lab: read, transform in Gujarati script, and rehearse aloud. Check Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register.",
+                  "items": [
+                    "વરસાદ પડે છે",
+                    "આજે હવામાન કેવું છે?"
+                  ],
+                  "key": [
+                    "It is raining",
+                    "What is the weather today?"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "ગરમી",
+              "આકરો તડકો",
+              "તડકો",
+              "છાંયો"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
           }
         ]
       },
@@ -1076,35 +1378,89 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate in context: ડોલ (dol)",
-                "answer": "bucket"
+                "type": "sentence_building",
+                "q": "Practice 5 [sentence building] — Home and Relationships — A1: Rebuild this model with correct Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register: The food is ready",
+                "answer": "ખાવાનું તૈયાર છે",
+                "skill_target": "Gujarati sentence building: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
               },
               {
-                "type": "translate_t",
-                "q": "Write in Gujarati: mug",
-                "answer": "લોટી (loti)"
-              },
-              {
-                "type": "fill",
-                "q": "Produce the complete Gujarati expression: Come, let's eat",
-                "answer": "આવો, ખાઈએ (Aavo, khaie)"
-              },
-              {
-                "type": "choose",
-                "q": "Choose the Gujarati expression for “rope”.",
+                "type": "word_selection",
+                "q": "Practice 6 [word selection] — Home and Relationships — A1: Select the Gujarati script form for “elder brother”.",
+                "answer": "મોટો ભાઈ",
+                "skill_target": "Gujarati word selection: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
                 "options": [
-                  "દોરડા",
-                  "પિતા",
-                  "માડી",
+                  "નાનો ભાઈ",
+                  "મોટી બહેન",
                   "મોટો ભાઈ"
-                ],
-                "answer": "દોરડા"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say naturally in Gujarati: Wash your hands",
-                "answer": "હાથ ધુઓ (Haath dhuo)"
+                "type": "error_correction",
+                "q": "Practice 7 [error correction] — Home and Relationships — A1: Replace a literal, agreement, or register error with the taught model for “Come, let's eat”.",
+                "answer": "આવો, ખાઈએ",
+                "skill_target": "Gujarati error correction: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 8 [dialogue completion] — Home and Relationships — A1: Complete Granddaughter’s turn: Grandma, the food smells nice!",
+                "answer": "બા, ખાવાનું મેકે છે!",
+                "skill_target": "Gujarati dialogue completion: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 9 [reading comprehension] — Home and Relationships — A1: Read બા, શું રંધાય છે? (Ba, shu randhay chhe?). What exact detail does it communicate?",
+                "answer": "Grandma, what is cooking?",
+                "skill_target": "Gujarati reading comprehension: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 10 [paragraph comprehension] — Home and Relationships — A1: Read the whole dialogue and explain this turn’s contribution: ઉંધિયું, મારી દીકરી!",
+                "answer": "Undhiyu, my dear!",
+                "skill_target": "Gujarati paragraph comprehension: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "main_idea",
+                "q": "Practice 11 [main idea] — Home and Relationships — A1: State the main communicative purpose of “Home and Relationships — A1”.",
+                "answer": "Use short Gujarati sentences for basic recognition and respectful interaction.",
+                "skill_target": "Gujarati main idea: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Practice 12 [detail identification] — Home and Relationships — A1: Read બા, ખાવાનું મેકે છે! (Ba, khavanu meke chhe!). What exact detail does it communicate?",
+                "answer": "Grandma, the food smells nice!",
+                "skill_target": "Gujarati detail identification: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "inference",
+                "q": "Practice 13 [inference] — Home and Relationships — A1: Infer the intended meaning of આવો, ખાઈએ without losing its qualification or social force.",
+                "answer": "Come, let's eat",
+                "skill_target": "Gujarati inference: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Practice 14 [listening comprehension] — Home and Relationships — A1: Play the synthetic audio and give its precise contextual meaning.",
+                "answer": "Undhiyu, my dear!",
+                "skill_target": "Gujarati listening comprehension: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "ઉંધિયું, મારી દીકરી!"
+              },
+              {
+                "type": "dictation",
+                "q": "Practice 15 [dictation] — Home and Relationships — A1: Play the labeled synthetic Gujarati audio and type the complete line in Gujarati script.",
+                "answer": "હાથ ધોઈને બેસ.",
+                "skill_target": "Gujarati dictation: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "હાથ ધોઈને બેસ."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Practice 16 [listen and choose] — Home and Relationships — A1: Play the synthetic audio and choose its contextual meaning.",
+                "answer": "Grandma, the food smells nice!",
+                "skill_target": "Gujarati listen and choose: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "બા, ખાવાનું મેકે છે!",
+                "options": [
+                  "Grandma, the food smells nice!",
+                  "Grandma, what is cooking?",
+                  "elder sister"
+                ]
               }
             ],
             "quiz": [
@@ -1200,9 +1556,28 @@
                     "પિતા (pita)",
                     "માડી (madi)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Gujarati offline lab: read, transform in Gujarati script, and rehearse aloud. Check Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register.",
+                  "items": [
+                    "આવો, ખાઈએ",
+                    "બા, શું રંધાય છે?"
+                  ],
+                  "key": [
+                    "Come, let's eat",
+                    "Grandma, what is cooking?"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "ડોલ",
+              "લોટી",
+              "દોરડા",
+              "પિતા"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
           },
           {
             "id": "gu-a1-l6",
@@ -1311,35 +1686,94 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate in context: મેળો (melo)",
-                "answer": "fair"
+                "type": "listen_and_reorder",
+                "q": "Practice 6 [listen and reorder] — Culture and Community — A1: Rebuild this model with correct Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register: Come to our house",
+                "answer": "અમારા ઘરે આવો",
+                "skill_target": "Gujarati listen and reorder: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "નૂતન વર્ષાભિનંદન! આનંદ થાઓ!"
               },
               {
-                "type": "translate_t",
-                "q": "Write in Gujarati: pilgrimage fair",
-                "answer": "જાત્રા (jatra)"
+                "type": "listen_and_fill",
+                "q": "Practice 7 [listen and fill] — Culture and Community — A1: Play the synthetic audio and complete the line beginning “રંગોળી…”.",
+                "answer": "રંગોળી સરસ લાગે છે!",
+                "skill_target": "Gujarati listen and fill: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "રંગોળી સરસ લાગે છે!"
               },
               {
-                "type": "fill",
-                "q": "Produce the complete Gujarati expression: Happy festival!",
-                "answer": "તહેવારની શુભેચ્છાઓ! (Taahevardi shubhechhao!)"
+                "type": "repeat_after_audio",
+                "q": "Practice 8 [repeat after audio] — Culture and Community — A1: Repeat the synthetic model with its phrase grouping; no microphone score is claimed.",
+                "answer": "સાંજે ગરબો છે.",
+                "skill_target": "Gujarati repeat after audio: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "સાંજે ગરબો છે."
               },
               {
-                "type": "choose",
-                "q": "Choose the Gujarati expression for “chariot”.",
+                "type": "multiple_choice",
+                "q": "Practice 9 [multiple choice] — Culture and Community — A1: Choose the lesson meaning of મેળો (melo).",
+                "answer": "fair",
+                "skill_target": "Gujarati multiple choice: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
                 "options": [
-                  "રથ",
-                  "ગરબા નૃત્ય",
-                  "ઢોલ",
-                  "ડાયરો"
-                ],
-                "answer": "રથ"
+                  "fair",
+                  "pilgrimage fair",
+                  "chariot"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say naturally in Gujarati: Come to our house",
-                "answer": "અમારા ઘરે આવો (Amara ghare aavo)"
+                "type": "fill_in_the_blank",
+                "q": "Practice 10 [fill in the blank] — Culture and Community — A1: Type the complete Gujarati script form for “pilgrimage fair”.",
+                "answer": "જાત્રા",
+                "skill_target": "Gujarati fill in the blank: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 11 [translation] — Culture and Community — A1: Read રથ (rath) and give its contextual English meaning.",
+                "answer": "chariot",
+                "skill_target": "Gujarati translation: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 12 [reverse translation] — Culture and Community — A1: Write “garba dance” in Gujarati script, not romanisation alone.",
+                "answer": "ગરબા નૃત્ય",
+                "skill_target": "Gujarati reverse translation: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 13 [matching] — Culture and Community — A1: Match ઢોલ to its meaning in this lesson.",
+                "answer": "dhol",
+                "skill_target": "Gujarati matching: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "options": [
+                  "dayro",
+                  "dhol",
+                  "bhavai"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 14 [reorder] — Culture and Community — A1: Rebuild this model with correct Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register: Happy New Year!",
+                "answer": "નૂતન વર્ષાભિનંદન!",
+                "skill_target": "Gujarati reorder: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 15 [sentence building] — Culture and Community — A1: Rebuild this model with correct Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register: Come to our house",
+                "answer": "અમારા ઘરે આવો",
+                "skill_target": "Gujarati sentence building: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 16 [word selection] — Culture and Community — A1: Select the Gujarati script form for “sweets”.",
+                "answer": "મિઠાઈ",
+                "skill_target": "Gujarati word selection: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "options": [
+                  "મેળો",
+                  "જાત્રા",
+                  "મિઠાઈ"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 17 [error correction] — Culture and Community — A1: Replace a literal, agreement, or register error with the taught model for “Happy New Year!”.",
+                "answer": "નૂતન વર્ષાભિનંદન!",
+                "skill_target": "Gujarati error correction: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
               }
             ],
             "quiz": [
@@ -1435,9 +1869,28 @@
                     "ગરબા નૃત્ય (garba nrutya)",
                     "ઢોલ (dhol)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Gujarati offline lab: read, transform in Gujarati script, and rehearse aloud. Check Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register.",
+                  "items": [
+                    "તહેવારની શુભેચ્છાઓ!",
+                    "નૂતન વર્ષાભિનંદન! આનંદ થાઓ!"
+                  ],
+                  "key": [
+                    "Happy festival!",
+                    "Happy New Year! Wish you joy!"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "મેળો",
+              "જાત્રા",
+              "રથ",
+              "ગરબા નૃત્ય"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
           }
         ]
       }

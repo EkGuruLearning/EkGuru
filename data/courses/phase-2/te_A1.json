@@ -124,35 +124,91 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate in context: ఆసుపత్రి (āsupatri)",
-                "answer": "hospital"
-              },
-              {
-                "type": "translate_t",
-                "q": "Write in Telugu: doctor",
-                "answer": "డాక్టర్ (ḍākṭar)"
-              },
-              {
-                "type": "fill",
-                "q": "Produce the complete Telugu expression: I am not feeling well",
-                "answer": "ఒంట్లో బాగాలేదు (Oṇṭlō bāgālēdu)"
-              },
-              {
-                "type": "choose",
-                "q": "Choose the Telugu expression for “nurse”.",
+                "type": "multiple_choice",
+                "q": "Practice 1 [multiple choice] — Health and Wellbeing — A1: Choose the lesson meaning of ఆసుపత్రి (āsupatri).",
+                "answer": "hospital",
+                "skill_target": "Telugu multiple choice: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
                 "options": [
-                  "నర్సు",
-                  "రోగి",
-                  "మందుల దుకాణం",
-                  "సర్జన్"
-                ],
-                "answer": "నర్సు"
+                  "hospital",
+                  "doctor",
+                  "nurse"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say naturally in Telugu: My head aches",
-                "answer": "తలనొప్పిగా ఉంది (Talanoppigā undi)"
+                "type": "fill_in_the_blank",
+                "q": "Practice 2 [fill in the blank] — Health and Wellbeing — A1: Type the complete Telugu script form for “doctor”.",
+                "answer": "డాక్టర్",
+                "skill_target": "Telugu fill in the blank: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3 [translation] — Health and Wellbeing — A1: Read నర్సు (narsu) and give its contextual English meaning.",
+                "answer": "nurse",
+                "skill_target": "Telugu translation: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4 [reverse translation] — Health and Wellbeing — A1: Write “patient” in Telugu script, not romanisation alone.",
+                "answer": "రోగి",
+                "skill_target": "Telugu reverse translation: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5 [matching] — Health and Wellbeing — A1: Match మందుల దుకాణం to its meaning in this lesson.",
+                "answer": "pharmacy",
+                "skill_target": "Telugu matching: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
+                "options": [
+                  "surgeon",
+                  "pharmacy",
+                  "dentist"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6 [reorder] — Health and Wellbeing — A1: Rebuild this model with correct Telugu agglutinative suffixes, case marking, agreement, and respectful forms: My head aches",
+                "answer": "తలనొప్పిగా ఉంది",
+                "skill_target": "Telugu reorder: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7 [sentence building] — Health and Wellbeing — A1: Rebuild this model with correct Telugu agglutinative suffixes, case marking, agreement, and respectful forms: I am not feeling well",
+                "answer": "ఒంట్లో బాగాలేదు",
+                "skill_target": "Telugu sentence building: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8 [word selection] — Health and Wellbeing — A1: Select the Telugu script form for “eye doctor”.",
+                "answer": "కంటి డాక్టర్",
+                "skill_target": "Telugu word selection: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
+                "options": [
+                  "ఆసుపత్రి",
+                  "డాక్టర్",
+                  "కంటి డాక్టర్"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9 [error correction] — Health and Wellbeing — A1: Replace a literal, agreement, or register error with the taught model for “My head aches”.",
+                "answer": "తలనొప్పిగా ఉంది",
+                "skill_target": "Telugu error correction: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10 [dialogue completion] — Health and Wellbeing — A1: Complete Patient’s turn: Doctor, fever for two days.",
+                "answer": "డాక్టర్, రెండు రోజుల నుంచి జ్వరం.",
+                "skill_target": "Telugu dialogue completion: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11 [reading comprehension] — Health and Wellbeing — A1: Read దగ్గు, జలుబు ఉందా? (Daggu, jalubu undā?). What exact detail does it communicate?",
+                "answer": "Any cough or cold?",
+                "skill_target": "Telugu reading comprehension: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12 [paragraph comprehension] — Health and Wellbeing — A1: Read the whole dialogue and explain this turn’s contribution: దగ్గు మాత్రమే ఉంది.",
+                "answer": "Only a cough.",
+                "skill_target": "Telugu paragraph comprehension: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
               }
             ],
             "quiz": [
@@ -248,9 +304,28 @@
                     "రోగి (rōgi)",
                     "మందుల దుకాణం (mandula dukāṇaṁ)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Telugu offline lab: read, transform in Telugu script, and rehearse aloud. Check Telugu agglutinative suffixes, case marking, agreement, and respectful forms.",
+                  "items": [
+                    "ఒంట్లో బాగాలేదు",
+                    "మీకు ఏమైంది?"
+                  ],
+                  "key": [
+                    "I am not feeling well",
+                    "What happened to you?"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "ఆసుపత్రి",
+              "డాక్టర్",
+              "నర్సు",
+              "రోగి"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
           },
           {
             "id": "te-a1-l2",
@@ -359,35 +434,92 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate in context: మీటింగ్ (mīṭiṅg)",
-                "answer": "meeting"
+                "type": "main_idea",
+                "q": "Practice 2 [main idea] — Work and Professional Life — A1: State the main communicative purpose of “Work and Professional Life — A1”.",
+                "answer": "Use short, clear Telugu sentences for recognition and basic interaction.",
+                "skill_target": "Telugu main idea: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
               },
               {
-                "type": "translate_t",
-                "q": "Write in Telugu: conference",
-                "answer": "సమావేశం (samāvēśaṁ)"
+                "type": "detail_identification",
+                "q": "Practice 3 [detail identification] — Work and Professional Life — A1: Read ఇది మీ టేబుల్. కంప్యూటర్ ఆన్ చేయండి. (Idi mī ṭēbul. Kampyūṭar ān chēyaṇḍi.). What exact detail does it communicate?",
+                "answer": "This is your desk. Switch on the computer.",
+                "skill_target": "Telugu detail identification: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
               },
               {
-                "type": "fill",
-                "q": "Produce the complete Telugu expression: I have a meeting",
-                "answer": "నాకు మీటింగ్ ఉంది (Nāku mīṭiṅg undi)"
+                "type": "inference",
+                "q": "Practice 4 [inference] — Work and Professional Life — A1: Infer the intended meaning of నాకు మీటింగ్ ఉంది without losing its qualification or social force.",
+                "answer": "I have a meeting",
+                "skill_target": "Telugu inference: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
               },
               {
-                "type": "choose",
-                "q": "Choose the Telugu expression for “cabin”.",
+                "type": "listening_comprehension",
+                "q": "Practice 5 [listening comprehension] — Work and Professional Life — A1: Play the synthetic audio and give its precise contextual meaning.",
+                "answer": "Welcome! What is your name?",
+                "skill_target": "Telugu listening comprehension: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
+                "audio_source": "రండి! మీ పేరు ఏంటి?"
+              },
+              {
+                "type": "dictation",
+                "q": "Practice 6 [dictation] — Work and Professional Life — A1: Play the labeled synthetic Telugu audio and type the complete line in Telugu script.",
+                "answer": "నా పేరు కుమార్.",
+                "skill_target": "Telugu dictation: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
+                "audio_source": "నా పేరు కుమార్."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Practice 7 [listen and choose] — Work and Professional Life — A1: Play the synthetic audio and choose its contextual meaning.",
+                "answer": "This is your desk. Switch on the computer.",
+                "skill_target": "Telugu listen and choose: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
+                "audio_source": "ఇది మీ టేబుల్. కంప్యూటర్ ఆన్ చేయండి.",
                 "options": [
-                  "క్యాబిన్",
-                  "రిసెప్షన్",
-                  "రిసెప్షనిస్ట్",
-                  "సెక్యూరిటీ గార్డు"
-                ],
-                "answer": "క్యాబిన్"
+                  "This is your desk. Switch on the computer.",
+                  "OK. What is the email address?",
+                  "peon"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say naturally in Telugu: Sign here",
-                "answer": "ఇక్కడ సంతకం చేయండి (Ikkaḍa santakaṁ chēyaṇḍi)"
+                "type": "listen_and_reorder",
+                "q": "Practice 8 [listen and reorder] — Work and Professional Life — A1: Rebuild this model with correct Telugu agglutinative suffixes, case marking, agreement, and respectful forms: The boss called you",
+                "answer": "బాస్ మిమ్మల్ని పిలిచారు",
+                "skill_target": "Telugu listen and reorder: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
+                "audio_source": "రండి! మీ పేరు ఏంటి?"
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Practice 9 [listen and fill] — Work and Professional Life — A1: Play the synthetic audio and complete the line beginning “రండి!…”.",
+                "answer": "రండి! మీ పేరు ఏంటి?",
+                "skill_target": "Telugu listen and fill: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
+                "audio_source": "రండి! మీ పేరు ఏంటి?"
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Practice 10 [repeat after audio] — Work and Professional Life — A1: Repeat the synthetic model with its phrase grouping; no microphone score is claimed.",
+                "answer": "నా పేరు కుమార్.",
+                "skill_target": "Telugu repeat after audio: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
+                "audio_source": "నా పేరు కుమార్."
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Practice 11 [multiple choice] — Work and Professional Life — A1: Choose the lesson meaning of క్యాబిన్ (kyābin).",
+                "answer": "cabin",
+                "skill_target": "Telugu multiple choice: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
+                "options": [
+                  "cabin",
+                  "reception",
+                  "receptionist"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 12 [fill in the blank] — Work and Professional Life — A1: Type the complete Telugu script form for “reception”.",
+                "answer": "రిసెప్షన్",
+                "skill_target": "Telugu fill in the blank: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 13 [translation] — Work and Professional Life — A1: Read రిసెప్షనిస్ట్ (risepshanisṭ) and give its contextual English meaning.",
+                "answer": "receptionist",
+                "skill_target": "Telugu translation: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
               }
             ],
             "quiz": [
@@ -483,9 +615,28 @@
                     "రిసెప్షన్ (risepshan)",
                     "రిసెప్షనిస్ట్ (risepshanisṭ)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Telugu offline lab: read, transform in Telugu script, and rehearse aloud. Check Telugu agglutinative suffixes, case marking, agreement, and respectful forms.",
+                  "items": [
+                    "నాకు మీటింగ్ ఉంది",
+                    "రండి! మీ పేరు ఏంటి?"
+                  ],
+                  "key": [
+                    "I have a meeting",
+                    "Welcome! What is your name?"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "మీటింగ్",
+              "సమావేశం",
+              "క్యాబిన్",
+              "రిసెప్షన్"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
           }
         ]
       },
@@ -600,35 +751,86 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate in context: క్యాంటీన్ (kyāṇṭīn)",
-                "answer": "canteen"
+                "type": "reverse_translation",
+                "q": "Practice 3 [reverse translation] — Education and Learning — A1: Write “bell” in Telugu script, not romanisation alone.",
+                "answer": "గంట",
+                "skill_target": "Telugu reverse translation: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
               },
               {
-                "type": "translate_t",
-                "q": "Write in Telugu: notice board",
-                "answer": "నోటీసు బోర్డు (nōṭīsu bōrḍu)"
-              },
-              {
-                "type": "fill",
-                "q": "Produce the complete Telugu expression: Open your books",
-                "answer": "పుస్తకాలు తెరవండి (Pustakālu teravaṇḍi)"
-              },
-              {
-                "type": "choose",
-                "q": "Choose the Telugu expression for “bell”.",
+                "type": "matching",
+                "q": "Practice 4 [matching] — Education and Learning — A1: Match యూనిఫారం to its meaning in this lesson.",
+                "answer": "uniform",
+                "skill_target": "Telugu matching: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
                 "options": [
-                  "గంట",
-                  "యూనిఫారం",
-                  "స్కూల్ బ్యాగ్",
-                  "హాజరు"
-                ],
-                "answer": "గంట"
+                  "school bag",
+                  "uniform",
+                  "attendance"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say naturally in Telugu: Write neatly",
-                "answer": "శుభ్రంగా రాయండి (Śubhraṅgā rāyaṇḍi)"
+                "type": "reorder",
+                "q": "Practice 5 [reorder] — Education and Learning — A1: Rebuild this model with correct Telugu agglutinative suffixes, case marking, agreement, and respectful forms: Read the lesson",
+                "answer": "పాఠం చదవండి",
+                "skill_target": "Telugu reorder: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 6 [sentence building] — Education and Learning — A1: Rebuild this model with correct Telugu agglutinative suffixes, case marking, agreement, and respectful forms: Write neatly",
+                "answer": "శుభ్రంగా రాయండి",
+                "skill_target": "Telugu sentence building: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 7 [word selection] — Education and Learning — A1: Select the Telugu script form for “morning prayer”.",
+                "answer": "ఉదయ ప్రార్థన",
+                "skill_target": "Telugu word selection: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
+                "options": [
+                  "విరామం",
+                  "క్యాంటీన్",
+                  "ఉదయ ప్రార్థన"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 8 [error correction] — Education and Learning — A1: Replace a literal, agreement, or register error with the taught model for “Read the lesson”.",
+                "answer": "పాఠం చదవండి",
+                "skill_target": "Telugu error correction: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 9 [dialogue completion] — Education and Learning — A1: Complete Father’s turn: Did you finish homework?",
+                "answer": "హోమ్‌వర్క్ పూర్తి చేశావా?",
+                "skill_target": "Telugu dialogue completion: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 10 [reading comprehension] — Education and Learning — A1: Read లెక్కలు మాత్రమే మిగిలాయి, నాన్న. (Lekkalu mātramē migilāyi, nānna.). What exact detail does it communicate?",
+                "answer": "Only maths left, father.",
+                "skill_target": "Telugu reading comprehension: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 11 [paragraph comprehension] — Education and Learning — A1: Read the whole dialogue and explain this turn’s contribution: ఎక్కడ అనుమానం? చూపించు.",
+                "answer": "Where's the doubt? Show me.",
+                "skill_target": "Telugu paragraph comprehension: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "main_idea",
+                "q": "Practice 12 [main idea] — Education and Learning — A1: State the main communicative purpose of “Education and Learning — A1”.",
+                "answer": "Use short, clear Telugu sentences for recognition and basic interaction.",
+                "skill_target": "Telugu main idea: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Practice 13 [detail identification] — Education and Learning — A1: Read హోమ్‌వర్క్ పూర్తి చేశావా? (Hōmvark pūrti chēśāvā?). What exact detail does it communicate?",
+                "answer": "Did you finish homework?",
+                "skill_target": "Telugu detail identification: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "inference",
+                "q": "Practice 14 [inference] — Education and Learning — A1: Infer the intended meaning of పాఠం చదవండి without losing its qualification or social force.",
+                "answer": "Read the lesson",
+                "skill_target": "Telugu inference: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
               }
             ],
             "quiz": [
@@ -724,9 +926,28 @@
                     "యూనిఫారం (yūniphāraṁ)",
                     "స్కూల్ బ్యాగ్ (skūl byāg)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Telugu offline lab: read, transform in Telugu script, and rehearse aloud. Check Telugu agglutinative suffixes, case marking, agreement, and respectful forms.",
+                  "items": [
+                    "పుస్తకాలు తెరవండి",
+                    "హోమ్‌వర్క్ పూర్తి చేశావా?"
+                  ],
+                  "key": [
+                    "Open your books",
+                    "Did you finish homework?"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "క్యాంటీన్",
+              "నోటీసు బోర్డు",
+              "గంట",
+              "యూనిఫారం"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
           },
           {
             "id": "te-a1-l4",
@@ -835,35 +1056,97 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate in context: గొడుగు (goḍugu)",
-                "answer": "umbrella"
+                "type": "listening_comprehension",
+                "q": "Practice 4 [listening comprehension] — Weather and Environment — A1: Play the synthetic audio and give its precise contextual meaning.",
+                "answer": "OK! We'll leave in the morning.",
+                "skill_target": "Telugu listening comprehension: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
+                "audio_source": "సరే! ఉదయం బయలుదేరుదాం."
               },
               {
-                "type": "translate_t",
-                "q": "Write in Telugu: raincoat",
-                "answer": "రెయిన్‌కోట్ (reinkōṭ)"
+                "type": "dictation",
+                "q": "Practice 5 [dictation] — Weather and Environment — A1: Play the labeled synthetic Telugu audio and type the complete line in Telugu script.",
+                "answer": "రేపు వాతావరణం ఎలా ఉంటుంది?",
+                "skill_target": "Telugu dictation: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
+                "audio_source": "రేపు వాతావరణం ఎలా ఉంటుంది?"
               },
               {
-                "type": "fill",
-                "q": "Produce the complete Telugu expression: It is raining",
-                "answer": "వాన పడుతోంది (Vāna paḍutōndi)"
-              },
-              {
-                "type": "choose",
-                "q": "Choose the Telugu expression for “shade”.",
+                "type": "listen_and_choose",
+                "q": "Practice 6 [listen and choose] — Weather and Environment — A1: Play the synthetic audio and choose its contextual meaning.",
+                "answer": "Less sun, no rain.",
+                "skill_target": "Telugu listen and choose: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
+                "audio_source": "ఎండ తక్కువ, వాన లేదు.",
                 "options": [
-                  "నీడ",
-                  "ఋతువు",
-                  "వసంతం",
-                  "వేసవి"
-                ],
-                "answer": "నీడ"
+                  "Less sun, no rain.",
+                  "Then let's go to the beach!",
+                  "summer"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say naturally in Telugu: Take an umbrella",
-                "answer": "గొడుగు తీసుకో (Goḍugu tīsukō)"
+                "type": "listen_and_reorder",
+                "q": "Practice 7 [listen and reorder] — Weather and Environment — A1: Rebuild this model with correct Telugu agglutinative suffixes, case marking, agreement, and respectful forms: It is raining",
+                "answer": "వాన పడుతోంది",
+                "skill_target": "Telugu listen and reorder: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
+                "audio_source": "రేపు వాతావరణం ఎలా ఉంటుంది?"
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Practice 8 [listen and fill] — Weather and Environment — A1: Play the synthetic audio and complete the line beginning “సరే!…”.",
+                "answer": "సరే! ఉదయం బయలుదేరుదాం.",
+                "skill_target": "Telugu listen and fill: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
+                "audio_source": "సరే! ఉదయం బయలుదేరుదాం."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Practice 9 [repeat after audio] — Weather and Environment — A1: Repeat the synthetic model with its phrase grouping; no microphone score is claimed.",
+                "answer": "రేపు వాతావరణం ఎలా ఉంటుంది?",
+                "skill_target": "Telugu repeat after audio: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
+                "audio_source": "రేపు వాతావరణం ఎలా ఉంటుంది?"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Practice 10 [multiple choice] — Weather and Environment — A1: Choose the lesson meaning of రెయిన్‌కోట్ (reinkōṭ).",
+                "answer": "raincoat",
+                "skill_target": "Telugu multiple choice: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
+                "options": [
+                  "raincoat",
+                  "shade",
+                  "season"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 11 [fill in the blank] — Weather and Environment — A1: Type the complete Telugu script form for “shade”.",
+                "answer": "నీడ",
+                "skill_target": "Telugu fill in the blank: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 12 [translation] — Weather and Environment — A1: Read ఋతువు (ṛutuvu) and give its contextual English meaning.",
+                "answer": "season",
+                "skill_target": "Telugu translation: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 13 [reverse translation] — Weather and Environment — A1: Write “spring” in Telugu script, not romanisation alone.",
+                "answer": "వసంతం",
+                "skill_target": "Telugu reverse translation: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 14 [matching] — Weather and Environment — A1: Match వేసవి to its meaning in this lesson.",
+                "answer": "summer",
+                "skill_target": "Telugu matching: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
+                "options": [
+                  "monsoon",
+                  "summer",
+                  "rainy season"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 15 [reorder] — Weather and Environment — A1: Rebuild this model with correct Telugu agglutinative suffixes, case marking, agreement, and respectful forms: Take an umbrella",
+                "answer": "గొడుగు తీసుకో",
+                "skill_target": "Telugu reorder: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
               }
             ],
             "quiz": [
@@ -959,9 +1242,28 @@
                     "ఋతువు (ṛutuvu)",
                     "వసంతం (vasantaṁ)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Telugu offline lab: read, transform in Telugu script, and rehearse aloud. Check Telugu agglutinative suffixes, case marking, agreement, and respectful forms.",
+                  "items": [
+                    "వాన పడుతోంది",
+                    "రేపు వాతావరణం ఎలా ఉంటుంది?"
+                  ],
+                  "key": [
+                    "It is raining",
+                    "How will the weather be tomorrow?"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "గొడుగు",
+              "రెయిన్‌కోట్",
+              "నీడ",
+              "ఋతువు"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
           }
         ]
       },
@@ -1076,35 +1378,89 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate in context: సొరుగు (sorugu)",
-                "answer": "drawer"
+                "type": "sentence_building",
+                "q": "Practice 5 [sentence building] — Home and Relationships — A1: Rebuild this model with correct Telugu agglutinative suffixes, case marking, agreement, and respectful forms: Dinner is ready",
+                "answer": "భోజనం రెడీ",
+                "skill_target": "Telugu sentence building: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
               },
               {
-                "type": "translate_t",
-                "q": "Write in Telugu: mirror",
-                "answer": "అద్దం (addaṁ)"
-              },
-              {
-                "type": "fill",
-                "q": "Produce the complete Telugu expression: Come home early",
-                "answer": "త్వరగా ఇంటికి రా (Tvaragā iṇṭiki rā)"
-              },
-              {
-                "type": "choose",
-                "q": "Choose the Telugu expression for “wall clock”.",
+                "type": "word_selection",
+                "q": "Practice 6 [word selection] — Home and Relationships — A1: Select the Telugu script form for “candle”.",
+                "answer": "కొవ్వొత్తి",
+                "skill_target": "Telugu word selection: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
                 "options": [
-                  "గోడ గడియారం",
-                  "దీపం",
-                  "లాంతరు",
+                  "అగ్గిపెట్టె",
+                  "విసనకర్ర",
                   "కొవ్వొత్తి"
-                ],
-                "answer": "గోడ గడియారం"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say naturally in Telugu: Wash your hands",
-                "answer": "చేతులు కడుక్కో (Chētulu kaḍukkō)"
+                "type": "error_correction",
+                "q": "Practice 7 [error correction] — Home and Relationships — A1: Replace a literal, agreement, or register error with the taught model for “Come home early”.",
+                "answer": "త్వరగా ఇంటికి రా",
+                "skill_target": "Telugu error correction: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 8 [dialogue completion] — Home and Relationships — A1: Complete Son’s turn: OK. What will be cooked?",
+                "answer": "సరే. ఏం వంట?",
+                "skill_target": "Telugu dialogue completion: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 9 [reading comprehension] — Home and Relationships — A1: Read విను, ఈ సాయంత్రం అతిథులు వస్తున్నారు. (Vinu, ī sāyantraṁ atithulu vastunnāru.). What exact detail does it communicate?",
+                "answer": "Listen, guests are coming this evening.",
+                "skill_target": "Telugu reading comprehension: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 10 [paragraph comprehension] — Home and Relationships — A1: Read the whole dialogue and explain this turn’s contribution: ఎవరు వస్తున్నారు, అమ్మ?",
+                "answer": "Who is coming, mother?",
+                "skill_target": "Telugu paragraph comprehension: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "main_idea",
+                "q": "Practice 11 [main idea] — Home and Relationships — A1: State the main communicative purpose of “Home and Relationships — A1”.",
+                "answer": "Use short, clear Telugu sentences for recognition and basic interaction.",
+                "skill_target": "Telugu main idea: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Practice 12 [detail identification] — Home and Relationships — A1: Read సరే. ఏం వంట? (Sarē. Ēṁ vaṇṭa?). What exact detail does it communicate?",
+                "answer": "OK. What will be cooked?",
+                "skill_target": "Telugu detail identification: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "inference",
+                "q": "Practice 13 [inference] — Home and Relationships — A1: Infer the intended meaning of త్వరగా ఇంటికి రా without losing its qualification or social force.",
+                "answer": "Come home early",
+                "skill_target": "Telugu inference: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Practice 14 [listening comprehension] — Home and Relationships — A1: Play the synthetic audio and give its precise contextual meaning.",
+                "answer": "Who is coming, mother?",
+                "skill_target": "Telugu listening comprehension: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
+                "audio_source": "ఎవరు వస్తున్నారు, అమ్మ?"
+              },
+              {
+                "type": "dictation",
+                "q": "Practice 15 [dictation] — Home and Relationships — A1: Play the labeled synthetic Telugu audio and type the complete line in Telugu script.",
+                "answer": "మీ మామయ్య-అత్తయ్య. గది సర్దు.",
+                "skill_target": "Telugu dictation: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
+                "audio_source": "మీ మామయ్య-అత్తయ్య. గది సర్దు."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Practice 16 [listen and choose] — Home and Relationships — A1: Play the synthetic audio and choose its contextual meaning.",
+                "answer": "OK. What will be cooked?",
+                "skill_target": "Telugu listen and choose: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
+                "audio_source": "సరే. ఏం వంట?",
+                "options": [
+                  "OK. What will be cooked?",
+                  "Listen, guests are coming this evening.",
+                  "hand fan"
+                ]
               }
             ],
             "quiz": [
@@ -1200,9 +1556,28 @@
                     "దీపం (dīpaṁ)",
                     "లాంతరు (lāntaru)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Telugu offline lab: read, transform in Telugu script, and rehearse aloud. Check Telugu agglutinative suffixes, case marking, agreement, and respectful forms.",
+                  "items": [
+                    "త్వరగా ఇంటికి రా",
+                    "విను, ఈ సాయంత్రం అతిథులు వస్తున్నారు."
+                  ],
+                  "key": [
+                    "Come home early",
+                    "Listen, guests are coming this evening."
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "సొరుగు",
+              "అద్దం",
+              "గోడ గడియారం",
+              "దీపం"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
           },
           {
             "id": "te-a1-l6",
@@ -1311,35 +1686,94 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate in context: స్వీట్ షాపు (svīṭ shāpu)",
-                "answer": "sweet shop"
+                "type": "listen_and_reorder",
+                "q": "Practice 6 [listen and reorder] — Culture and Community — A1: Rebuild this model with correct Telugu agglutinative suffixes, case marking, agreement, and respectful forms: Eid Mubarak",
+                "answer": "ఈద్ ముబారక్",
+                "skill_target": "Telugu listen and reorder: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
+                "audio_source": "లేవరా! ఈరోజు సంక్రాంతి."
               },
               {
-                "type": "translate_t",
-                "q": "Write in Telugu: new clothes",
-                "answer": "కొత్త బట్టలు (kotta baṭṭalu)"
+                "type": "listen_and_fill",
+                "q": "Practice 7 [listen and fill] — Culture and Community — A1: Play the synthetic audio and complete the line beginning “వేశాను.…”.",
+                "answer": "వేశాను. చెరకు తీసుకురా.",
+                "skill_target": "Telugu listen and fill: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
+                "audio_source": "వేశాను. చెరకు తీసుకురా."
               },
               {
-                "type": "fill",
-                "q": "Produce the complete Telugu expression: Happy Sankranti",
-                "answer": "సంక్రాంతి శుభాకాంక్షలు (Saṅkrānti śubhākāṅkshalu)"
+                "type": "repeat_after_audio",
+                "q": "Practice 8 [repeat after audio] — Culture and Community — A1: Repeat the synthetic model with its phrase grouping; no microphone score is claimed.",
+                "answer": "పతంగులు ఎగురుతున్నాయి!",
+                "skill_target": "Telugu repeat after audio: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
+                "audio_source": "పతంగులు ఎగురుతున్నాయి!"
               },
               {
-                "type": "choose",
-                "q": "Choose the Telugu expression for “present (gift)”.",
+                "type": "multiple_choice",
+                "q": "Practice 9 [multiple choice] — Culture and Community — A1: Choose the lesson meaning of స్వీట్ షాపు (svīṭ shāpu).",
+                "answer": "sweet shop",
+                "skill_target": "Telugu multiple choice: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
                 "options": [
-                  "కానుక",
-                  "ఆహ్వానం",
-                  "భక్తుడు",
-                  "విందు"
-                ],
-                "answer": "కానుక"
+                  "sweet shop",
+                  "new clothes",
+                  "present (gift)"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say naturally in Telugu: Eid Mubarak",
-                "answer": "ఈద్ ముబారక్ (Īd mubārak)"
+                "type": "fill_in_the_blank",
+                "q": "Practice 10 [fill in the blank] — Culture and Community — A1: Type the complete Telugu script form for “new clothes”.",
+                "answer": "కొత్త బట్టలు",
+                "skill_target": "Telugu fill in the blank: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 11 [translation] — Culture and Community — A1: Read కానుక (kānuka) and give its contextual English meaning.",
+                "answer": "present (gift)",
+                "skill_target": "Telugu translation: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 12 [reverse translation] — Culture and Community — A1: Write “invitation” in Telugu script, not romanisation alone.",
+                "answer": "ఆహ్వానం",
+                "skill_target": "Telugu reverse translation: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 13 [matching] — Culture and Community — A1: Match భక్తుడు to its meaning in this lesson.",
+                "answer": "devotee",
+                "skill_target": "Telugu matching: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
+                "options": [
+                  "feast",
+                  "devotee",
+                  "festival holiday"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 14 [reorder] — Culture and Community — A1: Rebuild this model with correct Telugu agglutinative suffixes, case marking, agreement, and respectful forms: Happy Diwali",
+                "answer": "దీపావళి శుభాకాంక్షలు",
+                "skill_target": "Telugu reorder: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 15 [sentence building] — Culture and Community — A1: Rebuild this model with correct Telugu agglutinative suffixes, case marking, agreement, and respectful forms: Eid Mubarak",
+                "answer": "ఈద్ ముబారక్",
+                "skill_target": "Telugu sentence building: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 16 [word selection] — Culture and Community — A1: Select the Telugu script form for “delight”.",
+                "answer": "ఆనందం",
+                "skill_target": "Telugu word selection: Telugu agglutinative suffixes, case marking, agreement, and respectful forms",
+                "options": [
+                  "స్వీట్ షాపు",
+                  "కొత్త బట్టలు",
+                  "ఆనందం"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 17 [error correction] — Culture and Community — A1: Replace a literal, agreement, or register error with the taught model for “Happy Diwali”.",
+                "answer": "దీపావళి శుభాకాంక్షలు",
+                "skill_target": "Telugu error correction: Telugu agglutinative suffixes, case marking, agreement, and respectful forms"
               }
             ],
             "quiz": [
@@ -1435,9 +1869,28 @@
                     "ఆహ్వానం (āhvānaṁ)",
                     "భక్తుడు (bhaktuḍu)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Telugu offline lab: read, transform in Telugu script, and rehearse aloud. Check Telugu agglutinative suffixes, case marking, agreement, and respectful forms.",
+                  "items": [
+                    "సంక్రాంతి శుభాకాంక్షలు",
+                    "లేవరా! ఈరోజు సంక్రాంతి."
+                  ],
+                  "key": [
+                    "Happy Sankranti",
+                    "Wake up! Today is Sankranti."
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "స్వీట్ షాపు",
+              "కొత్త బట్టలు",
+              "కానుక",
+              "ఆహ్వానం"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
           }
         ]
       }

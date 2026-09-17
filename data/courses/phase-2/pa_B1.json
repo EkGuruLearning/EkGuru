@@ -124,35 +124,91 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate into English: ਘਟਨਾ (ghatna)",
-                "answer": "event"
-              },
-              {
-                "type": "translate_t",
-                "q": "Write in Punjabi: suddenly",
-                "answer": "ਅਚਾਨਕ (achanak)"
-              },
-              {
-                "type": "fill",
-                "q": "Complete and read this model: ਪਹਿਲਾਂ ਮੈਂ ਨਕਸ਼ਾ ਵੇਖਿਆ। (pahilan main naksha vekhia.)",
-                "answer": "ਪਹਿਲਾਂ ਮੈਂ ਨਕਸ਼ਾ ਵੇਖਿਆ।"
-              },
-              {
-                "type": "choose",
-                "q": "Choose the Punjabi expression for “before; first”.",
+                "type": "multiple_choice",
+                "q": "Practice 1 [multiple choice] — Telling Detailed Past Events: Choose the lesson meaning of ਘਟਨਾ (ghatna).",
+                "answer": "event",
+                "skill_target": "Punjabi multiple choice: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms",
                 "options": [
-                  "ਪਹਿਲਾਂ",
-                  "ਫਿਰ",
-                  "ਆਖ਼ਰਕਾਰ",
-                  "ਫ਼ੈਸਲਾ"
-                ],
-                "answer": "ਪਹਿਲਾਂ"
+                  "event",
+                  "suddenly",
+                  "before; first"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say this idea in Punjabi: Finally we reached the station.",
-                "answer": "ਆਖ਼ਰਕਾਰ ਅਸੀਂ ਸਟੇਸ਼ਨ ਪਹੁੰਚ ਗਏ। (akhirkar asin station pahunch gae.)"
+                "type": "fill_in_the_blank",
+                "q": "Practice 2 [fill in the blank] — Telling Detailed Past Events: Type the complete Gurmukhi form for “suddenly”.",
+                "answer": "ਅਚਾਨਕ",
+                "skill_target": "Punjabi fill in the blank: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3 [translation] — Telling Detailed Past Events: Read ਪਹਿਲਾਂ (pahilan) and give its contextual English meaning.",
+                "answer": "before; first",
+                "skill_target": "Punjabi translation: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4 [reverse translation] — Telling Detailed Past Events: Write “then” in Gurmukhi, not romanisation alone.",
+                "answer": "ਫਿਰ",
+                "skill_target": "Punjabi reverse translation: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5 [matching] — Telling Detailed Past Events: Match ਆਖ਼ਰਕਾਰ to its meaning in this lesson.",
+                "answer": "finally",
+                "skill_target": "Punjabi matching: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms",
+                "options": [
+                  "decision",
+                  "finally",
+                  "helped"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6 [reorder] — Telling Detailed Past Events: Rebuild this model with correct Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms: Finally we reached the station.",
+                "answer": "ਆਖ਼ਰਕਾਰ ਅਸੀਂ ਸਟੇਸ਼ਨ ਪਹੁੰਚ ਗਏ।",
+                "skill_target": "Punjabi reorder: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7 [sentence building] — Telling Detailed Past Events: Rebuild this model with correct Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms: First I looked at the map.",
+                "answer": "ਪਹਿਲਾਂ ਮੈਂ ਨਕਸ਼ਾ ਵੇਖਿਆ।",
+                "skill_target": "Punjabi sentence building: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8 [word selection] — Telling Detailed Past Events: Select the Gurmukhi form for “told”.",
+                "answer": "ਦੱਸਿਆ",
+                "skill_target": "Punjabi word selection: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms",
+                "options": [
+                  "ਘਟਨਾ",
+                  "ਅਚਾਨਕ",
+                  "ਦੱਸਿਆ"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9 [error correction] — Telling Detailed Past Events: Replace a literal, agreement, or register error with the taught model for “Finally we reached the station.”.",
+                "answer": "ਆਖ਼ਰਕਾਰ ਅਸੀਂ ਸਟੇਸ਼ਨ ਪਹੁੰਚ ਗਏ।",
+                "skill_target": "Punjabi error correction: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10 [dialogue completion] — Telling Detailed Past Events: Complete ਮੀਰਾ’s turn: First, my bus left.",
+                "answer": "ਪਹਿਲਾਂ ਮੇਰੀ ਬੱਸ ਨਿਕਲ ਗਈ।",
+                "skill_target": "Punjabi dialogue completion: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11 [reading comprehension] — Telling Detailed Past Events: Read ਫਿਰ ਤੂੰ ਕੀ ਕੀਤਾ? (phir tun ki kita?). What exact detail does it communicate?",
+                "answer": "Then what did you do?",
+                "skill_target": "Punjabi reading comprehension: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12 [paragraph comprehension] — Telling Detailed Past Events: Read the whole dialogue and explain this turn’s contribution: ਇੱਕ ਔਰਤ ਨੇ ਮੇਰੀ ਮਦਦ ਕੀਤੀ।",
+                "answer": "A woman helped me.",
+                "skill_target": "Punjabi paragraph comprehension: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
               }
             ],
             "quiz": [
@@ -248,9 +304,28 @@
                     "ਫਿਰ (phir)",
                     "ਆਖ਼ਰਕਾਰ (akhirkar)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Punjabi offline lab: read, transform in Gurmukhi, and rehearse aloud. Check Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms.",
+                  "items": [
+                    "ਪਹਿਲਾਂ ਮੈਂ ਨਕਸ਼ਾ ਵੇਖਿਆ।",
+                    "ਕੱਲ੍ਹ ਕੀ ਹੋਇਆ ਸੀ?"
+                  ],
+                  "key": [
+                    "First I looked at the map.",
+                    "What happened yesterday?"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "ਘਟਨਾ",
+              "ਅਚਾਨਕ",
+              "ਪਹਿਲਾਂ",
+              "ਫਿਰ"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
           },
           {
             "id": "pa-b1-l2",
@@ -359,35 +434,89 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate into English: ਜ਼ਿੰਮੇਵਾਰੀ (zimmevari)",
-                "answer": "responsibility"
+                "type": "main_idea",
+                "q": "Practice 2 [main idea] — Duties, Needs, and Possibility: State the main communicative purpose of “Duties, Needs, and Possibility”.",
+                "answer": "Express what must happen, what is needed, and what may be possible.",
+                "skill_target": "Punjabi main idea: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
               },
               {
-                "type": "translate_t",
-                "q": "Write in Punjabi: need",
-                "answer": "ਲੋੜ (lor)"
+                "type": "detail_identification",
+                "q": "Practice 3 [detail identification] — Duties, Needs, and Possibility: Read ਕੀ ਮੈਂ ਘਰੋਂ ਕੰਮ ਕਰ ਸਕਦੀ ਹਾਂ? (ki main gharon kam kar sakdi han?). What exact detail does it communicate?",
+                "answer": "Can I work from home?",
+                "skill_target": "Punjabi detail identification: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
               },
               {
-                "type": "fill",
-                "q": "Complete and read this model: ਮੈਨੂੰ ਅੱਜ ਕੰਮ ਪੂਰਾ ਕਰਨਾ ਪਵੇਗਾ। (mainun ajj kam pura karna pavega.)",
-                "answer": "ਮੈਨੂੰ ਅੱਜ ਕੰਮ ਪੂਰਾ ਕਰਨਾ ਪਵੇਗਾ।"
+                "type": "inference",
+                "q": "Practice 4 [inference] — Duties, Needs, and Possibility: Infer the intended meaning of ਮੈਨੂੰ ਅੱਜ ਕੰਮ ਪੂਰਾ ਕਰਨਾ ਪਵੇਗਾ। without losing its qualification or social force.",
+                "answer": "I will have to finish the work today.",
+                "skill_target": "Punjabi inference: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
               },
               {
-                "type": "choose",
-                "q": "Choose the Punjabi expression for “necessary”.",
+                "type": "listening_comprehension",
+                "q": "Practice 5 [listening comprehension] — Duties, Needs, and Possibility: Play the synthetic audio and give its precise contextual meaning.",
+                "answer": "Is the meeting necessary today?",
+                "skill_target": "Punjabi listening comprehension: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms",
+                "audio_source": "ਕੀ ਅੱਜ ਮੀਟਿੰਗ ਜ਼ਰੂਰੀ ਹੈ?"
+              },
+              {
+                "type": "dictation",
+                "q": "Practice 6 [dictation] — Duties, Needs, and Possibility: Play the labeled synthetic Punjabi audio and type the complete line in Gurmukhi.",
+                "answer": "ਹਾਂ, ਸਾਨੂੰ ਜਾਣਾ ਪਵੇਗਾ।",
+                "skill_target": "Punjabi dictation: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms",
+                "audio_source": "ਹਾਂ, ਸਾਨੂੰ ਜਾਣਾ ਪਵੇਗਾ।"
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Practice 7 [listen and choose] — Duties, Needs, and Possibility: Play the synthetic audio and choose its contextual meaning.",
+                "answer": "Can I work from home?",
+                "skill_target": "Punjabi listen and choose: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms",
+                "audio_source": "ਕੀ ਮੈਂ ਘਰੋਂ ਕੰਮ ਕਰ ਸਕਦੀ ਹਾਂ?",
                 "options": [
-                  "ਜ਼ਰੂਰੀ",
-                  "ਸੰਭਵ",
-                  "ਕੋਸ਼ਿਸ਼",
-                  "ਨਿਯਮ"
-                ],
-                "answer": "ਜ਼ਰੂਰੀ"
+                  "Can I work from home?",
+                  "Yes, but you will have to ask first.",
+                  "to obey; accept"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say this idea in Punjabi: He or she had to leave early.",
-                "answer": "ਉਸ ਨੂੰ ਜਲਦੀ ਜਾਣਾ ਪਿਆ। (us nun jaldi jana pia.)"
+                "type": "listen_and_reorder",
+                "q": "Practice 8 [listen and reorder] — Duties, Needs, and Possibility: Rebuild this model with correct Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms: We have to follow the rules.",
+                "answer": "ਸਾਨੂੰ ਨਿਯਮ ਮੰਨਣੇ ਪੈਂਦੇ ਹਨ।",
+                "skill_target": "Punjabi listen and reorder: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms",
+                "audio_source": "ਕੀ ਅੱਜ ਮੀਟਿੰਗ ਜ਼ਰੂਰੀ ਹੈ?"
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Practice 9 [listen and fill] — Duties, Needs, and Possibility: Play the synthetic audio and complete the line beginning “ਕੀ…”.",
+                "answer": "ਕੀ ਅੱਜ ਮੀਟਿੰਗ ਜ਼ਰੂਰੀ ਹੈ?",
+                "skill_target": "Punjabi listen and fill: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms",
+                "audio_source": "ਕੀ ਅੱਜ ਮੀਟਿੰਗ ਜ਼ਰੂਰੀ ਹੈ?"
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Practice 10 [repeat after audio] — Duties, Needs, and Possibility: Repeat the synthetic model with its phrase grouping; no microphone score is claimed.",
+                "answer": "ਹਾਂ, ਸਾਨੂੰ ਜਾਣਾ ਪਵੇਗਾ।",
+                "skill_target": "Punjabi repeat after audio: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms",
+                "audio_source": "ਹਾਂ, ਸਾਨੂੰ ਜਾਣਾ ਪਵੇਗਾ।"
+              },
+              {
+                "type": "pronunciation",
+                "q": "Practice 11 [pronunciation] — Duties, Needs, and Possibility: Practise ਜ਼ਰੂਰੀ (zaruri) with the lesson-specific sound pattern. Self-check only.",
+                "answer": "ਜ਼ਰੂਰੀ",
+                "skill_target": "Punjabi pronunciation: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms",
+                "audio_source": "ਜ਼ਰੂਰੀ"
+              },
+              {
+                "type": "shadowing",
+                "q": "Practice 12 [shadowing] — Duties, Needs, and Possibility: Shadow the synthetic Punjabi model, preserving rhythm and target-language sounds. Self-check only.",
+                "answer": "ਹਾਂ, ਪਰ ਪਹਿਲਾਂ ਪੁੱਛਣਾ ਪਵੇਗਾ।",
+                "skill_target": "Punjabi shadowing: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms",
+                "audio_source": "ਹਾਂ, ਪਰ ਪਹਿਲਾਂ ਪੁੱਛਣਾ ਪਵੇਗਾ।"
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Practice 13 [guided speaking] — Duties, Needs, and Possibility: Produce a spoken response demonstrating “Duties, Needs, and Possibility”; compare with the model.",
+                "answer": "ਮੈਨੂੰ ਅੱਜ ਕੰਮ ਪੂਰਾ ਕਰਨਾ ਪਵੇਗਾ।",
+                "skill_target": "Punjabi guided speaking: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
               }
             ],
             "quiz": [
@@ -483,9 +612,28 @@
                     "ਸੰਭਵ (sambhav)",
                     "ਕੋਸ਼ਿਸ਼ (koshish)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Punjabi offline lab: read, transform in Gurmukhi, and rehearse aloud. Check Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms.",
+                  "items": [
+                    "ਮੈਨੂੰ ਅੱਜ ਕੰਮ ਪੂਰਾ ਕਰਨਾ ਪਵੇਗਾ।",
+                    "ਕੀ ਅੱਜ ਮੀਟਿੰਗ ਜ਼ਰੂਰੀ ਹੈ?"
+                  ],
+                  "key": [
+                    "I will have to finish the work today.",
+                    "Is the meeting necessary today?"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "ਜ਼ਿੰਮੇਵਾਰੀ",
+              "ਲੋੜ",
+              "ਜ਼ਰੂਰੀ",
+              "ਸੰਭਵ"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
           }
         ]
       },
@@ -600,35 +748,81 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate into English: ਬੇਨਤੀ (benti)",
-                "answer": "request"
+                "type": "free_response",
+                "q": "Practice 3 [free response] — Requests and Respectful Instructions: Produce a spoken response demonstrating “Requests and Respectful Instructions”; compare with the model.",
+                "answer": "ਕੀ ਤੁਸੀਂ ਇਹ ਫਿਰ ਸਮਝਾ ਸਕਦੇ ਹੋ?",
+                "skill_target": "Punjabi free response: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
               },
               {
-                "type": "translate_t",
-                "q": "Write in Punjabi: permission",
-                "answer": "ਇਜਾਜ਼ਤ (ijazat)"
+                "type": "roleplay",
+                "q": "Practice 4 [roleplay] — Requests and Respectful Instructions: Role-play ਕਰਮਚਾਰੀ with appropriate register: Certainly, first write your name.",
+                "answer": "ਜ਼ਰੂਰ, ਪਹਿਲਾਂ ਆਪਣਾ ਨਾਮ ਲਿਖੋ।",
+                "skill_target": "Punjabi roleplay: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
               },
               {
-                "type": "fill",
-                "q": "Complete and read this model: ਕਿਰਪਾ ਕਰਕੇ ਇੱਥੇ ਦਸਤਖ਼ਤ ਕਰੋ। (kirpa karke itthe dastkhat karo.)",
-                "answer": "ਕਿਰਪਾ ਕਰਕੇ ਇੱਥੇ ਦਸਤਖ਼ਤ ਕਰੋ।"
+                "type": "sentence_writing",
+                "q": "Practice 5 [sentence writing] — Requests and Respectful Instructions: Write one accurate Gurmukhi sentence using ਧਿਆਨ.",
+                "answer": "ਜ਼ਰਾ ਹੌਲੀ ਬੋਲੋ।",
+                "skill_target": "Punjabi sentence writing: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
               },
               {
-                "type": "choose",
-                "q": "Choose the Punjabi expression for “please”.",
+                "type": "short_writing",
+                "q": "Practice 6 [short writing] — Requests and Respectful Instructions: Write 2–3 connected Punjabi sentences applying Requests and Respectful Instructions.",
+                "answer": "ਕੀ ਤੁਸੀਂ ਇਹ ਫਿਰ ਸਮਝਾ ਸਕਦੇ ਹੋ? ਕਿਰਪਾ ਕਰਕੇ ਇੱਥੇ ਦਸਤਖ਼ਤ ਕਰੋ।",
+                "skill_target": "Punjabi short writing: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "paraphrase",
+                "q": "Practice 7 [paraphrase] — Requests and Respectful Instructions: Paraphrase without changing meaning, morphology, or register: ਕਿਰਪਾ ਕਰਕੇ ਇੱਥੇ ਦਸਤਖ਼ਤ ਕਰੋ।",
+                "answer": "ਕਿਰਪਾ ਕਰਕੇ ਇੱਥੇ ਦਸਤਖ਼ਤ ਕਰੋ।",
+                "skill_target": "Punjabi paraphrase: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "summary",
+                "q": "Practice 8 [summary] — Requests and Respectful Instructions: Summarize the dialogue in one precise Punjabi sentence.",
+                "answer": "ਜ਼ਰੂਰ, ਪਹਿਲਾਂ ਆਪਣਾ ਨਾਮ ਲਿਖੋ।",
+                "skill_target": "Punjabi summary: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Practice 9 [guided composition] — Requests and Respectful Instructions: Compose a short response with the taught pattern “softener + respectful imperative / request question”.",
+                "answer": "ਕੀ ਤੁਸੀਂ ਇਹ ਫਿਰ ਸਮਝਾ ਸਕਦੇ ਹੋ?",
+                "skill_target": "Punjabi guided composition: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Practice 10 [register transformation] — Requests and Respectful Instructions: Recast “Please sign here.” in the formal/respectful or colloquial register taught here.",
+                "answer": "ਕਿਰਪਾ ਕਰਕੇ ਇੱਥੇ ਦਸਤਖ਼ਤ ਕਰੋ।",
+                "skill_target": "Punjabi register transformation: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "tone_identification",
+                "q": "Practice 11 [tone identification] — Requests and Respectful Instructions: Identify the tone or stance of ਜ਼ਰਾ ਹੌਲੀ ਬੋਲੋ।.",
+                "answer": "The wording realizes Softening commands with the lesson-appropriate stance and register.",
+                "skill_target": "Punjabi tone identification: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "semantic_distinction",
+                "q": "Practice 12 [semantic distinction] — Requests and Respectful Instructions: Distinguish ਹੌਲੀ from ਧਿਆਨ in meaning and use.",
+                "answer": "ਹੌਲੀ means “slowly”; ਧਿਆਨ means “attention”. Grammar and context determine the choice.",
+                "skill_target": "Punjabi semantic distinction: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "contextual_meaning",
+                "q": "Practice 13 [contextual meaning] — Requests and Respectful Instructions: Explain the contextual force of ਧਿਆਨ in this lesson.",
+                "answer": "Here it contributes “attention” within Softening commands.",
+                "skill_target": "Punjabi contextual meaning: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Practice 14 [multiple choice] — Requests and Respectful Instructions: Choose the lesson meaning of ਸਮਝਾਉਣਾ (samjhauna).",
+                "answer": "to explain",
+                "skill_target": "Punjabi multiple choice: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms",
                 "options": [
-                  "ਕਿਰਪਾ ਕਰਕੇ",
-                  "ਹੌਲੀ",
-                  "ਧਿਆਨ",
-                  "ਸਮਝਾਉਣਾ"
-                ],
-                "answer": "ਕਿਰਪਾ ਕਰਕੇ"
-              },
-              {
-                "type": "speak",
-                "q": "Say this idea in Punjabi: Could you explain this again?",
-                "answer": "ਕੀ ਤੁਸੀਂ ਇਹ ਫਿਰ ਸਮਝਾ ਸਕਦੇ ਹੋ? (ki tusin ih phir samjha sakde ho?)"
+                  "to explain",
+                  "to wait",
+                  "to send"
+                ]
               }
             ],
             "quiz": [
@@ -724,9 +918,28 @@
                     "ਹੌਲੀ (hauli)",
                     "ਧਿਆਨ (dhian)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Punjabi offline lab: read, transform in Gurmukhi, and rehearse aloud. Check Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms.",
+                  "items": [
+                    "ਕਿਰਪਾ ਕਰਕੇ ਇੱਥੇ ਦਸਤਖ਼ਤ ਕਰੋ।",
+                    "ਕੀ ਤੁਸੀਂ ਮੇਰੀ ਮਦਦ ਕਰ ਸਕਦੇ ਹੋ?"
+                  ],
+                  "key": [
+                    "Please sign here.",
+                    "Could you help me?"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "ਬੇਨਤੀ",
+              "ਇਜਾਜ਼ਤ",
+              "ਕਿਰਪਾ ਕਰਕੇ",
+              "ਹੌਲੀ"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
           },
           {
             "id": "pa-b1-l4",
@@ -835,35 +1048,86 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate into English: ਰਿਸ਼ਤੇਦਾਰ (rishtedar)",
-                "answer": "relative"
+                "type": "fill_in_the_blank",
+                "q": "Practice 4 [fill in the blank] — Relationships and Shared Experiences: Type the complete Gurmukhi form for “trust”.",
+                "answer": "ਭਰੋਸਾ",
+                "skill_target": "Punjabi fill in the blank: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
               },
               {
-                "type": "translate_t",
-                "q": "Write in Punjabi: neighbour",
-                "answer": "ਗੁਆਂਢੀ (guandhi)"
+                "type": "translation",
+                "q": "Practice 5 [translation] — Relationships and Shared Experiences: Read ਸਹਿਯੋਗ (sahyog) and give its contextual English meaning.",
+                "answer": "cooperation",
+                "skill_target": "Punjabi translation: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
               },
               {
-                "type": "fill",
-                "q": "Complete and read this model: ਜੋ ਮੇਰੇ ਕੋਲ ਰਹਿੰਦਾ ਹੈ, ਉਹ ਮੇਰਾ ਭਰਾ ਹੈ। (jo mere kol rahinda hai, uh mera bhra hai.)",
-                "answer": "ਜੋ ਮੇਰੇ ਕੋਲ ਰਹਿੰਦਾ ਹੈ, ਉਹ ਮੇਰਾ ਭਰਾ ਹੈ।"
+                "type": "reverse_translation",
+                "q": "Practice 6 [reverse translation] — Relationships and Shared Experiences: Write “childhood” in Gurmukhi, not romanisation alone.",
+                "answer": "ਬਚਪਨ",
+                "skill_target": "Punjabi reverse translation: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
               },
               {
-                "type": "choose",
-                "q": "Choose the Punjabi expression for “friendship”.",
+                "type": "matching",
+                "q": "Practice 7 [matching] — Relationships and Shared Experiences: Match ਇਕੱਠੇ to its meaning in this lesson.",
+                "answer": "together",
+                "skill_target": "Punjabi matching: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms",
+                "options": [
+                  "shared",
+                  "together",
+                  "relative"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 8 [reorder] — Relationships and Shared Experiences: Rebuild this model with correct Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms: The woman whom I met is my neighbour.",
+                "answer": "ਜਿਸ ਨੂੰ ਮੈਂ ਮਿਲੀ ਸੀ, ਉਹ ਮੇਰੀ ਗੁਆਂਢਣ ਹੈ।",
+                "skill_target": "Punjabi reorder: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 9 [sentence building] — Relationships and Shared Experiences: Rebuild this model with correct Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms: Friends who trust one another stay together.",
+                "answer": "ਜੋ ਦੋਸਤ ਭਰੋਸਾ ਕਰਦੇ ਹਨ, ਉਹ ਇਕੱਠੇ ਰਹਿੰਦੇ ਹਨ।",
+                "skill_target": "Punjabi sentence building: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 10 [word selection] — Relationships and Shared Experiences: Select the Gurmukhi form for “neighbour”.",
+                "answer": "ਗੁਆਂਢੀ",
+                "skill_target": "Punjabi word selection: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms",
                 "options": [
                   "ਦੋਸਤੀ",
                   "ਭਰੋਸਾ",
-                  "ਸਹਿਯੋਗ",
-                  "ਬਚਪਨ"
-                ],
-                "answer": "ਦੋਸਤੀ"
+                  "ਗੁਆਂਢੀ"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say this idea in Punjabi: Friends who trust one another stay together.",
-                "answer": "ਜੋ ਦੋਸਤ ਭਰੋਸਾ ਕਰਦੇ ਹਨ, ਉਹ ਇਕੱਠੇ ਰਹਿੰਦੇ ਹਨ। (jo dost bharosa karde han, uh ikatthe rahinde han.)"
+                "type": "error_correction",
+                "q": "Practice 11 [error correction] — Relationships and Shared Experiences: Replace a literal, agreement, or register error with the taught model for “The woman whom I met is my neighbour.”.",
+                "answer": "ਜਿਸ ਨੂੰ ਮੈਂ ਮਿਲੀ ਸੀ, ਉਹ ਮੇਰੀ ਗੁਆਂਢਣ ਹੈ।",
+                "skill_target": "Punjabi error correction: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 12 [dialogue completion] — Relationships and Shared Experiences: Complete ਲੀਨਾ’s turn: Yes, we have many shared experiences.",
+                "answer": "ਹਾਂ, ਸਾਡੇ ਬਹੁਤ ਸਾਂਝੇ ਤਜਰਬੇ ਹਨ।",
+                "skill_target": "Punjabi dialogue completion: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 13 [reading comprehension] — Relationships and Shared Experiences: Read ਤੇਰੇ ਨਾਲ ਕੌਣ ਆਇਆ ਹੈ? (tere nal kaun aia hai?). What exact detail does it communicate?",
+                "answer": "Who has come with you?",
+                "skill_target": "Punjabi reading comprehension: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 14 [paragraph comprehension] — Relationships and Shared Experiences: Read the whole dialogue and explain this turn’s contribution: ਜੋ ਨੀਲੀ ਕਮੀਜ਼ ਪਾਈ ਬੈਠਾ ਹੈ, ਉਹ ਮੇਰਾ ਭਰਾ ਹੈ।",
+                "answer": "The one sitting in a blue shirt is my brother.",
+                "skill_target": "Punjabi paragraph comprehension: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "main_idea",
+                "q": "Practice 15 [main idea] — Relationships and Shared Experiences: State the main communicative purpose of “Relationships and Shared Experiences”.",
+                "answer": "Describe relatives, friendships, and changing relationships with enough detail for real conversation.",
+                "skill_target": "Punjabi main idea: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
               }
             ],
             "quiz": [
@@ -959,9 +1223,28 @@
                     "ਭਰੋਸਾ (bharosa)",
                     "ਸਹਿਯੋਗ (sahyog)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Punjabi offline lab: read, transform in Gurmukhi, and rehearse aloud. Check Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms.",
+                  "items": [
+                    "ਜੋ ਮੇਰੇ ਕੋਲ ਰਹਿੰਦਾ ਹੈ, ਉਹ ਮੇਰਾ ਭਰਾ ਹੈ।",
+                    "ਤੇਰੇ ਨਾਲ ਕੌਣ ਆਇਆ ਹੈ?"
+                  ],
+                  "key": [
+                    "The person who lives with me is my brother.",
+                    "Who has come with you?"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "ਰਿਸ਼ਤੇਦਾਰ",
+              "ਗੁਆਂਢੀ",
+              "ਦੋਸਤੀ",
+              "ਭਰੋਸਾ"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
           }
         ]
       },
@@ -1076,35 +1359,89 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate into English: ਰਾਇ (rae)",
-                "answer": "opinion"
+                "type": "detail_identification",
+                "q": "Practice 5 [detail identification] — Opinions, Reasons, and Comparisons: Read ਤੇਰੇ ਖ਼ਿਆਲ ਵਿੱਚ ਕਿਹੜਾ ਰਸਤਾ ਬਿਹਤਰ ਹੈ? (tere khial vich kihra rasta behtar hai?). What exact detail does it communicate?",
+                "answer": "In your opinion, which route is better?",
+                "skill_target": "Punjabi detail identification: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
               },
               {
-                "type": "translate_t",
-                "q": "Write in Punjabi: reason",
-                "answer": "ਕਾਰਨ (karan)"
+                "type": "inference",
+                "q": "Practice 6 [inference] — Opinions, Reasons, and Comparisons: Infer the intended meaning of ਬੱਸ ਦੇ ਮੁਕਾਬਲੇ ਰੇਲ ਤੇਜ਼ ਹੈ। without losing its qualification or social force.",
+                "answer": "Compared with the bus, the train is fast.",
+                "skill_target": "Punjabi inference: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
               },
               {
-                "type": "fill",
-                "q": "Complete and read this model: ਮੇਰੇ ਖ਼ਿਆਲ ਵਿੱਚ ਰੇਲ ਬਿਹਤਰ ਹੈ। (mere khial vich rel behtar hai.)",
-                "answer": "ਮੇਰੇ ਖ਼ਿਆਲ ਵਿੱਚ ਰੇਲ ਬਿਹਤਰ ਹੈ।"
+                "type": "listening_comprehension",
+                "q": "Practice 7 [listening comprehension] — Opinions, Reasons, and Comparisons: Play the synthetic audio and give its precise contextual meaning.",
+                "answer": "I disagree because it is crowded there.",
+                "skill_target": "Punjabi listening comprehension: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms",
+                "audio_source": "ਮੈਂ ਸਹਿਮਤ ਨਹੀਂ ਕਿਉਂਕਿ ਉੱਥੇ ਭੀੜ ਹੈ।"
               },
               {
-                "type": "choose",
-                "q": "Choose the Punjabi expression for “advantage”.",
+                "type": "dictation",
+                "q": "Practice 8 [dictation] — Opinions, Reasons, and Comparisons: Play the labeled synthetic Punjabi audio and type the complete line in Gurmukhi.",
+                "answer": "ਠੀਕ ਹੈ, ਅਸੀਂ ਦੂਜਾ ਰਸਤਾ ਲਵਾਂਗੇ।",
+                "skill_target": "Punjabi dictation: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms",
+                "audio_source": "ਠੀਕ ਹੈ, ਅਸੀਂ ਦੂਜਾ ਰਸਤਾ ਲਵਾਂਗੇ।"
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Practice 9 [listen and choose] — Opinions, Reasons, and Comparisons: Play the synthetic audio and choose its contextual meaning.",
+                "answer": "In your opinion, which route is better?",
+                "skill_target": "Punjabi listen and choose: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms",
+                "audio_source": "ਤੇਰੇ ਖ਼ਿਆਲ ਵਿੱਚ ਕਿਹੜਾ ਰਸਤਾ ਬਿਹਤਰ ਹੈ?",
                 "options": [
-                  "ਫ਼ਾਇਦਾ",
-                  "ਨੁਕਸਾਨ",
-                  "ਸਹਿਮਤ",
-                  "ਵੱਖਰਾ"
-                ],
-                "answer": "ਫ਼ਾਇਦਾ"
+                  "In your opinion, which route is better?",
+                  "In my opinion, the short route is better.",
+                  "opinion"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say this idea in Punjabi: Compared with the bus, the train is fast.",
-                "answer": "ਬੱਸ ਦੇ ਮੁਕਾਬਲੇ ਰੇਲ ਤੇਜ਼ ਹੈ। (bass de mukable rel tez hai.)"
+                "type": "listen_and_reorder",
+                "q": "Practice 10 [listen and reorder] — Opinions, Reasons, and Comparisons: Rebuild this model with correct Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms: In my opinion, the train is better.",
+                "answer": "ਮੇਰੇ ਖ਼ਿਆਲ ਵਿੱਚ ਰੇਲ ਬਿਹਤਰ ਹੈ।",
+                "skill_target": "Punjabi listen and reorder: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms",
+                "audio_source": "ਤੇਰੇ ਖ਼ਿਆਲ ਵਿੱਚ ਕਿਹੜਾ ਰਸਤਾ ਬਿਹਤਰ ਹੈ?"
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Practice 11 [listen and fill] — Opinions, Reasons, and Comparisons: Play the synthetic audio and complete the line beginning “ਮੈਂ…”.",
+                "answer": "ਮੈਂ ਸਹਿਮਤ ਨਹੀਂ ਕਿਉਂਕਿ ਉੱਥੇ ਭੀੜ ਹੈ।",
+                "skill_target": "Punjabi listen and fill: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms",
+                "audio_source": "ਮੈਂ ਸਹਿਮਤ ਨਹੀਂ ਕਿਉਂਕਿ ਉੱਥੇ ਭੀੜ ਹੈ।"
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Practice 12 [repeat after audio] — Opinions, Reasons, and Comparisons: Repeat the synthetic model with its phrase grouping; no microphone score is claimed.",
+                "answer": "ਠੀਕ ਹੈ, ਅਸੀਂ ਦੂਜਾ ਰਸਤਾ ਲਵਾਂਗੇ।",
+                "skill_target": "Punjabi repeat after audio: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms",
+                "audio_source": "ਠੀਕ ਹੈ, ਅਸੀਂ ਦੂਜਾ ਰਸਤਾ ਲਵਾਂਗੇ।"
+              },
+              {
+                "type": "pronunciation",
+                "q": "Practice 13 [pronunciation] — Opinions, Reasons, and Comparisons: Practise ਸਹਿਮਤ (sahimat) with the lesson-specific sound pattern. Self-check only.",
+                "answer": "ਸਹਿਮਤ",
+                "skill_target": "Punjabi pronunciation: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms",
+                "audio_source": "ਸਹਿਮਤ"
+              },
+              {
+                "type": "shadowing",
+                "q": "Practice 14 [shadowing] — Opinions, Reasons, and Comparisons: Shadow the synthetic Punjabi model, preserving rhythm and target-language sounds. Self-check only.",
+                "answer": "ਮੇਰੇ ਖ਼ਿਆਲ ਵਿੱਚ ਛੋਟਾ ਰਸਤਾ ਬਿਹਤਰ ਹੈ।",
+                "skill_target": "Punjabi shadowing: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms",
+                "audio_source": "ਮੇਰੇ ਖ਼ਿਆਲ ਵਿੱਚ ਛੋਟਾ ਰਸਤਾ ਬਿਹਤਰ ਹੈ।"
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Practice 15 [guided speaking] — Opinions, Reasons, and Comparisons: Produce a spoken response demonstrating “Opinions, Reasons, and Comparisons”; compare with the model.",
+                "answer": "ਬੱਸ ਦੇ ਮੁਕਾਬਲੇ ਰੇਲ ਤੇਜ਼ ਹੈ।",
+                "skill_target": "Punjabi guided speaking: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "free_response",
+                "q": "Practice 16 [free response] — Opinions, Reasons, and Comparisons: Produce a spoken response demonstrating “Opinions, Reasons, and Comparisons”; compare with the model.",
+                "answer": "ਮੇਰੇ ਖ਼ਿਆਲ ਵਿੱਚ ਰੇਲ ਬਿਹਤਰ ਹੈ।",
+                "skill_target": "Punjabi free response: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
               }
             ],
             "quiz": [
@@ -1200,9 +1537,28 @@
                     "ਨੁਕਸਾਨ (nuksan)",
                     "ਸਹਿਮਤ (sahimat)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Punjabi offline lab: read, transform in Gurmukhi, and rehearse aloud. Check Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms.",
+                  "items": [
+                    "ਮੇਰੇ ਖ਼ਿਆਲ ਵਿੱਚ ਰੇਲ ਬਿਹਤਰ ਹੈ।",
+                    "ਤੇਰੇ ਖ਼ਿਆਲ ਵਿੱਚ ਕਿਹੜਾ ਰਸਤਾ ਬਿਹਤਰ ਹੈ?"
+                  ],
+                  "key": [
+                    "In my opinion, the train is better.",
+                    "In your opinion, which route is better?"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "ਰਾਇ",
+              "ਕਾਰਨ",
+              "ਫ਼ਾਇਦਾ",
+              "ਨੁਕਸਾਨ"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
           },
           {
             "id": "pa-b1-l6",
@@ -1311,35 +1667,81 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate into English: ਮੌਸਮ (mausam)",
-                "answer": "weather"
+                "type": "roleplay",
+                "q": "Practice 6 [roleplay] — Weather, Conditions, and Plans: Role-play ਦੀਪ with appropriate register: According to the forecast, it will rain.",
+                "answer": "ਪੂਰਵ-ਅਨੁਮਾਨ ਮੁਤਾਬਕ ਮੀਂਹ ਪਵੇਗਾ।",
+                "skill_target": "Punjabi roleplay: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
               },
               {
-                "type": "translate_t",
-                "q": "Write in Punjabi: forecast",
-                "answer": "ਪੂਰਵ-ਅਨੁਮਾਨ (purav-anuman)"
+                "type": "sentence_writing",
+                "q": "Practice 7 [sentence writing] — Weather, Conditions, and Plans: Write one accurate Gurmukhi sentence using ਰੱਦ ਕਰਨਾ.",
+                "answer": "ਜੇ ਮੀਂਹ ਪਵੇਗਾ, ਤਾਂ ਅਸੀਂ ਘਰ ਰਹਾਂਗੇ।",
+                "skill_target": "Punjabi sentence writing: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
               },
               {
-                "type": "fill",
-                "q": "Complete and read this model: ਜੇ ਮੀਂਹ ਪਵੇਗਾ, ਤਾਂ ਅਸੀਂ ਘਰ ਰਹਾਂਗੇ। (je minh pavega, tan asin ghar rahange.)",
-                "answer": "ਜੇ ਮੀਂਹ ਪਵੇਗਾ, ਤਾਂ ਅਸੀਂ ਘਰ ਰਹਾਂਗੇ।"
+                "type": "short_writing",
+                "q": "Practice 8 [short writing] — Weather, Conditions, and Plans: Write 2–3 connected Punjabi sentences applying Weather, Conditions, and Plans.",
+                "answer": "ਜੇ ਧੁੱਪ ਹੋਈ, ਤਾਂ ਅਸੀਂ ਸੈਰ ਕਰਾਂਗੇ। ਜੇ ਤੂਫ਼ਾਨ ਆਇਆ, ਤਾਂ ਉਡਾਣ ਰੱਦ ਹੋ ਸਕਦੀ ਹੈ।",
+                "skill_target": "Punjabi short writing: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
               },
               {
-                "type": "choose",
-                "q": "Choose the Punjabi expression for “storm”.",
+                "type": "paraphrase",
+                "q": "Practice 9 [paraphrase] — Weather, Conditions, and Plans: Paraphrase without changing meaning, morphology, or register: ਜੇ ਤੂਫ਼ਾਨ ਆਇਆ, ਤਾਂ ਉਡਾਣ ਰੱਦ ਹੋ ਸਕਦੀ ਹੈ।",
+                "answer": "ਜੇ ਤੂਫ਼ਾਨ ਆਇਆ, ਤਾਂ ਉਡਾਣ ਰੱਦ ਹੋ ਸਕਦੀ ਹੈ।",
+                "skill_target": "Punjabi paraphrase: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "summary",
+                "q": "Practice 10 [summary] — Weather, Conditions, and Plans: Summarize the dialogue in one precise Punjabi sentence.",
+                "answer": "ਪੂਰਵ-ਅਨੁਮਾਨ ਮੁਤਾਬਕ ਮੀਂਹ ਪਵੇਗਾ।",
+                "skill_target": "Punjabi summary: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Practice 11 [guided composition] — Weather, Conditions, and Plans: Compose a short response with the taught pattern “ਜੇ + condition, ਤਾਂ + result”.",
+                "answer": "ਜੇ ਧੁੱਪ ਹੋਈ, ਤਾਂ ਅਸੀਂ ਸੈਰ ਕਰਾਂਗੇ।",
+                "skill_target": "Punjabi guided composition: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Practice 12 [register transformation] — Weather, Conditions, and Plans: Recast “If a storm comes, the flight may be cancelled.” in the formal/respectful or colloquial register taught here.",
+                "answer": "ਜੇ ਤੂਫ਼ਾਨ ਆਇਆ, ਤਾਂ ਉਡਾਣ ਰੱਦ ਹੋ ਸਕਦੀ ਹੈ।",
+                "skill_target": "Punjabi register transformation: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "tone_identification",
+                "q": "Practice 13 [tone identification] — Weather, Conditions, and Plans: Identify the tone or stance of ਜੇ ਮੀਂਹ ਪਵੇਗਾ, ਤਾਂ ਅਸੀਂ ਘਰ ਰਹਾਂਗੇ।.",
+                "answer": "The wording realizes Conditions with ਜੇ…ਤਾਂ with the lesson-appropriate stance and register.",
+                "skill_target": "Punjabi tone identification: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "semantic_distinction",
+                "q": "Practice 14 [semantic distinction] — Weather, Conditions, and Plans: Distinguish ਤਾਪਮਾਨ from ਰੱਦ ਕਰਨਾ in meaning and use.",
+                "answer": "ਤਾਪਮਾਨ means “temperature”; ਰੱਦ ਕਰਨਾ means “to cancel”. Grammar and context determine the choice.",
+                "skill_target": "Punjabi semantic distinction: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "contextual_meaning",
+                "q": "Practice 15 [contextual meaning] — Weather, Conditions, and Plans: Explain the contextual force of ਰੱਦ ਕਰਨਾ in this lesson.",
+                "answer": "Here it contributes “to cancel” within Conditions with ਜੇ…ਤਾਂ.",
+                "skill_target": "Punjabi contextual meaning: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Practice 16 [multiple choice] — Weather, Conditions, and Plans: Choose the lesson meaning of ਬਦਲਣਾ (badalna).",
+                "answer": "to change",
+                "skill_target": "Punjabi multiple choice: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms",
                 "options": [
-                  "ਤੂਫ਼ਾਨ",
-                  "ਧੁੱਪ",
-                  "ਬੱਦਲਵਾਈ",
-                  "ਤਾਪਮਾਨ"
-                ],
-                "answer": "ਤੂਫ਼ਾਨ"
+                  "to change",
+                  "weather",
+                  "forecast"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say this idea in Punjabi: If a storm comes, the flight may be cancelled.",
-                "answer": "ਜੇ ਤੂਫ਼ਾਨ ਆਇਆ, ਤਾਂ ਉਡਾਣ ਰੱਦ ਹੋ ਸਕਦੀ ਹੈ। (je tufan aia, tan udan radd ho sakdi hai.)"
+                "type": "fill_in_the_blank",
+                "q": "Practice 17 [fill in the blank] — Weather, Conditions, and Plans: Type the complete Gurmukhi form for “weather”.",
+                "answer": "ਮੌਸਮ",
+                "skill_target": "Punjabi fill in the blank: Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms"
               }
             ],
             "quiz": [
@@ -1435,9 +1837,28 @@
                     "ਧੁੱਪ (dhup)",
                     "ਬੱਦਲਵਾਈ (baddalvai)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Punjabi offline lab: read, transform in Gurmukhi, and rehearse aloud. Check Punjabi Gurmukhi, gender/agreement, postpositions, aspect, and respectful forms.",
+                  "items": [
+                    "ਜੇ ਮੀਂਹ ਪਵੇਗਾ, ਤਾਂ ਅਸੀਂ ਘਰ ਰਹਾਂਗੇ।",
+                    "ਕੱਲ੍ਹ ਦਾ ਮੌਸਮ ਕਿਹੋ ਜਿਹਾ ਹੋਵੇਗਾ?"
+                  ],
+                  "key": [
+                    "If it rains, we will stay home.",
+                    "What will tomorrow’s weather be like?"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "ਮੌਸਮ",
+              "ਪੂਰਵ-ਅਨੁਮਾਨ",
+              "ਤੂਫ਼ਾਨ",
+              "ਧੁੱਪ"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
           }
         ]
       }
