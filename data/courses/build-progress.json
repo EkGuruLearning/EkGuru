@@ -1,35 +1,44 @@
 {
-  "country": "BS,CL,CU,DO,HT,US",
-  "language": "Haitian Creole",
-  "language_code": "ht",
-  "priority_source": "lang:hat P1 score 70",
+  "country": "BE,NL,SR",
+  "language": "Dutch",
+  "language_code": "nl",
+  "priority_source": "lang:nld P1 score 69; Amharic retained ahead in pending research queue and not falsely marked complete",
   "country_relationships": [
-    "BS",
-    "CL",
-    "CU",
-    "DO",
-    "HT",
-    "US"
+    "BE",
+    "NL",
+    "SR"
   ],
-  "research": "PASS — data/language-research/ht.json",
+  "research": "PASS — data/language-research/nl.json",
   "A1": "PASS",
   "A2": "PASS",
   "B1": "PASS",
   "B2": "PASS",
   "C1": "PASS",
   "C2": "PASS",
-  "QA": "PASS — builder, floors, all lessons, official orthography/TMA/register, explicit audio fallback, player, answers and duplicates",
+  "QA": "PASS — builder, floors, all lessons, grammar/register, audio, player, answers and duplicates",
   "push": "PASS",
   "course_files": [
-    "data/courses/phase-3/ht_A1.json",
-    "data/courses/phase-3/ht_A2.json",
-    "data/courses/phase-3/ht_B1.json",
-    "data/courses/phase-3/ht_B2.json",
-    "data/courses/phase-3/ht_C1.json",
-    "data/courses/phase-3/ht_C2.json"
+    "data/courses/phase-3/nl_A1.json",
+    "data/courses/phase-3/nl_A2.json",
+    "data/courses/phase-3/nl_B1.json",
+    "data/courses/phase-3/nl_B2.json",
+    "data/courses/phase-3/nl_C1.json",
+    "data/courses/phase-3/nl_C2.json"
   ],
-  "last_commit": "81bfcfa",
-  "batch_policy": "All six canonical country relationships handled together; no duplicate country courses",
-  "next_inventory_candidate": "lang:amh Amharic P1 score 69",
+  "last_commit": "8123742",
+  "batch_group": {
+    "target_country_contexts": 5,
+    "completed_contexts": [
+      "BE",
+      "NL",
+      "SR"
+    ],
+    "pending_contexts": [
+      "ET",
+      "IL"
+    ],
+    "pending_language": "Amharic"
+  },
+  "next_inventory_candidate": "lang:amh Amharic, then lang:fas Persian",
   "review_required": []
 }
