@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "language": {"code": "zsm", "name": "Standard Malay", "native_name": "Bahasa Melayu", "family": "Austronesian: Malayo-Polynesian", "script": "Latin Rumi; Jawi literacy context", "direction": "ltr", "canonical_note": "Canonical lang:zsm course for Malaysia, Brunei and Singapore; do not duplicate by country."},
+  "inventory_priority": {"language_id": "lang:zsm", "priority": "P1", "score": 71, "countries": ["MY", "BN", "SG"]},
+  "orthography_pronunciation": {"needs": ["e pepet versus e taling", "ng and ny", "c as /tʃ/", "final k glottal realization in common varieties", "open syllables", "stress and regional rhythm"], "voice_strategy": "Synthetic ms-MY browser voice when available; explicitly labelled with fallback limitations."},
+  "grammar": {"nominal": ["no grammatical gender", "classifiers", "reduplication", "possessive and demonstrative order", "prepositions and relational nouns"], "verbal": ["analytic time/aspect/modal markers", "meN-, ber-, ter-, di- and causative/applicative morphology", "active-passive alternations", "serial predicates", "verbal nouns"], "syntax_discourse": ["SVO and topic-comment order", "yang relative clauses", "focus fronting", "discourse particles", "reference and connective chains"]},
+  "register_pragmatics": ["awak/anda/kamu and titles", "saya versus aku", "indirect requests", "formal government/business Malay", "colloquial particles treated descriptively", "Malaysia/Brunei/Singapore lexical variation"],
+  "CEFR_progression": {"A1": "sound-spelling, greetings, identity, basic predicates and classifiers", "A2": "time markers, quantity, directions, plans and requests", "B1": "voice/affix contrasts, relative clauses, reported speech and narration", "B2": "passive choice, modality, clause chaining, focus and register", "C1": "academic synthesis, mediation and calibrated stance", "C2": "scope, implication, rhetoric, idiom, genre transformation and epistemic precision"},
+  "country_relationship_source": "data/global/language-country-relations.json",
+  "sources": [
+    {"title": "Dewan Bahasa dan Pustaka PRPM", "url": "https://prpm.dbp.gov.my/", "use": "authoritative dictionary, terminology and language guidance"},
+    {"title": "Pedoman Umum Ejaan Bahasa Melayu", "url": "https://dbp.gov.my/", "use": "standard Rumi orthography"},
+    {"title": "CEFR Companion Volume 2020", "url": "https://rm.coe.int/cefr-companion-volume-with-new-descriptors-2020/16809ea0d4", "use": "level progression, mediation, interaction and phonology"}
+  ],
+  "reviewed_at": "2026-09-17"
+}
