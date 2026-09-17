@@ -1,0 +1,1874 @@
+{
+  "code": "npi",
+  "name": "Nepali",
+  "native": "नेपाली",
+  "phase": 3,
+  "medium": "en",
+  "file_level": "C2",
+  "research_basis": "data/language-research/npi.json",
+  "level": {
+    "title": "Nepali C2",
+    "goals": [
+      "Control Nepali case marking, honorific agreement, aspect, and information structure",
+      "Develop reception, interaction, production, and mediation",
+      "Use Devanagari, pronunciation, politeness, register, and cohesion"
+    ],
+    "units": [
+      {
+        "id": "npi-c2-u1",
+        "title": "Semantic and Viewpoint Precision",
+        "lessons": [
+          {
+            "id": "npi-c2-l1",
+            "title": "निषेधको दायरा",
+            "learn": "Control निषेधको दायरा in level-appropriate Nepali communication.",
+            "vocab": [
+              {
+                "t": "देखिएका",
+                "r": "dekhieka",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "सबै",
+                "r": "sabai",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "सुधार",
+                "r": "sudhara",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "वास्तविक",
+                "r": "vastavika",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "प्रगति",
+                "r": "pragati",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "होइनन्;",
+                "r": "hoinan;",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "केही",
+                "r": "kehi",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "नतिजाले",
+                "r": "natijale",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "निषेधको दायरा",
+              "explain": "Nepali combines postpositions and case markers, honorific agreement, aspect and evidentiality, participles, SOV order, topic-focus particles, Devanagari spelling, and prosody. Choices encode participant roles, evidence, focus, and social relationship.",
+              "pattern": "topic + case-marked arguments + aspect/evidence + final predicate",
+              "examples": [
+                {
+                  "t": "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                  "r": "dekhieka sabai sudhara vastavika pragati hoinan; kehi natijale bhara matra punarvitarana garchan|",
+                  "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                },
+                {
+                  "t": "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                  "r": "natijalai purnatah anapekshita hoina bhannule vaktalai chakita bhaekaharubata sukshma rupama tadha rakhcha|",
+                  "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                },
+                {
+                  "t": "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                  "r": "hamilai hataravinako mahattvaka~nksha, nishkriyatavinako savadhani ra pradarshanavinako javaphadehita chahincha|",
+                  "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with mismatched case, honorific agreement, or aspect",
+                  "right": "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                  "why": "The corrected model aligns morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                "r": "dekhieka sabai sudhara vastavika pragati hoinan; kehi natijale bhara matra punarvitarana garchan|",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              },
+              {
+                "sp": "Colleague",
+                "t": "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "r": "natijalai purnatah anapekshita hoina bhannule vaktalai chakita bhaekaharubata sukshma rupama tadha rakhcha|",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              },
+              {
+                "sp": "Mediator",
+                "t": "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "r": "hamilai hataravinako mahattvaka~nksha, nishkriyatavinako savadhani ra pradarshanavinako javaphadehita chahincha|",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              },
+              {
+                "sp": "Editor",
+                "t": "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "r": "samjhautale samasya galai.nchamuni lukau.ndai duvai pakshalai ijjata jogauna diyo|",
+                "en": "The compromise swept the problem under the carpet while both sides saved face."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "निषेधको दायरा — multiple choice: analyse or produce the Nepali model with correct case, honorific level, scope, and register: देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                "answer": "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                "skill_target": "multiple choice",
+                "options": [
+                  "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                  "Form with incorrect case or honorific agreement",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "निषेधको दायरा — fill in the blank: analyse or produce the Nepali model with correct case, honorific level, scope, and register: देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                "answer": "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "निषेधको दायरा — translation: analyse or produce the Nepali model with correct case, honorific level, scope, and register: देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                "answer": "Not every apparent improvement is real progress; some results merely redistribute the burden.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "निषेधको दायरा — reverse translation: analyse or produce the Nepali model with correct case, honorific level, scope, and register: देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                "answer": "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "निषेधको दायरा — matching: analyse or produce the Nepali model with correct case, honorific level, scope, and register: देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                "answer": "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                "skill_target": "matching",
+                "options": [
+                  "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                  "Form with incorrect case or honorific agreement",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "निषेधको दायरा — reorder: analyse or produce the Nepali model with correct case, honorific level, scope, and register: देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                "answer": "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "निषेधको दायरा — sentence building: analyse or produce the Nepali model with correct case, honorific level, scope, and register: देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                "answer": "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "निषेधको दायरा — word selection: analyse or produce the Nepali model with correct case, honorific level, scope, and register: देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                "answer": "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                "skill_target": "word selection",
+                "options": [
+                  "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                  "Form with incorrect case or honorific agreement",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "निषेधको दायरा — error correction: analyse or produce the Nepali model with correct case, honorific level, scope, and register: देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                "answer": "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "निषेधको दायरा — dialogue completion: analyse or produce the Nepali model with correct case, honorific level, scope, and register: देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                "answer": "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "निषेधको दायरा — reading comprehension: analyse or produce the Nepali model with correct case, honorific level, scope, and register: देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                "answer": "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "निषेधको दायरा — paragraph comprehension: analyse or produce the Nepali model with correct case, honorific level, scope, and register: देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                "answer": "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "निषेधको दायरा: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              },
+              {
+                "q": "निषेधको दायरा: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              },
+              {
+                "q": "निषेधको दायरा: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              },
+              {
+                "q": "निषेधको दायरा: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              },
+              {
+                "q": "निषेधको दायरा: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "देखिएका",
+              "सबै",
+              "सुधार",
+              "वास्तविक"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "निषेधको दायरा workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate morphology and discourse function.",
+                  "items": [
+                    "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                    "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।"
+                  ],
+                  "key": [
+                    "Nepali combines postpositions and case markers, honorific agreement, aspect and evidentiality, participles, SOV order, topic-focus particles, Devanagari spelling, and prosody. Choices encode participant roles, evidence, focus, and social relationship.",
+                    "Nepali combines postpositions and case markers, honorific agreement, aspect and evidentiality, participles, SOV order, topic-focus particles, Devanagari spelling, and prosody. Choices encode participant roles, evidence, focus, and social relationship."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                    "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।"
+                  ],
+                  "key": [
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden.",
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden.",
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                  ],
+                  "key": [
+                    "Model: देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                    "Model: नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "npi-c2-l2",
+            "title": "निहितार्थ र दूरी",
+            "learn": "Control निहितार्थ र दूरी in level-appropriate Nepali communication.",
+            "vocab": [
+              {
+                "t": "नतिजालाई",
+                "r": "natijalai",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "पूर्णतः",
+                "r": "purnatah",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "अनपेक्षित",
+                "r": "anapekshita",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "होइन",
+                "r": "hoina",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "भन्नुले",
+                "r": "bhannule",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "वक्तालाई",
+                "r": "vaktalai",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "चकित",
+                "r": "chakita",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "भएकाहरूबाट",
+                "r": "bhaekaharubata",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "निहितार्थ र दूरी",
+              "explain": "Nepali combines postpositions and case markers, honorific agreement, aspect and evidentiality, participles, SOV order, topic-focus particles, Devanagari spelling, and prosody. Choices encode participant roles, evidence, focus, and social relationship.",
+              "pattern": "topic + case-marked arguments + aspect/evidence + final predicate",
+              "examples": [
+                {
+                  "t": "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                  "r": "natijalai purnatah anapekshita hoina bhannule vaktalai chakita bhaekaharubata sukshma rupama tadha rakhcha|",
+                  "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                },
+                {
+                  "t": "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                  "r": "hamilai hataravinako mahattvaka~nksha, nishkriyatavinako savadhani ra pradarshanavinako javaphadehita chahincha|",
+                  "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                },
+                {
+                  "t": "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                  "r": "samjhautale samasya galai.nchamuni lukau.ndai duvai pakshalai ijjata jogauna diyo|",
+                  "en": "The compromise swept the problem under the carpet while both sides saved face."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with mismatched case, honorific agreement, or aspect",
+                  "right": "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                  "why": "The corrected model aligns morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "r": "natijalai purnatah anapekshita hoina bhannule vaktalai chakita bhaekaharubata sukshma rupama tadha rakhcha|",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              },
+              {
+                "sp": "Colleague",
+                "t": "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "r": "hamilai hataravinako mahattvaka~nksha, nishkriyatavinako savadhani ra pradarshanavinako javaphadehita chahincha|",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              },
+              {
+                "sp": "Mediator",
+                "t": "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "r": "samjhautale samasya galai.nchamuni lukau.ndai duvai pakshalai ijjata jogauna diyo|",
+                "en": "The compromise swept the problem under the carpet while both sides saved face."
+              },
+              {
+                "sp": "Editor",
+                "t": "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "r": "j~napanale anishchitata svikarcha, tara sarvajanika vaktavyale tyasalai santulita vishvasaka rupama prastuta garcha|",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reorder",
+                "q": "निहितार्थ र दूरी — reorder: analyse or produce the Nepali model with correct case, honorific level, scope, and register: नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "answer": "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "निहितार्थ र दूरी — sentence building: analyse or produce the Nepali model with correct case, honorific level, scope, and register: नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "answer": "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "निहितार्थ र दूरी — word selection: analyse or produce the Nepali model with correct case, honorific level, scope, and register: नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "answer": "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "skill_target": "word selection",
+                "options": [
+                  "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                  "Form with incorrect case or honorific agreement",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "निहितार्थ र दूरी — error correction: analyse or produce the Nepali model with correct case, honorific level, scope, and register: नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "answer": "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "निहितार्थ र दूरी — dialogue completion: analyse or produce the Nepali model with correct case, honorific level, scope, and register: नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "answer": "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "निहितार्थ र दूरी — reading comprehension: analyse or produce the Nepali model with correct case, honorific level, scope, and register: नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "answer": "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "निहितार्थ र दूरी — paragraph comprehension: analyse or produce the Nepali model with correct case, honorific level, scope, and register: नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "answer": "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "main_idea",
+                "q": "निहितार्थ र दूरी — main idea: analyse or produce the Nepali model with correct case, honorific level, scope, and register: नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "answer": "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "निहितार्थ र दूरी — detail identification: analyse or produce the Nepali model with correct case, honorific level, scope, and register: नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "answer": "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "inference",
+                "q": "निहितार्थ र दूरी — inference: analyse or produce the Nepali model with correct case, honorific level, scope, and register: नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "answer": "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "निहितार्थ र दूरी — listening comprehension: analyse or produce the Nepali model with correct case, honorific level, scope, and register: नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "answer": "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: ne-NP browser voice when available; fallback disclosed; text=नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।"
+              },
+              {
+                "type": "dictation",
+                "q": "निहितार्थ र दूरी — dictation: analyse or produce the Nepali model with correct case, honorific level, scope, and register: नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "answer": "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: ne-NP browser voice when available; fallback disclosed; text=नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "निहितार्थ र दूरी: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              },
+              {
+                "q": "निहितार्थ र दूरी: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              },
+              {
+                "q": "निहितार्थ र दूरी: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              },
+              {
+                "q": "निहितार्थ र दूरी: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              },
+              {
+                "q": "निहितार्थ र दूरी: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "नतिजालाई",
+              "पूर्णतः",
+              "अनपेक्षित",
+              "होइन"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "निहितार्थ र दूरी workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate morphology and discourse function.",
+                  "items": [
+                    "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                    "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।"
+                  ],
+                  "key": [
+                    "Nepali combines postpositions and case markers, honorific agreement, aspect and evidentiality, participles, SOV order, topic-focus particles, Devanagari spelling, and prosody. Choices encode participant roles, evidence, focus, and social relationship.",
+                    "Nepali combines postpositions and case markers, honorific agreement, aspect and evidentiality, participles, SOV order, topic-focus particles, Devanagari spelling, and prosody. Choices encode participant roles, evidence, focus, and social relationship."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                    "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।"
+                  ],
+                  "key": [
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised.",
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised.",
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                  ],
+                  "key": [
+                    "Model: नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                    "Model: हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "npi-c2-u2",
+        "title": "Rhetoric and Genre Mastery",
+        "lessons": [
+          {
+            "id": "npi-c2-l3",
+            "title": "अलंकारिक समानान्तरता",
+            "learn": "Control अलंकारिक समानान्तरता in level-appropriate Nepali communication.",
+            "vocab": [
+              {
+                "t": "हामीलाई",
+                "r": "hamilai",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "हतारविनाको",
+                "r": "hataravinako",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "महत्त्वाकाङ्क्षा",
+                "r": "mahattvaka~nksha",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "निष्क्रियताविनाको",
+                "r": "nishkriyatavinako",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "सावधानी",
+                "r": "savadhani",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "र",
+                "r": "ra",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "प्रदर्शनविनाको",
+                "r": "pradarshanavinako",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "जवाफदेहिता",
+                "r": "javaphadehita",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "अलंकारिक समानान्तरता",
+              "explain": "Nepali combines postpositions and case markers, honorific agreement, aspect and evidentiality, participles, SOV order, topic-focus particles, Devanagari spelling, and prosody. Choices encode participant roles, evidence, focus, and social relationship.",
+              "pattern": "topic + case-marked arguments + aspect/evidence + final predicate",
+              "examples": [
+                {
+                  "t": "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                  "r": "hamilai hataravinako mahattvaka~nksha, nishkriyatavinako savadhani ra pradarshanavinako javaphadehita chahincha|",
+                  "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                },
+                {
+                  "t": "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                  "r": "samjhautale samasya galai.nchamuni lukau.ndai duvai pakshalai ijjata jogauna diyo|",
+                  "en": "The compromise swept the problem under the carpet while both sides saved face."
+                },
+                {
+                  "t": "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                  "r": "j~napanale anishchitata svikarcha, tara sarvajanika vaktavyale tyasalai santulita vishvasaka rupama prastuta garcha|",
+                  "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with mismatched case, honorific agreement, or aspect",
+                  "right": "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                  "why": "The corrected model aligns morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "r": "hamilai hataravinako mahattvaka~nksha, nishkriyatavinako savadhani ra pradarshanavinako javaphadehita chahincha|",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              },
+              {
+                "sp": "Colleague",
+                "t": "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "r": "samjhautale samasya galai.nchamuni lukau.ndai duvai pakshalai ijjata jogauna diyo|",
+                "en": "The compromise swept the problem under the carpet while both sides saved face."
+              },
+              {
+                "sp": "Mediator",
+                "t": "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "r": "j~napanale anishchitata svikarcha, tara sarvajanika vaktavyale tyasalai santulita vishvasaka rupama prastuta garcha|",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              },
+              {
+                "sp": "Editor",
+                "t": "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                "r": "upalabdha pramanaka adharama yo sabaibhanda sambhavya vyakhya ho, nirvivada phaisala hoina|",
+                "en": "On available evidence, this is the most plausible explanation, but not an indisputable verdict."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reading_comprehension",
+                "q": "अलंकारिक समानान्तरता — reading comprehension: analyse or produce the Nepali model with correct case, honorific level, scope, and register: हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "answer": "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "अलंकारिक समानान्तरता — paragraph comprehension: analyse or produce the Nepali model with correct case, honorific level, scope, and register: हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "answer": "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "main_idea",
+                "q": "अलंकारिक समानान्तरता — main idea: analyse or produce the Nepali model with correct case, honorific level, scope, and register: हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "answer": "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "अलंकारिक समानान्तरता — detail identification: analyse or produce the Nepali model with correct case, honorific level, scope, and register: हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "answer": "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "inference",
+                "q": "अलंकारिक समानान्तरता — inference: analyse or produce the Nepali model with correct case, honorific level, scope, and register: हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "answer": "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "अलंकारिक समानान्तरता — listening comprehension: analyse or produce the Nepali model with correct case, honorific level, scope, and register: हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "answer": "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: ne-NP browser voice when available; fallback disclosed; text=हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।"
+              },
+              {
+                "type": "dictation",
+                "q": "अलंकारिक समानान्तरता — dictation: analyse or produce the Nepali model with correct case, honorific level, scope, and register: हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "answer": "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: ne-NP browser voice when available; fallback disclosed; text=हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।"
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "अलंकारिक समानान्तरता — listen and choose: analyse or produce the Nepali model with correct case, honorific level, scope, and register: हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "answer": "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "skill_target": "listen and choose",
+                "options": [
+                  "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                  "Form with incorrect case or honorific agreement",
+                  "An unrelated greeting"
+                ],
+                "audio_source": "synthetic_tts: ne-NP browser voice when available; fallback disclosed; text=हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।"
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "अलंकारिक समानान्तरता — listen and reorder: analyse or produce the Nepali model with correct case, honorific level, scope, and register: हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "answer": "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: ne-NP browser voice when available; fallback disclosed; text=हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।"
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "अलंकारिक समानान्तरता — listen and fill: analyse or produce the Nepali model with correct case, honorific level, scope, and register: हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "answer": "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "skill_target": "listen and fill",
+                "audio_source": "synthetic_tts: ne-NP browser voice when available; fallback disclosed; text=हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।"
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "अलंकारिक समानान्तरता — repeat after audio: analyse or produce the Nepali model with correct case, honorific level, scope, and register: हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "answer": "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: ne-NP browser voice when available; fallback disclosed; text=हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।"
+              },
+              {
+                "type": "pronunciation",
+                "q": "अलंकारिक समानान्तरता — pronunciation: analyse or produce the Nepali model with correct case, honorific level, scope, and register: हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "answer": "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: ne-NP browser voice when available; fallback disclosed; text=हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "अलंकारिक समानान्तरता: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              },
+              {
+                "q": "अलंकारिक समानान्तरता: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              },
+              {
+                "q": "अलंकारिक समानान्तरता: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              },
+              {
+                "q": "अलंकारिक समानान्तरता: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              },
+              {
+                "q": "अलंकारिक समानान्तरता: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "हामीलाई",
+              "हतारविनाको",
+              "महत्त्वाकाङ्क्षा",
+              "निष्क्रियताविनाको"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "अलंकारिक समानान्तरता workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate morphology and discourse function.",
+                  "items": [
+                    "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                    "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।"
+                  ],
+                  "key": [
+                    "Nepali combines postpositions and case markers, honorific agreement, aspect and evidentiality, participles, SOV order, topic-focus particles, Devanagari spelling, and prosody. Choices encode participant roles, evidence, focus, and social relationship.",
+                    "Nepali combines postpositions and case markers, honorific agreement, aspect and evidentiality, participles, SOV order, topic-focus particles, Devanagari spelling, and prosody. Choices encode participant roles, evidence, focus, and social relationship."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                    "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।"
+                  ],
+                  "key": [
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle.",
+                    "The compromise swept the problem under the carpet while both sides saved face."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle.",
+                    "The compromise swept the problem under the carpet while both sides saved face."
+                  ],
+                  "key": [
+                    "Model: हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                    "Model: सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "npi-c2-l4",
+            "title": "मुहावरेको अर्थ",
+            "learn": "Control मुहावरेको अर्थ in level-appropriate Nepali communication.",
+            "vocab": [
+              {
+                "t": "सम्झौताले",
+                "r": "samjhautale",
+                "en": "discourse segment in “The compromise swept the problem under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "समस्या",
+                "r": "samasya",
+                "en": "discourse segment in “The compromise swept the problem under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "गलैँचामुनि",
+                "r": "galai.nchamuni",
+                "en": "discourse segment in “The compromise swept the problem under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "लुकाउँदै",
+                "r": "lukau.ndai",
+                "en": "discourse segment in “The compromise swept the problem under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "दुवै",
+                "r": "duvai",
+                "en": "discourse segment in “The compromise swept the problem under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "पक्षलाई",
+                "r": "pakshalai",
+                "en": "discourse segment in “The compromise swept the problem under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "इज्जत",
+                "r": "ijjata",
+                "en": "discourse segment in “The compromise swept the problem under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "जोगाउन",
+                "r": "jogauna",
+                "en": "discourse segment in “The compromise swept the problem under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "मुहावरेको अर्थ",
+              "explain": "Nepali combines postpositions and case markers, honorific agreement, aspect and evidentiality, participles, SOV order, topic-focus particles, Devanagari spelling, and prosody. Choices encode participant roles, evidence, focus, and social relationship.",
+              "pattern": "topic + case-marked arguments + aspect/evidence + final predicate",
+              "examples": [
+                {
+                  "t": "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                  "r": "samjhautale samasya galai.nchamuni lukau.ndai duvai pakshalai ijjata jogauna diyo|",
+                  "en": "The compromise swept the problem under the carpet while both sides saved face."
+                },
+                {
+                  "t": "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                  "r": "j~napanale anishchitata svikarcha, tara sarvajanika vaktavyale tyasalai santulita vishvasaka rupama prastuta garcha|",
+                  "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                },
+                {
+                  "t": "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                  "r": "upalabdha pramanaka adharama yo sabaibhanda sambhavya vyakhya ho, nirvivada phaisala hoina|",
+                  "en": "On available evidence, this is the most plausible explanation, but not an indisputable verdict."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with mismatched case, honorific agreement, or aspect",
+                  "right": "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                  "why": "The corrected model aligns morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "r": "samjhautale samasya galai.nchamuni lukau.ndai duvai pakshalai ijjata jogauna diyo|",
+                "en": "The compromise swept the problem under the carpet while both sides saved face."
+              },
+              {
+                "sp": "Colleague",
+                "t": "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "r": "j~napanale anishchitata svikarcha, tara sarvajanika vaktavyale tyasalai santulita vishvasaka rupama prastuta garcha|",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              },
+              {
+                "sp": "Mediator",
+                "t": "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                "r": "upalabdha pramanaka adharama yo sabaibhanda sambhavya vyakhya ho, nirvivada phaisala hoina|",
+                "en": "On available evidence, this is the most plausible explanation, but not an indisputable verdict."
+              },
+              {
+                "sp": "Editor",
+                "t": "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                "r": "dekhieka sabai sudhara vastavika pragati hoinan; kehi natijale bhara matra punarvitarana garchan|",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              }
+            ],
+            "practice": [
+              {
+                "type": "listening_comprehension",
+                "q": "मुहावरेको अर्थ — listening comprehension: analyse or produce the Nepali model with correct case, honorific level, scope, and register: सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "answer": "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: ne-NP browser voice when available; fallback disclosed; text=सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।"
+              },
+              {
+                "type": "dictation",
+                "q": "मुहावरेको अर्थ — dictation: analyse or produce the Nepali model with correct case, honorific level, scope, and register: सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "answer": "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: ne-NP browser voice when available; fallback disclosed; text=सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।"
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "मुहावरेको अर्थ — listen and choose: analyse or produce the Nepali model with correct case, honorific level, scope, and register: सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "answer": "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "skill_target": "listen and choose",
+                "options": [
+                  "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                  "Form with incorrect case or honorific agreement",
+                  "An unrelated greeting"
+                ],
+                "audio_source": "synthetic_tts: ne-NP browser voice when available; fallback disclosed; text=सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।"
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "मुहावरेको अर्थ — listen and reorder: analyse or produce the Nepali model with correct case, honorific level, scope, and register: सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "answer": "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: ne-NP browser voice when available; fallback disclosed; text=सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।"
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "मुहावरेको अर्थ — listen and fill: analyse or produce the Nepali model with correct case, honorific level, scope, and register: सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "answer": "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "skill_target": "listen and fill",
+                "audio_source": "synthetic_tts: ne-NP browser voice when available; fallback disclosed; text=सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।"
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "मुहावरेको अर्थ — repeat after audio: analyse or produce the Nepali model with correct case, honorific level, scope, and register: सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "answer": "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: ne-NP browser voice when available; fallback disclosed; text=सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।"
+              },
+              {
+                "type": "pronunciation",
+                "q": "मुहावरेको अर्थ — pronunciation: analyse or produce the Nepali model with correct case, honorific level, scope, and register: सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "answer": "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: ne-NP browser voice when available; fallback disclosed; text=सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।"
+              },
+              {
+                "type": "shadowing",
+                "q": "मुहावरेको अर्थ — shadowing: analyse or produce the Nepali model with correct case, honorific level, scope, and register: सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "answer": "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: ne-NP browser voice when available; fallback disclosed; text=सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।"
+              },
+              {
+                "type": "guided_speaking",
+                "q": "मुहावरेको अर्थ — guided speaking: analyse or produce the Nepali model with correct case, honorific level, scope, and register: सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "answer": "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "मुहावरेको अर्थ — free response: analyse or produce the Nepali model with correct case, honorific level, scope, and register: सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "answer": "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "मुहावरेको अर्थ — roleplay: analyse or produce the Nepali model with correct case, honorific level, scope, and register: सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "answer": "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "मुहावरेको अर्थ — sentence writing: analyse or produce the Nepali model with correct case, honorific level, scope, and register: सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "answer": "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                "skill_target": "sentence writing"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "मुहावरेको अर्थ: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              },
+              {
+                "q": "मुहावरेको अर्थ: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              },
+              {
+                "q": "मुहावरेको अर्थ: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              },
+              {
+                "q": "मुहावरेको अर्थ: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              },
+              {
+                "q": "मुहावरेको अर्थ: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "सम्झौताले",
+              "समस्या",
+              "गलैँचामुनि",
+              "लुकाउँदै"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "मुहावरेको अर्थ workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate morphology and discourse function.",
+                  "items": [
+                    "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                    "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।"
+                  ],
+                  "key": [
+                    "Nepali combines postpositions and case markers, honorific agreement, aspect and evidentiality, participles, SOV order, topic-focus particles, Devanagari spelling, and prosody. Choices encode participant roles, evidence, focus, and social relationship.",
+                    "Nepali combines postpositions and case markers, honorific agreement, aspect and evidentiality, participles, SOV order, topic-focus particles, Devanagari spelling, and prosody. Choices encode participant roles, evidence, focus, and social relationship."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                    "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।"
+                  ],
+                  "key": [
+                    "The compromise swept the problem under the carpet while both sides saved face.",
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "The compromise swept the problem under the carpet while both sides saved face.",
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                  ],
+                  "key": [
+                    "Model: सम्झौताले समस्या गलैँचामुनि लुकाउँदै दुवै पक्षलाई इज्जत जोगाउन दियो।",
+                    "Model: ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "npi-c2-u3",
+        "title": "Cultural and High-Stakes Mediation",
+        "lessons": [
+          {
+            "id": "npi-c2-l5",
+            "title": "विधा रूपान्तरण",
+            "learn": "Control विधा रूपान्तरण in level-appropriate Nepali communication.",
+            "vocab": [
+              {
+                "t": "ज्ञापनले",
+                "r": "j~napanale",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "अनिश्चितता",
+                "r": "anishchitata",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "स्वीकार्छ",
+                "r": "svikarcha",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "तर",
+                "r": "tara",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "सार्वजनिक",
+                "r": "sarvajanika",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "वक्तव्यले",
+                "r": "vaktavyale",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "त्यसलाई",
+                "r": "tyasalai",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "सन्तुलित",
+                "r": "santulita",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "विधा रूपान्तरण",
+              "explain": "Nepali combines postpositions and case markers, honorific agreement, aspect and evidentiality, participles, SOV order, topic-focus particles, Devanagari spelling, and prosody. Choices encode participant roles, evidence, focus, and social relationship.",
+              "pattern": "topic + case-marked arguments + aspect/evidence + final predicate",
+              "examples": [
+                {
+                  "t": "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                  "r": "j~napanale anishchitata svikarcha, tara sarvajanika vaktavyale tyasalai santulita vishvasaka rupama prastuta garcha|",
+                  "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                },
+                {
+                  "t": "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                  "r": "upalabdha pramanaka adharama yo sabaibhanda sambhavya vyakhya ho, nirvivada phaisala hoina|",
+                  "en": "On available evidence, this is the most plausible explanation, but not an indisputable verdict."
+                },
+                {
+                  "t": "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                  "r": "dekhieka sabai sudhara vastavika pragati hoinan; kehi natijale bhara matra punarvitarana garchan|",
+                  "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with mismatched case, honorific agreement, or aspect",
+                  "right": "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                  "why": "The corrected model aligns morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "r": "j~napanale anishchitata svikarcha, tara sarvajanika vaktavyale tyasalai santulita vishvasaka rupama prastuta garcha|",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              },
+              {
+                "sp": "Colleague",
+                "t": "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                "r": "upalabdha pramanaka adharama yo sabaibhanda sambhavya vyakhya ho, nirvivada phaisala hoina|",
+                "en": "On available evidence, this is the most plausible explanation, but not an indisputable verdict."
+              },
+              {
+                "sp": "Mediator",
+                "t": "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                "r": "dekhieka sabai sudhara vastavika pragati hoinan; kehi natijale bhara matra punarvitarana garchan|",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              },
+              {
+                "sp": "Editor",
+                "t": "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "r": "natijalai purnatah anapekshita hoina bhannule vaktalai chakita bhaekaharubata sukshma rupama tadha rakhcha|",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              }
+            ],
+            "practice": [
+              {
+                "type": "repeat_after_audio",
+                "q": "विधा रूपान्तरण — repeat after audio: analyse or produce the Nepali model with correct case, honorific level, scope, and register: ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "answer": "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: ne-NP browser voice when available; fallback disclosed; text=ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।"
+              },
+              {
+                "type": "pronunciation",
+                "q": "विधा रूपान्तरण — pronunciation: analyse or produce the Nepali model with correct case, honorific level, scope, and register: ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "answer": "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: ne-NP browser voice when available; fallback disclosed; text=ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।"
+              },
+              {
+                "type": "shadowing",
+                "q": "विधा रूपान्तरण — shadowing: analyse or produce the Nepali model with correct case, honorific level, scope, and register: ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "answer": "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: ne-NP browser voice when available; fallback disclosed; text=ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।"
+              },
+              {
+                "type": "guided_speaking",
+                "q": "विधा रूपान्तरण — guided speaking: analyse or produce the Nepali model with correct case, honorific level, scope, and register: ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "answer": "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "विधा रूपान्तरण — free response: analyse or produce the Nepali model with correct case, honorific level, scope, and register: ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "answer": "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "विधा रूपान्तरण — roleplay: analyse or produce the Nepali model with correct case, honorific level, scope, and register: ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "answer": "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "विधा रूपान्तरण — sentence writing: analyse or produce the Nepali model with correct case, honorific level, scope, and register: ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "answer": "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "विधा रूपान्तरण — short writing: analyse or produce the Nepali model with correct case, honorific level, scope, and register: ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "answer": "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "paraphrase",
+                "q": "विधा रूपान्तरण — paraphrase: analyse or produce the Nepali model with correct case, honorific level, scope, and register: ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "answer": "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "विधा रूपान्तरण — summary: analyse or produce the Nepali model with correct case, honorific level, scope, and register: ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "answer": "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "विधा रूपान्तरण — guided composition: analyse or produce the Nepali model with correct case, honorific level, scope, and register: ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "answer": "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "विधा रूपान्तरण — register transformation: analyse or produce the Nepali model with correct case, honorific level, scope, and register: ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "answer": "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                "skill_target": "register transformation"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "विधा रूपान्तरण: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              },
+              {
+                "q": "विधा रूपान्तरण: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              },
+              {
+                "q": "विधा रूपान्तरण: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              },
+              {
+                "q": "विधा रूपान्तरण: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              },
+              {
+                "q": "विधा रूपान्तरण: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "ज्ञापनले",
+              "अनिश्चितता",
+              "स्वीकार्छ",
+              "तर"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "विधा रूपान्तरण workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate morphology and discourse function.",
+                  "items": [
+                    "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                    "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।"
+                  ],
+                  "key": [
+                    "Nepali combines postpositions and case markers, honorific agreement, aspect and evidentiality, participles, SOV order, topic-focus particles, Devanagari spelling, and prosody. Choices encode participant roles, evidence, focus, and social relationship.",
+                    "Nepali combines postpositions and case markers, honorific agreement, aspect and evidentiality, participles, SOV order, topic-focus particles, Devanagari spelling, and prosody. Choices encode participant roles, evidence, focus, and social relationship."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                    "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।"
+                  ],
+                  "key": [
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence.",
+                    "On available evidence, this is the most plausible explanation, but not an indisputable verdict."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence.",
+                    "On available evidence, this is the most plausible explanation, but not an indisputable verdict."
+                  ],
+                  "key": [
+                    "Model: ज्ञापनले अनिश्चितता स्वीकार्छ, तर सार्वजनिक वक्तव्यले त्यसलाई सन्तुलित विश्वासका रूपमा प्रस्तुत गर्छ।",
+                    "Model: उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "npi-c2-l6",
+            "title": "ज्ञानात्मक शुद्धता",
+            "learn": "Control ज्ञानात्मक शुद्धता in level-appropriate Nepali communication.",
+            "vocab": [
+              {
+                "t": "उपलब्ध",
+                "r": "upalabdha",
+                "en": "discourse segment in “On available evidence, this is the most plausible explanation, but not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "प्रमाणका",
+                "r": "pramanaka",
+                "en": "discourse segment in “On available evidence, this is the most plausible explanation, but not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "आधारमा",
+                "r": "adharama",
+                "en": "discourse segment in “On available evidence, this is the most plausible explanation, but not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "यो",
+                "r": "yo",
+                "en": "discourse segment in “On available evidence, this is the most plausible explanation, but not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "सबैभन्दा",
+                "r": "sabaibhanda",
+                "en": "discourse segment in “On available evidence, this is the most plausible explanation, but not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "सम्भाव्य",
+                "r": "sambhavya",
+                "en": "discourse segment in “On available evidence, this is the most plausible explanation, but not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "व्याख्या",
+                "r": "vyakhya",
+                "en": "discourse segment in “On available evidence, this is the most plausible explanation, but not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "हो",
+                "r": "ho",
+                "en": "discourse segment in “On available evidence, this is the most plausible explanation, but not an indisputable verdict.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "ज्ञानात्मक शुद्धता",
+              "explain": "Nepali combines postpositions and case markers, honorific agreement, aspect and evidentiality, participles, SOV order, topic-focus particles, Devanagari spelling, and prosody. Choices encode participant roles, evidence, focus, and social relationship.",
+              "pattern": "topic + case-marked arguments + aspect/evidence + final predicate",
+              "examples": [
+                {
+                  "t": "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                  "r": "upalabdha pramanaka adharama yo sabaibhanda sambhavya vyakhya ho, nirvivada phaisala hoina|",
+                  "en": "On available evidence, this is the most plausible explanation, but not an indisputable verdict."
+                },
+                {
+                  "t": "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                  "r": "dekhieka sabai sudhara vastavika pragati hoinan; kehi natijale bhara matra punarvitarana garchan|",
+                  "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                },
+                {
+                  "t": "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                  "r": "natijalai purnatah anapekshita hoina bhannule vaktalai chakita bhaekaharubata sukshma rupama tadha rakhcha|",
+                  "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with mismatched case, honorific agreement, or aspect",
+                  "right": "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                  "why": "The corrected model aligns morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                "r": "upalabdha pramanaka adharama yo sabaibhanda sambhavya vyakhya ho, nirvivada phaisala hoina|",
+                "en": "On available evidence, this is the most plausible explanation, but not an indisputable verdict."
+              },
+              {
+                "sp": "Colleague",
+                "t": "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।",
+                "r": "dekhieka sabai sudhara vastavika pragati hoinan; kehi natijale bhara matra punarvitarana garchan|",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              },
+              {
+                "sp": "Mediator",
+                "t": "नतिजालाई पूर्णतः अनपेक्षित होइन भन्नुले वक्तालाई चकित भएकाहरूबाट सूक्ष्म रूपमा टाढा राख्छ।",
+                "r": "natijalai purnatah anapekshita hoina bhannule vaktalai chakita bhaekaharubata sukshma rupama tadha rakhcha|",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              },
+              {
+                "sp": "Editor",
+                "t": "हामीलाई हतारविनाको महत्त्वाकाङ्क्षा, निष्क्रियताविनाको सावधानी र प्रदर्शनविनाको जवाफदेहिता चाहिन्छ।",
+                "r": "hamilai hataravinako mahattvaka~nksha, nishkriyatavinako savadhani ra pradarshanavinako javaphadehita chahincha|",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              }
+            ],
+            "practice": [
+              {
+                "type": "roleplay",
+                "q": "ज्ञानात्मक शुद्धता — roleplay: analyse or produce the Nepali model with correct case, honorific level, scope, and register: उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                "answer": "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "ज्ञानात्मक शुद्धता — sentence writing: analyse or produce the Nepali model with correct case, honorific level, scope, and register: उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                "answer": "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "ज्ञानात्मक शुद्धता — short writing: analyse or produce the Nepali model with correct case, honorific level, scope, and register: उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                "answer": "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "paraphrase",
+                "q": "ज्ञानात्मक शुद्धता — paraphrase: analyse or produce the Nepali model with correct case, honorific level, scope, and register: उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                "answer": "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "ज्ञानात्मक शुद्धता — summary: analyse or produce the Nepali model with correct case, honorific level, scope, and register: उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                "answer": "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "ज्ञानात्मक शुद्धता — guided composition: analyse or produce the Nepali model with correct case, honorific level, scope, and register: उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                "answer": "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "ज्ञानात्मक शुद्धता — register transformation: analyse or produce the Nepali model with correct case, honorific level, scope, and register: उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                "answer": "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                "skill_target": "register transformation"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "ज्ञानात्मक शुद्धता — multiple choice: analyse or produce the Nepali model with correct case, honorific level, scope, and register: उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                "answer": "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                "skill_target": "multiple choice",
+                "options": [
+                  "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                  "Form with incorrect case or honorific agreement",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "ज्ञानात्मक शुद्धता — fill in the blank: analyse or produce the Nepali model with correct case, honorific level, scope, and register: उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                "answer": "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "ज्ञानात्मक शुद्धता — translation: analyse or produce the Nepali model with correct case, honorific level, scope, and register: उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                "answer": "On available evidence, this is the most plausible explanation, but not an indisputable verdict.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "ज्ञानात्मक शुद्धता — reverse translation: analyse or produce the Nepali model with correct case, honorific level, scope, and register: उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                "answer": "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "ज्ञानात्मक शुद्धता — matching: analyse or produce the Nepali model with correct case, honorific level, scope, and register: उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                "answer": "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                "skill_target": "matching",
+                "options": [
+                  "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                  "Form with incorrect case or honorific agreement",
+                  "An unrelated greeting"
+                ]
+              }
+            ],
+            "quiz": [
+              {
+                "q": "ज्ञानात्मक शुद्धता: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              },
+              {
+                "q": "ज्ञानात्मक शुद्धता: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              },
+              {
+                "q": "ज्ञानात्मक शुद्धता: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              },
+              {
+                "q": "ज्ञानात्मक शुद्धता: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              },
+              {
+                "q": "ज्ञानात्मक शुद्धता: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                  "Form with incorrect case or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong honorific agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Nepali morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "उपलब्ध",
+              "प्रमाणका",
+              "आधारमा",
+              "यो"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "ज्ञानात्मक शुद्धता workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate morphology and discourse function.",
+                  "items": [
+                    "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                    "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।"
+                  ],
+                  "key": [
+                    "Nepali combines postpositions and case markers, honorific agreement, aspect and evidentiality, participles, SOV order, topic-focus particles, Devanagari spelling, and prosody. Choices encode participant roles, evidence, focus, and social relationship.",
+                    "Nepali combines postpositions and case markers, honorific agreement, aspect and evidentiality, participles, SOV order, topic-focus particles, Devanagari spelling, and prosody. Choices encode participant roles, evidence, focus, and social relationship."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                    "देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।"
+                  ],
+                  "key": [
+                    "On available evidence, this is the most plausible explanation, but not an indisputable verdict.",
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "On available evidence, this is the most plausible explanation, but not an indisputable verdict.",
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                  ],
+                  "key": [
+                    "Model: उपलब्ध प्रमाणका आधारमा यो सबैभन्दा सम्भाव्य व्याख्या हो, निर्विवाद फैसला होइन।",
+                    "Model: देखिएका सबै सुधार वास्तविक प्रगति होइनन्; केही नतिजाले भार मात्र पुनर्वितरण गर्छन्।"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "Spanish C2 Proficiency Test",
+      "items": [
+        {
+          "type": "argument_construction",
+          "q": "Nepali C2 integrated task 1: respond with accurate case, honorific agreement, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Nepali course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Nepali C2 integrated task 2: respond with accurate case, honorific agreement, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Nepali course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Nepali C2 integrated task 3: respond with accurate case, honorific agreement, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Nepali course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Nepali C2 integrated task 4: respond with accurate case, honorific agreement, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Nepali course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Nepali C2 integrated task 5: respond with accurate case, honorific agreement, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Nepali course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Nepali C2 integrated task 6: respond with accurate case, honorific agreement, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Nepali course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Nepali C2 integrated task 7: respond with accurate case, honorific agreement, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Nepali course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Nepali C2 integrated task 8: respond with accurate case, honorific agreement, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Nepali course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Nepali C2 integrated task 9: respond with accurate case, honorific agreement, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Nepali course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Nepali C2 integrated task 10: respond with accurate case, honorific agreement, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Nepali course rubric."
+        }
+      ]
+    }
+  }
+}
