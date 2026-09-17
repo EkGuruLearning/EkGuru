@@ -124,35 +124,91 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate precisely: آنکھوں کا ڈاکٹر (aankhon ka doctor)",
-                "answer": "eye doctor"
-              },
-              {
-                "type": "translate_t",
-                "q": "Write the Urdu term for: children's doctor",
-                "answer": "بچوں کا ڈاکٹر (bachchon ka doctor)"
-              },
-              {
-                "type": "fill",
-                "q": "Produce this complete Urdu model: I am not feeling well",
-                "answer": "مجھے اچھا نہیں لگ رہا (Mujhe achha nahi lag raha)"
-              },
-              {
-                "type": "choose",
-                "q": "Choose the expression meaning “ambulance”.",
+                "type": "multiple_choice",
+                "q": "Practice 1 [multiple choice] — Connected health explanations: Choose the contextual meaning of آنکھوں کا ڈاکٹر (aankhon ka doctor).",
+                "answer": "eye doctor",
+                "skill_target": "Urdu multiple choice: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
                 "options": [
-                  "ایمبولینس",
-                  "ہنگامی وارڈ",
-                  "وارڈ",
-                  "دواخانہ"
-                ],
-                "answer": "ایمبولینس"
+                  "eye doctor",
+                  "children's doctor",
+                  "ambulance"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Reformulate aloud in natural Urdu: My head aches",
-                "answer": "سر دکھتا ہے (Sar dukhta hai)"
+                "type": "fill_in_the_blank",
+                "q": "Practice 2 [fill in the blank] — Connected health explanations: Type the complete Urdu Nastaliq script expression for “children's doctor”.",
+                "answer": "بچوں کا ڈاکٹر",
+                "skill_target": "Urdu fill in the blank: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3 [translation] — Connected health explanations: Read ایمبولینس (ambulance) and give its contextual English meaning.",
+                "answer": "ambulance",
+                "skill_target": "Urdu translation: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4 [reverse translation] — Connected health explanations: Convert “emergency ward” into Urdu Nastaliq script; do not answer only in romanisation.",
+                "answer": "ہنگامی وارڈ",
+                "skill_target": "Urdu reverse translation: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5 [matching] — Connected health explanations: Match وارڈ to the meaning used in this lesson.",
+                "answer": "ward",
+                "skill_target": "Urdu matching: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "options": [
+                  "dispensary",
+                  "ward",
+                  "checkup"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6 [reorder] — Connected health explanations: Rebuild the lesson model with correct Urdu agreement, postpositions, honorificity, and formal versus everyday register: My head aches",
+                "answer": "سر دکھتا ہے",
+                "skill_target": "Urdu reorder: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7 [sentence building] — Connected health explanations: Rebuild the lesson model with correct Urdu agreement, postpositions, honorificity, and formal versus everyday register: I am not feeling well",
+                "answer": "مجھے اچھا نہیں لگ رہا",
+                "skill_target": "Urdu sentence building: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8 [word selection] — Connected health explanations: Select the lesson form meaning “prescription”.",
+                "answer": "نسخہ",
+                "skill_target": "Urdu word selection: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "options": [
+                  "آنکھوں کا ڈاکٹر",
+                  "بچوں کا ڈاکٹر",
+                  "نسخہ"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9 [error correction] — Connected health explanations: Replace a literal or grammatically mismatched rendering with the correct lesson model for “My head aches”.",
+                "answer": "سر دکھتا ہے",
+                "skill_target": "Urdu error correction: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10 [dialogue completion] — Connected health explanations: Complete Speaker B’s turn appropriately: Take me to hospital",
+                "answer": "مجھے سرکاری ہسپتال لے چلیے",
+                "skill_target": "Urdu dialogue completion: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11 [reading comprehension] — Connected health explanations: Read دوائی کی دکان کہاں ہے؟ (Davai ki dukan kahan hai?). What precise detail is communicated?",
+                "answer": "Where is the pharmacy?",
+                "skill_target": "Urdu reading comprehension: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12 [paragraph comprehension] — Connected health explanations: Read the four-turn dialogue. State the contribution of this turn: یہ دوا لیجیے",
+                "answer": "Take this medicine",
+                "skill_target": "Urdu paragraph comprehension: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               }
             ],
             "quiz": [
@@ -248,9 +304,28 @@
                     "ہنگامی وارڈ (hangami ward)",
                     "وارڈ (ward)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Urdu offline lab: read, transform in Urdu Nastaliq script, and rehearse the response aloud. Check Urdu agreement, postpositions, honorificity, and formal versus everyday register.",
+                  "items": [
+                    "مجھے اچھا نہیں لگ رہا",
+                    "ڈاکٹر کو بلائیے"
+                  ],
+                  "key": [
+                    "I am not feeling well",
+                    "Call a doctor"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "آنکھوں کا ڈاکٹر",
+              "بچوں کا ڈاکٹر",
+              "ایمبولینس",
+              "ہنگامی وارڈ"
+            ],
+            "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
           },
           {
             "id": "ur-b1-l2",
@@ -359,35 +434,89 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate precisely: صفائی ملازم (safai mulazim)",
-                "answer": "cleaner"
+                "type": "main_idea",
+                "q": "Practice 2 [main idea] — Workplace duties and reported updates: State the main learning purpose of “Workplace duties and reported updates”.",
+                "answer": "Build connected speech with reasons, time reference, obligation, and respectful interaction.",
+                "skill_target": "Urdu main idea: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
               {
-                "type": "translate_t",
-                "q": "Write the Urdu term for: accountant",
-                "answer": "حساب نویس (hisab navis)"
+                "type": "detail_identification",
+                "q": "Practice 3 [detail identification] — Workplace duties and reported updates: Read تنخواہ کب ملے گی؟ (Tankhvah kab milegi?). What precise detail is communicated?",
+                "answer": "When is the salary?",
+                "skill_target": "Urdu detail identification: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
               {
-                "type": "fill",
-                "q": "Produce this complete Urdu model: I have a meeting",
-                "answer": "میری اجلاس ہے (Meri ijlas hai)"
+                "type": "inference",
+                "q": "Practice 4 [inference] — Workplace duties and reported updates: What may a listener infer from میری اجلاس ہے? Preserve its qualification or social force.",
+                "answer": "I have a meeting",
+                "skill_target": "Urdu inference: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
               {
-                "type": "choose",
-                "q": "Choose the expression meaning “cashier”.",
+                "type": "listening_comprehension",
+                "q": "Practice 5 [listening comprehension] — Workplace duties and reported updates: Play the labeled synthetic audio and give the exact contextual meaning.",
+                "answer": "Send the email",
+                "skill_target": "Urdu listening comprehension: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "ای میل بھیجیے"
+              },
+              {
+                "type": "dictation",
+                "q": "Practice 6 [dictation] — Workplace duties and reported updates: Play the labeled synthetic Urdu audio and type the complete line in Urdu Nastaliq script.",
+                "answer": "پرنٹ نکالیے",
+                "skill_target": "Urdu dictation: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "پرنٹ نکالیے"
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Practice 7 [listen and choose] — Workplace duties and reported updates: Play the synthetic audio and choose its contextual meaning.",
+                "answer": "When is the salary?",
+                "skill_target": "Urdu listen and choose: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "تنخواہ کب ملے گی؟",
                 "options": [
-                  "کیشیئر",
-                  "گاہک",
-                  "ملاقاتی",
-                  "انٹرویو"
-                ],
-                "answer": "کیشیئر"
+                  "When is the salary?",
+                  "I need leave tomorrow",
+                  "job"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Reformulate aloud in natural Urdu: Sign here",
-                "answer": "یہاں دستخط کیجیے (Yahan dastakhat kijiye)"
+                "type": "listen_and_reorder",
+                "q": "Practice 8 [listen and reorder] — Workplace duties and reported updates: Rebuild the lesson model with correct Urdu agreement, postpositions, honorificity, and formal versus everyday register: The boss called you",
+                "answer": "باس نے آپ کو بلایا",
+                "skill_target": "Urdu listen and reorder: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "ای میل بھیجیے"
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Practice 9 [listen and fill] — Workplace duties and reported updates: Play the synthetic audio and type the full line beginning “ای…”.",
+                "answer": "ای میل بھیجیے",
+                "skill_target": "Urdu listen and fill: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "ای میل بھیجیے"
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Practice 10 [repeat after audio] — Workplace duties and reported updates: Repeat the complete synthetic model with its phrase grouping. Use self-check; no microphone score is claimed.",
+                "answer": "پرنٹ نکالیے",
+                "skill_target": "Urdu repeat after audio: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "پرنٹ نکالیے"
+              },
+              {
+                "type": "pronunciation",
+                "q": "Practice 11 [pronunciation] — Workplace duties and reported updates: Listen and practise کیشیئر (cashier), attending to the lesson’s sound and script pattern. Self-check only.",
+                "answer": "کیشیئر",
+                "skill_target": "Urdu pronunciation: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "کیشیئر"
+              },
+              {
+                "type": "shadowing",
+                "q": "Practice 12 [shadowing] — Workplace duties and reported updates: Shadow the synthetic model without replacing target-language sounds with English approximations. Self-check only.",
+                "answer": "کل مجھے چھٹی چاہیے",
+                "skill_target": "Urdu shadowing: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "کل مجھے چھٹی چاہیے"
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Practice 13 [guided speaking] — Workplace duties and reported updates: Produce a guided spoken response for “I have a meeting”.",
+                "answer": "میری اجلاس ہے",
+                "skill_target": "Urdu guided speaking: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               }
             ],
             "quiz": [
@@ -483,9 +612,28 @@
                     "گاہک (gahak)",
                     "ملاقاتی (mulaqati)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Urdu offline lab: read, transform in Urdu Nastaliq script, and rehearse the response aloud. Check Urdu agreement, postpositions, honorificity, and formal versus everyday register.",
+                  "items": [
+                    "میری اجلاس ہے",
+                    "ای میل بھیجیے"
+                  ],
+                  "key": [
+                    "I have a meeting",
+                    "Send the email"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "صفائی ملازم",
+              "حساب نویس",
+              "کیشیئر",
+              "گاہک"
+            ],
+            "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
           }
         ]
       },
@@ -600,35 +748,81 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate precisely: رول نمبر (roll number)",
-                "answer": "roll number"
+                "type": "free_response",
+                "q": "Practice 3 [free response] — Learning goals and reasons: Give a new spoken response demonstrating Learning goals and reasons; compare it with the model.",
+                "answer": "صاف لکھیے",
+                "skill_target": "Urdu free response: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
               {
-                "type": "translate_t",
-                "q": "Write the Urdu term for: uniform",
-                "answer": "وردی (vardi)"
+                "type": "roleplay",
+                "q": "Practice 4 [roleplay] — Learning goals and reasons: Role-play Speaker B and express “Ask me” with lesson-appropriate register.",
+                "answer": "مجھ سے پوچھیے",
+                "skill_target": "Urdu roleplay: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
               {
-                "type": "fill",
-                "q": "Produce this complete Urdu model: Open your book",
-                "answer": "اپنی کتاب کھولیے (Apni kitab kholiye)"
+                "type": "sentence_writing",
+                "q": "Practice 5 [sentence writing] — Learning goals and reasons: Write one accurate Urdu Nastaliq script sentence using کھانے کا ڈبہ.",
+                "answer": "زور سے پڑھیے",
+                "skill_target": "Urdu sentence writing: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
               {
-                "type": "choose",
-                "q": "Choose the expression meaning “shoes”.",
+                "type": "short_writing",
+                "q": "Practice 6 [short writing] — Learning goals and reasons: Write 2–3 connected sentences applying Learning goals and reasons and its language-specific grammar.",
+                "answer": "صاف لکھیے اپنی کتاب کھولیے",
+                "skill_target": "Urdu short writing: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "paraphrase",
+                "q": "Practice 7 [paraphrase] — Learning goals and reasons: Paraphrase without changing meaning, agreement, or register: اپنی کتاب کھولیے",
+                "answer": "اپنی کتاب کھولیے",
+                "skill_target": "Urdu paraphrase: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "summary",
+                "q": "Practice 8 [summary] — Learning goals and reasons: Summarize the dialogue in one precise target-language sentence.",
+                "answer": "مجھ سے پوچھیے",
+                "skill_target": "Urdu summary: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Practice 9 [guided composition] — Learning goals and reasons: Compose a short response using the taught pattern: context + main point + support/qualification + audience-appropriate close",
+                "answer": "صاف لکھیے",
+                "skill_target": "Urdu guided composition: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Practice 10 [register transformation] — Learning goals and reasons: Recast this idea in the formal/respectful or colloquial register required by “Learning goals and reasons”: Open your book",
+                "answer": "اپنی کتاب کھولیے",
+                "skill_target": "Urdu register transformation: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "tone_identification",
+                "q": "Practice 11 [tone identification] — Learning goals and reasons: Identify the tone or stance of زور سے پڑھیے and relate it to Learning goals and reasons — discourse control.",
+                "answer": "The wording realizes the lesson stance and register of Learning goals and reasons — discourse control.",
+                "skill_target": "Urdu tone identification: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "semantic_distinction",
+                "q": "Practice 12 [semantic distinction] — Learning goals and reasons: Distinguish اسکول کے جوتے from کھانے کا ڈبہ in meaning and use.",
+                "answer": "اسکول کے جوتے means “school shoes”; کھانے کا ڈبہ means “lunch box”. Their context and grammatical role determine the choice.",
+                "skill_target": "Urdu semantic distinction: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "contextual_meaning",
+                "q": "Practice 13 [contextual meaning] — Learning goals and reasons: Explain the contextual force of کھانے کا ڈبہ in this lesson rather than translating mechanically.",
+                "answer": "Here کھانے کا ڈبہ contributes “lunch box” within Learning goals and reasons — discourse control.",
+                "skill_target": "Urdu contextual meaning: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Practice 14 [multiple choice] — Learning goals and reasons: Choose the contextual meaning of پانی کی بوتل (pani ki bottle).",
+                "answer": "water bottle",
+                "skill_target": "Urdu multiple choice: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
                 "options": [
-                  "جوتے",
-                  "اسکول کے جوتے",
-                  "کھانے کا ڈبہ",
-                  "پانی کی بوتل"
-                ],
-                "answer": "جوتے"
-              },
-              {
-                "type": "speak",
-                "q": "Reformulate aloud in natural Urdu: Write neatly",
-                "answer": "صاف لکھیے (Saaf likhiye)"
+                  "water bottle",
+                  "school bag",
+                  "textbook"
+                ]
               }
             ],
             "quiz": [
@@ -724,9 +918,28 @@
                     "اسکول کے جوتے (school ke joote)",
                     "کھانے کا ڈبہ (khane ka dabba)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Urdu offline lab: read, transform in Urdu Nastaliq script, and rehearse the response aloud. Check Urdu agreement, postpositions, honorificity, and formal versus everyday register.",
+                  "items": [
+                    "اپنی کتاب کھولیے",
+                    "دھیان سے سنیے"
+                  ],
+                  "key": [
+                    "Open your book",
+                    "Listen carefully"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "رول نمبر",
+              "وردی",
+              "جوتے",
+              "اسکول کے جوتے"
+            ],
+            "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
           },
           {
             "id": "ur-b1-l4",
@@ -835,35 +1048,86 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate precisely: پیاس (pyas)",
-                "answer": "thirst"
+                "type": "fill_in_the_blank",
+                "q": "Practice 4 [fill in the blank] — Weather causes and conditions: Type the complete Urdu Nastaliq script expression for “dew”.",
+                "answer": "شبنم",
+                "skill_target": "Urdu fill in the blank: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
               {
-                "type": "translate_t",
-                "q": "Write the Urdu term for: winter",
-                "answer": "سردی کا موسم (sardi ka mausam)"
+                "type": "translation",
+                "q": "Practice 5 [translation] — Weather causes and conditions: Read دھند (dhund) and give its contextual English meaning.",
+                "answer": "fog",
+                "skill_target": "Urdu translation: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
               {
-                "type": "fill",
-                "q": "Produce this complete Urdu model: It is raining",
-                "answer": "بارش ہو رہی ہے (Barish ho rahi hai)"
+                "type": "reverse_translation",
+                "q": "Practice 6 [reverse translation] — Weather causes and conditions: Convert “frost” into Urdu Nastaliq script; do not answer only in romanisation.",
+                "answer": "پالا",
+                "skill_target": "Urdu reverse translation: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
               {
-                "type": "choose",
-                "q": "Choose the expression meaning “cold”.",
+                "type": "matching",
+                "q": "Practice 7 [matching] — Weather causes and conditions: Match برف to the meaning used in this lesson.",
+                "answer": "ice",
+                "skill_target": "Urdu matching: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "options": [
+                  "snow",
+                  "ice",
+                  "thirst"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 8 [reorder] — Weather causes and conditions: Rebuild the lesson model with correct Urdu agreement, postpositions, honorificity, and formal versus everyday register: It is very hot",
+                "answer": "بہت گرمی ہے",
+                "skill_target": "Urdu reorder: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 9 [sentence building] — Weather causes and conditions: Rebuild the lesson model with correct Urdu agreement, postpositions, honorificity, and formal versus everyday register: It is cold today",
+                "answer": "آج ٹھنڈ ہے",
+                "skill_target": "Urdu sentence building: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 10 [word selection] — Weather causes and conditions: Select the lesson form meaning “winter”.",
+                "answer": "سردی کا موسم",
+                "skill_target": "Urdu word selection: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
                 "options": [
                   "ٹھنڈ",
                   "شبنم",
-                  "دھند",
-                  "پالا"
-                ],
-                "answer": "ٹھنڈ"
+                  "سردی کا موسم"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Reformulate aloud in natural Urdu: It is cold today",
-                "answer": "آج ٹھنڈ ہے (Aaj thand hai)"
+                "type": "error_correction",
+                "q": "Practice 11 [error correction] — Weather causes and conditions: Replace a literal or grammatically mismatched rendering with the correct lesson model for “It is very hot”.",
+                "answer": "بہت گرمی ہے",
+                "skill_target": "Urdu error correction: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 12 [dialogue completion] — Weather causes and conditions: Complete Speaker B’s turn appropriately: Night fell",
+                "answer": "رات ہو گئی",
+                "skill_target": "Urdu dialogue completion: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 13 [reading comprehension] — Weather causes and conditions: Read کیسی اچھی ہوا! (Kaisi achhi hava!). What precise detail is communicated?",
+                "answer": "What a pleasant wind!",
+                "skill_target": "Urdu reading comprehension: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 14 [paragraph comprehension] — Weather causes and conditions: Read the four-turn dialogue. State the contribution of this turn: چھاتا لے لیجیے",
+                "answer": "Take an umbrella",
+                "skill_target": "Urdu paragraph comprehension: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "main_idea",
+                "q": "Practice 15 [main idea] — Weather causes and conditions: State the main learning purpose of “Weather causes and conditions”.",
+                "answer": "Build connected speech with reasons, time reference, obligation, and respectful interaction.",
+                "skill_target": "Urdu main idea: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               }
             ],
             "quiz": [
@@ -959,9 +1223,28 @@
                     "شبنم (shabnam)",
                     "دھند (dhund)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Urdu offline lab: read, transform in Urdu Nastaliq script, and rehearse the response aloud. Check Urdu agreement, postpositions, honorificity, and formal versus everyday register.",
+                  "items": [
+                    "بارش ہو رہی ہے",
+                    "کیسی اچھی ہوا!"
+                  ],
+                  "key": [
+                    "It is raining",
+                    "What a pleasant wind!"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "پیاس",
+              "سردی کا موسم",
+              "ٹھنڈ",
+              "شبنم"
+            ],
+            "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
           }
         ]
       },
@@ -1076,35 +1359,89 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate precisely: بڑا بھائی (badha bhai)",
-                "answer": "elder brother"
+                "type": "detail_identification",
+                "q": "Practice 5 [detail identification] — Family experiences and obligations: Read بیٹھیے (Baithiye). What precise detail is communicated?",
+                "answer": "Sit down",
+                "skill_target": "Urdu detail identification: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
               {
-                "type": "translate_t",
-                "q": "Write the Urdu term for: younger brother",
-                "answer": "چھوٹا بھائی (chhota bhai)"
+                "type": "inference",
+                "q": "Practice 6 [inference] — Family experiences and obligations: What may a listener infer from ہاتھ دھوئیے? Preserve its qualification or social force.",
+                "answer": "Wash your hands",
+                "skill_target": "Urdu inference: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
               {
-                "type": "fill",
-                "q": "Produce this complete Urdu model: Come, let's eat",
-                "answer": "آئیے، کھانا کھائیے (Aaiye, khana khaiye)"
+                "type": "listening_comprehension",
+                "q": "Practice 7 [listening comprehension] — Family experiences and obligations: Play the labeled synthetic audio and give the exact contextual meaning.",
+                "answer": "It is very tasty!",
+                "skill_target": "Urdu listening comprehension: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "بہت مزیدار ہے!"
               },
               {
-                "type": "choose",
-                "q": "Choose the expression meaning “elder sister”.",
+                "type": "dictation",
+                "q": "Practice 8 [dictation] — Family experiences and obligations: Play the labeled synthetic Urdu audio and type the complete line in Urdu Nastaliq script.",
+                "answer": "بس، پیٹ بھر گیا",
+                "skill_target": "Urdu dictation: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "بس، پیٹ بھر گیا"
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Practice 9 [listen and choose] — Family experiences and obligations: Play the synthetic audio and choose its contextual meaning.",
+                "answer": "Sit down",
+                "skill_target": "Urdu listen and choose: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "بیٹھیے",
                 "options": [
-                  "بڑی بہن",
-                  "چھوٹی بہن",
-                  "پردادا",
-                  "پردادی"
-                ],
-                "answer": "بڑی بہن"
+                  "Sit down",
+                  "Eat a little more",
+                  "elder brother"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Reformulate aloud in natural Urdu: Wash your hands",
-                "answer": "ہاتھ دھوئیے (Haath dhoiye)"
+                "type": "listen_and_reorder",
+                "q": "Practice 10 [listen and reorder] — Family experiences and obligations: Rebuild the lesson model with correct Urdu agreement, postpositions, honorificity, and formal versus everyday register: Come, let's eat",
+                "answer": "آئیے، کھانا کھائیے",
+                "skill_target": "Urdu listen and reorder: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "بیٹھیے"
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Practice 11 [listen and fill] — Family experiences and obligations: Play the synthetic audio and type the full line beginning “بہت…”.",
+                "answer": "بہت مزیدار ہے!",
+                "skill_target": "Urdu listen and fill: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "بہت مزیدار ہے!"
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Practice 12 [repeat after audio] — Family experiences and obligations: Repeat the complete synthetic model with its phrase grouping. Use self-check; no microphone score is claimed.",
+                "answer": "بس، پیٹ بھر گیا",
+                "skill_target": "Urdu repeat after audio: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "بس، پیٹ بھر گیا"
+              },
+              {
+                "type": "pronunciation",
+                "q": "Practice 13 [pronunciation] — Family experiences and obligations: Listen and practise پردادا (pardada), attending to the lesson’s sound and script pattern. Self-check only.",
+                "answer": "پردادا",
+                "skill_target": "Urdu pronunciation: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "پردادا"
+              },
+              {
+                "type": "shadowing",
+                "q": "Practice 14 [shadowing] — Family experiences and obligations: Shadow the synthetic model without replacing target-language sounds with English approximations. Self-check only.",
+                "answer": "تھوڑا اور کھائیے",
+                "skill_target": "Urdu shadowing: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "تھوڑا اور کھائیے"
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Practice 15 [guided speaking] — Family experiences and obligations: Produce a guided spoken response for “Wash your hands”.",
+                "answer": "ہاتھ دھوئیے",
+                "skill_target": "Urdu guided speaking: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "free_response",
+                "q": "Practice 16 [free response] — Family experiences and obligations: Give a new spoken response demonstrating Family experiences and obligations; compare it with the model.",
+                "answer": "آئیے، کھانا کھائیے",
+                "skill_target": "Urdu free response: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               }
             ],
             "quiz": [
@@ -1200,9 +1537,28 @@
                     "چھوٹی بہن (chhoti behan)",
                     "پردادا (pardada)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Urdu offline lab: read, transform in Urdu Nastaliq script, and rehearse the response aloud. Check Urdu agreement, postpositions, honorificity, and formal versus everyday register.",
+                  "items": [
+                    "آئیے، کھانا کھائیے",
+                    "بیٹھیے"
+                  ],
+                  "key": [
+                    "Come, let's eat",
+                    "Sit down"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "بڑا بھائی",
+              "چھوٹا بھائی",
+              "بڑی بہن",
+              "چھوٹی بہن"
+            ],
+            "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
           },
           {
             "id": "ur-b1-l6",
@@ -1311,35 +1667,81 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate precisely: روئی کی بتی (rui ki batti)",
-                "answer": "cotton wick"
+                "type": "roleplay",
+                "q": "Practice 6 [roleplay] — Inclusive invitations and social plans: Role-play Speaker B and express “Wear new clothes” with lesson-appropriate register.",
+                "answer": "نئے کپڑے پہنیے",
+                "skill_target": "Urdu roleplay: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
               {
-                "type": "translate_t",
-                "q": "Write the Urdu term for: lamp oil",
-                "answer": "دیے کا تیل (diye ka tel)"
+                "type": "sentence_writing",
+                "q": "Practice 7 [sentence writing] — Inclusive invitations and social plans: Write one accurate Urdu Nastaliq script sentence using عرس.",
+                "answer": "تیوہار مبارک!",
+                "skill_target": "Urdu sentence writing: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
               {
-                "type": "fill",
-                "q": "Produce this complete Urdu model: Happy festival!",
-                "answer": "تیوہار مبارک! (Teohar Mubarak!)"
+                "type": "short_writing",
+                "q": "Practice 8 [short writing] — Inclusive invitations and social plans: Write 2–3 connected sentences applying Inclusive invitations and social plans and its language-specific grammar.",
+                "answer": "نیا سال مبارک! ہمارے گھر آئیے",
+                "skill_target": "Urdu short writing: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
               {
-                "type": "choose",
-                "q": "Choose the expression meaning “rangoli”.",
+                "type": "paraphrase",
+                "q": "Practice 9 [paraphrase] — Inclusive invitations and social plans: Paraphrase without changing meaning, agreement, or register: ہمارے گھر آئیے",
+                "answer": "ہمارے گھر آئیے",
+                "skill_target": "Urdu paraphrase: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "summary",
+                "q": "Practice 10 [summary] — Inclusive invitations and social plans: Summarize the dialogue in one precise target-language sentence.",
+                "answer": "نئے کپڑے پہنیے",
+                "skill_target": "Urdu summary: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Practice 11 [guided composition] — Inclusive invitations and social plans: Compose a short response using the taught pattern: context + main point + support/qualification + audience-appropriate close",
+                "answer": "نیا سال مبارک!",
+                "skill_target": "Urdu guided composition: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Practice 12 [register transformation] — Inclusive invitations and social plans: Recast this idea in the formal/respectful or colloquial register required by “Inclusive invitations and social plans”: Come to our house",
+                "answer": "ہمارے گھر آئیے",
+                "skill_target": "Urdu register transformation: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "tone_identification",
+                "q": "Practice 13 [tone identification] — Inclusive invitations and social plans: Identify the tone or stance of تیوہار مبارک! and relate it to Inclusive invitations and social plans — discourse control.",
+                "answer": "The wording realizes the lesson stance and register of Inclusive invitations and social plans — discourse control.",
+                "skill_target": "Urdu tone identification: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "semantic_distinction",
+                "q": "Practice 14 [semantic distinction] — Inclusive invitations and social plans: Distinguish میلہ from عرس in meaning and use.",
+                "answer": "میلہ means “fair”; عرس means “Urs”. Their context and grammatical role determine the choice.",
+                "skill_target": "Urdu semantic distinction: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "contextual_meaning",
+                "q": "Practice 15 [contextual meaning] — Inclusive invitations and social plans: Explain the contextual force of عرس in this lesson rather than translating mechanically.",
+                "answer": "Here عرس contributes “Urs” within Inclusive invitations and social plans — discourse control.",
+                "skill_target": "Urdu contextual meaning: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Practice 16 [multiple choice] — Inclusive invitations and social plans: Choose the contextual meaning of حج (hajj).",
+                "answer": "Hajj",
+                "skill_target": "Urdu multiple choice: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
                 "options": [
-                  "رنگولی",
-                  "مہندی",
-                  "تورن",
-                  "میلہ"
-                ],
-                "answer": "رنگولی"
+                  "Hajj",
+                  "cotton wick",
+                  "lamp oil"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Reformulate aloud in natural Urdu: Come to our house",
-                "answer": "ہمارے گھر آئیے (Hamare ghar aaiye)"
+                "type": "fill_in_the_blank",
+                "q": "Practice 17 [fill in the blank] — Inclusive invitations and social plans: Type the complete Urdu Nastaliq script expression for “cotton wick”.",
+                "answer": "روئی کی بتی",
+                "skill_target": "Urdu fill in the blank: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               }
             ],
             "quiz": [
@@ -1435,9 +1837,28 @@
                     "مہندی (mehndi)",
                     "تورن (toran)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Urdu offline lab: read, transform in Urdu Nastaliq script, and rehearse the response aloud. Check Urdu agreement, postpositions, honorificity, and formal versus everyday register.",
+                  "items": [
+                    "تیوہار مبارک!",
+                    "مٹھائی کھائیے"
+                  ],
+                  "key": [
+                    "Happy festival!",
+                    "Eat sweets"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "روئی کی بتی",
+              "دیے کا تیل",
+              "رنگولی",
+              "مہندی"
+            ],
+            "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
           }
         ]
       }

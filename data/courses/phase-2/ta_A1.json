@@ -124,35 +124,91 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate: வணக்கம் (vaṇakkam)",
-                "answer": "Hello (respectful, universal)"
-              },
-              {
-                "type": "translate_t",
-                "q": "Write in Tamil: How are you? (formal)",
-                "answer": "நீங்கள் எப்படி இருக்கிறீர்கள்? (nīṅkaḷ eppaḍi irukkiṟīrkaḷ?)"
-              },
-              {
-                "type": "fill",
-                "q": "Produce the complete Tamil model: Hello! My name is Divya.",
-                "answer": "வணக்கம்! என் பெயர் திவ்யா. (Vaṇakkam! Eṉ peyar Divyā.)"
-              },
-              {
-                "type": "choose",
-                "q": "Choose the Tamil expression for “How are you? (familiar)”.",
+                "type": "multiple_choice",
+                "q": "Practice 1 [multiple choice] — Greetings and Respect: Choose the contextual meaning of வணக்கம் (vaṇakkam).",
+                "answer": "Hello (respectful, universal)",
+                "skill_target": "Tamil multiple choice: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
                 "options": [
-                  "நீ எப்படி இருக்கிறாய்?",
-                  "நான் நன்றாக இருக்கிறேன்",
-                  "நன்றி",
-                  "ஆம் / இல்லை"
-                ],
-                "answer": "நீ எப்படி இருக்கிறாய்?"
+                  "Hello (respectful, universal)",
+                  "How are you? (formal)",
+                  "How are you? (familiar)"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say naturally in Tamil: I'm fine, thank you. Which town are you from?",
-                "answer": "நான் நன்றாக இருக்கிறேன், நன்றி. நீங்கள் எந்த ஊர்? (Nāṉ naṉṟāka irukkiṟēṉ, naṉṟi. Nīṅkaḷ enta ūr?)"
+                "type": "fill_in_the_blank",
+                "q": "Practice 2 [fill in the blank] — Greetings and Respect: Type the complete Tamil script expression for “How are you? (formal)”.",
+                "answer": "நீங்கள் எப்படி இருக்கிறீர்கள்?",
+                "skill_target": "Tamil fill in the blank: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3 [translation] — Greetings and Respect: Read நீ எப்படி இருக்கிறாய்? (nī eppaḍi irukkiṟāy?) and give its contextual English meaning.",
+                "answer": "How are you? (familiar)",
+                "skill_target": "Tamil translation: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4 [reverse translation] — Greetings and Respect: Convert “I'm fine” into Tamil script; do not answer only in romanisation.",
+                "answer": "நான் நன்றாக இருக்கிறேன்",
+                "skill_target": "Tamil reverse translation: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5 [matching] — Greetings and Respect: Match நன்றி to the meaning used in this lesson.",
+                "answer": "Thank you",
+                "skill_target": "Tamil matching: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
+                "options": [
+                  "Yes / No",
+                  "Thank you",
+                  "Please"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6 [reorder] — Greetings and Respect: Rebuild the lesson model with correct Tamil suffix chains, case marking, agreement, and formal versus colloquial choice: I'm fine, thank you. Which town are you from?",
+                "answer": "நான் நன்றாக இருக்கிறேன், நன்றி. நீங்கள் எந்த ஊர்?",
+                "skill_target": "Tamil reorder: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7 [sentence building] — Greetings and Respect: Rebuild the lesson model with correct Tamil suffix chains, case marking, agreement, and formal versus colloquial choice: Hello! My name is Divya.",
+                "answer": "வணக்கம்! என் பெயர் திவ்யா.",
+                "skill_target": "Tamil sentence building: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8 [word selection] — Greetings and Respect: Select the lesson form meaning “Excuse me / Sorry”.",
+                "answer": "மன்னிக்கவும்",
+                "skill_target": "Tamil word selection: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
+                "options": [
+                  "வணக்கம்",
+                  "நீங்கள் எப்படி இருக்கிறீர்கள்?",
+                  "மன்னிக்கவும்"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9 [error correction] — Greetings and Respect: Replace a literal or grammatically mismatched rendering with the correct lesson model for “I'm fine, thank you. Which town are you from?”.",
+                "answer": "நான் நன்றாக இருக்கிறேன், நன்றி. நீங்கள் எந்த ஊர்?",
+                "skill_target": "Tamil error correction: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10 [dialogue completion] — Greetings and Respect: Complete Karthik’s turn appropriately: Hello! I'm Karthik. How are you?",
+                "answer": "வணக்கம்! நான் கார்த்திக். நீங்கள் எப்படி இருக்கிறீர்கள்?",
+                "skill_target": "Tamil dialogue completion: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11 [reading comprehension] — Greetings and Respect: Read நான் நன்றாக இருக்கிறேன், நன்றி. நீங்கள் எந்த ஊர்? (Nāṉ naṉṟāka irukkiṟēṉ, naṉṟi. Nīṅkaḷ enta ūr?). What precise detail is communicated?",
+                "answer": "I'm fine, thank you. Which town are you from?",
+                "skill_target": "Tamil reading comprehension: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12 [paragraph comprehension] — Greetings and Respect: Read the four-turn dialogue. State the contribution of this turn: நான் பெங்களூர். நான் தமிழ் கற்றுக்கொண்டிருக்கிறேன்.",
+                "answer": "I'm from Bengaluru. I'm learning Tamil.",
+                "skill_target": "Tamil paragraph comprehension: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
               }
             ],
             "quiz": [
@@ -248,9 +304,28 @@
                     "நான் நன்றாக இருக்கிறேன் (nāṉ naṉṟāka irukkiṟēṉ)",
                     "நன்றி (naṉṟi)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Tamil offline lab: read, transform in Tamil script, and rehearse the response aloud. Check Tamil suffix chains, case marking, agreement, and formal versus colloquial choice.",
+                  "items": [
+                    "வணக்கம்! என் பெயர் திவ்யா.",
+                    "வணக்கம்! என் பெயர் திவ்யா."
+                  ],
+                  "key": [
+                    "Hello! My name is Divya.",
+                    "Hello! My name is Divya."
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "வணக்கம்",
+              "நீங்கள் எப்படி இருக்கிறீர்கள்?",
+              "நீ எப்படி இருக்கிறாய்?",
+              "நான் நன்றாக இருக்கிறேன்"
+            ],
+            "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
           },
           {
             "id": "ta-a1-l2",
@@ -359,35 +434,92 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate: நான் (nāṉ)",
-                "answer": "I"
+                "type": "main_idea",
+                "q": "Practice 2 [main idea] — People and Pronouns: State the main learning purpose of “People and Pronouns”.",
+                "answer": "Identify people and choose singular, plural, and respectful pronouns.",
+                "skill_target": "Tamil main idea: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
               },
               {
-                "type": "translate_t",
-                "q": "Write in Tamil: we (excluding you)",
-                "answer": "நாங்கள் (nāṅkaḷ)"
+                "type": "detail_identification",
+                "q": "Practice 3 [detail identification] — People and Pronouns: Read நான் நன்றாக இருக்கிறேன், நன்றி. நீங்கள் எந்த ஊர்? (Nāṉ naṉṟāka irukkiṟēṉ, naṉṟi. Nīṅkaḷ enta ūr?). What precise detail is communicated?",
+                "answer": "I'm fine, thank you. Which town are you from?",
+                "skill_target": "Tamil detail identification: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
               },
               {
-                "type": "fill",
-                "q": "Produce the complete Tamil model: I",
-                "answer": "நான் (நான்)"
+                "type": "inference",
+                "q": "Practice 4 [inference] — People and Pronouns: What may a listener infer from நான்? Preserve its qualification or social force.",
+                "answer": "I",
+                "skill_target": "Tamil inference: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
               },
               {
-                "type": "choose",
-                "q": "Choose the Tamil expression for “you (formal / plural)”.",
+                "type": "listening_comprehension",
+                "q": "Practice 5 [listening comprehension] — People and Pronouns: Play the labeled synthetic audio and give the exact contextual meaning.",
+                "answer": "Hello! My name is Divya.",
+                "skill_target": "Tamil listening comprehension: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
+                "audio_source": "வணக்கம்! என் பெயர் திவ்யா."
+              },
+              {
+                "type": "dictation",
+                "q": "Practice 6 [dictation] — People and Pronouns: Play the labeled synthetic Tamil audio and type the complete line in Tamil script.",
+                "answer": "வணக்கம்! நான் கார்த்திக். நீங்கள் எப்படி இருக்கிறீர்கள்?",
+                "skill_target": "Tamil dictation: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
+                "audio_source": "வணக்கம்! நான் கார்த்திக். நீங்கள் எப்படி இருக்கிறீர்கள்?"
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Practice 7 [listen and choose] — People and Pronouns: Play the synthetic audio and choose its contextual meaning.",
+                "answer": "I'm fine, thank you. Which town are you from?",
+                "skill_target": "Tamil listen and choose: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
+                "audio_source": "நான் நன்றாக இருக்கிறேன், நன்றி. நீங்கள் எந்த ஊர்?",
                 "options": [
-                  "நீங்கள்",
-                  "நீ",
-                  "அவன்",
-                  "அவள்"
-                ],
-                "answer": "நீங்கள்"
+                  "I'm fine, thank you. Which town are you from?",
+                  "I'm from Bengaluru. I'm learning Tamil.",
+                  "it"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say naturally in Tamil: you (formal)",
-                "answer": "நீங்கள் (நீங்கள்)"
+                "type": "listen_and_reorder",
+                "q": "Practice 8 [listen and reorder] — People and Pronouns: Rebuild the lesson model with correct Tamil suffix chains, case marking, agreement, and formal versus colloquial choice: you (intimate)",
+                "answer": "நீ",
+                "skill_target": "Tamil listen and reorder: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
+                "audio_source": "வணக்கம்! என் பெயர் திவ்யா."
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Practice 9 [listen and fill] — People and Pronouns: Play the synthetic audio and type the full line beginning “வணக்கம்!…”.",
+                "answer": "வணக்கம்! என் பெயர் திவ்யா.",
+                "skill_target": "Tamil listen and fill: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
+                "audio_source": "வணக்கம்! என் பெயர் திவ்யா."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Practice 10 [repeat after audio] — People and Pronouns: Repeat the complete synthetic model with its phrase grouping. Use self-check; no microphone score is claimed.",
+                "answer": "வணக்கம்! நான் கார்த்திக். நீங்கள் எப்படி இருக்கிறீர்கள்?",
+                "skill_target": "Tamil repeat after audio: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
+                "audio_source": "வணக்கம்! நான் கார்த்திக். நீங்கள் எப்படி இருக்கிறீர்கள்?"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Practice 11 [multiple choice] — People and Pronouns: Choose the contextual meaning of நீங்கள் (nīṅkaḷ).",
+                "answer": "you (formal / plural)",
+                "skill_target": "Tamil multiple choice: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
+                "options": [
+                  "you (formal / plural)",
+                  "you (intimate)",
+                  "he"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 12 [fill in the blank] — People and Pronouns: Type the complete Tamil script expression for “you (intimate)”.",
+                "answer": "நீ",
+                "skill_target": "Tamil fill in the blank: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 13 [translation] — People and Pronouns: Read அவன் (avaṉ) and give its contextual English meaning.",
+                "answer": "he",
+                "skill_target": "Tamil translation: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
               }
             ],
             "quiz": [
@@ -483,9 +615,28 @@
                     "நீ (nī)",
                     "அவன் (avaṉ)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Tamil offline lab: read, transform in Tamil script, and rehearse the response aloud. Check Tamil suffix chains, case marking, agreement, and formal versus colloquial choice.",
+                  "items": [
+                    "நான்",
+                    "வணக்கம்! என் பெயர் திவ்யா."
+                  ],
+                  "key": [
+                    "I",
+                    "Hello! My name is Divya."
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "நான்",
+              "நாங்கள்",
+              "நீங்கள்",
+              "நீ"
+            ],
+            "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
           }
         ]
       },
@@ -600,35 +751,86 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate: புத்தகம் (puttakam)",
-                "answer": "book"
+                "type": "reverse_translation",
+                "q": "Practice 3 [reverse translation] — Home, School, and Objects: Convert “work” into Tamil script; do not answer only in romanisation.",
+                "answer": "வேலை",
+                "skill_target": "Tamil reverse translation: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
               },
               {
-                "type": "translate_t",
-                "q": "Write in Tamil: house / home",
-                "answer": "வீடு (vīḍu)"
-              },
-              {
-                "type": "fill",
-                "q": "Produce the complete Tamil model: at home",
-                "answer": "வீட்டில் (vīṭṭil)"
-              },
-              {
-                "type": "choose",
-                "q": "Choose the Tamil expression for “work”.",
+                "type": "matching",
+                "q": "Practice 4 [matching] — Home, School, and Objects: Match பள்ளி to the meaning used in this lesson.",
+                "answer": "school",
+                "skill_target": "Tamil matching: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
                 "options": [
-                  "வேலை",
-                  "பள்ளி",
-                  "ஆசிரியர்",
-                  "மாணவர்"
-                ],
-                "answer": "வேலை"
+                  "teacher",
+                  "school",
+                  "student"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say naturally in Tamil: from Chennai",
-                "answer": "சென்னையிலிருந்து (ceṉṉaiyiliruntu)"
+                "type": "reorder",
+                "q": "Practice 5 [reorder] — Home, School, and Objects: Rebuild the lesson model with correct Tamil suffix chains, case marking, agreement, and formal versus colloquial choice: give (to) me",
+                "answer": "எனக்கு கொடுங்கள்",
+                "skill_target": "Tamil reorder: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 6 [sentence building] — Home, School, and Objects: Rebuild the lesson model with correct Tamil suffix chains, case marking, agreement, and formal versus colloquial choice: from Chennai",
+                "answer": "சென்னையிலிருந்து",
+                "skill_target": "Tamil sentence building: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 7 [word selection] — Home, School, and Objects: Select the lesson form meaning “car”.",
+                "answer": "கார்",
+                "skill_target": "Tamil word selection: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
+                "options": [
+                  "சாலை",
+                  "புத்தகம்",
+                  "கார்"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 8 [error correction] — Home, School, and Objects: Replace a literal or grammatically mismatched rendering with the correct lesson model for “give (to) me”.",
+                "answer": "எனக்கு கொடுங்கள்",
+                "skill_target": "Tamil error correction: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 9 [dialogue completion] — Home, School, and Objects: Complete Mother’s turn appropriately: Listen, guests are coming this evening.",
+                "answer": "கேள், இன்று மாலை விருந்தினர் வருகிறார்கள்.",
+                "skill_target": "Tamil dialogue completion: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 10 [reading comprehension] — Home, School, and Objects: Read யார் வருகிறார்கள், அம்மா? (Yār varugiṛārgaḷ, ammā?). What precise detail is communicated?",
+                "answer": "Who is coming, mother?",
+                "skill_target": "Tamil reading comprehension: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 11 [paragraph comprehension] — Home, School, and Objects: Read the four-turn dialogue. State the contribution of this turn: உன் மாமா-மாமி. அறையை ஒழுங்குபடுத்து.",
+                "answer": "Your uncle and aunt. Tidy the room.",
+                "skill_target": "Tamil paragraph comprehension: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "main_idea",
+                "q": "Practice 12 [main idea] — Home, School, and Objects: State the main learning purpose of “Home, School, and Objects”.",
+                "answer": "Name familiar places and objects, then locate them.",
+                "skill_target": "Tamil main idea: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Practice 13 [detail identification] — Home, School, and Objects: Read கேள், இன்று மாலை விருந்தினர் வருகிறார்கள். (Kēḷ, iṉṛu mālai virundiṉar varugiṛārgaḷ.). What precise detail is communicated?",
+                "answer": "Listen, guests are coming this evening.",
+                "skill_target": "Tamil detail identification: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "inference",
+                "q": "Practice 14 [inference] — Home, School, and Objects: What may a listener infer from எனக்கு கொடுங்கள்? Preserve its qualification or social force.",
+                "answer": "give (to) me",
+                "skill_target": "Tamil inference: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
               }
             ],
             "quiz": [
@@ -724,9 +926,28 @@
                     "பள்ளி (paḷḷi)",
                     "ஆசிரியர் (āciriyar)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Tamil offline lab: read, transform in Tamil script, and rehearse the response aloud. Check Tamil suffix chains, case marking, agreement, and formal versus colloquial choice.",
+                  "items": [
+                    "வீட்டில்",
+                    "கேள், இன்று மாலை விருந்தினர் வருகிறார்கள்."
+                  ],
+                  "key": [
+                    "at home",
+                    "Listen, guests are coming this evening."
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "புத்தகம்",
+              "வீடு",
+              "வேலை",
+              "பள்ளி"
+            ],
+            "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
           },
           {
             "id": "ta-a1-l4",
@@ -835,35 +1056,97 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate: சாதம் (sātam)",
-                "answer": "cooked rice"
+                "type": "listening_comprehension",
+                "q": "Practice 4 [listening comprehension] — Food and Polite Requests: Play the labeled synthetic audio and give the exact contextual meaning.",
+                "answer": "Ten rupees.",
+                "skill_target": "Tamil listening comprehension: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
+                "audio_source": "பத்து ரூபாய்."
               },
               {
-                "type": "translate_t",
-                "q": "Write in Tamil: uncooked rice",
-                "answer": "அரிசி (arici)"
+                "type": "dictation",
+                "q": "Practice 5 [dictation] — Food and Polite Requests: Play the labeled synthetic Tamil audio and type the complete line in Tamil script.",
+                "answer": "அண்ணே, ஒரு டீ கொடுங்கள்.",
+                "skill_target": "Tamil dictation: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
+                "audio_source": "அண்ணே, ஒரு டீ கொடுங்கள்."
               },
               {
-                "type": "fill",
-                "q": "Produce the complete Tamil model: I am hungry",
-                "answer": "எனக்கு பசிக்கிறது (enakku pasikkiṟatu)"
-              },
-              {
-                "type": "choose",
-                "q": "Choose the Tamil expression for “lentils / dal”.",
+                "type": "listen_and_choose",
+                "q": "Practice 6 [listen and choose] — Food and Polite Requests: Play the synthetic audio and choose its contextual meaning.",
+                "answer": "How much sugar?",
+                "skill_target": "Tamil listen and choose: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
+                "audio_source": "சர்க்கரை எவ்வளவு?",
                 "options": [
-                  "பருப்பு",
-                  "மீன்",
-                  "கறி",
-                  "கோழி"
-                ],
-                "answer": "பருப்பு"
+                  "How much sugar?",
+                  "One spoon. How much?",
+                  "chicken"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say naturally in Tamil: The food is tasty",
-                "answer": "சாப்பாடு நன்றாக இருக்கிறது (sāppāḍu naṉṟāka irukkiṟatu)"
+                "type": "listen_and_reorder",
+                "q": "Practice 7 [listen and reorder] — Food and Polite Requests: Rebuild the lesson model with correct Tamil suffix chains, case marking, agreement, and formal versus colloquial choice: I am hungry",
+                "answer": "எனக்கு பசிக்கிறது",
+                "skill_target": "Tamil listen and reorder: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
+                "audio_source": "அண்ணே, ஒரு டீ கொடுங்கள்."
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Practice 8 [listen and fill] — Food and Polite Requests: Play the synthetic audio and type the full line beginning “பத்து…”.",
+                "answer": "பத்து ரூபாய்.",
+                "skill_target": "Tamil listen and fill: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
+                "audio_source": "பத்து ரூபாய்."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Practice 9 [repeat after audio] — Food and Polite Requests: Repeat the complete synthetic model with its phrase grouping. Use self-check; no microphone score is claimed.",
+                "answer": "அண்ணே, ஒரு டீ கொடுங்கள்.",
+                "skill_target": "Tamil repeat after audio: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
+                "audio_source": "அண்ணே, ஒரு டீ கொடுங்கள்."
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Practice 10 [multiple choice] — Food and Polite Requests: Choose the contextual meaning of அரிசி (arici).",
+                "answer": "uncooked rice",
+                "skill_target": "Tamil multiple choice: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
+                "options": [
+                  "uncooked rice",
+                  "lentils / dal",
+                  "fish"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 11 [fill in the blank] — Food and Polite Requests: Type the complete Tamil script expression for “lentils / dal”.",
+                "answer": "பருப்பு",
+                "skill_target": "Tamil fill in the blank: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 12 [translation] — Food and Polite Requests: Read மீன் (mīṉ) and give its contextual English meaning.",
+                "answer": "fish",
+                "skill_target": "Tamil translation: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 13 [reverse translation] — Food and Polite Requests: Convert “meat” into Tamil script; do not answer only in romanisation.",
+                "answer": "கறி",
+                "skill_target": "Tamil reverse translation: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 14 [matching] — Food and Polite Requests: Match கோழி to the meaning used in this lesson.",
+                "answer": "chicken",
+                "skill_target": "Tamil matching: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
+                "options": [
+                  "egg",
+                  "chicken",
+                  "milk"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 15 [reorder] — Food and Polite Requests: Rebuild the lesson model with correct Tamil suffix chains, case marking, agreement, and formal versus colloquial choice: The food is tasty",
+                "answer": "சாப்பாடு நன்றாக இருக்கிறது",
+                "skill_target": "Tamil reorder: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
               }
             ],
             "quiz": [
@@ -959,9 +1242,28 @@
                     "மீன் (mīṉ)",
                     "கறி (kaṟi)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Tamil offline lab: read, transform in Tamil script, and rehearse the response aloud. Check Tamil suffix chains, case marking, agreement, and formal versus colloquial choice.",
+                  "items": [
+                    "எனக்கு பசிக்கிறது",
+                    "அண்ணே, ஒரு டீ கொடுங்கள்."
+                  ],
+                  "key": [
+                    "I am hungry",
+                    "Brother, one tea please. (அண்ணே = O elder brother — the vocative everyone uses for the vendor)"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "சாதம்",
+              "அரிசி",
+              "பருப்பு",
+              "மீன்"
+            ],
+            "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
           }
         ]
       },
@@ -1076,35 +1378,89 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate: நிலையம் (nilaiyam)",
-                "answer": "station"
+                "type": "sentence_building",
+                "q": "Practice 5 [sentence building] — Travel and Questions: Rebuild the lesson model with correct Tamil suffix chains, case marking, agreement, and formal versus colloquial choice: How do I go to ...?",
+                "answer": "... க்கு எப்படி போக வேண்டும்?",
+                "skill_target": "Tamil sentence building: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
               },
               {
-                "type": "translate_t",
-                "q": "Write in Tamil: train",
-                "answer": "ரயில் (rayil)"
-              },
-              {
-                "type": "fill",
-                "q": "Produce the complete Tamil model: Where is ...?",
-                "answer": "... எங்கே இருக்கிறது? (... eṅkē irukkiṟatu?)"
-              },
-              {
-                "type": "choose",
-                "q": "Choose the Tamil expression for “bus”.",
+                "type": "word_selection",
+                "q": "Practice 6 [word selection] — Travel and Questions: Select the lesson form meaning “hotel”.",
+                "answer": "ஹோட்டல்",
+                "skill_target": "Tamil word selection: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
                 "options": [
-                  "பேருந்து",
-                  "டாக்ஸி",
-                  "டிக்கெட்",
+                  "அறை",
+                  "இடது",
                   "ஹோட்டல்"
-                ],
-                "answer": "பேருந்து"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say naturally in Tamil: Stop here, please",
-                "answer": "இங்கே நிறுத்துங்கள் (iṅkē niṟuttuṅkaḷ)"
+                "type": "error_correction",
+                "q": "Practice 7 [error correction] — Travel and Questions: Replace a literal or grammatically mismatched rendering with the correct lesson model for “Where is ...?”.",
+                "answer": "... எங்கே இருக்கிறது?",
+                "skill_target": "Tamil error correction: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 8 [dialogue completion] — Travel and Questions: Complete Local’s turn appropriately: No, quite near. Five minutes.",
+                "answer": "இல்லை, அருகில்தான். ஐந்து நிமிடம்.",
+                "skill_target": "Tamil dialogue completion: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 9 [reading comprehension] — Travel and Questions: Read மன்னிக்கவும், நிலையம் எங்கே இருக்கிறது? (Maṉṉikkavum, nilaiyam eṅkē irukkiṟatu?). What precise detail is communicated?",
+                "answer": "Excuse me, where is the station?",
+                "skill_target": "Tamil reading comprehension: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 10 [paragraph comprehension] — Travel and Questions: Read the four-turn dialogue. State the contribution of this turn: நேராக போங்கள், பிறகு வலதுபுறம்.",
+                "answer": "Go straight, then right.",
+                "skill_target": "Tamil paragraph comprehension: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "main_idea",
+                "q": "Practice 11 [main idea] — Travel and Questions: State the main learning purpose of “Travel and Questions”.",
+                "answer": "Ask where a place is and identify common transport.",
+                "skill_target": "Tamil main idea: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Practice 12 [detail identification] — Travel and Questions: Read இல்லை, அருகில்தான். ஐந்து நிமிடம். (Illai, arukiltāṉ. Aintu nimiḍam.). What precise detail is communicated?",
+                "answer": "No, quite near. Five minutes.",
+                "skill_target": "Tamil detail identification: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "inference",
+                "q": "Practice 13 [inference] — Travel and Questions: What may a listener infer from ... எங்கே இருக்கிறது?? Preserve its qualification or social force.",
+                "answer": "Where is ...?",
+                "skill_target": "Tamil inference: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Practice 14 [listening comprehension] — Travel and Questions: Play the labeled synthetic audio and give the exact contextual meaning.",
+                "answer": "Go straight, then right.",
+                "skill_target": "Tamil listening comprehension: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
+                "audio_source": "நேராக போங்கள், பிறகு வலதுபுறம்."
+              },
+              {
+                "type": "dictation",
+                "q": "Practice 15 [dictation] — Travel and Questions: Play the labeled synthetic Tamil audio and type the complete line in Tamil script.",
+                "answer": "தூரமா?",
+                "skill_target": "Tamil dictation: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
+                "audio_source": "தூரமா?"
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Practice 16 [listen and choose] — Travel and Questions: Play the synthetic audio and choose its contextual meaning.",
+                "answer": "No, quite near. Five minutes.",
+                "skill_target": "Tamil listen and choose: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
+                "audio_source": "இல்லை, அருகில்தான். ஐந்து நிமிடம்.",
+                "options": [
+                  "No, quite near. Five minutes.",
+                  "Excuse me, where is the station?",
+                  "left"
+                ]
               }
             ],
             "quiz": [
@@ -1200,9 +1556,28 @@
                     "டாக்ஸி (ṭākci)",
                     "டிக்கெட் (ṭikkeṭ)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Tamil offline lab: read, transform in Tamil script, and rehearse the response aloud. Check Tamil suffix chains, case marking, agreement, and formal versus colloquial choice.",
+                  "items": [
+                    "... எங்கே இருக்கிறது?",
+                    "மன்னிக்கவும், நிலையம் எங்கே இருக்கிறது?"
+                  ],
+                  "key": [
+                    "Where is ...?",
+                    "Excuse me, where is the station?"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "நிலையம்",
+              "ரயில்",
+              "பேருந்து",
+              "டாக்ஸி"
+            ],
+            "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
           },
           {
             "id": "ta-a1-l6",
@@ -1311,35 +1686,94 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate: சாப்பிட (sāppiḍa)",
-                "answer": "eat"
+                "type": "listen_and_reorder",
+                "q": "Practice 6 [listen and reorder] — Daily Actions: Rebuild the lesson model with correct Tamil suffix chains, case marking, agreement, and formal versus colloquial choice: Speak slowly, please",
+                "answer": "மெதுவாக பேசுங்கள்",
+                "skill_target": "Tamil listen and reorder: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
+                "audio_source": "எனக்கு புரியவில்லை"
               },
               {
-                "type": "translate_t",
-                "q": "Write in Tamil: go",
-                "answer": "போக (pōka)"
+                "type": "listen_and_fill",
+                "q": "Practice 7 [listen and fill] — Daily Actions: Play the synthetic audio and type the full line beginning “மெதுவாக…”.",
+                "answer": "மெதுவாக பேசுங்கள்",
+                "skill_target": "Tamil listen and fill: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
+                "audio_source": "மெதுவாக பேசுங்கள்"
               },
               {
-                "type": "fill",
-                "q": "Produce the complete Tamil model: I don't understand",
-                "answer": "எனக்கு புரியவில்லை (enakku puriyavillai)"
+                "type": "repeat_after_audio",
+                "q": "Practice 8 [repeat after audio] — Daily Actions: Repeat the complete synthetic model with its phrase grouping. Use self-check; no microphone score is claimed.",
+                "answer": "இதற்கு என்ன பெயர்?",
+                "skill_target": "Tamil repeat after audio: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
+                "audio_source": "இதற்கு என்ன பெயர்?"
               },
               {
-                "type": "choose",
-                "q": "Choose the Tamil expression for “come”.",
+                "type": "multiple_choice",
+                "q": "Practice 9 [multiple choice] — Daily Actions: Choose the contextual meaning of சாப்பிட (sāppiḍa).",
+                "answer": "eat",
+                "skill_target": "Tamil multiple choice: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
                 "options": [
-                  "வர",
-                  "செய்ய",
-                  "பேச",
-                  "பார்க்க"
-                ],
-                "answer": "வர"
+                  "eat",
+                  "go",
+                  "come"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say naturally in Tamil: Speak slowly, please",
-                "answer": "மெதுவாக பேசுங்கள் (metuvāka pēcuṅkaḷ)"
+                "type": "fill_in_the_blank",
+                "q": "Practice 10 [fill in the blank] — Daily Actions: Type the complete Tamil script expression for “go”.",
+                "answer": "போக",
+                "skill_target": "Tamil fill in the blank: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 11 [translation] — Daily Actions: Read வர (vara) and give its contextual English meaning.",
+                "answer": "come",
+                "skill_target": "Tamil translation: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 12 [reverse translation] — Daily Actions: Convert “do” into Tamil script; do not answer only in romanisation.",
+                "answer": "செய்ய",
+                "skill_target": "Tamil reverse translation: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 13 [matching] — Daily Actions: Match பேச to the meaning used in this lesson.",
+                "answer": "speak",
+                "skill_target": "Tamil matching: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
+                "options": [
+                  "see",
+                  "speak",
+                  "give"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 14 [reorder] — Daily Actions: Rebuild the lesson model with correct Tamil suffix chains, case marking, agreement, and formal versus colloquial choice: I want water",
+                "answer": "எனக்கு தண்ணீர் வேண்டும்",
+                "skill_target": "Tamil reorder: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 15 [sentence building] — Daily Actions: Rebuild the lesson model with correct Tamil suffix chains, case marking, agreement, and formal versus colloquial choice: Speak slowly, please",
+                "answer": "மெதுவாக பேசுங்கள்",
+                "skill_target": "Tamil sentence building: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 16 [word selection] — Daily Actions: Select the lesson form meaning “take”.",
+                "answer": "எடுக்க",
+                "skill_target": "Tamil word selection: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice",
+                "options": [
+                  "சாப்பிட",
+                  "போக",
+                  "எடுக்க"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 17 [error correction] — Daily Actions: Replace a literal or grammatically mismatched rendering with the correct lesson model for “I want water”.",
+                "answer": "எனக்கு தண்ணீர் வேண்டும்",
+                "skill_target": "Tamil error correction: Tamil suffix chains, case marking, agreement, and formal versus colloquial choice"
               }
             ],
             "quiz": [
@@ -1435,9 +1869,28 @@
                     "செய்ய (seyya)",
                     "பேச (pēca)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Tamil offline lab: read, transform in Tamil script, and rehearse the response aloud. Check Tamil suffix chains, case marking, agreement, and formal versus colloquial choice.",
+                  "items": [
+                    "எனக்கு புரியவில்லை",
+                    "எனக்கு புரியவில்லை"
+                  ],
+                  "key": [
+                    "I don't understand",
+                    "I don't understand"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "சாப்பிட",
+              "போக",
+              "வர",
+              "செய்ய"
+            ],
+            "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
           }
         ]
       }

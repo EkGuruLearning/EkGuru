@@ -467,35 +467,91 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate into English: السلام علیکم! (Assalām Alaikum!)",
-                "answer": "Hello! (peace greeting)"
-              },
-              {
-                "type": "translate_t",
-                "q": "Write in Urdu: Hello! (Lucknow style)",
-                "answer": "آداب! (Ādāb!)"
-              },
-              {
-                "type": "fill",
-                "q": "Complete this model: My name is Ali.",
-                "answer": "میرا نام علی ہے۔ (merā nām Alī hai.)"
-              },
-              {
-                "type": "choose",
-                "q": "Choose the Urdu expression for “How are you? (formal)”.",
+                "type": "multiple_choice",
+                "q": "Practice 1 [multiple choice] — Greetings and Courtesy: Choose the contextual meaning of السلام علیکم! (Assalām Alaikum!).",
+                "answer": "Hello! (peace greeting)",
+                "skill_target": "Urdu multiple choice: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
                 "options": [
-                  "آپ کیسے ہیں؟",
-                  "میں ٹھیک ہوں",
-                  "آپ کا نام کیا ہے؟",
-                  "میرا نام … ہے"
-                ],
-                "answer": "آپ کیسے ہیں؟"
+                  "Hello! (peace greeting)",
+                  "Hello! (Lucknow style)",
+                  "How are you? (formal)"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say aloud in Urdu: How are you?",
-                "answer": "آپ کیسے ہیں؟ (āp kaise hain?)"
+                "type": "fill_in_the_blank",
+                "q": "Practice 2 [fill in the blank] — Greetings and Courtesy: Type the complete Urdu Nastaliq script expression for “Hello! (Lucknow style)”.",
+                "answer": "آداب!",
+                "skill_target": "Urdu fill in the blank: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3 [translation] — Greetings and Courtesy: Read آپ کیسے ہیں؟ (Āp kaise hain?) and give its contextual English meaning.",
+                "answer": "How are you? (formal)",
+                "skill_target": "Urdu translation: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4 [reverse translation] — Greetings and Courtesy: Convert “I'm fine” into Urdu Nastaliq script; do not answer only in romanisation.",
+                "answer": "میں ٹھیک ہوں",
+                "skill_target": "Urdu reverse translation: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5 [matching] — Greetings and Courtesy: Match آپ کا نام کیا ہے؟ to the meaning used in this lesson.",
+                "answer": "What is your name?",
+                "skill_target": "Urdu matching: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "options": [
+                  "My name is …",
+                  "What is your name?",
+                  "Nice to meet you"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6 [reorder] — Greetings and Courtesy: Rebuild the lesson model with correct Urdu agreement, postpositions, honorificity, and formal versus everyday register: How are you?",
+                "answer": "آپ کیسے ہیں؟",
+                "skill_target": "Urdu reorder: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7 [sentence building] — Greetings and Courtesy: Rebuild the lesson model with correct Urdu agreement, postpositions, honorificity, and formal versus everyday register: My name is Ali.",
+                "answer": "میرا نام علی ہے۔",
+                "skill_target": "Urdu sentence building: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8 [word selection] — Greetings and Courtesy: Select the lesson form meaning “Thank you”.",
+                "answer": "شکریہ",
+                "skill_target": "Urdu word selection: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "options": [
+                  "السلام علیکم!",
+                  "آداب!",
+                  "شکریہ"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9 [error correction] — Greetings and Courtesy: Replace a literal or grammatically mismatched rendering with the correct lesson model for “How are you?”.",
+                "answer": "آپ کیسے ہیں؟",
+                "skill_target": "Urdu error correction: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10 [dialogue completion] — Greetings and Courtesy: Complete Fatima’s turn appropriately: And upon you peace! I'm Fatima. How are you?",
+                "answer": "وعلیکم السلام! میں فاطمہ۔ آپ کیسی ہیں؟",
+                "skill_target": "Urdu dialogue completion: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11 [reading comprehension] — Greetings and Courtesy: Read میں ٹھیک ہوں، شکریہ۔ آپ کہاں سے ہیں؟ (Main ṭhīk hūn, shukriyā. Āp kahān se hain?). What precise detail is communicated?",
+                "answer": "I'm fine, thanks. Where are you from?",
+                "skill_target": "Urdu reading comprehension: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12 [paragraph comprehension] — Greetings and Courtesy: Read the four-turn dialogue. State the contribution of this turn: میں لکھنؤ سے ہوں۔ آپ کا شہر کون سا ہے؟",
+                "answer": "I'm from Lucknow. Which city is yours?",
+                "skill_target": "Urdu paragraph comprehension: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               }
             ],
             "quiz": [
@@ -591,9 +647,28 @@
                     "میں ٹھیک ہوں (Main ṭhīk hūn)",
                     "آپ کا نام کیا ہے؟ (Āp kā nām kyā hai?)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Urdu offline lab: read, transform in Urdu Nastaliq script, and rehearse the response aloud. Check Urdu agreement, postpositions, honorificity, and formal versus everyday register.",
+                  "items": [
+                    "میرا نام علی ہے۔",
+                    "السلام علیکم! میرا نام احمد ہے۔"
+                  ],
+                  "key": [
+                    "My name is Ali.",
+                    "Peace be upon you! My name is Ahmed."
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "السلام علیکم!",
+              "آداب!",
+              "آپ کیسے ہیں؟",
+              "میں ٹھیک ہوں"
+            ],
+            "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
           },
           {
             "id": "ur-a1-l2",
@@ -702,35 +777,92 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate into English: میں (main)",
-                "answer": "I"
+                "type": "main_idea",
+                "q": "Practice 2 [main idea] — People, Names, and Pronouns: State the main learning purpose of “People, Names, and Pronouns”.",
+                "answer": "Identify speakers and talk about names with basic pronouns.",
+                "skill_target": "Urdu main idea: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
               {
-                "type": "translate_t",
-                "q": "Write in Urdu: you (informal)",
-                "answer": "تم (tum)"
+                "type": "detail_identification",
+                "q": "Practice 3 [detail identification] — People, Names, and Pronouns: Read میں ٹھیک ہوں، شکریہ۔ آپ کہاں سے ہیں؟ (Main ṭhīk hūn, shukriyā. Āp kahān se hain?). What precise detail is communicated?",
+                "answer": "I'm fine, thanks. Where are you from?",
+                "skill_target": "Urdu detail identification: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
               {
-                "type": "fill",
-                "q": "Complete this model: I speak (masc.)",
-                "answer": "میں بولتا ہوں (maiṁ BOHL-tah hooṁ)"
+                "type": "inference",
+                "q": "Practice 4 [inference] — People, Names, and Pronouns: What may a listener infer from میں بولتا ہوں? Preserve its qualification or social force.",
+                "answer": "I speak (masc.)",
+                "skill_target": "Urdu inference: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
               {
-                "type": "choose",
-                "q": "Choose the Urdu expression for “you (formal)”.",
+                "type": "listening_comprehension",
+                "q": "Practice 5 [listening comprehension] — People, Names, and Pronouns: Play the labeled synthetic audio and give the exact contextual meaning.",
+                "answer": "Peace be upon you! My name is Ahmed.",
+                "skill_target": "Urdu listening comprehension: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "السلام علیکم! میرا نام احمد ہے۔"
+              },
+              {
+                "type": "dictation",
+                "q": "Practice 6 [dictation] — People, Names, and Pronouns: Play the labeled synthetic Urdu audio and type the complete line in Urdu Nastaliq script.",
+                "answer": "وعلیکم السلام! میں فاطمہ۔ آپ کیسی ہیں؟",
+                "skill_target": "Urdu dictation: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "وعلیکم السلام! میں فاطمہ۔ آپ کیسی ہیں؟"
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Practice 7 [listen and choose] — People, Names, and Pronouns: Play the synthetic audio and choose its contextual meaning.",
+                "answer": "I'm fine, thanks. Where are you from?",
+                "skill_target": "Urdu listen and choose: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "میں ٹھیک ہوں، شکریہ۔ آپ کہاں سے ہیں؟",
                 "options": [
-                  "آپ",
-                  "یہ",
-                  "وہ",
-                  "ہم"
-                ],
-                "answer": "آپ"
+                  "I'm fine, thanks. Where are you from?",
+                  "I'm from Lucknow. Which city is yours?",
+                  "they"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say aloud in Urdu: you speak (formal)",
-                "answer": "آپ بولتے ہیں (ahp BOHL-teh haiṁ)"
+                "type": "listen_and_reorder",
+                "q": "Practice 8 [listen and reorder] — People, Names, and Pronouns: Rebuild the lesson model with correct Urdu agreement, postpositions, honorificity, and formal versus everyday register: you speak (informal)",
+                "answer": "تم بولتے ہو",
+                "skill_target": "Urdu listen and reorder: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "السلام علیکم! میرا نام احمد ہے۔"
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Practice 9 [listen and fill] — People, Names, and Pronouns: Play the synthetic audio and type the full line beginning “السلام…”.",
+                "answer": "السلام علیکم! میرا نام احمد ہے۔",
+                "skill_target": "Urdu listen and fill: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "السلام علیکم! میرا نام احمد ہے۔"
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Practice 10 [repeat after audio] — People, Names, and Pronouns: Repeat the complete synthetic model with its phrase grouping. Use self-check; no microphone score is claimed.",
+                "answer": "وعلیکم السلام! میں فاطمہ۔ آپ کیسی ہیں؟",
+                "skill_target": "Urdu repeat after audio: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "وعلیکم السلام! میں فاطمہ۔ آپ کیسی ہیں؟"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Practice 11 [multiple choice] — People, Names, and Pronouns: Choose the contextual meaning of آپ (āp).",
+                "answer": "you (formal)",
+                "skill_target": "Urdu multiple choice: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "options": [
+                  "you (formal)",
+                  "this",
+                  "he / she / that"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 12 [fill in the blank] — People, Names, and Pronouns: Type the complete Urdu Nastaliq script expression for “this”.",
+                "answer": "یہ",
+                "skill_target": "Urdu fill in the blank: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 13 [translation] — People, Names, and Pronouns: Read وہ (vo) and give its contextual English meaning.",
+                "answer": "he / she / that",
+                "skill_target": "Urdu translation: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               }
             ],
             "quiz": [
@@ -826,9 +958,28 @@
                     "یہ (ye)",
                     "وہ (vo)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Urdu offline lab: read, transform in Urdu Nastaliq script, and rehearse the response aloud. Check Urdu agreement, postpositions, honorificity, and formal versus everyday register.",
+                  "items": [
+                    "میں بولتا ہوں",
+                    "السلام علیکم! میرا نام احمد ہے۔"
+                  ],
+                  "key": [
+                    "I speak (masc.)",
+                    "Peace be upon you! My name is Ahmed."
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "میں",
+              "تم",
+              "آپ",
+              "یہ"
+            ],
+            "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
           }
         ]
       },
@@ -943,35 +1094,86 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate into English: پانی (pānī)",
-                "answer": "water"
+                "type": "reverse_translation",
+                "q": "Practice 3 [reverse translation] — Things, Places, and ہے: Convert “school” into Urdu Nastaliq script; do not answer only in romanisation.",
+                "answer": "اسکول",
+                "skill_target": "Urdu reverse translation: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
               {
-                "type": "translate_t",
-                "q": "Write in Urdu: home",
-                "answer": "گھر (ghar)"
-              },
-              {
-                "type": "fill",
-                "q": "Complete this model: I water drink",
-                "answer": "میں پانی پیتا ہوں (maiṁ PAH-nee PEE-tah hooṁ)"
-              },
-              {
-                "type": "choose",
-                "q": "Choose the Urdu expression for “school”.",
+                "type": "matching",
+                "q": "Practice 4 [matching] — Things, Places, and ہے: Match دفتر to the meaning used in this lesson.",
+                "answer": "office",
+                "skill_target": "Urdu matching: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
                 "options": [
-                  "اسکول",
-                  "دفتر",
-                  "دکان",
-                  "بازار"
-                ],
-                "answer": "اسکول"
+                  "shop",
+                  "office",
+                  "market"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say aloud in Urdu: we home go",
-                "answer": "ہم گھر جاتے ہیں (hum ghur JAH-teh haiṁ)"
+                "type": "reorder",
+                "q": "Practice 5 [reorder] — Things, Places, and ہے: Rebuild the lesson model with correct Urdu agreement, postpositions, honorificity, and formal versus everyday register: he book reads",
+                "answer": "وہ کتاب پڑھتا ہے",
+                "skill_target": "Urdu reorder: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 6 [sentence building] — Things, Places, and ہے: Rebuild the lesson model with correct Urdu agreement, postpositions, honorificity, and formal versus everyday register: we home go",
+                "answer": "ہم گھر جاتے ہیں",
+                "skill_target": "Urdu sentence building: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 7 [word selection] — Things, Places, and ہے: Select the lesson form meaning “hospital”.",
+                "answer": "ہسپتال",
+                "skill_target": "Urdu word selection: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "options": [
+                  "اسٹیشن",
+                  "پانی",
+                  "ہسپتال"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 8 [error correction] — Things, Places, and ہے: Replace a literal or grammatically mismatched rendering with the correct lesson model for “he book reads”.",
+                "answer": "وہ کتاب پڑھتا ہے",
+                "skill_target": "Urdu error correction: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 9 [dialogue completion] — Things, Places, and ہے: Complete Granddaughter’s turn appropriately: Grandma, what is cooking?",
+                "answer": "دادی، کیا پک رہا ہے؟",
+                "skill_target": "Urdu dialogue completion: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 10 [reading comprehension] — Things, Places, and ہے: Read بریانی، میری بچی! (Biryani, meri bachchi!). What precise detail is communicated?",
+                "answer": "Biryani, my dear!",
+                "skill_target": "Urdu reading comprehension: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 11 [paragraph comprehension] — Things, Places, and ہے: Read the four-turn dialogue. State the contribution of this turn: ہاتھ دھو کر بیٹھو۔",
+                "answer": "Wash your hands and sit.",
+                "skill_target": "Urdu paragraph comprehension: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "main_idea",
+                "q": "Practice 12 [main idea] — Things, Places, and ہے: State the main learning purpose of “Things, Places, and ہے”.",
+                "answer": "Name familiar objects and places and build identification sentences with یہ (ye), وہ (vo), ہے (hai), and ہیں (hain).",
+                "skill_target": "Urdu main idea: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Practice 13 [detail identification] — Things, Places, and ہے: Read دادی، کیا پک رہا ہے؟ (Dadi, kya pak raha hai?). What precise detail is communicated?",
+                "answer": "Grandma, what is cooking?",
+                "skill_target": "Urdu detail identification: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "inference",
+                "q": "Practice 14 [inference] — Things, Places, and ہے: What may a listener infer from وہ کتاب پڑھتا ہے? Preserve its qualification or social force.",
+                "answer": "he book reads",
+                "skill_target": "Urdu inference: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               }
             ],
             "quiz": [
@@ -1067,9 +1269,28 @@
                     "دفتر (daftar)",
                     "دکان (dukān)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Urdu offline lab: read, transform in Urdu Nastaliq script, and rehearse the response aloud. Check Urdu agreement, postpositions, honorificity, and formal versus everyday register.",
+                  "items": [
+                    "میں پانی پیتا ہوں",
+                    "دادی، کیا پک رہا ہے؟"
+                  ],
+                  "key": [
+                    "I water drink",
+                    "Grandma, what is cooking?"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "پانی",
+              "گھر",
+              "اسکول",
+              "دفتر"
+            ],
+            "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
           },
           {
             "id": "ur-a1-l4",
@@ -1178,35 +1399,97 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate into English: روٹی (roṭī)",
-                "answer": "flatbread"
+                "type": "listening_comprehension",
+                "q": "Practice 4 [listening comprehension] — Food and Simple Requests: Play the labeled synthetic audio and give the exact contextual meaning.",
+                "answer": "Good — two sweet lassis with that too.",
+                "skill_target": "Urdu listening comprehension: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "اچھا — ساتھ میں دو میٹھی لسیاں بھی۔"
               },
               {
-                "type": "translate_t",
-                "q": "Write in Urdu: naan",
-                "answer": "نان (nān)"
+                "type": "dictation",
+                "q": "Practice 5 [dictation] — Food and Simple Requests: Play the labeled synthetic Urdu audio and type the complete line in Urdu Nastaliq script.",
+                "answer": "السلام علیکم! کیا لیں گے؟",
+                "skill_target": "Urdu dictation: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "السلام علیکم! کیا لیں گے؟"
               },
               {
-                "type": "fill",
-                "q": "Complete this model: This is good food.",
-                "answer": "یہ اچھا کھانا ہے۔ (ye achchhā khānā hai.)"
-              },
-              {
-                "type": "choose",
-                "q": "Choose the Urdu expression for “paratha”.",
+                "type": "listen_and_choose",
+                "q": "Practice 6 [listen and choose] — Food and Simple Requests: Play the synthetic audio and choose its contextual meaning.",
+                "answer": "Give us two plates of biryani. Do you have nihari?",
+                "skill_target": "Urdu listen and choose: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "ہمیں دو پلیٹیں بریانی دیں۔ نہاری ہے؟",
                 "options": [
-                  "پراٹھا",
-                  "کلچہ",
-                  "دال",
-                  "سبزی"
-                ],
-                "answer": "پراٹھا"
+                  "Give us two plates of biryani. Do you have nihari?",
+                  "Yes indeed! It'll be delicious with naan.",
+                  "vegetable curry"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say aloud in Urdu: The tea is hot.",
-                "answer": "چائے گرم ہے۔ (chāye garam hai.)"
+                "type": "listen_and_reorder",
+                "q": "Practice 7 [listen and reorder] — Food and Simple Requests: Rebuild the lesson model with correct Urdu agreement, postpositions, honorificity, and formal versus everyday register: This is good food.",
+                "answer": "یہ اچھا کھانا ہے۔",
+                "skill_target": "Urdu listen and reorder: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "السلام علیکم! کیا لیں گے؟"
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Practice 8 [listen and fill] — Food and Simple Requests: Play the synthetic audio and type the full line beginning “اچھا…”.",
+                "answer": "اچھا — ساتھ میں دو میٹھی لسیاں بھی۔",
+                "skill_target": "Urdu listen and fill: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "اچھا — ساتھ میں دو میٹھی لسیاں بھی۔"
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Practice 9 [repeat after audio] — Food and Simple Requests: Repeat the complete synthetic model with its phrase grouping. Use self-check; no microphone score is claimed.",
+                "answer": "السلام علیکم! کیا لیں گے؟",
+                "skill_target": "Urdu repeat after audio: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "السلام علیکم! کیا لیں گے؟"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Practice 10 [multiple choice] — Food and Simple Requests: Choose the contextual meaning of نان (nān).",
+                "answer": "naan",
+                "skill_target": "Urdu multiple choice: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "options": [
+                  "naan",
+                  "paratha",
+                  "kulcha"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 11 [fill in the blank] — Food and Simple Requests: Type the complete Urdu Nastaliq script expression for “paratha”.",
+                "answer": "پراٹھا",
+                "skill_target": "Urdu fill in the blank: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 12 [translation] — Food and Simple Requests: Read کلچہ (kulchā) and give its contextual English meaning.",
+                "answer": "kulcha",
+                "skill_target": "Urdu translation: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 13 [reverse translation] — Food and Simple Requests: Convert “lentils” into Urdu Nastaliq script; do not answer only in romanisation.",
+                "answer": "دال",
+                "skill_target": "Urdu reverse translation: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 14 [matching] — Food and Simple Requests: Match سبزی to the meaning used in this lesson.",
+                "answer": "vegetable curry",
+                "skill_target": "Urdu matching: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "options": [
+                  "rice",
+                  "vegetable curry",
+                  "chickpeas"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 15 [reorder] — Food and Simple Requests: Rebuild the lesson model with correct Urdu agreement, postpositions, honorificity, and formal versus everyday register: The tea is hot.",
+                "answer": "چائے گرم ہے۔",
+                "skill_target": "Urdu reorder: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               }
             ],
             "quiz": [
@@ -1302,9 +1585,28 @@
                     "کلچہ (kulchā)",
                     "دال (dāl)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Urdu offline lab: read, transform in Urdu Nastaliq script, and rehearse the response aloud. Check Urdu agreement, postpositions, honorificity, and formal versus everyday register.",
+                  "items": [
+                    "یہ اچھا کھانا ہے۔",
+                    "السلام علیکم! کیا لیں گے؟"
+                  ],
+                  "key": [
+                    "This is good food.",
+                    "Greetings! What will you have?"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "روٹی",
+              "نان",
+              "پراٹھا",
+              "کلچہ"
+            ],
+            "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
           }
         ]
       },
@@ -1419,35 +1721,89 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate into English: ٹکٹ (ṭikaṭ)",
-                "answer": "ticket"
+                "type": "sentence_building",
+                "q": "Practice 5 [sentence building] — Travel and Essential Questions: Rebuild the lesson model with correct Urdu agreement, postpositions, honorificity, and formal versus everyday register: How much is the fare?",
+                "answer": "کرایہ کتنا ہے؟",
+                "skill_target": "Urdu sentence building: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               },
               {
-                "type": "translate_t",
-                "q": "Write in Urdu: train",
-                "answer": "ریل گاڑی (rel gāṛī)"
-              },
-              {
-                "type": "fill",
-                "q": "Complete this model: Where is the station?",
-                "answer": "اسٹیشن کہاں ہے؟ (sṭeshan kahān hai?)"
-              },
-              {
-                "type": "choose",
-                "q": "Choose the Urdu expression for “bus”.",
+                "type": "word_selection",
+                "q": "Practice 6 [word selection] — Travel and Essential Questions: Select the lesson form meaning “auto-rickshaw”.",
+                "answer": "آٹو",
+                "skill_target": "Urdu word selection: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
                 "options": [
-                  "بس",
-                  "ہوائی جہاز",
-                  "ٹیکسی",
+                  "اسٹیشن",
+                  "بس اڈا",
                   "آٹو"
-                ],
-                "answer": "بس"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say aloud in Urdu: What is this?",
-                "answer": "یہ کیا ہے؟ (ye kyā hai?)"
+                "type": "error_correction",
+                "q": "Practice 7 [error correction] — Travel and Essential Questions: Replace a literal or grammatically mismatched rendering with the correct lesson model for “Where is the station?”.",
+                "answer": "اسٹیشن کہاں ہے؟",
+                "skill_target": "Urdu error correction: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 8 [dialogue completion] — Travel and Essential Questions: Complete Shopkeeper’s turn appropriately: No sir, it won't go below twelve hundred.",
+                "answer": "نہیں جی، بارہ سو سے کم نہیں ہوگا۔",
+                "skill_target": "Urdu dialogue completion: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 9 [reading comprehension] — Travel and Essential Questions: Read السلام علیکم! یہ کرتا کتنے کا ہے؟ (Assalām Alaikum! Ye kurtā kitne kā hai?). What precise detail is communicated?",
+                "answer": "Greetings! How much is this kurta?",
+                "skill_target": "Urdu reading comprehension: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 10 [paragraph comprehension] — Travel and Essential Questions: Read the four-turn dialogue. State the contribution of this turn: پندرہ سو روپے کا ہے جی۔ بہت عمدہ چیز ہے۔",
+                "answer": "Fifteen hundred rupees, sir. Very fine stuff.",
+                "skill_target": "Urdu paragraph comprehension: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "main_idea",
+                "q": "Practice 11 [main idea] — Travel and Essential Questions: State the main learning purpose of “Travel and Essential Questions”.",
+                "answer": "Ask where something is, name transport, and request help politely.",
+                "skill_target": "Urdu main idea: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Practice 12 [detail identification] — Travel and Essential Questions: Read نہیں جی، بارہ سو سے کم نہیں ہوگا۔ (Nahīn jī, bārah sau se kam nahīn hogā.). What precise detail is communicated?",
+                "answer": "No sir, it won't go below twelve hundred.",
+                "skill_target": "Urdu detail identification: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "inference",
+                "q": "Practice 13 [inference] — Travel and Essential Questions: What may a listener infer from اسٹیشن کہاں ہے؟? Preserve its qualification or social force.",
+                "answer": "Where is the station?",
+                "skill_target": "Urdu inference: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Practice 14 [listening comprehension] — Travel and Essential Questions: Play the labeled synthetic audio and give the exact contextual meaning.",
+                "answer": "Fifteen hundred rupees, sir. Very fine stuff.",
+                "skill_target": "Urdu listening comprehension: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "پندرہ سو روپے کا ہے جی۔ بہت عمدہ چیز ہے۔"
+              },
+              {
+                "type": "dictation",
+                "q": "Practice 15 [dictation] — Travel and Essential Questions: Play the labeled synthetic Urdu audio and type the complete line in Urdu Nastaliq script.",
+                "answer": "بہت مہنگا ہے! ہزار میں دیں۔",
+                "skill_target": "Urdu dictation: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "بہت مہنگا ہے! ہزار میں دیں۔"
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Practice 16 [listen and choose] — Travel and Essential Questions: Play the synthetic audio and choose its contextual meaning.",
+                "answer": "No sir, it won't go below twelve hundred.",
+                "skill_target": "Urdu listen and choose: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "نہیں جی، بارہ سو سے کم نہیں ہوگا۔",
+                "options": [
+                  "No sir, it won't go below twelve hundred.",
+                  "Greetings! How much is this kurta?",
+                  "bus stand"
+                ]
               }
             ],
             "quiz": [
@@ -1543,9 +1899,28 @@
                     "ہوائی جہاز (havāī jahāz)",
                     "ٹیکسی (ṭaiksī)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Urdu offline lab: read, transform in Urdu Nastaliq script, and rehearse the response aloud. Check Urdu agreement, postpositions, honorificity, and formal versus everyday register.",
+                  "items": [
+                    "اسٹیشن کہاں ہے؟",
+                    "السلام علیکم! یہ کرتا کتنے کا ہے؟"
+                  ],
+                  "key": [
+                    "Where is the station?",
+                    "Greetings! How much is this kurta?"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "ٹکٹ",
+              "ریل گاڑی",
+              "بس",
+              "ہوائی جہاز"
+            ],
+            "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
           },
           {
             "id": "ur-a1-l6",
@@ -1654,35 +2029,94 @@
             ],
             "practice": [
               {
-                "type": "translate_en",
-                "q": "Translate into English: کھانا (khānā)",
-                "answer": "to eat"
+                "type": "listen_and_reorder",
+                "q": "Practice 6 [listen and reorder] — Daily Actions and Present Tense: Rebuild the lesson model with correct Urdu agreement, postpositions, honorificity, and formal versus everyday register: he does",
+                "answer": "وہ کرتا ہے",
+                "skill_target": "Urdu listen and reorder: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "میں صبح چھ بجے اٹھتا ہوں"
               },
               {
-                "type": "translate_t",
-                "q": "Write in Urdu: to drink",
-                "answer": "پینا (pīnā)"
+                "type": "listen_and_fill",
+                "q": "Practice 7 [listen and fill] — Daily Actions and Present Tense: Play the synthetic audio and type the full line beginning “میں…”.",
+                "answer": "میں ناشتہ کرتا ہوں",
+                "skill_target": "Urdu listen and fill: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "میں ناشتہ کرتا ہوں"
               },
               {
-                "type": "fill",
-                "q": "Complete this model: I do (masc.)",
-                "answer": "میں کرتا ہوں (maiṁ KUR-tah hooṁ)"
+                "type": "repeat_after_audio",
+                "q": "Practice 8 [repeat after audio] — Daily Actions and Present Tense: Repeat the complete synthetic model with its phrase grouping. Use self-check; no microphone score is claimed.",
+                "answer": "میں کام پر جاتا ہوں",
+                "skill_target": "Urdu repeat after audio: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "audio_source": "میں کام پر جاتا ہوں"
               },
               {
-                "type": "choose",
-                "q": "Choose the Urdu expression for “to go”.",
+                "type": "multiple_choice",
+                "q": "Practice 9 [multiple choice] — Daily Actions and Present Tense: Choose the contextual meaning of کھانا (khānā).",
+                "answer": "to eat",
+                "skill_target": "Urdu multiple choice: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
                 "options": [
-                  "جانا",
-                  "آنا",
-                  "کرنا",
-                  "بولنا"
-                ],
-                "answer": "جانا"
+                  "to eat",
+                  "to drink",
+                  "to go"
+                ]
               },
               {
-                "type": "speak",
-                "q": "Say aloud in Urdu: he does",
-                "answer": "وہ کرتا ہے (vuh KUR-tah hai)"
+                "type": "fill_in_the_blank",
+                "q": "Practice 10 [fill in the blank] — Daily Actions and Present Tense: Type the complete Urdu Nastaliq script expression for “to drink”.",
+                "answer": "پینا",
+                "skill_target": "Urdu fill in the blank: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 11 [translation] — Daily Actions and Present Tense: Read جانا (jānā) and give its contextual English meaning.",
+                "answer": "to go",
+                "skill_target": "Urdu translation: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 12 [reverse translation] — Daily Actions and Present Tense: Convert “to come” into Urdu Nastaliq script; do not answer only in romanisation.",
+                "answer": "آنا",
+                "skill_target": "Urdu reverse translation: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 13 [matching] — Daily Actions and Present Tense: Match کرنا to the meaning used in this lesson.",
+                "answer": "to do",
+                "skill_target": "Urdu matching: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "options": [
+                  "to speak",
+                  "to do",
+                  "to read; to study"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 14 [reorder] — Daily Actions and Present Tense: Rebuild the lesson model with correct Urdu agreement, postpositions, honorificity, and formal versus everyday register: I do (fem.)",
+                "answer": "میں کرتی ہوں",
+                "skill_target": "Urdu reorder: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 15 [sentence building] — Daily Actions and Present Tense: Rebuild the lesson model with correct Urdu agreement, postpositions, honorificity, and formal versus everyday register: he does",
+                "answer": "وہ کرتا ہے",
+                "skill_target": "Urdu sentence building: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 16 [word selection] — Daily Actions and Present Tense: Select the lesson form meaning “to write”.",
+                "answer": "لکھنا",
+                "skill_target": "Urdu word selection: Urdu agreement, postpositions, honorificity, and formal versus everyday register",
+                "options": [
+                  "کھانا",
+                  "پینا",
+                  "لکھنا"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 17 [error correction] — Daily Actions and Present Tense: Replace a literal or grammatically mismatched rendering with the correct lesson model for “I do (fem.)”.",
+                "answer": "میں کرتی ہوں",
+                "skill_target": "Urdu error correction: Urdu agreement, postpositions, honorificity, and formal versus everyday register"
               }
             ],
             "quiz": [
@@ -1778,9 +2212,28 @@
                     "آنا (ānā)",
                     "کرنا (karnā)"
                   ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Urdu offline lab: read, transform in Urdu Nastaliq script, and rehearse the response aloud. Check Urdu agreement, postpositions, honorificity, and formal versus everyday register.",
+                  "items": [
+                    "میں کرتا ہوں",
+                    "میں صبح چھ بجے اٹھتا ہوں"
+                  ],
+                  "key": [
+                    "I do (masc.)",
+                    "I wake up at six in the morning"
+                  ]
                 }
               ]
-            }
+            },
+            "srs_candidates": [
+              "کھانا",
+              "پینا",
+              "جانا",
+              "آنا"
+            ],
+            "srs_policy": "Only selected high-value lesson forms are preselected; actual mistakes and productive patterns may enter personalized review after learner evidence."
           }
         ]
       }
