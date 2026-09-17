@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Free phase language courses (A1–B2) | EkGuru</title>
-<meta name="description" content="Complete free language courses in phases of 10: alphabet, counting, 24 deep lessons per language (A1–B2), quizzes, flashcards, worksheets and level tests — all in your browser.">
+<title>Free language courses from A1 to C2 | EkGuru</title>
+<meta name="description" content="Explore complete free language courses from A1 to C2 by country. Learn with deep lessons, every supported practice type, quizzes, review history, worksheets and synthetic voice support.">
 <meta name="author" content="EkGuru">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <link rel="canonical" href="https://ekguru.shop/courses/">
@@ -15,16 +15,37 @@
 <meta property="og:site_name" content="EkGuru">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Free phase language courses (A1–B2) | EkGuru">
-<meta name="twitter:description" content="Complete free language courses: alphabet, counting, 24 deep lessons per language, quizzes, flashcards, worksheets and level tests.">
-<style>body{margin:0;background:#f6f8fb}header.eg-top{background:#0b3d66;color:#fff;padding:14px 18px}header.eg-top a{color:#fff;text-decoration:none;font-weight:800;font-size:1.1rem;font-family:system-ui,sans-serif}header.eg-top span{opacity:.8;font-weight:400;font-size:.9rem}</style>
+<meta name="twitter:description" content="Complete free language courses from A1 to C2 with country contexts, practice, progress and voice support.">
+<meta name="theme-color" content="#5736d8">
+<link rel="icon" type="image/svg+xml" href="../images/logo.svg">
+<link rel="stylesheet" href="../css/style.min.css">
 </head>
-<body>
-<header class="eg-top"><a href="/">EkGuru</a> <span>· Phase courses (A1–B2)</span></header>
-<main>
-<div data-course-player data-base="../"></div>
+<body class="courses-page">
+<a class="skip" href="#main">Skip to courses</a>
+<header class="hdr course-site-header">
+  <div class="hdr-in">
+    <a class="logo" href="/"><span class="logo-mark" aria-hidden="true">E</span><span>EkGuru<small>Learn worldwide</small></span></a>
+    <button class="burger" type="button" aria-label="Open menu" aria-expanded="false"><span></span></button>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/courses/" aria-current="page">Courses</a>
+      <a href="/start/">Find my level</a>
+      <a href="/support/">Support</a>
+      <a class="btn btn-primary btn-sm" href="#course-search">Explore courses</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<div data-course-player data-base="../"><div class="course-loading" role="status"><span></span><span></span><span></span><p>Loading your worldwide course library…</p></div></div>
 <noscript><p style="font-family:system-ui,sans-serif;padding:20px">These free courses need JavaScript. Please enable it to learn.</p></noscript>
 </main>
+<footer class="course-footer"><div class="wrap"><b>EkGuru</b><p>Country-connected language learning from first script to C2 mastery.</p><nav aria-label="Footer"><a href="/courses/">Courses</a><a href="/support/">Support</a><a href="/privacy/">Privacy</a><a href="/contact/">Contact</a></nav></div></footer>
+<script src="../js/cookie-consent.js" defer></script>
 <script src="../js/monetization.js" defer></script>
 <script src="../js/course-player.js" defer></script>
+<script>
+addEventListener("DOMContentLoaded",function(){var b=document.querySelector(".course-site-header .burger"),n=document.querySelector(".course-site-header .nav");if(b&&n)b.addEventListener("click",function(){var open=n.classList.toggle("open");b.setAttribute("aria-expanded",String(open))})});
+if("serviceWorker" in navigator){addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").catch(function(){})})}
+</script>
 </body>
 </html>

@@ -17,7 +17,7 @@
    Bump CACHE when you deploy and the old one is cleared out.
    ========================================================= */
 
-const CACHE = "ekguru-v31-1dbed90";
+const CACHE = "ekguru-v32-course-hotfix";
 
 /* Phase 6 §14 — "Save for offline" pins learner-chosen pages in a dedicated
    cache that survives the main cache rotation. Only same-origin, non-private
@@ -30,6 +30,10 @@ const SHELL = [
   "./find-tutors.html",
   "./join.html",
   "./css/style.min.css",
+  "./courses/",
+  "./js/course-player.js",
+  "./data/courses/index.json",
+  "./data/global/language-country-relations.json",
   "./js/site-config.js",
   "./js/i18n.js",
   "./js/tutors/_registry.js",

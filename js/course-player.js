@@ -5,6 +5,11 @@
 "use strict";
 
 var TTS_LANG = { en: "en-GB", fil: "fil-PH", pl: "pl-PL", ro: "ro-RO", tr: "tr-TR", uk: "uk-UA", uzn: "uz-UZ", vi: "vi-VN", kk: "kk-KZ", npi: "ne-NP", zsm: "ms-MY", sw: "sw-KE", nl: "nl-NL", fa: "fa-IR", so: "so-SO", ca: "ca-ES", id: "id-ID", el: "el-GR", af: "af-ZA", es: "es-ES", fr: "fr-FR", de: "de-DE", it: "it-IT", pt: "pt-BR", ru: "ru-RU", ar: "ar-SA", ja: "ja-JP", ko: "ko-KR", zh: "zh-CN", hi: "hi-IN", bn: "bn-IN", pa: "pa-IN", ur: "ur-PK", ta: "ta-IN", te: "te-IN", mr: "mr-IN", gu: "gu-IN", kn: "kn-IN", ml: "ml-IN" };
+/* Phase directories the course files may be grouped into. A course's 6 level
+   files normally share one phase, but split batches in history left a few
+   courses (bn/mr/pa/te) with A1-B2 in one directory and C1-C2 in another.
+   fetchLevel below probes these in order so a level always resolves. */
+var ALL_PHASES = ["phase-1", "phase-2", "phase-3", "phase-4", "phase-5", "phase-6", "phase-7", "phase-8", "phase-9", "phase-10"];
 var LEVEL_NAMES = { A1: "Beginner", A2: "Elementary", B1: "Intermediate", B2: "Advanced", C1: "Proficient", C2: "Mastery" };
 var LS_KEY = "eg-course-progress-v1";
 var PRACTICE_KEY = "eg-course-practice-v1";
@@ -134,6 +139,32 @@ Player.prototype.fetchJSON = function (path) {
     return r.json();
   }).then(function (d) { self.cache[path] = d; return d; });
 };
+/* Load one level file, probing every phase directory the course data has ever
+   used. Never throws on a phase mismatch: a missing variant is just skipped.
+   Resolves the data or rejects with a single clear error. */
+Player.prototype.fetchLevel = function (phase, level) {
+  var self = this;
+  var probes = [];
+  if (phase) probes.push(phase);
+  ALL_PHASES.forEach(function (p) { if (probes.indexOf(p) < 0) probes.push(p); });
+  var tried = [];
+  var next = function (i) {
+    if (i >= probes.length) {
+      var err = new Error("Level file not found for " + (level || "?"));
+      err.tried = tried.slice();
+      return Promise.reject(err);
+    }
+    var p = probes[i];
+    var path = self.base + "data/courses/" + p + "/" + level + ".json";
+    tried.push(path);
+    return fetch(path).then(function (r) {
+      if (r.ok) return r.json();
+      throw new Error("HTTP " + r.status + " for " + path);
+    }).then(function (d) { self.cache[path] = d; return d; })
+      .catch(function () { return next(i + 1); });
+  };
+  return next(0);
+};
 Player.prototype.parseHash = function () {
   var h = (location.hash || "").replace(/^#\/?/, "");
   var parts = h.split("/").filter(Boolean);
@@ -167,7 +198,21 @@ Player.prototype.route = function () {
     var phase = entry.phase || "phase-1";
     var file = key + ".json";
     (entry.files || []).forEach(function (f) { if (f.indexOf(key) === 0) file = f; });
-    return self.fetchJSON(self.base + "data/courses/" + phase + "/" + file).then(function (d) {
+    // The manifest's `files` list may not actually mirror where each level
+    // physically lives (e.g. bn_A1 only exists under phase-2 while bn_C1 is
+    // under phase-1). Prefer the concrete path when the manifest names it,
+    // otherwise probe every phase directory so the level still loads.
+    var fetcher;
+    if (file !== key + ".json") {
+      fetcher = self.fetchJSON(self.base + "data/courses/" + phase + "/" + file)
+        .catch(function () { return self.fetchLevel(phase, key); });
+    } else {
+      fetcher = self.fetchLevel(phase, key);
+    }
+    return fetcher.then(function (d) {
+      if (d && d.file_level !== r.level) {
+        throw new Error("Found a mismatched level file for " + key);
+      }
       if (r.test) return self.renderTest(d, key);
       if (r.lesson) return self.renderLesson(d, key, r.lesson);
       return self.renderLevel(d, key);
@@ -209,13 +254,28 @@ Player.prototype.renderHub = function () {
     h += '<section class="course-phase"><h2>Collection ' + esc(String(ph).replace("phase-", "")) + '</h2><div class="grid course-grid">';
     phases[ph].forEach(function (c, ci) {
       var lvs = Object.keys(c.levels || {}), cs = countriesByCode[c.code] || [], hue = Math.abs(c.code.split("").reduce(function (a, x) { return a * 31 + x.charCodeAt(0); }, 7)) % 360;
-      h += '<article class="card course-card" data-name="' + esc(c.name.toLowerCase()) + '" data-countries="' + esc(cs.join(" ")) + '" style="--course-hue:' + hue + '"><a href="#/' + esc(c.code) + '"><span class="course-monogram" aria-hidden="true">' + esc((c.native || c.name).slice(0, 2)) + '</span><span class="course-copy"><b>' + esc(c.name) + '</b><span class="sub">' + esc(lvs.join(" · ")) + (c.complete ? " · complete" : "") + '</span><span class="country-chips">' + cs.slice(0, 5).map(function (x) { return '<em title="' + esc(countryName(x)) + '">' + esc(countryName(x)) + '</em>'; }).join("") + (cs.length > 5 ? '<em>+' + (cs.length - 5) + '</em>' : '') + '</span></span><span class="course-arrow">→</span></a></article>';
+      var saved = loadProgress(), done = 0, total = 0;
+      lvs.forEach(function (lv) { var row = saved[c.code + "_" + lv]; done += row && row.done ? row.done.length : 0; total += (c.levels[lv] && c.levels[lv].lessons) || 6; });
+      var pct = total ? Math.min(100, Math.round(done / total * 100)) : 0;
+      var nativeName = c.native || ((relations.find(function (r) { return (r.iso_639_1 || r.iso_639_3) === c.code && r.native_name; }) || {}).native_name) || c.name;
+      /* The voice control is a button, so it must live OUTSIDE the <a> that
+         opens the course (a <button> inside an <a> is invalid HTML and lets a
+         tap trigger the link instead of the sound). The link is stretched to
+         cover the card; the button sits above it with a higher z-index. */
+      h += '<article class="card course-card" data-name="' + esc(c.name.toLowerCase()) + '" data-countries="' + esc(cs.join(" ")) + '" style="--course-hue:' + hue + '"><a href="#/' + esc(c.code) + '" class="course-link" aria-label="Open ' + esc(c.name) + ' course"><span class="course-monogram" aria-hidden="true">' + esc(nativeName.slice(0, 2)) + '</span><span class="course-copy"><b>' + esc(c.name) + '</b><span class="native-name">' + esc(nativeName) + '</span><span class="sub">' + esc(lvs.join(" · ")) + (c.complete ? " · complete" : "") + '</span><span class="country-chips">' + cs.slice(0, 5).map(function (x) { return '<em title="' + esc(countryName(x)) + '">' + esc(countryName(x)) + '</em>'; }).join("") + (cs.length > 5 ? '<em>+' + (cs.length - 5) + '</em>' : '') + '</span><span class="course-progress"><i style="width:' + pct + '%"></i></span><small class="progress-label">' + (done ? done + ' of ' + total + ' lessons complete' : 'Start at A1 or choose your level') + '</small></span><span class="course-arrow">→</span></a><button type="button" class="course-voice" data-voice-code="' + esc(c.code) + '" data-voice-text="' + esc(nativeName) + '" aria-label="Hear ' + esc(c.name) + '">🔊 Hear language</button></article>';
     });
     h += "</div></section>";
   });
   if (!courses.length) h += "<p>No courses found in index.</p>";
   h += "</div>";
   this.mount.innerHTML = h;
+  this.mount.querySelectorAll(".course-voice").forEach(function (button) {
+    button.addEventListener("click", function (event) {
+      event.preventDefault(); event.stopPropagation();
+      var text = button.getAttribute("data-voice-text"), code = button.getAttribute("data-voice-code");
+      if (!speak(text, code)) button.textContent = "Voice unavailable";
+    });
+  });
   var search = this.mount.querySelector("#course-search"), filter = this.mount.querySelector("#country-filter"), count = this.mount.querySelector("#course-result-count"), story = this.mount.querySelector("#country-story");
   function renderCountryStory(country) {
     if (!country) { story.hidden = true; story.innerHTML = ""; return; }
