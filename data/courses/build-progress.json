@@ -1,7 +1,7 @@
 {
   "country": "Global",
-  "language": "Spanish and French",
-  "language_code": "es,fr",
+  "language": "Telugu, Marathi and Punjabi",
+  "language_code": "te,mr,pa",
   "level": "C2",
   "completed_levels": [
     "A1",
@@ -12,23 +12,17 @@
     "C2"
   ],
   "course_files": [
-    "data/courses/phase-1/es_A1.json",
-    "data/courses/phase-1/es_A2.json",
-    "data/courses/phase-1/es_B1.json",
-    "data/courses/phase-1/es_B2.json",
-    "data/courses/phase-1/es_C1.json",
-    "data/courses/phase-1/es_C2.json",
-    "data/courses/phase-1/fr_A1.json",
-    "data/courses/phase-1/fr_A2.json",
-    "data/courses/phase-1/fr_B1.json",
-    "data/courses/phase-1/fr_B2.json",
-    "data/courses/phase-1/fr_C1.json",
-    "data/courses/phase-1/fr_C2.json"
+    "data/courses/phase-1/te_C1.json",
+    "data/courses/phase-1/te_C2.json",
+    "data/courses/phase-1/mr_C1.json",
+    "data/courses/phase-1/mr_C2.json",
+    "data/courses/phase-1/pa_C1.json",
+    "data/courses/phase-1/pa_C2.json"
   ],
-  "research_state": "Spanish and French advanced profiles complete; authoring used committed profiles without repeat research.",
-  "voice_state": "Synthetic browser TTS mapped to es-ES and fr-FR; no native-recording claim.",
-  "qa_state": "Spanish/French C1/C2: 3x2 schema, 40-format level coverage, advanced reality, language specificity, audio source, player, index, sitemap, XML, duplicate and JSON gates pass.",
-  "last_commit": "pending",
-  "last_push": "pending",
-  "review_required": false
+  "research_state": "Existing committed te/mr/pa research profiles used; no duplicate broad research performed.",
+  "voice_state": "Synthetic browser TTS mapped to te-IN, mr-IN and pa-IN; every audio practice has audio_source and no native-recording claim.",
+  "qa_state": "All six new levels pass builder, 3x2 schema, 40-format coverage, advanced reality/language-specific sampling, audio, player and duplicate gates.",
+  "last_commit": "b1e4e19",
+  "last_push": "PASS — pushed to arena/01a0ab3f-ekguru",
+  "review_required": []
 }
