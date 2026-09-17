@@ -1,0 +1,1878 @@
+{
+  "code": "de",
+  "name": "German",
+  "native": "Deutsch",
+  "phase": 1,
+  "medium": "en",
+  "file_level": "C1",
+  "research_basis": "data/language-research/de.json",
+  "level": {
+    "title": "German C1 Advanced Mastery",
+    "goals": [
+      "Control verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference in expert discourse",
+      "Mediate complex sources without changing certainty",
+      "Transform genre and audience with semantic precision"
+    ],
+    "units": [
+      {
+        "id": "de-c1-u1",
+        "title": "Advanced stance and structure",
+        "lessons": [
+          {
+            "id": "de-c1-l1",
+            "title": "Reported discourse and Konjunktiv I",
+            "learn": "Control reported discourse and konjunktiv i in sustained academic, professional, and public communication.",
+            "vocab": [
+              {
+                "t": "Dem Bericht",
+                "r": "Dem Bericht",
+                "en": "discourse segment 1 in “According to the report, implementation has improved, although the effect reportedly varies by region.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "Bericht zufolge",
+                "r": "Bericht zufolge",
+                "en": "discourse segment 2 in “According to the report, implementation has improved, although the effect reportedly varies by region.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "zufolge habe",
+                "r": "zufolge habe",
+                "en": "discourse segment 3 in “According to the report, implementation has improved, although the effect reportedly varies by region.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "habe sich",
+                "r": "habe sich",
+                "en": "discourse segment 4 in “According to the report, implementation has improved, although the effect reportedly varies by region.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "sich die",
+                "r": "sich die",
+                "en": "discourse segment 5 in “According to the report, implementation has improved, although the effect reportedly varies by region.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "die Umsetzung",
+                "r": "die Umsetzung",
+                "en": "discourse segment 6 in “According to the report, implementation has improved, although the effect reportedly varies by region.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "Umsetzung verbessert,",
+                "r": "Umsetzung verbessert,",
+                "en": "discourse segment 7 in “According to the report, implementation has improved, although the effect reportedly varies by region.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "verbessert, wenngleich",
+                "r": "verbessert, wenngleich",
+                "en": "discourse segment 8 in “According to the report, implementation has improved, although the effect reportedly varies by region.”",
+                "pos": "discourse expression"
+              }
+            ],
+            "grammar": {
+              "title": "Reported discourse and Konjunktiv I",
+              "explain": "German deploys verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference. The model coordinates grammatical form with evidential commitment, information structure, social distance, and cohesion; mediation must preserve these relations.",
+              "pattern": "stance frame + scoped proposition + cohesive qualification",
+              "examples": [
+                {
+                  "t": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                  "r": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                  "en": "According to the report, implementation has improved, although the effect reportedly varies by region."
+                },
+                {
+                  "t": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                  "r": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                  "en": "Even though the evidence is limited, the finding can neither be ignored nor presented as final."
+                },
+                {
+                  "t": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                  "r": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                  "en": "Critical evaluation of changes affecting society presupposes examination of context and method."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "An unjustified categorical paraphrase",
+                  "right": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                  "why": "It erases evidential scope and pragmatic restraint."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Analyst",
+                "t": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                "r": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                "en": "According to the report, implementation has improved, although the effect reportedly varies by region."
+              },
+              {
+                "sp": "Editor",
+                "t": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                "r": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                "en": "Even though the evidence is limited, the finding can neither be ignored nor presented as final."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                "r": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                "en": "Critical evaluation of changes affecting society presupposes examination of context and method."
+              },
+              {
+                "sp": "Reviewer",
+                "t": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                "r": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                "en": "Because the data were incomplete, the committee postponed the decision until the causal relationship could be clarified."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Reported discourse and Konjunktiv I — choose the version preserving stance and register.",
+                "answer": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                  "According to the report, implementation has improved, although the effect reportedly varies by region.",
+                  "An unrelated categorical claim"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Reported discourse and Konjunktiv I — complete: Dem Bericht ____ habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                "answer": "zufolge",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Reported discourse and Konjunktiv I — translate without increasing certainty.",
+                "answer": "According to the report, implementation has improved, although the effect reportedly varies by region.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Reported discourse and Konjunktiv I — translate into the target language: According to the report, implementation has improved, although the effect reportedly varies by region.",
+                "answer": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Reported discourse and Konjunktiv I — choose the version preserving stance and register.",
+                "answer": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                "skill_target": "matching",
+                "options": [
+                  "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                  "According to the report, implementation has improved, although the effect reportedly varies by region.",
+                  "An unrelated categorical claim"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Reported discourse and Konjunktiv I — restore coherent order: ausfalle / unterschiedlich / regional / Wirkung / die / wenngleich / verbessert, / Umsetzung / die / sich / habe / zufolge / Bericht / Dem",
+                "answer": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Reported discourse and Konjunktiv I — build from these cues: Dem | Bericht | zufolge | habe | sich | die | Umsetzung | verbessert, | wenngleich | die | Wirkung | regional | unterschiedlich | ausfalle",
+                "answer": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Reported discourse and Konjunktiv I — choose the version preserving stance and register.",
+                "answer": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                "skill_target": "word selection",
+                "options": [
+                  "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                  "According to the report, implementation has improved, although the effect reportedly varies by region.",
+                  "An unrelated categorical claim"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Reported discourse and Konjunktiv I — repair an overconfident paraphrase of this model.",
+                "answer": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle. Retain its evidential limit.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Reported discourse and Konjunktiv I — complete an expert exchange with the model.",
+                "answer": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Reported discourse and Konjunktiv I — interpret purpose, scope, and implication: Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                "answer": "According to the report, implementation has improved, although the effect reportedly varies by region.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Reported discourse and Konjunktiv I — interpret purpose, scope, and implication: Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                "answer": "According to the report, implementation has improved, although the effect reportedly varies by region.",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Reported discourse and Konjunktiv I: Which interpretation preserves the model’s force?",
+                "options": [
+                  "According to the report, implementation has improved, although the effect reportedly varies by region.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              },
+              {
+                "q": "Reported discourse and Konjunktiv I: Which editing principle applies?",
+                "options": [
+                  "Preserve scope while adapting audience.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              },
+              {
+                "q": "Reported discourse and Konjunktiv I: What makes the model advanced?",
+                "options": [
+                  "Grammar, stance, cohesion, and register work together.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              },
+              {
+                "q": "Reported discourse and Konjunktiv I: What must mediation avoid?",
+                "options": [
+                  "Turning a qualified claim into categorical fact.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              },
+              {
+                "q": "Reported discourse and Konjunktiv I: What must transformation justify?",
+                "options": [
+                  "Scope, register, implication, and cohesion.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Dem Bericht",
+              "Bericht zufolge",
+              "zufolge habe",
+              "habe sich"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Reported discourse and Konjunktiv I workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate form and discourse function.",
+                  "items": [
+                    "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                    "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben."
+                  ],
+                  "key": [
+                    "German deploys verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference. The model coordinates grammatical form with evidential commitment, information structure, social distance, and cohesion; mediation must preserve these relations.",
+                    "German deploys verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference. The model coordinates grammatical form with evidential commitment, information structure, social distance, and cohesion; mediation must preserve these relations."
+                  ]
+                },
+                {
+                  "instruction": "Mediate without sharpening certainty.",
+                  "items": [
+                    "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                    "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben."
+                  ],
+                  "key": [
+                    "According to the report, implementation has improved, although the effect reportedly varies by region.",
+                    "Even though the evidence is limited, the finding can neither be ignored nor presented as final."
+                  ]
+                },
+                {
+                  "instruction": "Transform genre and justify scope choices.",
+                  "items": [
+                    "According to the report, implementation has improved, although the effect reportedly varies by region.",
+                    "Even though the evidence is limited, the finding can neither be ignored nor presented as final."
+                  ],
+                  "key": [
+                    "Model: Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                    "Model: Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "de-c1-l2",
+            "title": "Concession and measured rebuttal",
+            "learn": "Control concession and measured rebuttal in sustained academic, professional, and public communication.",
+            "vocab": [
+              {
+                "t": "Auch wenn",
+                "r": "Auch wenn",
+                "en": "discourse segment 1 in “Even though the evidence is limited, the finding can neither be ignored nor presented as final.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "wenn die",
+                "r": "wenn die",
+                "en": "discourse segment 2 in “Even though the evidence is limited, the finding can neither be ignored nor presented as final.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "die Belege",
+                "r": "die Belege",
+                "en": "discourse segment 3 in “Even though the evidence is limited, the finding can neither be ignored nor presented as final.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "Belege begrenzt",
+                "r": "Belege begrenzt",
+                "en": "discourse segment 4 in “Even though the evidence is limited, the finding can neither be ignored nor presented as final.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "begrenzt sind,",
+                "r": "begrenzt sind,",
+                "en": "discourse segment 5 in “Even though the evidence is limited, the finding can neither be ignored nor presented as final.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "sind, lässt",
+                "r": "sind, lässt",
+                "en": "discourse segment 6 in “Even though the evidence is limited, the finding can neither be ignored nor presented as final.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "lässt sich",
+                "r": "lässt sich",
+                "en": "discourse segment 7 in “Even though the evidence is limited, the finding can neither be ignored nor presented as final.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "sich der",
+                "r": "sich der",
+                "en": "discourse segment 8 in “Even though the evidence is limited, the finding can neither be ignored nor presented as final.”",
+                "pos": "discourse expression"
+              }
+            ],
+            "grammar": {
+              "title": "Concession and measured rebuttal",
+              "explain": "German deploys verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference. The model coordinates grammatical form with evidential commitment, information structure, social distance, and cohesion; mediation must preserve these relations.",
+              "pattern": "stance frame + scoped proposition + cohesive qualification",
+              "examples": [
+                {
+                  "t": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                  "r": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                  "en": "Even though the evidence is limited, the finding can neither be ignored nor presented as final."
+                },
+                {
+                  "t": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                  "r": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                  "en": "Critical evaluation of changes affecting society presupposes examination of context and method."
+                },
+                {
+                  "t": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                  "r": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                  "en": "Because the data were incomplete, the committee postponed the decision until the causal relationship could be clarified."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "An unjustified categorical paraphrase",
+                  "right": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                  "why": "It erases evidential scope and pragmatic restraint."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Analyst",
+                "t": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                "r": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                "en": "Even though the evidence is limited, the finding can neither be ignored nor presented as final."
+              },
+              {
+                "sp": "Editor",
+                "t": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                "r": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                "en": "Critical evaluation of changes affecting society presupposes examination of context and method."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                "r": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                "en": "Because the data were incomplete, the committee postponed the decision until the causal relationship could be clarified."
+              },
+              {
+                "sp": "Reviewer",
+                "t": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                "r": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                "en": "With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits."
+              }
+            ],
+            "practice": [
+              {
+                "type": "word_selection",
+                "q": "Concession and measured rebuttal — choose the version preserving stance and register.",
+                "answer": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                "skill_target": "word selection",
+                "options": [
+                  "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                  "Even though the evidence is limited, the finding can neither be ignored nor presented as final.",
+                  "An unrelated categorical claim"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Concession and measured rebuttal — repair an overconfident paraphrase of this model.",
+                "answer": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben. Retain its evidential limit.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Concession and measured rebuttal — complete an expert exchange with the model.",
+                "answer": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Concession and measured rebuttal — interpret purpose, scope, and implication: Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                "answer": "Even though the evidence is limited, the finding can neither be ignored nor presented as final.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Concession and measured rebuttal — interpret purpose, scope, and implication: Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                "answer": "Even though the evidence is limited, the finding can neither be ignored nor presented as final.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "main_idea",
+                "q": "Concession and measured rebuttal — interpret purpose, scope, and implication: Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                "answer": "Even though the evidence is limited, the finding can neither be ignored nor presented as final.",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Concession and measured rebuttal — interpret purpose, scope, and implication: Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                "answer": "Even though the evidence is limited, the finding can neither be ignored nor presented as final.",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "inference",
+                "q": "Concession and measured rebuttal — interpret purpose, scope, and implication: Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                "answer": "Even though the evidence is limited, the finding can neither be ignored nor presented as final.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Concession and measured rebuttal — recover the synthetic spoken model and its phrase boundaries.",
+                "answer": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben."
+              },
+              {
+                "type": "dictation",
+                "q": "Concession and measured rebuttal — recover the synthetic spoken model and its phrase boundaries.",
+                "answer": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Concession and measured rebuttal — choose the version preserving stance and register.",
+                "answer": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                "skill_target": "listen and choose",
+                "options": [
+                  "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                  "Even though the evidence is limited, the finding can neither be ignored nor presented as final.",
+                  "An unrelated categorical claim"
+                ],
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben."
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "Concession and measured rebuttal — restore coherent order: ausgeben / endgültig / als / noch / übergehen / weder / Befund / der / sich / lässt / sind, / begrenzt / Belege / die / wenn / Auch",
+                "answer": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Concession and measured rebuttal: Which interpretation preserves the model’s force?",
+                "options": [
+                  "Even though the evidence is limited, the finding can neither be ignored nor presented as final.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              },
+              {
+                "q": "Concession and measured rebuttal: Which editing principle applies?",
+                "options": [
+                  "Preserve scope while adapting audience.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              },
+              {
+                "q": "Concession and measured rebuttal: What makes the model advanced?",
+                "options": [
+                  "Grammar, stance, cohesion, and register work together.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              },
+              {
+                "q": "Concession and measured rebuttal: What must mediation avoid?",
+                "options": [
+                  "Turning a qualified claim into categorical fact.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              },
+              {
+                "q": "Concession and measured rebuttal: What must transformation justify?",
+                "options": [
+                  "Scope, register, implication, and cohesion.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Auch wenn",
+              "wenn die",
+              "die Belege",
+              "Belege begrenzt"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Concession and measured rebuttal workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate form and discourse function.",
+                  "items": [
+                    "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                    "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus."
+                  ],
+                  "key": [
+                    "German deploys verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference. The model coordinates grammatical form with evidential commitment, information structure, social distance, and cohesion; mediation must preserve these relations.",
+                    "German deploys verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference. The model coordinates grammatical form with evidential commitment, information structure, social distance, and cohesion; mediation must preserve these relations."
+                  ]
+                },
+                {
+                  "instruction": "Mediate without sharpening certainty.",
+                  "items": [
+                    "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                    "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus."
+                  ],
+                  "key": [
+                    "Even though the evidence is limited, the finding can neither be ignored nor presented as final.",
+                    "Critical evaluation of changes affecting society presupposes examination of context and method."
+                  ]
+                },
+                {
+                  "instruction": "Transform genre and justify scope choices.",
+                  "items": [
+                    "Even though the evidence is limited, the finding can neither be ignored nor presented as final.",
+                    "Critical evaluation of changes affecting society presupposes examination of context and method."
+                  ],
+                  "key": [
+                    "Model: Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                    "Model: Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "de-c1-u2",
+        "title": "Professional argument and mediation",
+        "lessons": [
+          {
+            "id": "de-c1-l3",
+            "title": "Nominal style and readable alternatives",
+            "learn": "Control nominal style and readable alternatives in sustained academic, professional, and public communication.",
+            "vocab": [
+              {
+                "t": "Die kritische",
+                "r": "Die kritische",
+                "en": "discourse segment 1 in “Critical evaluation of changes affecting society presupposes examination of context and method.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "kritische Bewertung",
+                "r": "kritische Bewertung",
+                "en": "discourse segment 2 in “Critical evaluation of changes affecting society presupposes examination of context and method.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "Bewertung gesellschaftlich",
+                "r": "Bewertung gesellschaftlich",
+                "en": "discourse segment 3 in “Critical evaluation of changes affecting society presupposes examination of context and method.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "gesellschaftlich wirksamer",
+                "r": "gesellschaftlich wirksamer",
+                "en": "discourse segment 4 in “Critical evaluation of changes affecting society presupposes examination of context and method.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "wirksamer Veränderungen",
+                "r": "wirksamer Veränderungen",
+                "en": "discourse segment 5 in “Critical evaluation of changes affecting society presupposes examination of context and method.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "Veränderungen setzt",
+                "r": "Veränderungen setzt",
+                "en": "discourse segment 6 in “Critical evaluation of changes affecting society presupposes examination of context and method.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "setzt eine",
+                "r": "setzt eine",
+                "en": "discourse segment 7 in “Critical evaluation of changes affecting society presupposes examination of context and method.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "eine Prüfung",
+                "r": "eine Prüfung",
+                "en": "discourse segment 8 in “Critical evaluation of changes affecting society presupposes examination of context and method.”",
+                "pos": "discourse expression"
+              }
+            ],
+            "grammar": {
+              "title": "Nominal style and readable alternatives",
+              "explain": "German deploys verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference. The model coordinates grammatical form with evidential commitment, information structure, social distance, and cohesion; mediation must preserve these relations.",
+              "pattern": "stance frame + scoped proposition + cohesive qualification",
+              "examples": [
+                {
+                  "t": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                  "r": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                  "en": "Critical evaluation of changes affecting society presupposes examination of context and method."
+                },
+                {
+                  "t": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                  "r": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                  "en": "Because the data were incomplete, the committee postponed the decision until the causal relationship could be clarified."
+                },
+                {
+                  "t": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                  "r": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                  "en": "With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "An unjustified categorical paraphrase",
+                  "right": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                  "why": "It erases evidential scope and pragmatic restraint."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Analyst",
+                "t": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                "r": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                "en": "Critical evaluation of changes affecting society presupposes examination of context and method."
+              },
+              {
+                "sp": "Editor",
+                "t": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                "r": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                "en": "Because the data were incomplete, the committee postponed the decision until the causal relationship could be clarified."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                "r": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                "en": "With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits."
+              },
+              {
+                "sp": "Reviewer",
+                "t": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                "r": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                "en": "Read together, the differing context explains at least part of the divergent results."
+              }
+            ],
+            "practice": [
+              {
+                "type": "inference",
+                "q": "Nominal style and readable alternatives — interpret purpose, scope, and implication: Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                "answer": "Critical evaluation of changes affecting society presupposes examination of context and method.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Nominal style and readable alternatives — recover the synthetic spoken model and its phrase boundaries.",
+                "answer": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus."
+              },
+              {
+                "type": "dictation",
+                "q": "Nominal style and readable alternatives — recover the synthetic spoken model and its phrase boundaries.",
+                "answer": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Nominal style and readable alternatives — choose the version preserving stance and register.",
+                "answer": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                "skill_target": "listen and choose",
+                "options": [
+                  "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                  "Critical evaluation of changes affecting society presupposes examination of context and method.",
+                  "An unrelated categorical claim"
+                ],
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus."
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "Nominal style and readable alternatives — restore coherent order: voraus / Methode / und / Kontext / von / Prüfung / eine / setzt / Veränderungen / wirksamer / gesellschaftlich / Bewertung / kritische / Die",
+                "answer": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus."
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Nominal style and readable alternatives — complete: Die kritische ____ gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                "answer": "Bewertung",
+                "skill_target": "listen and fill",
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Nominal style and readable alternatives — recover the synthetic spoken model and its phrase boundaries.",
+                "answer": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus."
+              },
+              {
+                "type": "pronunciation",
+                "q": "Nominal style and readable alternatives — recover the synthetic spoken model and its phrase boundaries.",
+                "answer": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus."
+              },
+              {
+                "type": "shadowing",
+                "q": "Nominal style and readable alternatives — recover the synthetic spoken model and its phrase boundaries.",
+                "answer": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Nominal style and readable alternatives — deliver a specialist response using the structure with new evidence.",
+                "answer": "Model: Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "Nominal style and readable alternatives — deliver a specialist response using the structure with new evidence.",
+                "answer": "Model: Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "Nominal style and readable alternatives — deliver a specialist response using the structure with new evidence.",
+                "answer": "Model: Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                "skill_target": "roleplay"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Nominal style and readable alternatives: Which interpretation preserves the model’s force?",
+                "options": [
+                  "Critical evaluation of changes affecting society presupposes examination of context and method.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              },
+              {
+                "q": "Nominal style and readable alternatives: Which editing principle applies?",
+                "options": [
+                  "Preserve scope while adapting audience.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              },
+              {
+                "q": "Nominal style and readable alternatives: What makes the model advanced?",
+                "options": [
+                  "Grammar, stance, cohesion, and register work together.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              },
+              {
+                "q": "Nominal style and readable alternatives: What must mediation avoid?",
+                "options": [
+                  "Turning a qualified claim into categorical fact.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              },
+              {
+                "q": "Nominal style and readable alternatives: What must transformation justify?",
+                "options": [
+                  "Scope, register, implication, and cohesion.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Die kritische",
+              "kritische Bewertung",
+              "Bewertung gesellschaftlich",
+              "gesellschaftlich wirksamer"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Nominal style and readable alternatives workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate form and discourse function.",
+                  "items": [
+                    "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                    "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre."
+                  ],
+                  "key": [
+                    "German deploys verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference. The model coordinates grammatical form with evidential commitment, information structure, social distance, and cohesion; mediation must preserve these relations.",
+                    "German deploys verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference. The model coordinates grammatical form with evidential commitment, information structure, social distance, and cohesion; mediation must preserve these relations."
+                  ]
+                },
+                {
+                  "instruction": "Mediate without sharpening certainty.",
+                  "items": [
+                    "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                    "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre."
+                  ],
+                  "key": [
+                    "Critical evaluation of changes affecting society presupposes examination of context and method.",
+                    "Because the data were incomplete, the committee postponed the decision until the causal relationship could be clarified."
+                  ]
+                },
+                {
+                  "instruction": "Transform genre and justify scope choices.",
+                  "items": [
+                    "Critical evaluation of changes affecting society presupposes examination of context and method.",
+                    "Because the data were incomplete, the committee postponed the decision until the causal relationship could be clarified."
+                  ],
+                  "key": [
+                    "Model: Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                    "Model: Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "de-c1-l4",
+            "title": "Causal relations without overclaiming",
+            "learn": "Control causal relations without overclaiming in sustained academic, professional, and public communication.",
+            "vocab": [
+              {
+                "t": "Da die",
+                "r": "Da die",
+                "en": "discourse segment 1 in “Because the data were incomplete, the committee postponed the decision until the causal relationship could be clarified.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "die Daten",
+                "r": "die Daten",
+                "en": "discourse segment 2 in “Because the data were incomplete, the committee postponed the decision until the causal relationship could be clarified.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "Daten unvollständig",
+                "r": "Daten unvollständig",
+                "en": "discourse segment 3 in “Because the data were incomplete, the committee postponed the decision until the causal relationship could be clarified.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "unvollständig waren,",
+                "r": "unvollständig waren,",
+                "en": "discourse segment 4 in “Because the data were incomplete, the committee postponed the decision until the causal relationship could be clarified.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "waren, vertagte",
+                "r": "waren, vertagte",
+                "en": "discourse segment 5 in “Because the data were incomplete, the committee postponed the decision until the causal relationship could be clarified.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "vertagte der",
+                "r": "vertagte der",
+                "en": "discourse segment 6 in “Because the data were incomplete, the committee postponed the decision until the causal relationship could be clarified.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "der Ausschuss",
+                "r": "der Ausschuss",
+                "en": "discourse segment 7 in “Because the data were incomplete, the committee postponed the decision until the causal relationship could be clarified.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "Ausschuss die",
+                "r": "Ausschuss die",
+                "en": "discourse segment 8 in “Because the data were incomplete, the committee postponed the decision until the causal relationship could be clarified.”",
+                "pos": "discourse expression"
+              }
+            ],
+            "grammar": {
+              "title": "Causal relations without overclaiming",
+              "explain": "German deploys verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference. The model coordinates grammatical form with evidential commitment, information structure, social distance, and cohesion; mediation must preserve these relations.",
+              "pattern": "stance frame + scoped proposition + cohesive qualification",
+              "examples": [
+                {
+                  "t": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                  "r": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                  "en": "Because the data were incomplete, the committee postponed the decision until the causal relationship could be clarified."
+                },
+                {
+                  "t": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                  "r": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                  "en": "With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits."
+                },
+                {
+                  "t": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                  "r": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                  "en": "Read together, the differing context explains at least part of the divergent results."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "An unjustified categorical paraphrase",
+                  "right": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                  "why": "It erases evidential scope and pragmatic restraint."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Analyst",
+                "t": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                "r": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                "en": "Because the data were incomplete, the committee postponed the decision until the causal relationship could be clarified."
+              },
+              {
+                "sp": "Editor",
+                "t": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                "r": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                "en": "With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                "r": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                "en": "Read together, the differing context explains at least part of the divergent results."
+              },
+              {
+                "sp": "Reviewer",
+                "t": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                "r": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                "en": "According to the report, implementation has improved, although the effect reportedly varies by region."
+              }
+            ],
+            "practice": [
+              {
+                "type": "pronunciation",
+                "q": "Causal relations without overclaiming — recover the synthetic spoken model and its phrase boundaries.",
+                "answer": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre."
+              },
+              {
+                "type": "shadowing",
+                "q": "Causal relations without overclaiming — recover the synthetic spoken model and its phrase boundaries.",
+                "answer": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Causal relations without overclaiming — deliver a specialist response using the structure with new evidence.",
+                "answer": "Model: Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "Causal relations without overclaiming — deliver a specialist response using the structure with new evidence.",
+                "answer": "Model: Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "Causal relations without overclaiming — deliver a specialist response using the structure with new evidence.",
+                "answer": "Model: Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Causal relations without overclaiming — write claim, support, qualification, and consequence.",
+                "answer": "Model: Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "Causal relations without overclaiming — write claim, support, qualification, and consequence.",
+                "answer": "Model: Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "paraphrase",
+                "q": "Causal relations without overclaiming — paraphrase without erasing qualification.",
+                "answer": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "Causal relations without overclaiming — summarise without erasing qualification.",
+                "answer": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Causal relations without overclaiming — write claim, support, qualification, and consequence.",
+                "answer": "Model: Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Causal relations without overclaiming — render in formal target-language prose: Because the data were incomplete, the committee postponed the decision until the causal relationship could be clarified.",
+                "answer": "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                "skill_target": "register transformation"
+              },
+              {
+                "type": "tone_identification",
+                "q": "Causal relations without overclaiming — identify the tone.",
+                "answer": "formal, qualified, analytically careful",
+                "skill_target": "tone identification",
+                "options": [
+                  "formal, qualified, analytically careful",
+                  "casual and absolute",
+                  "hostile and dismissive"
+                ]
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Causal relations without overclaiming: Which interpretation preserves the model’s force?",
+                "options": [
+                  "Because the data were incomplete, the committee postponed the decision until the causal relationship could be clarified.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              },
+              {
+                "q": "Causal relations without overclaiming: Which editing principle applies?",
+                "options": [
+                  "Preserve scope while adapting audience.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              },
+              {
+                "q": "Causal relations without overclaiming: What makes the model advanced?",
+                "options": [
+                  "Grammar, stance, cohesion, and register work together.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              },
+              {
+                "q": "Causal relations without overclaiming: What must mediation avoid?",
+                "options": [
+                  "Turning a qualified claim into categorical fact.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              },
+              {
+                "q": "Causal relations without overclaiming: What must transformation justify?",
+                "options": [
+                  "Scope, register, implication, and cohesion.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Da die",
+              "die Daten",
+              "Daten unvollständig",
+              "unvollständig waren,"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Causal relations without overclaiming workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate form and discourse function.",
+                  "items": [
+                    "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                    "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt."
+                  ],
+                  "key": [
+                    "German deploys verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference. The model coordinates grammatical form with evidential commitment, information structure, social distance, and cohesion; mediation must preserve these relations.",
+                    "German deploys verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference. The model coordinates grammatical form with evidential commitment, information structure, social distance, and cohesion; mediation must preserve these relations."
+                  ]
+                },
+                {
+                  "instruction": "Mediate without sharpening certainty.",
+                  "items": [
+                    "Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                    "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt."
+                  ],
+                  "key": [
+                    "Because the data were incomplete, the committee postponed the decision until the causal relationship could be clarified.",
+                    "With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits."
+                  ]
+                },
+                {
+                  "instruction": "Transform genre and justify scope choices.",
+                  "items": [
+                    "Because the data were incomplete, the committee postponed the decision until the causal relationship could be clarified.",
+                    "With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits."
+                  ],
+                  "key": [
+                    "Model: Da die Daten unvollständig waren, vertagte der Ausschuss die Entscheidung, bis der Kausalzusammenhang geklärt wäre.",
+                    "Model: Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "de-c1-u3",
+        "title": "Precision, rhetoric, and genre",
+        "lessons": [
+          {
+            "id": "de-c1-l5",
+            "title": "Professional dissent and mitigation",
+            "learn": "Control professional dissent and mitigation in sustained academic, professional, and public communication.",
+            "vocab": [
+              {
+                "t": "Bei allem",
+                "r": "Bei allem",
+                "en": "discourse segment 1 in “With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "allem Respekt",
+                "r": "allem Respekt",
+                "en": "discourse segment 2 in “With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "Respekt für",
+                "r": "Respekt für",
+                "en": "discourse segment 3 in “With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "für Ihren",
+                "r": "für Ihren",
+                "en": "discourse segment 4 in “With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "Ihren Vorschlag",
+                "r": "Ihren Vorschlag",
+                "en": "discourse segment 5 in “With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "Vorschlag möchte",
+                "r": "Vorschlag möchte",
+                "en": "discourse segment 6 in “With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "möchte ich",
+                "r": "möchte ich",
+                "en": "discourse segment 7 in “With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "ich eine",
+                "r": "ich eine",
+                "en": "discourse segment 8 in “With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits.”",
+                "pos": "discourse expression"
+              }
+            ],
+            "grammar": {
+              "title": "Professional dissent and mitigation",
+              "explain": "German deploys verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference. The model coordinates grammatical form with evidential commitment, information structure, social distance, and cohesion; mediation must preserve these relations.",
+              "pattern": "stance frame + scoped proposition + cohesive qualification",
+              "examples": [
+                {
+                  "t": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                  "r": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                  "en": "With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits."
+                },
+                {
+                  "t": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                  "r": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                  "en": "Read together, the differing context explains at least part of the divergent results."
+                },
+                {
+                  "t": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                  "r": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                  "en": "According to the report, implementation has improved, although the effect reportedly varies by region."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "An unjustified categorical paraphrase",
+                  "right": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                  "why": "It erases evidential scope and pragmatic restraint."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Analyst",
+                "t": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                "r": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                "en": "With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits."
+              },
+              {
+                "sp": "Editor",
+                "t": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                "r": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                "en": "Read together, the differing context explains at least part of the divergent results."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                "r": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                "en": "According to the report, implementation has improved, although the effect reportedly varies by region."
+              },
+              {
+                "sp": "Reviewer",
+                "t": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                "r": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                "en": "Even though the evidence is limited, the finding can neither be ignored nor presented as final."
+              }
+            ],
+            "practice": [
+              {
+                "type": "paraphrase",
+                "q": "Professional dissent and mitigation — paraphrase without erasing qualification.",
+                "answer": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "Professional dissent and mitigation — summarise without erasing qualification.",
+                "answer": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Professional dissent and mitigation — write claim, support, qualification, and consequence.",
+                "answer": "Model: Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Professional dissent and mitigation — render in formal target-language prose: With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits.",
+                "answer": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                "skill_target": "register transformation"
+              },
+              {
+                "type": "tone_identification",
+                "q": "Professional dissent and mitigation — identify the tone.",
+                "answer": "formal, qualified, analytically careful",
+                "skill_target": "tone identification",
+                "options": [
+                  "formal, qualified, analytically careful",
+                  "casual and absolute",
+                  "hostile and dismissive"
+                ]
+              },
+              {
+                "type": "semantic_distinction",
+                "q": "Professional dissent and mitigation — contrast this model with a categorical assertion.",
+                "answer": "The model controls evidential commitment and scope.",
+                "skill_target": "semantic distinction"
+              },
+              {
+                "type": "contextual_meaning",
+                "q": "Professional dissent and mitigation — interpret purpose, scope, and implication: Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                "answer": "With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits.",
+                "skill_target": "contextual meaning"
+              },
+              {
+                "type": "argument_construction",
+                "q": "Professional dissent and mitigation — write claim, support, qualification, and consequence.",
+                "answer": "Model: Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                "skill_target": "argument construction"
+              },
+              {
+                "type": "discourse_ordering",
+                "q": "Professional dissent and mitigation — restore coherent order: trägt / Rechnung / Umsetzung / der / Grenzen / den / die / skizzieren, / Alternative / eine / ich / möchte / Vorschlag / Ihren / für / Respekt / allem / Bei",
+                "answer": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                "skill_target": "discourse ordering"
+              },
+              {
+                "type": "style_rewriting",
+                "q": "Professional dissent and mitigation — rewrite for a public briefing while preserving implication.",
+                "answer": "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                "skill_target": "style rewriting"
+              },
+              {
+                "type": "idiom_interpretation",
+                "q": "Professional dissent and mitigation — interpret purpose, scope, and implication: Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                "answer": "With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits.",
+                "skill_target": "idiom interpretation"
+              },
+              {
+                "type": "implied_meaning",
+                "q": "Professional dissent and mitigation — interpret purpose, scope, and implication: Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                "answer": "With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits.",
+                "skill_target": "implied meaning"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Professional dissent and mitigation: Which interpretation preserves the model’s force?",
+                "options": [
+                  "With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              },
+              {
+                "q": "Professional dissent and mitigation: Which editing principle applies?",
+                "options": [
+                  "Preserve scope while adapting audience.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              },
+              {
+                "q": "Professional dissent and mitigation: What makes the model advanced?",
+                "options": [
+                  "Grammar, stance, cohesion, and register work together.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              },
+              {
+                "q": "Professional dissent and mitigation: What must mediation avoid?",
+                "options": [
+                  "Turning a qualified claim into categorical fact.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              },
+              {
+                "q": "Professional dissent and mitigation: What must transformation justify?",
+                "options": [
+                  "Scope, register, implication, and cohesion.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Bei allem",
+              "allem Respekt",
+              "Respekt für",
+              "für Ihren"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Professional dissent and mitigation workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate form and discourse function.",
+                  "items": [
+                    "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                    "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse."
+                  ],
+                  "key": [
+                    "German deploys verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference. The model coordinates grammatical form with evidential commitment, information structure, social distance, and cohesion; mediation must preserve these relations.",
+                    "German deploys verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference. The model coordinates grammatical form with evidential commitment, information structure, social distance, and cohesion; mediation must preserve these relations."
+                  ]
+                },
+                {
+                  "instruction": "Mediate without sharpening certainty.",
+                  "items": [
+                    "Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                    "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse."
+                  ],
+                  "key": [
+                    "With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits.",
+                    "Read together, the differing context explains at least part of the divergent results."
+                  ]
+                },
+                {
+                  "instruction": "Transform genre and justify scope choices.",
+                  "items": [
+                    "With due respect for your proposal, I would like to outline an alternative that accounts for implementation limits.",
+                    "Read together, the differing context explains at least part of the divergent results."
+                  ],
+                  "key": [
+                    "Model: Bei allem Respekt für Ihren Vorschlag möchte ich eine Alternative skizzieren, die den Grenzen der Umsetzung Rechnung trägt.",
+                    "Model: Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "de-c1-l6",
+            "title": "Cross-source synthesis and mediation",
+            "learn": "Control cross-source synthesis and mediation in sustained academic, professional, and public communication.",
+            "vocab": [
+              {
+                "t": "Liest man",
+                "r": "Liest man",
+                "en": "discourse segment 1 in “Read together, the differing context explains at least part of the divergent results.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "man beide",
+                "r": "man beide",
+                "en": "discourse segment 2 in “Read together, the differing context explains at least part of the divergent results.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "beide Studien",
+                "r": "beide Studien",
+                "en": "discourse segment 3 in “Read together, the differing context explains at least part of the divergent results.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "Studien zusammen,",
+                "r": "Studien zusammen,",
+                "en": "discourse segment 4 in “Read together, the differing context explains at least part of the divergent results.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "zusammen, erklärt",
+                "r": "zusammen, erklärt",
+                "en": "discourse segment 5 in “Read together, the differing context explains at least part of the divergent results.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "erklärt der",
+                "r": "erklärt der",
+                "en": "discourse segment 6 in “Read together, the differing context explains at least part of the divergent results.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "der unterschiedliche",
+                "r": "der unterschiedliche",
+                "en": "discourse segment 7 in “Read together, the differing context explains at least part of the divergent results.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "unterschiedliche Kontext",
+                "r": "unterschiedliche Kontext",
+                "en": "discourse segment 8 in “Read together, the differing context explains at least part of the divergent results.”",
+                "pos": "discourse expression"
+              }
+            ],
+            "grammar": {
+              "title": "Cross-source synthesis and mediation",
+              "explain": "German deploys verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference. The model coordinates grammatical form with evidential commitment, information structure, social distance, and cohesion; mediation must preserve these relations.",
+              "pattern": "stance frame + scoped proposition + cohesive qualification",
+              "examples": [
+                {
+                  "t": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                  "r": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                  "en": "Read together, the differing context explains at least part of the divergent results."
+                },
+                {
+                  "t": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                  "r": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                  "en": "According to the report, implementation has improved, although the effect reportedly varies by region."
+                },
+                {
+                  "t": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                  "r": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                  "en": "Even though the evidence is limited, the finding can neither be ignored nor presented as final."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "An unjustified categorical paraphrase",
+                  "right": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                  "why": "It erases evidential scope and pragmatic restraint."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Analyst",
+                "t": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                "r": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                "en": "Read together, the differing context explains at least part of the divergent results."
+              },
+              {
+                "sp": "Editor",
+                "t": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                "r": "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle.",
+                "en": "According to the report, implementation has improved, although the effect reportedly varies by region."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                "r": "Auch wenn die Belege begrenzt sind, lässt sich der Befund weder übergehen noch als endgültig ausgeben.",
+                "en": "Even though the evidence is limited, the finding can neither be ignored nor presented as final."
+              },
+              {
+                "sp": "Reviewer",
+                "t": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                "r": "Die kritische Bewertung gesellschaftlich wirksamer Veränderungen setzt eine Prüfung von Kontext und Methode voraus.",
+                "en": "Critical evaluation of changes affecting society presupposes examination of context and method."
+              }
+            ],
+            "practice": [
+              {
+                "type": "argument_construction",
+                "q": "Cross-source synthesis and mediation — write claim, support, qualification, and consequence.",
+                "answer": "Model: Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                "skill_target": "argument construction"
+              },
+              {
+                "type": "discourse_ordering",
+                "q": "Cross-source synthesis and mediation — restore coherent order: Ergebnisse / abweichenden / der / Teil / einen / zumindest / Kontext / unterschiedliche / der / erklärt / zusammen, / Studien / beide / man / Liest",
+                "answer": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                "skill_target": "discourse ordering"
+              },
+              {
+                "type": "style_rewriting",
+                "q": "Cross-source synthesis and mediation — rewrite for a public briefing while preserving implication.",
+                "answer": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                "skill_target": "style rewriting"
+              },
+              {
+                "type": "idiom_interpretation",
+                "q": "Cross-source synthesis and mediation — interpret purpose, scope, and implication: Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                "answer": "Read together, the differing context explains at least part of the divergent results.",
+                "skill_target": "idiom interpretation"
+              },
+              {
+                "type": "implied_meaning",
+                "q": "Cross-source synthesis and mediation — interpret purpose, scope, and implication: Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                "answer": "Read together, the differing context explains at least part of the divergent results.",
+                "skill_target": "implied meaning"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Cross-source synthesis and mediation — choose the version preserving stance and register.",
+                "answer": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                  "Read together, the differing context explains at least part of the divergent results.",
+                  "An unrelated categorical claim"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Cross-source synthesis and mediation — complete: Liest man ____ Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                "answer": "beide",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Cross-source synthesis and mediation — translate without increasing certainty.",
+                "answer": "Read together, the differing context explains at least part of the divergent results.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Cross-source synthesis and mediation — translate into the target language: Read together, the differing context explains at least part of the divergent results.",
+                "answer": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Cross-source synthesis and mediation — choose the version preserving stance and register.",
+                "answer": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                "skill_target": "matching",
+                "options": [
+                  "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                  "Read together, the differing context explains at least part of the divergent results.",
+                  "An unrelated categorical claim"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Cross-source synthesis and mediation — restore coherent order: Ergebnisse / abweichenden / der / Teil / einen / zumindest / Kontext / unterschiedliche / der / erklärt / zusammen, / Studien / beide / man / Liest",
+                "answer": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Cross-source synthesis and mediation — build from these cues: Liest | man | beide | Studien | zusammen, | erklärt | der | unterschiedliche | Kontext | zumindest | einen | Teil | der | abweichenden | Ergebnisse",
+                "answer": "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                "skill_target": "sentence building"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Cross-source synthesis and mediation: Which interpretation preserves the model’s force?",
+                "options": [
+                  "Read together, the differing context explains at least part of the divergent results.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              },
+              {
+                "q": "Cross-source synthesis and mediation: Which editing principle applies?",
+                "options": [
+                  "Preserve scope while adapting audience.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              },
+              {
+                "q": "Cross-source synthesis and mediation: What makes the model advanced?",
+                "options": [
+                  "Grammar, stance, cohesion, and register work together.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              },
+              {
+                "q": "Cross-source synthesis and mediation: What must mediation avoid?",
+                "options": [
+                  "Turning a qualified claim into categorical fact.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              },
+              {
+                "q": "Cross-source synthesis and mediation: What must transformation justify?",
+                "options": [
+                  "Scope, register, implication, and cohesion.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Liest man",
+              "man beide",
+              "beide Studien",
+              "Studien zusammen,"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Cross-source synthesis and mediation workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate form and discourse function.",
+                  "items": [
+                    "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                    "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle."
+                  ],
+                  "key": [
+                    "German deploys verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference. The model coordinates grammatical form with evidential commitment, information structure, social distance, and cohesion; mediation must preserve these relations.",
+                    "German deploys verb-second and verb-final clause architecture, Konjunktiv I/II evidential distance, modal particles, nominalisation, information-structure fronting, register-sensitive compounds and pronominal reference. The model coordinates grammatical form with evidential commitment, information structure, social distance, and cohesion; mediation must preserve these relations."
+                  ]
+                },
+                {
+                  "instruction": "Mediate without sharpening certainty.",
+                  "items": [
+                    "Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                    "Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle."
+                  ],
+                  "key": [
+                    "Read together, the differing context explains at least part of the divergent results.",
+                    "According to the report, implementation has improved, although the effect reportedly varies by region."
+                  ]
+                },
+                {
+                  "instruction": "Transform genre and justify scope choices.",
+                  "items": [
+                    "Read together, the differing context explains at least part of the divergent results.",
+                    "According to the report, implementation has improved, although the effect reportedly varies by region."
+                  ],
+                  "key": [
+                    "Model: Liest man beide Studien zusammen, erklärt der unterschiedliche Kontext zumindest einen Teil der abweichenden Ergebnisse.",
+                    "Model: Dem Bericht zufolge habe sich die Umsetzung verbessert, wenngleich die Wirkung regional unterschiedlich ausfalle."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "C1 integrated capstone",
+      "items": [
+        {
+          "type": "argument_construction",
+          "q": "Integrated task 1: analyse, mediate, or transform an expert claim with explicit scope and register control.",
+          "answer": "Use the German patterns from all six lessons and justify evidence, implication, cohesion, and audience."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Integrated task 2: analyse, mediate, or transform an expert claim with explicit scope and register control.",
+          "answer": "Use the German patterns from all six lessons and justify evidence, implication, cohesion, and audience."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Integrated task 3: analyse, mediate, or transform an expert claim with explicit scope and register control.",
+          "answer": "Use the German patterns from all six lessons and justify evidence, implication, cohesion, and audience."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Integrated task 4: analyse, mediate, or transform an expert claim with explicit scope and register control.",
+          "answer": "Use the German patterns from all six lessons and justify evidence, implication, cohesion, and audience."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Integrated task 5: analyse, mediate, or transform an expert claim with explicit scope and register control.",
+          "answer": "Use the German patterns from all six lessons and justify evidence, implication, cohesion, and audience."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Integrated task 6: analyse, mediate, or transform an expert claim with explicit scope and register control.",
+          "answer": "Use the German patterns from all six lessons and justify evidence, implication, cohesion, and audience."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Integrated task 7: analyse, mediate, or transform an expert claim with explicit scope and register control.",
+          "answer": "Use the German patterns from all six lessons and justify evidence, implication, cohesion, and audience."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Integrated task 8: analyse, mediate, or transform an expert claim with explicit scope and register control.",
+          "answer": "Use the German patterns from all six lessons and justify evidence, implication, cohesion, and audience."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Integrated task 9: analyse, mediate, or transform an expert claim with explicit scope and register control.",
+          "answer": "Use the German patterns from all six lessons and justify evidence, implication, cohesion, and audience."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Integrated task 10: analyse, mediate, or transform an expert claim with explicit scope and register control.",
+          "answer": "Use the German patterns from all six lessons and justify evidence, implication, cohesion, and audience."
+        }
+      ]
+    }
+  }
+}
