@@ -21,7 +21,21 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 COURSES = os.path.join(ROOT, "data", "courses")
 LEVELS = ("A1", "A2", "B1", "B2", "C1", "C2")
-PTYPES = ("translate_en", "translate_t", "fill", "choose", "reorder", "speak")
+PTYPES = (
+    "translate_en", "translate_t", "fill", "choose", "reorder", "speak",
+    "multiple_choice", "fill_in_the_blank", "translation", "reverse_translation",
+    "matching", "sentence_building", "word_selection", "error_correction",
+    "dialogue_completion", "reading_comprehension", "paragraph_comprehension",
+    "inference", "main_idea", "detail_identification", "listening_comprehension",
+    "dictation", "listen_and_choose", "listen_and_reorder", "listen_and_fill",
+    "repeat_after_audio", "pronunciation", "shadowing", "guided_speaking",
+    "free_response", "roleplay", "sentence_writing", "short_writing", "paraphrase",
+    "summary", "guided_composition", "register_transformation", "tone_identification",
+    "semantic_distinction", "contextual_meaning", "argument_construction",
+    "discourse_ordering", "style_rewriting", "idiom_interpretation", "implied_meaning",
+)
+CHOICE_PTYPES = ("multiple_choice", "matching", "word_selection", "listen_and_choose")
+AUDIO_PTYPES = ("listening_comprehension", "dictation", "listen_and_choose", "listen_and_reorder", "listen_and_fill", "repeat_after_audio", "pronunciation", "shadowing")
 ERRORS = []
 
 
@@ -91,6 +105,13 @@ def check_lesson(les, path):
             need_str(p, "q", path)
             if "answer" not in p or p["answer"] in (None, ""):
                 err(f"{path}.practice[{i}]", "missing answer")
+            if p.get("type") in CHOICE_PTYPES:
+                if not isinstance(p.get("options"), list) or len(p["options"]) < 2:
+                    err(f"{path}.practice[{i}]", "choice-style practice needs >=2 options")
+                elif not any(str(x).strip() == str(p.get("answer", "")).strip() for x in p["options"]):
+                    err(f"{path}.practice[{i}]", "answer must occur in options")
+            if p.get("type") in AUDIO_PTYPES and not need_str(p, "audio_source", f"{path}.practice[{i}]"):
+                pass
     qz = les.get("quiz", [])
     if not isinstance(qz, list) or len(qz) != 5:
         err(path, f"quiz needs exactly 5, got {len(qz) if isinstance(qz, list) else '?'}")

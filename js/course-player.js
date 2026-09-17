@@ -7,6 +7,12 @@
 var TTS_LANG = { es: "es-ES", fr: "fr-FR", de: "de-DE", it: "it-IT", pt: "pt-BR", ru: "ru-RU", ar: "ar-SA", ja: "ja-JP", ko: "ko-KR", zh: "zh-CN", hi: "hi-IN", bn: "bn-IN", pa: "pa-IN", ur: "ur-PK", ta: "ta-IN", te: "te-IN", mr: "mr-IN", gu: "gu-IN", kn: "kn-IN", ml: "ml-IN" };
 var LEVEL_NAMES = { A1: "Beginner", A2: "Elementary", B1: "Intermediate", B2: "Advanced", C1: "Proficient", C2: "Mastery" };
 var LS_KEY = "eg-course-progress-v1";
+var PRACTICE_CHOICE = ["choose", "multiple_choice", "matching", "word_selection", "listen_and_choose"];
+var PRACTICE_REORDER = ["reorder", "sentence_building", "listen_and_reorder", "discourse_ordering"];
+var PRACTICE_AUDIO = ["listening_comprehension", "dictation", "listen_and_choose", "listen_and_reorder", "listen_and_fill", "repeat_after_audio", "pronunciation", "shadowing"];
+var PRACTICE_SPEAK = ["speak", "repeat_after_audio", "pronunciation", "shadowing", "guided_speaking", "free_response", "roleplay"];
+function hasType(list, type) { return list.indexOf(type) >= 0; }
+function practiceLabel(type) { return String(type || "practice").replace(/_/g, " ").replace(/\b\w/g, function (c) { return c.toUpperCase(); }); }
 
 function esc(s) {
   return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -312,7 +318,9 @@ Player.prototype.renderLesson = function (d, key, lessonId) {
   self.buildPractice(self.mount.querySelector("#egc-prac"), ls.practice || [], code);
   self.buildQuiz(self.mount.querySelector("#egc-quiz"), ls.quiz || [], code, null);
   var fc = self.mount.querySelector("#egc-fc");
-  (ls.vocab || []).forEach(function (v) {
+  var srsTerms = ls.srs_candidates || [];
+  var flashVocab = (ls.vocab || []).filter(function (v) { return !srsTerms.length || srsTerms.indexOf(v.t) >= 0; });
+  flashVocab.forEach(function (v) {
     var c = el('<div class="fc"><div class="front">' + esc(v.t) + '</div><div class="back"><b>' + esc(v.en || "") + '</b><div class="roman">' + esc(v.r || "") + "</div></div></div>");
     c.addEventListener("click", function () { c.classList.toggle("flip"); });
     fc.appendChild(c);
@@ -329,11 +337,16 @@ Player.prototype.checkText = function (input, answer) {
 Player.prototype.buildPractice = function (box, items, code) {
   var self = this;
   items.forEach(function (it, idx) {
-    var wrap = el('<div class="q"><b>' + (idx + 1) + ".</b> " + esc(it.q || "") + '<div class="body"></div><div class="fb"></div></div>');
+    var wrap = el('<div class="q"><span class="pill">' + esc(practiceLabel(it.type)) + '</span><br><b>' + (idx + 1) + ".</b> " + esc(it.q || "") + '<div class="body"></div><div class="fb"></div></div>');
     var body = wrap.querySelector(".body"), fb = wrap.querySelector(".fb");
     function ok(msg) { fb.className = "fb ok"; fb.textContent = "✓ " + (msg || "Correct!"); }
     function no(msg) { fb.className = "fb no"; fb.textContent = "✗ " + (msg || ("Answer: " + it.answer)); }
-    if (it.type === "choose") {
+    if (hasType(PRACTICE_AUDIO, it.type)) {
+      var audioBtn = el('<button class="btn ghost">🔊 Play synthetic ' + esc(TTS_LANG[code] || "voice") + ' audio</button>');
+      audioBtn.addEventListener("click", function () { if (!speak(it.audio_source || it.answer, code)) no("Synthetic audio is unavailable on this device."); });
+      body.appendChild(audioBtn);
+    }
+    if (hasType(PRACTICE_CHOICE, it.type)) {
       var ol = el('<div class="opts"></div>');
       (it.options || []).forEach(function (o) {
         var b = el('<button class="opt">' + esc(o) + "</button>");
@@ -345,7 +358,7 @@ Player.prototype.buildPractice = function (box, items, code) {
         ol.appendChild(b);
       });
       body.appendChild(ol);
-    } else if (it.type === "reorder") {
+    } else if (hasType(PRACTICE_REORDER, it.type)) {
       var words = String(it.answer || "").split(/\s+/).filter(Boolean);
       var pool = words.slice();
       for (var i = pool.length - 1; i > 0; i--) { var k = Math.floor(Math.random() * (i + 1)); var t = pool[i]; pool[i] = pool[k]; pool[k] = t; }
@@ -363,10 +376,10 @@ Player.prototype.buildPractice = function (box, items, code) {
       });
       clr.addEventListener("click", function () { built = []; poolBox.querySelectorAll(".ro-w").forEach(function (x) { x.style.display = ""; }); draw(); fb.textContent = ""; });
       body.appendChild(builtBox); body.appendChild(poolBox); body.appendChild(chk); body.appendChild(clr);
-    } else if (it.type === "speak") {
+    } else if (hasType(PRACTICE_SPEAK, it.type)) {
       var sb = el('<button class="btn">🔊 Listen</button>'), mb = el('<button class="btn green">I said it ✓</button>');
       sb.addEventListener("click", function () { if (!speak(it.answer, code)) no("Audio not available — read aloud!"); });
-      mb.addEventListener("click", function () { ok("Great speaking practice!"); });
+      mb.addEventListener("click", function () { ok("Self-check recorded. No microphone evaluation was performed."); });
       body.appendChild(sb); body.appendChild(mb);
     } else {
       var inp = document.createElement("input");
