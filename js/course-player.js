@@ -154,8 +154,12 @@ Player.prototype.route = function () {
   var self = this;
   var r = self.parseHash();
   self.mount.innerHTML = '<div class="egc google-anno-skip"><p>Loading…</p></div>';
-  self.fetchJSON(self.base + "data/courses/index.json").then(function (idx) {
-    self.index = idx;
+  Promise.all([
+    self.fetchJSON(self.base + "data/courses/index.json"),
+    self.fetchJSON(self.base + "data/global/language-country-relations.json").catch(function () { return { relations: [] }; })
+  ]).then(function (payload) {
+    self.index = payload[0];
+    self.relations = payload[1].relations || [];
     if (!r.lang) return self.renderHub();
     if (!r.level) return self.renderLang(r.lang);
     var key = r.lang + "_" + r.level;
@@ -179,23 +183,44 @@ Player.prototype.crumbs = function (items) {
   }).join("") + "</div>";
 };
 Player.prototype.renderHub = function () {
-  var courses = (this.index && this.index.courses) || [];
-  var h = '<div class="egc google-anno-skip"><h1>EkGuru Phase Courses</h1>';
-  h += '<p>Complete beginner-to-advanced courses: alphabet, counting, 24 deep lessons and level tests — all free, in your browser.</p>';
+  var self = this, courses = (this.index && this.index.courses) || [], relations = this.relations || [];
+  var countriesByCode = {};
+  relations.forEach(function (r) {
+    var code = r.iso_639_1 || r.iso_639_3;
+    if (!code) return;
+    (countriesByCode[code] = countriesByCode[code] || []).push(r.country_id);
+  });
+  Object.keys(countriesByCode).forEach(function (k) {
+    countriesByCode[k] = Array.from(new Set(countriesByCode[k])).sort();
+  });
+  var countries = Array.from(new Set([].concat.apply([], Object.keys(countriesByCode).map(function (k) { return countriesByCode[k]; })))).sort();
+  var h = '<div class="egc course-hub google-anno-skip"><section class="course-hero"><span class="pill">Worldwide · A1–C2 · free</span><h1>Choose your language journey</h1>';
+  h += '<p>One complete learning space for courses, country contexts, lessons, deep practice, review history and level tests.</p><div class="course-orbit" aria-hidden="true"><i>अ</i><i>Α</i><i>ع</i><i>あ</i><i>മ</i></div></section>';
+  h += '<div class="course-tools"><label>Find a course<input id="course-search" type="search" placeholder="Search language" autocomplete="off"></label><label>Country context<select id="country-filter"><option value="">All countries</option>' + countries.map(function (c) { return '<option value="' + esc(c) + '">' + esc(c) + '</option>'; }).join("") + '</select></label><span id="course-result-count" role="status"></span></div>';
   var phases = {};
   courses.forEach(function (c) { var ph = c.phase || "phase-1"; (phases[ph] = phases[ph] || []).push(c); });
   Object.keys(phases).sort().forEach(function (ph) {
-    h += "<h2>Phase " + esc(String(ph).replace("phase-", "")) + "</h2><div class='grid'>";
-    phases[ph].forEach(function (c) {
-      var lvs = Object.keys(c.levels || {});
-      var tick = c.complete ? " ✓ complete" : "";
-      h += '<div class="card"><a href="#/' + esc(c.code) + '"><b>' + esc(c.name) + tick + '</b><div class="sub">' + esc(lvs.join(" · ")) + "</div></a></div>";
+    h += '<section class="course-phase"><h2>Collection ' + esc(String(ph).replace("phase-", "")) + '</h2><div class="grid course-grid">';
+    phases[ph].forEach(function (c, ci) {
+      var lvs = Object.keys(c.levels || {}), cs = countriesByCode[c.code] || [], hue = Math.abs(c.code.split("").reduce(function (a, x) { return a * 31 + x.charCodeAt(0); }, 7)) % 360;
+      h += '<article class="card course-card" data-name="' + esc(c.name.toLowerCase()) + '" data-countries="' + esc(cs.join(" ")) + '" style="--course-hue:' + hue + '"><a href="#/' + esc(c.code) + '"><span class="course-monogram" aria-hidden="true">' + esc((c.native || c.name).slice(0, 2)) + '</span><span class="course-copy"><b>' + esc(c.name) + '</b><span class="sub">' + esc(lvs.join(" · ")) + (c.complete ? " · complete" : "") + '</span><span class="country-chips">' + cs.slice(0, 5).map(function (x) { return '<em>' + esc(x) + '</em>'; }).join("") + (cs.length > 5 ? '<em>+' + (cs.length - 5) + '</em>' : '') + '</span></span><span class="course-arrow">→</span></a></article>';
     });
-    h += "</div>";
+    h += "</div></section>";
   });
   if (!courses.length) h += "<p>No courses found in index.</p>";
   h += "</div>";
   this.mount.innerHTML = h;
+  var search = this.mount.querySelector("#course-search"), filter = this.mount.querySelector("#country-filter"), count = this.mount.querySelector("#course-result-count");
+  function applyFilters() {
+    var q = norm(search.value), country = filter.value, shown = 0;
+    self.mount.querySelectorAll(".course-card").forEach(function (card) {
+      var visible = (!q || card.getAttribute("data-name").indexOf(q) >= 0) && (!country || (" " + card.getAttribute("data-countries") + " ").indexOf(" " + country + " ") >= 0);
+      card.hidden = !visible; if (visible) shown++;
+    });
+    self.mount.querySelectorAll(".course-phase").forEach(function (phase) { phase.hidden = !phase.querySelector(".course-card:not([hidden])"); });
+    count.textContent = shown + " courses";
+  }
+  search.addEventListener("input", applyFilters); filter.addEventListener("change", applyFilters); applyFilters();
   window.scrollTo(0, 0);
 };
 Player.prototype.langMeta = function (code) {
