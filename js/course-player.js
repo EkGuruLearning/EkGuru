@@ -193,6 +193,8 @@ Player.prototype.renderHub = function () {
   Object.keys(countriesByCode).forEach(function (k) {
     countriesByCode[k] = Array.from(new Set(countriesByCode[k])).sort();
   });
+  var relationsByCountry = {};
+  relations.forEach(function (r) { (relationsByCountry[r.country_id] = relationsByCountry[r.country_id] || []).push(r); });
   var countries = Array.from(new Set([].concat.apply([], Object.keys(countriesByCode).map(function (k) { return countriesByCode[k]; })))).sort();
   var displayNames;
   try { displayNames = new Intl.DisplayNames([document.documentElement.lang || "en"], { type: "region" }); } catch (e) {}
@@ -200,6 +202,7 @@ Player.prototype.renderHub = function () {
   var h = '<div class="egc course-hub google-anno-skip"><section class="course-hero"><span class="pill">Worldwide · A1–C2 · free</span><h1>Choose your language journey</h1>';
   h += '<p>One complete learning space for courses, country contexts, lessons, deep practice, review history and level tests.</p><div class="course-orbit" aria-hidden="true"><i>अ</i><i>Α</i><i>ع</i><i>あ</i><i>മ</i></div></section>';
   h += '<div class="course-tools"><label>Find a course<input id="course-search" type="search" placeholder="Search language" autocomplete="off"></label><label>Country context<select id="country-filter"><option value="">All countries</option>' + countries.map(function (c) { return '<option value="' + esc(c) + '">' + esc(countryName(c)) + ' · ' + esc(c) + '</option>'; }).join("") + '</select></label><span id="course-result-count" role="status"></span></div>';
+  h += '<section id="country-story" class="country-story" hidden aria-live="polite"></section>';
   var phases = {};
   courses.forEach(function (c) { var ph = c.phase || "phase-1"; (phases[ph] = phases[ph] || []).push(c); });
   Object.keys(phases).sort().forEach(function (ph) {
@@ -213,9 +216,31 @@ Player.prototype.renderHub = function () {
   if (!courses.length) h += "<p>No courses found in index.</p>";
   h += "</div>";
   this.mount.innerHTML = h;
-  var search = this.mount.querySelector("#course-search"), filter = this.mount.querySelector("#country-filter"), count = this.mount.querySelector("#course-result-count");
+  var search = this.mount.querySelector("#course-search"), filter = this.mount.querySelector("#country-filter"), count = this.mount.querySelector("#course-result-count"), story = this.mount.querySelector("#country-story");
+  function renderCountryStory(country) {
+    if (!country) { story.hidden = true; story.innerHTML = ""; return; }
+    var rows = relationsByCountry[country] || [], unique = {}, categories = {}, scripts = {}, bands = {};
+    rows.forEach(function (r) {
+      unique[r.language_id || r.language_name] = r;
+      if (r.category) categories[r.category] = 1;
+      if (r.script) scripts[r.script] = 1;
+      if (r.estimated_speaker_band) bands[r.estimated_speaker_band] = 1;
+    });
+    var langs = Object.keys(unique).map(function (k) { return unique[k]; }).sort(function (a, b) { return String(a.language_name).localeCompare(String(b.language_name)); });
+    var available = langs.filter(function (r) { return courses.some(function (c) { return c.code === (r.iso_639_1 || r.iso_639_3); }); });
+    var hue = Math.abs(country.charCodeAt(0) * 31 + country.charCodeAt(1)) % 360;
+    story.style.setProperty("--country-hue", hue);
+    story.innerHTML = '<div class="country-emblem" aria-hidden="true"><span>' + esc(country) + '</span><i></i><i></i><i></i></div><div class="country-narrative"><span class="pill">Country learning guide</span><h2>' + esc(countryName(country)) + '</h2><p>Explore this country through its documented language landscape. EkGuru connects one canonical language course to every relevant country context instead of duplicating the same course by border.</p><div class="country-facts"><span><b>' + langs.length + '</b> documented language relationships</span><span><b>' + available.length + '</b> courses available now</span><span><b>' + Object.keys(scripts).length + '</b> writing systems represented</span></div><div class="country-languages">' + available.map(function (r) { var code = r.iso_639_1 || r.iso_639_3; return '<a href="#/' + esc(code) + '"><b>' + esc(r.language_name) + '</b><small>' + esc(r.native_name || "") + ' · ' + esc(r.category || "documented") + '</small></a>'; }).join("") + '</div><details><summary>Language context and evidence</summary><p>Relationship categories: ' + esc(Object.keys(categories).sort().join(", ") || "documented") + '. Speaker bands represented: ' + esc(Object.keys(bands).sort().join(", ") || "not stated") + '. Scripts: ' + esc(Object.keys(scripts).sort().join(", ") || "not stated") + '.</p><p class="source-note">Source: EkGuru canonical global language-country inventory. These are language-learning contexts, not claims that every resident has the same identity or language.</p></details></div>';
+    story.hidden = false;
+  }
   function applyFilters() {
     var q = norm(search.value), country = filter.value, shown = 0;
+    if (country) {
+      var countryHue = Math.abs(country.charCodeAt(0) * 31 + country.charCodeAt(1)) % 360;
+      document.documentElement.setAttribute("data-country", country);
+      document.documentElement.style.setProperty("--country-visual", "hsl(" + countryHue + " 62% 45%)");
+    }
+    renderCountryStory(country);
     self.mount.querySelectorAll(".course-card").forEach(function (card) {
       var visible = (!q || card.getAttribute("data-name").indexOf(q) >= 0) && (!country || (" " + card.getAttribute("data-countries") + " ").indexOf(" " + country + " ") >= 0);
       card.hidden = !visible; if (visible) shown++;
