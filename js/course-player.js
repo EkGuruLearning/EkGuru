@@ -209,13 +209,20 @@ Player.prototype.renderHub = function () {
     h += '<section class="course-phase"><h2>Collection ' + esc(String(ph).replace("phase-", "")) + '</h2><div class="grid course-grid">';
     phases[ph].forEach(function (c, ci) {
       var lvs = Object.keys(c.levels || {}), cs = countriesByCode[c.code] || [], hue = Math.abs(c.code.split("").reduce(function (a, x) { return a * 31 + x.charCodeAt(0); }, 7)) % 360;
-      h += '<article class="card course-card" data-name="' + esc(c.name.toLowerCase()) + '" data-countries="' + esc(cs.join(" ")) + '" style="--course-hue:' + hue + '"><a href="#/' + esc(c.code) + '"><span class="course-monogram" aria-hidden="true">' + esc((c.native || c.name).slice(0, 2)) + '</span><span class="course-copy"><b>' + esc(c.name) + '</b><span class="sub">' + esc(lvs.join(" · ")) + (c.complete ? " · complete" : "") + '</span><span class="country-chips">' + cs.slice(0, 5).map(function (x) { return '<em title="' + esc(countryName(x)) + '">' + esc(countryName(x)) + '</em>'; }).join("") + (cs.length > 5 ? '<em>+' + (cs.length - 5) + '</em>' : '') + '</span></span><span class="course-arrow">→</span></a></article>';
+      h += '<article class="card course-card" data-name="' + esc(c.name.toLowerCase()) + '" data-countries="' + esc(cs.join(" ")) + '" style="--course-hue:' + hue + '"><a href="#/' + esc(c.code) + '"><span class="course-monogram" aria-hidden="true">' + esc((c.native || c.name).slice(0, 2)) + '</span><span class="course-copy"><b>' + esc(c.name) + '</b><span class="sub">' + esc(lvs.join(" · ")) + (c.complete ? " · complete" : "") + '</span><button type="button" class="course-voice" data-voice-code="' + esc(c.code) + '" data-voice-text="' + esc(c.native || c.name) + '" aria-label="Hear ' + esc(c.name) + '">🔊 Hear language</button><span class="country-chips">' + cs.slice(0, 5).map(function (x) { return '<em title="' + esc(countryName(x)) + '">' + esc(countryName(x)) + '</em>'; }).join("") + (cs.length > 5 ? '<em>+' + (cs.length - 5) + '</em>' : '') + '</span></span><span class="course-arrow">→</span></a></article>';
     });
     h += "</div></section>";
   });
   if (!courses.length) h += "<p>No courses found in index.</p>";
   h += "</div>";
   this.mount.innerHTML = h;
+  this.mount.querySelectorAll(".course-voice").forEach(function (button) {
+    button.addEventListener("click", function (event) {
+      event.preventDefault(); event.stopPropagation();
+      var text = button.getAttribute("data-voice-text"), code = button.getAttribute("data-voice-code");
+      if (!speak(text, code)) button.textContent = "Voice unavailable";
+    });
+  });
   var search = this.mount.querySelector("#course-search"), filter = this.mount.querySelector("#country-filter"), count = this.mount.querySelector("#course-result-count"), story = this.mount.querySelector("#country-story");
   function renderCountryStory(country) {
     if (!country) { story.hidden = true; story.innerHTML = ""; return; }
