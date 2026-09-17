@@ -4,7 +4,7 @@
 (function () {
 "use strict";
 
-var TTS_LANG = { en: "en-GB", fil: "fil-PH", pl: "pl-PL", ro: "ro-RO", tr: "tr-TR", es: "es-ES", fr: "fr-FR", de: "de-DE", it: "it-IT", pt: "pt-BR", ru: "ru-RU", ar: "ar-SA", ja: "ja-JP", ko: "ko-KR", zh: "zh-CN", hi: "hi-IN", bn: "bn-IN", pa: "pa-IN", ur: "ur-PK", ta: "ta-IN", te: "te-IN", mr: "mr-IN", gu: "gu-IN", kn: "kn-IN", ml: "ml-IN" };
+var TTS_LANG = { en: "en-GB", fil: "fil-PH", pl: "pl-PL", ro: "ro-RO", tr: "tr-TR", uk: "uk-UA", es: "es-ES", fr: "fr-FR", de: "de-DE", it: "it-IT", pt: "pt-BR", ru: "ru-RU", ar: "ar-SA", ja: "ja-JP", ko: "ko-KR", zh: "zh-CN", hi: "hi-IN", bn: "bn-IN", pa: "pa-IN", ur: "ur-PK", ta: "ta-IN", te: "te-IN", mr: "mr-IN", gu: "gu-IN", kn: "kn-IN", ml: "ml-IN" };
 var LEVEL_NAMES = { A1: "Beginner", A2: "Elementary", B1: "Intermediate", B2: "Advanced", C1: "Proficient", C2: "Mastery" };
 var LS_KEY = "eg-course-progress-v1";
 var PRACTICE_CHOICE = ["choose", "multiple_choice", "matching", "word_selection", "listen_and_choose"];
