@@ -229,9 +229,14 @@ Player.prototype.crumbs = function (items) {
 };
 Player.prototype.renderHub = function () {
   var self = this, courses = (this.index && this.index.courses) || [], relations = this.relations || [];
+  /* Country contexts per course code. Six languages have no ISO 639-1 row in
+     the relations data (Standard Arabic is only "arb", Mandarin only "cmn"),
+     so without the bridge their cards showed no countries at all while the
+     static HTML — which uses the same bridge — showed thirty. */
+  var ISO3_ALIAS = { arb: "ar", cmn: "zh", fil: "fil", npi: "npi", uzn: "uzn", zsm: "zsm" };
   var countriesByCode = {};
   relations.forEach(function (r) {
-    var code = r.iso_639_1 || r.iso_639_3;
+    var code = r.iso_639_1 || ISO3_ALIAS[r.iso_639_3] || r.iso_639_3;
     if (!code) return;
     (countriesByCode[code] = countriesByCode[code] || []).push(r.country_id);
   });
@@ -257,12 +262,24 @@ Player.prototype.renderHub = function () {
       var saved = loadProgress(), done = 0, total = 0;
       lvs.forEach(function (lv) { var row = saved[c.code + "_" + lv]; done += row && row.done ? row.done.length : 0; total += (c.levels[lv] && c.levels[lv].lessons) || 6; });
       var pct = total ? Math.min(100, Math.round(done / total * 100)) : 0;
-      var nativeName = c.native || ((relations.find(function (r) { return (r.iso_639_1 || r.iso_639_3) === c.code && r.native_name; }) || {}).native_name) || c.name;
+      /* Native name lookup. The catalogue is keyed by ISO 639-1 and some
+         row sets carry only ISO 639-3 (Arabic ships as "arb", Chinese as
+         "cmn"), so those codes are bridged instead of falling back to the
+         English name — which is how a card ended up reading "Arabic /
+         Arabic". When the native name really is the English name the line is
+         dropped rather than repeated. */
+      var nativeName = c.native || ((relations.find(function (r) {
+        return (r.iso_639_1 === c.code || ISO3_ALIAS[r.iso_639_3] === c.code || r.iso_639_3 === c.code) && r.native_name;
+      }) || {}).native_name) || "";
+      var nativeSpan = (nativeName && nativeName.toLowerCase() !== String(c.name).toLowerCase())
+        ? '<span class="native-name" lang="' + esc(c.code) + '" dir="auto">' + esc(nativeName) + '</span>'
+        : "";
+      if (!nativeName) nativeName = c.name;
       /* The voice control is a button, so it must live OUTSIDE the <a> that
          opens the course (a <button> inside an <a> is invalid HTML and lets a
          tap trigger the link instead of the sound). The link is stretched to
          cover the card; the button sits above it with a higher z-index. */
-      h += '<article class="card course-card" data-name="' + esc(c.name.toLowerCase()) + '" data-countries="' + esc(cs.join(" ")) + '" style="--course-hue:' + hue + '"><a href="#/' + esc(c.code) + '" class="course-link" aria-label="Open ' + esc(c.name) + ' course"><span class="course-monogram" aria-hidden="true">' + esc(nativeName.slice(0, 2)) + '</span><span class="course-copy"><b>' + esc(c.name) + '</b><span class="native-name">' + esc(nativeName) + '</span><span class="sub">' + esc(lvs.join(" · ")) + (c.complete ? " · complete" : "") + '</span><span class="country-chips">' + cs.slice(0, 5).map(function (x) { return '<em title="' + esc(countryName(x)) + '">' + esc(countryName(x)) + '</em>'; }).join("") + (cs.length > 5 ? '<em>+' + (cs.length - 5) + '</em>' : '') + '</span><span class="course-progress"><i style="width:' + pct + '%"></i></span><small class="progress-label">' + (done ? done + ' of ' + total + ' lessons complete' : 'Start at A1 or choose your level') + '</small></span><span class="course-arrow">→</span></a><button type="button" class="course-voice" data-voice-code="' + esc(c.code) + '" data-voice-text="' + esc(nativeName) + '" aria-label="Hear ' + esc(c.name) + '">🔊 Hear language</button></article>';
+      h += '<article class="card course-card" data-name="' + esc(c.name.toLowerCase()) + '" data-countries="' + esc(cs.join(" ")) + '" style="--course-hue:' + hue + '"><a href="#/' + esc(c.code) + '" class="course-link" aria-label="Open ' + esc(c.name) + ' course"><span class="course-monogram" aria-hidden="true">' + esc(nativeName.slice(0, 2)) + '</span><span class="course-copy"><b>' + esc(c.name) + '</b>' + nativeSpan + '<span class="sub">' + esc(lvs.join(" · ")) + (c.complete ? " · complete" : "") + '</span><span class="country-chips">' + cs.slice(0, 5).map(function (x) { return '<em title="' + esc(countryName(x)) + '">' + esc(countryName(x)) + '</em>'; }).join("") + (cs.length > 5 ? '<em>+' + (cs.length - 5) + '</em>' : '') + '</span><span class="course-progress"><i style="width:' + pct + '%"></i></span><small class="progress-label">' + (done ? done + ' of ' + total + ' lessons complete' : 'Start at A1 or choose your level') + '</small></span><span class="course-arrow">→</span></a><button type="button" class="course-voice" data-voice-code="' + esc(c.code) + '" data-voice-text="' + esc(nativeName) + '" aria-label="Hear ' + esc(c.name) + '">🔊 Hear language</button></article>';
     });
     h += "</div></section>";
   });
@@ -306,7 +323,8 @@ Player.prototype.renderHub = function () {
       card.hidden = !visible; if (visible) shown++;
     });
     self.mount.querySelectorAll(".course-phase").forEach(function (phase) { phase.hidden = !phase.querySelector(".course-card:not([hidden])"); });
-    count.textContent = shown + " courses";
+    /* v200 — pluralised: filtering to one language used to read "1 courses". */
+    count.textContent = shown + (shown === 1 ? " course" : " courses");
   }
   search.addEventListener("input", applyFilters); filter.addEventListener("change", applyFilters); applyFilters();
   window.scrollTo(0, 0);

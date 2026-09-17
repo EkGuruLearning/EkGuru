@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Search — EkGuru</title>
-<meta name="description" content="Search every Hindi guide, answer, tool and tutor page on EkGuru. Runs in your browser.">
+<title>Search every Hindi lesson, tool and tutor | EkGuru</title>
+<meta name="description" content="Search 650 Hindi lessons, guides, practice labs, materials, country pages, tools and tutors. Highlighting, filters and keyboard control — and nothing you type leaves your device.">
 
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://ekguru.shop/search/">
@@ -20,14 +20,14 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="EkGuru">
 <meta property="og:locale" content="en_US">
-<meta property="og:title" content="Search — EkGuru | EkGuru">
+<meta property="og:title" content="Search every Hindi lesson, tool and tutor | EkGuru">
 <meta property="og:description" content="Search every Hindi guide, answer, tool and tutor page on EkGuru. Runs in your browser.">
 <meta property="og:url" content="https://ekguru.shop/search/">
 <meta property="og:image" content="https://ekguru.shop/images/og-cover.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Search — EkGuru | EkGuru">
+<meta name="twitter:title" content="Search every Hindi lesson, tool and tutor | EkGuru">
 <meta name="twitter:description" content="Search every Hindi guide, answer, tool and tutor page on EkGuru. Runs in your browser.">
 <meta name="twitter:image" content="https://ekguru.shop/images/og-cover.jpg">
 
@@ -97,19 +97,62 @@
 <!-- ekguru:ads -->
 <meta name="google-adsense-account" content="ca-pub-8175326569491671">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8175326569491671" crossorigin="anonymous"></script>
+<style>
+/* Search page (v200). The shared look lives in css/experience.css (bundled
+   into style.min.css); this block is only what is unique to this page. */
+.search-page{--xp-sec:52px}
+.xp-search-hero .xp-searchbox{margin-block-start:20px}
+.xp-search-hero h1{margin-block:.35em .2em}
+#res{min-height:40px}
+.xp-help-list{margin:0;padding-inline-start:20px}
+.xp-help-list li{margin-block:6px;color:var(--ink-2)}
+@media print{.xp-search-hero{background:none}.xp-cta{background:none;color:#000}}
+</style>
+<script src="../js/site-search.js" defer></script>
+<script src="../js/experience.js" defer></script>
 </head>
-<body>
-<div class="pw">
+<body class="search-page xp-page">
 
-<p class="crumb"><a href="../">EkGuru</a> › Search</p>
-<h1>Search EkGuru</h1>
-<p class="lede">Everything on the site — 650 pages of lessons, answers,
+<!-- =========================================================
+     SEARCH  (v200 redesign)
+     ---------------------------------------------------------
+     Everything runs in the browser: the index is a static JSON
+     file, the query never leaves the device, and there is no
+     server to log it.
+
+     The three ids below are CONTRACTUAL:
+       #q     the query box          (js/site-search.js)
+       #sf    the section filter row (tools/build-search-index.py
+              regenerates the pills inside it from the index)
+       #sc    the "Type to search N pages" line, which the same
+              generator keeps in sync with the real page count
+     ========================================================= -->
+<div class="xp-search-hero xp-band">
+  <span class="xp-orb xp-orb-1" aria-hidden="true"></span>
+  <img class="xp-world xp-world-bleed" data-xp-world="multi" src="../images/xp/world-multi.svg"
+       alt="" aria-hidden="true" width="430" height="430" loading="lazy" decoding="async">
+  <div class="xp-wrap xp-wrap-narrow">
+    <p class="crumb"><a href="../">EkGuru</a> › Search</p>
+    <h1>Search EkGuru</h1>
+    <p class="lede">Everything on the site — 650 pages of lessons, answers,
 practice labs, materials, country pages, tools and tutors. Searching happens in your
 browser; nothing you type is sent anywhere.</p>
 
-<div class="tool">
-  <label for="q">What are you looking for?</label>
-  <input type="search" id="q" placeholder="e.g. numbers, past tense, Japan, flashcards" autocomplete="off" autofocus>
+    <div class="xp-searchbox" style="max-width:none">
+      <div class="xp-searchbar">
+        <svg class="xp-search-ico" viewBox="0 0 24 24" width="20" height="20" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path>
+        </svg>
+        <label class="vh" for="q">What are you looking for?</label>
+        <input type="search" id="q" placeholder="e.g. numbers, past tense, Japan, flashcards"
+               autocomplete="off" autofocus aria-describedby="sc"
+               aria-controls="res" role="combobox" aria-expanded="false">
+        <button class="btn btn-primary" type="button" id="search-go">Search</button>
+      </div>
+    </div>
+
+    <div class="xp-filters" role="group" aria-label="Filter by type">
   <div class="row" id="sf">
     <button class="pill" type="button" data-s="" aria-pressed="true">Everything</button>
     <button class="pill" type="button" data-s="Answer" aria-pressed="false">Answer</button>
@@ -128,57 +171,110 @@ browser; nothing you type is sent anywhere.</p>
     <button class="pill" type="button" data-s="Tutor" aria-pressed="false">Tutor</button>
     <button class="pill" type="button" data-s="Vocabulary" aria-pressed="false">Vocabulary</button>
   </div>
-  <p class="score" id="sc">Type to search 650 pages</p>
-  <div id="res"></div>
+    </div>
+
+    <p class="score" id="sc">Type to search 650 pages</p>
+    <p class="xp-recent" id="search-recent"></p>
+    <p class="vh" id="search-live" role="status" aria-live="polite"></p>
+
+    <div id="res"></div>
+
+    <p class="xp-search-hint" style="margin-top:22px">
+      <span class="xp-kbd">/</span> focus · <span class="xp-kbd">↑</span><span class="xp-kbd">↓</span> move ·
+      <span class="xp-kbd">Enter</span> open · <span class="xp-kbd">Esc</span> clear
+    </p>
+
+    <div class="xp-filters" aria-label="Popular searches">
+      <span class="xp-recent-lbl">Popular:</span>
+      <a class="xp-chip" href="?q=numbers">numbers</a>
+      <a class="xp-chip" href="?q=past+tense">past tense</a>
+      <a class="xp-chip" href="?q=Devanagari">Devanagari</a>
+      <a class="xp-chip" href="?q=flashcards">flashcards</a>
+      <a class="xp-chip" href="?q=Japan">Japan</a>
+      <a class="xp-chip" href="?q=worksheets">worksheets</a>
+    </div>
+  </div>
 </div>
 
-<h2>Or browse by section</h2>
-<div class="chips">
-  <a href="../learn/">Free guides</a>
-  <a href="../toolbox/">Interactive tools</a>
-  <a href="../materials/">Materials</a>
-  <a href="../learn/practice/">Practice labs</a>
-  <a href="../learn/paths/">Learning paths</a>
-  <a href="../faq/">FAQ</a>
-  <a href="../daily-hindi/">Daily Hindi</a>
-  <a href="../ask/">Questions</a>
-  <a href="../answers/">Short answers</a>
-  <a href="../learn-hindi-by-country/">By country</a>
-  <a href="../learn-hindi-for-speakers/">By first language</a>
-  <a href="../hindi-tutor/">Tutors by location</a>
-  <a href="../find-tutors.html">All tutors</a>
+<div class="xp-wrap xp-wrap-narrow">
+
+  <section aria-labelledby="helps-head">
+    <h2 id="helps-head" class="sec-t">How to get a good result</h2>
+    <div class="xp-search-hints">
+      <div class="xp-card">
+        <div class="xp-card-ico" aria-hidden="true">🕉️</div>
+        <h3>Devanagari works</h3>
+        <p>Type <span class="xp-script" lang="hi">पानी</span>,
+          <span class="xp-script" lang="hi">किताब</span> or
+          <span class="xp-script" lang="hi">नमस्ते</span> — the index is Unicode-normalised, so
+          accents and matras do not have to be perfect.</p>
+      </div>
+      <div class="xp-card">
+        <div class="xp-card-ico" aria-hidden="true">🔤</div>
+        <h3>Roman works too</h3>
+        <p>“paani”, “kitab” or “namaste” find the same pages: the fuzzy helper maps Roman spellings
+          onto Devanagari and back.</p>
+      </div>
+      <div class="xp-card">
+        <div class="xp-card-ico" aria-hidden="true">🌍</div>
+        <h3>Search by place</h3>
+        <p>Japan, Brazil, the UAE — every country funnel is indexed, with the languages that are
+          documented there.</p>
+      </div>
+      <div class="xp-card">
+        <div class="xp-card-ico" aria-hidden="true">🧰</div>
+        <h3>Search by tool</h3>
+        <p>flashcards, alphabet chart, transliteration, numbers, verb drill — the interactive
+          labs are in the same index.</p>
+      </div>
+      <div class="xp-card">
+        <div class="xp-card-ico" aria-hidden="true">🎚️</div>
+        <h3>Narrow by type</h3>
+        <p>The filter chips keep only one kind of page — lessons, tools, tutors, materials,
+          questions — and show how many exist.</p>
+      </div>
+      <div class="xp-card">
+        <div class="xp-card-ico" aria-hidden="true">🔒</div>
+        <h3>Nothing is logged</h3>
+        <p>There is no search server. Your query is matched against a JSON file in your browser
+          and disappears when you close the tab.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="browse-head">
+    <h2 id="browse-head" class="sec-t">Or browse by section</h2>
+    <div class="chips">
+      <a href="../learn/">Free guides</a>
+      <a href="../toolbox/">Interactive tools</a>
+      <a href="../materials/">Materials</a>
+      <a href="../learn/practice/">Practice labs</a>
+      <a href="../learn/paths/">Learning paths</a>
+      <a href="../courses/">Courses A1–C2</a>
+      <a href="../faq/">FAQ</a>
+      <a href="../daily-hindi/">Daily Hindi</a>
+      <a href="../ask/">Questions</a>
+      <a href="../answers/">Short answers</a>
+      <a href="../learn-hindi-by-country/">By country</a>
+      <a href="../learn-hindi-for-speakers/">By first language</a>
+      <a href="../hindi-tutor/">Tutors by location</a>
+      <a href="../find-tutors.html">All tutors</a>
+    </div>
+  </section>
+
+  <div class="xp-cta" style="margin-top:34px">
+    <h2>Want a real person to practise with?</h2>
+    <p>Reading gets you the grammar. Speaking is the part that only happens with another human.
+      EkGuru tutors are native Hindi speakers in India who teach one to one over video — no group
+      classes, no subscription.</p>
+    <div class="xp-hero-actions" style="justify-content:center">
+      <a class="btn btn-primary" href="../find-tutors.html">Find a Hindi Guru</a>
+      <a class="btn btn-ghost" href="../learn/">Free Hindi guides</a>
+      <a class="btn btn-ghost" href="../courses/">Try a course</a>
+    </div>
+  </div>
+
 </div>
-
-<div class="cta">
-  <b>Want a real person to practise with?</b>
-  <p>Reading gets you the grammar. Speaking is the part that only happens with another human. EkGuru tutors are native Hindi speakers in India who teach one to one over video — no group classes, no subscription.</p>
-  <a class="btn btn-primary" href="../find-tutors.html">Find a Hindi Guru</a>
-  <a class="btn btn-ghost" href="../learn/">Free Hindi guides</a>
-</div>
-
-</div>
-<!-- =========================================================
-     THE TRUST FOOTER  (v79)
-     ---------------------------------------------------------
-     The 450+ generated pages had no footer at all — they ended
-     with their content and the "More on EkGuru" block. That is
-     fine for a reader and a problem for two other audiences:
-
-       · AdSense's reviewer, who looks for a privacy policy
-         reachable from wherever they happen to land. Landing on
-         a country page and finding no route to one is the
-         commonest way a content-rich site still gets rejected.
-       · Anyone who wants to know who wrote what they just read.
-
-     Deliberately minimal: five links and a line. A full site
-     footer on 450 pages would dilute the internal link graph
-     the hub block is carefully shaping, which is the opposite
-     of what v71 spent its whole budget on.
-
-     Every href goes through the depth-derived prefix. A
-     root-relative "/privacy/" 404s here — GitHub Pages serves
-     this site from /EkGuru/, not the domain root.
-     ========================================================= -->
 <footer class="pw-ftr">
   <nav aria-label="Site information">
     <a href="../">Home</a>
@@ -217,90 +313,12 @@ browser; nothing you type is sent anywhere.</p>
      which is exactly how this line first broke the build. -->
 
 <script src="../js/hindi-fuzzy.js" defer></script>
-<script defer>
-(function(){
-  var IDX=null,q=document.getElementById("q"),res=document.getElementById("res"),
-      sc=document.getElementById("sc"),sec="";
-  var BASEP="../";
-
-  /* Index is fetched lazily on first keystroke rather than on
-     load: most visitors to this page arrive with a query in
-     mind, but the ones who bounce should not pay for the
-     download. */
-  function need(cb){
-    if(IDX)return cb();
-    fetch(BASEP+"search-index.json").then(function(r){return r.json()})
-      .then(function(j){IDX=j;cb();})
-      .catch(function(){sc.textContent="Could not load the index. Try the section links below.";});
-  }
-  function esc(s){return String(s).replace(/[&<>"]/g,function(c){
-    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
-
-  /* Phase 6 §16 — fuzzy matching: exact → unicode-normalised →
-     curated Roman↔Devanagari → lightweight fuzzy. The helper is
-     optional; if it did not load, matching still works exactly as
-     before. */
-  var FZ = window.EkGuruFuzzy || null;
-  function termForms(w){
-    var forms = FZ ? FZ.expand(w) : [w];
-    if (!FZ) forms = [w];
-    return forms;
-  }
-
-  function run(){
-    var s=q.value.trim().toLowerCase();
-    if(!s){res.innerHTML="";sc.textContent="Type to search "+(IDX?IDX.length:"the")+" pages";return;}
-    need(function(){
-      var terms=s.split(/\s+/).filter(Boolean);
-      var hits=IDX.map(function(r){
-        if(sec&&r.s!==sec)return null;
-        var t=r.t.toLowerCase(),d=r.d.toLowerCase(),k=r.k.toLowerCase(),score=0;
-        for(var i=0;i<terms.length;i++){
-          var w=terms[i];
-          var forms=termForms(w);
-          var best=0;
-          for(var f=0;f<forms.length;f++){
-            var v=forms[f];
-            /* Weighted: a title match is worth far more than a
-               body match, or every page mentioning "Hindi" ranks
-               equally, which is every page on the site. Fuzzy
-               variants score slightly less than exact matches. */
-            var dec = (v===w) ? 0 : 1;   // penalty for non-exact form
-            if(t.indexOf(v)>-1)best=Math.max(best,10-dec);
-            else if(d.indexOf(v)>-1)best=Math.max(best,4-dec);
-            else if(k.indexOf(v)>-1)best=Math.max(best,1);
-          }
-          if(best<=0)return null;   /* every term must appear somewhere */
-          score+=best;
-        }
-        if(t.indexOf(s)>-1)score+=15;   /* exact phrase in title */
-        return {r:r,score:score};
-      }).filter(Boolean).sort(function(a,b){return b.score-a.score}).slice(0,40);
-
-      sc.textContent=hits.length?hits.length+" result"+(hits.length===1?"":"s"):"Nothing matched. Try a shorter word.";
-      res.innerHTML=hits.map(function(h){
-        return '<a class="faq" style="display:block" href="'+BASEP+esc(h.r.u)+'"><b>'+esc(h.r.t)+'</b>'+
-          '<p><span class="pill">'+esc(h.r.s)+'</span> '+esc(h.r.d)+'</p></a>';
-      }).join("");
-    });
-  }
-  var t=null;
-  q.addEventListener("input",function(){clearTimeout(t);t=setTimeout(run,140);});
-  document.getElementById("sf").addEventListener("click",function(e){
-    var b=e.target.closest(".pill");if(!b)return;
-    sec=b.getAttribute("data-s");
-    [].forEach.call(this.querySelectorAll(".pill"),function(x){
-      x.setAttribute("aria-pressed",x===b?"true":"false")});
-    run();
-  });
-  /* Support /search/?q=... so results can be linked to, while
-     the page itself stays noindex. */
-  try{
-    var pre=new URLSearchParams(location.search).get("q");
-    if(pre){q.value=pre;run();}
-  }catch(e){}
-  try{if(window.goatcounter)window.goatcounter.count({path:"event/site_search",event:true});}catch(e){}
-})();</script>
+<!-- The engine is js/site-search.js (loaded above). It supersedes the inline
+     version this page used to carry: highlighting, keyboard control, section
+     counts, recent searches and an empty state that suggests something, all
+     against the same search-index.json and with the same "nothing leaves your
+     device" promise. tools/build-search-index.py still owns the filter pills
+     (#sf) and the page count in #sc. -->
 <script defer>
 /* =========================================================
    ANALYTICS EVENTS  (v72, Phase 26)

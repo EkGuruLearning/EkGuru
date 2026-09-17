@@ -45,10 +45,80 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="alternate" type="text/plain" href="llms.txt" title="EkGuru — summary for AI assistants">
 <link rel="alternate" type="application/rss+xml" title="EkGuru — Hindi tutors" href="feed.xml">
-<style id="critical">/* Above-the-fold styles, inlined so the first paint
-needs no network round trip. The full stylesheet loads straight after
-and is applied without blocking rendering. */
-:root{--brand:#4f32d9;--brand-2:#6d4fe0;--brand-3:#c2407d;--accent:#b45309;--green:#147a3d;--ink:#10131f;--ink-2:#3d4257;--muted:#5f6577;--line:#e4e4ef;--bg:#ffffff;--bg-soft:#f8f7fd;--card:#ffffff;--grad:linear-gradient(135deg,#4f32d9 0%,#6d4fe0 55%,#c2407d 100%);--grad-soft:linear-gradient(135deg,#f4f1ff 0%,#fdf3f8 100%);--r-sm:10px;--r:16px;--r-lg:24px;--r-xl:32px;--sh-1:0 1px 2px rgba(15,18,34,.06),0 2px 8px rgba(15,18,34,.05);--sh-2:0 4px 16px rgba(15,18,34,.08),0 12px 32px rgba(15,18,34,.06);--sh-3:0 12px 40px rgba(91,61,245,.18);--ease:cubic-bezier(.22,1,.36,1);--maxw:1160px}*,*::before,*::after{box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}body{margin:0;font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans Devanagari",sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;font-size:16px;overflow-x:hidden}img{max-width:100%;display:block}a{color:inherit;text-decoration:none}button{font:inherit}h1,h2,h3,h4{line-height:1.2;margin:0 0 .5em;font-weight:800;letter-spacing:-.02em}h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3.4vw,2.3rem)}p{margin:0 0 1em}.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}.center{text-align:center}.muted{color:var(--muted)}.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}.hdr{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line)}.hdr-in{display:flex;align-items:center;gap:16px;height:70px;max-width:var(--maxw);margin:0 auto;padding:0 20px}.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.3rem;letter-spacing:-.03em;flex:none}.hdr .logo>span:not(.logo-mark){min-width:0;max-width:140px;overflow:hidden;display:block}.logo-mark{width:38px;height:38px;border-radius:11px;background:var(--grad);display:grid;place-items:center;color:#fff;font-size:1.05rem;font-weight:900;box-shadow:var(--sh-3);flex:none}.logo small{display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.8rem;font-weight:600;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;line-height:1}.nav{margin-left:auto;display:flex;align-items:center;gap:10px}.nav a{padding:9px 14px;border-radius:999px;font-weight:600;font-size:.94rem;color:var(--ink-2);transition:background .25s var(--ease),color .25s var(--ease)}.burger{display:none;margin-left:auto;width:42px;height:42px;border:1px solid var(--line);background:var(--card,#fff);border-radius:12px;cursor:pointer;align-items:center;justify-content:center}.btn{}.btn-primary{background:var(--grad);color:#fff;box-shadow:var(--sh-3)}.btn-ghost{background:var(--card,#fff);color:var(--ink);border-color:var(--line);box-shadow:var(--sh-1)}.btn-lg{padding:15px 30px;font-size:1.02rem}.btn-sm{padding:9px 16px;font-size:.86rem}.hero{position:relative;padding:78px 0 70px;background:var(--grad-soft);overflow:hidden}.hero-in{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}.pill{display:inline-flex;align-items:center;gap:8px;background:var(--card,#fff);border:1px solid var(--line);padding:7px 15px;border-radius:999px;font-size:.83rem;font-weight:700;color:var(--brand);box-shadow:var(--sh-1);margin-bottom:18px}.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.hero-stats{display:flex;gap:30px;margin-top:36px;flex-wrap:wrap}.hero-art{position:relative;display:grid;place-items:center;min-height:320px}.hero-card{background:var(--card,#fff);border-radius:var(--r-lg);padding:18px;box-shadow:var(--sh-2);width:min(300px,100%);text-align:center;position:relative;z-index:2;animation:rise .9s var(--ease) both}.skip{position:absolute;left:-9999px;top:0;background:var(--brand);color:#fff;padding:10px 18px;border-radius:0 0 10px 0;z-index:200;font-weight:700}.status-pill{display:inline-flex;align-items:center;gap:5px;flex:none;padding:4px 11px;border-radius:999px;font-size:.8rem;font-weight:900;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap;margin-left:2px;cursor:default}.hdr-search{position:relative;display:flex;align-items:center;flex:0 0 auto}.lang-wrap{position:relative;flex:0 0 auto}.cur-wrap{position:relative;flex:0 0 auto}.grid{display:grid;gap:26px}.grid-tutors{grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr))}.tcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-1);display:flex;flex-direction:column}.tcard-top{display:flex;gap:16px;padding:22px 22px 0}.tcard-photo{position:relative;flex:none}.tcard-photo img{width:88px;height:88px;border-radius:20px;object-fit:cover;background:var(--bg-soft)}.tcard-body{padding:16px 22px 0;flex:1}.tcard-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px 22px;margin-top:16px;border-top:1px solid var(--line)}.hero-card img{width:96px;height:96px;border-radius:50%;object-fit:cover;margin:0 auto 12px;border:4px solid #fff;box-shadow:var(--sh-2)}.hero-stats b{display:block;font-size:1.7rem;font-weight:900;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}.hero-stats span{font-size:.82rem;color:var(--muted);font-weight:600}.tags{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0 0}.tag{font-size:.8rem;font-weight:700;padding:5px 11px;border-radius:999px;background:var(--bg-soft);color:var(--ink-2);border:1px solid var(--line)}.sec{padding:74px 0}.sec-head{max-width:640px;margin:0 auto 44px;text-align:center}.hero p.lead{font-size:1.1rem;color:var(--ink-2);max-width:52ch}</style>
+<style id="critical">/* Above-the-fold styles for the redesigned home page (v200). Inlined so the
+first paint needs no network round trip; css/style.min.css (which now carries
+the full language-aware layer, css/experience.css) loads straight after and
+re-applies the same tokens per language. A no-JS visitor gets this file plus
+the stylesheet — never an unstyled page. */
+:root{--xp-wrap:1180px;--xp-gutter:clamp(16px,4vw,28px);--xp-a:#4f32d9;--xp-b:#8b5cf6;--xp-c:#f0a020;--xp-surface:#f6f4ff;--brand:#4f32d9;--brand-2:#8b5cf6;--brand-3:#f0a020;--accent:#b45309;--green:#147a3d;--ink:#10131f;--ink-2:#3d4257;--muted:#5f6577;--line:#e4e4ef;--bg:#fff;--bg-soft:#f8f7fd;--card:#fff;--grad:linear-gradient(135deg,#4f32d9,#8b5cf6 58%,#f0a020);--grad-soft:linear-gradient(160deg,#f6f4ff,#fff 52%,#fff8ec);--r-sm:10px;--r:16px;--r-lg:24px;--r-xl:32px;--sh-1:0 1px 2px rgba(15,18,34,.06),0 2px 8px rgba(15,18,34,.05);--sh-2:0 4px 16px rgba(15,18,34,.08),0 12px 32px rgba(15,18,34,.06);--sh-3:0 12px 40px rgba(91,61,245,.18);--ease:cubic-bezier(.22,1,.36,1);--maxw:1160px;--xp-pill:999px}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans Devanagari",sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;font-size:16px;overflow-x:hidden}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}button{font:inherit}
+h1,h2,h3,h4{line-height:1.2;margin:0 0 .5em;font-weight:800;letter-spacing:-.02em}
+h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3.4vw,2.3rem)}p{margin:0 0 1em}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}.center{text-align:center}.muted{color:var(--muted)}.vh{position:absolute!important;width:1px;height:1px;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hdr{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line)}
+.hdr-in{display:flex;align-items:center;gap:16px;height:70px;max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.3rem;letter-spacing:-.03em;flex:none}
+.logo-mark{width:38px;height:38px;border-radius:11px;background:var(--grad);display:grid;place-items:center;color:#fff;font-size:1.05rem;font-weight:900;box-shadow:var(--sh-3);flex:none}
+.logo small{display:block;max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.8rem;font-weight:600;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;line-height:1}
+.nav{margin-left:auto;display:flex;align-items:center;gap:10px}
+.nav a{padding:9px 14px;border-radius:999px;font-weight:600;font-size:.94rem;color:var(--ink-2)}
+.burger{display:none;margin-left:auto;width:42px;height:42px;border:1px solid var(--line);background:#fff;border-radius:12px;cursor:pointer;align-items:center;justify-content:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:700;font-size:.95rem;border:1px solid transparent;cursor:pointer;white-space:nowrap;transition:transform .18s var(--ease),box-shadow .18s var(--ease)}
+.btn-primary{background:linear-gradient(135deg,#4f32d9,#8b5cf6);color:#fff;box-shadow:0 10px 26px rgba(79,50,217,.3)}
+.btn-ghost{background:#fff;color:var(--ink);border-color:var(--line);box-shadow:var(--sh-1)}
+.btn-lg{padding:15px 30px;font-size:1.02rem}.btn-sm{padding:9px 16px;font-size:.86rem}
+.pill,.xp-kicker{display:inline-flex;align-items:center;gap:8px;padding:7px 15px;border-radius:999px;font-size:.8rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;border:1px solid #ded8ff;background:#f5f2ff;color:#4f32d9}
+.skip{position:absolute;left:-9999px;top:0;background:var(--brand);color:#fff;padding:10px 18px;border-radius:0 0 10px 0;z-index:200;font-weight:700}
+.xp-main{position:relative;isolation:isolate}
+.xp-wrap{width:100%;max-width:var(--xp-wrap);margin-inline:auto;padding-inline:var(--xp-gutter)}
+.xp-band{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 12% 0%,rgba(79,50,217,.12),transparent 60%),radial-gradient(90% 80% at 100% 20%,rgba(240,160,32,.14),transparent 55%),linear-gradient(180deg,#f7f5ff,#fff)}
+.xp-orb{position:absolute;border-radius:50%;filter:blur(52px);opacity:.5;pointer-events:none;z-index:-1}
+.xp-orb-1{width:min(420px,58vw);height:min(420px,58vw);top:-120px;inset-inline-end:-90px;background:rgba(79,50,217,.45)}
+.xp-orb-2{width:min(320px,48vw);height:min(320px,48vw);bottom:-140px;inset-inline-start:-80px;background:rgba(240,160,32,.4)}
+.xp-hero{position:relative;overflow:hidden;padding-block:clamp(52px,8vw,96px)}
+.xp-hero-in{position:relative;display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:clamp(28px,4vw,56px);align-items:center}
+.xp-hero h1{font-size:clamp(2.1rem,5.2vw,3.6rem);letter-spacing:-.035em;margin-block:.35em .4em;text-wrap:balance}
+.xp-hero .xp-lead{font-size:clamp(1.02rem,1.5vw,1.16rem);color:var(--ink-2);max-width:56ch}
+.xp-hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-block-start:22px}
+.xp-trust{display:flex;flex-wrap:wrap;gap:10px;margin-block-start:20px;padding:0;list-style:none}
+.xp-trust li{display:inline-flex;align-items:center;gap:8px;font-size:.84rem;font-weight:600;color:var(--ink-2)}
+.xp-trust li::before{content:"✓";display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#efe9ff;color:#4f32d9;font-size:.7rem;font-weight:900}
+.xp-searchbox{position:relative;margin-block-start:26px;max-width:620px}
+.xp-searchbar{display:flex;align-items:center;gap:8px;padding:8px 8px 8px 18px;border-radius:999px;background:#fff;border:1px solid #ddd6ff;box-shadow:var(--sh-2)}
+.xp-searchbar .xp-search-ico{flex:none;opacity:.6;color:#4f32d9}
+.xp-searchbar input[type=search]{flex:1 1 auto;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:1rem;color:var(--ink);padding-block:12px}
+.xp-search-hint{margin-block:12px 0;font-size:.82rem;color:var(--muted);display:flex;flex-wrap:wrap;align-items:center;gap:7px}
+.xp-kbd{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;padding-inline:6px;border-radius:7px;border:1px solid var(--line);background:#f8f7fd;font-size:.72rem;font-weight:800;color:var(--ink-2);text-transform:none;letter-spacing:0}
+.xp-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-block-start:32px;padding:0;list-style:none}
+.xp-stat{padding:14px 16px;border-radius:18px;border:1px solid #e6e1fb;background:#fff;box-shadow:var(--sh-1)}
+.xp-stat b{display:block;font-size:clamp(1.35rem,3vw,1.75rem);font-weight:900;line-height:1.1;background:linear-gradient(120deg,#4f32d9,#8b5cf6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.xp-stat span{display:block;font-size:.78rem;font-weight:600;color:var(--muted);margin-block-start:2px}
+.xp-visual{position:relative;display:grid;place-items:center;min-height:340px}
+.xp-ring{position:absolute;width:min(360px,78%);aspect-ratio:1;border-radius:50%;border:1px dashed rgba(79,50,217,.32)}
+.xp-ring-2{width:min(260px,58%);border-style:solid;border-color:rgba(240,160,32,.28)}
+.xp-badge-tile{position:relative;display:grid;place-items:center;border-radius:32% 68% 62% 38%/46% 40% 60% 54%;background:linear-gradient(145deg,#4f32d9,#8b5cf6);color:#fff;font-weight:900;box-shadow:0 24px 55px rgba(79,50,217,.32)}
+.xp-medallion{position:absolute;z-index:1;inset-block-start:2%;inset-inline-start:4%;width:clamp(78px,16%,104px);font-size:clamp(1rem,2.4vw,1.35rem)}
+.xp-medallion small{display:block;font-size:.5rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.xp-letters{position:absolute;inset-block-end:0;inset-inline-start:50%;transform:translateX(-50%);display:flex;gap:clamp(8px,1.4vw,14px);z-index:2}
+.xp-letter{display:grid;place-items:center;width:clamp(46px,8vw,64px);aspect-ratio:1;border-radius:12px;background:#fff;border:1px solid #e3ddfb;box-shadow:var(--sh-1);font-size:clamp(1.1rem,2.4vw,1.5rem);font-weight:800;color:#4f32d9}
+.xp-float{position:absolute;z-index:3;display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.94);border:1px solid #e6e1fb;box-shadow:var(--sh-2);font-size:.82rem;font-weight:700}
+.xp-float-1{inset-block-start:8%;inset-inline-start:0}.xp-float-2{inset-block-end:12%;inset-inline-end:0}.xp-float-3{inset-block-end:44%;inset-inline-start:-2%}
+.hero-card{position:relative;z-index:2;background:#fff;border-radius:var(--r-lg);padding:18px;box-shadow:var(--sh-2);width:min(300px,100%);text-align:center}
+.hero-card img{width:96px;height:96px;border-radius:50%;object-fit:cover;margin:0 auto 12px;border:4px solid #fff;box-shadow:var(--sh-2)}
+.hero-card .hc-name{margin:0 0 2px;font-size:1.1rem;font-weight:800;line-height:1.2}
+.hero-card .sm{font-size:.84rem;color:var(--muted);margin:0}
+.hc-link{position:absolute;inset:0;z-index:1;border-radius:inherit}.hero-card .btn{position:relative;z-index:2}
+.xp-rail{position:relative;overflow:hidden;padding-block:18px;border-block:1px solid #ece7ff;background:#faf9ff}
+.xp-rail-track{display:flex;gap:12px;width:max-content}
+.xp-rail-item{display:inline-flex;align-items:center;gap:10px;padding:11px 18px;border-radius:999px;background:#fff;border:1px solid #e6e1fb;box-shadow:var(--sh-1);font-weight:700;font-size:.9rem;white-space:nowrap}
+.xp-rail-item b{font-size:1.05rem;color:#4f32d9}.xp-rail-item small{color:var(--muted);font-weight:600;font-size:.74rem}
+@media(max-width:960px){.xp-hero-in{grid-template-columns:minmax(0,1fr)}.xp-hero-copy,.xp-visual{min-width:0}.xp-searchbar .ac-wrap{min-width:0}.xp-visual{min-height:240px}.xp-visual .xp-letters{position:static;transform:none;margin-block-start:14px}}
+@media(max-width:640px){.xp-float{display:none}}
+@media(prefers-reduced-motion:reduce){.xp-orb,.xp-ring{animation:none!important}}</style>
 <link rel="preload" href="css/style.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><meta name="theme-color" content="#4f32d9">
 <link rel="stylesheet" href="css/style.min.css"></noscript>
@@ -63,6 +133,7 @@ and is applied without blocking rendering. */
 <script src="js/recovery.js" defer></script>
 <!-- ekguru:recovery:end -->
 <script src="js/i18n.js" defer></script>
+<script src="js/experience.js" defer></script>
 <!-- ── TUTORS ──────────────────────────────────────────────────
      Each tutor is one file. To add a new tutor: copy
      js/tutors/_TEMPLATE.js, fill it in, add the id to
@@ -136,37 +207,88 @@ and is applied without blocking rendering. */
      ⚠️ Never leave a data-i18n element empty. It looks fine in a
      browser and is invisible to everything that matters.
      ========================================================= -->
-<main id="main">
+<main id="main" class="xp-main">
 
-<section class="hero">
-  <div class="wrap hero-in">
-    <div>
-      <span class="pill">🇮🇳 <span data-i18n="hero.badge">100% Hindi · 1-on-1 Online</span></span>
-      <h1><span data-i18n="hero.title1">Learn Hindi with your own</span> <span class="grad-text" data-i18n="hero.title2">personal Guru</span></h1>
-      <p class="lead" data-i18n="hero.lead">Every EkGuru student gets a dedicated Hindi teacher. Speak, read and write with real confidence — through live 1-on-1 lessons built around your goals.</p>
+<!-- =========================================================
+     HERO  (v200 — redesigned)
+     ---------------------------------------------------------
+     Same contract as before, new skin:
+       #home-search / #home-q   js/main.js §15 navigates to find-tutors
+       #hero-tutor              main.js swaps in the first live tutor
+       #stat-tutors … #stat-price   main.js writes the live figures
+       data-i18n keys           unchanged, so all seven market
+                                translations keep working
+     Everything visual comes from the xp-* components in
+     css/experience.css, which pick their palette and motif from
+     html[lang] — a Spanish visitor and a Japanese visitor get the
+     same page in a different visual language.
+     ========================================================= -->
+<section class="xp-hero xp-band">
+  <span class="xp-orb xp-orb-1" aria-hidden="true"></span>
+  <span class="xp-orb xp-orb-2" aria-hidden="true"></span>
+  <div class="xp-wrap xp-hero-in">
+    <div class="xp-hero-copy xp-rise">
+      <span class="xp-kicker">🇮🇳 <span data-i18n="hero.badge">100% Hindi · 1-on-1 Online</span></span>
+      <h1><span data-i18n="hero.title1">Learn Hindi with your own</span>
+        <span class="grad-text" data-i18n="hero.title2">personal Guru</span></h1>
+      <p class="xp-lead" data-i18n="hero.lead">Every EkGuru student gets a dedicated Hindi teacher. Speak, read and write with real confidence — through live 1-on-1 lessons built around your goals.</p>
 
-      <form id="home-search" class="hero-cta" role="search">
-        <label class="sr-only" for="home-q">Search</label>
-        <input id="home-q" type="search" data-i18n-ph="hero.search"
-               placeholder="What do you want to learn?"
-               style="flex:1;min-width:220px;padding:14px 18px;border:1px solid var(--line);border-radius:999px;background:var(--card,#fff);font-size:.96rem;box-shadow:var(--sh-1)">
-        <button class="btn btn-primary btn-lg" type="submit" data-i18n="hero.searchBtn">Find a tutor</button>
-      </form>
-      <p style="margin:14px 0 0"><a class="btn btn-ghost btn-sm" href="support/index.html">Support free Hindi lessons</a></p>
-
-      <div class="hero-stats">
-        <div><b id="stat-tutors">4</b><span data-i18n="hero.stat1">Verified Gurus</span></div>
-        <div><b id="stat-lessons">40+</b><span data-i18n="hero.stat2">Lessons taught</span></div>
-        <div><b id="stat-rating">5.0★</b><span data-i18n="hero.stat3">Average rating</span></div>
-        <div><b id="stat-price">$6</b><span data-i18n="hero.stat4">Lessons from</span></div>
+      <div class="xp-searchbox">
+        <form id="home-search" class="xp-searchbar" role="search">
+          <svg class="xp-search-ico" viewBox="0 0 24 24" width="20" height="20" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path>
+          </svg>
+          <label class="vh" for="home-q">Search</label>
+          <input id="home-q" type="search" data-i18n-ph="hero.search" data-xp-ph="hint"
+                 placeholder="What do you want to learn?" autocomplete="off"
+                 aria-describedby="home-search-hint">
+          <button class="btn btn-primary" type="submit" data-i18n="hero.searchBtn">Find a tutor</button>
+        </form>
+        <p class="xp-search-hint" id="home-search-hint">
+          Press <span class="xp-kbd">/</span> to search.
+          <span class="xp-script" lang="hi" dir="ltr">नमस्ते</span> — start there.
+        </p>
       </div>
+
+      <div class="xp-hero-actions">
+        <a class="btn btn-ghost btn-lg" data-navlink="find-tutors.html" href="find-tutors.html">
+          <span data-i18n="tutors.all">See all tutors</span></a>
+        <a class="btn btn-ghost btn-lg" href="courses/">Free A1–C2 courses</a>
+      </div>
+
+      <ul class="xp-trust">
+        <li>Native speakers only</li>
+        <li>No subscription, no platform fee</li>
+        <li>Trial lesson before you commit</li>
+      </ul>
+
+      <ul class="xp-stats xp-stagger">
+        <li class="xp-stat"><b id="stat-tutors">4</b><span data-i18n="hero.stat1">Verified Gurus</span></li>
+        <li class="xp-stat"><b id="stat-lessons">40+</b><span data-i18n="hero.stat2">Lessons taught</span></li>
+        <li class="xp-stat"><b id="stat-rating">5.0★</b><span data-i18n="hero.stat3">Average rating</span></li>
+        <li class="xp-stat"><b id="stat-price">$6</b><span data-i18n="hero.stat4">Lessons from</span></li>
+      </ul>
     </div>
 
-    <div class="hero-art">
-      <span class="float-chip chip-1">⭐ <span data-i18n="hero.chip1">5.0 Rating</span></span>
-      <span class="float-chip chip-2">💬 <span data-i18n="hero.chip2">Speak from Day 1</span></span>
-      <span class="float-chip chip-3">🎯 <span data-i18n="hero.chip3">Personal study plan</span></span>
-      <div class="hero-card" id="hero-tutor">
+    <div class="xp-visual xp-rise">
+      <!-- The world emblem (images/xp/world-en.svg, built by
+           tools/build-world-art.py). Decorative: alt is empty and the
+           information it carries is already in the heading and the letters
+           below. js/experience.js swaps the file when the visitor changes the
+           interface language, so a Spanish reader gets the Spanish palette. -->
+      <img class="xp-world" data-xp-world="auto" src="images/xp/world-en.svg" alt=""
+           aria-hidden="true" width="430" height="430" fetchpriority="high" decoding="async">
+      <span class="xp-ring" aria-hidden="true"></span>
+      <span class="xp-ring xp-ring-2" aria-hidden="true"></span>
+      <div class="xp-badge-tile xp-medallion" aria-hidden="true">
+        <span data-xp-hello>नमस्ते</span>
+        <small>Hindi</small>
+      </div>
+      <span class="xp-float xp-float-1">⭐ <span data-i18n="hero.chip1">5.0 Rating</span></span>
+      <span class="xp-float xp-float-2">💬 <span data-i18n="hero.chip2">Speak from Day 1</span></span>
+      <span class="xp-float xp-float-3">🎯 <span data-i18n="hero.chip3">Personal study plan</span></span>
+      <div class="hero-card xp-sheen" id="hero-tutor">
         <!-- Static fallback: a crawler, and anyone before JavaScript runs,
              sees a real tutor here rather than a grey placeholder.
              main.js replaces this with the live first tutor. -->
@@ -177,60 +299,91 @@ and is applied without blocking rendering. */
         <p class="stars" style="margin:6px 0 10px">★★★★★ 5.0</p>
         <a class="btn btn-primary btn-sm btn-block" href="tutor/sushila-g/">View profile</a>
       </div>
+      <div class="xp-letters xp-script" data-xp-letters aria-hidden="true">
+        <span class="xp-letter">अ</span><span class="xp-letter">आ</span>
+        <span class="xp-letter">क</span><span class="xp-letter">म</span>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="sec soft">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <h2 data-i18n="markets.title">Students from around the world</h2>
-      <p data-i18n="markets.sub">Our tutors teach learners across 7 major markets.</p>
-    </div>
-    <!-- ═══════════════════════════════════════════════════════
-         v91 — THESE CARDS ARE IN THE HTML, NOT WRITTEN BY JS.
-         ───────────────────────────────────────────────────────
-         PageSpeed Insights, 11 Sep 2026, real measurement:
-
-             Cumulative Layout Shift  0.159   (mobile)
-             worst element: <section class="sec soft">
-                            "Students from around the world"
-             that ONE element accounted for the entire 0.159
-
-         This div was empty in the HTML and js/main.js
-         renderMarkets() filled it after load. So the browser
-         laid the page out with a zero-height box, then the
-         seven cards appeared and shoved everything below them
-         down the screen. That jump IS the CLS score.
-
-         Google's threshold for "good" is 0.1. We were at 0.159
-         from this alone.
-
-         It is also the v85 empty-container problem again: a
-         crawler that does not run JS saw an empty div where
-         seven country names should be.
-
-         The markup is generated from EKGURU_MARKETS in
-         js/site-config.js — the same array renderMarkets() uses
-         — so there is one source of truth. renderMarkets() still
-         runs and still rewrites this, which keeps the i18n and
-         any future sheet-driven change working; it now replaces
-         identical markup instead of filling a void, so nothing
-         moves.
-
-         ⚠️ If you add a market to site-config, re-run
-         node tools/markets.js to refresh this block.
-         ═══════════════════════════════════════════════════════ -->
-    <div class="markets reveal" id="markets"><a class="mkt" href="learn-hindi-from-usa/"><span class="mkt-flag">🇺🇸</span><b>United States</b><span>English</span></a><a class="mkt" href="learn-hindi-from-spain/"><span class="mkt-flag">🇪🇸</span><b>Spain</b><span>Español</span></a><a class="mkt" href="learn-hindi-from-france/"><span class="mkt-flag">🇫🇷</span><b>France</b><span>Français</span></a><a class="mkt" href="learn-hindi-from-germany/"><span class="mkt-flag">🇩🇪</span><b>Germany</b><span>Deutsch</span></a><a class="mkt" href="learn-hindi-from-brazil/"><span class="mkt-flag">🇧🇷</span><b>Brazil</b><span>Português</span></a><a class="mkt" href="learn-hindi-from-japan/"><span class="mkt-flag">🇯🇵</span><b>Japan</b><span>日本語</span></a><a class="mkt" href="learn-hindi-from-uae/"><span class="mkt-flag">🇦🇪</span><b>UAE</b><span>العربية</span></a></div>
+<!-- =========================================================
+     LANGUAGE RAIL
+     ---------------------------------------------------------
+     A real list of links to real course pages, animated as a rail.
+     js/experience.js clones the items to make the marquee seamless;
+     the clones are aria-hidden and tabindex="-1", so a screen
+     reader and a crawler both see the list exactly once.
+     ========================================================= -->
+<section class="xp-rail" data-xp-rail aria-label="Languages you can learn on EkGuru">
+  <div class="xp-rail-track">
+    <a class="xp-rail-item" href="learn/hindi/"><b lang="hi">अ</b> Hindi <small>A1–C2</small></a>
+    <a class="xp-rail-item" href="bengali/"><b lang="bn">অ</b> Bengali <small>course</small></a>
+    <a class="xp-rail-item" href="learn/tamil/"><b lang="ta">அ</b> Tamil <small>course</small></a>
+    <a class="xp-rail-item" href="learn/telugu/"><b lang="te">అ</b> Telugu <small>course</small></a>
+    <a class="xp-rail-item" href="learn/marathi/"><b lang="mr">म</b> Marathi <small>course</small></a>
+    <a class="xp-rail-item" href="learn/urdu/"><b lang="ur" dir="rtl">ا</b> Urdu <small>course</small></a>
+    <a class="xp-rail-item" href="languages/ar/course/"><b lang="ar" dir="rtl">ع</b> Arabic <small>course</small></a>
+    <a class="xp-rail-item" href="languages/es/course/"><b lang="es">Ñ</b> Spanish <small>course</small></a>
+    <a class="xp-rail-item" href="languages/fr/course/"><b lang="fr">É</b> French <small>course</small></a>
+    <a class="xp-rail-item" href="languages/de/course/"><b lang="de">Ö</b> German <small>course</small></a>
+    <a class="xp-rail-item" href="languages/pt/course/"><b lang="pt">Ã</b> Portuguese <small>course</small></a>
+    <a class="xp-rail-item" href="languages/ja/course/"><b lang="ja">あ</b> Japanese <small>course</small></a>
+    <a class="xp-rail-item" href="languages/ko/course/"><b lang="ko">가</b> Korean <small>course</small></a>
+    <a class="xp-rail-item" href="languages/zh/course/"><b lang="zh">一</b> Chinese <small>course</small></a>
+    <a class="xp-rail-item" href="languages/ru/course/"><b lang="ru">А</b> Russian <small>course</small></a>
+    <a class="xp-rail-item" href="courses/"><b aria-hidden="true">＋</b> 39 courses <small>A1–C2</small></a>
   </div>
 </section>
 
-<section class="sec" id="tutors">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="kicker" data-i18n="tutors.kicker">Our Gurus</span>
+<!-- =========================================================
+     WHY EKGURU
+     ========================================================= -->
+<section class="xp-sec" id="why">
+  <div class="xp-wrap">
+    <div class="xp-head xp-rise">
+      <span class="xp-kicker" data-i18n="why.kicker">Why EkGuru</span>
+      <h2 data-i18n="why.title">One student, one guru, one goal</h2>
+      <p>Four things every learner gets, from the first message to the hundredth lesson.</p>
+      <div class="xp-rule" aria-hidden="true"></div>
+    </div>
+    <div class="xp-grid xp-grid-4 xp-stagger">
+      <article class="xp-card">
+        <div class="xp-card-ico" aria-hidden="true">🎯</div>
+        <h3 data-i18n="why.w1t">Personal plan</h3>
+        <p data-i18n="why.w1d">Every learner has a different goal — every lesson is built around yours.</p>
+      </article>
+      <article class="xp-card">
+        <div class="xp-card-ico" aria-hidden="true">🗣️</div>
+        <h3 data-i18n="why.w2t">Speaking first</h3>
+        <p data-i18n="why.w2d">You start speaking Hindi in your very first class. Hesitation disappears fast.</p>
+      </article>
+      <article class="xp-card">
+        <div class="xp-card-ico" aria-hidden="true">💸</div>
+        <h3 data-i18n="why.w3t">Genuinely affordable</h3>
+        <p data-i18n="why.w3d">Lessons from $6. Low price, zero compromise on teaching quality.</p>
+      </article>
+      <article class="xp-card">
+        <div class="xp-card-ico" aria-hidden="true">🕒</div>
+        <h3 data-i18n="why.w4t">Flexible timing</h3>
+        <p data-i18n="why.w4d">IST, US, Europe, Gulf or Japan — pick a slot that works in your timezone.</p>
+      </article>
+    </div>
+    <p class="center xp-owner">EkGuru is built and run by <b>Prakash</b> (B.Tech, MNIT Jaipur) — one person,
+      no middleman, no platform fee. <a href="about/">Read the full story →</a></p>
+  </div>
+</section>
+
+<!-- =========================================================
+     TUTORS  (static cards, replaced by main.js with identical markup)
+     ========================================================= -->
+<section class="xp-sec soft" id="tutors">
+  <div class="xp-wrap">
+    <div class="xp-head xp-rise">
+      <span class="xp-kicker" data-i18n="tutors.kicker">Our Gurus</span>
       <h2 data-i18n="tutors.title">Choose your Hindi Guru</h2>
       <p data-i18n="tutors.sub">Every tutor here teaches Hindi only.</p>
+      <div class="xp-rule" aria-hidden="true"></div>
     </div>
     <div class="grid grid-tutors stagger" id="tutor-list">
         <!-- Static tutor list. Crawlers and no-JS visitors get real,
@@ -261,7 +414,7 @@ and is applied without blocking rendering. */
         <article class="tcard">
           <a class="tcard-link" href="tutor/shikha-dutta/">Shikha Dutta — View profile</a>
           <div class="tcard-top">
-            <div class="tcard-photo"><picture><source type="image/webp" srcset="images/shikha-176.webp 176w, images/shikha-264.webp 264w" sizes="88px"><img src="images/shikha-264.jpg" alt="Shikha Dutta, Hindi tutor" width="88" height="88" loading="lazy" decoding="async"></picture>✓</div>
+            <div class="tcard-photo"><picture><source type="image/webp" srcset="images/shikha-176.webp 176w, images/shikha-264.webp 264w" sizes="88px"><img src="images/shikha-264.jpg" alt="Shikha Dutta, Hindi tutor" width="88" height="88" loading="lazy" decoding="async"></picture></div>
             <div><h3>Shikha Dutta</h3><p class="role">Hindi tutor</p>
             <div class="meta"><span class="stars">★★★★★ <b>5.0</b></span><span>16 years' experience</span></div></div>
           </div>
@@ -280,109 +433,182 @@ and is applied without blocking rendering. */
           <div class="tcard-foot"><div class="price"><b>$8</b><span>50 min lesson</span></div>
           <span class="btn btn-primary btn-sm tcard-cta">View profile →</span></div>
         </article>
-      </div>
-    <div class="center" style="margin-top:34px">
-      <a class="btn btn-ghost btn-lg" data-navlink="find-tutors.html" data-i18n="tutors.all" href="find-tutors.html">See all tutors</a>
     </div>
+    <p class="center" style="margin-top:34px">
+      <a class="btn btn-primary btn-lg" data-navlink="find-tutors.html" data-i18n="tutors.all" href="find-tutors.html">See all tutors</a>
+      <a class="btn btn-ghost btn-lg" href="join.html" data-i18n="nav.join">Become a Tutor</a>
+    </p>
   </div>
 </section>
 
-<section class="sec" id="reviews">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="kicker">Student reviews</span>
-      <h2>What students say after real lessons</h2>
-      <p>Verbatim excerpts from verified Preply reviews. Full text on the tutor's profile page.</p>
+<!-- ekguru:home-courses:start -->
+<!-- Written by tools/build-course-hub.py — re-run after a course is added. -->
+<section class="xp-sec soft" id="courses">
+  <div class="xp-wrap">
+    <div class="xp-head xp-rise">
+      <span class="xp-kicker">Free courses</span>
+      <h2>39 languages, A1 to C2 — free, in your browser</h2>
+      <p>1404 lessons across 39 languages, each with its own alphabet, vocabulary, dialogues and level tests. Nothing to install, nothing to pay, progress saved on your device.</p>
+      <div class="xp-rule" aria-hidden="true"></div>
     </div>
-    <div class="steps stagger">
-      <div class="step"><div class="n">❝</div><b>Tomasz, Preply student</b><p>“She adjusts the tempo to the student's level and the content to his needs. Her pronunciation is very clear and understandable.”</p></div>
-      <div class="step"><div class="n">❝</div><b>Jon, Preply student</b><p>“She plans the lessons according to my level, and we mostly converse in Hindi. We even talk about Hindi culture.”</p></div>
-      <div class="step"><div class="n">▶</div><b>Watch: Hindi Tutor Intro</b><p><a href="https://www.youtube.com/watch?v=Ykic7gkyHjg" rel="noopener"><img src="https://i.ytimg.com/vi/Ykic7gkyHjg/hqdefault.jpg" alt="Sushila G. intro video thumbnail" width="480" height="360" loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:12px"></a></p></div>
+    <div class="grid course-grid xp-stagger">
+<article class="card course-card" style="--course-hue:247" data-code="ar"><a class="course-link" href="languages/ar/course/" aria-label="Open the Arabic course"><span class="course-monogram" aria-hidden="true">ال</span><span class="course-copy"><b>Arabic</b><span class="native-name" lang="ar" dir="auto">العربية</span><span class="sub">A1 · A2 · B1 · B2 · C1 · C2 · 36 lessons</span><span class="country-chips"><em>30 country contexts</em></span></span><span class="course-arrow" aria-hidden="true">→</span></a></article><article class="card course-card" style="--course-hue:72" data-code="es"><a class="course-link" href="languages/es/course/" aria-label="Open the Spanish course"><span class="course-monogram" aria-hidden="true">es</span><span class="course-copy"><b>Spanish</b><span class="native-name" lang="es" dir="auto">español</span><span class="sub">A1 · A2 · B1 · B2 · C1 · C2 · 36 lessons</span><span class="country-chips"><em>28 country contexts</em></span></span><span class="course-arrow" aria-hidden="true">→</span></a></article><article class="card course-card" style="--course-hue:72" data-code="fr"><a class="course-link" href="languages/fr/course/" aria-label="Open the French course"><span class="course-monogram" aria-hidden="true">fr</span><span class="course-copy"><b>French</b><span class="native-name" lang="fr" dir="auto">français</span><span class="sub">A1 · A2 · B1 · B2 · C1 · C2 · 36 lessons</span><span class="country-chips"><em>40 country contexts</em></span></span><span class="course-arrow" aria-hidden="true">→</span></a></article><article class="card course-card" style="--course-hue:311" data-code="ja"><a class="course-link" href="languages/ja/course/" aria-label="Open the Japanese course"><span class="course-monogram" aria-hidden="true">日本</span><span class="course-copy"><b>Japanese</b><span class="native-name" lang="ja" dir="auto">日本語</span><span class="sub">A1 · A2 · B1 · B2 · C1 · C2 · 36 lessons</span><span class="country-chips"><em>3 country contexts</em></span></span><span class="course-arrow" aria-hidden="true">→</span></a></article><article class="card course-card" style="--course-hue:82" data-code="zh"><a class="course-link" href="languages/zh/course/" aria-label="Open the Chinese course"><span class="course-monogram" aria-hidden="true">普通</span><span class="course-copy"><b>Chinese</b><span class="native-name" lang="zh" dir="auto">普通话</span><span class="sub">A1 · A2 · B1 · B2 · C1 · C2 · 36 lessons</span><span class="country-chips"><em>7 country contexts</em></span></span><span class="course-arrow" aria-hidden="true">→</span></a></article><article class="card course-card" style="--course-hue:173" data-code="hi"><a class="course-link" href="courses/#/hi" aria-label="Open the Hindi course"><span class="course-monogram" aria-hidden="true">हि</span><span class="course-copy"><b>Hindi</b><span class="native-name" lang="hi" dir="auto">हिन्दी</span><span class="sub">A1 · A2 · B1 · B2 · C1 · C2 · 36 lessons</span><span class="country-chips"><em>10 country contexts</em></span></span><span class="course-arrow" aria-hidden="true">→</span></a></article>
     </div>
-    <div class="center" style="margin-top:34px">
-      <a class="btn btn-ghost btn-lg" href="tutor/sushila-g/">Read all reviews on Sushila's profile</a>
-    </div>
+    <p class="center" style="margin-top:28px"><a class="btn btn-primary btn-lg" href="courses/">Open the full course library</a> <a class="btn btn-ghost btn-lg" href="start/">Find my level first</a></p>
   </div>
 </section>
+<!-- ekguru:home-courses:end -->
 
-<section class="sec soft" id="how">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="kicker" data-i18n="how.kicker">How it works</span>
+<!-- =========================================================
+     HOW IT WORKS
+     ========================================================= -->
+<section class="xp-sec" id="how">
+  <div class="xp-wrap">
+    <div class="xp-head xp-rise">
+      <span class="xp-kicker" data-i18n="how.kicker">How it works</span>
       <h2 data-i18n="how.title">Start in just 3 steps</h2>
       <p data-i18n="how.sub">No app, no long forms.</p>
+      <div class="xp-rule" aria-hidden="true"></div>
     </div>
-    <div class="steps stagger">
-      <div class="step"><div class="n">1</div><b data-i18n="how.s1t">Choose your Guru</b><p data-i18n="how.s1d">Browse profiles, reviews and intro videos, then pick the teacher who fits you.</p></div>
-      <div class="step"><div class="n">2</div><b data-i18n="how.s2t">Send a message</b><p data-i18n="how.s2d">One click to email. Tell us your level, goal and preferred timings.</p></div>
-      <div class="step"><div class="n">3</div><b data-i18n="how.s3t">Take a trial lesson</b><p data-i18n="how.s3d">Decide after your very first class. No pressure, no commitment.</p></div>
+    <div class="xp-steps xp-stagger">
+      <div class="xp-step">
+        <b data-i18n="how.s1t">Choose your Guru</b>
+        <p data-i18n="how.s1d">Browse profiles, reviews and intro videos, then pick the teacher who fits you.</p>
+      </div>
+      <div class="xp-step">
+        <b data-i18n="how.s2t">Send a message</b>
+        <p data-i18n="how.s2d">One click to email. Tell us your level, goal and preferred timings.</p>
+      </div>
+      <div class="xp-step">
+        <b data-i18n="how.s3t">Take a trial lesson</b>
+        <p data-i18n="how.s3d">Decide after your very first class. No pressure, no commitment.</p>
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     REVIEWS
+     ========================================================= -->
+<section class="xp-sec soft" id="reviews">
+  <div class="xp-wrap">
+    <div class="xp-head xp-rise">
+      <span class="xp-kicker">Student reviews</span>
+      <h2>What students say after real lessons</h2>
+      <p>Verbatim excerpts from verified Preply reviews. Full text on the tutor's profile page.</p>
+      <div class="xp-rule" aria-hidden="true"></div>
+    </div>
+    <div class="xp-grid xp-grid-3 xp-stagger">
+      <figure class="xp-quote">
+        <p>“She adjusts the tempo to the student's level and the content to his needs. Her pronunciation is very clear and understandable.”</p>
+        <figcaption><b>Tomasz</b><span>Preply student · Sushila G.</span></figcaption>
+      </figure>
+      <figure class="xp-quote">
+        <p>“She plans the lessons according to my level, and we mostly converse in Hindi. We even talk about Hindi culture.”</p>
+        <figcaption><b>Jon</b><span>Preply student · Sushila G.</span></figcaption>
+      </figure>
+      <figure class="xp-quote xp-quote-video">
+        <a href="https://www.youtube.com/watch?v=Ykic7gkyHjg" rel="noopener">
+          <img src="https://i.ytimg.com/vi/Ykic7gkyHjg/hqdefault.jpg" alt="Sushila G. intro video thumbnail"
+               width="480" height="360" loading="lazy" decoding="async">
+          <span class="xp-play" aria-hidden="true">▶</span>
+        </a>
+        <figcaption><b>Watch: Hindi Tutor Intro</b><span>Meet a Guru before you book</span></figcaption>
+      </figure>
+    </div>
+    <p class="center" style="margin-top:30px">
+      <a class="btn btn-ghost" href="tutor/sushila-g/">Read all reviews on Sushila's profile</a>
+    </p>
   </div>
 </section>
 
 <!-- ekguru:languages-home:start (generated by tools/build-phase7-pages.py) -->
-<section class="sec" id="languages">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="kicker">Free language packs</span>
+<section class="xp-sec" id="languages">
+  <div class="xp-wrap">
+    <div class="xp-head xp-rise">
+      <span class="xp-kicker">Free language packs</span>
       <h2>One engine, many languages</h2>
-      <p class="lead">Full courses from English in Hindi, 9 Indian languages, Arabic, Chinese, French, German, Italian, Japanese, Korean, Portuguese, Russian and Spanish. Free starter packs — Dutch, English, Hebrew, Indonesian, … — run on the same engines with the same device-only review.</p>
+      <p>Full courses from English in Hindi, 9 Indian languages, Arabic, Chinese, French, German, Italian, Japanese, Korean, Portuguese, Russian and Spanish. Free starter packs — Dutch, English, Hebrew, Indonesian, … — run on the same engines with the same device-only review.</p>
+      <div class="xp-rule" aria-hidden="true"></div>
     </div>
     <div class="lang-strip reveal center"><a class="lang-pill on" href="/courses/">All Phase Courses <small>A1–C2</small></a><a class="lang-pill on" href="/learn/hindi/">Hindi <small>full course</small></a><a class="lang-pill on" href="/languages/ar/course/">Arabic <small>course</small></a><a class="lang-pill on" href="/bengali/">Bengali <small>course</small></a><a class="lang-pill on" href="/languages/zh/course/">Chinese <small>course</small></a><a class="lang-pill on" href="/languages/fr/course/">French <small>course</small></a><a class="lang-pill on" href="/languages/de/course/">German <small>course</small></a><a class="lang-pill on" href="/learn/gujarati/">Gujarati <small>course</small></a><a class="lang-pill on" href="/languages/it/course/">Italian <small>course</small></a><a class="lang-pill on" href="/languages/ja/course/">Japanese <small>course</small></a><a class="lang-pill on" href="/learn/kannada/">Kannada <small>course</small></a><a class="lang-pill on" href="/languages/ko/course/">Korean <small>course</small></a><a class="lang-pill on" href="/learn/malayalam/">Malayalam <small>course</small></a><a class="lang-pill on" href="/learn/marathi/">Marathi <small>course</small></a><a class="lang-pill on" href="/languages/pt/course/">Portuguese <small>course</small></a><a class="lang-pill on" href="/learn/punjabi/">Punjabi <small>course</small></a><a class="lang-pill on" href="/languages/ru/course/">Russian <small>course</small></a><a class="lang-pill on" href="/languages/es/course/">Spanish <small>course</small></a><a class="lang-pill on" href="/learn/tamil/">Tamil <small>course</small></a><a class="lang-pill on" href="/learn/telugu/">Telugu <small>course</small></a><a class="lang-pill on" href="/learn/urdu/">Urdu <small>course</small></a><a class="lang-pill beta" href="/languages/nl/">Dutch</a><a class="lang-pill beta" href="/languages/en/">English</a><a class="lang-pill beta" href="/languages/he/">Hebrew</a><a class="lang-pill beta" href="/languages/id/">Indonesian</a><a class="lang-pill beta" href="/languages/ms/">Malay</a><a class="lang-pill beta" href="/languages/fa/">Persian</a><a class="lang-pill beta" href="/languages/pl/">Polish</a><a class="lang-pill beta" href="/languages/sw/">Swahili</a><a class="lang-pill beta" href="/languages/th/">Thai</a><a class="lang-pill beta" href="/languages/tr/">Turkish</a><a class="lang-pill beta" href="/languages/uk/">Ukrainian</a><a class="lang-pill beta" href="/languages/vi/">Vietnamese</a></div>
-    <p class="center" style="margin-top:18px"><a class="btn btn-ghost btn-sm" href="/courses/">Courses</a></p>
+    <p class="center" style="margin-top:18px">
+      <a class="btn btn-primary" href="/courses/">Open the course library</a>
+      <a class="btn btn-ghost" href="/start/">Find my level</a>
+    </p>
   </div>
 </section>
-<style>
-.lang-strip{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:6px}
-.lang-pill{display:inline-flex;align-items:center;gap:7px;padding:10px 16px;border-radius:999px;font-weight:700;font-size:.92rem;border:1px solid var(--line);background:var(--card,#fff);color:var(--ink)}
-.lang-pill small{font-weight:600;color:var(--muted);font-size:.75rem}
-.lang-pill.on{border-color:#1a7f37;color:#1a7f37}
-.lang-pill.beta{border-color:#9a6700;color:#9a6700}
-.lang-pill.soon{border-color:var(--line);color:var(--muted)}
-@media(pointer:coarse){.lang-pill{min-height:44px}}
-</style>
 <!-- ekguru:languages-home:end -->
 
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="kicker" data-i18n="why.kicker">Why EkGuru</span>
-      <h2 data-i18n="why.title">One student, one guru, one goal</h2>
+<!-- =========================================================
+     MARKETS  (#markets is rewritten by main.js renderMarkets with
+     identical markup — the static copy is what a crawler reads)
+     ========================================================= -->
+<section class="xp-sec soft" id="markets-sec">
+  <div class="xp-wrap">
+    <div class="xp-head xp-rise">
+      <span class="xp-kicker">Where students learn</span>
+      <h2 data-i18n="markets.title">Students from around the world</h2>
+      <p data-i18n="markets.sub">Our tutors teach learners across 7 major markets.</p>
+      <div class="xp-rule" aria-hidden="true"></div>
     </div>
-    <div class="steps stagger">
-      <div class="step"><div class="n">🎯</div><b data-i18n="why.w1t">Personal plan</b><p data-i18n="why.w1d">Every learner has a different goal — every lesson is built around yours.</p></div>
-      <div class="step"><div class="n">🗣️</div><b data-i18n="why.w2t">Speaking first</b><p data-i18n="why.w2d">You start speaking Hindi in your very first class. Hesitation disappears fast.</p></div>
-      <div class="step"><div class="n">💸</div><b data-i18n="why.w3t">Genuinely affordable</b><p data-i18n="why.w3d">Lessons from $6. Low price, zero compromise on teaching quality.</p></div>
-      <div class="step"><div class="n">🕒</div><b data-i18n="why.w4t">Flexible timing</b><p data-i18n="why.w4d">IST, US, Europe, Gulf or Japan — pick a slot that works in your timezone.</p></div>
-    </div>
-    <p class="center muted" style="margin-top:28px">EkGuru is built and run by <b>Prakash</b> (B.Tech, MNIT Jaipur) — one person, no middleman. No subscription, no platform fee, tutors paid directly. <a href="about/" style="text-decoration:underline">Read the full story →</a></p>
+    <div class="markets reveal" id="markets"><a class="mkt" href="learn-hindi-from-usa/"><span class="mkt-flag">🇺🇸</span><b>United States</b><span>English</span></a><a class="mkt" href="learn-hindi-from-spain/"><span class="mkt-flag">🇪🇸</span><b>Spain</b><span>Español</span></a><a class="mkt" href="learn-hindi-from-france/"><span class="mkt-flag">🇫🇷</span><b>France</b><span>Français</span></a><a class="mkt" href="learn-hindi-from-germany/"><span class="mkt-flag">🇩🇪</span><b>Germany</b><span>Deutsch</span></a><a class="mkt" href="learn-hindi-from-brazil/"><span class="mkt-flag">🇧🇷</span><b>Brazil</b><span>Português</span></a><a class="mkt" href="learn-hindi-from-japan/"><span class="mkt-flag">🇯🇵</span><b>Japan</b><span>日本語</span></a><a class="mkt" href="learn-hindi-from-uae/"><span class="mkt-flag">🇦🇪</span><b>UAE</b><span>العربية</span></a></div>
+    <p class="center" style="margin-top:22px">
+      <a class="btn btn-ghost" href="learn-hindi-by-country/">Every country we teach →</a>
+    </p>
   </div>
 </section>
 
-<section class="sec soft" id="faq">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="kicker">FAQ</span>
+<!-- =========================================================
+     FAQ  (#faq-list is rewritten by main.js renderFaq; the static
+     list carries no hardcoded price — see js/i18n.js v63 note)
+     ========================================================= -->
+<section class="xp-sec" id="faq">
+  <div class="xp-wrap xp-wrap-narrow">
+    <div class="xp-head xp-rise">
+      <span class="xp-kicker">FAQ</span>
       <h2>Frequently asked questions</h2>
+      <div class="xp-rule" aria-hidden="true"></div>
     </div>
-    <div class="faq-wrap reveal" id="faq-list"></div>
+    <div class="faq-wrap reveal" id="faq-list">
+      <details class="faq" open><summary>How much does an online Hindi lesson cost on EkGuru?</summary>
+        <p>Each tutor sets their own price and every profile shows it in your own currency — including the cheapest lesson currently available. No platform fee is added on top.</p></details>
+      <details class="faq"><summary>Do I need to know any Hindi before starting?</summary>
+        <p>No. Our tutors teach complete beginners regularly, starting from the Devanagari alphabet and everyday greetings.</p></details>
+      <details class="faq"><summary>Are the tutors native Hindi speakers?</summary>
+        <p>Yes. Every tutor listed on EkGuru is a native Hindi speaker and teaches Hindi only.</p></details>
+      <details class="faq"><summary>Can I take a trial lesson first?</summary>
+        <p>Yes. A trial lesson is available so you can decide after your very first class, with no obligation.</p></details>
+      <details class="faq"><summary>How are the lessons delivered?</summary>
+        <p>Lessons are live and one-to-one over video call. You agree the platform and timing directly with your tutor.</p></details>
+      <details class="faq"><summary>Which timezones do you cover?</summary>
+        <p>Our tutors teach students in the United States, Spain, France, Germany, Brazil, Japan and the UAE, with slots arranged around your local time.</p></details>
+      <details class="faq"><summary>How do I contact a tutor?</summary>
+        <p>Open a tutor profile and use the email button, or book directly through their Preply profile if one is linked.</p></details>
+      <details class="faq"><summary>Can I become a Hindi tutor on EkGuru?</summary>
+        <p>Yes. Listing is free with no commission — send your bio, photo, intro video and rates from the Become a Tutor page.</p></details>
+    </div>
   </div>
 </section>
 
-<section class="sec" id="contact">
-  <div class="wrap">
-    <div class="cta reveal">
+<!-- =========================================================
+     FINAL CTA
+     ========================================================= -->
+<section class="xp-sec" id="contact">
+  <div class="xp-wrap">
+    <div class="xp-cta xp-rise">
       <h2 data-i18n="cta.title">Book your first Hindi lesson today</h2>
       <p data-i18n="cta.sub">Take a trial lesson, then decide.</p>
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <a class="btn btn-ghost btn-lg" data-navlink="find-tutors.html" data-i18n="cta.btn1" href="find-tutors.html">Browse tutors</a>
+      <div class="xp-hero-actions" style="justify-content:center">
+        <a class="btn btn-primary btn-lg" data-navlink="find-tutors.html" data-i18n="cta.btn1" href="find-tutors.html">Browse tutors</a>
         <a class="btn btn-ghost btn-lg" data-mail-main href="#" data-i18n="cta.btn2">Email us</a>
+        <a class="btn btn-ghost btn-lg" href="courses/">Try a free course</a>
       </div>
     </div>
   </div>
 </section>
 
-  <div class="wrap"><p class="text-versions" id="text-versions"></p></div>
+  <div class="xp-wrap"><p class="text-versions" id="text-versions"></p></div>
 </main>
 
 <footer class="ftr">

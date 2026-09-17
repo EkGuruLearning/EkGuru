@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="640" height="640"
+     role="img" aria-labelledby="t">
+  <title id="t">EkGuru world emblem — Arabic</title>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="42%" r="62%">
+      <stop offset="0" stop-color="#eef5f5"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f766e" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#b45309" stop-opacity=".35"/>
+    </linearGradient>
+  </defs>
+
+  <!-- The backdrop is a circle, not a square: on the dark heroes (support/,
+       courses/) a square panel shows its corners and reads as a broken image. -->
+  <circle cx="320" cy="320" r="288" fill="url(#bg)"/>
+  <circle cx="320" cy="320" r="288" fill="#eef5f5" fill-opacity=".55"/>
+
+  <!-- rim: dashed orbit, ticks, and the three study nodes -->
+  <circle cx="320" cy="320" r="288" fill="none" stroke="#0f766e" stroke-opacity=".16"
+          stroke-width="2" stroke-dasharray="10 14"/>
+  <circle cx="320" cy="320" r="252" fill="none" stroke="url(#ring)" stroke-width="2"/>
+  <g opacity=".8"><path d="M320 24 V48" stroke="rgba(15,118,110,0.45)" stroke-width="5" stroke-linecap="round" transform="rotate(0 320 320)"/><path d="M320 24 V38" stroke="rgba(15,118,110,0.3)" stroke-width="3" stroke-linecap="round" transform="rotate(15 320 320)"/><path d="M320 24 V48" stroke="rgba(15,118,110,0.45)" stroke-width="5" stroke-linecap="round" transform="rotate(30 320 320)"/><path d="M320 24 V38" stroke="rgba(15,118,110,0.3)" stroke-width="3" stroke-linecap="round" transform="rotate(45 320 320)"/><path d="M320 24 V48" stroke="rgba(15,118,110,0.45)" stroke-width="5" stroke-linecap="round" transform="rotate(60 320 320)"/><path d="M320 24 V38" stroke="rgba(15,118,110,0.3)" stroke-width="3" stroke-linecap="round" transform="rotate(75 320 320)"/><path d="M320 24 V48" stroke="rgba(15,118,110,0.45)" stroke-width="5" stroke-linecap="round" transform="rotate(90 320 320)"/><path d="M320 24 V38" stroke="rgba(15,118,110,0.3)" stroke-width="3" stroke-linecap="round" transform="rotate(105 320 320)"/><path d="M320 24 V48" stroke="rgba(15,118,110,0.45)" stroke-width="5" stroke-linecap="round" transform="rotate(120 320 320)"/><path d="M320 24 V38" stroke="rgba(15,118,110,0.3)" stroke-width="3" stroke-linecap="round" transform="rotate(135 320 320)"/><path d="M320 24 V48" stroke="rgba(15,118,110,0.45)" stroke-width="5" stroke-linecap="round" transform="rotate(150 320 320)"/><path d="M320 24 V38" stroke="rgba(15,118,110,0.3)" stroke-width="3" stroke-linecap="round" transform="rotate(165 320 320)"/><path d="M320 24 V48" stroke="rgba(15,118,110,0.45)" stroke-width="5" stroke-linecap="round" transform="rotate(180 320 320)"/><path d="M320 24 V38" stroke="rgba(15,118,110,0.3)" stroke-width="3" stroke-linecap="round" transform="rotate(195 320 320)"/><path d="M320 24 V48" stroke="rgba(15,118,110,0.45)" stroke-width="5" stroke-linecap="round" transform="rotate(210 320 320)"/><path d="M320 24 V38" stroke="rgba(15,118,110,0.3)" stroke-width="3" stroke-linecap="round" transform="rotate(225 320 320)"/><path d="M320 24 V48" stroke="rgba(15,118,110,0.45)" stroke-width="5" stroke-linecap="round" transform="rotate(240 320 320)"/><path d="M320 24 V38" stroke="rgba(15,118,110,0.3)" stroke-width="3" stroke-linecap="round" transform="rotate(255 320 320)"/><path d="M320 24 V48" stroke="rgba(15,118,110,0.45)" stroke-width="5" stroke-linecap="round" transform="rotate(270 320 320)"/><path d="M320 24 V38" stroke="rgba(15,118,110,0.3)" stroke-width="3" stroke-linecap="round" transform="rotate(285 320 320)"/><path d="M320 24 V48" stroke="rgba(15,118,110,0.45)" stroke-width="5" stroke-linecap="round" transform="rotate(300 320 320)"/><path d="M320 24 V38" stroke="rgba(15,118,110,0.3)" stroke-width="3" stroke-linecap="round" transform="rotate(315 320 320)"/><path d="M320 24 V48" stroke="rgba(15,118,110,0.45)" stroke-width="5" stroke-linecap="round" transform="rotate(330 320 320)"/><path d="M320 24 V38" stroke="rgba(15,118,110,0.3)" stroke-width="3" stroke-linecap="round" transform="rotate(345 320 320)"/></g>
+
+  <g class="eg-nodes">
+    <circle cx="320" cy="76" r="13" fill="#eab308"/>
+    <circle cx="546" cy="466" r="10" fill="#b45309"/>
+    <circle cx="104" cy="446" r="9" fill="#0f766e"/>
+  </g>
+
+  
+    <!-- alif: the straight stroke every Arabic page is measured against -->
+    <path d="M288 398 V212" fill="none" stroke="#0f766e" stroke-width="18" stroke-linecap="round"/>
+    <!-- connected baseline: two bowls, then a rising tail -->
+    <path d="M166 398 q50 0 66 -32 q16 -32 56 -32 q40 0 56 32 q16 32 66 32 q40 0 60 -26"
+          fill="none" stroke="#b45309" stroke-width="16" stroke-linecap="round"/>
+    <!-- i'jam: one dot above, two below — the shape that changes the letter -->
+    <circle cx="288" cy="178" r="11" fill="#eab308"/>
+    <circle cx="216" cy="436" r="10" fill="#0f766e"/>
+    <circle cx="250" cy="436" r="10" fill="#0f766e"/>
+    <!-- the tail lifts: it is the same line, drawn from the right -->
+    <path d="M436 386 q36 -4 54 -32" fill="none" stroke="#eab308" stroke-width="13"
+          stroke-linecap="round"/>
+    
+
+  <!-- the four corners carry the same motif the page background repeats -->
+  <g opacity=".45" fill="none" stroke="#0f766e" stroke-width="3">
+    <path d="M92 132 h34 M92 132 v34"/>
+    <path d="M548 132 h-34 M548 132 v34"/>
+    <path d="M92 508 h34 M92 508 v-34"/>
+    <path d="M548 508 h-34 M548 508 v-34"/>
+  </g>
+</svg>

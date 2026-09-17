@@ -17,7 +17,7 @@
    Bump CACHE when you deploy and the old one is cleared out.
    ========================================================= */
 
-const CACHE = "ekguru-v32-course-hotfix";
+const CACHE = "ekguru-v34-world-art";
 
 /* Phase 6 §14 — "Save for offline" pins learner-chosen pages in a dedicated
    cache that survives the main cache rotation. Only same-origin, non-private
@@ -40,6 +40,13 @@ const SHELL = [
   "./js/tutors-data.js",
   "./js/pricing.js",
   "./js/main.js",
+  /* v200 — the language-aware experience layer. js/experience.js drives the
+     redesigned home/support/courses/search pages (reveal animation, hero
+     script letters, language rail, search suggestions); js/site-search.js is
+     the /search/ engine. Both are useless without the bundled stylesheet
+     above, so they belong in the same cache generation. */
+  "./js/experience.js",
+  "./js/site-search.js",
   "./js/rates.js",
   "./js/store.js",
   "./js/analytics.js",
@@ -84,6 +91,13 @@ const SHELL = [
   /* Phase 7 — global language registry + goal-based onboarding */
   "./js/languages.js",
   "./js/onboarding.js",
+  /* v200 — the world emblems. Three small SVGs (5-6 KB each) rather than the
+     whole set: these are the ones the home page, support/ and the courses hub
+     show, so they are worth having before the first paint. The other markets'
+     files are cached on demand by the runtime handler like any other image. */
+  "./images/xp/world-en.svg",
+  "./images/xp/world-hi.svg",
+  "./images/xp/world-multi.svg",
   "./images/logo.svg"
 ];
 
