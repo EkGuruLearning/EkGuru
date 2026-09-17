@@ -1,0 +1,2286 @@
+{
+  "code": "ro",
+  "name": "Romanian",
+  "native": "română",
+  "phase": 3,
+  "medium": "en",
+  "file_level": "A1",
+  "pronunciation": {
+    "title": "Say it right from day one",
+    "rules": [
+      {
+        "rule": "Vowels never change",
+        "explain": "a=AH, e=EH, i=EE, o=OH, u=OO. Always. So CASA is KAH-sah.",
+        "examples": [
+          {
+            "t": "casa",
+            "r": "KAH-sah",
+            "en": "house"
+          },
+          {
+            "t": "mesa",
+            "r": "MEH-sah",
+            "en": "table"
+          }
+        ]
+      },
+      {
+        "rule": "H is silent, J sounds like H",
+        "explain": "HOLA is OH-lah (no H sound). J in JUEVES sounds like English H: HWEH-vehs.",
+        "examples": [
+          {
+            "t": "hola",
+            "r": "OH-lah",
+            "en": "hello"
+          },
+          {
+            "t": "jueves",
+            "r": "HWEH-vehs",
+            "en": "Thursday"
+          }
+        ]
+      },
+      {
+        "rule": "Ñ = NY, LL/Y = Y",
+        "explain": "Ñ is like NY in canyon: NIÑO = NEEN-yoh. LL and Y sound like Y in yes.",
+        "examples": [
+          {
+            "t": "niño",
+            "r": "NEEN-yoh",
+            "en": "boy"
+          },
+          {
+            "t": "calle",
+            "r": "KAH-yeh",
+            "en": "street"
+          }
+        ]
+      },
+      {
+        "rule": "R rolls a little",
+        "explain": "Tap your tongue once for R. PERRO (dog) rolls longer than PERO (but).",
+        "examples": [
+          {
+            "t": "pero",
+            "r": "PEH-roh",
+            "en": "but"
+          },
+          {
+            "t": "perro",
+            "r": "PEH-rroh",
+            "en": "dog"
+          }
+        ]
+      },
+      {
+        "rule": "Stress the second-last syllable",
+        "explain": "Most words stress the middle: HOLA = OH-lah, GRACIAS = GRAH-syahs. An accent mark (á) forces stress there.",
+        "examples": [
+          {
+            "t": "gracias",
+            "r": "GRAH-syahs",
+            "en": "thanks"
+          },
+          {
+            "t": "café",
+            "r": "kah-FEH",
+            "en": "coffee"
+          }
+        ]
+      }
+    ]
+  },
+  "alphabet": {
+    "title": "The Spanish alphabet: 27 letters",
+    "explain": "Spanish uses the same letters as English plus Ñ. Letter names matter for spelling your name aloud. Read each name, then say the example word.",
+    "letters": [
+      {
+        "t": "a",
+        "r": "ah",
+        "tip": "as in father: CASA"
+      },
+      {
+        "t": "b",
+        "r": "beh",
+        "tip": "soft, lips barely touch: BOCA"
+      },
+      {
+        "t": "c",
+        "r": "seh",
+        "tip": "CA=K, CE/CI=S: CENA"
+      },
+      {
+        "t": "d",
+        "r": "deh",
+        "tip": "soft, like TH in this: DÍA"
+      },
+      {
+        "t": "e",
+        "r": "eh",
+        "tip": "as in bet: MESA"
+      },
+      {
+        "t": "f",
+        "r": "EH-feh",
+        "tip": "same as English: FOTO"
+      },
+      {
+        "t": "g",
+        "r": "heh",
+        "tip": "GA=hard G, GE/J=silent H: GENTE"
+      },
+      {
+        "t": "h",
+        "r": "AH-cheh",
+        "tip": "always silent: HOLA = OH-lah"
+      },
+      {
+        "t": "i",
+        "r": "ee",
+        "tip": "as in machine: SÍ"
+      },
+      {
+        "t": "j",
+        "r": "HOH-tah",
+        "tip": "strong H sound: JUEVES"
+      },
+      {
+        "t": "k",
+        "r": "kah",
+        "tip": "rare, foreign words: KILO"
+      },
+      {
+        "t": "l",
+        "r": "EH-leh",
+        "tip": "same as English: LIBRO"
+      },
+      {
+        "t": "m",
+        "r": "EH-meh",
+        "tip": "same as English: MANO"
+      },
+      {
+        "t": "n",
+        "r": "EH-neh",
+        "tip": "same as English: NOCHE"
+      },
+      {
+        "t": "ñ",
+        "r": "EH-nyeh",
+        "tip": "NY as in canyon: NIÑO"
+      },
+      {
+        "t": "o",
+        "r": "oh",
+        "tip": "short, as in hot: OJO"
+      },
+      {
+        "t": "p",
+        "r": "peh",
+        "tip": "same, less puff: PAN"
+      },
+      {
+        "t": "q",
+        "r": "koo",
+        "tip": "always QU = K: QUESO"
+      },
+      {
+        "t": "r",
+        "r": "EH-reh",
+        "tip": "single tap: PERO"
+      },
+      {
+        "t": "s",
+        "r": "EH-seh",
+        "tip": "always S, never Z: SÍ"
+      },
+      {
+        "t": "t",
+        "r": "teh",
+        "tip": "same as English: TÍO"
+      },
+      {
+        "t": "u",
+        "r": "oo",
+        "tip": "as in moon: LUNA"
+      },
+      {
+        "t": "v",
+        "r": "oo-beh",
+        "tip": "sounds like soft B: VINO"
+      },
+      {
+        "t": "w",
+        "r": "oo-beh-DOH-bleh",
+        "tip": "rare, foreign words: WEB"
+      },
+      {
+        "t": "x",
+        "r": "EH-kees",
+        "tip": "KS sound: TAXI"
+      },
+      {
+        "t": "y",
+        "r": "ee-gree-EH-gah",
+        "tip": "Y in yes, or EE alone: YO"
+      },
+      {
+        "t": "z",
+        "r": "SEH-tah",
+        "tip": "S sound (Latin America): ZAPATO"
+      }
+    ]
+  },
+  "counting": {
+    "title": "Counting 0 to 100",
+    "explain": "Learn 0–15 by heart. 16–19 = DIEZ + number stuck together (dieciséis). 20s = VEINTI + number (veintidós). 30+ = tens + Y + ones (treinta y uno). 100 = CIEN (cien alone, ciento + more).",
+    "numbers": [
+      {
+        "t": "cero",
+        "r": "SEH-roh",
+        "en": "0"
+      },
+      {
+        "t": "uno",
+        "r": "OO-noh",
+        "en": "1"
+      },
+      {
+        "t": "dos",
+        "r": "dohs",
+        "en": "2"
+      },
+      {
+        "t": "tres",
+        "r": "trehs",
+        "en": "3"
+      },
+      {
+        "t": "cuatro",
+        "r": "KWAH-troh",
+        "en": "4"
+      },
+      {
+        "t": "cinco",
+        "r": "SEEN-koh",
+        "en": "5"
+      },
+      {
+        "t": "seis",
+        "r": "seh-ees",
+        "en": "6"
+      },
+      {
+        "t": "siete",
+        "r": "SYEH-teh",
+        "en": "7"
+      },
+      {
+        "t": "ocho",
+        "r": "OH-choh",
+        "en": "8"
+      },
+      {
+        "t": "nueve",
+        "r": "NWEH-veh",
+        "en": "9"
+      },
+      {
+        "t": "diez",
+        "r": "dyehs",
+        "en": "10"
+      },
+      {
+        "t": "once",
+        "r": "OHN-seh",
+        "en": "11"
+      },
+      {
+        "t": "doce",
+        "r": "DOH-seh",
+        "en": "12"
+      },
+      {
+        "t": "trece",
+        "r": "TREH-seh",
+        "en": "13"
+      },
+      {
+        "t": "catorce",
+        "r": "kah-TOHR-seh",
+        "en": "14"
+      },
+      {
+        "t": "quince",
+        "r": "KEEN-seh",
+        "en": "15"
+      },
+      {
+        "t": "dieciséis",
+        "r": "dyeh-see-SEH-ees",
+        "en": "16"
+      },
+      {
+        "t": "diecisiete",
+        "r": "dyeh-see-SYEH-teh",
+        "en": "17"
+      },
+      {
+        "t": "dieciocho",
+        "r": "dyeh-see-OH-choh",
+        "en": "18"
+      },
+      {
+        "t": "diecinueve",
+        "r": "dyeh-see-NWEH-veh",
+        "en": "19"
+      },
+      {
+        "t": "veinte",
+        "r": "BEH-een-teh",
+        "en": "20"
+      },
+      {
+        "t": "treinta",
+        "r": "TREH-een-tah",
+        "en": "30"
+      },
+      {
+        "t": "cuarenta",
+        "r": "kwah-REHN-tah",
+        "en": "40"
+      },
+      {
+        "t": "cincuenta",
+        "r": "seen-KWEHN-tah",
+        "en": "50"
+      },
+      {
+        "t": "sesenta",
+        "r": "seh-SEHN-tah",
+        "en": "60"
+      },
+      {
+        "t": "setenta",
+        "r": "seh-TEHN-tah",
+        "en": "70"
+      },
+      {
+        "t": "ochenta",
+        "r": "oh-CHEHN-tah",
+        "en": "80"
+      },
+      {
+        "t": "noventa",
+        "r": "noh-BEHN-tah",
+        "en": "90"
+      },
+      {
+        "t": "cien",
+        "r": "syehn",
+        "en": "100"
+      }
+    ],
+    "rules": [
+      "16–29 are glued together: dieciséis (16), veintidós (22).",
+      "30–99 use Y: treinta y uno (31), cuarenta y dos (42).",
+      "CIEN = exactly 100; CIENTO + more: ciento uno (101)."
+    ]
+  },
+  "level": {
+    "title": "Romanian A1",
+    "goals": [
+      "Control Romanian articles, agreement, clitics, mood, tense, and information structure",
+      "Develop reception, interaction, production, and mediation",
+      "Use pronunciation, politeness, register, and cohesion appropriately"
+    ],
+    "units": [
+      {
+        "id": "ro-a1-u1",
+        "title": "First words",
+        "lessons": [
+          {
+            "id": "ro-a1-l1",
+            "title": "Saluturi și politețe",
+            "learn": "Control saluturi și politețe in level-appropriate Romanian communication.",
+            "vocab": [
+              {
+                "t": "Bună",
+                "r": "Bună",
+                "en": "discourse segment in “Good afternoon. My name is Ana.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ziua",
+                "r": "ziua",
+                "en": "discourse segment in “Good afternoon. My name is Ana.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "Mă",
+                "r": "Mă",
+                "en": "discourse segment in “Good afternoon. My name is Ana.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "numesc",
+                "r": "numesc",
+                "en": "discourse segment in “Good afternoon. My name is Ana.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "Ana",
+                "r": "Ana",
+                "en": "discourse segment in “Good afternoon. My name is Ana.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "sens",
+                "r": "sens",
+                "en": "discourse segment in “Good afternoon. My name is Ana.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "context",
+                "r": "context",
+                "en": "discourse segment in “Good afternoon. My name is Ana.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "poziție",
+                "r": "poziție",
+                "en": "discourse segment in “Good afternoon. My name is Ana.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Saluturi și politețe",
+              "explain": "Romanian combines suffixed articles, gender and number agreement, case forms, verbal tense and mood, object clitics, relatively flexible word order, and prosody. Form choices encode reference, time, stance, focus, and social relationship.",
+              "pattern": "topic + inflected predicate + marked arguments + stance",
+              "examples": [
+                {
+                  "t": "Bună ziua. Mă numesc Ana.",
+                  "r": "Bună ziua. Mă numesc Ana.",
+                  "en": "Good afternoon. My name is Ana."
+                },
+                {
+                  "t": "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                  "r": "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                  "en": "I am a student, and you are a teacher."
+                },
+                {
+                  "t": "Învăț limba română în fiecare dimineață.",
+                  "r": "Învăț limba română în fiecare dimineață.",
+                  "en": "I study Romanian every morning."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with mismatched article, agreement, clitic, or mood",
+                  "right": "Bună ziua. Mă numesc Ana.",
+                  "why": "The corrected model aligns morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Bună ziua. Mă numesc Ana.",
+                "r": "Bună ziua. Mă numesc Ana.",
+                "en": "Good afternoon. My name is Ana."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "r": "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "en": "I am a student, and you are a teacher."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Învăț limba română în fiecare dimineață.",
+                "r": "Învăț limba română în fiecare dimineață.",
+                "en": "I study Romanian every morning."
+              },
+              {
+                "sp": "Editor",
+                "t": "Locuiți aproape de școală?",
+                "r": "Locuiți aproape de școală?",
+                "en": "Do you live near the school?"
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Saluturi și politețe — multiple choice: analyse or produce the Romanian model with correct morphology, scope, and register: Bună ziua. Mă numesc Ana.",
+                "answer": "Bună ziua. Mă numesc Ana.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Bună ziua. Mă numesc Ana.",
+                  "Form with incorrect agreement or mood",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Saluturi și politețe — fill in the blank: analyse or produce the Romanian model with correct morphology, scope, and register: Bună ziua. Mă numesc Ana.",
+                "answer": "Bună ziua. Mă numesc Ana.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Saluturi și politețe — translation: analyse or produce the Romanian model with correct morphology, scope, and register: Bună ziua. Mă numesc Ana.",
+                "answer": "Good afternoon. My name is Ana.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Saluturi și politețe — reverse translation: analyse or produce the Romanian model with correct morphology, scope, and register: Bună ziua. Mă numesc Ana.",
+                "answer": "Bună ziua. Mă numesc Ana.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Saluturi și politețe — matching: analyse or produce the Romanian model with correct morphology, scope, and register: Bună ziua. Mă numesc Ana.",
+                "answer": "Bună ziua. Mă numesc Ana.",
+                "skill_target": "matching",
+                "options": [
+                  "Bună ziua. Mă numesc Ana.",
+                  "Form with incorrect agreement or mood",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Saluturi și politețe — reorder: analyse or produce the Romanian model with correct morphology, scope, and register: Bună ziua. Mă numesc Ana.",
+                "answer": "Bună ziua. Mă numesc Ana.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Saluturi și politețe — sentence building: analyse or produce the Romanian model with correct morphology, scope, and register: Bună ziua. Mă numesc Ana.",
+                "answer": "Bună ziua. Mă numesc Ana.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Saluturi și politețe — word selection: analyse or produce the Romanian model with correct morphology, scope, and register: Bună ziua. Mă numesc Ana.",
+                "answer": "Bună ziua. Mă numesc Ana.",
+                "skill_target": "word selection",
+                "options": [
+                  "Bună ziua. Mă numesc Ana.",
+                  "Form with incorrect agreement or mood",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Saluturi și politețe — error correction: analyse or produce the Romanian model with correct morphology, scope, and register: Bună ziua. Mă numesc Ana.",
+                "answer": "Bună ziua. Mă numesc Ana.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Saluturi și politețe — dialogue completion: analyse or produce the Romanian model with correct morphology, scope, and register: Bună ziua. Mă numesc Ana.",
+                "answer": "Bună ziua. Mă numesc Ana.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Saluturi și politețe — reading comprehension: analyse or produce the Romanian model with correct morphology, scope, and register: Bună ziua. Mă numesc Ana.",
+                "answer": "Bună ziua. Mă numesc Ana.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Saluturi și politețe — paragraph comprehension: analyse or produce the Romanian model with correct morphology, scope, and register: Bună ziua. Mă numesc Ana.",
+                "answer": "Bună ziua. Mă numesc Ana.",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Saluturi și politețe: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Bună ziua. Mă numesc Ana.",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              },
+              {
+                "q": "Saluturi și politețe: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Bună ziua. Mă numesc Ana.",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              },
+              {
+                "q": "Saluturi și politețe: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Bună ziua. Mă numesc Ana.",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              },
+              {
+                "q": "Saluturi și politețe: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Bună ziua. Mă numesc Ana.",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              },
+              {
+                "q": "Saluturi și politețe: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Bună ziua. Mă numesc Ana.",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Saluturi și politețe workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate morphology and discourse function.",
+                  "items": [
+                    "Bună ziua. Mă numesc Ana.",
+                    "Eu sunt studentă, iar dumneavoastră sunteți profesor."
+                  ],
+                  "key": [
+                    "Romanian combines suffixed articles, gender and number agreement, case forms, verbal tense and mood, object clitics, relatively flexible word order, and prosody. Form choices encode reference, time, stance, focus, and social relationship.",
+                    "Romanian combines suffixed articles, gender and number agreement, case forms, verbal tense and mood, object clitics, relatively flexible word order, and prosody. Form choices encode reference, time, stance, focus, and social relationship."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Bună ziua. Mă numesc Ana.",
+                    "Eu sunt studentă, iar dumneavoastră sunteți profesor."
+                  ],
+                  "key": [
+                    "Good afternoon. My name is Ana.",
+                    "I am a student, and you are a teacher."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify the changes.",
+                  "items": [
+                    "Good afternoon. My name is Ana.",
+                    "I am a student, and you are a teacher."
+                  ],
+                  "key": [
+                    "Model: Bună ziua. Mă numesc Ana.",
+                    "Model: Eu sunt studentă, iar dumneavoastră sunteți profesor."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "Bună",
+              "ziua",
+              "Mă",
+              "numesc"
+            ],
+            "srs_policy": "Only high-value forms are preselected; mistakes and productive patterns enter review after learner evidence."
+          },
+          {
+            "id": "ro-a1-l2",
+            "title": "Identitate și ocupație",
+            "learn": "Control identitate și ocupație in level-appropriate Romanian communication.",
+            "vocab": [
+              {
+                "t": "Eu",
+                "r": "Eu",
+                "en": "discourse segment in “I am a student, and you are a teacher.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "sunt",
+                "r": "sunt",
+                "en": "discourse segment in “I am a student, and you are a teacher.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "studentă",
+                "r": "studentă",
+                "en": "discourse segment in “I am a student, and you are a teacher.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "iar",
+                "r": "iar",
+                "en": "discourse segment in “I am a student, and you are a teacher.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "dumneavoastră",
+                "r": "dumneavoastră",
+                "en": "discourse segment in “I am a student, and you are a teacher.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "sunteți",
+                "r": "sunteți",
+                "en": "discourse segment in “I am a student, and you are a teacher.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "profesor",
+                "r": "profesor",
+                "en": "discourse segment in “I am a student, and you are a teacher.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "sens",
+                "r": "sens",
+                "en": "discourse segment in “I am a student, and you are a teacher.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Identitate și ocupație",
+              "explain": "Romanian combines suffixed articles, gender and number agreement, case forms, verbal tense and mood, object clitics, relatively flexible word order, and prosody. Form choices encode reference, time, stance, focus, and social relationship.",
+              "pattern": "topic + inflected predicate + marked arguments + stance",
+              "examples": [
+                {
+                  "t": "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                  "r": "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                  "en": "I am a student, and you are a teacher."
+                },
+                {
+                  "t": "Învăț limba română în fiecare dimineață.",
+                  "r": "Învăț limba română în fiecare dimineață.",
+                  "en": "I study Romanian every morning."
+                },
+                {
+                  "t": "Locuiți aproape de școală?",
+                  "r": "Locuiți aproape de școală?",
+                  "en": "Do you live near the school?"
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with mismatched article, agreement, clitic, or mood",
+                  "right": "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                  "why": "The corrected model aligns morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "r": "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "en": "I am a student, and you are a teacher."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Învăț limba română în fiecare dimineață.",
+                "r": "Învăț limba română în fiecare dimineață.",
+                "en": "I study Romanian every morning."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Locuiți aproape de școală?",
+                "r": "Locuiți aproape de școală?",
+                "en": "Do you live near the school?"
+              },
+              {
+                "sp": "Editor",
+                "t": "Aceasta este cartea, iar acela este mărul.",
+                "r": "Aceasta este cartea, iar acela este mărul.",
+                "en": "This is the book, and that is the apple."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reorder",
+                "q": "Identitate și ocupație — reorder: analyse or produce the Romanian model with correct morphology, scope, and register: Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "answer": "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Identitate și ocupație — sentence building: analyse or produce the Romanian model with correct morphology, scope, and register: Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "answer": "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Identitate și ocupație — word selection: analyse or produce the Romanian model with correct morphology, scope, and register: Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "answer": "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "skill_target": "word selection",
+                "options": [
+                  "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                  "Form with incorrect agreement or mood",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Identitate și ocupație — error correction: analyse or produce the Romanian model with correct morphology, scope, and register: Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "answer": "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Identitate și ocupație — dialogue completion: analyse or produce the Romanian model with correct morphology, scope, and register: Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "answer": "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Identitate și ocupație — reading comprehension: analyse or produce the Romanian model with correct morphology, scope, and register: Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "answer": "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Identitate și ocupație — paragraph comprehension: analyse or produce the Romanian model with correct morphology, scope, and register: Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "answer": "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Identitate și ocupație — multiple choice: analyse or produce the Romanian model with correct morphology, scope, and register: Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "answer": "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                  "Form with incorrect agreement or mood",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Identitate și ocupație — fill in the blank: analyse or produce the Romanian model with correct morphology, scope, and register: Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "answer": "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Identitate și ocupație — translation: analyse or produce the Romanian model with correct morphology, scope, and register: Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "answer": "I am a student, and you are a teacher.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Identitate și ocupație — reverse translation: analyse or produce the Romanian model with correct morphology, scope, and register: Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "answer": "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Identitate și ocupație — matching: analyse or produce the Romanian model with correct morphology, scope, and register: Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "answer": "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "skill_target": "matching",
+                "options": [
+                  "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                  "Form with incorrect agreement or mood",
+                  "An unrelated greeting"
+                ]
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Identitate și ocupație: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              },
+              {
+                "q": "Identitate și ocupație: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              },
+              {
+                "q": "Identitate și ocupație: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              },
+              {
+                "q": "Identitate și ocupație: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              },
+              {
+                "q": "Identitate și ocupație: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Identitate și ocupație workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate morphology and discourse function.",
+                  "items": [
+                    "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                    "Învăț limba română în fiecare dimineață."
+                  ],
+                  "key": [
+                    "Romanian combines suffixed articles, gender and number agreement, case forms, verbal tense and mood, object clitics, relatively flexible word order, and prosody. Form choices encode reference, time, stance, focus, and social relationship.",
+                    "Romanian combines suffixed articles, gender and number agreement, case forms, verbal tense and mood, object clitics, relatively flexible word order, and prosody. Form choices encode reference, time, stance, focus, and social relationship."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                    "Învăț limba română în fiecare dimineață."
+                  ],
+                  "key": [
+                    "I am a student, and you are a teacher.",
+                    "I study Romanian every morning."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify the changes.",
+                  "items": [
+                    "I am a student, and you are a teacher.",
+                    "I study Romanian every morning."
+                  ],
+                  "key": [
+                    "Model: Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                    "Model: Învăț limba română în fiecare dimineață."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "Eu",
+              "sunt",
+              "studentă",
+              "iar"
+            ],
+            "srs_policy": "Only high-value forms are preselected; mistakes and productive patterns enter review after learner evidence."
+          }
+        ]
+      },
+      {
+        "id": "ro-a1-u2",
+        "title": "Daily life",
+        "lessons": [
+          {
+            "id": "ro-a1-l3",
+            "title": "Rutina zilnică",
+            "learn": "Control rutina zilnică in level-appropriate Romanian communication.",
+            "vocab": [
+              {
+                "t": "Învăț",
+                "r": "Învăț",
+                "en": "discourse segment in “I study Romanian every morning.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "limba",
+                "r": "limba",
+                "en": "discourse segment in “I study Romanian every morning.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "română",
+                "r": "română",
+                "en": "discourse segment in “I study Romanian every morning.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "în",
+                "r": "în",
+                "en": "discourse segment in “I study Romanian every morning.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "fiecare",
+                "r": "fiecare",
+                "en": "discourse segment in “I study Romanian every morning.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "dimineață",
+                "r": "dimineață",
+                "en": "discourse segment in “I study Romanian every morning.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "sens",
+                "r": "sens",
+                "en": "discourse segment in “I study Romanian every morning.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "context",
+                "r": "context",
+                "en": "discourse segment in “I study Romanian every morning.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Rutina zilnică",
+              "explain": "Romanian combines suffixed articles, gender and number agreement, case forms, verbal tense and mood, object clitics, relatively flexible word order, and prosody. Form choices encode reference, time, stance, focus, and social relationship.",
+              "pattern": "topic + inflected predicate + marked arguments + stance",
+              "examples": [
+                {
+                  "t": "Învăț limba română în fiecare dimineață.",
+                  "r": "Învăț limba română în fiecare dimineață.",
+                  "en": "I study Romanian every morning."
+                },
+                {
+                  "t": "Locuiți aproape de școală?",
+                  "r": "Locuiți aproape de școală?",
+                  "en": "Do you live near the school?"
+                },
+                {
+                  "t": "Aceasta este cartea, iar acela este mărul.",
+                  "r": "Aceasta este cartea, iar acela este mărul.",
+                  "en": "This is the book, and that is the apple."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with mismatched article, agreement, clitic, or mood",
+                  "right": "Învăț limba română în fiecare dimineață.",
+                  "why": "The corrected model aligns morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Învăț limba română în fiecare dimineață.",
+                "r": "Învăț limba română în fiecare dimineață.",
+                "en": "I study Romanian every morning."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Locuiți aproape de școală?",
+                "r": "Locuiți aproape de școală?",
+                "en": "Do you live near the school?"
+              },
+              {
+                "sp": "Mediator",
+                "t": "Aceasta este cartea, iar acela este mărul.",
+                "r": "Aceasta este cartea, iar acela este mărul.",
+                "en": "This is the book, and that is the apple."
+              },
+              {
+                "sp": "Editor",
+                "t": "Este o stație de autobuz lângă piață.",
+                "r": "Este o stație de autobuz lângă piață.",
+                "en": "There is a bus stop near the market."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reading_comprehension",
+                "q": "Rutina zilnică — reading comprehension: analyse or produce the Romanian model with correct morphology, scope, and register: Învăț limba română în fiecare dimineață.",
+                "answer": "Învăț limba română în fiecare dimineață.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Rutina zilnică — paragraph comprehension: analyse or produce the Romanian model with correct morphology, scope, and register: Învăț limba română în fiecare dimineață.",
+                "answer": "Învăț limba română în fiecare dimineață.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Rutina zilnică — multiple choice: analyse or produce the Romanian model with correct morphology, scope, and register: Învăț limba română în fiecare dimineață.",
+                "answer": "Învăț limba română în fiecare dimineață.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Învăț limba română în fiecare dimineață.",
+                  "Form with incorrect agreement or mood",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Rutina zilnică — fill in the blank: analyse or produce the Romanian model with correct morphology, scope, and register: Învăț limba română în fiecare dimineață.",
+                "answer": "Învăț limba română în fiecare dimineață.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Rutina zilnică — translation: analyse or produce the Romanian model with correct morphology, scope, and register: Învăț limba română în fiecare dimineață.",
+                "answer": "I study Romanian every morning.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Rutina zilnică — reverse translation: analyse or produce the Romanian model with correct morphology, scope, and register: Învăț limba română în fiecare dimineață.",
+                "answer": "Învăț limba română în fiecare dimineață.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Rutina zilnică — matching: analyse or produce the Romanian model with correct morphology, scope, and register: Învăț limba română în fiecare dimineață.",
+                "answer": "Învăț limba română în fiecare dimineață.",
+                "skill_target": "matching",
+                "options": [
+                  "Învăț limba română în fiecare dimineață.",
+                  "Form with incorrect agreement or mood",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Rutina zilnică — reorder: analyse or produce the Romanian model with correct morphology, scope, and register: Învăț limba română în fiecare dimineață.",
+                "answer": "Învăț limba română în fiecare dimineață.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Rutina zilnică — sentence building: analyse or produce the Romanian model with correct morphology, scope, and register: Învăț limba română în fiecare dimineață.",
+                "answer": "Învăț limba română în fiecare dimineață.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Rutina zilnică — word selection: analyse or produce the Romanian model with correct morphology, scope, and register: Învăț limba română în fiecare dimineață.",
+                "answer": "Învăț limba română în fiecare dimineață.",
+                "skill_target": "word selection",
+                "options": [
+                  "Învăț limba română în fiecare dimineață.",
+                  "Form with incorrect agreement or mood",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Rutina zilnică — error correction: analyse or produce the Romanian model with correct morphology, scope, and register: Învăț limba română în fiecare dimineață.",
+                "answer": "Învăț limba română în fiecare dimineață.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Rutina zilnică — dialogue completion: analyse or produce the Romanian model with correct morphology, scope, and register: Învăț limba română în fiecare dimineață.",
+                "answer": "Învăț limba română în fiecare dimineață.",
+                "skill_target": "dialogue completion"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Rutina zilnică: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Învăț limba română în fiecare dimineață.",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              },
+              {
+                "q": "Rutina zilnică: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Învăț limba română în fiecare dimineață.",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              },
+              {
+                "q": "Rutina zilnică: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Învăț limba română în fiecare dimineață.",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              },
+              {
+                "q": "Rutina zilnică: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Învăț limba română în fiecare dimineață.",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              },
+              {
+                "q": "Rutina zilnică: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Învăț limba română în fiecare dimineață.",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Rutina zilnică workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate morphology and discourse function.",
+                  "items": [
+                    "Învăț limba română în fiecare dimineață.",
+                    "Locuiți aproape de școală?"
+                  ],
+                  "key": [
+                    "Romanian combines suffixed articles, gender and number agreement, case forms, verbal tense and mood, object clitics, relatively flexible word order, and prosody. Form choices encode reference, time, stance, focus, and social relationship.",
+                    "Romanian combines suffixed articles, gender and number agreement, case forms, verbal tense and mood, object clitics, relatively flexible word order, and prosody. Form choices encode reference, time, stance, focus, and social relationship."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Învăț limba română în fiecare dimineață.",
+                    "Locuiți aproape de școală?"
+                  ],
+                  "key": [
+                    "I study Romanian every morning.",
+                    "Do you live near the school?"
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify the changes.",
+                  "items": [
+                    "I study Romanian every morning.",
+                    "Do you live near the school?"
+                  ],
+                  "key": [
+                    "Model: Învăț limba română în fiecare dimineață.",
+                    "Model: Locuiți aproape de școală?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "Învăț",
+              "limba",
+              "română",
+              "în"
+            ],
+            "srs_policy": "Only high-value forms are preselected; mistakes and productive patterns enter review after learner evidence."
+          },
+          {
+            "id": "ro-a1-l4",
+            "title": "Întrebări simple",
+            "learn": "Control întrebări simple in level-appropriate Romanian communication.",
+            "vocab": [
+              {
+                "t": "Locuiți",
+                "r": "Locuiți",
+                "en": "discourse segment in “Do you live near the school?”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "aproape",
+                "r": "aproape",
+                "en": "discourse segment in “Do you live near the school?”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "de",
+                "r": "de",
+                "en": "discourse segment in “Do you live near the school?”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "școală",
+                "r": "școală",
+                "en": "discourse segment in “Do you live near the school?”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "sens",
+                "r": "sens",
+                "en": "discourse segment in “Do you live near the school?”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "context",
+                "r": "context",
+                "en": "discourse segment in “Do you live near the school?”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "poziție",
+                "r": "poziție",
+                "en": "discourse segment in “Do you live near the school?”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "concluzie",
+                "r": "concluzie",
+                "en": "discourse segment in “Do you live near the school?”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Întrebări simple",
+              "explain": "Romanian combines suffixed articles, gender and number agreement, case forms, verbal tense and mood, object clitics, relatively flexible word order, and prosody. Form choices encode reference, time, stance, focus, and social relationship.",
+              "pattern": "topic + inflected predicate + marked arguments + stance",
+              "examples": [
+                {
+                  "t": "Locuiți aproape de școală?",
+                  "r": "Locuiți aproape de școală?",
+                  "en": "Do you live near the school?"
+                },
+                {
+                  "t": "Aceasta este cartea, iar acela este mărul.",
+                  "r": "Aceasta este cartea, iar acela este mărul.",
+                  "en": "This is the book, and that is the apple."
+                },
+                {
+                  "t": "Este o stație de autobuz lângă piață.",
+                  "r": "Este o stație de autobuz lângă piață.",
+                  "en": "There is a bus stop near the market."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with mismatched article, agreement, clitic, or mood",
+                  "right": "Locuiți aproape de școală?",
+                  "why": "The corrected model aligns morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Locuiți aproape de școală?",
+                "r": "Locuiți aproape de școală?",
+                "en": "Do you live near the school?"
+              },
+              {
+                "sp": "Colleague",
+                "t": "Aceasta este cartea, iar acela este mărul.",
+                "r": "Aceasta este cartea, iar acela este mărul.",
+                "en": "This is the book, and that is the apple."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Este o stație de autobuz lângă piață.",
+                "r": "Este o stație de autobuz lângă piață.",
+                "en": "There is a bus stop near the market."
+              },
+              {
+                "sp": "Editor",
+                "t": "Bună ziua. Mă numesc Ana.",
+                "r": "Bună ziua. Mă numesc Ana.",
+                "en": "Good afternoon. My name is Ana."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reverse_translation",
+                "q": "Întrebări simple — reverse translation: analyse or produce the Romanian model with correct morphology, scope, and register: Locuiți aproape de școală?",
+                "answer": "Locuiți aproape de școală?",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Întrebări simple — matching: analyse or produce the Romanian model with correct morphology, scope, and register: Locuiți aproape de școală?",
+                "answer": "Locuiți aproape de școală?",
+                "skill_target": "matching",
+                "options": [
+                  "Locuiți aproape de școală?",
+                  "Form with incorrect agreement or mood",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Întrebări simple — reorder: analyse or produce the Romanian model with correct morphology, scope, and register: Locuiți aproape de școală?",
+                "answer": "Locuiți aproape de școală?",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Întrebări simple — sentence building: analyse or produce the Romanian model with correct morphology, scope, and register: Locuiți aproape de școală?",
+                "answer": "Locuiți aproape de școală?",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Întrebări simple — word selection: analyse or produce the Romanian model with correct morphology, scope, and register: Locuiți aproape de școală?",
+                "answer": "Locuiți aproape de școală?",
+                "skill_target": "word selection",
+                "options": [
+                  "Locuiți aproape de școală?",
+                  "Form with incorrect agreement or mood",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Întrebări simple — error correction: analyse or produce the Romanian model with correct morphology, scope, and register: Locuiți aproape de școală?",
+                "answer": "Locuiți aproape de școală?",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Întrebări simple — dialogue completion: analyse or produce the Romanian model with correct morphology, scope, and register: Locuiți aproape de școală?",
+                "answer": "Locuiți aproape de școală?",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Întrebări simple — reading comprehension: analyse or produce the Romanian model with correct morphology, scope, and register: Locuiți aproape de școală?",
+                "answer": "Locuiți aproape de școală?",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Întrebări simple — paragraph comprehension: analyse or produce the Romanian model with correct morphology, scope, and register: Locuiți aproape de școală?",
+                "answer": "Locuiți aproape de școală?",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Întrebări simple — multiple choice: analyse or produce the Romanian model with correct morphology, scope, and register: Locuiți aproape de școală?",
+                "answer": "Locuiți aproape de școală?",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Locuiți aproape de școală?",
+                  "Form with incorrect agreement or mood",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Întrebări simple — fill in the blank: analyse or produce the Romanian model with correct morphology, scope, and register: Locuiți aproape de școală?",
+                "answer": "Locuiți aproape de școală?",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Întrebări simple — translation: analyse or produce the Romanian model with correct morphology, scope, and register: Locuiți aproape de școală?",
+                "answer": "Do you live near the school?",
+                "skill_target": "translation"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Întrebări simple: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Locuiți aproape de școală?",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              },
+              {
+                "q": "Întrebări simple: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Locuiți aproape de școală?",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              },
+              {
+                "q": "Întrebări simple: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Locuiți aproape de școală?",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              },
+              {
+                "q": "Întrebări simple: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Locuiți aproape de școală?",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              },
+              {
+                "q": "Întrebări simple: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Locuiți aproape de școală?",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Întrebări simple workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate morphology and discourse function.",
+                  "items": [
+                    "Locuiți aproape de școală?",
+                    "Aceasta este cartea, iar acela este mărul."
+                  ],
+                  "key": [
+                    "Romanian combines suffixed articles, gender and number agreement, case forms, verbal tense and mood, object clitics, relatively flexible word order, and prosody. Form choices encode reference, time, stance, focus, and social relationship.",
+                    "Romanian combines suffixed articles, gender and number agreement, case forms, verbal tense and mood, object clitics, relatively flexible word order, and prosody. Form choices encode reference, time, stance, focus, and social relationship."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Locuiți aproape de școală?",
+                    "Aceasta este cartea, iar acela este mărul."
+                  ],
+                  "key": [
+                    "Do you live near the school?",
+                    "This is the book, and that is the apple."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify the changes.",
+                  "items": [
+                    "Do you live near the school?",
+                    "This is the book, and that is the apple."
+                  ],
+                  "key": [
+                    "Model: Locuiți aproape de școală?",
+                    "Model: Aceasta este cartea, iar acela este mărul."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "Locuiți",
+              "aproape",
+              "de",
+              "școală"
+            ],
+            "srs_policy": "Only high-value forms are preselected; mistakes and productive patterns enter review after learner evidence."
+          }
+        ]
+      },
+      {
+        "id": "ro-a1-u3",
+        "title": "Describing words",
+        "lessons": [
+          {
+            "id": "ro-a1-l5",
+            "title": "Articolul hotărât",
+            "learn": "Control articolul hotărât in level-appropriate Romanian communication.",
+            "vocab": [
+              {
+                "t": "Aceasta",
+                "r": "Aceasta",
+                "en": "discourse segment in “This is the book, and that is the apple.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "este",
+                "r": "este",
+                "en": "discourse segment in “This is the book, and that is the apple.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "cartea",
+                "r": "cartea",
+                "en": "discourse segment in “This is the book, and that is the apple.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "iar",
+                "r": "iar",
+                "en": "discourse segment in “This is the book, and that is the apple.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "acela",
+                "r": "acela",
+                "en": "discourse segment in “This is the book, and that is the apple.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "este",
+                "r": "este",
+                "en": "discourse segment in “This is the book, and that is the apple.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "mărul",
+                "r": "mărul",
+                "en": "discourse segment in “This is the book, and that is the apple.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "sens",
+                "r": "sens",
+                "en": "discourse segment in “This is the book, and that is the apple.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Articolul hotărât",
+              "explain": "Romanian combines suffixed articles, gender and number agreement, case forms, verbal tense and mood, object clitics, relatively flexible word order, and prosody. Form choices encode reference, time, stance, focus, and social relationship.",
+              "pattern": "topic + inflected predicate + marked arguments + stance",
+              "examples": [
+                {
+                  "t": "Aceasta este cartea, iar acela este mărul.",
+                  "r": "Aceasta este cartea, iar acela este mărul.",
+                  "en": "This is the book, and that is the apple."
+                },
+                {
+                  "t": "Este o stație de autobuz lângă piață.",
+                  "r": "Este o stație de autobuz lângă piață.",
+                  "en": "There is a bus stop near the market."
+                },
+                {
+                  "t": "Bună ziua. Mă numesc Ana.",
+                  "r": "Bună ziua. Mă numesc Ana.",
+                  "en": "Good afternoon. My name is Ana."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with mismatched article, agreement, clitic, or mood",
+                  "right": "Aceasta este cartea, iar acela este mărul.",
+                  "why": "The corrected model aligns morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Aceasta este cartea, iar acela este mărul.",
+                "r": "Aceasta este cartea, iar acela este mărul.",
+                "en": "This is the book, and that is the apple."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Este o stație de autobuz lângă piață.",
+                "r": "Este o stație de autobuz lângă piață.",
+                "en": "There is a bus stop near the market."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Bună ziua. Mă numesc Ana.",
+                "r": "Bună ziua. Mă numesc Ana.",
+                "en": "Good afternoon. My name is Ana."
+              },
+              {
+                "sp": "Editor",
+                "t": "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "r": "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "en": "I am a student, and you are a teacher."
+              }
+            ],
+            "practice": [
+              {
+                "type": "error_correction",
+                "q": "Articolul hotărât — error correction: analyse or produce the Romanian model with correct morphology, scope, and register: Aceasta este cartea, iar acela este mărul.",
+                "answer": "Aceasta este cartea, iar acela este mărul.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Articolul hotărât — dialogue completion: analyse or produce the Romanian model with correct morphology, scope, and register: Aceasta este cartea, iar acela este mărul.",
+                "answer": "Aceasta este cartea, iar acela este mărul.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Articolul hotărât — reading comprehension: analyse or produce the Romanian model with correct morphology, scope, and register: Aceasta este cartea, iar acela este mărul.",
+                "answer": "Aceasta este cartea, iar acela este mărul.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Articolul hotărât — paragraph comprehension: analyse or produce the Romanian model with correct morphology, scope, and register: Aceasta este cartea, iar acela este mărul.",
+                "answer": "Aceasta este cartea, iar acela este mărul.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Articolul hotărât — multiple choice: analyse or produce the Romanian model with correct morphology, scope, and register: Aceasta este cartea, iar acela este mărul.",
+                "answer": "Aceasta este cartea, iar acela este mărul.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Aceasta este cartea, iar acela este mărul.",
+                  "Form with incorrect agreement or mood",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Articolul hotărât — fill in the blank: analyse or produce the Romanian model with correct morphology, scope, and register: Aceasta este cartea, iar acela este mărul.",
+                "answer": "Aceasta este cartea, iar acela este mărul.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Articolul hotărât — translation: analyse or produce the Romanian model with correct morphology, scope, and register: Aceasta este cartea, iar acela este mărul.",
+                "answer": "This is the book, and that is the apple.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Articolul hotărât — reverse translation: analyse or produce the Romanian model with correct morphology, scope, and register: Aceasta este cartea, iar acela este mărul.",
+                "answer": "Aceasta este cartea, iar acela este mărul.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Articolul hotărât — matching: analyse or produce the Romanian model with correct morphology, scope, and register: Aceasta este cartea, iar acela este mărul.",
+                "answer": "Aceasta este cartea, iar acela este mărul.",
+                "skill_target": "matching",
+                "options": [
+                  "Aceasta este cartea, iar acela este mărul.",
+                  "Form with incorrect agreement or mood",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Articolul hotărât — reorder: analyse or produce the Romanian model with correct morphology, scope, and register: Aceasta este cartea, iar acela este mărul.",
+                "answer": "Aceasta este cartea, iar acela este mărul.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Articolul hotărât — sentence building: analyse or produce the Romanian model with correct morphology, scope, and register: Aceasta este cartea, iar acela este mărul.",
+                "answer": "Aceasta este cartea, iar acela este mărul.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Articolul hotărât — word selection: analyse or produce the Romanian model with correct morphology, scope, and register: Aceasta este cartea, iar acela este mărul.",
+                "answer": "Aceasta este cartea, iar acela este mărul.",
+                "skill_target": "word selection",
+                "options": [
+                  "Aceasta este cartea, iar acela este mărul.",
+                  "Form with incorrect agreement or mood",
+                  "An unrelated greeting"
+                ]
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Articolul hotărât: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Aceasta este cartea, iar acela este mărul.",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              },
+              {
+                "q": "Articolul hotărât: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Aceasta este cartea, iar acela este mărul.",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              },
+              {
+                "q": "Articolul hotărât: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Aceasta este cartea, iar acela este mărul.",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              },
+              {
+                "q": "Articolul hotărât: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Aceasta este cartea, iar acela este mărul.",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              },
+              {
+                "q": "Articolul hotărât: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Aceasta este cartea, iar acela este mărul.",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Articolul hotărât workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate morphology and discourse function.",
+                  "items": [
+                    "Aceasta este cartea, iar acela este mărul.",
+                    "Este o stație de autobuz lângă piață."
+                  ],
+                  "key": [
+                    "Romanian combines suffixed articles, gender and number agreement, case forms, verbal tense and mood, object clitics, relatively flexible word order, and prosody. Form choices encode reference, time, stance, focus, and social relationship.",
+                    "Romanian combines suffixed articles, gender and number agreement, case forms, verbal tense and mood, object clitics, relatively flexible word order, and prosody. Form choices encode reference, time, stance, focus, and social relationship."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Aceasta este cartea, iar acela este mărul.",
+                    "Este o stație de autobuz lângă piață."
+                  ],
+                  "key": [
+                    "This is the book, and that is the apple.",
+                    "There is a bus stop near the market."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify the changes.",
+                  "items": [
+                    "This is the book, and that is the apple.",
+                    "There is a bus stop near the market."
+                  ],
+                  "key": [
+                    "Model: Aceasta este cartea, iar acela este mărul.",
+                    "Model: Este o stație de autobuz lângă piață."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "Aceasta",
+              "este",
+              "cartea",
+              "iar"
+            ],
+            "srs_policy": "Only high-value forms are preselected; mistakes and productive patterns enter review after learner evidence."
+          },
+          {
+            "id": "ro-a1-l6",
+            "title": "Locuri și existență",
+            "learn": "Control locuri și existență in level-appropriate Romanian communication.",
+            "vocab": [
+              {
+                "t": "Este",
+                "r": "Este",
+                "en": "discourse segment in “There is a bus stop near the market.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "o",
+                "r": "o",
+                "en": "discourse segment in “There is a bus stop near the market.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "stație",
+                "r": "stație",
+                "en": "discourse segment in “There is a bus stop near the market.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "de",
+                "r": "de",
+                "en": "discourse segment in “There is a bus stop near the market.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "autobuz",
+                "r": "autobuz",
+                "en": "discourse segment in “There is a bus stop near the market.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "lângă",
+                "r": "lângă",
+                "en": "discourse segment in “There is a bus stop near the market.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "piață",
+                "r": "piață",
+                "en": "discourse segment in “There is a bus stop near the market.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "sens",
+                "r": "sens",
+                "en": "discourse segment in “There is a bus stop near the market.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Locuri și existență",
+              "explain": "Romanian combines suffixed articles, gender and number agreement, case forms, verbal tense and mood, object clitics, relatively flexible word order, and prosody. Form choices encode reference, time, stance, focus, and social relationship.",
+              "pattern": "topic + inflected predicate + marked arguments + stance",
+              "examples": [
+                {
+                  "t": "Este o stație de autobuz lângă piață.",
+                  "r": "Este o stație de autobuz lângă piață.",
+                  "en": "There is a bus stop near the market."
+                },
+                {
+                  "t": "Bună ziua. Mă numesc Ana.",
+                  "r": "Bună ziua. Mă numesc Ana.",
+                  "en": "Good afternoon. My name is Ana."
+                },
+                {
+                  "t": "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                  "r": "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                  "en": "I am a student, and you are a teacher."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with mismatched article, agreement, clitic, or mood",
+                  "right": "Este o stație de autobuz lângă piață.",
+                  "why": "The corrected model aligns morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Este o stație de autobuz lângă piață.",
+                "r": "Este o stație de autobuz lângă piață.",
+                "en": "There is a bus stop near the market."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Bună ziua. Mă numesc Ana.",
+                "r": "Bună ziua. Mă numesc Ana.",
+                "en": "Good afternoon. My name is Ana."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "r": "Eu sunt studentă, iar dumneavoastră sunteți profesor.",
+                "en": "I am a student, and you are a teacher."
+              },
+              {
+                "sp": "Editor",
+                "t": "Învăț limba română în fiecare dimineață.",
+                "r": "Învăț limba română în fiecare dimineață.",
+                "en": "I study Romanian every morning."
+              }
+            ],
+            "practice": [
+              {
+                "type": "fill_in_the_blank",
+                "q": "Locuri și existență — fill in the blank: analyse or produce the Romanian model with correct morphology, scope, and register: Este o stație de autobuz lângă piață.",
+                "answer": "Este o stație de autobuz lângă piață.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Locuri și existență — translation: analyse or produce the Romanian model with correct morphology, scope, and register: Este o stație de autobuz lângă piață.",
+                "answer": "There is a bus stop near the market.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Locuri și existență — reverse translation: analyse or produce the Romanian model with correct morphology, scope, and register: Este o stație de autobuz lângă piață.",
+                "answer": "Este o stație de autobuz lângă piață.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Locuri și existență — matching: analyse or produce the Romanian model with correct morphology, scope, and register: Este o stație de autobuz lângă piață.",
+                "answer": "Este o stație de autobuz lângă piață.",
+                "skill_target": "matching",
+                "options": [
+                  "Este o stație de autobuz lângă piață.",
+                  "Form with incorrect agreement or mood",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Locuri și existență — reorder: analyse or produce the Romanian model with correct morphology, scope, and register: Este o stație de autobuz lângă piață.",
+                "answer": "Este o stație de autobuz lângă piață.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Locuri și existență — sentence building: analyse or produce the Romanian model with correct morphology, scope, and register: Este o stație de autobuz lângă piață.",
+                "answer": "Este o stație de autobuz lângă piață.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Locuri și existență — word selection: analyse or produce the Romanian model with correct morphology, scope, and register: Este o stație de autobuz lângă piață.",
+                "answer": "Este o stație de autobuz lângă piață.",
+                "skill_target": "word selection",
+                "options": [
+                  "Este o stație de autobuz lângă piață.",
+                  "Form with incorrect agreement or mood",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Locuri și existență — error correction: analyse or produce the Romanian model with correct morphology, scope, and register: Este o stație de autobuz lângă piață.",
+                "answer": "Este o stație de autobuz lângă piață.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Locuri și existență — dialogue completion: analyse or produce the Romanian model with correct morphology, scope, and register: Este o stație de autobuz lângă piață.",
+                "answer": "Este o stație de autobuz lângă piață.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Locuri și existență — reading comprehension: analyse or produce the Romanian model with correct morphology, scope, and register: Este o stație de autobuz lângă piață.",
+                "answer": "Este o stație de autobuz lângă piață.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Locuri și existență — paragraph comprehension: analyse or produce the Romanian model with correct morphology, scope, and register: Este o stație de autobuz lângă piață.",
+                "answer": "Este o stație de autobuz lângă piață.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Locuri și existență — multiple choice: analyse or produce the Romanian model with correct morphology, scope, and register: Este o stație de autobuz lângă piață.",
+                "answer": "Este o stație de autobuz lângă piață.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Este o stație de autobuz lângă piață.",
+                  "Form with incorrect agreement or mood",
+                  "An unrelated greeting"
+                ]
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Locuri și existență: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Este o stație de autobuz lângă piață.",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              },
+              {
+                "q": "Locuri și existență: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Este o stație de autobuz lângă piață.",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              },
+              {
+                "q": "Locuri și existență: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Este o stație de autobuz lângă piață.",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              },
+              {
+                "q": "Locuri și existență: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Este o stație de autobuz lângă piață.",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              },
+              {
+                "q": "Locuri și existență: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Este o stație de autobuz lângă piață.",
+                  "Form with incorrect agreement or scope",
+                  "An unrelated greeting",
+                  "A fragment without its clitic"
+                ],
+                "answer": 0,
+                "why": "The model preserves Romanian morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Locuri și existență workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate morphology and discourse function.",
+                  "items": [
+                    "Este o stație de autobuz lângă piață.",
+                    "Bună ziua. Mă numesc Ana."
+                  ],
+                  "key": [
+                    "Romanian combines suffixed articles, gender and number agreement, case forms, verbal tense and mood, object clitics, relatively flexible word order, and prosody. Form choices encode reference, time, stance, focus, and social relationship.",
+                    "Romanian combines suffixed articles, gender and number agreement, case forms, verbal tense and mood, object clitics, relatively flexible word order, and prosody. Form choices encode reference, time, stance, focus, and social relationship."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Este o stație de autobuz lângă piață.",
+                    "Bună ziua. Mă numesc Ana."
+                  ],
+                  "key": [
+                    "There is a bus stop near the market.",
+                    "Good afternoon. My name is Ana."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify the changes.",
+                  "items": [
+                    "There is a bus stop near the market.",
+                    "Good afternoon. My name is Ana."
+                  ],
+                  "key": [
+                    "Model: Este o stație de autobuz lângă piață.",
+                    "Model: Bună ziua. Mă numesc Ana."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "Este",
+              "o",
+              "stație",
+              "de"
+            ],
+            "srs_policy": "Only high-value forms are preselected; mistakes and productive patterns enter review after learner evidence."
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "A1 final test",
+      "items": [
+        {
+          "type": "sentence_writing",
+          "q": "Romanian A1 integrated task 1: respond with accurate morphology, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Romanian course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Romanian A1 integrated task 2: respond with accurate morphology, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Romanian course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Romanian A1 integrated task 3: respond with accurate morphology, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Romanian course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Romanian A1 integrated task 4: respond with accurate morphology, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Romanian course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Romanian A1 integrated task 5: respond with accurate morphology, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Romanian course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Romanian A1 integrated task 6: respond with accurate morphology, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Romanian course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Romanian A1 integrated task 7: respond with accurate morphology, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Romanian course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Romanian A1 integrated task 8: respond with accurate morphology, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Romanian course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Romanian A1 integrated task 9: respond with accurate morphology, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Romanian course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Romanian A1 integrated task 10: respond with accurate morphology, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Romanian course rubric."
+        }
+      ]
+    }
+  },
+  "research_basis": "data/language-research/ro.json"
+}
