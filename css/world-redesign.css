@@ -26,3 +26,18 @@ footer{border-top:1px solid color-mix(in srgb,var(--world-primary) 14%,#fff);bac
 @media(max-width:760px){:root{--world-radius:17px}.hero{padding-top:48px!important}.card:hover,.tcard:hover,.m-card:hover,.egc .card:hover{transform:none}.sec{padding-block:54px}.hero::before{width:260px;height:260px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}}
 @media(forced-colors:active){.grad-text,.egc h1{background:none;color:CanvasText}.card,.tcard,.m-card,.egc .card,.egc .q{border:1px solid CanvasText!important}}
+/* Regional palettes are broad visual systems, never flags or cultural stereotypes. */
+html[data-culture="south-asia"]{--world-primary:#c44720;--world-secondary:#7138b8;--world-accent:#e7a21c;--world-surface:#fff8ec;--world-motif:rgba(196,71,32,.09)}
+html[data-culture="gulf"]{--world-primary:#087f72;--world-secondary:#9b681d;--world-accent:#e0b34b;--world-surface:#f0faf7;--world-motif:rgba(8,127,114,.09)}
+html[data-culture="persian"]{--world-primary:#176f78;--world-secondary:#9b3970;--world-accent:#d19b2c;--world-surface:#f2fbfa;--world-motif:rgba(23,111,120,.09)}
+html[data-culture="horn"]{--world-primary:#9a4b24;--world-secondary:#28786b;--world-accent:#dcaa32;--world-surface:#fff8ee;--world-motif:rgba(154,75,36,.08)}
+html[data-culture="east-africa"]{--world-primary:#176d55;--world-secondary:#b14f28;--world-accent:#dcae34;--world-surface:#f2faf6;--world-motif:rgba(23,109,85,.08)}
+html[data-culture="southern-africa"]{--world-primary:#2e6571;--world-secondary:#9a4d72;--world-accent:#d79f32;--world-surface:#f3f9fa;--world-motif:rgba(46,101,113,.08)}
+html[data-culture="southeast-asia"]{--world-primary:#167464;--world-secondary:#be4a42;--world-accent:#dba62f;--world-surface:#f1faf7;--world-motif:rgba(22,116,100,.08)}
+html[data-culture="east-asia"],html[data-culture="japan"]{--world-primary:#a42f4c;--world-secondary:#4c477c;--world-accent:#d88b45;--world-surface:#fff5f7;--world-motif:rgba(164,47,76,.07)}
+html[data-culture="mediterranean"]{--world-primary:#126f9b;--world-secondary:#a63c69;--world-accent:#dca72f;--world-surface:#f2f9fd;--world-motif:rgba(18,111,155,.08)}
+html[data-culture="balkans"]{--world-primary:#315f88;--world-secondary:#a33e4e;--world-accent:#d3a23d;--world-surface:#f4f8fb;--world-motif:rgba(49,95,136,.08)}
+html[data-culture="western-europe"]{--world-primary:#3559a0;--world-secondary:#9d456d;--world-accent:#c9932d;--world-surface:#f4f7fc;--world-motif:rgba(53,89,160,.075)}
+html[data-culture="caribbean"]{--world-primary:#087f88;--world-secondary:#cb5266;--world-accent:#e0a72c;--world-surface:#f0fbfb;--world-motif:rgba(8,127,136,.08)}
+html[data-culture="latin-america"]{--world-primary:#167750;--world-secondary:#c34d47;--world-accent:#dea62e;--world-surface:#f2faf5;--world-motif:rgba(22,119,80,.08)}
+html[data-country] .hero .pill::before{content:attr(data-country);display:none}
