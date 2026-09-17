@@ -1,32 +1,35 @@
 {
-  "country": "BN,MY,SG",
-  "language": "Standard Malay",
-  "language_code": "zsm",
-  "priority_source": "lang:zsm P1 score 71",
+  "country": "BI,CD,KE,RW,TZ,UG",
+  "language": "Swahili",
+  "language_code": "sw",
+  "priority_source": "lang:swa P1 score 71",
   "country_relationships": [
-    "BN",
-    "MY",
-    "SG"
+    "BI",
+    "CD",
+    "KE",
+    "RW",
+    "TZ",
+    "UG"
   ],
-  "research": "PASS — data/language-research/zsm.json",
+  "research": "PASS — data/language-research/sw.json",
   "A1": "PASS",
   "A2": "PASS",
   "B1": "PASS",
   "B2": "PASS",
   "C1": "PASS",
   "C2": "PASS",
-  "QA": "PASS — builder, floors, all lessons, morphology/register, audio, player, answers and duplicates",
+  "QA": "PASS — builder, floors, all lessons, noun-class concord/extensions/register, audio, player, answers and duplicates",
   "push": "PASS",
   "course_files": [
-    "data/courses/phase-3/zsm_A1.json",
-    "data/courses/phase-3/zsm_A2.json",
-    "data/courses/phase-3/zsm_B1.json",
-    "data/courses/phase-3/zsm_B2.json",
-    "data/courses/phase-3/zsm_C1.json",
-    "data/courses/phase-3/zsm_C2.json"
+    "data/courses/phase-3/sw_A1.json",
+    "data/courses/phase-3/sw_A2.json",
+    "data/courses/phase-3/sw_B1.json",
+    "data/courses/phase-3/sw_B2.json",
+    "data/courses/phase-3/sw_C1.json",
+    "data/courses/phase-3/sw_C2.json"
   ],
-  "last_commit": "2901673",
-  "batch_policy": "Continue several canonical language-country ecosystems before user-facing completion summary",
-  "next_inventory_candidate": "lang:swa Swahili P1 score 71",
+  "last_commit": "88e3f6c",
+  "batch_policy": "Canonical course links all six inventory countries together; no duplicate country courses",
+  "next_inventory_candidate": "lang:hat Haitian P1 score 70",
   "review_required": []
 }
