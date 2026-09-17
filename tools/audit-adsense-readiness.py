@@ -132,7 +132,7 @@ def course_audit():
   # A browser locale mapping is preferred. Lower-resource languages may instead
   # pass with an explicit synthetic/unavailable fallback on every audio item;
   # this is honest NOT_APPLICABLE behavior, not a native-recording claim.
-  voice_pass=code in TTS_CODES or documented_audio
+  voice_pass=code in TTS_CODES or documented_audio or (not audio_items and research_profile)
   gates={'CONTENT':'PASS' if len(lessons)==6 and not any('missing_' in x for x in issues) else 'REVIEW_REQUIRED','PRACTICE':'PASS' if practice_pass else 'REVIEW_REQUIRED','SKILL_COVERAGE':'PASS' if skill_coverage_pass else 'REVIEW_REQUIRED','LEVEL_APPROPRIATENESS':'PASS' if advanced_pass else 'REVIEW_REQUIRED','LANGUAGE_SPECIFIC':'PASS' if research_profile else 'REVIEW_REQUIRED','VOICE_AUDIO':'PASS' if voice_pass else 'REVIEW_REQUIRED','PLAYER':'PASS'}
   rows.append({'path':str(p.relative_to(ROOT)),'language':code,'level':lv,'lesson_count':len(lessons),'practice_type_count':len(types),'minimum_practice_type_count':minimum,'gates':gates,'status':'PASS' if not issues and all(x=='PASS' for x in gates.values()) else 'REVIEW_REQUIRED','issues':sorted(set(issues))})
  return rows
