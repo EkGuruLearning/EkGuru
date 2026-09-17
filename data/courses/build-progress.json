@@ -1,44 +1,44 @@
 {
-  "country": "BE,NL,SR",
-  "language": "Dutch",
-  "language_code": "nl",
-  "priority_source": "lang:nld P1 score 69; Amharic retained ahead in pending research queue and not falsely marked complete",
+  "country": "AE,IR",
+  "language": "Persian",
+  "language_code": "fa",
+  "priority_source": "lang:fas P1 score 69; selected with Dutch to finish a five-country canonical batch while Amharic remains pending targeted authoring evidence",
   "country_relationships": [
-    "BE",
-    "NL",
-    "SR"
+    "AE",
+    "IR"
   ],
-  "research": "PASS — data/language-research/nl.json",
+  "research": "PASS — data/language-research/fa.json",
   "A1": "PASS",
   "A2": "PASS",
   "B1": "PASS",
   "B2": "PASS",
   "C1": "PASS",
   "C2": "PASS",
-  "QA": "PASS — builder, floors, all lessons, grammar/register, audio, player, answers and duplicates",
+  "QA": "PASS — builder, floors, all lessons, RTL/transliteration, grammar/register, audio, player, answers and duplicates",
   "push": "PASS",
   "course_files": [
-    "data/courses/phase-3/nl_A1.json",
-    "data/courses/phase-3/nl_A2.json",
-    "data/courses/phase-3/nl_B1.json",
-    "data/courses/phase-3/nl_B2.json",
-    "data/courses/phase-3/nl_C1.json",
-    "data/courses/phase-3/nl_C2.json"
+    "data/courses/phase-3/fa_A1.json",
+    "data/courses/phase-3/fa_A2.json",
+    "data/courses/phase-3/fa_B1.json",
+    "data/courses/phase-3/fa_B2.json",
+    "data/courses/phase-3/fa_C1.json",
+    "data/courses/phase-3/fa_C2.json"
   ],
-  "last_commit": "8123742",
-  "batch_group": {
-    "target_country_contexts": 5,
-    "completed_contexts": [
+  "last_commit": "7f0e32e",
+  "completed_multi_country_batch": {
+    "languages": [
+      "Dutch",
+      "Persian"
+    ],
+    "country_contexts": [
       "BE",
       "NL",
-      "SR"
+      "SR",
+      "AE",
+      "IR"
     ],
-    "pending_contexts": [
-      "ET",
-      "IL"
-    ],
-    "pending_language": "Amharic"
+    "count": 5
   },
-  "next_inventory_candidate": "lang:amh Amharic, then lang:fas Persian",
+  "next_inventory_candidate": "lang:amh Amharic, then lang:sin Sinhala",
   "review_required": []
 }
