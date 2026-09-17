@@ -16,17 +16,22 @@
   ],
   "research": "PASS — data/language-research/pl.json",
   "A1": "PASS",
-  "A2": "MISSING",
-  "B1": "MISSING",
-  "B2": "MISSING",
-  "C1": "MISSING",
-  "C2": "MISSING",
-  "QA": "A1 PASS — builder, 3x2 schema, 12-format floor, case/agreement content, synthetic audio and player checks",
+  "A2": "PASS",
+  "B1": "PASS",
+  "B2": "PASS",
+  "C1": "PASS",
+  "C2": "PASS",
+  "QA": "PASS — builder, practice floors, all-lesson content sampling, case/aspect/register, synthetic audio, player, target-script, answer and duplication gates",
   "push": "PASS",
   "course_files": [
-    "data/courses/phase-3/pl_A1.json"
+    "data/courses/phase-3/pl_A1.json",
+    "data/courses/phase-3/pl_A2.json",
+    "data/courses/phase-3/pl_B1.json",
+    "data/courses/phase-3/pl_B2.json",
+    "data/courses/phase-3/pl_C1.json",
+    "data/courses/phase-3/pl_C2.json"
   ],
-  "last_commit": "02b6815",
-  "next_action": "Continue Polish A2 through C2; do not rebuild A1",
+  "last_commit": "d19df2b",
+  "next_inventory_candidate": "lang:ron Romanian (P0 score 75)",
   "review_required": []
 }
