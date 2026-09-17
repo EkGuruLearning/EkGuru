@@ -1,0 +1,1473 @@
+{
+  "code": "hi",
+  "name": "Hindi",
+  "native": "हिन्दी",
+  "phase": 2,
+  "medium": "en",
+  "file_level": "C1",
+  "research_basis": [
+    "EkGuru Hindi A1–C2 CEFR blueprint and product specification (commit 8923c78).",
+    "Omkar N. Koul, Modern Hindi Grammar: morphology, agreement, tense-aspect-modality and syntax.",
+    "University of Texas Hindi-Urdu Flagship grammar: aspect and compound-verb nuance.",
+    "CEFR Companion Volume: interaction, mediation and C-level discourse outcomes."
+  ],
+  "level": {
+    "title": "Hindi C1 — Nuanced Professional and Academic Discourse",
+    "goals": [
+      "Calibrate evidence and stance.",
+      "Construct coherent complex arguments.",
+      "Control institutional and academic genres.",
+      "Interpret idiom and implied attitude.",
+      "Mediate meaning across registers."
+    ],
+    "units": [
+      {
+        "id": "hi-c1-u1",
+        "title": "Discourse and Institutional Control",
+        "lessons": [
+          {
+            "id": "hi-c1-l1",
+            "title": "Evidence, Stance, and Responsible Claims",
+            "learn": "Learn to separate observation, inference, and attributed claim. Hindi academic and professional prose uses frames such as उपलब्ध साक्ष्य से…प्रतीत होता है to calibrate commitment rather than present every interpretation as fact.",
+            "vocab": [
+              {
+                "t": "प्रतीत होना",
+                "r": "pratīt honā",
+                "en": "to appear; seem",
+                "pos": "verb"
+              },
+              {
+                "t": "संकेत देना",
+                "r": "saṅket denā",
+                "en": "to indicate",
+                "pos": "verb"
+              },
+              {
+                "t": "दावा",
+                "r": "dāvā",
+                "en": "claim",
+                "pos": "noun"
+              },
+              {
+                "t": "उपलब्ध साक्ष्य",
+                "r": "upalabdh sākṣya",
+                "en": "available evidence",
+                "pos": "phrase"
+              },
+              {
+                "t": "जहाँ तक",
+                "r": "jahā̃ tak",
+                "en": "as far as",
+                "pos": "connector"
+              },
+              {
+                "t": "फिर भी",
+                "r": "phir bhī",
+                "en": "nevertheless",
+                "pos": "connector"
+              },
+              {
+                "t": "संभवतः",
+                "r": "saṃbhavataḥ",
+                "en": "possibly",
+                "pos": "stance adverb"
+              },
+              {
+                "t": "निस्संदेह",
+                "r": "nissandeh",
+                "en": "undoubtedly",
+                "pos": "stance adverb"
+              }
+            ],
+            "grammar": {
+              "title": "Evidential stance",
+              "explain": "प्रतीत होना and संकेत देना leave room for revision; साबित करना requires stronger evidence. दावा reports a proposition without automatically endorsing it. संभवतः hedges probability, whereas निस्संदेह signals strong commitment and should not be used merely to sound formal.",
+              "pattern": "source + से/के आधार पर + ऐसा प्रतीत होता है कि + qualified proposition",
+              "examples": [
+                {
+                  "t": "उपलब्ध साक्ष्य से ऐसा प्रतीत होता है कि बदलाव लाभदायक रहा है।",
+                  "r": "upalabdh sākṣya se aisā pratīt hotā hai ki badlāv lābhadāyak rahā hai.",
+                  "en": "The available evidence suggests that the change has been beneficial."
+                },
+                {
+                  "t": "आँकड़े सुधार का संकेत देते हैं, पर कारण सिद्ध नहीं करते।",
+                  "r": "ā̃kṛe sudhār kā saṅket dete haĩ, par kāraṇ siddh nahī̃ karte.",
+                  "en": "The figures indicate improvement but do not establish the cause."
+                },
+                {
+                  "t": "समिति ने दावा किया कि देरी अपरिहार्य थी।",
+                  "r": "samiti ne dāvā kiyā ki derī aparihārya thī.",
+                  "en": "The committee claimed that the delay was unavoidable."
+                }
+              ],
+              "mistakes": [
+                "In Evidence, Stance, and Responsible Claims, grammatical possibility is not enough: preserve the intended meaning, relationship, evidence strength, and discourse purpose."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Editor",
+                "t": "आपने लिखा है कि नीति सफल सिद्ध हुई; क्या अध्ययन इतना निर्णायक है?",
+                "r": "āpne likhā hai ki nīti saphal siddh huī; kyā adhyayan itnā nirṇāyak hai?",
+                "en": "You wrote that the policy was proven successful; is the study that decisive?"
+              },
+              {
+                "sp": "Analyst",
+                "t": "नहीं, “सफल रही प्रतीत होती है” अधिक सटीक होगा।",
+                "r": "nahī̃, “saphal rahī pratīt hotī hai” adhik saṭīk hogā.",
+                "en": "No, “appears to have been successful” would be more precise."
+              },
+              {
+                "sp": "Editor",
+                "t": "और विरोधी निष्कर्ष?",
+                "r": "aur virodhī niṣkarṣ?",
+                "en": "And the contrary conclusion?"
+              },
+              {
+                "sp": "Analyst",
+                "t": "उसे भी दर्ज करेंगे; उपलब्ध साक्ष्य उसे पूरी तरह नकारता नहीं है।",
+                "r": "use bhī darj karẽge; upalabdh sākṣya use pūrī tarah nakārtā nahī̃ hai.",
+                "en": "We will record it too; the available evidence does not rule it out completely."
+              }
+            ],
+            "practice": [
+              {
+                "type": "choose",
+                "q": "Choose the responsible verb when data support but do not prove a conclusion.",
+                "answer": "संकेत देना / प्रतीत होना"
+              },
+              {
+                "type": "fill",
+                "q": "Complete: उपलब्ध साक्ष्य से ऐसा ___ होता है कि…",
+                "answer": "प्रतीत"
+              },
+              {
+                "type": "reorder",
+                "q": "Order the moves: limitation; evidence; qualified conclusion.",
+                "answer": "evidence → qualified conclusion → limitation"
+              },
+              {
+                "type": "translate_t",
+                "q": "Translate cautiously: “The figures may indicate improvement.”",
+                "answer": "आँकड़े संभवतः सुधार का संकेत देते हैं।"
+              },
+              {
+                "type": "speak",
+                "q": "Brief an editor: attribute the committee’s claim but do not endorse it.",
+                "answer": "समिति का दावा है कि देरी अपरिहार्य थी; उपलब्ध साक्ष्य इसकी स्वतंत्र पुष्टि नहीं करता।"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits प्रतीत होना?",
+                "options": [
+                  "to appear; seem",
+                  "to indicate",
+                  "claim",
+                  "available evidence"
+                ],
+                "answer": 0,
+                "why": "प्रतीत होना means to appear; seem in this lesson."
+              },
+              {
+                "q": "Which meaning best fits संकेत देना?",
+                "options": [
+                  "claim",
+                  "to indicate",
+                  "available evidence",
+                  "as far as"
+                ],
+                "answer": 1,
+                "why": "संकेत देना means to indicate."
+              },
+              {
+                "q": "Which expression means “claim”?",
+                "options": [
+                  "फिर भी",
+                  "संभवतः",
+                  "दावा",
+                  "निस्संदेह"
+                ],
+                "answer": 2,
+                "why": "दावा carries that meaning."
+              },
+              {
+                "q": "What is the key advanced distinction in evidential stance?",
+                "options": [
+                  "word length",
+                  "speaker gender only",
+                  "meaning, evidence, or register in context",
+                  "alphabetical order"
+                ],
+                "answer": 2,
+                "why": "C-level control depends on contextual meaning and discourse effect."
+              },
+              {
+                "q": "Which response demonstrates C1 control in “Evidence, Stance, and Responsible Claims”?",
+                "options": [
+                  "a memorized isolated noun",
+                  "a literal translation regardless of context",
+                  "a coherent choice justified by stance and audience",
+                  "the longest possible sentence"
+                ],
+                "answer": 2,
+                "why": "Precision and audience-sensitive justification are required."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Evidence, Stance, and Responsible Claims Workshop",
+              "tasks": [
+                {
+                  "instruction": "Explain the contextual meaning and discourse function.",
+                  "items": [
+                    "प्रतीत होना (pratīt honā)",
+                    "संकेत देना (saṅket denā)"
+                  ],
+                  "key": [
+                    "to appear; seem",
+                    "to indicate"
+                  ]
+                },
+                {
+                  "instruction": "Translate or interpret while preserving stance and register.",
+                  "items": [
+                    "उपलब्ध साक्ष्य से ऐसा प्रतीत होता है कि बदलाव लाभदायक रहा है। (upalabdh sākṣya se aisā pratīt hotā hai ki badlāv lābhadāyak rahā hai.)",
+                    "आँकड़े सुधार का संकेत देते हैं, पर कारण सिद्ध नहीं करते। (ā̃kṛe sudhār kā saṅket dete haĩ, par kāraṇ siddh nahī̃ karte.)"
+                  ],
+                  "key": [
+                    "The available evidence suggests that the change has been beneficial.",
+                    "The figures indicate improvement but do not establish the cause."
+                  ]
+                },
+                {
+                  "instruction": "Complete the advanced production task, then self-check meaning, register, and cohesion.",
+                  "items": [
+                    "Translate cautiously: “The figures may indicate improvement.”",
+                    "Brief an editor: attribute the committee’s claim but do not endorse it."
+                  ],
+                  "key": [
+                    "आँकड़े संभवतः सुधार का संकेत देते हैं।",
+                    "समिति का दावा है कि देरी अपरिहार्य थी; उपलब्ध साक्ष्य इसकी स्वतंत्र पुष्टि नहीं करता।"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "hi-c1-l2",
+            "title": "Coherence Across Complex Arguments",
+            "learn": "Build paragraphs whose concession, contrast, cause, and consequence are recoverable. Formal pairs such as यद्यपि…तथापि are useful, but a connector cannot repair a missing logical relation.",
+            "vocab": [
+              {
+                "t": "यद्यपि",
+                "r": "yadyapi",
+                "en": "although",
+                "pos": "connector"
+              },
+              {
+                "t": "तथापि",
+                "r": "tathāpi",
+                "en": "nevertheless",
+                "pos": "connector"
+              },
+              {
+                "t": "इसके विपरीत",
+                "r": "iske viprīt",
+                "en": "by contrast",
+                "pos": "connector"
+              },
+              {
+                "t": "फलस्वरूप",
+                "r": "phalasvarūp",
+                "en": "consequently",
+                "pos": "connector"
+              },
+              {
+                "t": "एक ओर",
+                "r": "ek or",
+                "en": "on one hand",
+                "pos": "frame"
+              },
+              {
+                "t": "दूसरी ओर",
+                "r": "dūsrī or",
+                "en": "on the other hand",
+                "pos": "frame"
+              },
+              {
+                "t": "सुसंगति",
+                "r": "susaṅgati",
+                "en": "coherence",
+                "pos": "noun"
+              },
+              {
+                "t": "प्रतिवाद",
+                "r": "prativād",
+                "en": "counterargument",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Concession and rhetorical sequence",
+              "explain": "यद्यपि introduces a point that could support an opposite expectation; तथापि marks the maintained conclusion. एक ओर…दूसरी ओर balances considerations. इसके विपरीत contrasts evidence; फलस्वरूप should mark an actual consequence, not a new unrelated fact.",
+              "pattern": "यद्यपि + concession, तथापि + maintained claim",
+              "examples": [
+                {
+                  "t": "यद्यपि लागत बढ़ी है, तथापि सेवा की विश्वसनीयता में सुधार हुआ है।",
+                  "r": "yadyapi lāgat baṛhī hai, tathāpi sevā kī viśvasanīyatā mẽ sudhār huā hai.",
+                  "en": "Although costs rose, service reliability nevertheless improved."
+                },
+                {
+                  "t": "एक ओर समय सीमित है; दूसरी ओर व्यापक परामर्श आवश्यक है।",
+                  "r": "ek or samay sīmit hai; dūsrī or vyāpak parāmarś āvaśyak hai.",
+                  "en": "On one hand time is limited; on the other, broad consultation is necessary."
+                },
+                {
+                  "t": "प्रक्रिया स्पष्ट नहीं थी; फलस्वरूप कई आवेदन अधूरे रह गए।",
+                  "r": "prakriyā spaṣṭ nahī̃ thī; phalasvarūp kaī āvedan adhūre rah gae.",
+                  "en": "The process was unclear; consequently many applications remained incomplete."
+                }
+              ],
+              "mistakes": [
+                "In Coherence Across Complex Arguments, grammatical possibility is not enough: preserve the intended meaning, relationship, evidence strength, and discourse purpose."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Chair",
+                "t": "मसौदे में पाँच संयोजक हैं, फिर भी तर्क बिखरा हुआ क्यों लगता है?",
+                "r": "masaude mẽ pā̃c saṃyojak haĩ, phir bhī tark bikhrā huā kyõ lagtā hai?",
+                "en": "The draft has five connectors, yet why does the argument feel scattered?"
+              },
+              {
+                "sp": "Writer",
+                "t": "क्योंकि प्रतिवाद निष्कर्ष के बाद आया है और उसके उत्तर का आधार पहले नहीं दिया गया।",
+                "r": "kyõki prativād niṣkarṣ ke bād āyā hai aur uske uttar kā ādhār pahle nahī̃ diyā gayā.",
+                "en": "Because the counterargument follows the conclusion and its answer has not been prepared earlier."
+              },
+              {
+                "sp": "Chair",
+                "t": "क्रम कैसे बदलेंगे?",
+                "r": "kram kaise badlẽge?",
+                "en": "How will you change the sequence?"
+              },
+              {
+                "sp": "Writer",
+                "t": "पहले दावा, फिर साक्ष्य, उसके बाद निष्पक्ष प्रतिवाद और अंत में सीमित निष्कर्ष।",
+                "r": "pahle dāvā, phir sākṣya, uske bād niṣpakṣ prativād aur ant mẽ sīmit niṣkarṣ.",
+                "en": "First the claim, then evidence, then a fair counterargument, and finally a limited conclusion."
+              }
+            ],
+            "practice": [
+              {
+                "type": "fill",
+                "q": "Complete the formal pair: यद्यपि…, ___.",
+                "answer": "तथापि…"
+              },
+              {
+                "type": "choose",
+                "q": "Choose a connector for a genuine consequence.",
+                "answer": "फलस्वरूप"
+              },
+              {
+                "type": "reorder",
+                "q": "Order: counterargument, conclusion, claim, evidence.",
+                "answer": "claim → evidence → counterargument → conclusion"
+              },
+              {
+                "type": "translate_t",
+                "q": "Translate formally: “Although time is limited, consultation is necessary.”",
+                "answer": "यद्यपि समय सीमित है, तथापि परामर्श आवश्यक है।"
+              },
+              {
+                "type": "speak",
+                "q": "Construct a four-move argument for improving a public service.",
+                "answer": "सेवा की पहुँच सीमित है। आँकड़े ग्रामीण क्षेत्रों में कम उपयोग दिखाते हैं। यद्यपि विस्तार महँगा होगा, तथापि समान पहुँच आवश्यक है। अतः चरणबद्ध विस्तार उचित होगा।"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits यद्यपि?",
+                "options": [
+                  "although",
+                  "nevertheless",
+                  "by contrast",
+                  "consequently"
+                ],
+                "answer": 0,
+                "why": "यद्यपि means although in this lesson."
+              },
+              {
+                "q": "Which meaning best fits तथापि?",
+                "options": [
+                  "by contrast",
+                  "nevertheless",
+                  "consequently",
+                  "on one hand"
+                ],
+                "answer": 1,
+                "why": "तथापि means nevertheless."
+              },
+              {
+                "q": "Which expression means “by contrast”?",
+                "options": [
+                  "दूसरी ओर",
+                  "सुसंगति",
+                  "इसके विपरीत",
+                  "प्रतिवाद"
+                ],
+                "answer": 2,
+                "why": "इसके विपरीत carries that meaning."
+              },
+              {
+                "q": "What is the key advanced distinction in coherence?",
+                "options": [
+                  "word length",
+                  "speaker gender only",
+                  "meaning, evidence, or register in context",
+                  "alphabetical order"
+                ],
+                "answer": 2,
+                "why": "C-level control depends on contextual meaning and discourse effect."
+              },
+              {
+                "q": "Which response demonstrates C1 control in “Coherence Across Complex Arguments”?",
+                "options": [
+                  "a memorized isolated noun",
+                  "a literal translation regardless of context",
+                  "a coherent choice justified by stance and audience",
+                  "the longest possible sentence"
+                ],
+                "answer": 2,
+                "why": "Precision and audience-sensitive justification are required."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Coherence Across Complex Arguments Workshop",
+              "tasks": [
+                {
+                  "instruction": "Explain the contextual meaning and discourse function.",
+                  "items": [
+                    "यद्यपि (yadyapi)",
+                    "तथापि (tathāpi)"
+                  ],
+                  "key": [
+                    "although",
+                    "nevertheless"
+                  ]
+                },
+                {
+                  "instruction": "Translate or interpret while preserving stance and register.",
+                  "items": [
+                    "यद्यपि लागत बढ़ी है, तथापि सेवा की विश्वसनीयता में सुधार हुआ है। (yadyapi lāgat baṛhī hai, tathāpi sevā kī viśvasanīyatā mẽ sudhār huā hai.)",
+                    "एक ओर समय सीमित है; दूसरी ओर व्यापक परामर्श आवश्यक है। (ek or samay sīmit hai; dūsrī or vyāpak parāmarś āvaśyak hai.)"
+                  ],
+                  "key": [
+                    "Although costs rose, service reliability nevertheless improved.",
+                    "On one hand time is limited; on the other, broad consultation is necessary."
+                  ]
+                },
+                {
+                  "instruction": "Complete the advanced production task, then self-check meaning, register, and cohesion.",
+                  "items": [
+                    "Translate formally: “Although time is limited, consultation is necessary.”",
+                    "Construct a four-move argument for improving a public service."
+                  ],
+                  "key": [
+                    "यद्यपि समय सीमित है, तथापि परामर्श आवश्यक है।",
+                    "सेवा की पहुँच सीमित है। आँकड़े ग्रामीण क्षेत्रों में कम उपयोग दिखाते हैं। यद्यपि विस्तार महँगा होगा, तथापि समान पहुँच आवश्यक है। अतः चरणबद्ध विस्तार उचित होगा।"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "hi-c1-u2",
+        "title": "Academic and Figurative Control",
+        "lessons": [
+          {
+            "id": "hi-c1-l3",
+            "title": "Institutional Hindi Without Bureaucratic Fog",
+            "learn": "Write clear formal email, minutes, and requests. Formal Hindi uses conventional nominalizations, but clarity improves when actors, action, deadline, and requested response remain explicit.",
+            "vocab": [
+              {
+                "t": "विचारार्थ",
+                "r": "vicārārth",
+                "en": "for consideration",
+                "pos": "adverb"
+              },
+              {
+                "t": "अनुमोदन",
+                "r": "anumodan",
+                "en": "approval",
+                "pos": "noun"
+              },
+              {
+                "t": "कार्यान्वयन",
+                "r": "kāryānvayan",
+                "en": "implementation",
+                "pos": "noun"
+              },
+              {
+                "t": "अवगत कराना",
+                "r": "avagat karānā",
+                "en": "to formally inform",
+                "pos": "verb"
+              },
+              {
+                "t": "कृपया",
+                "r": "kṛpayā",
+                "en": "please",
+                "pos": "politeness marker"
+              },
+              {
+                "t": "सादर",
+                "r": "sādar",
+                "en": "respectfully",
+                "pos": "closing"
+              },
+              {
+                "t": "निर्धारित समय-सीमा",
+                "r": "nirdhārit samay-sīmā",
+                "en": "stipulated deadline",
+                "pos": "phrase"
+              },
+              {
+                "t": "स्पष्टीकरण",
+                "r": "spaṣṭīkaraṇ",
+                "en": "clarification",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Formal requests and impersonal framing",
+              "explain": "विचारार्थ प्रस्तुत है is conventional for submitting an item for consideration. अवगत कराना is more formal than बताना. Passive/impersonal forms can foreground procedure, but excessive nominalisation hides responsibility; name the actor when accountability matters.",
+              "pattern": "document + विचारार्थ प्रस्तुत है; कृपया + action + कीजिए/करें",
+              "examples": [
+                {
+                  "t": "संशोधित प्रस्ताव अनुमोदन के लिए विचारार्थ प्रस्तुत है।",
+                  "r": "saṃśodhit prastāv anumodan ke lie vicārārth prastut hai.",
+                  "en": "The revised proposal is submitted for consideration and approval."
+                },
+                {
+                  "t": "कृपया शुक्रवार तक लिखित स्पष्टीकरण भेजें।",
+                  "r": "kṛpayā śukravār tak likhit spaṣṭīkaraṇ bhejẽ.",
+                  "en": "Please send a written clarification by Friday."
+                },
+                {
+                  "t": "कार्यान्वयन दल प्रगति से सभी सदस्यों को अवगत कराएगा।",
+                  "r": "kāryānvayan dal pragati se sabhī sadasyõ ko avagat karāegā.",
+                  "en": "The implementation team will formally inform all members of progress."
+                }
+              ],
+              "mistakes": [
+                "In Institutional Hindi Without Bureaucratic Fog, grammatical possibility is not enough: preserve the intended meaning, relationship, evidence strength, and discourse purpose."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Manager",
+                "t": "“जल्दी जवाब दें” औपचारिक संदेश में कुछ कठोर लगता है।",
+                "r": "“jaldī javāb dẽ” aupacārik saṃdeś mẽ kuch kaṭhor lagtā hai.",
+                "en": "“Reply quickly” sounds rather harsh in a formal message."
+              },
+              {
+                "sp": "Officer",
+                "t": "लिखें: “कृपया निर्धारित समय-सीमा तक अपना स्पष्टीकरण भेजें।”",
+                "r": "likhẽ: “kṛpayā nirdhārit samay-sīmā tak apnā spaṣṭīkaraṇ bhejẽ.”",
+                "en": "Write: “Please send your clarification by the stipulated deadline.”"
+              },
+              {
+                "sp": "Manager",
+                "t": "जिम्मेदारी किसकी है, यह भी स्पष्ट होना चाहिए।",
+                "r": "zimmedārī kiskī hai, yah bhī spaṣṭ honā cāhie.",
+                "en": "Responsibility should also be clear."
+              },
+              {
+                "sp": "Officer",
+                "t": "हाँ, अंतिम वाक्य में कार्यान्वयन दल और अगली तारीख दोनों लिख देता हूँ।",
+                "r": "hā̃, antim vākya mẽ kāryānvayan dal aur aglī tārīkh donõ likh detā hū̃.",
+                "en": "Yes, I’ll put both the implementation team and next date in the final sentence."
+              }
+            ],
+            "practice": [
+              {
+                "type": "translate_en",
+                "q": "Interpret in an official email: विचारार्थ प्रस्तुत है.",
+                "answer": "is submitted for consideration"
+              },
+              {
+                "type": "fill",
+                "q": "Complete: कृपया शुक्रवार तक स्पष्टीकरण ___.",
+                "answer": "भेजें"
+              },
+              {
+                "type": "choose",
+                "q": "Choose the clearest formal version of “tell everyone.”",
+                "answer": "सभी सदस्यों को अवगत कराएँ।"
+              },
+              {
+                "type": "translate_t",
+                "q": "Formalize: “Send us the details soon.”",
+                "answer": "कृपया निर्धारित समय-सीमा तक विवरण भेजें।"
+              },
+              {
+                "type": "speak",
+                "q": "Give a respectful reminder naming actor, task, and deadline.",
+                "answer": "कृपया वित्त दल सोमवार तक संशोधित अनुमान भेजे, ताकि समीक्षा समय पर पूरी हो सके।"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits विचारार्थ?",
+                "options": [
+                  "for consideration",
+                  "approval",
+                  "implementation",
+                  "to formally inform"
+                ],
+                "answer": 0,
+                "why": "विचारार्थ means for consideration in this lesson."
+              },
+              {
+                "q": "Which meaning best fits अनुमोदन?",
+                "options": [
+                  "implementation",
+                  "approval",
+                  "to formally inform",
+                  "please"
+                ],
+                "answer": 1,
+                "why": "अनुमोदन means approval."
+              },
+              {
+                "q": "Which expression means “implementation”?",
+                "options": [
+                  "सादर",
+                  "निर्धारित समय-सीमा",
+                  "कार्यान्वयन",
+                  "स्पष्टीकरण"
+                ],
+                "answer": 2,
+                "why": "कार्यान्वयन carries that meaning."
+              },
+              {
+                "q": "What is the key advanced distinction in institutional register?",
+                "options": [
+                  "word length",
+                  "speaker gender only",
+                  "meaning, evidence, or register in context",
+                  "alphabetical order"
+                ],
+                "answer": 2,
+                "why": "C-level control depends on contextual meaning and discourse effect."
+              },
+              {
+                "q": "Which response demonstrates C1 control in “Institutional Hindi Without Bureaucratic Fog”?",
+                "options": [
+                  "a memorized isolated noun",
+                  "a literal translation regardless of context",
+                  "a coherent choice justified by stance and audience",
+                  "the longest possible sentence"
+                ],
+                "answer": 2,
+                "why": "Precision and audience-sensitive justification are required."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Institutional Hindi Without Bureaucratic Fog Workshop",
+              "tasks": [
+                {
+                  "instruction": "Explain the contextual meaning and discourse function.",
+                  "items": [
+                    "विचारार्थ (vicārārth)",
+                    "अनुमोदन (anumodan)"
+                  ],
+                  "key": [
+                    "for consideration",
+                    "approval"
+                  ]
+                },
+                {
+                  "instruction": "Translate or interpret while preserving stance and register.",
+                  "items": [
+                    "संशोधित प्रस्ताव अनुमोदन के लिए विचारार्थ प्रस्तुत है। (saṃśodhit prastāv anumodan ke lie vicārārth prastut hai.)",
+                    "कृपया शुक्रवार तक लिखित स्पष्टीकरण भेजें। (kṛpayā śukravār tak likhit spaṣṭīkaraṇ bhejẽ.)"
+                  ],
+                  "key": [
+                    "The revised proposal is submitted for consideration and approval.",
+                    "Please send a written clarification by Friday."
+                  ]
+                },
+                {
+                  "instruction": "Complete the advanced production task, then self-check meaning, register, and cohesion.",
+                  "items": [
+                    "Formalize: “Send us the details soon.”",
+                    "Give a respectful reminder naming actor, task, and deadline."
+                  ],
+                  "key": [
+                    "कृपया निर्धारित समय-सीमा तक विवरण भेजें।",
+                    "कृपया वित्त दल सोमवार तक संशोधित अनुमान भेजे, ताकि समीक्षा समय पर पूरी हो सके।"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "hi-c1-l4",
+            "title": "Academic Explanation, Scope, and Comparison",
+            "learn": "Explain concepts, define measures, compare equivalent categories, and state limitations. Academic control means preserving scope when reformulating and never converting correlation into causation.",
+            "vocab": [
+              {
+                "t": "परिकल्पना",
+                "r": "parikalpanā",
+                "en": "hypothesis",
+                "pos": "noun"
+              },
+              {
+                "t": "कार्यकारी परिभाषा",
+                "r": "kāryakārī paribhāṣā",
+                "en": "operational definition",
+                "pos": "phrase"
+              },
+              {
+                "t": "सहसंबंध",
+                "r": "sahasaṃbandh",
+                "en": "correlation",
+                "pos": "noun"
+              },
+              {
+                "t": "कारण-संबंध",
+                "r": "kāraṇ-saṃbandh",
+                "en": "causal relationship",
+                "pos": "noun"
+              },
+              {
+                "t": "नमूना",
+                "r": "namūnā",
+                "en": "sample",
+                "pos": "noun"
+              },
+              {
+                "t": "सीमित",
+                "r": "sīmit",
+                "en": "limited",
+                "pos": "adjective"
+              },
+              {
+                "t": "तुलनात्मक रूप से",
+                "r": "tulnātmak rūp se",
+                "en": "comparatively",
+                "pos": "adverb"
+              },
+              {
+                "t": "दूसरे शब्दों में",
+                "r": "dūsre śabdõ mẽ",
+                "en": "in other words",
+                "pos": "reformulator"
+              }
+            ],
+            "grammar": {
+              "title": "Qualification and faithful reformulation",
+              "explain": "A finding must identify sample, period, and comparison criterion. दूसरे शब्दों में should clarify the same claim, not strengthen it. सहसंबंध describes co-variation; कारण-संबंध requires a justified causal account.",
+              "pattern": "scope + finding + limitation; claim + दूसरे शब्दों में + equivalent clarification",
+              "examples": [
+                {
+                  "t": "यह निष्कर्ष अध्ययन के शहरी नमूने तक सीमित है।",
+                  "r": "yah niṣkarṣ adhyayan ke śahrī namūne tak sīmit hai.",
+                  "en": "This conclusion is limited to the study’s urban sample."
+                },
+                {
+                  "t": "दोनों चरों में सहसंबंध है, पर कारण-संबंध सिद्ध नहीं हुआ।",
+                  "r": "donõ carõ mẽ sahasaṃbandh hai, par kāraṇ-saṃbandh siddh nahī̃ huā.",
+                  "en": "The variables correlate, but a causal relationship has not been established."
+                },
+                {
+                  "t": "दूसरे शब्दों में, औसत बढ़ा है; प्रत्येक मान नहीं।",
+                  "r": "dūsre śabdõ mẽ, ausat baṛhā hai; pratyek mān nahī̃.",
+                  "en": "In other words, the average rose; not every value did."
+                }
+              ],
+              "mistakes": [
+                "In Academic Explanation, Scope, and Comparison, grammatical possibility is not enough: preserve the intended meaning, relationship, evidence strength, and discourse purpose."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Supervisor",
+                "t": "आपने लिखा “समूह बेहतर था”; बेहतर किस मापदंड पर?",
+                "r": "āpne likhā “samūh behtar thā”; behtar kis māpdaṇḍ par?",
+                "en": "You wrote “the group was better”; by what measure?"
+              },
+              {
+                "sp": "Student",
+                "t": "कार्य पूरा करने की दर पर, संतुष्टि पर नहीं।",
+                "r": "kārya pūrā karne kī dar par, saṃtuṣṭi par nahī̃.",
+                "en": "By completion rate, not satisfaction."
+              },
+              {
+                "sp": "Supervisor",
+                "t": "तो कार्यकारी परिभाषा और तुलना का आधार जोड़िए।",
+                "r": "to kāryakārī paribhāṣā aur tulnā kā ādhār joṛie.",
+                "en": "Then add the operational definition and comparison basis."
+              },
+              {
+                "sp": "Student",
+                "t": "और निष्कर्ष को इस नमूने तक सीमित रखूँगा।",
+                "r": "aur niṣkarṣ ko is namūne tak sīmit rakhū̃gā.",
+                "en": "And I will limit the conclusion to this sample."
+              }
+            ],
+            "practice": [
+              {
+                "type": "choose",
+                "q": "Which term means co-variation without proof of cause?",
+                "answer": "सहसंबंध"
+              },
+              {
+                "type": "fill",
+                "q": "Complete the limitation: यह निष्कर्ष नमूने तक ___ है।",
+                "answer": "सीमित"
+              },
+              {
+                "type": "translate_en",
+                "q": "Explain दूसरे शब्दों में as a discourse move.",
+                "answer": "It reformulates the same proposition more accessibly."
+              },
+              {
+                "type": "translate_t",
+                "q": "Translate: “Correlation does not itself establish causation.”",
+                "answer": "सहसंबंध अपने-आप कारण-संबंध सिद्ध नहीं करता।"
+              },
+              {
+                "type": "speak",
+                "q": "Qualify a national claim based on one urban sample.",
+                "answer": "यह शहरी नमूना एक संभावित प्रवृत्ति का संकेत देता है; राष्ट्रीय स्तर पर निष्कर्ष के लिए व्यापक अध्ययन आवश्यक है।"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits परिकल्पना?",
+                "options": [
+                  "hypothesis",
+                  "operational definition",
+                  "correlation",
+                  "causal relationship"
+                ],
+                "answer": 0,
+                "why": "परिकल्पना means hypothesis in this lesson."
+              },
+              {
+                "q": "Which meaning best fits कार्यकारी परिभाषा?",
+                "options": [
+                  "correlation",
+                  "operational definition",
+                  "causal relationship",
+                  "sample"
+                ],
+                "answer": 1,
+                "why": "कार्यकारी परिभाषा means operational definition."
+              },
+              {
+                "q": "Which expression means “correlation”?",
+                "options": [
+                  "सीमित",
+                  "तुलनात्मक रूप से",
+                  "सहसंबंध",
+                  "दूसरे शब्दों में"
+                ],
+                "answer": 2,
+                "why": "सहसंबंध carries that meaning."
+              },
+              {
+                "q": "What is the key advanced distinction in academic qualification?",
+                "options": [
+                  "word length",
+                  "speaker gender only",
+                  "meaning, evidence, or register in context",
+                  "alphabetical order"
+                ],
+                "answer": 2,
+                "why": "C-level control depends on contextual meaning and discourse effect."
+              },
+              {
+                "q": "Which response demonstrates C1 control in “Academic Explanation, Scope, and Comparison”?",
+                "options": [
+                  "a memorized isolated noun",
+                  "a literal translation regardless of context",
+                  "a coherent choice justified by stance and audience",
+                  "the longest possible sentence"
+                ],
+                "answer": 2,
+                "why": "Precision and audience-sensitive justification are required."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Academic Explanation, Scope, and Comparison Workshop",
+              "tasks": [
+                {
+                  "instruction": "Explain the contextual meaning and discourse function.",
+                  "items": [
+                    "परिकल्पना (parikalpanā)",
+                    "कार्यकारी परिभाषा (kāryakārī paribhāṣā)"
+                  ],
+                  "key": [
+                    "hypothesis",
+                    "operational definition"
+                  ]
+                },
+                {
+                  "instruction": "Translate or interpret while preserving stance and register.",
+                  "items": [
+                    "यह निष्कर्ष अध्ययन के शहरी नमूने तक सीमित है। (yah niṣkarṣ adhyayan ke śahrī namūne tak sīmit hai.)",
+                    "दोनों चरों में सहसंबंध है, पर कारण-संबंध सिद्ध नहीं हुआ। (donõ carõ mẽ sahasaṃbandh hai, par kāraṇ-saṃbandh siddh nahī̃ huā.)"
+                  ],
+                  "key": [
+                    "This conclusion is limited to the study’s urban sample.",
+                    "The variables correlate, but a causal relationship has not been established."
+                  ]
+                },
+                {
+                  "instruction": "Complete the advanced production task, then self-check meaning, register, and cohesion.",
+                  "items": [
+                    "Translate: “Correlation does not itself establish causation.”",
+                    "Qualify a national claim based on one urban sample."
+                  ],
+                  "key": [
+                    "सहसंबंध अपने-आप कारण-संबंध सिद्ध नहीं करता।",
+                    "यह शहरी नमूना एक संभावित प्रवृत्ति का संकेत देता है; राष्ट्रीय स्तर पर निष्कर्ष के लिए व्यापक अध्ययन आवश्यक है।"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "hi-c1-u3",
+        "title": "Register and Integrated Mastery",
+        "lessons": [
+          {
+            "id": "hi-c1-l5",
+            "title": "Idioms, Collocations, and Implied Attitude",
+            "learn": "Infer figurative meaning from surrounding events and speaker purpose. Idioms inflect inside Hindi clauses; identify participants and time, then decide whether the expression praises, warns, criticizes, or deceives.",
+            "vocab": [
+              {
+                "t": "पानी सिर से गुजरना",
+                "r": "pānī sir se guzarnā",
+                "en": "to become intolerable/out of control",
+                "pos": "idiom"
+              },
+              {
+                "t": "आँखों में धूल झोंकना",
+                "r": "ā̃khõ mẽ dhūl jhõknā",
+                "en": "to deceive",
+                "pos": "idiom"
+              },
+              {
+                "t": "कमर कसना",
+                "r": "kamar kasnā",
+                "en": "to prepare resolutely",
+                "pos": "idiom"
+              },
+              {
+                "t": "राई का पहाड़ बनाना",
+                "r": "rāī kā pahāṛ banānā",
+                "en": "to exaggerate a small matter",
+                "pos": "idiom"
+              },
+              {
+                "t": "लक्ष्यार्थ",
+                "r": "lakṣyārth",
+                "en": "intended figurative sense",
+                "pos": "noun"
+              },
+              {
+                "t": "सहप्रयोग",
+                "r": "sahaprayog",
+                "en": "collocation",
+                "pos": "noun"
+              },
+              {
+                "t": "व्यंग्य",
+                "r": "vyaṅgya",
+                "en": "irony; satire",
+                "pos": "noun"
+              },
+              {
+                "t": "संदर्भ",
+                "r": "sandarbha",
+                "en": "context",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Context before literal imagery",
+              "explain": "राई का पहाड़ बनाना criticizes exaggeration; कमर कसना can positively frame determined preparation. In a neutral report, paraphrase the intended meaning. Literal word substitution usually destroys लक्ष्यार्थ and may distort tone.",
+              "pattern": "co-text + idiom + consequence → contextual interpretation",
+              "examples": [
+                {
+                  "t": "बार-बार चेतावनी के बाद स्थिति सिर से गुजर गई।",
+                  "r": "bār-bār cetāvanī ke bād sthiti sir se guzar gaī.",
+                  "en": "After repeated warnings, the situation became intolerable."
+                },
+                {
+                  "t": "जाँच से पता चला कि विज्ञापन उपभोक्ताओं की आँखों में धूल झोंक रहा था।",
+                  "r": "jā̃c se patā calā ki vijñāpan upabhoktāõ kī ā̃khõ mẽ dhūl jhõk rahā thā.",
+                  "en": "The inquiry found that the advertisement was deceiving consumers."
+                },
+                {
+                  "t": "छोटी भूल का राई का पहाड़ बनाने से समाधान नहीं मिलेगा।",
+                  "r": "choṭī bhūl kā rāī kā pahāṛ banāne se samādhān nahī̃ milegā.",
+                  "en": "Exaggerating a small error will not produce a solution."
+                }
+              ],
+              "mistakes": [
+                "In Idioms, Collocations, and Implied Attitude, grammatical possibility is not enough: preserve the intended meaning, relationship, evidence strength, and discourse purpose."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Reporter",
+                "t": "शीर्षक में “आँखों में धूल” रखें या यह बहुत आरोपात्मक होगा?",
+                "r": "śīrṣak mẽ “ā̃khõ mẽ dhūl” rakhẽ yā yah bahut āropātmak hogā?",
+                "en": "Should we use “dust in the eyes” in the headline, or is it too accusatory?"
+              },
+              {
+                "sp": "Editor",
+                "t": "जब तक धोखे का प्रमाण न हो, “भ्रामक जानकारी” अधिक तटस्थ है।",
+                "r": "jab tak dhokhe kā pramāṇ na ho, “bhrāmak jānkārī” adhik taṭasth hai.",
+                "en": "Until deception is proven, “misleading information” is more neutral."
+              },
+              {
+                "sp": "Reporter",
+                "t": "और “कमर कस ली” किस भाव को व्यक्त करता है?",
+                "r": "aur “kamar kas lī” kis bhāv ko vyakt kartā hai?",
+                "en": "And what attitude does “tightened the waist” express?"
+              },
+              {
+                "sp": "Editor",
+                "t": "कठिन काम के लिए दृढ़ तैयारी; यहाँ उसका भाव सकारात्मक है।",
+                "r": "kaṭhin kām ke lie dṛṛh taiyārī; yahā̃ uskā bhāv sakārātmak hai.",
+                "en": "Resolute preparation for difficult work; here its force is positive."
+              }
+            ],
+            "practice": [
+              {
+                "type": "translate_en",
+                "q": "Interpret contextually: टीम ने कमर कस ली।",
+                "answer": "The team prepared with determination."
+              },
+              {
+                "type": "choose",
+                "q": "Which idiom criticizes exaggeration?",
+                "answer": "राई का पहाड़ बनाना"
+              },
+              {
+                "type": "fill",
+                "q": "Neutralize for a report: आँखों में धूल झोंकना → ___ जानकारी देना.",
+                "answer": "भ्रामक"
+              },
+              {
+                "type": "translate_t",
+                "q": "Translate the intended meaning: “Do not blow this small issue out of proportion.”",
+                "answer": "इस छोटी बात का राई का पहाड़ मत बनाइए।"
+              },
+              {
+                "type": "speak",
+                "q": "Explain why a vivid idiom may be unsuitable in a neutral investigation summary.",
+                "answer": "मुहावरा वक्ता का मूल्यांकन या आरोप जोड़ सकता है; निष्पक्ष सारांश में प्रमाण के अनुरूप तटस्थ पुनर्कथन बेहतर है।"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits पानी सिर से गुजरना?",
+                "options": [
+                  "to become intolerable/out of control",
+                  "to deceive",
+                  "to prepare resolutely",
+                  "to exaggerate a small matter"
+                ],
+                "answer": 0,
+                "why": "पानी सिर से गुजरना means to become intolerable/out of control in this lesson."
+              },
+              {
+                "q": "Which meaning best fits आँखों में धूल झोंकना?",
+                "options": [
+                  "to prepare resolutely",
+                  "to deceive",
+                  "to exaggerate a small matter",
+                  "intended figurative sense"
+                ],
+                "answer": 1,
+                "why": "आँखों में धूल झोंकना means to deceive."
+              },
+              {
+                "q": "Which expression means “to prepare resolutely”?",
+                "options": [
+                  "सहप्रयोग",
+                  "व्यंग्य",
+                  "कमर कसना",
+                  "संदर्भ"
+                ],
+                "answer": 2,
+                "why": "कमर कसना carries that meaning."
+              },
+              {
+                "q": "What is the key advanced distinction in figurative inference?",
+                "options": [
+                  "word length",
+                  "speaker gender only",
+                  "meaning, evidence, or register in context",
+                  "alphabetical order"
+                ],
+                "answer": 2,
+                "why": "C-level control depends on contextual meaning and discourse effect."
+              },
+              {
+                "q": "Which response demonstrates C1 control in “Idioms, Collocations, and Implied Attitude”?",
+                "options": [
+                  "a memorized isolated noun",
+                  "a literal translation regardless of context",
+                  "a coherent choice justified by stance and audience",
+                  "the longest possible sentence"
+                ],
+                "answer": 2,
+                "why": "Precision and audience-sensitive justification are required."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Idioms, Collocations, and Implied Attitude Workshop",
+              "tasks": [
+                {
+                  "instruction": "Explain the contextual meaning and discourse function.",
+                  "items": [
+                    "पानी सिर से गुजरना (pānī sir se guzarnā)",
+                    "आँखों में धूल झोंकना (ā̃khõ mẽ dhūl jhõknā)"
+                  ],
+                  "key": [
+                    "to become intolerable/out of control",
+                    "to deceive"
+                  ]
+                },
+                {
+                  "instruction": "Translate or interpret while preserving stance and register.",
+                  "items": [
+                    "बार-बार चेतावनी के बाद स्थिति सिर से गुजर गई। (bār-bār cetāvanī ke bād sthiti sir se guzar gaī.)",
+                    "जाँच से पता चला कि विज्ञापन उपभोक्ताओं की आँखों में धूल झोंक रहा था। (jā̃c se patā calā ki vijñāpan upabhoktāõ kī ā̃khõ mẽ dhūl jhõk rahā thā.)"
+                  ],
+                  "key": [
+                    "After repeated warnings, the situation became intolerable.",
+                    "The inquiry found that the advertisement was deceiving consumers."
+                  ]
+                },
+                {
+                  "instruction": "Complete the advanced production task, then self-check meaning, register, and cohesion.",
+                  "items": [
+                    "Translate the intended meaning: “Do not blow this small issue out of proportion.”",
+                    "Explain why a vivid idiom may be unsuitable in a neutral investigation summary."
+                  ],
+                  "key": [
+                    "इस छोटी बात का राई का पहाड़ मत बनाइए।",
+                    "मुहावरा वक्ता का मूल्यांकन या आरोप जोड़ सकता है; निष्पक्ष सारांश में प्रमाण के अनुरूप तटस्थ पुनर्कथन बेहतर है।"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "hi-c1-l6",
+            "title": "Register Switching and Respectful Mediation",
+            "learn": "Recast one proposition for a friend, a respected guest, and formal minutes without changing its factual or modal content. Address choices index relationship and setting; they are not mechanical translations of English “you.”",
+            "vocab": [
+              {
+                "t": "तुम",
+                "r": "tum",
+                "en": "you; familiar",
+                "pos": "pronoun"
+              },
+              {
+                "t": "आप",
+                "r": "āp",
+                "en": "you; respectful/plural",
+                "pos": "pronoun"
+              },
+              {
+                "t": "तू",
+                "r": "tū",
+                "en": "you; intimate or potentially demeaning",
+                "pos": "pronoun"
+              },
+              {
+                "t": "पधारिए",
+                "r": "padhārie",
+                "en": "please come; honorific",
+                "pos": "verb"
+              },
+              {
+                "t": "अनुरोध",
+                "r": "anurodh",
+                "en": "request",
+                "pos": "noun"
+              },
+              {
+                "t": "आग्रह",
+                "r": "āgrah",
+                "en": "earnest request/insistence",
+                "pos": "noun"
+              },
+              {
+                "t": "बताना",
+                "r": "batānā",
+                "en": "to tell; neutral everyday",
+                "pos": "verb"
+              },
+              {
+                "t": "अवगत कराना",
+                "r": "avagat karānā",
+                "en": "to formally inform",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "Honorific agreement and genre recasting",
+              "explain": "आप normally takes plural/honorific agreement: आप आएँगे/आएँगी. तुम is familiar; तू can express intimacy in some relationships but can insult elsewhere and is never the beginner default. पधारिए elevates स्वागत contexts. Formal writing may use अवगत कराना, while conversation prefers बताना.",
+              "pattern": "relationship + address form + matching verb; proposition held constant across genres",
+              "examples": [
+                {
+                  "t": "आप कल बैठक में पधारिए; हमें प्रसन्नता होगी।",
+                  "r": "āp kal baiṭhak mẽ padhārie; hamẽ prasannatā hogī.",
+                  "en": "Please honor us by coming to the meeting tomorrow; we will be pleased."
+                },
+                {
+                  "t": "तुम समय बदलने की बात पहले बता देना।",
+                  "r": "tum samay badalne kī bāt pahle batā denā.",
+                  "en": "Tell me beforehand about changing the time."
+                },
+                {
+                  "t": "सदस्यों को संशोधित समय से अवगत कराया गया।",
+                  "r": "sadasyõ ko saṃśodhit samay se avagat karāyā gayā.",
+                  "en": "Members were formally informed of the revised time."
+                }
+              ],
+              "mistakes": [
+                "In Register Switching and Respectful Mediation, grammatical possibility is not enough: preserve the intended meaning, relationship, evidence strength, and discourse purpose."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Host",
+                "t": "सर, तुम कल आओगे—यह निमंत्रण ठीक है?",
+                "r": "sar, tum kal āoge—yah nimaṃtraṇ ṭhīk hai?",
+                "en": "Sir, “tum will come tomorrow”—is this invitation appropriate?"
+              },
+              {
+                "sp": "Colleague",
+                "t": "यहाँ आप कहिए: “आप कल पधारेंगे तो हमें प्रसन्नता होगी।”",
+                "r": "yahā̃ āp kahie: “āp kal padhārẽge to hamẽ prasannatā hogī.”",
+                "en": "Use आप here: “We would be pleased if you came tomorrow.”"
+              },
+              {
+                "sp": "Host",
+                "t": "दोस्त को यही बात कैसे कहूँ?",
+                "r": "dost ko yahī bāt kaise kahū̃?",
+                "en": "How should I say the same thing to a friend?"
+              },
+              {
+                "sp": "Colleague",
+                "t": "“तुम कल आ जाओ, अच्छा लगेगा।” तथ्य वही है, संबंध का स्वर बदल गया।",
+                "r": "“tum kal ā jāo, acchā lagegā.” tathya vahī hai, saṃbandh kā svar badal gayā.",
+                "en": "“Come tomorrow, it’ll be nice.” The fact is the same; the relational tone changed."
+              }
+            ],
+            "practice": [
+              {
+                "type": "choose",
+                "q": "Choose the safest default with an unknown adult.",
+                "answer": "आप"
+              },
+              {
+                "type": "fill",
+                "q": "Use matching honorific agreement: आप कब ___?",
+                "answer": "आएँगे / आएँगी"
+              },
+              {
+                "type": "translate_en",
+                "q": "What can तू imply outside intimacy?",
+                "answer": "It can sound demeaning or insulting, depending on relationship and context."
+              },
+              {
+                "type": "translate_t",
+                "q": "Recast formally: “Tell everyone the new time.”",
+                "answer": "सभी सदस्यों को संशोधित समय से अवगत कराएँ।"
+              },
+              {
+                "type": "speak",
+                "q": "Invite a respected guest, then recast the same invitation for a close friend.",
+                "answer": "आप कल पधारिए, हमें प्रसन्नता होगी। / तुम कल आ जाओ, अच्छा लगेगा।"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits तुम?",
+                "options": [
+                  "you; familiar",
+                  "you; respectful/plural",
+                  "you; intimate or potentially demeaning",
+                  "please come; honorific"
+                ],
+                "answer": 0,
+                "why": "तुम means you; familiar in this lesson."
+              },
+              {
+                "q": "Which meaning best fits आप?",
+                "options": [
+                  "you; intimate or potentially demeaning",
+                  "you; respectful/plural",
+                  "please come; honorific",
+                  "request"
+                ],
+                "answer": 1,
+                "why": "आप means you; respectful/plural."
+              },
+              {
+                "q": "Which expression means “you; intimate or potentially demeaning”?",
+                "options": [
+                  "आग्रह",
+                  "बताना",
+                  "तू",
+                  "अवगत कराना"
+                ],
+                "answer": 2,
+                "why": "तू carries that meaning."
+              },
+              {
+                "q": "What is the key advanced distinction in register switching?",
+                "options": [
+                  "word length",
+                  "speaker gender only",
+                  "meaning, evidence, or register in context",
+                  "alphabetical order"
+                ],
+                "answer": 2,
+                "why": "C-level control depends on contextual meaning and discourse effect."
+              },
+              {
+                "q": "Which response demonstrates C1 control in “Register Switching and Respectful Mediation”?",
+                "options": [
+                  "a memorized isolated noun",
+                  "a literal translation regardless of context",
+                  "a coherent choice justified by stance and audience",
+                  "the longest possible sentence"
+                ],
+                "answer": 2,
+                "why": "Precision and audience-sensitive justification are required."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Register Switching and Respectful Mediation Workshop",
+              "tasks": [
+                {
+                  "instruction": "Explain the contextual meaning and discourse function.",
+                  "items": [
+                    "तुम (tum)",
+                    "आप (āp)"
+                  ],
+                  "key": [
+                    "you; familiar",
+                    "you; respectful/plural"
+                  ]
+                },
+                {
+                  "instruction": "Translate or interpret while preserving stance and register.",
+                  "items": [
+                    "आप कल बैठक में पधारिए; हमें प्रसन्नता होगी। (āp kal baiṭhak mẽ padhārie; hamẽ prasannatā hogī.)",
+                    "तुम समय बदलने की बात पहले बता देना। (tum samay badalne kī bāt pahle batā denā.)"
+                  ],
+                  "key": [
+                    "Please honor us by coming to the meeting tomorrow; we will be pleased.",
+                    "Tell me beforehand about changing the time."
+                  ]
+                },
+                {
+                  "instruction": "Complete the advanced production task, then self-check meaning, register, and cohesion.",
+                  "items": [
+                    "Recast formally: “Tell everyone the new time.”",
+                    "Invite a respected guest, then recast the same invitation for a close friend."
+                  ],
+                  "key": [
+                    "सभी सदस्यों को संशोधित समय से अवगत कराएँ।",
+                    "आप कल पधारिए, हमें प्रसन्नता होगी। / तुम कल आ जाओ, अच्छा लगेगा।"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "Hindi C1 Proficiency Test",
+      "items": [
+        {
+          "type": "translate_en",
+          "q": "Interpret precisely: प्रतीत होना (pratīt honā)",
+          "answer": "to appear; seem"
+        },
+        {
+          "type": "translate_en",
+          "q": "Interpret precisely: यद्यपि (yadyapi)",
+          "answer": "although"
+        },
+        {
+          "type": "translate_en",
+          "q": "Interpret precisely: विचारार्थ (vicārārth)",
+          "answer": "for consideration"
+        },
+        {
+          "type": "translate_en",
+          "q": "Interpret precisely: परिकल्पना (parikalpanā)",
+          "answer": "hypothesis"
+        },
+        {
+          "type": "translate_en",
+          "q": "Interpret precisely: पानी सिर से गुजरना (pānī sir se guzarnā)",
+          "answer": "to become intolerable/out of control"
+        },
+        {
+          "type": "translate_en",
+          "q": "Interpret precisely: तुम (tum)",
+          "answer": "you; familiar"
+        },
+        {
+          "type": "speak",
+          "q": "Brief an editor: attribute the committee’s claim but do not endorse it.",
+          "answer": "समिति का दावा है कि देरी अपरिहार्य थी; उपलब्ध साक्ष्य इसकी स्वतंत्र पुष्टि नहीं करता।"
+        },
+        {
+          "type": "speak",
+          "q": "Construct a four-move argument for improving a public service.",
+          "answer": "सेवा की पहुँच सीमित है। आँकड़े ग्रामीण क्षेत्रों में कम उपयोग दिखाते हैं। यद्यपि विस्तार महँगा होगा, तथापि समान पहुँच आवश्यक है। अतः चरणबद्ध विस्तार उचित होगा।"
+        },
+        {
+          "type": "speak",
+          "q": "Give a respectful reminder naming actor, task, and deadline.",
+          "answer": "कृपया वित्त दल सोमवार तक संशोधित अनुमान भेजे, ताकि समीक्षा समय पर पूरी हो सके।"
+        },
+        {
+          "type": "speak",
+          "q": "Qualify a national claim based on one urban sample.",
+          "answer": "यह शहरी नमूना एक संभावित प्रवृत्ति का संकेत देता है; राष्ट्रीय स्तर पर निष्कर्ष के लिए व्यापक अध्ययन आवश्यक है।"
+        }
+      ]
+    }
+  }
+}
