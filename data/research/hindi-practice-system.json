@@ -1,0 +1,447 @@
+{
+  "version": 1,
+  "taxonomy": [
+    {
+      "type": "multiple choice",
+      "levels": "A1–C2",
+      "benefit": "rapid discrimination and misconception diagnosis",
+      "market_example": "Duolingo/Busuu lesson checks",
+      "ekguru_implementation": "Use plausible error-derived distractors; rationale after answer"
+    },
+    {
+      "type": "fill in blank",
+      "levels": "A1–B2; constrained C1",
+      "benefit": "retrieve morphology in context",
+      "market_example": "Duolingo; Clozemaster",
+      "ekguru_implementation": "Accept valid spelling variants; never use context-free gender guesses"
+    },
+    {
+      "type": "translation",
+      "levels": "A1–B2 guided; C1–C2 nuanced",
+      "benefit": "contrast systems and verify meaning",
+      "market_example": "Duolingo; HindiPod101",
+      "ekguru_implementation": "At higher levels require stance/register commentary and multiple defensible answers"
+    },
+    {
+      "type": "reverse translation",
+      "levels": "A1–B2",
+      "benefit": "productive recall",
+      "market_example": "Glossika/Anki",
+      "ekguru_implementation": "Fade word bank and romanisation; record alternative answers"
+    },
+    {
+      "type": "matching",
+      "levels": "A1–A2; review all",
+      "benefit": "fast form-meaning association",
+      "market_example": "Duolingo vocabulary matching",
+      "ekguru_implementation": "Use for script, audio and collocations; not as advanced mastery evidence"
+    },
+    {
+      "type": "reordering",
+      "levels": "A1–B2",
+      "benefit": "sentence architecture and discourse sequence",
+      "market_example": "major app pattern",
+      "ekguru_implementation": "At B2+ reorder claims/evidence paragraphs, allowing marked Hindi order where justified"
+    },
+    {
+      "type": "dictation",
+      "levels": "A1–C2",
+      "benefit": "sound-script mapping and detailed listening",
+      "market_example": "Glossika full practice",
+      "ekguru_implementation": "Slow/normal toggle in learning; one-play normal audio in tests"
+    },
+    {
+      "type": "listening comprehension",
+      "levels": "A1–C2",
+      "benefit": "gist, detail, stance and inference",
+      "market_example": "HindiPod101 line audio; Duolingo Listen",
+      "ekguru_implementation": "Progress from visible context to unscripted multi-speaker audio"
+    },
+    {
+      "type": "reading comprehension",
+      "levels": "A1–C2",
+      "benefit": "decode, integrate and infer",
+      "market_example": "Busuu; course readers",
+      "ekguru_implementation": "Use notices→articles→multi-source/literary texts"
+    },
+    {
+      "type": "speaking",
+      "levels": "A1–C2",
+      "benefit": "automatization and communicative performance",
+      "market_example": "Pimsleur/Rocket/tutors",
+      "ekguru_implementation": "Separate ASR intelligibility checks from rubric-scored interaction"
+    },
+    {
+      "type": "pronunciation",
+      "levels": "A1–B2 targeted; C1–C2 discourse",
+      "benefit": "build intelligibility and prosodic control",
+      "market_example": "Rocket recognition; record/compare products",
+      "ekguru_implementation": "Score dental/retroflex, aspiration, vowels, phrasing; show confidence and permit retry"
+    },
+    {
+      "type": "typing",
+      "levels": "A1–C2",
+      "benefit": "independent Devanagari production",
+      "market_example": "Glossika full practice",
+      "ekguru_implementation": "Teach keyboard layout/input; normalize Unicode cautiously"
+    },
+    {
+      "type": "Devanagari writing",
+      "levels": "A1–A2 intensive; later remediation",
+      "benefit": "grapheme motor/orthographic knowledge",
+      "market_example": "HindiPod101/script apps",
+      "ekguru_implementation": "Trace→copy→dictate→compose; printable stroke and matra sheets"
+    },
+    {
+      "type": "sentence building",
+      "levels": "A1–B1",
+      "benefit": "controlled generative grammar",
+      "market_example": "Busuu/Duolingo",
+      "ekguru_implementation": "Force agreement/postposition decisions, then explain"
+    },
+    {
+      "type": "error correction",
+      "levels": "A2–C2",
+      "benefit": "noticing and editing",
+      "market_example": "grammar-led products",
+      "ekguru_implementation": "Use corpus-informed learner errors; C-level ambiguity and register faults"
+    },
+    {
+      "type": "cloze",
+      "levels": "A2–C2",
+      "benefit": "contextual lexical/grammar retrieval",
+      "market_example": "Clozemaster",
+      "ekguru_implementation": "At C-level delete connector/collocation across paragraph, not trivia"
+    },
+    {
+      "type": "word selection",
+      "levels": "A1–C2",
+      "benefit": "lexical precision",
+      "market_example": "app standard",
+      "ekguru_implementation": "Advance from concrete referent to near-synonym and collocation"
+    },
+    {
+      "type": "image/context association",
+      "levels": "pre-A1–A2",
+      "benefit": "meaning without translation and child access",
+      "market_example": "Duolingo/Memrise",
+      "ekguru_implementation": "Use culturally accurate, non-stereotyped scenes; avoid abstract C-level assessment"
+    },
+    {
+      "type": "dialogue completion",
+      "levels": "A1–B2",
+      "benefit": "turn-taking and pragmatics",
+      "market_example": "Mango/Rocket",
+      "ekguru_implementation": "Score relationship, speech act and coherence, not one magic phrase"
+    },
+    {
+      "type": "roleplay",
+      "levels": "A1–C2",
+      "benefit": "integrated interaction",
+      "market_example": "Rocket Play the Part; tutor platforms",
+      "ekguru_implementation": "Branch by learner intent; C-level includes hidden goals and repair"
+    },
+    {
+      "type": "shadowing",
+      "levels": "A1–C2",
+      "benefit": "rhythm, perception-production coupling",
+      "market_example": "Pimsleur/Glossika",
+      "ekguru_implementation": "Chunked audio, waveform optional, self-record comparison and phrase-level targets"
+    },
+    {
+      "type": "repeat after audio",
+      "levels": "A1–B1; remediation",
+      "benefit": "sound imitation",
+      "market_example": "Pimsleur/Glossika",
+      "ekguru_implementation": "Minimal dose; require later recall so repetition is not mistaken for production"
+    },
+    {
+      "type": "free response",
+      "levels": "A2–C2",
+      "benefit": "transfer beyond recognition",
+      "market_example": "Busuu community/tutors",
+      "ekguru_implementation": "Rubric + model range + targeted feedback; do not over-penalize defensible variation"
+    },
+    {
+      "type": "short writing",
+      "levels": "A1–B2",
+      "benefit": "functional literacy",
+      "market_example": "Busuu/HindiPod101 teacher tasks",
+      "ekguru_implementation": "Forms/messages→narratives/complaints with revision cycle"
+    },
+    {
+      "type": "long writing",
+      "levels": "B1–C2",
+      "benefit": "coherence, argument and style",
+      "market_example": "tutor feedback",
+      "ekguru_implementation": "Plan→draft→feedback→revision; retain version history"
+    },
+    {
+      "type": "summary",
+      "levels": "B1–C2",
+      "benefit": "selection and mediation",
+      "market_example": "CEFR action approach",
+      "ekguru_implementation": "Require source fidelity; detect copied strings"
+    },
+    {
+      "type": "paraphrase",
+      "levels": "B2–C2",
+      "benefit": "flexibility and semantic control",
+      "market_example": "advanced tutoring",
+      "ekguru_implementation": "Score preserved proposition, stance, register and naturalness separately"
+    },
+    {
+      "type": "register transformation",
+      "levels": "B2–C2",
+      "benefit": "sociolinguistic control",
+      "market_example": "human instruction gap opportunity",
+      "ekguru_implementation": "Everyday↔formal, spoken↔minutes, Hindi↔Hinglish-sensitive context"
+    },
+    {
+      "type": "meaning inference",
+      "levels": "B1–C2",
+      "benefit": "implicit comprehension",
+      "market_example": "authentic input practices",
+      "ekguru_implementation": "Evidence-highlight response for implicature, idiom, irony and presupposition"
+    },
+    {
+      "type": "tone identification",
+      "levels": "B1–C2",
+      "benefit": "pragmatic listening/reading",
+      "market_example": "advanced assessment",
+      "ekguru_implementation": "Choose tone then cite lexical/prosodic evidence"
+    },
+    {
+      "type": "argumentation",
+      "levels": "B2–C2",
+      "benefit": "reasoning through language",
+      "market_example": "CEFR/productive testing",
+      "ekguru_implementation": "Claim–evidence–warrant–counterargument; C2 tests rhetorical ethics"
+    },
+    {
+      "type": "conversation simulation",
+      "levels": "A1–C2",
+      "benefit": "real-time adaptive interaction",
+      "market_example": "AI conversations/tutors",
+      "ekguru_implementation": "Scenario state, clarification, interruption, fallback; transparent AI limitations"
+    }
+  ],
+  "assessments": {
+    "lesson_quiz": {
+      "purpose": "immediate objective check",
+      "design": "6–10 mixed items, mostly taught content plus one transfer item; feedback and retry",
+      "stakes": "formative"
+    },
+    "unit_quiz": {
+      "purpose": "interleaved retention and scenario transfer",
+      "design": "20–30 items plus one speaking/writing task; no hints first attempt",
+      "stakes": "formative milestone"
+    },
+    "level_test": {
+      "purpose": "CEFR profile, not lesson completion",
+      "design": "balanced reading/listening/writing/speaking/interaction/mediation; unseen material",
+      "stakes": "promotion"
+    },
+    "diagnostic": {
+      "purpose": "find prerequisite gaps",
+      "design": "low-stakes adaptive skill map; can recommend remediation without demotion"
+    },
+    "placement": {
+      "purpose": "starting point",
+      "design": "adaptive receptive screen followed by script, speaking and writing verification; confidence bands"
+    },
+    "review_test": {
+      "purpose": "delayed retention",
+      "design": "7-, 30-, 90-day sampling weighted by weakness and importance"
+    },
+    "speaking": {
+      "A1-A2": "intelligibility, formulae, basic interaction",
+      "B1-B2": "sustained discourse, repair, reasons and interaction",
+      "C1-C2": "precision, spontaneity, register, rhetoric and mediation"
+    },
+    "listening": {
+      "A1-A2": "gist/detail in clear predictable speech",
+      "B1-B2": "extended main points, attitude and multi-speaker detail",
+      "C1-C2": "implicit stance, idiom, compression and accent-tolerant comprehension"
+    },
+    "reading": {
+      "A1-A2": "signs/messages/instructions",
+      "B1-B2": "narrative, news, argument and source comparison",
+      "C1-C2": "dense multi-source, rhetorical and literary interpretation"
+    },
+    "writing": {
+      "A1-A2": "orthographic control and functional messages",
+      "B1-B2": "coherent narrative/report/argument",
+      "C1-C2": "synthesis, editing, genre and deliberate style"
+    }
+  },
+  "worksheets": {
+    "A1": {
+      "pages": 2,
+      "mix": [
+        "script",
+        "vocabulary",
+        "agreement",
+        "mini-dialogue",
+        "copy-to-free writing"
+      ],
+      "requirements": [
+        "separate answer key with rationale",
+        "A4 and Letter print-safe grayscale",
+        "fillable mobile fields",
+        "difficulty and estimated time",
+        "self-rating and next-review pointer"
+      ]
+    },
+    "A2": {
+      "pages": 3,
+      "mix": [
+        "vocabulary",
+        "grammar transformation",
+        "functional reading",
+        "dialogue completion",
+        "short message"
+      ],
+      "requirements": [
+        "separate answer key with rationale",
+        "A4 and Letter print-safe grayscale",
+        "fillable mobile fields",
+        "difficulty and estimated time",
+        "self-rating and next-review pointer"
+      ]
+    },
+    "B1": {
+      "pages": 4,
+      "mix": [
+        "error correction",
+        "narrative ordering",
+        "reading summary",
+        "roleplay plan",
+        "connected writing"
+      ],
+      "requirements": [
+        "separate answer key with rationale",
+        "A4 and Letter print-safe grayscale",
+        "fillable mobile fields",
+        "difficulty and estimated time",
+        "self-rating and next-review pointer"
+      ]
+    },
+    "B2": {
+      "pages": 5,
+      "mix": [
+        "source comparison",
+        "formalization",
+        "argument map",
+        "professional roleplay",
+        "report"
+      ],
+      "requirements": [
+        "separate answer key with rationale",
+        "A4 and Letter print-safe grayscale",
+        "fillable mobile fields",
+        "difficulty and estimated time",
+        "self-rating and next-review pointer"
+      ]
+    },
+    "C1": {
+      "pages": 6,
+      "mix": [
+        "dense reading",
+        "stance inference",
+        "register editing",
+        "synthesis",
+        "mediation"
+      ],
+      "requirements": [
+        "separate answer key with rationale",
+        "A4 and Letter print-safe grayscale",
+        "fillable mobile fields",
+        "difficulty and estimated time",
+        "self-rating and next-review pointer"
+      ]
+    },
+    "C2": {
+      "pages": 6,
+      "mix": [
+        "semantic distinctions",
+        "rhetorical analysis",
+        "multi-source synthesis",
+        "style portfolio",
+        "high-stakes simulation"
+      ],
+      "requirements": [
+        "separate answer key with rationale",
+        "A4 and Letter print-safe grayscale",
+        "fillable mobile fields",
+        "difficulty and estimated time",
+        "self-rating and next-review pointer"
+      ]
+    }
+  },
+  "srs": {
+    "scheduler": "Use FSRS-style retrievability scheduling where supported; default learning steps same-day, then individualized intervals from recall history; cap daily load and expose reschedule controls. Validate parameters on EkGuru data before claiming optimization.",
+    "card_types": [
+      "meaning recognition",
+      "target production",
+      "audio→meaning",
+      "audio dictation",
+      "sentence cloze",
+      "grammar contrast",
+      "Devanagari grapheme/syllable",
+      "collocation",
+      "mistake-derived",
+      "weak-topic scenario prompt"
+    ],
+    "include": [
+      "high-utility lexical items",
+      "productive chunks",
+      "contrasting exemplars",
+      "personally missed forms",
+      "audio-bearing sentences with one clear retrieval target"
+    ],
+    "exclude": [
+      "whole explanations",
+      "ambiguous context-free gender items",
+      "trivial cognates already mastered",
+      "entire long passages",
+      "unverified machine translations",
+      "every vocabulary token automatically"
+    ],
+    "progression": {
+      "A1": "script, audio-word, concrete phrase; recognition then production",
+      "A2": "sentence cards with case/aspect and practical chunks",
+      "B1": "collocation, compound verbs and narrative connectors",
+      "B2": "professional chunks, source stance and grammar contrasts",
+      "C1": "register pairs, inference and reformulation prompts",
+      "C2": "near-synonym networks, rhetorical moves and production scenarios"
+    },
+    "lapse": "After repeated lapse, show explanation/minimal contrast, shorten interval, and assign transfer practice rather than multiplying identical cards."
+  },
+  "audio": {
+    "truth_labeling": "Metadata must distinguish native studio recording, community recording and synthetic TTS. Never label TTS native.",
+    "modes": [
+      "normal native speed",
+      "pedagogical slow recording where possible—not electronically distorted",
+      "line repeat",
+      "A/B speaker isolation",
+      "shadowing with adjustable pause",
+      "one-play assessment mode"
+    ],
+    "coverage": [
+      "all core dialogue lines native-recorded before launch target",
+      "lexical audio and minimal contrasts",
+      "multi-speaker and age/gender variety",
+      "Delhi/standard colloquial base plus labeled regional exposure at B1+"
+    ],
+    "asr": "Return word/segment confidence and actionable phoneme targets; ASR is practice evidence, not sole pronunciation certification. Human review for disputed/high-stakes scores.",
+    "accessibility": [
+      "transcript on demand",
+      "captions",
+      "keyboard alternative",
+      "volume normalization",
+      "download bundle",
+      "no audio-only essential instruction"
+    ]
+  }
+}
