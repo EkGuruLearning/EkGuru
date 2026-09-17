@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "language": {"code": "fa", "name": "Persian", "native_name": "فارسی", "family": "Indo-European: Iranian", "script": "Perso-Arabic", "direction": "rtl", "canonical_note": "Canonical lang:fas course for Iran and UAE contexts; Dari and Tajik remain separate inventory entities."},
+  "inventory_priority": {"language_id": "lang:fas", "priority": "P1", "score": 69, "countries": ["IR", "AE"]},
+  "orthography_pronunciation": {"needs": ["right-to-left Persian script", "short vowels normally unwritten", "Persian ی/ک versus Arabic variants", "ezafe", "ق/غ merger variation", "word stress and enclitic rhythm"], "voice_strategy": "Synthetic fa-IR browser voice when available; explicitly labelled with fallback limitations."},
+  "grammar": {"nominal": ["postposed را object marker", "ezafe noun phrase", "plural markers", "indefiniteness -ی", "enclitic possessors", "prepositions"], "verbal": ["present and past stems", "imperfective می-", "perfect and past perfect", "subjunctive ب-", "compound verbs", "passive and causative constructions"], "syntax_discourse": ["SOV order", "که relative/complement clauses", "pro-drop", "reported speech", "topic/focus fronting", "connective chains"]},
+  "register_pragmatics": ["تو versus شما", "formal plural agreement", "تعارف as context-sensitive politeness", "indirect requests", "formal correspondence", "literary versus colloquial forms", "Iranian and diaspora variation"],
+  "CEFR_progression": {"A1": "script, greetings, copula, present, ezafe and basic objects", "A2": "past/future, possession, directions, requests and را", "B1": "aspect, subjunctive, relative clauses, compound verbs and narration", "B2": "passive, modality, clause linkage, focus and register", "C1": "academic synthesis, mediation and calibrated stance", "C2": "scope, implication, rhetoric, idiom, genre transformation and epistemic precision"},
+  "country_relationship_source": "data/global/language-country-relations.json",
+  "sources": [
+    {"title": "فرهنگستان زبان و ادب فارسی", "url": "https://persianacademy.ir/", "use": "official terminology and standard-language guidance"},
+    {"title": "Dehkhoda Dictionary, University of Tehran", "url": "https://dehkhoda.ut.ac.ir/", "use": "lexicon and historical usage"},
+    {"title": "CEFR Companion Volume 2020", "url": "https://rm.coe.int/cefr-companion-volume-with-new-descriptors-2020/16809ea0d4", "use": "level progression, mediation, interaction and phonology"}
+  ],
+  "reviewed_at": "2026-09-17"
+}
