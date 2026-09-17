@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "language": {"code": "so", "name": "Somali", "native_name": "Af-Soomaali", "family": "Afro-Asiatic: Cushitic", "script": "Latin", "canonical_note": "One canonical lang:som course serves Djibouti, Ethiopia, Kenya, and Somalia contexts."},
+  "inventory_priority": {"language_id": "lang:som", "priority": "P1", "score": 69, "countries": ["DJ", "ET", "KE", "SO"]},
+  "orthography_pronunciation": {"needs": ["official Latin orthography", "long vowels written double", "contrastive tone/accent and vowel harmony", "pharyngeal x and c", "retroflex dh", "q and glottal stop"], "voice_strategy": "Use explicit so-SO synthetic browser mapping only when supported; never call it native recording."},
+  "grammar": {"nominal": ["gender and number", "suffixed definite articles", "subject/object forms", "possessive determiners"], "verbal": ["person-number conjugation", "past/present/future", "affirmative and negative paradigms", "infinitive and verbal noun"], "syntax_discourse": ["focus particles baa/ayaa/waxaa", "declarative particle waa", "subject clitics", "preverbal object and adposition clusters", "relative clauses", "information-structure-sensitive word order"]},
+  "register_pragmatics": ["greetings by time and relationship", "respectful address", "requests and hospitality", "proverbs and indirect evaluation", "formal public and educational Somali", "regional lexical variation without treating dialect as error"],
+  "CEFR_progression": {"A1": "sound-spelling, greetings, identity, articles, waa and basic clauses", "A2": "daily narration, time, requests, direction and basic focus", "B1": "connected narration, subordination, comparison and explanation", "B2": "focus contrasts, stance, reported speech and formal interaction", "C1": "academic/professional synthesis, mediation and calibrated claims", "C2": "scope, implicature, rhetoric, proverb interpretation and genre transformation"},
+  "sources": [
+    {"title": "Learner's Somali Grammar", "author": "Morgan Nilsson", "year": 2025, "url": "https://morgannilsson.se/LearnersSomaliGrammar.pdf", "use": "current structured learner grammar and terminology"},
+    {"title": "Beginner's Somali Grammar archive", "author": "Morgan Nilsson", "year": 2024, "url": "https://morgannilsson.se/BeginnersSomaliGrammar.2024.pdf", "use": "cross-check progression, morphology, syntax, and exercises"},
+    {"title": "Somali alphabets, pronunciation and language", "url": "https://www.omniglot.com/writing/somali.htm", "use": "orthography, phoneme inventory, status, and geographic contexts"},
+    {"title": "CEFR Companion Volume 2020", "url": "https://rm.coe.int/cefr-companion-volume-with-new-descriptors-2020/16809ea0d4", "use": "interaction, mediation, phonology, and level progression"}
+  ],
+  "reviewed_at": "2026-09-17"
+}
