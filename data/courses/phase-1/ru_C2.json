@@ -1,0 +1,1878 @@
+{
+  "code": "ru",
+  "name": "Russian",
+  "native": "Русский",
+  "phase": 1,
+  "medium": "en",
+  "file_level": "C2",
+  "research_basis": "data/language-research/ru.json",
+  "level": {
+    "title": "Russian C2 Advanced Mastery",
+    "goals": [
+      "Control six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register in expert discourse",
+      "Mediate complex sources without changing certainty",
+      "Transform genre and audience with precision"
+    ],
+    "units": [
+      {
+        "id": "ru-c2-u1",
+        "title": "Semantic precision and inference",
+        "lessons": [
+          {
+            "id": "ru-c2-l1",
+            "title": "Negation scope and focus",
+            "learn": "Control negation scope and focus in sustained academic, professional, and public communication.",
+            "vocab": [
+              {
+                "t": "Проблема заключалась",
+                "r": "problema zaklyuchalas",
+                "en": "discourse segment 1 in “The problem lay not so much in the decision itself as precisely in the way it was implemented.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "заключалась не",
+                "r": "zaklyuchalas ne",
+                "en": "discourse segment 2 in “The problem lay not so much in the decision itself as precisely in the way it was implemented.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "не столько",
+                "r": "ne stolko",
+                "en": "discourse segment 3 in “The problem lay not so much in the decision itself as precisely in the way it was implemented.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "столько в",
+                "r": "stolko v",
+                "en": "discourse segment 4 in “The problem lay not so much in the decision itself as precisely in the way it was implemented.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "в самом",
+                "r": "v samom",
+                "en": "discourse segment 5 in “The problem lay not so much in the decision itself as precisely in the way it was implemented.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "самом решении,",
+                "r": "samom reshenii,",
+                "en": "discourse segment 6 in “The problem lay not so much in the decision itself as precisely in the way it was implemented.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "решении, сколько",
+                "r": "reshenii, skolko",
+                "en": "discourse segment 7 in “The problem lay not so much in the decision itself as precisely in the way it was implemented.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "сколько именно",
+                "r": "skolko imenno",
+                "en": "discourse segment 8 in “The problem lay not so much in the decision itself as precisely in the way it was implemented.”",
+                "pos": "discourse expression"
+              }
+            ],
+            "grammar": {
+              "title": "Negation scope and focus",
+              "explain": "Russian uses six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register. The model coordinates grammar with commitment, information structure, social distance, and cohesion; mediation must preserve those relations.",
+              "pattern": "stance frame + scoped proposition + cohesive qualification",
+              "examples": [
+                {
+                  "t": "Проблема заключалась не столько в самом решении, сколько именно в способе его воплощения.",
+                  "r": "problema zaklyuchalas ne stolko v samom reshenii, skolko imenno v sposobe ego voploshcheniya.",
+                  "en": "The problem lay not so much in the decision itself as precisely in the way it was implemented."
+                },
+                {
+                  "t": "Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию.",
+                  "r": "ego molchanie edva li oznachalo soglasie; skoree, ono vydavalo namerenno sokhranyaemuyu distantsiyu.",
+                  "en": "His silence hardly meant agreement; rather, it revealed a deliberately maintained distance."
+                },
+                {
+                  "t": "Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис.",
+                  "r": "skorost neobkhodima, sporu net; odnako skorost bez podotchyotnosti — ne progress, a otsrochennyy krizis.",
+                  "en": "Speed is necessary, undeniably; yet speed without accountability is not progress but crisis deferred."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "An unjustified categorical paraphrase",
+                  "right": "Проблема заключалась не столько в самом решении, сколько именно в способе его воплощения.",
+                  "why": "It erases evidential scope and pragmatic restraint."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Analyst",
+                "t": "Проблема заключалась не столько в самом решении, сколько именно в способе его воплощения.",
+                "r": "problema zaklyuchalas ne stolko v samom reshenii, skolko imenno v sposobe ego voploshcheniya.",
+                "en": "The problem lay not so much in the decision itself as precisely in the way it was implemented."
+              },
+              {
+                "sp": "Editor",
+                "t": "Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию.",
+                "r": "ego molchanie edva li oznachalo soglasie; skoree, ono vydavalo namerenno sokhranyaemuyu distantsiyu.",
+                "en": "His silence hardly meant agreement; rather, it revealed a deliberately maintained distance."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис.",
+                "r": "skorost neobkhodima, sporu net; odnako skorost bez podotchyotnosti — ne progress, a otsrochennyy krizis.",
+                "en": "Speed is necessary, undeniably; yet speed without accountability is not progress but crisis deferred."
+              },
+              {
+                "sp": "Reviewer",
+                "t": "Фраза так и не прозвучала в зале, но её эхо словно переписало каждое последующее решение.",
+                "r": "fraza tak i ne prozvuchala v zale, no eyo ekho slovno perepisalo kazhdoe posleduyushchee reshenie.",
+                "en": "The phrase was never uttered in the hall, but its echo seemed to rewrite every subsequent decision."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Negation scope and focus — select the version preserving stance and register.",
+                "answer": "Проблема заключалась не столько в самом решении, сколько именно в способе его воплощения.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Проблема заключалась не столько в самом решении, сколько именно в способе его воплощения.",
+                  "The problem lay not so much in the decision itself as precisely in the way it was implemented.",
+                  "An unrelated absolute assertion"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Negation scope and focus — complete: Проблема заключалась ____ столько в самом решении, сколько именно в способе его воплощения.",
+                "answer": "не",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Negation scope and focus — translate without increasing certainty.",
+                "answer": "The problem lay not so much in the decision itself as precisely in the way it was implemented.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Negation scope and focus — translate into the target language: The problem lay not so much in the decision itself as precisely in the way it was implemented.",
+                "answer": "Проблема заключалась не столько в самом решении, сколько именно в способе его воплощения.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Negation scope and focus — select the version preserving stance and register.",
+                "answer": "Проблема заключалась не столько в самом решении, сколько именно в способе его воплощения.",
+                "skill_target": "matching",
+                "options": [
+                  "Проблема заключалась не столько в самом решении, сколько именно в способе его воплощения.",
+                  "The problem lay not so much in the decision itself as precisely in the way it was implemented.",
+                  "An unrelated absolute assertion"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Negation scope and focus — restore coherent order: воплощения / его / способе / в / именно / сколько / решении, / самом / в / столько / не / заключалась / Проблема",
+                "answer": "Проблема заключалась не столько в самом решении, сколько именно в способе его воплощения.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Negation scope and focus — build from: Проблема | заключалась | не | столько | в | самом | решении, | сколько | именно | в | способе | его | воплощения",
+                "answer": "Проблема заключалась не столько в самом решении, сколько именно в способе его воплощения.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Negation scope and focus — select the version preserving stance and register.",
+                "answer": "Проблема заключалась не столько в самом решении, сколько именно в способе его воплощения.",
+                "skill_target": "word selection",
+                "options": [
+                  "Проблема заключалась не столько в самом решении, сколько именно в способе его воплощения.",
+                  "The problem lay not so much in the decision itself as precisely in the way it was implemented.",
+                  "An unrelated absolute assertion"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Negation scope and focus — repair the categorical misreading.",
+                "answer": "Проблема заключалась не столько в самом решении, сколько именно в способе его воплощения. Preserve qualification.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Negation scope and focus — complete the expert exchange.",
+                "answer": "Проблема заключалась не столько в самом решении, сколько именно в способе его воплощения.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Negation scope and focus — interpret purpose, scope, and implication: Проблема заключалась не столько в самом решении, сколько именно в способе его воплощения.",
+                "answer": "The problem lay not so much in the decision itself as precisely in the way it was implemented.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Negation scope and focus — interpret purpose, scope, and implication: Проблема заключалась не столько в самом решении, сколько именно в способе его воплощения.",
+                "answer": "The problem lay not so much in the decision itself as precisely in the way it was implemented.",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Negation scope and focus: Which interpretation preserves force?",
+                "options": [
+                  "The problem lay not so much in the decision itself as precisely in the way it was implemented.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              },
+              {
+                "q": "Negation scope and focus: Which editing principle applies?",
+                "options": [
+                  "Preserve scope while adapting audience.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              },
+              {
+                "q": "Negation scope and focus: What makes this advanced?",
+                "options": [
+                  "Grammar, stance, cohesion, and register work together.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              },
+              {
+                "q": "Negation scope and focus: What must mediation avoid?",
+                "options": [
+                  "Turning qualification into categorical fact.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              },
+              {
+                "q": "Negation scope and focus: What must transformation justify?",
+                "options": [
+                  "Scope, register, implication, and cohesion.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Проблема заключалась",
+              "заключалась не",
+              "не столько",
+              "столько в"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Negation scope and focus workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate form and discourse function.",
+                  "items": [
+                    "Проблема заключалась не столько в самом решении, сколько именно в способе его воплощения.",
+                    "Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию."
+                  ],
+                  "key": [
+                    "Russian uses six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register. The model coordinates grammar with commitment, information structure, social distance, and cohesion; mediation must preserve those relations.",
+                    "Russian uses six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register. The model coordinates grammar with commitment, information structure, social distance, and cohesion; mediation must preserve those relations."
+                  ]
+                },
+                {
+                  "instruction": "Mediate without sharpening certainty.",
+                  "items": [
+                    "Проблема заключалась не столько в самом решении, сколько именно в способе его воплощения.",
+                    "Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию."
+                  ],
+                  "key": [
+                    "The problem lay not so much in the decision itself as precisely in the way it was implemented.",
+                    "His silence hardly meant agreement; rather, it revealed a deliberately maintained distance."
+                  ]
+                },
+                {
+                  "instruction": "Transform genre and justify scope.",
+                  "items": [
+                    "The problem lay not so much in the decision itself as precisely in the way it was implemented.",
+                    "His silence hardly meant agreement; rather, it revealed a deliberately maintained distance."
+                  ],
+                  "key": [
+                    "Model: Проблема заключалась не столько в самом решении, сколько именно в способе его воплощения.",
+                    "Model: Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "ru-c2-l2",
+            "title": "Particles and implied distance",
+            "learn": "Control particles and implied distance in sustained academic, professional, and public communication.",
+            "vocab": [
+              {
+                "t": "Его молчание",
+                "r": "ego molchanie",
+                "en": "discourse segment 1 in “His silence hardly meant agreement; rather, it revealed a deliberately maintained distance.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "молчание едва",
+                "r": "molchanie edva",
+                "en": "discourse segment 2 in “His silence hardly meant agreement; rather, it revealed a deliberately maintained distance.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "едва ли",
+                "r": "edva li",
+                "en": "discourse segment 3 in “His silence hardly meant agreement; rather, it revealed a deliberately maintained distance.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "ли означало",
+                "r": "li oznachalo",
+                "en": "discourse segment 4 in “His silence hardly meant agreement; rather, it revealed a deliberately maintained distance.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "означало согласие;",
+                "r": "oznachalo soglasie;",
+                "en": "discourse segment 5 in “His silence hardly meant agreement; rather, it revealed a deliberately maintained distance.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "согласие; скорее,",
+                "r": "soglasie; skoree,",
+                "en": "discourse segment 6 in “His silence hardly meant agreement; rather, it revealed a deliberately maintained distance.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "скорее, оно",
+                "r": "skoree, ono",
+                "en": "discourse segment 7 in “His silence hardly meant agreement; rather, it revealed a deliberately maintained distance.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "оно выдавало",
+                "r": "ono vydavalo",
+                "en": "discourse segment 8 in “His silence hardly meant agreement; rather, it revealed a deliberately maintained distance.”",
+                "pos": "discourse expression"
+              }
+            ],
+            "grammar": {
+              "title": "Particles and implied distance",
+              "explain": "Russian uses six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register. The model coordinates grammar with commitment, information structure, social distance, and cohesion; mediation must preserve those relations.",
+              "pattern": "stance frame + scoped proposition + cohesive qualification",
+              "examples": [
+                {
+                  "t": "Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию.",
+                  "r": "ego molchanie edva li oznachalo soglasie; skoree, ono vydavalo namerenno sokhranyaemuyu distantsiyu.",
+                  "en": "His silence hardly meant agreement; rather, it revealed a deliberately maintained distance."
+                },
+                {
+                  "t": "Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис.",
+                  "r": "skorost neobkhodima, sporu net; odnako skorost bez podotchyotnosti — ne progress, a otsrochennyy krizis.",
+                  "en": "Speed is necessary, undeniably; yet speed without accountability is not progress but crisis deferred."
+                },
+                {
+                  "t": "Фраза так и не прозвучала в зале, но её эхо словно переписало каждое последующее решение.",
+                  "r": "fraza tak i ne prozvuchala v zale, no eyo ekho slovno perepisalo kazhdoe posleduyushchee reshenie.",
+                  "en": "The phrase was never uttered in the hall, but its echo seemed to rewrite every subsequent decision."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "An unjustified categorical paraphrase",
+                  "right": "Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию.",
+                  "why": "It erases evidential scope and pragmatic restraint."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Analyst",
+                "t": "Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию.",
+                "r": "ego molchanie edva li oznachalo soglasie; skoree, ono vydavalo namerenno sokhranyaemuyu distantsiyu.",
+                "en": "His silence hardly meant agreement; rather, it revealed a deliberately maintained distance."
+              },
+              {
+                "sp": "Editor",
+                "t": "Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис.",
+                "r": "skorost neobkhodima, sporu net; odnako skorost bez podotchyotnosti — ne progress, a otsrochennyy krizis.",
+                "en": "Speed is necessary, undeniably; yet speed without accountability is not progress but crisis deferred."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Фраза так и не прозвучала в зале, но её эхо словно переписало каждое последующее решение.",
+                "r": "fraza tak i ne prozvuchala v zale, no eyo ekho slovno perepisalo kazhdoe posleduyushchee reshenie.",
+                "en": "The phrase was never uttered in the hall, but its echo seemed to rewrite every subsequent decision."
+              },
+              {
+                "sp": "Reviewer",
+                "t": "Я вовсе не намерен опровергать ваше возражение; моя цель — очертить границы его применимости.",
+                "r": "ya vovse ne nameren oprovergat vashe vozrazhenie; moya tsel — ochertit granitsy ego primenimosti.",
+                "en": "I have no intention of refuting your objection; my aim is to define the limits of its applicability."
+              }
+            ],
+            "practice": [
+              {
+                "type": "word_selection",
+                "q": "Particles and implied distance — select the version preserving stance and register.",
+                "answer": "Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию.",
+                "skill_target": "word selection",
+                "options": [
+                  "Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию.",
+                  "His silence hardly meant agreement; rather, it revealed a deliberately maintained distance.",
+                  "An unrelated absolute assertion"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Particles and implied distance — repair the categorical misreading.",
+                "answer": "Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию. Preserve qualification.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Particles and implied distance — complete the expert exchange.",
+                "answer": "Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Particles and implied distance — interpret purpose, scope, and implication: Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию.",
+                "answer": "His silence hardly meant agreement; rather, it revealed a deliberately maintained distance.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Particles and implied distance — interpret purpose, scope, and implication: Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию.",
+                "answer": "His silence hardly meant agreement; rather, it revealed a deliberately maintained distance.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "main_idea",
+                "q": "Particles and implied distance — interpret purpose, scope, and implication: Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию.",
+                "answer": "His silence hardly meant agreement; rather, it revealed a deliberately maintained distance.",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Particles and implied distance — interpret purpose, scope, and implication: Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию.",
+                "answer": "His silence hardly meant agreement; rather, it revealed a deliberately maintained distance.",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "inference",
+                "q": "Particles and implied distance — interpret purpose, scope, and implication: Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию.",
+                "answer": "His silence hardly meant agreement; rather, it revealed a deliberately maintained distance.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Particles and implied distance — recover the synthetic spoken model and phrase boundaries.",
+                "answer": "Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию."
+              },
+              {
+                "type": "dictation",
+                "q": "Particles and implied distance — recover the synthetic spoken model and phrase boundaries.",
+                "answer": "Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Particles and implied distance — select the version preserving stance and register.",
+                "answer": "Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию.",
+                "skill_target": "listen and choose",
+                "options": [
+                  "Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию.",
+                  "His silence hardly meant agreement; rather, it revealed a deliberately maintained distance.",
+                  "An unrelated absolute assertion"
+                ],
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию."
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "Particles and implied distance — restore coherent order: дистанцию / сохраняемую / намеренно / выдавало / оно / скорее, / согласие; / означало / ли / едва / молчание / Его",
+                "answer": "Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию.",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Particles and implied distance: Which interpretation preserves force?",
+                "options": [
+                  "His silence hardly meant agreement; rather, it revealed a deliberately maintained distance.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              },
+              {
+                "q": "Particles and implied distance: Which editing principle applies?",
+                "options": [
+                  "Preserve scope while adapting audience.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              },
+              {
+                "q": "Particles and implied distance: What makes this advanced?",
+                "options": [
+                  "Grammar, stance, cohesion, and register work together.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              },
+              {
+                "q": "Particles and implied distance: What must mediation avoid?",
+                "options": [
+                  "Turning qualification into categorical fact.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              },
+              {
+                "q": "Particles and implied distance: What must transformation justify?",
+                "options": [
+                  "Scope, register, implication, and cohesion.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Его молчание",
+              "молчание едва",
+              "едва ли",
+              "ли означало"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Particles and implied distance workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate form and discourse function.",
+                  "items": [
+                    "Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию.",
+                    "Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис."
+                  ],
+                  "key": [
+                    "Russian uses six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register. The model coordinates grammar with commitment, information structure, social distance, and cohesion; mediation must preserve those relations.",
+                    "Russian uses six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register. The model coordinates grammar with commitment, information structure, social distance, and cohesion; mediation must preserve those relations."
+                  ]
+                },
+                {
+                  "instruction": "Mediate without sharpening certainty.",
+                  "items": [
+                    "Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию.",
+                    "Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис."
+                  ],
+                  "key": [
+                    "His silence hardly meant agreement; rather, it revealed a deliberately maintained distance.",
+                    "Speed is necessary, undeniably; yet speed without accountability is not progress but crisis deferred."
+                  ]
+                },
+                {
+                  "instruction": "Transform genre and justify scope.",
+                  "items": [
+                    "His silence hardly meant agreement; rather, it revealed a deliberately maintained distance.",
+                    "Speed is necessary, undeniably; yet speed without accountability is not progress but crisis deferred."
+                  ],
+                  "key": [
+                    "Model: Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию.",
+                    "Model: Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "ru-c2-u2",
+        "title": "Rhetorical and stylistic command",
+        "lessons": [
+          {
+            "id": "ru-c2-l3",
+            "title": "Rhetorical parallelism",
+            "learn": "Control rhetorical parallelism in sustained academic, professional, and public communication.",
+            "vocab": [
+              {
+                "t": "Скорость необходима,",
+                "r": "skorost neobkhodima,",
+                "en": "discourse segment 1 in “Speed is necessary, undeniably; yet speed without accountability is not progress but crisis deferred.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "необходима, спору",
+                "r": "neobkhodima, sporu",
+                "en": "discourse segment 2 in “Speed is necessary, undeniably; yet speed without accountability is not progress but crisis deferred.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "спору нет;",
+                "r": "sporu net;",
+                "en": "discourse segment 3 in “Speed is necessary, undeniably; yet speed without accountability is not progress but crisis deferred.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "нет; однако",
+                "r": "net; odnako",
+                "en": "discourse segment 4 in “Speed is necessary, undeniably; yet speed without accountability is not progress but crisis deferred.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "однако скорость",
+                "r": "odnako skorost",
+                "en": "discourse segment 5 in “Speed is necessary, undeniably; yet speed without accountability is not progress but crisis deferred.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "скорость без",
+                "r": "skorost bez",
+                "en": "discourse segment 6 in “Speed is necessary, undeniably; yet speed without accountability is not progress but crisis deferred.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "без подотчётности",
+                "r": "bez podotchyotnosti",
+                "en": "discourse segment 7 in “Speed is necessary, undeniably; yet speed without accountability is not progress but crisis deferred.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "подотчётности —",
+                "r": "podotchyotnosti —",
+                "en": "discourse segment 8 in “Speed is necessary, undeniably; yet speed without accountability is not progress but crisis deferred.”",
+                "pos": "discourse expression"
+              }
+            ],
+            "grammar": {
+              "title": "Rhetorical parallelism",
+              "explain": "Russian uses six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register. The model coordinates grammar with commitment, information structure, social distance, and cohesion; mediation must preserve those relations.",
+              "pattern": "stance frame + scoped proposition + cohesive qualification",
+              "examples": [
+                {
+                  "t": "Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис.",
+                  "r": "skorost neobkhodima, sporu net; odnako skorost bez podotchyotnosti — ne progress, a otsrochennyy krizis.",
+                  "en": "Speed is necessary, undeniably; yet speed without accountability is not progress but crisis deferred."
+                },
+                {
+                  "t": "Фраза так и не прозвучала в зале, но её эхо словно переписало каждое последующее решение.",
+                  "r": "fraza tak i ne prozvuchala v zale, no eyo ekho slovno perepisalo kazhdoe posleduyushchee reshenie.",
+                  "en": "The phrase was never uttered in the hall, but its echo seemed to rewrite every subsequent decision."
+                },
+                {
+                  "t": "Я вовсе не намерен опровергать ваше возражение; моя цель — очертить границы его применимости.",
+                  "r": "ya vovse ne nameren oprovergat vashe vozrazhenie; moya tsel — ochertit granitsy ego primenimosti.",
+                  "en": "I have no intention of refuting your objection; my aim is to define the limits of its applicability."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "An unjustified categorical paraphrase",
+                  "right": "Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис.",
+                  "why": "It erases evidential scope and pragmatic restraint."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Analyst",
+                "t": "Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис.",
+                "r": "skorost neobkhodima, sporu net; odnako skorost bez podotchyotnosti — ne progress, a otsrochennyy krizis.",
+                "en": "Speed is necessary, undeniably; yet speed without accountability is not progress but crisis deferred."
+              },
+              {
+                "sp": "Editor",
+                "t": "Фраза так и не прозвучала в зале, но её эхо словно переписало каждое последующее решение.",
+                "r": "fraza tak i ne prozvuchala v zale, no eyo ekho slovno perepisalo kazhdoe posleduyushchee reshenie.",
+                "en": "The phrase was never uttered in the hall, but its echo seemed to rewrite every subsequent decision."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Я вовсе не намерен опровергать ваше возражение; моя цель — очертить границы его применимости.",
+                "r": "ya vovse ne nameren oprovergat vashe vozrazhenie; moya tsel — ochertit granitsy ego primenimosti.",
+                "en": "I have no intention of refuting your objection; my aim is to define the limits of its applicability."
+              },
+              {
+                "sp": "Reviewer",
+                "t": "С учётом имеющихся свидетельств это правдоподобное толкование, но отнюдь не окончательный вердикт.",
+                "r": "s uchyotom imeyushchikhsya svidetelstv eto pravdopodobnoe tolkovanie, no otnyud ne okonchatelnyy verdikt.",
+                "en": "Given the available evidence, this is a plausible interpretation, but by no means a final verdict."
+              }
+            ],
+            "practice": [
+              {
+                "type": "inference",
+                "q": "Rhetorical parallelism — interpret purpose, scope, and implication: Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис.",
+                "answer": "Speed is necessary, undeniably; yet speed without accountability is not progress but crisis deferred.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Rhetorical parallelism — recover the synthetic spoken model and phrase boundaries.",
+                "answer": "Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис."
+              },
+              {
+                "type": "dictation",
+                "q": "Rhetorical parallelism — recover the synthetic spoken model and phrase boundaries.",
+                "answer": "Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Rhetorical parallelism — select the version preserving stance and register.",
+                "answer": "Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис.",
+                "skill_target": "listen and choose",
+                "options": [
+                  "Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис.",
+                  "Speed is necessary, undeniably; yet speed without accountability is not progress but crisis deferred.",
+                  "An unrelated absolute assertion"
+                ],
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис."
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "Rhetorical parallelism — restore coherent order: кризис / отсроченный / а / прогресс, / не / — / подотчётности / без / скорость / однако / нет; / спору / необходима, / Скорость",
+                "answer": "Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис.",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис."
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Rhetorical parallelism — complete: Скорость необходима, ____ нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис.",
+                "answer": "спору",
+                "skill_target": "listen and fill",
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Rhetorical parallelism — recover the synthetic spoken model and phrase boundaries.",
+                "answer": "Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис."
+              },
+              {
+                "type": "pronunciation",
+                "q": "Rhetorical parallelism — recover the synthetic spoken model and phrase boundaries.",
+                "answer": "Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис."
+              },
+              {
+                "type": "shadowing",
+                "q": "Rhetorical parallelism — recover the synthetic spoken model and phrase boundaries.",
+                "answer": "Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис.",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Rhetorical parallelism — deliver a specialist response with new evidence.",
+                "answer": "Model: Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис.",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "Rhetorical parallelism — deliver a specialist response with new evidence.",
+                "answer": "Model: Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис.",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "Rhetorical parallelism — deliver a specialist response with new evidence.",
+                "answer": "Model: Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис.",
+                "skill_target": "roleplay"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Rhetorical parallelism: Which interpretation preserves force?",
+                "options": [
+                  "Speed is necessary, undeniably; yet speed without accountability is not progress but crisis deferred.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              },
+              {
+                "q": "Rhetorical parallelism: Which editing principle applies?",
+                "options": [
+                  "Preserve scope while adapting audience.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              },
+              {
+                "q": "Rhetorical parallelism: What makes this advanced?",
+                "options": [
+                  "Grammar, stance, cohesion, and register work together.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              },
+              {
+                "q": "Rhetorical parallelism: What must mediation avoid?",
+                "options": [
+                  "Turning qualification into categorical fact.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              },
+              {
+                "q": "Rhetorical parallelism: What must transformation justify?",
+                "options": [
+                  "Scope, register, implication, and cohesion.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Скорость необходима,",
+              "необходима, спору",
+              "спору нет;",
+              "нет; однако"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Rhetorical parallelism workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate form and discourse function.",
+                  "items": [
+                    "Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис.",
+                    "Фраза так и не прозвучала в зале, но её эхо словно переписало каждое последующее решение."
+                  ],
+                  "key": [
+                    "Russian uses six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register. The model coordinates grammar with commitment, information structure, social distance, and cohesion; mediation must preserve those relations.",
+                    "Russian uses six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register. The model coordinates grammar with commitment, information structure, social distance, and cohesion; mediation must preserve those relations."
+                  ]
+                },
+                {
+                  "instruction": "Mediate without sharpening certainty.",
+                  "items": [
+                    "Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис.",
+                    "Фраза так и не прозвучала в зале, но её эхо словно переписало каждое последующее решение."
+                  ],
+                  "key": [
+                    "Speed is necessary, undeniably; yet speed without accountability is not progress but crisis deferred.",
+                    "The phrase was never uttered in the hall, but its echo seemed to rewrite every subsequent decision."
+                  ]
+                },
+                {
+                  "instruction": "Transform genre and justify scope.",
+                  "items": [
+                    "Speed is necessary, undeniably; yet speed without accountability is not progress but crisis deferred.",
+                    "The phrase was never uttered in the hall, but its echo seemed to rewrite every subsequent decision."
+                  ],
+                  "key": [
+                    "Model: Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис.",
+                    "Model: Фраза так и не прозвучала в зале, но её эхо словно переписало каждое последующее решение."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "ru-c2-l4",
+            "title": "Literary–institutional re-voicing",
+            "learn": "Control literary–institutional re-voicing in sustained academic, professional, and public communication.",
+            "vocab": [
+              {
+                "t": "Фраза так",
+                "r": "fraza tak",
+                "en": "discourse segment 1 in “The phrase was never uttered in the hall, but its echo seemed to rewrite every subsequent decision.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "так и",
+                "r": "tak i",
+                "en": "discourse segment 2 in “The phrase was never uttered in the hall, but its echo seemed to rewrite every subsequent decision.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "и не",
+                "r": "i ne",
+                "en": "discourse segment 3 in “The phrase was never uttered in the hall, but its echo seemed to rewrite every subsequent decision.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "не прозвучала",
+                "r": "ne prozvuchala",
+                "en": "discourse segment 4 in “The phrase was never uttered in the hall, but its echo seemed to rewrite every subsequent decision.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "прозвучала в",
+                "r": "prozvuchala v",
+                "en": "discourse segment 5 in “The phrase was never uttered in the hall, but its echo seemed to rewrite every subsequent decision.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "в зале,",
+                "r": "v zale,",
+                "en": "discourse segment 6 in “The phrase was never uttered in the hall, but its echo seemed to rewrite every subsequent decision.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "зале, но",
+                "r": "zale, no",
+                "en": "discourse segment 7 in “The phrase was never uttered in the hall, but its echo seemed to rewrite every subsequent decision.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "но её",
+                "r": "no eyo",
+                "en": "discourse segment 8 in “The phrase was never uttered in the hall, but its echo seemed to rewrite every subsequent decision.”",
+                "pos": "discourse expression"
+              }
+            ],
+            "grammar": {
+              "title": "Literary–institutional re-voicing",
+              "explain": "Russian uses six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register. The model coordinates grammar with commitment, information structure, social distance, and cohesion; mediation must preserve those relations.",
+              "pattern": "stance frame + scoped proposition + cohesive qualification",
+              "examples": [
+                {
+                  "t": "Фраза так и не прозвучала в зале, но её эхо словно переписало каждое последующее решение.",
+                  "r": "fraza tak i ne prozvuchala v zale, no eyo ekho slovno perepisalo kazhdoe posleduyushchee reshenie.",
+                  "en": "The phrase was never uttered in the hall, but its echo seemed to rewrite every subsequent decision."
+                },
+                {
+                  "t": "Я вовсе не намерен опровергать ваше возражение; моя цель — очертить границы его применимости.",
+                  "r": "ya vovse ne nameren oprovergat vashe vozrazhenie; moya tsel — ochertit granitsy ego primenimosti.",
+                  "en": "I have no intention of refuting your objection; my aim is to define the limits of its applicability."
+                },
+                {
+                  "t": "С учётом имеющихся свидетельств это правдоподобное толкование, но отнюдь не окончательный вердикт.",
+                  "r": "s uchyotom imeyushchikhsya svidetelstv eto pravdopodobnoe tolkovanie, no otnyud ne okonchatelnyy verdikt.",
+                  "en": "Given the available evidence, this is a plausible interpretation, but by no means a final verdict."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "An unjustified categorical paraphrase",
+                  "right": "Фраза так и не прозвучала в зале, но её эхо словно переписало каждое последующее решение.",
+                  "why": "It erases evidential scope and pragmatic restraint."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Analyst",
+                "t": "Фраза так и не прозвучала в зале, но её эхо словно переписало каждое последующее решение.",
+                "r": "fraza tak i ne prozvuchala v zale, no eyo ekho slovno perepisalo kazhdoe posleduyushchee reshenie.",
+                "en": "The phrase was never uttered in the hall, but its echo seemed to rewrite every subsequent decision."
+              },
+              {
+                "sp": "Editor",
+                "t": "Я вовсе не намерен опровергать ваше возражение; моя цель — очертить границы его применимости.",
+                "r": "ya vovse ne nameren oprovergat vashe vozrazhenie; moya tsel — ochertit granitsy ego primenimosti.",
+                "en": "I have no intention of refuting your objection; my aim is to define the limits of its applicability."
+              },
+              {
+                "sp": "Mediator",
+                "t": "С учётом имеющихся свидетельств это правдоподобное толкование, но отнюдь не окончательный вердикт.",
+                "r": "s uchyotom imeyushchikhsya svidetelstv eto pravdopodobnoe tolkovanie, no otnyud ne okonchatelnyy verdikt.",
+                "en": "Given the available evidence, this is a plausible interpretation, but by no means a final verdict."
+              },
+              {
+                "sp": "Reviewer",
+                "t": "Проблема заключалась не столько в самом решении, сколько именно в способе его воплощения.",
+                "r": "problema zaklyuchalas ne stolko v samom reshenii, skolko imenno v sposobe ego voploshcheniya.",
+                "en": "The problem lay not so much in the decision itself as precisely in the way it was implemented."
+              }
+            ],
+            "practice": [
+              {
+                "type": "pronunciation",
+                "q": "Literary–institutional re-voicing — recover the synthetic spoken model and phrase boundaries.",
+                "answer": "Фраза так и не прозвучала в зале, но её эхо словно переписало каждое последующее решение.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Фраза так и не прозвучала в зале, но её эхо словно переписало каждое последующее решение."
+              },
+              {
+                "type": "shadowing",
+                "q": "Literary–institutional re-voicing — recover the synthetic spoken model and phrase boundaries.",
+                "answer": "Фраза так и не прозвучала в зале, но её эхо словно переписало каждое последующее решение.",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: existing language voice mapping; not a native-speaker recording; text=Фраза так и не прозвучала в зале, но её эхо словно переписало каждое последующее решение."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Literary–institutional re-voicing — deliver a specialist response with new evidence.",
+                "answer": "Model: Фраза так и не прозвучала в зале, но её эхо словно переписало каждое последующее решение.",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "Literary–institutional re-voicing — deliver a specialist response with new evidence.",
+                "answer": "Model: Фраза так и не прозвучала в зале, но её эхо словно переписало каждое последующее решение.",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "Literary–institutional re-voicing — deliver a specialist response with new evidence.",
+                "answer": "Model: Фраза так и не прозвучала в зале, но её эхо словно переписало каждое последующее решение.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Literary–institutional re-voicing — write claim, evidence, qualification, and consequence.",
+                "answer": "Model: Фраза так и не прозвучала в зале, но её эхо словно переписало каждое последующее решение.",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "Literary–institutional re-voicing — write claim, evidence, qualification, and consequence.",
+                "answer": "Model: Фраза так и не прозвучала в зале, но её эхо словно переписало каждое последующее решение.",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "paraphrase",
+                "q": "Literary–institutional re-voicing — paraphrase while preserving evidential force.",
+                "answer": "Фраза так и не прозвучала в зале, но её эхо словно переписало каждое последующее решение.",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "Literary–institutional re-voicing — summarise while preserving evidential force.",
+                "answer": "Фраза так и не прозвучала в зале, но её эхо словно переписало каждое последующее решение.",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Literary–institutional re-voicing — write claim, evidence, qualification, and consequence.",
+                "answer": "Model: Фраза так и не прозвучала в зале, но её эхо словно переписало каждое последующее решение.",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Literary–institutional re-voicing — render in formal target prose: The phrase was never uttered in the hall, but its echo seemed to rewrite every subsequent decision.",
+                "answer": "Фраза так и не прозвучала в зале, но её эхо словно переписало каждое последующее решение.",
+                "skill_target": "register transformation"
+              },
+              {
+                "type": "tone_identification",
+                "q": "Literary–institutional re-voicing — identify the tone.",
+                "answer": "formal, qualified, analytically careful",
+                "skill_target": "tone identification",
+                "options": [
+                  "formal, qualified, analytically careful",
+                  "casual and absolute",
+                  "hostile and dismissive"
+                ]
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Literary–institutional re-voicing: Which interpretation preserves force?",
+                "options": [
+                  "The phrase was never uttered in the hall, but its echo seemed to rewrite every subsequent decision.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              },
+              {
+                "q": "Literary–institutional re-voicing: Which editing principle applies?",
+                "options": [
+                  "Preserve scope while adapting audience.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              },
+              {
+                "q": "Literary–institutional re-voicing: What makes this advanced?",
+                "options": [
+                  "Grammar, stance, cohesion, and register work together.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              },
+              {
+                "q": "Literary–institutional re-voicing: What must mediation avoid?",
+                "options": [
+                  "Turning qualification into categorical fact.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              },
+              {
+                "q": "Literary–institutional re-voicing: What must transformation justify?",
+                "options": [
+                  "Scope, register, implication, and cohesion.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Фраза так",
+              "так и",
+              "и не",
+              "не прозвучала"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Literary–institutional re-voicing workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate form and discourse function.",
+                  "items": [
+                    "Фраза так и не прозвучала в зале, но её эхо словно переписало каждое последующее решение.",
+                    "Я вовсе не намерен опровергать ваше возражение; моя цель — очертить границы его применимости."
+                  ],
+                  "key": [
+                    "Russian uses six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register. The model coordinates grammar with commitment, information structure, social distance, and cohesion; mediation must preserve those relations.",
+                    "Russian uses six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register. The model coordinates grammar with commitment, information structure, social distance, and cohesion; mediation must preserve those relations."
+                  ]
+                },
+                {
+                  "instruction": "Mediate without sharpening certainty.",
+                  "items": [
+                    "Фраза так и не прозвучала в зале, но её эхо словно переписало каждое последующее решение.",
+                    "Я вовсе не намерен опровергать ваше возражение; моя цель — очертить границы его применимости."
+                  ],
+                  "key": [
+                    "The phrase was never uttered in the hall, but its echo seemed to rewrite every subsequent decision.",
+                    "I have no intention of refuting your objection; my aim is to define the limits of its applicability."
+                  ]
+                },
+                {
+                  "instruction": "Transform genre and justify scope.",
+                  "items": [
+                    "The phrase was never uttered in the hall, but its echo seemed to rewrite every subsequent decision.",
+                    "I have no intention of refuting your objection; my aim is to define the limits of its applicability."
+                  ],
+                  "key": [
+                    "Model: Фраза так и не прозвучала в зале, но её эхо словно переписало каждое последующее решение.",
+                    "Model: Я вовсе не намерен опровергать ваше возражение; моя цель — очертить границы его применимости."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "ru-c2-u3",
+        "title": "Cultural pragmatics and expert mediation",
+        "lessons": [
+          {
+            "id": "ru-c2-l5",
+            "title": "Cultural pragmatics and face",
+            "learn": "Control cultural pragmatics and face in sustained academic, professional, and public communication.",
+            "vocab": [
+              {
+                "t": "Я вовсе",
+                "r": "ya vovse",
+                "en": "discourse segment 1 in “I have no intention of refuting your objection; my aim is to define the limits of its applicability.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "вовсе не",
+                "r": "vovse ne",
+                "en": "discourse segment 2 in “I have no intention of refuting your objection; my aim is to define the limits of its applicability.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "не намерен",
+                "r": "ne nameren",
+                "en": "discourse segment 3 in “I have no intention of refuting your objection; my aim is to define the limits of its applicability.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "намерен опровергать",
+                "r": "nameren oprovergat",
+                "en": "discourse segment 4 in “I have no intention of refuting your objection; my aim is to define the limits of its applicability.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "опровергать ваше",
+                "r": "oprovergat vashe",
+                "en": "discourse segment 5 in “I have no intention of refuting your objection; my aim is to define the limits of its applicability.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "ваше возражение;",
+                "r": "vashe vozrazhenie;",
+                "en": "discourse segment 6 in “I have no intention of refuting your objection; my aim is to define the limits of its applicability.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "возражение; моя",
+                "r": "vozrazhenie; moya",
+                "en": "discourse segment 7 in “I have no intention of refuting your objection; my aim is to define the limits of its applicability.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "моя цель",
+                "r": "moya tsel",
+                "en": "discourse segment 8 in “I have no intention of refuting your objection; my aim is to define the limits of its applicability.”",
+                "pos": "discourse expression"
+              }
+            ],
+            "grammar": {
+              "title": "Cultural pragmatics and face",
+              "explain": "Russian uses six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register. The model coordinates grammar with commitment, information structure, social distance, and cohesion; mediation must preserve those relations.",
+              "pattern": "stance frame + scoped proposition + cohesive qualification",
+              "examples": [
+                {
+                  "t": "Я вовсе не намерен опровергать ваше возражение; моя цель — очертить границы его применимости.",
+                  "r": "ya vovse ne nameren oprovergat vashe vozrazhenie; moya tsel — ochertit granitsy ego primenimosti.",
+                  "en": "I have no intention of refuting your objection; my aim is to define the limits of its applicability."
+                },
+                {
+                  "t": "С учётом имеющихся свидетельств это правдоподобное толкование, но отнюдь не окончательный вердикт.",
+                  "r": "s uchyotom imeyushchikhsya svidetelstv eto pravdopodobnoe tolkovanie, no otnyud ne okonchatelnyy verdikt.",
+                  "en": "Given the available evidence, this is a plausible interpretation, but by no means a final verdict."
+                },
+                {
+                  "t": "Проблема заключалась не столько в самом решении, сколько именно в способе его воплощения.",
+                  "r": "problema zaklyuchalas ne stolko v samom reshenii, skolko imenno v sposobe ego voploshcheniya.",
+                  "en": "The problem lay not so much in the decision itself as precisely in the way it was implemented."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "An unjustified categorical paraphrase",
+                  "right": "Я вовсе не намерен опровергать ваше возражение; моя цель — очертить границы его применимости.",
+                  "why": "It erases evidential scope and pragmatic restraint."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Analyst",
+                "t": "Я вовсе не намерен опровергать ваше возражение; моя цель — очертить границы его применимости.",
+                "r": "ya vovse ne nameren oprovergat vashe vozrazhenie; moya tsel — ochertit granitsy ego primenimosti.",
+                "en": "I have no intention of refuting your objection; my aim is to define the limits of its applicability."
+              },
+              {
+                "sp": "Editor",
+                "t": "С учётом имеющихся свидетельств это правдоподобное толкование, но отнюдь не окончательный вердикт.",
+                "r": "s uchyotom imeyushchikhsya svidetelstv eto pravdopodobnoe tolkovanie, no otnyud ne okonchatelnyy verdikt.",
+                "en": "Given the available evidence, this is a plausible interpretation, but by no means a final verdict."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Проблема заключалась не столько в самом решении, сколько именно в способе его воплощения.",
+                "r": "problema zaklyuchalas ne stolko v samom reshenii, skolko imenno v sposobe ego voploshcheniya.",
+                "en": "The problem lay not so much in the decision itself as precisely in the way it was implemented."
+              },
+              {
+                "sp": "Reviewer",
+                "t": "Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию.",
+                "r": "ego molchanie edva li oznachalo soglasie; skoree, ono vydavalo namerenno sokhranyaemuyu distantsiyu.",
+                "en": "His silence hardly meant agreement; rather, it revealed a deliberately maintained distance."
+              }
+            ],
+            "practice": [
+              {
+                "type": "paraphrase",
+                "q": "Cultural pragmatics and face — paraphrase while preserving evidential force.",
+                "answer": "Я вовсе не намерен опровергать ваше возражение; моя цель — очертить границы его применимости.",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "Cultural pragmatics and face — summarise while preserving evidential force.",
+                "answer": "Я вовсе не намерен опровергать ваше возражение; моя цель — очертить границы его применимости.",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Cultural pragmatics and face — write claim, evidence, qualification, and consequence.",
+                "answer": "Model: Я вовсе не намерен опровергать ваше возражение; моя цель — очертить границы его применимости.",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Cultural pragmatics and face — render in formal target prose: I have no intention of refuting your objection; my aim is to define the limits of its applicability.",
+                "answer": "Я вовсе не намерен опровергать ваше возражение; моя цель — очертить границы его применимости.",
+                "skill_target": "register transformation"
+              },
+              {
+                "type": "tone_identification",
+                "q": "Cultural pragmatics and face — identify the tone.",
+                "answer": "formal, qualified, analytically careful",
+                "skill_target": "tone identification",
+                "options": [
+                  "formal, qualified, analytically careful",
+                  "casual and absolute",
+                  "hostile and dismissive"
+                ]
+              },
+              {
+                "type": "semantic_distinction",
+                "q": "Cultural pragmatics and face — contrast this with a categorical assertion.",
+                "answer": "The model limits commitment and controls scope.",
+                "skill_target": "semantic distinction"
+              },
+              {
+                "type": "contextual_meaning",
+                "q": "Cultural pragmatics and face — interpret purpose, scope, and implication: Я вовсе не намерен опровергать ваше возражение; моя цель — очертить границы его применимости.",
+                "answer": "I have no intention of refuting your objection; my aim is to define the limits of its applicability.",
+                "skill_target": "contextual meaning"
+              },
+              {
+                "type": "argument_construction",
+                "q": "Cultural pragmatics and face — write claim, evidence, qualification, and consequence.",
+                "answer": "Model: Я вовсе не намерен опровергать ваше возражение; моя цель — очертить границы его применимости.",
+                "skill_target": "argument construction"
+              },
+              {
+                "type": "discourse_ordering",
+                "q": "Cultural pragmatics and face — restore coherent order: применимости / его / границы / очертить / — / цель / моя / возражение; / ваше / опровергать / намерен / не / вовсе / Я",
+                "answer": "Я вовсе не намерен опровергать ваше возражение; моя цель — очертить границы его применимости.",
+                "skill_target": "discourse ordering"
+              },
+              {
+                "type": "style_rewriting",
+                "q": "Cultural pragmatics and face — rewrite for a briefing while preserving implication.",
+                "answer": "Я вовсе не намерен опровергать ваше возражение; моя цель — очертить границы его применимости.",
+                "skill_target": "style rewriting"
+              },
+              {
+                "type": "idiom_interpretation",
+                "q": "Cultural pragmatics and face — interpret purpose, scope, and implication: Я вовсе не намерен опровергать ваше возражение; моя цель — очертить границы его применимости.",
+                "answer": "I have no intention of refuting your objection; my aim is to define the limits of its applicability.",
+                "skill_target": "idiom interpretation"
+              },
+              {
+                "type": "implied_meaning",
+                "q": "Cultural pragmatics and face — interpret purpose, scope, and implication: Я вовсе не намерен опровергать ваше возражение; моя цель — очертить границы его применимости.",
+                "answer": "I have no intention of refuting your objection; my aim is to define the limits of its applicability.",
+                "skill_target": "implied meaning"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Cultural pragmatics and face: Which interpretation preserves force?",
+                "options": [
+                  "I have no intention of refuting your objection; my aim is to define the limits of its applicability.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              },
+              {
+                "q": "Cultural pragmatics and face: Which editing principle applies?",
+                "options": [
+                  "Preserve scope while adapting audience.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              },
+              {
+                "q": "Cultural pragmatics and face: What makes this advanced?",
+                "options": [
+                  "Grammar, stance, cohesion, and register work together.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              },
+              {
+                "q": "Cultural pragmatics and face: What must mediation avoid?",
+                "options": [
+                  "Turning qualification into categorical fact.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              },
+              {
+                "q": "Cultural pragmatics and face: What must transformation justify?",
+                "options": [
+                  "Scope, register, implication, and cohesion.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Я вовсе",
+              "вовсе не",
+              "не намерен",
+              "намерен опровергать"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Cultural pragmatics and face workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate form and discourse function.",
+                  "items": [
+                    "Я вовсе не намерен опровергать ваше возражение; моя цель — очертить границы его применимости.",
+                    "С учётом имеющихся свидетельств это правдоподобное толкование, но отнюдь не окончательный вердикт."
+                  ],
+                  "key": [
+                    "Russian uses six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register. The model coordinates grammar with commitment, information structure, social distance, and cohesion; mediation must preserve those relations.",
+                    "Russian uses six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register. The model coordinates grammar with commitment, information structure, social distance, and cohesion; mediation must preserve those relations."
+                  ]
+                },
+                {
+                  "instruction": "Mediate without sharpening certainty.",
+                  "items": [
+                    "Я вовсе не намерен опровергать ваше возражение; моя цель — очертить границы его применимости.",
+                    "С учётом имеющихся свидетельств это правдоподобное толкование, но отнюдь не окончательный вердикт."
+                  ],
+                  "key": [
+                    "I have no intention of refuting your objection; my aim is to define the limits of its applicability.",
+                    "Given the available evidence, this is a plausible interpretation, but by no means a final verdict."
+                  ]
+                },
+                {
+                  "instruction": "Transform genre and justify scope.",
+                  "items": [
+                    "I have no intention of refuting your objection; my aim is to define the limits of its applicability.",
+                    "Given the available evidence, this is a plausible interpretation, but by no means a final verdict."
+                  ],
+                  "key": [
+                    "Model: Я вовсе не намерен опровергать ваше возражение; моя цель — очертить границы его применимости.",
+                    "Model: С учётом имеющихся свидетельств это правдоподобное толкование, но отнюдь не окончательный вердикт."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "ru-c2-l6",
+            "title": "Expert uncertainty calibration",
+            "learn": "Control expert uncertainty calibration in sustained academic, professional, and public communication.",
+            "vocab": [
+              {
+                "t": "С учётом",
+                "r": "s uchyotom",
+                "en": "discourse segment 1 in “Given the available evidence, this is a plausible interpretation, but by no means a final verdict.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "учётом имеющихся",
+                "r": "uchyotom imeyushchikhsya",
+                "en": "discourse segment 2 in “Given the available evidence, this is a plausible interpretation, but by no means a final verdict.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "имеющихся свидетельств",
+                "r": "imeyushchikhsya svidetelstv",
+                "en": "discourse segment 3 in “Given the available evidence, this is a plausible interpretation, but by no means a final verdict.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "свидетельств это",
+                "r": "svidetelstv eto",
+                "en": "discourse segment 4 in “Given the available evidence, this is a plausible interpretation, but by no means a final verdict.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "это правдоподобное",
+                "r": "eto pravdopodobnoe",
+                "en": "discourse segment 5 in “Given the available evidence, this is a plausible interpretation, but by no means a final verdict.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "правдоподобное толкование,",
+                "r": "pravdopodobnoe tolkovanie,",
+                "en": "discourse segment 6 in “Given the available evidence, this is a plausible interpretation, but by no means a final verdict.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "толкование, но",
+                "r": "tolkovanie, no",
+                "en": "discourse segment 7 in “Given the available evidence, this is a plausible interpretation, but by no means a final verdict.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "но отнюдь",
+                "r": "no otnyud",
+                "en": "discourse segment 8 in “Given the available evidence, this is a plausible interpretation, but by no means a final verdict.”",
+                "pos": "discourse expression"
+              }
+            ],
+            "grammar": {
+              "title": "Expert uncertainty calibration",
+              "explain": "Russian uses six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register. The model coordinates grammar with commitment, information structure, social distance, and cohesion; mediation must preserve those relations.",
+              "pattern": "stance frame + scoped proposition + cohesive qualification",
+              "examples": [
+                {
+                  "t": "С учётом имеющихся свидетельств это правдоподобное толкование, но отнюдь не окончательный вердикт.",
+                  "r": "s uchyotom imeyushchikhsya svidetelstv eto pravdopodobnoe tolkovanie, no otnyud ne okonchatelnyy verdikt.",
+                  "en": "Given the available evidence, this is a plausible interpretation, but by no means a final verdict."
+                },
+                {
+                  "t": "Проблема заключалась не столько в самом решении, сколько именно в способе его воплощения.",
+                  "r": "problema zaklyuchalas ne stolko v samom reshenii, skolko imenno v sposobe ego voploshcheniya.",
+                  "en": "The problem lay not so much in the decision itself as precisely in the way it was implemented."
+                },
+                {
+                  "t": "Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию.",
+                  "r": "ego molchanie edva li oznachalo soglasie; skoree, ono vydavalo namerenno sokhranyaemuyu distantsiyu.",
+                  "en": "His silence hardly meant agreement; rather, it revealed a deliberately maintained distance."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "An unjustified categorical paraphrase",
+                  "right": "С учётом имеющихся свидетельств это правдоподобное толкование, но отнюдь не окончательный вердикт.",
+                  "why": "It erases evidential scope and pragmatic restraint."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Analyst",
+                "t": "С учётом имеющихся свидетельств это правдоподобное толкование, но отнюдь не окончательный вердикт.",
+                "r": "s uchyotom imeyushchikhsya svidetelstv eto pravdopodobnoe tolkovanie, no otnyud ne okonchatelnyy verdikt.",
+                "en": "Given the available evidence, this is a plausible interpretation, but by no means a final verdict."
+              },
+              {
+                "sp": "Editor",
+                "t": "Проблема заключалась не столько в самом решении, сколько именно в способе его воплощения.",
+                "r": "problema zaklyuchalas ne stolko v samom reshenii, skolko imenno v sposobe ego voploshcheniya.",
+                "en": "The problem lay not so much in the decision itself as precisely in the way it was implemented."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Его молчание едва ли означало согласие; скорее, оно выдавало намеренно сохраняемую дистанцию.",
+                "r": "ego molchanie edva li oznachalo soglasie; skoree, ono vydavalo namerenno sokhranyaemuyu distantsiyu.",
+                "en": "His silence hardly meant agreement; rather, it revealed a deliberately maintained distance."
+              },
+              {
+                "sp": "Reviewer",
+                "t": "Скорость необходима, спору нет; однако скорость без подотчётности — не прогресс, а отсроченный кризис.",
+                "r": "skorost neobkhodima, sporu net; odnako skorost bez podotchyotnosti — ne progress, a otsrochennyy krizis.",
+                "en": "Speed is necessary, undeniably; yet speed without accountability is not progress but crisis deferred."
+              }
+            ],
+            "practice": [
+              {
+                "type": "argument_construction",
+                "q": "Expert uncertainty calibration — write claim, evidence, qualification, and consequence.",
+                "answer": "Model: С учётом имеющихся свидетельств это правдоподобное толкование, но отнюдь не окончательный вердикт.",
+                "skill_target": "argument construction"
+              },
+              {
+                "type": "discourse_ordering",
+                "q": "Expert uncertainty calibration — restore coherent order: вердикт / окончательный / не / отнюдь / но / толкование, / правдоподобное / это / свидетельств / имеющихся / учётом / С",
+                "answer": "С учётом имеющихся свидетельств это правдоподобное толкование, но отнюдь не окончательный вердикт.",
+                "skill_target": "discourse ordering"
+              },
+              {
+                "type": "style_rewriting",
+                "q": "Expert uncertainty calibration — rewrite for a briefing while preserving implication.",
+                "answer": "С учётом имеющихся свидетельств это правдоподобное толкование, но отнюдь не окончательный вердикт.",
+                "skill_target": "style rewriting"
+              },
+              {
+                "type": "idiom_interpretation",
+                "q": "Expert uncertainty calibration — interpret purpose, scope, and implication: С учётом имеющихся свидетельств это правдоподобное толкование, но отнюдь не окончательный вердикт.",
+                "answer": "Given the available evidence, this is a plausible interpretation, but by no means a final verdict.",
+                "skill_target": "idiom interpretation"
+              },
+              {
+                "type": "implied_meaning",
+                "q": "Expert uncertainty calibration — interpret purpose, scope, and implication: С учётом имеющихся свидетельств это правдоподобное толкование, но отнюдь не окончательный вердикт.",
+                "answer": "Given the available evidence, this is a plausible interpretation, but by no means a final verdict.",
+                "skill_target": "implied meaning"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Expert uncertainty calibration — select the version preserving stance and register.",
+                "answer": "С учётом имеющихся свидетельств это правдоподобное толкование, но отнюдь не окончательный вердикт.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "С учётом имеющихся свидетельств это правдоподобное толкование, но отнюдь не окончательный вердикт.",
+                  "Given the available evidence, this is a plausible interpretation, but by no means a final verdict.",
+                  "An unrelated absolute assertion"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Expert uncertainty calibration — complete: С учётом ____ свидетельств это правдоподобное толкование, но отнюдь не окончательный вердикт.",
+                "answer": "имеющихся",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Expert uncertainty calibration — translate without increasing certainty.",
+                "answer": "Given the available evidence, this is a plausible interpretation, but by no means a final verdict.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Expert uncertainty calibration — translate into the target language: Given the available evidence, this is a plausible interpretation, but by no means a final verdict.",
+                "answer": "С учётом имеющихся свидетельств это правдоподобное толкование, но отнюдь не окончательный вердикт.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Expert uncertainty calibration — select the version preserving stance and register.",
+                "answer": "С учётом имеющихся свидетельств это правдоподобное толкование, но отнюдь не окончательный вердикт.",
+                "skill_target": "matching",
+                "options": [
+                  "С учётом имеющихся свидетельств это правдоподобное толкование, но отнюдь не окончательный вердикт.",
+                  "Given the available evidence, this is a plausible interpretation, but by no means a final verdict.",
+                  "An unrelated absolute assertion"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Expert uncertainty calibration — restore coherent order: вердикт / окончательный / не / отнюдь / но / толкование, / правдоподобное / это / свидетельств / имеющихся / учётом / С",
+                "answer": "С учётом имеющихся свидетельств это правдоподобное толкование, но отнюдь не окончательный вердикт.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Expert uncertainty calibration — build from: С | учётом | имеющихся | свидетельств | это | правдоподобное | толкование, | но | отнюдь | не | окончательный | вердикт",
+                "answer": "С учётом имеющихся свидетельств это правдоподобное толкование, но отнюдь не окончательный вердикт.",
+                "skill_target": "sentence building"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Expert uncertainty calibration: Which interpretation preserves force?",
+                "options": [
+                  "Given the available evidence, this is a plausible interpretation, but by no means a final verdict.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              },
+              {
+                "q": "Expert uncertainty calibration: Which editing principle applies?",
+                "options": [
+                  "Preserve scope while adapting audience.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              },
+              {
+                "q": "Expert uncertainty calibration: What makes this advanced?",
+                "options": [
+                  "Grammar, stance, cohesion, and register work together.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              },
+              {
+                "q": "Expert uncertainty calibration: What must mediation avoid?",
+                "options": [
+                  "Turning qualification into categorical fact.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              },
+              {
+                "q": "Expert uncertainty calibration: What must transformation justify?",
+                "options": [
+                  "Scope, register, implication, and cohesion.",
+                  "Increase certainty without evidence.",
+                  "Delete the cohesive relation.",
+                  "Replace analysis with a greeting."
+                ],
+                "answer": 0,
+                "why": "The answer preserves six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "С учётом",
+              "учётом имеющихся",
+              "имеющихся свидетельств",
+              "свидетельств это"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Expert uncertainty calibration workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate form and discourse function.",
+                  "items": [
+                    "С учётом имеющихся свидетельств это правдоподобное толкование, но отнюдь не окончательный вердикт.",
+                    "Проблема заключалась не столько в самом решении, сколько именно в способе его воплощения."
+                  ],
+                  "key": [
+                    "Russian uses six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register. The model coordinates grammar with commitment, information structure, social distance, and cohesion; mediation must preserve those relations.",
+                    "Russian uses six-case government, verbal aspect, participial and adverbial-participial compression, impersonal constructions, evidential particles, information-structure word order, negation scope and formal–colloquial register. The model coordinates grammar with commitment, information structure, social distance, and cohesion; mediation must preserve those relations."
+                  ]
+                },
+                {
+                  "instruction": "Mediate without sharpening certainty.",
+                  "items": [
+                    "С учётом имеющихся свидетельств это правдоподобное толкование, но отнюдь не окончательный вердикт.",
+                    "Проблема заключалась не столько в самом решении, сколько именно в способе его воплощения."
+                  ],
+                  "key": [
+                    "Given the available evidence, this is a plausible interpretation, but by no means a final verdict.",
+                    "The problem lay not so much in the decision itself as precisely in the way it was implemented."
+                  ]
+                },
+                {
+                  "instruction": "Transform genre and justify scope.",
+                  "items": [
+                    "Given the available evidence, this is a plausible interpretation, but by no means a final verdict.",
+                    "The problem lay not so much in the decision itself as precisely in the way it was implemented."
+                  ],
+                  "key": [
+                    "Model: С учётом имеющихся свидетельств это правдоподобное толкование, но отнюдь не окончательный вердикт.",
+                    "Model: Проблема заключалась не столько в самом решении, сколько именно в способе его воплощения."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "C2 integrated capstone",
+      "items": [
+        {
+          "type": "argument_construction",
+          "q": "Integrated task 1: analyse, mediate, or transform an expert claim with explicit scope and register control.",
+          "answer": "Use Russian patterns from all lessons and justify evidence, implication, cohesion, and audience."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Integrated task 2: analyse, mediate, or transform an expert claim with explicit scope and register control.",
+          "answer": "Use Russian patterns from all lessons and justify evidence, implication, cohesion, and audience."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Integrated task 3: analyse, mediate, or transform an expert claim with explicit scope and register control.",
+          "answer": "Use Russian patterns from all lessons and justify evidence, implication, cohesion, and audience."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Integrated task 4: analyse, mediate, or transform an expert claim with explicit scope and register control.",
+          "answer": "Use Russian patterns from all lessons and justify evidence, implication, cohesion, and audience."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Integrated task 5: analyse, mediate, or transform an expert claim with explicit scope and register control.",
+          "answer": "Use Russian patterns from all lessons and justify evidence, implication, cohesion, and audience."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Integrated task 6: analyse, mediate, or transform an expert claim with explicit scope and register control.",
+          "answer": "Use Russian patterns from all lessons and justify evidence, implication, cohesion, and audience."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Integrated task 7: analyse, mediate, or transform an expert claim with explicit scope and register control.",
+          "answer": "Use Russian patterns from all lessons and justify evidence, implication, cohesion, and audience."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Integrated task 8: analyse, mediate, or transform an expert claim with explicit scope and register control.",
+          "answer": "Use Russian patterns from all lessons and justify evidence, implication, cohesion, and audience."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Integrated task 9: analyse, mediate, or transform an expert claim with explicit scope and register control.",
+          "answer": "Use Russian patterns from all lessons and justify evidence, implication, cohesion, and audience."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Integrated task 10: analyse, mediate, or transform an expert claim with explicit scope and register control.",
+          "answer": "Use Russian patterns from all lessons and justify evidence, implication, cohesion, and audience."
+        }
+      ]
+    }
+  }
+}
