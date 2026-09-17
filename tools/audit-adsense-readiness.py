@@ -139,6 +139,30 @@ def main():
  canonical=sum(bool(x['canonical']) for x in pages); h1=sum(x['h1_count']==1 for x in pages); main=sum(x['main_landmark'] for x in pages)
  ads=sum(x['ad_markup_detected'] for x in pages)
  course_review=[x['path'] for x in courses if x['status']!='PASS']
+ # Monetization configuration checks validate repository facts only. Account
+ # approval, CMP activation and rendered placements remain human/account review.
+ mon_path=ROOT/'data/monetization/google-monetization.json'
+ mon=json.loads(mon_path.read_text()) if mon_path.exists() else {}
+ client=mon.get('publisher',{}).get('adsense_client','')
+ seller=mon.get('publisher',{}).get('ads_txt_id','')
+ ads_lines=[x.strip() for x in (ROOT/'ads.txt').read_text().splitlines() if x.strip() and not x.lstrip().startswith('#')] if (ROOT/'ads.txt').exists() else []
+ expected=f"google.com, {seller}, DIRECT, f08c47fec0942fa0"
+ duplicate_loaders=[]; wrong_ids=[]
+ for page in pages:
+  src=(ROOT/page['path']).read_text(errors='ignore')
+  if src.count('pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')>1: duplicate_loaders.append(page['path'])
+  for found in set(re.findall(r'ca-pub-\\d{16}',src)):
+   if client and found!=client: wrong_ids.append({'path':page['path'],'id':found})
+ monetization={
+  'status':'REVIEW_REQUIRED' if duplicate_loaders or wrong_ids or ads_lines!=[expected] else 'PARTIAL',
+  'ads_txt':{'status':'PASS' if ads_lines==[expected] else 'FAIL','actual':ads_lines,'expected':[expected]},
+  'publisher_consistency':{'status':'PASS' if client and not wrong_ids else 'FAIL','client':client,'wrong_ids':wrong_ids},
+  'duplicate_loader':{'status':'PASS' if not duplicate_loaders else 'FAIL','pages':duplicate_loaders},
+  'page_class_and_safe_zones':{'status':'PASS' if (ROOT/'js/monetization.js').exists() else 'FAIL'},
+  'consent':{'status':'REVIEW_REQUIRED','note':'A certified CMP and geographic messages must be verified in Google Privacy & messaging; repository code cannot establish account-side activation.'},
+  'account_formats':{'status':'REVIEW_REQUIRED','note':'Auto ads format eligibility, activation, exclusions, ad load and Offerwall settings require account review.'},
+  'approval_claim':'NOT_ASSESSED'
+ }
  result={
   'schema_version':1,'generated_at':dt.datetime.now(dt.timezone.utc).isoformat(),'scope':'all repository public HTML and course JSON','approval_claim':'NOT_ASSESSED — this audit does not claim or predict Google AdSense approval','standard':'docs/GLOBAL_QUALITY_STANDARD.md',
   'content_depth':{'status':state(not thin,partial=bool(pages) and len(thin)<len(pages)//10),'pages_scanned':len(pages),'heuristic_review_threshold_words':250,'thin_page_count':len(thin),'note':'Threshold is a triage signal, not a word-count publication rule.'},
@@ -152,6 +176,7 @@ def main():
   'mobile':{'status':'REVIEW_REQUIRED','note':'Static source scan cannot validate viewport overlap, responsiveness, accidental taps, or device performance.'},
   'accessibility':{'status':state(main==len(pages),partial=main>0),'main_landmark_pages':main,'note':'Automated source signals only; keyboard, screen reader, contrast, captions, and zoom require rendered audit.'},
   'ad_safety':{'status':'REVIEW_REQUIRED' if ads else 'PARTIAL','pages_loading_or_marking_ads':ads,'note':'Placement, consent, content/ad balance, mobile accidental-click risk, and approval status require rendered and policy review.'},
+  'google_monetization':monetization,
   'page_quality':{'status':'REVIEW_REQUIRED' if review else 'PASS','pass_count':len(pages)-len(review),'review_required_count':len(review),'course_pass_count':len(courses)-len(course_review),'course_review_required_count':len(course_review)},
   'thin_page_count':len(thin),'review_required_count':len(review)+len(course_review),
   'course_quality':{'status':'REVIEW_REQUIRED' if course_review else 'PASS','files_scanned':len(courses),'review_required_count':len(course_review),'rows':courses},

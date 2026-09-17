@@ -14,21 +14,24 @@ Pages whose builder already embeds adsbygoogle.js are left untouched.
 
 Run from the project root:  python3 tools/inject-ads.py
 """
+import json
 import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MARK = "<!-- ekguru:ads -->"
+CONFIG = json.load(open(os.path.join(ROOT, "data/monetization/google-monetization.json"), encoding="utf-8"))
+CLIENT = CONFIG["publisher"]["adsense_client"]
+MARK = "<!-- ekguru:adsense:start -->"
 SNIPPET = (
     MARK + "\n"
-    '<meta name="google-adsense-account" '
-    'content="ca-pub-8175326569491671">\n'
+    '<meta name="google-adsense-account" content="' + CLIENT + '">\n'
     '<script async src="https://pagead2.googlesyndication.com/pagead/js/'
-    'adsbygoogle.js?client=ca-pub-8175326569491671" '
-    'crossorigin="anonymous"></script>'
+    'adsbygoogle.js?client=' + CLIENT + '" crossorigin="anonymous"></script>\n'
+    '<!-- ekguru:adsense:end -->'
 )
 
-SKIP_DIRS = ("support", "admin")
-SKIP_FILES = ("404.html", "admin.html", "offline.html")
+SKIP_DIRS = ("support", "admin", "privacy", "terms", "disclaimer", "contact",
+             "search", "join", "booking", "checkout", "payment", "courses")
+SKIP_FILES = ("404.html", "admin.html", "offline.html", "tutor.html", "join.html")
 
 
 def excluded(rel):

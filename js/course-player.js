@@ -135,7 +135,7 @@ Player.prototype.parseHash = function () {
 Player.prototype.route = function () {
   var self = this;
   var r = self.parseHash();
-  self.mount.innerHTML = '<div class="egc"><p>Loading…</p></div>';
+  self.mount.innerHTML = '<div class="egc google-anno-skip"><p>Loading…</p></div>';
   self.fetchJSON(self.base + "data/courses/index.json").then(function (idx) {
     self.index = idx;
     if (!r.lang) return self.renderHub();
@@ -151,7 +151,7 @@ Player.prototype.route = function () {
       return self.renderLevel(d, key);
     });
   }).catch(function (e) {
-    self.mount.innerHTML = '<div class="egc"><h1>Course failed to load</h1><p>' + esc(e.message) + '</p><p><a href="#/">Back to all courses</a></p></div>';
+    self.mount.innerHTML = '<div class="egc google-anno-skip"><h1>Course failed to load</h1><p>' + esc(e.message) + '</p><p><a href="#/">Back to all courses</a></p></div>';
   });
 };
 Player.prototype.crumbs = function (items) {
@@ -162,7 +162,7 @@ Player.prototype.crumbs = function (items) {
 };
 Player.prototype.renderHub = function () {
   var courses = (this.index && this.index.courses) || [];
-  var h = '<div class="egc"><h1>EkGuru Phase Courses</h1>';
+  var h = '<div class="egc google-anno-skip"><h1>EkGuru Phase Courses</h1>';
   h += '<p>Complete beginner-to-advanced courses: alphabet, counting, 24 deep lessons and level tests — all free, in your browser.</p>';
   var phases = {};
   courses.forEach(function (c) { var ph = c.phase || "phase-1"; (phases[ph] = phases[ph] || []).push(c); });
@@ -191,7 +191,7 @@ Player.prototype.renderLang = function (code) {
   var meta = this.langMeta(code);
   var levels = Object.keys(meta.levels || { A1: 1, A2: 1, B1: 1, B2: 1, C1: 1, C2: 1 });
   var p = loadProgress();
-  var h = '<div class="egc">' + this.crumbs([{ t: "Courses", href: "#/" }, { t: meta.name }]);
+  var h = '<div class="egc google-anno-skip">' + this.crumbs([{ t: "Courses", href: "#/" }, { t: meta.name }]);
   h += "<h1>" + esc(meta.name) + " (" + esc(meta.code) + ")</h1>";
   h += "<p>Pick a level. A1 starts with the alphabet and counting.</p><div class='lvlrow'>";
   levels.forEach(function (lv) {
@@ -207,7 +207,7 @@ Player.prototype.renderLang = function (code) {
 Player.prototype.renderLevel = function (d, key) {
   var code = d.code, lv = d.file_level;
   var L = d.level || {};
-  var h = '<div class="egc">' + this.crumbs([{ t: "Courses", href: "#/" }, { t: d.name, href: "#/" + code }, { t: lv }]);
+  var h = '<div class="egc google-anno-skip">' + this.crumbs([{ t: "Courses", href: "#/" }, { t: d.name, href: "#/" + code }, { t: lv }]);
   h += "<h1>" + esc(d.name) + " " + esc(lv) + "</h1>";
   h += "<p>" + esc(L.title || "") + "</p>";
   if (L.goals && L.goals.length) {
@@ -263,9 +263,9 @@ Player.prototype.findLesson = function (d, lessonId) {
 Player.prototype.renderLesson = function (d, key, lessonId) {
   var self = this;
   var f = self.findLesson(d, lessonId);
-  if (!f) { self.mount.innerHTML = '<div class="egc"><p>Lesson not found.</p></div>'; return; }
+  if (!f) { self.mount.innerHTML = '<div class="egc google-anno-skip"><p>Lesson not found.</p></div>'; return; }
   var code = d.code, lv = d.file_level, ls = f.lesson;
-  var h = '<div class="egc">' + self.crumbs([{ t: "Courses", href: "#/" }, { t: d.name, href: "#/" + code }, { t: lv, href: "#/" + code + "/" + lv }, { t: ls.id }]);
+  var h = '<div class="egc google-anno-skip">' + self.crumbs([{ t: "Courses", href: "#/" }, { t: d.name, href: "#/" + code }, { t: lv, href: "#/" + code + "/" + lv }, { t: ls.id }]);
   h += "<h1>" + esc(ls.id) + " · " + esc(ls.title) + "</h1>";
   h += "<h2>Learn</h2><p>" + esc(ls.learn || "") + "</p>";
   if (ls.vocab && ls.vocab.length) {
@@ -428,7 +428,7 @@ Player.prototype.renderTest = function (d, key) {
   var code = d.code, lv = d.file_level;
   var T = d.test || { items: [] };
   var items = T.items || [];
-  var h = '<div class="egc">' + self.crumbs([{ t: "Courses", href: "#/" }, { t: d.name, href: "#/" + code }, { t: lv, href: "#/" + code + "/" + lv }, { t: "Test" }]);
+  var h = '<div class="egc google-anno-skip">' + self.crumbs([{ t: "Courses", href: "#/" }, { t: d.name, href: "#/" + code }, { t: lv, href: "#/" + code + "/" + lv }, { t: "Test" }]);
   h += "<h1>" + esc(T.title || (lv + " final test")) + "</h1><p>Answer all " + items.length + " questions. Pass mark: 7 / " + items.length + ".</p>";
   h += "<div id='egc-test'></div>";
   h += '<div class="navrow"><a class="btn ghost" href="#/' + code + "/" + lv + '">← Back to ' + esc(lv) + "</a></div></div>";
