@@ -194,16 +194,19 @@ Player.prototype.renderHub = function () {
     countriesByCode[k] = Array.from(new Set(countriesByCode[k])).sort();
   });
   var countries = Array.from(new Set([].concat.apply([], Object.keys(countriesByCode).map(function (k) { return countriesByCode[k]; })))).sort();
+  var displayNames;
+  try { displayNames = new Intl.DisplayNames([document.documentElement.lang || "en"], { type: "region" }); } catch (e) {}
+  function countryName(code) { try { return displayNames ? displayNames.of(code) : code; } catch (e) { return code; } }
   var h = '<div class="egc course-hub google-anno-skip"><section class="course-hero"><span class="pill">Worldwide · A1–C2 · free</span><h1>Choose your language journey</h1>';
   h += '<p>One complete learning space for courses, country contexts, lessons, deep practice, review history and level tests.</p><div class="course-orbit" aria-hidden="true"><i>अ</i><i>Α</i><i>ع</i><i>あ</i><i>മ</i></div></section>';
-  h += '<div class="course-tools"><label>Find a course<input id="course-search" type="search" placeholder="Search language" autocomplete="off"></label><label>Country context<select id="country-filter"><option value="">All countries</option>' + countries.map(function (c) { return '<option value="' + esc(c) + '">' + esc(c) + '</option>'; }).join("") + '</select></label><span id="course-result-count" role="status"></span></div>';
+  h += '<div class="course-tools"><label>Find a course<input id="course-search" type="search" placeholder="Search language" autocomplete="off"></label><label>Country context<select id="country-filter"><option value="">All countries</option>' + countries.map(function (c) { return '<option value="' + esc(c) + '">' + esc(countryName(c)) + ' · ' + esc(c) + '</option>'; }).join("") + '</select></label><span id="course-result-count" role="status"></span></div>';
   var phases = {};
   courses.forEach(function (c) { var ph = c.phase || "phase-1"; (phases[ph] = phases[ph] || []).push(c); });
   Object.keys(phases).sort().forEach(function (ph) {
     h += '<section class="course-phase"><h2>Collection ' + esc(String(ph).replace("phase-", "")) + '</h2><div class="grid course-grid">';
     phases[ph].forEach(function (c, ci) {
       var lvs = Object.keys(c.levels || {}), cs = countriesByCode[c.code] || [], hue = Math.abs(c.code.split("").reduce(function (a, x) { return a * 31 + x.charCodeAt(0); }, 7)) % 360;
-      h += '<article class="card course-card" data-name="' + esc(c.name.toLowerCase()) + '" data-countries="' + esc(cs.join(" ")) + '" style="--course-hue:' + hue + '"><a href="#/' + esc(c.code) + '"><span class="course-monogram" aria-hidden="true">' + esc((c.native || c.name).slice(0, 2)) + '</span><span class="course-copy"><b>' + esc(c.name) + '</b><span class="sub">' + esc(lvs.join(" · ")) + (c.complete ? " · complete" : "") + '</span><span class="country-chips">' + cs.slice(0, 5).map(function (x) { return '<em>' + esc(x) + '</em>'; }).join("") + (cs.length > 5 ? '<em>+' + (cs.length - 5) + '</em>' : '') + '</span></span><span class="course-arrow">→</span></a></article>';
+      h += '<article class="card course-card" data-name="' + esc(c.name.toLowerCase()) + '" data-countries="' + esc(cs.join(" ")) + '" style="--course-hue:' + hue + '"><a href="#/' + esc(c.code) + '"><span class="course-monogram" aria-hidden="true">' + esc((c.native || c.name).slice(0, 2)) + '</span><span class="course-copy"><b>' + esc(c.name) + '</b><span class="sub">' + esc(lvs.join(" · ")) + (c.complete ? " · complete" : "") + '</span><span class="country-chips">' + cs.slice(0, 5).map(function (x) { return '<em title="' + esc(countryName(x)) + '">' + esc(countryName(x)) + '</em>'; }).join("") + (cs.length > 5 ? '<em>+' + (cs.length - 5) + '</em>' : '') + '</span></span><span class="course-arrow">→</span></a></article>';
     });
     h += "</div></section>";
   });
