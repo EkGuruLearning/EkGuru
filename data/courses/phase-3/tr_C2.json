@@ -1,0 +1,1874 @@
+{
+  "code": "tr",
+  "name": "Turkish",
+  "native": "Türkçe",
+  "phase": 3,
+  "medium": "en",
+  "file_level": "C2",
+  "research_basis": "data/language-research/tr.json",
+  "level": {
+    "title": "Turkish C2",
+    "goals": [
+      "Control Turkish case, agreement, aspect, mood, and information structure",
+      "Develop reception, interaction, production, and mediation",
+      "Use pronunciation, politeness, register, and cohesion appropriately"
+    ],
+    "units": [
+      {
+        "id": "tr-c2-u1",
+        "title": "Semantic and Viewpoint Precision",
+        "lessons": [
+          {
+            "id": "tr-c2-l1",
+            "title": "Olumsuzluğun kapsamı",
+            "learn": "Control olumsuzluğun kapsamı in level-appropriate Turkish communication.",
+            "vocab": [
+              {
+                "t": "Görünürdeki",
+                "r": "Görünürdeki",
+                "en": "discourse segment in “Not every apparent improvement means real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "her",
+                "r": "her",
+                "en": "discourse segment in “Not every apparent improvement means real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "iyileşme",
+                "r": "iyileşme",
+                "en": "discourse segment in “Not every apparent improvement means real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "gerçek",
+                "r": "gerçek",
+                "en": "discourse segment in “Not every apparent improvement means real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ilerleme",
+                "r": "ilerleme",
+                "en": "discourse segment in “Not every apparent improvement means real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "değildir",
+                "r": "değildir",
+                "en": "discourse segment in “Not every apparent improvement means real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "bazı",
+                "r": "bazı",
+                "en": "discourse segment in “Not every apparent improvement means real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "sonuçlar",
+                "r": "sonuçlar",
+                "en": "discourse segment in “Not every apparent improvement means real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Olumsuzluğun kapsamı",
+              "explain": "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+              "pattern": "topic + case-marked arguments + suffix chain + clause-final predicate",
+              "examples": [
+                {
+                  "t": "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                  "r": "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                  "en": "Not every apparent improvement means real progress; some results merely redistribute the burden."
+                },
+                {
+                  "t": "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                  "r": "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                  "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                },
+                {
+                  "t": "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                  "r": "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                  "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with broken harmony, case, or evidential marking",
+                  "right": "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                  "why": "The corrected model aligns suffixes and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "r": "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "en": "Not every apparent improvement means real progress; some results merely redistribute the burden."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "r": "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "r": "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              },
+              {
+                "sp": "Editor",
+                "t": "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "r": "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "en": "The compromise swept the issue under the carpet while allowing both sides to save face."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Olumsuzluğun kapsamı — multiple choice: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "answer": "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Olumsuzluğun kapsamı — fill in the blank: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "answer": "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Olumsuzluğun kapsamı — translation: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "answer": "Not every apparent improvement means real progress; some results merely redistribute the burden.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Olumsuzluğun kapsamı — reverse translation: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "answer": "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Olumsuzluğun kapsamı — matching: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "answer": "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "skill_target": "matching",
+                "options": [
+                  "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Olumsuzluğun kapsamı — reorder: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "answer": "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Olumsuzluğun kapsamı — sentence building: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "answer": "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Olumsuzluğun kapsamı — word selection: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "answer": "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "skill_target": "word selection",
+                "options": [
+                  "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Olumsuzluğun kapsamı — error correction: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "answer": "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Olumsuzluğun kapsamı — dialogue completion: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "answer": "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Olumsuzluğun kapsamı — reading comprehension: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "answer": "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Olumsuzluğun kapsamı — paragraph comprehension: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "answer": "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Olumsuzluğun kapsamı: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Olumsuzluğun kapsamı: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Olumsuzluğun kapsamı: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Olumsuzluğun kapsamı: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Olumsuzluğun kapsamı: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Görünürdeki",
+              "her",
+              "iyileşme",
+              "gerçek"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Olumsuzluğun kapsamı workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate suffixes and discourse function.",
+                  "items": [
+                    "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                    "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır."
+                  ],
+                  "key": [
+                    "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+                    "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                    "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır."
+                  ],
+                  "key": [
+                    "Not every apparent improvement means real progress; some results merely redistribute the burden.",
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "Not every apparent improvement means real progress; some results merely redistribute the burden.",
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                  ],
+                  "key": [
+                    "Model: Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                    "Model: Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "tr-c2-l2",
+            "title": "Sezdirim ve mesafe",
+            "learn": "Control sezdirim ve mesafe in level-appropriate Turkish communication.",
+            "vocab": [
+              {
+                "t": "Sonucu",
+                "r": "Sonucu",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "pek",
+                "r": "pek",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "de",
+                "r": "de",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "beklenmedik",
+                "r": "beklenmedik",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "değil",
+                "r": "değil",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "diye",
+                "r": "diye",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "nitelemek",
+                "r": "nitelemek",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "konuşanı",
+                "r": "konuşanı",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Sezdirim ve mesafe",
+              "explain": "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+              "pattern": "topic + case-marked arguments + suffix chain + clause-final predicate",
+              "examples": [
+                {
+                  "t": "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                  "r": "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                  "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                },
+                {
+                  "t": "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                  "r": "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                  "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                },
+                {
+                  "t": "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                  "r": "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                  "en": "The compromise swept the issue under the carpet while allowing both sides to save face."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with broken harmony, case, or evidential marking",
+                  "right": "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                  "why": "The corrected model aligns suffixes and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "r": "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "r": "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "r": "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "en": "The compromise swept the issue under the carpet while allowing both sides to save face."
+              },
+              {
+                "sp": "Editor",
+                "t": "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "r": "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reorder",
+                "q": "Sezdirim ve mesafe — reorder: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "answer": "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Sezdirim ve mesafe — sentence building: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "answer": "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Sezdirim ve mesafe — word selection: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "answer": "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "skill_target": "word selection",
+                "options": [
+                  "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Sezdirim ve mesafe — error correction: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "answer": "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Sezdirim ve mesafe — dialogue completion: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "answer": "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Sezdirim ve mesafe — reading comprehension: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "answer": "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Sezdirim ve mesafe — paragraph comprehension: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "answer": "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "main_idea",
+                "q": "Sezdirim ve mesafe — main idea: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "answer": "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Sezdirim ve mesafe — detail identification: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "answer": "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "inference",
+                "q": "Sezdirim ve mesafe — inference: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "answer": "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Sezdirim ve mesafe — listening comprehension: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "answer": "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: tr-TR browser voice; not native recording; text=Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır."
+              },
+              {
+                "type": "dictation",
+                "q": "Sezdirim ve mesafe — dictation: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "answer": "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: tr-TR browser voice; not native recording; text=Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Sezdirim ve mesafe: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Sezdirim ve mesafe: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Sezdirim ve mesafe: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Sezdirim ve mesafe: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Sezdirim ve mesafe: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Sonucu",
+              "pek",
+              "de",
+              "beklenmedik"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Sezdirim ve mesafe workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate suffixes and discourse function.",
+                  "items": [
+                    "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                    "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var."
+                  ],
+                  "key": [
+                    "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+                    "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                    "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var."
+                  ],
+                  "key": [
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised.",
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised.",
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                  ],
+                  "key": [
+                    "Model: Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                    "Model: Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "tr-c2-u2",
+        "title": "Rhetoric and Genre Mastery",
+        "lessons": [
+          {
+            "id": "tr-c2-l3",
+            "title": "Retorik paralellik",
+            "learn": "Control retorik paralellik in level-appropriate Turkish communication.",
+            "vocab": [
+              {
+                "t": "Aceleye",
+                "r": "Aceleye",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "düşmeyen",
+                "r": "düşmeyen",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "hırsa",
+                "r": "hırsa",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "felce",
+                "r": "felce",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "dönüşmeyen",
+                "r": "dönüşmeyen",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ihtiyata",
+                "r": "ihtiyata",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ve",
+                "r": "ve",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "gösterişsiz",
+                "r": "gösterişsiz",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Retorik paralellik",
+              "explain": "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+              "pattern": "topic + case-marked arguments + suffix chain + clause-final predicate",
+              "examples": [
+                {
+                  "t": "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                  "r": "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                  "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                },
+                {
+                  "t": "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                  "r": "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                  "en": "The compromise swept the issue under the carpet while allowing both sides to save face."
+                },
+                {
+                  "t": "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                  "r": "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                  "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with broken harmony, case, or evidential marking",
+                  "right": "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                  "why": "The corrected model aligns suffixes and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "r": "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "r": "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "en": "The compromise swept the issue under the carpet while allowing both sides to save face."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "r": "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              },
+              {
+                "sp": "Editor",
+                "t": "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "r": "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "en": "On available evidence, this is the least implausible explanation, not an indisputable verdict."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reading_comprehension",
+                "q": "Retorik paralellik — reading comprehension: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "answer": "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Retorik paralellik — paragraph comprehension: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "answer": "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "main_idea",
+                "q": "Retorik paralellik — main idea: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "answer": "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Retorik paralellik — detail identification: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "answer": "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "inference",
+                "q": "Retorik paralellik — inference: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "answer": "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Retorik paralellik — listening comprehension: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "answer": "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: tr-TR browser voice; not native recording; text=Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var."
+              },
+              {
+                "type": "dictation",
+                "q": "Retorik paralellik — dictation: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "answer": "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: tr-TR browser voice; not native recording; text=Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Retorik paralellik — listen and choose: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "answer": "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "skill_target": "listen and choose",
+                "options": [
+                  "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ],
+                "audio_source": "synthetic_tts: tr-TR browser voice; not native recording; text=Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var."
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "Retorik paralellik — listen and reorder: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "answer": "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: tr-TR browser voice; not native recording; text=Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var."
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Retorik paralellik — listen and fill: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "answer": "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "skill_target": "listen and fill",
+                "audio_source": "synthetic_tts: tr-TR browser voice; not native recording; text=Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Retorik paralellik — repeat after audio: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "answer": "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: tr-TR browser voice; not native recording; text=Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var."
+              },
+              {
+                "type": "pronunciation",
+                "q": "Retorik paralellik — pronunciation: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "answer": "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: tr-TR browser voice; not native recording; text=Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Retorik paralellik: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Retorik paralellik: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Retorik paralellik: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Retorik paralellik: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Retorik paralellik: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Aceleye",
+              "düşmeyen",
+              "hırsa",
+              "felce"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Retorik paralellik workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate suffixes and discourse function.",
+                  "items": [
+                    "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                    "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı."
+                  ],
+                  "key": [
+                    "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+                    "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                    "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı."
+                  ],
+                  "key": [
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle.",
+                    "The compromise swept the issue under the carpet while allowing both sides to save face."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle.",
+                    "The compromise swept the issue under the carpet while allowing both sides to save face."
+                  ],
+                  "key": [
+                    "Model: Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                    "Model: Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "tr-c2-l4",
+            "title": "Deyimsel yorum",
+            "learn": "Control deyimsel yorum in level-appropriate Turkish communication.",
+            "vocab": [
+              {
+                "t": "Uzlaşma",
+                "r": "Uzlaşma",
+                "en": "discourse segment in “The compromise swept the issue under the carpet while allowing both sides to save face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "sorunu",
+                "r": "sorunu",
+                "en": "discourse segment in “The compromise swept the issue under the carpet while allowing both sides to save face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "halının",
+                "r": "halının",
+                "en": "discourse segment in “The compromise swept the issue under the carpet while allowing both sides to save face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "altına",
+                "r": "altına",
+                "en": "discourse segment in “The compromise swept the issue under the carpet while allowing both sides to save face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "süpürürken",
+                "r": "süpürürken",
+                "en": "discourse segment in “The compromise swept the issue under the carpet while allowing both sides to save face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "iki",
+                "r": "iki",
+                "en": "discourse segment in “The compromise swept the issue under the carpet while allowing both sides to save face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "tarafın",
+                "r": "tarafın",
+                "en": "discourse segment in “The compromise swept the issue under the carpet while allowing both sides to save face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "da",
+                "r": "da",
+                "en": "discourse segment in “The compromise swept the issue under the carpet while allowing both sides to save face.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Deyimsel yorum",
+              "explain": "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+              "pattern": "topic + case-marked arguments + suffix chain + clause-final predicate",
+              "examples": [
+                {
+                  "t": "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                  "r": "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                  "en": "The compromise swept the issue under the carpet while allowing both sides to save face."
+                },
+                {
+                  "t": "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                  "r": "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                  "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                },
+                {
+                  "t": "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                  "r": "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                  "en": "On available evidence, this is the least implausible explanation, not an indisputable verdict."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with broken harmony, case, or evidential marking",
+                  "right": "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                  "why": "The corrected model aligns suffixes and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "r": "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "en": "The compromise swept the issue under the carpet while allowing both sides to save face."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "r": "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "r": "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "en": "On available evidence, this is the least implausible explanation, not an indisputable verdict."
+              },
+              {
+                "sp": "Editor",
+                "t": "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "r": "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "en": "Not every apparent improvement means real progress; some results merely redistribute the burden."
+              }
+            ],
+            "practice": [
+              {
+                "type": "listening_comprehension",
+                "q": "Deyimsel yorum — listening comprehension: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "answer": "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: tr-TR browser voice; not native recording; text=Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı."
+              },
+              {
+                "type": "dictation",
+                "q": "Deyimsel yorum — dictation: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "answer": "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: tr-TR browser voice; not native recording; text=Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Deyimsel yorum — listen and choose: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "answer": "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "skill_target": "listen and choose",
+                "options": [
+                  "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ],
+                "audio_source": "synthetic_tts: tr-TR browser voice; not native recording; text=Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı."
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "Deyimsel yorum — listen and reorder: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "answer": "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: tr-TR browser voice; not native recording; text=Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı."
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Deyimsel yorum — listen and fill: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "answer": "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "skill_target": "listen and fill",
+                "audio_source": "synthetic_tts: tr-TR browser voice; not native recording; text=Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Deyimsel yorum — repeat after audio: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "answer": "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: tr-TR browser voice; not native recording; text=Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı."
+              },
+              {
+                "type": "pronunciation",
+                "q": "Deyimsel yorum — pronunciation: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "answer": "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: tr-TR browser voice; not native recording; text=Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı."
+              },
+              {
+                "type": "shadowing",
+                "q": "Deyimsel yorum — shadowing: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "answer": "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: tr-TR browser voice; not native recording; text=Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Deyimsel yorum — guided speaking: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "answer": "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "Deyimsel yorum — free response: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "answer": "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "Deyimsel yorum — roleplay: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "answer": "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Deyimsel yorum — sentence writing: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "answer": "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                "skill_target": "sentence writing"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Deyimsel yorum: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Deyimsel yorum: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Deyimsel yorum: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Deyimsel yorum: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Deyimsel yorum: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Uzlaşma",
+              "sorunu",
+              "halının",
+              "altına"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Deyimsel yorum workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate suffixes and discourse function.",
+                  "items": [
+                    "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                    "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor."
+                  ],
+                  "key": [
+                    "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+                    "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                    "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor."
+                  ],
+                  "key": [
+                    "The compromise swept the issue under the carpet while allowing both sides to save face.",
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "The compromise swept the issue under the carpet while allowing both sides to save face.",
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                  ],
+                  "key": [
+                    "Model: Uzlaşma sorunu halının altına süpürürken iki tarafın da itibarını korumasını sağladı.",
+                    "Model: Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "tr-c2-u3",
+        "title": "Cultural and High-Stakes Mediation",
+        "lessons": [
+          {
+            "id": "tr-c2-l5",
+            "title": "Tür dönüşümü",
+            "learn": "Control tür dönüşümü in level-appropriate Turkish communication.",
+            "vocab": [
+              {
+                "t": "Muhtıra",
+                "r": "Muhtıra",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "belirsizliği",
+                "r": "belirsizliği",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "kabul",
+                "r": "kabul",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ediyor",
+                "r": "ediyor",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "kamu",
+                "r": "kamu",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "açıklamasıysa",
+                "r": "açıklamasıysa",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "bunu",
+                "r": "bunu",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ölçülü",
+                "r": "ölçülü",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Tür dönüşümü",
+              "explain": "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+              "pattern": "topic + case-marked arguments + suffix chain + clause-final predicate",
+              "examples": [
+                {
+                  "t": "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                  "r": "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                  "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                },
+                {
+                  "t": "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                  "r": "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                  "en": "On available evidence, this is the least implausible explanation, not an indisputable verdict."
+                },
+                {
+                  "t": "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                  "r": "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                  "en": "Not every apparent improvement means real progress; some results merely redistribute the burden."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with broken harmony, case, or evidential marking",
+                  "right": "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                  "why": "The corrected model aligns suffixes and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "r": "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "r": "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "en": "On available evidence, this is the least implausible explanation, not an indisputable verdict."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "r": "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "en": "Not every apparent improvement means real progress; some results merely redistribute the burden."
+              },
+              {
+                "sp": "Editor",
+                "t": "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "r": "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              }
+            ],
+            "practice": [
+              {
+                "type": "repeat_after_audio",
+                "q": "Tür dönüşümü — repeat after audio: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "answer": "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: tr-TR browser voice; not native recording; text=Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor."
+              },
+              {
+                "type": "pronunciation",
+                "q": "Tür dönüşümü — pronunciation: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "answer": "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: tr-TR browser voice; not native recording; text=Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor."
+              },
+              {
+                "type": "shadowing",
+                "q": "Tür dönüşümü — shadowing: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "answer": "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: tr-TR browser voice; not native recording; text=Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Tür dönüşümü — guided speaking: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "answer": "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "Tür dönüşümü — free response: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "answer": "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "Tür dönüşümü — roleplay: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "answer": "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Tür dönüşümü — sentence writing: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "answer": "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "Tür dönüşümü — short writing: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "answer": "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "paraphrase",
+                "q": "Tür dönüşümü — paraphrase: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "answer": "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "Tür dönüşümü — summary: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "answer": "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Tür dönüşümü — guided composition: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "answer": "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Tür dönüşümü — register transformation: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "answer": "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                "skill_target": "register transformation"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Tür dönüşümü: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Tür dönüşümü: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Tür dönüşümü: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Tür dönüşümü: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Tür dönüşümü: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Muhtıra",
+              "belirsizliği",
+              "kabul",
+              "ediyor"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Tür dönüşümü workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate suffixes and discourse function.",
+                  "items": [
+                    "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                    "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil."
+                  ],
+                  "key": [
+                    "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+                    "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                    "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil."
+                  ],
+                  "key": [
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence.",
+                    "On available evidence, this is the least implausible explanation, not an indisputable verdict."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence.",
+                    "On available evidence, this is the least implausible explanation, not an indisputable verdict."
+                  ],
+                  "key": [
+                    "Model: Muhtıra belirsizliği kabul ediyor; kamu açıklamasıysa bunu ölçülü bir güven olarak yeniden sunuyor.",
+                    "Model: Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "tr-c2-l6",
+            "title": "Bilgisel kesinlik",
+            "learn": "Control bilgisel kesinlik in level-appropriate Turkish communication.",
+            "vocab": [
+              {
+                "t": "Mevcut",
+                "r": "Mevcut",
+                "en": "discourse segment in “On available evidence, this is the least implausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "kanıtlara",
+                "r": "kanıtlara",
+                "en": "discourse segment in “On available evidence, this is the least implausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "göre",
+                "r": "göre",
+                "en": "discourse segment in “On available evidence, this is the least implausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "bu",
+                "r": "bu",
+                "en": "discourse segment in “On available evidence, this is the least implausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "en",
+                "r": "en",
+                "en": "discourse segment in “On available evidence, this is the least implausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "az",
+                "r": "az",
+                "en": "discourse segment in “On available evidence, this is the least implausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ihtimal",
+                "r": "ihtimal",
+                "en": "discourse segment in “On available evidence, this is the least implausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "dışı",
+                "r": "dışı",
+                "en": "discourse segment in “On available evidence, this is the least implausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Bilgisel kesinlik",
+              "explain": "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+              "pattern": "topic + case-marked arguments + suffix chain + clause-final predicate",
+              "examples": [
+                {
+                  "t": "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                  "r": "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                  "en": "On available evidence, this is the least implausible explanation, not an indisputable verdict."
+                },
+                {
+                  "t": "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                  "r": "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                  "en": "Not every apparent improvement means real progress; some results merely redistribute the burden."
+                },
+                {
+                  "t": "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                  "r": "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                  "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with broken harmony, case, or evidential marking",
+                  "right": "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                  "why": "The corrected model aligns suffixes and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "r": "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "en": "On available evidence, this is the least implausible explanation, not an indisputable verdict."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "r": "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır.",
+                "en": "Not every apparent improvement means real progress; some results merely redistribute the burden."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "r": "Sonucu pek de beklenmedik değil diye nitelemek, konuşanı şaşıranlardan ustaca uzaklaştırır.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              },
+              {
+                "sp": "Editor",
+                "t": "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "r": "Aceleye düşmeyen hırsa, felce dönüşmeyen ihtiyata ve gösterişsiz hesap verebilirliğe ihtiyacımız var.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              }
+            ],
+            "practice": [
+              {
+                "type": "roleplay",
+                "q": "Bilgisel kesinlik — roleplay: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "answer": "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Bilgisel kesinlik — sentence writing: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "answer": "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "Bilgisel kesinlik — short writing: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "answer": "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "paraphrase",
+                "q": "Bilgisel kesinlik — paraphrase: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "answer": "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "Bilgisel kesinlik — summary: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "answer": "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Bilgisel kesinlik — guided composition: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "answer": "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Bilgisel kesinlik — register transformation: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "answer": "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "skill_target": "register transformation"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Bilgisel kesinlik — multiple choice: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "answer": "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Bilgisel kesinlik — fill in the blank: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "answer": "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Bilgisel kesinlik — translation: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "answer": "On available evidence, this is the least implausible explanation, not an indisputable verdict.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Bilgisel kesinlik — reverse translation: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "answer": "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Bilgisel kesinlik — matching: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "answer": "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                "skill_target": "matching",
+                "options": [
+                  "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Bilgisel kesinlik: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Bilgisel kesinlik: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Bilgisel kesinlik: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Bilgisel kesinlik: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Bilgisel kesinlik: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Mevcut",
+              "kanıtlara",
+              "göre",
+              "bu"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Bilgisel kesinlik workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate suffixes and discourse function.",
+                  "items": [
+                    "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                    "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır."
+                  ],
+                  "key": [
+                    "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+                    "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                    "Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır."
+                  ],
+                  "key": [
+                    "On available evidence, this is the least implausible explanation, not an indisputable verdict.",
+                    "Not every apparent improvement means real progress; some results merely redistribute the burden."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "On available evidence, this is the least implausible explanation, not an indisputable verdict.",
+                    "Not every apparent improvement means real progress; some results merely redistribute the burden."
+                  ],
+                  "key": [
+                    "Model: Mevcut kanıtlara göre bu en az ihtimal dışı açıklamadır, tartışılmaz bir hüküm değil.",
+                    "Model: Görünürdeki her iyileşme gerçek ilerleme değildir; bazı sonuçlar yükü yalnızca yeniden dağıtır."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "Spanish C2 Proficiency Test",
+      "items": [
+        {
+          "type": "argument_construction",
+          "q": "Turkish C2 integrated task 1: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Turkish course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Turkish C2 integrated task 2: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Turkish course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Turkish C2 integrated task 3: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Turkish course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Turkish C2 integrated task 4: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Turkish course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Turkish C2 integrated task 5: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Turkish course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Turkish C2 integrated task 6: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Turkish course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Turkish C2 integrated task 7: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Turkish course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Turkish C2 integrated task 8: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Turkish course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Turkish C2 integrated task 9: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Turkish course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Turkish C2 integrated task 10: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Turkish course rubric."
+        }
+      ]
+    }
+  }
+}

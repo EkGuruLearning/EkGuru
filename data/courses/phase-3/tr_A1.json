@@ -1,0 +1,2286 @@
+{
+  "code": "tr",
+  "name": "Turkish",
+  "native": "Türkçe",
+  "phase": 3,
+  "medium": "en",
+  "file_level": "A1",
+  "pronunciation": {
+    "title": "Say it right from day one",
+    "rules": [
+      {
+        "rule": "Vowels never change",
+        "explain": "a=AH, e=EH, i=EE, o=OH, u=OO. Always. So CASA is KAH-sah.",
+        "examples": [
+          {
+            "t": "casa",
+            "r": "KAH-sah",
+            "en": "house"
+          },
+          {
+            "t": "mesa",
+            "r": "MEH-sah",
+            "en": "table"
+          }
+        ]
+      },
+      {
+        "rule": "H is silent, J sounds like H",
+        "explain": "HOLA is OH-lah (no H sound). J in JUEVES sounds like English H: HWEH-vehs.",
+        "examples": [
+          {
+            "t": "hola",
+            "r": "OH-lah",
+            "en": "hello"
+          },
+          {
+            "t": "jueves",
+            "r": "HWEH-vehs",
+            "en": "Thursday"
+          }
+        ]
+      },
+      {
+        "rule": "Ñ = NY, LL/Y = Y",
+        "explain": "Ñ is like NY in canyon: NIÑO = NEEN-yoh. LL and Y sound like Y in yes.",
+        "examples": [
+          {
+            "t": "niño",
+            "r": "NEEN-yoh",
+            "en": "boy"
+          },
+          {
+            "t": "calle",
+            "r": "KAH-yeh",
+            "en": "street"
+          }
+        ]
+      },
+      {
+        "rule": "R rolls a little",
+        "explain": "Tap your tongue once for R. PERRO (dog) rolls longer than PERO (but).",
+        "examples": [
+          {
+            "t": "pero",
+            "r": "PEH-roh",
+            "en": "but"
+          },
+          {
+            "t": "perro",
+            "r": "PEH-rroh",
+            "en": "dog"
+          }
+        ]
+      },
+      {
+        "rule": "Stress the second-last syllable",
+        "explain": "Most words stress the middle: HOLA = OH-lah, GRACIAS = GRAH-syahs. An accent mark (á) forces stress there.",
+        "examples": [
+          {
+            "t": "gracias",
+            "r": "GRAH-syahs",
+            "en": "thanks"
+          },
+          {
+            "t": "café",
+            "r": "kah-FEH",
+            "en": "coffee"
+          }
+        ]
+      }
+    ]
+  },
+  "alphabet": {
+    "title": "The Spanish alphabet: 27 letters",
+    "explain": "Spanish uses the same letters as English plus Ñ. Letter names matter for spelling your name aloud. Read each name, then say the example word.",
+    "letters": [
+      {
+        "t": "a",
+        "r": "ah",
+        "tip": "as in father: CASA"
+      },
+      {
+        "t": "b",
+        "r": "beh",
+        "tip": "soft, lips barely touch: BOCA"
+      },
+      {
+        "t": "c",
+        "r": "seh",
+        "tip": "CA=K, CE/CI=S: CENA"
+      },
+      {
+        "t": "d",
+        "r": "deh",
+        "tip": "soft, like TH in this: DÍA"
+      },
+      {
+        "t": "e",
+        "r": "eh",
+        "tip": "as in bet: MESA"
+      },
+      {
+        "t": "f",
+        "r": "EH-feh",
+        "tip": "same as English: FOTO"
+      },
+      {
+        "t": "g",
+        "r": "heh",
+        "tip": "GA=hard G, GE/J=silent H: GENTE"
+      },
+      {
+        "t": "h",
+        "r": "AH-cheh",
+        "tip": "always silent: HOLA = OH-lah"
+      },
+      {
+        "t": "i",
+        "r": "ee",
+        "tip": "as in machine: SÍ"
+      },
+      {
+        "t": "j",
+        "r": "HOH-tah",
+        "tip": "strong H sound: JUEVES"
+      },
+      {
+        "t": "k",
+        "r": "kah",
+        "tip": "rare, foreign words: KILO"
+      },
+      {
+        "t": "l",
+        "r": "EH-leh",
+        "tip": "same as English: LIBRO"
+      },
+      {
+        "t": "m",
+        "r": "EH-meh",
+        "tip": "same as English: MANO"
+      },
+      {
+        "t": "n",
+        "r": "EH-neh",
+        "tip": "same as English: NOCHE"
+      },
+      {
+        "t": "ñ",
+        "r": "EH-nyeh",
+        "tip": "NY as in canyon: NIÑO"
+      },
+      {
+        "t": "o",
+        "r": "oh",
+        "tip": "short, as in hot: OJO"
+      },
+      {
+        "t": "p",
+        "r": "peh",
+        "tip": "same, less puff: PAN"
+      },
+      {
+        "t": "q",
+        "r": "koo",
+        "tip": "always QU = K: QUESO"
+      },
+      {
+        "t": "r",
+        "r": "EH-reh",
+        "tip": "single tap: PERO"
+      },
+      {
+        "t": "s",
+        "r": "EH-seh",
+        "tip": "always S, never Z: SÍ"
+      },
+      {
+        "t": "t",
+        "r": "teh",
+        "tip": "same as English: TÍO"
+      },
+      {
+        "t": "u",
+        "r": "oo",
+        "tip": "as in moon: LUNA"
+      },
+      {
+        "t": "v",
+        "r": "oo-beh",
+        "tip": "sounds like soft B: VINO"
+      },
+      {
+        "t": "w",
+        "r": "oo-beh-DOH-bleh",
+        "tip": "rare, foreign words: WEB"
+      },
+      {
+        "t": "x",
+        "r": "EH-kees",
+        "tip": "KS sound: TAXI"
+      },
+      {
+        "t": "y",
+        "r": "ee-gree-EH-gah",
+        "tip": "Y in yes, or EE alone: YO"
+      },
+      {
+        "t": "z",
+        "r": "SEH-tah",
+        "tip": "S sound (Latin America): ZAPATO"
+      }
+    ]
+  },
+  "counting": {
+    "title": "Counting 0 to 100",
+    "explain": "Learn 0–15 by heart. 16–19 = DIEZ + number stuck together (dieciséis). 20s = VEINTI + number (veintidós). 30+ = tens + Y + ones (treinta y uno). 100 = CIEN (cien alone, ciento + more).",
+    "numbers": [
+      {
+        "t": "cero",
+        "r": "SEH-roh",
+        "en": "0"
+      },
+      {
+        "t": "uno",
+        "r": "OO-noh",
+        "en": "1"
+      },
+      {
+        "t": "dos",
+        "r": "dohs",
+        "en": "2"
+      },
+      {
+        "t": "tres",
+        "r": "trehs",
+        "en": "3"
+      },
+      {
+        "t": "cuatro",
+        "r": "KWAH-troh",
+        "en": "4"
+      },
+      {
+        "t": "cinco",
+        "r": "SEEN-koh",
+        "en": "5"
+      },
+      {
+        "t": "seis",
+        "r": "seh-ees",
+        "en": "6"
+      },
+      {
+        "t": "siete",
+        "r": "SYEH-teh",
+        "en": "7"
+      },
+      {
+        "t": "ocho",
+        "r": "OH-choh",
+        "en": "8"
+      },
+      {
+        "t": "nueve",
+        "r": "NWEH-veh",
+        "en": "9"
+      },
+      {
+        "t": "diez",
+        "r": "dyehs",
+        "en": "10"
+      },
+      {
+        "t": "once",
+        "r": "OHN-seh",
+        "en": "11"
+      },
+      {
+        "t": "doce",
+        "r": "DOH-seh",
+        "en": "12"
+      },
+      {
+        "t": "trece",
+        "r": "TREH-seh",
+        "en": "13"
+      },
+      {
+        "t": "catorce",
+        "r": "kah-TOHR-seh",
+        "en": "14"
+      },
+      {
+        "t": "quince",
+        "r": "KEEN-seh",
+        "en": "15"
+      },
+      {
+        "t": "dieciséis",
+        "r": "dyeh-see-SEH-ees",
+        "en": "16"
+      },
+      {
+        "t": "diecisiete",
+        "r": "dyeh-see-SYEH-teh",
+        "en": "17"
+      },
+      {
+        "t": "dieciocho",
+        "r": "dyeh-see-OH-choh",
+        "en": "18"
+      },
+      {
+        "t": "diecinueve",
+        "r": "dyeh-see-NWEH-veh",
+        "en": "19"
+      },
+      {
+        "t": "veinte",
+        "r": "BEH-een-teh",
+        "en": "20"
+      },
+      {
+        "t": "treinta",
+        "r": "TREH-een-tah",
+        "en": "30"
+      },
+      {
+        "t": "cuarenta",
+        "r": "kwah-REHN-tah",
+        "en": "40"
+      },
+      {
+        "t": "cincuenta",
+        "r": "seen-KWEHN-tah",
+        "en": "50"
+      },
+      {
+        "t": "sesenta",
+        "r": "seh-SEHN-tah",
+        "en": "60"
+      },
+      {
+        "t": "setenta",
+        "r": "seh-TEHN-tah",
+        "en": "70"
+      },
+      {
+        "t": "ochenta",
+        "r": "oh-CHEHN-tah",
+        "en": "80"
+      },
+      {
+        "t": "noventa",
+        "r": "noh-BEHN-tah",
+        "en": "90"
+      },
+      {
+        "t": "cien",
+        "r": "syehn",
+        "en": "100"
+      }
+    ],
+    "rules": [
+      "16–29 are glued together: dieciséis (16), veintidós (22).",
+      "30–99 use Y: treinta y uno (31), cuarenta y dos (42).",
+      "CIEN = exactly 100; CIENTO + more: ciento uno (101)."
+    ]
+  },
+  "level": {
+    "title": "Turkish A1",
+    "goals": [
+      "Control Turkish case, agreement, aspect, mood, and information structure",
+      "Develop reception, interaction, production, and mediation",
+      "Use pronunciation, politeness, register, and cohesion appropriately"
+    ],
+    "units": [
+      {
+        "id": "tr-a1-u1",
+        "title": "First words",
+        "lessons": [
+          {
+            "id": "tr-a1-l1",
+            "title": "Selamlaşma",
+            "learn": "Control selamlaşma in level-appropriate Turkish communication.",
+            "vocab": [
+              {
+                "t": "Merhaba",
+                "r": "Merhaba",
+                "en": "discourse segment in “Good afternoon. My name is Ana.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "benim",
+                "r": "benim",
+                "en": "discourse segment in “Good afternoon. My name is Ana.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "adım",
+                "r": "adım",
+                "en": "discourse segment in “Good afternoon. My name is Ana.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "Ayşe",
+                "r": "Ayşe",
+                "en": "discourse segment in “Good afternoon. My name is Ana.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "anlam",
+                "r": "anlam",
+                "en": "discourse segment in “Good afternoon. My name is Ana.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "bağlam",
+                "r": "bağlam",
+                "en": "discourse segment in “Good afternoon. My name is Ana.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "tutum",
+                "r": "tutum",
+                "en": "discourse segment in “Good afternoon. My name is Ana.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "sonuç",
+                "r": "sonuç",
+                "en": "discourse segment in “Good afternoon. My name is Ana.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Selamlaşma",
+              "explain": "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+              "pattern": "topic + case-marked arguments + suffix chain + clause-final predicate",
+              "examples": [
+                {
+                  "t": "Merhaba, benim adım Ayşe.",
+                  "r": "Merhaba, benim adım Ayşe.",
+                  "en": "Good afternoon. My name is Ana."
+                },
+                {
+                  "t": "Ben öğrenciyim, siz öğretmensiniz.",
+                  "r": "Ben öğrenciyim, siz öğretmensiniz.",
+                  "en": "I am a student, and you are a teacher."
+                },
+                {
+                  "t": "Her sabah Türkçe öğreniyorum.",
+                  "r": "Her sabah Türkçe öğreniyorum.",
+                  "en": "I study Romanian every morning."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with broken harmony, case, or evidential marking",
+                  "right": "Merhaba, benim adım Ayşe.",
+                  "why": "The corrected model aligns suffixes and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Merhaba, benim adım Ayşe.",
+                "r": "Merhaba, benim adım Ayşe.",
+                "en": "Good afternoon. My name is Ana."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Ben öğrenciyim, siz öğretmensiniz.",
+                "r": "Ben öğrenciyim, siz öğretmensiniz.",
+                "en": "I am a student, and you are a teacher."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Her sabah Türkçe öğreniyorum.",
+                "r": "Her sabah Türkçe öğreniyorum.",
+                "en": "I study Romanian every morning."
+              },
+              {
+                "sp": "Editor",
+                "t": "Okula yakın mı oturuyorsunuz?",
+                "r": "Okula yakın mı oturuyorsunuz?",
+                "en": "Do you live near the school?"
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Selamlaşma — multiple choice: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Merhaba, benim adım Ayşe.",
+                "answer": "Merhaba, benim adım Ayşe.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Merhaba, benim adım Ayşe.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Selamlaşma — fill in the blank: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Merhaba, benim adım Ayşe.",
+                "answer": "Merhaba, benim adım Ayşe.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Selamlaşma — translation: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Merhaba, benim adım Ayşe.",
+                "answer": "Good afternoon. My name is Ana.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Selamlaşma — reverse translation: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Merhaba, benim adım Ayşe.",
+                "answer": "Merhaba, benim adım Ayşe.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Selamlaşma — matching: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Merhaba, benim adım Ayşe.",
+                "answer": "Merhaba, benim adım Ayşe.",
+                "skill_target": "matching",
+                "options": [
+                  "Merhaba, benim adım Ayşe.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Selamlaşma — reorder: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Merhaba, benim adım Ayşe.",
+                "answer": "Merhaba, benim adım Ayşe.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Selamlaşma — sentence building: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Merhaba, benim adım Ayşe.",
+                "answer": "Merhaba, benim adım Ayşe.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Selamlaşma — word selection: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Merhaba, benim adım Ayşe.",
+                "answer": "Merhaba, benim adım Ayşe.",
+                "skill_target": "word selection",
+                "options": [
+                  "Merhaba, benim adım Ayşe.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Selamlaşma — error correction: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Merhaba, benim adım Ayşe.",
+                "answer": "Merhaba, benim adım Ayşe.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Selamlaşma — dialogue completion: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Merhaba, benim adım Ayşe.",
+                "answer": "Merhaba, benim adım Ayşe.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Selamlaşma — reading comprehension: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Merhaba, benim adım Ayşe.",
+                "answer": "Merhaba, benim adım Ayşe.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Selamlaşma — paragraph comprehension: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Merhaba, benim adım Ayşe.",
+                "answer": "Merhaba, benim adım Ayşe.",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Selamlaşma: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Merhaba, benim adım Ayşe.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Selamlaşma: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Merhaba, benim adım Ayşe.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Selamlaşma: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Merhaba, benim adım Ayşe.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Selamlaşma: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Merhaba, benim adım Ayşe.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Selamlaşma: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Merhaba, benim adım Ayşe.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Selamlaşma workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate suffixes and discourse function.",
+                  "items": [
+                    "Merhaba, benim adım Ayşe.",
+                    "Ben öğrenciyim, siz öğretmensiniz."
+                  ],
+                  "key": [
+                    "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+                    "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Merhaba, benim adım Ayşe.",
+                    "Ben öğrenciyim, siz öğretmensiniz."
+                  ],
+                  "key": [
+                    "Good afternoon. My name is Ana.",
+                    "I am a student, and you are a teacher."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "Good afternoon. My name is Ana.",
+                    "I am a student, and you are a teacher."
+                  ],
+                  "key": [
+                    "Model: Merhaba, benim adım Ayşe.",
+                    "Model: Ben öğrenciyim, siz öğretmensiniz."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "Merhaba",
+              "benim",
+              "adım",
+              "Ayşe"
+            ],
+            "srs_policy": "Only high-value forms are preselected; mistakes and productive patterns enter review after learner evidence."
+          },
+          {
+            "id": "tr-a1-l2",
+            "title": "Kimlik ve meslek",
+            "learn": "Control kimlik ve meslek in level-appropriate Turkish communication.",
+            "vocab": [
+              {
+                "t": "Ben",
+                "r": "Ben",
+                "en": "discourse segment in “I am a student, and you are a teacher.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "öğrenciyim",
+                "r": "öğrenciyim",
+                "en": "discourse segment in “I am a student, and you are a teacher.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "siz",
+                "r": "siz",
+                "en": "discourse segment in “I am a student, and you are a teacher.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "öğretmensiniz",
+                "r": "öğretmensiniz",
+                "en": "discourse segment in “I am a student, and you are a teacher.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "anlam",
+                "r": "anlam",
+                "en": "discourse segment in “I am a student, and you are a teacher.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "bağlam",
+                "r": "bağlam",
+                "en": "discourse segment in “I am a student, and you are a teacher.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "tutum",
+                "r": "tutum",
+                "en": "discourse segment in “I am a student, and you are a teacher.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "sonuç",
+                "r": "sonuç",
+                "en": "discourse segment in “I am a student, and you are a teacher.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Kimlik ve meslek",
+              "explain": "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+              "pattern": "topic + case-marked arguments + suffix chain + clause-final predicate",
+              "examples": [
+                {
+                  "t": "Ben öğrenciyim, siz öğretmensiniz.",
+                  "r": "Ben öğrenciyim, siz öğretmensiniz.",
+                  "en": "I am a student, and you are a teacher."
+                },
+                {
+                  "t": "Her sabah Türkçe öğreniyorum.",
+                  "r": "Her sabah Türkçe öğreniyorum.",
+                  "en": "I study Romanian every morning."
+                },
+                {
+                  "t": "Okula yakın mı oturuyorsunuz?",
+                  "r": "Okula yakın mı oturuyorsunuz?",
+                  "en": "Do you live near the school?"
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with broken harmony, case, or evidential marking",
+                  "right": "Ben öğrenciyim, siz öğretmensiniz.",
+                  "why": "The corrected model aligns suffixes and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Ben öğrenciyim, siz öğretmensiniz.",
+                "r": "Ben öğrenciyim, siz öğretmensiniz.",
+                "en": "I am a student, and you are a teacher."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Her sabah Türkçe öğreniyorum.",
+                "r": "Her sabah Türkçe öğreniyorum.",
+                "en": "I study Romanian every morning."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Okula yakın mı oturuyorsunuz?",
+                "r": "Okula yakın mı oturuyorsunuz?",
+                "en": "Do you live near the school?"
+              },
+              {
+                "sp": "Editor",
+                "t": "Bu kitabı ve şu elmayı alıyorum.",
+                "r": "Bu kitabı ve şu elmayı alıyorum.",
+                "en": "This is the book, and that is the apple."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reorder",
+                "q": "Kimlik ve meslek — reorder: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Ben öğrenciyim, siz öğretmensiniz.",
+                "answer": "Ben öğrenciyim, siz öğretmensiniz.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Kimlik ve meslek — sentence building: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Ben öğrenciyim, siz öğretmensiniz.",
+                "answer": "Ben öğrenciyim, siz öğretmensiniz.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Kimlik ve meslek — word selection: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Ben öğrenciyim, siz öğretmensiniz.",
+                "answer": "Ben öğrenciyim, siz öğretmensiniz.",
+                "skill_target": "word selection",
+                "options": [
+                  "Ben öğrenciyim, siz öğretmensiniz.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Kimlik ve meslek — error correction: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Ben öğrenciyim, siz öğretmensiniz.",
+                "answer": "Ben öğrenciyim, siz öğretmensiniz.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Kimlik ve meslek — dialogue completion: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Ben öğrenciyim, siz öğretmensiniz.",
+                "answer": "Ben öğrenciyim, siz öğretmensiniz.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Kimlik ve meslek — reading comprehension: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Ben öğrenciyim, siz öğretmensiniz.",
+                "answer": "Ben öğrenciyim, siz öğretmensiniz.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Kimlik ve meslek — paragraph comprehension: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Ben öğrenciyim, siz öğretmensiniz.",
+                "answer": "Ben öğrenciyim, siz öğretmensiniz.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Kimlik ve meslek — multiple choice: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Ben öğrenciyim, siz öğretmensiniz.",
+                "answer": "Ben öğrenciyim, siz öğretmensiniz.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Ben öğrenciyim, siz öğretmensiniz.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Kimlik ve meslek — fill in the blank: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Ben öğrenciyim, siz öğretmensiniz.",
+                "answer": "Ben öğrenciyim, siz öğretmensiniz.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Kimlik ve meslek — translation: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Ben öğrenciyim, siz öğretmensiniz.",
+                "answer": "I am a student, and you are a teacher.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Kimlik ve meslek — reverse translation: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Ben öğrenciyim, siz öğretmensiniz.",
+                "answer": "Ben öğrenciyim, siz öğretmensiniz.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Kimlik ve meslek — matching: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Ben öğrenciyim, siz öğretmensiniz.",
+                "answer": "Ben öğrenciyim, siz öğretmensiniz.",
+                "skill_target": "matching",
+                "options": [
+                  "Ben öğrenciyim, siz öğretmensiniz.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Kimlik ve meslek: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Ben öğrenciyim, siz öğretmensiniz.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Kimlik ve meslek: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Ben öğrenciyim, siz öğretmensiniz.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Kimlik ve meslek: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Ben öğrenciyim, siz öğretmensiniz.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Kimlik ve meslek: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Ben öğrenciyim, siz öğretmensiniz.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Kimlik ve meslek: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Ben öğrenciyim, siz öğretmensiniz.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Kimlik ve meslek workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate suffixes and discourse function.",
+                  "items": [
+                    "Ben öğrenciyim, siz öğretmensiniz.",
+                    "Her sabah Türkçe öğreniyorum."
+                  ],
+                  "key": [
+                    "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+                    "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Ben öğrenciyim, siz öğretmensiniz.",
+                    "Her sabah Türkçe öğreniyorum."
+                  ],
+                  "key": [
+                    "I am a student, and you are a teacher.",
+                    "I study Romanian every morning."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "I am a student, and you are a teacher.",
+                    "I study Romanian every morning."
+                  ],
+                  "key": [
+                    "Model: Ben öğrenciyim, siz öğretmensiniz.",
+                    "Model: Her sabah Türkçe öğreniyorum."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "Ben",
+              "öğrenciyim",
+              "siz",
+              "öğretmensiniz"
+            ],
+            "srs_policy": "Only high-value forms are preselected; mistakes and productive patterns enter review after learner evidence."
+          }
+        ]
+      },
+      {
+        "id": "tr-a1-u2",
+        "title": "Daily life",
+        "lessons": [
+          {
+            "id": "tr-a1-l3",
+            "title": "Günlük rutin",
+            "learn": "Control günlük rutin in level-appropriate Turkish communication.",
+            "vocab": [
+              {
+                "t": "Her",
+                "r": "Her",
+                "en": "discourse segment in “I study Romanian every morning.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "sabah",
+                "r": "sabah",
+                "en": "discourse segment in “I study Romanian every morning.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "Türkçe",
+                "r": "Türkçe",
+                "en": "discourse segment in “I study Romanian every morning.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "öğreniyorum",
+                "r": "öğreniyorum",
+                "en": "discourse segment in “I study Romanian every morning.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "anlam",
+                "r": "anlam",
+                "en": "discourse segment in “I study Romanian every morning.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "bağlam",
+                "r": "bağlam",
+                "en": "discourse segment in “I study Romanian every morning.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "tutum",
+                "r": "tutum",
+                "en": "discourse segment in “I study Romanian every morning.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "sonuç",
+                "r": "sonuç",
+                "en": "discourse segment in “I study Romanian every morning.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Günlük rutin",
+              "explain": "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+              "pattern": "topic + case-marked arguments + suffix chain + clause-final predicate",
+              "examples": [
+                {
+                  "t": "Her sabah Türkçe öğreniyorum.",
+                  "r": "Her sabah Türkçe öğreniyorum.",
+                  "en": "I study Romanian every morning."
+                },
+                {
+                  "t": "Okula yakın mı oturuyorsunuz?",
+                  "r": "Okula yakın mı oturuyorsunuz?",
+                  "en": "Do you live near the school?"
+                },
+                {
+                  "t": "Bu kitabı ve şu elmayı alıyorum.",
+                  "r": "Bu kitabı ve şu elmayı alıyorum.",
+                  "en": "This is the book, and that is the apple."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with broken harmony, case, or evidential marking",
+                  "right": "Her sabah Türkçe öğreniyorum.",
+                  "why": "The corrected model aligns suffixes and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Her sabah Türkçe öğreniyorum.",
+                "r": "Her sabah Türkçe öğreniyorum.",
+                "en": "I study Romanian every morning."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Okula yakın mı oturuyorsunuz?",
+                "r": "Okula yakın mı oturuyorsunuz?",
+                "en": "Do you live near the school?"
+              },
+              {
+                "sp": "Mediator",
+                "t": "Bu kitabı ve şu elmayı alıyorum.",
+                "r": "Bu kitabı ve şu elmayı alıyorum.",
+                "en": "This is the book, and that is the apple."
+              },
+              {
+                "sp": "Editor",
+                "t": "Pazarın yanında bir otobüs durağı var.",
+                "r": "Pazarın yanında bir otobüs durağı var.",
+                "en": "There is a bus stop near the market."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reading_comprehension",
+                "q": "Günlük rutin — reading comprehension: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Her sabah Türkçe öğreniyorum.",
+                "answer": "Her sabah Türkçe öğreniyorum.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Günlük rutin — paragraph comprehension: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Her sabah Türkçe öğreniyorum.",
+                "answer": "Her sabah Türkçe öğreniyorum.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Günlük rutin — multiple choice: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Her sabah Türkçe öğreniyorum.",
+                "answer": "Her sabah Türkçe öğreniyorum.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Her sabah Türkçe öğreniyorum.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Günlük rutin — fill in the blank: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Her sabah Türkçe öğreniyorum.",
+                "answer": "Her sabah Türkçe öğreniyorum.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Günlük rutin — translation: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Her sabah Türkçe öğreniyorum.",
+                "answer": "I study Romanian every morning.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Günlük rutin — reverse translation: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Her sabah Türkçe öğreniyorum.",
+                "answer": "Her sabah Türkçe öğreniyorum.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Günlük rutin — matching: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Her sabah Türkçe öğreniyorum.",
+                "answer": "Her sabah Türkçe öğreniyorum.",
+                "skill_target": "matching",
+                "options": [
+                  "Her sabah Türkçe öğreniyorum.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Günlük rutin — reorder: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Her sabah Türkçe öğreniyorum.",
+                "answer": "Her sabah Türkçe öğreniyorum.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Günlük rutin — sentence building: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Her sabah Türkçe öğreniyorum.",
+                "answer": "Her sabah Türkçe öğreniyorum.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Günlük rutin — word selection: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Her sabah Türkçe öğreniyorum.",
+                "answer": "Her sabah Türkçe öğreniyorum.",
+                "skill_target": "word selection",
+                "options": [
+                  "Her sabah Türkçe öğreniyorum.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Günlük rutin — error correction: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Her sabah Türkçe öğreniyorum.",
+                "answer": "Her sabah Türkçe öğreniyorum.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Günlük rutin — dialogue completion: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Her sabah Türkçe öğreniyorum.",
+                "answer": "Her sabah Türkçe öğreniyorum.",
+                "skill_target": "dialogue completion"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Günlük rutin: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Her sabah Türkçe öğreniyorum.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Günlük rutin: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Her sabah Türkçe öğreniyorum.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Günlük rutin: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Her sabah Türkçe öğreniyorum.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Günlük rutin: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Her sabah Türkçe öğreniyorum.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Günlük rutin: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Her sabah Türkçe öğreniyorum.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Günlük rutin workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate suffixes and discourse function.",
+                  "items": [
+                    "Her sabah Türkçe öğreniyorum.",
+                    "Okula yakın mı oturuyorsunuz?"
+                  ],
+                  "key": [
+                    "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+                    "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Her sabah Türkçe öğreniyorum.",
+                    "Okula yakın mı oturuyorsunuz?"
+                  ],
+                  "key": [
+                    "I study Romanian every morning.",
+                    "Do you live near the school?"
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "I study Romanian every morning.",
+                    "Do you live near the school?"
+                  ],
+                  "key": [
+                    "Model: Her sabah Türkçe öğreniyorum.",
+                    "Model: Okula yakın mı oturuyorsunuz?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "Her",
+              "sabah",
+              "Türkçe",
+              "öğreniyorum"
+            ],
+            "srs_policy": "Only high-value forms are preselected; mistakes and productive patterns enter review after learner evidence."
+          },
+          {
+            "id": "tr-a1-l4",
+            "title": "Basit sorular",
+            "learn": "Control basit sorular in level-appropriate Turkish communication.",
+            "vocab": [
+              {
+                "t": "Okula",
+                "r": "Okula",
+                "en": "discourse segment in “Do you live near the school?”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "yakın",
+                "r": "yakın",
+                "en": "discourse segment in “Do you live near the school?”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "mı",
+                "r": "mı",
+                "en": "discourse segment in “Do you live near the school?”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "oturuyorsunuz",
+                "r": "oturuyorsunuz",
+                "en": "discourse segment in “Do you live near the school?”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "anlam",
+                "r": "anlam",
+                "en": "discourse segment in “Do you live near the school?”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "bağlam",
+                "r": "bağlam",
+                "en": "discourse segment in “Do you live near the school?”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "tutum",
+                "r": "tutum",
+                "en": "discourse segment in “Do you live near the school?”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "sonuç",
+                "r": "sonuç",
+                "en": "discourse segment in “Do you live near the school?”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Basit sorular",
+              "explain": "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+              "pattern": "topic + case-marked arguments + suffix chain + clause-final predicate",
+              "examples": [
+                {
+                  "t": "Okula yakın mı oturuyorsunuz?",
+                  "r": "Okula yakın mı oturuyorsunuz?",
+                  "en": "Do you live near the school?"
+                },
+                {
+                  "t": "Bu kitabı ve şu elmayı alıyorum.",
+                  "r": "Bu kitabı ve şu elmayı alıyorum.",
+                  "en": "This is the book, and that is the apple."
+                },
+                {
+                  "t": "Pazarın yanında bir otobüs durağı var.",
+                  "r": "Pazarın yanında bir otobüs durağı var.",
+                  "en": "There is a bus stop near the market."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with broken harmony, case, or evidential marking",
+                  "right": "Okula yakın mı oturuyorsunuz?",
+                  "why": "The corrected model aligns suffixes and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Okula yakın mı oturuyorsunuz?",
+                "r": "Okula yakın mı oturuyorsunuz?",
+                "en": "Do you live near the school?"
+              },
+              {
+                "sp": "Colleague",
+                "t": "Bu kitabı ve şu elmayı alıyorum.",
+                "r": "Bu kitabı ve şu elmayı alıyorum.",
+                "en": "This is the book, and that is the apple."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Pazarın yanında bir otobüs durağı var.",
+                "r": "Pazarın yanında bir otobüs durağı var.",
+                "en": "There is a bus stop near the market."
+              },
+              {
+                "sp": "Editor",
+                "t": "Merhaba, benim adım Ayşe.",
+                "r": "Merhaba, benim adım Ayşe.",
+                "en": "Good afternoon. My name is Ana."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reverse_translation",
+                "q": "Basit sorular — reverse translation: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Okula yakın mı oturuyorsunuz?",
+                "answer": "Okula yakın mı oturuyorsunuz?",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Basit sorular — matching: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Okula yakın mı oturuyorsunuz?",
+                "answer": "Okula yakın mı oturuyorsunuz?",
+                "skill_target": "matching",
+                "options": [
+                  "Okula yakın mı oturuyorsunuz?",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Basit sorular — reorder: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Okula yakın mı oturuyorsunuz?",
+                "answer": "Okula yakın mı oturuyorsunuz?",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Basit sorular — sentence building: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Okula yakın mı oturuyorsunuz?",
+                "answer": "Okula yakın mı oturuyorsunuz?",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Basit sorular — word selection: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Okula yakın mı oturuyorsunuz?",
+                "answer": "Okula yakın mı oturuyorsunuz?",
+                "skill_target": "word selection",
+                "options": [
+                  "Okula yakın mı oturuyorsunuz?",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Basit sorular — error correction: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Okula yakın mı oturuyorsunuz?",
+                "answer": "Okula yakın mı oturuyorsunuz?",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Basit sorular — dialogue completion: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Okula yakın mı oturuyorsunuz?",
+                "answer": "Okula yakın mı oturuyorsunuz?",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Basit sorular — reading comprehension: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Okula yakın mı oturuyorsunuz?",
+                "answer": "Okula yakın mı oturuyorsunuz?",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Basit sorular — paragraph comprehension: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Okula yakın mı oturuyorsunuz?",
+                "answer": "Okula yakın mı oturuyorsunuz?",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Basit sorular — multiple choice: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Okula yakın mı oturuyorsunuz?",
+                "answer": "Okula yakın mı oturuyorsunuz?",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Okula yakın mı oturuyorsunuz?",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Basit sorular — fill in the blank: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Okula yakın mı oturuyorsunuz?",
+                "answer": "Okula yakın mı oturuyorsunuz?",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Basit sorular — translation: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Okula yakın mı oturuyorsunuz?",
+                "answer": "Do you live near the school?",
+                "skill_target": "translation"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Basit sorular: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Okula yakın mı oturuyorsunuz?",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Basit sorular: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Okula yakın mı oturuyorsunuz?",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Basit sorular: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Okula yakın mı oturuyorsunuz?",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Basit sorular: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Okula yakın mı oturuyorsunuz?",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Basit sorular: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Okula yakın mı oturuyorsunuz?",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Basit sorular workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate suffixes and discourse function.",
+                  "items": [
+                    "Okula yakın mı oturuyorsunuz?",
+                    "Bu kitabı ve şu elmayı alıyorum."
+                  ],
+                  "key": [
+                    "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+                    "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Okula yakın mı oturuyorsunuz?",
+                    "Bu kitabı ve şu elmayı alıyorum."
+                  ],
+                  "key": [
+                    "Do you live near the school?",
+                    "This is the book, and that is the apple."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "Do you live near the school?",
+                    "This is the book, and that is the apple."
+                  ],
+                  "key": [
+                    "Model: Okula yakın mı oturuyorsunuz?",
+                    "Model: Bu kitabı ve şu elmayı alıyorum."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "Okula",
+              "yakın",
+              "mı",
+              "oturuyorsunuz"
+            ],
+            "srs_policy": "Only high-value forms are preselected; mistakes and productive patterns enter review after learner evidence."
+          }
+        ]
+      },
+      {
+        "id": "tr-a1-u3",
+        "title": "Describing words",
+        "lessons": [
+          {
+            "id": "tr-a1-l5",
+            "title": "Belirtme durumu",
+            "learn": "Control belirtme durumu in level-appropriate Turkish communication.",
+            "vocab": [
+              {
+                "t": "Bu",
+                "r": "Bu",
+                "en": "discourse segment in “This is the book, and that is the apple.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "kitabı",
+                "r": "kitabı",
+                "en": "discourse segment in “This is the book, and that is the apple.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ve",
+                "r": "ve",
+                "en": "discourse segment in “This is the book, and that is the apple.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "şu",
+                "r": "şu",
+                "en": "discourse segment in “This is the book, and that is the apple.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "elmayı",
+                "r": "elmayı",
+                "en": "discourse segment in “This is the book, and that is the apple.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "alıyorum",
+                "r": "alıyorum",
+                "en": "discourse segment in “This is the book, and that is the apple.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "anlam",
+                "r": "anlam",
+                "en": "discourse segment in “This is the book, and that is the apple.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "bağlam",
+                "r": "bağlam",
+                "en": "discourse segment in “This is the book, and that is the apple.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Belirtme durumu",
+              "explain": "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+              "pattern": "topic + case-marked arguments + suffix chain + clause-final predicate",
+              "examples": [
+                {
+                  "t": "Bu kitabı ve şu elmayı alıyorum.",
+                  "r": "Bu kitabı ve şu elmayı alıyorum.",
+                  "en": "This is the book, and that is the apple."
+                },
+                {
+                  "t": "Pazarın yanında bir otobüs durağı var.",
+                  "r": "Pazarın yanında bir otobüs durağı var.",
+                  "en": "There is a bus stop near the market."
+                },
+                {
+                  "t": "Merhaba, benim adım Ayşe.",
+                  "r": "Merhaba, benim adım Ayşe.",
+                  "en": "Good afternoon. My name is Ana."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with broken harmony, case, or evidential marking",
+                  "right": "Bu kitabı ve şu elmayı alıyorum.",
+                  "why": "The corrected model aligns suffixes and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Bu kitabı ve şu elmayı alıyorum.",
+                "r": "Bu kitabı ve şu elmayı alıyorum.",
+                "en": "This is the book, and that is the apple."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Pazarın yanında bir otobüs durağı var.",
+                "r": "Pazarın yanında bir otobüs durağı var.",
+                "en": "There is a bus stop near the market."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Merhaba, benim adım Ayşe.",
+                "r": "Merhaba, benim adım Ayşe.",
+                "en": "Good afternoon. My name is Ana."
+              },
+              {
+                "sp": "Editor",
+                "t": "Ben öğrenciyim, siz öğretmensiniz.",
+                "r": "Ben öğrenciyim, siz öğretmensiniz.",
+                "en": "I am a student, and you are a teacher."
+              }
+            ],
+            "practice": [
+              {
+                "type": "error_correction",
+                "q": "Belirtme durumu — error correction: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Bu kitabı ve şu elmayı alıyorum.",
+                "answer": "Bu kitabı ve şu elmayı alıyorum.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Belirtme durumu — dialogue completion: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Bu kitabı ve şu elmayı alıyorum.",
+                "answer": "Bu kitabı ve şu elmayı alıyorum.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Belirtme durumu — reading comprehension: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Bu kitabı ve şu elmayı alıyorum.",
+                "answer": "Bu kitabı ve şu elmayı alıyorum.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Belirtme durumu — paragraph comprehension: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Bu kitabı ve şu elmayı alıyorum.",
+                "answer": "Bu kitabı ve şu elmayı alıyorum.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Belirtme durumu — multiple choice: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Bu kitabı ve şu elmayı alıyorum.",
+                "answer": "Bu kitabı ve şu elmayı alıyorum.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Bu kitabı ve şu elmayı alıyorum.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Belirtme durumu — fill in the blank: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Bu kitabı ve şu elmayı alıyorum.",
+                "answer": "Bu kitabı ve şu elmayı alıyorum.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Belirtme durumu — translation: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Bu kitabı ve şu elmayı alıyorum.",
+                "answer": "This is the book, and that is the apple.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Belirtme durumu — reverse translation: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Bu kitabı ve şu elmayı alıyorum.",
+                "answer": "Bu kitabı ve şu elmayı alıyorum.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Belirtme durumu — matching: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Bu kitabı ve şu elmayı alıyorum.",
+                "answer": "Bu kitabı ve şu elmayı alıyorum.",
+                "skill_target": "matching",
+                "options": [
+                  "Bu kitabı ve şu elmayı alıyorum.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Belirtme durumu — reorder: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Bu kitabı ve şu elmayı alıyorum.",
+                "answer": "Bu kitabı ve şu elmayı alıyorum.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Belirtme durumu — sentence building: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Bu kitabı ve şu elmayı alıyorum.",
+                "answer": "Bu kitabı ve şu elmayı alıyorum.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Belirtme durumu — word selection: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Bu kitabı ve şu elmayı alıyorum.",
+                "answer": "Bu kitabı ve şu elmayı alıyorum.",
+                "skill_target": "word selection",
+                "options": [
+                  "Bu kitabı ve şu elmayı alıyorum.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Belirtme durumu: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Bu kitabı ve şu elmayı alıyorum.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Belirtme durumu: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Bu kitabı ve şu elmayı alıyorum.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Belirtme durumu: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Bu kitabı ve şu elmayı alıyorum.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Belirtme durumu: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Bu kitabı ve şu elmayı alıyorum.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Belirtme durumu: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Bu kitabı ve şu elmayı alıyorum.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Belirtme durumu workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate suffixes and discourse function.",
+                  "items": [
+                    "Bu kitabı ve şu elmayı alıyorum.",
+                    "Pazarın yanında bir otobüs durağı var."
+                  ],
+                  "key": [
+                    "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+                    "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Bu kitabı ve şu elmayı alıyorum.",
+                    "Pazarın yanında bir otobüs durağı var."
+                  ],
+                  "key": [
+                    "This is the book, and that is the apple.",
+                    "There is a bus stop near the market."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "This is the book, and that is the apple.",
+                    "There is a bus stop near the market."
+                  ],
+                  "key": [
+                    "Model: Bu kitabı ve şu elmayı alıyorum.",
+                    "Model: Pazarın yanında bir otobüs durağı var."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "Bu",
+              "kitabı",
+              "ve",
+              "şu"
+            ],
+            "srs_policy": "Only high-value forms are preselected; mistakes and productive patterns enter review after learner evidence."
+          },
+          {
+            "id": "tr-a1-l6",
+            "title": "Yer ve bulunma",
+            "learn": "Control yer ve bulunma in level-appropriate Turkish communication.",
+            "vocab": [
+              {
+                "t": "Pazarın",
+                "r": "Pazarın",
+                "en": "discourse segment in “There is a bus stop near the market.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "yanında",
+                "r": "yanında",
+                "en": "discourse segment in “There is a bus stop near the market.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "bir",
+                "r": "bir",
+                "en": "discourse segment in “There is a bus stop near the market.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "otobüs",
+                "r": "otobüs",
+                "en": "discourse segment in “There is a bus stop near the market.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "durağı",
+                "r": "durağı",
+                "en": "discourse segment in “There is a bus stop near the market.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "var",
+                "r": "var",
+                "en": "discourse segment in “There is a bus stop near the market.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "anlam",
+                "r": "anlam",
+                "en": "discourse segment in “There is a bus stop near the market.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "bağlam",
+                "r": "bağlam",
+                "en": "discourse segment in “There is a bus stop near the market.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Yer ve bulunma",
+              "explain": "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+              "pattern": "topic + case-marked arguments + suffix chain + clause-final predicate",
+              "examples": [
+                {
+                  "t": "Pazarın yanında bir otobüs durağı var.",
+                  "r": "Pazarın yanında bir otobüs durağı var.",
+                  "en": "There is a bus stop near the market."
+                },
+                {
+                  "t": "Merhaba, benim adım Ayşe.",
+                  "r": "Merhaba, benim adım Ayşe.",
+                  "en": "Good afternoon. My name is Ana."
+                },
+                {
+                  "t": "Ben öğrenciyim, siz öğretmensiniz.",
+                  "r": "Ben öğrenciyim, siz öğretmensiniz.",
+                  "en": "I am a student, and you are a teacher."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with broken harmony, case, or evidential marking",
+                  "right": "Pazarın yanında bir otobüs durağı var.",
+                  "why": "The corrected model aligns suffixes and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Pazarın yanında bir otobüs durağı var.",
+                "r": "Pazarın yanında bir otobüs durağı var.",
+                "en": "There is a bus stop near the market."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Merhaba, benim adım Ayşe.",
+                "r": "Merhaba, benim adım Ayşe.",
+                "en": "Good afternoon. My name is Ana."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Ben öğrenciyim, siz öğretmensiniz.",
+                "r": "Ben öğrenciyim, siz öğretmensiniz.",
+                "en": "I am a student, and you are a teacher."
+              },
+              {
+                "sp": "Editor",
+                "t": "Her sabah Türkçe öğreniyorum.",
+                "r": "Her sabah Türkçe öğreniyorum.",
+                "en": "I study Romanian every morning."
+              }
+            ],
+            "practice": [
+              {
+                "type": "fill_in_the_blank",
+                "q": "Yer ve bulunma — fill in the blank: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Pazarın yanında bir otobüs durağı var.",
+                "answer": "Pazarın yanında bir otobüs durağı var.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Yer ve bulunma — translation: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Pazarın yanında bir otobüs durağı var.",
+                "answer": "There is a bus stop near the market.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Yer ve bulunma — reverse translation: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Pazarın yanında bir otobüs durağı var.",
+                "answer": "Pazarın yanında bir otobüs durağı var.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Yer ve bulunma — matching: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Pazarın yanında bir otobüs durağı var.",
+                "answer": "Pazarın yanında bir otobüs durağı var.",
+                "skill_target": "matching",
+                "options": [
+                  "Pazarın yanında bir otobüs durağı var.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Yer ve bulunma — reorder: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Pazarın yanında bir otobüs durağı var.",
+                "answer": "Pazarın yanında bir otobüs durağı var.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Yer ve bulunma — sentence building: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Pazarın yanında bir otobüs durağı var.",
+                "answer": "Pazarın yanında bir otobüs durağı var.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Yer ve bulunma — word selection: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Pazarın yanında bir otobüs durağı var.",
+                "answer": "Pazarın yanında bir otobüs durağı var.",
+                "skill_target": "word selection",
+                "options": [
+                  "Pazarın yanında bir otobüs durağı var.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Yer ve bulunma — error correction: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Pazarın yanında bir otobüs durağı var.",
+                "answer": "Pazarın yanında bir otobüs durağı var.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Yer ve bulunma — dialogue completion: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Pazarın yanında bir otobüs durağı var.",
+                "answer": "Pazarın yanında bir otobüs durağı var.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Yer ve bulunma — reading comprehension: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Pazarın yanında bir otobüs durağı var.",
+                "answer": "Pazarın yanında bir otobüs durağı var.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Yer ve bulunma — paragraph comprehension: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Pazarın yanında bir otobüs durağı var.",
+                "answer": "Pazarın yanında bir otobüs durağı var.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Yer ve bulunma — multiple choice: analyse or produce the Turkish model with correct suffixes, evidence, scope, and register: Pazarın yanında bir otobüs durağı var.",
+                "answer": "Pazarın yanında bir otobüs durağı var.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Pazarın yanında bir otobüs durağı var.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Yer ve bulunma: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Pazarın yanında bir otobüs durağı var.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Yer ve bulunma: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Pazarın yanında bir otobüs durağı var.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Yer ve bulunma: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Pazarın yanında bir otobüs durağı var.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Yer ve bulunma: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Pazarın yanında bir otobüs durağı var.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              },
+              {
+                "q": "Yer ve bulunma: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Pazarın yanında bir otobüs durağı var.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with the wrong evidential suffix"
+                ],
+                "answer": 0,
+                "why": "The model preserves Turkish morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Yer ve bulunma workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate suffixes and discourse function.",
+                  "items": [
+                    "Pazarın yanında bir otobüs durağı var.",
+                    "Merhaba, benim adım Ayşe."
+                  ],
+                  "key": [
+                    "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+                    "Turkish combines agglutinative suffix order, vowel harmony, case, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Pazarın yanında bir otobüs durağı var.",
+                    "Merhaba, benim adım Ayşe."
+                  ],
+                  "key": [
+                    "There is a bus stop near the market.",
+                    "Good afternoon. My name is Ana."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "There is a bus stop near the market.",
+                    "Good afternoon. My name is Ana."
+                  ],
+                  "key": [
+                    "Model: Pazarın yanında bir otobüs durağı var.",
+                    "Model: Merhaba, benim adım Ayşe."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "Pazarın",
+              "yanında",
+              "bir",
+              "otobüs"
+            ],
+            "srs_policy": "Only high-value forms are preselected; mistakes and productive patterns enter review after learner evidence."
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "A1 final test",
+      "items": [
+        {
+          "type": "sentence_writing",
+          "q": "Turkish A1 integrated task 1: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Turkish course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Turkish A1 integrated task 2: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Turkish course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Turkish A1 integrated task 3: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Turkish course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Turkish A1 integrated task 4: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Turkish course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Turkish A1 integrated task 5: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Turkish course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Turkish A1 integrated task 6: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Turkish course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Turkish A1 integrated task 7: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Turkish course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Turkish A1 integrated task 8: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Turkish course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Turkish A1 integrated task 9: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Turkish course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Turkish A1 integrated task 10: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Turkish course rubric."
+        }
+      ]
+    }
+  },
+  "research_basis": "data/language-research/tr.json"
+}
