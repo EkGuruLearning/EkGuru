@@ -54,6 +54,27 @@ for a new page:
 * **Motion hooks** — `.xp-rise`, `.xp-stagger`, `.reveal` (all opt-in via JS),
   `.xp-sheen`
 
+## The header on a phone
+
+The six translated pages carry their own header and deliberately do not load
+`js/main.js` (it expects to run from the site root). Until v200 that left them
+with no burger: at 390px four links and a pill-button wrapped into two ragged
+rows and the booking button was clipped off the right edge.
+
+Each of those headers now carries a `.burger`, and `js/experience.js` §11 wires
+the drawer — the same panel the English pages get from `main.js`, from the same
+shell stylesheet. The two can never fight: if `main.js` has already bound the
+header it gives the nav an `id`, and §11 then returns without touching it.
+
+Below 1200px the nav is a drawer on every page. Between 1201 and 1300px it is
+at its tightest, so §20b trims the link gap by 4px rather than let the first
+link slide under the logo.
+
+Gate: `node tools/check-header-pages.mjs --url http://127.0.0.1:8080`
+(puppeteer-core; `--ld-library-path` if the browser lives outside the loader
+path) — 8 pages × 12 widths, no overlap, no viewport overflow, drawer opens
+and closes with the right ARIA state.
+
 ## The artwork
 
 ```html

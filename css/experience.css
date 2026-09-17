@@ -2882,39 +2882,28 @@ html[dir="rtl"] .xp-visual .xp-medallion {
 /* --------------------------------------------------------------------------
    20b. MARKET HEADER ON A PHONE
    --------------------------------------------------------------------------
-   The six translated pages carry their own header from the pre-shell era: no
-   burger, four items, one of them a pill-button. At 390px it wrapped into two
-   ragged rows. The nav scrolls sideways instead — every link stays reachable
-   with one thumb, and the button keeps its shape.
+   The six translated pages carry their own header from the pre-shell era: the
+   shell drawer CSS applies to .nav, but the markup had no burger to open it,
+   so at 390px four items and a pill-button wrapped into two ragged rows and
+   the button was clipped off the right edge.
+
+   The header now carries a burger (added by tools/build-market-pages.js for
+   regenerated pages, and by the same insert on the hand-written ones).
+   js/experience.js §11 wires it, because these pages deliberately do not load
+   js/main.js. The rules below only keep the bar a single row so the drawer's
+   top offset stays right; the drawer itself is the shell's.
    -------------------------------------------------------------------------- */
 
-@media (max-width: 760px) {
-  body.xp-market .hdr .hdr-in {
-    height: auto;
-    min-height: 62px;
-    flex-wrap: wrap;
-    padding-block: 10px;
-    gap: 10px;
-  }
-
-  body.xp-market .hdr .nav {
-    order: 3;
-    width: 100%;
-    flex-wrap: nowrap;
-    margin-inline-start: 0;
-    gap: 4px;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  body.xp-market .hdr .nav::-webkit-scrollbar { display: none; }
-
-  body.xp-market .hdr .nav a {
-    padding: 8px 12px;
-    font-size: .9rem;
-    white-space: nowrap;
-  }
-
-  body.xp-market .hdr .nav a.btn { min-height: 40px; }
+body.xp-market .hdr .hdr-in {
+  flex-wrap: nowrap;
 }
+
+/* 1201–1300px is the header's tightest band: the drawer starts at 1200, so
+   there is no burger yet, and the seven links plus the search, language and
+   currency controls are a few pixels wider than the bar. Without this the
+   first link slides out of the nav box and under the logo. */
+@media (min-width: 1201px) and (max-width: 1300px) {
+  .hdr .nav { gap: 6px; }
+  .hdr .nav a { padding-inline: 10px; }
+}
+

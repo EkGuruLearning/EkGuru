@@ -44,7 +44,7 @@ const PAGES = {
   join: "/join.html"
 };
 const WIDTHS = [320, 375, 390, 480, 640, 900, 1000, 1100, 1200, 1220, 1366, 1920];
-const WITH_BURGER = new Set(["index", "find", "tutor", "join"]);
+const WITH_BURGER = new Set(["index", "find", "tutor", "join", "ar", "de", "arjoin"]);
 const TOL = 2;
 
 const JS = `() => {

@@ -74,6 +74,9 @@
 <header class="hdr"><div class="hdr-in">
   <a class="logo" href="../index.html?lang=ar"><span class="logo-mark" aria-hidden="true">E</span>
   <span>EkGuru<small>One Student. One Guru. One Goal.</small></span></a>
+  <!-- v200 — these pages do not load js/main.js, so the drawer
+       behaviour is wired by js/experience.js instead. -->
+  <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
   <nav class="nav" aria-label="Main">
     <a href="./">الرئيسية</a>
     <a href="find-tutors.html">ابحث عن معلم</a>
@@ -83,6 +86,11 @@
 </div></header>
 
 <main class="lp-wrap">
+  <!-- The market emblem: the same drawing the home page uses,
+       faint and out of the way of the text. Alt is empty — the
+       heading already says what the page is. -->
+  <img class="xp-world xp-world-bleed" data-xp-world="ar" src="../images/xp/world-ar.svg"
+       alt="" aria-hidden="true" width="430" height="430" loading="lazy" decoding="async">
   <p class="lp-note">
     <a href="../index.html?lang=ar"><strong>احجز درساً تجريبياً →</strong></a>
   </p>

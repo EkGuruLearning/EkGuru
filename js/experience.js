@@ -682,11 +682,73 @@
 
   API.revealAll = revealAll;
 
+  /* ======================================================================
+     11. THE HEADER DRAWER ON THE TRANSLATED PAGES  (es fr de pt ja ar)
+     ----------------------------------------------------------------------
+     js/main.js wires the burger on the English pages, but the translated
+     pages deliberately do not load it: it expects to run from the site root.
+     Their header then had no burger at all, so on a phone four items and a
+     pill-button wrapped into two ragged rows and the button was clipped off
+     the right edge.
+
+     The drawer CSS already ships in the shell stylesheet. All that was
+     missing was something to open it. If js/main.js did bind the header it
+     has already given the nav an id — then we leave it alone, so the two can
+     never fight over aria-expanded.
+     ====================================================================== */
+
+  function initNav() {
+    var nav = $(".hdr .nav"), burger = $(".hdr .burger");
+    if (!nav || !burger || nav.id) return;
+
+    var MENU = { es: "Menú", fr: "Menu", de: "Menü", pt: "Menu",
+                 ja: "メニュー", ar: "القائمة", hi: "मेनू" };
+    if (burger.getAttribute("aria-label") === "Menu") {
+      burger.setAttribute("aria-label", MENU[lang] || "Menu");
+    }
+
+    nav.id = "primary-nav";
+    burger.setAttribute("aria-controls", nav.id);
+
+    var backdrop = $(".nav-backdrop");
+    if (!backdrop) {
+      backdrop = doc.createElement("div");
+      backdrop.className = "nav-backdrop";
+      backdrop.setAttribute("aria-hidden", "true");
+      doc.body.appendChild(backdrop);
+    }
+
+    var open = false;
+
+    function set(next) {
+      open = next;
+      nav.classList.toggle("open", open);
+      doc.body.classList.toggle("nav-open", open);
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
+      backdrop.setAttribute("aria-hidden", open ? "false" : "true");
+    }
+
+    on(burger, "click", function (e) { e.stopPropagation(); set(!open); });
+    on(nav, "click", function (e) {
+      var a = e.target && e.target.closest ? e.target.closest("a") : null;
+      if (a && open) set(false);
+    });
+    on(doc, "click", function (e) {
+      if (open && !nav.contains(e.target) && !burger.contains(e.target)) set(false);
+    });
+    on(doc, "keydown", function (e) {
+      if (e.key === "Escape" && open) { set(false); burger.focus(); }
+    });
+    /* Growing past the drawer breakpoint (1200px, the same one main.js uses)
+       must unlock the page, or a visitor who resized cannot scroll. */
+    on(root, "resize", function () { if (open && root.innerWidth > 1200) set(false); });
+  }
+
   function boot() {
     /* initLanding first: it attaches the xp-rise / xp-stagger hooks that
        initMotion then observes, and adds the letter band initLetters fills. */
-    var jobs = [initLanding, initWorld, initMotion, initProgress, initLetters, initRail,
-                initKeys, initHomeSuggest, initPrefetch, initCopy];
+    var jobs = [initNav, initLanding, initWorld, initMotion, initProgress, initLetters,
+                initRail, initKeys, initHomeSuggest, initPrefetch, initCopy];
     jobs.forEach(function (job) {
       try { job(); } catch (e) {
         /* One failed enhancement must never stop the others, and must never
