@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "language": {"code": "fil", "name": "Filipino", "native_name": "Filipino", "family": "Austronesian: Malayo-Polynesian", "script": "Latin", "direction": "ltr", "canonical_note": "Canonical Filipino course; do not duplicate it as a country-specific Tagalog entity."},
+  "inventory_priority": {"language_id": "lang:fil", "priority": "P0", "score": 75, "countries": ["PH", "AE", "KW", "QA", "SA"]},
+  "orthography_pronunciation": {"system": "KWF Ortograpiyang Pambansa; modern 28-letter alphabet", "needs": ["five-vowel system", "ng as a unit in native vocabulary", "stress and glottal stop contrasts", "linking and connected speech", "loanword spelling and code-switching awareness"], "voice_strategy": "Synthetic Filipino browser voice when available; fallback must be disclosed, never described as native recording."},
+  "grammar": ["predicate-initial clauses and marked topic alternatives", "ang/ng/sa phrase marking", "actor and undergoer voice with um/mag/in/i and related affixes", "completed, progressive, contemplated and infinitive aspect", "na/-ng linker", "personal and demonstrative pronoun sets", "enclitic particle ordering", "relative/linking clauses", "causative and abilitative morphology"],
+  "register_pragmatics": ["po/opo and respectful pronouns", "indirect requests", "reported daw/raw", "limiting lang/lamang", "stance particles nga, pala, yata, naman", "formal official correspondence", "Taglish and regional variation treated descriptively rather than as deficiency"],
+  "CEFR_progression": {"A1": "sound-spelling, introductions, ang phrases, basic predicates, po/ba", "A2": "aspect in routines/events, quantity, directions, requests", "B1": "voice choice, relative clauses, narration, reported information", "B2": "complex aspect/voice, stance particles, formal-informal transformation", "C1": "academic synthesis, official communication, controlled voice and register", "C2": "scope, implication, rhetoric, idiom, genre transformation and cultural pragmatics"},
+  "sources": [
+    {"title": "KWF Manwal sa Masinop na Pagsulat / Ortograpiyang Pambansa", "url": "https://kwf.gov.ph/wp-content/uploads/MMP_Full.pdf", "use": "official orthography and careful writing"},
+    {"title": "KWF Sangay ng Salita at Gramatika", "url": "https://kwf.gov.ph/sangay-ng-salita-at-gramatika-ssg/", "use": "institutional grammar, dictionary and orthography remit"},
+    {"title": "Bondoc, O’Grady and Deen: Tagalog voice and relativisation", "url": "http://www2.hawaii.edu/~kamil/Bondoc_OGrady_Deen2018.pdf", "use": "symmetrical voice, phrase marking and relative-clause evidence"},
+    {"title": "CEFR Companion Volume 2020", "url": "https://rm.coe.int/cefr-companion-volume-with-new-descriptors-2020/16809ea0d4", "use": "mediation, interaction, production and phonological progression"}
+  ],
+  "reviewed_at": "2026-09-17"
+}
