@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "language": {"code": "pl", "name": "Polish", "native_name": "polski", "family": "Indo-European: West Slavic", "script": "Latin", "direction": "ltr"},
+  "inventory_priority": {"language_id": "lang:pol", "priority": "P1", "score": 75, "countries": ["PL", "CZ", "BY", "UA", "GB", "IE", "IS", "LT", "NO"]},
+  "orthography_pronunciation": {"needs": ["ą/ę nasal-vowel outcomes", "cz/sz/ż-rz versus ć/ś/ź contrasts", "ł versus l", "three i-like spellings and palatalisation", "consonant clusters and final devoicing", "predictable penultimate stress with exceptions"], "voice_strategy": "Synthetic pl-PL browser voice, explicitly labelled; never claim native recording."},
+  "grammar": {"nominal": ["seven cases", "three singular genders", "masculine-personal versus non-masculine-personal plural", "adjective/pronoun/numeral agreement", "case government by prepositions and verbs"], "verbal": ["perfective/imperfective lexical aspect pairs", "present, past and compound future", "conditional particle by", "imperative", "verbs of motion and prefixes", "participles and impersonal -no/-to forms"], "syntax_discourse": ["relatively flexible order controlled by topic/focus", "genitive under negation and quantity", "relative który and co constructions", "clitic placement", "reported stance and evidential adverbs"]},
+  "register_pragmatics": ["ty versus pan/pani/państwo address", "vocative in direct address", "conditional requests", "formal correspondence", "diminutives as affective/pragmatic choices", "aspect choice in requests", "regional and diaspora variation"],
+  "CEFR_progression": {"A1": "sound-spelling, introductions, nominative/instrumental identity, present tense and basic accusative", "A2": "past/future, genitive, locative, motion and practical aspect", "B1": "case system integration, aspect pairs, conditional, relative clauses and narration", "B2": "prefixed motion, participles, impersonal constructions, information structure and register", "C1": "academic nominal style, synthesis, mediation, controlled aspect and stance", "C2": "negation/quantifier scope, implication, rhetoric, idiom, genre transformation and fine register control"},
+  "country_relationship_source": "data/global/language-country-relations.json",
+  "sources": [
+    {"title": "Polish Language Council (Rada Języka Polskiego)", "url": "https://rjp.pan.pl/", "use": "authoritative contemporary standard and usage guidance"},
+    {"title": "Polish grammar guide: case and aspect overview", "url": "https://www.lets-learn.eu/polish/guide", "use": "seven cases and aspect overview"},
+    {"title": "Polish case system overview", "url": "https://elon.io/grammar/polish/cases/overview", "use": "case functions, triggers and learner contrasts"},
+    {"title": "CEFR Companion Volume 2020", "url": "https://rm.coe.int/cefr-companion-volume-with-new-descriptors-2020/16809ea0d4", "use": "mediation, interaction, production and phonological progression"}
+  ],
+  "reviewed_at": "2026-09-17"
+}
