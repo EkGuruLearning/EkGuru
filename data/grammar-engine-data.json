@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "generated": "2026-09-12T00:00:00Z",
+  "source_language": "en",
+  "target_language": "hi",
+  "purpose": "Data-driven grammar engine (§29). Six authored concepts, each pointing at a real published lesson. Concept / pattern / examples / exceptions / learner note / common mistakes / level / prerequisite — conservative, checked Hindi, nothing invented.",
+  "concepts": [
+    {
+      "id": "sov-word-order",
+      "concept": "Word order — the verb goes last",
+      "pattern": "Subject + Object + Verb  (मैं रोटी खाता हूँ)",
+      "examples": [
+        { "target": "मैं रोटी खाता हूँ।", "roman": "main roti khaata hoon", "gloss": "I bread eat am — “I eat bread.”" },
+        { "target": "वह किताब पढ़ती है।", "roman": "vah kitaab padhti hai", "gloss": "she book reads — “She reads a book.”" },
+        { "target": "हम दिल्ली में रहते हैं।", "roman": "ham dilli mein rahte hain", "gloss": "we Delhi in live — “We live in Delhi.”" }
+      ],
+      "exceptions": ["Yes/no questions put क्या (kya) at the front: क्या आप अंग्रेज़ी बोलते हैं?", "Question words (कहाँ, क्या, कब) sit just before the verb: यह क्या है?"],
+      "learnerNote": "Hindi is Subject–Object–Verb. The single biggest habit to break is the English Subject–Verb–Object order.",
+      "commonMistakes": ["Copying English order: मैं खाता रोटी", "Putting the verb in the middle of the sentence"],
+      "level": "beginner",
+      "prerequisite": null,
+      "sourceUrl": "/learn/hindi-sentence-structure/",
+      "sourceTitle": "Hindi Sentence Structure"
+    },
+    {
+      "id": "noun-gender",
+      "concept": "Gender — every noun is masculine or feminine",
+      "pattern": "-आ (-aa) nouns are usually masculine · -ई (-ii) nouns are usually feminine",
+      "examples": [
+        { "target": "लड़का", "roman": "ladka", "gloss": "boy — masculine (-aa)" },
+        { "target": "लड़की", "roman": "ladki", "gloss": "girl — feminine (-ii)" },
+        { "target": "घर", "roman": "ghar", "gloss": "house — masculine (consonant ending, the default)" }
+      ],
+      "exceptions": ["किताब (kitaab, “book”) is feminine even though it ends in a consonant.", "Some -aa nouns are feminine and some -ii nouns are masculine — memorise the exceptions as you meet them."],
+      "learnerNote": "Gender controls the adjective and verb forms that agree with the noun, so it has to be learned with every new word.",
+      "commonMistakes": ["Assuming Hindi has no gender because English doesn't", "Forgetting that the verb ending changes with the speaker's own gender (मैं जाता हूँ vs मैं जाती हूँ)"],
+      "level": "elementary",
+      "prerequisite": "sov-word-order",
+      "sourceUrl": "/learn/hindi-gender-masculine-feminine/",
+      "sourceTitle": "Hindi Gender: Masculine and Feminine"
+    },
+    {
+      "id": "postpositions",
+      "concept": "Postpositions — the little words come after the noun",
+      "pattern": "noun + postposition (में, से, को, पर, का) — not before",
+      "examples": [
+        { "target": "दिल्ली में", "roman": "dilli mein", "gloss": "Delhi in — “in Delhi”" },
+        { "target": "मुझे पानी चाहिए।", "roman": "mujhe paani chaahiye", "gloss": "to-me water is-wanted — “I need water.”" },
+        { "target": "घर से", "roman": "ghar se", "gloss": "house from — “from home”" }
+      ],
+      "exceptions": ["का (ka) agrees with the following noun: का / के / की — मेरा घर (my house), मेरी किताब (my book)."],
+      "learnerNote": "English puts little words before nouns (in, on, for); Hindi puts them after. Postpositions carry most of the grammar of possession and location.",
+      "commonMistakes": ["Saying में दिल्ली (in Delhi) instead of दिल्ली में (Delhi in)"],
+      "level": "beginner",
+      "prerequisite": "sov-word-order",
+      "sourceUrl": "/materials/grammar/postpositions/",
+      "sourceTitle": "Hindi Postpositions — ka, ko, se, meṃ, par"
+    },
+    {
+      "id": "verb-agreement",
+      "concept": "Verb agreement — the verb matches the subject's gender and number",
+      "pattern": "male speaker: -ता (jaata) · female speaker: -ती (jaati) · polite you/they: -ते (jaate)",
+      "examples": [
+        { "target": "मैं जाता हूँ।", "roman": "main jaata hoon", "gloss": "I go (male speaker)" },
+        { "target": "मैं जाती हूँ।", "roman": "main jaati hoon", "gloss": "I go (female speaker)" },
+        { "target": "आप जाते हैं।", "roman": "aap jaate hain", "gloss": "you go (polite / plural)" }
+      ],
+      "exceptions": ["With transitive verbs in the past tense, the -आ ending agrees with the object instead, and the subject takes ने: मैंने रोटी खाई."],
+      "learnerNote": "The verb ending changes with who is speaking, not just who is doing the action — a woman says मैं जाती हूँ, a man says मैं जाता हूँ.",
+      "commonMistakes": ["Using the -ता form when a woman is speaking", "Forgetting आप always takes the polite plural form आप … हैं"],
+      "level": "elementary",
+      "prerequisite": "noun-gender",
+      "sourceUrl": "/learn/hindi-verbs-present-past-future/",
+      "sourceTitle": "Hindi Verbs: Present, Past and Future"
+    },
+    {
+      "id": "plural-forms",
+      "concept": "Plurals — masculine -आ → -ए, feminine -ई → -ियाँ",
+      "pattern": "लड़का → लड़के · लड़की → लड़कियाँ",
+      "examples": [
+        { "target": "लड़का → लड़के", "roman": "ladka → ladke", "gloss": "boy → boys" },
+        { "target": "लड़की → लड़कियाँ", "roman": "ladki → ladkiyaan", "gloss": "girl → girls" },
+        { "target": "किताब → किताबें", "roman": "kitaab → kitaabein", "gloss": "book → books" }
+      ],
+      "exceptions": ["Masculine consonant-ending nouns take -ों in the oblique plural: लड़कों (ladkon).", "Feminine consonant-ending nouns like किताब take -ें: किताबें."],
+      "learnerNote": "The plural pattern depends on the noun's gender and ending — learn the pair together (लड़का/लड़के, लड़की/लड़कियाँ).",
+      "commonMistakes": ["Applying the -ए plural to feminine nouns", "Using the direct plural where Hindi needs the oblique form (मेरे दोस्तों के साथ)"],
+      "level": "beginner",
+      "prerequisite": "noun-gender",
+      "sourceUrl": "/learn/hindi-gender-masculine-feminine/",
+      "sourceTitle": "Hindi Gender: Masculine and Feminine"
+    },
+    {
+      "id": "polite-register",
+      "concept": "Politeness — three words for “you”",
+      "pattern": "आप (aap) polite · तुम (tum) familiar · तू (tu) intimate — and the verb changes with each",
+      "examples": [
+        { "target": "आप कैसे हैं?", "roman": "aap kaise hain?", "gloss": "how are you? — polite, safe with anyone" },
+        { "target": "तुम कैसे हो?", "roman": "tum kaise ho?", "gloss": "how are you? — familiar, for friends" },
+        { "target": "तू कैसा है?", "roman": "tu kaisa hai?", "gloss": "how are you? — intimate, only with very close people" }
+      ],
+      "exceptions": ["Using तू with a stranger is genuinely rude; using आप with your own small child is stiff but never wrong."],
+      "learnerNote": "When in doubt, use आप. It is never a mistake to be too polite in Hindi.",
+      "commonMistakes": ["Using तुम/तू with elders or strangers", "Mixing आप with the तुम verb form (आप … हो is wrong; it is आप … हैं)"],
+      "level": "beginner",
+      "prerequisite": null,
+      "sourceUrl": "/learn/aap-tum-tu-hindi/",
+      "sourceTitle": "Aap, Tum or Tu — Getting Politeness Right in Hindi"
+    }
+  ]
+}

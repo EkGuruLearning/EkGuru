@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "generated": "2026-09-12T00:00:00Z",
+  "purpose": "Goal system (§15). Eleven supported goals. Availability is computed at runtime from the real content graph by topic; the thresholds and honest notes here keep it truthful — a goal is only selectable where enough real content exists. Children is PLANNED: architecture exists, content does not yet.",
+  "minForProduction": 10,
+  "goals": [
+    { "id": "travel", "name": "Travel", "blurb": "Survive a trip: airport, hotel, directions, food, money.", "topics": ["travel", "survival", "food", "directions"], "pathSlug": "travel-hindi" },
+    { "id": "family", "name": "Family", "blurb": "Talk to relatives: family words, feelings, courtesy.", "topics": ["family", "feelings", "courtesy"], "pathSlug": null },
+    { "id": "heritage", "name": "Heritage", "blurb": "Reconnect through language: culture and family, for heritage learners.", "topics": ["culture", "family"], "pathSlug": null, "honestNote": "Heritage-specific modules are partial; built from the family and culture content that exists today." },
+    { "id": "conversation", "name": "Conversation", "blurb": "Hold a basic conversation: greetings, introductions, daily life.", "topics": ["greetings", "introductions", "courtesy", "daily-life", "conversation"], "pathSlug": "speaking-starter" },
+    { "id": "reading", "name": "Reading", "blurb": "Read the script and simple paragraphs.", "topics": ["script", "reading", "alphabet", "basics"], "pathSlug": "reading-hindi" },
+    { "id": "writing", "name": "Writing", "blurb": "Write the script yourself — letters and your first sentences.", "topics": ["writing", "devanagari"], "pathSlug": null, "honestNote": "Writing practice is drill-based (typing trainer + letter practice); no handwriting assessment exists." },
+    { "id": "work", "name": "Work", "blurb": "Polite, formal Hindi for professional situations.", "topics": ["work"], "pathSlug": null, "honestNote": "Work content is thin today; only the work-phrases guide and courtesy drills cover it." },
+    { "id": "study", "name": "Study", "blurb": "Understand how the language works: grammar and vocabulary.", "topics": ["grammar", "vocabulary"], "pathSlug": "grammar-foundations" },
+    { "id": "relocation", "name": "Relocation", "blurb": "Moving to India: travel, family and work modules combined.", "topics": ["travel", "family", "work", "survival", "daily-life"], "pathSlug": null, "honestNote": "An aggregation of the Travel, Family and Work modules — no separate relocation course." },
+    { "id": "culture", "name": "Culture", "blurb": "Culture through language: Bollywood, Hindi vs Urdu, politeness.", "topics": ["culture"], "pathSlug": null, "honestNote": "A few culture lessons exist; this goal is partial." },
+    { "id": "children", "name": "Children", "blurb": "Child and family learning.", "topics": [], "pathSlug": null, "honestNote": "Architecture only — privacy-safe child mode exists, but child-specific content has not been authored." }
+  ]
+}

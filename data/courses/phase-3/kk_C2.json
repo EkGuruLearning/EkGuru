@@ -1,0 +1,1874 @@
+{
+  "code": "kk",
+  "name": "Kazakh",
+  "native": "қазақ тілі",
+  "phase": 3,
+  "medium": "en",
+  "file_level": "C2",
+  "research_basis": "data/language-research/kk.json",
+  "level": {
+    "title": "Kazakh C2",
+    "goals": [
+      "Control Kazakh case, harmony, suffix order, and information structure",
+      "Develop reception, interaction, production, and mediation",
+      "Use pronunciation, politeness, register, and cohesion appropriately"
+    ],
+    "units": [
+      {
+        "id": "kk-c2-u1",
+        "title": "Semantic and Viewpoint Precision",
+        "lessons": [
+          {
+            "id": "kk-c2-l1",
+            "title": "Терістеудің ауқымы",
+            "learn": "Control терістеудің ауқымы in level-appropriate Kazakh communication.",
+            "vocab": [
+              {
+                "t": "Көрінген",
+                "r": "köringen",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "әрбір",
+                "r": "ärbir",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "жақсару",
+                "r": "jaqsarw",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "шынайы",
+                "r": "shynayy",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ілгерілеу",
+                "r": "ilgerilew",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "емес",
+                "r": "emes",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "кейбір",
+                "r": "keybir",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "нәтиже",
+                "r": "nätïje",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Терістеудің ауқымы",
+              "explain": "Kazakh combines agglutinative suffix order, vowel and consonant harmony, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. Choices encode participant roles, event boundaries, evidence, focus, and social register.",
+              "pattern": "topic + case-marked arguments + suffix chain + clause-final predicate",
+              "examples": [
+                {
+                  "t": "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                  "r": "köringen ärbir jaqsarw shynayy ilgerilew emes; keybir nätïje jükti tek qayta böledi.",
+                  "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                },
+                {
+                  "t": "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                  "r": "nätïjeni asa kütpegen emes dew söylewshini tañğalğandardan näzik alystatady.",
+                  "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                },
+                {
+                  "t": "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                  "r": "bizge asyqpaytyn örshildik, tūraltpaytyn saqtyq jäne dañğazasyz eseptilik kerek.",
+                  "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with broken harmony, case, or evidential marking",
+                  "right": "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                  "why": "The corrected model aligns morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                "r": "köringen ärbir jaqsarw shynayy ilgerilew emes; keybir nätïje jükti tek qayta böledi.",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "r": "nätïjeni asa kütpegen emes dew söylewshini tañğalğandardan näzik alystatady.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "r": "bizge asyqpaytyn örshildik, tūraltpaytyn saqtyq jäne dañğazasyz eseptilik kerek.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              },
+              {
+                "sp": "Editor",
+                "t": "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "r": "mämile mäseleni kilemniñ astyna sypyryp, eki jaqqa da abyroyyn saqtawğa mümkindik berdi.",
+                "en": "The compromise swept the problem under the carpet while both sides saved face."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Терістеудің ауқымы — multiple choice: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                "answer": "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                  "Form with incorrect case or harmony",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Терістеудің ауқымы — fill in the blank: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                "answer": "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Терістеудің ауқымы — translation: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                "answer": "Not every apparent improvement is real progress; some results merely redistribute the burden.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Терістеудің ауқымы — reverse translation: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                "answer": "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Терістеудің ауқымы — matching: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                "answer": "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                "skill_target": "matching",
+                "options": [
+                  "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                  "Form with incorrect case or harmony",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Терістеудің ауқымы — reorder: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                "answer": "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Терістеудің ауқымы — sentence building: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                "answer": "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Терістеудің ауқымы — word selection: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                "answer": "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                "skill_target": "word selection",
+                "options": [
+                  "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                  "Form with incorrect case or harmony",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Терістеудің ауқымы — error correction: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                "answer": "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Терістеудің ауқымы — dialogue completion: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                "answer": "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Терістеудің ауқымы — reading comprehension: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                "answer": "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Терістеудің ауқымы — paragraph comprehension: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                "answer": "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Терістеудің ауқымы: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              },
+              {
+                "q": "Терістеудің ауқымы: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              },
+              {
+                "q": "Терістеудің ауқымы: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              },
+              {
+                "q": "Терістеудің ауқымы: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              },
+              {
+                "q": "Терістеудің ауқымы: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Көрінген",
+              "әрбір",
+              "жақсару",
+              "шынайы"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Терістеудің ауқымы workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate suffixes and discourse function.",
+                  "items": [
+                    "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                    "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады."
+                  ],
+                  "key": [
+                    "Kazakh combines agglutinative suffix order, vowel and consonant harmony, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. Choices encode participant roles, event boundaries, evidence, focus, and social register.",
+                    "Kazakh combines agglutinative suffix order, vowel and consonant harmony, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. Choices encode participant roles, event boundaries, evidence, focus, and social register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                    "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады."
+                  ],
+                  "key": [
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden.",
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden.",
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                  ],
+                  "key": [
+                    "Model: Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                    "Model: Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "kk-c2-l2",
+            "title": "Ишара және арақашықтық",
+            "learn": "Control ишара және арақашықтық in level-appropriate Kazakh communication.",
+            "vocab": [
+              {
+                "t": "Нәтижені",
+                "r": "nätïjeni",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "аса",
+                "r": "asa",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "күтпеген",
+                "r": "kütpegen",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "емес",
+                "r": "emes",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "деу",
+                "r": "dew",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "сөйлеушіні",
+                "r": "söylewshini",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "таңғалғандардан",
+                "r": "tañğalğandardan",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "нәзік",
+                "r": "näzik",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Ишара және арақашықтық",
+              "explain": "Kazakh combines agglutinative suffix order, vowel and consonant harmony, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. Choices encode participant roles, event boundaries, evidence, focus, and social register.",
+              "pattern": "topic + case-marked arguments + suffix chain + clause-final predicate",
+              "examples": [
+                {
+                  "t": "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                  "r": "nätïjeni asa kütpegen emes dew söylewshini tañğalğandardan näzik alystatady.",
+                  "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                },
+                {
+                  "t": "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                  "r": "bizge asyqpaytyn örshildik, tūraltpaytyn saqtyq jäne dañğazasyz eseptilik kerek.",
+                  "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                },
+                {
+                  "t": "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                  "r": "mämile mäseleni kilemniñ astyna sypyryp, eki jaqqa da abyroyyn saqtawğa mümkindik berdi.",
+                  "en": "The compromise swept the problem under the carpet while both sides saved face."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with broken harmony, case, or evidential marking",
+                  "right": "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                  "why": "The corrected model aligns morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "r": "nätïjeni asa kütpegen emes dew söylewshini tañğalğandardan näzik alystatady.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "r": "bizge asyqpaytyn örshildik, tūraltpaytyn saqtyq jäne dañğazasyz eseptilik kerek.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "r": "mämile mäseleni kilemniñ astyna sypyryp, eki jaqqa da abyroyyn saqtawğa mümkindik berdi.",
+                "en": "The compromise swept the problem under the carpet while both sides saved face."
+              },
+              {
+                "sp": "Editor",
+                "t": "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "r": "memorandwm belgisizdikti moyyndaydy, al jarïya mälimdeme ony bayypty senim retinde qayta ūsynady.",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reorder",
+                "q": "Ишара және арақашықтық — reorder: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "answer": "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Ишара және арақашықтық — sentence building: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "answer": "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Ишара және арақашықтық — word selection: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "answer": "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "skill_target": "word selection",
+                "options": [
+                  "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                  "Form with incorrect case or harmony",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Ишара және арақашықтық — error correction: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "answer": "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Ишара және арақашықтық — dialogue completion: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "answer": "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Ишара және арақашықтық — reading comprehension: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "answer": "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Ишара және арақашықтық — paragraph comprehension: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "answer": "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "main_idea",
+                "q": "Ишара және арақашықтық — main idea: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "answer": "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Ишара және арақашықтық — detail identification: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "answer": "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "inference",
+                "q": "Ишара және арақашықтық — inference: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "answer": "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Ишара және арақашықтық — listening comprehension: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "answer": "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: kk-KZ browser voice when available; fallback disclosed; text=Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады."
+              },
+              {
+                "type": "dictation",
+                "q": "Ишара және арақашықтық — dictation: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "answer": "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: kk-KZ browser voice when available; fallback disclosed; text=Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Ишара және арақашықтық: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              },
+              {
+                "q": "Ишара және арақашықтық: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              },
+              {
+                "q": "Ишара және арақашықтық: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              },
+              {
+                "q": "Ишара және арақашықтық: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              },
+              {
+                "q": "Ишара және арақашықтық: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Нәтижені",
+              "аса",
+              "күтпеген",
+              "емес"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Ишара және арақашықтық workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate suffixes and discourse function.",
+                  "items": [
+                    "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                    "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек."
+                  ],
+                  "key": [
+                    "Kazakh combines agglutinative suffix order, vowel and consonant harmony, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. Choices encode participant roles, event boundaries, evidence, focus, and social register.",
+                    "Kazakh combines agglutinative suffix order, vowel and consonant harmony, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. Choices encode participant roles, event boundaries, evidence, focus, and social register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                    "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек."
+                  ],
+                  "key": [
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised.",
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised.",
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                  ],
+                  "key": [
+                    "Model: Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                    "Model: Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "kk-c2-u2",
+        "title": "Rhetoric and Genre Mastery",
+        "lessons": [
+          {
+            "id": "kk-c2-l3",
+            "title": "Риторикалық параллелизм",
+            "learn": "Control риторикалық параллелизм in level-appropriate Kazakh communication.",
+            "vocab": [
+              {
+                "t": "Бізге",
+                "r": "bizge",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "асықпайтын",
+                "r": "asyqpaytyn",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "өршілдік",
+                "r": "örshildik",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "тұралтпайтын",
+                "r": "tūraltpaytyn",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "сақтық",
+                "r": "saqtyq",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "және",
+                "r": "jäne",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "даңғазасыз",
+                "r": "dañğazasyz",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "есептілік",
+                "r": "eseptilik",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Риторикалық параллелизм",
+              "explain": "Kazakh combines agglutinative suffix order, vowel and consonant harmony, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. Choices encode participant roles, event boundaries, evidence, focus, and social register.",
+              "pattern": "topic + case-marked arguments + suffix chain + clause-final predicate",
+              "examples": [
+                {
+                  "t": "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                  "r": "bizge asyqpaytyn örshildik, tūraltpaytyn saqtyq jäne dañğazasyz eseptilik kerek.",
+                  "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                },
+                {
+                  "t": "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                  "r": "mämile mäseleni kilemniñ astyna sypyryp, eki jaqqa da abyroyyn saqtawğa mümkindik berdi.",
+                  "en": "The compromise swept the problem under the carpet while both sides saved face."
+                },
+                {
+                  "t": "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                  "r": "memorandwm belgisizdikti moyyndaydy, al jarïya mälimdeme ony bayypty senim retinde qayta ūsynady.",
+                  "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with broken harmony, case, or evidential marking",
+                  "right": "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                  "why": "The corrected model aligns morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "r": "bizge asyqpaytyn örshildik, tūraltpaytyn saqtyq jäne dañğazasyz eseptilik kerek.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "r": "mämile mäseleni kilemniñ astyna sypyryp, eki jaqqa da abyroyyn saqtawğa mümkindik berdi.",
+                "en": "The compromise swept the problem under the carpet while both sides saved face."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "r": "memorandwm belgisizdikti moyyndaydy, al jarïya mälimdeme ony bayypty senim retinde qayta ūsynady.",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              },
+              {
+                "sp": "Editor",
+                "t": "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                "r": "qoldağy dälel boyynsha būl eñ yqtïmal tüsindirme, biraq dawsyz ükim emes.",
+                "en": "On available evidence, this is the most plausible explanation, but not an indisputable verdict."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reading_comprehension",
+                "q": "Риторикалық параллелизм — reading comprehension: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "answer": "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Риторикалық параллелизм — paragraph comprehension: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "answer": "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "main_idea",
+                "q": "Риторикалық параллелизм — main idea: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "answer": "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Риторикалық параллелизм — detail identification: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "answer": "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "inference",
+                "q": "Риторикалық параллелизм — inference: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "answer": "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Риторикалық параллелизм — listening comprehension: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "answer": "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: kk-KZ browser voice when available; fallback disclosed; text=Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек."
+              },
+              {
+                "type": "dictation",
+                "q": "Риторикалық параллелизм — dictation: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "answer": "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: kk-KZ browser voice when available; fallback disclosed; text=Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Риторикалық параллелизм — listen and choose: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "answer": "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "skill_target": "listen and choose",
+                "options": [
+                  "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                  "Form with incorrect case or harmony",
+                  "An unrelated greeting"
+                ],
+                "audio_source": "synthetic_tts: kk-KZ browser voice when available; fallback disclosed; text=Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек."
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "Риторикалық параллелизм — listen and reorder: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "answer": "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: kk-KZ browser voice when available; fallback disclosed; text=Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек."
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Риторикалық параллелизм — listen and fill: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "answer": "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "skill_target": "listen and fill",
+                "audio_source": "synthetic_tts: kk-KZ browser voice when available; fallback disclosed; text=Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Риторикалық параллелизм — repeat after audio: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "answer": "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: kk-KZ browser voice when available; fallback disclosed; text=Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек."
+              },
+              {
+                "type": "pronunciation",
+                "q": "Риторикалық параллелизм — pronunciation: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "answer": "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: kk-KZ browser voice when available; fallback disclosed; text=Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Риторикалық параллелизм: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              },
+              {
+                "q": "Риторикалық параллелизм: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              },
+              {
+                "q": "Риторикалық параллелизм: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              },
+              {
+                "q": "Риторикалық параллелизм: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              },
+              {
+                "q": "Риторикалық параллелизм: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Бізге",
+              "асықпайтын",
+              "өршілдік",
+              "тұралтпайтын"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Риторикалық параллелизм workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate suffixes and discourse function.",
+                  "items": [
+                    "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                    "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді."
+                  ],
+                  "key": [
+                    "Kazakh combines agglutinative suffix order, vowel and consonant harmony, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. Choices encode participant roles, event boundaries, evidence, focus, and social register.",
+                    "Kazakh combines agglutinative suffix order, vowel and consonant harmony, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. Choices encode participant roles, event boundaries, evidence, focus, and social register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                    "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді."
+                  ],
+                  "key": [
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle.",
+                    "The compromise swept the problem under the carpet while both sides saved face."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle.",
+                    "The compromise swept the problem under the carpet while both sides saved face."
+                  ],
+                  "key": [
+                    "Model: Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                    "Model: Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "kk-c2-l4",
+            "title": "Идиомалық түсіндіру",
+            "learn": "Control идиомалық түсіндіру in level-appropriate Kazakh communication.",
+            "vocab": [
+              {
+                "t": "Мәміле",
+                "r": "mämile",
+                "en": "discourse segment in “The compromise swept the problem under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "мәселені",
+                "r": "mäseleni",
+                "en": "discourse segment in “The compromise swept the problem under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "кілемнің",
+                "r": "kilemniñ",
+                "en": "discourse segment in “The compromise swept the problem under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "астына",
+                "r": "astyna",
+                "en": "discourse segment in “The compromise swept the problem under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "сыпырып",
+                "r": "sypyryp",
+                "en": "discourse segment in “The compromise swept the problem under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "екі",
+                "r": "eki",
+                "en": "discourse segment in “The compromise swept the problem under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "жаққа",
+                "r": "jaqqa",
+                "en": "discourse segment in “The compromise swept the problem under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "да",
+                "r": "da",
+                "en": "discourse segment in “The compromise swept the problem under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Идиомалық түсіндіру",
+              "explain": "Kazakh combines agglutinative suffix order, vowel and consonant harmony, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. Choices encode participant roles, event boundaries, evidence, focus, and social register.",
+              "pattern": "topic + case-marked arguments + suffix chain + clause-final predicate",
+              "examples": [
+                {
+                  "t": "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                  "r": "mämile mäseleni kilemniñ astyna sypyryp, eki jaqqa da abyroyyn saqtawğa mümkindik berdi.",
+                  "en": "The compromise swept the problem under the carpet while both sides saved face."
+                },
+                {
+                  "t": "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                  "r": "memorandwm belgisizdikti moyyndaydy, al jarïya mälimdeme ony bayypty senim retinde qayta ūsynady.",
+                  "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                },
+                {
+                  "t": "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                  "r": "qoldağy dälel boyynsha būl eñ yqtïmal tüsindirme, biraq dawsyz ükim emes.",
+                  "en": "On available evidence, this is the most plausible explanation, but not an indisputable verdict."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with broken harmony, case, or evidential marking",
+                  "right": "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                  "why": "The corrected model aligns morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "r": "mämile mäseleni kilemniñ astyna sypyryp, eki jaqqa da abyroyyn saqtawğa mümkindik berdi.",
+                "en": "The compromise swept the problem under the carpet while both sides saved face."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "r": "memorandwm belgisizdikti moyyndaydy, al jarïya mälimdeme ony bayypty senim retinde qayta ūsynady.",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                "r": "qoldağy dälel boyynsha būl eñ yqtïmal tüsindirme, biraq dawsyz ükim emes.",
+                "en": "On available evidence, this is the most plausible explanation, but not an indisputable verdict."
+              },
+              {
+                "sp": "Editor",
+                "t": "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                "r": "köringen ärbir jaqsarw shynayy ilgerilew emes; keybir nätïje jükti tek qayta böledi.",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              }
+            ],
+            "practice": [
+              {
+                "type": "listening_comprehension",
+                "q": "Идиомалық түсіндіру — listening comprehension: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "answer": "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: kk-KZ browser voice when available; fallback disclosed; text=Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді."
+              },
+              {
+                "type": "dictation",
+                "q": "Идиомалық түсіндіру — dictation: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "answer": "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: kk-KZ browser voice when available; fallback disclosed; text=Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Идиомалық түсіндіру — listen and choose: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "answer": "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "skill_target": "listen and choose",
+                "options": [
+                  "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                  "Form with incorrect case or harmony",
+                  "An unrelated greeting"
+                ],
+                "audio_source": "synthetic_tts: kk-KZ browser voice when available; fallback disclosed; text=Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді."
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "Идиомалық түсіндіру — listen and reorder: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "answer": "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: kk-KZ browser voice when available; fallback disclosed; text=Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді."
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Идиомалық түсіндіру — listen and fill: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "answer": "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "skill_target": "listen and fill",
+                "audio_source": "synthetic_tts: kk-KZ browser voice when available; fallback disclosed; text=Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Идиомалық түсіндіру — repeat after audio: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "answer": "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: kk-KZ browser voice when available; fallback disclosed; text=Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді."
+              },
+              {
+                "type": "pronunciation",
+                "q": "Идиомалық түсіндіру — pronunciation: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "answer": "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: kk-KZ browser voice when available; fallback disclosed; text=Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді."
+              },
+              {
+                "type": "shadowing",
+                "q": "Идиомалық түсіндіру — shadowing: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "answer": "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: kk-KZ browser voice when available; fallback disclosed; text=Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Идиомалық түсіндіру — guided speaking: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "answer": "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "Идиомалық түсіндіру — free response: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "answer": "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "Идиомалық түсіндіру — roleplay: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "answer": "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Идиомалық түсіндіру — sentence writing: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "answer": "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                "skill_target": "sentence writing"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Идиомалық түсіндіру: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              },
+              {
+                "q": "Идиомалық түсіндіру: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              },
+              {
+                "q": "Идиомалық түсіндіру: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              },
+              {
+                "q": "Идиомалық түсіндіру: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              },
+              {
+                "q": "Идиомалық түсіндіру: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Мәміле",
+              "мәселені",
+              "кілемнің",
+              "астына"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Идиомалық түсіндіру workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate suffixes and discourse function.",
+                  "items": [
+                    "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                    "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады."
+                  ],
+                  "key": [
+                    "Kazakh combines agglutinative suffix order, vowel and consonant harmony, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. Choices encode participant roles, event boundaries, evidence, focus, and social register.",
+                    "Kazakh combines agglutinative suffix order, vowel and consonant harmony, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. Choices encode participant roles, event boundaries, evidence, focus, and social register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                    "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады."
+                  ],
+                  "key": [
+                    "The compromise swept the problem under the carpet while both sides saved face.",
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "The compromise swept the problem under the carpet while both sides saved face.",
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                  ],
+                  "key": [
+                    "Model: Мәміле мәселені кілемнің астына сыпырып, екі жаққа да абыройын сақтауға мүмкіндік берді.",
+                    "Model: Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "kk-c2-u3",
+        "title": "Cultural and High-Stakes Mediation",
+        "lessons": [
+          {
+            "id": "kk-c2-l5",
+            "title": "Жанрды түрлендіру",
+            "learn": "Control жанрды түрлендіру in level-appropriate Kazakh communication.",
+            "vocab": [
+              {
+                "t": "Меморандум",
+                "r": "memorandwm",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "белгісіздікті",
+                "r": "belgisizdikti",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "мойындайды",
+                "r": "moyyndaydy",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ал",
+                "r": "al",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "жария",
+                "r": "jarïya",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "мәлімдеме",
+                "r": "mälimdeme",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "оны",
+                "r": "ony",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "байыпты",
+                "r": "bayypty",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Жанрды түрлендіру",
+              "explain": "Kazakh combines agglutinative suffix order, vowel and consonant harmony, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. Choices encode participant roles, event boundaries, evidence, focus, and social register.",
+              "pattern": "topic + case-marked arguments + suffix chain + clause-final predicate",
+              "examples": [
+                {
+                  "t": "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                  "r": "memorandwm belgisizdikti moyyndaydy, al jarïya mälimdeme ony bayypty senim retinde qayta ūsynady.",
+                  "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                },
+                {
+                  "t": "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                  "r": "qoldağy dälel boyynsha būl eñ yqtïmal tüsindirme, biraq dawsyz ükim emes.",
+                  "en": "On available evidence, this is the most plausible explanation, but not an indisputable verdict."
+                },
+                {
+                  "t": "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                  "r": "köringen ärbir jaqsarw shynayy ilgerilew emes; keybir nätïje jükti tek qayta böledi.",
+                  "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with broken harmony, case, or evidential marking",
+                  "right": "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                  "why": "The corrected model aligns morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "r": "memorandwm belgisizdikti moyyndaydy, al jarïya mälimdeme ony bayypty senim retinde qayta ūsynady.",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                "r": "qoldağy dälel boyynsha būl eñ yqtïmal tüsindirme, biraq dawsyz ükim emes.",
+                "en": "On available evidence, this is the most plausible explanation, but not an indisputable verdict."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                "r": "köringen ärbir jaqsarw shynayy ilgerilew emes; keybir nätïje jükti tek qayta böledi.",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              },
+              {
+                "sp": "Editor",
+                "t": "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "r": "nätïjeni asa kütpegen emes dew söylewshini tañğalğandardan näzik alystatady.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              }
+            ],
+            "practice": [
+              {
+                "type": "repeat_after_audio",
+                "q": "Жанрды түрлендіру — repeat after audio: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "answer": "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: kk-KZ browser voice when available; fallback disclosed; text=Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады."
+              },
+              {
+                "type": "pronunciation",
+                "q": "Жанрды түрлендіру — pronunciation: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "answer": "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: kk-KZ browser voice when available; fallback disclosed; text=Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады."
+              },
+              {
+                "type": "shadowing",
+                "q": "Жанрды түрлендіру — shadowing: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "answer": "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: kk-KZ browser voice when available; fallback disclosed; text=Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Жанрды түрлендіру — guided speaking: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "answer": "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "Жанрды түрлендіру — free response: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "answer": "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "Жанрды түрлендіру — roleplay: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "answer": "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Жанрды түрлендіру — sentence writing: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "answer": "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "Жанрды түрлендіру — short writing: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "answer": "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "paraphrase",
+                "q": "Жанрды түрлендіру — paraphrase: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "answer": "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "Жанрды түрлендіру — summary: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "answer": "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Жанрды түрлендіру — guided composition: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "answer": "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Жанрды түрлендіру — register transformation: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "answer": "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                "skill_target": "register transformation"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Жанрды түрлендіру: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              },
+              {
+                "q": "Жанрды түрлендіру: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              },
+              {
+                "q": "Жанрды түрлендіру: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              },
+              {
+                "q": "Жанрды түрлендіру: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              },
+              {
+                "q": "Жанрды түрлендіру: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Меморандум",
+              "белгісіздікті",
+              "мойындайды",
+              "ал"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Жанрды түрлендіру workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate suffixes and discourse function.",
+                  "items": [
+                    "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                    "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес."
+                  ],
+                  "key": [
+                    "Kazakh combines agglutinative suffix order, vowel and consonant harmony, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. Choices encode participant roles, event boundaries, evidence, focus, and social register.",
+                    "Kazakh combines agglutinative suffix order, vowel and consonant harmony, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. Choices encode participant roles, event boundaries, evidence, focus, and social register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                    "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес."
+                  ],
+                  "key": [
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence.",
+                    "On available evidence, this is the most plausible explanation, but not an indisputable verdict."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence.",
+                    "On available evidence, this is the most plausible explanation, but not an indisputable verdict."
+                  ],
+                  "key": [
+                    "Model: Меморандум белгісіздікті мойындайды, ал жария мәлімдеме оны байыпты сенім ретінде қайта ұсынады.",
+                    "Model: Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "kk-c2-l6",
+            "title": "Эпистемикалық дәлдік",
+            "learn": "Control эпистемикалық дәлдік in level-appropriate Kazakh communication.",
+            "vocab": [
+              {
+                "t": "Қолдағы",
+                "r": "qoldağy",
+                "en": "discourse segment in “On available evidence, this is the most plausible explanation, but not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "дәлел",
+                "r": "dälel",
+                "en": "discourse segment in “On available evidence, this is the most plausible explanation, but not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "бойынша",
+                "r": "boyynsha",
+                "en": "discourse segment in “On available evidence, this is the most plausible explanation, but not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "бұл",
+                "r": "būl",
+                "en": "discourse segment in “On available evidence, this is the most plausible explanation, but not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ең",
+                "r": "eñ",
+                "en": "discourse segment in “On available evidence, this is the most plausible explanation, but not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ықтимал",
+                "r": "yqtïmal",
+                "en": "discourse segment in “On available evidence, this is the most plausible explanation, but not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "түсіндірме",
+                "r": "tüsindirme",
+                "en": "discourse segment in “On available evidence, this is the most plausible explanation, but not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "бірақ",
+                "r": "biraq",
+                "en": "discourse segment in “On available evidence, this is the most plausible explanation, but not an indisputable verdict.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Эпистемикалық дәлдік",
+              "explain": "Kazakh combines agglutinative suffix order, vowel and consonant harmony, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. Choices encode participant roles, event boundaries, evidence, focus, and social register.",
+              "pattern": "topic + case-marked arguments + suffix chain + clause-final predicate",
+              "examples": [
+                {
+                  "t": "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                  "r": "qoldağy dälel boyynsha būl eñ yqtïmal tüsindirme, biraq dawsyz ükim emes.",
+                  "en": "On available evidence, this is the most plausible explanation, but not an indisputable verdict."
+                },
+                {
+                  "t": "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                  "r": "köringen ärbir jaqsarw shynayy ilgerilew emes; keybir nätïje jükti tek qayta böledi.",
+                  "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                },
+                {
+                  "t": "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                  "r": "nätïjeni asa kütpegen emes dew söylewshini tañğalğandardan näzik alystatady.",
+                  "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with broken harmony, case, or evidential marking",
+                  "right": "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                  "why": "The corrected model aligns morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                "r": "qoldağy dälel boyynsha būl eñ yqtïmal tüsindirme, biraq dawsyz ükim emes.",
+                "en": "On available evidence, this is the most plausible explanation, but not an indisputable verdict."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі.",
+                "r": "köringen ärbir jaqsarw shynayy ilgerilew emes; keybir nätïje jükti tek qayta böledi.",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Нәтижені аса күтпеген емес деу сөйлеушіні таңғалғандардан нәзік алыстатады.",
+                "r": "nätïjeni asa kütpegen emes dew söylewshini tañğalğandardan näzik alystatady.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              },
+              {
+                "sp": "Editor",
+                "t": "Бізге асықпайтын өршілдік, тұралтпайтын сақтық және даңғазасыз есептілік керек.",
+                "r": "bizge asyqpaytyn örshildik, tūraltpaytyn saqtyq jäne dañğazasyz eseptilik kerek.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              }
+            ],
+            "practice": [
+              {
+                "type": "roleplay",
+                "q": "Эпистемикалық дәлдік — roleplay: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                "answer": "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Эпистемикалық дәлдік — sentence writing: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                "answer": "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "Эпистемикалық дәлдік — short writing: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                "answer": "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "paraphrase",
+                "q": "Эпистемикалық дәлдік — paraphrase: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                "answer": "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "Эпистемикалық дәлдік — summary: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                "answer": "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Эпистемикалық дәлдік — guided composition: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                "answer": "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Эпистемикалық дәлдік — register transformation: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                "answer": "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                "skill_target": "register transformation"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Эпистемикалық дәлдік — multiple choice: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                "answer": "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                  "Form with incorrect case or harmony",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Эпистемикалық дәлдік — fill in the blank: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                "answer": "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Эпистемикалық дәлдік — translation: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                "answer": "On available evidence, this is the most plausible explanation, but not an indisputable verdict.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Эпистемикалық дәлдік — reverse translation: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                "answer": "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Эпистемикалық дәлдік — matching: analyse or produce the Kazakh model with correct harmony, evidence, scope, and register: Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                "answer": "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                "skill_target": "matching",
+                "options": [
+                  "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                  "Form with incorrect case or harmony",
+                  "An unrelated greeting"
+                ]
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Эпистемикалық дәлдік: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              },
+              {
+                "q": "Эпистемикалық дәлдік: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              },
+              {
+                "q": "Эпистемикалық дәлдік: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              },
+              {
+                "q": "Эпистемикалық дәлдік: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              },
+              {
+                "q": "Эпистемикалық дәлдік: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                  "Form with incorrect harmony or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Kazakh morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Қолдағы",
+              "дәлел",
+              "бойынша",
+              "бұл"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Эпистемикалық дәлдік workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate suffixes and discourse function.",
+                  "items": [
+                    "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                    "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі."
+                  ],
+                  "key": [
+                    "Kazakh combines agglutinative suffix order, vowel and consonant harmony, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. Choices encode participant roles, event boundaries, evidence, focus, and social register.",
+                    "Kazakh combines agglutinative suffix order, vowel and consonant harmony, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. Choices encode participant roles, event boundaries, evidence, focus, and social register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                    "Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі."
+                  ],
+                  "key": [
+                    "On available evidence, this is the most plausible explanation, but not an indisputable verdict.",
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "On available evidence, this is the most plausible explanation, but not an indisputable verdict.",
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                  ],
+                  "key": [
+                    "Model: Қолдағы дәлел бойынша бұл ең ықтимал түсіндірме, бірақ даусыз үкім емес.",
+                    "Model: Көрінген әрбір жақсару шынайы ілгерілеу емес; кейбір нәтиже жүкті тек қайта бөледі."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "Spanish C2 Proficiency Test",
+      "items": [
+        {
+          "type": "argument_construction",
+          "q": "Kazakh C2 integrated task 1: respond with accurate harmony, suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Kazakh course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Kazakh C2 integrated task 2: respond with accurate harmony, suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Kazakh course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Kazakh C2 integrated task 3: respond with accurate harmony, suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Kazakh course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Kazakh C2 integrated task 4: respond with accurate harmony, suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Kazakh course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Kazakh C2 integrated task 5: respond with accurate harmony, suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Kazakh course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Kazakh C2 integrated task 6: respond with accurate harmony, suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Kazakh course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Kazakh C2 integrated task 7: respond with accurate harmony, suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Kazakh course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Kazakh C2 integrated task 8: respond with accurate harmony, suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Kazakh course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Kazakh C2 integrated task 9: respond with accurate harmony, suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Kazakh course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Kazakh C2 integrated task 10: respond with accurate harmony, suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Kazakh course rubric."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,1884 @@
+{
+  "code": "sw",
+  "name": "Swahili",
+  "native": "Kiswahili",
+  "phase": 3,
+  "medium": "en",
+  "file_level": "C1",
+  "research_basis": "data/language-research/sw.json",
+  "level": {
+    "title": "Swahili C1",
+    "goals": [
+      "Control Swahili noun-class concord, verb template, extensions, and information structure",
+      "Develop reception, interaction, production, and mediation",
+      "Use pronunciation, politeness, register, and cohesion appropriately"
+    ],
+    "units": [
+      {
+        "id": "sw-c1-u1",
+        "title": "Discourse and Stance",
+        "lessons": [
+          {
+            "id": "sw-c1-l1",
+            "title": "Tahadhari ya kitaaluma",
+            "learn": "Control tahadhari ya kitaaluma in level-appropriate Swahili.",
+            "vocab": [
+              {
+                "t": "Matokeo",
+                "r": "Matokeo",
+                "en": "discourse segment in “The findings appear to support the hypothesis, although other explanations cannot be excluded.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "yanaonekana",
+                "r": "yanaonekana",
+                "en": "discourse segment in “The findings appear to support the hypothesis, although other explanations cannot be excluded.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "kuunga",
+                "r": "kuunga",
+                "en": "discourse segment in “The findings appear to support the hypothesis, although other explanations cannot be excluded.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "mkono",
+                "r": "mkono",
+                "en": "discourse segment in “The findings appear to support the hypothesis, although other explanations cannot be excluded.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "nadharia",
+                "r": "nadharia",
+                "en": "discourse segment in “The findings appear to support the hypothesis, although other explanations cannot be excluded.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "tete",
+                "r": "tete",
+                "en": "discourse segment in “The findings appear to support the hypothesis, although other explanations cannot be excluded.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ingawa",
+                "r": "ingawa",
+                "en": "discourse segment in “The findings appear to support the hypothesis, although other explanations cannot be excluded.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "maelezo",
+                "r": "maelezo",
+                "en": "discourse segment in “The findings appear to support the hypothesis, although other explanations cannot be excluded.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Tahadhari ya kitaaluma",
+              "explain": "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register.",
+              "pattern": "class-marked topic + concord + tense/aspect + object + verb extension",
+              "examples": [
+                {
+                  "t": "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                  "r": "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                  "en": "The findings appear to support the hypothesis, although other explanations cannot be excluded."
+                },
+                {
+                  "t": "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                  "r": "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                  "en": "Rapid expansion of access prompted reassessment of funding priorities."
+                },
+                {
+                  "t": "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                  "r": "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                  "en": "What the review failed to address was the impact on rural learners."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with mismatched noun-class concord, tense, or extension",
+                  "right": "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                  "why": "The corrected model aligns morphology and pragmatic meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Mwanafunzi",
+                "t": "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "r": "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "en": "The findings appear to support the hypothesis, although other explanations cannot be excluded."
+              },
+              {
+                "sp": "Mwenzake",
+                "t": "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "r": "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "en": "Rapid expansion of access prompted reassessment of funding priorities."
+              },
+              {
+                "sp": "Mpatanishi",
+                "t": "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "r": "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "en": "What the review failed to address was the impact on rural learners."
+              },
+              {
+                "sp": "Mhariri",
+                "t": "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "r": "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "en": "Although acknowledging short-term cost, the report argues that delay will cost more."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Tahadhari ya kitaaluma — multiple choice: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "answer": "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                  "Form with incorrect noun-class concord",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Tahadhari ya kitaaluma — fill in the blank: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "answer": "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Tahadhari ya kitaaluma — translation: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "answer": "The findings appear to support the hypothesis, although other explanations cannot be excluded.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Tahadhari ya kitaaluma — reverse translation: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "answer": "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Tahadhari ya kitaaluma — matching: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "answer": "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "skill_target": "matching",
+                "options": [
+                  "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                  "Form with incorrect noun-class concord",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Tahadhari ya kitaaluma — reorder: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "answer": "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Tahadhari ya kitaaluma — sentence building: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "answer": "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Tahadhari ya kitaaluma — word selection: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "answer": "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "skill_target": "word selection",
+                "options": [
+                  "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                  "Form with incorrect noun-class concord",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Tahadhari ya kitaaluma — error correction: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "answer": "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Tahadhari ya kitaaluma — dialogue completion: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "answer": "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Tahadhari ya kitaaluma — reading comprehension: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "answer": "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Tahadhari ya kitaaluma — paragraph comprehension: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "answer": "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Tahadhari ya kitaaluma: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Tahadhari ya kitaaluma: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Tahadhari ya kitaaluma: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Tahadhari ya kitaaluma: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Tahadhari ya kitaaluma: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Matokeo",
+              "yanaonekana",
+              "kuunga",
+              "mkono"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Tahadhari ya kitaaluma workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate concord and discourse function.",
+                  "items": [
+                    "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                    "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili."
+                  ],
+                  "key": [
+                    "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register.",
+                    "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                    "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili."
+                  ],
+                  "key": [
+                    "The findings appear to support the hypothesis, although other explanations cannot be excluded.",
+                    "Rapid expansion of access prompted reassessment of funding priorities."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "The findings appear to support the hypothesis, although other explanations cannot be excluded.",
+                    "Rapid expansion of access prompted reassessment of funding priorities."
+                  ],
+                  "key": [
+                    "Model: Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                    "Model: Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "sw-c1-l2",
+            "title": "Uundaji wa nomino",
+            "learn": "Control uundaji wa nomino in level-appropriate Swahili.",
+            "vocab": [
+              {
+                "t": "Upanuzi",
+                "r": "Upanuzi",
+                "en": "discourse segment in “Rapid expansion of access prompted reassessment of funding priorities.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "wa",
+                "r": "wa",
+                "en": "discourse segment in “Rapid expansion of access prompted reassessment of funding priorities.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "haraka",
+                "r": "haraka",
+                "en": "discourse segment in “Rapid expansion of access prompted reassessment of funding priorities.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "wa",
+                "r": "wa",
+                "en": "discourse segment in “Rapid expansion of access prompted reassessment of funding priorities.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ufikiaji",
+                "r": "ufikiaji",
+                "en": "discourse segment in “Rapid expansion of access prompted reassessment of funding priorities.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ulisababisha",
+                "r": "ulisababisha",
+                "en": "discourse segment in “Rapid expansion of access prompted reassessment of funding priorities.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "tathmini",
+                "r": "tathmini",
+                "en": "discourse segment in “Rapid expansion of access prompted reassessment of funding priorities.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "mpya",
+                "r": "mpya",
+                "en": "discourse segment in “Rapid expansion of access prompted reassessment of funding priorities.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Uundaji wa nomino",
+              "explain": "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register.",
+              "pattern": "class-marked topic + concord + tense/aspect + object + verb extension",
+              "examples": [
+                {
+                  "t": "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                  "r": "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                  "en": "Rapid expansion of access prompted reassessment of funding priorities."
+                },
+                {
+                  "t": "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                  "r": "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                  "en": "What the review failed to address was the impact on rural learners."
+                },
+                {
+                  "t": "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                  "r": "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                  "en": "Although acknowledging short-term cost, the report argues that delay will cost more."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with mismatched noun-class concord, tense, or extension",
+                  "right": "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                  "why": "The corrected model aligns morphology and pragmatic meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Mwanafunzi",
+                "t": "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "r": "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "en": "Rapid expansion of access prompted reassessment of funding priorities."
+              },
+              {
+                "sp": "Mwenzake",
+                "t": "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "r": "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "en": "What the review failed to address was the impact on rural learners."
+              },
+              {
+                "sp": "Mpatanishi",
+                "t": "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "r": "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "en": "Although acknowledging short-term cost, the report argues that delay will cost more."
+              },
+              {
+                "sp": "Mhariri",
+                "t": "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "r": "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "en": "Considered together, the studies indicate contextual influence rather than universal causality."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reorder",
+                "q": "Uundaji wa nomino — reorder: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "answer": "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Uundaji wa nomino — sentence building: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "answer": "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Uundaji wa nomino — word selection: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "answer": "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "skill_target": "word selection",
+                "options": [
+                  "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                  "Form with incorrect noun-class concord",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Uundaji wa nomino — error correction: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "answer": "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Uundaji wa nomino — dialogue completion: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "answer": "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Uundaji wa nomino — reading comprehension: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "answer": "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Uundaji wa nomino — paragraph comprehension: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "answer": "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "main_idea",
+                "q": "Uundaji wa nomino — main idea: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "answer": "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Uundaji wa nomino — detail identification: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "answer": "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "inference",
+                "q": "Uundaji wa nomino — inference: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "answer": "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Uundaji wa nomino — listening comprehension: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "answer": "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili."
+              },
+              {
+                "type": "dictation",
+                "q": "Uundaji wa nomino — dictation: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "answer": "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Uundaji wa nomino: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Uundaji wa nomino: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Uundaji wa nomino: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Uundaji wa nomino: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Uundaji wa nomino: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Upanuzi",
+              "wa",
+              "haraka",
+              "wa"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Uundaji wa nomino workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate concord and discourse function.",
+                  "items": [
+                    "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                    "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini."
+                  ],
+                  "key": [
+                    "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register.",
+                    "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                    "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini."
+                  ],
+                  "key": [
+                    "Rapid expansion of access prompted reassessment of funding priorities.",
+                    "What the review failed to address was the impact on rural learners."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "Rapid expansion of access prompted reassessment of funding priorities.",
+                    "What the review failed to address was the impact on rural learners."
+                  ],
+                  "key": [
+                    "Model: Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                    "Model: Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "sw-c1-u2",
+        "title": "Professional and Academic Control",
+        "lessons": [
+          {
+            "id": "sw-c1-l3",
+            "title": "Mkazo linganishi",
+            "learn": "Control mkazo linganishi in level-appropriate Swahili.",
+            "vocab": [
+              {
+                "t": "Kile",
+                "r": "Kile",
+                "en": "discourse segment in “What the review failed to address was the impact on rural learners.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ambacho",
+                "r": "ambacho",
+                "en": "discourse segment in “What the review failed to address was the impact on rural learners.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "tathmini",
+                "r": "tathmini",
+                "en": "discourse segment in “What the review failed to address was the impact on rural learners.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "haikushughulikia",
+                "r": "haikushughulikia",
+                "en": "discourse segment in “What the review failed to address was the impact on rural learners.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ni",
+                "r": "ni",
+                "en": "discourse segment in “What the review failed to address was the impact on rural learners.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "athari",
+                "r": "athari",
+                "en": "discourse segment in “What the review failed to address was the impact on rural learners.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "kwa",
+                "r": "kwa",
+                "en": "discourse segment in “What the review failed to address was the impact on rural learners.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "wanafunzi",
+                "r": "wanafunzi",
+                "en": "discourse segment in “What the review failed to address was the impact on rural learners.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Mkazo linganishi",
+              "explain": "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register.",
+              "pattern": "class-marked topic + concord + tense/aspect + object + verb extension",
+              "examples": [
+                {
+                  "t": "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                  "r": "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                  "en": "What the review failed to address was the impact on rural learners."
+                },
+                {
+                  "t": "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                  "r": "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                  "en": "Although acknowledging short-term cost, the report argues that delay will cost more."
+                },
+                {
+                  "t": "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                  "r": "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                  "en": "Considered together, the studies indicate contextual influence rather than universal causality."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with mismatched noun-class concord, tense, or extension",
+                  "right": "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                  "why": "The corrected model aligns morphology and pragmatic meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Mwanafunzi",
+                "t": "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "r": "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "en": "What the review failed to address was the impact on rural learners."
+              },
+              {
+                "sp": "Mwenzake",
+                "t": "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "r": "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "en": "Although acknowledging short-term cost, the report argues that delay will cost more."
+              },
+              {
+                "sp": "Mpatanishi",
+                "t": "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "r": "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "en": "Considered together, the studies indicate contextual influence rather than universal causality."
+              },
+              {
+                "sp": "Mhariri",
+                "t": "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "r": "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "en": "While respecting this interpretation, we must define its scope more precisely."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reading_comprehension",
+                "q": "Mkazo linganishi — reading comprehension: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "answer": "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Mkazo linganishi — paragraph comprehension: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "answer": "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "main_idea",
+                "q": "Mkazo linganishi — main idea: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "answer": "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Mkazo linganishi — detail identification: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "answer": "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "inference",
+                "q": "Mkazo linganishi — inference: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "answer": "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Mkazo linganishi — listening comprehension: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "answer": "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini."
+              },
+              {
+                "type": "dictation",
+                "q": "Mkazo linganishi — dictation: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "answer": "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Mkazo linganishi — listen and choose: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "answer": "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "skill_target": "listen and choose",
+                "options": [
+                  "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                  "Form with incorrect noun-class concord",
+                  "An unrelated greeting"
+                ],
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini."
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "Mkazo linganishi — listen and reorder: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "answer": "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini."
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Mkazo linganishi — listen and fill: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "answer": "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "skill_target": "listen and fill",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Mkazo linganishi — repeat after audio: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "answer": "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini."
+              },
+              {
+                "type": "pronunciation",
+                "q": "Mkazo linganishi — pronunciation: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "answer": "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Mkazo linganishi: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Mkazo linganishi: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Mkazo linganishi: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Mkazo linganishi: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Mkazo linganishi: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Kile",
+              "ambacho",
+              "tathmini",
+              "haikushughulikia"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Mkazo linganishi workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate concord and discourse function.",
+                  "items": [
+                    "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                    "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi."
+                  ],
+                  "key": [
+                    "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register.",
+                    "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                    "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi."
+                  ],
+                  "key": [
+                    "What the review failed to address was the impact on rural learners.",
+                    "Although acknowledging short-term cost, the report argues that delay will cost more."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "What the review failed to address was the impact on rural learners.",
+                    "Although acknowledging short-term cost, the report argues that delay will cost more."
+                  ],
+                  "key": [
+                    "Model: Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                    "Model: Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "sw-c1-l4",
+            "title": "Hoja yenye concession",
+            "learn": "Control hoja yenye concession in level-appropriate Swahili.",
+            "vocab": [
+              {
+                "t": "Ingawa",
+                "r": "Ingawa",
+                "en": "discourse segment in “Although acknowledging short-term cost, the report argues that delay will cost more.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "inakubali",
+                "r": "inakubali",
+                "en": "discourse segment in “Although acknowledging short-term cost, the report argues that delay will cost more.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "gharama",
+                "r": "gharama",
+                "en": "discourse segment in “Although acknowledging short-term cost, the report argues that delay will cost more.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ya",
+                "r": "ya",
+                "en": "discourse segment in “Although acknowledging short-term cost, the report argues that delay will cost more.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "muda",
+                "r": "muda",
+                "en": "discourse segment in “Although acknowledging short-term cost, the report argues that delay will cost more.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "mfupi",
+                "r": "mfupi",
+                "en": "discourse segment in “Although acknowledging short-term cost, the report argues that delay will cost more.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ripoti",
+                "r": "ripoti",
+                "en": "discourse segment in “Although acknowledging short-term cost, the report argues that delay will cost more.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "inadai",
+                "r": "inadai",
+                "en": "discourse segment in “Although acknowledging short-term cost, the report argues that delay will cost more.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Hoja yenye concession",
+              "explain": "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register.",
+              "pattern": "class-marked topic + concord + tense/aspect + object + verb extension",
+              "examples": [
+                {
+                  "t": "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                  "r": "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                  "en": "Although acknowledging short-term cost, the report argues that delay will cost more."
+                },
+                {
+                  "t": "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                  "r": "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                  "en": "Considered together, the studies indicate contextual influence rather than universal causality."
+                },
+                {
+                  "t": "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                  "r": "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                  "en": "While respecting this interpretation, we must define its scope more precisely."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with mismatched noun-class concord, tense, or extension",
+                  "right": "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                  "why": "The corrected model aligns morphology and pragmatic meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Mwanafunzi",
+                "t": "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "r": "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "en": "Although acknowledging short-term cost, the report argues that delay will cost more."
+              },
+              {
+                "sp": "Mwenzake",
+                "t": "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "r": "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "en": "Considered together, the studies indicate contextual influence rather than universal causality."
+              },
+              {
+                "sp": "Mpatanishi",
+                "t": "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "r": "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "en": "While respecting this interpretation, we must define its scope more precisely."
+              },
+              {
+                "sp": "Mhariri",
+                "t": "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "r": "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "en": "The findings appear to support the hypothesis, although other explanations cannot be excluded."
+              }
+            ],
+            "practice": [
+              {
+                "type": "listening_comprehension",
+                "q": "Hoja yenye concession — listening comprehension: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "answer": "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi."
+              },
+              {
+                "type": "dictation",
+                "q": "Hoja yenye concession — dictation: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "answer": "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Hoja yenye concession — listen and choose: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "answer": "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "skill_target": "listen and choose",
+                "options": [
+                  "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                  "Form with incorrect noun-class concord",
+                  "An unrelated greeting"
+                ],
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi."
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "Hoja yenye concession — listen and reorder: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "answer": "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi."
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Hoja yenye concession — listen and fill: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "answer": "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "skill_target": "listen and fill",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Hoja yenye concession — repeat after audio: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "answer": "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi."
+              },
+              {
+                "type": "pronunciation",
+                "q": "Hoja yenye concession — pronunciation: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "answer": "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi."
+              },
+              {
+                "type": "shadowing",
+                "q": "Hoja yenye concession — shadowing: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "answer": "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Hoja yenye concession — guided speaking: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "answer": "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "Hoja yenye concession — free response: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "answer": "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "Hoja yenye concession — roleplay: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "answer": "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Hoja yenye concession — sentence writing: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "answer": "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                "skill_target": "sentence writing"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Hoja yenye concession: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Hoja yenye concession: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Hoja yenye concession: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Hoja yenye concession: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Hoja yenye concession: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Ingawa",
+              "inakubali",
+              "gharama",
+              "ya"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Hoja yenye concession workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate concord and discourse function.",
+                  "items": [
+                    "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                    "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima."
+                  ],
+                  "key": [
+                    "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register.",
+                    "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                    "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima."
+                  ],
+                  "key": [
+                    "Although acknowledging short-term cost, the report argues that delay will cost more.",
+                    "Considered together, the studies indicate contextual influence rather than universal causality."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "Although acknowledging short-term cost, the report argues that delay will cost more.",
+                    "Considered together, the studies indicate contextual influence rather than universal causality."
+                  ],
+                  "key": [
+                    "Model: Ingawa inakubali gharama ya muda mfupi, ripoti inadai kwamba kuchelewa kutagharimu zaidi.",
+                    "Model: Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "sw-c1-u3",
+        "title": "Pragmatics and Synthesis",
+        "lessons": [
+          {
+            "id": "sw-c1-l5",
+            "title": "Usanisi wa vyanzo",
+            "learn": "Control usanisi wa vyanzo in level-appropriate Swahili.",
+            "vocab": [
+              {
+                "t": "Zikichunguzwa",
+                "r": "Zikichunguzwa",
+                "en": "discourse segment in “Considered together, the studies indicate contextual influence rather than universal causality.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "pamoja",
+                "r": "pamoja",
+                "en": "discourse segment in “Considered together, the studies indicate contextual influence rather than universal causality.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "tafiti",
+                "r": "tafiti",
+                "en": "discourse segment in “Considered together, the studies indicate contextual influence rather than universal causality.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "zinaonyesha",
+                "r": "zinaonyesha",
+                "en": "discourse segment in “Considered together, the studies indicate contextual influence rather than universal causality.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "athari",
+                "r": "athari",
+                "en": "discourse segment in “Considered together, the studies indicate contextual influence rather than universal causality.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ya",
+                "r": "ya",
+                "en": "discourse segment in “Considered together, the studies indicate contextual influence rather than universal causality.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "muktadha",
+                "r": "muktadha",
+                "en": "discourse segment in “Considered together, the studies indicate contextual influence rather than universal causality.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "kuliko",
+                "r": "kuliko",
+                "en": "discourse segment in “Considered together, the studies indicate contextual influence rather than universal causality.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Usanisi wa vyanzo",
+              "explain": "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register.",
+              "pattern": "class-marked topic + concord + tense/aspect + object + verb extension",
+              "examples": [
+                {
+                  "t": "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                  "r": "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                  "en": "Considered together, the studies indicate contextual influence rather than universal causality."
+                },
+                {
+                  "t": "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                  "r": "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                  "en": "While respecting this interpretation, we must define its scope more precisely."
+                },
+                {
+                  "t": "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                  "r": "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                  "en": "The findings appear to support the hypothesis, although other explanations cannot be excluded."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with mismatched noun-class concord, tense, or extension",
+                  "right": "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                  "why": "The corrected model aligns morphology and pragmatic meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Mwanafunzi",
+                "t": "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "r": "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "en": "Considered together, the studies indicate contextual influence rather than universal causality."
+              },
+              {
+                "sp": "Mwenzake",
+                "t": "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "r": "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "en": "While respecting this interpretation, we must define its scope more precisely."
+              },
+              {
+                "sp": "Mpatanishi",
+                "t": "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "r": "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "en": "The findings appear to support the hypothesis, although other explanations cannot be excluded."
+              },
+              {
+                "sp": "Mhariri",
+                "t": "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "r": "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "en": "Rapid expansion of access prompted reassessment of funding priorities."
+              }
+            ],
+            "practice": [
+              {
+                "type": "repeat_after_audio",
+                "q": "Usanisi wa vyanzo — repeat after audio: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "answer": "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima."
+              },
+              {
+                "type": "pronunciation",
+                "q": "Usanisi wa vyanzo — pronunciation: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "answer": "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima."
+              },
+              {
+                "type": "shadowing",
+                "q": "Usanisi wa vyanzo — shadowing: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "answer": "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Usanisi wa vyanzo — guided speaking: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "answer": "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "Usanisi wa vyanzo — free response: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "answer": "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "Usanisi wa vyanzo — roleplay: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "answer": "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Usanisi wa vyanzo — sentence writing: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "answer": "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "Usanisi wa vyanzo — short writing: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "answer": "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Usanisi wa vyanzo — multiple choice: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "answer": "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                  "Form with incorrect noun-class concord",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Usanisi wa vyanzo — fill in the blank: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "answer": "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Usanisi wa vyanzo — translation: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "answer": "Considered together, the studies indicate contextual influence rather than universal causality.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Usanisi wa vyanzo — reverse translation: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "answer": "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                "skill_target": "reverse translation"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Usanisi wa vyanzo: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Usanisi wa vyanzo: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Usanisi wa vyanzo: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Usanisi wa vyanzo: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Usanisi wa vyanzo: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Zikichunguzwa",
+              "pamoja",
+              "tafiti",
+              "zinaonyesha"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Usanisi wa vyanzo workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate concord and discourse function.",
+                  "items": [
+                    "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                    "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi."
+                  ],
+                  "key": [
+                    "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register.",
+                    "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                    "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi."
+                  ],
+                  "key": [
+                    "Considered together, the studies indicate contextual influence rather than universal causality.",
+                    "While respecting this interpretation, we must define its scope more precisely."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "Considered together, the studies indicate contextual influence rather than universal causality.",
+                    "While respecting this interpretation, we must define its scope more precisely."
+                  ],
+                  "key": [
+                    "Model: Zikichunguzwa pamoja, tafiti zinaonyesha athari ya muktadha kuliko sababu ya ulimwengu mzima.",
+                    "Model: Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "sw-c1-l6",
+            "title": "Upinzani wa kidiplomasia",
+            "learn": "Control upinzani wa kidiplomasia in level-appropriate Swahili.",
+            "vocab": [
+              {
+                "t": "Kwa",
+                "r": "Kwa",
+                "en": "discourse segment in “While respecting this interpretation, we must define its scope more precisely.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "kuheshimu",
+                "r": "kuheshimu",
+                "en": "discourse segment in “While respecting this interpretation, we must define its scope more precisely.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "tafsiri",
+                "r": "tafsiri",
+                "en": "discourse segment in “While respecting this interpretation, we must define its scope more precisely.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "hii",
+                "r": "hii",
+                "en": "discourse segment in “While respecting this interpretation, we must define its scope more precisely.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "bado",
+                "r": "bado",
+                "en": "discourse segment in “While respecting this interpretation, we must define its scope more precisely.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "tunapaswa",
+                "r": "tunapaswa",
+                "en": "discourse segment in “While respecting this interpretation, we must define its scope more precisely.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "kufafanua",
+                "r": "kufafanua",
+                "en": "discourse segment in “While respecting this interpretation, we must define its scope more precisely.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "upeo",
+                "r": "upeo",
+                "en": "discourse segment in “While respecting this interpretation, we must define its scope more precisely.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Upinzani wa kidiplomasia",
+              "explain": "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register.",
+              "pattern": "class-marked topic + concord + tense/aspect + object + verb extension",
+              "examples": [
+                {
+                  "t": "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                  "r": "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                  "en": "While respecting this interpretation, we must define its scope more precisely."
+                },
+                {
+                  "t": "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                  "r": "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                  "en": "The findings appear to support the hypothesis, although other explanations cannot be excluded."
+                },
+                {
+                  "t": "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                  "r": "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                  "en": "Rapid expansion of access prompted reassessment of funding priorities."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with mismatched noun-class concord, tense, or extension",
+                  "right": "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                  "why": "The corrected model aligns morphology and pragmatic meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Mwanafunzi",
+                "t": "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "r": "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "en": "While respecting this interpretation, we must define its scope more precisely."
+              },
+              {
+                "sp": "Mwenzake",
+                "t": "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "r": "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa.",
+                "en": "The findings appear to support the hypothesis, although other explanations cannot be excluded."
+              },
+              {
+                "sp": "Mpatanishi",
+                "t": "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "r": "Upanuzi wa haraka wa ufikiaji ulisababisha tathmini mpya ya vipaumbele vya ufadhili.",
+                "en": "Rapid expansion of access prompted reassessment of funding priorities."
+              },
+              {
+                "sp": "Mhariri",
+                "t": "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "r": "Kile ambacho tathmini haikushughulikia ni athari kwa wanafunzi wa vijijini.",
+                "en": "What the review failed to address was the impact on rural learners."
+              }
+            ],
+            "practice": [
+              {
+                "type": "roleplay",
+                "q": "Upinzani wa kidiplomasia — roleplay: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "answer": "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Upinzani wa kidiplomasia — sentence writing: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "answer": "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "Upinzani wa kidiplomasia — short writing: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "answer": "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Upinzani wa kidiplomasia — multiple choice: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "answer": "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                  "Form with incorrect noun-class concord",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Upinzani wa kidiplomasia — fill in the blank: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "answer": "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Upinzani wa kidiplomasia — translation: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "answer": "While respecting this interpretation, we must define its scope more precisely.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Upinzani wa kidiplomasia — reverse translation: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "answer": "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Upinzani wa kidiplomasia — matching: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "answer": "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "skill_target": "matching",
+                "options": [
+                  "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                  "Form with incorrect noun-class concord",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Upinzani wa kidiplomasia — reorder: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "answer": "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Upinzani wa kidiplomasia — sentence building: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "answer": "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Upinzani wa kidiplomasia — word selection: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "answer": "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "skill_target": "word selection",
+                "options": [
+                  "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                  "Form with incorrect noun-class concord",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Upinzani wa kidiplomasia — error correction: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "answer": "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                "skill_target": "error correction"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Upinzani wa kidiplomasia: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Upinzani wa kidiplomasia: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Upinzani wa kidiplomasia: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Upinzani wa kidiplomasia: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Upinzani wa kidiplomasia: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Kwa",
+              "kuheshimu",
+              "tafsiri",
+              "hii"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Upinzani wa kidiplomasia workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate concord and discourse function.",
+                  "items": [
+                    "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                    "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa."
+                  ],
+                  "key": [
+                    "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register.",
+                    "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                    "Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa."
+                  ],
+                  "key": [
+                    "While respecting this interpretation, we must define its scope more precisely.",
+                    "The findings appear to support the hypothesis, although other explanations cannot be excluded."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "While respecting this interpretation, we must define its scope more precisely.",
+                    "The findings appear to support the hypothesis, although other explanations cannot be excluded."
+                  ],
+                  "key": [
+                    "Model: Kwa kuheshimu tafsiri hii, bado tunapaswa kufafanua upeo wake kwa usahihi zaidi.",
+                    "Model: Matokeo yanaonekana kuunga mkono nadharia tete, ingawa maelezo mengine hayawezi kuondolewa."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "Spanish C1 Proficiency Test",
+      "items": [
+        {
+          "type": "argument_construction",
+          "q": "Swahili C1 integrated task 1: respond with accurate concord, cohesion, and register.",
+          "answer": "A valid C1 response must satisfy the Swahili course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Swahili C1 integrated task 2: respond with accurate concord, cohesion, and register.",
+          "answer": "A valid C1 response must satisfy the Swahili course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Swahili C1 integrated task 3: respond with accurate concord, cohesion, and register.",
+          "answer": "A valid C1 response must satisfy the Swahili course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Swahili C1 integrated task 4: respond with accurate concord, cohesion, and register.",
+          "answer": "A valid C1 response must satisfy the Swahili course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Swahili C1 integrated task 5: respond with accurate concord, cohesion, and register.",
+          "answer": "A valid C1 response must satisfy the Swahili course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Swahili C1 integrated task 6: respond with accurate concord, cohesion, and register.",
+          "answer": "A valid C1 response must satisfy the Swahili course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Swahili C1 integrated task 7: respond with accurate concord, cohesion, and register.",
+          "answer": "A valid C1 response must satisfy the Swahili course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Swahili C1 integrated task 8: respond with accurate concord, cohesion, and register.",
+          "answer": "A valid C1 response must satisfy the Swahili course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Swahili C1 integrated task 9: respond with accurate concord, cohesion, and register.",
+          "answer": "A valid C1 response must satisfy the Swahili course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Swahili C1 integrated task 10: respond with accurate concord, cohesion, and register.",
+          "answer": "A valid C1 response must satisfy the Swahili course rubric."
+        }
+      ]
+    }
+  }
+}

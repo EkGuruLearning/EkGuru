@@ -1,0 +1,786 @@
+{
+  "generated": "2026-09-13T08:40:40Z",
+  "commit": "2c47646b4138b0b7efcbbb7f2036ec7647089375",
+  "rule": "Per-language QA. Only languages with real content + real browser evidence may be PRODUCTION. Quantity is never a substitute for quality.",
+  "languages": [
+    {
+      "id": "hi",
+      "name": "Hindi",
+      "productionStatus": "PRODUCTION",
+      "qualityScore": 70,
+      "referenceImplementation": true,
+      "counts": {
+        "lessonCount": 60,
+        "practiceCount": 112,
+        "quizCount": 45,
+        "reviewCardCount": 65,
+        "phraseCount": 69
+      },
+      "grammarState": "PRODUCTION",
+      "vocabularyState": "PRODUCTION",
+      "audioStatus": "BROWSER_TTS",
+      "evidence": {
+        "graph_test": true,
+        "conversation_test": true,
+        "engines_test": true,
+        "context_test": true,
+        "admin_test": true,
+        "phase5_6_7_regression": true
+      }
+    },
+    {
+      "id": "en",
+      "name": "English",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "es",
+      "name": "Spanish",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "fr",
+      "name": "French",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "ar",
+      "name": "Arabic",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "de",
+      "name": "German",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "ja",
+      "name": "Japanese",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "ko",
+      "name": "Korean",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "zh",
+      "name": "Chinese",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "ru",
+      "name": "Russian",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "pt",
+      "name": "Portuguese",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "it",
+      "name": "Italian",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "nl",
+      "name": "Dutch",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "pl",
+      "name": "Polish",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "tr",
+      "name": "Turkish",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "fa",
+      "name": "Persian",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "he",
+      "name": "Hebrew",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "ur",
+      "name": "Urdu",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "th",
+      "name": "Thai",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "vi",
+      "name": "Vietnamese",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "id",
+      "name": "Indonesian",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "ms",
+      "name": "Malay",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "bn",
+      "name": "Bengali",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "ta",
+      "name": "Tamil",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "te",
+      "name": "Telugu",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "pa",
+      "name": "Punjabi",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "gu",
+      "name": "Gujarati",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "mr",
+      "name": "Marathi",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "sw",
+      "name": "Swahili",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    },
+    {
+      "id": "uk",
+      "name": "Ukrainian",
+      "productionStatus": "BETA",
+      "qualityScore": 0,
+      "referenceImplementation": false,
+      "counts": {
+        "lessonCount": 0,
+        "practiceCount": 0,
+        "quizCount": 0,
+        "reviewCardCount": 0,
+        "phraseCount": 0
+      },
+      "grammarState": "STARTER",
+      "vocabularyState": "STARTER",
+      "audioStatus": "BROWSER_TTS",
+      "starterCounts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      },
+      "evidence": {
+        "langs_test": true,
+        "note": "BETA starter pack (24 words + 12 phrases + 4 grammar) rendered through the shared engines in real Chromium (Gate J) — reference content, not a course."
+      }
+    }
+  ]
+}

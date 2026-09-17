@@ -1,0 +1,1874 @@
+{
+  "code": "fa",
+  "name": "Persian",
+  "native": "فارسی",
+  "phase": 3,
+  "medium": "en",
+  "file_level": "C2",
+  "research_basis": "data/language-research/fa.json",
+  "level": {
+    "title": "Persian C2",
+    "goals": [
+      "Control Persian ezafe, object marking, aspect, mood, and information structure",
+      "Develop reception, interaction, production, and mediation",
+      "Use script, pronunciation, politeness, register, and cohesion appropriately"
+    ],
+    "units": [
+      {
+        "id": "fa-c2-u1",
+        "title": "Semantic and Viewpoint Precision",
+        "lessons": [
+          {
+            "id": "fa-c2-l1",
+            "title": "دامنهٔ نفی",
+            "learn": "Control دامنهٔ نفی in level-appropriate Persian.",
+            "vocab": [
+              {
+                "t": "هر",
+                "r": "hr",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "بهبود",
+                "r": "bhbwd",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ظاهری",
+                "r": "Zhry",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "پیشرفت",
+                "r": "pyshrft",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "واقعی",
+                "r": "wq`y",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "نیست",
+                "r": "nyst",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "برخی",
+                "r": "brkhy",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "نتایج",
+                "r": "ntyj",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "دامنهٔ نفی",
+              "explain": "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register.",
+              "pattern": "topic + marked object/complements + aspect/modal material + final verb",
+              "examples": [
+                {
+                  "t": "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                  "r": "hr bhbwd Zhry pyshrft wq`y nyst; brkhy ntyj fqT br r bztwzy` mykhnnd.",
+                  "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                },
+                {
+                  "t": "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                  "r": "khmlan dwr z ntZr nkhwndn ntyjh, gwyndh r Zryfnh z khsny khh shgftzdh shdnd dwr mykhnd.",
+                  "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                },
+                {
+                  "t": "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                  "r": "bh blndprwzy byshtb, HtyT byfljshdn w pskhgwyy bynmysh nyz drym.",
+                  "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with missing ezafe, را, or mismatched verb stem",
+                  "right": "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                  "why": "The corrected model aligns Persian morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "زبان‌آموز",
+                "t": "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                "r": "hr bhbwd Zhry pyshrft wq`y nyst; brkhy ntyj fqT br r bztwzy` mykhnnd.",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              },
+              {
+                "sp": "همکار",
+                "t": "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "r": "khmlan dwr z ntZr nkhwndn ntyjh, gwyndh r Zryfnh z khsny khh shgftzdh shdnd dwr mykhnd.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              },
+              {
+                "sp": "میانجی",
+                "t": "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "r": "bh blndprwzy byshtb, HtyT byfljshdn w pskhgwyy bynmysh nyz drym.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              },
+              {
+                "sp": "ویراستار",
+                "t": "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "r": "mSlHh msy'lh r zyr frsh pnhn khrd w bh hr dw Trf mkhn dd abrwyshn r HfZ khnnd.",
+                "en": "The compromise swept the issue under the carpet while both sides saved face."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "دامنهٔ نفی — multiple choice: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                "answer": "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                  "Form with incorrect ezafe or verb stem",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "دامنهٔ نفی — fill in the blank: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                "answer": "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "دامنهٔ نفی — translation: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                "answer": "Not every apparent improvement is real progress; some results merely redistribute the burden.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "دامنهٔ نفی — reverse translation: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                "answer": "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "دامنهٔ نفی — matching: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                "answer": "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                "skill_target": "matching",
+                "options": [
+                  "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                  "Form with incorrect ezafe or verb stem",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "دامنهٔ نفی — reorder: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                "answer": "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "دامنهٔ نفی — sentence building: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                "answer": "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "دامنهٔ نفی — word selection: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                "answer": "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                "skill_target": "word selection",
+                "options": [
+                  "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                  "Form with incorrect ezafe or verb stem",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "دامنهٔ نفی — error correction: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                "answer": "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "دامنهٔ نفی — dialogue completion: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                "answer": "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "دامنهٔ نفی — reading comprehension: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                "answer": "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "دامنهٔ نفی — paragraph comprehension: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                "answer": "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "دامنهٔ نفی: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "دامنهٔ نفی: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "دامنهٔ نفی: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "دامنهٔ نفی: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "دامنهٔ نفی: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "هر",
+              "بهبود",
+              "ظاهری",
+              "پیشرفت"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "دامنهٔ نفی workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate ezafe, TAM, and discourse function.",
+                  "items": [
+                    "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                    "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند."
+                  ],
+                  "key": [
+                    "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register.",
+                    "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                    "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند."
+                  ],
+                  "key": [
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden.",
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden.",
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                  ],
+                  "key": [
+                    "Model: هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                    "Model: کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "fa-c2-l2",
+            "title": "تلویح و فاصله",
+            "learn": "Control تلویح و فاصله in level-appropriate Persian.",
+            "vocab": [
+              {
+                "t": "کاملاً",
+                "r": "khmlan",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "دور",
+                "r": "dwr",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "از",
+                "r": "z",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "انتظار",
+                "r": "ntZr",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "نخواندن",
+                "r": "nkhwndn",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "نتیجه",
+                "r": "ntyjh",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "گوینده",
+                "r": "gwyndh",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "را",
+                "r": "r",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "تلویح و فاصله",
+              "explain": "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register.",
+              "pattern": "topic + marked object/complements + aspect/modal material + final verb",
+              "examples": [
+                {
+                  "t": "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                  "r": "khmlan dwr z ntZr nkhwndn ntyjh, gwyndh r Zryfnh z khsny khh shgftzdh shdnd dwr mykhnd.",
+                  "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                },
+                {
+                  "t": "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                  "r": "bh blndprwzy byshtb, HtyT byfljshdn w pskhgwyy bynmysh nyz drym.",
+                  "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                },
+                {
+                  "t": "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                  "r": "mSlHh msy'lh r zyr frsh pnhn khrd w bh hr dw Trf mkhn dd abrwyshn r HfZ khnnd.",
+                  "en": "The compromise swept the issue under the carpet while both sides saved face."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with missing ezafe, را, or mismatched verb stem",
+                  "right": "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                  "why": "The corrected model aligns Persian morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "زبان‌آموز",
+                "t": "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "r": "khmlan dwr z ntZr nkhwndn ntyjh, gwyndh r Zryfnh z khsny khh shgftzdh shdnd dwr mykhnd.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              },
+              {
+                "sp": "همکار",
+                "t": "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "r": "bh blndprwzy byshtb, HtyT byfljshdn w pskhgwyy bynmysh nyz drym.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              },
+              {
+                "sp": "میانجی",
+                "t": "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "r": "mSlHh msy'lh r zyr frsh pnhn khrd w bh hr dw Trf mkhn dd abrwyshn r HfZ khnnd.",
+                "en": "The compromise swept the issue under the carpet while both sides saved face."
+              },
+              {
+                "sp": "ویراستار",
+                "t": "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "r": "yddsht `dm qT`yt r mypdhyrd; bynyh' `mwmy an r `tmd snjydh jlwh mydhd.",
+                "en": "The memorandum accepts uncertainty; the public statement recasts it as measured confidence."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reorder",
+                "q": "تلویح و فاصله — reorder: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "answer": "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "تلویح و فاصله — sentence building: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "answer": "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "تلویح و فاصله — word selection: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "answer": "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "skill_target": "word selection",
+                "options": [
+                  "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                  "Form with incorrect ezafe or verb stem",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "تلویح و فاصله — error correction: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "answer": "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "تلویح و فاصله — dialogue completion: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "answer": "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "تلویح و فاصله — reading comprehension: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "answer": "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "تلویح و فاصله — paragraph comprehension: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "answer": "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "main_idea",
+                "q": "تلویح و فاصله — main idea: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "answer": "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "تلویح و فاصله — detail identification: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "answer": "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "inference",
+                "q": "تلویح و فاصله — inference: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "answer": "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "تلویح و فاصله — listening comprehension: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "answer": "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند."
+              },
+              {
+                "type": "dictation",
+                "q": "تلویح و فاصله — dictation: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "answer": "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "تلویح و فاصله: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "تلویح و فاصله: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "تلویح و فاصله: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "تلویح و فاصله: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "تلویح و فاصله: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "کاملاً",
+              "دور",
+              "از",
+              "انتظار"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "تلویح و فاصله workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate ezafe, TAM, and discourse function.",
+                  "items": [
+                    "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                    "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم."
+                  ],
+                  "key": [
+                    "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register.",
+                    "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                    "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم."
+                  ],
+                  "key": [
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised.",
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised.",
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                  ],
+                  "key": [
+                    "Model: کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                    "Model: به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "fa-c2-u2",
+        "title": "Rhetoric and Genre Mastery",
+        "lessons": [
+          {
+            "id": "fa-c2-l3",
+            "title": "توازی بلاغی",
+            "learn": "Control توازی بلاغی in level-appropriate Persian.",
+            "vocab": [
+              {
+                "t": "به",
+                "r": "bh",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "بلندپروازی",
+                "r": "blndprwzy",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "بی‌شتاب",
+                "r": "byshtb",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "احتیاط",
+                "r": "HtyT",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "بی‌فلج‌شدن",
+                "r": "byfljshdn",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "و",
+                "r": "w",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "پاسخ‌گویی",
+                "r": "pskhgwyy",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "بی‌نمایش",
+                "r": "bynmysh",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "توازی بلاغی",
+              "explain": "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register.",
+              "pattern": "topic + marked object/complements + aspect/modal material + final verb",
+              "examples": [
+                {
+                  "t": "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                  "r": "bh blndprwzy byshtb, HtyT byfljshdn w pskhgwyy bynmysh nyz drym.",
+                  "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                },
+                {
+                  "t": "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                  "r": "mSlHh msy'lh r zyr frsh pnhn khrd w bh hr dw Trf mkhn dd abrwyshn r HfZ khnnd.",
+                  "en": "The compromise swept the issue under the carpet while both sides saved face."
+                },
+                {
+                  "t": "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                  "r": "yddsht `dm qT`yt r mypdhyrd; bynyh' `mwmy an r `tmd snjydh jlwh mydhd.",
+                  "en": "The memorandum accepts uncertainty; the public statement recasts it as measured confidence."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with missing ezafe, را, or mismatched verb stem",
+                  "right": "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                  "why": "The corrected model aligns Persian morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "زبان‌آموز",
+                "t": "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "r": "bh blndprwzy byshtb, HtyT byfljshdn w pskhgwyy bynmysh nyz drym.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              },
+              {
+                "sp": "همکار",
+                "t": "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "r": "mSlHh msy'lh r zyr frsh pnhn khrd w bh hr dw Trf mkhn dd abrwyshn r HfZ khnnd.",
+                "en": "The compromise swept the issue under the carpet while both sides saved face."
+              },
+              {
+                "sp": "میانجی",
+                "t": "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "r": "yddsht `dm qT`yt r mypdhyrd; bynyh' `mwmy an r `tmd snjydh jlwh mydhd.",
+                "en": "The memorandum accepts uncertainty; the public statement recasts it as measured confidence."
+              },
+              {
+                "sp": "ویراستار",
+                "t": "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                "r": "b shwhd mwjwd, yn khmnmHtmltryn twDyH st, nh Hkhmy trdydnpdhyr.",
+                "en": "On available evidence, this is the least implausible explanation, not an indisputable judgment."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reading_comprehension",
+                "q": "توازی بلاغی — reading comprehension: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "answer": "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "توازی بلاغی — paragraph comprehension: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "answer": "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "main_idea",
+                "q": "توازی بلاغی — main idea: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "answer": "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "توازی بلاغی — detail identification: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "answer": "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "inference",
+                "q": "توازی بلاغی — inference: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "answer": "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "توازی بلاغی — listening comprehension: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "answer": "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم."
+              },
+              {
+                "type": "dictation",
+                "q": "توازی بلاغی — dictation: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "answer": "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "توازی بلاغی — listen and choose: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "answer": "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "skill_target": "listen and choose",
+                "options": [
+                  "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                  "Form with incorrect ezafe or verb stem",
+                  "An unrelated greeting"
+                ],
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم."
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "توازی بلاغی — listen and reorder: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "answer": "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم."
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "توازی بلاغی — listen and fill: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "answer": "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "skill_target": "listen and fill",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "توازی بلاغی — repeat after audio: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "answer": "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم."
+              },
+              {
+                "type": "pronunciation",
+                "q": "توازی بلاغی — pronunciation: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "answer": "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "توازی بلاغی: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "توازی بلاغی: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "توازی بلاغی: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "توازی بلاغی: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "توازی بلاغی: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "به",
+              "بلندپروازی",
+              "بی‌شتاب",
+              "احتیاط"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "توازی بلاغی workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate ezafe, TAM, and discourse function.",
+                  "items": [
+                    "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                    "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند."
+                  ],
+                  "key": [
+                    "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register.",
+                    "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                    "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند."
+                  ],
+                  "key": [
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle.",
+                    "The compromise swept the issue under the carpet while both sides saved face."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle.",
+                    "The compromise swept the issue under the carpet while both sides saved face."
+                  ],
+                  "key": [
+                    "Model: به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                    "Model: مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "fa-c2-l4",
+            "title": "تعبیر اصطلاح",
+            "learn": "Control تعبیر اصطلاح in level-appropriate Persian.",
+            "vocab": [
+              {
+                "t": "مصالحه",
+                "r": "mSlHh",
+                "en": "discourse segment in “The compromise swept the issue under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "مسئله",
+                "r": "msy'lh",
+                "en": "discourse segment in “The compromise swept the issue under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "را",
+                "r": "r",
+                "en": "discourse segment in “The compromise swept the issue under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "زیر",
+                "r": "zyr",
+                "en": "discourse segment in “The compromise swept the issue under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "فرش",
+                "r": "frsh",
+                "en": "discourse segment in “The compromise swept the issue under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "پنهان",
+                "r": "pnhn",
+                "en": "discourse segment in “The compromise swept the issue under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "کرد",
+                "r": "khrd",
+                "en": "discourse segment in “The compromise swept the issue under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "و",
+                "r": "w",
+                "en": "discourse segment in “The compromise swept the issue under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "تعبیر اصطلاح",
+              "explain": "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register.",
+              "pattern": "topic + marked object/complements + aspect/modal material + final verb",
+              "examples": [
+                {
+                  "t": "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                  "r": "mSlHh msy'lh r zyr frsh pnhn khrd w bh hr dw Trf mkhn dd abrwyshn r HfZ khnnd.",
+                  "en": "The compromise swept the issue under the carpet while both sides saved face."
+                },
+                {
+                  "t": "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                  "r": "yddsht `dm qT`yt r mypdhyrd; bynyh' `mwmy an r `tmd snjydh jlwh mydhd.",
+                  "en": "The memorandum accepts uncertainty; the public statement recasts it as measured confidence."
+                },
+                {
+                  "t": "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                  "r": "b shwhd mwjwd, yn khmnmHtmltryn twDyH st, nh Hkhmy trdydnpdhyr.",
+                  "en": "On available evidence, this is the least implausible explanation, not an indisputable judgment."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with missing ezafe, را, or mismatched verb stem",
+                  "right": "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                  "why": "The corrected model aligns Persian morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "زبان‌آموز",
+                "t": "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "r": "mSlHh msy'lh r zyr frsh pnhn khrd w bh hr dw Trf mkhn dd abrwyshn r HfZ khnnd.",
+                "en": "The compromise swept the issue under the carpet while both sides saved face."
+              },
+              {
+                "sp": "همکار",
+                "t": "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "r": "yddsht `dm qT`yt r mypdhyrd; bynyh' `mwmy an r `tmd snjydh jlwh mydhd.",
+                "en": "The memorandum accepts uncertainty; the public statement recasts it as measured confidence."
+              },
+              {
+                "sp": "میانجی",
+                "t": "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                "r": "b shwhd mwjwd, yn khmnmHtmltryn twDyH st, nh Hkhmy trdydnpdhyr.",
+                "en": "On available evidence, this is the least implausible explanation, not an indisputable judgment."
+              },
+              {
+                "sp": "ویراستار",
+                "t": "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                "r": "hr bhbwd Zhry pyshrft wq`y nyst; brkhy ntyj fqT br r bztwzy` mykhnnd.",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              }
+            ],
+            "practice": [
+              {
+                "type": "listening_comprehension",
+                "q": "تعبیر اصطلاح — listening comprehension: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "answer": "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند."
+              },
+              {
+                "type": "dictation",
+                "q": "تعبیر اصطلاح — dictation: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "answer": "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "تعبیر اصطلاح — listen and choose: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "answer": "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "skill_target": "listen and choose",
+                "options": [
+                  "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                  "Form with incorrect ezafe or verb stem",
+                  "An unrelated greeting"
+                ],
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند."
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "تعبیر اصطلاح — listen and reorder: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "answer": "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند."
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "تعبیر اصطلاح — listen and fill: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "answer": "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "skill_target": "listen and fill",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "تعبیر اصطلاح — repeat after audio: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "answer": "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند."
+              },
+              {
+                "type": "pronunciation",
+                "q": "تعبیر اصطلاح — pronunciation: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "answer": "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند."
+              },
+              {
+                "type": "shadowing",
+                "q": "تعبیر اصطلاح — shadowing: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "answer": "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "تعبیر اصطلاح — guided speaking: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "answer": "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "تعبیر اصطلاح — free response: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "answer": "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "تعبیر اصطلاح — roleplay: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "answer": "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "تعبیر اصطلاح — sentence writing: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "answer": "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                "skill_target": "sentence writing"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "تعبیر اصطلاح: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "تعبیر اصطلاح: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "تعبیر اصطلاح: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "تعبیر اصطلاح: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "تعبیر اصطلاح: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "مصالحه",
+              "مسئله",
+              "را",
+              "زیر"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "تعبیر اصطلاح workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate ezafe, TAM, and discourse function.",
+                  "items": [
+                    "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                    "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد."
+                  ],
+                  "key": [
+                    "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register.",
+                    "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                    "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد."
+                  ],
+                  "key": [
+                    "The compromise swept the issue under the carpet while both sides saved face.",
+                    "The memorandum accepts uncertainty; the public statement recasts it as measured confidence."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "The compromise swept the issue under the carpet while both sides saved face.",
+                    "The memorandum accepts uncertainty; the public statement recasts it as measured confidence."
+                  ],
+                  "key": [
+                    "Model: مصالحه مسئله را زیر فرش پنهان کرد و به هر دو طرف امکان داد آبرویشان را حفظ کنند.",
+                    "Model: یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "fa-c2-u3",
+        "title": "Cultural and High-Stakes Mediation",
+        "lessons": [
+          {
+            "id": "fa-c2-l5",
+            "title": "دگرگونی ژانر",
+            "learn": "Control دگرگونی ژانر in level-appropriate Persian.",
+            "vocab": [
+              {
+                "t": "یادداشت",
+                "r": "yddsht",
+                "en": "discourse segment in “The memorandum accepts uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "عدم",
+                "r": "`dm",
+                "en": "discourse segment in “The memorandum accepts uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "قطعیت",
+                "r": "qT`yt",
+                "en": "discourse segment in “The memorandum accepts uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "را",
+                "r": "r",
+                "en": "discourse segment in “The memorandum accepts uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "می‌پذیرد",
+                "r": "mypdhyrd",
+                "en": "discourse segment in “The memorandum accepts uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "بیانیهٔ",
+                "r": "bynyh'",
+                "en": "discourse segment in “The memorandum accepts uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "عمومی",
+                "r": "`mwmy",
+                "en": "discourse segment in “The memorandum accepts uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "آن",
+                "r": "an",
+                "en": "discourse segment in “The memorandum accepts uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "دگرگونی ژانر",
+              "explain": "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register.",
+              "pattern": "topic + marked object/complements + aspect/modal material + final verb",
+              "examples": [
+                {
+                  "t": "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                  "r": "yddsht `dm qT`yt r mypdhyrd; bynyh' `mwmy an r `tmd snjydh jlwh mydhd.",
+                  "en": "The memorandum accepts uncertainty; the public statement recasts it as measured confidence."
+                },
+                {
+                  "t": "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                  "r": "b shwhd mwjwd, yn khmnmHtmltryn twDyH st, nh Hkhmy trdydnpdhyr.",
+                  "en": "On available evidence, this is the least implausible explanation, not an indisputable judgment."
+                },
+                {
+                  "t": "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                  "r": "hr bhbwd Zhry pyshrft wq`y nyst; brkhy ntyj fqT br r bztwzy` mykhnnd.",
+                  "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with missing ezafe, را, or mismatched verb stem",
+                  "right": "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                  "why": "The corrected model aligns Persian morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "زبان‌آموز",
+                "t": "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "r": "yddsht `dm qT`yt r mypdhyrd; bynyh' `mwmy an r `tmd snjydh jlwh mydhd.",
+                "en": "The memorandum accepts uncertainty; the public statement recasts it as measured confidence."
+              },
+              {
+                "sp": "همکار",
+                "t": "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                "r": "b shwhd mwjwd, yn khmnmHtmltryn twDyH st, nh Hkhmy trdydnpdhyr.",
+                "en": "On available evidence, this is the least implausible explanation, not an indisputable judgment."
+              },
+              {
+                "sp": "میانجی",
+                "t": "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                "r": "hr bhbwd Zhry pyshrft wq`y nyst; brkhy ntyj fqT br r bztwzy` mykhnnd.",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              },
+              {
+                "sp": "ویراستار",
+                "t": "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "r": "khmlan dwr z ntZr nkhwndn ntyjh, gwyndh r Zryfnh z khsny khh shgftzdh shdnd dwr mykhnd.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              }
+            ],
+            "practice": [
+              {
+                "type": "repeat_after_audio",
+                "q": "دگرگونی ژانر — repeat after audio: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "answer": "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد."
+              },
+              {
+                "type": "pronunciation",
+                "q": "دگرگونی ژانر — pronunciation: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "answer": "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد."
+              },
+              {
+                "type": "shadowing",
+                "q": "دگرگونی ژانر — shadowing: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "answer": "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "دگرگونی ژانر — guided speaking: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "answer": "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "دگرگونی ژانر — free response: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "answer": "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "دگرگونی ژانر — roleplay: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "answer": "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "دگرگونی ژانر — sentence writing: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "answer": "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "دگرگونی ژانر — short writing: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "answer": "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "paraphrase",
+                "q": "دگرگونی ژانر — paraphrase: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "answer": "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "دگرگونی ژانر — summary: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "answer": "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "دگرگونی ژانر — guided composition: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "answer": "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "دگرگونی ژانر — register transformation: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "answer": "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                "skill_target": "register transformation"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "دگرگونی ژانر: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "دگرگونی ژانر: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "دگرگونی ژانر: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "دگرگونی ژانر: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "دگرگونی ژانر: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "یادداشت",
+              "عدم",
+              "قطعیت",
+              "را"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "دگرگونی ژانر workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate ezafe, TAM, and discourse function.",
+                  "items": [
+                    "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                    "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر."
+                  ],
+                  "key": [
+                    "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register.",
+                    "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                    "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر."
+                  ],
+                  "key": [
+                    "The memorandum accepts uncertainty; the public statement recasts it as measured confidence.",
+                    "On available evidence, this is the least implausible explanation, not an indisputable judgment."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "The memorandum accepts uncertainty; the public statement recasts it as measured confidence.",
+                    "On available evidence, this is the least implausible explanation, not an indisputable judgment."
+                  ],
+                  "key": [
+                    "Model: یادداشت عدم قطعیت را می‌پذیرد؛ بیانیهٔ عمومی آن را اعتماد سنجیده جلوه می‌دهد.",
+                    "Model: با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "fa-c2-l6",
+            "title": "دقت معرفتی",
+            "learn": "Control دقت معرفتی in level-appropriate Persian.",
+            "vocab": [
+              {
+                "t": "با",
+                "r": "b",
+                "en": "discourse segment in “On available evidence, this is the least implausible explanation, not an indisputable judgment.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "شواهد",
+                "r": "shwhd",
+                "en": "discourse segment in “On available evidence, this is the least implausible explanation, not an indisputable judgment.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "موجود",
+                "r": "mwjwd",
+                "en": "discourse segment in “On available evidence, this is the least implausible explanation, not an indisputable judgment.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "این",
+                "r": "yn",
+                "en": "discourse segment in “On available evidence, this is the least implausible explanation, not an indisputable judgment.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "کم‌نامحتمل‌ترین",
+                "r": "khmnmHtmltryn",
+                "en": "discourse segment in “On available evidence, this is the least implausible explanation, not an indisputable judgment.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "توضیح",
+                "r": "twDyH",
+                "en": "discourse segment in “On available evidence, this is the least implausible explanation, not an indisputable judgment.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "است",
+                "r": "st",
+                "en": "discourse segment in “On available evidence, this is the least implausible explanation, not an indisputable judgment.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "نه",
+                "r": "nh",
+                "en": "discourse segment in “On available evidence, this is the least implausible explanation, not an indisputable judgment.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "دقت معرفتی",
+              "explain": "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register.",
+              "pattern": "topic + marked object/complements + aspect/modal material + final verb",
+              "examples": [
+                {
+                  "t": "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                  "r": "b shwhd mwjwd, yn khmnmHtmltryn twDyH st, nh Hkhmy trdydnpdhyr.",
+                  "en": "On available evidence, this is the least implausible explanation, not an indisputable judgment."
+                },
+                {
+                  "t": "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                  "r": "hr bhbwd Zhry pyshrft wq`y nyst; brkhy ntyj fqT br r bztwzy` mykhnnd.",
+                  "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                },
+                {
+                  "t": "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                  "r": "khmlan dwr z ntZr nkhwndn ntyjh, gwyndh r Zryfnh z khsny khh shgftzdh shdnd dwr mykhnd.",
+                  "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with missing ezafe, را, or mismatched verb stem",
+                  "right": "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                  "why": "The corrected model aligns Persian morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "زبان‌آموز",
+                "t": "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                "r": "b shwhd mwjwd, yn khmnmHtmltryn twDyH st, nh Hkhmy trdydnpdhyr.",
+                "en": "On available evidence, this is the least implausible explanation, not an indisputable judgment."
+              },
+              {
+                "sp": "همکار",
+                "t": "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند.",
+                "r": "hr bhbwd Zhry pyshrft wq`y nyst; brkhy ntyj fqT br r bztwzy` mykhnnd.",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              },
+              {
+                "sp": "میانجی",
+                "t": "کاملاً دور از انتظار نخواندن نتیجه، گوینده را ظریفانه از کسانی که شگفت‌زده شدند دور می‌کند.",
+                "r": "khmlan dwr z ntZr nkhwndn ntyjh, gwyndh r Zryfnh z khsny khh shgftzdh shdnd dwr mykhnd.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              },
+              {
+                "sp": "ویراستار",
+                "t": "به بلندپروازی بی‌شتاب، احتیاط بی‌فلج‌شدن و پاسخ‌گویی بی‌نمایش نیاز داریم.",
+                "r": "bh blndprwzy byshtb, HtyT byfljshdn w pskhgwyy bynmysh nyz drym.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              }
+            ],
+            "practice": [
+              {
+                "type": "roleplay",
+                "q": "دقت معرفتی — roleplay: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                "answer": "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "دقت معرفتی — sentence writing: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                "answer": "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "دقت معرفتی — short writing: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                "answer": "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "paraphrase",
+                "q": "دقت معرفتی — paraphrase: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                "answer": "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "دقت معرفتی — summary: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                "answer": "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "دقت معرفتی — guided composition: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                "answer": "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "دقت معرفتی — register transformation: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                "answer": "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                "skill_target": "register transformation"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "دقت معرفتی — multiple choice: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                "answer": "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                  "Form with incorrect ezafe or verb stem",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "دقت معرفتی — fill in the blank: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                "answer": "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "دقت معرفتی — translation: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                "answer": "On available evidence, this is the least implausible explanation, not an indisputable judgment.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "دقت معرفتی — reverse translation: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                "answer": "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "دقت معرفتی — matching: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                "answer": "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                "skill_target": "matching",
+                "options": [
+                  "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                  "Form with incorrect ezafe or verb stem",
+                  "An unrelated greeting"
+                ]
+              }
+            ],
+            "quiz": [
+              {
+                "q": "دقت معرفتی: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "دقت معرفتی: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "دقت معرفتی: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "دقت معرفتی: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "دقت معرفتی: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "با",
+              "شواهد",
+              "موجود",
+              "این"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "دقت معرفتی workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate ezafe, TAM, and discourse function.",
+                  "items": [
+                    "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                    "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند."
+                  ],
+                  "key": [
+                    "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register.",
+                    "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                    "هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند."
+                  ],
+                  "key": [
+                    "On available evidence, this is the least implausible explanation, not an indisputable judgment.",
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "On available evidence, this is the least implausible explanation, not an indisputable judgment.",
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                  ],
+                  "key": [
+                    "Model: با شواهد موجود، این کم‌نامحتمل‌ترین توضیح است، نه حکمی تردیدناپذیر.",
+                    "Model: هر بهبود ظاهری پیشرفت واقعی نیست؛ برخی نتایج فقط بار را بازتوزیع می‌کنند."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "Spanish C2 Proficiency Test",
+      "items": [
+        {
+          "type": "argument_construction",
+          "q": "Persian C2 integrated task 1: respond with accurate grammar, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Persian course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Persian C2 integrated task 2: respond with accurate grammar, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Persian course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Persian C2 integrated task 3: respond with accurate grammar, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Persian course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Persian C2 integrated task 4: respond with accurate grammar, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Persian course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Persian C2 integrated task 5: respond with accurate grammar, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Persian course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Persian C2 integrated task 6: respond with accurate grammar, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Persian course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Persian C2 integrated task 7: respond with accurate grammar, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Persian course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Persian C2 integrated task 8: respond with accurate grammar, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Persian course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Persian C2 integrated task 9: respond with accurate grammar, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Persian course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Persian C2 integrated task 10: respond with accurate grammar, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Persian course rubric."
+        }
+      ]
+    }
+  }
+}

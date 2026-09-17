@@ -1,0 +1,25 @@
+{
+  "generated": "2026-09-12T07:57:00Z",
+  "method": "Full-product audit against 30 dimensions, ranked P0–P3, evidence cited. Highest-value feasible findings are implemented this phase, not merely reported.",
+  "gaps": [
+    {"dim": "target-language abstraction", "rank": "P0", "evidence": "All 600+ pages teach Hindi only; no /learn/<target>/ beyond Hindi; js/learning-paths.js, practice-bank.js, hindi-*.js hard-code Hindi", "action": "Language registry + content schema + reusable engines (this phase)", "status": "IN PROGRESS"},
+    {"dim": "onboarding", "rank": "P1", "evidence": "No goal-based entry; learner lands on a long hub with no path recommendation", "action": "Deterministic goal-based onboarding (this phase)", "status": "IN PROGRESS"},
+    {"dim": "language discovery", "rank": "P1", "evidence": "No page answers 'which languages can I learn'; search shows Hindi-only types", "action": "Global language hub reading the registry (this phase)", "status": "IN PROGRESS"},
+    {"dim": "audio", "rank": "P1", "evidence": "Only BROWSER_TTS (speechSynthesis hi-IN); no recorded audio; no provider abstraction", "action": "Audio provider abstraction (this phase); recorded audio needs a partner", "status": "IN PROGRESS"},
+    {"dim": "speaking", "rank": "P2", "evidence": "No hear→speak→compare flow; no mic consent flow", "action": "Speech architecture; do not fake scores", "status": "PENDING"},
+    {"dim": "conversation", "rank": "P1", "evidence": "No scenario engine; practice is quiz/typing/worksheet only", "action": "Deterministic scenario engine (labelled DETERMINISTIC)", "status": "PENDING"},
+    {"dim": "secure API layer", "rank": "P2", "evidence": "Static hosting; no server relay; booking relies on Sheets/forms", "action": "Provider abstraction; ship nothing with client-side secrets", "status": "PENDING"},
+    {"dim": "language-aware search", "rank": "P1", "evidence": "search-index has Language/Country types but only Devanagari transliteration; no per-script aliases", "action": "Extend fuzzy maps per script + type facets", "status": "PENDING"},
+    {"dim": "My Learning", "rank": "P1", "evidence": "My Hindi only (my-progress page); no multi-language progress model", "action": "Generalize to My Learning (device-only honesty)", "status": "PENDING"},
+    {"dim": "toolbox reuse", "rank": "P1", "evidence": "12 tools hard-code Hindi data + Devanagari assumptions", "action": "Map tools to reusable categories; remove hard-coding only where evidence shows it limits reuse", "status": "PENDING"},
+    {"dim": "child/heritage mode", "rank": "P2", "evidence": "No child-oriented schema, no heritage pathways", "action": "Data architecture + privacy constraints", "status": "PENDING"},
+    {"dim": "grammar engine", "rank": "P2", "evidence": "Grammar is prose inside 15 lessons, not structured data", "action": "Structured grammar schema", "status": "PENDING"},
+    {"dim": "script engine", "rank": "P2", "evidence": "Devanagari-only typing/normalization", "action": "Script metadata + normalization per script", "status": "PENDING"},
+    {"dim": "culture modules", "rank": "P2", "evidence": "Culture woven into lessons, not structured", "action": "Culture content type in schema", "status": "PENDING"},
+    {"dim": "country context", "rank": "P2", "evidence": "158 source-country pages exist but no India-visitor/NRI module structure", "action": "Contextual modules (travel/heritage/relocation)", "status": "PENDING"},
+    {"dim": "international SEO", "rank": "P2", "evidence": "16 localized homes; no hreflang; language sitemap exists but no reciprocal pairs", "action": "hreflang only for equivalent pages", "status": "PENDING"},
+    {"dim": "admin ops", "rank": "P2", "evidence": "Learn Ops is Hindi-specific; no language/country health board", "action": "Global language ops diagnostics", "status": "PENDING"},
+    {"dim": "performance measurement", "rank": "P3", "evidence": "No automated TTFB/FCP/LCP/CLS/INP pipeline in-repo", "action": "Perf metrics tool", "status": "PENDING"},
+    {"dim": "data QA pipeline", "rank": "P3", "evidence": "Registries/schema are new; needs duplicate/route/secret validators", "action": "test-phase7-registries.py (this phase)", "status": "IN PROGRESS"}
+  ]
+}

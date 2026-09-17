@@ -1,0 +1,942 @@
+{
+ "batch": "eastern-asia",
+ "countries": [
+  {
+   "cca2": "CN",
+   "ekguru": {
+    "recommendation": "pack live (zh, Mandarin base) — course candidate; topolect coverage via notes.",
+    "status": "pack"
+   },
+   "languages": [
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "pack live (zh, Mandarin base) — course candidate.",
+      "status": "pack"
+     },
+     "iso639_3": "cmn",
+     "name": "Mandarin",
+     "native": "普通话/官话",
+     "notes": "Official (Putonghua national standard); ~70% of China speaks a Mandarin variety.",
+     "roles": [
+      "official",
+      "national",
+      "widely-spoken"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "low",
+      "l1": 900000000,
+      "total": 1100000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — HK/Macau/diaspora demand.",
+      "status": "none"
+     },
+     "iso639_3": "yue",
+     "name": "Cantonese",
+     "native": "粵語",
+     "notes": "Co-official in Hong Kong/Macau (de facto); Guangdong/Guangxi heartland.",
+     "roles": [
+      "official-regional",
+      "regional",
+      "widely-spoken"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "low",
+      "total": 85000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none.",
+      "status": "none"
+     },
+     "iso639_3": "wuu",
+     "name": "Wu",
+     "native": "吳語",
+     "notes": "Shanghai/Jiangnan (Shanghainese prestige variety); declining among youth.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "low",
+      "total": 80000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none.",
+      "status": "none"
+     },
+     "iso639_3": "nan",
+     "name": "Min Nan",
+     "native": "閩南語",
+     "notes": "Hokkien-Taiwanese (southern Fujian + Taiwan + SE-Asian diaspora).",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "low",
+      "total": 50000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none.",
+      "status": "none"
+     },
+     "iso639_3": "hak",
+     "name": "Hakka",
+     "native": "客家話",
+     "notes": "Guangdong/Fujian/Jiangxi + Taiwan (official status there).",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "low",
+      "total": 45000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none.",
+      "status": "none"
+     },
+     "iso639_3": "hsn",
+     "name": "Xiang",
+     "native": "湘語",
+     "notes": "Hunan (Changsha); New Xiang converging toward Mandarin.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "low",
+      "total": 38000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none.",
+      "status": "none"
+     },
+     "iso639_3": "gan",
+     "name": "Gan",
+     "native": "贛語",
+     "notes": "Jiangxi heartland.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "low",
+      "total": 22000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none.",
+      "status": "none"
+     },
+     "iso639_3": "zha",
+     "name": "Zhuang",
+     "native": "Vahcuengh",
+     "notes": "China's largest minority language; co-official in Guangxi (umbrella for Northern/Southern — pass-2 split candidate).",
+     "roles": [
+      "official-regional",
+      "regional"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "low",
+      "total": 14000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none.",
+      "status": "none"
+     },
+     "iso639_3": "uig",
+     "name": "Uyghur",
+     "native": "ئۇيغۇرچە",
+     "notes": "Co-official in Xinjiang; Turkic (Arabic script in CN).",
+     "roles": [
+      "official-regional",
+      "regional"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "low",
+      "total": 10000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none.",
+      "status": "none"
+     },
+     "iso639_3": "mvf",
+     "name": "Peripheral Mongolian",
+     "native": "монгол хэл",
+     "notes": "Co-official in Inner Mongolia (Chakhar standard); distinct code from Halh (khk).",
+     "roles": [
+      "official-regional",
+      "regional"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "low",
+      "total": 3000000
+     }
+    },
+    {
+     "confidence": "low",
+     "ekguru": {
+      "recommendation": "none.",
+      "status": "none"
+     },
+     "iso639_3": "bod",
+     "name": "Tibetan",
+     "native": "བོད་སྐད་",
+     "notes": "Co-official in Tibet/Qinghai Tibetan areas; umbrella for Central/Amdo/Khams (pass-2 split candidate).",
+     "roles": [
+      "official-regional",
+      "regional"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "low",
+      "total": 5000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "pack live.",
+      "status": "pack"
+     },
+     "iso639_3": "kor",
+     "name": "Korean",
+     "native": "한국어",
+     "notes": "Yanbian Korean Autonomous Prefecture co-official; ~2M Chaoxianzu.",
+     "roles": [
+      "official-regional",
+      "minority"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "low",
+      "total": 2000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none.",
+      "status": "none"
+     },
+     "iso639_3": "kaz",
+     "name": "Kazakh",
+     "native": "қазақша",
+     "notes": "Ili Kazakh Autonomous Prefecture (Xinjiang); Arabic script in CN.",
+     "roles": [
+      "official-regional",
+      "minority"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "low",
+      "total": 1500000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none.",
+      "status": "none"
+     },
+     "iso639_3": "iii",
+     "name": "Nuosu Yi",
+     "native": "ꆈꌠ꒿",
+     "notes": "Largest Yi variety (Liangshan, Sichuan); own Yi script (syllabary).",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "low",
+      "total": 8000000
+     }
+    },
+    {
+     "confidence": "low",
+     "ekguru": {
+      "recommendation": "none.",
+      "status": "none"
+     },
+     "iso639_3": "hmn",
+     "name": "Hmong/Miao",
+     "native": "lus Hmoob",
+     "notes": "Macrolanguage umbrella (Chuanqiandian cqd + others — pass-2 split candidate).",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "low",
+      "total": 10000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — sign coverage is video-first, out of scope.",
+      "status": "none"
+     },
+     "iso639_3": "csl",
+     "name": "Chinese Sign Language",
+     "native": "中国手语",
+     "notes": "North (Beijing) and South (Shanghai) varieties; state standard promoted.",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ]
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "pack live.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "native": "English",
+     "notes": "Compulsory school subject; business lingua franca.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ]
+    },
+    {
+     "confidence": "low",
+     "ekguru": {
+      "recommendation": "none — inventoried (audit-gap add).",
+      "status": "none"
+     },
+     "iso639_3": "cjy",
+     "name": "Jin",
+     "native": "晋语",
+     "notes": "Shanxi + Inner Mongolia fringe (~45M); sometimes folded into Mandarin — kept separate per ISO. Added by CN audit §3.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "low",
+      "total": 45000000
+     }
+    },
+    {
+     "confidence": "low",
+     "ekguru": {
+      "recommendation": "none — inventoried (audit-gap add).",
+      "status": "none"
+     },
+     "iso639_3": "cdo",
+     "name": "Min Dong",
+     "native": "閩東語",
+     "notes": "Fuzhou + E. Fujian (~10M; Fuzhou prestige). Added by CN audit §3.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "low",
+      "total": 10000000
+     }
+    },
+    {
+     "confidence": "low",
+     "ekguru": {
+      "recommendation": "none — inventoried (audit-gap add).",
+      "status": "none"
+     },
+     "iso639_3": "mnp",
+     "name": "Min Bei",
+     "native": "闽北语",
+     "notes": "N. Fujian (Jianzhou; ~10M). Added by CN audit §3.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "low",
+      "total": 10000000
+     }
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "low",
+    "count": 300,
+    "note": "≈300 (Ethnologue-scale); Yunnan/Guizhou hold most; many tiny Tibeto-Burman/Tai-Kadai",
+    "source": "agent-knowledge"
+   },
+   "name": "China",
+   "region": "Asia",
+   "subregion": "Eastern Asia"
+  },
+  {
+   "cca2": "JP",
+   "ekguru": {
+    "recommendation": "pack live — major market; course candidate.",
+    "status": "pack"
+   },
+   "languages": [
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "pack live — course candidate.",
+      "status": "pack"
+     },
+     "iso639_3": "jpn",
+     "name": "Japanese",
+     "native": "日本語",
+     "notes": "National language (de facto official); standard based on Tokyo Yamanote.",
+     "roles": [
+      "official",
+      "national",
+      "widely-spoken"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "medium",
+      "l1": 124000000,
+      "total": 125000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — declining; inventoried.",
+      "status": "none"
+     },
+     "iso639_3": "ryu",
+     "name": "Okinawan",
+     "native": "うちなーぐち",
+     "notes": "Largest Ryukyuan language; UNESCO endangered; mostly older speakers.",
+     "roles": [
+      "regional",
+      "minority"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "low",
+      "total": 100000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — moribund; inventoried.",
+      "status": "none"
+     },
+     "iso639_3": "ain",
+     "name": "Ainu",
+     "native": "アイヌ・イタㇰ",
+     "notes": "Sole non-Japonic indigenous language (Hokkaido); 2019 Ainu law; revival underway.",
+     "roles": [
+      "indigenous",
+      "minority"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ]
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "pack live.",
+      "status": "pack"
+     },
+     "iso639_3": "kor",
+     "name": "Korean",
+     "native": "한국어",
+     "notes": "Zainichi community (~500K, many Japan-dominant) + newcomers.",
+     "roles": [
+      "minority",
+      "immigrant"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "low",
+      "total": 500000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "pack live.",
+      "status": "pack"
+     },
+     "iso639_3": "cmn",
+     "name": "Mandarin",
+     "native": "普通话",
+     "notes": "Largest foreign-nationality language (~800K+ Chinese nationals).",
+     "roles": [
+      "immigrant",
+      "widely-spoken"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "low",
+      "total": 800000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "pack live.",
+      "status": "pack"
+     },
+     "iso639_3": "por",
+     "name": "Portuguese",
+     "native": "português",
+     "notes": "Brazilian-Japanese returnee workers (~200K; Aichi/Shizuoka factories).",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "low",
+      "total": 200000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — sign coverage is video-first, out of scope.",
+      "status": "none"
+     },
+     "iso639_3": "jsl",
+     "name": "Japanese Sign Language",
+     "native": "日本手話",
+     "notes": "Legally recognised (2011 disability-law amendment).",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ]
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "pack live.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "native": "English",
+     "notes": "Compulsory school subject; business lingua franca.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ]
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "low",
+    "count": 15,
+    "note": "≈15 incl. Ryukyuan varieties and immigrant mix; Japanese-dominant",
+    "source": "agent-knowledge"
+   },
+   "name": "Japan",
+   "region": "Asia",
+   "subregion": "Eastern Asia"
+  },
+  {
+   "cca2": "KP",
+   "ekguru": {
+    "recommendation": "none — closed state; inventoried.",
+    "status": "none"
+   },
+   "languages": [
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "pack live (ko, SK-standard base).",
+      "status": "pack"
+     },
+     "iso639_3": "kor",
+     "name": "Korean",
+     "native": "조선말",
+     "notes": "Official (Munhwaŏ standard, Pyongyang-based); diverges from SK in vocabulary/orthography.",
+     "roles": [
+      "official",
+      "national",
+      "widely-spoken"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "low",
+      "total": 26000000
+     }
+    },
+    {
+     "confidence": "low",
+     "ekguru": {
+      "recommendation": "none — sign coverage is video-first, out of scope.",
+      "status": "none"
+     },
+     "iso639_3": "kvk",
+     "name": "Korean Sign Language",
+     "native": "조선수화",
+     "notes": "KP variety differs from SK kvk standard; data extremely thin — pass 2.",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ]
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "low",
+    "count": 3,
+    "note": "≈3; effectively monolingual; data thin",
+    "source": "agent-knowledge"
+   },
+   "name": "North Korea",
+   "region": "Asia",
+   "subregion": "Eastern Asia"
+  },
+  {
+   "cca2": "KR",
+   "ekguru": {
+    "recommendation": "pack live — major market; course candidate.",
+    "status": "pack"
+   },
+   "languages": [
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "pack live — course candidate.",
+      "status": "pack"
+     },
+     "iso639_3": "kor",
+     "name": "Korean",
+     "native": "한국어",
+     "notes": "Official (constitution Art. 9: state endeavours to sustain the national language).",
+     "roles": [
+      "official",
+      "national",
+      "widely-spoken"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "medium",
+      "l1": 51000000,
+      "total": 51000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — moribund; inventoried.",
+      "status": "none"
+     },
+     "iso639_3": "jje",
+     "name": "Jeju",
+     "native": "제주어",
+     "notes": "UNESCO critically endangered; mostly speakers over 70.",
+     "roles": [
+      "regional",
+      "minority"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "low",
+      "total": 10000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — sign coverage is video-first, out of scope.",
+      "status": "none"
+     },
+     "iso639_3": "kvk",
+     "name": "Korean Sign Language",
+     "native": "한국수어",
+     "notes": "Legally recognised (2016 Sign Language Act).",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ]
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "pack live.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "native": "English",
+     "notes": "National obsession: school compulsory, business lingua franca.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ]
+    },
+    {
+     "confidence": "low",
+     "ekguru": {
+      "recommendation": "pack live.",
+      "status": "pack"
+     },
+     "iso639_3": "vie",
+     "name": "Vietnamese",
+     "native": "tiếng Việt",
+     "notes": "Large marriage-migrant + worker community (~200K+).",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "low",
+      "total": 200000
+     }
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "low",
+    "count": 5,
+    "note": "≈5; effectively monolingual + new immigrant mix",
+    "source": "agent-knowledge"
+   },
+   "name": "South Korea",
+   "region": "Asia",
+   "subregion": "Eastern Asia"
+  },
+  {
+   "cca2": "MN",
+   "ekguru": {
+    "recommendation": "none — small market; inventoried.",
+    "status": "none"
+   },
+   "languages": [
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none.",
+      "status": "none"
+     },
+     "iso639_3": "khk",
+     "name": "Halh Mongolian",
+     "native": "халх монгол",
+     "notes": "Official (constitution Art. 8; Cyrillic since 1940s; traditional script returning in dual use).",
+     "roles": [
+      "official",
+      "national",
+      "widely-spoken"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "medium",
+      "l1": 2800000,
+      "total": 3000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none.",
+      "status": "none"
+     },
+     "iso639_3": "kaz",
+     "name": "Kazakh",
+     "native": "қазақша",
+     "notes": "Bayan-Ölgii majority (~90% of the aimag); Arabic script use persists.",
+     "roles": [
+      "minority",
+      "regional"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "low",
+      "total": 100000
+     }
+    },
+    {
+     "confidence": "low",
+     "ekguru": {
+      "recommendation": "none.",
+      "status": "none"
+     },
+     "iso639_3": "bxm",
+     "name": "Mongolia Buryat",
+     "native": "буряад",
+     "notes": "North-east (Dornod); distinct code from RU bxr — pass-2 verify boundary.",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "confidence": "low",
+      "total": 40000
+     }
+    },
+    {
+     "confidence": "low",
+     "ekguru": {
+      "recommendation": "none.",
+      "status": "none"
+     },
+     "iso639_3": "xal",
+     "name": "Oirat",
+     "native": "ойрад",
+     "notes": "Western Mongols (Zakhchin, Torgut, etc.); code xal = Kalmyk-Oirat umbrella — pass-2 verify.",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ]
+    },
+    {
+     "confidence": "low",
+     "ekguru": {
+      "recommendation": "pack live.",
+      "status": "pack"
+     },
+     "iso639_3": "rus",
+     "name": "Russian",
+     "native": "русский",
+     "notes": "Older-generation L2 + northern trade; fading among youth.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ]
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "pack live.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "native": "English",
+     "notes": "First foreign language in schools since 2005; mining/business lingua franca.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ]
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "low",
+    "count": 15,
+    "note": "≈15 incl. small west-Mongolian varieties; Halh-dominant",
+    "source": "agent-knowledge"
+   },
+   "name": "Mongolia",
+   "region": "Asia",
+   "subregion": "Eastern Asia"
+  }
+ ],
+ "note": "Pass 1: agent-compiled per METHOD.md source hierarchy (agent-knowledge, confidence capped at medium). Verification pass 2 replaces figures with census/constitution sources.",
+ "pass": 1
+}

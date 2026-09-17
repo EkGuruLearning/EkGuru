@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "scope": [
+    "all current languages",
+    "all future languages",
+    "all A1-C2 levels",
+    "all country-language learning ecosystems"
+  ],
+  "principle": "Practice interaction types are globally reusable; every prompt, answer, option, example, audio source, feedback explanation, and linguistic target must be lesson-aligned and language-specific.",
+  "player_schema_types": {
+    "core": ["multiple_choice", "fill_in_the_blank", "translation", "reverse_translation", "matching", "reorder", "sentence_building", "word_selection", "error_correction", "dialogue_completion"],
+    "reading": ["reading_comprehension", "paragraph_comprehension", "main_idea", "detail_identification", "inference"],
+    "listening": ["listening_comprehension", "dictation", "listen_and_choose", "listen_and_reorder", "listen_and_fill"],
+    "speaking": ["repeat_after_audio", "pronunciation", "shadowing", "guided_speaking", "free_response", "roleplay"],
+    "writing": ["sentence_writing", "short_writing", "paraphrase", "summary", "guided_composition"],
+    "advanced": ["register_transformation", "tone_identification", "semantic_distinction", "contextual_meaning", "argument_construction", "discourse_ordering", "style_rewriting", "idiom_interpretation", "implied_meaning"]
+  },
+  "legacy_aliases": {
+    "choose": "multiple_choice or word_selection",
+    "fill": "fill_in_the_blank",
+    "translate_en": "translation",
+    "translate_t": "reverse_translation",
+    "speak": "guided_speaking",
+    "reorder": "reorder"
+  },
+  "level_policy": {
+    "A1": {"minimum_distinct_types": 12, "focus": ["recognition", "controlled production", "basic reading", "basic listening", "repeat/pronunciation", "sentence writing"]},
+    "A2": {"minimum_distinct_types": 16, "focus": ["practical multi-step communication", "broader comprehension", "dictation", "guided speaking", "short writing"]},
+    "B1": {"minimum_distinct_types": 20, "focus": ["independent communication", "connected production", "main idea and detail", "roleplay", "error correction", "summary"]},
+    "B2": {"minimum_distinct_types": 24, "focus": ["complex communication", "argument", "professional/social register", "paraphrase", "inference", "guided composition"]},
+    "C1": {"minimum_distinct_types": 28, "focus": ["advanced discourse", "inference", "register", "professional/academic production", "tone", "discourse ordering"]},
+    "C2": {"minimum_distinct_types": 32, "focus": ["semantic precision", "rhetoric", "style", "pragmatics", "idiom and implication", "sophisticated production"]}
+  },
+  "item_contract": {
+    "required": ["type", "q", "answer", "skill_target"],
+    "choice_types_require": ["options containing the answer"],
+    "audio_types_require": ["audio_source", "honest provenance label in the player"],
+    "quality": [
+      "tests the lesson objective",
+      "uses correct target-language content",
+      "has an unambiguous or explicitly open-model answer",
+      "provides plausible options where relevant",
+      "does not duplicate another prompt merely to raise coverage",
+      "does not claim microphone or native-audio evaluation when unavailable"
+    ]
+  },
+  "language_specific_requirements": [
+    "use the language research profile before authoring",
+    "teach the actual script or orthography where applicable",
+    "include appropriate pronunciation and listening contrasts",
+    "exercise language-specific morphology, syntax, agreement, word order, and discourse",
+    "exercise honorific, formality, social register, and regional choices where applicable",
+    "keep advanced tasks genuinely C1/C2 rather than relabeled beginner work",
+    "never clone exercises across languages or country pages"
+  ],
+  "completion_gates": [
+    "CONTENT_PASS",
+    "PRACTICE_PASS",
+    "SKILL_COVERAGE_PASS",
+    "LEVEL_APPROPRIATENESS_PASS",
+    "LANGUAGE_SPECIFIC_PASS",
+    "VOICE_AUDIO_PASS_OR_NOT_APPLICABLE",
+    "PLAYER_PASS",
+    "SCHEMA_PASS",
+    "DUPLICATION_PASS",
+    "PUBLISHABILITY_PASS"
+  ],
+  "failure_state": "REVIEW_REQUIRED",
+  "notes": [
+    "Minimum distinct-type counts are conservative audit floors, not targets or substitutes for quality.",
+    "Not every type belongs in every lesson; coverage is evaluated across a level.",
+    "A schema-valid file is not automatically production-complete."
+  ]
+}

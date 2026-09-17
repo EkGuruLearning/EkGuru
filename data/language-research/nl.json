@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "language": {"code": "nl", "name": "Dutch", "native_name": "Nederlands", "family": "Indo-European: West Germanic", "script": "Latin", "direction": "ltr"},
+  "inventory_priority": {"language_id": "lang:nld", "priority": "P1", "score": 69, "countries": ["BE", "NL", "SR"]},
+  "orthography_pronunciation": {"needs": ["short/long vowel spelling", "ui/ij/ei/ou diphthongs", "g/ch regional realizations", "final devoicing", "word stress", "sentence accent and intonation across Netherlands/Flanders/Suriname"], "voice_strategy": "Synthetic nl-NL browser voice with documented regional limitations; never claim native recording."},
+  "grammar": {"nominal": ["de versus het", "common/neuter gender", "plural and diminutive formation", "adjective inflection", "pronouns and er"], "verbal": ["verb-second main clauses", "verb-final subordinate clauses", "separable verbs", "perfect auxiliaries hebben/zijn", "modal verbs", "passive and participial constructions"], "syntax_discourse": ["inversion after fronted constituents", "te-infinitives", "relative die/dat", "pronominal adverbs", "information structure and modal particles"]},
+  "register_pragmatics": ["jij/u address", "conditional and modal requests", "formal correspondence", "disagreement mitigation", "Netherlands/Flemish/Surinamese variation without hierarchy", "plain-language mediation"],
+  "CEFR_progression": {"A1": "sound-spelling, introductions, present, articles and questions", "A2": "past/perfect, separable verbs, comparison, plans and requests", "B1": "clause order, relative clauses, conditionals, passives and narration", "B2": "er, modality, participles, information structure and register", "C1": "academic synthesis, nominal style, mediation and stance", "C2": "scope, implication, rhetoric, idiom, genre transformation and epistemic precision"},
+  "country_relationship_source": "data/global/language-country-relations.json",
+  "sources": [
+    {"title": "Nederlandse Taalunie", "url": "https://taalunie.org/", "use": "official spelling, language policy and advice"},
+    {"title": "Algemene Nederlandse Spraakkunst", "url": "https://e-ans.ivdnt.org/", "use": "authoritative descriptive grammar"},
+    {"title": "Woordenlijst Nederlandse Taal", "url": "https://woordenlijst.org/", "use": "official spelling and inflection"},
+    {"title": "CEFR Companion Volume 2020", "url": "https://rm.coe.int/cefr-companion-volume-with-new-descriptors-2020/16809ea0d4", "use": "level progression, mediation, interaction and phonology"}
+  ],
+  "reviewed_at": "2026-09-17"
+}

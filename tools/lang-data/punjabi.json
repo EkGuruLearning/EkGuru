@@ -1,0 +1,9009 @@
+{
+ "bargaining_script": "ਇਹ ਕਿੰਨੇ ਦਾ ਹੈ? (how much?) → ਬਹੁਤ ਮਹਿੰਗਾ ਹੈ! (too pricey!) → ਥੋੜ੍ਹਾ ਸਸਤਾ ਕਰੋ (make it cheaper) → ਛੋਟ ਦਿਓ (give a discount) → ਚੰਗਾ, ਪੈਕ ਕਰ ਦਿਓ! (done, pack it!)",
+ "classifiers": [
+  {
+   "en": "ਇੱਕ ਕਿਤਾਬ",
+   "hi": "एक किताब",
+   "note": "one book — number + noun, no extras",
+   "r": "ikk kitāb"
+  },
+  {
+   "en": "ਦੋ ਕਿਤਾਬਾਂ",
+   "hi": "दो किताबें",
+   "note": "two books — the noun itself goes plural (-ਾਂ)",
+   "r": "do kitābān"
+  },
+  {
+   "en": "ਤਿੰਨ ਰੁਪਏ",
+   "hi": "तीन रुपये",
+   "note": "three rupees — same pattern as Hindi",
+   "r": "tinn rupae"
+  }
+ ],
+ "colors": [
+  {
+   "en": "red",
+   "hi": "लाल",
+   "note": "ਲਾਲ never changes for gender",
+   "r": "lāl",
+   "t": "ਲਾਲ"
+  },
+  {
+   "en": "blue",
+   "hi": "नीला",
+   "note": "ਨੀਲੀ with feminine nouns",
+   "r": "nīlā",
+   "t": "ਨੀਲਾ"
+  },
+  {
+   "en": "green",
+   "hi": "हरा",
+   "note": "ਹਰੀ with feminine nouns",
+   "r": "harā",
+   "t": "ਹਰਾ"
+  },
+  {
+   "en": "yellow",
+   "hi": "पीला",
+   "note": "ਪੀਲੀ with feminine nouns",
+   "r": "pīlā",
+   "t": "ਪੀਲਾ"
+  },
+  {
+   "en": "black",
+   "hi": "काला",
+   "note": "ਕਾਲੀ with feminine nouns",
+   "r": "kālā",
+   "t": "ਕਾਲਾ"
+  },
+  {
+   "en": "white",
+   "hi": "सफ़ेद",
+   "note": "also ਸਫ਼ੈਦ (safed); feminine ਚਿੱਟੀ",
+   "r": "chiṭṭā",
+   "t": "ਚਿੱਟਾ"
+  }
+ ],
+ "consonants": [
+  {
+   "hint": "oo-rhaa — vowel base, rarely alone",
+   "r": "ūṛā",
+   "t": "ੳ"
+  },
+  {
+   "hint": "eh-rhaa — vowel base; also the vowel ਅ",
+   "r": "aiṛā",
+   "t": "ਅ"
+  },
+  {
+   "hint": "ee-rhee — vowel base for ਇ ਈ",
+   "r": "īṛī",
+   "t": "ੲ"
+  },
+  {
+   "hint": "s as in sun",
+   "r": "sassā",
+   "t": "ਸ"
+  },
+  {
+   "hint": "h as in hat — also shapes tones",
+   "r": "hāhā",
+   "t": "ਹ"
+  },
+  {
+   "hint": "k as in kite",
+   "r": "kakkā",
+   "t": "ਕ"
+  },
+  {
+   "hint": "kh — breathy k, like khaki",
+   "r": "khakkhā",
+   "t": "ਖ"
+  },
+  {
+   "hint": "g as in go",
+   "r": "gaggā",
+   "t": "ਗ"
+  },
+  {
+   "hint": "g + low tone in modern speech",
+   "r": "kagghā",
+   "t": "ਘ"
+  },
+  {
+   "hint": "ng as in sing — almost only in clusters",
+   "r": "ṅaṅṅā",
+   "t": "ਙ"
+  },
+  {
+   "hint": "ch as in chair",
+   "r": "chachchā",
+   "t": "ਚ"
+  },
+  {
+   "hint": "chh — breathy ch",
+   "r": "chhahchhā",
+   "t": "ਛ"
+  },
+  {
+   "hint": "j as in jump",
+   "r": "jajjā",
+   "t": "ਜ"
+  },
+  {
+   "hint": "j + low tone in modern speech",
+   "r": "jhajjhā",
+   "t": "ਝ"
+  },
+  {
+   "hint": "ny as in canyon — rare alone",
+   "r": "ñaññā",
+   "t": "ਞ"
+  },
+  {
+   "hint": "hard T, tongue curled back",
+   "r": "ṭaiṅkā",
+   "t": "ਟ"
+  },
+  {
+   "hint": "breathy hard T",
+   "r": "ṭhaṭhā",
+   "t": "ਠ"
+  },
+  {
+   "hint": "hard D, tongue curled back",
+   "r": "ḍaḍā",
+   "t": "ਡ"
+  },
+  {
+   "hint": "hard D + low tone in modern speech",
+   "r": "ḍhaḍā",
+   "t": "ਢ"
+  },
+  {
+   "hint": "hard N, tongue curled back",
+   "r": "ṇāṇā",
+   "t": "ਣ"
+  },
+  {
+   "hint": "soft t, tongue on teeth — like Spanish t",
+   "r": "tattā",
+   "t": "ਤ"
+  },
+  {
+   "hint": "breathy soft t (never English th)",
+   "r": "thathā",
+   "t": "ਥ"
+  },
+  {
+   "hint": "soft d, tongue on teeth",
+   "r": "dadā",
+   "t": "ਦ"
+  },
+  {
+   "hint": "soft d + low tone in modern speech",
+   "r": "dhadhā",
+   "t": "ਧ"
+  },
+  {
+   "hint": "n as in no",
+   "r": "nannā",
+   "t": "ਨ"
+  },
+  {
+   "hint": "p as in pin",
+   "r": "pappā",
+   "t": "ਪ"
+  },
+  {
+   "hint": "ph — breathy p (f in some words)",
+   "r": "phaphā",
+   "t": "ਫ"
+  },
+  {
+   "hint": "b as in boy",
+   "r": "babbā",
+   "t": "ਬ"
+  },
+  {
+   "hint": "b + low tone in modern speech",
+   "r": "bhabhā",
+   "t": "ਭ"
+  },
+  {
+   "hint": "m as in man",
+   "r": "mammā",
+   "t": "ਮ"
+  },
+  {
+   "hint": "y as in yes",
+   "r": "yayyā",
+   "t": "ਯ"
+  },
+  {
+   "hint": "rolled r",
+   "r": "rārā",
+   "t": "ਰ"
+  },
+  {
+   "hint": "l as in love",
+   "r": "lallā",
+   "t": "ਲ"
+  },
+  {
+   "hint": "between v and w",
+   "r": "vāvā",
+   "t": "ਵ"
+  },
+  {
+   "hint": "flapped ṛ — like the dd in American 'butter'",
+   "r": "ṛāṛā",
+   "t": "ੜ"
+  },
+  {
+   "hint": "sh as in shoe (dotted letter)",
+   "r": "sh",
+   "t": "ਸ਼"
+  },
+  {
+   "hint": "throaty kh as in Khan (dotted)",
+   "r": "kh",
+   "t": "ਖ਼"
+  },
+  {
+   "hint": "throaty gh as in Ghazi (dotted)",
+   "r": "gh",
+   "t": "ਗ਼"
+  },
+  {
+   "hint": "z as in zoo (dotted)",
+   "r": "z",
+   "t": "ਜ਼"
+  },
+  {
+   "hint": "f as in fan (dotted)",
+   "r": "f",
+   "t": "ਫ਼"
+  },
+  {
+   "hint": "retroflex L — as in ਸੋਲ਼ਾਂ (sixteen)",
+   "r": "ḷ",
+   "t": "ਲ਼"
+  }
+ ],
+ "core_nouns": [
+  {
+   "en": "water",
+   "hi": "पानी",
+   "r": "pāṇī",
+   "t": "ਪਾਣੀ"
+  },
+  {
+   "en": "home",
+   "hi": "घर",
+   "r": "ghar",
+   "t": "ਘਰ"
+  },
+  {
+   "en": "school",
+   "hi": "स्कूल",
+   "r": "sakūl",
+   "t": "ਸਕੂਲ"
+  },
+  {
+   "en": "office",
+   "hi": "दफ़्तर",
+   "r": "daftar",
+   "t": "ਦਫ਼ਤਰ"
+  },
+  {
+   "en": "shop",
+   "hi": "दुकान",
+   "r": "dukān",
+   "t": "ਦੁਕਾਨ"
+  },
+  {
+   "en": "market",
+   "hi": "बाज़ार",
+   "r": "bāzār",
+   "t": "ਬਾਜ਼ਾਰ"
+  },
+  {
+   "en": "hospital",
+   "hi": "अस्पताल",
+   "r": "haspatāl",
+   "t": "ਹਸਪਤਾਲ"
+  },
+  {
+   "en": "station",
+   "hi": "स्टेशन",
+   "r": "station",
+   "t": "ਸਟੇਸ਼ਨ"
+  },
+  {
+   "en": "airport",
+   "hi": "हवाई अड्डा",
+   "r": "havāī aḍḍā",
+   "t": "ਹਵਾਈ ਅੱਡਾ"
+  },
+  {
+   "en": "room",
+   "hi": "कमरा",
+   "r": "kamrā",
+   "t": "ਕਮਰਾ"
+  },
+  {
+   "en": "door",
+   "hi": "दरवाज़ा",
+   "r": "darvāzā",
+   "t": "ਦਰਵਾਜ਼ਾ"
+  },
+  {
+   "en": "book",
+   "hi": "किताब",
+   "r": "kitāb",
+   "t": "ਕਿਤਾਬ"
+  },
+  {
+   "en": "phone",
+   "hi": "फ़ोन",
+   "r": "fon",
+   "t": "ਫ਼ੋਨ"
+  }
+ ],
+ "counting_note": "Punjabi has no classifiers — put the number straight before the noun. But the noun itself goes plural: ਇੱਕ ਕਿਤਾਬ (one book), ਦੋ ਕਿਤਾਬਾਂ (two books), ਤਿੰਨ ਰੁਪਏ (three rupees).",
+ "culture": [
+  {
+   "en": "The Golden Temple in Amritsar: Sikhism's holiest shrine, open to everyone, day and night.",
+   "r": "Harimandar Sāhib",
+   "t": "ਹਰਿਮੰਦਰ ਸਾਹਿਬ"
+  },
+  {
+   "en": "The free community kitchen at every gurdwara — sit on the floor, eat dal-roti, all are equal.",
+   "r": "langar",
+   "t": "ਲੰਗਰ"
+  },
+  {
+   "en": "The spring harvest festival (13 April) — and the Khalsa's birthday. Expect bhangra.",
+   "r": "Vaisākhī",
+   "t": "ਵਿਸਾਖੀ"
+  },
+  {
+   "en": "The mid-January bonfire festival — peanuts, rewri and folk songs around the fire.",
+   "r": "Lohrī",
+   "t": "ਲੋਹੜੀ"
+  },
+  {
+   "en": "Punjab's thundering harvest dance — now a global party soundtrack. Women answer with ਗਿੱਧਾ (giddhā).",
+   "r": "bhāngṛā",
+   "t": "ਭੰਗੜਾ"
+  }
+ ],
+ "daily_phrases": [
+  {
+   "en": "I wake up at six",
+   "hi": "मैं छह बजे उठता हूँ",
+   "r": "Main chhe vaje uṭhdā hān",
+   "t": "ਮੈਂ ਛੇ ਵਜੇ ਉੱਠਦਾ ਹਾਂ"
+  },
+  {
+   "en": "I take a bath",
+   "hi": "मैं नहाता हूँ",
+   "r": "Main nahāundā hān",
+   "t": "ਮੈਂ ਨਹਾਉਂਦਾ ਹਾਂ"
+  },
+  {
+   "en": "I have breakfast",
+   "hi": "मैं नाश्ता करता हूँ",
+   "r": "Main nāshtā kardā hān",
+   "t": "ਮੈਂ ਨਾਸ਼ਤਾ ਕਰਦਾ ਹਾਂ"
+  },
+  {
+   "en": "I go to work",
+   "hi": "मैं काम पर जाता हूँ",
+   "r": "Main kamm te jāndā hān",
+   "t": "ਮੈਂ ਕੰਮ ਤੇ ਜਾਂਦਾ ਹਾਂ"
+  },
+  {
+   "en": "I eat lunch",
+   "hi": "मैं दोपहर का खाना खाता हूँ",
+   "r": "Main dupahir dā khāṇā khāndā hān",
+   "t": "ਮੈਂ ਦੁਪਹਿਰ ਦਾ ਖਾਣਾ ਖਾਂਦਾ ਹਾਂ"
+  },
+  {
+   "en": "I come home in the evening",
+   "hi": "मैं शाम को घर आता हूँ",
+   "r": "Main shām nū ghar āundā hān",
+   "t": "ਮੈਂ ਸ਼ਾਮ ਨੂੰ ਘਰ ਆਉਂਦਾ ਹਾਂ"
+  },
+  {
+   "en": "I watch TV",
+   "hi": "मैं टीवी देखता हूँ",
+   "r": "Main ṭīvī dekhdā hān",
+   "t": "ਮੈਂ ਟੀਵੀ ਦੇਖਦਾ ਹਾਂ"
+  },
+  {
+   "en": "I sleep at ten",
+   "hi": "मैं दस बजे सोता हूँ",
+   "r": "Main das vaje saundā hān",
+   "t": "ਮੈਂ ਦਸ ਵਜੇ ਸੌਂਦਾ ਹਾਂ"
+  }
+ ],
+ "days": [
+  {
+   "en": "Monday",
+   "hi": "सोमवार",
+   "r": "Somvār",
+   "t": "ਸੋਮਵਾਰ"
+  },
+  {
+   "en": "Tuesday",
+   "hi": "मंगलवार",
+   "r": "Mangalvār",
+   "t": "ਮੰਗਲਵਾਰ"
+  },
+  {
+   "en": "Wednesday",
+   "hi": "बुधवार",
+   "r": "Budhvār",
+   "t": "ਬੁੱਧਵਾਰ"
+  },
+  {
+   "en": "Thursday",
+   "hi": "गुरुवार",
+   "r": "Vīrvār",
+   "t": "ਵੀਰਵਾਰ"
+  },
+  {
+   "en": "Friday",
+   "hi": "शुक्रवार",
+   "r": "Shukkarvār",
+   "t": "ਸ਼ੁੱਕਰਵਾਰ"
+  },
+  {
+   "en": "Saturday",
+   "hi": "शनिवार",
+   "r": "Shanivār",
+   "t": "ਸ਼ਨੀਵਾਰ"
+  },
+  {
+   "en": "Sunday",
+   "hi": "रविवार",
+   "r": "Aitvār",
+   "t": "ਐਤਵਾਰ"
+  }
+ ],
+ "dialogues": [
+  {
+   "lines": [
+    {
+     "en": "Greetings! My name is Harpreet.",
+     "hi": "सत श्री अकाल! मेरा नाम हरप्रीत है।",
+     "r": "Sat Srī Akāl! Merā nām Harpreet hai.",
+     "sp": "Harpreet",
+     "t": "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ! ਮੇਰਾ ਨਾਮ ਹਰਪ੍ਰੀਤ ਹੈ।"
+    },
+    {
+     "en": "Greetings! I'm Simran. How are you?",
+     "hi": "सत श्री अकाल! मैं सिमरन हूँ। आप कैसे हैं?",
+     "r": "Sat Srī Akāl! Main Simran. Tusīn kiven ho?",
+     "sp": "Simran",
+     "t": "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ! ਮੈਂ ਸਿਮਰਨ। ਤੁਸੀਂ ਕਿਵੇਂ ਹੋ?"
+    },
+    {
+     "en": "I'm fine, thanks. Where are you from?",
+     "hi": "मैं ठीक हूँ, शुक्रिया। आप कहाँ से हैं?",
+     "r": "Main ṭhīk hān, shukrīā. Tusīn kitthon ho?",
+     "sp": "Harpreet",
+     "t": "ਮੈਂ ਠੀਕ ਹਾਂ, ਸ਼ੁਕਰੀਆ। ਤੁਸੀਂ ਕਿੱਥੋਂ ਹੋ?"
+    },
+    {
+     "en": "I'm from Amritsar. Which city is yours?",
+     "hi": "मैं अमृतसर से हूँ। आपका शहर कौन-सा है?",
+     "r": "Main Ammritsar ton hān. Tuhāḍā shahir kihṛā hai?",
+     "sp": "Simran",
+     "t": "ਮੈਂ ਅੰਮ੍ਰਿਤਸਰ ਤੋਂ ਹਾਂ। ਤੁਹਾਡਾ ਸ਼ਹਿਰ ਕਿਹੜਾ ਹੈ?"
+    },
+    {
+     "en": "I'm from Delhi. I'm learning Punjabi.",
+     "hi": "मैं दिल्ली से हूँ। मैं पंजाबी सीखता हूँ।",
+     "r": "Main Dillī ton hān. Main Panjābī sikkhdā hān.",
+     "sp": "Harpreet",
+     "t": "ਮੈਂ ਦਿੱਲੀ ਤੋਂ ਹਾਂ। ਮੈਂ ਪੰਜਾਬੀ ਸਿੱਖਦਾ ਹਾਂ।"
+    }
+   ],
+   "title": "Meeting someone"
+  },
+  {
+   "lines": [
+    {
+     "en": "Greetings, sir! What will you have?",
+     "hi": "सत श्री अकाल जी! क्या लेंगे?",
+     "r": "Sat Srī Akāl jī! Kī lavoge?",
+     "sp": "Waiter",
+     "t": "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ ਜੀ! ਕੀ ਲਵੋਗੇ?"
+    },
+    {
+     "en": "Give us two thalis. Do you have sarson da saag?",
+     "hi": "हमें दो थालियाँ दीजिए। सरसों का साग है?",
+     "r": "Sānū do thālīān dio. Sarson dā sāg hai?",
+     "sp": "You",
+     "t": "ਸਾਨੂੰ ਦੋ ਥਾਲੀਆਂ ਦਿਓ। ਸਰਸੋਂ ਦਾ ਸਾਗ ਹੈ?"
+    },
+    {
+     "en": "Yes indeed! It tastes wonderful with makki di roti.",
+     "hi": "हाँ जी! मक्की की रोटी के साथ बहुत स्वाद लगेगा।",
+     "r": "Hānjī! Makkī dī rotī nāl bahut savād laggegā.",
+     "sp": "Waiter",
+     "t": "ਹਾਂਜੀ! ਮੱਕੀ ਦੀ ਰੋਟੀ ਨਾਲ ਬਹੁਤ ਸਵਾਦ ਲੱਗੇਗਾ।"
+    },
+    {
+     "en": "Good — two sweet lassis with that too.",
+     "hi": "अच्छा — साथ में दो मीठी लस्सी भी।",
+     "r": "Changā — nāl do miṭhīān lassīān vī.",
+     "sp": "You",
+     "t": "ਚੰਗਾ — ਨਾਲ ਦੋ ਮਿੱਠੀਆਂ ਲੱਸੀਆਂ ਵੀ।"
+    },
+    {
+     "en": "Very good, sir! It'll be here in five minutes.",
+     "hi": "बहुत अच्छा जी! पाँच मिनट में आ जाता है।",
+     "r": "Bahut changā jī! Panj minṭ vich ā jāndā hai.",
+     "sp": "Waiter",
+     "t": "ਬਹੁਤ ਚੰਗਾ ਜੀ! ਪੰਜ ਮਿੰਟ ਵਿੱਚ ਆ ਜਾਂਦਾ ਹੈ।"
+    }
+   ],
+   "title": "At a dhaba"
+  },
+  {
+   "lines": [
+    {
+     "en": "Greetings! How much is this shawl?",
+     "hi": "सत श्री अकाल! यह शॉल कितने की है?",
+     "r": "Sat Srī Akāl! Ih shāl kinne dī hai?",
+     "sp": "You",
+     "t": "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ! ਇਹ ਸ਼ਾਲ ਕਿੰਨੇ ਦੀ ਹੈ?"
+    },
+    {
+     "en": "Fifteen hundred rupees, sir. Very fine stuff.",
+     "hi": "पंद्रह सौ रुपये की है जी। बहुत बढ़िया चीज़ है।",
+     "r": "Pandrān sau rupae dī hai jī. Bahut vadhīā chīz hai.",
+     "sp": "Shopkeeper",
+     "t": "ਪੰਦਰਾਂ ਸੌ ਰੁਪਏ ਦੀ ਹੈ ਜੀ। ਬਹੁਤ ਵਧੀਆ ਚੀਜ਼ ਹੈ।"
+    },
+    {
+     "en": "Too expensive! Give it for a thousand.",
+     "hi": "बहुत महँगी है! हज़ार में दीजिए।",
+     "r": "Bahut mahingī hai! Hazār vich dio.",
+     "sp": "You",
+     "t": "ਬਹੁਤ ਮਹਿੰਗੀ ਹੈ! ਹਜ਼ਾਰ ਵਿੱਚ ਦਿਓ।"
+    },
+    {
+     "en": "No sir, it won't go below twelve hundred.",
+     "hi": "नहीं जी, बारह सौ से कम नहीं होगी।",
+     "r": "Nahīn jī, bārān sau ton ghaṭṭ nahīn hovegī.",
+     "sp": "Shopkeeper",
+     "t": "ਨਹੀਂ ਜੀ, ਬਾਰਾਂ ਸੌ ਤੋਂ ਘੱਟ ਨਹੀਂ ਹੋਵੇਗੀ।"
+    },
+    {
+     "en": "Fine, pack it for twelve hundred. Thanks!",
+     "hi": "अच्छा, बारह सौ में पैक कर दीजिए। शुक्रिया!",
+     "r": "Changā, bārān sau vich paik kar dio. Shukrīā!",
+     "sp": "You",
+     "t": "ਚੰਗਾ, ਬਾਰਾਂ ਸੌ ਵਿੱਚ ਪੈਕ ਕਰ ਦਿਓ। ਸ਼ੁਕਰੀਆ!"
+    }
+   ],
+   "title": "Bargaining at the bazaar"
+  }
+ ],
+ "difficulty": "Easy for Hindi speakers — familiar grammar, a new script and gentle tones",
+ "family": [
+  {
+   "en": "mother",
+   "hi": "माँ",
+   "note": "ਮਾਤਾ (mātā) is the formal word",
+   "r": "mān",
+   "t": "ਮਾਂ"
+  },
+  {
+   "en": "father",
+   "hi": "पिता",
+   "note": "ਪਿਤਾ (pitā) is formal; kids say ਪਾਪਾ too",
+   "r": "pio",
+   "t": "ਪਿਓ"
+  },
+  {
+   "en": "brother",
+   "hi": "भाई",
+   "note": "elder: ਵੱਡਾ ਭਰਾ; younger: ਛੋਟਾ ਭਰਾ",
+   "r": "bharā",
+   "t": "ਭਰਾ"
+  },
+  {
+   "en": "sister",
+   "hi": "बहन",
+   "note": "",
+   "r": "bhaiṇ",
+   "t": "ਭੈਣ"
+  },
+  {
+   "en": "son",
+   "hi": "बेटा",
+   "note": "ਮੁੰਡਾ (muṇḍā) = boy; ਪੁੱਤਰ (puttar) is formal",
+   "r": "putt",
+   "t": "ਪੁੱਤ"
+  },
+  {
+   "en": "daughter",
+   "hi": "बेटी",
+   "note": "",
+   "r": "dhī",
+   "t": "ਧੀ"
+  },
+  {
+   "en": "husband",
+   "hi": "पति",
+   "note": "ਘਰਵਾਲਾ (gharvālā) is the homely word",
+   "r": "patī",
+   "t": "ਪਤੀ"
+  },
+  {
+   "en": "wife",
+   "hi": "पत्नी",
+   "note": "ਘਰਵਾਲੀ (gharvālī) is the homely word",
+   "r": "patnī",
+   "t": "ਪਤਨੀ"
+  },
+  {
+   "en": "grandfather",
+   "hi": "दादा",
+   "note": "father's father; mother's father is ਨਾਨਾ (nānā)",
+   "r": "dādā",
+   "t": "ਦਾਦਾ"
+  },
+  {
+   "en": "grandmother",
+   "hi": "दादी",
+   "note": "father's mother; mother's mother is ਨਾਨੀ (nānī)",
+   "r": "dādī",
+   "t": "ਦਾਦੀ"
+  },
+  {
+   "en": "uncle",
+   "hi": "चाचा",
+   "note": "father's brother; mother's brother is ਮਾਮਾ (māmā)",
+   "r": "chāchā",
+   "t": "ਚਾਚਾ"
+  },
+  {
+   "en": "aunt",
+   "hi": "मासी",
+   "note": "mother's sister; father's sister is ਭੂਆ (bhuā)",
+   "r": "māsī",
+   "t": "ਮਾਸੀ"
+  },
+  {
+   "en": "child",
+   "hi": "बच्चा",
+   "note": "",
+   "r": "bachchā",
+   "t": "ਬੱਚਾ"
+  }
+ ],
+ "food_phrases": [
+  {
+   "en": "I'm hungry",
+   "hi": "मुझे भूख लगी है",
+   "r": "Mainū bhukkh laggī hai",
+   "t": "ਮੈਨੂੰ ਭੁੱਖ ਲੱਗੀ ਹੈ"
+  },
+  {
+   "en": "Give (me) water",
+   "hi": "पानी दीजिए",
+   "r": "Pāṇī dio",
+   "t": "ਪਾਣੀ ਦਿਓ"
+  },
+  {
+   "en": "The bill, please",
+   "hi": "बिल दीजिए",
+   "r": "Bill dio",
+   "t": "ਬਿੱਲ ਦਿਓ"
+  },
+  {
+   "en": "This is very tasty",
+   "hi": "यह बहुत स्वाद है",
+   "r": "Ih bahut savād hai",
+   "t": "ਇਹ ਬਹੁਤ ਸਵਾਦ ਹੈ"
+  },
+  {
+   "en": "Give a little more",
+   "hi": "थोड़ा और दीजिए",
+   "r": "Hor thoṛā dio",
+   "t": "ਹੋਰ ਥੋੜ੍ਹਾ ਦਿਓ"
+  },
+  {
+   "en": "I'm vegetarian",
+   "hi": "मैं शाकाहारी हूँ",
+   "r": "Main shākāhārī hān",
+   "t": "ਮੈਂ ਸ਼ਾਕਾਹਾਰੀ ਹਾਂ"
+  },
+  {
+   "en": "Go easy on the spice",
+   "hi": "मसाला कम रखिए",
+   "r": "Masālā ghaṭṭ rakkho",
+   "t": "ਮਸਾਲਾ ਘੱਟ ਰੱਖੋ"
+  }
+ ],
+ "food_words": [
+  {
+   "en": "flatbread",
+   "hi": "रोटी",
+   "r": "rotī",
+   "t": "ਰੋਟੀ"
+  },
+  {
+   "en": "naan",
+   "hi": "नान",
+   "r": "nān",
+   "t": "ਨਾਨ"
+  },
+  {
+   "en": "stuffed flatbread",
+   "hi": "पराँठा",
+   "r": "paronṭhā",
+   "t": "ਪਰੌਂਠਾ"
+  },
+  {
+   "en": "Amritsari kulcha",
+   "hi": "कुलचा",
+   "r": "kulchā",
+   "t": "ਕੁਲਚਾ"
+  },
+  {
+   "en": "lentils",
+   "hi": "दाल",
+   "r": "dāl",
+   "t": "ਦਾਲ"
+  },
+  {
+   "en": "vegetable curry",
+   "hi": "सब्ज़ी",
+   "r": "sabzī",
+   "t": "ਸਬਜ਼ੀ"
+  },
+  {
+   "en": "rice",
+   "hi": "चावल",
+   "r": "chaul",
+   "t": "ਚੌਲ"
+  },
+  {
+   "en": "chickpeas",
+   "hi": "छोले",
+   "r": "chhole",
+   "t": "ਛੋਲੇ"
+  },
+  {
+   "en": "kidney beans",
+   "hi": "राजमा",
+   "r": "rājmān",
+   "t": "ਰਾਜਮਾਂ"
+  },
+  {
+   "en": "paneer (cheese)",
+   "hi": "पनीर",
+   "r": "panīr",
+   "t": "ਪਨੀਰ"
+  },
+  {
+   "en": "curd",
+   "hi": "दही",
+   "r": "dahīn",
+   "t": "ਦਹੀਂ"
+  },
+  {
+   "en": "butter",
+   "hi": "मक्खन",
+   "r": "makkhaṇ",
+   "t": "ਮੱਖਣ"
+  },
+  {
+   "en": "ghee",
+   "hi": "घी",
+   "r": "ghio",
+   "t": "ਘਿਉ"
+  },
+  {
+   "en": "lassi (yogurt drink)",
+   "hi": "लस्सी",
+   "r": "lassī",
+   "t": "ਲੱਸੀ"
+  },
+  {
+   "en": "tea",
+   "hi": "चाय",
+   "r": "chāh",
+   "t": "ਚਾਹ"
+  },
+  {
+   "en": "samosa",
+   "hi": "समोसा",
+   "r": "samosā",
+   "t": "ਸਮੋਸਾ"
+  },
+  {
+   "en": "fritters",
+   "hi": "पकौड़े",
+   "r": "pakaūṛe",
+   "t": "ਪਕੌੜੇ"
+  },
+  {
+   "en": "jalebi",
+   "hi": "जलेबी",
+   "r": "jalebī",
+   "t": "ਜਲੇਬੀ"
+  }
+ ],
+ "gender_note": "Every noun is masculine or feminine, and verbs and adjectives agree with it. ਖਾਂਦਾ (khāndā) is a man eating; ਖਾਂਦੀ (khāndī) is a woman eating. ਨੀਲਾ ਘਰ (blue house, m) but ਨੀਲੀ ਕਮੀਜ਼ (blue shirt, f). Citation forms in this course are masculine — the tables always show both.",
+ "gender_title": "Two genders, everywhere",
+ "greetings": [
+  {
+   "en": "Hello! (Sikh greeting)",
+   "hi": "सत श्री अकाल",
+   "note": "'God is truth' — the standard hello, all day, for everyone",
+   "r": "Sat Srī Akāl!",
+   "t": "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ!"
+  },
+  {
+   "en": "How are you?",
+   "hi": "आप कैसे हैं?",
+   "note": "ਕੀ ਹਾਲ ਹੈ (kī hāl hai) is the casual 'how's it going'",
+   "r": "Tusīn kiven ho?",
+   "t": "ਤੁਸੀਂ ਕਿਵੇਂ ਹੋ?"
+  },
+  {
+   "en": "I'm fine",
+   "hi": "मैं ठीक हूँ",
+   "note": "",
+   "r": "Main ṭhīk hān",
+   "t": "ਮੈਂ ਠੀਕ ਹਾਂ"
+  },
+  {
+   "en": "What is your name?",
+   "hi": "आपका नाम क्या है?",
+   "note": "",
+   "r": "Tuhāḍā nām kī hai?",
+   "t": "ਤੁਹਾਡਾ ਨਾਮ ਕੀ ਹੈ?"
+  },
+  {
+   "en": "My name is …",
+   "hi": "मेरा नाम … है",
+   "note": "",
+   "r": "Merā nām … hai",
+   "t": "ਮੇਰਾ ਨਾਮ … ਹੈ"
+  },
+  {
+   "en": "Nice to meet you",
+   "hi": "आपसे मिलकर खुशी हुई",
+   "note": "",
+   "r": "Tuhānū mil ke khushī hoī",
+   "t": "ਤੁਹਾਨੂੰ ਮਿਲ ਕੇ ਖੁਸ਼ੀ ਹੋਈ"
+  },
+  {
+   "en": "Thank you",
+   "hi": "धन्यवाद",
+   "note": "ਧੰਨਵਾਦ (dhannvād) is the formal/purer word",
+   "r": "Shukrīā",
+   "t": "ਸ਼ੁਕਰੀਆ"
+  },
+  {
+   "en": "Welcome!",
+   "hi": "स्वागत है!",
+   "note": "literally 'to your honoured arrival'",
+   "r": "Jī āiān nū!",
+   "t": "ਜੀ ਆਇਆਂ ਨੂੰ!"
+  },
+  {
+   "en": "See you! / Okay then!",
+   "hi": "फिर मिलेंगे!",
+   "note": "the casual goodbye — 'right then!'",
+   "r": "Changā phir!",
+   "t": "ਚੰਗਾ ਫਿਰ!"
+  },
+  {
+   "en": "Excuse me / Sorry",
+   "hi": "माफ़ करें",
+   "note": "",
+   "r": "Muāf karo",
+   "t": "ਮੁਆਫ਼ ਕਰੋ"
+  },
+  {
+   "en": "Please",
+   "hi": "कृपया",
+   "note": "",
+   "r": "Meharbānī karke",
+   "t": "ਮੇਹਰਬਾਨੀ ਕਰਕੇ"
+  },
+  {
+   "en": "Congratulations!",
+   "hi": "बधाई हो!",
+   "note": "",
+   "r": "Vadhāī hove!",
+   "t": "ਵਧਾਈ ਹੋਵੇ!"
+  },
+  {
+   "en": "yes (respectful); sir/ma'am",
+   "hi": "जी",
+   "note": "the respect particle — ਹਾਂਜੀ yes, ਨਹੀਂ ਜੀ no",
+   "r": "Jī",
+   "t": "ਜੀ"
+  }
+ ],
+ "name": "Punjabi",
+ "native": "ਪੰਜਾਬੀ",
+ "negation_note": "ਨਹੀਂ (nahīn) goes before the verb: ਮੈਂ ਨਹੀਂ ਖਾਂਦਾ (I don't eat), ਉਹ ਨਹੀਂ ਆਇਆ (he didn't come). For commands use ਨਾ or ਮਤ: ਇੱਥੇ ਨਾ ਬੈਠੋ (don't sit here).",
+ "negation_title": "Negation with ਨਹੀਂ (nahīn)",
+ "numbers": [
+  {
+   "hi": "एक",
+   "n": 1,
+   "r": "ikk",
+   "t": "ਇੱਕ"
+  },
+  {
+   "hi": "दो",
+   "n": 2,
+   "r": "do",
+   "t": "ਦੋ"
+  },
+  {
+   "hi": "तीन",
+   "n": 3,
+   "r": "tinn",
+   "t": "ਤਿੰਨ"
+  },
+  {
+   "hi": "चार",
+   "n": 4,
+   "r": "chār",
+   "t": "ਚਾਰ"
+  },
+  {
+   "hi": "पाँच",
+   "n": 5,
+   "r": "panj",
+   "t": "ਪੰਜ"
+  },
+  {
+   "hi": "छह",
+   "n": 6,
+   "r": "chhe",
+   "t": "ਛੇ"
+  },
+  {
+   "hi": "सात",
+   "n": 7,
+   "r": "satt",
+   "t": "ਸੱਤ"
+  },
+  {
+   "hi": "आठ",
+   "n": 8,
+   "r": "aṭṭh",
+   "t": "ਅੱਠ"
+  },
+  {
+   "hi": "नौ",
+   "n": 9,
+   "r": "naun",
+   "t": "ਨੌਂ"
+  },
+  {
+   "hi": "दस",
+   "n": 10,
+   "r": "das",
+   "t": "ਦਸ"
+  },
+  {
+   "hi": "ग्यारह",
+   "n": 11,
+   "r": "giārān",
+   "t": "ਗਿਆਰਾਂ"
+  },
+  {
+   "hi": "बारह",
+   "n": 12,
+   "r": "bārān",
+   "t": "ਬਾਰਾਂ"
+  },
+  {
+   "hi": "तेरह",
+   "n": 13,
+   "r": "terān",
+   "t": "ਤੇਰਾਂ"
+  },
+  {
+   "hi": "चौदह",
+   "n": 14,
+   "r": "chaudān",
+   "t": "ਚੌਦਾਂ"
+  },
+  {
+   "hi": "पंद्रह",
+   "n": 15,
+   "r": "pandrān",
+   "t": "ਪੰਦਰਾਂ"
+  },
+  {
+   "hi": "सोलह",
+   "n": 16,
+   "r": "solān",
+   "t": "ਸੋਲ਼ਾਂ"
+  },
+  {
+   "hi": "सत्रह",
+   "n": 17,
+   "r": "satārān",
+   "t": "ਸਤਾਰਾਂ"
+  },
+  {
+   "hi": "अठारह",
+   "n": 18,
+   "r": "aṭhārān",
+   "t": "ਅਠਾਰਾਂ"
+  },
+  {
+   "hi": "उन्नीस",
+   "n": 19,
+   "r": "unnī",
+   "t": "ਉੱਨੀ"
+  },
+  {
+   "hi": "बीस",
+   "n": 20,
+   "r": "vīh",
+   "t": "ਵੀਹ"
+  },
+  {
+   "hi": "तीस",
+   "n": 30,
+   "r": "tīh",
+   "t": "ਤੀਹ"
+  },
+  {
+   "hi": "चालीस",
+   "n": 40,
+   "r": "chālī",
+   "t": "ਚਾਲੀ"
+  },
+  {
+   "hi": "पचास",
+   "n": 50,
+   "r": "panjāh",
+   "t": "ਪੰਜਾਹ"
+  },
+  {
+   "hi": "साठ",
+   "n": 60,
+   "r": "saṭṭh",
+   "t": "ਸੱਠ"
+  },
+  {
+   "hi": "सत्तर",
+   "n": 70,
+   "r": "sattar",
+   "t": "ਸੱਤਰ"
+  },
+  {
+   "hi": "अस्सी",
+   "n": 80,
+   "r": "assī",
+   "t": "ਅੱਸੀ"
+  },
+  {
+   "hi": "नब्बे",
+   "n": 90,
+   "r": "nabbe",
+   "t": "ਨੱਬੇ"
+  },
+  {
+   "hi": "सौ",
+   "n": 100,
+   "r": "sau",
+   "t": "ਸੌ"
+  }
+ ],
+ "past_future": [
+  {
+   "en": "I ate (said by a man)",
+   "hi": "मैंने खाया",
+   "r": "Main khādhā",
+   "t": "ਮੈਂ ਖਾਧਾ"
+  },
+  {
+   "en": "I ate (said by a woman)",
+   "hi": "मैंने खायी",
+   "r": "Main khādhī",
+   "t": "ਮੈਂ ਖਾਧੀ"
+  },
+  {
+   "en": "I will eat (said by a man)",
+   "hi": "मैं खाऊँगा",
+   "r": "Main khāvāngā",
+   "t": "ਮੈਂ ਖਾਵਾਂਗਾ"
+  },
+  {
+   "en": "I will eat (said by a woman)",
+   "hi": "मैं खाऊँगी",
+   "r": "Main khāvāngī",
+   "t": "ਮੈਂ ਖਾਵਾਂਗੀ"
+  },
+  {
+   "en": "I ate bread (verb matches ਰੋਟੀ)",
+   "hi": "मैंने रोटी खायी",
+   "r": "Main rotī khādhī",
+   "t": "ਮੈਂ ਰੋਟੀ ਖਾਧੀ"
+  },
+  {
+   "en": "We ate",
+   "hi": "हमने खाया",
+   "r": "Asīn khādhā",
+   "t": "ਅਸੀਂ ਖਾਧਾ"
+  }
+ ],
+ "postpositions": [
+  {
+   "en": "to",
+   "ex_en": "Give me water.",
+   "ex_r": "Mainū pāṇī dio",
+   "ex_t": "ਮੈਨੂੰ ਪਾਣੀ ਦਿਓ",
+   "hi": "को",
+   "r": "nū",
+   "t": "ਨੂੰ"
+  },
+  {
+   "en": "from",
+   "ex_en": "I'm from Delhi.",
+   "ex_r": "Main Dillī ton hān",
+   "ex_t": "ਮੈਂ ਦਿੱਲੀ ਤੋਂ ਹਾਂ",
+   "hi": "से",
+   "r": "ton",
+   "t": "ਤੋਂ"
+  },
+  {
+   "en": "in",
+   "ex_en": "The cat is in the house.",
+   "ex_r": "Billī ghar vich hai",
+   "ex_t": "ਬਿੱਲੀ ਘਰ ਵਿੱਚ ਹੈ",
+   "hi": "में",
+   "r": "vich",
+   "t": "ਵਿੱਚ"
+  },
+  {
+   "en": "on",
+   "ex_en": "The book is on the table.",
+   "ex_r": "Kitāb mez utte hai",
+   "ex_t": "ਕਿਤਾਬ ਮੇਜ਼ ਉੱਤੇ ਹੈ",
+   "hi": "पर",
+   "r": "utte",
+   "t": "ਉੱਤੇ"
+  },
+  {
+   "en": "with",
+   "ex_en": "I went with a friend.",
+   "ex_r": "Main dost nāl giā",
+   "ex_t": "ਮੈਂ ਦੋਸਤ ਨਾਲ ਗਿਆ",
+   "hi": "के साथ",
+   "r": "nāl",
+   "t": "ਨਾਲ"
+  },
+  {
+   "en": "for",
+   "ex_en": "This is for you.",
+   "ex_r": "Ih tuhāḍe laī hai",
+   "ex_t": "ਇਹ ਤੁਹਾਡੇ ਲਈ ਹੈ",
+   "hi": "के लिए",
+   "r": "laī",
+   "t": "ਲਈ"
+  }
+ ],
+ "present_note": "The present is stem + -ਦਾ (m) / -ਦੀ (f) + helper: ਹਾਂ (I), ਹੈਂ (tūn), ਹੈ (is), ਹੋ (tusīn — always plural!), ਹਨ (they). So ਮੈਂ ਖਾਂਦਾ ਹਾਂ (I eat, m), ਤੁਸੀਂ ਖਾਂਦੇ ਹੋ (you eat, respectful), ਉਹ ਖਾਂਦੇ ਹਨ (they eat).",
+ "present_table": [
+  {
+   "verb_r": "khāndā hān",
+   "verb_t": "ਖਾਂਦਾ ਹਾਂ",
+   "who_en": "I (male speaker)",
+   "who_t": "ਮੈਂ"
+  },
+  {
+   "verb_r": "khāndī hān",
+   "verb_t": "ਖਾਂਦੀ ਹਾਂ",
+   "who_en": "I (female speaker)",
+   "who_t": "ਮੈਂ"
+  },
+  {
+   "verb_r": "khāndā/khāndī hain",
+   "verb_t": "ਖਾਂਦਾ/ਖਾਂਦੀ ਹੈਂ",
+   "who_en": "you (tūn — close friends)",
+   "who_t": "ਤੂੰ"
+  },
+  {
+   "verb_r": "khānde ho",
+   "verb_t": "ਖਾਂਦੇ ਹੋ",
+   "who_en": "you (tusīn — respectful)",
+   "who_t": "ਤੁਸੀਂ"
+  },
+  {
+   "verb_r": "khāndā hai",
+   "verb_t": "ਖਾਂਦਾ ਹੈ",
+   "who_en": "he",
+   "who_t": "ਉਹ"
+  },
+  {
+   "verb_r": "khāndī hai",
+   "verb_t": "ਖਾਂਦੀ ਹੈ",
+   "who_en": "she",
+   "who_t": "ਉਹ"
+  },
+  {
+   "verb_r": "khānde han",
+   "verb_t": "ਖਾਂਦੇ ਹਨ",
+   "who_en": "they",
+   "who_t": "ਉਹ"
+  }
+ ],
+ "pronouns": [
+  {
+   "en": "I",
+   "hi": "मैं",
+   "r": "main",
+   "t": "ਮੈਂ"
+  },
+  {
+   "en": "you (informal)",
+   "hi": "तू",
+   "r": "tūn",
+   "t": "ਤੂੰ"
+  },
+  {
+   "en": "you (formal / plural)",
+   "hi": "तुम/आप",
+   "r": "tusīn",
+   "t": "ਤੁਸੀਂ"
+  },
+  {
+   "en": "this",
+   "hi": "यह",
+   "r": "ih",
+   "t": "ਇਹ"
+  },
+  {
+   "en": "he / she / that",
+   "hi": "वह",
+   "r": "uh",
+   "t": "ਉਹ"
+  },
+  {
+   "en": "we",
+   "hi": "हम",
+   "r": "asīn",
+   "t": "ਅਸੀਂ"
+  },
+  {
+   "en": "they",
+   "hi": "वे",
+   "r": "uh",
+   "t": "ਉਹ"
+  },
+  {
+   "en": "me / to me",
+   "hi": "मुझे",
+   "r": "mainū",
+   "t": "ਮੈਨੂੰ"
+  },
+  {
+   "en": "you (informal, to)",
+   "hi": "तुझे",
+   "r": "tainū",
+   "t": "ਤੈਨੂੰ"
+  },
+  {
+   "en": "you (formal, to)",
+   "hi": "तुम्हें/आपको",
+   "r": "tuhānū",
+   "t": "ਤੁਹਾਨੂੰ"
+  },
+  {
+   "en": "him / her (to)",
+   "hi": "उसे",
+   "r": "usnū",
+   "t": "ਉਸਨੂੰ"
+  },
+  {
+   "en": "us / to us",
+   "hi": "हमें",
+   "r": "sānū",
+   "t": "ਸਾਨੂੰ"
+  },
+  {
+   "en": "my",
+   "hi": "मेरा/मेरी",
+   "r": "merā/merī",
+   "t": "ਮੇਰਾ/ਮੇਰੀ"
+  },
+  {
+   "en": "your (informal)",
+   "hi": "तेरा/तेरी",
+   "r": "terā/terī",
+   "t": "ਤੇਰਾ/ਤੇਰੀ"
+  },
+  {
+   "en": "your (formal)",
+   "hi": "तुम्हारा/आपका",
+   "r": "tuhāḍā/tuhāḍī",
+   "t": "ਤੁਹਾਡਾ/ਤੁਹਾਡੀ"
+  },
+  {
+   "en": "his / her",
+   "hi": "उसका",
+   "r": "usdā/uhdā",
+   "t": "ਉਸਦਾ/ਉਹਦਾ"
+  },
+  {
+   "en": "our",
+   "hi": "हमारा",
+   "r": "sāḍā/sāḍī",
+   "t": "ਸਾਡਾ/ਸਾਡੀ"
+  },
+  {
+   "en": "who?",
+   "hi": "कौन?",
+   "r": "kauṇ?",
+   "t": "ਕੌਣ?"
+  },
+  {
+   "en": "what?",
+   "hi": "क्या?",
+   "r": "kī?",
+   "t": "ਕੀ?"
+  }
+ ],
+ "quiz": [
+  {
+   "a": "hello!",
+   "explain": "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ (Sat Srī Akāl) — 'God is truth' — is the standard Punjabi hello, any time of day.",
+   "id": "pj-01",
+   "lesson": "basics",
+   "level": "beginner",
+   "opts": [
+    "hello!",
+    "goodbye!",
+    "thank you",
+    "sorry"
+   ],
+   "q": "What does ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ mean?",
+   "topic": "basics",
+   "type": "meaning"
+  },
+  {
+   "a": "thank you",
+   "explain": "ਸ਼ੁਕਰੀਆ (shukrīā) is thanks — ਧੰਨਵਾਦ (dhannvād) is the more formal word.",
+   "id": "pj-02",
+   "lesson": "basics",
+   "level": "beginner",
+   "opts": [
+    "thank you",
+    "please",
+    "sorry",
+    "welcome"
+   ],
+   "q": "What does ਸ਼ੁਕਰੀਆ mean?",
+   "topic": "basics",
+   "type": "meaning"
+  },
+  {
+   "a": "ਮੇਰਾ ਨਾਮ … ਹੈ",
+   "explain": "ਤੁਹਾਡਾ ਨਾਮ ਕੀ ਹੈ? = what's your name — answer ਮੇਰਾ ਨਾਮ … ਹੈ (my name is …).",
+   "id": "pj-03",
+   "lesson": "basics",
+   "level": "beginner",
+   "opts": [
+    "ਮੇਰਾ ਨਾਮ … ਹੈ",
+    "ਮੈਨੂੰ ਭੁੱਖ ਲੱਗੀ ਹੈ",
+    "ਚੰਗਾ ਫਿਰ!",
+    "ਛੋਟ ਦਿਓ"
+   ],
+   "q": "Someone asks 'ਤੁਹਾਡਾ ਨਾਮ ਕੀ ਹੈ?' — you reply…",
+   "topic": "basics",
+   "type": "usage"
+  },
+  {
+   "a": "s as in sun",
+   "explain": "ਸ (sassā) is a plain s — ਸ਼ (dotted) is the sh sound.",
+   "id": "pj-04",
+   "lesson": "pronunciation",
+   "level": "beginner",
+   "opts": [
+    "s as in sun",
+    "sh as in shoe",
+    "h as in hat",
+    "k as in kite"
+   ],
+   "q": "The letter ਸ sounds like…",
+   "topic": "basics",
+   "type": "vocab"
+  },
+  {
+   "a": "3",
+   "explain": "ਇੱਕ ਦੋ ਤਿੰਨ — 1, 2, 3.",
+   "id": "pj-05",
+   "lesson": "numbers",
+   "level": "beginner",
+   "opts": [
+    "2",
+    "3",
+    "4",
+    "5"
+   ],
+   "q": "ਤਿੰਨ means…",
+   "topic": "numbers",
+   "type": "vocab"
+  },
+  {
+   "a": "ਦਸ",
+   "explain": "ਦਸ (das) = 10. ਪੰਜ = 5, ਵੀਹ = 20, ਸੌ = 100.",
+   "id": "pj-06",
+   "lesson": "numbers",
+   "level": "beginner",
+   "opts": [
+    "ਦਸ",
+    "ਪੰਜ",
+    "ਵੀਹ",
+    "ਸੌ"
+   ],
+   "q": "Which is 'ten'?",
+   "topic": "numbers",
+   "type": "vocab"
+  },
+  {
+   "a": "20",
+   "explain": "ਵੀਹ (vīh) = 20, ਉੱਨੀ = 19, ਇੱਕੀ = 21.",
+   "id": "pj-07",
+   "lesson": "numbers",
+   "level": "beginner",
+   "opts": [
+    "12",
+    "20",
+    "22",
+    "200"
+   ],
+   "q": "ਵੀਹ means…",
+   "topic": "numbers",
+   "type": "meaning"
+  },
+  {
+   "a": "50 rupees",
+   "explain": "ਪੰਜਾਹ (panjāh) = 50. ਪੰਜ = 5, ਪੰਦਰਾਂ = 15, ਪੰਜ ਸੌ = 500.",
+   "id": "pj-08",
+   "lesson": "numbers",
+   "level": "elementary",
+   "opts": [
+    "5 rupees",
+    "15 rupees",
+    "50 rupees",
+    "500 rupees"
+   ],
+   "q": "'ਪੰਜਾਹ ਰੁਪਏ' on a price tag means…",
+   "topic": "numbers",
+   "type": "usage"
+  },
+  {
+   "a": "a yogurt drink",
+   "explain": "ਲੱਸੀ — sweet or salted — is Punjab's iconic churned yogurt drink.",
+   "id": "pj-09",
+   "lesson": "food",
+   "level": "beginner",
+   "opts": [
+    "a yogurt drink",
+    "a lentil curry",
+    "a flatbread",
+    "a dessert"
+   ],
+   "q": "ਲੱਸੀ is…",
+   "topic": "food",
+   "type": "vocab"
+  },
+  {
+   "a": "this is very tasty",
+   "explain": "ਸਵਾਦ (savād) = taste — say it and any cook will beam.",
+   "id": "pj-10",
+   "lesson": "food",
+   "level": "beginner",
+   "opts": [
+    "this is very tasty",
+    "this is too spicy",
+    "the bill please",
+    "I'm hungry"
+   ],
+   "q": "'ਇਹ ਬਹੁਤ ਸਵਾਦ ਹੈ' means…",
+   "topic": "food",
+   "type": "meaning"
+  },
+  {
+   "a": "ਮੈਨੂੰ ਭੁੱਖ ਲੱਗੀ ਹੈ",
+   "explain": "ਮੈਨੂੰ ਭੁੱਖ ਲੱਗੀ ਹੈ = I'm hungry. ਪਿਆਸ = thirst, ਬਿੱਲ = bill.",
+   "id": "pj-11",
+   "lesson": "food",
+   "level": "elementary",
+   "opts": [
+    "ਮੈਨੂੰ ਭੁੱਖ ਲੱਗੀ ਹੈ",
+    "ਮੈਨੂੰ ਪਿਆਸ ਲੱਗੀ ਹੈ",
+    "ਬਿੱਲ ਦਿਓ",
+    "ਛੋਟ ਦਿਓ"
+   ],
+   "q": "You're hungry in Amritsar. You say…",
+   "topic": "food",
+   "type": "usage"
+  },
+  {
+   "a": "where is the station?",
+   "explain": "ਕਿੱਥੇ (kitthe) = where — the traveller's most useful word.",
+   "id": "pj-12",
+   "lesson": "travel",
+   "level": "beginner",
+   "opts": [
+    "where is the station?",
+    "how much is the fare?",
+    "stop here",
+    "one ticket please"
+   ],
+   "q": "'ਸਟੇਸ਼ਨ ਕਿੱਥੇ ਹੈ?' means…",
+   "topic": "travel",
+   "type": "meaning"
+  },
+  {
+   "a": "ticket",
+   "explain": "ਟਿਕਟ (ṭikaṭ) = ticket; ਕਿਰਾਇਆ = fare; ਸਟੇਸ਼ਨ = station.",
+   "id": "pj-13",
+   "lesson": "travel",
+   "level": "beginner",
+   "opts": [
+    "ticket",
+    "train",
+    "fare",
+    "station"
+   ],
+   "q": "ਟਿਕਟ means…",
+   "topic": "travel",
+   "type": "vocab"
+  },
+  {
+   "a": "ਇੱਥੇ ਰੁਕੋ",
+   "explain": "ਇੱਥੇ ਰੁਕੋ (itthe ruko) = stop here. ਹੌਲੀ ਚੱਲੋ = go slowly.",
+   "id": "pj-14",
+   "lesson": "travel",
+   "level": "elementary",
+   "opts": [
+    "ਇੱਥੇ ਰੁਕੋ",
+    "ਹੌਲੀ ਚੱਲੋ",
+    "ਸਿੱਧਾ ਜਾਓ",
+    "ਟਿਕਟ ਦਿਓ"
+   ],
+   "q": "To make the auto stop here, say…",
+   "topic": "travel",
+   "type": "usage"
+  },
+  {
+   "a": "a man saying 'I eat'",
+   "explain": "ਖਾਂਦਾ (khāndā, -ਦਾ) marks a male speaker; a woman says ਖਾਂਦੀ ਹਾਂ.",
+   "id": "pj-15",
+   "lesson": "grammar",
+   "level": "elementary",
+   "opts": [
+    "a man saying 'I eat'",
+    "a woman saying 'I eat'",
+    "a man saying 'I ate'",
+    "many people saying 'we eat'"
+   ],
+   "q": "'ਮੈਂ ਖਾਂਦਾ ਹਾਂ' is spoken by…",
+   "topic": "grammar",
+   "type": "meaning"
+  },
+  {
+   "a": "ਖਾਂਦੀ",
+   "explain": "ਖਾਂਦਾ/ਖਾਂਦੀ (m/f), ਖਾਂਦੇ (plural/respectful) — adjectives work the same way.",
+   "id": "pj-16",
+   "lesson": "grammar",
+   "level": "elementary",
+   "opts": [
+    "ਖਾਂਦੀ",
+    "ਖਾਂਦੇ",
+    "ਖਾਧਾ",
+    "ਖਾਵਾਂਗਾ"
+   ],
+   "q": "The feminine of ਖਾਂਦਾ is…",
+   "topic": "grammar",
+   "type": "vocab"
+  },
+  {
+   "a": "ਖਾਧਾ",
+   "explain": "ਖਾਧਾ/ਖਾਧੀ (m/f) = ate; ਖਾਵਾਂਗਾ/ਖਾਵਾਂਗੀ = will eat.",
+   "id": "pj-17",
+   "lesson": "grammar",
+   "level": "elementary",
+   "opts": [
+    "ਖਾਧਾ",
+    "ਖਾਧੀ",
+    "ਖਾਵਾਂਗਾ",
+    "ਖਾਂਦਾ"
+   ],
+   "q": "The past tense 'ate' (said by a man) is…",
+   "topic": "grammar",
+   "type": "vocab"
+  },
+  {
+   "a": "it agrees with ਰੋਟੀ (feminine)",
+   "explain": "Punjabi past tenses are ergative: the verb agrees with the object — ਰੋਟੀ is feminine, so ਖਾਧੀ.",
+   "id": "pj-18",
+   "lesson": "grammar",
+   "level": "elementary",
+   "opts": [
+    "it agrees with ਰੋਟੀ (feminine)",
+    "the speaker is female",
+    "it's the future tense",
+    "it's a typo"
+   ],
+   "q": "In 'ਮੈਂ ਰੋਟੀ ਖਾਧੀ', why ਖਾਧੀ?",
+   "topic": "grammar",
+   "type": "usage"
+  },
+  {
+   "a": "see you! (okay then!)",
+   "explain": "ਚੰਗਾ ਫਿਰ (changā phir) — literally 'right then!' — is the casual goodbye.",
+   "id": "pj-19",
+   "lesson": "conversation",
+   "level": "beginner",
+   "opts": [
+    "see you! (okay then!)",
+    "good morning!",
+    "welcome!",
+    "congratulations!"
+   ],
+   "q": "'ਚੰਗਾ ਫਿਰ!' means…",
+   "topic": "conversation",
+   "type": "meaning"
+  },
+  {
+   "a": "welcome!",
+   "explain": "ਜੀ ਆਇਆਂ ਨੂੰ (jī āiān nū) — 'to your honoured arrival' — the warm Punjabi welcome.",
+   "id": "pj-20",
+   "lesson": "conversation",
+   "level": "beginner",
+   "opts": [
+    "welcome!",
+    "sorry!",
+    "good luck!",
+    "bless you!"
+   ],
+   "q": "'ਜੀ ਆਇਆਂ ਨੂੰ!' means…",
+   "topic": "conversation",
+   "type": "meaning"
+  },
+  {
+   "a": "book",
+   "explain": "ਕਿਤਾਬ (kitāb) = book — ਕਲਮ = pen, ਚਿੱਠੀ = letter.",
+   "id": "pj-21",
+   "lesson": "vocabulary",
+   "level": "beginner",
+   "opts": [
+    "book",
+    "pen",
+    "school",
+    "letter"
+   ],
+   "q": "ਕਿਤਾਬ means…",
+   "topic": "vocabulary",
+   "type": "vocab"
+  },
+  {
+   "a": "friend",
+   "explain": "ਦੋਸਤ (dost) = friend — ਦੁਸ਼ਮਣ is the opposite!",
+   "id": "pj-22",
+   "lesson": "vocabulary",
+   "level": "beginner",
+   "opts": [
+    "friend",
+    "brother",
+    "guest",
+    "neighbour"
+   ],
+   "q": "ਦੋਸਤ means…",
+   "topic": "vocabulary",
+   "type": "vocab"
+  },
+  {
+   "a": "asking the price",
+   "explain": "ਇਹ ਕਿੰਨੇ ਦਾ ਹੈ? = how much is this — then counter with ਥੋੜ੍ਹਾ ਸਸਤਾ ਕਰੋ!",
+   "id": "pj-23",
+   "lesson": "shopping",
+   "level": "elementary",
+   "opts": [
+    "asking the price",
+    "ordering food",
+    "asking directions",
+    "saying goodbye"
+   ],
+   "q": "'ਇਹ ਕਿੰਨੇ ਦਾ ਹੈ?' is asked when…",
+   "topic": "vocabulary",
+   "type": "usage"
+  },
+  {
+   "a": "tomorrow — or yesterday!",
+   "explain": "ਕੱਲ੍ਹ (kallh) covers both — tense and context tell you which. ਪਰਸੋਂ = the day beyond.",
+   "id": "pj-24",
+   "lesson": "time-dates",
+   "level": "elementary",
+   "opts": [
+    "only tomorrow",
+    "only yesterday",
+    "tomorrow — or yesterday!",
+    "every day"
+   ],
+   "q": "ਕੱਲ੍ਹ means…",
+   "topic": "vocabulary",
+   "type": "meaning"
+  }
+ ],
+ "review_deck": [
+  {
+   "en": "hello!",
+   "r": "Sat Srī Akāl",
+   "t": "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ"
+  },
+  {
+   "en": "thank you",
+   "r": "shukrīā",
+   "t": "ਸ਼ੁਕਰੀਆ"
+  },
+  {
+   "en": "yes (respectful)",
+   "r": "hānjī",
+   "t": "ਹਾਂਜੀ"
+  },
+  {
+   "en": "no; not",
+   "r": "nahīn",
+   "t": "ਨਹੀਂ"
+  },
+  {
+   "en": "I; me",
+   "r": "main",
+   "t": "ਮੈਂ"
+  },
+  {
+   "en": "you (formal)",
+   "r": "tusīn",
+   "t": "ਤੁਸੀਂ"
+  },
+  {
+   "en": "what?",
+   "r": "kī?",
+   "t": "ਕੀ?"
+  },
+  {
+   "en": "where?",
+   "r": "kitthe?",
+   "t": "ਕਿੱਥੇ?"
+  },
+  {
+   "en": "how much?",
+   "r": "kinnā?",
+   "t": "ਕਿੰਨਾ?"
+  },
+  {
+   "en": "who?",
+   "r": "kauṇ?",
+   "t": "ਕੌਣ?"
+  },
+  {
+   "en": "water",
+   "r": "pāṇī",
+   "t": "ਪਾਣੀ"
+  },
+  {
+   "en": "bread",
+   "r": "rotī",
+   "t": "ਰੋਟੀ"
+  },
+  {
+   "en": "home",
+   "r": "ghar",
+   "t": "ਘਰ"
+  },
+  {
+   "en": "friend",
+   "r": "dost",
+   "t": "ਦੋਸਤ"
+  },
+  {
+   "en": "day",
+   "r": "din",
+   "t": "ਦਿਨ"
+  },
+  {
+   "en": "night",
+   "r": "rāt",
+   "t": "ਰਾਤ"
+  },
+  {
+   "en": "good; okay",
+   "r": "changā",
+   "t": "ਚੰਗਾ"
+  },
+  {
+   "en": "big",
+   "r": "vaḍḍā",
+   "t": "ਵੱਡਾ"
+  },
+  {
+   "en": "small",
+   "r": "chhoṭā",
+   "t": "ਛੋਟਾ"
+  },
+  {
+   "en": "happy",
+   "r": "khush",
+   "t": "ਖੁਸ਼"
+  }
+ ],
+ "roman_native": "Panjābī",
+ "script_name": "Gurmukhi",
+ "script_note": "Gurmukhi has 35 core letters — the ਪੈਂਟੀ ਅਖਰ (paintī akhar, 'the 35'). It runs left to right with no headline bar, and its letters look rounder than Devanagari. Six dotted letters (ਸ਼ ਖ਼ ਗ਼ ਜ਼ ਫ਼ ਲ਼) cover Persian sounds, and nasalization is marked with ਬਿੰਦੀ (ਂ) and ਟਿੱਪੀ (ੰ): ਮਾਂ (mān, mother) needs its bindi — drop it and the word breaks. Across the border, Pakistani Punjabi is written in Shahmukhi (Perso-Arabic) — same language, different script. Punjabi is tonal: ਘ ਝ ਢ ਧ ਭ and ਹ colour the pitch of nearby vowels — listen more than you read at first.",
+ "shopping_phrases": [
+  {
+   "en": "How much is this?",
+   "hi": "यह कितने का है?",
+   "r": "Ih kinne dā hai?",
+   "t": "ਇਹ ਕਿੰਨੇ ਦਾ ਹੈ?"
+  },
+  {
+   "en": "Too expensive!",
+   "hi": "बहुत महँगा है!",
+   "r": "Bahut mahingā hai!",
+   "t": "ਬਹੁਤ ਮਹਿੰਗਾ ਹੈ!"
+  },
+  {
+   "en": "Make it cheaper",
+   "hi": "थोड़ा सस्ता करिए",
+   "r": "Thoṛā sastā karo",
+   "t": "ਥੋੜ੍ਹਾ ਸਸਤਾ ਕਰੋ"
+  },
+  {
+   "en": "I'm just looking",
+   "hi": "मैं सिर्फ़ देख रहा हूँ",
+   "r": "Main sirf dekh rihā hān",
+   "t": "ਮੈਂ ਸਿਰਫ਼ ਦੇਖ ਰਿਹਾ ਹਾਂ"
+  },
+  {
+   "en": "Pack this",
+   "hi": "इसे पैक कर दीजिए",
+   "r": "Ih paik kar dio",
+   "t": "ਇਹ ਪੈਕ ਕਰ ਦਿਓ"
+  },
+  {
+   "en": "Give a discount",
+   "hi": "छूट दीजिए",
+   "r": "Chhoṭ dio",
+   "t": "ਛੋਟ ਦਿਓ"
+  }
+ ],
+ "shopping_words": [
+  {
+   "en": "price",
+   "hi": "क़ीमत",
+   "r": "kīmat",
+   "t": "ਕੀਮਤ"
+  },
+  {
+   "en": "discount",
+   "hi": "छूट",
+   "r": "chhoṭ",
+   "t": "ਛੋਟ"
+  },
+  {
+   "en": "cash",
+   "hi": "नक़द",
+   "r": "nakad",
+   "t": "ਨਕਦ"
+  },
+  {
+   "en": "card",
+   "hi": "कार्ड",
+   "r": "card",
+   "t": "ਕਾਰਡ"
+  },
+  {
+   "en": "cheap",
+   "hi": "सस्ता",
+   "r": "sastā",
+   "t": "ਸਸਤਾ"
+  },
+  {
+   "en": "expensive",
+   "hi": "महँगा",
+   "r": "mahingā",
+   "t": "ਮਹਿੰਗਾ"
+  },
+  {
+   "en": "deal; groceries",
+   "hi": "सौदा",
+   "r": "saudā",
+   "t": "ਸੌਦਾ"
+  }
+ ],
+ "slug": "punjabi",
+ "sov": {
+  "en": "I eat bread. (word order: I – bread – eat)",
+  "hi": "मैं रोटी खाता हूँ।",
+  "r": "Main rotī khāndā hān.",
+  "t": "ਮੈਂ ਰੋਟੀ ਖਾਂਦਾ ਹਾਂ।"
+ },
+ "speakers": "over 120 million",
+ "survival_trio": "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ! (hello) · ਸ਼ੁਕਰੀਆ (thanks) · ਇਹ ਕਿੰਨੇ ਦਾ ਹੈ? (how much is this?)",
+ "time_words": [
+  {
+   "en": "today",
+   "hi": "आज",
+   "r": "ajj",
+   "t": "ਅੱਜ"
+  },
+  {
+   "en": "tomorrow; yesterday",
+   "hi": "कल",
+   "r": "kallh",
+   "t": "ਕੱਲ੍ਹ"
+  },
+  {
+   "en": "day after tomorrow; day before yesterday",
+   "hi": "परसों",
+   "r": "parsōn",
+   "t": "ਪਰਸੋਂ"
+  },
+  {
+   "en": "now",
+   "hi": "अब",
+   "r": "huṇ",
+   "t": "ਹੁਣ"
+  },
+  {
+   "en": "morning",
+   "hi": "सुबह",
+   "r": "saver",
+   "t": "ਸਵੇਰ"
+  },
+  {
+   "en": "afternoon",
+   "hi": "दोपहर",
+   "r": "dupahir",
+   "t": "ਦੁਪਹਿਰ"
+  },
+  {
+   "en": "evening",
+   "hi": "शाम",
+   "r": "shām",
+   "t": "ਸ਼ਾਮ"
+  },
+  {
+   "en": "night",
+   "hi": "रात",
+   "r": "rāt",
+   "t": "ਰਾਤ"
+  },
+  {
+   "en": "hour",
+   "hi": "घंटा",
+   "r": "ghanṭā",
+   "t": "ਘੰਟਾ"
+  },
+  {
+   "en": "minute",
+   "hi": "मिनट",
+   "r": "minṭ",
+   "t": "ਮਿੰਟ"
+  },
+  {
+   "en": "week",
+   "hi": "हफ़्ता",
+   "r": "haftā",
+   "t": "ਹਫ਼ਤਾ"
+  }
+ ],
+ "travel_phrases": [
+  {
+   "en": "Where is the station?",
+   "hi": "स्टेशन कहाँ है?",
+   "r": "Station kitthe hai?",
+   "t": "ਸਟੇਸ਼ਨ ਕਿੱਥੇ ਹੈ?"
+  },
+  {
+   "en": "How much is the fare?",
+   "hi": "किराया कितना है?",
+   "r": "Kirāiā kinnā hai?",
+   "t": "ਕਿਰਾਇਆ ਕਿੰਨਾ ਹੈ?"
+  },
+  {
+   "en": "I want to go to …",
+   "hi": "मुझे … जाना है",
+   "r": "Mainū … jāṇā hai",
+   "t": "ਮੈਨੂੰ … ਜਾਣਾ ਹੈ"
+  },
+  {
+   "en": "Drive slowly",
+   "hi": "धीरे चलिए",
+   "r": "Haulī challo",
+   "t": "ਹੌਲੀ ਚੱਲੋ"
+  },
+  {
+   "en": "Stop here",
+   "hi": "यहाँ रुकिए",
+   "r": "Itthe ruko",
+   "t": "ਇੱਥੇ ਰੁਕੋ"
+  },
+  {
+   "en": "Give me a ticket",
+   "hi": "टिकट दीजिए",
+   "r": "Ṭikaṭ dio",
+   "t": "ਟਿਕਟ ਦਿਓ"
+  }
+ ],
+ "travel_words": [
+  {
+   "en": "ticket",
+   "hi": "टिकट",
+   "r": "ṭikaṭ",
+   "t": "ਟਿਕਟ"
+  },
+  {
+   "en": "train",
+   "hi": "रेलगाड़ी",
+   "r": "rel gaḍḍī",
+   "t": "ਰੇਲ ਗੱਡੀ"
+  },
+  {
+   "en": "bus",
+   "hi": "बस",
+   "r": "bas",
+   "t": "ਬੱਸ"
+  },
+  {
+   "en": "aeroplane",
+   "hi": "हवाई जहाज़",
+   "r": "havāī jahāz",
+   "t": "ਹਵਾਈ ਜਹਾਜ਼"
+  },
+  {
+   "en": "taxi",
+   "hi": "टैक्सी",
+   "r": "ṭaiksī",
+   "t": "ਟੈਕਸੀ"
+  },
+  {
+   "en": "auto-rickshaw",
+   "hi": "ऑटो",
+   "r": "āṭo",
+   "t": "ਆਟੋ"
+  },
+  {
+   "en": "station",
+   "hi": "स्टेशन",
+   "r": "station",
+   "t": "ਸਟੇਸ਼ਨ"
+  },
+  {
+   "en": "bus stand",
+   "hi": "बस अड्डा",
+   "r": "bas aḍḍā",
+   "t": "ਬੱਸ ਅੱਡਾ"
+  },
+  {
+   "en": "fare",
+   "hi": "किराया",
+   "r": "kirāiā",
+   "t": "ਕਿਰਾਇਆ"
+  },
+  {
+   "en": "road; way",
+   "hi": "रास्ता",
+   "r": "rastā",
+   "t": "ਰਸਤਾ"
+  },
+  {
+   "en": "hotel",
+   "hi": "होटल",
+   "r": "hoṭal",
+   "t": "ਹੋਟਲ"
+  },
+  {
+   "en": "luggage",
+   "hi": "सामान",
+   "r": "sāmān",
+   "t": "ਸਾਮਾਨ"
+  }
+ ],
+ "typing": [
+  [
+   "ਮਾਂ",
+   "man"
+  ],
+  [
+   "ਪਾਣੀ",
+   "pani"
+  ],
+  [
+   "ਘਰ",
+   "ghar"
+  ],
+  [
+   "ਰੋਟੀ",
+   "roti"
+  ],
+  [
+   "ਦਾਲ",
+   "dal"
+  ],
+  [
+   "ਚਾਹ",
+   "chah"
+  ],
+  [
+   "ਲੱਸੀ",
+   "lassi"
+  ],
+  [
+   "ਕਿਤਾਬ",
+   "kitab"
+  ],
+  [
+   "ਸਕੂਲ",
+   "school"
+  ],
+  [
+   "ਬਾਜ਼ਾਰ",
+   "bazaar"
+  ],
+  [
+   "ਦੁਕਾਨ",
+   "dukaan"
+  ],
+  [
+   "ਟਿਕਟ",
+   "ticket"
+  ],
+  [
+   "ਗੱਡੀ",
+   "gaddi"
+  ],
+  [
+   "ਰਸਤਾ",
+   "rasta"
+  ],
+  [
+   "ਦਿਨ",
+   "din"
+  ],
+  [
+   "ਰਾਤ",
+   "raat"
+  ],
+  [
+   "ਸਵੇਰ",
+   "saver"
+  ],
+  [
+   "ਸ਼ਾਮ",
+   "shaam"
+  ],
+  [
+   "ਮੁੰਡਾ",
+   "munda"
+  ],
+  [
+   "ਕੁੜੀ",
+   "kudi"
+  ],
+  [
+   "ਦੋਸਤ",
+   "dost"
+  ],
+  [
+   "ਪਿਆਰ",
+   "pyaar"
+  ],
+  [
+   "ਖੁਸ਼",
+   "khush"
+  ],
+  [
+   "ਧੰਨਵਾਦ",
+   "dhannvaad"
+  ]
+ ],
+ "verbs": [
+  {
+   "ami": "ਮੈਂ ਖਾਂਦਾ ਹਾਂ",
+   "ami_r": "Main khāndā hān",
+   "en": "to eat",
+   "hi": "खाना",
+   "r": "khāṇā",
+   "t": "ਖਾਣਾ"
+  },
+  {
+   "ami": "ਮੈਂ ਪੀਂਦਾ ਹਾਂ",
+   "ami_r": "Main pīndā hān",
+   "en": "to drink",
+   "hi": "पीना",
+   "r": "pīṇā",
+   "t": "ਪੀਣਾ"
+  },
+  {
+   "ami": "ਮੈਂ ਜਾਂਦਾ ਹਾਂ",
+   "ami_r": "Main jāndā hān",
+   "en": "to go",
+   "hi": "जाना",
+   "r": "jāṇā",
+   "t": "ਜਾਣਾ"
+  },
+  {
+   "ami": "ਮੈਂ ਆਉਂਦਾ ਹਾਂ",
+   "ami_r": "Main āundā hān",
+   "en": "to come",
+   "hi": "आना",
+   "r": "āuṇā",
+   "t": "ਆਉਣਾ"
+  },
+  {
+   "ami": "ਮੈਂ ਕਰਦਾ ਹਾਂ",
+   "ami_r": "Main kardā hān",
+   "en": "to do",
+   "hi": "करना",
+   "r": "karnā",
+   "t": "ਕਰਨਾ"
+  },
+  {
+   "ami": "ਮੈਂ ਬੋਲਦਾ ਹਾਂ",
+   "ami_r": "Main boldā hān",
+   "en": "to speak",
+   "hi": "बोलना",
+   "r": "bolṇā",
+   "t": "ਬੋਲਣਾ"
+  },
+  {
+   "ami": "ਮੈਂ ਪੜ੍ਹਦਾ ਹਾਂ",
+   "ami_r": "Main paṛhdā hān",
+   "en": "to read; to study",
+   "hi": "पढ़ना",
+   "r": "paṛhnā",
+   "t": "ਪੜ੍ਹਨਾ"
+  },
+  {
+   "ami": "ਮੈਂ ਲਿਖਦਾ ਹਾਂ",
+   "ami_r": "Main likhdā hān",
+   "en": "to write",
+   "hi": "लिखना",
+   "r": "likhṇā",
+   "t": "ਲਿਖਣਾ"
+  },
+  {
+   "ami": "ਮੈਂ ਸਿੱਖਦਾ ਹਾਂ",
+   "ami_r": "Main sikkhdā hān",
+   "en": "to learn",
+   "hi": "सीखना",
+   "r": "sikkhṇā",
+   "t": "ਸਿੱਖਣਾ"
+  },
+  {
+   "ami": "ਮੈਂ ਦੇਖਦਾ ਹਾਂ",
+   "ami_r": "Main dekhdā hān",
+   "en": "to see; to watch",
+   "hi": "देखना",
+   "r": "dekhnā",
+   "t": "ਦੇਖਣਾ"
+  },
+  {
+   "ami": "ਮੈਂ ਸੁਣਦਾ ਹਾਂ",
+   "ami_r": "Main suṇdā hān",
+   "en": "to listen; to hear",
+   "hi": "सुनना",
+   "r": "suṇnā",
+   "t": "ਸੁਣਨਾ"
+  },
+  {
+   "ami": "ਮੈਂ ਲੈਂਦਾ ਹਾਂ",
+   "ami_r": "Main laindā hān",
+   "en": "to take",
+   "hi": "लेना",
+   "r": "laiṇā",
+   "t": "ਲੈਣਾ"
+  },
+  {
+   "ami": "ਮੈਂ ਦਿੰਦਾ ਹਾਂ",
+   "ami_r": "Main dindā hān",
+   "en": "to give",
+   "hi": "देना",
+   "r": "deṇā",
+   "t": "ਦੇਣਾ"
+  },
+  {
+   "ami": "ਮੈਂ ਖਰੀਦਦਾ ਹਾਂ",
+   "ami_r": "Main kharīddā hān",
+   "en": "to buy",
+   "hi": "ख़रीदना",
+   "r": "kharīdṇā",
+   "t": "ਖਰੀਦਣਾ"
+  },
+  {
+   "ami": "ਮੈਂ ਵੇਚਦਾ ਹਾਂ",
+   "ami_r": "Main vechdā hān",
+   "en": "to sell",
+   "hi": "बेचना",
+   "r": "vechṇā",
+   "t": "ਵੇਚਣਾ"
+  },
+  {
+   "ami": "ਮੈਂ ਸੌਂਦਾ ਹਾਂ",
+   "ami_r": "Main saundā hān",
+   "en": "to sleep",
+   "hi": "सोना",
+   "r": "sauṇā",
+   "t": "ਸੌਣਾ"
+  },
+  {
+   "ami": "ਮੈਂ ਉੱਠਦਾ ਹਾਂ",
+   "ami_r": "Main uṭhdā hān",
+   "en": "to wake up; to get up",
+   "hi": "उठना",
+   "r": "uṭhṇā",
+   "t": "ਉੱਠਣਾ"
+  },
+  {
+   "ami": "ਮੈਂ ਬੈਠਦਾ ਹਾਂ",
+   "ami_r": "Main baiṭhdā hān",
+   "en": "to sit",
+   "hi": "बैठना",
+   "r": "baiṭhṇā",
+   "t": "ਬੈਠਣਾ"
+  }
+ ],
+ "vowels": [
+  {
+   "hint": "a as in about — the default vowel",
+   "r": "a",
+   "t": "ਅ"
+  },
+  {
+   "hint": "aa as in father",
+   "r": "ā",
+   "t": "ਆ"
+  },
+  {
+   "hint": "i as in bit",
+   "r": "i",
+   "t": "ਇ"
+  },
+  {
+   "hint": "ee as in feet",
+   "r": "ī",
+   "t": "ਈ"
+  },
+  {
+   "hint": "u as in put",
+   "r": "u",
+   "t": "ਉ"
+  },
+  {
+   "hint": "oo as in food",
+   "r": "ū",
+   "t": "ਊ"
+  },
+  {
+   "hint": "ay as in say",
+   "r": "e",
+   "t": "ਏ"
+  },
+  {
+   "hint": "i as in line",
+   "r": "ai",
+   "t": "ਐ"
+  },
+  {
+   "hint": "o as in go",
+   "r": "o",
+   "t": "ਓ"
+  },
+  {
+   "hint": "ou as in loud",
+   "r": "au",
+   "t": "ਔ"
+  }
+ ],
+ "where": "Indian Punjab, Pakistani Punjab and a worldwide diaspora",
+ "advanced_modules": [
+  {
+   "dialogue": {
+    "lines": [
+     {
+      "en": "What happened to you?",
+      "hi": "आपको क्या हुआ?",
+      "r": "Tuhanu ki hoya?",
+      "sp": "Doctor",
+      "t": "ਤੁਹਾਨੂੰ ਕੀ ਹੋਇਆ?"
+     },
+     {
+      "en": "Doctor, fever for two days.",
+      "hi": "डॉक्टर, दो दिन से बुख़ार है।",
+      "r": "Daktar sahib, do dina to bukhar hai.",
+      "sp": "Patient",
+      "t": "ਡਾਕਟਰ ਸਾਹਿਬ, ਦੋ ਦਿਨਾਂ ਤੋਂ ਬੁਖਾਰ ਹੈ।"
+     },
+     {
+      "en": "Any cough or cold?",
+      "hi": "खाँसी-ज़ुकाम है?",
+      "r": "Khangh-zukam hai?",
+      "sp": "Doctor",
+      "t": "ਖੰਘ-ਜ਼ੁਕਾਮ ਹੈ?"
+     },
+     {
+      "en": "Only a cough.",
+      "hi": "सिर्फ़ ख़ाँसी है।",
+      "r": "Sirf khangh hai.",
+      "sp": "Patient",
+      "t": "ਸਿਰਫ਼ ਖੰਘ ਹੈ।"
+     },
+     {
+      "en": "Don't fear. Take this tablet.",
+      "hi": "घबराइए मत। यह गोली लीजिए।",
+      "r": "Daro na. Eh goli lao.",
+      "sp": "Doctor",
+      "t": "ਡਰੋ ਨਾ। ਇਹ ਗੋਲੀ ਲਓ।"
+     },
+     {
+      "en": "Thanks doctor. Any diet restrictions?",
+      "hi": "शुक्रिया डॉक्टर। कोई परहेज़?",
+      "r": "Shukriya daktar sahib. Koi parhez?",
+      "sp": "Patient",
+      "t": "ਸ਼ੁਕਰੀਆ ਡਾਕਟਰ ਸਾਹਿਬ। ਕੋਈ ਪਰਹੇਜ਼?"
+     }
+    ],
+    "title": "At the clinic"
+   },
+   "lede": "Body, symptoms and the clinic — Punjabi for staying well.",
+   "phrases": [
+    {
+     "en": "I am not feeling well",
+     "hi": "मेरी तबीयत ठीक नहीं है",
+     "r": "Mainu changa nahi lag riha",
+     "t": "ਮੈਨੂੰ ਚੰਗਾ ਨਹੀਂ ਲੱਗ ਰਿਹਾ"
+    },
+    {
+     "en": "I have a fever",
+     "hi": "मुझे बुख़ार है",
+     "r": "Mainu bukhar hai",
+     "t": "ਮੈਨੂੰ ਬੁਖਾਰ ਹੈ"
+    },
+    {
+     "en": "My head aches",
+     "hi": "मेरे सिर में दर्द है",
+     "r": "Sir dukhda hai",
+     "t": "ਸਿਰ ਦੁਖਦਾ ਹੈ"
+    },
+    {
+     "en": "Call a doctor",
+     "hi": "डॉक्टर को बुलाओ",
+     "r": "Daktar nu bulao",
+     "t": "ਡਾਕਟਰ ਨੂੰ ਬੁਲਾਓ"
+    },
+    {
+     "en": "Take me to hospital",
+     "hi": "मुझे अस्पताल ले चलो",
+     "r": "Mainu sarkari haspatal lai jao",
+     "t": "ਮੈਨੂੰ ਸਰਕਾਰੀ ਹਸਪਤਾਲ ਲੈ ਜਾਓ"
+    },
+    {
+     "en": "Where is the pharmacy?",
+     "hi": "दवाख़ाना कहाँ है?",
+     "r": "Davai di dukan kitthe hai?",
+     "t": "ਦਵਾਈ ਦੀ ਦੁਕਾਨ ਕਿੱਥੇ ਹੈ?"
+    },
+    {
+     "en": "Take this medicine",
+     "hi": "यह दवा लो",
+     "r": "Eh davai lao",
+     "t": "ਇਹ ਦਵਾਈ ਲਓ"
+    },
+    {
+     "en": "Drink hot water",
+     "hi": "गरम पानी पियो",
+     "r": "Garam pani pio",
+     "t": "ਗਰਮ ਪਾਣੀ ਪੀਓ"
+    },
+    {
+     "en": "Take rest",
+     "hi": "आराम करो",
+     "r": "Aaram karo",
+     "t": "ਆਰਾਮ ਕਰੋ"
+    },
+    {
+     "en": "Get well soon",
+     "hi": "जल्दी ठीक हो जाओ",
+     "r": "Chheti changey ho jao",
+     "t": "ਛੇਤੀ ਚੰਗੇ ਹੋ ਜਾਓ"
+    },
+    {
+     "en": "Open your mouth",
+     "hi": "मुँह खोलो",
+     "r": "Munh kholo",
+     "t": "ਮੂੰਹ ਖੋਲ੍ਹੋ"
+    },
+    {
+     "en": "Breathe deeply",
+     "hi": "गहरी साँस लो",
+     "r": "Dunghey saah lao",
+     "t": "ਡੂੰਘੇ ਸਾਹ ਲਓ"
+    }
+   ],
+   "quiz": [
+    {
+     "a": "fever",
+     "explain": "ਬੁਖਾਰ (bukhar) = fever — ਮੈਨੂੰ ਬੁਖਾਰ ਹੈ (I have a fever).",
+     "id": "pj-25",
+     "lesson": "health",
+     "level": "beginner",
+     "opts": [
+      "fever",
+      "cough",
+      "cold",
+      "pain"
+     ],
+     "q": "ਬੁਖਾਰ means…",
+     "topic": "health",
+     "type": "vocab"
+    },
+    {
+     "a": "ਡਾਕਟਰ",
+     "explain": "ਡਾਕਟਰ (daktar) = doctor.",
+     "id": "pj-26",
+     "lesson": "health",
+     "level": "beginner",
+     "opts": [
+      "ਡਾਕਟਰ",
+      "ਨਰਸ",
+      "ਮਰੀਜ਼",
+      "ਸਰਜਨ"
+     ],
+     "q": "Which is 'doctor'?",
+     "topic": "health",
+     "type": "vocab"
+    },
+    {
+     "a": "I am not feeling well",
+     "explain": "ਮੈਨੂੰ ਚੰਗਾ ਨਹੀਂ ਲੱਗ ਰਿਹਾ — ਚੰਗਾ = good.",
+     "id": "pj-27",
+     "lesson": "health",
+     "level": "beginner",
+     "opts": [
+      "I am not feeling well",
+      "I have a fever",
+      "take rest",
+      "get well soon"
+     ],
+     "q": "'ਮੈਨੂੰ ਚੰਗਾ ਨਹੀਂ ਲੱਗ ਰਿਹਾ' means…",
+     "topic": "health",
+     "type": "meaning"
+    },
+    {
+     "a": "ਦਵਾਈ ਦੀ ਦੁਕਾਨ ਕਿੱਥੇ ਹੈ?",
+     "explain": "ਦਵਾਈ ਦੀ ਦੁਕਾਨ ਕਿੱਥੇ ਹੈ? — ਕਿੱਥੇ = where.",
+     "id": "pj-28",
+     "lesson": "health",
+     "level": "elementary",
+     "opts": [
+      "ਦਵਾਈ ਦੀ ਦੁਕਾਨ ਕਿੱਥੇ ਹੈ?",
+      "ਹਸਪਤਾਲ ਕਿੱਥੇ ਹੈ?",
+      "ਡਾਕਟਰ ਕਿੱਥੇ ਹੈ?",
+      "ਘਰ ਕਿੱਥੇ ਹੈ?"
+     ],
+     "q": "Ask where the pharmacy is. You say…",
+     "topic": "health",
+     "type": "usage"
+    },
+    {
+     "a": "heart",
+     "explain": "ਦਿਲ (dil) = heart.",
+     "id": "pj-29",
+     "lesson": "health",
+     "level": "beginner",
+     "opts": [
+      "heart",
+      "lung",
+      "stomach",
+      "liver"
+     ],
+     "q": "ਦਿਲ means…",
+     "topic": "health",
+     "type": "vocab"
+    },
+    {
+     "a": "medical diet",
+     "explain": "ਪਰਹੇਜ਼ (parhez) — the doctor's diet rules.",
+     "id": "pj-30",
+     "lesson": "health",
+     "level": "elementary",
+     "opts": [
+      "medical diet",
+      "home remedy",
+      "herbal medicine",
+      "first aid"
+     ],
+     "q": "ਪਰਹੇਜ਼ means…",
+     "topic": "health",
+     "type": "vocab"
+    },
+    {
+     "a": "get well soon",
+     "explain": "ਛੇਤੀ ਚੰਗੇ ਹੋ ਜਾਓ — ਛੇਤੀ = soon.",
+     "id": "pj-31",
+     "lesson": "health",
+     "level": "elementary",
+     "opts": [
+      "get well soon",
+      "take rest",
+      "drink hot water",
+      "call a doctor"
+     ],
+     "q": "'ਛੇਤੀ ਚੰਗੇ ਹੋ ਜਾਓ' means…",
+     "topic": "health",
+     "type": "meaning"
+    },
+    {
+     "a": "ਮੂੰਹ ਖੋਲ੍ਹੋ",
+     "explain": "ਮੂੰਹ ਖੋਲ੍ਹੋ = open your mouth — ਮੂੰਹ = mouth.",
+     "id": "pj-32",
+     "lesson": "health",
+     "level": "elementary",
+     "opts": [
+      "ਮੂੰਹ ਖੋਲ੍ਹੋ",
+      "ਅੱਖਾਂ ਬੰਦ ਕਰੋ",
+      "ਹੱਥ ਅੱਗੇ ਕਰੋ",
+      "ਉੱਠ ਖੜ੍ਹੋ"
+     ],
+     "q": "The doctor says 'open your mouth'. She says…",
+     "topic": "health",
+     "type": "usage"
+    },
+    {
+     "a": "injection",
+     "explain": "ਟੀਕਾ (tika) — injection; ਸੂਈ = needle.",
+     "id": "pj-33",
+     "lesson": "health",
+     "level": "beginner",
+     "opts": [
+      "injection",
+      "tablet",
+      "syrup",
+      "ointment"
+     ],
+     "q": "ਟੀਕਾ means…",
+     "topic": "health",
+     "type": "vocab"
+    },
+    {
+     "a": "take rest",
+     "explain": "ਆਰਾਮ ਕਰੋ — ਆਰਾਮ = rest.",
+     "id": "pj-34",
+     "lesson": "health",
+     "level": "beginner",
+     "opts": [
+      "take rest",
+      "wake up",
+      "breathe deeply",
+      "walk daily"
+     ],
+     "q": "'ਆਰਾਮ ਕਰੋ' means…",
+     "topic": "health",
+     "type": "meaning"
+    }
+   ],
+   "slug": "health",
+   "title": "Health & doctor",
+   "words": [
+    {
+     "en": "government hospital",
+     "hi": "सरकारी अस्पताल",
+     "r": "sarkari haspatal",
+     "t": "ਸਰਕਾਰੀ ਹਸਪਤਾਲ"
+    },
+    {
+     "en": "health centre",
+     "hi": "स्वास्थ्य केंद्र",
+     "r": "sehat kendar",
+     "t": "ਸਿਹਤ ਕੇਂਦਰ"
+    },
+    {
+     "en": "doctor",
+     "hi": "डॉक्टर",
+     "r": "daktar",
+     "t": "ਡਾਕਟਰ"
+    },
+    {
+     "en": "nurse",
+     "hi": "नर्स",
+     "r": "naras",
+     "t": "ਨਰਸ"
+    },
+    {
+     "en": "patient",
+     "hi": "मरीज़",
+     "r": "mareej",
+     "t": "ਮਰੀਜ਼"
+    },
+    {
+     "en": "pharmacy",
+     "hi": "दवाख़ाना",
+     "r": "davai di dukan",
+     "t": "ਦਵਾਈ ਦੀ ਦੁਕਾਨ"
+    },
+    {
+     "en": "surgeon",
+     "hi": "सर्जन",
+     "r": "sarjan",
+     "t": "ਸਰਜਨ"
+    },
+    {
+     "en": "dentist",
+     "hi": "दंत चिकित्सक",
+     "r": "danda da daktar",
+     "t": "ਦੰਦਾਂ ਦਾ ਡਾਕਟਰ"
+    },
+    {
+     "en": "eye doctor",
+     "hi": "नेत्र चिकित्सक",
+     "r": "akkhan da daktar",
+     "t": "ਅੱਖਾਂ ਦਾ ਡਾਕਟਰ"
+    },
+    {
+     "en": "children's doctor",
+     "hi": "बाल रोग विशेषज्ञ",
+     "r": "bachcheyan da daktar",
+     "t": "ਬੱਚਿਆਂ ਦਾ ਡਾਕਟਰ"
+    },
+    {
+     "en": "ambulance",
+     "hi": "एंबुलेंस",
+     "r": "ambulance",
+     "t": "ਐਂਬੂਲੈਂਸ"
+    },
+    {
+     "en": "emergency ward",
+     "hi": "आपातकालीन वार्ड",
+     "r": "hangami ward",
+     "t": "ਹੰਗਾਮੀ ਵਾਰਡ"
+    },
+    {
+     "en": "ward",
+     "hi": "वार्ड",
+     "r": "ward",
+     "t": "ਵਾਰਡ"
+    },
+    {
+     "en": "clinic",
+     "hi": "दवाख़ाना",
+     "r": "davakhana",
+     "t": "ਦਵਾਖਾਨਾ"
+    },
+    {
+     "en": "checkup",
+     "hi": "जाँच",
+     "r": "jaanch",
+     "t": "ਜਾਂਚ"
+    },
+    {
+     "en": "prescription",
+     "hi": "नुस्ख़ा",
+     "r": "nuskha",
+     "t": "ਨੁਸਖ਼ਾ"
+    },
+    {
+     "en": "bandage",
+     "hi": "पट्टी",
+     "r": "patti",
+     "t": "ਪੱਟੀ"
+    },
+    {
+     "en": "stretcher",
+     "hi": "स्ट्रेचर",
+     "r": "stretcher",
+     "t": "ਸਟਰੈਚਰ"
+    },
+    {
+     "en": "surgery",
+     "hi": "ऑपरेशन",
+     "r": "operation",
+     "t": "ਆਪਰੇਸ਼ਨ"
+    },
+    {
+     "en": "helper",
+     "hi": "सहायक",
+     "r": "madadgar",
+     "t": "ਮਦਦਗਾਰ"
+    },
+    {
+     "en": "head",
+     "hi": "सिर",
+     "r": "sir",
+     "t": "ਸਿਰ"
+    },
+    {
+     "en": "hair",
+     "hi": "बाल",
+     "r": "vaal",
+     "t": "ਵਾਲ"
+    },
+    {
+     "en": "forehead",
+     "hi": "माथा",
+     "r": "mattha",
+     "t": "ਮੱਥਾ"
+    },
+    {
+     "en": "eye",
+     "hi": "आँख",
+     "r": "akkh",
+     "t": "ਅੱਖ"
+    },
+    {
+     "en": "ear",
+     "hi": "कान",
+     "r": "kann",
+     "t": "ਕੰਨ"
+    },
+    {
+     "en": "nose",
+     "hi": "नाक",
+     "r": "nakk",
+     "t": "ਨੱਕ"
+    },
+    {
+     "en": "mouth",
+     "hi": "मुँह",
+     "r": "munh",
+     "t": "ਮੂੰਹ"
+    },
+    {
+     "en": "tooth",
+     "hi": "दाँत",
+     "r": "dand",
+     "t": "ਦੰਦ"
+    },
+    {
+     "en": "tongue",
+     "hi": "जीभ",
+     "r": "jeebh",
+     "t": "ਜੀਭ"
+    },
+    {
+     "en": "lip",
+     "hi": "होंठ",
+     "r": "bullh",
+     "t": "ਬੁੱਲ੍ਹ"
+    },
+    {
+     "en": "cheek",
+     "hi": "गाल",
+     "r": "gallh",
+     "t": "ਗੱਲ੍ਹ"
+    },
+    {
+     "en": "neck",
+     "hi": "गर्दन",
+     "r": "gardan",
+     "t": "ਗਰਦਨ"
+    },
+    {
+     "en": "shoulder",
+     "hi": "कंधा",
+     "r": "modha",
+     "t": "ਮੋਢਾ"
+    },
+    {
+     "en": "hand",
+     "hi": "हाथ",
+     "r": "hatth",
+     "t": "ਹੱਥ"
+    },
+    {
+     "en": "finger",
+     "hi": "उँगली",
+     "r": "ungal",
+     "t": "ਉਂਗਲ"
+    },
+    {
+     "en": "nail",
+     "hi": "नाख़ून",
+     "r": "nahun",
+     "t": "ਨਹੁੰ"
+    },
+    {
+     "en": "chest",
+     "hi": "छाती",
+     "r": "chhati",
+     "t": "ਛਾਤੀ"
+    },
+    {
+     "en": "heart",
+     "hi": "दिल",
+     "r": "dil",
+     "t": "ਦਿਲ"
+    },
+    {
+     "en": "lung",
+     "hi": "फेफड़ा",
+     "r": "fefra",
+     "t": "ਫੇਫੜਾ"
+    },
+    {
+     "en": "stomach",
+     "hi": "पेट",
+     "r": "pet",
+     "t": "ਪੇਟ"
+    },
+    {
+     "en": "back",
+     "hi": "पीठ",
+     "r": "pitth",
+     "t": "ਪਿੱਠ"
+    },
+    {
+     "en": "waist",
+     "hi": "कमर",
+     "r": "kamar",
+     "t": "ਕਮਰ"
+    },
+    {
+     "en": "leg",
+     "hi": "टाँग",
+     "r": "latt",
+     "t": "ਲੱਤ"
+    },
+    {
+     "en": "knee",
+     "hi": "घुटना",
+     "r": "goda",
+     "t": "ਗੋਡਾ"
+    },
+    {
+     "en": "sole (foot)",
+     "hi": "तलवा",
+     "r": "pairan di tali",
+     "t": "ਪੈਰਾਂ ਦੀ ਤਲੀ"
+    },
+    {
+     "en": "skin",
+     "hi": "चमड़ी",
+     "r": "chamri",
+     "t": "ਚਮੜੀ"
+    },
+    {
+     "en": "bone",
+     "hi": "हड्डी",
+     "r": "haddi",
+     "t": "ਹੱਡੀ"
+    },
+    {
+     "en": "blood",
+     "hi": "ख़ून",
+     "r": "lahu",
+     "t": "ਲਹੂ"
+    },
+    {
+     "en": "nerve",
+     "hi": "नस",
+     "r": "nas",
+     "t": "ਨਸ"
+    },
+    {
+     "en": "muscle",
+     "hi": "मांसपेशी",
+     "r": "maaspeshi",
+     "t": "ਮਾਸਪੇਸ਼ੀ"
+    },
+    {
+     "en": "disease",
+     "hi": "बीमारी",
+     "r": "bimari",
+     "t": "ਬਿਮਾਰੀ"
+    },
+    {
+     "en": "fever",
+     "hi": "बुख़ार",
+     "r": "bukhar",
+     "t": "ਬੁਖਾਰ"
+    },
+    {
+     "en": "cough",
+     "hi": "खाँसी",
+     "r": "khangh",
+     "t": "ਖੰਘ"
+    },
+    {
+     "en": "common cold",
+     "hi": "ज़ुकाम",
+     "r": "zukam",
+     "t": "ਜ਼ੁਕਾਮ"
+    },
+    {
+     "en": "phlegm",
+     "hi": "बलग़म",
+     "r": "balgham",
+     "t": "ਬਲਗ਼ਮ"
+    },
+    {
+     "en": "headache",
+     "hi": "सिरदर्द",
+     "r": "sir dard",
+     "t": "ਸਿਰ ਦਰਦ"
+    },
+    {
+     "en": "stomach ache",
+     "hi": "पेट दर्द",
+     "r": "pet dard",
+     "t": "ਪੇਟ ਦਰਦ"
+    },
+    {
+     "en": "toothache",
+     "hi": "दाँत दर्द",
+     "r": "dandan da dard",
+     "t": "ਦੰਦਾਂ ਦਾ ਦਰਦ"
+    },
+    {
+     "en": "earache",
+     "hi": "कान दर्द",
+     "r": "kannan da dard",
+     "t": "ਕੰਨਾਂ ਦਾ ਦਰਦ"
+    },
+    {
+     "en": "sore throat",
+     "hi": "गले में ख़राश",
+     "r": "gala dard",
+     "t": "ਗਲ਼ਾ ਦਰਦ"
+    },
+    {
+     "en": "backache",
+     "hi": "कमर दर्द",
+     "r": "kamar dard",
+     "t": "ਕਮਰ ਦਰਦ"
+    },
+    {
+     "en": "pain",
+     "hi": "दर्द",
+     "r": "dard",
+     "t": "ਦਰਦ"
+    },
+    {
+     "en": "swelling",
+     "hi": "सूजन",
+     "r": "soj",
+     "t": "ਸੋਜ"
+    },
+    {
+     "en": "wound",
+     "hi": "घाव",
+     "r": "zakham",
+     "t": "ਜ਼ਖ਼ਮ"
+    },
+    {
+     "en": "bleeding",
+     "hi": "ख़ून बहना",
+     "r": "lahu vagna",
+     "t": "ਲਹੂ ਵਗਣਾ"
+    },
+    {
+     "en": "dizziness",
+     "hi": "चक्कर",
+     "r": "chakkar",
+     "t": "ਚੱਕਰ"
+    },
+    {
+     "en": "vomiting",
+     "hi": "उल्टी",
+     "r": "ulti",
+     "t": "ਉਲਟੀ"
+    },
+    {
+     "en": "diarrhoea",
+     "hi": "दस्त",
+     "r": "dast",
+     "t": "ਦਸਤ"
+    },
+    {
+     "en": "constipation",
+     "hi": "क़ब्ज़",
+     "r": "kabaj",
+     "t": "ਕਬਜ਼"
+    },
+    {
+     "en": "allergy",
+     "hi": "एलर्जी",
+     "r": "allergy",
+     "t": "ਐਲਰਜੀ"
+    },
+    {
+     "en": "itching",
+     "hi": "खुजली",
+     "r": "khujli",
+     "t": "ਖੁਜਲੀ"
+    },
+    {
+     "en": "red rashes",
+     "hi": "लाल दाने",
+     "r": "laal dane",
+     "t": "ਲਾਲ ਦਾਣੇ"
+    },
+    {
+     "en": "blister",
+     "hi": "छाला",
+     "r": "chhala",
+     "t": "ਛਾਲਾ"
+    },
+    {
+     "en": "burning sensation",
+     "hi": "जलन",
+     "r": "jalan",
+     "t": "ਜਲਨ"
+    },
+    {
+     "en": "fatigue",
+     "hi": "थकान",
+     "r": "thakavat",
+     "t": "ਥਕਾਵਟ"
+    },
+    {
+     "en": "sleeplessness",
+     "hi": "नींद न आना",
+     "r": "nind na auni",
+     "t": "ਨੀਂਦ ਨਾ ਆਉਣੀ"
+    },
+    {
+     "en": "fainting",
+     "hi": "बेहोशी",
+     "r": "behoshii",
+     "t": "ਬੇਹੋਸ਼ੀ"
+    },
+    {
+     "en": "diabetes",
+     "hi": "मधुमेह",
+     "r": "sugar",
+     "t": "ਸ਼ੂਗਰ"
+    },
+    {
+     "en": "blood pressure",
+     "hi": "रक्तचाप",
+     "r": "lahu da dabaa",
+     "t": "ਲਹੂ ਦਾ ਦਬਾਅ"
+    },
+    {
+     "en": "asthma",
+     "hi": "दमा",
+     "r": "dama",
+     "t": "ਦਮਾ"
+    },
+    {
+     "en": "medicine",
+     "hi": "दवा",
+     "r": "davai",
+     "t": "ਦਵਾਈ"
+    },
+    {
+     "en": "tablet",
+     "hi": "गोली",
+     "r": "goli",
+     "t": "ਗੋਲੀ"
+    },
+    {
+     "en": "capsule",
+     "hi": "कैप्सूल",
+     "r": "capsule",
+     "t": "ਕੈਪਸੂਲ"
+    },
+    {
+     "en": "syrup",
+     "hi": "सिरप",
+     "r": "sirap",
+     "t": "ਸਿਰਪ"
+    },
+    {
+     "en": "injection",
+     "hi": "इंजेक्शन",
+     "r": "tika",
+     "t": "ਟੀਕਾ"
+    },
+    {
+     "en": "needle",
+     "hi": "सूई",
+     "r": "sui",
+     "t": "ਸੂਈ"
+    },
+    {
+     "en": "drops",
+     "hi": "बूँदें",
+     "r": "bundan",
+     "t": "ਬੂੰਦਾਂ"
+    },
+    {
+     "en": "ointment",
+     "hi": "मरहम",
+     "r": "marham",
+     "t": "ਮਰਹਮ"
+    },
+    {
+     "en": "plaster",
+     "hi": "प्लास्टर",
+     "r": "plaster",
+     "t": "ਪਲਾਸਟਰ"
+    },
+    {
+     "en": "oxygen",
+     "hi": "ऑक्सीजन",
+     "r": "oxygen",
+     "t": "ਆਕਸੀਜਨ"
+    },
+    {
+     "en": "glucose",
+     "hi": "ग्लूकोज़",
+     "r": "glucose",
+     "t": "ਗਲੂਕੋਜ਼"
+    },
+    {
+     "en": "thermometer",
+     "hi": "थर्मामीटर",
+     "r": "thermometer",
+     "t": "ਥਰਮਾਮੀਟਰ"
+    },
+    {
+     "en": "blood test",
+     "hi": "ख़ून की जाँच",
+     "r": "lahu di jaanch",
+     "t": "ਲਹੂ ਦੀ ਜਾਂਚ"
+    },
+    {
+     "en": "X-ray",
+     "hi": "एक्स-रे",
+     "r": "ex-ray",
+     "t": "ਐਕਸ-ਰੇ"
+    },
+    {
+     "en": "scan",
+     "hi": "स्कैन",
+     "r": "scan",
+     "t": "ਸਕੈਨ"
+    },
+    {
+     "en": "treatment",
+     "hi": "इलाज",
+     "r": "ilaaj",
+     "t": "ਇਲਾਜ"
+    },
+    {
+     "en": "rest",
+     "hi": "आराम",
+     "r": "aaram",
+     "t": "ਆਰਾਮ"
+    },
+    {
+     "en": "relief",
+     "hi": "राहत",
+     "r": "rahat",
+     "t": "ਰਾਹਤ"
+    },
+    {
+     "en": "vaccine",
+     "hi": "टीका",
+     "r": "vaccine",
+     "t": "ਵੈਕਸੀਨ"
+    },
+    {
+     "en": "first aid",
+     "hi": "प्राथमिक उपचार",
+     "r": "pehli madad",
+     "t": "ਪਹਿਲੀ ਮਦਦ"
+    },
+    {
+     "en": "herbs",
+     "hi": "जड़ी-बूटी",
+     "r": "jarhi-bootiyan",
+     "t": "ਜੜ੍ਹੀ-ਬੂਟੀਆਂ"
+    },
+    {
+     "en": "ayurveda",
+     "hi": "आयुर्वेद",
+     "r": "aayurved",
+     "t": "ਆਯੁਰਵੇਦ"
+    },
+    {
+     "en": "home remedy",
+     "hi": "घरेलू नुस्ख़ा",
+     "r": "gharelu nuskha",
+     "t": "ਘਰੇਲੂ ਨੁਸਖ਼ਾ"
+    },
+    {
+     "en": "medical diet",
+     "hi": "परहेज़",
+     "note": "the doctor's diet rules",
+     "r": "parhez",
+     "t": "ਪਰਹੇਜ਼"
+    },
+    {
+     "en": "nutrition",
+     "hi": "पोषण",
+     "r": "poshan",
+     "t": "ਪੋਸ਼ਣ"
+    },
+    {
+     "en": "nutritious food",
+     "hi": "पौष्टिक भोजन",
+     "r": "paushtik bhojan",
+     "t": "ਪੌਸ਼ਟਿਕ ਭੋਜਨ"
+    },
+    {
+     "en": "greens",
+     "hi": "हरी सब्ज़ी",
+     "r": "hariyan sabziyan",
+     "t": "ਹਰੀਆਂ ਸਬਜ਼ੀਆਂ"
+    },
+    {
+     "en": "buttermilk",
+     "hi": "छाछ",
+     "r": "chhachh",
+     "t": "ਛਾਛ"
+    },
+    {
+     "en": "sweet curd",
+     "hi": "मीठा दही",
+     "r": "mittha dahi",
+     "t": "ਮਿੱਠਾ ਦਹੀਂ"
+    },
+    {
+     "en": "desi ghee",
+     "hi": "देसी घी",
+     "r": "desi ghio",
+     "t": "ਦੇਸੀ ਘਿਉ"
+    },
+    {
+     "en": "honey",
+     "hi": "शहद",
+     "r": "shehad",
+     "t": "ਸ਼ਹਿਦ"
+    },
+    {
+     "en": "dates",
+     "hi": "खजूर",
+     "r": "khajur",
+     "t": "ਖਜੂਰ"
+    },
+    {
+     "en": "banana",
+     "hi": "केला",
+     "r": "kela",
+     "t": "ਕੇਲਾ"
+    },
+    {
+     "en": "mango",
+     "hi": "आम",
+     "r": "amb",
+     "t": "ਅੰਬ"
+    },
+    {
+     "en": "lemon",
+     "hi": "नींबू",
+     "r": "nimbu",
+     "t": "ਨਿੰਬੂ"
+    },
+    {
+     "en": "ginger",
+     "hi": "अदरक",
+     "r": "adrak",
+     "t": "ਅਦਰਕ"
+    },
+    {
+     "en": "turmeric",
+     "hi": "हल्दी",
+     "r": "haldi",
+     "t": "ਹਲਦੀ"
+    },
+    {
+     "en": "black pepper",
+     "hi": "काली मिर्च",
+     "r": "kali mirch",
+     "t": "ਕਾਲੀ ਮਿਰਚ"
+    },
+    {
+     "en": "cumin",
+     "hi": "जीरा",
+     "r": "zeera",
+     "t": "ਜ਼ੀਰਾ"
+    },
+    {
+     "en": "rock salt",
+     "hi": "सेंधा नमक",
+     "r": "sendha loon",
+     "t": "ਸੈਂਧਾ ਲੂਣ"
+    },
+    {
+     "en": "rock sugar",
+     "hi": "मिश्री",
+     "r": "mishri",
+     "t": "ਮਿਸ਼ਰੀ"
+    },
+    {
+     "en": "oil",
+     "hi": "तेल",
+     "r": "tel",
+     "t": "ਤੇਲ"
+    },
+    {
+     "en": "hot water",
+     "hi": "गरम पानी",
+     "r": "garam pani",
+     "t": "ਗਰਮ ਪਾਣੀ"
+    },
+    {
+     "en": "coconut water",
+     "hi": "नारियल पानी",
+     "r": "narial pani",
+     "t": "ਨਾਰੀਅਲ ਪਾਣੀ"
+    },
+    {
+     "en": "porridge",
+     "hi": "दलिया",
+     "r": "daliya",
+     "t": "ਦਲੀਆ"
+    },
+    {
+     "en": "soup",
+     "hi": "सूप",
+     "r": "soup",
+     "t": "ਸੂਪ"
+    },
+    {
+     "en": "hygiene",
+     "hi": "साफ़-सफ़ाई",
+     "r": "saaf-safai",
+     "t": "ਸਾਫ਼-ਸਫ਼ਾਈ"
+    },
+    {
+     "en": "cleanliness",
+     "hi": "सफ़ाई",
+     "r": "safai",
+     "t": "ਸਫ਼ਾਈ"
+    },
+    {
+     "en": "soap",
+     "hi": "साबुन",
+     "r": "saaban",
+     "t": "ਸਾਬਣ"
+    },
+    {
+     "en": "toothpaste",
+     "hi": "टूथपेस्ट",
+     "r": "toothpaste",
+     "t": "ਟੁੱਥਪੇਸਟ"
+    },
+    {
+     "en": "toothbrush",
+     "hi": "टूथब्रश",
+     "r": "toothbrush",
+     "t": "ਟੁੱਥਬੁਰਸ਼"
+    },
+    {
+     "en": "bath",
+     "hi": "स्नान",
+     "r": "ishnan",
+     "t": "ਇਸ਼ਨਾਨ"
+    },
+    {
+     "en": "exercise",
+     "hi": "व्यायाम (कसरत)",
+     "r": "kasrat",
+     "t": "ਕਸਰਤ"
+    },
+    {
+     "en": "morning walk",
+     "hi": "सुबह की सैर",
+     "r": "saver di sair",
+     "t": "ਸਵੇਰ ਦੀ ਸੈਰ"
+    },
+    {
+     "en": "running",
+     "hi": "दौड़",
+     "r": "daurh",
+     "t": "ਦੌੜ"
+    },
+    {
+     "en": "yoga",
+     "hi": "योग",
+     "r": "yoga",
+     "t": "ਯੋਗਾ"
+    },
+    {
+     "en": "breathing exercise",
+     "hi": "प्राणायाम",
+     "r": "pranayam",
+     "t": "ਪ੍ਰਾਣਾਯਾਮ"
+    },
+    {
+     "en": "meditation",
+     "hi": "सिमरन (ध्यान)",
+     "note": "remembrance of God",
+     "r": "simran",
+     "t": "ਸਿਮਰਨ"
+    },
+    {
+     "en": "sleep",
+     "hi": "नींद",
+     "r": "nind",
+     "t": "ਨੀਂਦ"
+    },
+    {
+     "en": "good sleep",
+     "hi": "अच्छी नींद",
+     "r": "changi nind",
+     "t": "ਚੰਗੀ ਨੀਂਦ"
+    },
+    {
+     "en": "handwashing",
+     "hi": "हाथ धोना",
+     "r": "hatth dhona",
+     "t": "ਹੱਥ ਧੋਣਾ"
+    },
+    {
+     "en": "to recover",
+     "hi": "ठीक होना",
+     "r": "theek hona",
+     "t": "ਠੀਕ ਹੋਣਾ"
+    },
+    {
+     "en": "to rest",
+     "hi": "आराम करना",
+     "r": "aaram karna",
+     "t": "ਆਰਾਮ ਕਰਨਾ"
+    },
+    {
+     "en": "to breathe",
+     "hi": "साँस लेना",
+     "r": "saah laina",
+     "t": "ਸਾਹ ਲੈਣਾ"
+    },
+    {
+     "en": "to sleep early",
+     "hi": "जल्दी सोना",
+     "r": "chheti sauna",
+     "t": "ਛੇਤੀ ਸੌਣਾ"
+    },
+    {
+     "en": "to wake up",
+     "hi": "जागना",
+     "r": "jaagna",
+     "t": "ਜਾਗਣਾ"
+    },
+    {
+     "en": "to bathe",
+     "hi": "नहाना",
+     "r": "nahauna",
+     "t": "ਨਹਾਉਣਾ"
+    },
+    {
+     "en": "to wipe",
+     "hi": "पोंछना",
+     "r": "punjhana",
+     "t": "ਪੂੰਝਣਾ"
+    },
+    {
+     "en": "to wash",
+     "hi": "धोना",
+     "r": "dhona",
+     "t": "ਧੋਣਾ"
+    },
+    {
+     "en": "to help",
+     "hi": "मदद करना",
+     "r": "madad karna",
+     "t": "ਮਦਦ ਕਰਨਾ"
+    },
+    {
+     "en": "to call",
+     "hi": "बुलाना",
+     "r": "bulauna",
+     "t": "ਬੁਲਾਉਣਾ"
+    },
+    {
+     "en": "health",
+     "hi": "सेहत",
+     "r": "sehat",
+     "t": "ਸਿਹਤ"
+    },
+    {
+     "en": "healthy",
+     "hi": "सेहतमंद",
+     "r": "tandarust",
+     "t": "ਤੰਦਰੁਸਤ"
+    },
+    {
+     "en": "strong",
+     "hi": "मज़बूत",
+     "r": "majboot",
+     "t": "ਮਜ਼ਬੂਤ"
+    },
+    {
+     "en": "weak",
+     "hi": "कमज़ोर",
+     "r": "kamjor",
+     "t": "ਕਮਜ਼ੋਰ"
+    },
+    {
+     "en": "weakness",
+     "hi": "कमज़ोरी",
+     "r": "kamjori",
+     "t": "ਕਮਜ਼ੋਰੀ"
+    }
+   ]
+  },
+  {
+   "dialogue": {
+    "lines": [
+     {
+      "en": "Welcome! What is your name?",
+      "hi": "आइए! आपका नाम क्या है?",
+      "r": "Aao ji! Tuhada naam ki hai?",
+      "sp": "Manager",
+      "t": "ਆਓ ਜੀ! ਤੁਹਾਡਾ ਨਾਮ ਕੀ ਹੈ?"
+     },
+     {
+      "en": "My name is Kumar.",
+      "hi": "मेरा नाम कुमार है।",
+      "r": "Mera naam Kumar.",
+      "sp": "Newcomer",
+      "t": "ਮੇਰਾ ਨਾਮ ਕੁਮਾਰ."
+     },
+     {
+      "en": "This is your desk. Switch on the computer.",
+      "hi": "यह आपकी मेज़ है। कंप्यूटर चालू कीजिए।",
+      "r": "Eh tuhada desk. Computer chalu karo.",
+      "sp": "Manager",
+      "t": "ਇਹ ਤੁਹਾਡਾ ਡੈਸਕ. ਕੰਪਿਊਟਰ ਚਾਲੂ ਕਰੋ."
+     },
+     {
+      "en": "OK. What is the email address?",
+      "hi": "ठीक है। ईमेल पता क्या है?",
+      "r": "Theek hai. Email pata ki hai?",
+      "sp": "Newcomer",
+      "t": "ਠੀਕ ਹੈ। ਈਮੇਲ ਪਤਾ ਕੀ ਹੈ?"
+     },
+     {
+      "en": "Don't worry, the assistant will tell you.",
+      "hi": "चिंता मत कीजिए, सहायक बता देगा।",
+      "r": "Fikar na karo, sahayak das devega.",
+      "sp": "Manager",
+      "t": "ਫ਼ਿਕਰ ਨਾ ਕਰੋ, ਸਹਾਇਕ ਦੱਸ ਦੇਵੇਗਾ."
+     },
+     {
+      "en": "Thanks! I'll come on time tomorrow.",
+      "hi": "शुक्रिया! कल समय पर आऊँगा।",
+      "r": "Shukriya! Kallh samay sir aavanga.",
+      "sp": "Newcomer",
+      "t": "ਸ਼ੁਕਰੀਆ! ਕੱਲ੍ਹ ਸਮੇਂ ਸਿਰ ਆਵਾਂਗਾ।"
+     }
+    ],
+    "title": "First day at office"
+   },
+   "lede": "Desks, files and deadlines — Punjabi for work life.",
+   "phrases": [
+    {
+     "en": "I have a meeting",
+     "hi": "मेरी मीटिंग है",
+     "r": "Meri meeting hai",
+     "t": "ਮੇਰੀ ਮੀਟਿੰਗ ਹੈ"
+    },
+    {
+     "en": "The boss called you",
+     "hi": "बॉस ने तुम्हें बुलाया",
+     "r": "Boss ne tuhanu bulaya",
+     "t": "ਬੌਸ ਨੇ ਤੁਹਾਨੂੰ ਬੁਲਾਇਆ"
+    },
+    {
+     "en": "Sign here",
+     "hi": "यहाँ दस्तख़त करो",
+     "r": "Itthe dastakhat karo",
+     "t": "ਇੱਥੇ ਦਸਤਖ਼ਤ ਕਰੋ"
+    },
+    {
+     "en": "Send the email",
+     "hi": "ईमेल भेजो",
+     "r": "Email bhejo",
+     "t": "ਈਮੇਲ ਭੇਜੋ"
+    },
+    {
+     "en": "Take a printout",
+     "hi": "प्रिंट निकालो",
+     "r": "Print kaddo",
+     "t": "ਪ੍ਰਿੰਟ ਕੱਢੋ"
+    },
+    {
+     "en": "When is the salary?",
+     "hi": "वेतन कब मिलेगा?",
+     "r": "Tankhah kadon milegi?",
+     "t": "ਤਨਖ਼ਾਹ ਕਦੋਂ ਮਿਲੇਗੀ?"
+    },
+    {
+     "en": "I need leave tomorrow",
+     "hi": "मुझे कल छुट्टी चाहिए",
+     "r": "Kallh mainu chhutti chahidi",
+     "t": "ਕੱਲ੍ਹ ਮੈਨੂੰ ਛੁੱਟੀ ਚਾਹੀਦੀ"
+    },
+    {
+     "en": "The work is finished",
+     "hi": "काम ख़त्म हो गया",
+     "r": "Kamm mukk gaya",
+     "t": "ਕੰਮ ਮੁੱਕ ਗਿਆ"
+    },
+    {
+     "en": "Come on time",
+     "hi": "समय पर आओ",
+     "r": "Samay sir aao",
+     "t": "ਸਮੇਂ ਸਿਰ ਆਓ"
+    },
+    {
+     "en": "Good job!",
+     "hi": "शाबाश!",
+     "r": "Shabash!",
+     "t": "ਸ਼ਾਬਾਸ਼!"
+    },
+    {
+     "en": "I will call back",
+     "hi": "मैं वापस फ़ोन करूँगा",
+     "r": "Main murh phone karanga",
+     "t": "ਮੈਂ ਮੁੜ੍ਹ ਫ਼ੋਨ ਕਰਾਂਗਾ"
+    },
+    {
+     "en": "See you tomorrow",
+     "hi": "कल मिलते हैं",
+     "r": "Kallh milde haan",
+     "t": "ਕੱਲ੍ਹ ਮਿਲਦੇ ਹਾਂ"
+    }
+   ],
+   "quiz": [
+    {
+     "a": "salary",
+     "explain": "ਤਨਖ਼ਾਹ (tankhah) = salary.",
+     "id": "pj-35",
+     "lesson": "office",
+     "level": "beginner",
+     "opts": [
+      "salary",
+      "bonus",
+      "loan",
+      "bill"
+     ],
+     "q": "ਤਨਖ਼ਾਹ means…",
+     "topic": "office",
+     "type": "vocab"
+    },
+    {
+     "a": "ਕੰਪਿਊਟਰ",
+     "explain": "ਕੰਪਿਊਟਰ (computer) = computer.",
+     "id": "pj-36",
+     "lesson": "office",
+     "level": "beginner",
+     "opts": [
+      "ਕੰਪਿਊਟਰ",
+      "ਪ੍ਰਿੰਟਰ",
+      "ਫ਼ਾਈਲ",
+      "ਡੈਸਕ"
+     ],
+     "q": "Which is 'computer'?",
+     "topic": "office",
+     "type": "vocab"
+    },
+    {
+     "a": "come on time",
+     "explain": "ਸਮੇਂ ਸਿਰ ਆਓ — ਸਮਾਂ = time.",
+     "id": "pj-37",
+     "lesson": "office",
+     "level": "beginner",
+     "opts": [
+      "come on time",
+      "go home early",
+      "work fast",
+      "take leave"
+     ],
+     "q": "'ਸਮੇਂ ਸਿਰ ਆਓ' means…",
+     "topic": "office",
+     "type": "meaning"
+    },
+    {
+     "a": "ਕੱਲ੍ਹ ਮੈਨੂੰ ਛੁੱਟੀ ਚਾਹੀਦੀ",
+     "explain": "ਕੱਲ੍ਹ ਮੈਨੂੰ ਛੁੱਟੀ ਚਾਹੀਦੀ — ਛੁੱਟੀ = leave.",
+     "id": "pj-38",
+     "lesson": "office",
+     "level": "elementary",
+     "opts": [
+      "ਕੱਲ੍ਹ ਮੈਨੂੰ ਛੁੱਟੀ ਚਾਹੀਦੀ",
+      "ਕੱਲ੍ਹ ਮੀਟਿੰਗ ਹੈ",
+      "ਕੱਲ੍ਹ ਤਨਖ਼ਾਹ ਮਿਲੇਗੀ",
+      "ਕੱਲ੍ਹ ਛੁੱਟੀ ਨਹੀਂ"
+     ],
+     "q": "Ask for tomorrow's leave. You say…",
+     "topic": "office",
+     "type": "usage"
+    },
+    {
+     "a": "signature",
+     "explain": "ਦਸਤਖ਼ਤ (dastakhat) = signature.",
+     "id": "pj-39",
+     "lesson": "office",
+     "level": "beginner",
+     "opts": [
+      "signature",
+      "stamp",
+      "file",
+      "seal"
+     ],
+     "q": "ਦਸਤਖ਼ਤ means…",
+     "topic": "office",
+     "type": "vocab"
+    },
+    {
+     "a": "photocopy",
+     "explain": "ਜ਼ੇਰਾਕਸ (jerox) — from Xerox! Punjabi for photocopy.",
+     "id": "pj-40",
+     "lesson": "office",
+     "level": "elementary",
+     "opts": [
+      "photocopy",
+      "printout",
+      "scanner",
+      "file"
+     ],
+     "q": "ਜ਼ੇਰਾਕਸ means…",
+     "topic": "office",
+     "type": "vocab"
+    },
+    {
+     "a": "the work is finished",
+     "explain": "ਕੰਮ ਮੁੱਕ ਗਿਆ — ਮੁੱਕਣਾ = to finish.",
+     "id": "pj-41",
+     "lesson": "office",
+     "level": "elementary",
+     "opts": [
+      "the work is finished",
+      "the work begins",
+      "the work is difficult",
+      "the work can wait"
+     ],
+     "q": "'ਕੰਮ ਮੁੱਕ ਗਿਆ' means…",
+     "topic": "office",
+     "type": "meaning"
+    },
+    {
+     "a": "ਈਮੇਲ ਭੇਜੋ",
+     "explain": "ਈਮੇਲ ਭੇਜੋ — ਭੇਜੋ = send.",
+     "id": "pj-42",
+     "lesson": "office",
+     "level": "elementary",
+     "opts": [
+      "ਈਮੇਲ ਭੇਜੋ",
+      "ਚਿੱਠੀ ਲਿਖੋ",
+      "ਫ਼ੋਨ ਕਰੋ",
+      "ਮੀਟਿੰਗ ਵਿੱਚ ਆਓ"
+     ],
+     "q": "Tell someone to send the email. You say…",
+     "topic": "office",
+     "type": "usage"
+    },
+    {
+     "a": "leave",
+     "explain": "ਛੁੱਟੀ (chhutti) = leave.",
+     "id": "pj-43",
+     "lesson": "office",
+     "level": "beginner",
+     "opts": [
+      "leave",
+      "holiday",
+      "salary",
+      "bonus"
+     ],
+     "q": "ਛੁੱਟੀ means…",
+     "topic": "office",
+     "type": "vocab"
+    },
+    {
+     "a": "good job!",
+     "explain": "ਸ਼ਾਬਾਸ਼! — well done!",
+     "id": "pj-44",
+     "lesson": "office",
+     "level": "beginner",
+     "opts": [
+      "good job!",
+      "go home!",
+      "sit down!",
+      "wait here!"
+     ],
+     "q": "'ਸ਼ਾਬਾਸ਼!' means…",
+     "topic": "office",
+     "type": "meaning"
+    }
+   ],
+   "slug": "office",
+   "title": "Office & work",
+   "words": [
+    {
+     "en": "head office",
+     "hi": "मुख्य कार्यालय",
+     "r": "mukh daftar",
+     "t": "ਮੁੱਖ ਦਫ਼ਤਰ"
+    },
+    {
+     "en": "company",
+     "hi": "कंपनी",
+     "r": "company",
+     "t": "ਕੰਪਨੀ"
+    },
+    {
+     "en": "department",
+     "hi": "विभाग",
+     "r": "vibhag",
+     "t": "ਵਿਭਾਗ"
+    },
+    {
+     "en": "boss",
+     "hi": "बॉस",
+     "r": "boss",
+     "t": "ਬੌਸ"
+    },
+    {
+     "en": "manager",
+     "hi": "मैनेजर",
+     "r": "manager",
+     "t": "ਮੈਨੇਜਰ"
+    },
+    {
+     "en": "employee",
+     "hi": "कर्मचारी",
+     "r": "mulajam",
+     "t": "ਮੁਲਾਜ਼ਮ"
+    },
+    {
+     "en": "colleague",
+     "hi": "सहकर्मी",
+     "r": "sehikarmi",
+     "t": "ਸਹਿਕਰਮੀ"
+    },
+    {
+     "en": "assistant",
+     "hi": "सहायक",
+     "r": "sahayak",
+     "t": "ਸਹਾਇਕ"
+    },
+    {
+     "en": "clerk",
+     "hi": "क्लर्क",
+     "r": "clerk",
+     "t": "ਕਲਰਕ"
+    },
+    {
+     "en": "meeting",
+     "hi": "मीटिंग",
+     "r": "meeting",
+     "t": "ਮੀਟਿੰਗ"
+    },
+    {
+     "en": "conference",
+     "hi": "सम्मेलन",
+     "r": "sanmelan",
+     "t": "ਸੰਮੇਲਨ"
+    },
+    {
+     "en": "cabin",
+     "hi": "केबिन",
+     "r": "cabin",
+     "t": "ਕੈਬਿਨ"
+    },
+    {
+     "en": "reception",
+     "hi": "रिसेप्शन",
+     "r": "reception",
+     "t": "ਰਿਸੈਪਸ਼ਨ"
+    },
+    {
+     "en": "receptionist",
+     "hi": "रिसेप्शनिस्ट",
+     "r": "receptionist",
+     "t": "ਰਿਸੈਪਸ਼ਨਿਸਟ"
+    },
+    {
+     "en": "security guard",
+     "hi": "चौकीदार",
+     "r": "chaukidar",
+     "t": "ਚੌਕੀਦਾਰ"
+    },
+    {
+     "en": "peon",
+     "hi": "अर्दली",
+     "r": "ardali",
+     "t": "ਅਰਦਲੀ"
+    },
+    {
+     "en": "cleaner",
+     "hi": "सफ़ाईकर्मी",
+     "r": "safai karamchari",
+     "t": "ਸਫ਼ਾਈ ਕਰਮਚਾਰੀ"
+    },
+    {
+     "en": "accountant",
+     "hi": "मुनीम",
+     "r": "munim",
+     "t": "ਮੁਨੀਮ"
+    },
+    {
+     "en": "cashier",
+     "hi": "कैशियर",
+     "r": "cashier",
+     "t": "ਕੈਸ਼ੀਅਰ"
+    },
+    {
+     "en": "customer",
+     "hi": "ग्राहक",
+     "r": "gahak",
+     "t": "ਗਾਹਕ"
+    },
+    {
+     "en": "visitor",
+     "hi": "आगंतुक",
+     "r": "mulakati",
+     "t": "ਮੁਲਾਕਾਤੀ"
+    },
+    {
+     "en": "interview",
+     "hi": "इंटरव्यू",
+     "r": "interview",
+     "t": "ਇੰਟਰਵਿਊ"
+    },
+    {
+     "en": "job",
+     "hi": "नौकरी",
+     "r": "naukri",
+     "t": "ਨੌਕਰੀ"
+    },
+    {
+     "en": "salary",
+     "hi": "वेतन",
+     "r": "tankhah",
+     "t": "ਤਨਖ਼ਾਹ"
+    },
+    {
+     "en": "promotion",
+     "hi": "तरक्क़ी",
+     "r": "tarakki",
+     "t": "ਤਰੱਕੀ"
+    },
+    {
+     "en": "computer",
+     "hi": "कंप्यूटर",
+     "r": "computer",
+     "t": "ਕੰਪਿਊਟਰ"
+    },
+    {
+     "en": "laptop",
+     "hi": "लैपटॉप",
+     "r": "laptop",
+     "t": "ਲੈਪਟਾਪ"
+    },
+    {
+     "en": "keyboard",
+     "hi": "कीबोर्ड",
+     "r": "keyboard",
+     "t": "ਕੀਬੋਰਡ"
+    },
+    {
+     "en": "mouse (computer)",
+     "hi": "माउस",
+     "r": "mouse",
+     "t": "ਮਾਊਸ"
+    },
+    {
+     "en": "printer",
+     "hi": "प्रिंटर",
+     "r": "printer",
+     "t": "ਪ੍ਰਿੰਟਰ"
+    },
+    {
+     "en": "scanner",
+     "hi": "स्कैनर",
+     "r": "scanner",
+     "t": "ਸਕੈਨਰ"
+    },
+    {
+     "en": "photocopy",
+     "hi": "फ़ोटोकॉपी",
+     "r": "jerox",
+     "t": "ਜ਼ੇਰਾਕਸ"
+    },
+    {
+     "en": "telephone",
+     "hi": "टेलीफ़ोन",
+     "r": "telephone",
+     "t": "ਟੈਲੀਫ਼ੋਨ"
+    },
+    {
+     "en": "mobile phone",
+     "hi": "मोबाइल",
+     "r": "mobile",
+     "t": "ਮੋਬਾਇਲ"
+    },
+    {
+     "en": "charger",
+     "hi": "चार्जर",
+     "r": "charger",
+     "t": "ਚਾਰਜਰ"
+    },
+    {
+     "en": "file",
+     "hi": "फ़ाइल",
+     "r": "file",
+     "t": "ਫ਼ਾਈਲ"
+    },
+    {
+     "en": "register",
+     "hi": "रजिस्टर",
+     "r": "register",
+     "t": "ਰਜਿਸਟਰ"
+    },
+    {
+     "en": "paper",
+     "hi": "काग़ज़",
+     "r": "kaghaj",
+     "t": "ਕਾਗ਼ਜ਼"
+    },
+    {
+     "en": "pen",
+     "hi": "पैन",
+     "r": "pen",
+     "t": "ਪੈੱਨ"
+    },
+    {
+     "en": "pencil",
+     "hi": "पेंसिल",
+     "r": "pencil",
+     "t": "ਪੈਨਸਿਲ"
+    },
+    {
+     "en": "eraser",
+     "hi": "रबड़",
+     "r": "rubber",
+     "t": "ਰਬੜ"
+    },
+    {
+     "en": "pin",
+     "hi": "पिन",
+     "r": "pinn",
+     "t": "ਪਿੰਨ"
+    },
+    {
+     "en": "scissors",
+     "hi": "कैंची",
+     "r": "kainchi",
+     "t": "ਕੈਂਚੀ"
+    },
+    {
+     "en": "tape",
+     "hi": "टेप",
+     "r": "tape",
+     "t": "ਟੇਪ"
+    },
+    {
+     "en": "envelope",
+     "hi": "लिफ़ाफ़ा",
+     "r": "lifafa",
+     "t": "ਲਿਫ਼ਾਫ਼ਾ"
+    },
+    {
+     "en": "stamp",
+     "hi": "मोहर",
+     "r": "mohar",
+     "t": "ਮੋਹਰ"
+    },
+    {
+     "en": "signature",
+     "hi": "दस्तख़त",
+     "r": "dastakhat",
+     "t": "ਦਸਤਖ਼ਤ"
+    },
+    {
+     "en": "desk",
+     "hi": "मेज़",
+     "r": "desk",
+     "t": "ਡੈਸਕ"
+    },
+    {
+     "en": "chair",
+     "hi": "कुरसी",
+     "r": "kursi",
+     "t": "ਕੁਰਸੀ"
+    },
+    {
+     "en": "shelf",
+     "hi": "शेल्फ़",
+     "r": "shelf",
+     "t": "ਸ਼ੈਲਫ਼"
+    },
+    {
+     "en": "cupboard",
+     "hi": "अलमारी",
+     "r": "almari",
+     "t": "ਅਲਮਾਰੀ"
+    },
+    {
+     "en": "fan",
+     "hi": "पंखा",
+     "r": "pakkha",
+     "t": "ਪੱਖਾ"
+    },
+    {
+     "en": "air conditioner",
+     "hi": "एसी",
+     "r": "ac",
+     "t": "ਏਸੀ"
+    },
+    {
+     "en": "dustbin",
+     "hi": "कूड़ादान",
+     "r": "koorhadan",
+     "t": "ਕੂੜਾਦਾਨ"
+    },
+    {
+     "en": "calendar",
+     "hi": "कैलेंडर",
+     "r": "calendar",
+     "t": "ਕੈਲੰਡਰ"
+    },
+    {
+     "en": "to work",
+     "hi": "काम करना",
+     "r": "kamm karna",
+     "t": "ਕੰਮ ਕਰਨਾ"
+    },
+    {
+     "en": "to type",
+     "hi": "टाइप करना",
+     "r": "type karna",
+     "t": "ਟਾਈਪ ਕਰਨਾ"
+    },
+    {
+     "en": "to check",
+     "hi": "जाँचना",
+     "r": "jaanchna",
+     "t": "ਜਾਂਚਣਾ"
+    },
+    {
+     "en": "to send",
+     "hi": "भेजना",
+     "r": "bhejna",
+     "t": "ਭੇਜਣਾ"
+    },
+    {
+     "en": "to receive",
+     "hi": "प्राप्त करना",
+     "r": "prapat karna",
+     "t": "ਪ੍ਰਾਪਤ ਕਰਨਾ"
+    },
+    {
+     "en": "to sign",
+     "hi": "दस्तख़त करना",
+     "r": "dastakhat karna",
+     "t": "ਦਸਤਖ਼ਤ ਕਰਨਾ"
+    },
+    {
+     "en": "to stamp",
+     "hi": "मोहर लगाना",
+     "r": "mohar launi",
+     "t": "ਮੋਹਰ ਲਾਉਣੀ"
+    },
+    {
+     "en": "to file (papers)",
+     "hi": "फ़ाइल करना",
+     "r": "file karna",
+     "t": "ਫ਼ਾਈਲ ਕਰਨਾ"
+    },
+    {
+     "en": "to print",
+     "hi": "प्रिंट करना",
+     "r": "print kadhna",
+     "t": "ਪ੍ਰਿੰਟ ਕੱਢਣਾ"
+    },
+    {
+     "en": "to photocopy",
+     "hi": "कॉपी करना",
+     "r": "jerox kadhna",
+     "t": "ਜ਼ੇਰਾਕਸ ਕੱਢਣਾ"
+    },
+    {
+     "en": "to phone",
+     "hi": "फ़ोन करना",
+     "r": "phone karna",
+     "t": "ਫ਼ੋਨ ਕਰਨਾ"
+    },
+    {
+     "en": "to email",
+     "hi": "ईमेल करना",
+     "r": "email bhejna",
+     "t": "ਈਮੇਲ ਭੇਜਣਾ"
+    },
+    {
+     "en": "to meet",
+     "hi": "मिलना",
+     "r": "milna",
+     "t": "ਮਿਲਣਾ"
+    },
+    {
+     "en": "to discuss",
+     "hi": "चर्चा करना",
+     "r": "charcha karna",
+     "t": "ਚਰਚਾ ਕਰਨਾ"
+    },
+    {
+     "en": "to decide",
+     "hi": "फ़ैसला करना",
+     "r": "faisla karna",
+     "t": "ਫ਼ੈਸਲਾ ਕਰਨਾ"
+    },
+    {
+     "en": "to agree",
+     "hi": "सहमत होना",
+     "r": "sehmat hona",
+     "t": "ਸਹਿਮਤ ਹੋਣਾ"
+    },
+    {
+     "en": "to refuse",
+     "hi": "इनकार करना",
+     "r": "inkar karna",
+     "t": "ਇਨਕਾਰ ਕਰਨਾ"
+    },
+    {
+     "en": "to ask",
+     "hi": "पूछना",
+     "r": "puchhna",
+     "t": "ਪੁੱਛਣਾ"
+    },
+    {
+     "en": "to answer",
+     "hi": "जवाब देना",
+     "r": "jawab dena",
+     "t": "ਜਵਾਬ ਦੇਣਾ"
+    },
+    {
+     "en": "to explain",
+     "hi": "समझाना",
+     "r": "samjhauna",
+     "t": "ਸਮਝਾਉਣਾ"
+    },
+    {
+     "en": "to learn quickly",
+     "hi": "जल्दी सीखना",
+     "r": "chheti sikhna",
+     "t": "ਛੇਤੀ ਸਿੱਖਣਾ"
+    },
+    {
+     "en": "to teach",
+     "hi": "सिखाना",
+     "r": "sikhauna",
+     "t": "ਸਿਖਾਉਣਾ"
+    },
+    {
+     "en": "to cooperate",
+     "hi": "सहयोग करना",
+     "r": "sehyog dena",
+     "t": "ਸਹਿਯੋਗ ਦੇਣਾ"
+    },
+    {
+     "en": "to start",
+     "hi": "शुरू करना",
+     "r": "shuru karna",
+     "t": "ਸ਼ੁਰੂ ਕਰਨਾ"
+    },
+    {
+     "en": "to finish",
+     "hi": "पूरा करना",
+     "r": "pura karna",
+     "t": "ਪੂਰਾ ਕਰਨਾ"
+    },
+    {
+     "en": "to postpone",
+     "hi": "टालना",
+     "r": "multavi karna",
+     "t": "ਮੁਲਤਵੀ ਕਰਨਾ"
+    },
+    {
+     "en": "to hurry",
+     "hi": "जल्दी करना",
+     "r": "jaldi karna",
+     "t": "ਜਲਦੀ ਕਰਨਾ"
+    },
+    {
+     "en": "to wait",
+     "hi": "इंतज़ार करना",
+     "r": "udeekna",
+     "t": "ਉਡੀਕਣਾ"
+    },
+    {
+     "en": "to arrive",
+     "hi": "पहुँचना",
+     "r": "pahunchna",
+     "t": "ਪਹੁੰਚਣਾ"
+    },
+    {
+     "en": "to leave",
+     "hi": "निकलना",
+     "r": "nikalna",
+     "t": "ਨਿਕਲਣਾ"
+    },
+    {
+     "en": "daily wage",
+     "hi": "दिहाड़ी",
+     "r": "dihari",
+     "t": "ਦਿਹਾੜੀ"
+    },
+    {
+     "en": "bonus",
+     "hi": "बोनस",
+     "r": "bonus",
+     "t": "ਬੋਨਸ"
+    },
+    {
+     "en": "increment",
+     "hi": "वेतन वृद्धि",
+     "r": "tankhah vadha",
+     "t": "ਤਨਖ਼ਾਹ ਵਾਧਾ"
+    },
+    {
+     "en": "advance",
+     "hi": "पेशगी",
+     "r": "peshgi",
+     "t": "ਪੇਸ਼ਗੀ"
+    },
+    {
+     "en": "loan",
+     "hi": "क़र्ज़",
+     "r": "karja",
+     "t": "ਕਰਜ਼ਾ"
+    },
+    {
+     "en": "account",
+     "hi": "हिसाब",
+     "r": "hisab",
+     "t": "ਹਿਸਾਬ"
+    },
+    {
+     "en": "bill",
+     "hi": "बिल",
+     "r": "bill",
+     "t": "ਬਿੱਲ"
+    },
+    {
+     "en": "receipt",
+     "hi": "रसीद",
+     "r": "raseed",
+     "t": "ਰਸੀਦ"
+    },
+    {
+     "en": "cash amount",
+     "hi": "नक़द रक़म",
+     "r": "nakad rakam",
+     "t": "ਨਕਦ ਰਕਮ"
+    },
+    {
+     "en": "loose change",
+     "hi": "खुले पैसे",
+     "r": "khullhe paise",
+     "t": "ਖੁੱਲ੍ਹੇ ਪੈਸੇ"
+    },
+    {
+     "en": "fixed price",
+     "hi": "पक्की क़ीमत",
+     "r": "pakki keemat",
+     "t": "ਪੱਕੀ ਕੀਮਤ"
+    },
+    {
+     "en": "special discount",
+     "hi": "ख़ास छूट",
+     "r": "khas chhot",
+     "t": "ਖ਼ਾਸ ਛੋਟ"
+    },
+    {
+     "en": "profit",
+     "hi": "मुनाफ़ा",
+     "r": "munafa",
+     "t": "ਮੁਨਾਫ਼ਾ"
+    },
+    {
+     "en": "loss",
+     "hi": "नुक़सान",
+     "r": "nuksan",
+     "t": "ਨੁਕਸਾਨ"
+    },
+    {
+     "en": "leave",
+     "hi": "छुट्टी",
+     "r": "chhutti",
+     "t": "ਛੁੱਟੀ"
+    },
+    {
+     "en": "public holiday",
+     "hi": "सार्वजनिक अवकाश",
+     "r": "sarkari chhutti",
+     "t": "ਸਰਕਾਰੀ ਛੁੱਟੀ"
+    },
+    {
+     "en": "permission",
+     "hi": "इजाज़त",
+     "r": "ijajat",
+     "t": "ਇਜਾਜ਼ਤ"
+    },
+    {
+     "en": "request",
+     "hi": "निवेदन",
+     "r": "benti",
+     "t": "ਬੇਨਤੀ"
+    },
+    {
+     "en": "congratulations",
+     "hi": "बधाइयाँ",
+     "r": "vadhaiyan",
+     "t": "ਵਧਾਈਆਂ"
+    },
+    {
+     "en": "farewell",
+     "hi": "रुख़सत",
+     "r": "rukhsat",
+     "t": "ਰੁਖ਼ਸਤ"
+    },
+    {
+     "en": "apology",
+     "hi": "माफ़ी",
+     "r": "muafi",
+     "t": "ਮੁਆਫ਼ੀ"
+    },
+    {
+     "en": "office bus",
+     "hi": "ऑफ़िस बस",
+     "r": "daftar di bus",
+     "t": "ਦਫ਼ਤਰ ਦੀ ਬੱਸ"
+    },
+    {
+     "en": "express train",
+     "hi": "एक्सप्रेस ट्रेन",
+     "r": "express rail",
+     "t": "ਐਕਸਪ੍ਰੈਸ ਰੇਲ"
+    },
+    {
+     "en": "metro",
+     "hi": "मेट्रो",
+     "r": "metro",
+     "t": "ਮੈਟਰੋ"
+    },
+    {
+     "en": "shared auto",
+     "hi": "साझा ऑटो",
+     "r": "sanjha auto",
+     "t": "ਸਾਂਝਾ ਆਟੋ"
+    },
+    {
+     "en": "rental car",
+     "hi": "किराए की गाड़ी",
+     "r": "kirae di gaddi",
+     "t": "ਕਿਰਾਏ ਦੀ ਗੱਡੀ"
+    },
+    {
+     "en": "bicycle",
+     "hi": "साइकिल",
+     "r": "cycle",
+     "t": "ਸਾਈਕਲ"
+    },
+    {
+     "en": "bike",
+     "hi": "बाइक",
+     "r": "bike",
+     "t": "ਬਾਈਕ"
+    },
+    {
+     "en": "driver",
+     "hi": "ड्राइवर",
+     "r": "driver",
+     "t": "ਡਰਾਈਵਰ"
+    },
+    {
+     "en": "traffic",
+     "hi": "आवाजाही",
+     "r": "aavajai",
+     "t": "ਆਵਾਜਾਈ"
+    },
+    {
+     "en": "traffic signal",
+     "hi": "सिग्नल",
+     "r": "signal",
+     "t": "ਸਿਗਨਲ"
+    },
+    {
+     "en": "new bus stop",
+     "hi": "नया बस अड्डा",
+     "r": "navan bus adda",
+     "t": "ਨਵਾਂ ਬੱਸ ਅੱਡਾ"
+    },
+    {
+     "en": "railway station",
+     "hi": "रेलवे स्टेशन",
+     "r": "railway station",
+     "t": "ਰੇਲਵੇ ਸਟੇਸ਼ਨ"
+    },
+    {
+     "en": "season ticket",
+     "hi": "सीज़न टिकट",
+     "r": "season tikat",
+     "t": "ਸੀਜ਼ਨ ਟਿਕਟ"
+    },
+    {
+     "en": "monthly pass",
+     "hi": "मासिक पास",
+     "r": "mahinavar pass",
+     "t": "ਮਹੀਨਾਵਾਰ ਪਾਸ"
+    },
+    {
+     "en": "early morning",
+     "hi": "तड़का",
+     "r": "tarka",
+     "t": "ਤੜਕਾ"
+    },
+    {
+     "en": "overtime",
+     "hi": "ओवरटाइम",
+     "r": "overtime",
+     "t": "ਓਵਰਟਾਈਮ"
+    },
+    {
+     "en": "night shift",
+     "hi": "नाइट शिफ़्ट",
+     "r": "raat di shift",
+     "t": "ਰਾਤ ਦੀ ਸ਼ਿਫ਼ਟ"
+    },
+    {
+     "en": "weekly off",
+     "hi": "साप्ताहिक छुट्टी",
+     "r": "haftevar chhutti",
+     "t": "ਹਫ਼ਤਾਵਾਰ ਛੁੱਟੀ"
+    },
+    {
+     "en": "delay",
+     "hi": "देरी",
+     "r": "deri",
+     "t": "ਦੇਰੀ"
+    },
+    {
+     "en": "on time",
+     "hi": "समय पर",
+     "r": "samay sir",
+     "t": "ਸਮੇਂ ਸਿਰ"
+    },
+    {
+     "en": "document",
+     "hi": "दस्तावेज़",
+     "r": "dastavej",
+     "t": "ਦਸਤਾਵੇਜ਼"
+    },
+    {
+     "en": "form",
+     "hi": "फ़ॉर्म",
+     "r": "form",
+     "t": "ਫ਼ਾਰਮ"
+    },
+    {
+     "en": "application",
+     "hi": "आवेदन",
+     "r": "arji",
+     "t": "ਅਰਜ਼ੀ"
+    },
+    {
+     "en": "letter",
+     "hi": "चिट्ठी",
+     "r": "chitthi",
+     "t": "ਚਿੱਠੀ"
+    },
+    {
+     "en": "email",
+     "hi": "ईमेल",
+     "r": "email",
+     "t": "ਈਮੇਲ"
+    },
+    {
+     "en": "password",
+     "hi": "पासवर्ड",
+     "r": "password",
+     "t": "ਪਾਸਵਰਡ"
+    },
+    {
+     "en": "website",
+     "hi": "वेबसाइट",
+     "r": "website",
+     "t": "ਵੈਬਸਾਈਟ"
+    },
+    {
+     "en": "internet",
+     "hi": "इंटरनेट",
+     "r": "internet",
+     "t": "ਇੰਟਰਨੈੱਟ"
+    },
+    {
+     "en": "message",
+     "hi": "संदेश",
+     "r": "suneha",
+     "t": "ਸੁਨੇਹਾ"
+    },
+    {
+     "en": "report",
+     "hi": "रिपोर्ट",
+     "r": "report",
+     "t": "ਰਿਪੋਰਟ"
+    },
+    {
+     "en": "record",
+     "hi": "इंद्राज",
+     "r": "indraj",
+     "t": "ਇੰਦਰਾਜ"
+    },
+    {
+     "en": "copy",
+     "hi": "प्रति",
+     "r": "nakal",
+     "t": "ਨਕਲ"
+    },
+    {
+     "en": "original",
+     "hi": "असल",
+     "r": "asli",
+     "t": "ਅਸਲੀ"
+    },
+    {
+     "en": "photo",
+     "hi": "फ़ोटो",
+     "r": "photo",
+     "t": "ਫ਼ੋਟੋ"
+    },
+    {
+     "en": "ID card",
+     "hi": "पहचान पत्र",
+     "r": "shanakhti card",
+     "t": "ਸ਼ਨਾਖ਼ਤੀ ਕਾਰਡ"
+    },
+    {
+     "en": "new",
+     "hi": "नया",
+     "r": "navan",
+     "t": "ਨਵਾਂ"
+    },
+    {
+     "en": "old",
+     "hi": "पुराना",
+     "r": "purana",
+     "t": "ਪੁਰਾਣਾ"
+    },
+    {
+     "en": "important",
+     "hi": "ज़रूरी",
+     "r": "jaruri",
+     "t": "ਜ਼ਰੂਰੀ"
+    },
+    {
+     "en": "urgent",
+     "hi": "तुरंत",
+     "r": "fauri",
+     "t": "ਫ਼ੌਰੀ"
+    },
+    {
+     "en": "easy",
+     "hi": "आसान",
+     "r": "saukha",
+     "t": "ਸੌਖਾ"
+    },
+    {
+     "en": "difficult",
+     "hi": "मुश्किल",
+     "r": "aukha",
+     "t": "ਔਖਾ"
+    },
+    {
+     "en": "correct",
+     "hi": "सही",
+     "r": "sahi",
+     "t": "ਸਹੀ"
+    },
+    {
+     "en": "wrong",
+     "hi": "ग़लत",
+     "r": "ghalat",
+     "t": "ਗ਼ਲਤ"
+    },
+    {
+     "en": "fast",
+     "hi": "तेज़",
+     "r": "tej",
+     "t": "ਤੇਜ਼"
+    },
+    {
+     "en": "slow",
+     "hi": "धीमा",
+     "r": "hauli",
+     "t": "ਹੌਲੀ"
+    }
+   ]
+  },
+  {
+   "dialogue": {
+    "lines": [
+     {
+      "en": "Greetings, teacher!",
+      "hi": "नमस्ते।",
+      "r": "Sat sri akal, master ji!",
+      "sp": "Student",
+      "t": "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ, ਮਾਸਟਰ ਜੀ!"
+     },
+     {
+      "en": "Greetings! Did you finish the homework?",
+      "hi": "नमस्ते! गृहकार्य पूरा किया?",
+      "r": "Sat sri akal! Gharelu kamm pura kita?",
+      "sp": "Teacher",
+      "t": "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ! ਘਰੇਲੂ ਕੰਮ ਪੂਰਾ ਕੀਤਾ?"
+     },
+     {
+      "en": "Yes teacher. My essay is long!",
+      "hi": "हाँ। मेरा निबंध लंबा है!",
+      "r": "Haan ji. Mera lekh lamba hai!",
+      "sp": "Student",
+      "t": "ਹਾਂ ਜੀ। ਮੇਰਾ ਲੇਖ ਲੰਬਾ ਹੈ!"
+     },
+     {
+      "en": "Good! Read it aloud.",
+      "hi": "शाबाश! ज़ोर से पढ़ो।",
+      "r": "Shabash! Uchchi parho.",
+      "sp": "Teacher",
+      "t": "ਸ਼ਾਬਾਸ਼! ਉੱਚੀ ਪੜ੍ਹੋ।"
+     },
+     {
+      "en": "Teacher, give me a story book!",
+      "hi": "मुझे कहानी की किताब दीजिए!",
+      "r": "Mainu kahaniyan di pustak deyo!",
+      "sp": "Student",
+      "t": "ਮੈਨੂੰ ਕਹਾਣੀਆਂ ਦੀ ਪੁਸਤਕ ਦਿਓ!"
+     },
+     {
+      "en": "Take it. Study well!",
+      "hi": "लो। अच्छे से पढ़ो!",
+      "r": "Lao. Changi tarah parho!",
+      "sp": "Teacher",
+      "t": "ਲਓ। ਚੰਗੀ ਤਰ੍ਹਾਂ ਪੜ੍ਹੋ!"
+     }
+    ],
+    "title": "In the classroom"
+   },
+   "lede": "Schools, books and exams — Punjabi for the classroom.",
+   "phrases": [
+    {
+     "en": "Open your book",
+     "hi": "अपनी किताब खोलो",
+     "r": "Apni pustak kholo",
+     "t": "ਆਪਣੀ ਪੁਸਤਕ ਖੋਲ੍ਹੋ"
+    },
+    {
+     "en": "Read aloud",
+     "hi": "ज़ोर से पढ़ो",
+     "r": "Uchchi parho",
+     "t": "ਉੱਚੀ ਪੜ੍ਹੋ"
+    },
+    {
+     "en": "Write neatly",
+     "hi": "साफ़ लिखो",
+     "r": "Saaf likho",
+     "t": "ਸਾਫ਼ ਲਿਖੋ"
+    },
+    {
+     "en": "Listen carefully",
+     "hi": "ध्यान से सुनो",
+     "r": "Dhyan naal suno",
+     "t": "ਧਿਆਨ ਨਾਲ ਸੁਣੋ"
+    },
+    {
+     "en": "Sit quietly",
+     "hi": "चुपचाप बैठो",
+     "r": "Chupp karke baitho",
+     "t": "ਚੁੱਪ ਕਰਕੇ ਬੈਠੋ"
+    },
+    {
+     "en": "Stand up",
+     "hi": "खड़े हो जाओ",
+     "r": "Kharhe ho jao",
+     "t": "ਖੜ੍ਹੇ ਹੋ ਜਾਓ"
+    },
+    {
+     "en": "Ask me",
+     "hi": "मुझसे पूछो",
+     "r": "Mainu puchho",
+     "t": "ਮੈਨੂੰ ਪੁੱਛੋ"
+    },
+    {
+     "en": "I don't know",
+     "hi": "मुझे नहीं पता",
+     "r": "Mainu nahi pata",
+     "t": "ਮੈਨੂੰ ਨਹੀਂ ਪਤਾ"
+    },
+    {
+     "en": "Repeat again",
+     "hi": "फिर से बोलो",
+     "r": "Murh bolo",
+     "t": "ਮੁੜ੍ਹ ਬੋਲੋ"
+    },
+    {
+     "en": "The exam starts tomorrow",
+     "hi": "कल से परीक्षा है",
+     "r": "Kallh to imtihan hai",
+     "t": "ਕੱਲ੍ਹ ਤੋਂ ਇਮਤਿਹਾਨ ਹੈ"
+    },
+    {
+     "en": "Study well",
+     "hi": "अच्छे से पढ़ो",
+     "r": "Changi tarah parho",
+     "t": "ਚੰਗੀ ਤਰ੍ਹਾਂ ਪੜ੍ਹੋ"
+    },
+    {
+     "en": "You passed!",
+     "hi": "तुम पास हो गए!",
+     "r": "Tusin paas ho gae!",
+     "t": "ਤੁਸੀਂ ਪਾਸ ਹੋ ਗਏ!"
+    }
+   ],
+   "quiz": [
+    {
+     "a": "teacher",
+     "explain": "ਮਾਸਟਰ (master) = teacher.",
+     "id": "pj-45",
+     "lesson": "education",
+     "level": "beginner",
+     "opts": [
+      "teacher",
+      "student",
+      "professor",
+      "examiner"
+     ],
+     "q": "ਮਾਸਟਰ means…",
+     "topic": "education",
+     "type": "vocab"
+    },
+    {
+     "a": "ਪੁਸਤਕ",
+     "explain": "ਪੁਸਤਕ (pustak) = book.",
+     "id": "pj-46",
+     "lesson": "education",
+     "level": "beginner",
+     "opts": [
+      "ਪੁਸਤਕ",
+      "ਅਖ਼ਬਾਰ",
+      "ਕਾਗ਼ਜ਼",
+      "ਅੱਖਰ"
+     ],
+     "q": "Which is 'book'?",
+     "topic": "education",
+     "type": "vocab"
+    },
+    {
+     "a": "read aloud",
+     "explain": "ਉੱਚੀ ਪੜ੍ਹੋ — ਉੱਚੀ = loudly.",
+     "id": "pj-47",
+     "lesson": "education",
+     "level": "beginner",
+     "opts": [
+      "read aloud",
+      "write neatly",
+      "sit quietly",
+      "stand up"
+     ],
+     "q": "'ਉੱਚੀ ਪੜ੍ਹੋ' means…",
+     "topic": "education",
+     "type": "meaning"
+    },
+    {
+     "a": "ਮੈਨੂੰ ਨਹੀਂ ਪਤਾ",
+     "explain": "ਮੈਨੂੰ ਨਹੀਂ ਪਤਾ — ਪਤਾ = knowledge.",
+     "id": "pj-48",
+     "lesson": "education",
+     "level": "elementary",
+     "opts": [
+      "ਮੈਨੂੰ ਨਹੀਂ ਪਤਾ",
+      "ਮੈਨੂੰ ਯਾਦ ਹੈ",
+      "ਮੈਨੂੰ ਸਮਝ ਆਈ",
+      "ਮੈਨੂੰ ਆਉਂਦਾ ਹੈ"
+     ],
+     "q": "Say 'I don't know'. You say…",
+     "topic": "education",
+     "type": "usage"
+    },
+    {
+     "a": "exam",
+     "explain": "ਇਮਤਿਹਾਨ (imtihan) = exam.",
+     "id": "pj-49",
+     "lesson": "education",
+     "level": "beginner",
+     "opts": [
+      "exam",
+      "mark",
+      "rank",
+      "pass"
+     ],
+     "q": "ਇਮਤਿਹਾਨ means…",
+     "topic": "education",
+     "type": "vocab"
+    },
+    {
+     "a": "slate",
+     "explain": "ਤਖ਼ਤੀ (takhti) — the child's first slate!",
+     "id": "pj-50",
+     "lesson": "education",
+     "level": "elementary",
+     "opts": [
+      "slate",
+      "notebook",
+      "diary",
+      "atlas"
+     ],
+     "q": "ਤਖ਼ਤੀ means…",
+     "topic": "education",
+     "type": "vocab"
+    },
+    {
+     "a": "study well",
+     "explain": "ਚੰਗੀ ਤਰ੍ਹਾਂ ਪੜ੍ਹੋ — ਪੜ੍ਹਨਾ = to study.",
+     "id": "pj-51",
+     "lesson": "education",
+     "level": "elementary",
+     "opts": [
+      "study well",
+      "write neatly",
+      "read aloud",
+      "come early"
+     ],
+     "q": "'ਚੰਗੀ ਤਰ੍ਹਾਂ ਪੜ੍ਹੋ' means…",
+     "topic": "education",
+     "type": "meaning"
+    },
+    {
+     "a": "ਆਪਣੀਆਂ ਪੁਸਤਕਾਂ ਖੋਲ੍ਹੋ",
+     "explain": "ਆਪਣੀਆਂ ਪੁਸਤਕਾਂ ਖੋਲ੍ਹੋ — ਖੋਲ੍ਹੋ = open.",
+     "id": "pj-52",
+     "lesson": "education",
+     "level": "elementary",
+     "opts": [
+      "ਆਪਣੀਆਂ ਪੁਸਤਕਾਂ ਖੋਲ੍ਹੋ",
+      "ਆਪਣੀਆਂ ਕਾਪੀਆਂ ਲਿਆਓ",
+      "ਆਪਣੀਆਂ ਤਖ਼ਤੀਆਂ ਰੱਖੋ",
+      "ਆਪਣਾ ਨਾਮ ਲਿਖੋ"
+     ],
+     "q": "Tell students to open their books. You say…",
+     "topic": "education",
+     "type": "usage"
+    },
+    {
+     "a": "student",
+     "explain": "ਵਿਦਿਆਰਥੀ (vidiarthi) = student.",
+     "id": "pj-53",
+     "lesson": "education",
+     "level": "beginner",
+     "opts": [
+      "student",
+      "teacher",
+      "professor",
+      "examiner"
+     ],
+     "q": "ਵਿਦਿਆਰਥੀ means…",
+     "topic": "education",
+     "type": "vocab"
+    },
+    {
+     "a": "passing marks",
+     "explain": "ਪਾਸ ਨੰਬਰ — ਪਾਸ = pass.",
+     "id": "pj-54",
+     "lesson": "education",
+     "level": "beginner",
+     "opts": [
+      "passing marks",
+      "rank",
+      "degree",
+      "uniform"
+     ],
+     "q": "ਪਾਸ ਨੰਬਰ means…",
+     "topic": "education",
+     "type": "vocab"
+    }
+   ],
+   "slug": "education",
+   "title": "School & learning",
+   "words": [
+    {
+     "en": "village school",
+     "hi": "गाँव का स्कूल",
+     "r": "pind da school",
+     "t": "ਪਿੰਡ ਦਾ ਸਕੂਲ"
+    },
+    {
+     "en": "primary school",
+     "hi": "प्राथमिक शाला",
+     "r": "primary school",
+     "t": "ਪ੍ਰਾਇਮਰੀ ਸਕੂਲ"
+    },
+    {
+     "en": "high school",
+     "hi": "हाईस्कूल",
+     "r": "high school",
+     "t": "ਹਾਈ ਸਕੂਲ"
+    },
+    {
+     "en": "college",
+     "hi": "कॉलेज",
+     "r": "college",
+     "t": "ਕਾਲਜ"
+    },
+    {
+     "en": "university",
+     "hi": "विश्वविद्यालय",
+     "r": "university",
+     "t": "ਯੂਨੀਵਰਸਿਟੀ"
+    },
+    {
+     "en": "tuition class",
+     "hi": "ट्यूशन",
+     "r": "tuition",
+     "t": "ਟਿਊਸ਼ਨ"
+    },
+    {
+     "en": "kindergarten",
+     "hi": "बालवाड़ी",
+     "r": "balvari",
+     "t": "ਬਾਲਵਾੜੀ"
+    },
+    {
+     "en": "teacher",
+     "hi": "मास्टर",
+     "r": "master",
+     "t": "ਮਾਸਟਰ"
+    },
+    {
+     "en": "female teacher",
+     "hi": "अध्यापिका",
+     "r": "adhyapka",
+     "t": "ਅਧਿਆਪਕਾ"
+    },
+    {
+     "en": "professor",
+     "hi": "प्रोफ़ेसर",
+     "r": "professor",
+     "t": "ਪ੍ਰੋਫ਼ੈਸਰ"
+    },
+    {
+     "en": "principal",
+     "hi": "प्राचार्य",
+     "r": "principal",
+     "t": "ਪ੍ਰਿੰਸੀਪਲ"
+    },
+    {
+     "en": "student",
+     "hi": "छात्र",
+     "r": "vidiarthi",
+     "t": "ਵਿਦਿਆਰਥੀ"
+    },
+    {
+     "en": "pupil",
+     "hi": "शागिर्द",
+     "r": "shagird",
+     "t": "ਸ਼ਾਗਿਰਦ"
+    },
+    {
+     "en": "classmate",
+     "hi": "सहपाठी",
+     "r": "jamati",
+     "t": "ਜਮਾਤੀ"
+    },
+    {
+     "en": "senior student",
+     "hi": "सीनियर छात्र",
+     "r": "senior vidiarthi",
+     "t": "ਸੀਨੀਅਰ ਵਿਦਿਆਰਥੀ"
+    },
+    {
+     "en": "new admission boy",
+     "hi": "नया दाख़िला लड़का",
+     "r": "navan dakhil munda",
+     "t": "ਨਵਾਂ ਦਾਖ਼ਲ ਮੁੰਡਾ"
+    },
+    {
+     "en": "classroom",
+     "hi": "कक्षा",
+     "r": "classroom",
+     "t": "ਕਲਾਸਰੂਮ"
+    },
+    {
+     "en": "bench",
+     "hi": "बेंच",
+     "r": "bench",
+     "t": "ਬੈਂਚ"
+    },
+    {
+     "en": "school desk",
+     "hi": "स्कूल डेस्क",
+     "r": "schooli desk",
+     "t": "ਸਕੂਲੀ ਡੈਸਕ"
+    },
+    {
+     "en": "blackboard",
+     "hi": "श्यामपट्ट",
+     "r": "blackboard",
+     "t": "ਬਲੈਕਬੋਰਡ"
+    },
+    {
+     "en": "chalk",
+     "hi": "चॉक",
+     "r": "chaak",
+     "t": "ਚਾਕ"
+    },
+    {
+     "en": "duster",
+     "hi": "डस्टर",
+     "r": "duster",
+     "t": "ਡਸਟਰ"
+    },
+    {
+     "en": "bell",
+     "hi": "घंटी",
+     "r": "ghanti",
+     "t": "ਘੰਟੀ"
+    },
+    {
+     "en": "attendance",
+     "hi": "हाज़िरी",
+     "r": "hajri",
+     "t": "ਹਾਜ਼ਰੀ"
+    },
+    {
+     "en": "roll number",
+     "hi": "रोल नंबर",
+     "r": "roll number",
+     "t": "ਰੋਲ ਨੰਬਰ"
+    },
+    {
+     "en": "uniform",
+     "hi": "वर्दी",
+     "r": "vardi",
+     "t": "ਵਰਦੀ"
+    },
+    {
+     "en": "shoes",
+     "hi": "बूट",
+     "r": "boot",
+     "t": "ਬੂਟ"
+    },
+    {
+     "en": "school shoes",
+     "hi": "स्कूल के बूट",
+     "r": "schooli boot",
+     "t": "ਸਕੂਲੀ ਬੂਟ"
+    },
+    {
+     "en": "tiffin box",
+     "hi": "टिफ़िन डिब्बा",
+     "r": "tiffin dabba",
+     "t": "ਟਿਫ਼ਨ ਡੱਬਾ"
+    },
+    {
+     "en": "water bottle",
+     "hi": "पानी की बोतल",
+     "r": "pani di botal",
+     "t": "ਪਾਣੀ ਦੀ ਬੋਤਲ"
+    },
+    {
+     "en": "school bag",
+     "hi": "स्कूल बैग",
+     "r": "school bag",
+     "t": "ਸਕੂਲ ਬੈਗ"
+    },
+    {
+     "en": "book",
+     "hi": "पुस्तक",
+     "r": "pustak",
+     "t": "ਪੁਸਤਕ"
+    },
+    {
+     "en": "textbook",
+     "hi": "पाठ्यपुस्तक",
+     "r": "paath pustak",
+     "t": "ਪਾਠ ਪੁਸਤਕ"
+    },
+    {
+     "en": "story book",
+     "hi": "कहानी की किताब",
+     "r": "kahaniyan di pustak",
+     "t": "ਕਹਾਣੀਆਂ ਦੀ ਪੁਸਤਕ"
+    },
+    {
+     "en": "novel",
+     "hi": "उपन्यास",
+     "r": "naval",
+     "t": "ਨਾਵਲ"
+    },
+    {
+     "en": "poetry",
+     "hi": "कविता",
+     "r": "kavita",
+     "t": "ਕਵਿਤਾ"
+    },
+    {
+     "en": "newspaper",
+     "hi": "अख़बार",
+     "r": "akhbar",
+     "t": "ਅਖ਼ਬਾਰ"
+    },
+    {
+     "en": "magazine",
+     "hi": "पत्रिका",
+     "r": "rasala",
+     "t": "ਰਸਾਲਾ"
+    },
+    {
+     "en": "notebook",
+     "hi": "कॉपी",
+     "r": "copy",
+     "t": "ਕਾਪੀ"
+    },
+    {
+     "en": "diary",
+     "hi": "डायरी",
+     "r": "diary",
+     "t": "ਡਾਇਰੀ"
+    },
+    {
+     "en": "slate",
+     "hi": "स्लेट",
+     "r": "takhti",
+     "t": "ਤਖ਼ਤੀ"
+    },
+    {
+     "en": "compass box",
+     "hi": "ज्योमेट्री बॉक्स",
+     "r": "compass box",
+     "t": "ਕੰਪਾਸ ਬਾਕਸ"
+    },
+    {
+     "en": "ruler",
+     "hi": "स्केल",
+     "r": "scale",
+     "t": "ਸਕੇਲ"
+    },
+    {
+     "en": "crayon",
+     "hi": "क्रेयॉन",
+     "r": "crayon",
+     "t": "ਕਰੇਯਾਨ"
+    },
+    {
+     "en": "map",
+     "hi": "नक़्शा",
+     "r": "naksha",
+     "t": "ਨਕਸ਼ਾ"
+    },
+    {
+     "en": "globe",
+     "hi": "ग्लोब",
+     "r": "globe",
+     "t": "ਗਲੋਬ"
+    },
+    {
+     "en": "letter (alphabet)",
+     "hi": "अक्षर",
+     "r": "akkhar",
+     "t": "ਅੱਖਰ"
+    },
+    {
+     "en": "vowel",
+     "hi": "स्वर",
+     "r": "savar",
+     "t": "ਸਵਰ"
+    },
+    {
+     "en": "consonant",
+     "hi": "व्यंजन",
+     "r": "vianjan",
+     "t": "ਵਿਅੰਜਨ"
+    },
+    {
+     "en": "spelling",
+     "hi": "वर्तनी",
+     "r": "spelling",
+     "t": "ਸਪੈਲਿੰਗ"
+    },
+    {
+     "en": "essay",
+     "hi": "निबंध",
+     "r": "lekh",
+     "t": "ਲੇਖ"
+    },
+    {
+     "en": "paragraph",
+     "hi": "अनुच्छेद",
+     "r": "paira",
+     "t": "ਪੈਰਾ"
+    },
+    {
+     "en": "question",
+     "hi": "सवाल",
+     "r": "saval",
+     "t": "ਸਵਾਲ"
+    },
+    {
+     "en": "correct answer",
+     "hi": "सही जवाब",
+     "r": "sahi jawab",
+     "t": "ਸਹੀ ਜਵਾਬ"
+    },
+    {
+     "en": "homework",
+     "hi": "गृहकार्य",
+     "r": "gharelu kamm",
+     "t": "ਘਰੇਲੂ ਕੰਮ"
+    },
+    {
+     "en": "project work",
+     "hi": "प्रोजेक्ट",
+     "r": "project",
+     "t": "ਪ੍ਰਾਜੈਕਟ"
+    },
+    {
+     "en": "drawing",
+     "hi": "चित्रकारी",
+     "r": "drawing",
+     "t": "ਡਰਾਇੰਗ"
+    },
+    {
+     "en": "picture",
+     "hi": "तस्वीर",
+     "r": "tasveer",
+     "t": "ਤਸਵੀਰ"
+    },
+    {
+     "en": "song",
+     "hi": "गीत",
+     "r": "geet",
+     "t": "ਗੀਤ"
+    },
+    {
+     "en": "prayer",
+     "hi": "अरदास",
+     "note": "Sikh congregational prayer",
+     "r": "ardas",
+     "t": "ਅਰਦਾਸ"
+    },
+    {
+     "en": "story",
+     "hi": "कहानी",
+     "r": "kahani",
+     "t": "ਕਹਾਣੀ"
+    },
+    {
+     "en": "fairy tale",
+     "hi": "परिकथा",
+     "r": "pariyan di kahani",
+     "t": "ਪਰੀਆਂ ਦੀ ਕਹਾਣੀ"
+    },
+    {
+     "en": "drama",
+     "hi": "नाटक",
+     "r": "natak",
+     "t": "ਨਾਟਕ"
+    },
+    {
+     "en": "library",
+     "hi": "पुस्तकालय",
+     "r": "library",
+     "t": "ਲਾਇਬ੍ਰੇਰੀ"
+    },
+    {
+     "en": "book fair",
+     "hi": "पुस्तक मेला",
+     "r": "pustak mela",
+     "t": "ਪੁਸਤਕ ਮੇਲਾ"
+    },
+    {
+     "en": "exam",
+     "hi": "इम्तिहान",
+     "r": "imtihan",
+     "t": "ਇਮਤਿਹਾਨ"
+    },
+    {
+     "en": "exam centre",
+     "hi": "परीक्षा केंद्र",
+     "r": "imtihan kendar",
+     "t": "ਇਮਤਿਹਾਨ ਕੇਂਦਰ"
+    },
+    {
+     "en": "question paper",
+     "hi": "प्रश्नपत्र",
+     "r": "prashan pattar",
+     "t": "ਪ੍ਰਸ਼ਨ ਪੱਤਰ"
+    },
+    {
+     "en": "answer sheet",
+     "hi": "उत्तर पुस्तिका",
+     "r": "jawab copy",
+     "t": "ਜਵਾਬ ਕਾਪੀ"
+    },
+    {
+     "en": "marks",
+     "hi": "अंक",
+     "r": "number",
+     "t": "ਨੰਬਰ"
+    },
+    {
+     "en": "passing marks",
+     "hi": "पास अंक",
+     "r": "paas number",
+     "t": "ਪਾਸ ਨੰਬਰ"
+    },
+    {
+     "en": "rank",
+     "hi": "दर्जा",
+     "r": "darja",
+     "t": "ਦਰਜਾ"
+    },
+    {
+     "en": "first rank",
+     "hi": "पहला दर्जा",
+     "r": "pehla darja",
+     "t": "ਪਹਿਲਾ ਦਰਜਾ"
+    },
+    {
+     "en": "pass",
+     "hi": "उत्तीर्ण",
+     "r": "paas",
+     "t": "ਪਾਸ"
+    },
+    {
+     "en": "fail",
+     "hi": "अनुत्तीर्ण",
+     "r": "failh",
+     "t": "ਫ਼ੇਲ੍ਹ"
+    },
+    {
+     "en": "degree",
+     "hi": "डिग्री",
+     "r": "degree",
+     "t": "ਡਿਗਰੀ"
+    },
+    {
+     "en": "graduate",
+     "hi": "स्नातक",
+     "r": "graduate",
+     "t": "ਗ੍ਰੈਜੂਏਟ"
+    },
+    {
+     "en": "certificate",
+     "hi": "प्रमाणपत्र",
+     "r": "certificate",
+     "t": "ਸਰਟੀਫ਼ਿਕੇਟ"
+    },
+    {
+     "en": "medal",
+     "hi": "तमग़ा",
+     "r": "tamgha",
+     "t": "ਤਮਗ਼ਾ"
+    },
+    {
+     "en": "prize",
+     "hi": "पुरस्कार",
+     "r": "inam",
+     "t": "ਇਨਾਮ"
+    },
+    {
+     "en": "scholarship",
+     "hi": "वज़ीफ़ा",
+     "r": "vajifa",
+     "t": "ਵਜ਼ੀਫ਼ਾ"
+    },
+    {
+     "en": "school fees",
+     "hi": "फ़ीस",
+     "r": "fees",
+     "t": "ਫ਼ੀਸ"
+    },
+    {
+     "en": "science",
+     "hi": "विज्ञान",
+     "r": "vigyan",
+     "t": "ਵਿਗਿਆਨ"
+    },
+    {
+     "en": "maths",
+     "hi": "गणित",
+     "r": "ganit",
+     "t": "ਗਣਿਤ"
+    },
+    {
+     "en": "history",
+     "hi": "इतिहास",
+     "r": "itihas",
+     "t": "ਇਤਿਹਾਸ"
+    },
+    {
+     "en": "geography",
+     "hi": "भूगोल",
+     "r": "bhugol",
+     "t": "ਭੂਗੋਲ"
+    },
+    {
+     "en": "civics",
+     "hi": "नागरिकशास्त्र",
+     "r": "nagrikshastar",
+     "t": "ਨਾਗਰਿਕਸ਼ਾਸਤਰ"
+    },
+    {
+     "en": "English subject",
+     "hi": "अंग्रेज़ी विषय",
+     "r": "angreji visha",
+     "t": "ਅੰਗਰੇਜ਼ੀ ਵਿਸ਼ਾ"
+    },
+    {
+     "en": "Punjabi subject",
+     "hi": "पंजाबी विषय",
+     "r": "punjabi visha",
+     "t": "ਪੰਜਾਬੀ ਵਿਸ਼ਾ"
+    },
+    {
+     "en": "Hindi subject",
+     "hi": "हिंदी विषय",
+     "r": "hindi visha",
+     "t": "ਹਿੰਦੀ ਵਿਸ਼ਾ"
+    },
+    {
+     "en": "computer class",
+     "hi": "कंप्यूटर कक्षा",
+     "r": "computer jamat",
+     "t": "ਕੰਪਿਊਟਰ ਜਮਾਤ"
+    },
+    {
+     "en": "laboratory",
+     "hi": "प्रयोगशाला",
+     "r": "pryogshala",
+     "t": "ਪ੍ਰਯੋਗਸ਼ਾਲਾ"
+    },
+    {
+     "en": "experiment",
+     "hi": "प्रयोग",
+     "r": "pryog",
+     "t": "ਪ੍ਰਯੋਗ"
+    },
+    {
+     "en": "formula",
+     "hi": "सूत्र",
+     "r": "formula",
+     "t": "ਫ਼ਾਰਮੂਲਾ"
+    },
+    {
+     "en": "addition",
+     "hi": "जोड़",
+     "r": "jorh",
+     "t": "ਜੋੜ"
+    },
+    {
+     "en": "subtraction",
+     "hi": "घटाव",
+     "r": "ghatao",
+     "t": "ਘਟਾਓ"
+    },
+    {
+     "en": "multiplication",
+     "hi": "गुणा",
+     "r": "guna",
+     "t": "ਗੁਣਾ"
+    },
+    {
+     "en": "division",
+     "hi": "भाग",
+     "r": "bhag",
+     "t": "ਭਾਗ"
+    },
+    {
+     "en": "tables (maths)",
+     "hi": "पहाड़े",
+     "r": "pahare",
+     "t": "ਪਹਾੜੇ"
+    },
+    {
+     "en": "half",
+     "hi": "आधा",
+     "r": "addha",
+     "t": "ਅੱਧਾ"
+    },
+    {
+     "en": "quarter",
+     "hi": "एक चौथाई",
+     "r": "ikk chauthai",
+     "t": "ਇੱਕ ਚੌਥਾਈ"
+    },
+    {
+     "en": "full marks",
+     "hi": "पूरे अंक",
+     "r": "pure number",
+     "t": "ਪੂਰੇ ਨੰਬਰ"
+    },
+    {
+     "en": "zero",
+     "hi": "शून्य",
+     "r": "sifar",
+     "t": "ਸਿਫ਼ਰ"
+    },
+    {
+     "en": "to study well",
+     "hi": "अच्छे से पढ़ना",
+     "r": "changi tarah parhna",
+     "t": "ਚੰਗੀ ਤਰ੍ਹਾਂ ਪੜ੍ਹਨਾ"
+    },
+    {
+     "en": "to read",
+     "hi": "पढ़ना (वाचन)",
+     "r": "vaachna",
+     "t": "ਵਾਚਣਾ"
+    },
+    {
+     "en": "to write neatly",
+     "hi": "साफ़ लिखना",
+     "r": "saaf likhna",
+     "t": "ਸਾਫ਼ ਲਿਖਣਾ"
+    },
+    {
+     "en": "to memorise",
+     "hi": "याद करना",
+     "r": "yaad karna",
+     "t": "ਯਾਦ ਕਰਨਾ"
+    },
+    {
+     "en": "to understand",
+     "hi": "समझना",
+     "r": "samajhna",
+     "t": "ਸਮਝਣਾ"
+    },
+    {
+     "en": "to remember",
+     "hi": "याद रखना",
+     "r": "yaad rakhna",
+     "t": "ਯਾਦ ਰੱਖਣਾ"
+    },
+    {
+     "en": "to forget",
+     "hi": "भूलना",
+     "r": "bhullna",
+     "t": "ਭੁੱਲਣਾ"
+    },
+    {
+     "en": "to think",
+     "hi": "सोचना",
+     "r": "sochna",
+     "t": "ਸੋਚਣਾ"
+    },
+    {
+     "en": "to recite",
+     "hi": "पाठ करना",
+     "r": "paath karna",
+     "t": "ਪਾਠ ਕਰਨਾ"
+    },
+    {
+     "en": "to copy",
+     "hi": "नक़ल करना",
+     "r": "nakal karna",
+     "t": "ਨਕਲ ਕਰਨਾ"
+    },
+    {
+     "en": "to cheat",
+     "hi": "बेईमानी करना",
+     "r": "beimani karna",
+     "t": "ਬੇਈਮਾਨੀ ਕਰਨਾ"
+    },
+    {
+     "en": "to pass",
+     "hi": "पास होना",
+     "r": "paas hona",
+     "t": "ਪਾਸ ਹੋਣਾ"
+    },
+    {
+     "en": "to count",
+     "hi": "गिनना",
+     "r": "ginna",
+     "t": "ਗਿਣਨਾ"
+    },
+    {
+     "en": "to listen carefully",
+     "hi": "ध्यान से सुनना",
+     "r": "dhyan naal sunna",
+     "t": "ਧਿਆਨ ਨਾਲ ਸੁਣਨਾ"
+    },
+    {
+     "en": "to sit quietly",
+     "hi": "चुपचाप बैठना",
+     "r": "chupp karke baithna",
+     "t": "ਚੁੱਪ ਕਰਕੇ ਬੈਠਣਾ"
+    },
+    {
+     "en": "to stand up",
+     "hi": "खड़े होना",
+     "r": "kharhe hona",
+     "t": "ਖੜ੍ਹੇ ਹੋਣਾ"
+    },
+    {
+     "en": "morning prayer",
+     "hi": "सुबह की अरदास",
+     "r": "saver di ardas",
+     "t": "ਸਵੇਰ ਦੀ ਅਰਦਾਸ"
+    },
+    {
+     "en": "school assembly",
+     "hi": "स्कूली दीवान",
+     "r": "schooli diwan",
+     "t": "ਸਕੂਲੀ ਦੀਵਾਨ"
+    },
+    {
+     "en": "sports",
+     "hi": "खेल",
+     "r": "khedan",
+     "t": "ਖੇਡਾਂ"
+    },
+    {
+     "en": "playground",
+     "hi": "खेल का मैदान",
+     "r": "khed maidan",
+     "t": "ਖੇਡ ਮੈਦਾਨ"
+    },
+    {
+     "en": "cricket",
+     "hi": "क्रिकेट",
+     "r": "cricket",
+     "t": "ਕ੍ਰਿਕਟ"
+    },
+    {
+     "en": "football",
+     "hi": "फ़ुटबॉल",
+     "r": "football",
+     "t": "ਫੁੱਟਬਾਲ"
+    },
+    {
+     "en": "kabaddi",
+     "hi": "कबड्डी",
+     "r": "kabaddi",
+     "t": "ਕਬੱਡੀ"
+    },
+    {
+     "en": "kho-kho",
+     "hi": "खो-खो",
+     "r": "kho-kho",
+     "t": "ਖੋ-ਖੋ"
+    },
+    {
+     "en": "race",
+     "hi": "दौड़ मुक़ाबला",
+     "r": "daurh mukabla",
+     "t": "ਦੌੜ ਮੁਕਾਬਲਾ"
+    },
+    {
+     "en": "annual day",
+     "hi": "सालाना समागम",
+     "r": "salana samagam",
+     "t": "ਸਾਲਾਨਾ ਸਮਾਗਮ"
+    },
+    {
+     "en": "excursion",
+     "hi": "सैर-सपाटा",
+     "r": "sair sapata",
+     "t": "ਸੈਰ ਸਪਾਟਾ"
+    },
+    {
+     "en": "museum",
+     "hi": "अजायबघर",
+     "r": "ajaib ghar",
+     "t": "ਅਜਾਇਬ ਘਰ"
+    },
+    {
+     "en": "zoo",
+     "hi": "चिड़ियाघर",
+     "r": "chiriyaghar",
+     "t": "ਚਿੜੀਆਘਰ"
+    },
+    {
+     "en": "picnic",
+     "hi": "पिकनिक",
+     "r": "picnic",
+     "t": "ਪਿਕਨਿਕ"
+    },
+    {
+     "en": "memory",
+     "hi": "याददाश्त",
+     "r": "yaaddasht",
+     "t": "ਯਾਦਦਾਸ਼ਤ"
+    },
+    {
+     "en": "wisdom",
+     "hi": "समझ",
+     "r": "samajh",
+     "t": "ਸਮਝ"
+    },
+    {
+     "en": "diligence",
+     "hi": "मेहनत",
+     "r": "mehnat",
+     "t": "ਮਿਹਨਤ"
+    },
+    {
+     "en": "new book",
+     "hi": "नई किताब",
+     "r": "navin pustak",
+     "t": "ਨਵੀਂ ਪੁਸਤਕ"
+    },
+    {
+     "en": "old book",
+     "hi": "पुरानी किताब",
+     "r": "purani pustak",
+     "t": "ਪੁਰਾਣੀ ਪੁਸਤਕ"
+    },
+    {
+     "en": "holy book",
+     "hi": "पवित्र ग्रंथ",
+     "r": "pavittar granth",
+     "t": "ਪਵਿੱਤਰ ਗ੍ਰੰਥ"
+    }
+   ]
+  },
+  {
+   "dialogue": {
+    "lines": [
+     {
+      "en": "What is the weather today?",
+      "hi": "आज मौसम कैसा है?",
+      "r": "Ajj mausam kiho jiha hai?",
+      "sp": "Brother",
+      "t": "ਅੱਜ ਮੌਸਮ ਕਿਹੋ ਜਿਹਾ ਹੈ?"
+     },
+     {
+      "en": "It will rain. Take an umbrella.",
+      "hi": "बारिश आएगी। छाता ले लो।",
+      "r": "Meenh pauga. Chhatri lai lao.",
+      "sp": "Sister",
+      "t": "ਮੀਂਹ ਪਊਗਾ। ਛਤਰੀ ਲੈ ਲਓ।"
+     },
+     {
+      "en": "It rained yesterday too.",
+      "hi": "कल भी बारिश हुई।",
+      "r": "Kallh vi meenh peya.",
+      "sp": "Brother",
+      "t": "ਕੱਲ੍ਹ ਵੀ ਮੀਂਹ ਪਿਆ।"
+     },
+     {
+      "en": "Good rain means good crops.",
+      "hi": "अच्छी बारिश मतलब अच्छी फ़सल।",
+      "r": "Changa meenh matlab changi fasal.",
+      "sp": "Sister",
+      "t": "ਚੰਗਾ ਮੀਂਹ ਮਤਲਬ ਚੰਗੀ ਫ਼ਸਲ।"
+     },
+     {
+      "en": "Yes! The monsoon is lovely.",
+      "hi": "हाँ! मानसून सुहाना है।",
+      "r": "Haan! Saun-bhadon suhana hai.",
+      "sp": "Brother",
+      "t": "ਹਾਂ! ਸਾਉਣ ਭਾਦੋਂ ਸੁਹਾਣਾ ਹੈ।"
+     }
+    ],
+    "title": "Rain talk"
+   },
+   "lede": "Rain, seasons and harvest — Punjabi for the skies.",
+   "phrases": [
+    {
+     "en": "It is raining",
+     "hi": "बारिश हो रही है",
+     "r": "Meenh pai riha hai",
+     "t": "ਮੀਂਹ ਪੈ ਰਿਹਾ ਹੈ"
+    },
+    {
+     "en": "It is very hot",
+     "hi": "बहुत गर्मी है",
+     "r": "Bahut garmi hai",
+     "t": "ਬਹੁਤ ਗਰਮੀ ਹੈ"
+    },
+    {
+     "en": "It is cold today",
+     "hi": "आज ठंड है",
+     "r": "Ajj thandh hai",
+     "t": "ਅੱਜ ਠੰਢ ਹੈ"
+    },
+    {
+     "en": "What a pleasant wind!",
+     "hi": "कितनी अच्छी हवा!",
+     "r": "Kinni changi hava!",
+     "t": "ਕਿੰਨੀ ਚੰਗੀ ਹਵਾ!"
+    },
+    {
+     "en": "Take an umbrella",
+     "hi": "छाता ले लो",
+     "r": "Chhatri lai lao",
+     "t": "ਛਤਰੀ ਲੈ ਲਓ"
+    },
+    {
+     "en": "The sun rose",
+     "hi": "सूरज निकला",
+     "r": "Suraj charheya",
+     "t": "ਸੂਰਜ ਚੜ੍ਹਿਆ"
+    },
+    {
+     "en": "Night fell",
+     "hi": "रात हो गई",
+     "r": "Raat pai gai",
+     "t": "ਰਾਤ ਪੈ ਗਈ"
+    },
+    {
+     "en": "Look at the moon!",
+     "hi": "चाँद देखो!",
+     "r": "Chann vekho!",
+     "t": "ਚੰਨ ਵੇਖੋ!"
+    },
+    {
+     "en": "How beautiful the stars are!",
+     "hi": "तारे कितने सुंदर हैं!",
+     "r": "Taare kinne sohne!",
+     "t": "ਤਾਰੇ ਕਿੰਨੇ ਸੋਹਣੇ!"
+    },
+    {
+     "en": "Good morning!",
+     "hi": "सुप्रभात!",
+     "r": "Shubh saver!",
+     "t": "ਸ਼ੁੱਭ ਸਵੇਰ!"
+    },
+    {
+     "en": "Good night!",
+     "hi": "शुभ रात्रि!",
+     "r": "Shubh raatri!",
+     "t": "ਸ਼ੁੱਭ ਰਾਤਰੀ!"
+    },
+    {
+     "en": "See you in the evening",
+     "hi": "शाम को मिलते हैं",
+     "r": "Sham nu milde haan",
+     "t": "ਸ਼ਾਮ ਨੂੰ ਮਿਲਦੇ ਹਾਂ"
+    }
+   ],
+   "quiz": [
+    {
+     "a": "weather",
+     "explain": "ਮੌਸਮ (mausam) = weather.",
+     "id": "pj-55",
+     "lesson": "weather",
+     "level": "beginner",
+     "opts": [
+      "weather",
+      "rain",
+      "wind",
+      "cloud"
+     ],
+     "q": "ਮੌਸਮ means…",
+     "topic": "weather",
+     "type": "vocab"
+    },
+    {
+     "a": "ਮੀਂਹ",
+     "explain": "ਮੀਂਹ (meenh) = rain.",
+     "id": "pj-56",
+     "lesson": "weather",
+     "level": "beginner",
+     "opts": [
+      "ਮੀਂਹ",
+      "ਤੂਫ਼ਾਨ",
+      "ਬੱਦਲ",
+      "ਬਿਜਲੀ"
+     ],
+     "q": "Which is 'rain'?",
+     "topic": "weather",
+     "type": "vocab"
+    },
+    {
+     "a": "it is very hot",
+     "explain": "ਬਹੁਤ ਗਰਮੀ ਹੈ — ਗਰਮੀ = heat.",
+     "id": "pj-57",
+     "lesson": "weather",
+     "level": "beginner",
+     "opts": [
+      "it is very hot",
+      "it is cold today",
+      "it is raining",
+      "night fell"
+     ],
+     "q": "'ਬਹੁਤ ਗਰਮੀ ਹੈ' means…",
+     "topic": "weather",
+     "type": "meaning"
+    },
+    {
+     "a": "ਛਤਰੀ ਲੈ ਲਓ",
+     "explain": "ਛਤਰੀ ਲੈ ਲਓ — ਛਤਰੀ = umbrella.",
+     "id": "pj-58",
+     "lesson": "weather",
+     "level": "elementary",
+     "opts": [
+      "ਛਤਰੀ ਲੈ ਲਓ",
+      "ਟੋਪੀ ਪਾਓ",
+      "ਜੁੱਤੀ ਲਾਹੋ",
+      "ਸਵੈਟਰ ਪਾਓ"
+     ],
+     "q": "Tell someone to take an umbrella. You say…",
+     "topic": "weather",
+     "type": "usage"
+    },
+    {
+     "a": "sun",
+     "explain": "ਸੂਰਜ (suraj) = sun.",
+     "id": "pj-59",
+     "lesson": "weather",
+     "level": "beginner",
+     "opts": [
+      "sun",
+      "moon",
+      "star",
+      "sky"
+     ],
+     "q": "ਸੂਰਜ means…",
+     "topic": "weather",
+     "type": "vocab"
+    },
+    {
+     "a": "monsoon",
+     "explain": "ਸਾਉਣ ਭਾਦੋਂ — the monsoon months!",
+     "id": "pj-60",
+     "lesson": "weather",
+     "level": "elementary",
+     "opts": [
+      "monsoon",
+      "summer",
+      "winter",
+      "spring"
+     ],
+     "q": "ਸਾਉਣ ਭਾਦੋਂ means…",
+     "topic": "weather",
+     "type": "vocab"
+    },
+    {
+     "a": "the sun rose",
+     "explain": "ਸੂਰਜ ਚੜ੍ਹਿਆ — ਚੜ੍ਹਨਾ = to rise.",
+     "id": "pj-61",
+     "lesson": "weather",
+     "level": "elementary",
+     "opts": [
+      "the sun rose",
+      "the sun set",
+      "night fell",
+      "the moon rose"
+     ],
+     "q": "'ਸੂਰਜ ਚੜ੍ਹਿਆ' means…",
+     "topic": "weather",
+     "type": "meaning"
+    },
+    {
+     "a": "ਸ਼ਾਮ ਨੂੰ ਮਿਲਦੇ ਹਾਂ",
+     "explain": "ਸ਼ਾਮ ਨੂੰ ਮਿਲਦੇ ਹਾਂ — ਸ਼ਾਮ = evening.",
+     "id": "pj-62",
+     "lesson": "weather",
+     "level": "elementary",
+     "opts": [
+      "ਸ਼ਾਮ ਨੂੰ ਮਿਲਦੇ ਹਾਂ",
+      "ਸਵੇਰੇ ਮਿਲਦੇ ਹਾਂ",
+      "ਕੱਲ੍ਹ ਮਿਲਦੇ ਹਾਂ",
+      "ਮੁੜ੍ਹ ਮਿਲਦੇ ਹਾਂ"
+     ],
+     "q": "Say 'see you in the evening'. You say…",
+     "topic": "weather",
+     "type": "usage"
+    },
+    {
+     "a": "cold",
+     "explain": "ਠੰਢ (thandh) = cold.",
+     "id": "pj-63",
+     "lesson": "weather",
+     "level": "beginner",
+     "opts": [
+      "cold",
+      "heat",
+      "wind",
+      "fog"
+     ],
+     "q": "ਠੰਢ means…",
+     "topic": "weather",
+     "type": "vocab"
+    },
+    {
+     "a": "rainbow",
+     "explain": "ਸਤਰੰਗ (satrang) — seven colours!",
+     "id": "pj-64",
+     "lesson": "weather",
+     "level": "beginner",
+     "opts": [
+      "rainbow",
+      "lightning",
+      "cloud",
+      "dew"
+     ],
+     "q": "ਸਤਰੰਗ means…",
+     "topic": "weather",
+     "type": "vocab"
+    }
+   ],
+   "slug": "weather",
+   "title": "Weather & seasons",
+   "words": [
+    {
+     "en": "season",
+     "hi": "ऋतु",
+     "r": "rutt",
+     "t": "ਰੁੱਤ"
+    },
+    {
+     "en": "weather",
+     "hi": "मौसम",
+     "r": "mausam",
+     "t": "ਮੌਸਮ"
+    },
+    {
+     "en": "climate",
+     "hi": "जलवायु",
+     "r": "aabohava",
+     "t": "ਆਬੋਹਵਾ"
+    },
+    {
+     "en": "temperature",
+     "hi": "तापमान",
+     "r": "taapman",
+     "t": "ਤਾਪਮਾਨ"
+    },
+    {
+     "en": "forecast",
+     "hi": "पूर्वानुमान",
+     "r": "peshengoi",
+     "t": "ਪੇਸ਼ੀਨਗੋਈ"
+    },
+    {
+     "en": "atmosphere",
+     "hi": "वातावरण",
+     "r": "vatavaran",
+     "t": "ਵਾਤਾਵਰਨ"
+    },
+    {
+     "en": "air",
+     "hi": "हवा",
+     "r": "hava",
+     "t": "ਹਵਾ"
+    },
+    {
+     "en": "wind",
+     "hi": "तेज़ हवा",
+     "r": "tej hava",
+     "t": "ਤੇਜ਼ ਹਵਾ"
+    },
+    {
+     "en": "breeze",
+     "hi": "मंद हवा",
+     "r": "hauli hava",
+     "t": "ਹੌਲੀ ਹਵਾ"
+    },
+    {
+     "en": "storm",
+     "hi": "तूफ़ान",
+     "r": "toofan",
+     "t": "ਤੂਫ਼ਾਨ"
+    },
+    {
+     "en": "cyclone",
+     "hi": "समुद्री तूफ़ान",
+     "r": "samundari toofan",
+     "t": "ਸਮੁੰਦਰੀ ਤੂਫ਼ਾਨ"
+    },
+    {
+     "en": "cloud",
+     "hi": "बादल",
+     "r": "baddal",
+     "t": "ਬੱਦਲ"
+    },
+    {
+     "en": "black cloud",
+     "hi": "काले बादल",
+     "r": "kale baddal",
+     "t": "ਕਾਲੇ ਬੱਦਲ"
+    },
+    {
+     "en": "thunder",
+     "hi": "गरज",
+     "r": "garaj",
+     "t": "ਗਰਜ"
+    },
+    {
+     "en": "lightning",
+     "hi": "बिजली",
+     "r": "bijli",
+     "t": "ਬਿਜਲੀ"
+    },
+    {
+     "en": "rain",
+     "hi": "बारिश",
+     "r": "meenh",
+     "t": "ਮੀਂਹ"
+    },
+    {
+     "en": "drizzle",
+     "hi": "फुहार",
+     "r": "fuhar",
+     "t": "ਫੁਹਾਰ"
+    },
+    {
+     "en": "heavy rain",
+     "hi": "मूसलधार बारिश",
+     "r": "musladhar meenh",
+     "t": "ਮੂਸਲਾਧਾਰ ਮੀਂਹ"
+    },
+    {
+     "en": "rainy season",
+     "hi": "वर्षा ऋतु",
+     "r": "varkha rutt",
+     "t": "ਵਰਖਾ ਰੁੱਤ"
+    },
+    {
+     "en": "drop",
+     "hi": "बूँद",
+     "r": "bund",
+     "t": "ਬੂੰਦ"
+    },
+    {
+     "en": "puddle",
+     "hi": "छोटा छप्पड़",
+     "r": "chhota chhapparh",
+     "t": "ਛੋਟਾ ਛੱਪੜ"
+    },
+    {
+     "en": "umbrella",
+     "hi": "छाता",
+     "r": "chhatri",
+     "t": "ਛਤਰੀ"
+    },
+    {
+     "en": "raincoat",
+     "hi": "रेनकोट",
+     "r": "raincoat",
+     "t": "ਰੇਨਕੋਟ"
+    },
+    {
+     "en": "monsoon",
+     "hi": "सावन-भादों",
+     "note": "the monsoon months",
+     "r": "saun-bhadon",
+     "t": "ਸਾਉਣ ਭਾਦੋਂ"
+    },
+    {
+     "en": "flood",
+     "hi": "बाढ़",
+     "r": "harh",
+     "t": "ਹੜ੍ਹ"
+    },
+    {
+     "en": "drought",
+     "hi": "सूखा",
+     "r": "soka",
+     "t": "ਸੋਕਾ"
+    },
+    {
+     "en": "summer",
+     "hi": "गर्मियाँ",
+     "r": "garmiyan",
+     "t": "ਗਰਮੀਆਂ"
+    },
+    {
+     "en": "heat",
+     "hi": "गर्मी",
+     "r": "garmi",
+     "t": "ਗਰਮੀ"
+    },
+    {
+     "en": "hot sun",
+     "hi": "कड़ी धूप",
+     "r": "karhake di dhupp",
+     "t": "ਕੜਾਕੇ ਦੀ ਧੁੱਪ"
+    },
+    {
+     "en": "sunshine",
+     "hi": "धूप",
+     "r": "dhupp",
+     "t": "ਧੁੱਪ"
+    },
+    {
+     "en": "shadow",
+     "hi": "छाँव",
+     "r": "chhan",
+     "t": "ਛਾਂ"
+    },
+    {
+     "en": "sweat",
+     "hi": "पसीना",
+     "r": "pasina",
+     "t": "ਪਸੀਨਾ"
+    },
+    {
+     "en": "thirst",
+     "hi": "प्यास",
+     "r": "pyas",
+     "t": "ਪਿਆਸ"
+    },
+    {
+     "en": "winter",
+     "hi": "सर्दी",
+     "r": "sardi",
+     "t": "ਸਰਦੀ"
+    },
+    {
+     "en": "cold",
+     "hi": "ठंड",
+     "r": "thandh",
+     "t": "ਠੰਢ"
+    },
+    {
+     "en": "dew",
+     "hi": "ओस",
+     "r": "os",
+     "t": "ਓਸ"
+    },
+    {
+     "en": "fog",
+     "hi": "कोहरा",
+     "r": "dhund",
+     "t": "ਧੁੰਦ"
+    },
+    {
+     "en": "frost",
+     "hi": "पाला",
+     "r": "pala",
+     "t": "ਪਾਲ਼ਾ"
+    },
+    {
+     "en": "ice",
+     "hi": "बर्फ़",
+     "r": "baraf",
+     "t": "ਬਰਫ਼"
+    },
+    {
+     "en": "snow",
+     "hi": "बर्फ़बारी",
+     "r": "barafbari",
+     "t": "ਬਰਫ਼ਬਾਰੀ"
+    },
+    {
+     "en": "blanket",
+     "hi": "कंबल",
+     "r": "kambal",
+     "t": "ਕੰਬਲ"
+    },
+    {
+     "en": "sweater",
+     "hi": "स्वेटर",
+     "r": "sweater",
+     "t": "ਸਵੈਟਰ"
+    },
+    {
+     "en": "spring",
+     "hi": "बसंत",
+     "r": "basant",
+     "t": "ਬਸੰਤ"
+    },
+    {
+     "en": "autumn",
+     "hi": "पतझड़",
+     "r": "patjharh",
+     "t": "ਪਤਝੜ"
+    },
+    {
+     "en": "morning time",
+     "hi": "सुबह का समय",
+     "r": "saver da vela",
+     "t": "ਸਵੇਰ ਦਾ ਵੇਲਾ"
+    },
+    {
+     "en": "midday",
+     "hi": "दोपहर का समय",
+     "r": "dupehar da sama",
+     "t": "ਦੁਪਹਿਰ ਦਾ ਸਮਾਂ"
+    },
+    {
+     "en": "afternoon",
+     "hi": "ढलती दुपहरी",
+     "r": "pichhli dupehar",
+     "t": "ਪਿਛਲੀ ਦੁਪਹਿਰ"
+    },
+    {
+     "en": "evening time",
+     "hi": "शाम का समय",
+     "r": "sham da vela",
+     "t": "ਸ਼ਾਮ ਦਾ ਵੇਲਾ"
+    },
+    {
+     "en": "sunset",
+     "hi": "सूर्यास्त",
+     "r": "suraj chhipna",
+     "t": "ਸੂਰਜ ਛਿਪਣਾ"
+    },
+    {
+     "en": "night time",
+     "hi": "रात का समय",
+     "r": "raat da vela",
+     "t": "ਰਾਤ ਦਾ ਵੇਲਾ"
+    },
+    {
+     "en": "midnight",
+     "hi": "आधी रात",
+     "r": "addhi raat",
+     "t": "ਅੱਧੀ ਰਾਤ"
+    },
+    {
+     "en": "sunrise",
+     "hi": "सूर्योदय",
+     "r": "suraj charhna",
+     "t": "ਸੂਰਜ ਚੜ੍ਹਨਾ"
+    },
+    {
+     "en": "dawn",
+     "hi": "मुँह-अँधेरा",
+     "r": "munh-hanera",
+     "t": "ਮੂੰਹ-ਹਨੇਰਾ"
+    },
+    {
+     "en": "sky",
+     "hi": "आकाश",
+     "r": "asmaan",
+     "t": "ਅਸਮਾਨ"
+    },
+    {
+     "en": "sun",
+     "hi": "सूरज",
+     "r": "suraj",
+     "t": "ਸੂਰਜ"
+    },
+    {
+     "en": "moon",
+     "hi": "चाँद",
+     "r": "chann",
+     "t": "ਚੰਨ"
+    },
+    {
+     "en": "moonlight",
+     "hi": "चाँदनी",
+     "r": "channni",
+     "t": "ਚਾਨਣੀ"
+    },
+    {
+     "en": "full moon",
+     "hi": "पूर्णिमा",
+     "r": "puranmashi",
+     "t": "ਪੂਰਨਮਾਸ਼ੀ"
+    },
+    {
+     "en": "new moon",
+     "hi": "अमावस्या",
+     "r": "massya",
+     "t": "ਮੱਸਿਆ"
+    },
+    {
+     "en": "star",
+     "hi": "तारा",
+     "r": "tara",
+     "t": "ਤਾਰਾ"
+    },
+    {
+     "en": "planet",
+     "hi": "ग्रह",
+     "r": "greh",
+     "t": "ਗ੍ਰਹਿ"
+    },
+    {
+     "en": "rainbow",
+     "hi": "सतरंग",
+     "r": "satrang",
+     "t": "ਸਤਰੰਗ"
+    },
+    {
+     "en": "earth",
+     "hi": "धरती",
+     "r": "dharti",
+     "t": "ਧਰਤੀ"
+    },
+    {
+     "en": "soil",
+     "hi": "मिट्टी",
+     "r": "mitti",
+     "t": "ਮਿੱਟੀ"
+    },
+    {
+     "en": "sand",
+     "hi": "रेत",
+     "r": "ret",
+     "t": "ਰੇਤ"
+    },
+    {
+     "en": "stone",
+     "hi": "पत्थर",
+     "r": "patthar",
+     "t": "ਪੱਥਰ"
+    },
+    {
+     "en": "mountain",
+     "hi": "पहाड़",
+     "r": "paharh",
+     "t": "ਪਹਾੜ"
+    },
+    {
+     "en": "hill",
+     "hi": "टेकरी",
+     "r": "tilla",
+     "t": "ਟਿੱਲਾ"
+    },
+    {
+     "en": "valley",
+     "hi": "घाटी",
+     "r": "ghati",
+     "t": "ਘਾਟੀ"
+    },
+    {
+     "en": "forest",
+     "hi": "जंगल",
+     "r": "jangal",
+     "t": "ਜੰਗਲ"
+    },
+    {
+     "en": "desert",
+     "hi": "रेगिस्तान",
+     "r": "registan",
+     "t": "ਰੇਗਿਸਤਾਨ"
+    },
+    {
+     "en": "river",
+     "hi": "दरिया",
+     "r": "dariya",
+     "t": "ਦਰਿਆ"
+    },
+    {
+     "en": "lake",
+     "hi": "झील",
+     "r": "jheel",
+     "t": "ਝੀਲ"
+    },
+    {
+     "en": "pond",
+     "hi": "छप्पड़",
+     "r": "chhapparh",
+     "t": "ਛੱਪੜ"
+    },
+    {
+     "en": "well",
+     "hi": "कुआँ",
+     "r": "khuh",
+     "t": "ਖੂਹ"
+    },
+    {
+     "en": "stepwell",
+     "hi": "बावड़ी",
+     "r": "bauli",
+     "t": "ਬਾਉਲੀ"
+    },
+    {
+     "en": "sea",
+     "hi": "समुद्र",
+     "r": "samundar",
+     "t": "ਸਮੁੰਦਰ"
+    },
+    {
+     "en": "wave",
+     "hi": "लहर",
+     "r": "leher",
+     "t": "ਲਹਿਰ"
+    },
+    {
+     "en": "beach",
+     "hi": "समुद्र तट",
+     "r": "samundari kandha",
+     "t": "ਸਮੁੰਦਰੀ ਕੰਢਾ"
+    },
+    {
+     "en": "boat",
+     "hi": "बेड़ी",
+     "r": "berhi",
+     "t": "ਬੇੜੀ"
+    },
+    {
+     "en": "ship",
+     "hi": "जहाज़",
+     "r": "jahaj",
+     "t": "ਜਹਾਜ਼"
+    },
+    {
+     "en": "port",
+     "hi": "बंदरगाह",
+     "r": "bandargah",
+     "t": "ਬੰਦਰਗਾਹ"
+    },
+    {
+     "en": "fish",
+     "hi": "मछली",
+     "r": "machhi",
+     "t": "ਮੱਛੀ"
+    },
+    {
+     "en": "tree",
+     "hi": "पेड़",
+     "r": "rukkh",
+     "t": "ਰੁੱਖ"
+    },
+    {
+     "en": "branch",
+     "hi": "डाली",
+     "r": "tahni",
+     "t": "ਟਾਹਣੀ"
+    },
+    {
+     "en": "leaf",
+     "hi": "पत्ता",
+     "r": "patta",
+     "t": "ਪੱਤਾ"
+    },
+    {
+     "en": "flower",
+     "hi": "फूल",
+     "r": "phull",
+     "t": "ਫੁੱਲ"
+    },
+    {
+     "en": "bud",
+     "hi": "कली",
+     "r": "kali",
+     "t": "ਕਲੀ"
+    },
+    {
+     "en": "fruit",
+     "hi": "फल",
+     "r": "fal",
+     "t": "ਫਲ"
+    },
+    {
+     "en": "root",
+     "hi": "जड़",
+     "r": "jarh",
+     "t": "ਜੜ੍ਹ"
+    },
+    {
+     "en": "seed",
+     "hi": "बीज",
+     "r": "beej",
+     "t": "ਬੀਜ"
+    },
+    {
+     "en": "plant",
+     "hi": "पौधा",
+     "r": "boota",
+     "t": "ਬੂਟਾ"
+    },
+    {
+     "en": "farm",
+     "hi": "खेत",
+     "r": "khet",
+     "t": "ਖੇਤ"
+    },
+    {
+     "en": "farmer",
+     "hi": "किसान",
+     "r": "kisan",
+     "t": "ਕਿਸਾਨ"
+    },
+    {
+     "en": "plough",
+     "hi": "हल",
+     "r": "hal",
+     "t": "ਹਲ"
+    },
+    {
+     "en": "sowing",
+     "hi": "बुवाई",
+     "r": "bijai",
+     "t": "ਬਿਜਾਈ"
+    },
+    {
+     "en": "harvest",
+     "hi": "फ़सल कटाई",
+     "r": "vadhi",
+     "t": "ਵਾਢੀ"
+    },
+    {
+     "en": "crop",
+     "hi": "फ़सल",
+     "r": "fasal",
+     "t": "ਫ਼ਸਲ"
+    },
+    {
+     "en": "wheat",
+     "hi": "गेहूँ",
+     "r": "kanak",
+     "t": "ਕਣਕ"
+    },
+    {
+     "en": "paddy field",
+     "hi": "धान का खेत",
+     "r": "jhone da khet",
+     "t": "ਝੋਨੇ ਦਾ ਖੇਤ"
+    },
+    {
+     "en": "sugarcane",
+     "hi": "गन्ना",
+     "r": "ganna",
+     "t": "ਗੰਨਾ"
+    },
+    {
+     "en": "cotton",
+     "hi": "नरमा (कपास)",
+     "r": "narma",
+     "t": "ਨਰਮਾ"
+    },
+    {
+     "en": "mustard",
+     "hi": "सरसों",
+     "r": "sarson",
+     "t": "ਸਰਸੋਂ"
+    },
+    {
+     "en": "groundnut",
+     "hi": "मूँगफली",
+     "r": "mungfali",
+     "t": "ਮੂੰਗਫਲੀ"
+    },
+    {
+     "en": "cow",
+     "hi": "गाय",
+     "r": "gaan",
+     "t": "ਗਾਂ"
+    },
+    {
+     "en": "bull",
+     "hi": "बैल",
+     "r": "balad",
+     "t": "ਬਲਦ"
+    },
+    {
+     "en": "buffalo",
+     "hi": "भैंस",
+     "r": "majjh",
+     "t": "ਮੱਝ"
+    },
+    {
+     "en": "sheep",
+     "hi": "भेड़",
+     "r": "bhed",
+     "t": "ਭੇਡ"
+    },
+    {
+     "en": "goat",
+     "hi": "बकरी",
+     "r": "bakkri",
+     "t": "ਬੱਕਰੀ"
+    },
+    {
+     "en": "horse",
+     "hi": "घोड़ा",
+     "r": "ghorha",
+     "t": "ਘੋੜਾ"
+    },
+    {
+     "en": "donkey",
+     "hi": "गधा",
+     "r": "khota",
+     "t": "ਖੋਤਾ"
+    },
+    {
+     "en": "camel",
+     "hi": "ऊँट",
+     "r": "uth",
+     "t": "ਊਠ"
+    },
+    {
+     "en": "elephant",
+     "hi": "हाथी",
+     "r": "hathi",
+     "t": "ਹਾਥੀ"
+    },
+    {
+     "en": "lion",
+     "hi": "शेर",
+     "r": "sher",
+     "t": "ਸ਼ੇਰ"
+    },
+    {
+     "en": "tiger",
+     "hi": "बाघ",
+     "r": "bagh",
+     "t": "ਬਾਘ"
+    },
+    {
+     "en": "bear",
+     "hi": "भालू",
+     "r": "richh",
+     "t": "ਰਿੱਛ"
+    },
+    {
+     "en": "monkey",
+     "hi": "बंदर",
+     "r": "bandar",
+     "t": "ਬਾਂਦਰ"
+    },
+    {
+     "en": "deer",
+     "hi": "हिरन",
+     "r": "hiran",
+     "t": "ਹਿਰਨ"
+    },
+    {
+     "en": "peacock",
+     "hi": "मोर",
+     "r": "mor",
+     "t": "ਮੋਰ"
+    },
+    {
+     "en": "parrot",
+     "hi": "तोता",
+     "r": "tota",
+     "t": "ਤੋਤਾ"
+    },
+    {
+     "en": "sparrow",
+     "hi": "गौरैया",
+     "r": "chirhi",
+     "t": "ਚਿੜੀ"
+    },
+    {
+     "en": "crow",
+     "hi": "कौआ",
+     "r": "kaan",
+     "t": "ਕਾਂ"
+    },
+    {
+     "en": "pigeon",
+     "hi": "कबूतर",
+     "r": "kabutar",
+     "t": "ਕਬੂਤਰ"
+    },
+    {
+     "en": "hen",
+     "hi": "मुर्ग़ी",
+     "r": "murghi",
+     "t": "ਮੁਰਗ਼ੀ"
+    },
+    {
+     "en": "cock",
+     "hi": "मुर्ग़ा",
+     "r": "murgha",
+     "t": "ਮੁਰਗ਼ਾ"
+    },
+    {
+     "en": "butterfly",
+     "hi": "तितली",
+     "r": "titali",
+     "t": "ਤਿਤਲੀ"
+    },
+    {
+     "en": "honeybee",
+     "hi": "शहद की मक्खी",
+     "r": "shehad makkhi",
+     "t": "ਸ਼ਹਿਦ ਮੱਖੀ"
+    },
+    {
+     "en": "ant",
+     "hi": "चींटी",
+     "r": "kirhi",
+     "t": "ਕੀੜੀ"
+    },
+    {
+     "en": "mosquito",
+     "hi": "मच्छर",
+     "r": "machhar",
+     "t": "ਮੱਛਰ"
+    },
+    {
+     "en": "frog",
+     "hi": "मेंढक",
+     "r": "daddu",
+     "t": "ਡੱਡੂ"
+    },
+    {
+     "en": "snake",
+     "hi": "साँप",
+     "r": "sapp",
+     "t": "ਸੱਪ"
+    },
+    {
+     "en": "cat",
+     "hi": "बिल्ली",
+     "r": "billi",
+     "t": "ਬਿੱਲੀ"
+    },
+    {
+     "en": "dog",
+     "hi": "कुत्ता",
+     "r": "kutta",
+     "t": "ਕੁੱਤਾ"
+    },
+    {
+     "en": "rat",
+     "hi": "चूहा",
+     "r": "chuha",
+     "t": "ਚੂਹਾ"
+    },
+    {
+     "en": "fisherman",
+     "hi": "मछुआरा",
+     "r": "mahigeer",
+     "t": "ਮਾਹੀਗੀਰ"
+    },
+    {
+     "en": "garden",
+     "hi": "बग़ीचा",
+     "r": "baghicha",
+     "t": "ਬਗ਼ੀਚਾ"
+    },
+    {
+     "en": "park",
+     "hi": "पार्क",
+     "r": "park",
+     "t": "ਪਾਰਕ"
+    },
+    {
+     "en": "east",
+     "hi": "पूर्व",
+     "r": "purab",
+     "t": "ਪੂਰਬ"
+    },
+    {
+     "en": "west",
+     "hi": "पश्चिम",
+     "r": "pachham",
+     "t": "ਪੱਛਮ"
+    },
+    {
+     "en": "north",
+     "hi": "उत्तर",
+     "r": "uttar",
+     "t": "ਉੱਤਰ"
+    },
+    {
+     "en": "south",
+     "hi": "दक्षिण",
+     "r": "dakkhan",
+     "t": "ਦੱਖਣ"
+    }
+   ]
+  },
+  {
+   "dialogue": {
+    "lines": [
+     {
+      "en": "Grandma, what is cooking?",
+      "hi": "दादी, क्या बन रहा है?",
+      "r": "Bebe, ki pakk riha hai?",
+      "sp": "Granddaughter",
+      "t": "ਬੇਬੇ, ਕੀ ਪੱਕ ਰਿਹਾ ਹੈ?"
+     },
+     {
+      "en": "Sarson da saag, my dear!",
+      "hi": "सरसों का साग, मेरी बच्ची!",
+      "r": "Sarson da saag, mere bachcha!",
+      "sp": "Grandmother",
+      "t": "ਸਰਸੋਂ ਦਾ ਸਾਗ, ਮੇਰੇ ਬੱਚਾ!"
+     },
+     {
+      "en": "Wash your hands and sit.",
+      "hi": "हाथ धोकर बैठो।",
+      "r": "Hatth dho ke baija.",
+      "sp": "Grandmother",
+      "t": "ਹੱਥ ਧੋ ਕੇ ਬਹਿ ਜਾ।"
+     },
+     {
+      "en": "Grandma, the food smells nice!",
+      "hi": "दादी, खाना महक रहा है!",
+      "r": "Bebe, khana mehak riha hai!",
+      "sp": "Granddaughter",
+      "t": "ਬੇਬੇ, ਖਾਣਾ ਮਹਿਕ ਰਿਹਾ ਹੈ!"
+     },
+     {
+      "en": "Eat well. Shall I serve more?",
+      "hi": "अच्छे से खा। और परोसूँ?",
+      "r": "Changi tarah kha. Hor parosan?",
+      "sp": "Grandmother",
+      "t": "ਚੰਗੀ ਤਰ੍ਹਾਂ ਖਾ। ਹੋਰ ਪਰੋਸਾਂ?"
+     },
+     {
+      "en": "Yes grandma! Your hand is magic.",
+      "hi": "हाँ दादी! तुम्हारे हाथ में जादू है।",
+      "r": "Haan bebe! Tere hatth vich jadu hai.",
+      "sp": "Granddaughter",
+      "t": "ਹਾਂ ਬੇਬੇ! ਤੇਰੇ ਹੱਥ ਵਿੱਚ ਜਾਦੂ ਹੈ।"
+     }
+    ],
+    "title": "Grandma's kitchen"
+   },
+   "lede": "Rooms, kitchen and family — Punjabi for home life.",
+   "phrases": [
+    {
+     "en": "Come, let's eat",
+     "hi": "आओ, खाना खाएँ",
+     "r": "Aao, roti khaiye",
+     "t": "ਆਓ, ਰੋਟੀ ਖਾਈਏ"
+    },
+    {
+     "en": "The food is ready",
+     "hi": "खाना तैयार है",
+     "r": "Khana tayar hai",
+     "t": "ਖਾਣਾ ਤਿਆਰ ਹੈ"
+    },
+    {
+     "en": "Wash your hands",
+     "hi": "हाथ धो लो",
+     "r": "Hatth dhovo",
+     "t": "ਹੱਥ ਧੋਵੋ"
+    },
+    {
+     "en": "Sit down",
+     "hi": "बैठो",
+     "r": "Baitho",
+     "t": "ਬੈਠੋ"
+    },
+    {
+     "en": "Eat a little more",
+     "hi": "थोड़ा और खा",
+     "r": "Thorha hor khao",
+     "t": "ਥੋੜ੍ਹਾ ਹੋਰ ਖਾਓ"
+    },
+    {
+     "en": "It is very tasty!",
+     "hi": "बहुत स्वादिष्ट है!",
+     "r": "Bahut savad hai!",
+     "t": "ਬਹੁਤ ਸਵਾਦ ਹੈ!"
+    },
+    {
+     "en": "Enough, I am full",
+     "hi": "बस, पेट भर गया",
+     "r": "Bass, dhidd bhar gaya",
+     "t": "ਬੱਸ, ਢਿੱਡ ਭਰ ਗਿਆ"
+    },
+    {
+     "en": "Drink water",
+     "hi": "पानी पियो",
+     "r": "Pani pio",
+     "t": "ਪਾਣੀ ਪੀਓ"
+    },
+    {
+     "en": "Go to sleep",
+     "hi": "सोने जाओ",
+     "r": "Saun jao",
+     "t": "ਸੌਣ ਜਾਓ"
+    },
+    {
+     "en": "Wake up early",
+     "hi": "जल्दी उठो",
+     "r": "Chheti utho",
+     "t": "ਛੇਤੀ ਉੱਠੋ"
+    },
+    {
+     "en": "Close the door",
+     "hi": "दरवाज़ा बंद करो",
+     "r": "Booha band karo",
+     "t": "ਬੂਹਾ ਬੰਦ ਕਰੋ"
+    },
+    {
+     "en": "Switch off the light",
+     "hi": "बत्ती बुझा दो",
+     "r": "Batti band karo",
+     "t": "ਬੱਤੀ ਬੰਦ ਕਰੋ"
+    }
+   ],
+   "quiz": [
+    {
+     "a": "mustard greens",
+     "explain": "ਸਰਸੋਂ ਦਾ ਸਾਗ — Punjab's beloved dish!",
+     "id": "pj-65",
+     "lesson": "home",
+     "level": "beginner",
+     "opts": [
+      "mustard greens",
+      "spinach curry",
+      "mixed dal",
+      "wheat bread"
+     ],
+     "q": "ਸਰਸੋਂ ਦਾ ਸਾਗ means…",
+     "topic": "home",
+     "type": "vocab"
+    },
+    {
+     "a": "ਆਪਣਾ ਘਰ",
+     "explain": "ਆਪਣਾ ਘਰ (apna ghar) = own house.",
+     "id": "pj-66",
+     "lesson": "home",
+     "level": "beginner",
+     "opts": [
+      "ਆਪਣਾ ਘਰ",
+      "ਬੂਹਾ",
+      "ਬਾਰੀ",
+      "ਕਮਰਾ"
+     ],
+     "q": "Which is 'own house'?",
+     "topic": "home",
+     "type": "vocab"
+    },
+    {
+     "a": "the food is ready",
+     "explain": "ਖਾਣਾ ਤਿਆਰ ਹੈ — ਤਿਆਰ = ready.",
+     "id": "pj-67",
+     "lesson": "home",
+     "level": "beginner",
+     "opts": [
+      "the food is ready",
+      "the food is tasty",
+      "the food is hot",
+      "the food is over"
+     ],
+     "q": "'ਖਾਣਾ ਤਿਆਰ ਹੈ' means…",
+     "topic": "home",
+     "type": "meaning"
+    },
+    {
+     "a": "ਹੱਥ ਧੋਵੋ",
+     "explain": "ਹੱਥ ਧੋਵੋ — ਹੱਥ = hand.",
+     "id": "pj-68",
+     "lesson": "home",
+     "level": "elementary",
+     "opts": [
+      "ਹੱਥ ਧੋਵੋ",
+      "ਮੂੰਹ ਧੋਵੋ",
+      "ਪੈਰ ਧੋਵੋ",
+      "ਵਾਲ ਧੋਵੋ"
+     ],
+     "q": "Tell a child to wash hands. You say…",
+     "topic": "home",
+     "type": "usage"
+    },
+    {
+     "a": "door",
+     "explain": "ਬੂਹਾ (booha) = door.",
+     "id": "pj-69",
+     "lesson": "home",
+     "level": "beginner",
+     "opts": [
+      "door",
+      "window",
+      "wall",
+      "roof"
+     ],
+     "q": "ਬੂਹਾ means…",
+     "topic": "home",
+     "type": "vocab"
+    },
+    {
+     "a": "hot rice",
+     "explain": "ਗਰਮ ਚੌਲ — hot rice; ਬਾਸਮਤੀ = basmati.",
+     "id": "pj-70",
+     "lesson": "home",
+     "level": "elementary",
+     "opts": [
+      "hot rice",
+      "dal",
+      "curry",
+      "roti"
+     ],
+     "q": "ਗਰਮ ਚੌਲ means…",
+     "topic": "home",
+     "type": "vocab"
+    },
+    {
+     "a": "it is very tasty!",
+     "explain": "ਬਹੁਤ ਸਵਾਦ ਹੈ! — ਸਵਾਦ = taste.",
+     "id": "pj-71",
+     "lesson": "home",
+     "level": "elementary",
+     "opts": [
+      "it is very tasty!",
+      "it is very hot!",
+      "it is very sweet!",
+      "it is enough!"
+     ],
+     "q": "'ਬਹੁਤ ਸਵਾਦ ਹੈ!' means…",
+     "topic": "home",
+     "type": "meaning"
+    },
+    {
+     "a": "ਬੂਹਾ ਬੰਦ ਕਰੋ",
+     "explain": "ਬੂਹਾ ਬੰਦ ਕਰੋ — ਬੰਦ = closed.",
+     "id": "pj-72",
+     "lesson": "home",
+     "level": "elementary",
+     "opts": [
+      "ਬੂਹਾ ਬੰਦ ਕਰੋ",
+      "ਬਾਰੀ ਖੋਲ੍ਹੋ",
+      "ਦੀਵਾ ਬਾਲੋ",
+      "ਟੀਵੀ ਚਲਾਓ"
+     ],
+     "q": "Say 'close the door'. You say…",
+     "topic": "home",
+     "type": "usage"
+    },
+    {
+     "a": "drinking water",
+     "explain": "ਪੀਣ ਵਾਲ਼ਾ ਪਾਣੀ = drinking water.",
+     "id": "pj-73",
+     "lesson": "home",
+     "level": "beginner",
+     "opts": [
+      "drinking water",
+      "milk",
+      "oil",
+      "fire"
+     ],
+     "q": "ਪੀਣ ਵਾਲ਼ਾ ਪਾਣੀ means…",
+     "topic": "home",
+     "type": "vocab"
+    },
+    {
+     "a": "go to sleep",
+     "explain": "ਸੌਣ ਜਾਓ — ਸੌਣਾ = to sleep.",
+     "id": "pj-74",
+     "lesson": "home",
+     "level": "beginner",
+     "opts": [
+      "go to sleep",
+      "wake up",
+      "sit down",
+      "come here"
+     ],
+     "q": "'ਸੌਣ ਜਾਓ' means…",
+     "topic": "home",
+     "type": "meaning"
+    }
+   ],
+   "slug": "home",
+   "title": "Home & family",
+   "words": [
+    {
+     "en": "own house",
+     "hi": "अपना घर",
+     "r": "apna ghar",
+     "t": "ਆਪਣਾ ਘਰ"
+    },
+    {
+     "en": "spare room",
+     "hi": "फ़ालतू कमरा",
+     "r": "khali kamra",
+     "t": "ਖਾਲੀ ਕਮਰਾ"
+    },
+    {
+     "en": "hall",
+     "hi": "हॉल",
+     "r": "hall",
+     "t": "ਹਾਲ"
+    },
+    {
+     "en": "door",
+     "hi": "दरवाज़ा",
+     "r": "booha",
+     "t": "ਬੂਹਾ"
+    },
+    {
+     "en": "window",
+     "hi": "खिड़की",
+     "r": "baari",
+     "t": "ਬਾਰੀ"
+    },
+    {
+     "en": "wall",
+     "hi": "दीवार",
+     "r": "kandh",
+     "t": "ਕੰਧ"
+    },
+    {
+     "en": "roof",
+     "hi": "छत",
+     "r": "chhatt",
+     "t": "ਛੱਤ"
+    },
+    {
+     "en": "floor",
+     "hi": "फ़र्श",
+     "r": "farsh",
+     "t": "ਫ਼ਰਸ਼"
+    },
+    {
+     "en": "stairs",
+     "hi": "सीढ़ी",
+     "r": "paurhiyan",
+     "t": "ਪੌੜੀਆਂ"
+    },
+    {
+     "en": "courtyard",
+     "hi": "आँगन",
+     "r": "vehrha",
+     "t": "ਵੇਹੜਾ"
+    },
+    {
+     "en": "flower garden",
+     "hi": "फुलवारी",
+     "r": "phulvari",
+     "t": "ਫੁਲਵਾੜੀ"
+    },
+    {
+     "en": "gate",
+     "hi": "फाटक",
+     "r": "gate",
+     "t": "ਗੇਟ"
+    },
+    {
+     "en": "fence",
+     "hi": "बाड़",
+     "r": "vaarh",
+     "t": "ਵਾੜ"
+    },
+    {
+     "en": "kitchen",
+     "hi": "रसोई",
+     "r": "rasoi",
+     "t": "ਰਸੋਈ"
+    },
+    {
+     "en": "storeroom",
+     "hi": "स्टोर कमरा",
+     "r": "store kamra",
+     "t": "ਸਟੋਰ ਕਮਰਾ"
+    },
+    {
+     "en": "bedroom",
+     "hi": "सोने का कमरा",
+     "r": "saun vala kamra",
+     "t": "ਸੌਣ ਵਾਲ਼ਾ ਕਮਰਾ"
+    },
+    {
+     "en": "bathroom",
+     "hi": "स्नानघर",
+     "r": "ishnan ghar",
+     "t": "ਇਸ਼ਨਾਨ ਘਰ"
+    },
+    {
+     "en": "toilet",
+     "hi": "शौचालय",
+     "r": "toilet",
+     "t": "ਟਾਇਲਟ"
+    },
+    {
+     "en": "prayer room",
+     "hi": "पूजा का कमरा",
+     "r": "puja da kamra",
+     "t": "ਪੂਜਾ ਦਾ ਕਮਰਾ"
+    },
+    {
+     "en": "open terrace",
+     "hi": "खुली छत",
+     "r": "khullhi chhatt",
+     "t": "ਖੁੱਲ੍ਹੀ ਛੱਤ"
+    },
+    {
+     "en": "bed",
+     "hi": "मंजा (खाट)",
+     "r": "manja",
+     "t": "ਮੰਜਾ"
+    },
+    {
+     "en": "pillow",
+     "hi": "सिरहाना",
+     "r": "sirhana",
+     "t": "ਸਿਰਹਾਣਾ"
+    },
+    {
+     "en": "bedsheet",
+     "hi": "चादर",
+     "r": "chadar",
+     "t": "ਚਾਦਰ"
+    },
+    {
+     "en": "quilt",
+     "hi": "रज़ाई",
+     "r": "rajai",
+     "t": "ਰਜ਼ਾਈ"
+    },
+    {
+     "en": "mosquito net",
+     "hi": "मच्छरदानी",
+     "r": "machhardani",
+     "t": "ਮੱਛਰਦਾਨੀ"
+    },
+    {
+     "en": "dining table",
+     "hi": "खाने की मेज़",
+     "r": "khan vala mez",
+     "t": "ਖਾਣ ਵਾਲ਼ਾ ਮੇਜ਼"
+    },
+    {
+     "en": "sofa",
+     "hi": "सोफ़ा",
+     "r": "sofa",
+     "t": "ਸੋਫ਼ਾ"
+    },
+    {
+     "en": "table fan",
+     "hi": "टेबल पंखा",
+     "r": "table pakkha",
+     "t": "ਟੇਬਲ ਪੱਖਾ"
+    },
+    {
+     "en": "bulb",
+     "hi": "बल्ब",
+     "r": "balab",
+     "t": "ਬਲਬ"
+    },
+    {
+     "en": "switch",
+     "hi": "स्विच",
+     "r": "switch",
+     "t": "ਸਵਿੱਚ"
+    },
+    {
+     "en": "wire",
+     "hi": "तार",
+     "r": "taar",
+     "t": "ਤਾਰ"
+    },
+    {
+     "en": "lock",
+     "hi": "जंदरा (ताला)",
+     "r": "jandara",
+     "t": "ਜੰਦਰਾ"
+    },
+    {
+     "en": "key",
+     "hi": "चाबी",
+     "r": "chabbi",
+     "t": "ਚਾਬੀ"
+    },
+    {
+     "en": "broom",
+     "hi": "झाड़ू",
+     "r": "jharhu",
+     "t": "ਝਾੜੂ"
+    },
+    {
+     "en": "mop",
+     "hi": "पोंछा",
+     "r": "pocha",
+     "t": "ਪੋਚਾ"
+    },
+    {
+     "en": "bucket",
+     "hi": "बाल्टी",
+     "r": "balti",
+     "t": "ਬਾਲਟੀ"
+    },
+    {
+     "en": "mug",
+     "hi": "मग",
+     "r": "mug",
+     "t": "ਮੱਗ"
+    },
+    {
+     "en": "rope",
+     "hi": "रस्सी",
+     "r": "rassi",
+     "t": "ਰੱਸੀ"
+    },
+    {
+     "en": "father",
+     "hi": "पिता जी",
+     "r": "pita",
+     "t": "ਪਿਤਾ"
+    },
+    {
+     "en": "mother",
+     "hi": "बेबे (माँ)",
+     "r": "bebe",
+     "t": "ਬੇਬੇ"
+    },
+    {
+     "en": "elder brother",
+     "hi": "बड़ा भाई",
+     "r": "vadda bhara",
+     "t": "ਵੱਡਾ ਭਰਾ"
+    },
+    {
+     "en": "younger brother",
+     "hi": "छोटा भाई",
+     "r": "chhota bhara",
+     "t": "ਛੋਟਾ ਭਰਾ"
+    },
+    {
+     "en": "elder sister",
+     "hi": "बड़ी बहन",
+     "r": "vaddi bhain",
+     "t": "ਵੱਡੀ ਭੈਣ"
+    },
+    {
+     "en": "younger sister",
+     "hi": "छोटी बहन",
+     "r": "chhoti bhain",
+     "t": "ਛੋਟੀ ਭੈਣ"
+    },
+    {
+     "en": "great-grandfather",
+     "hi": "परदादा",
+     "r": "parhdada",
+     "t": "ਪੜਦਾਦਾ"
+    },
+    {
+     "en": "great-grandmother",
+     "hi": "परदादी",
+     "r": "parhdadi",
+     "t": "ਪੜਦਾਦੀ"
+    },
+    {
+     "en": "uncle (elder)",
+     "hi": "ताया",
+     "r": "taya ji",
+     "t": "ਤਾਇਆ ਜੀ"
+    },
+    {
+     "en": "aunt (chachi)",
+     "hi": "चाची",
+     "r": "chachi",
+     "t": "ਚਾਚੀ"
+    },
+    {
+     "en": "maternal uncle",
+     "hi": "मामा",
+     "r": "mama",
+     "t": "ਮਾਮਾ"
+    },
+    {
+     "en": "maternal aunt",
+     "hi": "मामी",
+     "r": "mami",
+     "t": "ਮਾਮੀ"
+    },
+    {
+     "en": "cousin",
+     "hi": "चचेरा भाई",
+     "r": "chachera bhara",
+     "t": "ਚਚੇਰਾ ਭਰਾ"
+    },
+    {
+     "en": "husband",
+     "hi": "घरवाला",
+     "r": "gharvala",
+     "t": "ਘਰਵਾਲਾ"
+    },
+    {
+     "en": "wife",
+     "hi": "घरवाली",
+     "r": "gharvali",
+     "t": "ਘਰਵਾਲੀ"
+    },
+    {
+     "en": "beloved son",
+     "hi": "लाडला बेटा",
+     "r": "ladla putt",
+     "t": "ਲਾਡਲਾ ਪੁੱਤ"
+    },
+    {
+     "en": "beloved daughter",
+     "hi": "लाडली बेटी",
+     "r": "ladli dhee",
+     "t": "ਲਾਡਲੀ ਧੀ"
+    },
+    {
+     "en": "grandson",
+     "hi": "पोता",
+     "r": "pota",
+     "t": "ਪੋਤਾ"
+    },
+    {
+     "en": "granddaughter",
+     "hi": "पोती",
+     "r": "poti",
+     "t": "ਪੋਤੀ"
+    },
+    {
+     "en": "daughter-in-law",
+     "hi": "बहू",
+     "r": "nunh",
+     "t": "ਨੂੰਹ"
+    },
+    {
+     "en": "son-in-law",
+     "hi": "दामाद",
+     "r": "javai",
+     "t": "ਜਵਾਈ"
+    },
+    {
+     "en": "guest",
+     "hi": "प्राहुणा (मेहमान)",
+     "r": "praahuna",
+     "t": "ਪ੍ਰਾਹੁਣਾ"
+    },
+    {
+     "en": "neighbour",
+     "hi": "पड़ोसी",
+     "r": "guandhi",
+     "t": "ਗੁਆਂਢੀ"
+    },
+    {
+     "en": "childhood friend",
+     "hi": "बचपन का मित्र",
+     "r": "bachpan da mittar",
+     "t": "ਬਚਪਨ ਦਾ ਮਿੱਤਰ"
+    },
+    {
+     "en": "bosom friend",
+     "hi": "दिली मित्र",
+     "r": "dili mittar",
+     "t": "ਦਿਲੀ ਮਿੱਤਰ"
+    },
+    {
+     "en": "baby",
+     "hi": "नन्हा बच्चा",
+     "r": "nianna",
+     "t": "ਨਿਆਣਾ"
+    },
+    {
+     "en": "breakfast",
+     "hi": "नाश्ता",
+     "r": "nashta",
+     "t": "ਨਾਸ਼ਤਾ"
+    },
+    {
+     "en": "lunch",
+     "hi": "दोपहर का खाना",
+     "r": "dupehar da khana",
+     "t": "ਦੁਪਹਿਰ ਦਾ ਖਾਣਾ"
+    },
+    {
+     "en": "dinner",
+     "hi": "रात का खाना",
+     "r": "raat da khana",
+     "t": "ਰਾਤ ਦਾ ਖਾਣਾ"
+    },
+    {
+     "en": "hot rice",
+     "hi": "गरम चावल",
+     "r": "garam chaul",
+     "t": "ਗਰਮ ਚੌਲ"
+    },
+    {
+     "en": "basmati rice",
+     "hi": "बासमती चावल",
+     "r": "basmati chaul",
+     "t": "ਬਾਸਮਤੀ ਚੌਲ"
+    },
+    {
+     "en": "dal makhani",
+     "hi": "दाल मखनी",
+     "r": "daal makhni",
+     "t": "ਦਾਲ ਮੱਖਣੀ"
+    },
+    {
+     "en": "kadhi",
+     "hi": "कढ़ी",
+     "r": "karhi",
+     "t": "ਕੜ੍ਹੀ"
+    },
+    {
+     "en": "curd rice",
+     "hi": "दही-चावल",
+     "r": "dahi vale chaul",
+     "t": "ਦਹੀਂ ਵਾਲ਼ੇ ਚੌਲ"
+    },
+    {
+     "en": "urad dal",
+     "hi": "माह की दाल",
+     "r": "maanh di daal",
+     "t": "ਮਾਂਹ ਦੀ ਦਾਲ"
+    },
+    {
+     "en": "mustard greens",
+     "hi": "सरसों का साग",
+     "note": "Punjab's beloved dish",
+     "r": "sarson da saag",
+     "t": "ਸਰਸੋਂ ਦਾ ਸਾਗ"
+    },
+    {
+     "en": "chutney",
+     "hi": "चटनी",
+     "r": "chatni",
+     "t": "ਚਟਣੀ"
+    },
+    {
+     "en": "pickle",
+     "hi": "अचार",
+     "r": "achaar",
+     "t": "ਆਚਾਰ"
+    },
+    {
+     "en": "papad",
+     "hi": "पापड़",
+     "r": "papad",
+     "t": "ਪਾਪੜ"
+    },
+    {
+     "en": "phulka",
+     "hi": "फुलका",
+     "r": "phulka",
+     "t": "ਫੁਲਕਾ"
+    },
+    {
+     "en": "tandoori roti",
+     "hi": "तंदूरी रोटी",
+     "r": "tandoori roti",
+     "t": "ਤੰਦੂਰੀ ਰੋਟੀ"
+    },
+    {
+     "en": "aloo parantha",
+     "hi": "आलू पराँठा",
+     "r": "aalu vala prontha",
+     "t": "ਆਲੂ ਵਾਲ਼ਾ ਪਰੌਂਠਾ"
+    },
+    {
+     "en": "poori",
+     "hi": "पूरी",
+     "r": "poori",
+     "t": "ਪੂਰੀ"
+    },
+    {
+     "en": "amritsari kulcha",
+     "hi": "अमृतसरी कुलचा",
+     "r": "amritsari kulcha",
+     "t": "ਅੰਮ੍ਰਿਤਸਰੀ ਕੁਲਚਾ"
+    },
+    {
+     "en": "chhole bhature",
+     "hi": "छोले भटूरे",
+     "r": "chhole bhature",
+     "t": "ਛੋਲੇ ਭਟੂਰੇ"
+    },
+    {
+     "en": "samosa chhole",
+     "hi": "समोसा-छोले",
+     "r": "samosa chhole",
+     "t": "ਸਮੋਸਾ ਛੋਲੇ"
+    },
+    {
+     "en": "shahi paneer",
+     "hi": "शाही पनीर",
+     "r": "shahi paneer",
+     "t": "ਸ਼ਾਹੀ ਪਨੀਰ"
+    },
+    {
+     "en": "doodh jalebi",
+     "hi": "दूध-जलेबी",
+     "r": "duddh jalebi",
+     "t": "ਦੁੱਧ ਜਲੇਬੀ"
+    },
+    {
+     "en": "sweet lassi",
+     "hi": "मीठी लस्सी",
+     "r": "mitthi lassi",
+     "t": "ਮਿੱਠੀ ਲੱਸੀ"
+    },
+    {
+     "en": "hot tea",
+     "hi": "गरम चाय",
+     "r": "garam chaah",
+     "t": "ਗਰਮ ਚਾਹ"
+    },
+    {
+     "en": "masala tea",
+     "hi": "मसाला चाय",
+     "r": "masaledar chaah",
+     "t": "ਮਸਾਲੇਦਾਰ ਚਾਹ"
+    },
+    {
+     "en": "coffee",
+     "hi": "कॉफ़ी",
+     "r": "coffee",
+     "t": "ਕਾਫ਼ੀ"
+    },
+    {
+     "en": "cow milk",
+     "hi": "गाय का दूध",
+     "r": "gaan da duddh",
+     "t": "ਗਾਂ ਦਾ ਦੁੱਧ"
+    },
+    {
+     "en": "buffalo milk",
+     "hi": "भैंस का दूध",
+     "r": "majjh da duddh",
+     "t": "ਮੱਝ ਦਾ ਦੁੱਧ"
+    },
+    {
+     "en": "jaggery",
+     "hi": "गुड़",
+     "r": "gurh",
+     "t": "ਗੁੜ"
+    },
+    {
+     "en": "sugar",
+     "hi": "चीनी",
+     "r": "khand",
+     "t": "ਖੰਡ"
+    },
+    {
+     "en": "black salt",
+     "hi": "काला नमक",
+     "r": "kala loon",
+     "t": "ਕਾਲਾ ਲੂਣ"
+    },
+    {
+     "en": "garam masala",
+     "hi": "गरम मसाला",
+     "r": "garam masala",
+     "t": "ਗਰਮ ਮਸਾਲਾ"
+    },
+    {
+     "en": "chilli",
+     "hi": "मिर्च",
+     "r": "mirch",
+     "t": "ਮਿਰਚ"
+    },
+    {
+     "en": "tamarind",
+     "hi": "इमली",
+     "r": "imli",
+     "t": "ਇਮਲੀ"
+    },
+    {
+     "en": "coconut",
+     "hi": "नारियल",
+     "r": "narial",
+     "t": "ਨਾਰੀਅਲ"
+    },
+    {
+     "en": "onion",
+     "hi": "प्याज़",
+     "r": "pyaj",
+     "t": "ਪਿਆਜ਼"
+    },
+    {
+     "en": "garlic",
+     "hi": "लहसुन",
+     "r": "lasan",
+     "t": "ਲਸਣ"
+    },
+    {
+     "en": "vegetables",
+     "hi": "सब्ज़ियाँ",
+     "r": "sabziyan",
+     "t": "ਸਬਜ਼ੀਆਂ"
+    },
+    {
+     "en": "potato curry",
+     "hi": "आलू की सब्ज़ी",
+     "r": "aalu di sabzi",
+     "t": "ਆਲੂ ਦੀ ਸਬਜ਼ੀ"
+    },
+    {
+     "en": "tomato",
+     "hi": "टमाटर",
+     "r": "tamatar",
+     "t": "ਟਮਾਟਰ"
+    },
+    {
+     "en": "brinjal",
+     "hi": "बैंगन",
+     "r": "baingan",
+     "t": "ਬੈਂਗਣ"
+    },
+    {
+     "en": "lady's finger",
+     "hi": "भिंडी",
+     "r": "bhindi",
+     "t": "ਭਿੰਡੀ"
+    },
+    {
+     "en": "gourd",
+     "hi": "घीया",
+     "r": "ghiya",
+     "t": "ਘੀਆ"
+    },
+    {
+     "en": "carrot",
+     "hi": "गाजर",
+     "r": "gajar",
+     "t": "ਗਾਜਰ"
+    },
+    {
+     "en": "curry leaves",
+     "hi": "करी पत्ता",
+     "r": "karhi patta",
+     "t": "ਕੜ੍ਹੀ ਪੱਤਾ"
+    },
+    {
+     "en": "drinking water",
+     "hi": "पीने का पानी",
+     "r": "peen vala pani",
+     "t": "ਪੀਣ ਵਾਲ਼ਾ ਪਾਣੀ"
+    },
+    {
+     "en": "cold water",
+     "hi": "ठंडा पानी",
+     "r": "thandha pani",
+     "t": "ਠੰਢਾ ਪਾਣੀ"
+    },
+    {
+     "en": "plate",
+     "hi": "थाली",
+     "r": "thali",
+     "t": "ਥਾਲੀ"
+    },
+    {
+     "en": "banana leaf",
+     "hi": "केले का पत्ता",
+     "r": "kele da patta",
+     "t": "ਕੇਲੇ ਦਾ ਪੱਤਾ"
+    },
+    {
+     "en": "glass",
+     "hi": "गिलास",
+     "r": "gilas",
+     "t": "ਗਿਲਾਸ"
+    },
+    {
+     "en": "cup",
+     "hi": "कप",
+     "r": "cup",
+     "t": "ਕੱਪ"
+    },
+    {
+     "en": "bowl",
+     "hi": "कटोरी",
+     "r": "katori",
+     "t": "ਕਟੋਰੀ"
+    },
+    {
+     "en": "spoon",
+     "hi": "चम्मच",
+     "r": "chamcha",
+     "t": "ਚਮਚਾ"
+    },
+    {
+     "en": "vessel",
+     "hi": "बरतन",
+     "r": "bhanda",
+     "t": "ਭਾਂਡਾ"
+    },
+    {
+     "en": "cooker",
+     "hi": "कुकर",
+     "r": "cooker",
+     "t": "ਕੁੱਕਰ"
+    },
+    {
+     "en": "stove",
+     "hi": "चूल्हा",
+     "r": "chullha",
+     "t": "ਚੁੱਲ੍ਹਾ"
+    },
+    {
+     "en": "gas cylinder",
+     "hi": "गैस सिलिंडर",
+     "r": "gas cylinder",
+     "t": "ਗੈਸ ਸਿਲੰਡਰ"
+    },
+    {
+     "en": "gas stove",
+     "hi": "गैस चूल्हा",
+     "r": "gas vala chullha",
+     "t": "ਗੈਸ ਵਾਲ਼ਾ ਚੁੱਲ੍ਹਾ"
+    },
+    {
+     "en": "fridge",
+     "hi": "फ़्रिज",
+     "r": "fridge",
+     "t": "ਫ਼ਰਿੱਜ"
+    },
+    {
+     "en": "mixer",
+     "hi": "मिक्सर",
+     "r": "mixer",
+     "t": "ਮਿਕਸਰ"
+    },
+    {
+     "en": "grinder",
+     "hi": "ग्राइंडर",
+     "r": "grinder",
+     "t": "ਗ੍ਰਾਈਂਡਰ"
+    },
+    {
+     "en": "to cook",
+     "hi": "पकाना",
+     "r": "rinnhna",
+     "t": "ਰਿੰਨ੍ਹਣਾ"
+    },
+    {
+     "en": "to eat together",
+     "hi": "मिलकर खाना",
+     "r": "ral ke khana",
+     "t": "ਰਲ਼ ਕੇ ਖਾਣਾ"
+    },
+    {
+     "en": "to drink water",
+     "hi": "पानी पीना",
+     "r": "pani peena",
+     "t": "ਪਾਣੀ ਪੀਣਾ"
+    },
+    {
+     "en": "to serve",
+     "hi": "परोसना",
+     "r": "parosna",
+     "t": "ਪਰੋਸਣਾ"
+    },
+    {
+     "en": "to boil",
+     "hi": "उबालना",
+     "r": "ubalna",
+     "t": "ਉਬਾਲਣਾ"
+    },
+    {
+     "en": "to fry",
+     "hi": "तलना",
+     "r": "talna",
+     "t": "ਤਲਣਾ"
+    },
+    {
+     "en": "to roast",
+     "hi": "भूनना",
+     "r": "bhunnna",
+     "t": "ਭੁੰਨਣਾ"
+    },
+    {
+     "en": "to cut",
+     "hi": "काटना",
+     "r": "kattna",
+     "t": "ਕੱਟਣਾ"
+    },
+    {
+     "en": "to wash dishes",
+     "hi": "बरतन माँजना",
+     "r": "bhande manjna",
+     "t": "ਭਾਂਡੇ ਮਾਂਜਣਾ"
+    },
+    {
+     "en": "to sweep",
+     "hi": "बुहारना",
+     "r": "buharna",
+     "t": "ਬੁਹਾਰਨਾ"
+    },
+    {
+     "en": "to mop the floor",
+     "hi": "पोंछा लगाना",
+     "r": "pocha launa",
+     "t": "ਪੋਚਾ ਲਾਉਣਾ"
+    },
+    {
+     "en": "to lie down",
+     "hi": "लेटना",
+     "r": "letna",
+     "t": "ਲੇਟਣਾ"
+    },
+    {
+     "en": "to get up",
+     "hi": "उठ खड़ा होना",
+     "r": "utth kharhna",
+     "t": "ਉੱਠ ਖੜ੍ਹਨਾ"
+    },
+    {
+     "en": "to open",
+     "hi": "खोलना",
+     "r": "kholna",
+     "t": "ਖੋਲ੍ਹਣਾ"
+    },
+    {
+     "en": "to close",
+     "hi": "बंद करना",
+     "r": "band karna",
+     "t": "ਬੰਦ ਕਰਨਾ"
+    },
+    {
+     "en": "veranda",
+     "hi": "बरामदा",
+     "r": "varanda",
+     "t": "ਵਰਾਂਡਾ"
+    },
+    {
+     "en": "sitting room",
+     "hi": "बैठक",
+     "r": "baithak",
+     "t": "ਬੈਠਕ"
+    },
+    {
+     "en": "wardrobe",
+     "hi": "कपड़ों की अलमारी",
+     "r": "kappreyan vali almari",
+     "t": "ਕੱਪੜਿਆਂ ਵਾਲ਼ੀ ਅਲਮਾਰੀ"
+    },
+    {
+     "en": "bookshelf",
+     "hi": "किताबों की अलमारी",
+     "r": "pustakan vali almari",
+     "t": "ਪੁਸਤਕਾਂ ਵਾਲ਼ੀ ਅਲਮਾਰੀ"
+    },
+    {
+     "en": "mirror",
+     "hi": "शीशा",
+     "r": "shisha",
+     "t": "ਸ਼ੀਸ਼ਾ"
+    },
+    {
+     "en": "photo frame",
+     "hi": "फ़ोटो फ़्रेम",
+     "r": "photo frame",
+     "t": "ਫ਼ੋਟੋ ਫ਼ਰੇਮ"
+    },
+    {
+     "en": "wall clock",
+     "hi": "दीवार घड़ी",
+     "r": "kandh gharhi",
+     "t": "ਕੰਧ ਘੜੀ"
+    },
+    {
+     "en": "wall calendar",
+     "hi": "दीवार कैलेंडर",
+     "r": "kandh calendar",
+     "t": "ਕੰਧ ਕੈਲੰਡਰ"
+    }
+   ]
+  },
+  {
+   "dialogue": {
+    "lines": [
+     {
+      "en": "Happy Lohri! Keep warm by the fire!",
+      "hi": "लोहड़ी मुबारक! आग सेंको!",
+      "r": "Lohri diyan vadhaiyan! Agg seko!",
+      "sp": "Neighbour",
+      "t": "ਲੋਹੜੀ ਦੀਆਂ ਵਧਾਈਆਂ! ਅੱਗ ਸੇਕੋ!"
+     },
+     {
+      "en": "Same to you! Come, eat rewri.",
+      "hi": "तुम्हें भी! आओ, रेवड़ी खाओ।",
+      "r": "Tuhanu vi! Aao, revrhi khao.",
+      "sp": "Mother",
+      "t": "ਤੁਹਾਨੂੰ ਵੀ! ਆਓ, ਰੇਵੜੀ ਖਾਓ।"
+     },
+     {
+      "en": "The bonfire looks beautiful!",
+      "hi": "अलाव सुंदर लग रहा है!",
+      "r": "Alav sohna lag riha hai!",
+      "sp": "Neighbour",
+      "t": "ਅਲਾਅ ਸੋਹਣਾ ਲੱਗ ਰਿਹਾ ਹੈ!"
+     },
+     {
+      "en": "In the evening there is bhangra.",
+      "hi": "शाम को भंगड़ा है।",
+      "r": "Sham nu bhangra hai.",
+      "sp": "Mother",
+      "t": "ਸ਼ਾਮ ਨੂੰ ਭੰਗੜਾ ਹੈ।"
+     },
+     {
+      "en": "We'll all come. Wear new clothes!",
+      "hi": "हम सब आएँगे। नए कपड़े पहनना!",
+      "r": "Asin sare avange. Naven kappre pao!",
+      "sp": "Neighbour",
+      "t": "ਅਸੀਂ ਸਾਰੇ ਆਵਾਂਗੇ। ਨਵੇਂ ਕੱਪੜੇ ਪਾਓ!"
+     }
+    ],
+    "title": "Lohri greetings"
+   },
+   "lede": "Lohri, Baisakhi and Gurpurab — Punjabi for celebrations.",
+   "phrases": [
+    {
+     "en": "Happy festival!",
+     "hi": "त्यौहार मुबारक!",
+     "r": "Tiuhar diyan vadhaiyan!",
+     "t": "ਤਿਉਹਾਰ ਦੀਆਂ ਵਧਾਈਆਂ!"
+    },
+    {
+     "en": "Happy New Year!",
+     "hi": "नया साल मुबारक!",
+     "r": "Naven saal diyan vadhaiyan!",
+     "t": "ਨਵੇਂ ਸਾਲ ਦੀਆਂ ਵਧਾਈਆਂ!"
+    },
+    {
+     "en": "Come to our house",
+     "hi": "हमारे घर आओ",
+     "r": "Sade ghar aao",
+     "t": "ਸਾਡੇ ਘਰ ਆਓ"
+    },
+    {
+     "en": "Eat sweets",
+     "hi": "मिठाई खाओ",
+     "r": "Mithiai khao",
+     "t": "ਮਿਠਿਆਈ ਖਾਓ"
+    },
+    {
+     "en": "Wear new clothes",
+     "hi": "नए कपड़े पहनो",
+     "r": "Naven kappre pao",
+     "t": "ਨਵੇਂ ਕੱਪੜੇ ਪਾਓ"
+    },
+    {
+     "en": "Light the lamp",
+     "hi": "दीया जलाओ",
+     "r": "Diva balo",
+     "t": "ਦੀਵਾ ਬਾਲੋ"
+    },
+    {
+     "en": "Offer prayers",
+     "hi": "अरदास करो",
+     "r": "Ardas karo",
+     "t": "ਅਰਦਾਸ ਕਰੋ"
+    },
+    {
+     "en": "Go to the gurdwara",
+     "hi": "गुरुद्वारे जाओ",
+     "r": "Gurduare jao",
+     "t": "ਗੁਰਦੁਆਰੇ ਜਾਓ"
+    },
+    {
+     "en": "Happy Diwali!",
+     "hi": "दीवाली मुबारक!",
+     "r": "Divali diyan vadhaiyan!",
+     "t": "ਦੀਵਾਲੀ ਦੀਆਂ ਵਧਾਈਆਂ!"
+    }
+   ],
+   "quiz": [
+    {
+     "a": "festival",
+     "explain": "ਤਿਉਹਾਰ (tiuhar) = festival.",
+     "id": "pj-75",
+     "lesson": "festivals",
+     "level": "beginner",
+     "opts": [
+      "festival",
+      "fast",
+      "fair",
+      "temple"
+     ],
+     "q": "ਤਿਉਹਾਰ means…",
+     "topic": "festivals",
+     "type": "vocab"
+    },
+    {
+     "a": "ਵਿਸਾਖੀ ਦਾ ਮੇਲਾ",
+     "explain": "ਵਿਸਾਖੀ ਦਾ ਮੇਲਾ — the Baisakhi harvest fair!",
+     "id": "pj-76",
+     "lesson": "festivals",
+     "level": "beginner",
+     "opts": [
+      "ਵਿਸਾਖੀ ਦਾ ਮੇਲਾ",
+      "ਲੋਹੜੀ ਦਾ ਮੇਲਾ",
+      "ਦੀਵਾਲੀ",
+      "ਹੋਲੀ"
+     ],
+     "q": "Which is the Baisakhi fair?",
+     "topic": "festivals",
+     "type": "vocab"
+    },
+    {
+     "a": "happy festival!",
+     "explain": "ਤਿਉਹਾਰ ਦੀਆਂ ਵਧਾਈਆਂ! — ਵਧਾਈ = greeting.",
+     "id": "pj-77",
+     "lesson": "festivals",
+     "level": "beginner",
+     "opts": [
+      "happy festival!",
+      "happy journey!",
+      "good morning!",
+      "welcome home!"
+     ],
+     "q": "'ਤਿਉਹਾਰ ਦੀਆਂ ਵਧਾਈਆਂ!' means…",
+     "topic": "festivals",
+     "type": "meaning"
+    },
+    {
+     "a": "ਮਿਠਿਆਈ ਖਾਓ",
+     "explain": "ਮਿਠਿਆਈ ਖਾਓ — ਮਿਠਿਆਈ = sweets.",
+     "id": "pj-78",
+     "lesson": "festivals",
+     "level": "elementary",
+     "opts": [
+      "ਮਿਠਿਆਈ ਖਾਓ",
+      "ਰੋਟੀ ਖਾਓ",
+      "ਪਾਣੀ ਪੀਓ",
+      "ਚਾਹ ਪੀਓ"
+     ],
+     "q": "Offer guests sweets. You say…",
+     "topic": "festivals",
+     "type": "usage"
+    },
+    {
+     "a": "gurdwara",
+     "explain": "ਗੁਰਦੁਆਰਾ (gurduara) — the Sikh temple!",
+     "id": "pj-79",
+     "lesson": "festivals",
+     "level": "beginner",
+     "opts": [
+      "gurdwara",
+      "temple",
+      "mosque",
+      "church"
+     ],
+     "q": "ਗੁਰਦੁਆਰਾ means…",
+     "topic": "festivals",
+     "type": "vocab"
+    },
+    {
+     "a": "Sikh festival",
+     "explain": "ਗੁਰਪੁਰਬ (gurpurab) — the Guru's birthday!",
+     "id": "pj-80",
+     "lesson": "festivals",
+     "level": "elementary",
+     "opts": [
+      "Sikh festival",
+      "Diwali",
+      "Holi",
+      "Dussehra"
+     ],
+     "q": "ਗੁਰਪੁਰਬ is…",
+     "topic": "festivals",
+     "type": "vocab"
+    },
+    {
+     "a": "light the lamp",
+     "explain": "ਦੀਵਾ ਬਾਲੋ — ਦੀਵਾ = lamp.",
+     "id": "pj-81",
+     "lesson": "festivals",
+     "level": "elementary",
+     "opts": [
+      "light the lamp",
+      "close the door",
+      "cook the food",
+      "ring the bell"
+     ],
+     "q": "'ਦੀਵਾ ਬਾਲੋ' means…",
+     "topic": "festivals",
+     "type": "meaning"
+    },
+    {
+     "a": "ਗੁਰਦੁਆਰੇ ਜਾਓ",
+     "explain": "ਗੁਰਦੁਆਰੇ ਜਾਓ — ਗੁਰਦੁਆਰਾ = gurdwara.",
+     "id": "pj-82",
+     "lesson": "festivals",
+     "level": "elementary",
+     "opts": [
+      "ਗੁਰਦੁਆਰੇ ਜਾਓ",
+      "ਘਰ ਜਾਓ",
+      "ਦੁਕਾਨ ਜਾਓ",
+      "ਸਕੂਲ ਜਾਓ"
+     ],
+     "q": "Say 'go to the gurdwara'. You say…",
+     "topic": "festivals",
+     "type": "usage"
+    },
+    {
+     "a": "hymn",
+     "explain": "ਸ਼ਬਦ (shabad) — the Gurbani hymn!",
+     "id": "pj-83",
+     "lesson": "festivals",
+     "level": "beginner",
+     "opts": [
+      "hymn",
+      "fast",
+      "fair",
+      "song"
+     ],
+     "q": "ਸ਼ਬਦ means…",
+     "topic": "festivals",
+     "type": "vocab"
+    },
+    {
+     "a": "sweets",
+     "explain": "ਮਿਠਿਆਈ (mithiai) = sweets.",
+     "id": "pj-84",
+     "lesson": "festivals",
+     "level": "beginner",
+     "opts": [
+      "sweets",
+      "fruits",
+      "flowers",
+      "clothes"
+     ],
+     "q": "ਮਿਠਿਆਈ means…",
+     "topic": "festivals",
+     "type": "vocab"
+    }
+   ],
+   "slug": "festivals",
+   "title": "Festivals & culture",
+   "words": [
+    {
+     "en": "festival",
+     "hi": "त्यौहार",
+     "r": "tiuhar",
+     "t": "ਤਿਉਹਾਰ"
+    },
+    {
+     "en": "celebration",
+     "hi": "जश्न",
+     "r": "jashan",
+     "t": "ਜਸ਼ਨ"
+    },
+    {
+     "en": "festival day",
+     "hi": "त्यौहार का दिन",
+     "r": "tiuhar da din",
+     "t": "ਤਿਉਹਾਰ ਦਾ ਦਿਨ"
+    },
+    {
+     "en": "Lohri fair",
+     "hi": "लोहड़ी का मेला",
+     "r": "lohri da mela",
+     "t": "ਲੋਹੜੀ ਦਾ ਮੇਲਾ"
+    },
+    {
+     "en": "Baisakhi fair",
+     "hi": "बैसाखी का मेला",
+     "r": "visakhi da mela",
+     "t": "ਵਿਸਾਖੀ ਦਾ ਮੇਲਾ"
+    },
+    {
+     "en": "Gurpurab",
+     "hi": "गुरुपर्व",
+     "note": "the Guru's birthday",
+     "r": "gurpurab",
+     "t": "ਗੁਰਪੁਰਬ"
+    },
+    {
+     "en": "Hola Mohalla",
+     "hi": "होला महल्ला",
+     "note": "Sikh spring festival",
+     "r": "hola mahalla",
+     "t": "ਹੋਲਾ ਮਹੱਲਾ"
+    },
+    {
+     "en": "Diwali",
+     "hi": "दीवाली",
+     "r": "divali",
+     "t": "ਦੀਵਾਲੀ"
+    },
+    {
+     "en": "Dussehra",
+     "hi": "दशहरा",
+     "r": "dusehra",
+     "t": "ਦੁਸਹਿਰਾ"
+    },
+    {
+     "en": "Holi",
+     "hi": "होली",
+     "r": "holi",
+     "t": "ਹੋਲੀ"
+    },
+    {
+     "en": "Rakhi",
+     "hi": "राखी",
+     "r": "rakhri",
+     "t": "ਰੱਖੜੀ"
+    },
+    {
+     "en": "Teej",
+     "hi": "तीज (तियाँ)",
+     "r": "tiyan",
+     "t": "ਤੀਆਂ"
+    },
+    {
+     "en": "Karva Chauth",
+     "hi": "करवा चौथ",
+     "r": "karva chauth",
+     "t": "ਕਰਵਾ ਚੌਥ"
+    },
+    {
+     "en": "Shivratri",
+     "hi": "शिवरात्रि",
+     "r": "shivratri",
+     "t": "ਸ਼ਿਵਰਾਤਰੀ"
+    },
+    {
+     "en": "Janmashtami",
+     "hi": "जन्माष्टमी",
+     "r": "janmashtami",
+     "t": "ਜਨਮਾਸ਼ਟਮੀ"
+    },
+    {
+     "en": "Ram Naumi",
+     "hi": "राम नवमी",
+     "r": "ram naumi",
+     "t": "ਰਾਮ ਨੌਮੀ"
+    },
+    {
+     "en": "Eid",
+     "hi": "ईद",
+     "r": "eid",
+     "t": "ਈਦ"
+    },
+    {
+     "en": "Christmas",
+     "hi": "क्रिसमस",
+     "r": "christmas",
+     "t": "ਕ੍ਰਿਸਮਸ"
+    },
+    {
+     "en": "New Year",
+     "hi": "नया साल",
+     "r": "navan saal",
+     "t": "ਨਵਾਂ ਸਾਲ"
+    },
+    {
+     "en": "fast",
+     "hi": "व्रत",
+     "r": "varat",
+     "t": "ਵਰਤ"
+    },
+    {
+     "en": "vow",
+     "hi": "सुखना (मन्नत)",
+     "r": "sukkhna",
+     "t": "ਸੁੱਖਣਾ"
+    },
+    {
+     "en": "temple",
+     "hi": "मंदिर",
+     "r": "mandar",
+     "t": "ਮੰਦਰ"
+    },
+    {
+     "en": "gurdwara",
+     "hi": "गुरुद्वारा",
+     "r": "gurduara",
+     "t": "ਗੁਰਦੁਆਰਾ"
+    },
+    {
+     "en": "mosque",
+     "hi": "मस्जिद",
+     "r": "masjid",
+     "t": "ਮਸਜਿਦ"
+    },
+    {
+     "en": "church",
+     "hi": "गिरजा",
+     "r": "girja",
+     "t": "ਗਿਰਜਾ"
+    },
+    {
+     "en": "deity",
+     "hi": "देवता",
+     "r": "devta",
+     "t": "ਦੇਵਤਾ"
+    },
+    {
+     "en": "goddess",
+     "hi": "देवी",
+     "r": "devi",
+     "t": "ਦੇਵੀ"
+    },
+    {
+     "en": "hymn",
+     "hi": "शबद",
+     "note": "Gurbani hymn",
+     "r": "shabad",
+     "t": "ਸ਼ਬਦ"
+    },
+    {
+     "en": "worship",
+     "hi": "पूजा",
+     "r": "puja",
+     "t": "ਪੂਜਾ"
+    },
+    {
+     "en": "offering",
+     "hi": "चढ़ावा",
+     "r": "charhava",
+     "t": "ਚੜ੍ਹਾਵਾ"
+    },
+    {
+     "en": "prasad",
+     "hi": "प्रसाद",
+     "r": "prashad",
+     "t": "ਪ੍ਰਸ਼ਾਦ"
+    },
+    {
+     "en": "Guru's langar",
+     "hi": "गुरु का लंगर",
+     "r": "guru da langar",
+     "t": "ਗੁਰੂ ਦਾ ਲੰਗਰ"
+    },
+    {
+     "en": "kadah prasad",
+     "hi": "कड़ाह प्रसाद",
+     "r": "karhah prashad",
+     "t": "ਕੜਾਹ ਪ੍ਰਸ਼ਾਦ"
+    },
+    {
+     "en": "coconut breaking",
+     "hi": "नारियल तोड़ना",
+     "r": "narial bhannna",
+     "t": "ਨਾਰੀਅਲ ਭੰਨਣਾ"
+    },
+    {
+     "en": "camphor",
+     "hi": "कपूर",
+     "r": "kapoor",
+     "t": "ਕਪੂਰ"
+    },
+    {
+     "en": "dhoop",
+     "hi": "धूप",
+     "r": "dhoop",
+     "t": "ਧੂਪ"
+    },
+    {
+     "en": "sandalwood",
+     "hi": "चंदन",
+     "r": "chandan",
+     "t": "ਚੰਦਨ"
+    },
+    {
+     "en": "vermilion",
+     "hi": "सिंदूर",
+     "r": "sindoor",
+     "t": "ਸਿੰਦੂਰ"
+    },
+    {
+     "en": "turmeric powder",
+     "hi": "पिसी हल्दी",
+     "r": "pisi hoi haldi",
+     "t": "ਪੀਸੀ ਹੋਈ ਹਲਦੀ"
+    },
+    {
+     "en": "flower garland",
+     "hi": "फूलों का हार",
+     "r": "phullan da haar",
+     "t": "ਫੁੱਲਾਂ ਦਾ ਹਾਰ"
+    },
+    {
+     "en": "jasmine",
+     "hi": "मोगरा",
+     "r": "mogra",
+     "t": "ਮੋਗਰਾ"
+    },
+    {
+     "en": "marigold",
+     "hi": "गेंदा",
+     "r": "genda",
+     "t": "ਗੇਂਦਾ"
+    },
+    {
+     "en": "bhajan",
+     "hi": "भजन",
+     "r": "bhajan",
+     "t": "ਭਜਨ"
+    },
+    {
+     "en": "kirtan",
+     "hi": "कीर्तन",
+     "r": "kirtan",
+     "t": "ਕੀਰਤਨ"
+    },
+    {
+     "en": "temple bell",
+     "hi": "मंदिर की घंटी",
+     "r": "mandar di ghanti",
+     "t": "ਮੰਦਰ ਦੀ ਘੰਟੀ"
+    },
+    {
+     "en": "nagara drum",
+     "hi": "नगाड़ा",
+     "r": "nagara",
+     "t": "ਨਗਾਰਾ"
+    },
+    {
+     "en": "conch",
+     "hi": "शंख",
+     "r": "shankh",
+     "t": "ਸ਼ੰਖ"
+    },
+    {
+     "en": "lamp",
+     "hi": "दीया",
+     "r": "diva",
+     "t": "ਦੀਵਾ"
+    },
+    {
+     "en": "lamp wick",
+     "hi": "दीये की बत्ती",
+     "r": "dive di vatt",
+     "t": "ਦੀਵੇ ਦੀ ਵੱਟ"
+    },
+    {
+     "en": "lamp oil",
+     "hi": "दीये का तेल",
+     "r": "dive da tel",
+     "t": "ਦੀਵੇ ਦਾ ਤੇਲ"
+    },
+    {
+     "en": "rangoli",
+     "hi": "रंगोली",
+     "r": "rangoli",
+     "t": "ਰੰਗੋਲੀ"
+    },
+    {
+     "en": "phulkari",
+     "hi": "फुलकारी",
+     "note": "Punjabi embroidery",
+     "r": "phulkari",
+     "t": "ਫੁਲਕਾਰੀ"
+    },
+    {
+     "en": "toran",
+     "hi": "तोरण",
+     "r": "toran",
+     "t": "ਤੋਰਨ"
+    },
+    {
+     "en": "fair",
+     "hi": "मेला",
+     "r": "mela",
+     "t": "ਮੇਲਾ"
+    },
+    {
+     "en": "pilgrimage",
+     "hi": "यात्रा",
+     "r": "yatra",
+     "t": "ਯਾਤਰਾ"
+    },
+    {
+     "en": "chariot",
+     "hi": "रथ",
+     "r": "ratth",
+     "t": "ਰੱਥ"
+    },
+    {
+     "en": "bhangra beat",
+     "hi": "भंगड़े का ताल",
+     "r": "bhangre da taal",
+     "t": "ਭੰਗੜੇ ਦਾ ਤਾਲ"
+    },
+    {
+     "en": "giddha",
+     "hi": "गिद्धा",
+     "r": "giddha",
+     "t": "ਗਿੱਧਾ"
+    },
+    {
+     "en": "dhol",
+     "hi": "ढोल",
+     "r": "dhol",
+     "t": "ਢੋਲ"
+    },
+    {
+     "en": "tumbi",
+     "hi": "तूंबी",
+     "r": "tumbi",
+     "t": "ਤੂੰਬੀ"
+    },
+    {
+     "en": "algoza",
+     "hi": "अलगोज़ा",
+     "r": "algoza",
+     "t": "ਅਲਗੋਜ਼ਾ"
+    },
+    {
+     "en": "kavishri",
+     "hi": "कवीशरी",
+     "note": "Punjabi ballad tradition",
+     "r": "kavishri",
+     "t": "ਕਵੀਸ਼ਰੀ"
+    },
+    {
+     "en": "sweets",
+     "hi": "मिठाई",
+     "r": "mithiai",
+     "t": "ਮਿਠਿਆਈ"
+    },
+    {
+     "en": "pinni",
+     "hi": "पिन्नी",
+     "r": "pinni",
+     "t": "ਪਿੰਨੀ"
+    },
+    {
+     "en": "new clothes",
+     "hi": "नए कपड़े",
+     "r": "naven kappre",
+     "t": "ਨਵੇਂ ਕੱਪੜੇ"
+    },
+    {
+     "en": "salwar suit",
+     "hi": "सलवार सूट",
+     "r": "salwar suit",
+     "t": "ਸਲਵਾਰ ਸੂਟ"
+    },
+    {
+     "en": "kurta pajama",
+     "hi": "कुर्ता पजामा",
+     "r": "kurta pajama",
+     "t": "ਕੁੜਤਾ ਪਜਾਮਾ"
+    },
+    {
+     "en": "turban",
+     "hi": "दस्तार",
+     "r": "dastar",
+     "t": "ਦਸਤਾਰ"
+    },
+    {
+     "en": "jutti",
+     "hi": "जुत्ती",
+     "r": "jutti",
+     "t": "ਜੁੱਤੀ"
+    },
+    {
+     "en": "firecracker",
+     "hi": "पटाखा",
+     "r": "patakha",
+     "t": "ਪਟਾਖਾ"
+    },
+    {
+     "en": "sparkler",
+     "hi": "फुलझड़ी",
+     "r": "phuljharhi",
+     "t": "ਫੁਲਝੜੀ"
+    },
+    {
+     "en": "row of lamps",
+     "hi": "दीयों की लड़ी",
+     "r": "diviyan di larhi",
+     "t": "ਦੀਵਿਆਂ ਦੀ ਲੜੀ"
+    },
+    {
+     "en": "wedding",
+     "hi": "विवाह",
+     "r": "viah",
+     "t": "ਵਿਆਹ"
+    },
+    {
+     "en": "bride",
+     "hi": "वहुटी (दुल्हन)",
+     "r": "vahuti",
+     "t": "ਵਹੁਟੀ"
+    },
+    {
+     "en": "groom",
+     "hi": "लाड़ा (दूल्हा)",
+     "r": "larha",
+     "t": "ਲਾੜਾ"
+    }
+   ]
+  }
+ ]
+}

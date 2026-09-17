@@ -1,0 +1,1461 @@
+/* =========================================================
+   EkGuru — BENGALI QUIZ BANK  (single source of truth · v1)
+   ---------------------------------------------------------
+   Same contract as js/hindi-quiz-bank.js: the data object is
+   deliberately valid JSON; js/hindi-tools.js renders quiz,
+   typing and worksheets from the EKGURU_*_ACTIVE globals this
+   file sets. Conservative, checked bengali — quiz answers test
+   recognition, never fluency.
+   ========================================================= */
+window.EKGURU_BENGALI_QUIZ =
+{
+ "version": 1,
+ "questions": [
+  {
+   "id": "bq-01",
+   "lesson": "basics",
+   "type": "meaning",
+   "topic": "basics",
+   "level": "beginner",
+   "q": "What does নমস্কার mean?",
+   "a": "hello",
+   "opts": [
+    "hello",
+    "goodbye",
+    "thank you",
+    "sorry"
+   ],
+   "explain": "নমস্কার (nômoshkar) is the standard formal hello — to elders, officials, anyone you respect."
+  },
+  {
+   "id": "bq-02",
+   "lesson": "basics",
+   "type": "vocab",
+   "topic": "basics",
+   "level": "beginner",
+   "q": "How do you say 'thank you' in Bengali?",
+   "a": "ধন্যবাদ",
+   "opts": [
+    "ধন্যবাদ",
+    "নমস্কার",
+    "বিদায়",
+    "মাফ করবেন"
+   ],
+   "explain": "ধন্যবাদ (dhonnobad). মাফ করবেন is excuse-me/sorry — don't mix them."
+  },
+  {
+   "id": "bq-03",
+   "lesson": "pronunciation",
+   "type": "usage",
+   "topic": "basics",
+   "level": "beginner",
+   "q": "The letter ক reads as…",
+   "a": "kô (as in 'on')",
+   "opts": [
+    "ka (as in 'car')",
+    "kô (as in 'on')",
+    "ki (as in 'kit')",
+    "ku (as in 'put')"
+   ],
+   "explain": "Bengali's inherent vowel is ô, not a. ক = kô. This is the biggest shock for Hindi speakers."
+  },
+  {
+   "id": "bq-04",
+   "lesson": "basics",
+   "type": "meaning",
+   "topic": "basics",
+   "level": "beginner",
+   "q": "আপনি কেমন আছেন? means…",
+   "a": "How are you? (formal)",
+   "opts": [
+    "How are you? (formal)",
+    "What is your name?",
+    "Where are you from?",
+    "See you again"
+   ],
+   "explain": "আপনি (apni) is formal 'you' — safe with every stranger."
+  },
+  {
+   "id": "bq-05",
+   "lesson": "numbers",
+   "type": "vocab",
+   "topic": "numbers",
+   "level": "beginner",
+   "q": "What does পাঁচ mean?",
+   "a": "five",
+   "opts": [
+    "four",
+    "five",
+    "six",
+    "seven"
+   ],
+   "explain": "পাঁচ (pãch) = 5. Same root as Hindi पाँच."
+  },
+  {
+   "id": "bq-06",
+   "lesson": "numbers",
+   "type": "vocab",
+   "topic": "numbers",
+   "level": "beginner",
+   "q": "How do you say 'ten'?",
+   "a": "দশ",
+   "opts": [
+    "দশ",
+    "পাঁচ",
+    "কুড়ি",
+    "একশো"
+   ],
+   "explain": "দশ (dôsh) = 10. কুড়ি is 20, একশো is 100."
+  },
+  {
+   "id": "bq-07",
+   "lesson": "numbers",
+   "type": "vocab",
+   "topic": "numbers",
+   "level": "elementary",
+   "q": "কুড়ি means…",
+   "a": "twenty",
+   "opts": [
+    "twelve",
+    "twenty",
+    "two hundred",
+    "two thousand"
+   ],
+   "explain": "কুড়ি (kuṛi) = 20 — its own word, like English 'twenty'."
+  },
+  {
+   "id": "bq-08",
+   "lesson": "numbers",
+   "type": "vocab",
+   "topic": "numbers",
+   "level": "elementary",
+   "q": "একশো means…",
+   "a": "one hundred",
+   "opts": [
+    "one thousand",
+    "one hundred",
+    "eleven",
+    "ten"
+   ],
+   "explain": "একশো (æksho) = 100. Literally 'one-hundred'."
+  },
+  {
+   "id": "bq-09",
+   "lesson": "food",
+   "type": "vocab",
+   "topic": "food",
+   "level": "beginner",
+   "q": "What does ভাত mean?",
+   "a": "cooked rice",
+   "opts": [
+    "cooked rice",
+    "bread",
+    "fish",
+    "lentils"
+   ],
+   "explain": "ভাত (bhat) is cooked rice — the centre of the Bengali plate. Uncooked rice is চাল."
+  },
+  {
+   "id": "bq-10",
+   "lesson": "food",
+   "type": "vocab",
+   "topic": "food",
+   "level": "beginner",
+   "q": "মাছ means…",
+   "a": "fish",
+   "opts": [
+    "meat",
+    "fish",
+    "egg",
+    "milk"
+   ],
+   "explain": "মাছ (machh) = fish. মাছে-ভাতে বাঙালি: fish and rice make the Bengali."
+  },
+  {
+   "id": "bq-11",
+   "lesson": "food",
+   "type": "usage",
+   "topic": "food",
+   "level": "elementary",
+   "q": "একটা চা দিন means…",
+   "a": "One tea, please",
+   "opts": [
+    "One tea, please",
+    "Two teas, please",
+    "No tea",
+    "Tea is cold"
+   ],
+   "explain": "একটা = one (টা counts things), দিন = give (polite). The full polite ordering pattern."
+  },
+  {
+   "id": "bq-12",
+   "lesson": "travel",
+   "type": "usage",
+   "topic": "travel",
+   "level": "beginner",
+   "q": "স্টেশন কোথায়? means…",
+   "a": "Where is the station?",
+   "opts": [
+    "Where is the station?",
+    "The station is far",
+    "Take me to the station",
+    "The station is closed"
+   ],
+   "explain": "কোথায় (kothay) = where. X কোথায়? is the whole direction toolkit in three words."
+  },
+  {
+   "id": "bq-13",
+   "lesson": "travel",
+   "type": "vocab",
+   "topic": "travel",
+   "level": "beginner",
+   "q": "ডানে means…",
+   "a": "right",
+   "opts": [
+    "left",
+    "right",
+    "straight",
+    "back"
+   ],
+   "explain": "ডানে (dane) = to the right. Left is বামে, straight is সোজা."
+  },
+  {
+   "id": "bq-14",
+   "lesson": "travel",
+   "type": "usage",
+   "topic": "travel",
+   "level": "elementary",
+   "q": "ভাড়া কত? means…",
+   "a": "How much is the fare?",
+   "opts": [
+    "How much is the fare?",
+    "The fare is fixed",
+    "Stop the car",
+    "Faster, please"
+   ],
+   "explain": "ভাড়া (bhaṛa) = fare, কত = how much. Ask before you sit down."
+  },
+  {
+   "id": "bq-15",
+   "lesson": "grammar",
+   "type": "usage",
+   "topic": "grammar",
+   "level": "beginner",
+   "q": "আমি ভাত খাই. The word order is…",
+   "a": "I · rice · eat (verb last)",
+   "opts": [
+    "I · eat · rice (like English)",
+    "I · rice · eat (verb last)",
+    "Rice · I · eat",
+    "Eat · I · rice"
+   ],
+   "explain": "Bengali is subject–object–verb: আমি ভাত খাই. The verb always goes last."
+  },
+  {
+   "id": "bq-16",
+   "lesson": "grammar",
+   "type": "usage",
+   "topic": "grammar",
+   "level": "beginner",
+   "q": "Which 'you' is safe with strangers?",
+   "a": "আপনি",
+   "opts": [
+    "তুই",
+    "তুমি",
+    "আপনি",
+    "সে"
+   ],
+   "explain": "আপনি (apni) is formal and safe everywhere. তুই to a stranger is rude."
+  },
+  {
+   "id": "bq-17",
+   "lesson": "grammar",
+   "type": "usage",
+   "topic": "grammar",
+   "level": "elementary",
+   "q": "আমি মাংস খাই না means…",
+   "a": "I don't eat meat",
+   "opts": [
+    "I don't eat meat",
+    "I eat meat daily",
+    "I ate meat",
+    "I will eat meat"
+   ],
+   "explain": "না after the verb negates it: খাই না = don't eat. Simplest negation in any major language."
+  },
+  {
+   "id": "bq-18",
+   "lesson": "grammar",
+   "type": "usage",
+   "topic": "grammar",
+   "level": "elementary",
+   "q": "তারা খায়. Who is eating?",
+   "a": "they",
+   "opts": [
+    "I",
+    "you (formal)",
+    "he / she",
+    "they"
+   ],
+   "explain": "তারা (tara) = they, and the verb agrees: খায় (khay)."
+  },
+  {
+   "id": "bq-19",
+   "lesson": "conversation",
+   "type": "meaning",
+   "topic": "conversation",
+   "level": "beginner",
+   "q": "আমার নাম … means…",
+   "a": "My name is …",
+   "opts": [
+    "My name is …",
+    "Your name is …",
+    "What is this?",
+    "I am lost"
+   ],
+   "explain": "আমার (amar) = my, নাম = name. আমার নাম টম = my name is Tom."
+  },
+  {
+   "id": "bq-20",
+   "lesson": "conversation",
+   "type": "usage",
+   "topic": "conversation",
+   "level": "elementary",
+   "q": "আমি বাংলা শিখছি means…",
+   "a": "I am learning Bengali",
+   "opts": [
+    "I am learning Bengali",
+    "I speak Bengali fluently",
+    "I forgot Bengali",
+    "I teach Bengali"
+   ],
+   "explain": "শিখছি (shikhchhi) is present continuous: right now, in progress. Say it to any Bengali and watch them smile."
+  },
+  {
+   "id": "bq-21",
+   "lesson": "vocabulary",
+   "type": "vocab",
+   "topic": "vocabulary",
+   "level": "beginner",
+   "q": "বই means…",
+   "a": "book",
+   "opts": [
+    "book",
+    "house",
+    "school",
+    "road"
+   ],
+   "explain": "বই (boi) = book. একটা বই = one book (টা counts things)."
+  },
+  {
+   "id": "bq-22",
+   "lesson": "vocabulary",
+   "type": "vocab",
+   "topic": "vocabulary",
+   "level": "beginner",
+   "q": "বাড়ি means…",
+   "a": "house",
+   "opts": [
+    "house",
+    "car",
+    "shop",
+    "school"
+   ],
+   "explain": "বাড়ি (baṛi) = house/home. বাড়িতে = at home (তে = in/at)."
+  },
+  {
+   "id": "bq-23",
+   "lesson": "shopping",
+   "type": "usage",
+   "topic": "travel",
+   "level": "elementary",
+   "q": "এটার দাম কত? means…",
+   "a": "How much is this?",
+   "opts": [
+    "How much is this?",
+    "This is free",
+    "This is mine",
+    "Wrap this up"
+   ],
+   "explain": "এটার (of this) + দাম (price) + কত (how much). The market survival sentence."
+  },
+  {
+   "id": "bq-24",
+   "lesson": "time-dates",
+   "type": "vocab",
+   "topic": "basics",
+   "level": "elementary",
+   "q": "কাল means…",
+   "a": "tomorrow / yesterday (both)",
+   "opts": [
+    "today",
+    "tomorrow / yesterday (both)",
+    "now",
+    "never"
+   ],
+   "explain": "কাল covers both — context decides. গতকাল pins it to yesterday."
+  },
+  {
+   "a": "fever",
+   "explain": "জ্বর (jor) = fever — আমার জ্বর এসেছে (I have a fever).",
+   "id": "bq-25",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "fever",
+    "cold",
+    "cough",
+    "pain"
+   ],
+   "q": "জ্বর means…",
+   "topic": "health",
+   "type": "vocab"
+  },
+  {
+   "a": "মাথা",
+   "explain": "মাথা (matha) = head — মাথাব্যথা is a headache.",
+   "id": "bq-26",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "মাথা",
+    "পেট",
+    "হাত",
+    "পা"
+   ],
+   "q": "Which is 'head'?",
+   "topic": "health",
+   "type": "vocab"
+  },
+  {
+   "a": "my head aches",
+   "explain": "আমার মাথা ধরেছে — literally 'my head has caught (pain)'.",
+   "id": "bq-27",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "my head aches",
+    "my stomach aches",
+    "I feel dizzy",
+    "I feel cold"
+   ],
+   "q": "'আমার মাথা ধরেছে' means…",
+   "topic": "health",
+   "type": "meaning"
+  },
+  {
+   "a": "ডাক্তার ডাকুন",
+   "explain": "ডাক্তার ডাকুন = call a doctor. ওষুধ দিন = give medicine.",
+   "id": "bq-28",
+   "lesson": "health",
+   "level": "elementary",
+   "opts": [
+    "ডাক্তার ডাকুন",
+    "ওষুধ দিন",
+    "বিল দিন",
+    "চিন্তা করবেন না"
+   ],
+   "q": "You need a doctor. You say…",
+   "topic": "health",
+   "type": "usage"
+  },
+  {
+   "a": "medicine",
+   "explain": "ওষুধ (oshudh) = medicine — আমার ওষুধ দরকার (I need medicine).",
+   "id": "bq-29",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "medicine",
+    "injection",
+    "bandage",
+    "syrup"
+   ],
+   "q": "ওষুধ means…",
+   "topic": "health",
+   "type": "vocab"
+  },
+  {
+   "a": "hospital",
+   "explain": "হাসপাতাল (haspatal) = hospital; ক্লিনিক = clinic; ফার্মেসি = pharmacy.",
+   "id": "bq-30",
+   "lesson": "health",
+   "level": "elementary",
+   "opts": [
+    "hospital",
+    "clinic",
+    "pharmacy",
+    "ward"
+   ],
+   "q": "হাসপাতাল means…",
+   "topic": "health",
+   "type": "vocab"
+  },
+  {
+   "a": "twice a day after meals",
+   "explain": "খাওয়ার পরে (after meals) দিনে দুবার (twice a day) — read every prescription line twice.",
+   "id": "bq-31",
+   "lesson": "health",
+   "level": "elementary",
+   "opts": [
+    "twice a day after meals",
+    "once a day before meals",
+    "three times a day",
+    "only at night"
+   ],
+   "q": "'খাওয়ার পরে দিনে দুবার' means…",
+   "topic": "health",
+   "type": "meaning"
+  },
+  {
+   "a": "since when?",
+   "explain": "কবে থেকে? (kobe theke?) = since when — the doctor's first question.",
+   "id": "bq-32",
+   "lesson": "health",
+   "level": "elementary",
+   "opts": [
+    "since when?",
+    "how much?",
+    "where?",
+    "who?"
+   ],
+   "q": "The doctor asks 'কবে থেকে?' — they're asking…",
+   "topic": "health",
+   "type": "usage"
+  },
+  {
+   "a": "blood",
+   "explain": "রক্ত (rokto) = blood — রক্ত পরীক্ষা is a blood test.",
+   "id": "bq-33",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "blood",
+    "bone",
+    "skin",
+    "heart"
+   ],
+   "q": "রক্ত means…",
+   "topic": "health",
+   "type": "vocab"
+  },
+  {
+   "a": "take rest",
+   "explain": "বিশ্রাম নিন (bishram nin) = take rest — the prescription everyone ignores.",
+   "id": "bq-34",
+   "lesson": "health",
+   "level": "beginner",
+   "opts": [
+    "take rest",
+    "drink water",
+    "walk daily",
+    "sleep early"
+   ],
+   "q": "'বিশ্রাম নিন' means…",
+   "topic": "health",
+   "type": "meaning"
+  },
+  {
+   "a": "salary",
+   "explain": "বেতন (beton) = salary — মজুরি is daily wages.",
+   "id": "bq-35",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "salary",
+    "bonus",
+    "leave",
+    "meeting"
+   ],
+   "q": "বেতন means…",
+   "topic": "office",
+   "type": "vocab"
+  },
+  {
+   "a": "মিটিং",
+   "explain": "মিটিং (miṭing) = meeting — মিটিং কয়টায়? (what time is the meeting?)",
+   "id": "bq-36",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "মিটিং",
+    "ছুটি",
+    "বেতন",
+    "খবর"
+   ],
+   "q": "Which is 'meeting'?",
+   "topic": "office",
+   "type": "vocab"
+  },
+  {
+   "a": "I work in an office",
+   "explain": "আমি অফিসে কাজ করি — অফিসে = in the office.",
+   "id": "bq-37",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "I work in an office",
+    "I go to the office",
+    "I need leave",
+    "I am the manager"
+   ],
+   "q": "'আমি অফিসে কাজ করি' means…",
+   "topic": "office",
+   "type": "meaning"
+  },
+  {
+   "a": "আমার কাল ছুটি দরকার",
+   "explain": "আমার কাল ছুটি দরকার = I need leave tomorrow. ছুটি = leave.",
+   "id": "bq-38",
+   "lesson": "office",
+   "level": "elementary",
+   "opts": [
+    "আমার কাল ছুটি দরকার",
+    "আমার বেতন চাই",
+    "মিটিং কয়টায়?",
+    "প্রিন্টার দিন"
+   ],
+   "q": "Ask for leave tomorrow. You say…",
+   "topic": "office",
+   "type": "usage"
+  },
+  {
+   "a": "signature",
+   "explain": "সই (soi) = signature — এখানে সই করুন (sign here).",
+   "id": "bq-39",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "signature",
+    "stamp",
+    "file",
+    "notice"
+   ],
+   "q": "সই means…",
+   "topic": "office",
+   "type": "vocab"
+  },
+  {
+   "a": "deadline",
+   "explain": "সময়সীমা (shomoyshima) = deadline — লক্ষ্য is the target.",
+   "id": "bq-40",
+   "lesson": "office",
+   "level": "elementary",
+   "opts": [
+    "deadline",
+    "target",
+    "plan",
+    "report"
+   ],
+   "q": "সময়সীমা means…",
+   "topic": "office",
+   "type": "vocab"
+  },
+  {
+   "a": "the printer is not working",
+   "explain": "প্রিন্টার কাজ করছে না — করছে না = is not doing.",
+   "id": "bq-41",
+   "lesson": "office",
+   "level": "elementary",
+   "opts": [
+    "the printer is not working",
+    "the printer is new",
+    "print this paper",
+    "the computer is on"
+   ],
+   "q": "'প্রিন্টার কাজ করছে না' means…",
+   "topic": "office",
+   "type": "meaning"
+  },
+  {
+   "a": "সকাল দশটায়",
+   "explain": "সকাল দশটায় = at ten in the morning.",
+   "id": "bq-42",
+   "lesson": "office",
+   "level": "elementary",
+   "opts": [
+    "সকাল দশটায়",
+    "কাল ছুটি",
+    "বেতন পেয়েছি",
+    "চা খাবো"
+   ],
+   "q": "Reply 'at ten in the morning'. You say…",
+   "topic": "office",
+   "type": "usage"
+  },
+  {
+   "a": "colleague",
+   "explain": "সহকর্মী (shohokormi) = colleague — সহ = co-, কর্মী = worker.",
+   "id": "bq-43",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "colleague",
+    "manager",
+    "guard",
+    "driver"
+   ],
+   "q": "সহকর্মী means…",
+   "topic": "office",
+   "type": "vocab"
+  },
+  {
+   "a": "see you tomorrow",
+   "explain": "কাল দেখা হবে — literally 'tomorrow meeting will happen'.",
+   "id": "bq-44",
+   "lesson": "office",
+   "level": "beginner",
+   "opts": [
+    "see you tomorrow",
+    "good morning",
+    "take care",
+    "well done"
+   ],
+   "q": "'কাল দেখা হবে' means…",
+   "topic": "office",
+   "type": "meaning"
+  },
+  {
+   "a": "exam",
+   "explain": "পরীক্ষা (porikkha) = exam — পরীক্ষা সামনের সপ্তাহে (the exam is next week).",
+   "id": "bq-45",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "exam",
+    "lesson",
+    "homework",
+    "result"
+   ],
+   "q": "পরীক্ষা means…",
+   "topic": "education",
+   "type": "vocab"
+  },
+  {
+   "a": "শিক্ষিকা",
+   "explain": "শিক্ষিকা (shikkhika) = female teacher; শিক্ষক is male.",
+   "id": "bq-46",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "শিক্ষিকা",
+    "শিক্ষক",
+    "ছাত্রী",
+    "অধ্যাপক"
+   ],
+   "q": "Which is 'teacher (female)'?",
+   "topic": "education",
+   "type": "vocab"
+  },
+  {
+   "a": "do your homework",
+   "explain": "বাড়ির কাজ করো — বাড়ির কাজ = homework.",
+   "id": "bq-47",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "do your homework",
+    "open your books",
+    "read lesson five",
+    "come tomorrow"
+   ],
+   "q": "'বাড়ির কাজ করো' means…",
+   "topic": "education",
+   "type": "meaning"
+  },
+  {
+   "a": "তুমি কোন ক্লাসে পড়ো?",
+   "explain": "তুমি কোন ক্লাসে পড়ো? = which class are you in?",
+   "id": "bq-48",
+   "lesson": "education",
+   "level": "elementary",
+   "opts": [
+    "তুমি কোন ক্লাসে পড়ো?",
+    "তোমার নাম কী?",
+    "বাড়ির কাজ কী?",
+    "পরীক্ষা কবে?"
+   ],
+   "q": "Ask 'which class are you in?' You say…",
+   "topic": "education",
+   "type": "usage"
+  },
+  {
+   "a": "book",
+   "explain": "বই (boi) = book — বই খোলো (open your books).",
+   "id": "bq-49",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "book",
+    "pen",
+    "bag",
+    "bell"
+   ],
+   "q": "বই means…",
+   "topic": "education",
+   "type": "vocab"
+  },
+  {
+   "a": "result",
+   "explain": "ফলাফল (folafol) = result — নম্বর are the marks.",
+   "id": "bq-50",
+   "lesson": "education",
+   "level": "elementary",
+   "opts": [
+    "result",
+    "marks",
+    "rank",
+    "certificate"
+   ],
+   "q": "ফলাফল means…",
+   "topic": "education",
+   "type": "vocab"
+  },
+  {
+   "a": "school is closed today",
+   "explain": "আজ স্কুল বন্ধ — বন্ধ = closed.",
+   "id": "bq-51",
+   "lesson": "education",
+   "level": "elementary",
+   "opts": [
+    "school is closed today",
+    "school is far away",
+    "the exam is today",
+    "class is over"
+   ],
+   "q": "'আজ স্কুল বন্ধ' means…",
+   "topic": "education",
+   "type": "meaning"
+  },
+  {
+   "a": "ভেতরে আসতে পারি?",
+   "explain": "ভেতরে আসতে পারি? = may I come in? — every student's sentence.",
+   "id": "bq-52",
+   "lesson": "education",
+   "level": "elementary",
+   "opts": [
+    "ভেতরে আসতে পারি?",
+    "বাইরে যাবো?",
+    "বই খুলবো?",
+    "বসবো?"
+   ],
+   "q": "Ask permission to enter. You say…",
+   "topic": "education",
+   "type": "usage"
+  },
+  {
+   "a": "student (boy)",
+   "explain": "ছাত্র (chhatro) = male student; ছাত্রী is female.",
+   "id": "bq-53",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "student (boy)",
+    "teacher",
+    "friend",
+    "brother"
+   ],
+   "q": "ছাত্র means…",
+   "topic": "education",
+   "type": "vocab"
+  },
+  {
+   "a": "study with focus",
+   "explain": "মন দিয়ে (mon diye) = with heart and mind — মন দিয়ে পড়ো.",
+   "id": "bq-54",
+   "lesson": "education",
+   "level": "beginner",
+   "opts": [
+    "study with focus",
+    "read aloud",
+    "write neatly",
+    "sleep early"
+   ],
+   "q": "'মন দিয়ে পড়ো' means…",
+   "topic": "education",
+   "type": "meaning"
+  },
+  {
+   "a": "cloud",
+   "explain": "মেঘ (megh) = cloud — কালো মেঘ are dark rain clouds.",
+   "id": "bq-55",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "cloud",
+    "rain",
+    "wind",
+    "sky"
+   ],
+   "q": "মেঘ means…",
+   "topic": "weather",
+   "type": "vocab"
+  },
+  {
+   "a": "সূর্য",
+   "explain": "সূর্য (shurjo) = sun — চাঁদ is the moon.",
+   "id": "bq-56",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "সূর্য",
+    "চাঁদ",
+    "তারা",
+    "আকাশ"
+   ],
+   "q": "Which is 'sun'?",
+   "topic": "weather",
+   "type": "vocab"
+  },
+  {
+   "a": "it is raining",
+   "explain": "বৃষ্টি পড়ছে — পড়ছে = is falling.",
+   "id": "bq-57",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "it is raining",
+    "it is sunny",
+    "it is windy",
+    "it is cold"
+   ],
+   "q": "'বৃষ্টি পড়ছে' means…",
+   "topic": "weather",
+   "type": "meaning"
+  },
+  {
+   "a": "ছাতা নাও",
+   "explain": "ছাতা নাও = take an umbrella. ছাতা = umbrella.",
+   "id": "bq-58",
+   "lesson": "weather",
+   "level": "elementary",
+   "opts": [
+    "ছাতা নাও",
+    "জল খাও",
+    "বসে থাকো",
+    "ঘুমিয়ে পড়ো"
+   ],
+   "q": "It may rain — advise someone. You say…",
+   "topic": "weather",
+   "type": "usage"
+  },
+  {
+   "a": "mountain",
+   "explain": "পাহাড় (pahaṛ) = mountain — টিলা is a hillock.",
+   "id": "bq-59",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "mountain",
+    "river",
+    "forest",
+    "valley"
+   ],
+   "q": "পাহাড় means…",
+   "topic": "weather",
+   "type": "vocab"
+  },
+  {
+   "a": "flood",
+   "explain": "বন্যা (bonna) = flood — খরা is drought, its opposite.",
+   "id": "bq-60",
+   "lesson": "weather",
+   "level": "elementary",
+   "opts": [
+    "flood",
+    "drought",
+    "storm",
+    "fog"
+   ],
+   "q": "বন্যা means…",
+   "topic": "weather",
+   "type": "vocab"
+  },
+  {
+   "a": "it is very hot today",
+   "explain": "আজ খুব গরম — খুব = very.",
+   "id": "bq-61",
+   "lesson": "weather",
+   "level": "elementary",
+   "opts": [
+    "it is very hot today",
+    "it is very cold today",
+    "it is raining today",
+    "it is dark today"
+   ],
+   "q": "'আজ খুব গরম' means…",
+   "topic": "weather",
+   "type": "meaning"
+  },
+  {
+   "a": "কী সুন্দর ফুল!",
+   "explain": "কী সুন্দর ফুল! — কী + adjective + noun is the praise pattern.",
+   "id": "bq-62",
+   "lesson": "weather",
+   "level": "elementary",
+   "opts": [
+    "কী সুন্দর ফুল!",
+    "কত বড় গাছ!",
+    "কী মিষ্টি আম!",
+    "কী ঠান্ডা বাতাস!"
+   ],
+   "q": "Say 'what a beautiful flower!' You say…",
+   "topic": "weather",
+   "type": "usage"
+  },
+  {
+   "a": "bird",
+   "explain": "পাখি (pakhi) = bird — শোনো, পাখিরা কিচিরমিচির করছে (listen, the birds chirp).",
+   "id": "bq-63",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "bird",
+    "fish",
+    "snake",
+    "frog"
+   ],
+   "q": "পাখি means…",
+   "topic": "weather",
+   "type": "vocab"
+  },
+  {
+   "a": "winter has come",
+   "explain": "শীত এসেছে — এসেছে = has come.",
+   "id": "bq-64",
+   "lesson": "weather",
+   "level": "beginner",
+   "opts": [
+    "winter has come",
+    "summer has come",
+    "the rain has stopped",
+    "the sun has set"
+   ],
+   "q": "'শীত এসেছে' means…",
+   "topic": "weather",
+   "type": "meaning"
+  },
+  {
+   "a": "kitchen",
+   "explain": "রান্নাঘর (rannaghor) = kitchen — রান্না = cooking.",
+   "id": "bq-65",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "kitchen",
+    "bedroom",
+    "bathroom",
+    "balcony"
+   ],
+   "q": "রান্নাঘর means…",
+   "topic": "home",
+   "type": "vocab"
+  },
+  {
+   "a": "মামা",
+   "explain": "মামা (mama) = maternal uncle; কাকা is paternal younger uncle.",
+   "id": "bq-66",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "মামা",
+    "কাকা",
+    "জ্যাঠা",
+    "দাদু"
+   ],
+   "q": "Which is 'maternal uncle'?",
+   "topic": "home",
+   "type": "vocab"
+  },
+  {
+   "a": "dinner is ready",
+   "explain": "খাবার তৈরি — তৈরি = ready.",
+   "id": "bq-67",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "dinner is ready",
+    "wash your hands",
+    "go to sleep",
+    "lock the door"
+   ],
+   "q": "'খাবার তৈরি' means…",
+   "topic": "home",
+   "type": "meaning"
+  },
+  {
+   "a": "ঘরটা গুছিয়ে রাখো",
+   "explain": "ঘরটা গুছিয়ে রাখো = tidy the room — গুছিয়ে = tidily.",
+   "id": "bq-68",
+   "lesson": "home",
+   "level": "elementary",
+   "opts": [
+    "ঘরটা গুছিয়ে রাখো",
+    "বাইরে খেলো",
+    "ঘুমিয়ে পড়ো",
+    "বই পড়ো"
+   ],
+   "q": "Guests are coming — tell the child to tidy the room…",
+   "topic": "home",
+   "type": "usage"
+  },
+  {
+   "a": "key",
+   "explain": "চাবি (chabi) = key — চাবিগুলো কোথায়? (where are the keys?)",
+   "id": "bq-69",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "key",
+    "lock",
+    "door",
+    "window"
+   ],
+   "q": "চাবি means…",
+   "topic": "home",
+   "type": "vocab"
+  },
+  {
+   "a": "afternoon nap",
+   "explain": "ভাতঘুম (bhatghum) — the sacred post-lunch nap. ভাত = rice!",
+   "id": "bq-70",
+   "lesson": "home",
+   "level": "elementary",
+   "opts": [
+    "afternoon nap",
+    "morning walk",
+    "night sleep",
+    "daydream"
+   ],
+   "q": "ভাতঘুম means…",
+   "topic": "home",
+   "type": "vocab"
+  },
+  {
+   "a": "lock the door",
+   "explain": "দরজায় তালা দাও — তালা = lock.",
+   "id": "bq-71",
+   "lesson": "home",
+   "level": "elementary",
+   "opts": [
+    "lock the door",
+    "open the window",
+    "close the gate",
+    "light the lamp"
+   ],
+   "q": "'দরজায় তালা দাও' means…",
+   "topic": "home",
+   "type": "meaning"
+  },
+  {
+   "a": "হাত ধুয়ে নাও",
+   "explain": "হাত ধুয়ে নাও = wash your hands — before every meal!",
+   "id": "bq-72",
+   "lesson": "home",
+   "level": "elementary",
+   "opts": [
+    "হাত ধুয়ে নাও",
+    "মুখ ধুয়ে নাও",
+    "চা খেয়ে নাও",
+    "ঘুমিয়ে পড়ো"
+   ],
+   "q": "Say 'wash your hands'. You say…",
+   "topic": "home",
+   "type": "usage"
+  },
+  {
+   "a": "traditional cutter",
+   "explain": "বঁটি (bõṭi) — the curved blade every Bengali kitchen owns.",
+   "id": "bq-73",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "traditional cutter",
+    "rolling pin",
+    "pressure cooker",
+    "spice box"
+   ],
+   "q": "বঁটি means…",
+   "topic": "home",
+   "type": "vocab"
+  },
+  {
+   "a": "this is my home",
+   "explain": "এটা আমার বাড়ি — এটা = this.",
+   "id": "bq-74",
+   "lesson": "home",
+   "level": "beginner",
+   "opts": [
+    "this is my home",
+    "this is my room",
+    "our family is big",
+    "sweet dreams"
+   ],
+   "q": "'এটা আমার বাড়ি' means…",
+   "topic": "home",
+   "type": "meaning"
+  },
+  {
+   "a": "pandal",
+   "explain": "প্যান্ডেল (pandel) — the temporary shrine, heart of Durga Puja.",
+   "id": "bq-75",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "pandal",
+    "temple",
+    "mosque",
+    "fair"
+   ],
+   "q": "প্যান্ডেল means…",
+   "topic": "festivals",
+   "type": "vocab"
+  },
+  {
+   "a": "মা দুর্গা",
+   "explain": "মা দুর্গা (ma durga) — the goddess herself.",
+   "id": "bq-76",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "মা দুর্গা",
+    "সরস্বতী পূজা",
+    "লক্ষ্মী পূজা",
+    "কালীপূজা"
+   ],
+   "q": "Which is 'goddess Durga'?",
+   "topic": "festivals",
+   "type": "vocab"
+  },
+  {
+   "a": "happy Diwali",
+   "explain": "শুভ দীপাবলি — শুভ = auspicious/happy.",
+   "id": "bq-77",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "happy Diwali",
+    "happy Holi",
+    "happy Eid",
+    "merry Christmas"
+   ],
+   "q": "'শুভ দীপাবলি' means…",
+   "topic": "festivals",
+   "type": "meaning"
+  },
+  {
+   "a": "প্রদীপ জ্বালাও",
+   "explain": "প্রদীপ জ্বালাও = light the lamp — জ্বালানো = to light.",
+   "id": "bq-78",
+   "lesson": "festivals",
+   "level": "elementary",
+   "opts": [
+    "প্রদীপ জ্বালাও",
+    "ধূপ নেভাও",
+    "ঘণ্টা বাজাও",
+    "মালা পরাও"
+   ],
+   "q": "Say 'light the lamp'. You say…",
+   "topic": "festivals",
+   "type": "usage"
+  },
+  {
+   "a": "immersion",
+   "explain": "বিসর্জন (bishorjon) — the Dashami immersion of the idol.",
+   "id": "bq-79",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "immersion",
+    "procession",
+    "prayer",
+    "fasting"
+   ],
+   "q": "বিসর্জন means…",
+   "topic": "festivals",
+   "type": "vocab"
+  },
+  {
+   "a": "Christmas",
+   "explain": "বড়দিন (boṛodin) — literally 'big day', the Bengali name for Christmas!",
+   "id": "bq-80",
+   "lesson": "festivals",
+   "level": "elementary",
+   "opts": [
+    "Christmas",
+    "New Year",
+    "Diwali",
+    "Eid"
+   ],
+   "q": "বড়দিন means…",
+   "topic": "festivals",
+   "type": "vocab"
+  },
+  {
+   "a": "let's go see the pandal",
+   "explain": "প্যান্ডেল দেখতে চলো — চলো = let's go.",
+   "id": "bq-81",
+   "lesson": "festivals",
+   "level": "elementary",
+   "opts": [
+    "let's go see the pandal",
+    "let's light the lamp",
+    "let's buy sweets",
+    "let's go home"
+   ],
+   "q": "'প্যান্ডেল দেখতে চলো' means…",
+   "topic": "festivals",
+   "type": "meaning"
+  },
+  {
+   "a": "শুভ নববর্ষ",
+   "explain": "শুভ নববর্ষ — নববর্ষ = new year.",
+   "id": "bq-82",
+   "lesson": "festivals",
+   "level": "elementary",
+   "opts": [
+    "শুভ নববর্ষ",
+    "শুভ দীপাবলি",
+    "ঈদ মোবারক",
+    "শুভ বড়দিন"
+   ],
+   "q": "Greet someone on Bengali New Year. You say…",
+   "topic": "festivals",
+   "type": "usage"
+  },
+  {
+   "a": "drum (dhaak)",
+   "explain": "ঢাক (ḍhak) — the barrel drum whose beat IS Durga Puja.",
+   "id": "bq-83",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "drum (dhaak)",
+    "conch shell",
+    "bell",
+    "fireworks"
+   ],
+   "q": "ঢাক means…",
+   "topic": "festivals",
+   "type": "vocab"
+  },
+  {
+   "a": "take the blessing",
+   "explain": "আশীর্বাদ নাও — আশীর্বাদ = blessing.",
+   "id": "bq-84",
+   "lesson": "festivals",
+   "level": "beginner",
+   "opts": [
+    "take the blessing",
+    "light the lamp",
+    "offer flowers",
+    "sing a song"
+   ],
+   "q": "'আশীর্বাদ নাও' means…",
+   "topic": "festivals",
+   "type": "meaning"
+  }
+ ]
+};
+window.EKGURU_QUIZ_ACTIVE = window.EKGURU_BENGALI_QUIZ;
+window.EKGURU_QUIZ_NAME = "bengali-quiz";
+window.EKGURU_COURSE_LANG = { name: "Bengali", script: "Bengali script" };
+window.EKGURU_TYPING_ACTIVE =
+[
+ [
+  "namoshkar",
+  "নমস্কার"
+ ],
+ [
+  "dhonnobad",
+  "ধন্যবাদ"
+ ],
+ [
+  "ami",
+  "আমি"
+ ],
+ [
+  "tumi",
+  "তুমি"
+ ],
+ [
+  "apni",
+  "আপনি"
+ ],
+ [
+  "bhat",
+  "ভাত"
+ ],
+ [
+  "mach",
+  "মাছ"
+ ],
+ [
+  "pani",
+  "পানি"
+ ],
+ [
+  "cha",
+  "চা"
+ ],
+ [
+  "boi",
+  "বই"
+ ],
+ [
+  "bari",
+  "বাড়ি"
+ ],
+ [
+  "kaj",
+  "কাজ"
+ ],
+ [
+  "bhalo",
+  "ভালো"
+ ],
+ [
+  "din",
+  "দিন"
+ ],
+ [
+  "rat",
+  "রাত"
+ ],
+ [
+  "bondhu",
+  "বন্ধু"
+ ],
+ [
+  "ma",
+  "মা"
+ ],
+ [
+  "baba",
+  "বাবা"
+ ],
+ [
+  "ghor",
+  "ঘর"
+ ],
+ [
+  "rasta",
+  "রাস্তা"
+ ],
+ [
+  "dokan",
+  "দোকান"
+ ],
+ [
+  "bajar",
+  "বাজার"
+ ],
+ [
+  "shokal",
+  "সকাল"
+ ],
+ [
+  "biday",
+  "বিদায়"
+ ]
+];

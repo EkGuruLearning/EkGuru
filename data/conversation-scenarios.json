@@ -1,0 +1,351 @@
+{
+  "version": 1,
+  "generated": "2026-09-12T00:00:00Z",
+  "source_language": "en",
+  "target_language": "hi",
+  "engine": "DETERMINISTIC",
+  "note": "Rule-based scenario simulator. NPC lines and replies are fixed, reviewed basic Hindi consistent with the existing phrase bank and lessons. This is NOT AI and is never described as AI.",
+  "scenarios": [
+    {
+      "id": "introduction",
+      "title": "Meeting someone",
+      "level": "beginner",
+      "goal": "speaking",
+      "context": "You are introduced to someone for the first time. They greet you in Hindi.",
+      "steps": [
+        {
+          "id": "intro-1",
+          "npc": "नमस्ते! आप कैसे हैं?",
+          "npc_roman": "namaste! aap kaise hain?",
+          "npc_en": "Hello! How are you?",
+          "prompt": "Choose the reply that answers the greeting.",
+          "choices": [
+            { "text": "मैं ठीक हूँ, धन्यवाद। आप कैसे हैं?", "roman": "main theek hoon, dhanyavaad. aap kaise hain?", "en": "I am fine, thank you. How are you?", "correct": true },
+            { "text": "मुझे एक टैक्सी चाहिए।", "roman": "mujhe ek taxi chahiye.", "en": "I need a taxi.", "correct": false, "note": "A valid sentence, but it does not answer the greeting." }
+          ],
+          "explanation": "The polite reply is मैं ठीक हूँ (main theek hoon) — \"I am fine\" — and you return the question with आप कैसे हैं?",
+          "vocabulary": [
+            { "target": "ठीक", "roman": "theek", "meaning": "fine / okay" },
+            { "target": "धन्यवाद", "roman": "dhanyavaad", "meaning": "thank you" }
+          ]
+        },
+        {
+          "id": "intro-2",
+          "npc": "मैं भी ठीक हूँ। आपका नाम क्या है?",
+          "npc_roman": "main bhi theek hoon. aapka naam kya hai?",
+          "npc_en": "I am fine too. What is your name?",
+          "prompt": "Choose the reply that gives your name.",
+          "choices": [
+            { "text": "मेरा नाम … है।", "roman": "mera naam … hai.", "en": "My name is …", "correct": true },
+            { "text": "मैं कल आऊँगा।", "roman": "main kal aaunga.", "en": "I will come tomorrow.", "correct": false, "note": "This does not tell them your name." }
+          ],
+          "explanation": "मेरा नाम … है (mera naam … hai) is the pattern for \"My name is …\". Fill in your own name.",
+          "vocabulary": [
+            { "target": "नाम", "roman": "naam", "meaning": "name" },
+            { "target": "मेरा", "roman": "mera", "meaning": "my (masculine)" }
+          ]
+        },
+        {
+          "id": "intro-3",
+          "npc": "आपसे मिलकर खुशी हुई।",
+          "npc_roman": "aapse milkar khushi hui.",
+          "npc_en": "Nice to meet you.",
+          "prompt": "Choose the reply that says \"nice to meet you too\".",
+          "choices": [
+            { "text": "आपसे मिलकर भी खुशी हुई।", "roman": "aapse milkar bhi khushi hui.", "en": "Nice to meet you too.", "correct": true },
+            { "text": "मुझे भूख लगी है।", "roman": "mujhe bhookh lagi hai.", "en": "I am hungry.", "correct": false, "note": "True, maybe — but not a reply to the introduction." }
+          ],
+          "explanation": "Add भी (bhi, \"too\") to return the compliment: आपसे मिलकर भी खुशी हुई।",
+          "vocabulary": [
+            { "target": "खुशी", "roman": "khushi", "meaning": "happiness" },
+            { "target": "भी", "roman": "bhi", "meaning": "also / too" }
+          ]
+        }
+      ],
+      "completion": "You handled a first meeting: greet, exchange names, and part politely. That is the single most-used pattern in spoken Hindi."
+    },
+    {
+      "id": "restaurant",
+      "title": "Ordering food",
+      "level": "beginner",
+      "goal": "travel",
+      "context": "You sit down in a small restaurant in India. The server comes to your table.",
+      "steps": [
+        {
+          "id": "rest-1",
+          "npc": "नमस्ते, क्या लेंगे?",
+          "npc_roman": "namaste, kya lenge?",
+          "npc_en": "Hello, what will you have?",
+          "prompt": "Choose the reply that orders food.",
+          "choices": [
+            { "text": "एक रोटी और दाल, कृपया।", "roman": "ek roti aur daal, kripya.", "en": "One roti and dal, please.", "correct": true },
+            { "text": "मेरा नाम … है।", "roman": "mera naam … hai.", "en": "My name is …", "correct": false, "note": "Not what the server asked." }
+          ],
+          "explanation": "Order with the item + कृपया (kripya, \"please\"): एक रोटी और दाल, कृपया।",
+          "vocabulary": [
+            { "target": "रोटी", "roman": "roti", "meaning": "flat bread" },
+            { "target": "दाल", "roman": "daal", "meaning": "lentil curry" }
+          ]
+        },
+        {
+          "id": "rest-2",
+          "npc": "कुछ और?",
+          "npc_roman": "kuch aur?",
+          "npc_en": "Anything else?",
+          "prompt": "Choose the reply that politely declines.",
+          "choices": [
+            { "text": "नहीं, बस इतना ही। धन्यवाद।", "roman": "nahin, bas itna hi. dhanyavaad.", "en": "No, just this. Thank you.", "correct": true },
+            { "text": "यह कितने का है?", "roman": "yeh kitne ka hai?", "en": "How much is this?", "correct": false, "note": "You could ask this, but not in answer to \"anything else\"." }
+          ],
+          "explanation": "बस इतना ही (bas itna hi) means \"just this much\" — the standard polite stop.",
+          "vocabulary": [
+            { "target": "बस", "roman": "bas", "meaning": "just / that's all" },
+            { "target": "नहीं", "roman": "nahin", "meaning": "no" }
+          ]
+        },
+        {
+          "id": "rest-3",
+          "npc": "आपका खाना आ गया।",
+          "npc_roman": "aapka khaana aa gaya.",
+          "npc_en": "Your food has arrived.",
+          "prompt": "Choose the polite reply.",
+          "choices": [
+            { "text": "धन्यवाद!", "roman": "dhanyavaad!", "en": "Thank you!", "correct": true },
+            { "text": "मुझे नींद आ रही है।", "roman": "mujhe neend aa rahi hai.", "en": "I am getting sleepy.", "correct": false, "note": "Not a reply to being served." }
+          ],
+          "explanation": "धन्यवाद (dhanyavaad) is the safe thank-you; in casual speech शुक्रिया (shukriya) is just as common.",
+          "vocabulary": [
+            { "target": "खाना", "roman": "khaana", "meaning": "food (also: to eat)" }
+          ]
+        }
+      ],
+      "completion": "You ordered, stopped the order politely, and thanked the server. Enough to eat in Hindi anywhere."
+    },
+    {
+      "id": "taxi",
+      "title": "Taking a taxi",
+      "level": "beginner",
+      "goal": "travel",
+      "context": "You get into an auto-rickshaw or taxi. The driver turns to you.",
+      "steps": [
+        {
+          "id": "taxi-1",
+          "npc": "कहाँ जाना है?",
+          "npc_roman": "kahaan jaana hai?",
+          "npc_en": "Where do you want to go?",
+          "prompt": "Choose the reply that gives a destination.",
+          "choices": [
+            { "text": "होटल ताज, कृपया।", "roman": "hotel taj, kripya.", "en": "Hotel Taj, please.", "correct": true },
+            { "text": "मैं ठीक हूँ।", "roman": "main theek hoon.", "en": "I am fine.", "correct": false, "note": "Does not answer where." }
+          ],
+          "explanation": "Destination + कृपया (kripya) is all you need: होटल ताज, कृपया।",
+          "vocabulary": [
+            { "target": "कहाँ", "roman": "kahaan", "meaning": "where" },
+            { "target": "जाना", "roman": "jaana", "meaning": "to go" }
+          ]
+        },
+        {
+          "id": "taxi-2",
+          "npc": "ठीक है, दस मिनट।",
+          "npc_roman": "theek hai, das minute.",
+          "npc_en": "OK, ten minutes.",
+          "prompt": "Choose the reply that asks the fare.",
+          "choices": [
+            { "text": "कितना पैसा लगेगा?", "roman": "kitna paisa lagega?", "en": "How much will it cost?", "correct": true },
+            { "text": "मुझे भूख लगी है।", "roman": "mujhe bhookh lagi hai.", "en": "I am hungry.", "correct": false, "note": "Ask the fare before you agree — not about food." }
+          ],
+          "explanation": "कितना (kitna, \"how much\") + पैसा (paisa, \"money\"): कितना पैसा लगेगा? Agree the fare up front.",
+          "vocabulary": [
+            { "target": "कितना", "roman": "kitna", "meaning": "how much" },
+            { "target": "पैसा", "roman": "paisa", "meaning": "money" }
+          ]
+        },
+        {
+          "id": "taxi-3",
+          "npc": "दो सौ रुपये।",
+          "npc_roman": "do sau rupaye.",
+          "npc_en": "Two hundred rupees.",
+          "prompt": "Choose the reply that pays and thanks.",
+          "choices": [
+            { "text": "यह रहा, धन्यवाद।", "roman": "yeh raha, dhanyavaad.", "en": "Here it is, thank you.", "correct": true },
+            { "text": "आपका नाम क्या है?", "roman": "aapka naam kya hai?", "en": "What is your name?", "correct": false, "note": "Pay, don't interview the driver." }
+          ],
+          "explanation": "यह रहा (yeh raha, \"here it is\") hands over the money; add धन्यवाद (dhanyavaad).",
+          "vocabulary": [
+            { "target": "रुपये", "roman": "rupaye", "meaning": "rupees" }
+          ]
+        }
+      ],
+      "completion": "You gave a destination, agreed a fare, and paid. The whole ride in three lines."
+    },
+    {
+      "id": "shopping",
+      "title": "At a shop",
+      "level": "beginner",
+      "goal": "everyday",
+      "context": "You are in a market stall looking at goods. The shopkeeper notices you.",
+      "steps": [
+        {
+          "id": "shop-1",
+          "npc": "क्या चाहिए?",
+          "npc_roman": "kya chahiye?",
+          "npc_en": "What do you need?",
+          "prompt": "Choose the reply that points at something.",
+          "choices": [
+            { "text": "मुझे यह चाहिए।", "roman": "mujhe yeh chahiye.", "en": "I want this.", "correct": true },
+            { "text": "मैं ठीक हूँ, धन्यवाद।", "roman": "main theek hoon, dhanyavaad.", "en": "I am fine, thank you.", "correct": false, "note": "You were asked what you want, not how you are." }
+          ],
+          "explanation": "मुझे … चाहिए (mujhe … chahiye) is \"I want/need …\" — point and say मुझे यह चाहिए।",
+          "vocabulary": [
+            { "target": "चाहिए", "roman": "chahiye", "meaning": "is wanted / needed" },
+            { "target": "यह", "roman": "yeh", "meaning": "this" }
+          ]
+        },
+        {
+          "id": "shop-2",
+          "npc": "यह सौ रुपये का है।",
+          "npc_roman": "yeh sau rupaye ka hai.",
+          "npc_en": "This is one hundred rupees.",
+          "prompt": "Choose the reply that asks for a lower price.",
+          "choices": [
+            { "text": "थोड़ा कम कीजिए?", "roman": "thoda kam kijiye?", "en": "A little less, please?", "correct": true },
+            { "text": "बस इतना ही।", "roman": "bas itna hi.", "en": "Just this much.", "correct": false, "note": "That ends an order; it does not bargain." }
+          ],
+          "explanation": "थोड़ा कम (thoda kam, \"a little less\") + कीजिए (kijiye, polite \"do\"): थोड़ा कम कीजिए? Bargaining is normal in markets.",
+          "vocabulary": [
+            { "target": "कम", "roman": "kam", "meaning": "less" },
+            { "target": "थोड़ा", "roman": "thoda", "meaning": "a little" }
+          ]
+        },
+        {
+          "id": "shop-3",
+          "npc": "ठीक है, अस्सी रुपये।",
+          "npc_roman": "theek hai, assi rupaye.",
+          "npc_en": "OK, eighty rupees.",
+          "prompt": "Choose the reply that agrees and pays.",
+          "choices": [
+            { "text": "यह लीजिए, धन्यवाद।", "roman": "yeh lijiye, dhanyavaad.", "en": "Here you are, thank you.", "correct": true },
+            { "text": "कहाँ जाना है?", "roman": "kahaan jaana hai?", "en": "Where to go?", "correct": false, "note": "That is a taxi-driver's question, not a shop answer." }
+          ],
+          "explanation": "यह लीजिए (yeh lijiye) is the polite \"here you are\" when handing something over.",
+          "vocabulary": [
+            { "target": "लीजिए", "roman": "lijiye", "meaning": "please take (polite)" }
+          ]
+        }
+      ],
+      "completion": "You asked for something, bargained once, and paid. Market shopping without a word of English."
+    },
+    {
+      "id": "family",
+      "title": "Meeting family",
+      "level": "elementary",
+      "goal": "heritage",
+      "context": "You visit relatives after a long time. An elder greets you at the door.",
+      "steps": [
+        {
+          "id": "fam-1",
+          "npc": "नमस्ते, बहुत दिनों बाद मिले।",
+          "npc_roman": "namaste, bahut dinon baad mile.",
+          "npc_en": "Namaste, we met after many days.",
+          "prompt": "Choose the reply that greets back respectfully.",
+          "choices": [
+            { "text": "नमस्ते, आप कैसे हैं?", "roman": "namaste, aap kaise hain?", "en": "Namaste, how are you?", "correct": true },
+            { "text": "मुझे पानी चाहिए।", "roman": "mujhe paani chahiye.", "en": "I need water.", "correct": false, "note": "Thirsty or not, greet the elder first." }
+          ],
+          "explanation": "With elders, always the respectful आप (aap). नमस्ते, आप कैसे हैं? is the safe opening.",
+          "vocabulary": [
+            { "target": "आप", "roman": "aap", "meaning": "you (respectful)" }
+          ]
+        },
+        {
+          "id": "fam-2",
+          "npc": "मैं ठीक हूँ। घर पर सब कैसे हैं?",
+          "npc_roman": "main theek hoon. ghar par sab kaise hain?",
+          "npc_en": "I am fine. How is everyone at home?",
+          "prompt": "Choose the reply that says everyone is well.",
+          "choices": [
+            { "text": "सब ठीक हैं।", "roman": "sab theek hain.", "en": "Everyone is fine.", "correct": true },
+            { "text": "मुझे नींद आ रही है।", "roman": "mujhe neend aa rahi hai.", "en": "I am getting sleepy.", "correct": false, "note": "Not the answer to how the family is." }
+          ],
+          "explanation": "सब (sab, \"all/everyone\") + ठीक हैं (theek hain, \"are fine\"): सब ठीक हैं।",
+          "vocabulary": [
+            { "target": "सब", "roman": "sab", "meaning": "all / everyone" },
+            { "target": "घर", "roman": "ghar", "meaning": "home" }
+          ]
+        },
+        {
+          "id": "fam-3",
+          "npc": "खाना खा लिया?",
+          "npc_roman": "khaana kha liya?",
+          "npc_en": "Have you eaten?",
+          "prompt": "Choose the reply that says you have eaten.",
+          "choices": [
+            { "text": "हाँ, खा लिया।", "roman": "haan, kha liya.", "en": "Yes, I have eaten.", "correct": true },
+            { "text": "नहीं, मैं कल जाऊँगा।", "roman": "nahin, main kal jaaunga.", "en": "No, I will go tomorrow.", "correct": false, "note": "That answers neither the meal nor the moment." }
+          ],
+          "explanation": "खा लिया (kha liya) is the completion form of \"to eat\": हाँ, खा लिया। In Indian homes this question is hospitality, not just a question.",
+          "vocabulary": [
+            { "target": "हाँ", "roman": "haan", "meaning": "yes" }
+          ]
+        }
+      ],
+      "completion": "You greeted an elder respectfully, asked after the family, and answered the classic Indian hospitality question."
+    },
+    {
+      "id": "emergency",
+      "title": "Asking for help",
+      "level": "beginner",
+      "goal": "travel",
+      "context": "Something is wrong and you need help. A person stops next to you.",
+      "steps": [
+        {
+          "id": "em-1",
+          "npc": "क्या हुआ?",
+          "npc_roman": "kya hua?",
+          "npc_en": "What happened?",
+          "prompt": "Choose the reply that asks for help.",
+          "choices": [
+            { "text": "मुझे मदद चाहिए।", "roman": "mujhe madad chahiye.", "en": "I need help.", "correct": true },
+            { "text": "मैं ठीक हूँ।", "roman": "main theek hoon.", "en": "I am fine.", "correct": false, "note": "If you are fine, you do not need to stop people." }
+          ],
+          "explanation": "मदद (madad, \"help\") + चाहिए (chahiye): मुझे मदद चाहिए। The single most important sentence to know.",
+          "vocabulary": [
+            { "target": "मदद", "roman": "madad", "meaning": "help" }
+          ]
+        },
+        {
+          "id": "em-2",
+          "npc": "कहाँ दर्द है?",
+          "npc_roman": "kahaan dard hai?",
+          "npc_en": "Where does it hurt?",
+          "prompt": "Choose the reply that points at the pain.",
+          "choices": [
+            { "text": "यहाँ दर्द है।", "roman": "yahaan dard hai.", "en": "It hurts here.", "correct": true },
+            { "text": "क्या हुआ?", "roman": "kya hua?", "en": "What happened?", "correct": false, "note": "They asked you; don't bounce it back." }
+          ],
+          "explanation": "यहाँ (yahaan, \"here\") + दर्द (dard, \"pain\"): यहाँ दर्द है।",
+          "vocabulary": [
+            { "target": "दर्द", "roman": "dard", "meaning": "pain" },
+            { "target": "यहाँ", "roman": "yahaan", "meaning": "here" }
+          ]
+        },
+        {
+          "id": "em-3",
+          "npc": "मैं डॉक्टर को बुलाता हूँ।",
+          "npc_roman": "main doctor ko bulaata hoon.",
+          "npc_en": "I will call the doctor.",
+          "prompt": "Choose the reply that thanks them.",
+          "choices": [
+            { "text": "धन्यवाद!", "roman": "dhanyavaad!", "en": "Thank you!", "correct": true },
+            { "text": "मुझे भूख लगी है।", "roman": "mujhe bhookh lagi hai.", "en": "I am hungry.", "correct": false, "note": "Later. First thank the person helping." }
+          ],
+          "explanation": "धन्यवाद (dhanyavaad) — the same thank-you carries every situation.",
+          "vocabulary": [
+            { "target": "डॉक्टर", "roman": "doctor", "meaning": "doctor" }
+          ]
+        }
+      ],
+      "completion": "You asked for help, described where it hurt, and thanked the person helping. For anything serious, always call the local emergency number too."
+    }
+  ]
+}

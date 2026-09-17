@@ -1,0 +1,807 @@
+{
+ "note": "Every source key used in core batches. Priority = owner Phase 1 (A/B/C). source_url null ONLY with url_null_reason. Agent-compiled facts stay 'agent-knowledge' (below C) until verification pass 2 replaces them.",
+ "sources": {
+  "abkhazia-constitution": {
+   "source_name": "Constitution of Abkhazia, DE-FACTO authority (Abkhaz + Russian official)",
+   "source_url": null,
+   "url_null_reason": "de-facto status explicit; GE claims the territory — record both, take no side",
+   "evidence_type": "constitution-de-facto",
+   "priority": "A"
+  },
+  "ae-constitution-art7": {
+   "source_name": "UAE Constitution, Art.7 (Arabic is the official language)",
+   "source_url": null,
+   "url_null_reason": "official text at elaws.gov.ae; direct link archive pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "agent-knowledge": {
+   "source_name": "EkGuru agent training knowledge (compiled, unverified)",
+   "source_url": null,
+   "url_null_reason": "not a publication — a placeholder for facts awaiting verification pass 2",
+   "evidence_type": "agent-compiled",
+   "priority": "D-agent"
+  },
+  "am-census-2022": {
+   "source_name": "Armenia Census 2022 (~2.9M)",
+   "source_url": null,
+   "url_null_reason": "armstat.am census volumes; table links archive pass 2",
+   "evidence_type": "census",
+   "priority": "B"
+  },
+  "am-constitution": {
+   "source_name": "Armenian Constitution (Armenian is the official language)",
+   "source_url": null,
+   "url_null_reason": "article number + official text (arlis.am) verify pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "az-census-2019": {
+   "source_name": "Azerbaijan Census 2019 (~10.1M)",
+   "source_url": null,
+   "url_null_reason": "stat.gov.az census volumes; table links archive pass 2",
+   "evidence_type": "census",
+   "priority": "B"
+  },
+  "az-constitution-art21": {
+   "source_name": "Azerbaijani Constitution, Art.21 (Azerbaijani is the state language)",
+   "source_url": null,
+   "url_null_reason": "official text at president.az / e-qanun.az; direct link archive pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "bh-constitution": {
+   "source_name": "Bahrain Constitution 2002 (Arabic is the official language)",
+   "source_url": null,
+   "url_null_reason": "article number + official text (legalaffairs.gov.bh) verify pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "bn-constitution": {
+   "source_name": "Brunei Constitution (Malay is the official language; Jawi co-official script)",
+   "source_url": null,
+   "url_null_reason": "article number + official text verify pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "census-2011": {
+   "source_name": "Census of India 2011 — Language data (C-16)",
+   "source_url": "https://censusindia.gov.in",
+   "evidence_type": "national-census",
+   "priority": "A"
+  },
+  "census-2012": {
+   "source_name": "Sri Lanka Census 2012 — Department of Census and Statistics",
+   "source_url": "http://www.statistics.gov.lk",
+   "evidence_type": "national-census",
+   "priority": "A"
+  },
+  "census-2021": {
+   "source_name": "Nepal Census 2021 — National Statistics Office (mother-tongue tables)",
+   "source_url": "https://cbs.gov.np",
+   "evidence_type": "national-census",
+   "priority": "A"
+  },
+  "census-2022": {
+   "source_name": "Bangladesh Census 2022 / Maldives Census 2022 — national statistics offices",
+   "source_url": "https://bbs.gov.bd",
+   "evidence_type": "national-census",
+   "priority": "A"
+  },
+  "census-2023": {
+   "source_name": "Pakistan Census 2023 — Pakistan Bureau of Statistics (mother-tongue tables)",
+   "source_url": "https://www.pbs.gov.pk",
+   "evidence_type": "national-census",
+   "priority": "A"
+  },
+  "constitution": {
+   "source_name": "Constitution of Maldives (Dhivehi as official/national)",
+   "source_url": "https://www.constituteproject.org",
+   "evidence_type": "constitutional-record-via-compendium",
+   "priority": "A"
+  },
+  "constitution-2004-art16": {
+   "source_name": "Constitution of Afghanistan 2004, Article 16 (official languages)",
+   "source_url": "https://www.constituteproject.org",
+   "evidence_type": "constitutional-record-via-compendium",
+   "priority": "A"
+  },
+  "constitution-8th-schedule": {
+   "source_name": "Constitution of India, Eighth Schedule (22 scheduled languages)",
+   "source_url": "https://www.india.gov.in",
+   "evidence_type": "constitutional-record",
+   "priority": "A"
+  },
+  "constitution-art1": {
+   "source_name": "Constitution of Bhutan, Article 1 (Dzongkha as national language)",
+   "source_url": "https://www.constituteproject.org",
+   "evidence_type": "constitutional-record-via-compendium",
+   "priority": "A"
+  },
+  "constitution-art13": {
+   "source_name": "Constitution of Iran, Article 13 (recognised religious minorities)",
+   "source_url": "https://www.constituteproject.org",
+   "evidence_type": "constitutional-record-via-compendium",
+   "priority": "A"
+  },
+  "constitution-art15": {
+   "source_name": "Constitution of Iran, Article 15 (Persian as official language)",
+   "source_url": "https://www.constituteproject.org",
+   "evidence_type": "constitutional-record-via-compendium",
+   "priority": "A"
+  },
+  "constitution-art16": {
+   "source_name": "Constitution of Iran, Article 16 (Arabic in curriculum)",
+   "source_url": "https://www.constituteproject.org",
+   "evidence_type": "constitutional-record-via-compendium",
+   "priority": "A"
+  },
+  "constitution-art18-19": {
+   "source_name": "Constitution of Sri Lanka, Articles 18–19 (Sinhala + Tamil official, English link language)",
+   "source_url": "https://www.constituteproject.org",
+   "evidence_type": "constitutional-record-via-compendium",
+   "priority": "A"
+  },
+  "constitution-art251": {
+   "source_name": "Constitution of Pakistan, Article 251 (Urdu national, English official)",
+   "source_url": "https://www.constituteproject.org",
+   "evidence_type": "constitutional-record-via-compendium",
+   "priority": "A"
+  },
+  "constitution-art3": {
+   "source_name": "Constitution of Bangladesh, Article 3 (Bangla as state language)",
+   "source_url": "https://www.constituteproject.org",
+   "evidence_type": "constitutional-record-via-compendium",
+   "priority": "A"
+  },
+  "constitution-art343": {
+   "source_name": "Constitution of India, Article 343 (Hindi official, English associate)",
+   "source_url": "https://www.india.gov.in",
+   "evidence_type": "constitutional-record",
+   "priority": "A"
+  },
+  "constitution-art7": {
+   "source_name": "Constitution of Nepal 2015, Article 7 (Nepali official; all mother tongues national languages)",
+   "source_url": "https://www.constituteproject.org",
+   "evidence_type": "constitutional-record-via-compendium",
+   "priority": "A"
+  },
+  "constitution-ch4": {
+   "source_name": "Constitution of Sri Lanka, Chapter IV (language provisions)",
+   "source_url": "https://www.constituteproject.org",
+   "evidence_type": "constitutional-record-via-compendium",
+   "priority": "A"
+  },
+  "dzongkha-development-commission": {
+   "source_name": "Dzongkha Development Commission (19 Bhutanese languages)",
+   "source_url": "https://www.dzongkha.gov.bt",
+   "evidence_type": "government-language-portal",
+   "priority": "A"
+  },
+  "ekguru-registry": {
+   "source_name": "EkGuru country registry (restcountries-derived starting point)",
+   "source_url": null,
+   "url_null_reason": "local dataset — reports/country-registry-phase7.json",
+   "evidence_type": "derived-dataset",
+   "priority": "C"
+  },
+  "ethnologue-27": {
+   "source_name": "Ethnologue, 27th edition (SIL International) — living counts + L1 estimates",
+   "source_url": "https://www.ethnologue.com",
+   "evidence_type": "linguistic-database",
+   "priority": "A"
+  },
+  "ge-census-2014": {
+   "source_name": "Georgia Census 2014 (~3.7M, excl. breakaway territories)",
+   "source_url": null,
+   "url_null_reason": "geostat.ge census volumes; table links archive pass 2",
+   "evidence_type": "census",
+   "priority": "B"
+  },
+  "ge-constitution": {
+   "source_name": "Georgian Constitution (Georgian official; Abkhaz official in Abkhazia — de-facto split)",
+   "source_url": null,
+   "url_null_reason": "article number + official text (matsne.gov.ge) verify pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "glottolog-5.x": {
+   "source_name": "Glottolog 5.x (Max Planck Institute) — language-vs-dialect identity",
+   "source_url": "https://glottolog.org",
+   "evidence_type": "linguistic-database",
+   "priority": "A"
+  },
+  "gulf-press-estimates": {
+   "source_name": "Gulf expat-community sizes via embassy statements/press (vary ~2x; L1 splits mostly unavailable)",
+   "source_url": null,
+   "url_null_reason": "softest numbers in the dataset; ranges + low confidence mandatory",
+   "evidence_type": "press-estimate",
+   "priority": "C"
+  },
+  "id-census-2020": {
+   "source_name": "Indonesia Census 2020 (270M; NO language question — figures via surveys)",
+   "source_url": null,
+   "url_null_reason": "bps.go.id; language figures are survey-based, record softness",
+   "evidence_type": "census",
+   "priority": "B"
+  },
+  "id-constitution-art36": {
+   "source_name": "Indonesian Constitution, Art.36 (Bahasa Indonesia is the state language; Youth Pledge 1928 root)",
+   "source_url": null,
+   "url_null_reason": "official text via mkri.id / peraturan.go.id; direct link archive pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "il-cbs-surveys": {
+   "source_name": "Israel CBS social-survey language data (no census language question)",
+   "source_url": null,
+   "url_null_reason": "cbs.gov.il survey tables; links archive pass 2",
+   "evidence_type": "official-survey",
+   "priority": "B"
+  },
+  "il-nation-state-law-2018": {
+   "source_name": "Israel Basic Law: Nation-State 2018 (Hebrew is THE state language; Arabic has 'special status')",
+   "source_url": null,
+   "url_null_reason": "Knesset official text; direct link archive pass 2",
+   "evidence_type": "statute",
+   "priority": "A"
+  },
+  "iq-census-2024": {
+   "source_name": "Iraq Census Nov 2024 (first since 1987; language detail partial)",
+   "source_url": null,
+   "url_null_reason": "results still publishing as of 2026; language tables verify pass 2",
+   "evidence_type": "census",
+   "priority": "B"
+  },
+  "iq-constitution-art125": {
+   "source_name": "Iraqi Constitution, Art.125 (administrative/educational rights: Turkmen, Chaldeans, Assyrians)",
+   "source_url": null,
+   "url_null_reason": "official text via iraqld.iq; direct link archive pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "iq-constitution-art4": {
+   "source_name": "Iraqi Constitution 2005, Art.4 (Arabic AND Kurdish are the two official languages)",
+   "source_url": null,
+   "url_null_reason": "official text via iraqld.iq; direct link archive pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "islrtc": {
+   "source_name": "Indian Sign Language Research and Training Centre (ISLRTC)",
+   "source_url": "https://islrtc.nic.in",
+   "evidence_type": "government-language-portal",
+   "priority": "A"
+  },
+  "iso-639-3": {
+   "source_name": "ISO 639-3 registry (SIL International)",
+   "source_url": "https://iso639-3.sil.org",
+   "evidence_type": "iso-dataset",
+   "priority": "A"
+  },
+  "jk-official-languages-act-2020": {
+   "source_name": "J&K Official Languages Act 2020 (Kashmiri, Dogri, Hindi, Urdu, English)",
+   "source_url": null,
+   "url_null_reason": "Act cited by name; gazette URL to be added in verification pass 2",
+   "evidence_type": "legal-record-cited",
+   "priority": "A"
+  },
+  "jo-census-2015": {
+   "source_name": "Jordan Census 2015 (~9.5M incl. refugees)",
+   "source_url": null,
+   "url_null_reason": "dosweb.dos.gov.jo census tables; links archive pass 2",
+   "evidence_type": "census",
+   "priority": "B"
+  },
+  "jo-constitution-art2": {
+   "source_name": "Jordanian Constitution, Art.2 (Arabic is the official language)",
+   "source_url": null,
+   "url_null_reason": "official text via pm.gov.jo; direct link archive pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "karakalpakstan-constitution": {
+   "source_name": "Constitution of the Republic of Karakalpakstan (Karakalpak official)",
+   "source_url": null,
+   "url_null_reason": "official text via sovminrk.gov.uz; direct link verify pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "kg-census-2022": {
+   "source_name": "Kyrgyzstan Population Census 2022 (6.94M)",
+   "source_url": null,
+   "url_null_reason": "stat.kg census publications; table links archive pass 2",
+   "evidence_type": "census",
+   "priority": "B"
+  },
+  "kg-constitution": {
+   "source_name": "Constitution of the Kyrgyz Republic (Kyrgyz state language; Russian official)",
+   "source_url": null,
+   "url_null_reason": "official text at cbd.minjust.gov.kg; article number + direct link verify pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "kh-census-2019": {
+   "source_name": "Cambodia Census 2019 (mother-tongue coverage verify)",
+   "source_url": null,
+   "url_null_reason": "nis.gov.kh; mother-tongue tables verify pass 2",
+   "evidence_type": "census",
+   "priority": "B"
+  },
+  "kh-constitution": {
+   "source_name": "Cambodian Constitution (Khmer is the official language)",
+   "source_url": null,
+   "url_null_reason": "article number + official text verify pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "kw-constitution-art3": {
+   "source_name": "Kuwait Constitution, Art.3 (Arabic is the official language)",
+   "source_url": null,
+   "url_null_reason": "official text via kuwaitconstitution.org / cmgs.gov.kw; direct link archive pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "kz-census-2021": {
+   "source_name": "Kazakhstan National Census 2021 (19.17M)",
+   "source_url": null,
+   "url_null_reason": "stat.gov.kz census volumes; table links archive pass 2",
+   "evidence_type": "census",
+   "priority": "B"
+  },
+  "kz-constitution-art7": {
+   "source_name": "Constitution of Kazakhstan, Art.7 (Kazakh state language; Russian officially used)",
+   "source_url": null,
+   "url_null_reason": "official text at adilet.zan.kz (Adilet legal DB); direct link archive pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "la-census-2015": {
+   "source_name": "Laos Census 2015 (ethnicity-based; language detail thin)",
+   "source_url": null,
+   "url_null_reason": "lao‑stat tables verify pass 2",
+   "evidence_type": "census",
+   "priority": "B"
+  },
+  "la-constitution": {
+   "source_name": "Lao Constitution (Lao is the official language)",
+   "source_url": null,
+   "url_null_reason": "article number + official text verify pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "lb-constitution-art11": {
+   "source_name": "Lebanese Constitution, Art.11 (Arabic official; law determines cases where French is used)",
+   "source_url": null,
+   "url_null_reason": "official text via presidency.gov.lb; direct link archive pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "lb-no-census-1932": {
+   "source_name": "Lebanon: NO census since 1932 (figures via voter rolls/UN/estimates — soft by construction)",
+   "source_url": null,
+   "url_null_reason": "absence-of-source recorded as a source; do not invent precision",
+   "evidence_type": "census-gap",
+   "priority": "B"
+  },
+  "madhesh-province-2021": {
+   "source_name": "Madhesh Province official-language decision 2021 (Maithili + Bhojpuri)",
+   "source_url": null,
+   "url_null_reason": "provincial decision cited by name; gazette URL to be added in verification pass 2",
+   "evidence_type": "legal-record-cited",
+   "priority": "A"
+  },
+  "mm-census-2014": {
+   "source_name": "Myanmar Census 2014 (ethnicity-based; INFAMOUSLY excluded Rohingya self-identification)",
+   "source_url": null,
+   "url_null_reason": "exclusion recorded factually; all MM minority figures soft + junta-era",
+   "evidence_type": "census",
+   "priority": "B"
+  },
+  "mm-constitution-2008": {
+   "source_name": "Myanmar Constitution 2008 (Burmese official; ethnic nationality languages; post-2021 junta order)",
+   "source_url": null,
+   "url_null_reason": "article + post-coup validity verify pass 2; junta rule recorded factually",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "my-census-2020": {
+   "source_name": "Malaysia Census 2020 (no language question — ethnicity proxy + surveys)",
+   "source_url": null,
+   "url_null_reason": "dosm.gov.my; language figures survey-based",
+   "evidence_type": "census",
+   "priority": "B"
+  },
+  "my-constitution-art152": {
+   "source_name": "Malaysian Constitution, Art.152 (Malay is the national language)",
+   "source_url": null,
+   "url_null_reason": "official text via lom.agc.gov.my; direct link archive pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "official-languages-act-1963": {
+   "source_name": "India Official Languages Act 1963 (English continues indefinitely)",
+   "source_url": "https://www.india.gov.in",
+   "evidence_type": "legal-record",
+   "priority": "A"
+  },
+  "om-basic-law": {
+   "source_name": "Oman Basic Law of the State (Arabic is the official language)",
+   "source_url": null,
+   "url_null_reason": "article number + official text verify pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "ph-census-2020": {
+   "source_name": "Philippines Census 2020 (mother-tongue data collected)",
+   "source_url": null,
+   "url_null_reason": "psa.gov.ph census tables; links archive pass 2",
+   "evidence_type": "census",
+   "priority": "B"
+  },
+  "ph-constitution-art14": {
+   "source_name": "Philippine Constitution, Art.XIV (Filipino is THE national language + official with English)",
+   "source_url": null,
+   "url_null_reason": "official text via officialgazette.gov.ph; direct link archive pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "qa-constitution-art1": {
+   "source_name": "Qatar Constitution 2003, Art.1 (Arabic is the official language)",
+   "source_url": null,
+   "url_null_reason": "official text via diwan.gov.qa; direct link archive pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "ref-summary": {
+   "source_name": "General reference summaries (cross-check only, never sole source for disputes)",
+   "source_url": null,
+   "url_null_reason": "generic key for background cross-checks, not a citable publication",
+   "evidence_type": "secondary-crosscheck",
+   "priority": "C"
+  },
+  "sa-basic-law-art1": {
+   "source_name": "Saudi Basic Law of Governance, Art.1 (Arabic is the official language)",
+   "source_url": null,
+   "url_null_reason": "official text via laws.boe.gov.sa; direct link archive pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "sa-gastat": {
+   "source_name": "Saudi GASTAT population-by-nationality totals (L1 splits mostly unavailable — no-fabrication anchor)",
+   "source_url": null,
+   "url_null_reason": "stats.gov.sa bulletins; nationality != L1, record the gap",
+   "evidence_type": "official-estimate",
+   "priority": "B"
+  },
+  "sg-census-2020": {
+   "source_name": "Singapore Census 2020 (home language + literacy collected — best in batch)",
+   "source_url": null,
+   "url_null_reason": "singstat.gov.sg tables; links archive pass 2",
+   "evidence_type": "census",
+   "priority": "B"
+  },
+  "sg-constitution": {
+   "source_name": "Singapore Constitution (Malay/English/Mandarin/Tamil official; Malay is THE national language)",
+   "source_url": null,
+   "url_null_reason": "article number + official text (sso.agc.gov.sg) verify pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "sindh-official-status": {
+   "source_name": "Sindhi official standing in Sindh province (provincial law and practice)",
+   "source_url": null,
+   "url_null_reason": "standing cited by name; statute URL to be added in verification pass 2",
+   "evidence_type": "legal-record-cited",
+   "priority": "A"
+  },
+  "sy-constitution": {
+   "source_name": "Syrian Constitution (pre-war Art.4: Arabic official; POST-DEC-2024 TRANSITIONAL — fluid)",
+   "source_url": null,
+   "url_null_reason": "constitutional order in transition as of 2026; article + text verify pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "th-constitution": {
+   "source_name": "Thai Constitutions (NO language designated official — Thai is de-facto; Royal Society sets the standard)",
+   "source_url": null,
+   "url_null_reason": "absence-of-designation recorded; Royal Society (orst.go.th) standard role verify pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "tj-census-2020": {
+   "source_name": "Tajikistan Population Census 2020 (~9.5M)",
+   "source_url": null,
+   "url_null_reason": "stat.tj census report; table links + Pamiri-category check pass 2",
+   "evidence_type": "census",
+   "priority": "B"
+  },
+  "tj-language-law": {
+   "source_name": "Tajikistan Law on the State Language 2009 (Tajik state; Russian interethnic)",
+   "source_url": null,
+   "url_null_reason": "official text via president.tj / adlia portal; direct link verify pass 2",
+   "evidence_type": "statute",
+   "priority": "A"
+  },
+  "tl-census-2022": {
+   "source_name": "Timor-Leste Census 2022 (mother-tongue coverage verify)",
+   "source_url": null,
+   "url_null_reason": "statistics.gov.tl; tables verify pass 2",
+   "evidence_type": "census",
+   "priority": "B"
+  },
+  "tl-constitution-sec13": {
+   "source_name": "Timor-Leste Constitution, Sec.13 (Tetum + Portuguese official; Indonesian + English working languages)",
+   "source_url": null,
+   "url_null_reason": "official text via mj.gov.tl; direct link archive pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "tm-census-2022": {
+   "source_name": "Turkmenistan Census 2022 (7.06M claimed; almost no language detail published)",
+   "source_url": null,
+   "url_null_reason": "detail unpublished — figures soft by construction; revisit if tables appear",
+   "evidence_type": "census",
+   "priority": "B"
+  },
+  "tm-constitution": {
+   "source_name": "Constitution of Turkmenistan (Turkmen state language)",
+   "source_url": null,
+   "url_null_reason": "official text via turkmenistan.gov.tm; article number + direct link verify pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "tr-constitution-art3": {
+   "source_name": "Constitution of Türkiye, Art.3 (Turkish is the language of the State; no other language may be taught as mother tongue)",
+   "source_url": null,
+   "url_null_reason": "official text at anayasa.gov.tr / mevzuat.gov.tr; direct link archive pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "unesco-wal": {
+   "source_name": "UNESCO World Atlas of Languages",
+   "source_url": "https://www.unesco.org/en/languages-atlas",
+   "evidence_type": "linguistic-database",
+   "priority": "A"
+  },
+  "unhcr-2024": {
+   "source_name": "UNHCR 2024 refugee figures (Rohingya population)",
+   "source_url": "https://www.unhcr.org",
+   "evidence_type": "un-data",
+   "priority": "A"
+  },
+  "uz-language-law": {
+   "source_name": "Uzbekistan Law on the State Language 1989/1995 + Latin-script law 1993",
+   "source_url": null,
+   "url_null_reason": "official text at lex.uz; direct links archive pass 2",
+   "evidence_type": "statute",
+   "priority": "A"
+  },
+  "uz-stat-committee": {
+   "source_name": "Uzbekistan State Statistics Committee estimates (LAST full census 1989)",
+   "source_url": null,
+   "url_null_reason": "stat.uz estimates; no census language tables exist — all UZ figures estimated",
+   "evidence_type": "official-estimate",
+   "priority": "B"
+  },
+  "vn-census-2019": {
+   "source_name": "Vietnam Census 2019 (ethnicity collected — LANGUAGE PROXY, not language)",
+   "source_url": null,
+   "url_null_reason": "gso.gov.vn; ethnicity!=L1 — Tay woman in Hanoi may answer Kinh; record the gap",
+   "evidence_type": "census",
+   "priority": "B"
+  },
+  "vn-constitution-art5": {
+   "source_name": "Vietnamese Constitution 2013, Art.5 (Vietnamese is the national + official language)",
+   "source_url": null,
+   "url_null_reason": "official text via moj.gov.vn; direct link archive pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "wfd": {
+   "source_name": "World Federation of the Deaf (sign-language recognition data)",
+   "source_url": "https://wfdeaf.org",
+   "evidence_type": "linguistic-database",
+   "priority": "B"
+  },
+  "ye-constitution": {
+   "source_name": "Yemeni Constitution (Arabic is the official language; war — enforcement nominal)",
+   "source_url": null,
+   "url_null_reason": "article number + text verify pass 2",
+   "evidence_type": "constitution",
+   "priority": "A"
+  },
+  "google-cloud-tts-voices-2026-09-14": {
+   "source_name": "Google Cloud Text-to-Speech: Supported voices and languages (docs)",
+   "source_url": "https://docs.cloud.google.com/text-to-speech/docs/list-voices-and-types",
+   "evidence_type": "official-docs",
+   "priority": "A"
+  },
+  "azure-speech-tts-2026-09-14": {
+   "source_name": "Azure Speech: Language and voice support, text-to-speech locales (docs)",
+   "source_url": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support",
+   "evidence_type": "official-docs",
+   "priority": "A"
+  },
+  "google-translate-languages-2026-09-14": {
+   "source_name": "Google Cloud Translation: Supported languages (docs)",
+   "source_url": "https://cloud.google.com/translate/docs/languages",
+   "evidence_type": "official-docs",
+   "priority": "A"
+  },
+  "azure-translator-languages-2026-09-14": {
+   "source_name": "Azure Translator: Language support (docs)",
+   "source_url": "https://learn.microsoft.com/en-us/azure/ai-services/translator/language-support",
+   "evidence_type": "official-docs",
+   "priority": "A"
+  },
+  "sil-iso639-3-tab-2026": {
+   "source_name": "SIL ISO 639-3 code table (iso-639-3.tab, fetched 2026-09-14; 7927 codes incl 161 sign)",
+   "source_url": "https://iso639-3.sil.org/sites/iso639-3/files/downloads/iso-639-3.tab",
+   "evidence_type": "code-registry",
+   "priority": "A"
+  },
+  "ady-diaspora-speakers-1997": {
+   "source_name": "1997 Adyghe diaspora speaker estimate (TR 71K / JO 44K / SY 25K) via encyclopedia mirror",
+   "source_url": "https://en.everybodywiki.com/Adyghe_people",
+   "evidence_type": "encyclopedia-mirror",
+   "priority": "C"
+  },
+  "manding-mi-ankataa": {
+   "source_name": "An ka taa (Manding linguistics blog): Bamanan/Maninka/Jula mutually intelligible Eastern Manding",
+   "source_url": "https://www.ankataa.com/blog/bambara-alphabet",
+   "evidence_type": "linguistics-blog",
+   "priority": "C"
+  },
+  "dyula-wikipedia": {
+   "source_name": "Wikipedia: Dyula language (mutually intelligible with Bambara and Malinke)",
+   "source_url": "https://en.wikipedia.org/wiki/Dyula_language",
+   "evidence_type": "encyclopedia",
+   "priority": "C"
+  },
+  "kichwa-southern-gap": {
+   "source_name": "LatinoBridge: Cusco-designed Quechua translation unrecognizable to Ecuadorian Kichwa speaker",
+   "source_url": "https://latinobridge.com/blog/quechua-language-translation-the-key-essentials-to-know/",
+   "evidence_type": "translation-industry",
+   "priority": "C"
+  },
+  "ethnologue-southern-chinchay": {
+   "source_name": "Ethnologue subgroup 3882: Southern Chinchay (qul/quh/qus)",
+   "source_url": "https://www.ethnologue.com/subgroup/3882/",
+   "evidence_type": "linguistic-database",
+   "priority": "B"
+  },
+  "grn-qus-profile": {
+   "source_name": "Global Recordings Network: qus 'Close to Q.: Cusco & Bolivian'",
+   "source_url": "https://globalrecordings.net/en/language/qus",
+   "evidence_type": "missionary-linguistic",
+   "priority": "C"
+  },
+  "frisian-mi-wiktionary": {
+   "source_name": "Wiktionary: Frisian (West/Saterland/North not mutually intelligible; separate languages)",
+   "source_url": "https://en.wiktionary.org/wiki/Frisian",
+   "evidence_type": "dictionary-usage",
+   "priority": "C"
+  },
+  "frisian-mi-ems": {
+   "source_name": "English Made Simple: West↔North Frisian not mutually intelligible; Saterland distinct",
+   "source_url": "https://englishmadesimple.org/the-frisian-language/",
+   "evidence_type": "language-guide",
+   "priority": "D"
+  },
+  "et-census-2007": {
+   "source_name": "Ethiopia 2007 Population and Housing Census language shares (via CIA World Factbook country summary)",
+   "source_url": "https://www.cia.gov/the-world-factbook/countries/ethiopia/summaries",
+   "evidence_type": "census-via-factbook",
+   "priority": "B"
+  },
+  "wiki-languages-ethiopia": {
+   "source_name": "Wikipedia: Languages of Ethiopia (2007 shares + updated speaker totals + 2020 federal-5)",
+   "source_url": "https://en.wikipedia.org/wiki/Languages_of_Ethiopia",
+   "evidence_type": "encyclopedia",
+   "priority": "C"
+  },
+  "afanafrica-et-federal-2020": {
+   "source_name": "AfanAfrica: 29 Feb 2020 Council of Ministers decision (4 added to Amharic as federal working languages)",
+   "source_url": "https://afanafrica.org/ethiopian-languages/",
+   "evidence_type": "language-guide",
+   "priority": "C"
+  },
+  "wiki-gamo-gofa-dawro": {
+   "source_name": "Wikipedia: Gamo-Gofa-Dawro language (1.6M / 360K / 510K splits, 2007–2018; gmo retired→split)",
+   "source_url": "https://en.wikipedia.org/wiki/Gofa_language",
+   "evidence_type": "encyclopedia",
+   "priority": "C"
+  },
+  "wiki-gurage-zone": {
+   "source_name": "Wikipedia: Gurage Zone (2007/1994 census splits: Sebat Bet 45%, Silt'e 35%, Soddo 10%)",
+   "source_url": "https://en.wikipedia.org/wiki/Gurage_Zone",
+   "evidence_type": "encyclopedia",
+   "priority": "C"
+  },
+  "nz-census-2023": {
+   "source_name": "Stats NZ — 2023 Census language data (total responses, 4th language Hindi 77,985)",
+   "source_url": "https://www.stats.govt.nz/news/census-results-reflect-aotearoa-new-zealands-diversity/",
+   "evidence_type": "national-census",
+   "priority": "A"
+  },
+  "ca-census-2021": {
+   "source_name": "Statistics Canada — 2021 Census mother-tongue table 98-10-0170-01 (Punjabi MT 666,585)",
+   "source_url": "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=9810017001",
+   "evidence_type": "national-census",
+   "priority": "A"
+  },
+  "us-acs-2019": {
+   "source_name": "US Census Bureau — ACS 2019 1-year, report ACS-50 Table 1 (Hindi spoken at home 892,596)",
+   "source_url": "https://www.census.gov/library/publications/2022/acs/acs-50.html",
+   "evidence_type": "national-census",
+   "priority": "A"
+  },
+  "uk-census-2021": {
+   "source_name": "ONS — Census 2021 main language, England & Wales (Panjabi 291K, Urdu 270K)",
+   "source_url": "https://www.ons.gov.uk/peoplepopulationandcommunity/culturalidentity/language/bulletins/languageenglandandwales/census2021",
+   "evidence_type": "national-census",
+   "priority": "A"
+  },
+  "np-census-2021": {
+   "source_name": "Nepal NSO — National Population and Housing Census 2021 national report (Hindi L1 0.34%, L2 223,106)",
+   "source_url": "https://docs.censusnepal.cbs.gov.np/Documents/00871279-1fea-425d-8703-3f58e5bd5018.pdf",
+   "evidence_type": "national-census",
+   "priority": "A"
+  },
+  "ro-constitution-art13": {
+   "source_name": "Constitution of Romania, Art. 13 (official language is Romanian) — presidency.ro",
+   "source_url": "https://www.presidency.ro/en/the-constitution-of-romania",
+   "evidence_type": "constitutional-record",
+   "priority": "A"
+  },
+  "md-census-2014": {
+   "source_name": "Moldova NBS — 2014 census key results (Moldovan MT 56.7% + Romanian MT 23.5% of 2.72M declared)",
+   "source_url": "https://statistica.gov.md/en/key-results-of-the-2014-population-and-housing-census-34_2854.html",
+   "evidence_type": "national-census",
+   "priority": "A"
+  },
+  "md-lang-law-2023": {
+   "source_name": "Moldovan parliament 16 Mar 2023 final reading replacing 'Moldovan' with 'Romanian' in constitution (via ZDG)",
+   "source_url": "https://www.zdg.md/en/the-moldovan-language-replaced-by-romanian-now-also-in-the-constitution/",
+   "evidence_type": "legal-record-via-press",
+   "priority": "C"
+  },
+  "ua-census-2001": {
+   "source_name": "Ukraine 2001 census via Languages of Ukraine table (Romanian+Moldovan native 327,703 — only census to date)",
+   "source_url": "https://en.wikipedia.org/wiki/Languages_of_Ukraine",
+   "evidence_type": "national-census-via-encyclopedia",
+   "priority": "C"
+  },
+  "rs-census-2022": {
+   "source_name": "Serbia 2022 census via Vlachs of Serbia (Romanian MT ~20K + Vlach MT 23,216)",
+   "source_url": "https://en.wikipedia.org/wiki/Vlach_minority_in_Serbia",
+   "evidence_type": "national-census-via-encyclopedia",
+   "priority": "C"
+  },
+  "es-ine-padron-2023": {
+   "source_name": "Spain INE padrón via Romanians in Spain (629,755 Romanian citizens 2023 — citizenship-as-speakers proxy)",
+   "source_url": "https://en.wikipedia.org/wiki/Romanians_in_Spain",
+   "evidence_type": "admin-register-via-encyclopedia",
+   "priority": "C"
+  },
+  "it-istat-2023": {
+   "source_name": "ISTAT 2023 via Cinformi (Romanian citizens ~1.07M, 20.4% of 5.25M foreign residents — citizenship proxy)",
+   "source_url": "https://www.cinformi.it/Comunicazione/Notizie/Gli-stranieri-in-Italia-ecco-i-dati-Istat-piu-aggiornati",
+   "evidence_type": "statistical-office-via-gov-press",
+   "priority": "C"
+  },
+  "ml-constitution-2023": {
+   "source_name": "Mali new constitution (18 Jun 2023 referendum, 96.91%): French demoted to working language, 13 national languages official (via Africanews)",
+   "source_url": "https://www.africanews.com/amp/2023/07/26/mali-drops-french-as-official-language",
+   "evidence_type": "constitutional-record-via-press",
+   "priority": "C"
+  },
+  "za-sasl-12th-2023": {
+   "source_name": "SA Human Rights Commission: National Assembly passed Constitution §6 amendment making SASL 12th official language (May 2023; signed 19 Jul 2023)",
+   "source_url": "https://www.sahrc.org.za/index.php/sahrc-media/news/item/3611-parliament-approves-sign-language-as-12th-official-language",
+   "evidence_type": "constitutional-record-via-statutory-body",
+   "priority": "B"
+  }
+ }
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "language": {"code": "npi", "name": "Nepali", "native_name": "नेपाली", "family": "Indo-European: Indo-Aryan", "script": "Devanagari", "direction": "ltr", "canonical_note": "Canonical lang:npi course for NP/BT/QA contexts; do not duplicate with inventory lang:nep."},
+  "inventory_priority": {"language_id": "lang:npi", "priority": "P1", "score": 71, "countries": ["NP", "BT", "QA"]},
+  "orthography_pronunciation": {"needs": ["Devanagari akshara and matras", "inherent vowel and schwa behaviour", "dental/retroflex and aspirated contrasts", "nasalisation", "conjuncts", "stress, rhythm and intonation"], "voice_strategy": "Synthetic ne-NP browser voice when available; explicitly labelled with fallback limitations."},
+  "grammar": {"nominal": ["postpositions and oblique forms", "ले ergative/instrumental marking", "लाई dative/accusative marking", "को possessive agreement", "classifiers and counters", "honorific pronouns"], "verbal": ["person/honorific agreement", "simple and progressive aspect", "perfect and evidential forms", "future", "conditional", "conjunctive participles", "causatives and passives"], "syntax_discourse": ["SOV order", "relative-correlative constructions", "reported भनेर/रे", "topic/focus particles", "clause chaining", "pro-drop"]},
+  "register_pragmatics": ["तँ/तिमी/तपाईं/honorific उहाँ", "request mitigation", "formal correspondence", "evidential distance", "hospitality formulas", "regional and diaspora variation"],
+  "CEFR_progression": {"A1": "script, introductions, copula, present and basic postpositions", "A2": "past/future, possession, directions, requests and practical case marking", "B1": "aspect/evidential contrasts, conditionals, relative clauses and narration", "B2": "ergativity, causative/passive, participles, focus and register", "C1": "academic synthesis, mediation and calibrated stance", "C2": "scope, implication, rhetoric, idiom, genre transformation and epistemic precision"},
+  "country_relationship_source": "data/global/language-country-relations.json",
+  "sources": [
+    {"title": "Nepali Brihat Shabdakosh, Nepal Academy", "url": "https://nepalacademy.gov.np/", "use": "standard vocabulary, spelling and usage"},
+    {"title": "CEFR Companion Volume 2020", "url": "https://rm.coe.int/cefr-companion-volume-with-new-descriptors-2020/16809ea0d4", "use": "level progression, mediation, interaction and phonology"}
+  ],
+  "reviewed_at": "2026-09-17"
+}

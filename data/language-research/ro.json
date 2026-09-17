@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "language": {"code": "ro", "name": "Romanian", "native_name": "română", "family": "Indo-European: Eastern Romance", "script": "Latin", "direction": "ltr"},
+  "inventory_priority": {"language_id": "lang:ron", "priority": "P0", "score": 75, "countries": ["RO", "MD", "ES", "IT", "RS", "UA"]},
+  "orthography_pronunciation": {"needs": ["ă versus â/î", "ș and ț", "ce/ci and ge/gi", "unstressed vowel reduction", "word stress", "connected speech and intonation"], "voice_strategy": "Synthetic ro-RO browser voice, explicitly labelled; never claim native recording."},
+  "grammar": {"nominal": ["three genders with neuter singular/plural behaviour", "definite article suffixed to the noun", "indefinite articles", "nominative-accusative and genitive-dative forms", "adjective agreement", "pe-marked differential object and clitic doubling"], "verbal": ["present and compound perfect", "imperfect", "future variants", "subjunctive with să", "conditional-optative", "reflexive and passive constructions", "participles and gerunds"], "syntax_discourse": ["relatively flexible order and clitic placement", "relative care/pe care", "subjunctive complementation", "evidential and stance adverbs", "topic/focus fronting", "discourse connectives"]},
+  "register_pragmatics": ["tu versus dumneavoastră", "polite conditional requests", "formal correspondence", "mitigation in disagreement", "Romanian/Moldovan regional naming handled according to canonical inventory", "diaspora contexts without duplicate language entities"],
+  "CEFR_progression": {"A1": "sound-spelling, introductions, articles, present and basic objects", "A2": "compound perfect, quantity, directions, future and polite requests", "B1": "imperfect/perfect contrast, subjunctive, relative clauses and narration", "B2": "clitic doubling, conditional, passive/reflexive, information structure and register", "C1": "academic nominal style, synthesis, mediation, stance", "C2": "scope, implication, rhetoric, idiom, genre transformation and epistemic precision"},
+  "country_relationship_source": "data/global/language-country-relations.json",
+  "sources": [
+    {"title": "Institutul de Lingvistică Iorgu Iordan – Alexandru Rosetti", "url": "https://lingv.ro/", "use": "Romanian linguistic and normative research"},
+    {"title": "DEXonline normative resources", "url": "https://dexonline.ro/", "use": "orthography, morphology, definitions and usage labels"},
+    {"title": "CEFR Companion Volume 2020", "url": "https://rm.coe.int/cefr-companion-volume-with-new-descriptors-2020/16809ea0d4", "use": "level progression, mediation, interaction and phonology"}
+  ],
+  "reviewed_at": "2026-09-17"
+}

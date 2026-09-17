@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "language": {"code": "ht", "name": "Haitian Creole", "native_name": "kreyòl ayisyen", "family": "French-lexified Atlantic Creole", "script": "Latin official Haitian orthography", "direction": "ltr", "canonical_note": "One canonical lang:hat course with HT/BS/CL/CU/DO/US contexts; no country duplicates."},
+  "inventory_priority": {"language_id": "lang:hat", "priority": "P1", "score": 70, "countries": ["HT", "BS", "CL", "CU", "DO", "US"]},
+  "orthography_pronunciation": {"needs": ["one sound-oriented official spelling system", "nasal vowels an/en/on", "ou, ch, j, y and w", "avoid importing silent French letters", "word groups, rhythm and intonation", "regional variation"], "voice_strategy": "No guaranteed browser TTS in canonical inventory; audio remains explicitly synthetic/fallback and must never claim native recording."},
+  "grammar": {"nominal": ["postposed definite determiners la/a/an/lan/nan", "plural yo", "possessive noun/pronoun order", "no grammatical gender", "prepositions"], "verbal": ["invariant verb stems", "preverbal tense-mood-aspect markers te/ap/pral/ta", "negation pa", "serial verbs", "passive and causative strategies"], "syntax_discourse": ["SVO order", "se copular/focus construction", "ki relative clauses", "topic left-dislocation", "clause chaining and discourse markers"]},
+  "register_pragmatics": ["ou versus nou respectful/plural address", "politeness formulas", "indirect requests", "formal administrative and educational Creole", "French code-switching described without treating Creole as deficient", "diaspora variation"],
+  "CEFR_progression": {"A1": "sound-spelling, greetings, se, basic predicates and determiners", "A2": "TMA markers, quantity, directions, plans and requests", "B1": "TMA sequencing, relative clauses, reporting and narration", "B2": "focus, modality, passive strategies, clause chaining and register", "C1": "academic synthesis, mediation and calibrated stance", "C2": "scope, implication, rhetoric, proverb/idiom, genre transformation and precision"},
+  "country_relationship_source": "data/global/language-country-relations.json",
+  "sources": [
+    {"title": "Akademi Kreyòl Ayisyen", "url": "https://akademikreyol.net/", "use": "official language and orthographic guidance"},
+    {"title": "MIT-Haiti Initiative", "url": "https://mit-haiti.org/", "use": "Creole-medium educational and linguistic resources"},
+    {"title": "CEFR Companion Volume 2020", "url": "https://rm.coe.int/cefr-companion-volume-with-new-descriptors-2020/16809ea0d4", "use": "level progression, mediation, interaction and phonology"}
+  ],
+  "reviewed_at": "2026-09-17"
+}

@@ -1,0 +1,1874 @@
+{
+  "code": "uzn",
+  "name": "Uzbek",
+  "native": "oʻzbek tili",
+  "phase": 3,
+  "medium": "en",
+  "file_level": "C2",
+  "research_basis": "data/language-research/uzn.json",
+  "level": {
+    "title": "Uzbek C2",
+    "goals": [
+      "Control Uzbek case, suffix order, tense-aspect-mood, and information structure",
+      "Develop reception, interaction, production, and mediation",
+      "Use pronunciation, politeness, register, and cohesion appropriately"
+    ],
+    "units": [
+      {
+        "id": "uzn-c2-u1",
+        "title": "Semantic and Viewpoint Precision",
+        "lessons": [
+          {
+            "id": "uzn-c2-l1",
+            "title": "Inkor doirasi",
+            "learn": "Control inkor doirasi in level-appropriate Uzbek communication.",
+            "vocab": [
+              {
+                "t": "Koʻrinadigan",
+                "r": "Koʻrinadigan",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "har",
+                "r": "har",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "bir",
+                "r": "bir",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "yaxshilanish",
+                "r": "yaxshilanish",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "haqiqiy",
+                "r": "haqiqiy",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "taraqqiyot",
+                "r": "taraqqiyot",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "emas",
+                "r": "emas",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ayrim",
+                "r": "ayrim",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Inkor doirasi",
+              "explain": "Uzbek combines agglutinative suffix order, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+              "pattern": "topic + case-marked arguments + suffix chain + clause-final predicate",
+              "examples": [
+                {
+                  "t": "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                  "r": "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                  "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                },
+                {
+                  "t": "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                  "r": "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                  "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                },
+                {
+                  "t": "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                  "r": "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                  "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with broken suffix order, case, or evidential marking",
+                  "right": "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                  "why": "The corrected model aligns morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "r": "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "r": "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "r": "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              },
+              {
+                "sp": "Editor",
+                "t": "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "r": "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "en": "The compromise swept the problem under the carpet while both sides saved face."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Inkor doirasi — multiple choice: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "answer": "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Inkor doirasi — fill in the blank: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "answer": "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Inkor doirasi — translation: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "answer": "Not every apparent improvement is real progress; some results merely redistribute the burden.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Inkor doirasi — reverse translation: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "answer": "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Inkor doirasi — matching: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "answer": "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "skill_target": "matching",
+                "options": [
+                  "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Inkor doirasi — reorder: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "answer": "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Inkor doirasi — sentence building: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "answer": "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Inkor doirasi — word selection: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "answer": "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "skill_target": "word selection",
+                "options": [
+                  "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Inkor doirasi — error correction: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "answer": "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Inkor doirasi — dialogue completion: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "answer": "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Inkor doirasi — reading comprehension: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "answer": "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Inkor doirasi — paragraph comprehension: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "answer": "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Inkor doirasi: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              },
+              {
+                "q": "Inkor doirasi: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              },
+              {
+                "q": "Inkor doirasi: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              },
+              {
+                "q": "Inkor doirasi: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              },
+              {
+                "q": "Inkor doirasi: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Koʻrinadigan",
+              "har",
+              "bir",
+              "yaxshilanish"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Inkor doirasi workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate suffixes and discourse function.",
+                  "items": [
+                    "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                    "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi."
+                  ],
+                  "key": [
+                    "Uzbek combines agglutinative suffix order, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+                    "Uzbek combines agglutinative suffix order, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                    "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi."
+                  ],
+                  "key": [
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden.",
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden.",
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                  ],
+                  "key": [
+                    "Model: Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                    "Model: Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "uzn-c2-l2",
+            "title": "Tagmaʼno va masofa",
+            "learn": "Control tagmaʼno va masofa in level-appropriate Uzbek communication.",
+            "vocab": [
+              {
+                "t": "Natijani",
+                "r": "Natijani",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "unchalik",
+                "r": "unchalik",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "kutilmagan",
+                "r": "kutilmagan",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "emas",
+                "r": "emas",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "deyish",
+                "r": "deyish",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "soʻzlovchini",
+                "r": "soʻzlovchini",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "hayratlanganlardan",
+                "r": "hayratlanganlardan",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "nozik",
+                "r": "nozik",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Tagmaʼno va masofa",
+              "explain": "Uzbek combines agglutinative suffix order, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+              "pattern": "topic + case-marked arguments + suffix chain + clause-final predicate",
+              "examples": [
+                {
+                  "t": "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                  "r": "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                  "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                },
+                {
+                  "t": "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                  "r": "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                  "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                },
+                {
+                  "t": "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                  "r": "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                  "en": "The compromise swept the problem under the carpet while both sides saved face."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with broken suffix order, case, or evidential marking",
+                  "right": "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                  "why": "The corrected model aligns morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "r": "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "r": "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "r": "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "en": "The compromise swept the problem under the carpet while both sides saved face."
+              },
+              {
+                "sp": "Editor",
+                "t": "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "r": "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reorder",
+                "q": "Tagmaʼno va masofa — reorder: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "answer": "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Tagmaʼno va masofa — sentence building: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "answer": "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Tagmaʼno va masofa — word selection: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "answer": "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "skill_target": "word selection",
+                "options": [
+                  "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Tagmaʼno va masofa — error correction: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "answer": "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Tagmaʼno va masofa — dialogue completion: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "answer": "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Tagmaʼno va masofa — reading comprehension: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "answer": "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Tagmaʼno va masofa — paragraph comprehension: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "answer": "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "main_idea",
+                "q": "Tagmaʼno va masofa — main idea: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "answer": "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Tagmaʼno va masofa — detail identification: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "answer": "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "inference",
+                "q": "Tagmaʼno va masofa — inference: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "answer": "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Tagmaʼno va masofa — listening comprehension: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "answer": "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: uz-UZ browser voice when available; synthetic fallback disclosed; text=Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi."
+              },
+              {
+                "type": "dictation",
+                "q": "Tagmaʼno va masofa — dictation: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "answer": "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: uz-UZ browser voice when available; synthetic fallback disclosed; text=Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Tagmaʼno va masofa: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              },
+              {
+                "q": "Tagmaʼno va masofa: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              },
+              {
+                "q": "Tagmaʼno va masofa: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              },
+              {
+                "q": "Tagmaʼno va masofa: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              },
+              {
+                "q": "Tagmaʼno va masofa: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Natijani",
+              "unchalik",
+              "kutilmagan",
+              "emas"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Tagmaʼno va masofa workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate suffixes and discourse function.",
+                  "items": [
+                    "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                    "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak."
+                  ],
+                  "key": [
+                    "Uzbek combines agglutinative suffix order, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+                    "Uzbek combines agglutinative suffix order, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                    "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak."
+                  ],
+                  "key": [
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised.",
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised.",
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                  ],
+                  "key": [
+                    "Model: Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                    "Model: Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "uzn-c2-u2",
+        "title": "Rhetoric and Genre Mastery",
+        "lessons": [
+          {
+            "id": "uzn-c2-l3",
+            "title": "Ritorik parallelizm",
+            "learn": "Control ritorik parallelizm in level-appropriate Uzbek communication.",
+            "vocab": [
+              {
+                "t": "Bizga",
+                "r": "Bizga",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "shoshilmasdan",
+                "r": "shoshilmasdan",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "intilish",
+                "r": "intilish",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "falajsiz",
+                "r": "falajsiz",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ehtiyotkorlik",
+                "r": "ehtiyotkorlik",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "va",
+                "r": "va",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "tomoshasiz",
+                "r": "tomoshasiz",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "hisobdorlik",
+                "r": "hisobdorlik",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Ritorik parallelizm",
+              "explain": "Uzbek combines agglutinative suffix order, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+              "pattern": "topic + case-marked arguments + suffix chain + clause-final predicate",
+              "examples": [
+                {
+                  "t": "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                  "r": "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                  "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                },
+                {
+                  "t": "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                  "r": "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                  "en": "The compromise swept the problem under the carpet while both sides saved face."
+                },
+                {
+                  "t": "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                  "r": "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                  "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with broken suffix order, case, or evidential marking",
+                  "right": "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                  "why": "The corrected model aligns morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "r": "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "r": "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "en": "The compromise swept the problem under the carpet while both sides saved face."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "r": "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              },
+              {
+                "sp": "Editor",
+                "t": "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "r": "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "en": "On available evidence, this is the least implausible explanation, not an indisputable verdict."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reading_comprehension",
+                "q": "Ritorik parallelizm — reading comprehension: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "answer": "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Ritorik parallelizm — paragraph comprehension: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "answer": "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "main_idea",
+                "q": "Ritorik parallelizm — main idea: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "answer": "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Ritorik parallelizm — detail identification: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "answer": "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "inference",
+                "q": "Ritorik parallelizm — inference: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "answer": "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Ritorik parallelizm — listening comprehension: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "answer": "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: uz-UZ browser voice when available; synthetic fallback disclosed; text=Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak."
+              },
+              {
+                "type": "dictation",
+                "q": "Ritorik parallelizm — dictation: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "answer": "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: uz-UZ browser voice when available; synthetic fallback disclosed; text=Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Ritorik parallelizm — listen and choose: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "answer": "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "skill_target": "listen and choose",
+                "options": [
+                  "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ],
+                "audio_source": "synthetic_tts: uz-UZ browser voice when available; synthetic fallback disclosed; text=Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak."
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "Ritorik parallelizm — listen and reorder: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "answer": "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: uz-UZ browser voice when available; synthetic fallback disclosed; text=Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak."
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Ritorik parallelizm — listen and fill: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "answer": "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "skill_target": "listen and fill",
+                "audio_source": "synthetic_tts: uz-UZ browser voice when available; synthetic fallback disclosed; text=Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Ritorik parallelizm — repeat after audio: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "answer": "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: uz-UZ browser voice when available; synthetic fallback disclosed; text=Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak."
+              },
+              {
+                "type": "pronunciation",
+                "q": "Ritorik parallelizm — pronunciation: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "answer": "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: uz-UZ browser voice when available; synthetic fallback disclosed; text=Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Ritorik parallelizm: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              },
+              {
+                "q": "Ritorik parallelizm: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              },
+              {
+                "q": "Ritorik parallelizm: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              },
+              {
+                "q": "Ritorik parallelizm: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              },
+              {
+                "q": "Ritorik parallelizm: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Bizga",
+              "shoshilmasdan",
+              "intilish",
+              "falajsiz"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Ritorik parallelizm workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate suffixes and discourse function.",
+                  "items": [
+                    "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                    "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi."
+                  ],
+                  "key": [
+                    "Uzbek combines agglutinative suffix order, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+                    "Uzbek combines agglutinative suffix order, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                    "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi."
+                  ],
+                  "key": [
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle.",
+                    "The compromise swept the problem under the carpet while both sides saved face."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle.",
+                    "The compromise swept the problem under the carpet while both sides saved face."
+                  ],
+                  "key": [
+                    "Model: Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                    "Model: Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "uzn-c2-l4",
+            "title": "Idiomatik talqin",
+            "learn": "Control idiomatik talqin in level-appropriate Uzbek communication.",
+            "vocab": [
+              {
+                "t": "Murosa",
+                "r": "Murosa",
+                "en": "discourse segment in “The compromise swept the problem under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "muammoni",
+                "r": "muammoni",
+                "en": "discourse segment in “The compromise swept the problem under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "gilam",
+                "r": "gilam",
+                "en": "discourse segment in “The compromise swept the problem under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ostiga",
+                "r": "ostiga",
+                "en": "discourse segment in “The compromise swept the problem under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "supurib",
+                "r": "supurib",
+                "en": "discourse segment in “The compromise swept the problem under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ikki",
+                "r": "ikki",
+                "en": "discourse segment in “The compromise swept the problem under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "tomonga",
+                "r": "tomonga",
+                "en": "discourse segment in “The compromise swept the problem under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ham",
+                "r": "ham",
+                "en": "discourse segment in “The compromise swept the problem under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Idiomatik talqin",
+              "explain": "Uzbek combines agglutinative suffix order, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+              "pattern": "topic + case-marked arguments + suffix chain + clause-final predicate",
+              "examples": [
+                {
+                  "t": "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                  "r": "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                  "en": "The compromise swept the problem under the carpet while both sides saved face."
+                },
+                {
+                  "t": "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                  "r": "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                  "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                },
+                {
+                  "t": "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                  "r": "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                  "en": "On available evidence, this is the least implausible explanation, not an indisputable verdict."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with broken suffix order, case, or evidential marking",
+                  "right": "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                  "why": "The corrected model aligns morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "r": "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "en": "The compromise swept the problem under the carpet while both sides saved face."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "r": "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "r": "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "en": "On available evidence, this is the least implausible explanation, not an indisputable verdict."
+              },
+              {
+                "sp": "Editor",
+                "t": "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "r": "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              }
+            ],
+            "practice": [
+              {
+                "type": "listening_comprehension",
+                "q": "Idiomatik talqin — listening comprehension: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "answer": "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: uz-UZ browser voice when available; synthetic fallback disclosed; text=Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi."
+              },
+              {
+                "type": "dictation",
+                "q": "Idiomatik talqin — dictation: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "answer": "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: uz-UZ browser voice when available; synthetic fallback disclosed; text=Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Idiomatik talqin — listen and choose: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "answer": "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "skill_target": "listen and choose",
+                "options": [
+                  "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ],
+                "audio_source": "synthetic_tts: uz-UZ browser voice when available; synthetic fallback disclosed; text=Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi."
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "Idiomatik talqin — listen and reorder: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "answer": "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: uz-UZ browser voice when available; synthetic fallback disclosed; text=Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi."
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Idiomatik talqin — listen and fill: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "answer": "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "skill_target": "listen and fill",
+                "audio_source": "synthetic_tts: uz-UZ browser voice when available; synthetic fallback disclosed; text=Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Idiomatik talqin — repeat after audio: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "answer": "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: uz-UZ browser voice when available; synthetic fallback disclosed; text=Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi."
+              },
+              {
+                "type": "pronunciation",
+                "q": "Idiomatik talqin — pronunciation: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "answer": "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: uz-UZ browser voice when available; synthetic fallback disclosed; text=Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi."
+              },
+              {
+                "type": "shadowing",
+                "q": "Idiomatik talqin — shadowing: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "answer": "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: uz-UZ browser voice when available; synthetic fallback disclosed; text=Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Idiomatik talqin — guided speaking: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "answer": "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "Idiomatik talqin — free response: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "answer": "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "Idiomatik talqin — roleplay: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "answer": "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Idiomatik talqin — sentence writing: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "answer": "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                "skill_target": "sentence writing"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Idiomatik talqin: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              },
+              {
+                "q": "Idiomatik talqin: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              },
+              {
+                "q": "Idiomatik talqin: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              },
+              {
+                "q": "Idiomatik talqin: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              },
+              {
+                "q": "Idiomatik talqin: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Murosa",
+              "muammoni",
+              "gilam",
+              "ostiga"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Idiomatik talqin workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate suffixes and discourse function.",
+                  "items": [
+                    "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                    "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi."
+                  ],
+                  "key": [
+                    "Uzbek combines agglutinative suffix order, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+                    "Uzbek combines agglutinative suffix order, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                    "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi."
+                  ],
+                  "key": [
+                    "The compromise swept the problem under the carpet while both sides saved face.",
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "The compromise swept the problem under the carpet while both sides saved face.",
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                  ],
+                  "key": [
+                    "Model: Murosa muammoni gilam ostiga supurib, ikki tomonga ham obroʻsini saqlash imkonini berdi.",
+                    "Model: Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "uzn-c2-u3",
+        "title": "Cultural and High-Stakes Mediation",
+        "lessons": [
+          {
+            "id": "uzn-c2-l5",
+            "title": "Janrni oʻzgartirish",
+            "learn": "Control janrni oʻzgartirish in level-appropriate Uzbek communication.",
+            "vocab": [
+              {
+                "t": "Memorandum",
+                "r": "Memorandum",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "noaniqlikni",
+                "r": "noaniqlikni",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "tan",
+                "r": "tan",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "oladi",
+                "r": "oladi",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ommaviy",
+                "r": "ommaviy",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "bayonot",
+                "r": "bayonot",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "esa",
+                "r": "esa",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "uni",
+                "r": "uni",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Janrni oʻzgartirish",
+              "explain": "Uzbek combines agglutinative suffix order, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+              "pattern": "topic + case-marked arguments + suffix chain + clause-final predicate",
+              "examples": [
+                {
+                  "t": "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                  "r": "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                  "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                },
+                {
+                  "t": "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                  "r": "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                  "en": "On available evidence, this is the least implausible explanation, not an indisputable verdict."
+                },
+                {
+                  "t": "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                  "r": "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                  "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with broken suffix order, case, or evidential marking",
+                  "right": "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                  "why": "The corrected model aligns morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "r": "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "r": "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "en": "On available evidence, this is the least implausible explanation, not an indisputable verdict."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "r": "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              },
+              {
+                "sp": "Editor",
+                "t": "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "r": "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              }
+            ],
+            "practice": [
+              {
+                "type": "repeat_after_audio",
+                "q": "Janrni oʻzgartirish — repeat after audio: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "answer": "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: uz-UZ browser voice when available; synthetic fallback disclosed; text=Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi."
+              },
+              {
+                "type": "pronunciation",
+                "q": "Janrni oʻzgartirish — pronunciation: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "answer": "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: uz-UZ browser voice when available; synthetic fallback disclosed; text=Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi."
+              },
+              {
+                "type": "shadowing",
+                "q": "Janrni oʻzgartirish — shadowing: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "answer": "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: uz-UZ browser voice when available; synthetic fallback disclosed; text=Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Janrni oʻzgartirish — guided speaking: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "answer": "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "Janrni oʻzgartirish — free response: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "answer": "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "Janrni oʻzgartirish — roleplay: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "answer": "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Janrni oʻzgartirish — sentence writing: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "answer": "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "Janrni oʻzgartirish — short writing: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "answer": "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "paraphrase",
+                "q": "Janrni oʻzgartirish — paraphrase: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "answer": "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "Janrni oʻzgartirish — summary: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "answer": "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Janrni oʻzgartirish — guided composition: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "answer": "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Janrni oʻzgartirish — register transformation: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "answer": "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                "skill_target": "register transformation"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Janrni oʻzgartirish: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              },
+              {
+                "q": "Janrni oʻzgartirish: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              },
+              {
+                "q": "Janrni oʻzgartirish: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              },
+              {
+                "q": "Janrni oʻzgartirish: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              },
+              {
+                "q": "Janrni oʻzgartirish: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Memorandum",
+              "noaniqlikni",
+              "tan",
+              "oladi"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Janrni oʻzgartirish workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate suffixes and discourse function.",
+                  "items": [
+                    "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                    "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas."
+                  ],
+                  "key": [
+                    "Uzbek combines agglutinative suffix order, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+                    "Uzbek combines agglutinative suffix order, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                    "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas."
+                  ],
+                  "key": [
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence.",
+                    "On available evidence, this is the least implausible explanation, not an indisputable verdict."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence.",
+                    "On available evidence, this is the least implausible explanation, not an indisputable verdict."
+                  ],
+                  "key": [
+                    "Model: Memorandum noaniqlikni tan oladi, ommaviy bayonot esa uni oʻlchovli ishonch sifatida qayta beradi.",
+                    "Model: Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "uzn-c2-l6",
+            "title": "Epistemik aniqlik",
+            "learn": "Control epistemik aniqlik in level-appropriate Uzbek communication.",
+            "vocab": [
+              {
+                "t": "Mavjud",
+                "r": "Mavjud",
+                "en": "discourse segment in “On available evidence, this is the least implausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "dalillarga",
+                "r": "dalillarga",
+                "en": "discourse segment in “On available evidence, this is the least implausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "koʻra",
+                "r": "koʻra",
+                "en": "discourse segment in “On available evidence, this is the least implausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "bu",
+                "r": "bu",
+                "en": "discourse segment in “On available evidence, this is the least implausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "eng",
+                "r": "eng",
+                "en": "discourse segment in “On available evidence, this is the least implausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "kam",
+                "r": "kam",
+                "en": "discourse segment in “On available evidence, this is the least implausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ehtimoldan",
+                "r": "ehtimoldan",
+                "en": "discourse segment in “On available evidence, this is the least implausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "yiroq",
+                "r": "yiroq",
+                "en": "discourse segment in “On available evidence, this is the least implausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Epistemik aniqlik",
+              "explain": "Uzbek combines agglutinative suffix order, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+              "pattern": "topic + case-marked arguments + suffix chain + clause-final predicate",
+              "examples": [
+                {
+                  "t": "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                  "r": "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                  "en": "On available evidence, this is the least implausible explanation, not an indisputable verdict."
+                },
+                {
+                  "t": "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                  "r": "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                  "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                },
+                {
+                  "t": "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                  "r": "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                  "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with broken suffix order, case, or evidential marking",
+                  "right": "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                  "why": "The corrected model aligns morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "r": "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "en": "On available evidence, this is the least implausible explanation, not an indisputable verdict."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "r": "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi.",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "r": "Natijani unchalik kutilmagan emas deyish soʻzlovchini hayratlanganlardan nozik tarzda uzoqlashtiradi.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              },
+              {
+                "sp": "Editor",
+                "t": "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "r": "Bizga shoshilmasdan intilish, falajsiz ehtiyotkorlik va tomoshasiz hisobdorlik kerak.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              }
+            ],
+            "practice": [
+              {
+                "type": "roleplay",
+                "q": "Epistemik aniqlik — roleplay: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "answer": "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Epistemik aniqlik — sentence writing: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "answer": "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "Epistemik aniqlik — short writing: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "answer": "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "paraphrase",
+                "q": "Epistemik aniqlik — paraphrase: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "answer": "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "Epistemik aniqlik — summary: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "answer": "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Epistemik aniqlik — guided composition: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "answer": "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Epistemik aniqlik — register transformation: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "answer": "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "skill_target": "register transformation"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Epistemik aniqlik — multiple choice: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "answer": "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Epistemik aniqlik — fill in the blank: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "answer": "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Epistemik aniqlik — translation: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "answer": "On available evidence, this is the least implausible explanation, not an indisputable verdict.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Epistemik aniqlik — reverse translation: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "answer": "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Epistemik aniqlik — matching: analyse or produce the Uzbek model with correct suffixes, evidence, scope, and register: Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "answer": "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                "skill_target": "matching",
+                "options": [
+                  "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                  "Form with incorrect case or evidentiality",
+                  "An unrelated greeting"
+                ]
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Epistemik aniqlik: which model preserves the intended grammar and meaning? (1)",
+                "options": [
+                  "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              },
+              {
+                "q": "Epistemik aniqlik: which model preserves the intended grammar and meaning? (2)",
+                "options": [
+                  "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              },
+              {
+                "q": "Epistemik aniqlik: which model preserves the intended grammar and meaning? (3)",
+                "options": [
+                  "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              },
+              {
+                "q": "Epistemik aniqlik: which model preserves the intended grammar and meaning? (4)",
+                "options": [
+                  "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              },
+              {
+                "q": "Epistemik aniqlik: which model preserves the intended grammar and meaning? (5)",
+                "options": [
+                  "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                  "Form with incorrect suffix order or scope",
+                  "An unrelated greeting",
+                  "A predicate with wrong evidentiality"
+                ],
+                "answer": 0,
+                "why": "The model preserves Uzbek morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Mavjud",
+              "dalillarga",
+              "koʻra",
+              "bu"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Epistemik aniqlik workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate suffixes and discourse function.",
+                  "items": [
+                    "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                    "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi."
+                  ],
+                  "key": [
+                    "Uzbek combines agglutinative suffix order, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register.",
+                    "Uzbek combines agglutinative suffix order, case, possession, tense-aspect-mood and evidentiality, participles, converbs, head-final syntax, and prosody. These choices encode participant roles, event boundaries, evidence, focus, and social register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                    "Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi."
+                  ],
+                  "key": [
+                    "On available evidence, this is the least implausible explanation, not an indisputable verdict.",
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "On available evidence, this is the least implausible explanation, not an indisputable verdict.",
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                  ],
+                  "key": [
+                    "Model: Mavjud dalillarga koʻra, bu eng kam ehtimoldan yiroq izoh, bahssiz hukm emas.",
+                    "Model: Koʻrinadigan har bir yaxshilanish haqiqiy taraqqiyot emas; ayrim natijalar yukni xolos qayta taqsimlaydi."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "Spanish C2 Proficiency Test",
+      "items": [
+        {
+          "type": "argument_construction",
+          "q": "Uzbek C2 integrated task 1: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Uzbek course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Uzbek C2 integrated task 2: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Uzbek course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Uzbek C2 integrated task 3: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Uzbek course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Uzbek C2 integrated task 4: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Uzbek course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Uzbek C2 integrated task 5: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Uzbek course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Uzbek C2 integrated task 6: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Uzbek course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Uzbek C2 integrated task 7: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Uzbek course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Uzbek C2 integrated task 8: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Uzbek course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Uzbek C2 integrated task 9: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Uzbek course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Uzbek C2 integrated task 10: respond with accurate suffixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Uzbek course rubric."
+        }
+      ]
+    }
+  }
+}

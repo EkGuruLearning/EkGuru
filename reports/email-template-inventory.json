@@ -1,0 +1,247 @@
+{
+  "generated": "2026-09-11T18:06:41Z",
+  "source": "js/email-templates.js TEMPLATES",
+  "design_system": "one shared shell (EkGuru card layout), HTML + plain-text, all user values escaped",
+  "registry_contract": "render() fails on unknown type, missing/undeclared/null variable, raw {placeholder}, unescaped <script>",
+  "templates": [
+    {
+      "key": "bookingStudent",
+      "type": "BOOKING_STUDENT_CONFIRMATION",
+      "role": "student",
+      "allowedVars": [
+        "studentName",
+        "bookingId",
+        "tutorName",
+        "studentRequirement",
+        "date",
+        "time",
+        "timezone",
+        "bookingStatus",
+        "nextStep",
+        "supportEmail",
+        "siteUrl"
+      ],
+      "subject": "Congratulations — your booking request was received | EkGuru",
+      "render_ok": true,
+      "type_name_render_ok": true,
+      "render_errors": [],
+      "role_qa": {
+        "mustSay": [
+          "congratulations",
+          "your booking request has been received",
+          "reference"
+        ],
+        "mustNotSay": [
+          "you have received a new booking request",
+          "new lesson request",
+          "student email",
+          "tutor email",
+          "available / not available"
+        ],
+        "violations": [],
+        "pass": true
+      }
+    },
+    {
+      "key": "bookingTutor",
+      "type": "BOOKING_TUTOR_NOTIFICATION",
+      "role": "tutor",
+      "allowedVars": [
+        "tutorName",
+        "bookingId",
+        "studentName",
+        "studentEmail",
+        "date",
+        "time",
+        "timezone",
+        "lessonType",
+        "studentRequirement",
+        "tutorNextAction",
+        "tutorAltTimeInstruction",
+        "supportEmail",
+        "siteUrl"
+      ],
+      "subject": "Congratulations — you have a new booking request | EkGuru",
+      "render_ok": true,
+      "type_name_render_ok": true,
+      "render_errors": [],
+      "role_qa": {
+        "mustSay": [
+          "congratulations",
+          "you have received a new booking request",
+          "available"
+        ],
+        "mustNotSay": [
+          "your booking request has been received",
+          "you booked",
+          "your booking"
+        ],
+        "violations": [],
+        "pass": true
+      }
+    },
+    {
+      "key": "bookingInternal",
+      "type": "BOOKING_EKGURU_NOTIFICATION",
+      "role": "internal",
+      "allowedVars": [
+        "bookingId",
+        "studentName",
+        "studentEmail",
+        "tutorName",
+        "tutorId",
+        "tutorEmail",
+        "date",
+        "time",
+        "timezone",
+        "lessonType",
+        "studentRequirement",
+        "bookingStatus",
+        "studentDeliveryStatus",
+        "tutorDeliveryStatus",
+        "internalDeliveryStatus",
+        "adminNextAction",
+        "sourcePage"
+      ],
+      "subject": "New booking request — Priya → Tara | BOOK-TEST-001",
+      "render_ok": true,
+      "type_name_render_ok": true,
+      "render_errors": [],
+      "role_qa": {
+        "mustSay": [
+          "internal booking",
+          "delivery"
+        ],
+        "mustNotSay": [],
+        "violations": [],
+        "pass": true
+      }
+    },
+    {
+      "key": "contactVisitor",
+      "type": "CONTACT_VISITOR_CONFIRMATION",
+      "role": "visitor",
+      "allowedVars": [
+        "visitorName",
+        "contactId",
+        "message",
+        "nextStep",
+        "supportEmail",
+        "siteUrl"
+      ],
+      "subject": "We received your message — EkGuru",
+      "render_ok": true,
+      "type_name_render_ok": true,
+      "render_errors": [],
+      "role_qa": {
+        "mustSay": [
+          "thank you",
+          "we have received your message",
+          "reference"
+        ],
+        "mustNotSay": [
+          "internal contact",
+          "reply-to",
+          "internal action"
+        ],
+        "violations": [],
+        "pass": true
+      }
+    },
+    {
+      "key": "contactInternal",
+      "type": "CONTACT_EKGURU_NOTIFICATION",
+      "role": "internal",
+      "allowedVars": [
+        "contactId",
+        "visitorName",
+        "visitorEmail",
+        "subject",
+        "message",
+        "timestamp",
+        "sourcePage",
+        "adminNextAction"
+      ],
+      "subject": "New contact message — C-TEST01",
+      "render_ok": true,
+      "type_name_render_ok": true,
+      "render_errors": [],
+      "role_qa": {
+        "mustSay": [
+          "internal contact",
+          "reply-to"
+        ],
+        "mustNotSay": [
+          "congratulations",
+          "you have received a new booking"
+        ],
+        "violations": [],
+        "pass": true
+      }
+    },
+    {
+      "key": "adminOutbound",
+      "type": "ADMIN_CONTACT_OUTBOUND",
+      "role": "outbound",
+      "allowedVars": [
+        "recipientName",
+        "adminSubject",
+        "adminMessage",
+        "conversationId",
+        "supportContact"
+      ],
+      "subject": "Your lesson time is confirmed",
+      "render_ok": true,
+      "type_name_render_ok": true,
+      "render_errors": [],
+      "role_qa": {
+        "mustSay": [
+          "regards"
+        ],
+        "mustNotSay": [
+          "internal copy",
+          "internal booking",
+          "new booking request"
+        ],
+        "violations": [],
+        "pass": true
+      }
+    },
+    {
+      "key": "adminInternalCopy",
+      "type": "ADMIN_CONTACT_INTERNAL_COPY",
+      "role": "internal",
+      "allowedVars": [
+        "recipientName",
+        "recipientEmail",
+        "adminSubject",
+        "adminMessage",
+        "conversationId",
+        "adminIdentity",
+        "timestamp"
+      ],
+      "subject": "Admin sent a contact message — ADMIN-001",
+      "render_ok": true,
+      "type_name_render_ok": true,
+      "render_errors": [],
+      "role_qa": {
+        "mustSay": [
+          "internal copy",
+          "sent by"
+        ],
+        "mustNotSay": [],
+        "violations": [],
+        "pass": true
+      }
+    }
+  ],
+  "fixtures": {
+    "bookingStudent": "see tools/render-report.js / js/email-templates.js FIXTURES",
+    "bookingTutor": "see tools/render-report.js / js/email-templates.js FIXTURES",
+    "bookingInternal": "see tools/render-report.js / js/email-templates.js FIXTURES",
+    "contactVisitor": "see tools/render-report.js / js/email-templates.js FIXTURES",
+    "contactInternal": "see tools/render-report.js / js/email-templates.js FIXTURES",
+    "adminOutbound": "see tools/render-report.js / js/email-templates.js FIXTURES",
+    "adminInternalCopy": "see tools/render-report.js / js/email-templates.js FIXTURES"
+  }
+}

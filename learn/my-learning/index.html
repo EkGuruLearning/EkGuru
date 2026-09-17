@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="google-site-verification" content="hFaqyp-9LdUXSKPA9RF011TkO2m_-7AUMasXqm_0dGI" />
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>My Learning — your progress, goals and review on this device | EkGuru</title>
+<meta name="description" content="Your Hindi progress, spaced-repetition review queue, goals and a language-aware search across every lesson, phrase and grammar concept — saved on this device, never uploaded.">
+<meta name="author" content="EkGuru">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://ekguru.shop/learn/my-learning/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="My Learning — your progress, goals and review on this device | EkGuru">
+<meta property="og:description" content="Your Hindi progress, spaced-repetition review queue, goals and a language-aware search across every lesson, phrase and grammar concept — saved on this device, never uploaded.">
+<meta property="og:url" content="https://ekguru.shop/learn/my-learning/">
+<meta property="og:image" content="https://ekguru.shop/images/og-cover.jpg">
+<meta property="og:site_name" content="EkGuru">
+<meta property="article:published_time" content="2026-09-12">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="My Learning — your progress, goals and review on this device">
+<meta name="twitter:description" content="Your Hindi progress, spaced-repetition review queue, goals and a language-aware search across every lesson, phrase and grammar concept — saved on this device, never uploaded.">
+<link rel="icon" href="../../images/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../../images/apple-touch-icon.png">
+<link rel="manifest" href="../../manifest.webmanifest">
+<meta name="theme-color" content="#4f32d9">
+<link rel="stylesheet" href="../../css/style.min.css">
+<link rel="stylesheet" href="../../css/storybook.css">
+<style>
+.art{max-width:760px;margin:0 auto;padding:0 20px 60px}
+.art h1{font-size:2rem;line-height:1.25;margin:26px 0 10px}
+.art .meta{color:var(--muted);font-size:.86rem;margin:0 0 26px}
+.art h2{font-size:1.28rem;margin:34px 0 12px;padding-top:6px}
+.art p,.art li{line-height:1.75}
+.art ul,.art ol{padding-left:22px}
+.art li{margin:7px 0}
+.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0}
+.crumb a{color:var(--muted)}
+.lede{color:var(--ink-2);font-size:1.05rem;line-height:1.7;margin:0 0 22px}
+.linklist{list-style:none;padding:0;margin:12px 0 0}
+.linklist li{padding:10px 0;border-bottom:1px solid var(--line)}
+.linklist li:last-child{border-bottom:0}
+.linklist a{font-weight:600}
+.linklist span{display:block;color:var(--muted);font-size:.87rem;margin-top:2px;line-height:1.5}
+.note{background:var(--bg-soft);border:1px solid #ddd8ff;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:.94rem;color:var(--ink-2)}
+.btn{margin:6px 6px 6px 0}
+
+.dash{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:18px 0}
+.dash .k{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.dash .k b{display:block;font-size:1.25rem;color:var(--ink)}
+.dash .k span{font-size:.76rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.box{border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:22px 0;background:var(--card,#fff)}
+.box h2{font-size:1.12rem;margin:0 0 10px}
+.goal-list{list-style:none;padding:0;margin:8px 0 0}
+.goal{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px;padding:9px 0;border-bottom:1px solid var(--line)}
+.goal:last-child{border-bottom:0}
+.goal-name{font-weight:600}
+.goal-status{font-size:.74rem;border-radius:999px;padding:2px 9px;border:1px solid var(--line)}
+.goal-status.available{background:#e7f6ec;color:#1a7a3c;border-color:#bfe7cb}
+.goal-status.partial{background:#fff6e0;color:#9a6700;border-color:#f0dcae}
+.goal-status.planned{background:var(--bg-soft);color:var(--muted)}
+.goal-blurb{flex-basis:100%;margin:0;color:var(--ink-2);font-size:.92rem;line-height:1.55}
+.g-concept{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:12px 0;background:var(--bg-soft)}
+.g-concept h3{margin:0 0 6px;font-size:1.02rem}
+.g-pattern{margin:0 0 8px}
+.g-meta{font-size:.8rem;color:var(--muted);margin:0 0 10px}
+.g-ex,.g-exc,.g-mis{padding-left:20px;margin:6px 0}
+.g-ex li,.g-exc li,.g-mis li{margin:4px 0;line-height:1.55}
+.g-target{font-weight:600;font-size:1.02rem}
+.g-roman{color:var(--muted);font-size:.86rem;margin:0 6px}
+.g-gloss{color:var(--ink-2);font-size:.88rem}
+.g-note{font-size:.92rem;color:var(--ink-2)}
+.v-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.v-item{border:1px solid var(--line);border-radius:12px;padding:12px 13px;background:var(--bg-soft)}
+.v-target{font-size:1.15rem;font-weight:600;margin:0}
+.v-roman{color:var(--muted);font-size:.85rem;margin:2px 0 6px}
+.v-meaning{margin:0;color:var(--ink-2);font-size:.92rem}
+.v-pos,.v-reg,.v-topic{font-size:.72rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 7px;margin-right:4px}
+.searchbox{width:100%;padding:12px 14px;font-size:1.02rem;border:1px solid var(--line);border-radius:10px;min-height:44px;color:var(--ink);background:#fff}
+.searchbox:focus{outline:2px solid var(--focus);outline-offset:1px}
+.search-results{list-style:none;padding:0;margin:10px 0 0}
+.s-item{padding:9px 0;border-bottom:1px solid var(--line)}
+.s-item:last-child{border-bottom:0}
+.s-type{font-size:.7rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 7px;margin-right:8px;vertical-align:1px}
+.s-item a,.s-title{font-weight:600;color:var(--brand)}
+.s-sub{display:block;color:var(--ink-2);font-size:.88rem;margin-top:2px}
+.s-meta{display:block;color:var(--muted);font-size:.78rem;margin-top:2px}
+.scr{border:1px solid var(--line);border-radius:12px;padding:11px 14px;margin:8px 0;background:var(--bg-soft)}
+.scr b{font-weight:600}
+.scr .st{font-size:.72rem;border-radius:999px;padding:1px 8px;margin-left:8px;vertical-align:1px}
+.st-prod{background:#e7f6ec;color:#1a7a3c;border:1px solid #bfe7cb}
+.st-plan{background:var(--bg-soft);color:var(--muted);border:1px solid var(--line)}
+.offline-list{list-style:none;padding:0;margin:6px 0 0;font-size:.92rem}
+.offline-list li{margin:5px 0;color:var(--ink-2)}
+</style>
+<!-- ekguru:ads -->
+<meta name="google-adsense-account" content="ca-pub-8175326569491671">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8175326569491671" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="art">
+    <p class="crumb"><a href="../../">EkGuru</a> › <a href="../">Learn</a> › My Learning</p>
+  <h1>My Learning</h1>
+<!-- ekguru:storybook -->
+<p class="sb-hint">🔊 <b>Tap any speaker button to hear Hindi spoken.</b> Too fast or slow? Use the <b>speed</b> button at the bottom-right of the page.</p>
+  <p class="lede">One dashboard for everything you are learning on EkGuru —
+  your progress, your review queue, your goals and a search across all the
+  learning content, in your browser.</p>
+  <div class="note"><b>Saved on this device.</b> Nothing on this page is uploaded.
+  There is no account and no server copy — if you clear your browser data or switch
+  devices, your progress does not travel with you. (That is the honest trade-off of
+  a private, account-free product.)</div>
+
+  <div class="box" id="progress-box">
+    <h2>Your progress</h2>
+    <div class="dash" id="progress-dash"><p class="muted">Reading your local progress…</p></div>
+  </div>
+
+  <div class="box" id="goals-box">
+    <h2>Your goals</h2>
+    <div id="goals-app"><p class="muted">Loading goals…</p></div>
+  </div>
+
+  <div class="box" id="search-box">
+    <h2>Search learning content</h2>
+    <p class="muted" style="margin:0 0 10px">Find a Hindi word by its Devanagari
+    spelling, its romanisation (<em>paani</em>) or its English meaning (<em>water</em>).
+    Matches lessons, phrases, grammar concepts, conversation scenarios and paths —
+    ranked, with typo tolerance.</p>
+    <input class="searchbox" type="search" id="learn-q" aria-label="Search learning content" placeholder="e.g. paani, पानी, water, past tense, travel" autocomplete="off">
+    <div id="learn-res"><p class="muted">Start typing to search.</p></div>
+  </div>
+
+  <div class="box" id="grammar-box">
+    <h2>Grammar at a glance</h2>
+    <div id="grammar-app"><p class="muted">Loading grammar…</p></div>
+  </div>
+
+  <div class="box" id="vocab-box">
+    <h2>Vocabulary to start</h2>
+    <div class="v-grid" id="vocab-app"><p class="muted">Loading vocabulary…</p></div>
+  </div>
+
+  <div class="box" id="offline-box">
+    <h2>Saved offline</h2>
+    <div id="offline-app"><p class="muted">Reading your saved pages…</p></div>
+  </div>
+
+  <div class="box" id="family-box">
+    <h2>Family & children</h2>
+    <p class="muted" style="margin:0 0 10px">A privacy mode for parents and family learners,
+    saved on this device only. When on, it stops visitor counting and hides the
+    tutor/booking contact points on pages that carry them.</p>
+    <p class="muted" style="margin:0 0 10px"><b>What it never does:</b> no child profile, no
+    messaging, no child contact details, no social features for minors, no hidden recording —
+    the microphone is only ever used after an explicit tap, and there is no account to collect
+    anything anyway.</p>
+    <p class="muted" style="margin:0 0 10px"><b>Honest scope:</b> this is a privacy mode, not
+    child lesson content — no child-specific lessons have been authored yet.</p>
+    <div id="family-app"></div>
+  </div>
+
+  <div class="box" id="script-box">
+    <h2>Script support</h2>
+    <div id="script-app"><p class="muted">Loading script registry…</p></div>
+  </div>
+
+  <script defer>
+  (function () {
+    "use strict";
+    function when(name, cb, tries) {
+      if (window[name]) { cb(window[name]); return; }
+      var n = 0, t = setInterval(function () {
+        if (window[name]) { clearInterval(t); cb(window[name]); }
+        else if (++n > (tries || 60)) { clearInterval(t); }
+      }, 100);
+    }
+    function esc(s) { return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+
+    /* ---- progress ---- */
+    function progress() {
+      var el = document.getElementById("progress-dash");
+      if (!el) return;
+      var P = window.EkGuruProgress;
+      if (!P || typeof P.snapshot !== "function") { el.innerHTML = '<p class="muted">Progress tracking did not load.</p>'; return; }
+      var s;
+      try { s = P.snapshot(); } catch (e) { el.innerHTML = '<p class="muted">Could not read progress.</p>'; return; }
+      var quizzes = 0;
+      try { quizzes = Object.keys(s.quizzes || {}).length; } catch (e) {}
+      el.innerHTML =
+        '<div class="k"><b>' + (s.lessonsOpened || 0) + '</b><span>lessons opened</span></div>' +
+        '<div class="k"><b>' + (s.lessonsCompleted || 0) + '</b><span>lessons completed</span></div>' +
+        '<div class="k"><b>' + quizzes + '</b><span>quizzes taken</span></div>' +
+        '<div class="k"><b>' + (s.reviewCards || 0) + '</b><span>review cards</span></div>' +
+        '<div class="k"><b>' + (s.reviewDue || 0) + '</b><span>reviews due</span></div>' +
+        '<div class="k"><b>' + (s.pathsStarted || 0) + '</b><span>paths started</span></div>';
+    }
+
+    /* ---- goals ---- */
+    function goals() {
+      var el = document.getElementById("goals-app");
+      if (!el || !window.EkGuruGoals) return;
+      window.EkGuruGoals.ready().then(function () { window.EkGuruGoals.render(el); })
+        .catch(function () { el.innerHTML = '<p class="muted">Goals are unavailable (content graph missing).</p>'; });
+    }
+
+    /* ---- search ---- */
+    function search() {
+      var input = document.getElementById("learn-q"), res = document.getElementById("learn-res");
+      if (!input || !res || !window.EkGuruSearch) return;
+      var timer = null;
+      input.addEventListener("input", function () {
+        clearTimeout(timer);
+        var q = input.value;
+        timer = setTimeout(function () {
+          window.EkGuruSearch.ready().then(function () {
+            window.EkGuruSearch.render(res, q);
+          }).catch(function () { res.innerHTML = '<p class="muted">Search index unavailable.</p>'; });
+        }, 120);
+      });
+    }
+
+    /* ---- grammar ---- */
+    function grammar() {
+      var el = document.getElementById("grammar-app");
+      if (!el || !window.EkGuruGrammar) return;
+      window.EkGuruGrammar.ready().then(function () { window.EkGuruGrammar.renderAll(el); })
+        .catch(function () { el.innerHTML = '<p class="muted">Grammar unavailable.</p>'; });
+    }
+
+    /* ---- vocabulary ---- */
+    function vocab() {
+      var el = document.getElementById("vocab-app");
+      if (!el || !window.EkGuruVocab) return;
+      window.EkGuruVocab.ready().then(function () {
+        window.EkGuruVocab.renderList(el, function (i) { return i.type === "word"; });
+      }).catch(function () { el.innerHTML = '<p class="muted">Vocabulary unavailable.</p>'; });
+    }
+
+    /* ---- offline ---- */
+    function offline() {
+      var el = document.getElementById("offline-app");
+      if (!el) return;
+      var OFF = window.EkGuruOffline;
+      if (!OFF || typeof OFF.savedList !== "function") { el.innerHTML = '<p class="muted">Offline saving did not load.</p>'; return; }
+      var list = [];
+      try { list = OFF.savedList() || []; } catch (e) {}
+      if (!list.length) { el.innerHTML = '<p class="muted">You have not saved any pages for offline reading yet. Use “Save for offline” on any lesson.</p>'; return; }
+      el.innerHTML = '<ul class="offline-list">' + list.map(function (u) {
+        return '<li><a href="' + esc(u) + '">' + esc(u) + '</a></li>';
+      }).join("") + "</ul>";
+    }
+
+    /* ---- family mode ---- */
+    function family() {
+      var el = document.getElementById("family-app");
+      if (!el || !window.EkGuruFamilyMode) return;
+      window.EkGuruFamilyMode.mount(el);
+    }
+
+    /* ---- scripts ---- */
+    function scripts() {
+      var el = document.getElementById("script-app");
+      if (!el || !window.EkGuruScript) return;
+      window.EkGuruScript.ready().then(function () {
+        var list = window.EkGuruScript.list();
+        el.innerHTML = list.map(function (s) {
+          var cls = s.productionStatus === "PRODUCTION" ? "st-prod" : "st-plan";
+          var note = esc(s.note || "");
+          return '<div class="scr"><b>' + esc(s.name) + '</b> <span class="st ' + cls + '">' + esc(s.productionStatus.toLowerCase()) + '</span>'
+            + '<span class="s-meta">direction: ' + esc(s.direction) + ' · transliteration: ' + esc(s.transliteration || "none yet") + '</span>'
+            + '<span class="s-meta">' + note + '</span></div>';
+        }).join("");
+      }).catch(function () { el.innerHTML = '<p class="muted">Script registry unavailable.</p>'; });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", function () {
+        progress(); goals(); search(); grammar(); vocab(); offline(); family(); scripts();
+        when("EkGuruProgress", progress); when("EkGuruGoals", goals); when("EkGuruSearch", search);
+        when("EkGuruGrammar", grammar); when("EkGuruVocab", vocab); when("EkGuruScript", scripts);
+        when("EkGuruFamilyMode", family);
+      });
+    } else {
+      progress(); goals(); search(); grammar(); vocab(); offline(); family(); scripts();
+      when("EkGuruProgress", progress); when("EkGuruGoals", goals); when("EkGuruSearch", search);
+      when("EkGuruGrammar", grammar); when("EkGuruVocab", vocab); when("EkGuruScript", scripts);
+      when("EkGuruFamilyMode", family);
+    }
+  })();
+  </script>
+
+</div>
+<!-- ekguru:trust-footer:start -->
+<footer class="pw-ftr">
+  <nav aria-label="Site information">
+    <a href="../../">Home</a>
+    <a href="../../about/">About</a>
+    <a href="../../contact/">Contact</a>
+    <a href="../../privacy/">Privacy</a>
+    <a href="../../terms/">Terms</a>
+    <a href="../../disclaimer/">Disclaimer</a>
+  </nav>
+  <p>
+  © 2026 EkGuru — One Student. One Goal. One Guru.<br>
+  Written and maintained by Prakash. Hindi lessons with native-speaking tutors, one to one.
+  </p>
+</footer>
+<!-- ekguru:trust-footer:end -->
+<script src="../../js/site-config.js" defer></script>
+<script src="../../js/analytics.js" defer></script>
+<script src="../../js/toast.js" defer></script>
+<!-- ekguru:recovery:start -->
+<script src="../../js/recovery.js" defer></script>
+<!-- ekguru:recovery:end -->
+
+<script src="../../js/content-graph.js" defer></script>
+<script src="../../js/goals.js" defer></script>
+<script src="../../js/script-engine.js" defer></script>
+<script src="../../js/grammar-engine.js" defer></script>
+<script src="../../js/vocab-phrase-engine.js" defer></script>
+<script src="../../js/global-search.js" defer></script>
+<script src="../../js/hindi-srs.js" defer></script>
+<script src="../../js/hindi-progress.js" defer></script>
+<script src="../../js/hindi-offline.js" defer></script>
+<script src="../../js/family-mode.js" defer></script>
+<script src="../../js/storybook.js" defer></script>
+<script defer>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("../../sw.js").catch(function () {});
+  });
+}
+</script>
+<!-- ekguru:consent -->
+<script src="../../js/cookie-consent.js" defer></script>
+</body>
+</html>

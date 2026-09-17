@@ -1,0 +1,190 @@
+{
+  "generated": "2026-09-13T08:40:40Z",
+  "commit": "2c47646b4138b0b7efcbbb7f2036ec7647089375",
+  "verdict": "GREEN_GLOBAL_ENGINE_PRODUCTION_READY",
+  "green": 45,
+  "total": 45,
+  "note": "All gate items pass with real Chromium evidence (0 page errors on every new surface; Phase 5/6/7 regression green; 36-cell viewport gate; real SEO-scale crawl with 0 duplicates/orphans/broken links). Performance numbers are measured, not estimated. LIVE deploy is verified STALE: ekguru.shop 404s on /learn/my-learning/, so it predates Phase 7C — and GitHub origin/main holds only 'Initial commit', so neither live nor GitHub reflects this work; the workspace is the continuity layer.",
+  "items": [
+    {
+      "state": "GREEN",
+      "evidence": "6 gates PASS in real Chromium"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "364 entities, query API in Chromium"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "30 langs, only hi PRODUCTION + 29 BETA starter packs, 0 PLANNED, rendered in admin"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "250 countries, relations rendered in admin + context pages"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "11 goals, availability computed from real graph"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "Phase 7B GREEN_STABLE"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "BROWSER_TTS resolve + honest labels (7B)"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "TTS never called native; onerror handled"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "Gate C PASS: 6 scenarios, retry/next/restart"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "keyless translit only; AI APIs blocked without relay"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "secret scan clean"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "per-language quality report + learn-quality.js"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "language-agnostic card model (language/target/source/country/goal fields) verified in Chromium"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "Gate D: /learn/my-learning/ device-only dashboard"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "9 scripts, direction/status/transliteration routing (Gate D)"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "6 authored concepts rendered (Gate D)"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "authored items rendered (Gate D)"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "Spanish starter pack renders through the SAME vocab/phrase + grammar engines + SRS hook (Gate I); es stays BETA, hi only PRODUCTION"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "29 authored BETA packs each with a unique indexable /languages/{code}/ page + home section/nav/global-nav links; no PLANNED language gets a thin page (Gate J)"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "browser-TTS Listen buttons (computer voice, correct BCP-47 tag, never native) + deterministic rule-based starter check (8 fixed questions, not AI, nothing saved) on every pack page; Hindi PRODUCTION cards unchanged (Gate K)"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "29 BETA packs (incl. fr/ar/de/ja/ko/zh/ru/pt/it/nl/pl/tr/fa/he/th/vi/id/ms/sw/uk) each 24 words + 12 phrases + 4 grammar; RTL tags fixed ar-SA/fa-IR/he-IL/ms-MY; hi stays the only PRODUCTION language (Gate L)"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "'More on EkGuru' block -> 'Learn languages' heading + aria-label on home and every inner page; first entry links /languages/ (Gate M)"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "languages hub mounts a browser-TTS Listen button for every one of the 30 language cells (correct BCP-47 tags: ar-SA/fa-IR/he-IL/zh-CN…); SRS review card and vocabulary practice lab speak the Devanagari word — computer voice, never native (Gate M)"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "dayShuffle: same date + salt -> same set, different date -> different set (rule-based, not AI, not random); honest note on quiz + daily practice (Gate M)"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "authored Spanish course: 6 lessons, practice lab (12 vocab + 12 grammar) on the shared engine with es-ES computer-voice Listen, 20-question daily-rotating topic quiz, 24-card SRS review deck — verified in real Chromium, 0 page errors (Gate N); es stays BETA, hi stays PRODUCTION"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "course generator refactored to one language-parameterized engine over tools/course-data/{code}.py; authored French course (6 lessons, 12 vocab + 12 grammar, 20-question daily-rotating quiz, 24-card SRS review) verified in real Chromium with fr-FR computer voice, 0 page errors (Gate N now iterates every course in data/courses.json); fr stays BETA"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "reports/global-content-schema-phase7c.json (unified multi-language schema)"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "reports/global-content-graph-phase7c.json (364 entities, real distribution)"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "Gate E: india-visitor + heritage pages"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "Gate D: roman/english/devanagari queries all resolve"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "publishability gate enforced; 2 indexable pages added"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "only 3 real pages; every phrase from published content"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "context→course links; hub cards; paths"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "static-first; content is static JSON"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "batch manifest + 6 gates"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "36 cells PASS (320–1920), 0 overflow, 0 errors (Gate G)"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "655 pages, 647 indexable, 0 duplicate titles/descs, 0 broken links, 0 orphans (1 known canonical drift /tutor.html -> /tutor/)"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "24/24 stages PASS (run-phase7c-pipeline.py)"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "handoff written; workspace far from ceiling"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "card interactions 5/5"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "matrix 117/117"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "phase7-browser PASS"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "no secrets; device-only state; noindex dashboards; family mode = tracking opt-out + hidden contact CTAs, no child profile/messaging/data"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "rules applied; see global-accessibility report"
+    },
+    {
+      "state": "GREEN",
+      "evidence": "measured in Chromium this session (see global-performance report); graph compacted 222KB→188KB"
+    }
+  ]
+}

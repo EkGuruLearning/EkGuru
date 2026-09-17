@@ -1,0 +1,38 @@
+{
+  "generated": "2026-09-12T05:01:38Z",
+  "release": {
+    "localCommit": "b12f5916aae8a9dd8242b6f33994fabe9e44cf36",
+    "pushed": "BLOCKED (no credentials)",
+    "deployed": "OLD BUILD (pre-Phase-2 live)",
+    "liveVerified": "NO — materials/faq 404 on live"
+  },
+  "data": {
+    "runtime": "PAUSED_FOR_REUPLOAD",
+    "liveSheets": [],
+    "validation": {
+      "content": "PASS",
+      "reviews": "PASS",
+      "settings": "PASS",
+      "tutors": "PASS"
+    },
+    "diff": "0 tutor/content changes vs baked site"
+  },
+  "email": {
+    "appsScript": "UNKNOWN (token not wired)",
+    "internalProvider": "PASS local",
+    "controlledTest": "BLOCKED_OWNER",
+    "fallback": "routing PASS"
+  },
+  "site": {
+    "seo": "PASS local (592 pages)",
+    "tools": "12/12",
+    "idle": "no refresh required",
+    "browserMatrix": {
+      "combos": 81,
+      "problems": 0,
+      "note": "materials/faq are LIVE_404 on production (Phase 2 not yet deployed)."
+    },
+    "privacy": "YELLOW (known false positives)",
+    "secretScan": "clean"
+  }
+}

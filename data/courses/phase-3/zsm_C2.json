@@ -1,0 +1,1874 @@
+{
+  "code": "zsm",
+  "name": "Standard Malay",
+  "native": "Bahasa Melayu",
+  "phase": 3,
+  "medium": "en",
+  "file_level": "C2",
+  "research_basis": "data/language-research/zsm.json",
+  "level": {
+    "title": "Standard Malay C2",
+    "goals": [
+      "Control Malay classifiers, affixation, voice, and information structure",
+      "Develop reception, interaction, production, and mediation",
+      "Use pronunciation, politeness, register, and cohesion appropriately"
+    ],
+    "units": [
+      {
+        "id": "zsm-c2-u1",
+        "title": "Semantic and Viewpoint Precision",
+        "lessons": [
+          {
+            "id": "zsm-c2-l1",
+            "title": "Skop penafian",
+            "learn": "Control skop penafian in level-appropriate Standard Malay.",
+            "vocab": [
+              {
+                "t": "Bukan",
+                "r": "Bukan",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "setiap",
+                "r": "setiap",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "peningkatan",
+                "r": "peningkatan",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "yang",
+                "r": "yang",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "kelihatan",
+                "r": "kelihatan",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "itu",
+                "r": "itu",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "kemajuan",
+                "r": "kemajuan",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "sebenar",
+                "r": "sebenar",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Skop penafian",
+              "explain": "Standard Malay combines analytic time marking, classifiers, reduplication, derivational and voice affixes, SVO/topic-comment order, relative yang, social address, and prosody. Choices encode event structure, participant prominence, evidence, focus, and register.",
+              "pattern": "topic + voice/affix-marked predicate + arguments + stance",
+              "examples": [
+                {
+                  "t": "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                  "r": "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                  "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                },
+                {
+                  "t": "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                  "r": "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                  "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                },
+                {
+                  "t": "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                  "r": "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                  "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with inappropriate affix, classifier, voice, or address",
+                  "right": "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                  "why": "The corrected model aligns morphology and pragmatic relationship."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Pelajar",
+                "t": "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "r": "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              },
+              {
+                "sp": "Rakan",
+                "t": "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "r": "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              },
+              {
+                "sp": "Pengantara",
+                "t": "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "r": "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              },
+              {
+                "sp": "Penyunting",
+                "t": "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "r": "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "en": "The compromise swept the issue under the carpet while both sides saved face."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Skop penafian — multiple choice: analyse or produce the Malay model with correct affixation, scope, and register: Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "answer": "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                  "Form with an inappropriate affix or classifier",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Skop penafian — fill in the blank: analyse or produce the Malay model with correct affixation, scope, and register: Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "answer": "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Skop penafian — translation: analyse or produce the Malay model with correct affixation, scope, and register: Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "answer": "Not every apparent improvement is real progress; some results merely redistribute the burden.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Skop penafian — reverse translation: analyse or produce the Malay model with correct affixation, scope, and register: Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "answer": "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Skop penafian — matching: analyse or produce the Malay model with correct affixation, scope, and register: Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "answer": "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "skill_target": "matching",
+                "options": [
+                  "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                  "Form with an inappropriate affix or classifier",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Skop penafian — reorder: analyse or produce the Malay model with correct affixation, scope, and register: Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "answer": "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Skop penafian — sentence building: analyse or produce the Malay model with correct affixation, scope, and register: Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "answer": "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Skop penafian — word selection: analyse or produce the Malay model with correct affixation, scope, and register: Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "answer": "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "skill_target": "word selection",
+                "options": [
+                  "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                  "Form with an inappropriate affix or classifier",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Skop penafian — error correction: analyse or produce the Malay model with correct affixation, scope, and register: Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "answer": "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Skop penafian — dialogue completion: analyse or produce the Malay model with correct affixation, scope, and register: Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "answer": "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Skop penafian — reading comprehension: analyse or produce the Malay model with correct affixation, scope, and register: Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "answer": "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Skop penafian — paragraph comprehension: analyse or produce the Malay model with correct affixation, scope, and register: Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "answer": "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Skop penafian: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              },
+              {
+                "q": "Skop penafian: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              },
+              {
+                "q": "Skop penafian: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              },
+              {
+                "q": "Skop penafian: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              },
+              {
+                "q": "Skop penafian: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Bukan",
+              "setiap",
+              "peningkatan",
+              "yang"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Skop penafian workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate affixes and discourse function.",
+                  "items": [
+                    "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                    "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut."
+                  ],
+                  "key": [
+                    "Standard Malay combines analytic time marking, classifiers, reduplication, derivational and voice affixes, SVO/topic-comment order, relative yang, social address, and prosody. Choices encode event structure, participant prominence, evidence, focus, and register.",
+                    "Standard Malay combines analytic time marking, classifiers, reduplication, derivational and voice affixes, SVO/topic-comment order, relative yang, social address, and prosody. Choices encode event structure, participant prominence, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                    "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut."
+                  ],
+                  "key": [
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden.",
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden.",
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                  ],
+                  "key": [
+                    "Model: Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                    "Model: Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "zsm-c2-l2",
+            "title": "Implikatur dan jarak",
+            "learn": "Control implikatur dan jarak in level-appropriate Standard Malay.",
+            "vocab": [
+              {
+                "t": "Menyifatkan",
+                "r": "Menyifatkan",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "hasil",
+                "r": "hasil",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "itu",
+                "r": "itu",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "sebagai",
+                "r": "sebagai",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "tidak",
+                "r": "tidak",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "sepenuhnya",
+                "r": "sepenuhnya",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "di",
+                "r": "di",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "luar",
+                "r": "luar",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Implikatur dan jarak",
+              "explain": "Standard Malay combines analytic time marking, classifiers, reduplication, derivational and voice affixes, SVO/topic-comment order, relative yang, social address, and prosody. Choices encode event structure, participant prominence, evidence, focus, and register.",
+              "pattern": "topic + voice/affix-marked predicate + arguments + stance",
+              "examples": [
+                {
+                  "t": "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                  "r": "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                  "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                },
+                {
+                  "t": "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                  "r": "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                  "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                },
+                {
+                  "t": "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                  "r": "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                  "en": "The compromise swept the issue under the carpet while both sides saved face."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with inappropriate affix, classifier, voice, or address",
+                  "right": "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                  "why": "The corrected model aligns morphology and pragmatic relationship."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Pelajar",
+                "t": "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "r": "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              },
+              {
+                "sp": "Rakan",
+                "t": "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "r": "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              },
+              {
+                "sp": "Pengantara",
+                "t": "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "r": "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "en": "The compromise swept the issue under the carpet while both sides saved face."
+              },
+              {
+                "sp": "Penyunting",
+                "t": "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "r": "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reorder",
+                "q": "Implikatur dan jarak — reorder: analyse or produce the Malay model with correct affixation, scope, and register: Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "answer": "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Implikatur dan jarak — sentence building: analyse or produce the Malay model with correct affixation, scope, and register: Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "answer": "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Implikatur dan jarak — word selection: analyse or produce the Malay model with correct affixation, scope, and register: Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "answer": "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "skill_target": "word selection",
+                "options": [
+                  "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                  "Form with an inappropriate affix or classifier",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Implikatur dan jarak — error correction: analyse or produce the Malay model with correct affixation, scope, and register: Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "answer": "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Implikatur dan jarak — dialogue completion: analyse or produce the Malay model with correct affixation, scope, and register: Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "answer": "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Implikatur dan jarak — reading comprehension: analyse or produce the Malay model with correct affixation, scope, and register: Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "answer": "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Implikatur dan jarak — paragraph comprehension: analyse or produce the Malay model with correct affixation, scope, and register: Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "answer": "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "main_idea",
+                "q": "Implikatur dan jarak — main idea: analyse or produce the Malay model with correct affixation, scope, and register: Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "answer": "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Implikatur dan jarak — detail identification: analyse or produce the Malay model with correct affixation, scope, and register: Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "answer": "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "inference",
+                "q": "Implikatur dan jarak — inference: analyse or produce the Malay model with correct affixation, scope, and register: Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "answer": "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Implikatur dan jarak — listening comprehension: analyse or produce the Malay model with correct affixation, scope, and register: Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "answer": "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: ms-MY browser voice; not native recording; text=Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut."
+              },
+              {
+                "type": "dictation",
+                "q": "Implikatur dan jarak — dictation: analyse or produce the Malay model with correct affixation, scope, and register: Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "answer": "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: ms-MY browser voice; not native recording; text=Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Implikatur dan jarak: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              },
+              {
+                "q": "Implikatur dan jarak: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              },
+              {
+                "q": "Implikatur dan jarak: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              },
+              {
+                "q": "Implikatur dan jarak: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              },
+              {
+                "q": "Implikatur dan jarak: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Menyifatkan",
+              "hasil",
+              "itu",
+              "sebagai"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Implikatur dan jarak workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate affixes and discourse function.",
+                  "items": [
+                    "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                    "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan."
+                  ],
+                  "key": [
+                    "Standard Malay combines analytic time marking, classifiers, reduplication, derivational and voice affixes, SVO/topic-comment order, relative yang, social address, and prosody. Choices encode event structure, participant prominence, evidence, focus, and register.",
+                    "Standard Malay combines analytic time marking, classifiers, reduplication, derivational and voice affixes, SVO/topic-comment order, relative yang, social address, and prosody. Choices encode event structure, participant prominence, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                    "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan."
+                  ],
+                  "key": [
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised.",
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised.",
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                  ],
+                  "key": [
+                    "Model: Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                    "Model: Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "zsm-c2-u2",
+        "title": "Rhetoric and Genre Mastery",
+        "lessons": [
+          {
+            "id": "zsm-c2-l3",
+            "title": "Keselarian retorik",
+            "learn": "Control keselarian retorik in level-appropriate Standard Malay.",
+            "vocab": [
+              {
+                "t": "Kita",
+                "r": "Kita",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "memerlukan",
+                "r": "memerlukan",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "cita-cita",
+                "r": "cita-cita",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "tanpa",
+                "r": "tanpa",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "tergesa-gesa",
+                "r": "tergesa-gesa",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "kewaspadaan",
+                "r": "kewaspadaan",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "tanpa",
+                "r": "tanpa",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "kelumpuhan",
+                "r": "kelumpuhan",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Keselarian retorik",
+              "explain": "Standard Malay combines analytic time marking, classifiers, reduplication, derivational and voice affixes, SVO/topic-comment order, relative yang, social address, and prosody. Choices encode event structure, participant prominence, evidence, focus, and register.",
+              "pattern": "topic + voice/affix-marked predicate + arguments + stance",
+              "examples": [
+                {
+                  "t": "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                  "r": "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                  "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                },
+                {
+                  "t": "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                  "r": "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                  "en": "The compromise swept the issue under the carpet while both sides saved face."
+                },
+                {
+                  "t": "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                  "r": "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                  "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with inappropriate affix, classifier, voice, or address",
+                  "right": "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                  "why": "The corrected model aligns morphology and pragmatic relationship."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Pelajar",
+                "t": "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "r": "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              },
+              {
+                "sp": "Rakan",
+                "t": "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "r": "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "en": "The compromise swept the issue under the carpet while both sides saved face."
+              },
+              {
+                "sp": "Pengantara",
+                "t": "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "r": "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              },
+              {
+                "sp": "Penyunting",
+                "t": "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "r": "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "en": "On available evidence, this is the most plausible explanation, not an indisputable verdict."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reading_comprehension",
+                "q": "Keselarian retorik — reading comprehension: analyse or produce the Malay model with correct affixation, scope, and register: Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "answer": "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Keselarian retorik — paragraph comprehension: analyse or produce the Malay model with correct affixation, scope, and register: Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "answer": "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "main_idea",
+                "q": "Keselarian retorik — main idea: analyse or produce the Malay model with correct affixation, scope, and register: Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "answer": "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Keselarian retorik — detail identification: analyse or produce the Malay model with correct affixation, scope, and register: Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "answer": "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "inference",
+                "q": "Keselarian retorik — inference: analyse or produce the Malay model with correct affixation, scope, and register: Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "answer": "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Keselarian retorik — listening comprehension: analyse or produce the Malay model with correct affixation, scope, and register: Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "answer": "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: ms-MY browser voice; not native recording; text=Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan."
+              },
+              {
+                "type": "dictation",
+                "q": "Keselarian retorik — dictation: analyse or produce the Malay model with correct affixation, scope, and register: Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "answer": "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: ms-MY browser voice; not native recording; text=Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Keselarian retorik — listen and choose: analyse or produce the Malay model with correct affixation, scope, and register: Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "answer": "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "skill_target": "listen and choose",
+                "options": [
+                  "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                  "Form with an inappropriate affix or classifier",
+                  "An unrelated greeting"
+                ],
+                "audio_source": "synthetic_tts: ms-MY browser voice; not native recording; text=Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan."
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "Keselarian retorik — listen and reorder: analyse or produce the Malay model with correct affixation, scope, and register: Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "answer": "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: ms-MY browser voice; not native recording; text=Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan."
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Keselarian retorik — listen and fill: analyse or produce the Malay model with correct affixation, scope, and register: Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "answer": "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "skill_target": "listen and fill",
+                "audio_source": "synthetic_tts: ms-MY browser voice; not native recording; text=Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Keselarian retorik — repeat after audio: analyse or produce the Malay model with correct affixation, scope, and register: Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "answer": "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: ms-MY browser voice; not native recording; text=Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan."
+              },
+              {
+                "type": "pronunciation",
+                "q": "Keselarian retorik — pronunciation: analyse or produce the Malay model with correct affixation, scope, and register: Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "answer": "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: ms-MY browser voice; not native recording; text=Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Keselarian retorik: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              },
+              {
+                "q": "Keselarian retorik: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              },
+              {
+                "q": "Keselarian retorik: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              },
+              {
+                "q": "Keselarian retorik: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              },
+              {
+                "q": "Keselarian retorik: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Kita",
+              "memerlukan",
+              "cita-cita",
+              "tanpa"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Keselarian retorik workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate affixes and discourse function.",
+                  "items": [
+                    "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                    "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka."
+                  ],
+                  "key": [
+                    "Standard Malay combines analytic time marking, classifiers, reduplication, derivational and voice affixes, SVO/topic-comment order, relative yang, social address, and prosody. Choices encode event structure, participant prominence, evidence, focus, and register.",
+                    "Standard Malay combines analytic time marking, classifiers, reduplication, derivational and voice affixes, SVO/topic-comment order, relative yang, social address, and prosody. Choices encode event structure, participant prominence, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                    "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka."
+                  ],
+                  "key": [
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle.",
+                    "The compromise swept the issue under the carpet while both sides saved face."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle.",
+                    "The compromise swept the issue under the carpet while both sides saved face."
+                  ],
+                  "key": [
+                    "Model: Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                    "Model: Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "zsm-c2-l4",
+            "title": "Tafsiran idiom",
+            "learn": "Control tafsiran idiom in level-appropriate Standard Malay.",
+            "vocab": [
+              {
+                "t": "Kompromi",
+                "r": "Kompromi",
+                "en": "discourse segment in “The compromise swept the issue under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "itu",
+                "r": "itu",
+                "en": "discourse segment in “The compromise swept the issue under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "menyapu",
+                "r": "menyapu",
+                "en": "discourse segment in “The compromise swept the issue under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "masalah",
+                "r": "masalah",
+                "en": "discourse segment in “The compromise swept the issue under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ke",
+                "r": "ke",
+                "en": "discourse segment in “The compromise swept the issue under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "bawah",
+                "r": "bawah",
+                "en": "discourse segment in “The compromise swept the issue under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "permaidani",
+                "r": "permaidani",
+                "en": "discourse segment in “The compromise swept the issue under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "sambil",
+                "r": "sambil",
+                "en": "discourse segment in “The compromise swept the issue under the carpet while both sides saved face.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Tafsiran idiom",
+              "explain": "Standard Malay combines analytic time marking, classifiers, reduplication, derivational and voice affixes, SVO/topic-comment order, relative yang, social address, and prosody. Choices encode event structure, participant prominence, evidence, focus, and register.",
+              "pattern": "topic + voice/affix-marked predicate + arguments + stance",
+              "examples": [
+                {
+                  "t": "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                  "r": "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                  "en": "The compromise swept the issue under the carpet while both sides saved face."
+                },
+                {
+                  "t": "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                  "r": "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                  "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                },
+                {
+                  "t": "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                  "r": "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                  "en": "On available evidence, this is the most plausible explanation, not an indisputable verdict."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with inappropriate affix, classifier, voice, or address",
+                  "right": "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                  "why": "The corrected model aligns morphology and pragmatic relationship."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Pelajar",
+                "t": "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "r": "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "en": "The compromise swept the issue under the carpet while both sides saved face."
+              },
+              {
+                "sp": "Rakan",
+                "t": "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "r": "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              },
+              {
+                "sp": "Pengantara",
+                "t": "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "r": "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "en": "On available evidence, this is the most plausible explanation, not an indisputable verdict."
+              },
+              {
+                "sp": "Penyunting",
+                "t": "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "r": "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              }
+            ],
+            "practice": [
+              {
+                "type": "listening_comprehension",
+                "q": "Tafsiran idiom — listening comprehension: analyse or produce the Malay model with correct affixation, scope, and register: Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "answer": "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: ms-MY browser voice; not native recording; text=Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka."
+              },
+              {
+                "type": "dictation",
+                "q": "Tafsiran idiom — dictation: analyse or produce the Malay model with correct affixation, scope, and register: Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "answer": "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: ms-MY browser voice; not native recording; text=Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Tafsiran idiom — listen and choose: analyse or produce the Malay model with correct affixation, scope, and register: Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "answer": "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "skill_target": "listen and choose",
+                "options": [
+                  "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                  "Form with an inappropriate affix or classifier",
+                  "An unrelated greeting"
+                ],
+                "audio_source": "synthetic_tts: ms-MY browser voice; not native recording; text=Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka."
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "Tafsiran idiom — listen and reorder: analyse or produce the Malay model with correct affixation, scope, and register: Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "answer": "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: ms-MY browser voice; not native recording; text=Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka."
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Tafsiran idiom — listen and fill: analyse or produce the Malay model with correct affixation, scope, and register: Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "answer": "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "skill_target": "listen and fill",
+                "audio_source": "synthetic_tts: ms-MY browser voice; not native recording; text=Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Tafsiran idiom — repeat after audio: analyse or produce the Malay model with correct affixation, scope, and register: Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "answer": "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: ms-MY browser voice; not native recording; text=Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka."
+              },
+              {
+                "type": "pronunciation",
+                "q": "Tafsiran idiom — pronunciation: analyse or produce the Malay model with correct affixation, scope, and register: Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "answer": "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: ms-MY browser voice; not native recording; text=Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka."
+              },
+              {
+                "type": "shadowing",
+                "q": "Tafsiran idiom — shadowing: analyse or produce the Malay model with correct affixation, scope, and register: Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "answer": "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: ms-MY browser voice; not native recording; text=Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Tafsiran idiom — guided speaking: analyse or produce the Malay model with correct affixation, scope, and register: Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "answer": "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "Tafsiran idiom — free response: analyse or produce the Malay model with correct affixation, scope, and register: Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "answer": "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "Tafsiran idiom — roleplay: analyse or produce the Malay model with correct affixation, scope, and register: Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "answer": "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Tafsiran idiom — sentence writing: analyse or produce the Malay model with correct affixation, scope, and register: Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "answer": "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                "skill_target": "sentence writing"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Tafsiran idiom: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              },
+              {
+                "q": "Tafsiran idiom: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              },
+              {
+                "q": "Tafsiran idiom: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              },
+              {
+                "q": "Tafsiran idiom: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              },
+              {
+                "q": "Tafsiran idiom: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Kompromi",
+              "itu",
+              "menyapu",
+              "masalah"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Tafsiran idiom workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate affixes and discourse function.",
+                  "items": [
+                    "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                    "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur."
+                  ],
+                  "key": [
+                    "Standard Malay combines analytic time marking, classifiers, reduplication, derivational and voice affixes, SVO/topic-comment order, relative yang, social address, and prosody. Choices encode event structure, participant prominence, evidence, focus, and register.",
+                    "Standard Malay combines analytic time marking, classifiers, reduplication, derivational and voice affixes, SVO/topic-comment order, relative yang, social address, and prosody. Choices encode event structure, participant prominence, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                    "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur."
+                  ],
+                  "key": [
+                    "The compromise swept the issue under the carpet while both sides saved face.",
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "The compromise swept the issue under the carpet while both sides saved face.",
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                  ],
+                  "key": [
+                    "Model: Kompromi itu menyapu masalah ke bawah permaidani sambil membolehkan kedua-dua pihak menjaga air muka.",
+                    "Model: Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "zsm-c2-u3",
+        "title": "Cultural and High-Stakes Mediation",
+        "lessons": [
+          {
+            "id": "zsm-c2-l5",
+            "title": "Transformasi genre",
+            "learn": "Control transformasi genre in level-appropriate Standard Malay.",
+            "vocab": [
+              {
+                "t": "Memorandum",
+                "r": "Memorandum",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "itu",
+                "r": "itu",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "mengakui",
+                "r": "mengakui",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ketidakpastian",
+                "r": "ketidakpastian",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "kenyataan",
+                "r": "kenyataan",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "awam",
+                "r": "awam",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "mengolahnya",
+                "r": "mengolahnya",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "sebagai",
+                "r": "sebagai",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Transformasi genre",
+              "explain": "Standard Malay combines analytic time marking, classifiers, reduplication, derivational and voice affixes, SVO/topic-comment order, relative yang, social address, and prosody. Choices encode event structure, participant prominence, evidence, focus, and register.",
+              "pattern": "topic + voice/affix-marked predicate + arguments + stance",
+              "examples": [
+                {
+                  "t": "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                  "r": "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                  "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                },
+                {
+                  "t": "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                  "r": "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                  "en": "On available evidence, this is the most plausible explanation, not an indisputable verdict."
+                },
+                {
+                  "t": "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                  "r": "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                  "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with inappropriate affix, classifier, voice, or address",
+                  "right": "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                  "why": "The corrected model aligns morphology and pragmatic relationship."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Pelajar",
+                "t": "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "r": "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              },
+              {
+                "sp": "Rakan",
+                "t": "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "r": "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "en": "On available evidence, this is the most plausible explanation, not an indisputable verdict."
+              },
+              {
+                "sp": "Pengantara",
+                "t": "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "r": "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              },
+              {
+                "sp": "Penyunting",
+                "t": "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "r": "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              }
+            ],
+            "practice": [
+              {
+                "type": "repeat_after_audio",
+                "q": "Transformasi genre — repeat after audio: analyse or produce the Malay model with correct affixation, scope, and register: Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "answer": "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: ms-MY browser voice; not native recording; text=Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur."
+              },
+              {
+                "type": "pronunciation",
+                "q": "Transformasi genre — pronunciation: analyse or produce the Malay model with correct affixation, scope, and register: Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "answer": "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: ms-MY browser voice; not native recording; text=Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur."
+              },
+              {
+                "type": "shadowing",
+                "q": "Transformasi genre — shadowing: analyse or produce the Malay model with correct affixation, scope, and register: Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "answer": "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: ms-MY browser voice; not native recording; text=Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Transformasi genre — guided speaking: analyse or produce the Malay model with correct affixation, scope, and register: Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "answer": "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "Transformasi genre — free response: analyse or produce the Malay model with correct affixation, scope, and register: Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "answer": "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "Transformasi genre — roleplay: analyse or produce the Malay model with correct affixation, scope, and register: Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "answer": "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Transformasi genre — sentence writing: analyse or produce the Malay model with correct affixation, scope, and register: Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "answer": "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "Transformasi genre — short writing: analyse or produce the Malay model with correct affixation, scope, and register: Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "answer": "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "paraphrase",
+                "q": "Transformasi genre — paraphrase: analyse or produce the Malay model with correct affixation, scope, and register: Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "answer": "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "Transformasi genre — summary: analyse or produce the Malay model with correct affixation, scope, and register: Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "answer": "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Transformasi genre — guided composition: analyse or produce the Malay model with correct affixation, scope, and register: Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "answer": "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Transformasi genre — register transformation: analyse or produce the Malay model with correct affixation, scope, and register: Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "answer": "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                "skill_target": "register transformation"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Transformasi genre: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              },
+              {
+                "q": "Transformasi genre: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              },
+              {
+                "q": "Transformasi genre: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              },
+              {
+                "q": "Transformasi genre: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              },
+              {
+                "q": "Transformasi genre: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Memorandum",
+              "itu",
+              "mengakui",
+              "ketidakpastian"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Transformasi genre workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate affixes and discourse function.",
+                  "items": [
+                    "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                    "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan."
+                  ],
+                  "key": [
+                    "Standard Malay combines analytic time marking, classifiers, reduplication, derivational and voice affixes, SVO/topic-comment order, relative yang, social address, and prosody. Choices encode event structure, participant prominence, evidence, focus, and register.",
+                    "Standard Malay combines analytic time marking, classifiers, reduplication, derivational and voice affixes, SVO/topic-comment order, relative yang, social address, and prosody. Choices encode event structure, participant prominence, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                    "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan."
+                  ],
+                  "key": [
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence.",
+                    "On available evidence, this is the most plausible explanation, not an indisputable verdict."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence.",
+                    "On available evidence, this is the most plausible explanation, not an indisputable verdict."
+                  ],
+                  "key": [
+                    "Model: Memorandum itu mengakui ketidakpastian; kenyataan awam mengolahnya sebagai keyakinan yang terukur.",
+                    "Model: Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "zsm-c2-l6",
+            "title": "Ketepatan epistemik",
+            "learn": "Control ketepatan epistemik in level-appropriate Standard Malay.",
+            "vocab": [
+              {
+                "t": "Berdasarkan",
+                "r": "Berdasarkan",
+                "en": "discourse segment in “On available evidence, this is the most plausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "bukti",
+                "r": "bukti",
+                "en": "discourse segment in “On available evidence, this is the most plausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "yang",
+                "r": "yang",
+                "en": "discourse segment in “On available evidence, this is the most plausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ada",
+                "r": "ada",
+                "en": "discourse segment in “On available evidence, this is the most plausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "inilah",
+                "r": "inilah",
+                "en": "discourse segment in “On available evidence, this is the most plausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "penjelasan",
+                "r": "penjelasan",
+                "en": "discourse segment in “On available evidence, this is the most plausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "yang",
+                "r": "yang",
+                "en": "discourse segment in “On available evidence, this is the most plausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "paling",
+                "r": "paling",
+                "en": "discourse segment in “On available evidence, this is the most plausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Ketepatan epistemik",
+              "explain": "Standard Malay combines analytic time marking, classifiers, reduplication, derivational and voice affixes, SVO/topic-comment order, relative yang, social address, and prosody. Choices encode event structure, participant prominence, evidence, focus, and register.",
+              "pattern": "topic + voice/affix-marked predicate + arguments + stance",
+              "examples": [
+                {
+                  "t": "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                  "r": "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                  "en": "On available evidence, this is the most plausible explanation, not an indisputable verdict."
+                },
+                {
+                  "t": "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                  "r": "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                  "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                },
+                {
+                  "t": "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                  "r": "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                  "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with inappropriate affix, classifier, voice, or address",
+                  "right": "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                  "why": "The corrected model aligns morphology and pragmatic relationship."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Pelajar",
+                "t": "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "r": "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "en": "On available evidence, this is the most plausible explanation, not an indisputable verdict."
+              },
+              {
+                "sp": "Rakan",
+                "t": "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "r": "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban.",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              },
+              {
+                "sp": "Pengantara",
+                "t": "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "r": "Menyifatkan hasil itu sebagai tidak sepenuhnya di luar jangkaan secara halus menjauhkan penutur daripada pihak yang terkejut.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              },
+              {
+                "sp": "Penyunting",
+                "t": "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "r": "Kita memerlukan cita-cita tanpa tergesa-gesa, kewaspadaan tanpa kelumpuhan, dan kebertanggungjawaban tanpa pertunjukan.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              }
+            ],
+            "practice": [
+              {
+                "type": "roleplay",
+                "q": "Ketepatan epistemik — roleplay: analyse or produce the Malay model with correct affixation, scope, and register: Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "answer": "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Ketepatan epistemik — sentence writing: analyse or produce the Malay model with correct affixation, scope, and register: Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "answer": "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "Ketepatan epistemik — short writing: analyse or produce the Malay model with correct affixation, scope, and register: Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "answer": "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "paraphrase",
+                "q": "Ketepatan epistemik — paraphrase: analyse or produce the Malay model with correct affixation, scope, and register: Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "answer": "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "Ketepatan epistemik — summary: analyse or produce the Malay model with correct affixation, scope, and register: Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "answer": "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Ketepatan epistemik — guided composition: analyse or produce the Malay model with correct affixation, scope, and register: Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "answer": "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Ketepatan epistemik — register transformation: analyse or produce the Malay model with correct affixation, scope, and register: Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "answer": "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "skill_target": "register transformation"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Ketepatan epistemik — multiple choice: analyse or produce the Malay model with correct affixation, scope, and register: Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "answer": "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                  "Form with an inappropriate affix or classifier",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Ketepatan epistemik — fill in the blank: analyse or produce the Malay model with correct affixation, scope, and register: Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "answer": "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Ketepatan epistemik — translation: analyse or produce the Malay model with correct affixation, scope, and register: Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "answer": "On available evidence, this is the most plausible explanation, not an indisputable verdict.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Ketepatan epistemik — reverse translation: analyse or produce the Malay model with correct affixation, scope, and register: Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "answer": "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Ketepatan epistemik — matching: analyse or produce the Malay model with correct affixation, scope, and register: Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "answer": "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                "skill_target": "matching",
+                "options": [
+                  "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                  "Form with an inappropriate affix or classifier",
+                  "An unrelated greeting"
+                ]
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Ketepatan epistemik: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              },
+              {
+                "q": "Ketepatan epistemik: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              },
+              {
+                "q": "Ketepatan epistemik: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              },
+              {
+                "q": "Ketepatan epistemik: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              },
+              {
+                "q": "Ketepatan epistemik: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                  "Form with incorrect voice or scope",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malay morphology, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Berdasarkan",
+              "bukti",
+              "yang",
+              "ada"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Ketepatan epistemik workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate affixes and discourse function.",
+                  "items": [
+                    "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                    "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban."
+                  ],
+                  "key": [
+                    "Standard Malay combines analytic time marking, classifiers, reduplication, derivational and voice affixes, SVO/topic-comment order, relative yang, social address, and prosody. Choices encode event structure, participant prominence, evidence, focus, and register.",
+                    "Standard Malay combines analytic time marking, classifiers, reduplication, derivational and voice affixes, SVO/topic-comment order, relative yang, social address, and prosody. Choices encode event structure, participant prominence, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                    "Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban."
+                  ],
+                  "key": [
+                    "On available evidence, this is the most plausible explanation, not an indisputable verdict.",
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "On available evidence, this is the most plausible explanation, not an indisputable verdict.",
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                  ],
+                  "key": [
+                    "Model: Berdasarkan bukti yang ada, inilah penjelasan yang paling munasabah, bukannya keputusan yang tidak dapat dipertikaikan.",
+                    "Model: Bukan setiap peningkatan yang kelihatan itu kemajuan sebenar; sesetengah hasil hanya mengagihkan semula beban."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "Spanish C2 Proficiency Test",
+      "items": [
+        {
+          "type": "argument_construction",
+          "q": "Standard Malay C2 integrated task 1: respond with accurate affixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Standard Malay course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Standard Malay C2 integrated task 2: respond with accurate affixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Standard Malay course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Standard Malay C2 integrated task 3: respond with accurate affixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Standard Malay course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Standard Malay C2 integrated task 4: respond with accurate affixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Standard Malay course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Standard Malay C2 integrated task 5: respond with accurate affixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Standard Malay course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Standard Malay C2 integrated task 6: respond with accurate affixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Standard Malay course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Standard Malay C2 integrated task 7: respond with accurate affixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Standard Malay course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Standard Malay C2 integrated task 8: respond with accurate affixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Standard Malay course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Standard Malay C2 integrated task 9: respond with accurate affixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Standard Malay course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Standard Malay C2 integrated task 10: respond with accurate affixes, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Standard Malay course rubric."
+        }
+      ]
+    }
+  }
+}

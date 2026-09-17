@@ -1,0 +1,1878 @@
+{
+  "code": "ko",
+  "name": "Korean",
+  "native": "한국어",
+  "phase": 1,
+  "medium": "en",
+  "file_level": "C1",
+  "research_basis": "data/language-research/ko.json",
+  "level": {
+    "title": "Korean C1 Advanced Mastery",
+    "goals": [
+      "Control information structure, evidentiality, modality, and register",
+      "Mediate complex sources without increasing certainty",
+      "Transform academic, institutional, and literary genres"
+    ],
+    "units": [
+      {
+        "id": "ko-c1-u1",
+        "title": "Advanced stance and structure",
+        "lessons": [
+          {
+            "id": "ko-c1-l1",
+            "title": "보도와 양보",
+            "learn": "Control 보도와 양보 in advanced discourse.",
+            "vocab": [
+              {
+                "t": "보고서에 ",
+                "r": "bogoseo-e ",
+                "en": "discourse segment 1: The report suggests implementation improved although regional differences remain.",
+                "pos": "expression"
+              },
+              {
+                "t": "서에 따르",
+                "r": "seo-e ttaleu",
+                "en": "discourse segment 2: The report suggests implementation improved although regional differences remain.",
+                "pos": "expression"
+              },
+              {
+                "t": " 따르면 ",
+                "r": " ttaleumyeon ",
+                "en": "discourse segment 3: The report suggests implementation improved although regional differences remain.",
+                "pos": "expression"
+              },
+              {
+                "t": "르면 지역",
+                "r": "leumyeon ji-yeog",
+                "en": "discourse segment 4: The report suggests implementation improved although regional differences remain.",
+                "pos": "expression"
+              },
+              {
+                "t": " 지역별 ",
+                "r": " ji-yeogbyeol ",
+                "en": "discourse segment 5: The report suggests implementation improved although regional differences remain.",
+                "pos": "expression"
+              },
+              {
+                "t": "역별 차이",
+                "r": "yeogbyeol cha-i",
+                "en": "discourse segment 6: The report suggests implementation improved although regional differences remain.",
+                "pos": "expression"
+              },
+              {
+                "t": " 차이가 ",
+                "r": " cha-iga ",
+                "en": "discourse segment 7: The report suggests implementation improved although regional differences remain.",
+                "pos": "expression"
+              },
+              {
+                "t": "이가 남아",
+                "r": "iga nam-a",
+                "en": "discourse segment 8: The report suggests implementation improved although regional differences remain.",
+                "pos": "expression"
+              }
+            ],
+            "grammar": {
+              "title": "보도와 양보",
+              "explain": "Korean controls topic, focus, clause linkage, evidential stance, politeness and information structure; preserve scope during mediation.",
+              "pattern": "frame + scoped claim + qualification",
+              "examples": [
+                {
+                  "t": "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                  "r": "bogoseo-e ttaleumyeon ji-yeogbyeol cha-iga nam-a issgineun hajiman silhaeng-eun gaeseondoen geos-eulo bo-inda.",
+                  "en": "The report suggests implementation improved although regional differences remain."
+                },
+                {
+                  "t": "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                  "r": "jeunggeoga jehanjeog-ila hadeolado geu gyeolgwaleul musihageona hwagjeongjeog sasillo jesihaeseoneun an doenda.",
+                  "en": "Limited evidence should neither be ignored nor presented as final fact."
+                },
+                {
+                  "t": "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                  "r": "sahoe-ui byeonhwaneun maeglaggwa bangbeoblon-eul hamkke geomtohae-ya bipanjeog-eulo pyeonggahal su issda.",
+                  "en": "Social change can be evaluated critically only by examining context and method."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "categorical paraphrase",
+                  "right": "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                  "why": "It erases stance."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Analyst",
+                "t": "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "r": "bogoseo-e ttaleumyeon ji-yeogbyeol cha-iga nam-a issgineun hajiman silhaeng-eun gaeseondoen geos-eulo bo-inda.",
+                "en": "The report suggests implementation improved although regional differences remain."
+              },
+              {
+                "sp": "Editor",
+                "t": "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "r": "jeunggeoga jehanjeog-ila hadeolado geu gyeolgwaleul musihageona hwagjeongjeog sasillo jesihaeseoneun an doenda.",
+                "en": "Limited evidence should neither be ignored nor presented as final fact."
+              },
+              {
+                "sp": "Mediator",
+                "t": "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "r": "sahoe-ui byeonhwaneun maeglaggwa bangbeoblon-eul hamkke geomtohae-ya bipanjeog-eulo pyeonggahal su issda.",
+                "en": "Social change can be evaluated critically only by examining context and method."
+              },
+              {
+                "sp": "Reviewer",
+                "t": "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "r": "je-an-ui chwijileul jonjunghamyeonseodo silhaengsang-ui hangyeleul ban-yeonghan dae-an-eul jesihagoja habnida.",
+                "en": "Respecting the proposal, I wish to offer an alternative reflecting practical limits."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "보도와 양보 — multiple choice: preserve scope, register, and implication in this model: 보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "answer": "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                  "The report suggests implementation improved although regional differences remain.",
+                  "an unrelated absolute claim"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "보도와 양보 — fill in the blank: preserve scope, register, and implication in this model: 보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "answer": "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "보도와 양보 — translation: preserve scope, register, and implication in this model: 보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "answer": "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "보도와 양보 — reverse translation: preserve scope, register, and implication in this model: 보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "answer": "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "보도와 양보 — matching: preserve scope, register, and implication in this model: 보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "answer": "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "skill_target": "matching",
+                "options": [
+                  "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                  "The report suggests implementation improved although regional differences remain.",
+                  "an unrelated absolute claim"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "보도와 양보 — reorder: preserve scope, register, and implication in this model: 보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "answer": "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "보도와 양보 — sentence building: preserve scope, register, and implication in this model: 보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "answer": "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "보도와 양보 — word selection: preserve scope, register, and implication in this model: 보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "answer": "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "skill_target": "word selection",
+                "options": [
+                  "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                  "The report suggests implementation improved although regional differences remain.",
+                  "an unrelated absolute claim"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "보도와 양보 — error correction: preserve scope, register, and implication in this model: 보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "answer": "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "보도와 양보 — dialogue completion: preserve scope, register, and implication in this model: 보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "answer": "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "보도와 양보 — reading comprehension: preserve scope, register, and implication in this model: 보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "answer": "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "보도와 양보 — paragraph comprehension: preserve scope, register, and implication in this model: 보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "answer": "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "보도와 양보: advanced control check 1",
+                "options": [
+                  "The report suggests implementation improved although regional differences remain.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              },
+              {
+                "q": "보도와 양보: advanced control check 2",
+                "options": [
+                  "The report suggests implementation improved although regional differences remain.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              },
+              {
+                "q": "보도와 양보: advanced control check 3",
+                "options": [
+                  "The report suggests implementation improved although regional differences remain.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              },
+              {
+                "q": "보도와 양보: advanced control check 4",
+                "options": [
+                  "The report suggests implementation improved although regional differences remain.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              },
+              {
+                "q": "보도와 양보: advanced control check 5",
+                "options": [
+                  "The report suggests implementation improved although regional differences remain.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "보고서에 ",
+              "서에 따르",
+              " 따르면 ",
+              "르면 지역"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Evidential framing and とのことだ workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate stance and information structure.",
+                  "items": [
+                    "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                    "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다."
+                  ],
+                  "key": [
+                    "The report suggests implementation improved although regional differences remain.",
+                    "Limited evidence should neither be ignored nor presented as final fact."
+                  ]
+                },
+                {
+                  "instruction": "Mediate without increasing certainty.",
+                  "items": [
+                    "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                    "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다."
+                  ],
+                  "key": [
+                    "The report suggests implementation improved although regional differences remain.",
+                    "Limited evidence should neither be ignored nor presented as final fact."
+                  ]
+                },
+                {
+                  "instruction": "Transform genre and justify register choices.",
+                  "items": [
+                    "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                    "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다."
+                  ],
+                  "key": [
+                    "The report suggests implementation improved although regional differences remain.",
+                    "Limited evidence should neither be ignored nor presented as final fact."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "ko-c1-l2",
+            "title": "제한된 증거",
+            "learn": "Control 제한된 증거 in advanced discourse.",
+            "vocab": [
+              {
+                "t": "증거가 제",
+                "r": "jeunggeoga je",
+                "en": "discourse segment 1: Limited evidence should neither be ignored nor presented as final fact.",
+                "pos": "expression"
+              },
+              {
+                "t": "가 제한적",
+                "r": "ga jehanjeog",
+                "en": "discourse segment 2: Limited evidence should neither be ignored nor presented as final fact.",
+                "pos": "expression"
+              },
+              {
+                "t": "제한적이라",
+                "r": "jehanjeog-ila",
+                "en": "discourse segment 3: Limited evidence should neither be ignored nor presented as final fact.",
+                "pos": "expression"
+              },
+              {
+                "t": "적이라 하",
+                "r": "jeog-ila ha",
+                "en": "discourse segment 4: Limited evidence should neither be ignored nor presented as final fact.",
+                "pos": "expression"
+              },
+              {
+                "t": "라 하더라",
+                "r": "la hadeola",
+                "en": "discourse segment 5: Limited evidence should neither be ignored nor presented as final fact.",
+                "pos": "expression"
+              },
+              {
+                "t": "하더라도 ",
+                "r": "hadeolado ",
+                "en": "discourse segment 6: Limited evidence should neither be ignored nor presented as final fact.",
+                "pos": "expression"
+              },
+              {
+                "t": "라도 그 ",
+                "r": "lado geu ",
+                "en": "discourse segment 7: Limited evidence should neither be ignored nor presented as final fact.",
+                "pos": "expression"
+              },
+              {
+                "t": " 그 결과",
+                "r": " geu gyeolgwa",
+                "en": "discourse segment 8: Limited evidence should neither be ignored nor presented as final fact.",
+                "pos": "expression"
+              }
+            ],
+            "grammar": {
+              "title": "제한된 증거",
+              "explain": "Korean controls topic, focus, clause linkage, evidential stance, politeness and information structure; preserve scope during mediation.",
+              "pattern": "frame + scoped claim + qualification",
+              "examples": [
+                {
+                  "t": "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                  "r": "jeunggeoga jehanjeog-ila hadeolado geu gyeolgwaleul musihageona hwagjeongjeog sasillo jesihaeseoneun an doenda.",
+                  "en": "Limited evidence should neither be ignored nor presented as final fact."
+                },
+                {
+                  "t": "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                  "r": "sahoe-ui byeonhwaneun maeglaggwa bangbeoblon-eul hamkke geomtohae-ya bipanjeog-eulo pyeonggahal su issda.",
+                  "en": "Social change can be evaluated critically only by examining context and method."
+                },
+                {
+                  "t": "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                  "r": "je-an-ui chwijileul jonjunghamyeonseodo silhaengsang-ui hangyeleul ban-yeonghan dae-an-eul jesihagoja habnida.",
+                  "en": "Respecting the proposal, I wish to offer an alternative reflecting practical limits."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "categorical paraphrase",
+                  "right": "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                  "why": "It erases stance."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Analyst",
+                "t": "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "r": "jeunggeoga jehanjeog-ila hadeolado geu gyeolgwaleul musihageona hwagjeongjeog sasillo jesihaeseoneun an doenda.",
+                "en": "Limited evidence should neither be ignored nor presented as final fact."
+              },
+              {
+                "sp": "Editor",
+                "t": "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "r": "sahoe-ui byeonhwaneun maeglaggwa bangbeoblon-eul hamkke geomtohae-ya bipanjeog-eulo pyeonggahal su issda.",
+                "en": "Social change can be evaluated critically only by examining context and method."
+              },
+              {
+                "sp": "Mediator",
+                "t": "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "r": "je-an-ui chwijileul jonjunghamyeonseodo silhaengsang-ui hangyeleul ban-yeonghan dae-an-eul jesihagoja habnida.",
+                "en": "Respecting the proposal, I wish to offer an alternative reflecting practical limits."
+              },
+              {
+                "sp": "Reviewer",
+                "t": "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "r": "du yeonguleul jonghabhamyeon maeglag-ui cha-iga gyeolgwa-ui bul-ilchileul bubunjeog-eulo seolmyeonghanda.",
+                "en": "Together the studies show context partly explains divergent results."
+              }
+            ],
+            "practice": [
+              {
+                "type": "word_selection",
+                "q": "제한된 증거 — word selection: preserve scope, register, and implication in this model: 증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "answer": "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "skill_target": "word selection",
+                "options": [
+                  "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                  "Limited evidence should neither be ignored nor presented as final fact.",
+                  "an unrelated absolute claim"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "제한된 증거 — error correction: preserve scope, register, and implication in this model: 증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "answer": "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "제한된 증거 — dialogue completion: preserve scope, register, and implication in this model: 증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "answer": "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "제한된 증거 — reading comprehension: preserve scope, register, and implication in this model: 증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "answer": "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "제한된 증거 — paragraph comprehension: preserve scope, register, and implication in this model: 증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "answer": "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "main_idea",
+                "q": "제한된 증거 — main idea: preserve scope, register, and implication in this model: 증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "answer": "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "제한된 증거 — detail identification: preserve scope, register, and implication in this model: 증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "answer": "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "inference",
+                "q": "제한된 증거 — inference: preserve scope, register, and implication in this model: 증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "answer": "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "제한된 증거 — listening comprehension: preserve scope, register, and implication in this model: 증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "answer": "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: ko browser voice; not native recording; text=증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다."
+              },
+              {
+                "type": "dictation",
+                "q": "제한된 증거 — dictation: preserve scope, register, and implication in this model: 증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "answer": "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: ko browser voice; not native recording; text=증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "제한된 증거 — listen and choose: preserve scope, register, and implication in this model: 증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "answer": "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "skill_target": "listen and choose",
+                "options": [
+                  "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                  "Limited evidence should neither be ignored nor presented as final fact.",
+                  "an unrelated absolute claim"
+                ],
+                "audio_source": "synthetic_tts: ko browser voice; not native recording; text=증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다."
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "제한된 증거 — listen and reorder: preserve scope, register, and implication in this model: 증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "answer": "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: ko browser voice; not native recording; text=증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "제한된 증거: advanced control check 1",
+                "options": [
+                  "Limited evidence should neither be ignored nor presented as final fact.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              },
+              {
+                "q": "제한된 증거: advanced control check 2",
+                "options": [
+                  "Limited evidence should neither be ignored nor presented as final fact.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              },
+              {
+                "q": "제한된 증거: advanced control check 3",
+                "options": [
+                  "Limited evidence should neither be ignored nor presented as final fact.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              },
+              {
+                "q": "제한된 증거: advanced control check 4",
+                "options": [
+                  "Limited evidence should neither be ignored nor presented as final fact.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              },
+              {
+                "q": "제한된 증거: advanced control check 5",
+                "options": [
+                  "Limited evidence should neither be ignored nor presented as final fact.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "증거가 제",
+              "가 제한적",
+              "제한적이라",
+              "적이라 하"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Concession with とはいえ workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate stance and information structure.",
+                  "items": [
+                    "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                    "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다."
+                  ],
+                  "key": [
+                    "Limited evidence should neither be ignored nor presented as final fact.",
+                    "Social change can be evaluated critically only by examining context and method."
+                  ]
+                },
+                {
+                  "instruction": "Mediate without increasing certainty.",
+                  "items": [
+                    "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                    "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다."
+                  ],
+                  "key": [
+                    "Limited evidence should neither be ignored nor presented as final fact.",
+                    "Social change can be evaluated critically only by examining context and method."
+                  ]
+                },
+                {
+                  "instruction": "Transform genre and justify register choices.",
+                  "items": [
+                    "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                    "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다."
+                  ],
+                  "key": [
+                    "Limited evidence should neither be ignored nor presented as final fact.",
+                    "Social change can be evaluated critically only by examining context and method."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "ko-c1-u2",
+        "title": "Professional argument and mediation",
+        "lessons": [
+          {
+            "id": "ko-c1-l3",
+            "title": "비판적 종합",
+            "learn": "Control 비판적 종합 in advanced discourse.",
+            "vocab": [
+              {
+                "t": "사회의 변",
+                "r": "sahoe-ui byeon",
+                "en": "discourse segment 1: Social change can be evaluated critically only by examining context and method.",
+                "pos": "expression"
+              },
+              {
+                "t": "의 변화는",
+                "r": "ui byeonhwaneun",
+                "en": "discourse segment 2: Social change can be evaluated critically only by examining context and method.",
+                "pos": "expression"
+              },
+              {
+                "t": "변화는 맥",
+                "r": "byeonhwaneun maeg",
+                "en": "discourse segment 3: Social change can be evaluated critically only by examining context and method.",
+                "pos": "expression"
+              },
+              {
+                "t": "는 맥락과",
+                "r": "neun maeglaggwa",
+                "en": "discourse segment 4: Social change can be evaluated critically only by examining context and method.",
+                "pos": "expression"
+              },
+              {
+                "t": "맥락과 방",
+                "r": "maeglaggwa bang",
+                "en": "discourse segment 5: Social change can be evaluated critically only by examining context and method.",
+                "pos": "expression"
+              },
+              {
+                "t": "과 방법론",
+                "r": "gwa bangbeoblon",
+                "en": "discourse segment 6: Social change can be evaluated critically only by examining context and method.",
+                "pos": "expression"
+              },
+              {
+                "t": "방법론을 ",
+                "r": "bangbeoblon-eul ",
+                "en": "discourse segment 7: Social change can be evaluated critically only by examining context and method.",
+                "pos": "expression"
+              },
+              {
+                "t": "론을 함께",
+                "r": "lon-eul hamkke",
+                "en": "discourse segment 8: Social change can be evaluated critically only by examining context and method.",
+                "pos": "expression"
+              }
+            ],
+            "grammar": {
+              "title": "비판적 종합",
+              "explain": "Korean controls topic, focus, clause linkage, evidential stance, politeness and information structure; preserve scope during mediation.",
+              "pattern": "frame + scoped claim + qualification",
+              "examples": [
+                {
+                  "t": "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                  "r": "sahoe-ui byeonhwaneun maeglaggwa bangbeoblon-eul hamkke geomtohae-ya bipanjeog-eulo pyeonggahal su issda.",
+                  "en": "Social change can be evaluated critically only by examining context and method."
+                },
+                {
+                  "t": "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                  "r": "je-an-ui chwijileul jonjunghamyeonseodo silhaengsang-ui hangyeleul ban-yeonghan dae-an-eul jesihagoja habnida.",
+                  "en": "Respecting the proposal, I wish to offer an alternative reflecting practical limits."
+                },
+                {
+                  "t": "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                  "r": "du yeonguleul jonghabhamyeon maeglag-ui cha-iga gyeolgwa-ui bul-ilchileul bubunjeog-eulo seolmyeonghanda.",
+                  "en": "Together the studies show context partly explains divergent results."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "categorical paraphrase",
+                  "right": "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                  "why": "It erases stance."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Analyst",
+                "t": "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "r": "sahoe-ui byeonhwaneun maeglaggwa bangbeoblon-eul hamkke geomtohae-ya bipanjeog-eulo pyeonggahal su issda.",
+                "en": "Social change can be evaluated critically only by examining context and method."
+              },
+              {
+                "sp": "Editor",
+                "t": "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "r": "je-an-ui chwijileul jonjunghamyeonseodo silhaengsang-ui hangyeleul ban-yeonghan dae-an-eul jesihagoja habnida.",
+                "en": "Respecting the proposal, I wish to offer an alternative reflecting practical limits."
+              },
+              {
+                "sp": "Mediator",
+                "t": "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "r": "du yeonguleul jonghabhamyeon maeglag-ui cha-iga gyeolgwa-ui bul-ilchileul bubunjeog-eulo seolmyeonghanda.",
+                "en": "Together the studies show context partly explains divergent results."
+              },
+              {
+                "sp": "Reviewer",
+                "t": "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "r": "jalyoga bul-wanjeonhaess-eumeulo wi-wonhoeneun ingwagwangyega balghyeojil ttae-kkaji gyeoljeong-eul milu-eossda.",
+                "en": "The committee deferred its decision until causality was clarified."
+              }
+            ],
+            "practice": [
+              {
+                "type": "inference",
+                "q": "비판적 종합 — inference: preserve scope, register, and implication in this model: 사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "answer": "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "비판적 종합 — listening comprehension: preserve scope, register, and implication in this model: 사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "answer": "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: ko browser voice; not native recording; text=사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다."
+              },
+              {
+                "type": "dictation",
+                "q": "비판적 종합 — dictation: preserve scope, register, and implication in this model: 사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "answer": "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: ko browser voice; not native recording; text=사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "비판적 종합 — listen and choose: preserve scope, register, and implication in this model: 사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "answer": "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "skill_target": "listen and choose",
+                "options": [
+                  "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                  "Social change can be evaluated critically only by examining context and method.",
+                  "an unrelated absolute claim"
+                ],
+                "audio_source": "synthetic_tts: ko browser voice; not native recording; text=사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다."
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "비판적 종합 — listen and reorder: preserve scope, register, and implication in this model: 사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "answer": "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: ko browser voice; not native recording; text=사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다."
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "비판적 종합 — listen and fill: preserve scope, register, and implication in this model: 사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "answer": "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "skill_target": "listen and fill",
+                "audio_source": "synthetic_tts: ko browser voice; not native recording; text=사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "비판적 종합 — repeat after audio: preserve scope, register, and implication in this model: 사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "answer": "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: ko browser voice; not native recording; text=사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다."
+              },
+              {
+                "type": "pronunciation",
+                "q": "비판적 종합 — pronunciation: preserve scope, register, and implication in this model: 사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "answer": "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: ko browser voice; not native recording; text=사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다."
+              },
+              {
+                "type": "shadowing",
+                "q": "비판적 종합 — shadowing: preserve scope, register, and implication in this model: 사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "answer": "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: ko browser voice; not native recording; text=사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "비판적 종합 — guided speaking: preserve scope, register, and implication in this model: 사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "answer": "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "비판적 종합 — free response: preserve scope, register, and implication in this model: 사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "answer": "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "비판적 종합 — roleplay: preserve scope, register, and implication in this model: 사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "answer": "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "skill_target": "roleplay"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "비판적 종합: advanced control check 1",
+                "options": [
+                  "Social change can be evaluated critically only by examining context and method.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              },
+              {
+                "q": "비판적 종합: advanced control check 2",
+                "options": [
+                  "Social change can be evaluated critically only by examining context and method.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              },
+              {
+                "q": "비판적 종합: advanced control check 3",
+                "options": [
+                  "Social change can be evaluated critically only by examining context and method.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              },
+              {
+                "q": "비판적 종합: advanced control check 4",
+                "options": [
+                  "Social change can be evaluated critically only by examining context and method.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              },
+              {
+                "q": "비판적 종합: advanced control check 5",
+                "options": [
+                  "Social change can be evaluated critically only by examining context and method.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "사회의 변",
+              "의 변화는",
+              "변화는 맥",
+              "는 맥락과"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Nominalisation in academic prose workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate stance and information structure.",
+                  "items": [
+                    "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                    "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다."
+                  ],
+                  "key": [
+                    "Social change can be evaluated critically only by examining context and method.",
+                    "Respecting the proposal, I wish to offer an alternative reflecting practical limits."
+                  ]
+                },
+                {
+                  "instruction": "Mediate without increasing certainty.",
+                  "items": [
+                    "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                    "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다."
+                  ],
+                  "key": [
+                    "Social change can be evaluated critically only by examining context and method.",
+                    "Respecting the proposal, I wish to offer an alternative reflecting practical limits."
+                  ]
+                },
+                {
+                  "instruction": "Transform genre and justify register choices.",
+                  "items": [
+                    "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                    "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다."
+                  ],
+                  "key": [
+                    "Social change can be evaluated critically only by examining context and method.",
+                    "Respecting the proposal, I wish to offer an alternative reflecting practical limits."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "ko-c1-l4",
+            "title": "전문적 이견",
+            "learn": "Control 전문적 이견 in advanced discourse.",
+            "vocab": [
+              {
+                "t": "제안의 취",
+                "r": "je-an-ui chwi",
+                "en": "discourse segment 1: Respecting the proposal, I wish to offer an alternative reflecting practical limits.",
+                "pos": "expression"
+              },
+              {
+                "t": "의 취지를",
+                "r": "ui chwijileul",
+                "en": "discourse segment 2: Respecting the proposal, I wish to offer an alternative reflecting practical limits.",
+                "pos": "expression"
+              },
+              {
+                "t": "취지를 존",
+                "r": "chwijileul jon",
+                "en": "discourse segment 3: Respecting the proposal, I wish to offer an alternative reflecting practical limits.",
+                "pos": "expression"
+              },
+              {
+                "t": "를 존중하",
+                "r": "leul jonjungha",
+                "en": "discourse segment 4: Respecting the proposal, I wish to offer an alternative reflecting practical limits.",
+                "pos": "expression"
+              },
+              {
+                "t": "존중하면서",
+                "r": "jonjunghamyeonseo",
+                "en": "discourse segment 5: Respecting the proposal, I wish to offer an alternative reflecting practical limits.",
+                "pos": "expression"
+              },
+              {
+                "t": "하면서도 ",
+                "r": "hamyeonseodo ",
+                "en": "discourse segment 6: Respecting the proposal, I wish to offer an alternative reflecting practical limits.",
+                "pos": "expression"
+              },
+              {
+                "t": "서도 실행",
+                "r": "seodo silhaeng",
+                "en": "discourse segment 7: Respecting the proposal, I wish to offer an alternative reflecting practical limits.",
+                "pos": "expression"
+              },
+              {
+                "t": " 실행상의",
+                "r": " silhaengsang-ui",
+                "en": "discourse segment 8: Respecting the proposal, I wish to offer an alternative reflecting practical limits.",
+                "pos": "expression"
+              }
+            ],
+            "grammar": {
+              "title": "전문적 이견",
+              "explain": "Korean controls topic, focus, clause linkage, evidential stance, politeness and information structure; preserve scope during mediation.",
+              "pattern": "frame + scoped claim + qualification",
+              "examples": [
+                {
+                  "t": "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                  "r": "je-an-ui chwijileul jonjunghamyeonseodo silhaengsang-ui hangyeleul ban-yeonghan dae-an-eul jesihagoja habnida.",
+                  "en": "Respecting the proposal, I wish to offer an alternative reflecting practical limits."
+                },
+                {
+                  "t": "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                  "r": "du yeonguleul jonghabhamyeon maeglag-ui cha-iga gyeolgwa-ui bul-ilchileul bubunjeog-eulo seolmyeonghanda.",
+                  "en": "Together the studies show context partly explains divergent results."
+                },
+                {
+                  "t": "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                  "r": "jalyoga bul-wanjeonhaess-eumeulo wi-wonhoeneun ingwagwangyega balghyeojil ttae-kkaji gyeoljeong-eul milu-eossda.",
+                  "en": "The committee deferred its decision until causality was clarified."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "categorical paraphrase",
+                  "right": "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                  "why": "It erases stance."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Analyst",
+                "t": "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "r": "je-an-ui chwijileul jonjunghamyeonseodo silhaengsang-ui hangyeleul ban-yeonghan dae-an-eul jesihagoja habnida.",
+                "en": "Respecting the proposal, I wish to offer an alternative reflecting practical limits."
+              },
+              {
+                "sp": "Editor",
+                "t": "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "r": "du yeonguleul jonghabhamyeon maeglag-ui cha-iga gyeolgwa-ui bul-ilchileul bubunjeog-eulo seolmyeonghanda.",
+                "en": "Together the studies show context partly explains divergent results."
+              },
+              {
+                "sp": "Mediator",
+                "t": "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "r": "jalyoga bul-wanjeonhaess-eumeulo wi-wonhoeneun ingwagwangyega balghyeojil ttae-kkaji gyeoljeong-eul milu-eossda.",
+                "en": "The committee deferred its decision until causality was clarified."
+              },
+              {
+                "sp": "Reviewer",
+                "t": "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "r": "bogoseo-e ttaleumyeon ji-yeogbyeol cha-iga nam-a issgineun hajiman silhaeng-eun gaeseondoen geos-eulo bo-inda.",
+                "en": "The report suggests implementation improved although regional differences remain."
+              }
+            ],
+            "practice": [
+              {
+                "type": "pronunciation",
+                "q": "전문적 이견 — pronunciation: preserve scope, register, and implication in this model: 제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "answer": "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: ko browser voice; not native recording; text=제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다."
+              },
+              {
+                "type": "shadowing",
+                "q": "전문적 이견 — shadowing: preserve scope, register, and implication in this model: 제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "answer": "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: ko browser voice; not native recording; text=제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "전문적 이견 — guided speaking: preserve scope, register, and implication in this model: 제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "answer": "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "전문적 이견 — free response: preserve scope, register, and implication in this model: 제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "answer": "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "전문적 이견 — roleplay: preserve scope, register, and implication in this model: 제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "answer": "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "전문적 이견 — sentence writing: preserve scope, register, and implication in this model: 제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "answer": "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "전문적 이견 — short writing: preserve scope, register, and implication in this model: 제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "answer": "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "paraphrase",
+                "q": "전문적 이견 — paraphrase: preserve scope, register, and implication in this model: 제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "answer": "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "전문적 이견 — summary: preserve scope, register, and implication in this model: 제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "answer": "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "전문적 이견 — guided composition: preserve scope, register, and implication in this model: 제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "answer": "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "전문적 이견 — register transformation: preserve scope, register, and implication in this model: 제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "answer": "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "skill_target": "register transformation"
+              },
+              {
+                "type": "tone_identification",
+                "q": "전문적 이견 — tone identification: preserve scope, register, and implication in this model: 제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "answer": "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                "skill_target": "tone identification",
+                "options": [
+                  "慎重で分析的な改まった語調",
+                  "無根拠で断定的",
+                  "くだけた挨拶"
+                ]
+              }
+            ],
+            "quiz": [
+              {
+                "q": "전문적 이견: advanced control check 1",
+                "options": [
+                  "Respecting the proposal, I wish to offer an alternative reflecting practical limits.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              },
+              {
+                "q": "전문적 이견: advanced control check 2",
+                "options": [
+                  "Respecting the proposal, I wish to offer an alternative reflecting practical limits.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              },
+              {
+                "q": "전문적 이견: advanced control check 3",
+                "options": [
+                  "Respecting the proposal, I wish to offer an alternative reflecting practical limits.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              },
+              {
+                "q": "전문적 이견: advanced control check 4",
+                "options": [
+                  "Respecting the proposal, I wish to offer an alternative reflecting practical limits.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              },
+              {
+                "q": "전문적 이견: advanced control check 5",
+                "options": [
+                  "Respecting the proposal, I wish to offer an alternative reflecting practical limits.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "제안의 취",
+              "의 취지를",
+              "취지를 존",
+              "를 존중하"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Causal restraint and に至る workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate stance and information structure.",
+                  "items": [
+                    "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                    "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다."
+                  ],
+                  "key": [
+                    "Respecting the proposal, I wish to offer an alternative reflecting practical limits.",
+                    "Together the studies show context partly explains divergent results."
+                  ]
+                },
+                {
+                  "instruction": "Mediate without increasing certainty.",
+                  "items": [
+                    "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                    "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다."
+                  ],
+                  "key": [
+                    "Respecting the proposal, I wish to offer an alternative reflecting practical limits.",
+                    "Together the studies show context partly explains divergent results."
+                  ]
+                },
+                {
+                  "instruction": "Transform genre and justify register choices.",
+                  "items": [
+                    "제안의 취지를 존중하면서도 실행상의 한계를 반영한 대안을 제시하고자 합니다.",
+                    "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다."
+                  ],
+                  "key": [
+                    "Respecting the proposal, I wish to offer an alternative reflecting practical limits.",
+                    "Together the studies show context partly explains divergent results."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "ko-c1-u3",
+        "title": "Precision, rhetoric, and genre",
+        "lessons": [
+          {
+            "id": "ko-c1-l5",
+            "title": "자료 간 매개",
+            "learn": "Control 자료 간 매개 in advanced discourse.",
+            "vocab": [
+              {
+                "t": "두 연구를",
+                "r": "du yeonguleul",
+                "en": "discourse segment 1: Together the studies show context partly explains divergent results.",
+                "pos": "expression"
+              },
+              {
+                "t": "연구를 종",
+                "r": "yeonguleul jong",
+                "en": "discourse segment 2: Together the studies show context partly explains divergent results.",
+                "pos": "expression"
+              },
+              {
+                "t": "를 종합하",
+                "r": "leul jonghabha",
+                "en": "discourse segment 3: Together the studies show context partly explains divergent results.",
+                "pos": "expression"
+              },
+              {
+                "t": "종합하면 ",
+                "r": "jonghabhamyeon ",
+                "en": "discourse segment 4: Together the studies show context partly explains divergent results.",
+                "pos": "expression"
+              },
+              {
+                "t": "하면 맥락",
+                "r": "hamyeon maeglag",
+                "en": "discourse segment 5: Together the studies show context partly explains divergent results.",
+                "pos": "expression"
+              },
+              {
+                "t": " 맥락의 ",
+                "r": " maeglag-ui ",
+                "en": "discourse segment 6: Together the studies show context partly explains divergent results.",
+                "pos": "expression"
+              },
+              {
+                "t": "락의 차이",
+                "r": "lag-ui cha-i",
+                "en": "discourse segment 7: Together the studies show context partly explains divergent results.",
+                "pos": "expression"
+              },
+              {
+                "t": " 차이가 ",
+                "r": " cha-iga ",
+                "en": "discourse segment 8: Together the studies show context partly explains divergent results.",
+                "pos": "expression"
+              }
+            ],
+            "grammar": {
+              "title": "자료 간 매개",
+              "explain": "Korean controls topic, focus, clause linkage, evidential stance, politeness and information structure; preserve scope during mediation.",
+              "pattern": "frame + scoped claim + qualification",
+              "examples": [
+                {
+                  "t": "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                  "r": "du yeonguleul jonghabhamyeon maeglag-ui cha-iga gyeolgwa-ui bul-ilchileul bubunjeog-eulo seolmyeonghanda.",
+                  "en": "Together the studies show context partly explains divergent results."
+                },
+                {
+                  "t": "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                  "r": "jalyoga bul-wanjeonhaess-eumeulo wi-wonhoeneun ingwagwangyega balghyeojil ttae-kkaji gyeoljeong-eul milu-eossda.",
+                  "en": "The committee deferred its decision until causality was clarified."
+                },
+                {
+                  "t": "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                  "r": "bogoseo-e ttaleumyeon ji-yeogbyeol cha-iga nam-a issgineun hajiman silhaeng-eun gaeseondoen geos-eulo bo-inda.",
+                  "en": "The report suggests implementation improved although regional differences remain."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "categorical paraphrase",
+                  "right": "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                  "why": "It erases stance."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Analyst",
+                "t": "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "r": "du yeonguleul jonghabhamyeon maeglag-ui cha-iga gyeolgwa-ui bul-ilchileul bubunjeog-eulo seolmyeonghanda.",
+                "en": "Together the studies show context partly explains divergent results."
+              },
+              {
+                "sp": "Editor",
+                "t": "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "r": "jalyoga bul-wanjeonhaess-eumeulo wi-wonhoeneun ingwagwangyega balghyeojil ttae-kkaji gyeoljeong-eul milu-eossda.",
+                "en": "The committee deferred its decision until causality was clarified."
+              },
+              {
+                "sp": "Mediator",
+                "t": "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "r": "bogoseo-e ttaleumyeon ji-yeogbyeol cha-iga nam-a issgineun hajiman silhaeng-eun gaeseondoen geos-eulo bo-inda.",
+                "en": "The report suggests implementation improved although regional differences remain."
+              },
+              {
+                "sp": "Reviewer",
+                "t": "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "r": "jeunggeoga jehanjeog-ila hadeolado geu gyeolgwaleul musihageona hwagjeongjeog sasillo jesihaeseoneun an doenda.",
+                "en": "Limited evidence should neither be ignored nor presented as final fact."
+              }
+            ],
+            "practice": [
+              {
+                "type": "paraphrase",
+                "q": "자료 간 매개 — paraphrase: preserve scope, register, and implication in this model: 두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "answer": "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "자료 간 매개 — summary: preserve scope, register, and implication in this model: 두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "answer": "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "자료 간 매개 — guided composition: preserve scope, register, and implication in this model: 두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "answer": "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "자료 간 매개 — register transformation: preserve scope, register, and implication in this model: 두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "answer": "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "skill_target": "register transformation"
+              },
+              {
+                "type": "tone_identification",
+                "q": "자료 간 매개 — tone identification: preserve scope, register, and implication in this model: 두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "answer": "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "skill_target": "tone identification",
+                "options": [
+                  "慎重で分析的な改まった語調",
+                  "無根拠で断定的",
+                  "くだけた挨拶"
+                ]
+              },
+              {
+                "type": "semantic_distinction",
+                "q": "자료 간 매개 — semantic distinction: preserve scope, register, and implication in this model: 두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "answer": "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "skill_target": "semantic distinction"
+              },
+              {
+                "type": "contextual_meaning",
+                "q": "자료 간 매개 — contextual meaning: preserve scope, register, and implication in this model: 두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "answer": "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "skill_target": "contextual meaning"
+              },
+              {
+                "type": "argument_construction",
+                "q": "자료 간 매개 — argument construction: preserve scope, register, and implication in this model: 두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "answer": "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "skill_target": "argument construction"
+              },
+              {
+                "type": "discourse_ordering",
+                "q": "자료 간 매개 — discourse ordering: preserve scope, register, and implication in this model: 두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "answer": "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "skill_target": "discourse ordering"
+              },
+              {
+                "type": "style_rewriting",
+                "q": "자료 간 매개 — style rewriting: preserve scope, register, and implication in this model: 두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "answer": "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "skill_target": "style rewriting"
+              },
+              {
+                "type": "idiom_interpretation",
+                "q": "자료 간 매개 — idiom interpretation: preserve scope, register, and implication in this model: 두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "answer": "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "skill_target": "idiom interpretation"
+              },
+              {
+                "type": "implied_meaning",
+                "q": "자료 간 매개 — implied meaning: preserve scope, register, and implication in this model: 두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "answer": "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                "skill_target": "implied meaning"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "자료 간 매개: advanced control check 1",
+                "options": [
+                  "Together the studies show context partly explains divergent results.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              },
+              {
+                "q": "자료 간 매개: advanced control check 2",
+                "options": [
+                  "Together the studies show context partly explains divergent results.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              },
+              {
+                "q": "자료 간 매개: advanced control check 3",
+                "options": [
+                  "Together the studies show context partly explains divergent results.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              },
+              {
+                "q": "자료 간 매개: advanced control check 4",
+                "options": [
+                  "Together the studies show context partly explains divergent results.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              },
+              {
+                "q": "자료 간 매개: advanced control check 5",
+                "options": [
+                  "Together the studies show context partly explains divergent results.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "두 연구를",
+              "연구를 종",
+              "를 종합하",
+              "종합하면 "
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Professional mitigation workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate stance and information structure.",
+                  "items": [
+                    "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                    "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다."
+                  ],
+                  "key": [
+                    "Together the studies show context partly explains divergent results.",
+                    "The committee deferred its decision until causality was clarified."
+                  ]
+                },
+                {
+                  "instruction": "Mediate without increasing certainty.",
+                  "items": [
+                    "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                    "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다."
+                  ],
+                  "key": [
+                    "Together the studies show context partly explains divergent results.",
+                    "The committee deferred its decision until causality was clarified."
+                  ]
+                },
+                {
+                  "instruction": "Transform genre and justify register choices.",
+                  "items": [
+                    "두 연구를 종합하면 맥락의 차이가 결과의 불일치를 부분적으로 설명한다.",
+                    "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다."
+                  ],
+                  "key": [
+                    "Together the studies show context partly explains divergent results.",
+                    "The committee deferred its decision until causality was clarified."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "ko-c1-l6",
+            "title": "인과관계 유보",
+            "learn": "Control 인과관계 유보 in advanced discourse.",
+            "vocab": [
+              {
+                "t": "자료가 불",
+                "r": "jalyoga bul",
+                "en": "discourse segment 1: The committee deferred its decision until causality was clarified.",
+                "pos": "expression"
+              },
+              {
+                "t": "가 불완전",
+                "r": "ga bul-wanjeon",
+                "en": "discourse segment 2: The committee deferred its decision until causality was clarified.",
+                "pos": "expression"
+              },
+              {
+                "t": "불완전했으",
+                "r": "bul-wanjeonhaess-eu",
+                "en": "discourse segment 3: The committee deferred its decision until causality was clarified.",
+                "pos": "expression"
+              },
+              {
+                "t": "전했으므로",
+                "r": "jeonhaess-eumeulo",
+                "en": "discourse segment 4: The committee deferred its decision until causality was clarified.",
+                "pos": "expression"
+              },
+              {
+                "t": "으므로 위",
+                "r": "eumeulo wi",
+                "en": "discourse segment 5: The committee deferred its decision until causality was clarified.",
+                "pos": "expression"
+              },
+              {
+                "t": "로 위원회",
+                "r": "lo wi-wonhoe",
+                "en": "discourse segment 6: The committee deferred its decision until causality was clarified.",
+                "pos": "expression"
+              },
+              {
+                "t": "위원회는 ",
+                "r": "wi-wonhoeneun ",
+                "en": "discourse segment 7: The committee deferred its decision until causality was clarified.",
+                "pos": "expression"
+              },
+              {
+                "t": "회는 인과",
+                "r": "hoeneun ingwa",
+                "en": "discourse segment 8: The committee deferred its decision until causality was clarified.",
+                "pos": "expression"
+              }
+            ],
+            "grammar": {
+              "title": "인과관계 유보",
+              "explain": "Korean controls topic, focus, clause linkage, evidential stance, politeness and information structure; preserve scope during mediation.",
+              "pattern": "frame + scoped claim + qualification",
+              "examples": [
+                {
+                  "t": "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                  "r": "jalyoga bul-wanjeonhaess-eumeulo wi-wonhoeneun ingwagwangyega balghyeojil ttae-kkaji gyeoljeong-eul milu-eossda.",
+                  "en": "The committee deferred its decision until causality was clarified."
+                },
+                {
+                  "t": "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                  "r": "bogoseo-e ttaleumyeon ji-yeogbyeol cha-iga nam-a issgineun hajiman silhaeng-eun gaeseondoen geos-eulo bo-inda.",
+                  "en": "The report suggests implementation improved although regional differences remain."
+                },
+                {
+                  "t": "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                  "r": "jeunggeoga jehanjeog-ila hadeolado geu gyeolgwaleul musihageona hwagjeongjeog sasillo jesihaeseoneun an doenda.",
+                  "en": "Limited evidence should neither be ignored nor presented as final fact."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "categorical paraphrase",
+                  "right": "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                  "why": "It erases stance."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Analyst",
+                "t": "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "r": "jalyoga bul-wanjeonhaess-eumeulo wi-wonhoeneun ingwagwangyega balghyeojil ttae-kkaji gyeoljeong-eul milu-eossda.",
+                "en": "The committee deferred its decision until causality was clarified."
+              },
+              {
+                "sp": "Editor",
+                "t": "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다.",
+                "r": "bogoseo-e ttaleumyeon ji-yeogbyeol cha-iga nam-a issgineun hajiman silhaeng-eun gaeseondoen geos-eulo bo-inda.",
+                "en": "The report suggests implementation improved although regional differences remain."
+              },
+              {
+                "sp": "Mediator",
+                "t": "증거가 제한적이라 하더라도 그 결과를 무시하거나 확정적 사실로 제시해서는 안 된다.",
+                "r": "jeunggeoga jehanjeog-ila hadeolado geu gyeolgwaleul musihageona hwagjeongjeog sasillo jesihaeseoneun an doenda.",
+                "en": "Limited evidence should neither be ignored nor presented as final fact."
+              },
+              {
+                "sp": "Reviewer",
+                "t": "사회의 변화는 맥락과 방법론을 함께 검토해야 비판적으로 평가할 수 있다.",
+                "r": "sahoe-ui byeonhwaneun maeglaggwa bangbeoblon-eul hamkke geomtohae-ya bipanjeog-eulo pyeonggahal su issda.",
+                "en": "Social change can be evaluated critically only by examining context and method."
+              }
+            ],
+            "practice": [
+              {
+                "type": "argument_construction",
+                "q": "인과관계 유보 — argument construction: preserve scope, register, and implication in this model: 자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "answer": "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "skill_target": "argument construction"
+              },
+              {
+                "type": "discourse_ordering",
+                "q": "인과관계 유보 — discourse ordering: preserve scope, register, and implication in this model: 자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "answer": "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "skill_target": "discourse ordering"
+              },
+              {
+                "type": "style_rewriting",
+                "q": "인과관계 유보 — style rewriting: preserve scope, register, and implication in this model: 자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "answer": "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "skill_target": "style rewriting"
+              },
+              {
+                "type": "idiom_interpretation",
+                "q": "인과관계 유보 — idiom interpretation: preserve scope, register, and implication in this model: 자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "answer": "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "skill_target": "idiom interpretation"
+              },
+              {
+                "type": "implied_meaning",
+                "q": "인과관계 유보 — implied meaning: preserve scope, register, and implication in this model: 자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "answer": "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "skill_target": "implied meaning"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "인과관계 유보 — multiple choice: preserve scope, register, and implication in this model: 자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "answer": "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                  "The committee deferred its decision until causality was clarified.",
+                  "an unrelated absolute claim"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "인과관계 유보 — fill in the blank: preserve scope, register, and implication in this model: 자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "answer": "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "인과관계 유보 — translation: preserve scope, register, and implication in this model: 자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "answer": "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "인과관계 유보 — reverse translation: preserve scope, register, and implication in this model: 자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "answer": "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "인과관계 유보 — matching: preserve scope, register, and implication in this model: 자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "answer": "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "skill_target": "matching",
+                "options": [
+                  "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                  "The committee deferred its decision until causality was clarified.",
+                  "an unrelated absolute claim"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "인과관계 유보 — reorder: preserve scope, register, and implication in this model: 자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "answer": "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "인과관계 유보 — sentence building: preserve scope, register, and implication in this model: 자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "answer": "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                "skill_target": "sentence building"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "인과관계 유보: advanced control check 1",
+                "options": [
+                  "The committee deferred its decision until causality was clarified.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              },
+              {
+                "q": "인과관계 유보: advanced control check 2",
+                "options": [
+                  "The committee deferred its decision until causality was clarified.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              },
+              {
+                "q": "인과관계 유보: advanced control check 3",
+                "options": [
+                  "The committee deferred its decision until causality was clarified.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              },
+              {
+                "q": "인과관계 유보: advanced control check 4",
+                "options": [
+                  "The committee deferred its decision until causality was clarified.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              },
+              {
+                "q": "인과관계 유보: advanced control check 5",
+                "options": [
+                  "The committee deferred its decision until causality was clarified.",
+                  "Increase certainty",
+                  "Delete cohesion",
+                  "Use a greeting"
+                ],
+                "answer": 0,
+                "why": "The answer preserves stance, scope, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "자료가 불",
+              "가 불완전",
+              "불완전했으",
+              "전했으므로"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Cross-source synthesis workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate stance and information structure.",
+                  "items": [
+                    "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                    "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다."
+                  ],
+                  "key": [
+                    "The committee deferred its decision until causality was clarified.",
+                    "The report suggests implementation improved although regional differences remain."
+                  ]
+                },
+                {
+                  "instruction": "Mediate without increasing certainty.",
+                  "items": [
+                    "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                    "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다."
+                  ],
+                  "key": [
+                    "The committee deferred its decision until causality was clarified.",
+                    "The report suggests implementation improved although regional differences remain."
+                  ]
+                },
+                {
+                  "instruction": "Transform genre and justify register choices.",
+                  "items": [
+                    "자료가 불완전했으므로 위원회는 인과관계가 밝혀질 때까지 결정을 미루었다.",
+                    "보고서에 따르면 지역별 차이가 남아 있기는 하지만 실행은 개선된 것으로 보인다."
+                  ],
+                  "key": [
+                    "The committee deferred its decision until causality was clarified.",
+                    "The report suggests implementation improved although regional differences remain."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "C1 integrated capstone",
+      "items": [
+        {
+          "type": "argument_construction",
+          "q": "統合課題1: 射程と待遇を明示して分析・媒介・文体変換を行いなさい。",
+          "answer": "六課の日本語表現を用い、証拠、含意、結束性、読み手への配慮を説明する。"
+        },
+        {
+          "type": "argument_construction",
+          "q": "統合課題2: 射程と待遇を明示して分析・媒介・文体変換を行いなさい。",
+          "answer": "六課の日本語表現を用い、証拠、含意、結束性、読み手への配慮を説明する。"
+        },
+        {
+          "type": "argument_construction",
+          "q": "統合課題3: 射程と待遇を明示して分析・媒介・文体変換を行いなさい。",
+          "answer": "六課の日本語表現を用い、証拠、含意、結束性、読み手への配慮を説明する。"
+        },
+        {
+          "type": "argument_construction",
+          "q": "統合課題4: 射程と待遇を明示して分析・媒介・文体変換を行いなさい。",
+          "answer": "六課の日本語表現を用い、証拠、含意、結束性、読み手への配慮を説明する。"
+        },
+        {
+          "type": "argument_construction",
+          "q": "統合課題5: 射程と待遇を明示して分析・媒介・文体変換を行いなさい。",
+          "answer": "六課の日本語表現を用い、証拠、含意、結束性、読み手への配慮を説明する。"
+        },
+        {
+          "type": "argument_construction",
+          "q": "統合課題6: 射程と待遇を明示して分析・媒介・文体変換を行いなさい。",
+          "answer": "六課の日本語表現を用い、証拠、含意、結束性、読み手への配慮を説明する。"
+        },
+        {
+          "type": "argument_construction",
+          "q": "統合課題7: 射程と待遇を明示して分析・媒介・文体変換を行いなさい。",
+          "answer": "六課の日本語表現を用い、証拠、含意、結束性、読み手への配慮を説明する。"
+        },
+        {
+          "type": "argument_construction",
+          "q": "統合課題8: 射程と待遇を明示して分析・媒介・文体変換を行いなさい。",
+          "answer": "六課の日本語表現を用い、証拠、含意、結束性、読み手への配慮を説明する。"
+        },
+        {
+          "type": "argument_construction",
+          "q": "統合課題9: 射程と待遇を明示して分析・媒介・文体変換を行いなさい。",
+          "answer": "六課の日本語表現を用い、証拠、含意、結束性、読み手への配慮を説明する。"
+        },
+        {
+          "type": "argument_construction",
+          "q": "統合課題10: 射程と待遇を明示して分析・媒介・文体変換を行いなさい。",
+          "answer": "六課の日本語表現を用い、証拠、含意、結束性、読み手への配慮を説明する。"
+        }
+      ]
+    }
+  }
+}

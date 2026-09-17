@@ -1,0 +1,327 @@
+{
+  "summary": {
+    "scanned_files": 1904,
+    "findings": {
+      "secret": 0,
+      "sensitive": 4,
+      "internal": 0,
+      "public": 1
+    },
+    "blocked": 0,
+    "verdict": "PASS"
+  },
+  "findings": [
+    {
+      "category": "sensitive",
+      "file": "data/global/language-country-relations.json",
+      "detail": "phone-like: 9810017001",
+      "note": ""
+    },
+    {
+      "category": "sensitive",
+      "file": "data/global/language-country-relations.json",
+      "detail": "phone-like: 9810017001",
+      "note": ""
+    },
+    {
+      "category": "sensitive",
+      "file": "data/language-inventory/core/_sources.json",
+      "detail": "phone-like: 9810017001",
+      "note": ""
+    },
+    {
+      "category": "sensitive",
+      "file": "research/language-research-limitations.md",
+      "detail": "phone-like: 9810017001",
+      "note": ""
+    },
+    {
+      "category": "public",
+      "file": "live:homepage",
+      "detail": "launch status = \"live\"",
+      "note": ""
+    }
+  ],
+  "files": {
+    "sheets:settings": {
+      "columns": [
+        {
+          "name": "key",
+          "class": "secret"
+        },
+        {
+          "name": "value",
+          "class": "public"
+        },
+        {
+          "name": "what it does",
+          "class": "public"
+        }
+      ],
+      "rows": 9
+    },
+    "sheets:content": {
+      "columns": [
+        {
+          "name": "slug",
+          "class": "public"
+        },
+        {
+          "name": "question",
+          "class": "public"
+        },
+        {
+          "name": "answer",
+          "class": "public"
+        },
+        {
+          "name": "body",
+          "class": "public"
+        },
+        {
+          "name": "keywords",
+          "class": "secret"
+        },
+        {
+          "name": "related",
+          "class": "public"
+        },
+        {
+          "name": "status",
+          "class": "public"
+        }
+      ],
+      "rows": 30
+    },
+    "sheets:reviews": {
+      "columns": [
+        {
+          "name": "tutor",
+          "class": "public"
+        },
+        {
+          "name": "name",
+          "class": "public"
+        },
+        {
+          "name": "date",
+          "class": "public"
+        },
+        {
+          "name": "stars",
+          "class": "public"
+        },
+        {
+          "name": "text",
+          "class": "public"
+        },
+        {
+          "name": "source",
+          "class": "public"
+        },
+        {
+          "name": "status",
+          "class": "public"
+        }
+      ],
+      "rows": 4
+    },
+    "sheets:tutors": {
+      "columns": [
+        {
+          "name": "id",
+          "class": "public"
+        },
+        {
+          "name": "active",
+          "class": "public"
+        },
+        {
+          "name": "name",
+          "class": "public"
+        },
+        {
+          "name": "nickname",
+          "class": "public"
+        },
+        {
+          "name": "subject",
+          "class": "public"
+        },
+        {
+          "name": "priceUSD",
+          "class": "public"
+        },
+        {
+          "name": "lessonLength",
+          "class": "public"
+        },
+        {
+          "name": "availability",
+          "class": "public"
+        },
+        {
+          "name": "video",
+          "class": "public"
+        },
+        {
+          "name": "headline",
+          "class": "public"
+        },
+        {
+          "name": "city",
+          "class": "public"
+        },
+        {
+          "name": "country",
+          "class": "public"
+        },
+        {
+          "name": "timezone",
+          "class": "public"
+        },
+        {
+          "name": "teaches",
+          "class": "public"
+        },
+        {
+          "name": "tags",
+          "class": "public"
+        },
+        {
+          "name": "levels",
+          "class": "public"
+        },
+        {
+          "name": "speaks",
+          "class": "public"
+        },
+        {
+          "name": "trialAvailable",
+          "class": "public"
+        },
+        {
+          "name": "experienceYears",
+          "class": "public"
+        },
+        {
+          "name": "verified",
+          "class": "public"
+        },
+        {
+          "name": "superTutor",
+          "class": "public"
+        },
+        {
+          "name": "rating",
+          "class": "public"
+        },
+        {
+          "name": "reviewsCount",
+          "class": "public"
+        },
+        {
+          "name": "lessonsCount",
+          "class": "public"
+        },
+        {
+          "name": "email",
+          "class": "sensitive"
+        },
+        {
+          "name": "notification_email",
+          "class": "sensitive"
+        },
+        {
+          "name": "formKey",
+          "class": "secret"
+        },
+        {
+          "name": "calLink",
+          "class": "public"
+        },
+        {
+          "name": "preplyUrl",
+          "class": "public"
+        },
+        {
+          "name": "holiday",
+          "class": "public"
+        },
+        {
+          "name": "holidayUntil",
+          "class": "public"
+        },
+        {
+          "name": "holidayNote",
+          "class": "internal"
+        },
+        {
+          "name": "specialities",
+          "class": "public"
+        },
+        {
+          "name": "badge",
+          "class": "public"
+        },
+        {
+          "name": "trialMinutes",
+          "class": "public"
+        },
+        {
+          "name": "packageDiscount",
+          "class": "public"
+        },
+        {
+          "name": "responseHours",
+          "class": "public"
+        },
+        {
+          "name": "intro",
+          "class": "public"
+        },
+        {
+          "name": "exams",
+          "class": "public"
+        },
+        {
+          "name": "photo",
+          "class": "public"
+        },
+        {
+          "name": "thumb",
+          "class": "public"
+        },
+        {
+          "name": "banner",
+          "class": "public"
+        },
+        {
+          "name": "videoTitle",
+          "class": "public"
+        },
+        {
+          "name": "countryFlag",
+          "class": "internal"
+        },
+        {
+          "name": "about",
+          "class": "public"
+        },
+        {
+          "name": "experience",
+          "class": "public"
+        },
+        {
+          "name": "methodology",
+          "class": "public"
+        },
+        {
+          "name": "bio",
+          "class": "public"
+        }
+      ],
+      "rows": 5
+    }
+  }
+}

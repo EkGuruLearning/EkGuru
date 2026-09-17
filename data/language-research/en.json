@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "language": {"code": "en", "name": "English", "native_name": "English", "family": "Indo-European: Germanic", "script": "Latin", "direction": "ltr"},
+  "inventory_priority": {"language_id": "lang:eng", "priority": "P1", "score": 79, "source": "data/global/language-priority.json"},
+  "country_relationship_source": "data/global/language-country-relations.json",
+  "course_medium": "English explanations with explicit form, meaning, use, pronunciation, and multilingual-learner support",
+  "orthography_pronunciation": {"needs": ["letter-name versus sound distinction", "non-phonemic spelling", "word stress", "weak forms and schwa", "connected speech", "sentence stress and intonation", "British/American variation without presenting one accent as intrinsically superior"], "voice_strategy": "Browser speech synthesis with en-GB/en-US availability chosen by the learner; always labelled synthetic."},
+  "grammar_progression": {"A1": ["be/have", "subject pronouns", "present simple", "articles", "basic questions", "there is/are"], "A2": ["past simple", "present continuous", "comparatives", "countability", "future arrangements", "basic modals"], "B1": ["present perfect contrasts", "first/second conditionals", "relative clauses", "passives", "reported speech", "multiword verbs"], "B2": ["aspect choice", "modal deduction", "mixed conditionals", "participle clauses", "stance and cohesion", "formal/informal register"], "C1": ["hedging", "nominalisation", "clefting/fronting", "inversion", "complex clause packaging", "academic synthesis and mediation"], "C2": ["negation and quantifier scope", "implicature", "rhetorical patterning", "idiomatic interpretation", "genre transformation", "fine-grained epistemic and interpersonal stance"]},
+  "pragmatics_register": ["indirect requests", "turn-taking", "disagreement mitigation", "email and meeting conventions", "academic caution", "regional and social variation", "plain-language mediation"],
+  "CEFR_design": "Action-oriented reception, production, interaction, online interaction, mediation and phonological control; C2 is mastery, not imitation of an idealised native speaker.",
+  "sources": [
+    {"title": "CEFR Companion Volume 2020", "url": "https://rm.coe.int/cefr-companion-volume-with-new-descriptors-2020/16809ea0d4", "use": "level descriptors, mediation, online interaction, phonology"},
+    {"title": "English Profile", "url": "https://englishprofile.org/", "use": "English grammar and vocabulary reference-level descriptions A1-C2"},
+    {"title": "English Vocabulary Profile help", "url": "http://vocabularypreview.englishprofile.org/staticfiles/help.html", "use": "meaning-specific CEFR levels and corpus evidence"},
+    {"title": "Cambridge Grammar: hedges", "url": "https://dictionary.cambridge.org/grammar/british-grammar/hedges-just", "use": "politeness and academic stance"},
+    {"title": "Cambridge Grammar: inversion", "url": "https://dictionary.cambridge.org/grammar/british-grammar/inversion", "use": "advanced marked word order"}
+  ],
+  "reviewed_at": "2026-09-17"
+}

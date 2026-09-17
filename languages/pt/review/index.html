@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="google-site-verification" content="hFaqyp-9LdUXSKPA9RF011TkO2m_-7AUMasXqm_0dGI" />
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portuguese Review — spaced repetition | EkGuru</title>
+<meta name="description" content="Review the Portuguese words and phrases you saved, on a simple spaced-repetition schedule that lives in your browser.">
+<meta name="author" content="EkGuru">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://ekguru.shop/languages/pt/review/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Portuguese Review — spaced repetition | EkGuru">
+<meta property="og:description" content="Review the Portuguese words and phrases you saved, on a simple spaced-repetition schedule that lives in your browser.">
+<meta property="og:url" content="https://ekguru.shop/languages/pt/review/">
+<meta property="og:image" content="https://ekguru.shop/images/og-cover.jpg">
+<meta property="og:site_name" content="EkGuru">
+<meta property="article:published_time" content="2026-09-12">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Portuguese Review — spaced repetition">
+<meta name="twitter:description" content="Review the Portuguese words and phrases you saved, on a simple spaced-repetition schedule that lives in your browser.">
+<link rel="icon" href="../../../images/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../../../images/apple-touch-icon.png">
+<link rel="manifest" href="../../../manifest.webmanifest">
+<meta name="theme-color" content="#4f32d9">
+<link rel="stylesheet" href="../../../css/style.min.css">
+<link rel="stylesheet" href="../../../css/storybook.css">
+<style>
+.art{max-width:760px;margin:0 auto;padding:0 20px 60px}
+.art h1{font-size:2rem;line-height:1.25;margin:26px 0 10px}
+.art .meta{color:var(--muted);font-size:.86rem;margin:0 0 26px}
+.art h2{font-size:1.28rem;margin:34px 0 12px;padding-top:6px}
+.art p,.art li{line-height:1.75}
+.art ul,.art ol{padding-left:22px}
+.art li{margin:7px 0}
+.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0}
+.crumb a{color:var(--muted)}
+.lede{color:var(--ink-2);font-size:1.05rem;line-height:1.7;margin:0 0 22px}
+.linklist{list-style:none;padding:0;margin:12px 0 0}
+.linklist li{padding:10px 0;border-bottom:1px solid var(--line)}
+.linklist li:last-child{border-bottom:0}
+.linklist a{font-weight:600}
+.linklist span{display:block;color:var(--muted);font-size:.87rem;margin-top:2px;line-height:1.5}
+.note{background:var(--bg-soft);border:1px solid #ddd8ff;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:.94rem;color:var(--ink-2)}
+.btn{margin:6px 6px 6px 0}
+.hi-listen{display:inline-flex;align-items:center;gap:5px;margin:0 0 0 8px;padding:4px 10px;font-size:.82rem;line-height:1.4;border-radius:999px;border:1px solid var(--line);background:var(--bg-soft);color:var(--ink);cursor:pointer;vertical-align:middle}.hi-listen.playing{background:var(--brand);border-color:var(--brand);color:#fff}#pt-srs-card .prompt{font-size:1.15rem;font-weight:700;margin-bottom:14px}</style>
+<!-- ekguru:ads -->
+<meta name="google-adsense-account" content="ca-pub-8175326569491671">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8175326569491671" crossorigin="anonymous"></script>
+</head>
+<body data-topic="section-language">
+<div class="art">
+    <p class="crumb"><a href="/">EkGuru</a> › <a href="/courses/">Courses</a> › <a href="/languages/pt/">Portuguese</a> › Review</p>
+  <!-- ekguru:chapter -->
+<div class="sb-chapter" style="--sb-accent:#0f766e;--sb-tint:#ecfdfb"><span class="sb-ch-mascot" aria-hidden="true">🌍</span><span class="sb-ch-name">Portuguese Review <i>पाठ्यक्रम</i></span><span class="sb-ch-kind">Course</span><span class="sb-ch-floats" aria-hidden="true"></span></div>
+<h1>Portuguese Review <span style="display:inline-block;border-radius:999px;padding:2px 10px;font-size:.72rem;font-weight:700;color:#fff;background:#1a7f37;vertical-align:4px">Available</span></h1>
+  <p class="lede">A simple spaced-repetition deck for the Portuguese words and phrases, saved on this device only.</p>
+  <div id="pt-srs-stats" style="margin:12px 0;font-weight:600"></div>
+  <div id="pt-srs-card" style="border:1px solid var(--line);border-radius:14px;padding:20px;background:var(--card,#fff)"></div>
+  <div id="pt-srs-empty" style="display:none" class="note">No Portuguese cards due right now. Load the deck to start.</div>
+  <div style="margin-top:14px">
+    <button type="button" class="btn" id="pt-srs-seed">Load Portuguese deck</button>
+    <button type="button" class="btn ghost" id="pt-srs-reset">Remove all Portuguese cards</button>
+  </div>
+  <script>
+  (function () {
+    "use strict";
+    function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+    var queue = [], card = null;
+    function seed() {
+      var deck = (window.EKGURU_COURSE_PT && window.EKGURU_COURSE_PT.review) || [];
+      var added = 0;
+      deck.forEach(function (w) {
+        var r = window.EkGuruSRS.add({ prompt: w.p, answer: w.a, category: "portuguese", level: "beginner", language: "pt", target: w.p });
+        if (r.added) added++;
+      });
+      return added;
+    }
+    function paint() {
+      var st = document.getElementById("pt-srs-stats");
+      var due = window.EkGuruSRS.due().filter(function (c) { return c.language === "pt"; });
+      st.textContent = due.length + " Portuguese cards due";
+      var box = document.getElementById("pt-srs-card");
+      var empty = document.getElementById("pt-srs-empty");
+      if (!queue.length) { queue = due; }
+      card = queue.shift() || null;
+      if (!card) { box.innerHTML = ""; empty.style.display = "block"; return; }
+      empty.style.display = "none";
+      var say = card.target || card.prompt;
+      box.innerHTML =
+        '<p class="prompt">' + esc(card.prompt) +
+        '<button type="button" class="hi-listen" id="pt-srs-say" aria-label="Listen (computer voice)" aria-pressed="false"><span aria-hidden="true">🔊</span> Listen</button></p>' +
+        '<div class="answer" id="pt-srs-a" style="display:none;background:var(--bg-soft);border:1px solid #ddd8ff;border-radius:10px;padding:12px 14px;margin:0 0 14px;color:var(--ink-2)"><b>' + esc(card.answer) + '</b></div>' +
+        '<button type="button" class="btn ghost" id="pt-srs-show">Show answer</button>' +
+        '<div class="rates" id="pt-srs-rates" style="display:none;margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">' +
+        '<button type="button" class="btn ghost" data-r="again">Again</button>' +
+        '<button type="button" class="btn ghost" data-r="hard">Hard</button>' +
+        '<button type="button" class="btn" data-r="good">Good</button>' +
+        '<button type="button" class="btn" data-r="easy">Easy</button></div>';
+      var sayBtn = box.querySelector("#pt-srs-say");
+      if (sayBtn) sayBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        var A = window.EkGuruHindiAudio;
+        if (A && A.supported()) A.speak(String(card.target || card.prompt), sayBtn, "pt-BR");
+      });
+      box.querySelector("#pt-srs-show").addEventListener("click", function () {
+        box.querySelector("#pt-srs-a").style.display = "block";
+        box.querySelector("#pt-srs-rates").style.display = "flex";
+        this.style.display = "none";
+      });
+      box.querySelectorAll("[data-r]").forEach(function (b) {
+        b.addEventListener("click", function () { window.EkGuruSRS.review(card.card_id, b.getAttribute("data-r")); paint(); });
+      });
+    }
+    document.getElementById("pt-srs-seed").addEventListener("click", function () { var n = seed(); queue = []; paint(); });
+    document.getElementById("pt-srs-reset").addEventListener("click", function () {
+      window.EkGuruSRS.all().forEach(function (c) { if (c.language === "pt") window.EkGuruSRS.remove(c.card_id); });
+      queue = []; paint();
+    });
+    if (window.EkGuruSRS) paint();
+    else window.addEventListener("load", paint);
+  })();
+  </script>
+
+</div>
+<!-- ekguru:trust-footer:start -->
+<footer class="pw-ftr">
+  <nav aria-label="Site information">
+    <a href="../../../">Home</a>
+    <a href="../../../about/">About</a>
+    <a href="../../../contact/">Contact</a>
+    <a href="../../../privacy/">Privacy</a>
+    <a href="../../../terms/">Terms</a>
+    <a href="../../../disclaimer/">Disclaimer</a>
+  </nav>
+  <p>
+  © 2026 EkGuru — One Student. One Goal. One Guru.<br>
+  Written and maintained by Prakash. Hindi lessons with native-speaking tutors, one to one.
+  </p>
+</footer>
+<!-- ekguru:trust-footer:end -->
+<script src="../../../js/site-config.js" defer></script>
+<script src="../../../js/analytics.js" defer></script>
+<script src="../../../js/toast.js" defer></script>
+<!-- ekguru:recovery:start -->
+<script src="../../../js/recovery.js" defer></script>
+<!-- ekguru:recovery:end -->
+
+<script src="../../../js/course-pt.js" defer></script>
+<script src="../../../js/hindi-srs.js" defer></script>
+<script src="../../../js/hindi-audio.js" defer></script>
+<script src="../../../js/storybook.js" defer></script>
+<script defer>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("../../../sw.js").catch(function () {});
+  });
+}
+</script>
+<!-- ekguru:consent -->
+<script src="../../../js/cookie-consent.js" defer></script>
+</body>
+</html>

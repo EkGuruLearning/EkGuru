@@ -1,0 +1,1921 @@
+{
+  "code": "hi",
+  "name": "Hindi",
+  "native": "हिन्दी",
+  "phase": 2,
+  "medium": "en",
+  "file_level": "C2",
+  "research_basis": [
+    "EkGuru Hindi A1–C2 CEFR blueprint and product specification (commit 8923c78).",
+    "Omkar N. Koul, Modern Hindi Grammar: morphology, agreement, tense-aspect-modality and syntax.",
+    "University of Texas Hindi-Urdu Flagship grammar: aspect and compound-verb nuance.",
+    "CEFR Companion Volume: interaction, mediation and C-level discourse outcomes."
+  ],
+  "level": {
+    "title": "Hindi C2 — Semantic, Rhetorical, and Stylistic Mastery",
+    "goals": [
+      "Distinguish assertion, implication, and presupposition.",
+      "Control information structure and ethical persuasion.",
+      "Synthesize scholarship without distorting scope.",
+      "Interpret irony and cultural inference.",
+      "Negotiate and recast meaning across high-stakes genres."
+    ],
+    "units": [
+      {
+        "id": "hi-c2-u1",
+        "title": "Meaning and Rhetorical Architecture",
+        "lessons": [
+          {
+            "id": "hi-c2-l1",
+            "title": "Semantic Precision and What Remains Unsaid",
+            "learn": "Distinguish asserted content from presupposition and invited inference. Select near-synonyms according to evidence strength, focus, and speaker intention; explain what a formulation commits the speaker to.",
+            "vocab": [
+              {
+                "t": "सुझाना",
+                "r": "sujhānā",
+                "en": "to suggest",
+                "pos": "verb"
+              },
+              {
+                "t": "दर्शाना",
+                "r": "darśānā",
+                "en": "to demonstrate/show",
+                "pos": "verb"
+              },
+              {
+                "t": "निहितार्थ",
+                "r": "nihitārth",
+                "en": "implication",
+                "pos": "noun"
+              },
+              {
+                "t": "पूर्वधारणा",
+                "r": "pūrvadhāraṇā",
+                "en": "presupposition",
+                "pos": "noun"
+              },
+              {
+                "t": "मात्र",
+                "r": "mātra",
+                "en": "merely; only",
+                "pos": "focus adverb"
+              },
+              {
+                "t": "ही",
+                "r": "hī",
+                "en": "exclusive/emphatic particle",
+                "pos": "particle"
+              },
+              {
+                "t": "कदाचित",
+                "r": "kadācit",
+                "en": "perhaps; conceivably",
+                "pos": "stance adverb"
+              },
+              {
+                "t": "अनिवार्य",
+                "r": "anivārya",
+                "en": "unavoidable/indispensable",
+                "pos": "adjective"
+              }
+            ],
+            "grammar": {
+              "title": "Scope, focus, and implication",
+              "explain": "मात्र and ही restrict alternatives but attach to different constituents in context. आँकड़े सुझाते हैं is weaker than आँकड़े दर्शाते हैं and far weaker than सिद्ध करते हैं. A presupposition is treated as background; an implication may be inferred without being literally asserted.",
+              "pattern": "focused constituent + ही; मात्र + restricted category; evidence + commitment-calibrated verb",
+              "examples": [
+                {
+                  "t": "आँकड़े सुधार सुझाते हैं, पर उसका कारण नहीं दर्शाते।",
+                  "r": "ā̃kṛe sudhār sujhāte haĩ, par uskā kāraṇ nahī̃ darśāte.",
+                  "en": "The figures suggest improvement but do not demonstrate its cause."
+                },
+                {
+                  "t": "समस्या मात्र धन की नहीं, भरोसे की भी है।",
+                  "r": "samasyā mātra dhan kī nahī̃, bharose kī bhī hai.",
+                  "en": "The problem is not merely money; it is also trust."
+                },
+                {
+                  "t": "समिति ने ही निर्णय लिया था।",
+                  "r": "samiti ne hī nirṇay liyā thā.",
+                  "en": "It was the committee itself that made the decision."
+                }
+              ],
+              "mistakes": [
+                "In Semantic Precision and What Remains Unsaid, grammatical possibility is not enough: preserve the intended meaning, relationship, evidence strength, and discourse purpose."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Translator",
+                "t": "“उसने फिर शिकायत की” में कौन-सी पूर्वधारणा है?",
+                "r": "“usne phir śikāyat kī” mẽ kaun-sī pūrvadhāraṇā hai?",
+                "en": "What presupposition occurs in “She complained again”?"
+              },
+              {
+                "sp": "Editor",
+                "t": "कि वह पहले भी शिकायत कर चुकी थी; यह नया दावा नहीं, पृष्ठभूमि की तरह रखा गया है।",
+                "r": "ki vah pahle bhī śikāyat kar cukī thī; yah nayā dāvā nahī̃, pṛṣṭhabhūmi kī tarah rakhā gayā hai.",
+                "en": "That she had complained before; it is presented as background, not the new claim."
+              },
+              {
+                "sp": "Translator",
+                "t": "और “समिति ने ही” का निहितार्थ?",
+                "r": "aur “samiti ne hī” kā nihitārth?",
+                "en": "And the implication of “the committee itself”?"
+              },
+              {
+                "sp": "Editor",
+                "t": "प्रासंगिक अन्य पक्षों ने निर्णय नहीं लिया—यही विरोधी विकल्प हटाया गया है।",
+                "r": "prāsaṅgik anya pakṣõ ne nirṇay nahī̃ liyā—yahī virodhī vikalp haṭāyā gayā hai.",
+                "en": "Other relevant parties did not decide—the contrasting alternatives are excluded."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1: [multiple choice] Semantic Precision and What Remains Unsaid — Choose the meaning of सुझाना (sujhānā) in this lesson.",
+                "answer": "to suggest",
+                "skill_target": "multiple choice",
+                "options": [
+                  "to suggest",
+                  "to demonstrate/show",
+                  "implication",
+                  "none of these"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2: [fill in the blank] Semantic Precision and What Remains Unsaid — Type the Hindi expression meaning “to demonstrate/show”.",
+                "answer": "दर्शाना",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3: [translation] Semantic Precision and What Remains Unsaid — Interpret the Devanagari in context: निहितार्थ (nihitārth).",
+                "answer": "implication",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4: [reverse translation] Semantic Precision and What Remains Unsaid — Write in Devanagari: presupposition.",
+                "answer": "पूर्वधारणा",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5: [matching] Semantic Precision and What Remains Unsaid — Match मात्र to its lesson meaning.",
+                "answer": "merely; only",
+                "skill_target": "matching",
+                "options": [
+                  "exclusive/emphatic particle",
+                  "merely; only",
+                  "perhaps; conceivably"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6: [reorder] Semantic Precision and What Remains Unsaid — Reconstruct the lesson model in coherent Hindi: It was the committee itself that made the decision.",
+                "answer": "समिति ने ही निर्णय लिया था।",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7: [sentence building] Semantic Precision and What Remains Unsaid — Reconstruct the lesson model in coherent Hindi: The figures suggest improvement but do not demonstrate its cause.",
+                "answer": "आँकड़े सुधार सुझाते हैं, पर उसका कारण नहीं दर्शाते।",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8: [word selection] Semantic Precision and What Remains Unsaid — Select the Hindi form for “unavoidable/indispensable”.",
+                "answer": "अनिवार्य",
+                "skill_target": "word selection",
+                "options": [
+                  "सुझाना",
+                  "दर्शाना",
+                  "अनिवार्य"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9: [error correction] Semantic Precision and What Remains Unsaid — Error correction for Semantic Precision and What Remains Unsaid: replace a literal or register-inappropriate rendering with the lesson model for “It was the committee itself that made the decision.”.",
+                "answer": "समिति ने ही निर्णय लिया था।",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10: [dialogue completion] Semantic Precision and What Remains Unsaid — Complete the dialogue with the studied response to: That she had complained before; it is presented as background, not the new claim.",
+                "answer": "कि वह पहले भी शिकायत कर चुकी थी; यह नया दावा नहीं, पृष्ठभूमि की तरह रखा गया है।",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11: [reading comprehension] Semantic Precision and What Remains Unsaid — Read “और “समिति ने ही” का निहितार्थ?” (aur “samiti ne hī” kā nihitārth?). What detail does it communicate?",
+                "answer": "And the implication of “the committee itself”?",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12: [paragraph comprehension] Semantic Precision and What Remains Unsaid — Read the lesson dialogue as a whole. Give the key contribution of Editor in this turn: प्रासंगिक अन्य पक्षों ने निर्णय नहीं लिया—यही विरोधी विकल्प हटाया गया है।",
+                "answer": "Other relevant parties did not decide—the contrasting alternatives are excluded.",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits सुझाना?",
+                "options": [
+                  "to suggest",
+                  "to demonstrate/show",
+                  "implication",
+                  "presupposition"
+                ],
+                "answer": 0,
+                "why": "सुझाना means to suggest in this lesson."
+              },
+              {
+                "q": "Which meaning best fits दर्शाना?",
+                "options": [
+                  "implication",
+                  "to demonstrate/show",
+                  "presupposition",
+                  "merely; only"
+                ],
+                "answer": 1,
+                "why": "दर्शाना means to demonstrate/show."
+              },
+              {
+                "q": "Which expression means “implication”?",
+                "options": [
+                  "ही",
+                  "कदाचित",
+                  "निहितार्थ",
+                  "अनिवार्य"
+                ],
+                "answer": 2,
+                "why": "निहितार्थ carries that meaning."
+              },
+              {
+                "q": "What is the key advanced distinction in semantic scope?",
+                "options": [
+                  "word length",
+                  "speaker gender only",
+                  "meaning, evidence, or register in context",
+                  "alphabetical order"
+                ],
+                "answer": 2,
+                "why": "C-level control depends on contextual meaning and discourse effect."
+              },
+              {
+                "q": "Which response demonstrates C2 control in “Semantic Precision and What Remains Unsaid”?",
+                "options": [
+                  "a memorized isolated noun",
+                  "a literal translation regardless of context",
+                  "a coherent choice justified by stance and audience",
+                  "the longest possible sentence"
+                ],
+                "answer": 2,
+                "why": "Precision and audience-sensitive justification are required."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Semantic Precision and What Remains Unsaid Workshop",
+              "tasks": [
+                {
+                  "instruction": "Explain the contextual meaning and discourse function.",
+                  "items": [
+                    "सुझाना (sujhānā)",
+                    "दर्शाना (darśānā)"
+                  ],
+                  "key": [
+                    "to suggest",
+                    "to demonstrate/show"
+                  ]
+                },
+                {
+                  "instruction": "Translate or interpret while preserving stance and register.",
+                  "items": [
+                    "आँकड़े सुधार सुझाते हैं, पर उसका कारण नहीं दर्शाते। (ā̃kṛe sudhār sujhāte haĩ, par uskā kāraṇ nahī̃ darśāte.)",
+                    "समस्या मात्र धन की नहीं, भरोसे की भी है। (samasyā mātra dhan kī nahī̃, bharose kī bhī hai.)"
+                  ],
+                  "key": [
+                    "The figures suggest improvement but do not demonstrate its cause.",
+                    "The problem is not merely money; it is also trust."
+                  ]
+                },
+                {
+                  "instruction": "Complete the advanced production task, then self-check meaning, register, and cohesion.",
+                  "items": [
+                    "Translate with restrictive focus: “The issue is not merely cost.”",
+                    "Explain the commitment difference among suggest, show, and prove in Hindi."
+                  ],
+                  "key": [
+                    "मुद्दा मात्र लागत का नहीं है।",
+                    "सुझाना संभावित निष्कर्ष देता है; दर्शाना उसे स्पष्ट साक्ष्य से सामने रखता है; सिद्ध करना निर्णायक प्रमाण का दावा करता है।"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Devanagari, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "आँकड़े सुधार सुझाते हैं, पर उसका कारण नहीं दर्शाते।",
+                    "“उसने फिर शिकायत की” में कौन-सी पूर्वधारणा है?"
+                  ],
+                  "key": [
+                    "The figures suggest improvement but do not demonstrate its cause.",
+                    "What presupposition occurs in “She complained again”?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "सुझाना",
+              "दर्शाना",
+              "निहितार्थ",
+              "पूर्वधारणा"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "hi-c2-l2",
+            "title": "Information Structure and Strategic Emphasis",
+            "learn": "Control given/new information, contrastive topic तो, exclusive ही, additive/even भी, and marked order. Marked order is successful only when listeners can recover the intended alternatives and focus.",
+            "vocab": [
+              {
+                "t": "तो",
+                "r": "to",
+                "en": "contrastive topic particle",
+                "pos": "particle"
+              },
+              {
+                "t": "ही",
+                "r": "hī",
+                "en": "exclusive/emphatic focus",
+                "pos": "particle"
+              },
+              {
+                "t": "भी",
+                "r": "bhī",
+                "en": "also/even",
+                "pos": "particle"
+              },
+              {
+                "t": "वास्तव में",
+                "r": "vāstav mẽ",
+                "en": "in fact",
+                "pos": "adverb"
+              },
+              {
+                "t": "जहाँ तक प्रश्न है",
+                "r": "jahā̃ tak praśn hai",
+                "en": "as far as the question is concerned",
+                "pos": "frame"
+              },
+              {
+                "t": "उलटे",
+                "r": "ulṭe",
+                "en": "on the contrary",
+                "pos": "connector"
+              },
+              {
+                "t": "सूचना-संरचना",
+                "r": "sūcnā-saṃracnā",
+                "en": "information structure",
+                "pos": "noun"
+              },
+              {
+                "t": "प्रमुखता",
+                "r": "pramukhtā",
+                "en": "prominence",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Particles and discourse prominence",
+              "explain": "खर्च तो घटा, पर समय बढ़ा concedes or foregrounds the cost claim before contrast. समिति ने ही focuses the actor; समिति ने यही निर्णय लिया focuses the selected decision. भी may add an alternative or, under suitable context, create an “even” reading.",
+              "pattern": "contrastive topic + तो + comment; focused constituent + ही",
+              "examples": [
+                {
+                  "t": "खर्च तो घटा, लेकिन प्रतीक्षा का समय बढ़ गया।",
+                  "r": "kharc to ghaṭā, lekin pratīkṣā kā samay baṛh gayā.",
+                  "en": "Costs did fall, but waiting time increased."
+                },
+                {
+                  "t": "यही निष्कर्ष उपलब्ध प्रमाण से निकलता है।",
+                  "r": "yahī niṣkarṣ upalabdh pramāṇ se nikaltā hai.",
+                  "en": "This very conclusion follows from the available evidence."
+                },
+                {
+                  "t": "कम अनुभवी सदस्य ने भी आपत्ति पहचान ली।",
+                  "r": "kam anubhavī sadasya ne bhī āpatti pahcān lī.",
+                  "en": "Even the less experienced member noticed the objection."
+                }
+              ],
+              "mistakes": [
+                "In Information Structure and Strategic Emphasis, grammatical possibility is not enough: preserve the intended meaning, relationship, evidence strength, and discourse purpose."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Speaker",
+                "t": "प्रस्तुति की शुरुआत निष्कर्ष से करूँ या पृष्ठभूमि से?",
+                "r": "prastuti kī śuruāt niṣkarṣ se karū̃ yā pṛṣṭhabhūmi se?",
+                "en": "Should I begin the presentation with the conclusion or background?"
+              },
+              {
+                "sp": "Coach",
+                "t": "श्रोताओं को जितनी पृष्ठभूमि चाहिए उतनी दें, फिर नई बात पर प्रमुखता रखें।",
+                "r": "śrotāõ ko jitnī pṛṣṭhabhūmi cāhie utnī dẽ, phir naī bāt par pramukhtā rakhẽ.",
+                "en": "Give listeners as much background as they need, then emphasize the new information."
+              },
+              {
+                "sp": "Speaker",
+                "t": "“लागत तो घटी” से क्या प्रभाव पड़ेगा?",
+                "r": "“lāgat to ghaṭī” se kyā prabhāv paṛegā?",
+                "en": "What effect will “costs did fall” have?"
+              },
+              {
+                "sp": "Coach",
+                "t": "आप उस लाभ को स्वीकार करके उसके बाद की सीमा को अधिक प्रभावी बनाते हैं।",
+                "r": "āp us lābh ko svīkār karke uske bād kī sīmā ko adhik prabhāvī banāte haĩ.",
+                "en": "You concede that benefit and make the following limitation more effective."
+              }
+            ],
+            "practice": [
+              {
+                "type": "inference",
+                "q": "Practice 1: [inference] Information Structure and Strategic Emphasis — From “यही निष्कर्ष उपलब्ध प्रमाण से निकलता है।”, state the inference while preserving any limit or contrast.",
+                "answer": "This very conclusion follows from the available evidence.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "main_idea",
+                "q": "Practice 2: [main idea] Information Structure and Strategic Emphasis — What is the main communicative aim of the lesson “Information Structure and Strategic Emphasis”?",
+                "answer": "Control given/new information, contrastive topic तो, exclusive ही, additive/even भी, and marked order.",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Practice 3: [detail identification] Information Structure and Strategic Emphasis — Read “आप उस लाभ को स्वीकार करके उसके बाद की सीमा को अधिक प्रभावी बनाते हैं।” (āp us lābh ko svīkār karke uske bād kī sīmā ko adhik prabhāvī banāte haĩ.). What detail does it communicate?",
+                "answer": "You concede that benefit and make the following limitation more effective.",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Practice 4: [listening comprehension] Information Structure and Strategic Emphasis — Play the synthetic Hindi audio. Type its contextual English meaning.",
+                "answer": "Should I begin the presentation with the conclusion or background?",
+                "skill_target": "listening comprehension",
+                "audio_source": "प्रस्तुति की शुरुआत निष्कर्ष से करूँ या पृष्ठभूमि से?"
+              },
+              {
+                "type": "dictation",
+                "q": "Practice 5: [dictation] Information Structure and Strategic Emphasis — Play the clearly labeled synthetic Hindi audio and type exactly what you hear in Devanagari.",
+                "answer": "श्रोताओं को जितनी पृष्ठभूमि चाहिए उतनी दें, फिर नई बात पर प्रमुखता रखें।",
+                "skill_target": "dictation",
+                "audio_source": "श्रोताओं को जितनी पृष्ठभूमि चाहिए उतनी दें, फिर नई बात पर प्रमुखता रखें।"
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Practice 6: [listen and choose] Information Structure and Strategic Emphasis — Play the synthetic Hindi audio and choose its meaning.",
+                "answer": "What effect will “costs did fall” have?",
+                "skill_target": "listen and choose",
+                "audio_source": "“लागत तो घटी” से क्या प्रभाव पड़ेगा?",
+                "options": [
+                  "What effect will “costs did fall” have?",
+                  "You concede that benefit and make the following limitation more effective.",
+                  "information structure"
+                ]
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "Practice 7: [listen and reorder] Information Structure and Strategic Emphasis — Reconstruct the lesson model in coherent Hindi: This very conclusion follows from the available evidence.",
+                "answer": "यही निष्कर्ष उपलब्ध प्रमाण से निकलता है।",
+                "skill_target": "listen and reorder",
+                "audio_source": "प्रस्तुति की शुरुआत निष्कर्ष से करूँ या पृष्ठभूमि से?"
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Practice 8: [listen and fill] Information Structure and Strategic Emphasis — Play the synthetic audio and type the complete line beginning “प्रस्तुति…”.",
+                "answer": "प्रस्तुति की शुरुआत निष्कर्ष से करूँ या पृष्ठभूमि से?",
+                "skill_target": "listen and fill",
+                "audio_source": "प्रस्तुति की शुरुआत निष्कर्ष से करूँ या पृष्ठभूमि से?"
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Practice 9: [repeat after audio] Information Structure and Strategic Emphasis — Play the synthetic model, repeat the full Hindi turn, then use the self-check button. No microphone score is produced.",
+                "answer": "श्रोताओं को जितनी पृष्ठभूमि चाहिए उतनी दें, फिर नई बात पर प्रमुखता रखें।",
+                "skill_target": "repeat after audio",
+                "audio_source": "श्रोताओं को जितनी पृष्ठभूमि चाहिए उतनी दें, फिर नई बात पर प्रमुखता रखें।"
+              },
+              {
+                "type": "pronunciation",
+                "q": "Practice 10: [pronunciation] Information Structure and Strategic Emphasis — Listen and practise the Hindi sound sequence in भी (bhī). Self-check articulation and rhythm; no microphone score is produced.",
+                "answer": "भी",
+                "skill_target": "pronunciation",
+                "audio_source": "भी"
+              },
+              {
+                "type": "shadowing",
+                "q": "Practice 11: [shadowing] Information Structure and Strategic Emphasis — Shadow the synthetic model at natural phrase pace, preserving pauses and emphasis. Self-check only.",
+                "answer": "आप उस लाभ को स्वीकार करके उसके बाद की सीमा को अधिक प्रभावी बनाते हैं।",
+                "skill_target": "shadowing",
+                "audio_source": "आप उस लाभ को स्वीकार करके उसके बाद की सीमा को अधिक प्रभावी बनाते हैं।"
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Practice 12: [guided speaking] Information Structure and Strategic Emphasis — Give the studied Hindi response for: Costs did fall, but waiting time increased.",
+                "answer": "खर्च तो घटा, लेकिन प्रतीक्षा का समय बढ़ गया।",
+                "skill_target": "guided speaking"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits तो?",
+                "options": [
+                  "contrastive topic particle",
+                  "exclusive/emphatic focus",
+                  "also/even",
+                  "in fact"
+                ],
+                "answer": 0,
+                "why": "तो means contrastive topic particle in this lesson."
+              },
+              {
+                "q": "Which meaning best fits ही?",
+                "options": [
+                  "also/even",
+                  "exclusive/emphatic focus",
+                  "in fact",
+                  "as far as the question is concerned"
+                ],
+                "answer": 1,
+                "why": "ही means exclusive/emphatic focus."
+              },
+              {
+                "q": "Which expression means “also/even”?",
+                "options": [
+                  "उलटे",
+                  "सूचना-संरचना",
+                  "भी",
+                  "प्रमुखता"
+                ],
+                "answer": 2,
+                "why": "भी carries that meaning."
+              },
+              {
+                "q": "What is the key advanced distinction in information structure?",
+                "options": [
+                  "word length",
+                  "speaker gender only",
+                  "meaning, evidence, or register in context",
+                  "alphabetical order"
+                ],
+                "answer": 2,
+                "why": "C-level control depends on contextual meaning and discourse effect."
+              },
+              {
+                "q": "Which response demonstrates C2 control in “Information Structure and Strategic Emphasis”?",
+                "options": [
+                  "a memorized isolated noun",
+                  "a literal translation regardless of context",
+                  "a coherent choice justified by stance and audience",
+                  "the longest possible sentence"
+                ],
+                "answer": 2,
+                "why": "Precision and audience-sensitive justification are required."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Information Structure and Strategic Emphasis Workshop",
+              "tasks": [
+                {
+                  "instruction": "Explain the contextual meaning and discourse function.",
+                  "items": [
+                    "तो (to)",
+                    "ही (hī)"
+                  ],
+                  "key": [
+                    "contrastive topic particle",
+                    "exclusive/emphatic focus"
+                  ]
+                },
+                {
+                  "instruction": "Translate or interpret while preserving stance and register.",
+                  "items": [
+                    "खर्च तो घटा, लेकिन प्रतीक्षा का समय बढ़ गया। (kharc to ghaṭā, lekin pratīkṣā kā samay baṛh gayā.)",
+                    "यही निष्कर्ष उपलब्ध प्रमाण से निकलता है। (yahī niṣkarṣ upalabdh pramāṇ se nikaltā hai.)"
+                  ],
+                  "key": [
+                    "Costs did fall, but waiting time increased.",
+                    "This very conclusion follows from the available evidence."
+                  ]
+                },
+                {
+                  "instruction": "Complete the advanced production task, then self-check meaning, register, and cohesion.",
+                  "items": [
+                    "Translate with contrastive topic: “Quality did improve, but access declined.”",
+                    "Explain how moving ही changes focus in two Hindi examples."
+                  ],
+                  "key": [
+                    "गुणवत्ता तो सुधरी, लेकिन पहुँच घट गई।",
+                    "समिति ने ही कहा focuses who spoke; समिति ने यही कहा focuses what was said."
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Devanagari, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "खर्च तो घटा, लेकिन प्रतीक्षा का समय बढ़ गया।",
+                    "प्रस्तुति की शुरुआत निष्कर्ष से करूँ या पृष्ठभूमि से?"
+                  ],
+                  "key": [
+                    "Costs did fall, but waiting time increased.",
+                    "Should I begin the presentation with the conclusion or background?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "तो",
+              "ही",
+              "भी",
+              "वास्तव में"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          }
+        ]
+      },
+      {
+        "id": "hi-c2-u2",
+        "title": "Scholarly and Figurative Mastery",
+        "lessons": [
+          {
+            "id": "hi-c2-l3",
+            "title": "Rhetoric, Counterargument, and Ethical Persuasion",
+            "learn": "Persuade without laundering opinion into fact. State a position, present the strongest fair objection, concede valid limits, rebut with evidence, and issue a proportionate recommendation.",
+            "vocab": [
+              {
+                "t": "हमारा मत है कि",
+                "r": "hamārā mat hai ki",
+                "en": "our position is that",
+                "pos": "stance frame"
+              },
+              {
+                "t": "संभावित आपत्ति",
+                "r": "saṃbhāvit āpatti",
+                "en": "possible objection",
+                "pos": "phrase"
+              },
+              {
+                "t": "मान्य सीमा",
+                "r": "mānya sīmā",
+                "en": "acknowledged limitation",
+                "pos": "phrase"
+              },
+              {
+                "t": "तर्कसंगत",
+                "r": "tarkasaṅgat",
+                "en": "logically sound",
+                "pos": "adjective"
+              },
+              {
+                "t": "सप्रमाण",
+                "r": "sapramāṇ",
+                "en": "evidence-supported",
+                "pos": "adjective"
+              },
+              {
+                "t": "अलबत्ता",
+                "r": "alabattā",
+                "en": "admittedly",
+                "pos": "adverb"
+              },
+              {
+                "t": "पुनर्विचार",
+                "r": "punarvicār",
+                "en": "reconsideration",
+                "pos": "noun"
+              },
+              {
+                "t": "अनुशंसा",
+                "r": "anuśaṃsā",
+                "en": "recommendation",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Concession–rebuttal architecture",
+              "explain": "हमारा मत है कि transparently marks institutional judgment. अलबत्ता grants a point without surrendering the thesis. A fair rebuttal answers the strongest plausible objection; a recommendation must not outrun the evidence or conceal affected stakeholders.",
+              "pattern": "position → fair objection/concession → warranted rebuttal → proportionate recommendation",
+              "examples": [
+                {
+                  "t": "हमारा मत है कि प्रस्ताव को अस्वीकार करने के बजाय संशोधित किया जाए।",
+                  "r": "hamārā mat hai ki prastāv ko asvīkār karne ke bajāy saṃśodhit kiyā jāe.",
+                  "en": "Our position is that the proposal should be revised rather than rejected."
+                },
+                {
+                  "t": "अलबत्ता, प्रारंभिक लागत अधिक होगी; फिर भी दीर्घकालीन बचत महत्त्वपूर्ण है।",
+                  "r": "alabattā, prārambhik lāgat adhik hogī; phir bhī dīrghakālīn bacat mahattvapūrṇ hai.",
+                  "en": "Admittedly initial cost will be higher; nevertheless long-term savings matter."
+                },
+                {
+                  "t": "यह अनुशंसा उपलब्ध प्रमाण की सीमा के अनुरूप है।",
+                  "r": "yah anuśaṃsā upalabdh pramāṇ kī sīmā ke anurūp hai.",
+                  "en": "This recommendation is proportionate to the limits of available evidence."
+                }
+              ],
+              "mistakes": [
+                "In Rhetoric, Counterargument, and Ethical Persuasion, grammatical possibility is not enough: preserve the intended meaning, relationship, evidence strength, and discourse purpose."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Editor",
+                "t": "लेख कहता है कि विरोधियों को समस्या समझ ही नहीं आई।",
+                "r": "lekh kahtā hai ki virodhiyõ ko samasyā samajh hī nahī̃ āī.",
+                "en": "The article says opponents simply failed to understand the problem."
+              },
+              {
+                "sp": "Writer",
+                "t": "यह उनके तर्क का अनुचित सरलीकरण है। मैं उनकी सबसे मजबूत आपत्ति रखूँगा।",
+                "r": "yah unke tark kā anucit saralīkaraṇ hai. maĩ unkī sabse mazbūt āpatti rakhū̃gā.",
+                "en": "That unfairly simplifies their argument. I will present their strongest objection."
+              },
+              {
+                "sp": "Editor",
+                "t": "फिर निष्कर्ष कैसे बचाएँगे?",
+                "r": "phir niṣkarṣ kaise bacāẽge?",
+                "en": "Then how will you defend the conclusion?"
+              },
+              {
+                "sp": "Writer",
+                "t": "आपत्ति की मान्य सीमा स्वीकार करूँगा, फिर सप्रमाण उत्तर और सीमित अनुशंसा दूँगा।",
+                "r": "āpatti kī mānya sīmā svīkār karū̃gā, phir sapramāṇ uttar aur sīmit anuśaṃsā dū̃gā.",
+                "en": "I will accept its valid limit, then provide an evidence-based answer and a limited recommendation."
+              }
+            ],
+            "practice": [
+              {
+                "type": "free_response",
+                "q": "Practice 1: [free response] Rhetoric, Counterargument, and Ethical Persuasion — Give a new spoken response that demonstrates Rhetoric, Counterargument, and Ethical Persuasion; compare with this model.",
+                "answer": "यह अनुशंसा उपलब्ध प्रमाण की सीमा के अनुरूप है।",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "Practice 2: [roleplay] Rhetoric, Counterargument, and Ethical Persuasion — Role-play Writer and deliver this meaning appropriately: I will accept its valid limit, then provide an evidence-based answer and a limited recommendation.",
+                "answer": "आपत्ति की मान्य सीमा स्वीकार करूँगा, फिर सप्रमाण उत्तर और सीमित अनुशंसा दूँगा।",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Practice 3: [sentence writing] Rhetoric, Counterargument, and Ethical Persuasion — Write one accurate Hindi sentence using सप्रमाण. Model answer:",
+                "answer": "अलबत्ता, प्रारंभिक लागत अधिक होगी; फिर भी दीर्घकालीन बचत महत्त्वपूर्ण है।",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "Practice 4: [short writing] Rhetoric, Counterargument, and Ethical Persuasion — Write 2–3 linked Hindi sentences applying Rhetoric, Counterargument, and Ethical Persuasion. Compare against this concise model.",
+                "answer": "यह अनुशंसा उपलब्ध प्रमाण की सीमा के अनुरूप है। हमारा मत है कि प्रस्ताव को अस्वीकार करने के बजाय संशोधित किया जाए।",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "paraphrase",
+                "q": "Practice 5: [paraphrase] Rhetoric, Counterargument, and Ethical Persuasion — Paraphrase without changing the core meaning or stance: हमारा मत है कि प्रस्ताव को अस्वीकार करने के बजाय संशोधित किया जाए।",
+                "answer": "हमारा मत है कि प्रस्ताव को अस्वीकार करने के बजाय संशोधित किया जाए।",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "Practice 6: [summary] Rhetoric, Counterargument, and Ethical Persuasion — Summarize the dialogue in one precise Hindi sentence; use this key turn as a minimum model.",
+                "answer": "आपत्ति की मान्य सीमा स्वीकार करूँगा, फिर सप्रमाण उत्तर और सीमित अनुशंसा दूँगा।",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Practice 7: [guided composition] Rhetoric, Counterargument, and Ethical Persuasion — Compose a short response for Rhetoric, Counterargument, and Ethical Persuasion using the taught pattern “position → fair objection/concession → warranted rebuttal → proportionate recommendation”.",
+                "answer": "यह अनुशंसा उपलब्ध प्रमाण की सीमा के अनुरूप है।",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Practice 8: [register transformation] Rhetoric, Counterargument, and Ethical Persuasion — Recast the idea for an appropriate formal or respectful setting: Our position is that the proposal should be revised rather than rejected.",
+                "answer": "हमारा मत है कि प्रस्ताव को अस्वीकार करने के बजाय संशोधित किया जाए।",
+                "skill_target": "register transformation"
+              },
+              {
+                "type": "tone_identification",
+                "q": "Practice 9: [tone identification] Rhetoric, Counterargument, and Ethical Persuasion — Identify the stance or tone conveyed by this lesson model: अलबत्ता, प्रारंभिक लागत अधिक होगी; फिर भी दीर्घकालीन बचत महत्त्वपूर्ण है।",
+                "answer": "The tone follows the lesson’s intended contextual stance: Concession–rebuttal architecture.",
+                "skill_target": "tone identification"
+              },
+              {
+                "type": "semantic_distinction",
+                "q": "Practice 10: [semantic distinction] Rhetoric, Counterargument, and Ethical Persuasion — Explain why तर्कसंगत and सप्रमाण are not automatically interchangeable here.",
+                "answer": "तर्कसंगत means “logically sound”, whereas सप्रमाण means “evidence-supported”; context and discourse purpose determine the choice.",
+                "skill_target": "semantic distinction"
+              },
+              {
+                "type": "contextual_meaning",
+                "q": "Practice 11: [contextual meaning] Rhetoric, Counterargument, and Ethical Persuasion — Explain the contextual force of सप्रमाण in “हमारा मत है कि प्रस्ताव को अस्वीकार करने के बजाय संशोधित किया जाए।”.",
+                "answer": "Here it contributes the lesson meaning “evidence-supported” within the Concession–rebuttal architecture pattern.",
+                "skill_target": "contextual meaning"
+              },
+              {
+                "type": "argument_construction",
+                "q": "Practice 12: [argument construction] Rhetoric, Counterargument, and Ethical Persuasion — Construct a claim and support appropriate to Rhetoric, Counterargument, and Ethical Persuasion. Use the model as a minimum answer.",
+                "answer": "अलबत्ता, प्रारंभिक लागत अधिक होगी; फिर भी दीर्घकालीन बचत महत्त्वपूर्ण है। यह अनुशंसा उपलब्ध प्रमाण की सीमा के अनुरूप है।",
+                "skill_target": "argument construction"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits हमारा मत है कि?",
+                "options": [
+                  "our position is that",
+                  "possible objection",
+                  "acknowledged limitation",
+                  "logically sound"
+                ],
+                "answer": 0,
+                "why": "हमारा मत है कि means our position is that in this lesson."
+              },
+              {
+                "q": "Which meaning best fits संभावित आपत्ति?",
+                "options": [
+                  "acknowledged limitation",
+                  "possible objection",
+                  "logically sound",
+                  "evidence-supported"
+                ],
+                "answer": 1,
+                "why": "संभावित आपत्ति means possible objection."
+              },
+              {
+                "q": "Which expression means “acknowledged limitation”?",
+                "options": [
+                  "अलबत्ता",
+                  "पुनर्विचार",
+                  "मान्य सीमा",
+                  "अनुशंसा"
+                ],
+                "answer": 2,
+                "why": "मान्य सीमा carries that meaning."
+              },
+              {
+                "q": "What is the key advanced distinction in ethical persuasion?",
+                "options": [
+                  "word length",
+                  "speaker gender only",
+                  "meaning, evidence, or register in context",
+                  "alphabetical order"
+                ],
+                "answer": 2,
+                "why": "C-level control depends on contextual meaning and discourse effect."
+              },
+              {
+                "q": "Which response demonstrates C2 control in “Rhetoric, Counterargument, and Ethical Persuasion”?",
+                "options": [
+                  "a memorized isolated noun",
+                  "a literal translation regardless of context",
+                  "a coherent choice justified by stance and audience",
+                  "the longest possible sentence"
+                ],
+                "answer": 2,
+                "why": "Precision and audience-sensitive justification are required."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Rhetoric, Counterargument, and Ethical Persuasion Workshop",
+              "tasks": [
+                {
+                  "instruction": "Explain the contextual meaning and discourse function.",
+                  "items": [
+                    "हमारा मत है कि (hamārā mat hai ki)",
+                    "संभावित आपत्ति (saṃbhāvit āpatti)"
+                  ],
+                  "key": [
+                    "our position is that",
+                    "possible objection"
+                  ]
+                },
+                {
+                  "instruction": "Translate or interpret while preserving stance and register.",
+                  "items": [
+                    "हमारा मत है कि प्रस्ताव को अस्वीकार करने के बजाय संशोधित किया जाए। (hamārā mat hai ki prastāv ko asvīkār karne ke bajāy saṃśodhit kiyā jāe.)",
+                    "अलबत्ता, प्रारंभिक लागत अधिक होगी; फिर भी दीर्घकालीन बचत महत्त्वपूर्ण है। (alabattā, prārambhik lāgat adhik hogī; phir bhī dīrghakālīn bacat mahattvapūrṇ hai.)"
+                  ],
+                  "key": [
+                    "Our position is that the proposal should be revised rather than rejected.",
+                    "Admittedly initial cost will be higher; nevertheless long-term savings matter."
+                  ]
+                },
+                {
+                  "instruction": "Complete the advanced production task, then self-check meaning, register, and cohesion.",
+                  "items": [
+                    "Formalize responsibly: “This plan will definitely solve everything.”",
+                    "Respond to a strong cost objection without caricaturing it."
+                  ],
+                  "key": [
+                    "उपलब्ध प्रमाण से लगता है कि यह योजना समस्या के कुछ प्रमुख पक्षों को कम कर सकती है।",
+                    "प्रारंभिक लागत संबंधी आपत्ति उचित है। तथापि चरणबद्ध कार्यान्वयन से जोखिम सीमित किया जा सकता है; इसलिए पहले नियंत्रित परीक्षण की अनुशंसा है।"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Devanagari, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "हमारा मत है कि प्रस्ताव को अस्वीकार करने के बजाय संशोधित किया जाए।",
+                    "लेख कहता है कि विरोधियों को समस्या समझ ही नहीं आई।"
+                  ],
+                  "key": [
+                    "Our position is that the proposal should be revised rather than rejected.",
+                    "The article says opponents simply failed to understand the problem."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "हमारा मत है कि",
+              "संभावित आपत्ति",
+              "मान्य सीमा",
+              "तर्कसंगत"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "hi-c2-l4",
+            "title": "Scholarly Synthesis and Faithful Reformulation",
+            "learn": "Integrate multiple sources while preserving their distinct claims, methods, and degrees of certainty. Reformulate dense prose without strengthening, flattening, or falsely reconciling disagreement.",
+            "vocab": [
+              {
+                "t": "अवधारणा",
+                "r": "avadhāraṇā",
+                "en": "concept",
+                "pos": "noun"
+              },
+              {
+                "t": "प्रतिपादन",
+                "r": "pratipādan",
+                "en": "exposition/argumentation",
+                "pos": "noun"
+              },
+              {
+                "t": "सापेक्ष",
+                "r": "sāpekṣ",
+                "en": "relative",
+                "pos": "adjective"
+              },
+              {
+                "t": "अपवादतः",
+                "r": "apavādataḥ",
+                "en": "exceptionally",
+                "pos": "adverb"
+              },
+              {
+                "t": "समग्रतः",
+                "r": "samagrataḥ",
+                "en": "overall",
+                "pos": "adverb"
+              },
+              {
+                "t": "इसका आशय यह नहीं कि",
+                "r": "iskā āśay yah nahī̃ ki",
+                "en": "this does not mean that",
+                "pos": "qualifier"
+              },
+              {
+                "t": "पुनःसूत्रण",
+                "r": "punaḥsūtraṇ",
+                "en": "reformulation",
+                "pos": "noun"
+              },
+              {
+                "t": "प्रमाणाधार",
+                "r": "pramāṇādhār",
+                "en": "evidential basis",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Source relation and qualification",
+              "explain": "समग्रतः summarizes a body of evidence but permits variation. इसका आशय यह नहीं कि blocks an overbroad inference. A synthesis identifies whether sources agree, qualify, address different populations, or genuinely conflict; it does not merely list summaries.",
+              "pattern": "source A claim + source B relation + scope/limitation + warranted synthesis",
+              "examples": [
+                {
+                  "t": "समग्रतः परिणाम सकारात्मक हैं; इसका आशय यह नहीं कि प्रत्येक समूह को समान लाभ मिला।",
+                  "r": "samagrataḥ pariṇām sakārātmak haĩ; iskā āśay yah nahī̃ ki pratyek samūh ko samān lābh milā.",
+                  "en": "Overall results are positive; this does not mean every group benefited equally."
+                },
+                {
+                  "t": "पहला अध्ययन प्रभाव दर्शाता है, जबकि दूसरा उसके प्रमाणाधार की सीमा बताता है।",
+                  "r": "pahlā adhyayan prabhāv darśātā hai, jabki dūsrā uske pramāṇādhār kī sīmā batātā hai.",
+                  "en": "The first study demonstrates an effect, while the second identifies limits in its evidence base."
+                },
+                {
+                  "t": "दोनों निष्कर्ष विरोधी नहीं; वे अलग आबादियों से संबंधित हैं।",
+                  "r": "donõ niṣkarṣ virodhī nahī̃; ve alag ābādiyõ se saṃbandhit haĩ.",
+                  "en": "The conclusions are not contradictory; they concern different populations."
+                }
+              ],
+              "mistakes": [
+                "In Scholarly Synthesis and Faithful Reformulation, grammatical possibility is not enough: preserve the intended meaning, relationship, evidence strength, and discourse purpose."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Reviewer",
+                "t": "आपने दोनों अध्ययनों को एक ही निष्कर्ष का समर्थन करने वाला बताया है।",
+                "r": "āpne donõ adhyayanõ ko ek hī niṣkarṣ kā samarthan karne vālā batāyā hai.",
+                "en": "You said both studies support the same conclusion."
+              },
+              {
+                "sp": "Author",
+                "t": "यह ठीक नहीं; दूसरे अध्ययन में प्रभाव केवल छोटे संस्थानों में मिला।",
+                "r": "yah ṭhīk nahī̃; dūsre adhyayan mẽ prabhāv keval choṭe saṃsthānõ mẽ milā.",
+                "en": "That is inaccurate; the second study found the effect only in small institutions."
+              },
+              {
+                "sp": "Reviewer",
+                "t": "तो पुनःसूत्रण में क्या बदलेंगे?",
+                "r": "to punaḥsūtraṇ mẽ kyā badlẽge?",
+                "en": "What will you change in the reformulation?"
+              },
+              {
+                "sp": "Author",
+                "t": "साझा दिशा बताऊँगा, पर आबादी, पद्धति और निश्चितता का अंतर सुरक्षित रखूँगा।",
+                "r": "sājhā diśā batāū̃gā, par ābādī, paddhati aur niścittā kā antar surakṣit rakhū̃gā.",
+                "en": "I will state the shared direction but preserve differences in population, method, and certainty."
+              }
+            ],
+            "practice": [
+              {
+                "type": "discourse_ordering",
+                "q": "Practice 1: [discourse ordering] Scholarly Synthesis and Faithful Reformulation — Reconstruct the lesson model in coherent Hindi: Overall results are positive; this does not mean every group benefited equally.",
+                "answer": "समग्रतः परिणाम सकारात्मक हैं; इसका आशय यह नहीं कि प्रत्येक समूह को समान लाभ मिला।",
+                "skill_target": "discourse ordering"
+              },
+              {
+                "type": "style_rewriting",
+                "q": "Practice 2: [style rewriting] Scholarly Synthesis and Faithful Reformulation — Rewrite this proposition in the genre and style taught in Scholarly Synthesis and Faithful Reformulation: The first study demonstrates an effect, while the second identifies limits in its evidence base.",
+                "answer": "पहला अध्ययन प्रभाव दर्शाता है, जबकि दूसरा उसके प्रमाणाधार की सीमा बताता है।",
+                "skill_target": "style rewriting"
+              },
+              {
+                "type": "idiom_interpretation",
+                "q": "Practice 3: [idiom interpretation] Scholarly Synthesis and Faithful Reformulation — Interpret इसका आशय यह नहीं कि non-literally if it is figurative; otherwise state its exact contextual meaning.",
+                "answer": "this does not mean that",
+                "skill_target": "idiom interpretation"
+              },
+              {
+                "type": "implied_meaning",
+                "q": "Practice 4: [implied meaning] Scholarly Synthesis and Faithful Reformulation — What does the wording invite the listener to understand in context: समग्रतः परिणाम सकारात्मक हैं; इसका आशय यह नहीं कि प्रत्येक समूह को समान लाभ मिला।?",
+                "answer": "Overall results are positive; this does not mean every group benefited equally.",
+                "skill_target": "implied meaning"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Practice 5: [multiple choice] Scholarly Synthesis and Faithful Reformulation — Choose the meaning of प्रमाणाधार (pramāṇādhār) in this lesson.",
+                "answer": "evidential basis",
+                "skill_target": "multiple choice",
+                "options": [
+                  "evidential basis",
+                  "concept",
+                  "exposition/argumentation",
+                  "none of these"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 6: [fill in the blank] Scholarly Synthesis and Faithful Reformulation — Type the Hindi expression meaning “concept”.",
+                "answer": "अवधारणा",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 7: [translation] Scholarly Synthesis and Faithful Reformulation — Interpret the Devanagari in context: प्रतिपादन (pratipādan).",
+                "answer": "exposition/argumentation",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 8: [reverse translation] Scholarly Synthesis and Faithful Reformulation — Write in Devanagari: relative.",
+                "answer": "सापेक्ष",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 9: [matching] Scholarly Synthesis and Faithful Reformulation — Match अपवादतः to its lesson meaning.",
+                "answer": "exceptionally",
+                "skill_target": "matching",
+                "options": [
+                  "overall",
+                  "exceptionally",
+                  "this does not mean that"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 10: [reorder] Scholarly Synthesis and Faithful Reformulation — Reconstruct the lesson model in coherent Hindi: Overall results are positive; this does not mean every group benefited equally.",
+                "answer": "समग्रतः परिणाम सकारात्मक हैं; इसका आशय यह नहीं कि प्रत्येक समूह को समान लाभ मिला।",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 11: [sentence building] Scholarly Synthesis and Faithful Reformulation — Reconstruct the lesson model in coherent Hindi: The first study demonstrates an effect, while the second identifies limits in its evidence base.",
+                "answer": "पहला अध्ययन प्रभाव दर्शाता है, जबकि दूसरा उसके प्रमाणाधार की सीमा बताता है।",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 12: [word selection] Scholarly Synthesis and Faithful Reformulation — Select the Hindi form for “reformulation”.",
+                "answer": "पुनःसूत्रण",
+                "skill_target": "word selection",
+                "options": [
+                  "प्रमाणाधार",
+                  "अवधारणा",
+                  "पुनःसूत्रण"
+                ]
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits अवधारणा?",
+                "options": [
+                  "concept",
+                  "exposition/argumentation",
+                  "relative",
+                  "exceptionally"
+                ],
+                "answer": 0,
+                "why": "अवधारणा means concept in this lesson."
+              },
+              {
+                "q": "Which meaning best fits प्रतिपादन?",
+                "options": [
+                  "relative",
+                  "exposition/argumentation",
+                  "exceptionally",
+                  "overall"
+                ],
+                "answer": 1,
+                "why": "प्रतिपादन means exposition/argumentation."
+              },
+              {
+                "q": "Which expression means “relative”?",
+                "options": [
+                  "इसका आशय यह नहीं कि",
+                  "पुनःसूत्रण",
+                  "सापेक्ष",
+                  "प्रमाणाधार"
+                ],
+                "answer": 2,
+                "why": "सापेक्ष carries that meaning."
+              },
+              {
+                "q": "What is the key advanced distinction in scholarly synthesis?",
+                "options": [
+                  "word length",
+                  "speaker gender only",
+                  "meaning, evidence, or register in context",
+                  "alphabetical order"
+                ],
+                "answer": 2,
+                "why": "C-level control depends on contextual meaning and discourse effect."
+              },
+              {
+                "q": "Which response demonstrates C2 control in “Scholarly Synthesis and Faithful Reformulation”?",
+                "options": [
+                  "a memorized isolated noun",
+                  "a literal translation regardless of context",
+                  "a coherent choice justified by stance and audience",
+                  "the longest possible sentence"
+                ],
+                "answer": 2,
+                "why": "Precision and audience-sensitive justification are required."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Scholarly Synthesis and Faithful Reformulation Workshop",
+              "tasks": [
+                {
+                  "instruction": "Explain the contextual meaning and discourse function.",
+                  "items": [
+                    "अवधारणा (avadhāraṇā)",
+                    "प्रतिपादन (pratipādan)"
+                  ],
+                  "key": [
+                    "concept",
+                    "exposition/argumentation"
+                  ]
+                },
+                {
+                  "instruction": "Translate or interpret while preserving stance and register.",
+                  "items": [
+                    "समग्रतः परिणाम सकारात्मक हैं; इसका आशय यह नहीं कि प्रत्येक समूह को समान लाभ मिला। (samagrataḥ pariṇām sakārātmak haĩ; iskā āśay yah nahī̃ ki pratyek samūh ko samān lābh milā.)",
+                    "पहला अध्ययन प्रभाव दर्शाता है, जबकि दूसरा उसके प्रमाणाधार की सीमा बताता है। (pahlā adhyayan prabhāv darśātā hai, jabki dūsrā uske pramāṇādhār kī sīmā batātā hai.)"
+                  ],
+                  "key": [
+                    "Overall results are positive; this does not mean every group benefited equally.",
+                    "The first study demonstrates an effect, while the second identifies limits in its evidence base."
+                  ]
+                },
+                {
+                  "instruction": "Complete the advanced production task, then self-check meaning, register, and cohesion.",
+                  "items": [
+                    "Translate: “The sources converge on direction but differ in certainty.”",
+                    "Synthesize one positive finding and one methodological limitation."
+                  ],
+                  "key": [
+                    "स्रोत दिशा के विषय में सहमत हैं, पर निष्कर्ष की निश्चितता में भिन्न हैं।",
+                    "पहला अध्ययन लाभ का संकेत देता है; दूसरा नमूने और मापन की सीमाएँ उजागर करता है। अतः दिशा आशाजनक है, पर प्रभाव का परिमाण अभी अनिश्चित है।"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Devanagari, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "समग्रतः परिणाम सकारात्मक हैं; इसका आशय यह नहीं कि प्रत्येक समूह को समान लाभ मिला।",
+                    "आपने दोनों अध्ययनों को एक ही निष्कर्ष का समर्थन करने वाला बताया है।"
+                  ],
+                  "key": [
+                    "Overall results are positive; this does not mean every group benefited equally.",
+                    "You said both studies support the same conclusion."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "अवधारणा",
+              "प्रतिपादन",
+              "सापेक्ष",
+              "अपवादतः"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          }
+        ]
+      },
+      {
+        "id": "hi-c2-u3",
+        "title": "Negotiation and Stylistic Mastery",
+        "lessons": [
+          {
+            "id": "hi-c2-l5",
+            "title": "Figurative Language, Irony, and Cultural Inference",
+            "learn": "Interpret idiom, irony, and extended metaphor by combining linguistic cues with genre and cultural context. Defend an interpretation while distinguishing conventional meaning from a creative extension.",
+            "vocab": [
+              {
+                "t": "नौ दो ग्यारह होना",
+                "r": "nau do gyārah honā",
+                "en": "to disappear/run away",
+                "pos": "idiom"
+              },
+              {
+                "t": "दाल न गलना",
+                "r": "dāl na galnā",
+                "en": "for a plan/scheme not to succeed",
+                "pos": "idiom"
+              },
+              {
+                "t": "नब्ज़ पहचानना",
+                "r": "nabz pahcānnā",
+                "en": "to understand the pulse/mood",
+                "pos": "idiom"
+              },
+              {
+                "t": "आईना दिखाना",
+                "r": "āīnā dikhānā",
+                "en": "to confront with an uncomfortable truth",
+                "pos": "idiom"
+              },
+              {
+                "t": "रूपक-विस्तार",
+                "r": "rūpak-vistār",
+                "en": "extended metaphor",
+                "pos": "noun"
+              },
+              {
+                "t": "विडंबना",
+                "r": "viḍambanā",
+                "en": "irony/paradox",
+                "pos": "noun"
+              },
+              {
+                "t": "संकेतार्थ",
+                "r": "saṅketārth",
+                "en": "suggested meaning",
+                "pos": "noun"
+              },
+              {
+                "t": "सांस्कृतिक संदर्भ",
+                "r": "sāṃskṛtik sandarbh",
+                "en": "cultural context",
+                "pos": "phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Literal proposition versus rhetorical effect",
+              "explain": "दाल न गलना conventionally describes an attempt that fails, not cooking. आईना दिखाना can frame criticism as necessary truth-telling and therefore carries evaluation. Irony depends on a mismatch between wording and context/prosody; do not label every negative statement sarcastic.",
+              "pattern": "literal wording + contextual mismatch/convention → rhetorical interpretation + evidence",
+              "examples": [
+                {
+                  "t": "इस बार दबाव डालने की उनकी दाल नहीं गली।",
+                  "r": "is bār dabāv ḍālne kī unkī dāl nahī̃ galī.",
+                  "en": "This time their attempt to exert pressure did not succeed."
+                },
+                {
+                  "t": "व्यंग्यकार ने व्यवस्था को आईना दिखाया।",
+                  "r": "vyaṅgyakār ne vyavasthā ko āīnā dikhāyā.",
+                  "en": "The satirist confronted the system with an uncomfortable truth."
+                },
+                {
+                  "t": "श्रोता की नब्ज़ पहचाने बिना भाषण प्रभावी नहीं होगा।",
+                  "r": "śrotā kī nabz pahcāne binā bhāṣaṇ prabhāvī nahī̃ hogā.",
+                  "en": "The speech will not be effective without understanding the audience’s mood."
+                }
+              ],
+              "mistakes": [
+                "In Figurative Language, Irony, and Cultural Inference, grammatical possibility is not enough: preserve the intended meaning, relationship, evidence strength, and discourse purpose."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Critic",
+                "t": "कहानी में पात्र हर संकट पर कहता है, “वाह, क्या शानदार व्यवस्था है!”",
+                "r": "kahānī mẽ pātra har saṅkaṭ par kahtā hai, “vāh, kyā śāndār vyavasthā hai!”",
+                "en": "In the story the character says at every crisis, “Wow, what a wonderful system!”"
+              },
+              {
+                "sp": "Student",
+                "t": "शाब्दिक प्रशंसा और लगातार विफलता का विरोध विडंबना बनाता है।",
+                "r": "śābdik praśaṃsā aur lagātār viphaltā kā virodh viḍambanā banātā hai.",
+                "en": "The contrast between literal praise and repeated failure creates irony."
+              },
+              {
+                "sp": "Critic",
+                "t": "क्या केवल वाक्य देखकर यह निष्कर्ष निकलता?",
+                "r": "kyā keval vākya dekhkar yah niṣkarṣ nikaltā?",
+                "en": "Could that conclusion follow from the sentence alone?"
+              },
+              {
+                "sp": "Student",
+                "t": "नहीं, कथानक, दोहराव और सम्भावित स्वर—तीनों संकेतार्थ तय करते हैं।",
+                "r": "nahī̃, kathānak, dohrāv aur sambhāvit svar—tīnõ saṅketārth tay karte haĩ.",
+                "en": "No; plot, repetition, and likely tone jointly determine the suggested meaning."
+              }
+            ],
+            "practice": [
+              {
+                "type": "error_correction",
+                "q": "Practice 1: [error correction] Figurative Language, Irony, and Cultural Inference — Error correction for Figurative Language, Irony, and Cultural Inference: replace a literal or register-inappropriate rendering with the lesson model for “The satirist confronted the system with an uncomfortable truth.”.",
+                "answer": "व्यंग्यकार ने व्यवस्था को आईना दिखाया।",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 2: [dialogue completion] Figurative Language, Irony, and Cultural Inference — Complete the dialogue with the studied response to: The contrast between literal praise and repeated failure creates irony.",
+                "answer": "शाब्दिक प्रशंसा और लगातार विफलता का विरोध विडंबना बनाता है।",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 3: [reading comprehension] Figurative Language, Irony, and Cultural Inference — Read “क्या केवल वाक्य देखकर यह निष्कर्ष निकलता?” (kyā keval vākya dekhkar yah niṣkarṣ nikaltā?). What detail does it communicate?",
+                "answer": "Could that conclusion follow from the sentence alone?",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 4: [paragraph comprehension] Figurative Language, Irony, and Cultural Inference — Read the lesson dialogue as a whole. Give the key contribution of Student in this turn: नहीं, कथानक, दोहराव और सम्भावित स्वर—तीनों संकेतार्थ तय करते हैं।",
+                "answer": "No; plot, repetition, and likely tone jointly determine the suggested meaning.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "inference",
+                "q": "Practice 5: [inference] Figurative Language, Irony, and Cultural Inference — From “श्रोता की नब्ज़ पहचाने बिना भाषण प्रभावी नहीं होगा।”, state the inference while preserving any limit or contrast.",
+                "answer": "The speech will not be effective without understanding the audience’s mood.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "main_idea",
+                "q": "Practice 6: [main idea] Figurative Language, Irony, and Cultural Inference — What is the main communicative aim of the lesson “Figurative Language, Irony, and Cultural Inference”?",
+                "answer": "Interpret idiom, irony, and extended metaphor by combining linguistic cues with genre and cultural context.",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Practice 7: [detail identification] Figurative Language, Irony, and Cultural Inference — Read “क्या केवल वाक्य देखकर यह निष्कर्ष निकलता?” (kyā keval vākya dekhkar yah niṣkarṣ nikaltā?). What detail does it communicate?",
+                "answer": "Could that conclusion follow from the sentence alone?",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Practice 8: [listening comprehension] Figurative Language, Irony, and Cultural Inference — Play the synthetic Hindi audio. Type its contextual English meaning.",
+                "answer": "No; plot, repetition, and likely tone jointly determine the suggested meaning.",
+                "skill_target": "listening comprehension",
+                "audio_source": "नहीं, कथानक, दोहराव और सम्भावित स्वर—तीनों संकेतार्थ तय करते हैं।"
+              },
+              {
+                "type": "dictation",
+                "q": "Practice 9: [dictation] Figurative Language, Irony, and Cultural Inference — Play the clearly labeled synthetic Hindi audio and type exactly what you hear in Devanagari.",
+                "answer": "कहानी में पात्र हर संकट पर कहता है, “वाह, क्या शानदार व्यवस्था है!”",
+                "skill_target": "dictation",
+                "audio_source": "कहानी में पात्र हर संकट पर कहता है, “वाह, क्या शानदार व्यवस्था है!”"
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Practice 10: [listen and choose] Figurative Language, Irony, and Cultural Inference — Play the synthetic Hindi audio and choose its meaning.",
+                "answer": "The contrast between literal praise and repeated failure creates irony.",
+                "skill_target": "listen and choose",
+                "audio_source": "शाब्दिक प्रशंसा और लगातार विफलता का विरोध विडंबना बनाता है।",
+                "options": [
+                  "The contrast between literal praise and repeated failure creates irony.",
+                  "Could that conclusion follow from the sentence alone?",
+                  "irony/paradox"
+                ]
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "Practice 11: [listen and reorder] Figurative Language, Irony, and Cultural Inference — Reconstruct the lesson model in coherent Hindi: The speech will not be effective without understanding the audience’s mood.",
+                "answer": "श्रोता की नब्ज़ पहचाने बिना भाषण प्रभावी नहीं होगा।",
+                "skill_target": "listen and reorder",
+                "audio_source": "कहानी में पात्र हर संकट पर कहता है, “वाह, क्या शानदार व्यवस्था है!”"
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Practice 12: [listen and fill] Figurative Language, Irony, and Cultural Inference — Play the synthetic audio and type the complete line beginning “नहीं,…”.",
+                "answer": "नहीं, कथानक, दोहराव और सम्भावित स्वर—तीनों संकेतार्थ तय करते हैं।",
+                "skill_target": "listen and fill",
+                "audio_source": "नहीं, कथानक, दोहराव और सम्भावित स्वर—तीनों संकेतार्थ तय करते हैं।"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits नौ दो ग्यारह होना?",
+                "options": [
+                  "to disappear/run away",
+                  "for a plan/scheme not to succeed",
+                  "to understand the pulse/mood",
+                  "to confront with an uncomfortable truth"
+                ],
+                "answer": 0,
+                "why": "नौ दो ग्यारह होना means to disappear/run away in this lesson."
+              },
+              {
+                "q": "Which meaning best fits दाल न गलना?",
+                "options": [
+                  "to understand the pulse/mood",
+                  "for a plan/scheme not to succeed",
+                  "to confront with an uncomfortable truth",
+                  "extended metaphor"
+                ],
+                "answer": 1,
+                "why": "दाल न गलना means for a plan/scheme not to succeed."
+              },
+              {
+                "q": "Which expression means “to understand the pulse/mood”?",
+                "options": [
+                  "विडंबना",
+                  "संकेतार्थ",
+                  "नब्ज़ पहचानना",
+                  "सांस्कृतिक संदर्भ"
+                ],
+                "answer": 2,
+                "why": "नब्ज़ पहचानना carries that meaning."
+              },
+              {
+                "q": "What is the key advanced distinction in figurative inference?",
+                "options": [
+                  "word length",
+                  "speaker gender only",
+                  "meaning, evidence, or register in context",
+                  "alphabetical order"
+                ],
+                "answer": 2,
+                "why": "C-level control depends on contextual meaning and discourse effect."
+              },
+              {
+                "q": "Which response demonstrates C2 control in “Figurative Language, Irony, and Cultural Inference”?",
+                "options": [
+                  "a memorized isolated noun",
+                  "a literal translation regardless of context",
+                  "a coherent choice justified by stance and audience",
+                  "the longest possible sentence"
+                ],
+                "answer": 2,
+                "why": "Precision and audience-sensitive justification are required."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Figurative Language, Irony, and Cultural Inference Workshop",
+              "tasks": [
+                {
+                  "instruction": "Explain the contextual meaning and discourse function.",
+                  "items": [
+                    "नौ दो ग्यारह होना (nau do gyārah honā)",
+                    "दाल न गलना (dāl na galnā)"
+                  ],
+                  "key": [
+                    "to disappear/run away",
+                    "for a plan/scheme not to succeed"
+                  ]
+                },
+                {
+                  "instruction": "Translate or interpret while preserving stance and register.",
+                  "items": [
+                    "इस बार दबाव डालने की उनकी दाल नहीं गली। (is bār dabāv ḍālne kī unkī dāl nahī̃ galī.)",
+                    "व्यंग्यकार ने व्यवस्था को आईना दिखाया। (vyaṅgyakār ne vyavasthā ko āīnā dikhāyā.)"
+                  ],
+                  "key": [
+                    "This time their attempt to exert pressure did not succeed.",
+                    "The satirist confronted the system with an uncomfortable truth."
+                  ]
+                },
+                {
+                  "instruction": "Complete the advanced production task, then self-check meaning, register, and cohesion.",
+                  "items": [
+                    "Neutralize: व्यंग्यकार ने व्यवस्था को आईना दिखाया.",
+                    "Defend an ironic reading using three contextual cues."
+                  ],
+                  "key": [
+                    "व्यंग्यकार ने व्यवस्था की असुविधाजनक वास्तविकताओं को स्पष्ट किया।",
+                    "शाब्दिक प्रशंसा संकट के विपरीत है, वही वाक्य बार-बार आता है, और पात्र के अनुभव से सकारात्मक अर्थ असंगत है; इसलिए पंक्ति विडंबनापूर्ण है।"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Devanagari, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "इस बार दबाव डालने की उनकी दाल नहीं गली।",
+                    "कहानी में पात्र हर संकट पर कहता है, “वाह, क्या शानदार व्यवस्था है!”"
+                  ],
+                  "key": [
+                    "This time their attempt to exert pressure did not succeed.",
+                    "In the story the character says at every crisis, “Wow, what a wonderful system!”"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "नौ दो ग्यारह होना",
+              "दाल न गलना",
+              "नब्ज़ पहचानना",
+              "आईना दिखाना"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          },
+          {
+            "id": "hi-c2-l6",
+            "title": "High-Stakes Negotiation and Stylistic Recasting",
+            "learn": "Integrate evidence, face management, hidden interests, conditional agreement, formal minutes, and public explanation. Preserve conditions and dissent when moving across spoken, institutional, and audience-facing genres.",
+            "vocab": [
+              {
+                "t": "हितधारक",
+                "r": "hitadhārak",
+                "en": "stakeholder",
+                "pos": "noun"
+              },
+              {
+                "t": "सशर्त सहमति",
+                "r": "saśart sahmati",
+                "en": "conditional agreement",
+                "pos": "phrase"
+              },
+              {
+                "t": "सर्वसम्मति",
+                "r": "sarvasammati",
+                "en": "consensus",
+                "pos": "noun"
+              },
+              {
+                "t": "असहमति दर्ज करना",
+                "r": "asahmati darj karnā",
+                "en": "to record dissent",
+                "pos": "verb"
+              },
+              {
+                "t": "समझौता-प्रस्ताव",
+                "r": "samjhautā-prastāv",
+                "en": "compromise proposal",
+                "pos": "noun"
+              },
+              {
+                "t": "अंतर्निहित हित",
+                "r": "antarnihit hit",
+                "en": "underlying interest",
+                "pos": "phrase"
+              },
+              {
+                "t": "संक्षेप में",
+                "r": "saṃkṣep mẽ",
+                "en": "in brief",
+                "pos": "marker"
+              },
+              {
+                "t": "पुनर्प्रस्तुति",
+                "r": "punarprastuti",
+                "en": "recasting/re-presentation",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Invariant proposition, adaptive register",
+              "explain": "सशर्त सहमति is not सर्वसम्मति: the condition remains part of the commitment. Spoken negotiation may be relational and exploratory; minutes must identify actor, condition, decision, and dissent; public explanation can unpack technical wording without changing modal force.",
+              "pattern": "spoken proposal ↔ minutes record ↔ public explanation, with conditions preserved",
+              "examples": [
+                {
+                  "t": "स्वतंत्र समीक्षा की शर्त पर हम सशर्त सहमति दे सकते हैं।",
+                  "r": "svatantra samīkṣā kī śart par ham saśart sahmati de sakte haĩ.",
+                  "en": "We can give conditional agreement subject to an independent review."
+                },
+                {
+                  "t": "दो हितधारकों ने समय-सीमा पर असहमति दर्ज की।",
+                  "r": "do hitadhārakõ ne samay-sīmā par asahmati darj kī.",
+                  "en": "Two stakeholders recorded dissent regarding the deadline."
+                },
+                {
+                  "t": "संक्षेप में, प्रस्ताव गति और जवाबदेही में संतुलन चाहता है।",
+                  "r": "saṃkṣep mẽ, prastāv gati aur javābdehī mẽ saṃtulan cāhtā hai.",
+                  "en": "In brief, the proposal seeks to balance speed and accountability."
+                }
+              ],
+              "mistakes": [
+                "In High-Stakes Negotiation and Stylistic Recasting, grammatical possibility is not enough: preserve the intended meaning, relationship, evidence strength, and discourse purpose."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Chair",
+                "t": "किस शर्त पर आप प्रस्ताव का समर्थन कर सकते हैं?",
+                "r": "kis śart par āp prastāv kā samarthan kar sakte haĩ?",
+                "en": "Under what condition can you support the proposal?"
+              },
+              {
+                "sp": "Representative",
+                "t": "समीक्षा के निष्कर्ष सार्वजनिक हों तो सशर्त सहमति संभव है।",
+                "r": "samīkṣā ke niṣkarṣ sārvajanik hõ to saśart sahmati saṃbhav hai.",
+                "en": "Conditional agreement is possible if the review findings are public."
+              },
+              {
+                "sp": "Manager",
+                "t": "समय-सीमा बनी रहे तो यह समझौता-प्रस्ताव हमें स्वीकार है।",
+                "r": "samay-sīmā banī rahe to yah samjhautā-prastāv hamẽ svīkār hai.",
+                "en": "The compromise is acceptable to us if the deadline remains."
+              },
+              {
+                "sp": "Chair",
+                "t": "कार्यवृत्त में दोनों शर्तें और शेष असहमति दर्ज होंगी; इसे सर्वसम्मति नहीं कहेंगे।",
+                "r": "kāryavṛtt mẽ donõ śartẽ aur śeṣ asahmati darj hõgī; ise sarvasammati nahī̃ kahẽge.",
+                "en": "The minutes will record both conditions and remaining dissent; we will not call it consensus."
+              }
+            ],
+            "practice": [
+              {
+                "type": "repeat_after_audio",
+                "q": "Practice 1: [repeat after audio] High-Stakes Negotiation and Stylistic Recasting — Play the synthetic model, repeat the full Hindi turn, then use the self-check button. No microphone score is produced.",
+                "answer": "समीक्षा के निष्कर्ष सार्वजनिक हों तो सशर्त सहमति संभव है।",
+                "skill_target": "repeat after audio",
+                "audio_source": "समीक्षा के निष्कर्ष सार्वजनिक हों तो सशर्त सहमति संभव है।"
+              },
+              {
+                "type": "pronunciation",
+                "q": "Practice 2: [pronunciation] High-Stakes Negotiation and Stylistic Recasting — Listen and practise the Hindi sound sequence in संक्षेप में (saṃkṣep mẽ). Self-check articulation and rhythm; no microphone score is produced.",
+                "answer": "संक्षेप में",
+                "skill_target": "pronunciation",
+                "audio_source": "संक्षेप में"
+              },
+              {
+                "type": "shadowing",
+                "q": "Practice 3: [shadowing] High-Stakes Negotiation and Stylistic Recasting — Shadow the synthetic model at natural phrase pace, preserving pauses and emphasis. Self-check only.",
+                "answer": "कार्यवृत्त में दोनों शर्तें और शेष असहमति दर्ज होंगी; इसे सर्वसम्मति नहीं कहेंगे।",
+                "skill_target": "shadowing",
+                "audio_source": "कार्यवृत्त में दोनों शर्तें और शेष असहमति दर्ज होंगी; इसे सर्वसम्मति नहीं कहेंगे।"
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Practice 4: [guided speaking] High-Stakes Negotiation and Stylistic Recasting — Give the studied Hindi response for: In brief, the proposal seeks to balance speed and accountability.",
+                "answer": "संक्षेप में, प्रस्ताव गति और जवाबदेही में संतुलन चाहता है।",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "Practice 5: [free response] High-Stakes Negotiation and Stylistic Recasting — Give a new spoken response that demonstrates High-Stakes Negotiation and Stylistic Recasting; compare with this model.",
+                "answer": "स्वतंत्र समीक्षा की शर्त पर हम सशर्त सहमति दे सकते हैं।",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "Practice 6: [roleplay] High-Stakes Negotiation and Stylistic Recasting — Role-play Manager and deliver this meaning appropriately: The compromise is acceptable to us if the deadline remains.",
+                "answer": "समय-सीमा बनी रहे तो यह समझौता-प्रस्ताव हमें स्वीकार है।",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Practice 7: [sentence writing] High-Stakes Negotiation and Stylistic Recasting — Write one accurate Hindi sentence using असहमति दर्ज करना. Model answer:",
+                "answer": "संक्षेप में, प्रस्ताव गति और जवाबदेही में संतुलन चाहता है।",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "Practice 8: [short writing] High-Stakes Negotiation and Stylistic Recasting — Write 2–3 linked Hindi sentences applying High-Stakes Negotiation and Stylistic Recasting. Compare against this concise model.",
+                "answer": "स्वतंत्र समीक्षा की शर्त पर हम सशर्त सहमति दे सकते हैं। दो हितधारकों ने समय-सीमा पर असहमति दर्ज की।",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "paraphrase",
+                "q": "Practice 9: [paraphrase] High-Stakes Negotiation and Stylistic Recasting — Paraphrase without changing the core meaning or stance: दो हितधारकों ने समय-सीमा पर असहमति दर्ज की।",
+                "answer": "दो हितधारकों ने समय-सीमा पर असहमति दर्ज की।",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "Practice 10: [summary] High-Stakes Negotiation and Stylistic Recasting — Summarize the dialogue in one precise Hindi sentence; use this key turn as a minimum model.",
+                "answer": "समय-सीमा बनी रहे तो यह समझौता-प्रस्ताव हमें स्वीकार है।",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Practice 11: [guided composition] High-Stakes Negotiation and Stylistic Recasting — Compose a short response for High-Stakes Negotiation and Stylistic Recasting using the taught pattern “spoken proposal ↔ minutes record ↔ public explanation, with conditions preserved”.",
+                "answer": "स्वतंत्र समीक्षा की शर्त पर हम सशर्त सहमति दे सकते हैं।",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Practice 12: [register transformation] High-Stakes Negotiation and Stylistic Recasting — Recast the idea for an appropriate formal or respectful setting: Two stakeholders recorded dissent regarding the deadline.",
+                "answer": "दो हितधारकों ने समय-सीमा पर असहमति दर्ज की।",
+                "skill_target": "register transformation"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which meaning best fits हितधारक?",
+                "options": [
+                  "stakeholder",
+                  "conditional agreement",
+                  "consensus",
+                  "to record dissent"
+                ],
+                "answer": 0,
+                "why": "हितधारक means stakeholder in this lesson."
+              },
+              {
+                "q": "Which meaning best fits सशर्त सहमति?",
+                "options": [
+                  "consensus",
+                  "conditional agreement",
+                  "to record dissent",
+                  "compromise proposal"
+                ],
+                "answer": 1,
+                "why": "सशर्त सहमति means conditional agreement."
+              },
+              {
+                "q": "Which expression means “consensus”?",
+                "options": [
+                  "अंतर्निहित हित",
+                  "संक्षेप में",
+                  "सर्वसम्मति",
+                  "पुनर्प्रस्तुति"
+                ],
+                "answer": 2,
+                "why": "सर्वसम्मति carries that meaning."
+              },
+              {
+                "q": "What is the key advanced distinction in stylistic recasting?",
+                "options": [
+                  "word length",
+                  "speaker gender only",
+                  "meaning, evidence, or register in context",
+                  "alphabetical order"
+                ],
+                "answer": 2,
+                "why": "C-level control depends on contextual meaning and discourse effect."
+              },
+              {
+                "q": "Which response demonstrates C2 control in “High-Stakes Negotiation and Stylistic Recasting”?",
+                "options": [
+                  "a memorized isolated noun",
+                  "a literal translation regardless of context",
+                  "a coherent choice justified by stance and audience",
+                  "the longest possible sentence"
+                ],
+                "answer": 2,
+                "why": "Precision and audience-sensitive justification are required."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "High-Stakes Negotiation and Stylistic Recasting Workshop",
+              "tasks": [
+                {
+                  "instruction": "Explain the contextual meaning and discourse function.",
+                  "items": [
+                    "हितधारक (hitadhārak)",
+                    "सशर्त सहमति (saśart sahmati)"
+                  ],
+                  "key": [
+                    "stakeholder",
+                    "conditional agreement"
+                  ]
+                },
+                {
+                  "instruction": "Translate or interpret while preserving stance and register.",
+                  "items": [
+                    "स्वतंत्र समीक्षा की शर्त पर हम सशर्त सहमति दे सकते हैं। (svatantra samīkṣā kī śart par ham saśart sahmati de sakte haĩ.)",
+                    "दो हितधारकों ने समय-सीमा पर असहमति दर्ज की। (do hitadhārakõ ne samay-sīmā par asahmati darj kī.)"
+                  ],
+                  "key": [
+                    "We can give conditional agreement subject to an independent review.",
+                    "Two stakeholders recorded dissent regarding the deadline."
+                  ]
+                },
+                {
+                  "instruction": "Complete the advanced production task, then self-check meaning, register, and cohesion.",
+                  "items": [
+                    "Record formally: “We agree only if the findings are public.”",
+                    "Close a presentation with purpose, limitation, and next action."
+                  ],
+                  "key": [
+                    "निष्कर्ष सार्वजनिक किए जाने की शर्त पर सशर्त सहमति दी गई।",
+                    "संक्षेप में, प्रस्ताव जवाबदेही बढ़ा सकता है। लागत का स्वतंत्र सत्यापन अभी शेष है; अतः सत्यापन के बाद अंतिम निर्णय लिया जाए।"
+                  ]
+                },
+                {
+                  "instruction": "Integrated offline practice: read the first model, transform or extend it in Devanagari, then rehearse it as a dialogue. Self-check meaning, grammar, and register.",
+                  "items": [
+                    "स्वतंत्र समीक्षा की शर्त पर हम सशर्त सहमति दे सकते हैं।",
+                    "किस शर्त पर आप प्रस्ताव का समर्थन कर सकते हैं?"
+                  ],
+                  "key": [
+                    "We can give conditional agreement subject to an independent review.",
+                    "Under what condition can you support the proposal?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "हितधारक",
+              "सशर्त सहमति",
+              "सर्वसम्मति",
+              "असहमति दर्ज करना"
+            ],
+            "srs_policy": "Only these four high-value terms are preselected; lesson mistakes and productive patterns may enter personalized review after an actual error."
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "Hindi C2 Proficiency Test",
+      "items": [
+        {
+          "type": "translate_en",
+          "q": "Interpret precisely: सुझाना (sujhānā)",
+          "answer": "to suggest"
+        },
+        {
+          "type": "translate_en",
+          "q": "Interpret precisely: तो (to)",
+          "answer": "contrastive topic particle"
+        },
+        {
+          "type": "translate_en",
+          "q": "Interpret precisely: हमारा मत है कि (hamārā mat hai ki)",
+          "answer": "our position is that"
+        },
+        {
+          "type": "translate_en",
+          "q": "Interpret precisely: अवधारणा (avadhāraṇā)",
+          "answer": "concept"
+        },
+        {
+          "type": "translate_en",
+          "q": "Interpret precisely: नौ दो ग्यारह होना (nau do gyārah honā)",
+          "answer": "to disappear/run away"
+        },
+        {
+          "type": "translate_en",
+          "q": "Interpret precisely: हितधारक (hitadhārak)",
+          "answer": "stakeholder"
+        },
+        {
+          "type": "speak",
+          "q": "Explain the commitment difference among suggest, show, and prove in Hindi.",
+          "answer": "सुझाना संभावित निष्कर्ष देता है; दर्शाना उसे स्पष्ट साक्ष्य से सामने रखता है; सिद्ध करना निर्णायक प्रमाण का दावा करता है।"
+        },
+        {
+          "type": "speak",
+          "q": "Explain how moving ही changes focus in two Hindi examples.",
+          "answer": "समिति ने ही कहा focuses who spoke; समिति ने यही कहा focuses what was said."
+        },
+        {
+          "type": "speak",
+          "q": "Respond to a strong cost objection without caricaturing it.",
+          "answer": "प्रारंभिक लागत संबंधी आपत्ति उचित है। तथापि चरणबद्ध कार्यान्वयन से जोखिम सीमित किया जा सकता है; इसलिए पहले नियंत्रित परीक्षण की अनुशंसा है।"
+        },
+        {
+          "type": "speak",
+          "q": "Synthesize one positive finding and one methodological limitation.",
+          "answer": "पहला अध्ययन लाभ का संकेत देता है; दूसरा नमूने और मापन की सीमाएँ उजागर करता है। अतः दिशा आशाजनक है, पर प्रभाव का परिमाण अभी अनिश्चित है।"
+        }
+      ]
+    }
+  }
+}

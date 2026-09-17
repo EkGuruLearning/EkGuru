@@ -1,0 +1,280 @@
+{
+  "generated": "2026-09-12T08:38:03Z",
+  "tools": [
+    {
+      "url": "http://127.0.0.1:8899/toolbox/hindi-alphabet/",
+      "steps": [
+        {
+          "step": "letters rendered (>=40 letter elements)",
+          "ok": true,
+          "evidence": ""
+        }
+      ],
+      "errors": [],
+      "bad_resources": [],
+      "overflow": {
+        "1280": 0,
+        "390": 0
+      },
+      "verdict": "PASS"
+    },
+    {
+      "url": "http://127.0.0.1:8899/toolbox/hindi-numbers/",
+      "steps": [
+        {
+          "step": "typing 42 shows Devanagari output",
+          "ok": true,
+          "evidence": ""
+        },
+        {
+          "step": "empty input does not crash (no error, output clears gracefully)",
+          "ok": true,
+          "evidence": ""
+        },
+        {
+          "step": "random button exists and works",
+          "ok": true,
+          "evidence": ""
+        }
+      ],
+      "errors": [],
+      "bad_resources": [],
+      "overflow": {
+        "1280": 0,
+        "390": 0
+      },
+      "verdict": "PASS"
+    },
+    {
+      "url": "http://127.0.0.1:8899/toolbox/hindi-phrasebook/",
+      "steps": [
+        {
+          "step": "search 'thank' narrows results",
+          "ok": true,
+          "evidence": ""
+        },
+        {
+          "step": "romanised search 'shukriya' also matches shukriyaa",
+          "ok": true,
+          "evidence": ""
+        },
+        {
+          "step": "clearing search restores list",
+          "ok": true,
+          "evidence": ""
+        }
+      ],
+      "errors": [],
+      "bad_resources": [],
+      "overflow": {
+        "1280": 0,
+        "390": 0
+      },
+      "verdict": "PASS"
+    },
+    {
+      "url": "http://127.0.0.1:8899/toolbox/hindi-flashcards/",
+      "steps": [
+        {
+          "step": "flip button toggles the card",
+          "ok": true,
+          "evidence": ""
+        },
+        {
+          "step": "easy/hard advance the deck without error",
+          "ok": true,
+          "evidence": ""
+        },
+        {
+          "step": "reset exists",
+          "ok": true,
+          "evidence": ""
+        }
+      ],
+      "errors": [],
+      "bad_resources": [],
+      "overflow": {
+        "1280": 0,
+        "390": 0
+      },
+      "verdict": "PASS"
+    },
+    {
+      "url": "http://127.0.0.1:8899/toolbox/hindi-quiz/",
+      "steps": [
+        {
+          "step": "start begins a 10-question quiz",
+          "ok": true,
+          "evidence": ""
+        },
+        {
+          "step": "answer buttons appear and can be clicked",
+          "ok": true,
+          "evidence": ""
+        }
+      ],
+      "errors": [],
+      "bad_resources": [],
+      "overflow": {
+        "1280": 0,
+        "390": 0
+      },
+      "verdict": "PASS"
+    },
+    {
+      "url": "http://127.0.0.1:8899/toolbox/hindi-level-test/",
+      "steps": [
+        {
+          "step": "test renders questions",
+          "ok": true,
+          "evidence": ""
+        },
+        {
+          "step": "answers can be given",
+          "ok": true,
+          "evidence": ""
+        }
+      ],
+      "errors": [],
+      "bad_resources": [],
+      "overflow": {
+        "1280": 0,
+        "390": 0
+      },
+      "verdict": "PASS"
+    },
+    {
+      "url": "http://127.0.0.1:8899/toolbox/hindi-typing/",
+      "steps": [
+        {
+          "step": "typing 'namaste' produces Devanagari in #tout",
+          "ok": true,
+          "evidence": ""
+        },
+        {
+          "step": "clear empties both sides",
+          "ok": true,
+          "evidence": ""
+        },
+        {
+          "step": "copy button exists",
+          "ok": true,
+          "evidence": ""
+        }
+      ],
+      "errors": [],
+      "bad_resources": [],
+      "overflow": {
+        "1280": 0,
+        "390": 0
+      },
+      "verdict": "PASS"
+    },
+    {
+      "url": "http://127.0.0.1:8899/toolbox/hindi-verbs/",
+      "steps": [
+        {
+          "step": "search 'bolna' narrows the verb table",
+          "ok": true,
+          "evidence": ""
+        },
+        {
+          "step": "romanised 'khana' finds 'to eat' (khaana normalised)",
+          "ok": true,
+          "evidence": ""
+        }
+      ],
+      "errors": [],
+      "bad_resources": [],
+      "overflow": {
+        "1280": 0,
+        "390": 0
+      },
+      "verdict": "PASS"
+    },
+    {
+      "url": "http://127.0.0.1:8899/toolbox/hindi-vocabulary/",
+      "steps": [
+        {
+          "step": "search 'food' narrows vocabulary",
+          "ok": true,
+          "evidence": ""
+        },
+        {
+          "step": "hide controls exist",
+          "ok": true,
+          "evidence": ""
+        }
+      ],
+      "errors": [],
+      "bad_resources": [],
+      "overflow": {
+        "1280": 0,
+        "390": 0
+      },
+      "verdict": "PASS"
+    },
+    {
+      "url": "http://127.0.0.1:8899/toolbox/hindi-date-time/",
+      "steps": [
+        {
+          "step": "shows a live now value (Devanagari or digits)",
+          "ok": true,
+          "evidence": ""
+        }
+      ],
+      "errors": [],
+      "bad_resources": [],
+      "overflow": {
+        "1280": 0,
+        "390": 0
+      },
+      "verdict": "PASS"
+    },
+    {
+      "url": "http://127.0.0.1:8899/toolbox/hindi-pronunciation/",
+      "steps": [
+        {
+          "step": "next sound advances",
+          "ok": true,
+          "evidence": ""
+        },
+        {
+          "step": "tip button shows a tip",
+          "ok": true,
+          "evidence": ""
+        }
+      ],
+      "errors": [],
+      "bad_resources": [],
+      "overflow": {
+        "1280": 0,
+        "390": 0
+      },
+      "verdict": "PASS"
+    },
+    {
+      "url": "http://127.0.0.1:8899/toolbox/hindi-time-planner/",
+      "steps": [
+        {
+          "step": "setting hours/week produces a plan",
+          "ok": true,
+          "evidence": ""
+        }
+      ],
+      "errors": [],
+      "bad_resources": [],
+      "overflow": {
+        "1280": 0,
+        "390": 0
+      },
+      "verdict": "PASS"
+    }
+  ],
+  "summary": {
+    "tools": 12,
+    "pass": 12,
+    "fail": 0,
+    "failed": []
+  }
+}

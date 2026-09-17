@@ -1,0 +1,43 @@
+{
+  "generated": "2026-09-11",
+  "note": "Measured on the local build served at 127.0.0.1:8899 (localhost: no network latency). Mobile emulates 390x844; CPU not throttled.",
+  "pages": {
+    "homepage": {
+      "desktop": {
+        "ttfb": 3.599999999627471,
+        "domContentLoaded": 177.90000000037253,
+        "load": 558.8000000007451,
+        "lcp": 212,
+        "cls": 0.1857883527842078,
+        "requests": 39,
+        "bytes": 1119714,
+        "duration": 558.8000000007451
+      },
+      "mobile": {
+        "ttfb": 2.099999999627471,
+        "domContentLoaded": 171.09999999962747,
+        "load": 483.59999999962747,
+        "lcp": 160,
+        "cls": 0.01295004218514858,
+        "requests": 39,
+        "bytes": 1120110,
+        "duration": 483.59999999962747
+      }
+    }
+  },
+  "budget": {
+    "ttfb_ms": {
+      "budget": 600,
+      "note": "local"
+    },
+    "lcp_ms": {
+      "budget": 2500
+    },
+    "cls": {
+      "budget": 0.1
+    },
+    "total_requests": {
+      "budget": 60
+    }
+  }
+}

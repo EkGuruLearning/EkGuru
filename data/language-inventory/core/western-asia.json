@@ -1,0 +1,2717 @@
+{
+ "batch": "western-asia",
+ "note": "Pass 1: agent-compiled per METHOD.md source hierarchy. Every entry code pre-verified against SIL 2026-09-14 download (adh/ady, sqh/sqt, jor/jos traps caught upfront; ajp->apc 2023 merger applied). Medium/low items await verification pass 2.",
+ "pass": 1,
+ "countries": [
+  {
+   "cca2": "TR",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-course — 70M+ state language + DE/diaspora millions; Latin script; zero EkGuru coverage.",
+      "status": "none"
+     },
+     "iso639_3": "tur",
+     "name": "Turkish",
+     "native": "Türkçe",
+     "notes": "Art.3: 'The language of the State is Turkish' — no other language may be taught as a mother tongue (the legal root of all TR minority notes). Istanbul standard. No language question in TR censuses — ALL TR figures soft.",
+     "roles": [
+      "national",
+      "official",
+      "widely-spoken"
+     ],
+     "sources": [
+      "tr-constitution-art3",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 68000000,
+      "total": 82000000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-pack — 11M+ TR Kurmanji inside a 30M+ cross-border language (IQ/SY/AM); Latin-script tradition (unlike Sorani).",
+      "status": "none"
+     },
+     "iso639_3": "kmr",
+     "name": "Northern Kurdish (Kurmanji)",
+     "native": "Kurmancî",
+     "notes": "No official status (Art.3); TRT Kurdî state TV = statutory recognition short of official function. TR holds the BIGGEST Kurdish community on Earth. Latin script in TR (vs Perso-Arabic in IQ/SY — script split inside one code, note for shared pack).",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "tr-constitution-art3",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 11000000,
+      "total": 12000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Shared with Syria/Lebanon entries — one Levantine pack serves all (refugee-education demand is the TR angle).",
+      "status": "none"
+     },
+     "iso639_3": "apc",
+     "name": "Levantine Arabic",
+     "native": "شامي",
+     "notes": "Dual community: historic Hatay/Şanlıurfa Arabs (~1M) + Syrian refugees (~3M, declining with returns). South Levantine [ajp] RETIRED 2023-01-20, merged into apc — JO/Palestinian/Syrian are all apc now.",
+     "roles": [
+      "minority",
+      "immigrant"
+     ],
+     "sources": [
+      "ethnologue-27",
+      "agent-knowledge",
+      "iso-639-3"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 4000000,
+      "total": 4200000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Zaza cluster (diq+kiu ~2M); no action unless homeland demand surfaces.",
+      "status": "none"
+     },
+     "iso639_3": "diq",
+     "name": "Southern Zaza (Dimli)",
+     "notes": "SIL 'Dimli (individual language)'; member of Zaza macro (zza) with kiu. Diyarbakır/Siverek side. Mutual intelligibility with Kirmanjki partial — split stands per rule 12. Latin (Jacobson alphabet); endonym form verify, native null honestly.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 1000000,
+      "total": 1100000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — see diq (shared planning).",
+      "status": "none"
+     },
+     "iso639_3": "kiu",
+     "name": "Northern Zaza (Kirmanjki)",
+     "notes": "SIL 'Kirmanjki (individual language)'; zza member. Tunceli/Dersim side. Alevi-majority community — religious + linguistic identity intertwined (record factually). Native null honestly (see diq).",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 1000000,
+      "total": 1100000
+     }
+    },
+    {
+     "confidence": "medium",
+     "disputed": false,
+     "ekguru": {
+      "recommendation": "watch — diaspora (TR/JO/IL) + homeland (RU, future batch); joint planning later.",
+      "status": "none"
+     },
+     "iso639_3": "ady",
+     "name": "Adyghe (Circassian)",
+     "native": "Адыгабзэ",
+     "notes": "L1 ~70–120K and falling (TR largest community; ethnic Circassians ~2M — do not confuse). Last sourced diaspora split 1997: TR 71K / JO 44K / SY 25K; global ~300–500K. DISPUTE RESOLVED 2026-09-14 (range narrowed 100–300k → 70–120k; shift ongoing). Code ady SIL-confirmed. TR Latin / RU Cyrillic — canonical primary Latn (bigger community), RU entry overrides.",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "ethnologue-27",
+      "agent-knowledge",
+      "sil-iso639-3-tab-2026",
+      "ady-diaspora-speakers-1997"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 100000,
+      "total": 120000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "No action.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "notes": "Tourism/business/university English (Istanbul/Antalya campuses). No L1 community of note; no official function.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "tsm",
+     "name": "Turkish Sign Language",
+     "notes": "Code 'tsm' (TİD). Relatively well-documented; Istanbul/Ankara/Izmir variation. Village sign (Mardin dsz) is separate — see long-tail.",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "iso-639-3",
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "medium",
+    "count": 38,
+    "note": "Ethnologue figure; no census language question — the count itself is estimated",
+    "source": "ethnologue-27"
+   },
+   "name": "Türkiye",
+   "notesLongTail": "Below-threshold/notes-only: Armenian hye (Istanbul ~60k ethnic, L1 soft — long-tail); Georgian kat (Chveneburi Muslim Georgians NE, L1 small); Greek ell (Istanbul ~2k remnant); Laz lzz (~20k L1, Kartvelian enclave — celebrity); Abkhaz abk (~40k); Chechen che (~30k L1); Bosnian bos (L1 small); Albanian sq (L1 small); Pomak (Bulgarian dialects); Gagauz (few k); Romani dialects; Mardin Sign dsz (village sign — celebrity, distinct from tsm); Quranic Arabic: Diyanet religious-education liturgical per AF/PK treatment (no entry).",
+   "region": "Asia",
+   "subregion": "Western Asia"
+  },
+  {
+   "cca2": "SA",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-course — MSA, 400M+ pan-Arab + liturgical world; the single biggest non-Indian course case. (This SA entry carries the joint MSA recommendation; all other arb entries point here.)",
+      "status": "none"
+     },
+     "iso639_3": "arb",
+     "name": "Standard Arabic",
+     "native": "العربية",
+     "notes": "Basic Law Art.1: Arabic is the official language. Quranic homeland (Makkah/Medina) — MSA + Classical prestige overlap nowhere else. MSA has NO L1 community (varieties carry L1) — speakers {} is correct, not missing.",
+     "roles": [
+      "national",
+      "official"
+     ],
+     "sources": [
+      "sa-basic-law-art1",
+      "ethnologue-27"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-pack — 15M+ Najdi; Riyadh-media standard makes it the de-facto spoken prestige.",
+      "status": "none"
+     },
+     "iso639_3": "ars",
+     "name": "Najdi Arabic",
+     "native": "نجدي",
+     "notes": "Najd + Riyadh-spillover standard; also E. Syria/Badia + S. Iraq spillover (cross-border notes on SY/IQ). Engines serve MSA only — spoken pack need is real.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "sa-gastat",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 15000000,
+      "total": 16000000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "watch — Hejazi; fold into Najdi-pack planning unless demand splits (Hajj-pilgrim phrase demand is the niche).",
+      "status": "none"
+     },
+     "iso639_3": "acw",
+     "name": "Hejazi Arabic",
+     "native": "حجازي",
+     "notes": "Hejaz (Jeddah/Makkah/Medina); pilgrim-city contact effects (loanwords from everywhere). Urban Hejazi vs Bedouin Hejazi split — one code, note it.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "sa-gastat",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 12000000,
+      "total": 13000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "No action.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "native": "English",
+     "notes": "Business/Aramco/higher-education English; compulsory school subject. No L1 community, no official function.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Course exists — Gulf-migrant learner demand (family/remittance-corridor).",
+      "status": "course"
+     },
+     "iso639_3": "urd",
+     "name": "Urdu",
+     "native": "اردو",
+     "notes": "Pakistanis ~1.5M+ (GASTAT nationality); Urdu L1 ~300k + lingua-franca for all Pakistani expats. Punjabi/Pashto/Sindhi L1 splits UNAVAILABLE — do not fabricate (see PK entries).",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "sa-gastat",
+      "gulf-press-estimates"
+     ],
+     "speakers": {
+      "asOf": "gulf-press-estimates",
+      "confidence": "low",
+      "l1": 300000,
+      "total": 1500000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Course exists — Gulf-migrant learner demand.",
+      "status": "course"
+     },
+     "iso639_3": "hin",
+     "name": "Hindi",
+     "native": "हिन्दी",
+     "notes": "Indians ~3M+ (largest expat nationality); Hindi-Urdu L1 ~1.2M + lingua-franca. State-wise L1 splits (mal/tam/tel) entered only where unambiguous — see mal entry + long-tail.",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "sa-gastat",
+      "gulf-press-estimates"
+     ],
+     "speakers": {
+      "asOf": "gulf-press-estimates",
+      "confidence": "low",
+      "l1": 1200000,
+      "total": 2500000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Course exists — Gulf-migrant learner demand.",
+      "status": "course"
+     },
+     "iso639_3": "ben",
+     "name": "Bengali",
+     "native": "বাংলা",
+     "notes": "Bangladeshis ~1.5M+; L1≈community (clean case). Labour-camp concentrated.",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "sa-gastat",
+      "gulf-press-estimates"
+     ],
+     "speakers": {
+      "asOf": "gulf-press-estimates",
+      "confidence": "low",
+      "l1": 1200000,
+      "total": 1300000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "recommended-pack — 800k+ SA Filipinos inside 100M+ homeland; pack now, course case at PH batch.",
+      "status": "none"
+     },
+     "iso639_3": "fil",
+     "name": "Filipino",
+     "native": "Filipino",
+     "notes": "Filipinos ~900k; L1≈community (clean case). Code 'fil' = Filipino (PH official, Tagalog-based); 639-1 'tl' belongs to tgl — fil carries none. Domestic/health-worker concentrated.",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "sa-gastat",
+      "gulf-press-estimates"
+     ],
+     "speakers": {
+      "asOf": "gulf-press-estimates",
+      "confidence": "low",
+      "l1": 800000,
+      "total": 850000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Course exists — Gulf-migrant learner demand (Kerala corridor).",
+      "status": "course"
+     },
+     "iso639_3": "mal",
+     "name": "Malayalam",
+     "native": "മലയാളം",
+     "notes": "Kerala corridor: Malayalis ~800k+ (largest Indian-state group in SA by most accounts). Entry is unambiguous here; softer states (tam/tel) stay long-tailed per protocol.",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "sa-gastat",
+      "gulf-press-estimates"
+     ],
+     "speakers": {
+      "asOf": "gulf-press-estimates",
+      "confidence": "low",
+      "l1": 700000,
+      "total": 750000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "recommended-pack — 250k+ Gulf base + LK homeland; corridor demand.",
+      "status": "none"
+     },
+     "iso639_3": "sin",
+     "name": "Sinhala",
+     "native": "සිංහල",
+     "notes": "Sri Lankans ~350k (declining share); L1≈community. Domestic-worker concentrated.",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "sa-gastat",
+      "gulf-press-estimates"
+     ],
+     "speakers": {
+      "asOf": "gulf-press-estimates",
+      "confidence": "low",
+      "l1": 250000,
+      "total": 280000
+     }
+    },
+    {
+     "confidence": "low",
+     "ekguru": {
+      "recommendation": "Shared with Bangladesh entry (recommended-pack there); stateless-community sensitivity — neutral framing.",
+      "status": "none"
+     },
+     "iso639_3": "rhg",
+     "name": "Rohingya",
+     "native": "𐴌𐴟𐴇𐴥𐴝",
+     "notes": "Makkah 'Burmese' community ~250k+ (multi-generation, many stateless). L1 soft (stateless = uncounted) — low confidence explicit. Historic Hijra-era roots + 1970s–2010s waves.",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "gulf-press-estimates",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "gulf-press-estimates",
+      "confidence": "low",
+      "l1": 200000,
+      "total": 250000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "sdl",
+     "name": "Saudi Arabian Sign Language",
+     "notes": "Code 'sdl' confirmed. Riyadh/Jeddah/Dammam variation; ArSL-family (Arab Sign Language group) related.",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "iso-639-3",
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "medium",
+    "count": 20,
+    "note": "Ethnologue figure; expat L1s inflate vs citizen reality",
+    "source": "ethnologue-27"
+   },
+   "name": "Saudi Arabia",
+   "notesLongTail": "Below-threshold/notes-only: Egyptian Arabic arz (Egyptians ~1M+ — LARGEST long-tail; folds into MSA planning per protocol, counts here); Sudanese apd (workers); Ethiopians/Amharic amh (large but undocumented — NO-FABRICATION clause: pure-guess populations long-tail regardless of size); Indonesians (~400k, jav/sun/ind split unknowable — no-fabrication); Tamil tam (~400k soft); Telugu tel (~300k soft); Punjabi pnb / Pashto / Sindhi splits (unavailable — see PK entries); Persian fas (E. Province few); Turkish tur (few); Mehri gdq (Empty Quarter few k); Faifi (Jizan mountains, uncoded? — VERIFY).",
+   "region": "Asia",
+   "subregion": "Western Asia"
+  },
+  {
+   "cca2": "AE",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "MSA joint case — see SA entry. This entry records AE status.",
+      "status": "none"
+     },
+     "iso639_3": "arb",
+     "name": "Standard Arabic",
+     "native": "العربية",
+     "notes": "Art.7: Arabic is the official language. MSA has no L1 — speakers {} correct.",
+     "roles": [
+      "national",
+      "official"
+     ],
+     "sources": [
+      "ae-constitution-art7",
+      "ethnologue-27"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-pack — Gulf standard (AE/SA-East/QA/KW/BH); expat-learner business demand.",
+      "status": "none"
+     },
+     "iso639_3": "afb",
+     "name": "Gulf Arabic",
+     "native": "خليجي",
+     "notes": "Emiratis ~1M+; L1 afb ~900k. Prestige Gulf-koine forming in Dubai/Abu Dhabi media. Shihhi (Musandam) is distinct — long-tail, not afb.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "ae-constitution-art7",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 900000,
+      "total": 1000000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "No action.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "native": "English",
+     "notes": "THE Gulf lingua franca (business/malls/government-services). De-facto working language; no constitutional status.",
+     "roles": [
+      "widely-spoken",
+      "lingua-franca"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Course exists — Gulf-migrant learner demand (biggest corridor on Earth for Hindi-Urdu).",
+      "status": "course"
+     },
+     "iso639_3": "hin",
+     "name": "Hindi",
+     "native": "हिन्दी",
+     "notes": "Indians ~3.5M+ (largest nationality in the country, ~38%); Hindi-Urdu L1 ~1.5M + LF. Dubai Hindi is audibly its own contact register — note, not a split.",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "gulf-press-estimates",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "gulf-press-estimates",
+      "confidence": "low",
+      "l1": 1500000,
+      "total": 3000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Course exists — Gulf-migrant learner demand.",
+      "status": "course"
+     },
+     "iso639_3": "urd",
+     "name": "Urdu",
+     "native": "اردو",
+     "notes": "Pakistanis ~1.5M+; Urdu L1 ~400k + LF. L1 splits unavailable — no-fabrication (see PK entries).",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "gulf-press-estimates",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "gulf-press-estimates",
+      "confidence": "low",
+      "l1": 400000,
+      "total": 1500000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Course exists — Gulf-migrant learner demand (Kerala corridor).",
+      "status": "course"
+     },
+     "iso639_3": "mal",
+     "name": "Malayalam",
+     "native": "മലയാളം",
+     "notes": "Malayalis ~1M (Kerala's biggest Gulf corridor). Unambiguous entry.",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "gulf-press-estimates",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "gulf-press-estimates",
+      "confidence": "low",
+      "l1": 900000,
+      "total": 1000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "recommended-pack — see SA entry (shared planning).",
+      "status": "none"
+     },
+     "iso639_3": "fil",
+     "name": "Filipino",
+     "native": "Filipino",
+     "notes": "Filipinos ~700k; L1≈community. Retail/hospitality/health concentrated.",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "gulf-press-estimates",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "gulf-press-estimates",
+      "confidence": "low",
+      "l1": 600000,
+      "total": 650000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Course exists — Gulf-migrant learner demand.",
+      "status": "course"
+     },
+     "iso639_3": "ben",
+     "name": "Bengali",
+     "native": "বাংলা",
+     "notes": "Bangladeshis ~700k; L1≈community. Construction concentrated.",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "gulf-press-estimates",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "gulf-press-estimates",
+      "confidence": "low",
+      "l1": 600000,
+      "total": 650000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Shared with Iran entry (joint Persian planning) — Gulf-dialect + Bastaki-heritage notes.",
+      "status": "none"
+     },
+     "iso639_3": "fas",
+     "name": "Persian",
+     "native": "فارسی",
+     "notes": "DUAL community: historic Bastaki Persians (1800s Bastak traders, Emirati citizens) + modern Iranian expats. Combined L1 Persian ~300k+. Bastaki heritage (windtowers/Bastakiya) is the cultural anchor — record factually.",
+     "roles": [
+      "minority",
+      "immigrant"
+     ],
+     "sources": [
+      "gulf-press-estimates",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "gulf-press-estimates",
+      "confidence": "low",
+      "l1": 300000,
+      "total": 450000
+     }
+    },
+    {
+     "confidence": "low",
+     "disputed": false,
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "mis",
+     "name": "Emirati Sign Language",
+     "notes": "Name provisional; no ISO code (VERIFY against deaf-org sources — may fold into ArSL-family coding later). Zayed Higher Organisation standardisation efforts ongoing. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "agent-knowledge",
+      "sil-iso639-3-tab-2026"
+     ],
+     "speakers": {}
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "low",
+    "count": 25,
+    "note": "Ethnologue figure; 88% expat — the count is a labour-market snapshot, not a settlement map",
+    "source": "ethnologue-27"
+   },
+   "name": "United Arab Emirates",
+   "notesLongTail": "Below-threshold/notes-only: Tamil tam (~400k soft — long-tail per protocol); Telugu tel (~300k soft); Sinhala sin (~100k+ edge); Egyptian arz (workers); Nepali npi (~200k); Dari prs (Afghans); Balochi (Makranis); Shihhi (Musandam/Ru'us al-Jibal — distinct from afb, small); Kumzari? (Musandam village Iranian, tiny — celebrity note); Somali (few); Amharic (few); pnb/Pashto/Sindhi splits (no-fabrication).",
+   "region": "Asia",
+   "subregion": "Western Asia"
+  },
+  {
+   "cca2": "QA",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "MSA joint case — see SA entry.",
+      "status": "none"
+     },
+     "iso639_3": "arb",
+     "name": "Standard Arabic",
+     "native": "العربية",
+     "notes": "2003 Constitution Art.1: Arabic is the official language. Speakers {} correct (no MSA L1).",
+     "roles": [
+      "national",
+      "official"
+     ],
+     "sources": [
+      "qa-constitution-art1",
+      "ethnologue-27"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "Shared with AE entry — one Gulf pack serves all.",
+      "status": "none"
+     },
+     "iso639_3": "afb",
+     "name": "Gulf Arabic",
+     "native": "خليجي",
+     "notes": "Qataris ~300k; L1 afb ~280k. Al-Jazeera effect: Qatari media punches above speaker count (MSA, but Gulf-flavoured).",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "qa-constitution-art1",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 280000,
+      "total": 300000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "No action.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "native": "English",
+     "notes": "Working lingua franca (Education City/business/World-Cup-legacy services). No constitutional status.",
+     "roles": [
+      "widely-spoken",
+      "lingua-franca"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Course exists — Gulf-migrant learner demand.",
+      "status": "course"
+     },
+     "iso639_3": "hin",
+     "name": "Hindi",
+     "native": "हिन्दी",
+     "notes": "Indians ~700k+ (largest nationality); Hindi-Urdu L1 ~350k + LF.",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "gulf-press-estimates",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "gulf-press-estimates",
+      "confidence": "low",
+      "l1": 350000,
+      "total": 650000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Course exists — Gulf-migrant learner demand.",
+      "status": "course"
+     },
+     "iso639_3": "urd",
+     "name": "Urdu",
+     "native": "اردو",
+     "notes": "Pakistanis ~300k+; Urdu L1 ~250k?? — soft, low confidence explicit. No-fabrication on splits.",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "gulf-press-estimates",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "gulf-press-estimates",
+      "confidence": "low",
+      "l1": 250000,
+      "total": 300000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Course exists — Gulf-migrant learner demand.",
+      "status": "course"
+     },
+     "iso639_3": "ben",
+     "name": "Bengali",
+     "native": "বাংলা",
+     "notes": "Bangladeshis ~300k+; L1≈community.",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "gulf-press-estimates",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "gulf-press-estimates",
+      "confidence": "low",
+      "l1": 300000,
+      "total": 320000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "recommended-pack — see SA entry (shared planning).",
+      "status": "none"
+     },
+     "iso639_3": "fil",
+     "name": "Filipino",
+     "native": "Filipino",
+     "notes": "Filipinos ~250k; L1≈community. Service/health concentrated.",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "gulf-press-estimates",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "gulf-press-estimates",
+      "confidence": "low",
+      "l1": 220000,
+      "total": 240000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "recommended-pack — 350k+ Gulf base + NP homeland; remittance-corridor demand.",
+      "status": "none"
+     },
+     "iso639_3": "npi",
+     "name": "Nepali",
+     "native": "नेपाली",
+     "notes": "Nepalis ~400k (post-2010 boom, World-Cup construction); L1≈community. The Gulf's most visible Himalayan corridor — shared planning with NP entry.",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "gulf-press-estimates",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "gulf-press-estimates",
+      "confidence": "low",
+      "l1": 350000,
+      "total": 380000
+     }
+    },
+    {
+     "confidence": "low",
+     "disputed": false,
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "mis",
+     "name": "Qatari Sign Language",
+     "notes": "Name provisional; no ISO code (VERIFY deaf-org sources). Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "agent-knowledge",
+      "sil-iso639-3-tab-2026"
+     ],
+     "speakers": {}
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "low",
+    "count": 20,
+    "note": "Ethnologue figure; 85% expat snapshot",
+    "source": "ethnologue-27"
+   },
+   "name": "Qatar",
+   "notesLongTail": "Below-threshold/notes-only: Malayalam mal (~300k soft — long-tail per protocol); Tamil (~200k soft); Sinhala sin (~150k); Egyptian arz (~300k workers); Persian fas (few); Indonesian mix (no-fabrication); Amharic (few); pnb/Pashto splits (no-fabrication).",
+   "region": "Asia",
+   "subregion": "Western Asia"
+  },
+  {
+   "cca2": "KW",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "MSA joint case — see SA entry.",
+      "status": "none"
+     },
+     "iso639_3": "arb",
+     "name": "Standard Arabic",
+     "native": "العربية",
+     "notes": "Art.3: Arabic is the official language. Speakers {} correct.",
+     "roles": [
+      "national",
+      "official"
+     ],
+     "sources": [
+      "kw-constitution-art3",
+      "ethnologue-27"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "Shared with AE entry — one Gulf pack serves all (Kuwaiti TV-drama standard is Gulf-famous).",
+      "status": "none"
+     },
+     "iso639_3": "afb",
+     "name": "Gulf Arabic",
+     "native": "خليجي",
+     "notes": "Kuwaitis ~1.3M; L1 afb ~1.2M. Kuwaiti drama-dialect is a Gulf media standard (like Egyptian media-dialect in the Mashreq — parallel worth one line in the pack).",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "kw-constitution-art3",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 1200000,
+      "total": 1300000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "No action.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "native": "English",
+     "notes": "Working lingua franca (oil sector/services). No constitutional status.",
+     "roles": [
+      "widely-spoken",
+      "lingua-franca"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Course exists — Gulf-migrant learner demand.",
+      "status": "course"
+     },
+     "iso639_3": "hin",
+     "name": "Hindi",
+     "native": "हिन्दी",
+     "notes": "Indians ~1M+; Hindi-Urdu L1 ~500k + LF.",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "gulf-press-estimates",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "gulf-press-estimates",
+      "confidence": "low",
+      "l1": 500000,
+      "total": 900000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Course exists — Gulf-migrant learner demand.",
+      "status": "course"
+     },
+     "iso639_3": "urd",
+     "name": "Urdu",
+     "native": "اردو",
+     "notes": "Pakistanis ~300k+; Urdu L1 ~250k?? soft. No-fabrication on splits.",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "gulf-press-estimates",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "gulf-press-estimates",
+      "confidence": "low",
+      "l1": 250000,
+      "total": 300000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Course exists — Gulf-migrant learner demand.",
+      "status": "course"
+     },
+     "iso639_3": "ben",
+     "name": "Bengali",
+     "native": "বাংলা",
+     "notes": "Bangladeshis ~300k; L1≈community.",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "gulf-press-estimates",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "gulf-press-estimates",
+      "confidence": "low",
+      "l1": 250000,
+      "total": 280000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "recommended-pack — see SA entry (shared planning).",
+      "status": "none"
+     },
+     "iso639_3": "fil",
+     "name": "Filipino",
+     "native": "Filipino",
+     "notes": "Filipinos ~250k; L1≈community. Domestic-worker concentrated.",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "gulf-press-estimates",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "gulf-press-estimates",
+      "confidence": "low",
+      "l1": 200000,
+      "total": 220000
+     }
+    },
+    {
+     "confidence": "low",
+     "disputed": false,
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "mis",
+     "name": "Kuwaiti Sign Language",
+     "notes": "Name provisional; no ISO code (VERIFY deaf-org sources). Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "agent-knowledge",
+      "sil-iso639-3-tab-2026"
+     ],
+     "speakers": {}
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "low",
+    "count": 18,
+    "note": "Ethnologue figure; 70% expat snapshot",
+    "source": "ethnologue-27"
+   },
+   "name": "Kuwait",
+   "notesLongTail": "Below-threshold/notes-only: Egyptian arz (~500k workers — biggest long-tail); Malayalam (~200k soft); Tamil (~150k soft); Sinhala (~100k edge); Persian fas ('Ajam Kuwaiti Persians — historic + modern); Bedoon stateless (arb-L1 — record factually, no separate entry); Iraqis acm (post-1991 few); pnb/Pashto splits (no-fabrication).",
+   "region": "Asia",
+   "subregion": "Western Asia"
+  },
+  {
+   "cca2": "BH",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "MSA joint case — see SA entry.",
+      "status": "none"
+     },
+     "iso639_3": "arb",
+     "name": "Standard Arabic",
+     "native": "العربية",
+     "notes": "2002 Constitution: Arabic is the official language (article verify pass 2). Speakers {} correct.",
+     "roles": [
+      "national",
+      "official"
+     ],
+     "sources": [
+      "bh-constitution",
+      "ethnologue-27"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "Shared with AE entry — one Gulf pack serves all.",
+      "status": "none"
+     },
+     "iso639_3": "afb",
+     "name": "Gulf Arabic",
+     "native": "خليجي",
+     "notes": "Bahrainis ~700k (Baharna Shia + Sunni; Baharna dialect has Persian loans + distinct phonology — one line in the pack). L1 afb ~650k.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "bh-constitution",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 650000,
+      "total": 700000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "No action.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "native": "English",
+     "notes": "Business/banking lingua franca; strongest English in the Gulf per capita (historic trade + US Navy presence). No constitutional status.",
+     "roles": [
+      "widely-spoken",
+      "lingua-franca"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Course exists — Gulf-migrant learner demand.",
+      "status": "course"
+     },
+     "iso639_3": "hin",
+     "name": "Hindi",
+     "native": "हिन्दी",
+     "notes": "Indians ~350k+; Hindi-Urdu L1 ~200k + LF.",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "gulf-press-estimates",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "gulf-press-estimates",
+      "confidence": "low",
+      "l1": 200000,
+      "total": 330000
+     }
+    },
+    {
+     "confidence": "low",
+     "disputed": false,
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "mis",
+     "name": "Bahraini Sign Language",
+     "notes": "Name provisional; no ISO code (VERIFY deaf-org sources). Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "agent-knowledge",
+      "sil-iso639-3-tab-2026"
+     ],
+     "speakers": {}
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "low",
+    "count": 14,
+    "note": "Ethnologue figure; small-state snapshot",
+    "source": "ethnologue-27"
+   },
+   "name": "Bahrain",
+   "notesLongTail": "Below-threshold/notes-only: Urdu urd (Pakistanis ~120k, L1 Urdu ~50k — BELOW 100k line, no entry per discipline); Bengali ben (~100k edge — long-tail per discipline); Filipino fil (~40k); Malayalam (~80k?); Persian fas (Huwala Sunnis + Ajami Shia — Persian-L1 citizens, small — celebrity note); Najdi ars spillover (tribal links); pnb splits (no-fabrication).",
+   "region": "Asia",
+   "subregion": "Western Asia"
+  },
+  {
+   "cca2": "OM",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "MSA joint case — see SA entry.",
+      "status": "none"
+     },
+     "iso639_3": "arb",
+     "name": "Standard Arabic",
+     "native": "العربية",
+     "notes": "Basic Law of the State: Arabic is the official language (article verify pass 2). Speakers {} correct.",
+     "roles": [
+      "national",
+      "official"
+     ],
+     "sources": [
+      "om-basic-law",
+      "ethnologue-27"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "watch — Omani; fold into Gulf-pack unless demand splits (Dhofar/Interior archaisms are the hook).",
+      "status": "none"
+     },
+     "iso639_3": "acx",
+     "name": "Omani Arabic",
+     "native": "عماني",
+     "notes": "L1 ~2.5M (Omanis ~3M). Most conservative Gulf variety (kept interdental fricatives + old case-vowel traces — the pack's bragging right). Distinct from afb (Musandam/Shihhi excluded — long-tail).",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "om-basic-law",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 2500000,
+      "total": 2700000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "No action.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "native": "English",
+     "notes": "Business/tourism/higher-education English (Muscat/Salalah). No constitutional status, no L1 community.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Course exists — Gulf-migrant learner demand.",
+      "status": "course"
+     },
+     "iso639_3": "hin",
+     "name": "Hindi",
+     "native": "हिन्दी",
+     "notes": "Indians ~700k+; Hindi-Urdu L1 ~350k + LF. (Historic Gujarati-trader layer in Muscat/Muttrah + modern labour — two strata, one entry, note both.)",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "gulf-press-estimates",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "gulf-press-estimates",
+      "confidence": "low",
+      "l1": 350000,
+      "total": 650000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Course exists — Gulf-migrant learner demand.",
+      "status": "course"
+     },
+     "iso639_3": "ben",
+     "name": "Bengali",
+     "native": "বাংলা",
+     "notes": "Bangladeshis ~600k+; L1≈community. Construction/fishing concentrated.",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "gulf-press-estimates",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "gulf-press-estimates",
+      "confidence": "low",
+      "l1": 550000,
+      "total": 600000
+     }
+    },
+    {
+     "confidence": "low",
+     "disputed": false,
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "mis",
+     "name": "Omani Sign Language",
+     "notes": "Name provisional; no ISO code (VERIFY deaf-org sources). Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "agent-knowledge",
+      "sil-iso639-3-tab-2026"
+     ],
+     "speakers": {}
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "medium",
+    "count": 18,
+    "note": "Ethnologue figure; South-Arabian (MSA-branch) languages make OM special",
+    "source": "ethnologue-27"
+   },
+   "name": "Oman",
+   "notesLongTail": "Below-threshold/notes-only: Urdu urd (Pakistanis ~250k, L1 ~100k?? — THRESHOLD EDGE + soft, long-tail per TM-kaz discipline); Filipino fil (~50k); Malayalam (~150k soft); Dhofari Arabic adf (~70k); Mehri gdq (~70k OM-side — Modern South Arabian, non-Arabic Semitic — CELEBRITY); Swahili swh (Zanzibar-returnee few k + Omani-empire history — celebrity); Balochi bcc (Batinah ~200k+?? — VERIFY, could be entry); Shihhi (Musandam); Kumzari (village Iranian, tiny — celebrity); Persian fas (Muscat); Egyptian arz (teachers).",
+   "region": "Asia",
+   "subregion": "Western Asia"
+  },
+  {
+   "cca2": "IQ",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "MSA joint case — see SA entry.",
+      "status": "none"
+     },
+     "iso639_3": "arb",
+     "name": "Standard Arabic",
+     "native": "العربية",
+     "notes": "2005 Constitution Art.4: Arabic AND Kurdish are the two official languages (the only Arab state with constitutional bilingualism). Speakers {} correct.",
+     "roles": [
+      "national",
+      "official"
+     ],
+     "sources": [
+      "iq-constitution-art4",
+      "ethnologue-27"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-pack — 28M+ Mesopotamian; Baghdad standard + Mosul/Arbil notes.",
+      "status": "none"
+     },
+     "iso639_3": "acm",
+     "name": "Mesopotamian Arabic",
+     "native": "عراقي",
+     "notes": "L1 of Arab Iraq (~28M). Gelet (Baghdad/south) vs Qeltu (Mosul/Anatolian-spillover) — the famous Mesopotamian split, one code. SY Jazira spillover (see SY acm).",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "iq-census-2024",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 28000000,
+      "total": 30000000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-pack — 5M+ Sorani; Perso-Arabic script; Erbil/Sulaymaniyah standard.",
+      "status": "none"
+     },
+     "iso639_3": "ckb",
+     "name": "Central Kurdish (Sorani)",
+     "native": "کوردیی ناوەندی",
+     "notes": "Constitution names 'Kurdish' ONCE (Art.4 = kur macro: ckb+kmr+sdh) — but Sorani and Kurmanji have SEPARATE standards, school systems and media, so listed separately per METHOD (established-standards rule). KRG official use + federal recognition. Perso-Arabic script (vs Kurmanji Latin — the pack's script note).",
+     "roles": [
+      "official",
+      "regional"
+     ],
+     "sources": [
+      "iq-constitution-art4",
+      "iq-census-2024",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 5000000,
+      "total": 6000000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "Shared with Türkiye entry — one Kurmanji pack serves all (script note: IQ/SY Perso-Arabic vs TR Latin).",
+      "status": "none"
+     },
+     "iso639_3": "kmr",
+     "name": "Northern Kurdish (Kurmanji)",
+     "native": "Kurmancî",
+     "notes": "Same Art.4 logic as ckb (separate listing, see ckb note). Duhok + Sinjar Yezidis (Yezidi L1 = Kurmanji — record factually). Perso-Arabic in IQ (vs Latin in TR).",
+     "roles": [
+      "official",
+      "regional"
+     ],
+     "sources": [
+      "iq-constitution-art4",
+      "iq-census-2024",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 3000000,
+      "total": 3500000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Iraqi Turkmen; joint planning with azb/azj homeland entries later.",
+      "status": "none"
+     },
+     "iso639_3": "azb",
+     "name": "South Azerbaijani (Iraqi Turkmen)",
+     "native": "تورکجه",
+     "notes": "Art.125-recognised (Turkmen rights) → entry regardless of soft numbers. Ethnologue codes Iraqi Turkmen as azb (Kirkuk/Erbil/Tuz) — NOT azj; follow Ethnologue per rule 12. Numbers soft (500k–1M claims, politicised).",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "iq-constitution-art125",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 700000,
+      "total": 800000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Assyrian heritage; homeland + diaspora (US/SE) demand.",
+      "status": "none"
+     },
+     "iso639_3": "aii",
+     "name": "Assyrian Neo-Aramaic",
+     "native": "ܣܘܪܝܬ",
+     "notes": "Art.125-recognised → entry (Nineveh Plain). Community collapsed post-2003/ISIS (~150k left, L1 ~120k?? — edge + soft, recognition carries the entry). Urmia standard (IR side) vs Nineveh — cross-border note.",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "iq-constitution-art125",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 120000,
+      "total": 150000
+     }
+    },
+    {
+     "confidence": "low",
+     "ekguru": {
+      "recommendation": "No action.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "native": "English",
+     "notes": "University/business/Kurdistan-region English. Post-2003 footprint + KRG private universities. No official function.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "low",
+     "disputed": false,
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "mis",
+     "name": "Iraqi Sign Language",
+     "notes": "No ISO code for Iraqi SL proper (VERIFY deaf-org). NOTE: Kurdish SL (zhk) is separately coded — KRG signing may be zhk, not this entry; do not merge blindly. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "agent-knowledge",
+      "sil-iso639-3-tab-2026"
+     ],
+     "speakers": {}
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "medium",
+    "count": 28,
+    "note": "Ethnologue figure; 2024 census language detail still publishing",
+    "source": "ethnologue-27"
+   },
+   "name": "Iraq",
+   "notesLongTail": "Below-threshold/notes-only: Southern Kurdish sdh (Khanaqin/Mandali few); Domari rmt (few k); Mandaic mid (few k — last Gnostic Aramaic, celebrity); Shabak (uncoded — prose, do not invent); Marsh Arabs (acm); Palestinians (few); Kurdish SL zhk (coded — KRG-side, see sign note); Najdi ars spillover (southwest tribes).",
+   "region": "Asia",
+   "subregion": "Western Asia"
+  },
+  {
+   "cca2": "SY",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "MSA joint case — see SA entry.",
+      "status": "none"
+     },
+     "iso639_3": "arb",
+     "name": "Standard Arabic",
+     "native": "العربية",
+     "notes": "Pre-war constitution: Arabic official. POST-DEC-2024 TRANSITIONAL order — status quo assumed continuing, VERIFY pass 2. Speakers {} correct.",
+     "roles": [
+      "national",
+      "official"
+     ],
+     "sources": [
+      "sy-constitution",
+      "ethnologue-27"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-pack — 20M+ Levantine core (Damascus/Aleppo standards); the pack's anchor entry.",
+      "status": "none"
+     },
+     "iso639_3": "apc",
+     "name": "Levantine Arabic",
+     "native": "شامي",
+     "notes": "In-country L1 ~18M + refugee millions (TR/LB/JO/DE — cross-border notes). ajp→apc 2023 merger confirmed (South Levantine folded in). Damascus vs Aleppo prestige split — one code.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "sy-constitution",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 18000000,
+      "total": 20000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Shared with Iraq entry — one Mesopotamian pack serves both (Euphrates-isogloss note).",
+      "status": "none"
+     },
+     "iso639_3": "acm",
+     "name": "Mesopotamian Arabic",
+     "native": "عراقي",
+     "notes": "Jazira/Euphrates east (Deir ez-Zor/Raqqa/Hasakah Arabs) — the Euphrates ≈ apc/acm isogloss is documented but FUZZY on the ground (note, don't overdraw). L1 ~2M?? soft.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 2000000,
+      "total": 2200000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Shared with Türkiye entry — one Kurmanji pack serves all.",
+      "status": "none"
+     },
+     "iso639_3": "kmr",
+     "name": "Northern Kurdish (Kurmanji)",
+     "native": "Kurmancî",
+     "notes": "NE (Jazira ~1.5–2M). AANES de-facto recognition (schools/administration) — post-Dec-2024 status FLUID, verify. Pre-2011: banned from schools (record historically). Perso-Arabic + Latin both used (split community — note).",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 1800000,
+      "total": 2000000
+     }
+    },
+    {
+     "confidence": "low",
+     "ekguru": {
+      "recommendation": "No action.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "native": "English",
+     "notes": "School-taught; war-disrupted. Thin vs JO/LB — low confidence on 'widely' (kept: universities + NGOs + returnees).",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "low",
+     "disputed": false,
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "mis",
+     "name": "Syrian Sign Language",
+     "notes": "No ISO code (VERIFY deaf-org). War scattered the community — documentation thin. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "agent-knowledge",
+      "sil-iso639-3-tab-2026"
+     ],
+     "speakers": {}
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "medium",
+    "count": 20,
+    "note": "Ethnologue figure; war displacement makes everything approximate",
+    "source": "ethnologue-27"
+   },
+   "name": "Syria",
+   "notesLongTail": "Below-threshold/notes-only: Turkish tur (Turkmen — numbers WILDLY politicised 100k–1.5M ethnic; no-fabrication, VERIFY); Armenian hye (Aleppo remnant ~30k); Assyrian aii (Khabur remnant few k); Western Neo-Aramaic amw (Maaloula — last Western Aramaic, CELEBRITY); French fra (older educated); Chechen che (few); Domari rmt; Najdi ars (Palmyra/Badia Bedouin).",
+   "region": "Asia",
+   "subregion": "Western Asia"
+  },
+  {
+   "cca2": "JO",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "MSA joint case — see SA entry.",
+      "status": "none"
+     },
+     "iso639_3": "arb",
+     "name": "Standard Arabic",
+     "native": "العربية",
+     "notes": "Art.2: Arabic is the official language. Speakers {} correct.",
+     "roles": [
+      "national",
+      "official"
+     ],
+     "sources": [
+      "jo-constitution-art2",
+      "ethnologue-27"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "Shared with Syria entry — one Levantine pack serves all (Amman/Palestinian/Jordanian-Bedouin notes).",
+      "status": "none"
+     },
+     "iso639_3": "apc",
+     "name": "Levantine Arabic",
+     "native": "شامي",
+     "notes": "L1 ~9M (Jordanians + Palestinian citizens/refugees + Syrians — the ajp→apc 2023 merger makes this ONE entry, no split needed). Bedouin vs urban split inside apc — note.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "jo-census-2015",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 9000000,
+      "total": 9500000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "No action.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "native": "English",
+     "notes": "Strong school/business English (Amman/Aqaba); de-facto second working language of the private sector. No constitutional status.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "jo-census-2015",
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "jos",
+     "name": "Jordanian Sign Language",
+     "notes": "Code 'jos' confirmed (pre-verification caught jor=Jorá trap). Amman/Zarqa/Irbid club network.",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "iso-639-3",
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "medium",
+    "count": 10,
+    "note": "Ethnologue figure; small homogeneous count + refugee overlays",
+    "source": "ethnologue-27"
+   },
+   "name": "Jordan",
+   "notesLongTail": "Below-threshold/notes-only: Egyptian arz (~500k workers — biggest long-tail, folds into MSA planning per protocol); Mesopotamian acm (Iraqi refugees, declining); Adyghe ady (Circassians ~30k L1?); Chechen che (~15k); Armenian hye (few k); Domari rmt (few k).",
+   "region": "Asia",
+   "subregion": "Western Asia"
+  },
+  {
+   "cca2": "LB",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "MSA joint case — see SA entry.",
+      "status": "none"
+     },
+     "iso639_3": "arb",
+     "name": "Standard Arabic",
+     "native": "العربية",
+     "notes": "Art.11: Arabic is the official language ('laws determine cases where French is used' — the French footnote). Speakers {} correct. NO census since 1932 — all LB figures soft by construction.",
+     "roles": [
+      "national",
+      "official"
+     ],
+     "sources": [
+      "lb-constitution-art11",
+      "lb-no-census-1932"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "Shared with Syria entry — one Levantine pack serves all (Beirut-prestige notes).",
+      "status": "none"
+     },
+     "iso639_3": "apc",
+     "name": "Levantine Arabic",
+     "native": "شامي",
+     "notes": "L1 ~6M (Lebanese + Syrians + Palestinians). Beirut dialect = Levantine prestige standard (music/media). No census — soft.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "lb-no-census-1932",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 6000000,
+      "total": 6500000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "none — world language; EkGuru is Hindi-first. Inventoried.",
+      "status": "none"
+     },
+     "iso639_3": "fra",
+     "name": "French",
+     "native": "français",
+     "notes": "Art.11 footnote + school system + Beirut francophonie (press/education/Levantine-French code-switching is the famous register). No L1 community (Levantine L1 French ~...? tiny — speakers {}).",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "lb-constitution-art11",
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "No action.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "native": "English",
+     "notes": "Business/AUB-education English, rising vs French among youth. No constitutional status.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "low",
+     "disputed": false,
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "mis",
+     "name": "Lebanese Sign Language",
+     "notes": "No ISO code (VERIFY deaf-org). Beirut school network. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "agent-knowledge",
+      "sil-iso639-3-tab-2026"
+     ],
+     "speakers": {}
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "medium",
+    "count": 12,
+    "source": "ethnologue-27"
+   },
+   "name": "Lebanon",
+   "notesLongTail": "Below-threshold/notes-only: Armenian hye (~100k+ ethnic Bourj-Hammoud/Anjar, L1 soft — THRESHOLD EDGE, long-tail per discipline); Classical Syriac syc (Maronite liturgical — SIL type H, note); Egyptian/Sudanese arz/apd (workers); migrant domestics (~250k: amh/fil/sin/ben L1s — kafala-system community, VERIFY treatment); Kurdish kmr (Beirut few); Domari rmt.",
+   "region": "Asia",
+   "subregion": "Western Asia"
+  },
+  {
+   "cca2": "IL",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-course — 9M+ state language + Jewish-diaspora demand worldwide; the only successful revival (pack writes itself).",
+      "status": "none"
+     },
+     "iso639_3": "heb",
+     "name": "Hebrew",
+     "native": "עברית",
+     "notes": "2018 Nation-State Law: Hebrew is THE state language. Revived (1880s–1948) — the only fully successful case on Earth; L1 ~5.5M+ and growing (Haredi + national-religious birthrates). Sephardi-based pronunciation standard.",
+     "roles": [
+      "national",
+      "official",
+      "widely-spoken"
+     ],
+     "sources": [
+      "il-nation-state-law-2018",
+      "il-cbs-surveys"
+     ],
+     "speakers": {
+      "asOf": "il-cbs-surveys",
+      "confidence": "low",
+      "l1": 5500000,
+      "total": 9000000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "MSA joint case — see SA entry.",
+      "status": "none"
+     },
+     "iso639_3": "arb",
+     "name": "Standard Arabic",
+     "native": "العربية",
+     "notes": "2018 law: Arabic has 'special status' (DOWNGRADED from official — the most-cited language-law change of the decade). MSA in schools/signs/courts de facto continues. Speakers {} (L1 is apc, next entry).",
+     "roles": [
+      "national"
+     ],
+     "sources": [
+      "il-nation-state-law-2018",
+      "ethnologue-27"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "Shared with Syria entry — one Levantine pack serves all (Galilee/Negev/Triangle notes).",
+      "status": "none"
+     },
+     "iso639_3": "apc",
+     "name": "Levantine Arabic",
+     "native": "شامي",
+     "notes": "L1 of Palestinian citizens of Israel (~1.8M: Galilee/Negev Bedouin/Triangle/mixed cities). Druze L1 also apc (record factually). Hebrew-loan density is the famous contact feature.",
+     "roles": [
+      "minority",
+      "widely-spoken"
+     ],
+     "sources": [
+      "il-cbs-surveys",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "il-cbs-surveys",
+      "confidence": "low",
+      "l1": 1800000,
+      "total": 2000000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "none — inventoried only (Hindi-for-Russian-speakers page is the audience bridge).",
+      "status": "none"
+     },
+     "iso639_3": "rus",
+     "name": "Russian",
+     "native": "Русский",
+     "notes": "Ex-Soviet immigration (~1M, 1990s–2000s): Russian L1 ~800k — one of the biggest Russian diasporas on Earth. Russian media/retail/party-politics footprint (record factually). Second generation shifting to Hebrew — note the shift.",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "il-cbs-surveys",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "il-cbs-surveys",
+      "confidence": "low",
+      "l1": 800000,
+      "total": 1000000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "No action.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "native": "English",
+     "notes": "Tech/business/academia English (strongest in the region after BH). Compulsory school subject; no official status.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "il-cbs-surveys"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — IL 120k + ET homeland (future batch sets the case); shared planning then.",
+      "status": "none"
+     },
+     "iso639_3": "amh",
+     "name": "Amharic",
+     "native": "አማርኛ",
+     "notes": "Ethiopian Jews (~170k, Operation Moses/Solomon airlifts + family reunification); L1 Amharic ~120k, second generation shifting. Ethiopic script.",
+     "roles": [
+      "immigrant"
+     ],
+     "sources": [
+      "il-cbs-surveys",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "il-cbs-surveys",
+      "confidence": "low",
+      "l1": 120000,
+      "total": 150000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — growing Haredi L1; heritage demand (US/IL).",
+      "status": "none"
+     },
+     "iso639_3": "ydd",
+     "name": "Eastern Yiddish",
+     "native": "ייִדיש",
+     "notes": "Haredi L1 ~150k+ and GROWING (high birthrates — the only growing Germanic L1 in Asia, stole that line for the pack). Code 'ydd' (macro yid = ydd + yih; Western yih is EXTINCT per SIL). Hasidic courts + Jerusalem Mea Shearim.",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "il-cbs-surveys",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 150000,
+      "total": 200000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "isr",
+     "name": "Israeli Sign Language",
+     "notes": "Code 'isr' confirmed. NOTE: village sign languages sqx (Kufr Qassem) + syy (Al-Sayyid Bedouin) are SEPARATELY coded — distinct, do not merge (see long-tail).",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "iso-639-3",
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "medium",
+    "count": 35,
+    "note": "Ethnologue figure; immigration-inflated (90s wave + workers + asylum seekers)",
+    "source": "ethnologue-27"
+   },
+   "name": "Israel",
+   "notesLongTail": "Below-threshold/notes-only: French fra (French-Jewish immigration, growing — watch); Spanish spa + Ladino lad (few k, moribund — celebrity); Kufr Qassem SL sqx + Al-Sayyid Bedouin SL syy (village signs — CELEBRITIES, coded, distinct from isr); Adyghe ady (Kfar Kama ~5k); Aramaic revival (Jish Maronites few k); Vietnamese (few k — 'Vietnamese Israelis' 1970s boat wave); Tagalog fil (caregivers ~30k); Tigrinya tir (Eritrean asylum seekers ~25k); Ukrainian ukr (post-2022 influx, fluid).",
+   "region": "Asia",
+   "subregion": "Western Asia"
+  },
+  {
+   "cca2": "YE",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "MSA joint case — see SA entry.",
+      "status": "none"
+     },
+     "iso639_3": "arb",
+     "name": "Standard Arabic",
+     "native": "العربية",
+     "notes": "Constitution: Arabic official (article verify; war — enforcement nominal, Sanaa/Aden split administration). Speakers {} correct.",
+     "roles": [
+      "national",
+      "official"
+     ],
+     "sources": [
+      "ye-constitution",
+      "ethnologue-27"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — YE war; no action, inventoried.",
+      "status": "none"
+     },
+     "iso639_3": "acq",
+     "name": "Ta'izzi-Adeni Arabic",
+     "native": "تعزي-عدني",
+     "notes": "South (Ta'izz/Aden) L1 ~10M??. War + displacement — softest big number in the batch (double-? flag intentional in notes... figure carried, low). Aden port-contact features.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 10000000,
+      "total": 11000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — YE war; no action, inventoried.",
+      "status": "none"
+     },
+     "iso639_3": "ayn",
+     "name": "Sanaani Arabic",
+     "native": "صنعاني",
+     "notes": "North/central highlands (Sanaa) L1 ~10M?? — same war-soft caveat as acq. Ancient qaf-realisation is the famous shibboleth (pack trivia).",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 10000000,
+      "total": 11000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Hadrami diaspora (SE Asia/E. Africa millions of ethnic Hadramis!) is the sleeper demand case; no action now.",
+      "status": "none"
+     },
+     "iso639_3": "ayh",
+     "name": "Hadrami Arabic",
+     "native": "حضرمي",
+     "notes": "East (Hadramawt) L1 ~5M?? + diaspora (Indonesia/Malaysia/Kenya Hadramis — L1 mostly lost, heritage demand possible). War-soft like acq/ayn.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 5000000,
+      "total": 6000000
+     }
+    },
+    {
+     "confidence": "low",
+     "disputed": false,
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "mis",
+     "name": "Yemeni Sign Language",
+     "notes": "No ISO code (VERIFY deaf-org). War scattered documentation. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "agent-knowledge",
+      "sil-iso639-3-tab-2026"
+     ],
+     "speakers": {}
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "medium",
+    "count": 12,
+    "note": "Ethnologue figure; last census 2004 — war makes everything approximate",
+    "source": "ethnologue-27"
+   },
+   "name": "Yemen",
+   "notesLongTail": "Below-threshold/notes-only: Somali som (~100k+ refugees + historic — fluid, VERIFY); Soqotri sqt (~70k Socotra — CELEBRITY, pre-verification caught sqh=Shau trap); Mehri gdq (~50k YE-side); Rashaida Bedouin (ars-leaning?); English (Aden legacy, thin); Egyptian arz (few now).",
+   "region": "Asia",
+   "subregion": "Western Asia"
+  },
+  {
+   "cca2": "AM",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-pack — 3M Eastern Armenian + 7M+ diaspora (hyw Western); pack covers both standards.",
+      "status": "none"
+     },
+     "iso639_3": "hye",
+     "name": "Armenian",
+     "native": "Հայերեն",
+     "notes": "Constitution: Armenian official. EASTERN standard (hye); Western (hyw) = diaspora + LB/SY repatriates — the pack's two-standard note (like the fas/prs split class). 2022 census-backed.",
+     "roles": [
+      "national",
+      "official",
+      "widely-spoken"
+     ],
+     "sources": [
+      "am-constitution",
+      "am-census-2022",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "am-census-2022",
+      "confidence": "medium",
+      "l1": 2700000,
+      "total": 2900000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — inventoried only (Hindi-for-Russian-speakers page is the audience bridge).",
+      "status": "none"
+     },
+     "iso639_3": "rus",
+     "name": "Russian",
+     "native": "Русский",
+     "notes": "Soviet-L2 legacy + post-2022 relocant wave (~100k+ Russians relocated — FLUID, many onward-migrated by 2026; figure carried with fluid flag). No official function.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "am-census-2022",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 100000,
+      "total": 800000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "aen",
+     "name": "Armenian Sign Language",
+     "notes": "Code 'aen' confirmed. Yerevan school network; post-Soviet standardisation.",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "iso-639-3",
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "medium",
+    "count": 12,
+    "source": "ethnologue-27"
+   },
+   "name": "Armenia",
+   "notesLongTail": "Below-threshold/notes-only: Kurmanji kmr (Yazidis ~35k — Kurmanji L1, recognised minority — fat note, no entry per threshold); Assyrian aii (~3k); Greek ell (Pontic ~2k); Western Armenian hyw (repatriates); Ukrainian (post-2022 few).",
+   "region": "Asia",
+   "subregion": "Western Asia"
+  },
+  {
+   "cca2": "AZ",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-pack — 9M+ state language; Latin script; Baku standard.",
+      "status": "none"
+     },
+     "iso639_3": "azj",
+     "name": "Azerbaijani",
+     "native": "Azərbaycanca",
+     "notes": "Art.21: Azerbaijani is the state language. NORTH standard (Latin) — distinct entry from Iranian South (azb, Perso-Arabic); the pan/pnb split class. 2019 census-backed.",
+     "roles": [
+      "national",
+      "official",
+      "widely-spoken"
+     ],
+     "sources": [
+      "az-constitution-art21",
+      "az-census-2019",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "az-census-2019",
+      "confidence": "medium",
+      "l1": 9000000,
+      "total": 9500000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — inventoried only (Hindi-for-Russian-speakers page is the audience bridge).",
+      "status": "none"
+     },
+     "iso639_3": "rus",
+     "name": "Russian",
+     "native": "Русский",
+     "notes": "Russians ~70k + Baku Russian-dominant Azerbaijanis; L2 strong in capital, fading in regions. L1 ~150k?? soft + declining — edge noted. No official function.",
+     "roles": [
+      "minority",
+      "widely-spoken"
+     ],
+     "sources": [
+      "az-census-2019",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 150000,
+      "total": 1500000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Lezgian highland community; no action.",
+      "status": "none"
+     },
+     "iso639_3": "lez",
+     "name": "Lezgian",
+     "native": "лезги чӀал",
+     "notes": "SIL spells 'Lezghian'. Dagestan-border highlands (Qusar/Quba) ~180k + cross-border (RU Dagestan holds more — future batch). Cyrillic. No official status in AZ.",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "az-census-2019",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "az-census-2019",
+      "confidence": "low",
+      "l1": 180000,
+      "total": 200000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Talysh Caspian community; shared planning with IR entry.",
+      "status": "none"
+     },
+     "iso639_3": "tly",
+     "name": "Talysh",
+     "native": "تالشی",
+     "notes": "Lerik/Astara ~110k?? — THRESHOLD EDGE + soft (census vs activist counts differ 2x; edge flagged, entry kept: distinct language + cross-border IR community).",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "az-census-2019",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 110000,
+      "total": 130000
+     }
+    },
+    {
+     "confidence": "low",
+     "disputed": false,
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "mis",
+     "name": "Azerbaijani Sign Language",
+     "notes": "No ISO code (VERIFY deaf-org). Baku school network; Russian-SL legacy influence. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "agent-knowledge",
+      "sil-iso639-3-tab-2026"
+     ],
+     "speakers": {}
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "medium",
+    "count": 15,
+    "source": "ethnologue-27"
+   },
+   "name": "Azerbaijan",
+   "notesLongTail": "Below-threshold/notes-only: Armenian hye (Nagorno-Karabakh community EMPTIED Sept 2023 exodus — record HISTORICALLY, no entry, verify remnants); Avar ava (~50k); Georgian kat (Ingiloy ~10k); Muslim Tat ttt (~25k); Judeo-Tat jdt (~20k Quba/Qırmızı Qəsəbə — 'Caucasus Jerusalem' — celebrity); Tsakhur tkr (few k); Udi udi (Vartashen ~4k — Caucasian-Albanian-descendant CELEBRITY).",
+   "region": "Asia",
+   "subregion": "Western Asia"
+  },
+  {
+   "cca2": "GE",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-pack — 3.3M state language + unique script (pack writes itself: alphabet + polyphonic church notes).",
+      "status": "none"
+     },
+     "iso639_3": "kat",
+     "name": "Georgian",
+     "native": "ქართული",
+     "notes": "Constitution: Georgian official (Abkhaz official in Abkhazia — de-facto split, see abk entry). Mkhedruli script (one of ~14 world scripts). 2014 census-backed (excl. breakaways).",
+     "roles": [
+      "national",
+      "official",
+      "widely-spoken"
+     ],
+     "sources": [
+      "ge-constitution",
+      "ge-census-2014",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "ge-census-2014",
+      "confidence": "medium",
+      "l1": 3300000,
+      "total": 3500000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "Shared with Armenia entry — one Armenian pack serves both.",
+      "status": "none"
+     },
+     "iso639_3": "hye",
+     "name": "Armenian",
+     "native": "Հայերեն",
+     "notes": "Samtskhe-Javakheti concentrated (~170k, Akhalkalaki/Ninotsminda) + Tbilisi. Eastern standard. Schools + press; no official function.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "ge-census-2014",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "ge-census-2014",
+      "confidence": "low",
+      "l1": 170000,
+      "total": 180000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "Shared with Azerbaijan entry — one Azerbaijani pack serves both.",
+      "status": "none"
+     },
+     "iso639_3": "azj",
+     "name": "Azerbaijani",
+     "native": "Azərbaycanca",
+     "notes": "Kvemo Kartli concentrated (~230k, Marneuli/Bolnis). Schools; no official function. (Soviet-era 'Tatar' label in old censuses — do not revive.)",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "ge-census-2014",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "ge-census-2014",
+      "confidence": "low",
+      "l1": 230000,
+      "total": 240000
+     }
+    },
+    {
+     "confidence": "medium",
+     "disputed": true,
+     "ekguru": {
+      "recommendation": "watch — Kartvelian sister; political dispute freezes any action.",
+      "status": "none"
+     },
+     "iso639_3": "xmf",
+     "name": "Mingrelian",
+     "native": "მარგალური",
+     "notes": "DISPUTED IDENTITY: GE state treats Mingrelian as a Georgian dialect; Ethnologue/ISO treat it as a language (xmf) — rule 12: follow Ethnologue, flag disputed, record BOTH treatments here. L1 ~300k+ (Samegrelo). No recognition, no schools. (Svan sva ~30k sibling — long-tail.) Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: xmf SIL-confirmed individual/living — ISO treatment stands; GE-state dialect treatment recorded. Identity dispute is POLITICAL, unresolvable from desk — disputed HELD, expert escalation (report §5.4).",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "ge-census-2014",
+      "ethnologue-27",
+      "agent-knowledge",
+      "sil-iso639-3-tab-2026"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 300000,
+      "total": 320000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — no action (frozen conflict freezes pedagogy too).",
+      "status": "none"
+     },
+     "iso639_3": "abk",
+     "name": "Abkhaz",
+     "native": "Аҧсуа бызшәа",
+     "notes": "DE-FACTO official in Abkhazia (Abkhazia constitution: Abkhaz + Russian) — recognised by the de-facto authority, claimed by GE (GE constitution: Abkhaz official in Abkhazia — BOTH texts agree on paper!). L1 ~110k?? soft. Cyrillic official (Mkhedruli historic — script note). Record both claims, take no side.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "ge-constitution",
+      "abkhazia-constitution",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 110000,
+      "total": 130000
+     }
+    },
+    {
+     "confidence": "low",
+     "ekguru": {
+      "recommendation": "none — inventoried only (Hindi-for-Russian-speakers page is the audience bridge).",
+      "status": "none"
+     },
+     "iso639_3": "rus",
+     "name": "Russian",
+     "native": "Русский",
+     "notes": "Soviet L2 FADING (youth → English/Georgian); post-2022 influx mostly onward-migrated by 2026 (fluid flag). Russians ~20k. No official function.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "ge-census-2014",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 50000,
+      "total": 500000
+     }
+    },
+    {
+     "confidence": "low",
+     "ekguru": {
+      "recommendation": "No action.",
+      "status": "pack"
+     },
+     "iso639_3": "eng",
+     "name": "English",
+     "native": "English",
+     "notes": "Youth/business English (Saakashvili-era school push + tourism). Rising, still thin outside Tbilisi/Batumi — low on 'widely'.",
+     "roles": [
+      "widely-spoken"
+     ],
+     "sources": [
+      "agent-knowledge"
+     ],
+     "speakers": {}
+    },
+    {
+     "confidence": "low",
+     "disputed": false,
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "mis",
+     "name": "Georgian Sign Language",
+     "notes": "No ISO code (VERIFY deaf-org). Tbilisi school network; Russian-SL legacy influence. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "agent-knowledge",
+      "sil-iso639-3-tab-2026"
+     ],
+     "speakers": {}
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "medium",
+    "count": 12,
+    "note": "Ethnologue figure; Mingrelian/Svan counted separately (vs GE state view — see xmf note)",
+    "source": "ethnologue-27"
+   },
+   "name": "Georgia",
+   "notesLongTail": "Below-threshold/notes-only: Svan sva (~30k highlands — Kartvelian celebrity); Ossetic oss (~30k South Ossetia — de-facto-recognised but tiny + very soft, long-tail JUDGMENT CALL documented here); Kists (Pankisi ~10k — che L1!); Pontic Greek/Urum (few); Assyrian aii (few); Bats (Tush ~3k — Nakh enclave, celebrity); Laz lzz spillover (few, see TR).",
+   "region": "Asia",
+   "subregion": "Western Asia"
+  }
+ ]
+}

@@ -1,0 +1,160 @@
+{
+  "version": 1,
+  "platforms": [
+    {
+      "platform": "Duolingo",
+      "observed_design": "short path lessons; progressive recognition→typing; personalized mistake review; streaks; listening/speaking in supported courses",
+      "strength": "habit and high-frequency retrieval",
+      "scope_or_limitation": "Hindi commonly described as introductory/A1–A2",
+      "ekguru_adaptation": "Add optional 5–10 minute path, but couple every unit to open production and Hindi can-do test",
+      "evidence_ids": [
+        "DUO",
+        "DUO101",
+        "DUOSCORE",
+        "DUO-HI-GAP"
+      ]
+    },
+    {
+      "platform": "Babbel",
+      "observed_design": "bite-size structured lessons, explicit grammar, dialogues, review; live offering varies by language",
+      "strength": "adult-friendly explanations and practical sequencing",
+      "scope_or_limitation": "Hindi is not a current core Babbel language; product pattern is transferable, not Hindi evidence",
+      "ekguru_adaptation": "Use concise just-in-time grammar cards and dialogue-first sequencing",
+      "evidence_ids": [
+        "market product pages; platform availability must be rechecked"
+      ]
+    },
+    {
+      "platform": "Busuu",
+      "observed_design": "CEFR-visible paths, study plans, grammar/vocab review, community corrections, offline and certificates in selected languages",
+      "strength": "goal clarity plus social feedback loop",
+      "scope_or_limitation": "Hindi availability/depth and certificate scope cannot be assumed",
+      "ekguru_adaptation": "Can-do dashboard + moderated Hindi feedback; call EkGuru certificate a completion credential unless externally validated",
+      "evidence_ids": [
+        "BUSUU"
+      ]
+    },
+    {
+      "platform": "Memrise",
+      "observed_design": "short native-speaker clips, vocabulary review, scenario/AI features in supported courses",
+      "strength": "speaker variability and memorable contextual vocabulary",
+      "scope_or_limitation": "grammar/extended writing and Hindi advanced depth are not established by reviewed evidence",
+      "ekguru_adaptation": "Attach 2–4 real-speaker variants to high-value chunks and route them into sentence SRS",
+      "evidence_ids": [
+        "product/review evidence; verify Hindi catalogue at implementation"
+      ]
+    },
+    {
+      "platform": "Mango Languages",
+      "observed_design": "conversation-based chunks, literal/understood meanings and pattern highlighting",
+      "strength": "makes form-function patterns visible inside practical dialogue",
+      "scope_or_limitation": "depth differs by language; no evidence here of Hindi C1–C2",
+      "ekguru_adaptation": "Dual gloss (literal/natural), colour-coded morphology, then generative roleplay",
+      "evidence_ids": [
+        "MANGO"
+      ]
+    },
+    {
+      "platform": "Pimsleur",
+      "observed_design": "~30-minute audio anticipation and graduated interval recall",
+      "strength": "forces oral recall without screen and builds response readiness",
+      "scope_or_limitation": "Hindi offering is limited compared with six-level CEFR blueprint; literacy cannot be inferred",
+      "ekguru_adaptation": "Hands-free audio track paired with optional transcript and separate Devanagari lab",
+      "evidence_ids": [
+        "PIMS"
+      ]
+    },
+    {
+      "platform": "Rocket Languages",
+      "observed_design": "interactive audio, play-a-role, record/ASR, language/culture and reinforcement drills",
+      "strength": "integrated dialogue rehearsal and pronunciation attempts",
+      "scope_or_limitation": "available Hindi depth is generally beginner/intermediate; ASR is not communicative assessment",
+      "ekguru_adaptation": "Branching Play-the-Part with intelligibility score plus meaning/interaction rubric",
+      "evidence_ids": [
+        "product analysis evidence"
+      ]
+    },
+    {
+      "platform": "Ling",
+      "observed_design": "micro-lessons, script/phonetics, audio, grammar, dialogue and gamified practice",
+      "strength": "accessible entry and multimodal variety",
+      "scope_or_limitation": "all-level marketing does not demonstrate C1/C2 productive outcomes",
+      "ekguru_adaptation": "Retain approachable UI but publish level outcome map and evidence portfolio",
+      "evidence_ids": [
+        "catalogue/product analysis"
+      ]
+    },
+    {
+      "platform": "Language Transfer",
+      "observed_design": "audio thinking method and guided learner reasoning; free/open access",
+      "strength": "elicits grammar patterns rather than passive explanation",
+      "scope_or_limitation": "no complete Hindi course confirmed; audio format lacks full literacy/assessment",
+      "ekguru_adaptation": "Create “Hindi thinking” discovery tracks as supplements, never the full pathway",
+      "evidence_ids": [
+        "official catalogue to verify before build"
+      ]
+    },
+    {
+      "platform": "Anki",
+      "observed_design": "user-controlled multimedia cards and modern FSRS scheduling",
+      "strength": "powerful individualized retrieval with transparent control",
+      "scope_or_limitation": "content quality depends on author; not a curriculum or skill assessment",
+      "ekguru_adaptation": "Curated card eligibility, FSRS telemetry, leech repair and course-linked source IDs",
+      "evidence_ids": [
+        "ANKI"
+      ]
+    },
+    {
+      "platform": "Clozemaster",
+      "observed_design": "frequency-banded sentence cloze, SRS and listening modes",
+      "strength": "large contextual vocabulary after basics",
+      "scope_or_limitation": "sentence quality/context and free production need separate safeguards",
+      "ekguru_adaptation": "Curated Hindi corpus cloze with source/register tags and explanation",
+      "evidence_ids": [
+        "CLOZE"
+      ]
+    },
+    {
+      "platform": "Glossika",
+      "observed_design": "native-recorded sentences, listen/repeat/type/record and personalized SRS",
+      "strength": "high-volume sentence automatization",
+      "scope_or_limitation": "can be repetitive; recording may not correct pronunciation; non-Latin typing burden",
+      "ekguru_adaptation": "Use short fluency sets after explicit Devanagari onboarding; score selectively",
+      "evidence_ids": [
+        "GLOSS",
+        "GLOSS-REV"
+      ]
+    },
+    {
+      "platform": "HindiPod101",
+      "observed_design": "large Hindi audio/video library, line-by-line transcripts, PDFs, notes, word bank, SRS and teacher tier",
+      "strength": "strong Hindi-specific listening, script and downloadable support",
+      "scope_or_limitation": "library/pathway labels do not alone prove balanced C1/C2 performance; unpredictable live interaction needs tutor",
+      "ekguru_adaptation": "Native line audio + printable notes + explicit six-level task map and human assessment option",
+      "evidence_ids": [
+        "HP101",
+        "HP-REV"
+      ]
+    },
+    {
+      "platform": "Preply",
+      "observed_design": "1:1 scheduled tutors, goal customization and live correction",
+      "strength": "unpredictable interaction and individualized feedback",
+      "scope_or_limitation": "quality/curriculum consistency depends on tutor",
+      "ekguru_adaptation": "Optional tutor packs with EkGuru rubrics and course-linked assignments",
+      "evidence_ids": [
+        "PREPLY"
+      ]
+    },
+    {
+      "platform": "italki",
+      "observed_design": "teacher/community marketplace and individualized lessons",
+      "strength": "choice of teacher, conversation and feedback",
+      "scope_or_limitation": "not a standardized Hindi A1–C2 curriculum",
+      "ekguru_adaptation": "Export learner portfolio/rubric to chosen tutor; import verified feedback",
+      "evidence_ids": [
+        "ITALKI"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="google-site-verification" content="hFaqyp-9LdUXSKPA9RF011TkO2m_-7AUMasXqm_0dGI" />
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Italian Quiz — Topic Questions with Explanations | EkGuru</title>
+<meta name="description" content="A free Italian topic quiz: multiple-choice questions with explanations, drawn from the Italian lessons. The set rotates daily.">
+<meta name="author" content="EkGuru">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://ekguru.shop/languages/it/quiz/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Italian Quiz — Topic Questions with Explanations | EkGuru">
+<meta property="og:description" content="A free Italian topic quiz: multiple-choice questions with explanations, drawn from the Italian lessons. The set rotates daily.">
+<meta property="og:url" content="https://ekguru.shop/languages/it/quiz/">
+<meta property="og:image" content="https://ekguru.shop/images/og-cover.jpg">
+<meta property="og:site_name" content="EkGuru">
+<meta property="article:published_time" content="2026-09-12">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Italian Quiz — Topic Questions with Explanations">
+<meta name="twitter:description" content="A free Italian topic quiz: multiple-choice questions with explanations, drawn from the Italian lessons. The set rotates daily.">
+<link rel="icon" href="../../../images/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../../../images/apple-touch-icon.png">
+<link rel="manifest" href="../../../manifest.webmanifest">
+<meta name="theme-color" content="#4f32d9">
+<link rel="stylesheet" href="../../../css/style.min.css">
+<link rel="stylesheet" href="../../../css/storybook.css">
+<style>
+.art{max-width:760px;margin:0 auto;padding:0 20px 60px}
+.art h1{font-size:2rem;line-height:1.25;margin:26px 0 10px}
+.art .meta{color:var(--muted);font-size:.86rem;margin:0 0 26px}
+.art h2{font-size:1.28rem;margin:34px 0 12px;padding-top:6px}
+.art p,.art li{line-height:1.75}
+.art ul,.art ol{padding-left:22px}
+.art li{margin:7px 0}
+.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0}
+.crumb a{color:var(--muted)}
+.lede{color:var(--ink-2);font-size:1.05rem;line-height:1.7;margin:0 0 22px}
+.linklist{list-style:none;padding:0;margin:12px 0 0}
+.linklist li{padding:10px 0;border-bottom:1px solid var(--line)}
+.linklist li:last-child{border-bottom:0}
+.linklist a{font-weight:600}
+.linklist span{display:block;color:var(--muted);font-size:.87rem;margin-top:2px;line-height:1.5}
+.note{background:var(--bg-soft);border:1px solid #ddd8ff;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:.94rem;color:var(--ink-2)}
+.btn{margin:6px 6px 6px 0}
+</style>
+<!-- ekguru:ads -->
+<meta name="google-adsense-account" content="ca-pub-8175326569491671">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8175326569491671" crossorigin="anonymous"></script>
+</head>
+<body data-topic="section-language">
+<div class="art">
+    <p class="crumb"><a href="/">EkGuru</a> › <a href="/courses/">Courses</a> › <a href="/languages/it/">Italian</a> › Quiz</p>
+  <!-- ekguru:chapter -->
+<div class="sb-chapter" style="--sb-accent:#0f766e;--sb-tint:#ecfdfb"><span class="sb-ch-mascot" aria-hidden="true">🌍</span><span class="sb-ch-name">Italian Topic Quiz <i>पाठ्यक्रम</i></span><span class="sb-ch-kind">Course</span><span class="sb-ch-floats" aria-hidden="true"></span></div>
+<h1>Italian Topic Quiz <span style="display:inline-block;border-radius:999px;padding:2px 10px;font-size:.72rem;font-weight:700;color:#fff;background:#1a7f37;vertical-align:4px">Available</span></h1>
+  <p class="lede">20 multiple-choice questions with explanations, drawn from the Italian lessons.</p>
+  <div class="row" style="gap:12px;flex-wrap:wrap;align-items:end">
+    <div><label for="it-q-topic">Topic</label><br><select id="it-q-topic"></select></div>
+    <div><label for="it-q-n">Questions</label><br><select id="it-q-n">
+      <option value="5">5</option><option value="10">10</option><option value="20">20</option></select></div>
+    <button type="button" class="btn" id="it-q-start">Start</button>
+  </div>
+  <p class="muted" style="font-size:.8rem;margin-top:8px">Questions rotate each day for the same topic (rule-based, not random) — come back tomorrow for a new set.</p>
+  <div id="it-q-body" style="margin-top:16px"></div>
+  <script>
+  (function () {
+    "use strict";
+    function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+    function shuffle(a){var o=a.slice();for(var i=o.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=o[i];o[i]=o[j];o[j]=t;}return o;}
+    function dayShuffle(a, salt, when){var d=when||new Date();var key=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")+":"+(salt||"");var h=2166136261;for(var i=0;i<key.length;i++){h^=key.charCodeAt(i);h=Math.imul(h,16777619);}var s=h>>>0;var o=a.slice();var rnd=function(){s|=0;s=(s+0x6D2B79F5)|0;var t=Math.imul(s^(s>>>15),1|s);t=(t+Math.imul(t^(t>>>7),61|t))^t;return((t^(t>>>14))>>>0)/4294967296;};for(var i=o.length-1;i>0;i--){var j=Math.floor(rnd()*(i+1));var tmp=o[i];o[i]=o[j];o[j]=tmp;}return o;}
+    var state = null, sel = document.getElementById("it-q-topic");
+    function init() {
+      var Q = (window.EKGURU_COURSE_IT && window.EKGURU_COURSE_IT.quiz) || [];
+      var topics = {}; Q.forEach(function(q){ topics[q.topic]=1; });
+      sel.innerHTML = Object.keys(topics).map(function(t){ return '<option value="'+esc(t)+'">'+esc(t)+'</option>'; }).join("");
+      document.getElementById("it-q-start").addEventListener("click", function(){
+        var topic = sel.value; var n = parseInt(document.getElementById("it-q-n").value, 10);
+        var pool = Q.filter(function(q){ return q.topic === topic; });
+        var use = dayShuffle(pool, "quiz:" + topic).slice(0, n);
+        if (!use.length) { document.getElementById("it-q-body").innerHTML = "<p class=\"muted\">No questions for this topic yet.</p>"; return; }
+        state = { i:0, correct:0, use:use }; renderQuestion();
+      });
+    }
+    function renderQuestion() {
+      var b = document.getElementById("it-q-body");
+      if (!state || state.i >= state.use.length) { b.innerHTML = state ? "<p>Finished.</p>" : ""; return; }
+      var q = state.use[state.i];
+      var opts = shuffle(q.opts.slice());
+      b.innerHTML = '<p class="muted">Question ' + (state.i+1) + ' of ' + state.use.length + ' — ' + esc(q.topic) + '</p>' +
+        '<p style="font-weight:700;font-size:1.05rem">' + esc(q.q) + '</p>' +
+        opts.map(function(o,idx){ return '<button type="button" class="btn ghost" style="display:block;width:100%;text-align:left;margin:6px 0" data-opt="'+idx+'">'+esc(o)+'</button>'; }).join("") +
+        '<div id="it-q-fb" style="margin-top:10px"></div>';
+      b.querySelectorAll("[data-opt]").forEach(function(btn){
+        btn.addEventListener("click", function(){
+          var chosen = opts[parseInt(btn.getAttribute("data-opt"),10)];
+          var ok = chosen === q.a; if (ok) state.correct++;
+          var fb = b.querySelector("#it-q-fb");
+          fb.innerHTML = '<p style="font-weight:600;color:' + (ok ? "var(--green,#1a7f37)" : "var(--red,#b3261e)") + '">' +
+            (ok ? "Correct." : "Not quite — the answer was “" + esc(q.a) + "”.") + '</p>' +
+            '<p class="muted">' + esc(q.explain) + '</p>' +
+            '<button type="button" class="btn" id="it-q-next">Next</button>';
+          b.querySelector("#it-q-next").addEventListener("click", function(){ state.i++; renderQuestion(); });
+        });
+      });
+    }
+    if (window.EKGURU_COURSE_IT) init();
+    else window.addEventListener("load", init);
+  })();
+  </script>
+
+</div>
+<!-- ekguru:trust-footer:start -->
+<footer class="pw-ftr">
+  <nav aria-label="Site information">
+    <a href="../../../">Home</a>
+    <a href="../../../about/">About</a>
+    <a href="../../../contact/">Contact</a>
+    <a href="../../../privacy/">Privacy</a>
+    <a href="../../../terms/">Terms</a>
+    <a href="../../../disclaimer/">Disclaimer</a>
+  </nav>
+  <p>
+  © 2026 EkGuru — One Student. One Goal. One Guru.<br>
+  Written and maintained by Prakash. Hindi lessons with native-speaking tutors, one to one.
+  </p>
+</footer>
+<!-- ekguru:trust-footer:end -->
+<script src="../../../js/site-config.js" defer></script>
+<script src="../../../js/analytics.js" defer></script>
+<script src="../../../js/toast.js" defer></script>
+<!-- ekguru:recovery:start -->
+<script src="../../../js/recovery.js" defer></script>
+<!-- ekguru:recovery:end -->
+
+<script src="../../../js/course-it.js" defer></script>
+<script src="../../../js/storybook.js" defer></script>
+<script defer>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("../../../sw.js").catch(function () {});
+  });
+}
+</script>
+<!-- ekguru:consent -->
+<script src="../../../js/cookie-consent.js" defer></script>
+</body>
+</html>

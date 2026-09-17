@@ -1,0 +1,470 @@
+/* EkGuru storybook system (v139) — shared visuals for the whole Hindi course.
+   Hand-maintained. Included by the Hindi generators (structure/pages shells)
+   + injected into the 15 hand-written lessons by decorate_lessons().
+   Class names sb-*/vcard/tracebox match the v137 alphabet demo, which now
+   runs on this file. Pure CSS upgrades (quiz, cards, tables, h2) apply with
+   zero markup changes; interactive bits need js/storybook.js.
+   Motion rules: everything gates on html.sb-js (no-JS = fully visible),
+   honours prefers-reduced-motion, and degrades for print. */
+
+/* ---------- hero: image + floating letters ---------- */
+.sb-hero{position:relative;margin:20px 0 6px;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+.sb-hero img{display:block;width:100%;height:auto}
+.sb-hero figcaption{font-size:.85rem;color:var(--muted);padding:8px 14px;background:var(--bg-soft)}
+.sb-float{position:absolute;font-weight:700;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.45);opacity:.9;pointer-events:none;animation:sbdrift 7s ease-in-out infinite}
+@keyframes sbdrift{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-14px) rotate(5deg)}}
+
+/* ---------- hero: generative scene (no image needed) ---------- */
+.sb-scene{position:relative;margin:20px 0 6px;border-radius:16px;overflow:hidden;border:1px solid var(--line);
+  background:linear-gradient(180deg,var(--sb-sky1,#ffe9c7) 0%,var(--sb-sky2,#ffd9a8) 55%,var(--sb-sky3,#fff6e6) 100%)}
+.sb-scene svg{display:block;width:100%;height:auto}
+.sb-scene.dawn{--sb-sky1:#ffd9e8;--sb-sky2:#ffe9c7;--sb-sky3:#fff6e6}
+.sb-scene.day{--sb-sky1:#cdeaff;--sb-sky2:#e8f5ff;--sb-sky3:#fffdf4}
+.sb-scene.dusk{--sb-sky1:#3b2a6e;--sb-sky2:#b3547a;--sb-sky3:#ffd9a8}
+.sb-scene.night{--sb-sky1:#141b3d;--sb-sky2:#24306b;--sb-sky3:#4a3f78}
+.sb-scene.dusk .sb-float,.sb-scene.night .sb-float{color:#ffe9a8}
+.sb-sun{transform-origin:center;transform-box:fill-box;animation:sbsway 9s ease-in-out infinite}
+.sb-hill{animation:sbsway 11s ease-in-out infinite reverse}
+@keyframes sbsway{0%,100%{transform:translateX(0)}50%{transform:translateX(10px)}}
+.sb-tw{animation:sbtw 2.6s ease-in-out infinite}
+@keyframes sbtw{0%,100%{opacity:.25}50%{opacity:1}}
+.sb-steam{animation:sbsteam 3.2s ease-in-out infinite}
+@keyframes sbsteam{0%{opacity:0;transform:translateY(6px)}40%{opacity:.8}100%{opacity:0;transform:translateY(-10px)}}
+.sb-wave{animation:sbwave 5s linear infinite}
+@keyframes sbwave{0%{transform:translateX(0)}100%{transform:translateX(-80px)}}
+.sb-chug{animation:sbchug 1.1s ease-in-out infinite}
+@keyframes sbchug{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+
+/* ---------- flip cards (vowels, words, phrases — any grid) ---------- */
+.vcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:12px;margin:18px 0 6px}
+.vcard{perspective:700px;cursor:pointer}
+.vcard .in{position:relative;min-height:148px;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.2,.7,.3,1.2)}
+.vcard.flip .in{transform:rotateY(180deg)}
+.vface{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;border:1px solid var(--line);background:linear-gradient(160deg,#fff8ec,#ffeecd);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:10px;text-align:center}
+.vface .lt{font-size:2.5rem;line-height:1.2;color:#7c2d12}
+.vface .sd{font-size:.85rem;color:var(--muted)}
+.vface.back{transform:rotateY(180deg);background:linear-gradient(160deg,#f3e8ff,#e7d9ff)}
+.vface.back .ex{font-size:1.3rem}
+.vface.back .en{font-size:.78rem;color:var(--ink-2)}
+.vface.back .mt{font-size:.78rem;color:var(--muted)}
+.vface .spk{margin-top:4px;font-size:.78rem;border:1px solid var(--line);background:#fff;border-radius:14px;padding:2px 10px;cursor:pointer}
+.vface .spk:hover{border-color:var(--brand-2)}
+.vcard.wide .vface .lt{font-size:1.6rem}
+html.sb-js .vcard{opacity:0;transform:translateY(18px)}
+html.sb-js .vcard.shown{opacity:1;transform:none;transition:opacity .5s ease,transform .5s ease}
+
+/* ---------- trace box: watch the letter write itself ---------- */
+.tracebox{border:1px solid var(--line);border-radius:16px;background:var(--bg-soft);padding:18px;text-align:center;margin:20px 0}
+.tracebox svg{width:min(300px,70vw);height:auto}
+.tracebox text{font-size:150px;text-anchor:middle;fill:transparent;stroke:#c2410c;stroke-width:2.5;stroke-dasharray:520;stroke-dashoffset:520;animation:trace 4s ease forwards infinite}
+@keyframes trace{0%{stroke-dashoffset:520}55%{stroke-dashoffset:0}80%{stroke-dashoffset:0}100%{stroke-dashoffset:-520}}
+.tracebox p{margin:8px 0 0;font-size:.9rem;color:var(--muted)}
+
+/* ---------- mid-article figure ---------- */
+.sb-fig{margin:22px 0;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+.sb-fig img{display:block;width:100%;height:auto}
+.sb-fig figcaption{font-size:.85rem;color:var(--muted);padding:8px 14px;background:var(--bg-soft)}
+
+/* ---------- scroll reveal (JS adds .shown; no-JS stays visible) ---------- */
+html.sb-js .sb-reveal{opacity:0;transform:translateY(16px)}
+html.sb-js .sb-reveal.shown{opacity:1;transform:none;transition:opacity .5s ease,transform .5s ease}
+
+/* ---------- animated h2 underline (auto: JS reveals h2s) ---------- */
+.art h2{position:relative}
+html.sb-js .art h2::after{content:"";position:absolute;left:0;bottom:-4px;height:3px;width:56px;border-radius:3px;
+  background:linear-gradient(90deg,#f59e0b,#c2410c);transform:scaleX(0);transform-origin:left;transition:transform .6s ease .15s}
+html.sb-js .art h2.shown::after{transform:scaleX(1)}
+
+/* ---------- speaker buttons on any Devanagari ---------- */
+.say{display:inline-block;margin-left:6px;font-size:.8rem;border:1px solid var(--line);background:var(--bg-soft);
+  border-radius:12px;padding:1px 9px;cursor:pointer;color:var(--ink-2);vertical-align:middle;white-space:nowrap}
+.say:hover{border-color:var(--brand-2);color:var(--brand)}
+.say-auto{font-size:.72rem;padding:0 8px;border-radius:999px}
+/* v142 — global TTS speed pill (fixed, print-hidden) */
+.sb-speed{position:fixed;right:14px;bottom:14px;z-index:120;display:inline-flex;align-items:center;
+  gap:6px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 14px;
+  font-size:.82rem;box-shadow:var(--sh-2,0 4px 16px rgba(15,18,34,.12));cursor:pointer;color:var(--ink-2)}
+.sb-speed b{color:var(--brand)}
+.sb-speed span{font-weight:600}
+.sb-speed:hover{border-color:var(--brand-2)}
+/* v143 — TTS hint line for injected pages (structure shell has its own copy) */
+.sb-hint{background:#fff8e6;border:1px solid #f0dfae;border-radius:12px;padding:10px 14px;
+  font-size:.88rem;color:var(--ink-2,#3d4257);margin:14px 0}
+
+/* ---------- quiz sections: playful restyle, zero markup change ---------- */
+.art .quiz{border-radius:16px !important;overflow:hidden}
+.art .quiz details{transition:background .25s ease,border-color .25s ease}
+.art .quiz details[open]{background:#fff;border-color:var(--brand-2) !important}
+.art .quiz summary{list-style:none}
+.art .quiz summary::-webkit-details-marker{display:none}
+.art .quiz summary::before{content:"▸ ";color:#c2410c;font-weight:700}
+.art .quiz details[open] summary::before{content:"▾ "}
+.art .quiz details p{animation:sbpop .3s ease}
+@keyframes sbpop{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+
+/* ---------- hub/topic cards + link lists: lift on hover ---------- */
+.hs-card{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease !important}
+.hs-card:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(79,50,217,.12)}
+.hs-card b::after{content:" →";opacity:0;transition:opacity .2s ease}
+.hs-card:hover b::after{opacity:1}
+.linklist li{transition:background .2s ease;border-radius:8px}
+.linklist li:hover{background:var(--bg-soft)}
+
+/* ---------- gradient divider band with travelling sheen ---------- */
+.sb-band{position:relative;overflow:hidden;border-radius:14px;margin:26px 0;padding:14px 18px;text-align:center;
+  background:linear-gradient(100deg,#4f32d9,#9333ea 45%,#c2410c);color:#fff;font-weight:600}
+.sb-band::after{content:"";position:absolute;top:0;bottom:0;width:36%;left:-40%;transform:skewX(-18deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);animation:sbsheen 4.5s ease-in-out infinite}
+@keyframes sbsheen{0%{left:-40%}60%,100%{left:110%}}
+.sb-band .dev{display:block;font-size:1.5rem;font-weight:700}
+
+/* ---------- marquee strip of words (JS duplicates content for the loop) ---------- */
+.sb-strip{overflow:hidden;border:1px solid var(--line);border-radius:14px;margin:22px 0;background:var(--bg-soft);white-space:nowrap}
+.sb-strip .row{display:inline-block;padding:10px 0;animation:sbmarq 26s linear infinite}
+.sb-strip span{display:inline-block;padding:0 18px;font-weight:600;color:#7c2d12}
+.sb-strip span small{color:var(--muted);font-weight:400}
+@keyframes sbmarq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ---------- callout ---------- */
+.sb-callout{border:1px solid #f0dfae;border-left:5px solid #f59e0b;background:#fff8e6;border-radius:12px;
+  padding:13px 16px;margin:18px 0;font-size:.93rem;line-height:1.65;color:var(--ink-2)}
+.sb-callout b{color:var(--ink)}
+
+/* ---------- tables: zebra + hover + sticky head on tall tables ---------- */
+.art table{border-radius:12px;overflow:hidden}
+.art tbody tr{transition:background .15s ease}
+.art tbody tr:nth-child(even){background:rgba(79,50,217,.035)}
+.art tbody tr:hover{background:#fff3df}
+.art thead th{position:sticky;top:0;background:var(--bg-soft)}
+
+/* ---------- prev/next + art-nav lift ---------- */
+.prevnext a,.art-nav a{transition:transform .2s ease,border-color .2s ease !important}
+.prevnext a:hover,.art-nav a:hover{transform:translateY(-2px)}
+
+/* ---------- trace grids: whole alphabets that write themselves ---------- */
+.trace-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px;margin:16px 0}
+.trace-cell{border:1px solid var(--line);border-radius:14px;background:linear-gradient(165deg,#fffdf6,#fdf3e0);
+  padding:8px 4px 6px;text-align:center}
+.trace-cell svg{width:72px;height:72px}
+.trace-cell text{font-size:64px;text-anchor:middle;fill:transparent;stroke:#c2410c;stroke-width:2;
+  stroke-dasharray:400;stroke-dashoffset:400;animation:trace 3.6s ease forwards infinite}
+.trace-cell .rm{display:block;font-size:.8rem;color:var(--ink-2);font-weight:600}
+.trace-cell .say{margin:4px 0 0;font-size:.72rem;padding:0 8px}
+html.sb-js .trace-cell{opacity:0;transform:translateY(14px)}
+html.sb-js .trace-cell.shown{opacity:1;transform:none;transition:opacity .45s ease,transform .45s ease}
+
+/* ---------- barakhadi lab ---------- */
+.bara-btns{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.bara-btns button{border:1px solid var(--line);background:#fff;border-radius:20px;padding:6px 14px;
+  font-size:.88rem;font-weight:600;cursor:pointer;color:var(--ink-2)}
+.bara-btns button.on{background:#4f32d9;border-color:#4f32d9;color:#fff}
+.bara-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;margin:10px 0}
+table.bara{border-collapse:collapse;min-width:640px;width:100%;margin:0;font-size:1.02rem}
+table.bara th,table.bara td{border-bottom:1px solid var(--line);padding:8px 6px;text-align:center;white-space:nowrap}
+table.bara thead th{background:#4f32d9;color:#fff;font-size:.85rem;position:sticky;top:0}
+table.bara tbody th{background:var(--bg-soft);position:sticky;left:0;font-size:1.05rem;min-width:64px}
+table.bara td button{border:1px solid transparent;background:transparent;border-radius:10px;padding:4px 8px;
+  font-size:1.05rem;cursor:pointer;color:var(--ink);line-height:1.5}
+table.bara td button:hover{background:#fff3df;border-color:var(--line)}
+table.bara td button small{display:block;font-size:.68rem;color:var(--muted);font-weight:400}
+table.bara caption{text-align:left;padding:10px 12px;font-size:.86rem;color:var(--muted);caption-side:bottom}
+.bara-jump{font-size:.9rem;color:var(--muted)}
+.bara-jump a{font-weight:600}
+
+/* ---------- print: static, ink-friendly ---------- */
+@media print{
+  .say,.spk,.bara-btns{display:none !important}
+  table.bara td button{border:none !important;padding:4px 6px}
+  .bara-wrap{overflow:visible}
+  .tracebox text,.trace-cell text{fill:#000 !important;stroke:none !important;animation:none !important}
+  .sb-float,.sb-band::after,.sb-strip{display:none !important}
+  .sb-scene svg .sb-steam,.sb-scene svg .sb-tw,.sb-scene svg .sb-wave{animation:none !important}
+  .vface{position:static;backface-visibility:visible;-webkit-backface-visibility:visible}
+  .vface.back{transform:none;margin-top:6px}
+  .vcard .in{min-height:0;display:block;transform:none !important}
+  .art h2::after{display:none}
+}
+
+/* ---------- reduced motion: everything still, everything visible ---------- */
+@media(prefers-reduced-motion:reduce){
+  .sb-float,.tracebox text,.trace-cell text,.vcard .in,.sb-band::after,.sb-strip .row,
+  .sb-sun,.sb-hill,.sb-tw,.sb-steam,.sb-wave,.sb-chug,.art .quiz details p{animation:none !important;transition:none !important}
+  html.sb-js .vcard,html.sb-js .sb-reveal{opacity:1 !important;transform:none !important}
+  html.sb-js .art h2::after{transform:scaleX(1)}
+}
+
+/* ============ v145 ultra visuals: progress, TOC, keys, mastery, themes ============ */
+.sb-progress{position:fixed;top:0;left:0;right:0;height:4px;z-index:200;background:transparent;pointer-events:none}
+.sb-progress i{display:block;height:100%;width:0;background:var(--sb-accent,#4f32d9);border-radius:0 4px 4px 0;transition:width .1s linear}
+/* per-section accent: every section gets its own colour */
+body[data-section="ask"]{--sb-accent:#b45309}
+body[data-section="answers"]{--sb-accent:#147a3d}
+body[data-section="learn"]{--sb-accent:#4f32d9}
+body[data-section="hindi"]{--sb-accent:#c2407d}
+body[data-section="materials"]{--sb-accent:#0e7490}
+body[data-section="toolbox"]{--sb-accent:#6d28d9}
+body[data-section="daily-hindi"]{--sb-accent:#ea580c}
+body[data-sub="practice"]{--sb-accent:#7c3aed}
+body[data-sub="paths"]{--sb-accent:#0d9488}
+.sb-toc{border:1px solid var(--line);border-left:4px solid var(--sb-accent,#4f32d9);border-radius:12px;padding:10px 16px;margin:16px 0;background:var(--card,#fff)}
+.sb-toc summary{cursor:pointer;font-weight:700;color:var(--ink-2,#3d4257)}
+.sb-toc ol{margin:8px 0 4px;padding-left:22px;columns:2;column-gap:28px}
+.sb-toc li{margin:3px 0;font-size:.9rem;break-inside:avoid}
+.sb-toc li.more{color:var(--muted);list-style:none}
+.sb-toc a{color:var(--ink-2,#3d4257)}
+@media(max-width:560px){.sb-toc ol{columns:1}}
+.sb-keys{display:flex;flex-wrap:wrap;gap:9px;align-items:center;background:var(--sb-tint,#f4f1ff);border:1px solid var(--line);border-left:4px solid var(--sb-accent,#4f32d9);border-radius:14px;padding:12px 16px;margin:14px 0;box-shadow:var(--sh-1);animation:sb-keys-in .5s ease both}
+.sb-keys-label{font-size:.85rem;font-weight:700;color:var(--ink-2,#3d4257);margin-right:2px}
+.sb-keys .say{margin:0;font-size:.85rem;font-weight:700;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 14px;min-height:40px;box-shadow:var(--sh-1)}
+@keyframes sb-keys-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.sb-mastery{background:linear-gradient(135deg,#f4f1ff,#fdf3f8);border:1px solid #ddd8ff;border-radius:12px;padding:10px 14px;margin:14px 0;font-size:.9rem;color:var(--ink-2,#3d4257)}
+.sb-mastery .sb-streak{color:#c2410c}
+.sb-confetti{position:fixed;inset:0;z-index:300;pointer-events:none}
+.art h2[id],.pw h2[id],.answer h2[id],.ans h2[id]{scroll-margin-top:76px}
+@media print{
+  .sb-progress,.sb-keys,.sb-mastery,.sb-confetti{display:none !important}
+}
+@media(prefers-reduced-motion:reduce){
+  .sb-keys{animation:none}
+  .sb-progress i{transition:none}
+}
+
+/* ============ v147 chapter themes: book-like chapter worlds ============ */
+body.sb-themed{background:linear-gradient(180deg,var(--sb-tint,#ffffff) 0,#ffffff 380px)}
+.sb-chapter{display:flex;align-items:center;gap:12px;border-radius:16px;padding:12px 16px;
+  margin:16px 0;background:linear-gradient(135deg,var(--sb-tint,#f4f1ff),#fff);
+  border:1px solid var(--line);border-left:6px solid var(--sb-accent,#4f32d9);
+  box-shadow:var(--sh-1)}
+.sb-ch-mascot{font-size:1.9rem;line-height:1;animation:sb-wave 2.4s ease-in-out infinite;
+  transform-origin:70% 80%}
+.sb-ch-name{font-weight:800;font-size:1.02rem}
+.sb-ch-name i{font-style:normal;color:var(--sb-accent,#4f32d9);margin-left:6px}
+.sb-ch-kind{font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--sb-accent,#4f32d9);border:1px solid var(--sb-accent,#4f32d9);
+  border-radius:999px;padding:2px 10px;white-space:nowrap}
+.sb-ch-floats{margin-left:auto;font-size:1.15rem;letter-spacing:.3em;white-space:nowrap;
+  color:var(--sb-accent,#4f32d9);animation:sb-twinkle 3s ease-in-out infinite}
+.sb-ch-floats:empty{display:none}
+@keyframes sb-wave{0%,100%{transform:rotate(0)}25%{transform:rotate(-12deg)}75%{transform:rotate(10deg)}}
+@keyframes sb-twinkle{0%,100%{opacity:.45;transform:translateY(0)}50%{opacity:.95;transform:translateY(-3px)}}
+/* speaker tap bounce (child-friendly feedback) */
+.say.tapped,.spk.tapped{animation:sb-tap .5s ease}
+@keyframes sb-tap{0%{transform:scale(1)}35%{transform:scale(1.35) rotate(-8deg)}70%{transform:scale(.95)}100%{transform:scale(1)}}
+@media(max-width:560px){.sb-ch-floats{display:none}.sb-ch-mascot{font-size:1.5rem}}
+@media print{
+  .sb-chapter{box-shadow:none}
+  .sb-ch-floats{letter-spacing:.2em}
+}
+@media(prefers-reduced-motion:reduce){
+  .sb-ch-mascot,.sb-ch-floats,.say.tapped,.spk.tapped{animation:none}
+}
+
+/* ============ v150 app dock: Back · Home · Next ============ */
+.sb-dock{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));
+  transform:translate(-50%,80px);z-index:190;display:flex;gap:8px;
+  background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid var(--line);border-radius:999px;padding:8px;
+  box-shadow:var(--sh-2,0 4px 16px rgba(15,18,34,.12));
+  transition:transform .45s cubic-bezier(.22,1,.36,1)}
+.sb-dock.in{transform:translate(-50%,0)}
+.sb-dock-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border-radius:999px;
+  font-weight:700;font-size:.88rem;color:var(--ink-2,#3d4257);text-decoration:none;
+  border:1px solid transparent;white-space:nowrap;
+  transition:transform .15s ease,background .15s ease,border-color .15s ease}
+.sb-dock-btn:hover{background:var(--bg-soft);border-color:var(--line);transform:translateY(-2px)}
+.sb-dock-btn:active{transform:scale(.94)}
+.sb-d-home{background:var(--sb-accent,#4f32d9);color:#fff}
+.sb-d-home:hover{background:var(--sb-accent,#4f32d9);filter:brightness(1.08)}
+body.sb-leaving{animation:sb-leave .18s ease both}
+@keyframes sb-leave{to{opacity:0}}
+@media(max-width:560px){
+  .sb-dock-btn{padding:8px 12px;font-size:.82rem}
+  .sb-speed{bottom:78px;right:10px}
+}
+@media print{.sb-dock{display:none !important}}
+@media(prefers-reduced-motion:reduce){
+  .sb-dock{transition:none;transform:translate(-50%,0)}
+  body.sb-leaving{animation:none}
+}
+
+/* ---------- voice nudge (v154): no native voice on this device ---------- */
+.sb-voicenudge{display:flex;gap:12px;align-items:center;justify-content:space-between;
+  border:1px solid #f0dfae;border-left:5px solid #f59e0b;background:#fff8e6;border-radius:12px;
+  padding:11px 14px;margin:14px 0;font-size:.88rem;line-height:1.55;color:var(--ink-2)}
+.sb-voicenudge-x{flex:none;border:1px solid var(--line);background:#fff;border-radius:999px;
+  padding:7px 16px;min-height:40px;font:inherit;font-weight:700;cursor:pointer;color:var(--ink)}
+.sb-voicenudge-x:hover{border-color:var(--brand)}
+
+/* ---------- page theming (v154): banner palette drives page accents ---------- */
+body[data-topic] .pw h1,body[data-topic] .art h1{text-decoration:underline;text-decoration-color:var(--sb-accent,#4f32d9);text-decoration-thickness:3px;text-underline-offset:7px}
+body[data-topic] table.phr thead th{background:var(--sb-tint,#f4f1ff)}
+body[data-topic] .ssay{border-color:var(--sb-accent,#4f32d9)}
+body[data-topic] .chips a:hover,body[data-topic] .card:hover,body[data-topic] .prevnext a:hover{border-color:var(--sb-accent,#4f32d9)}
+/* reveal states for cards/boxes (JS adds .shown on scroll) */
+html.sb-js .lang-cell,html.sb-js .v-item,html.sb-js .ob-card,html.sb-js .card,html.sb-js .fact,html.sb-js .howto,html.sb-js .faq{opacity:0;transform:translateY(14px)}
+html.sb-js .lcard,html.sb-js .lw h2,html.sb-js .stage-list a{opacity:0;transform:translateY(14px)}
+html.sb-js .lang-cell.shown,html.sb-js .v-item.shown,html.sb-js .ob-card.shown,html.sb-js .card.shown,html.sb-js .fact.shown,html.sb-js .howto.shown,html.sb-js .faq.shown{opacity:1;transform:none;transition:opacity .45s ease,transform .45s ease}
+html.sb-js .lcard.shown,html.sb-js .lw h2.shown,html.sb-js .stage-list a.shown{opacity:1;transform:none;transition:opacity .45s ease,transform .45s ease}
+/* phrase-row cascade on themed pages */
+html.sb-js body[data-topic] table.phr tbody tr{opacity:0;animation:sb-row-in .4s ease forwards}
+html.sb-js body[data-topic] table.phr tbody tr:nth-child(2){animation-delay:.05s}
+html.sb-js body[data-topic] table.phr tbody tr:nth-child(3){animation-delay:.1s}
+html.sb-js body[data-topic] table.phr tbody tr:nth-child(4){animation-delay:.15s}
+html.sb-js body[data-topic] table.phr tbody tr:nth-child(5){animation-delay:.2s}
+html.sb-js body[data-topic] table.phr tbody tr:nth-child(6){animation-delay:.25s}
+html.sb-js body[data-topic] table.phr tbody tr:nth-child(7){animation-delay:.3s}
+html.sb-js body[data-topic] table.phr tbody tr:nth-child(8){animation-delay:.35s}
+html.sb-js body[data-topic] table.phr tbody tr:nth-child(n+9){animation-delay:.4s}
+@keyframes sb-row-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){
+html.sb-js .lang-cell,html.sb-js .v-item,html.sb-js .ob-card,html.sb-js .card,html.sb-js .fact,html.sb-js .howto,html.sb-js .faq{opacity:1 !important;transform:none !important}
+html.sb-js .lcard,html.sb-js .lw h2,html.sb-js .stage-list a{opacity:1 !important;transform:none !important}
+html.sb-js body[data-topic] table.phr tbody tr{opacity:1 !important;animation:none !important}
+}
+
+/* ================= VISUAL v155: content-matched modern layer ================
+   Additive only: themed pages (body[data-topic]) get accent-driven
+   components; everything else keeps the brand fallback. Print + 
+   reduced-motion neutralised at the end. */
+/* banner sheen sweep */
+.sb-chapter{position:relative;overflow:hidden}
+.sb-chapter::after{content:"";position:absolute;top:0;bottom:0;width:38%;left:-45%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);
+  animation:sb-sheen 7s ease-in-out infinite;pointer-events:none}
+@keyframes sb-sheen{0%,72%{left:-45%}92%,100%{left:130%}}
+/* phrase tables: tinted head, hover rows, soft shell */
+.twrap{border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh-1);background:var(--card,#fff)}
+.twrap table.phr{margin:0;border:0}
+table.phr thead th{background:var(--sb-tint,#f4f1ff);color:var(--ink);font-size:.82rem;
+  text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+body[data-topic] table.phr tbody tr{transition:background .15s ease}
+body[data-topic] table.phr tbody tr:hover{background:var(--sb-tint,#f4f1ff)}
+/* speaker buttons: circular accent */
+.ssay,.sb-keys .say{border-radius:999px !important;border:1px solid var(--sb-accent,#4f32d9) !important;
+  transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
+.ssay:hover,.sb-keys .say:hover{transform:scale(1.08);box-shadow:var(--sh-2);background:var(--sb-tint,#f4f1ff)}
+.ssay:focus-visible,.sb-keys .say:focus-visible{outline:2px solid var(--sb-accent,#4f32d9);outline-offset:2px}
+.sb-keys .say.tapped,.ssay.tapped{transform:scale(.92)}
+/* FAQ: Q badge + accent edge + lift */
+.faq{position:relative;transition:transform .18s ease,box-shadow .18s ease}
+.faq:hover{transform:translateY(-2px);box-shadow:var(--sh-2)}
+.faq b::before{content:"Q";display:inline-flex;align-items:center;justify-content:center;
+  width:1.5em;height:1.5em;border-radius:50%;margin-right:.55em;font-size:.8em;
+  background:var(--sb-accent,#4f32d9);color:#fff;vertical-align:1px}
+/* notes + callouts: gradient edge */
+.note,.sb-callout{border-left:5px solid transparent !important;
+  border-image:linear-gradient(180deg,var(--sb-accent,#4f32d9),var(--brand-3,#ec4899)) 1}
+/* chips: hover fill */
+.chips a{transition:transform .15s ease,background .15s ease,color .15s ease,border-color .15s ease}
+.chips a:hover{background:var(--sb-accent,#4f32d9);border-color:var(--sb-accent,#4f32d9);
+  color:#fff;transform:translateY(-1px)}
+.chips a:hover b,.chips a:hover span{color:#fff}
+/* cards: top accent bar */
+.card,.fact,.howto,.lang-cell,.v-item,.ob-card{position:relative;overflow:hidden}
+body[data-topic] .card::before,body[data-topic] .fact::before,body[data-topic] .howto::before,
+.lang-cell::before,.v-item::before,.ob-card::before{content:"";position:absolute;top:0;left:14px;right:14px;
+  height:3px;border-radius:0 0 4px 4px;background:linear-gradient(90deg,var(--sb-accent,var(--brand)),var(--brand-3,#ec4899))}
+/* TOC links: hover slide */
+.sb-toc a{display:inline-block;transition:transform .15s ease,color .15s ease}
+.sb-toc a:hover{transform:translateX(3px);color:var(--sb-accent,#4f32d9)}
+/* content band: tinted section shell (builders opt in) */
+.band{background:var(--sb-tint,#f4f1ff);border:1px solid var(--line);border-radius:16px;
+  padding:6px 20px 18px;margin:26px 0}
+/* gradient rule */
+.pw hr,.art hr{border:0;height:2px;margin:30px 0;
+  background:linear-gradient(90deg,transparent,var(--sb-accent,#4f32d9),transparent)}
+/* lede: refined readable measure */
+.pw .lede::first-letter,.art .lede::first-letter{font-weight:800;color:var(--sb-accent,#4f32d9)}
+@media print{
+.sb-chapter::after{display:none}
+.twrap{box-shadow:none}
+.faq:hover,.card:hover{transform:none;box-shadow:none}
+.chips a:hover{background:#fff;color:var(--brand)}
+}
+@media(prefers-reduced-motion:reduce){
+.sb-chapter::after{display:none}
+.ssay,.sb-keys .say,.faq,.chips a,.sb-toc a{transition:none !important}
+}
+
+/* ---------- voice picker panel (v157) ---------- */
+.sb-vpanel{position:fixed;left:50%;transform:translate(-50%,24px);bottom:calc(76px + env(safe-area-inset-bottom,0px));
+  width:min(440px,calc(100vw - 32px));max-height:min(60vh,420px);display:flex;flex-direction:column;
+  background:var(--card,#fff);border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh-3);
+  z-index:300;opacity:0;transition:opacity .25s ease,transform .25s ease;overflow:hidden}
+.sb-vpanel.in{opacity:1;transform:translate(-50%,0)}
+.sb-vpanel-h{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:13px 16px;border-bottom:1px solid var(--line);background:var(--sb-tint,#f4f1ff)}
+.sb-vpanel-h b{font-size:.95rem}
+.sb-vpanel-x{border:1px solid var(--line);background:#fff;border-radius:999px;min-width:40px;min-height:40px;
+  font-size:.9rem;cursor:pointer;color:var(--ink-2)}
+.sb-vpanel-list{overflow-y:auto;padding:8px 12px 14px}
+.sb-vpanel-row{display:flex;align-items:center;gap:8px;padding:9px 4px;border-bottom:1px solid var(--line)}
+.sb-vpanel-row:last-child{border-bottom:0}
+.sb-vpanel-row.is-pref{background:var(--sb-tint,#f4f1ff);border-radius:10px}
+.sb-vpanel-name{flex:1;font-size:.85rem;min-width:0;overflow-wrap:break-word}
+.sb-vpanel-try,.sb-vpanel-use{flex:none;border-radius:999px;min-height:40px;padding:7px 14px;font:inherit;
+  font-size:.82rem;font-weight:700;cursor:pointer}
+.sb-vpanel-try{border:1px solid var(--line);background:var(--bg-soft)}
+.sb-vpanel-use{border:1px solid var(--sb-accent,#4f32d9);background:var(--sb-accent,#4f32d9);color:#fff}
+.sb-vpanel-empty{font-size:.87rem;line-height:1.6;color:var(--ink-2);padding:6px 4px}
+.sb-d-voice{font-size:1rem !important}
+@media print{.sb-vpanel{display:none !important}}
+@media(prefers-reduced-motion:reduce){.sb-vpanel{transition:none}}
+@media(max-width:380px){.sb-dock-btn{padding:8px 11px;font-size:.8rem}}
+
+/* ---------- Modern-Pro site layer (v158) ---------- */
+/* Hint bar: tint card with accent edge */
+.sb-hint{background:var(--sb-tint,#f4f1ff) !important;border:1px solid var(--line) !important;
+  border-left:4px solid var(--sb-accent,#4f32d9) !important;border-radius:14px !important;
+  padding:12px 16px !important;box-shadow:var(--sh-1)}
+/* Speed pill + nudge: glassy, pro */
+.sb-speed{background:rgba(255,255,255,.9) !important;backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);border-radius:999px !important;
+  padding:9px 16px !important;box-shadow:var(--sh-2) !important;font-weight:700}
+.sb-voicenudge{background:rgba(255,248,230,.94);backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);border:1px solid #ecdcab;border-left:4px solid #d9a419;
+  border-radius:14px;padding:12px 14px;box-shadow:var(--sh-1)}
+.sb-voicenudge-x{font-weight:700;padding:8px 16px;min-height:40px}
+.sb-voicenudge-x:hover{background:var(--sb-accent,#4f32d9);color:#fff;border-color:var(--sb-accent,#4f32d9)}
+/* Dock buttons: crisper hover */
+.sb-dock{box-shadow:var(--sh-2)}
+.sb-dock-btn{font-weight:700}
+/* Pro details accordions anywhere */
+details.pro{border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:12px 0;
+  background:var(--card,#fff);box-shadow:var(--sh-1)}
+details.pro summary{font-weight:700;cursor:pointer;min-height:44px;list-style:none}
+details.pro summary::-webkit-details-marker{display:none}
+details.pro summary::before{content:"+";display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;border-radius:50%;background:var(--sb-tint,#f4f1ff);
+  color:var(--sb-accent,#4f32d9);font-weight:800;margin-right:10px}
+details.pro[open] summary::before{content:"\2212"}
+/* Safer content images (CLS + polish) */
+.pw img{max-width:100%;height:auto;border-radius:12px}
+.pw a{ text-underline-offset:3px}
+/* Focus + selection */
+:focus-visible{outline:3px solid var(--sb-accent,#4f32d9);outline-offset:2px}
+::selection{background:var(--sb-tint,#f4f1ff)}
+@media print{.sb-speed,.sb-voicenudge,.sb-pill{display:none !important}}
+@media(prefers-reduced-motion:reduce){.sb-dock,.sb-dock-btn,.sb-speed{transition:none !important}}
+
+/* ---------- Pro footer (v159) ---------- */
+.pw-ftr{border-top:3px solid var(--sb-accent,#4f32d9);border-radius:18px 18px 0 0;
+  background:linear-gradient(180deg,var(--sb-tint,#f4f1ff),rgba(255,255,255,0) 90%);
+  padding-top:26px;margin-top:48px}
+.pw-ftr nav a{font-weight:600;padding:6px 12px;border-radius:999px}
+.pw-ftr nav a:hover{background:var(--sb-tint,#f4f1ff);text-decoration:none}
+.pw-ftr p strong,.pw-ftr p b{color:var(--ink)}
+/* ---------- Pro article layer (v160 loop-3): answers/ask/learn reading ---------- */
+.ans h1,.answer h1{letter-spacing:-.015em;text-wrap:balance;line-height:1.18}
+.ans .lede,.answer .lede{font-size:1.08rem;color:var(--ink-2)}
+.ans blockquote,.answer blockquote{margin:18px 0;padding:14px 18px;border-left:4px solid var(--sb-accent,#4f32d9);
+  background:var(--sb-tint,#f4f1ff);border-radius:0 14px 14px 0;color:var(--ink-2);line-height:1.7}
+.ans table,.answer table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.94rem;
+  border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.ans th,.ans td,.answer th,.answer td{border-bottom:1px solid var(--line);padding:10px 13px;text-align:left;line-height:1.6}
+.ans thead th,.answer thead th{background:var(--sb-tint,#f4f1ff);font-size:.8rem;text-transform:uppercase;
+  letter-spacing:.05em;color:var(--ink-2)}
+.ans tbody tr:nth-child(even),.answer tbody tr:nth-child(even){background:var(--bg-soft)}
+.sb-toc{box-shadow:var(--sh-1)}
+.sb-toc summary{min-height:44px;display:flex;align-items:center}
+@media print{.ans blockquote,.answer blockquote{background:none}}
