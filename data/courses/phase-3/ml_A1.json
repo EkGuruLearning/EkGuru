@@ -1,0 +1,2286 @@
+{
+  "code": "ml",
+  "name": "Malayalam",
+  "native": "മലയാളം",
+  "phase": 3,
+  "medium": "en",
+  "file_level": "A1",
+  "pronunciation": {
+    "title": "Say it right from day one",
+    "rules": [
+      {
+        "rule": "Vowels never change",
+        "explain": "a=AH, e=EH, i=EE, o=OH, u=OO. Always. So CASA is KAH-sah.",
+        "examples": [
+          {
+            "t": "casa",
+            "r": "KAH-sah",
+            "en": "house"
+          },
+          {
+            "t": "mesa",
+            "r": "MEH-sah",
+            "en": "table"
+          }
+        ]
+      },
+      {
+        "rule": "H is silent, J sounds like H",
+        "explain": "HOLA is OH-lah (no H sound). J in JUEVES sounds like English H: HWEH-vehs.",
+        "examples": [
+          {
+            "t": "hola",
+            "r": "OH-lah",
+            "en": "hello"
+          },
+          {
+            "t": "jueves",
+            "r": "HWEH-vehs",
+            "en": "Thursday"
+          }
+        ]
+      },
+      {
+        "rule": "Ñ = NY, LL/Y = Y",
+        "explain": "Ñ is like NY in canyon: NIÑO = NEEN-yoh. LL and Y sound like Y in yes.",
+        "examples": [
+          {
+            "t": "niño",
+            "r": "NEEN-yoh",
+            "en": "boy"
+          },
+          {
+            "t": "calle",
+            "r": "KAH-yeh",
+            "en": "street"
+          }
+        ]
+      },
+      {
+        "rule": "R rolls a little",
+        "explain": "Tap your tongue once for R. PERRO (dog) rolls longer than PERO (but).",
+        "examples": [
+          {
+            "t": "pero",
+            "r": "PEH-roh",
+            "en": "but"
+          },
+          {
+            "t": "perro",
+            "r": "PEH-rroh",
+            "en": "dog"
+          }
+        ]
+      },
+      {
+        "rule": "Stress the second-last syllable",
+        "explain": "Most words stress the middle: HOLA = OH-lah, GRACIAS = GRAH-syahs. An accent mark (á) forces stress there.",
+        "examples": [
+          {
+            "t": "gracias",
+            "r": "GRAH-syahs",
+            "en": "thanks"
+          },
+          {
+            "t": "café",
+            "r": "kah-FEH",
+            "en": "coffee"
+          }
+        ]
+      }
+    ]
+  },
+  "alphabet": {
+    "title": "The Spanish alphabet: 27 letters",
+    "explain": "Spanish uses the same letters as English plus Ñ. Letter names matter for spelling your name aloud. Read each name, then say the example word.",
+    "letters": [
+      {
+        "t": "a",
+        "r": "ah",
+        "tip": "as in father: CASA"
+      },
+      {
+        "t": "b",
+        "r": "beh",
+        "tip": "soft, lips barely touch: BOCA"
+      },
+      {
+        "t": "c",
+        "r": "seh",
+        "tip": "CA=K, CE/CI=S: CENA"
+      },
+      {
+        "t": "d",
+        "r": "deh",
+        "tip": "soft, like TH in this: DÍA"
+      },
+      {
+        "t": "e",
+        "r": "eh",
+        "tip": "as in bet: MESA"
+      },
+      {
+        "t": "f",
+        "r": "EH-feh",
+        "tip": "same as English: FOTO"
+      },
+      {
+        "t": "g",
+        "r": "heh",
+        "tip": "GA=hard G, GE/J=silent H: GENTE"
+      },
+      {
+        "t": "h",
+        "r": "AH-cheh",
+        "tip": "always silent: HOLA = OH-lah"
+      },
+      {
+        "t": "i",
+        "r": "ee",
+        "tip": "as in machine: SÍ"
+      },
+      {
+        "t": "j",
+        "r": "HOH-tah",
+        "tip": "strong H sound: JUEVES"
+      },
+      {
+        "t": "k",
+        "r": "kah",
+        "tip": "rare, foreign words: KILO"
+      },
+      {
+        "t": "l",
+        "r": "EH-leh",
+        "tip": "same as English: LIBRO"
+      },
+      {
+        "t": "m",
+        "r": "EH-meh",
+        "tip": "same as English: MANO"
+      },
+      {
+        "t": "n",
+        "r": "EH-neh",
+        "tip": "same as English: NOCHE"
+      },
+      {
+        "t": "ñ",
+        "r": "EH-nyeh",
+        "tip": "NY as in canyon: NIÑO"
+      },
+      {
+        "t": "o",
+        "r": "oh",
+        "tip": "short, as in hot: OJO"
+      },
+      {
+        "t": "p",
+        "r": "peh",
+        "tip": "same, less puff: PAN"
+      },
+      {
+        "t": "q",
+        "r": "koo",
+        "tip": "always QU = K: QUESO"
+      },
+      {
+        "t": "r",
+        "r": "EH-reh",
+        "tip": "single tap: PERO"
+      },
+      {
+        "t": "s",
+        "r": "EH-seh",
+        "tip": "always S, never Z: SÍ"
+      },
+      {
+        "t": "t",
+        "r": "teh",
+        "tip": "same as English: TÍO"
+      },
+      {
+        "t": "u",
+        "r": "oo",
+        "tip": "as in moon: LUNA"
+      },
+      {
+        "t": "v",
+        "r": "oo-beh",
+        "tip": "sounds like soft B: VINO"
+      },
+      {
+        "t": "w",
+        "r": "oo-beh-DOH-bleh",
+        "tip": "rare, foreign words: WEB"
+      },
+      {
+        "t": "x",
+        "r": "EH-kees",
+        "tip": "KS sound: TAXI"
+      },
+      {
+        "t": "y",
+        "r": "ee-gree-EH-gah",
+        "tip": "Y in yes, or EE alone: YO"
+      },
+      {
+        "t": "z",
+        "r": "SEH-tah",
+        "tip": "S sound (Latin America): ZAPATO"
+      }
+    ]
+  },
+  "counting": {
+    "title": "Counting 0 to 100",
+    "explain": "Learn 0–15 by heart. 16–19 = DIEZ + number stuck together (dieciséis). 20s = VEINTI + number (veintidós). 30+ = tens + Y + ones (treinta y uno). 100 = CIEN (cien alone, ciento + more).",
+    "numbers": [
+      {
+        "t": "cero",
+        "r": "SEH-roh",
+        "en": "0"
+      },
+      {
+        "t": "uno",
+        "r": "OO-noh",
+        "en": "1"
+      },
+      {
+        "t": "dos",
+        "r": "dohs",
+        "en": "2"
+      },
+      {
+        "t": "tres",
+        "r": "trehs",
+        "en": "3"
+      },
+      {
+        "t": "cuatro",
+        "r": "KWAH-troh",
+        "en": "4"
+      },
+      {
+        "t": "cinco",
+        "r": "SEEN-koh",
+        "en": "5"
+      },
+      {
+        "t": "seis",
+        "r": "seh-ees",
+        "en": "6"
+      },
+      {
+        "t": "siete",
+        "r": "SYEH-teh",
+        "en": "7"
+      },
+      {
+        "t": "ocho",
+        "r": "OH-choh",
+        "en": "8"
+      },
+      {
+        "t": "nueve",
+        "r": "NWEH-veh",
+        "en": "9"
+      },
+      {
+        "t": "diez",
+        "r": "dyehs",
+        "en": "10"
+      },
+      {
+        "t": "once",
+        "r": "OHN-seh",
+        "en": "11"
+      },
+      {
+        "t": "doce",
+        "r": "DOH-seh",
+        "en": "12"
+      },
+      {
+        "t": "trece",
+        "r": "TREH-seh",
+        "en": "13"
+      },
+      {
+        "t": "catorce",
+        "r": "kah-TOHR-seh",
+        "en": "14"
+      },
+      {
+        "t": "quince",
+        "r": "KEEN-seh",
+        "en": "15"
+      },
+      {
+        "t": "dieciséis",
+        "r": "dyeh-see-SEH-ees",
+        "en": "16"
+      },
+      {
+        "t": "diecisiete",
+        "r": "dyeh-see-SYEH-teh",
+        "en": "17"
+      },
+      {
+        "t": "dieciocho",
+        "r": "dyeh-see-OH-choh",
+        "en": "18"
+      },
+      {
+        "t": "diecinueve",
+        "r": "dyeh-see-NWEH-veh",
+        "en": "19"
+      },
+      {
+        "t": "veinte",
+        "r": "BEH-een-teh",
+        "en": "20"
+      },
+      {
+        "t": "treinta",
+        "r": "TREH-een-tah",
+        "en": "30"
+      },
+      {
+        "t": "cuarenta",
+        "r": "kwah-REHN-tah",
+        "en": "40"
+      },
+      {
+        "t": "cincuenta",
+        "r": "seen-KWEHN-tah",
+        "en": "50"
+      },
+      {
+        "t": "sesenta",
+        "r": "seh-SEHN-tah",
+        "en": "60"
+      },
+      {
+        "t": "setenta",
+        "r": "seh-TEHN-tah",
+        "en": "70"
+      },
+      {
+        "t": "ochenta",
+        "r": "oh-CHEHN-tah",
+        "en": "80"
+      },
+      {
+        "t": "noventa",
+        "r": "noh-BEHN-tah",
+        "en": "90"
+      },
+      {
+        "t": "cien",
+        "r": "syehn",
+        "en": "100"
+      }
+    ],
+    "rules": [
+      "16–29 are glued together: dieciséis (16), veintidós (22).",
+      "30–99 use Y: treinta y uno (31), cuarenta y dos (42).",
+      "CIEN = exactly 100; CIENTO + more: ciento uno (101)."
+    ]
+  },
+  "level": {
+    "title": "Malayalam A1",
+    "goals": [
+      "Control Malayalam case, tense-aspect, participles, negation, and clause chaining",
+      "Develop script-first reception, interaction, production, and mediation",
+      "Use sound contrasts, spoken-written variation, honorific register, and cohesion appropriately"
+    ],
+    "units": [
+      {
+        "id": "ml-a1-u1",
+        "title": "First words",
+        "lessons": [
+          {
+            "id": "ml-a1-l1",
+            "title": "അഭിവാദ്യവും പരിചയവും",
+            "learn": "Control അഭിവാദ്യവും പരിചയവും in level-appropriate Malayalam.",
+            "vocab": [
+              {
+                "t": "നമസ്കാരം",
+                "r": "namaskāraṃ",
+                "en": "discourse segment in “Hello, my name is Anu.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "എന്റെ",
+                "r": "ènṟè",
+                "en": "discourse segment in “Hello, my name is Anu.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "പേര്",
+                "r": "per",
+                "en": "discourse segment in “Hello, my name is Anu.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "അനു",
+                "r": "anu",
+                "en": "discourse segment in “Hello, my name is Anu.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "എന്നാണ്",
+                "r": "ènnāṇ",
+                "en": "discourse segment in “Hello, my name is Anu.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "അർഥം",
+                "r": "aർthaṃ",
+                "en": "discourse segment in “Hello, my name is Anu.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "സാഹചര്യം",
+                "r": "sāhacaryaṃ",
+                "en": "discourse segment in “Hello, my name is Anu.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "നിലപാട്",
+                "r": "nilapāṭ",
+                "en": "discourse segment in “Hello, my name is Anu.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "അഭിവാദ്യവും പരിചയവും",
+              "explain": "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning.",
+              "pattern": "case-marked arguments + participial/adverbial material + auxiliaries + final predicate",
+              "examples": [
+                {
+                  "t": "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                  "r": "namaskāraṃ, ènṟè per anu ènnāṇ.",
+                  "en": "Hello, my name is Anu."
+                },
+                {
+                  "t": "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                  "r": "ñāൻ vidyāർtthiyāṇ, niṅṅaൾ adhyāpakanāṇ.",
+                  "en": "I am a student, and you are a teacher."
+                },
+                {
+                  "t": "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                  "r": "ñāൻ èllā rāvilèyuṃ malayāḻaṃ paṭhikkunnu.",
+                  "en": "I study Malayalam every morning."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with incorrect case, participle, negation, or register",
+                  "right": "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                  "why": "The corrected model aligns Malayalam morphology, clause linkage, and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "പഠിതാവ്",
+                "t": "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                "r": "namaskāraṃ, ènṟè per anu ènnāṇ.",
+                "en": "Hello, my name is Anu."
+              },
+              {
+                "sp": "സഹപ്രവർത്തക",
+                "t": "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                "r": "ñāൻ vidyāർtthiyāṇ, niṅṅaൾ adhyāpakanāṇ.",
+                "en": "I am a student, and you are a teacher."
+              },
+              {
+                "sp": "മധ്യസ്ഥൻ",
+                "t": "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                "r": "ñāൻ èllā rāvilèyuṃ malayāḻaṃ paṭhikkunnu.",
+                "en": "I study Malayalam every morning."
+              },
+              {
+                "sp": "പത്രാധിപർ",
+                "t": "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                "r": "niṅṅaൾ skūḻin aṭuttāṇo tāmasikkunnat?",
+                "en": "Do you live near the school?"
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "അഭിവാദ്യവും പരിചയവും — multiple choice: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                "answer": "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "അഭിവാദ്യവും പരിചയവും — fill in the blank: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                "answer": "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "അഭിവാദ്യവും പരിചയവും — translation: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                "answer": "Hello, my name is Anu.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "അഭിവാദ്യവും പരിചയവും — reverse translation: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                "answer": "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "അഭിവാദ്യവും പരിചയവും — matching: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                "answer": "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                "skill_target": "matching",
+                "options": [
+                  "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "അഭിവാദ്യവും പരിചയവും — reorder: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                "answer": "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "അഭിവാദ്യവും പരിചയവും — sentence building: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                "answer": "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "അഭിവാദ്യവും പരിചയവും — word selection: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                "answer": "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                "skill_target": "word selection",
+                "options": [
+                  "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "അഭിവാദ്യവും പരിചയവും — error correction: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                "answer": "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "അഭിവാദ്യവും പരിചയവും — dialogue completion: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                "answer": "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "അഭിവാദ്യവും പരിചയവും — reading comprehension: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                "answer": "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "അഭിവാദ്യവും പരിചയവും — paragraph comprehension: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                "answer": "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "അഭിവാദ്യവും പരിചയവും: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "അഭിവാദ്യവും പരിചയവും: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "അഭിവാദ്യവും പരിചയവും: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "അഭിവാദ്യവും പരിചയവും: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "അഭിവാദ്യവും പരിചയവും: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "അഭിവാദ്യവും പരിചയവും workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate case, participles, aspect, and discourse function.",
+                  "items": [
+                    "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                    "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്."
+                  ],
+                  "key": [
+                    "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning.",
+                    "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                    "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്."
+                  ],
+                  "key": [
+                    "Hello, my name is Anu.",
+                    "I am a student, and you are a teacher."
+                  ]
+                },
+                {
+                  "instruction": "Transform spoken/written register and justify choices.",
+                  "items": [
+                    "Hello, my name is Anu.",
+                    "I am a student, and you are a teacher."
+                  ],
+                  "key": [
+                    "Model: നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                    "Model: ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "നമസ്കാരം",
+              "എന്റെ",
+              "പേര്",
+              "അനു"
+            ],
+            "srs_policy": "Only high-value forms are preselected; mistakes and productive patterns enter review after learner evidence."
+          },
+          {
+            "id": "ml-a1-l2",
+            "title": "വ്യക്തിയും ജോലിയും",
+            "learn": "Control വ്യക്തിയും ജോലിയും in level-appropriate Malayalam.",
+            "vocab": [
+              {
+                "t": "ഞാൻ",
+                "r": "ñāൻ",
+                "en": "discourse segment in “I am a student, and you are a teacher.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "വിദ്യാർത്ഥിയാണ്",
+                "r": "vidyāർtthiyāṇ",
+                "en": "discourse segment in “I am a student, and you are a teacher.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "നിങ്ങൾ",
+                "r": "niṅṅaൾ",
+                "en": "discourse segment in “I am a student, and you are a teacher.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "അധ്യാപകനാണ്",
+                "r": "adhyāpakanāṇ",
+                "en": "discourse segment in “I am a student, and you are a teacher.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "അർഥം",
+                "r": "aർthaṃ",
+                "en": "discourse segment in “I am a student, and you are a teacher.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "സാഹചര്യം",
+                "r": "sāhacaryaṃ",
+                "en": "discourse segment in “I am a student, and you are a teacher.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "നിലപാട്",
+                "r": "nilapāṭ",
+                "en": "discourse segment in “I am a student, and you are a teacher.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ഫലം",
+                "r": "phalaṃ",
+                "en": "discourse segment in “I am a student, and you are a teacher.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "വ്യക്തിയും ജോലിയും",
+              "explain": "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning.",
+              "pattern": "case-marked arguments + participial/adverbial material + auxiliaries + final predicate",
+              "examples": [
+                {
+                  "t": "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                  "r": "ñāൻ vidyāർtthiyāṇ, niṅṅaൾ adhyāpakanāṇ.",
+                  "en": "I am a student, and you are a teacher."
+                },
+                {
+                  "t": "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                  "r": "ñāൻ èllā rāvilèyuṃ malayāḻaṃ paṭhikkunnu.",
+                  "en": "I study Malayalam every morning."
+                },
+                {
+                  "t": "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                  "r": "niṅṅaൾ skūḻin aṭuttāṇo tāmasikkunnat?",
+                  "en": "Do you live near the school?"
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with incorrect case, participle, negation, or register",
+                  "right": "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                  "why": "The corrected model aligns Malayalam morphology, clause linkage, and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "പഠിതാവ്",
+                "t": "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                "r": "ñāൻ vidyāർtthiyāṇ, niṅṅaൾ adhyāpakanāṇ.",
+                "en": "I am a student, and you are a teacher."
+              },
+              {
+                "sp": "സഹപ്രവർത്തക",
+                "t": "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                "r": "ñāൻ èllā rāvilèyuṃ malayāḻaṃ paṭhikkunnu.",
+                "en": "I study Malayalam every morning."
+              },
+              {
+                "sp": "മധ്യസ്ഥൻ",
+                "t": "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                "r": "niṅṅaൾ skūḻin aṭuttāṇo tāmasikkunnat?",
+                "en": "Do you live near the school?"
+              },
+              {
+                "sp": "പത്രാധിപർ",
+                "t": "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                "r": "it putiya pustakamāṇ, at cuvanna āppiḻāṇ.",
+                "en": "This is the new book, and that is the red apple."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reorder",
+                "q": "വ്യക്തിയും ജോലിയും — reorder: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                "answer": "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "വ്യക്തിയും ജോലിയും — sentence building: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                "answer": "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "വ്യക്തിയും ജോലിയും — word selection: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                "answer": "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                "skill_target": "word selection",
+                "options": [
+                  "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "വ്യക്തിയും ജോലിയും — error correction: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                "answer": "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "വ്യക്തിയും ജോലിയും — dialogue completion: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                "answer": "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "വ്യക്തിയും ജോലിയും — reading comprehension: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                "answer": "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "വ്യക്തിയും ജോലിയും — paragraph comprehension: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                "answer": "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "വ്യക്തിയും ജോലിയും — multiple choice: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                "answer": "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "വ്യക്തിയും ജോലിയും — fill in the blank: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                "answer": "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "വ്യക്തിയും ജോലിയും — translation: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                "answer": "I am a student, and you are a teacher.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "വ്യക്തിയും ജോലിയും — reverse translation: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                "answer": "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "വ്യക്തിയും ജോലിയും — matching: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                "answer": "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                "skill_target": "matching",
+                "options": [
+                  "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting"
+                ]
+              }
+            ],
+            "quiz": [
+              {
+                "q": "വ്യക്തിയും ജോലിയും: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "വ്യക്തിയും ജോലിയും: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "വ്യക്തിയും ജോലിയും: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "വ്യക്തിയും ജോലിയും: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "വ്യക്തിയും ജോലിയും: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "വ്യക്തിയും ജോലിയും workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate case, participles, aspect, and discourse function.",
+                  "items": [
+                    "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                    "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു."
+                  ],
+                  "key": [
+                    "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning.",
+                    "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                    "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു."
+                  ],
+                  "key": [
+                    "I am a student, and you are a teacher.",
+                    "I study Malayalam every morning."
+                  ]
+                },
+                {
+                  "instruction": "Transform spoken/written register and justify choices.",
+                  "items": [
+                    "I am a student, and you are a teacher.",
+                    "I study Malayalam every morning."
+                  ],
+                  "key": [
+                    "Model: ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                    "Model: ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "ഞാൻ",
+              "വിദ്യാർത്ഥിയാണ്",
+              "നിങ്ങൾ",
+              "അധ്യാപകനാണ്"
+            ],
+            "srs_policy": "Only high-value forms are preselected; mistakes and productive patterns enter review after learner evidence."
+          }
+        ]
+      },
+      {
+        "id": "ml-a1-u2",
+        "title": "Daily life",
+        "lessons": [
+          {
+            "id": "ml-a1-l3",
+            "title": "ദൈനംദിന ശീലം",
+            "learn": "Control ദൈനംദിന ശീലം in level-appropriate Malayalam.",
+            "vocab": [
+              {
+                "t": "ഞാൻ",
+                "r": "ñāൻ",
+                "en": "discourse segment in “I study Malayalam every morning.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "എല്ലാ",
+                "r": "èllā",
+                "en": "discourse segment in “I study Malayalam every morning.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "രാവിലെയും",
+                "r": "rāvilèyuṃ",
+                "en": "discourse segment in “I study Malayalam every morning.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "മലയാളം",
+                "r": "malayāḻaṃ",
+                "en": "discourse segment in “I study Malayalam every morning.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "പഠിക്കുന്നു",
+                "r": "paṭhikkunnu",
+                "en": "discourse segment in “I study Malayalam every morning.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "അർഥം",
+                "r": "aർthaṃ",
+                "en": "discourse segment in “I study Malayalam every morning.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "സാഹചര്യം",
+                "r": "sāhacaryaṃ",
+                "en": "discourse segment in “I study Malayalam every morning.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "നിലപാട്",
+                "r": "nilapāṭ",
+                "en": "discourse segment in “I study Malayalam every morning.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "ദൈനംദിന ശീലം",
+              "explain": "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning.",
+              "pattern": "case-marked arguments + participial/adverbial material + auxiliaries + final predicate",
+              "examples": [
+                {
+                  "t": "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                  "r": "ñāൻ èllā rāvilèyuṃ malayāḻaṃ paṭhikkunnu.",
+                  "en": "I study Malayalam every morning."
+                },
+                {
+                  "t": "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                  "r": "niṅṅaൾ skūḻin aṭuttāṇo tāmasikkunnat?",
+                  "en": "Do you live near the school?"
+                },
+                {
+                  "t": "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                  "r": "it putiya pustakamāṇ, at cuvanna āppiḻāṇ.",
+                  "en": "This is the new book, and that is the red apple."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with incorrect case, participle, negation, or register",
+                  "right": "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                  "why": "The corrected model aligns Malayalam morphology, clause linkage, and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "പഠിതാവ്",
+                "t": "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                "r": "ñāൻ èllā rāvilèyuṃ malayāḻaṃ paṭhikkunnu.",
+                "en": "I study Malayalam every morning."
+              },
+              {
+                "sp": "സഹപ്രവർത്തക",
+                "t": "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                "r": "niṅṅaൾ skūḻin aṭuttāṇo tāmasikkunnat?",
+                "en": "Do you live near the school?"
+              },
+              {
+                "sp": "മധ്യസ്ഥൻ",
+                "t": "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                "r": "it putiya pustakamāṇ, at cuvanna āppiḻāṇ.",
+                "en": "This is the new book, and that is the red apple."
+              },
+              {
+                "sp": "പത്രാധിപർ",
+                "t": "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                "r": "cantayuṭè aṭutt òru bas sṟṟopp uṇṭ.",
+                "en": "There is a bus stop near the market."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reading_comprehension",
+                "q": "ദൈനംദിന ശീലം — reading comprehension: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                "answer": "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "ദൈനംദിന ശീലം — paragraph comprehension: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                "answer": "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "ദൈനംദിന ശീലം — multiple choice: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                "answer": "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "ദൈനംദിന ശീലം — fill in the blank: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                "answer": "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "ദൈനംദിന ശീലം — translation: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                "answer": "I study Malayalam every morning.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "ദൈനംദിന ശീലം — reverse translation: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                "answer": "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "ദൈനംദിന ശീലം — matching: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                "answer": "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                "skill_target": "matching",
+                "options": [
+                  "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "ദൈനംദിന ശീലം — reorder: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                "answer": "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "ദൈനംദിന ശീലം — sentence building: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                "answer": "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "ദൈനംദിന ശീലം — word selection: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                "answer": "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                "skill_target": "word selection",
+                "options": [
+                  "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "ദൈനംദിന ശീലം — error correction: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                "answer": "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "ദൈനംദിന ശീലം — dialogue completion: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                "answer": "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                "skill_target": "dialogue completion"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "ദൈനംദിന ശീലം: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "ദൈനംദിന ശീലം: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "ദൈനംദിന ശീലം: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "ദൈനംദിന ശീലം: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "ദൈനംദിന ശീലം: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "ദൈനംദിന ശീലം workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate case, participles, aspect, and discourse function.",
+                  "items": [
+                    "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                    "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?"
+                  ],
+                  "key": [
+                    "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning.",
+                    "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                    "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?"
+                  ],
+                  "key": [
+                    "I study Malayalam every morning.",
+                    "Do you live near the school?"
+                  ]
+                },
+                {
+                  "instruction": "Transform spoken/written register and justify choices.",
+                  "items": [
+                    "I study Malayalam every morning.",
+                    "Do you live near the school?"
+                  ],
+                  "key": [
+                    "Model: ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                    "Model: നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "ഞാൻ",
+              "എല്ലാ",
+              "രാവിലെയും",
+              "മലയാളം"
+            ],
+            "srs_policy": "Only high-value forms are preselected; mistakes and productive patterns enter review after learner evidence."
+          },
+          {
+            "id": "ml-a1-l4",
+            "title": "ലളിതമായ ചോദ്യം",
+            "learn": "Control ലളിതമായ ചോദ്യം in level-appropriate Malayalam.",
+            "vocab": [
+              {
+                "t": "നിങ്ങൾ",
+                "r": "niṅṅaൾ",
+                "en": "discourse segment in “Do you live near the school?”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "സ്കൂളിന്",
+                "r": "skūḻin",
+                "en": "discourse segment in “Do you live near the school?”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "അടുത്താണോ",
+                "r": "aṭuttāṇo",
+                "en": "discourse segment in “Do you live near the school?”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "താമസിക്കുന്നത്",
+                "r": "tāmasikkunnat",
+                "en": "discourse segment in “Do you live near the school?”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "അർഥം",
+                "r": "aർthaṃ",
+                "en": "discourse segment in “Do you live near the school?”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "സാഹചര്യം",
+                "r": "sāhacaryaṃ",
+                "en": "discourse segment in “Do you live near the school?”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "നിലപാട്",
+                "r": "nilapāṭ",
+                "en": "discourse segment in “Do you live near the school?”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ഫലം",
+                "r": "phalaṃ",
+                "en": "discourse segment in “Do you live near the school?”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "ലളിതമായ ചോദ്യം",
+              "explain": "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning.",
+              "pattern": "case-marked arguments + participial/adverbial material + auxiliaries + final predicate",
+              "examples": [
+                {
+                  "t": "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                  "r": "niṅṅaൾ skūḻin aṭuttāṇo tāmasikkunnat?",
+                  "en": "Do you live near the school?"
+                },
+                {
+                  "t": "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                  "r": "it putiya pustakamāṇ, at cuvanna āppiḻāṇ.",
+                  "en": "This is the new book, and that is the red apple."
+                },
+                {
+                  "t": "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                  "r": "cantayuṭè aṭutt òru bas sṟṟopp uṇṭ.",
+                  "en": "There is a bus stop near the market."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with incorrect case, participle, negation, or register",
+                  "right": "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                  "why": "The corrected model aligns Malayalam morphology, clause linkage, and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "പഠിതാവ്",
+                "t": "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                "r": "niṅṅaൾ skūḻin aṭuttāṇo tāmasikkunnat?",
+                "en": "Do you live near the school?"
+              },
+              {
+                "sp": "സഹപ്രവർത്തക",
+                "t": "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                "r": "it putiya pustakamāṇ, at cuvanna āppiḻāṇ.",
+                "en": "This is the new book, and that is the red apple."
+              },
+              {
+                "sp": "മധ്യസ്ഥൻ",
+                "t": "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                "r": "cantayuṭè aṭutt òru bas sṟṟopp uṇṭ.",
+                "en": "There is a bus stop near the market."
+              },
+              {
+                "sp": "പത്രാധിപർ",
+                "t": "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                "r": "namaskāraṃ, ènṟè per anu ènnāṇ.",
+                "en": "Hello, my name is Anu."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reverse_translation",
+                "q": "ലളിതമായ ചോദ്യം — reverse translation: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                "answer": "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "ലളിതമായ ചോദ്യം — matching: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                "answer": "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                "skill_target": "matching",
+                "options": [
+                  "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "ലളിതമായ ചോദ്യം — reorder: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                "answer": "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "ലളിതമായ ചോദ്യം — sentence building: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                "answer": "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "ലളിതമായ ചോദ്യം — word selection: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                "answer": "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                "skill_target": "word selection",
+                "options": [
+                  "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "ലളിതമായ ചോദ്യം — error correction: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                "answer": "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "ലളിതമായ ചോദ്യം — dialogue completion: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                "answer": "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "ലളിതമായ ചോദ്യം — reading comprehension: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                "answer": "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "ലളിതമായ ചോദ്യം — paragraph comprehension: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                "answer": "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "ലളിതമായ ചോദ്യം — multiple choice: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                "answer": "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                "skill_target": "multiple choice",
+                "options": [
+                  "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "ലളിതമായ ചോദ്യം — fill in the blank: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                "answer": "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "ലളിതമായ ചോദ്യം — translation: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                "answer": "Do you live near the school?",
+                "skill_target": "translation"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "ലളിതമായ ചോദ്യം: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "ലളിതമായ ചോദ്യം: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "ലളിതമായ ചോദ്യം: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "ലളിതമായ ചോദ്യം: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "ലളിതമായ ചോദ്യം: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "ലളിതമായ ചോദ്യം workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate case, participles, aspect, and discourse function.",
+                  "items": [
+                    "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                    "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്."
+                  ],
+                  "key": [
+                    "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning.",
+                    "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                    "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്."
+                  ],
+                  "key": [
+                    "Do you live near the school?",
+                    "This is the new book, and that is the red apple."
+                  ]
+                },
+                {
+                  "instruction": "Transform spoken/written register and justify choices.",
+                  "items": [
+                    "Do you live near the school?",
+                    "This is the new book, and that is the red apple."
+                  ],
+                  "key": [
+                    "Model: നിങ്ങൾ സ്കൂളിന് അടുത്താണോ താമസിക്കുന്നത്?",
+                    "Model: ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "നിങ്ങൾ",
+              "സ്കൂളിന്",
+              "അടുത്താണോ",
+              "താമസിക്കുന്നത്"
+            ],
+            "srs_policy": "Only high-value forms are preselected; mistakes and productive patterns enter review after learner evidence."
+          }
+        ]
+      },
+      {
+        "id": "ml-a1-u3",
+        "title": "Describing words",
+        "lessons": [
+          {
+            "id": "ml-a1-l5",
+            "title": "വസ്തുവും ഗുണവും",
+            "learn": "Control വസ്തുവും ഗുണവും in level-appropriate Malayalam.",
+            "vocab": [
+              {
+                "t": "ഇത്",
+                "r": "it",
+                "en": "discourse segment in “This is the new book, and that is the red apple.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "പുതിയ",
+                "r": "putiya",
+                "en": "discourse segment in “This is the new book, and that is the red apple.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "പുസ്തകമാണ്",
+                "r": "pustakamāṇ",
+                "en": "discourse segment in “This is the new book, and that is the red apple.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "അത്",
+                "r": "at",
+                "en": "discourse segment in “This is the new book, and that is the red apple.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ചുവന്ന",
+                "r": "cuvanna",
+                "en": "discourse segment in “This is the new book, and that is the red apple.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ആപ്പിളാണ്",
+                "r": "āppiḻāṇ",
+                "en": "discourse segment in “This is the new book, and that is the red apple.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "അർഥം",
+                "r": "aർthaṃ",
+                "en": "discourse segment in “This is the new book, and that is the red apple.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "സാഹചര്യം",
+                "r": "sāhacaryaṃ",
+                "en": "discourse segment in “This is the new book, and that is the red apple.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "വസ്തുവും ഗുണവും",
+              "explain": "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning.",
+              "pattern": "case-marked arguments + participial/adverbial material + auxiliaries + final predicate",
+              "examples": [
+                {
+                  "t": "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                  "r": "it putiya pustakamāṇ, at cuvanna āppiḻāṇ.",
+                  "en": "This is the new book, and that is the red apple."
+                },
+                {
+                  "t": "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                  "r": "cantayuṭè aṭutt òru bas sṟṟopp uṇṭ.",
+                  "en": "There is a bus stop near the market."
+                },
+                {
+                  "t": "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                  "r": "namaskāraṃ, ènṟè per anu ènnāṇ.",
+                  "en": "Hello, my name is Anu."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with incorrect case, participle, negation, or register",
+                  "right": "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                  "why": "The corrected model aligns Malayalam morphology, clause linkage, and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "പഠിതാവ്",
+                "t": "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                "r": "it putiya pustakamāṇ, at cuvanna āppiḻāṇ.",
+                "en": "This is the new book, and that is the red apple."
+              },
+              {
+                "sp": "സഹപ്രവർത്തക",
+                "t": "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                "r": "cantayuṭè aṭutt òru bas sṟṟopp uṇṭ.",
+                "en": "There is a bus stop near the market."
+              },
+              {
+                "sp": "മധ്യസ്ഥൻ",
+                "t": "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                "r": "namaskāraṃ, ènṟè per anu ènnāṇ.",
+                "en": "Hello, my name is Anu."
+              },
+              {
+                "sp": "പത്രാധിപർ",
+                "t": "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                "r": "ñāൻ vidyāർtthiyāṇ, niṅṅaൾ adhyāpakanāṇ.",
+                "en": "I am a student, and you are a teacher."
+              }
+            ],
+            "practice": [
+              {
+                "type": "error_correction",
+                "q": "വസ്തുവും ഗുണവും — error correction: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                "answer": "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "വസ്തുവും ഗുണവും — dialogue completion: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                "answer": "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "വസ്തുവും ഗുണവും — reading comprehension: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                "answer": "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "വസ്തുവും ഗുണവും — paragraph comprehension: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                "answer": "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "വസ്തുവും ഗുണവും — multiple choice: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                "answer": "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "വസ്തുവും ഗുണവും — fill in the blank: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                "answer": "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "വസ്തുവും ഗുണവും — translation: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                "answer": "This is the new book, and that is the red apple.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "വസ്തുവും ഗുണവും — reverse translation: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                "answer": "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "വസ്തുവും ഗുണവും — matching: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                "answer": "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                "skill_target": "matching",
+                "options": [
+                  "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "വസ്തുവും ഗുണവും — reorder: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                "answer": "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "വസ്തുവും ഗുണവും — sentence building: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                "answer": "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "വസ്തുവും ഗുണവും — word selection: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                "answer": "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                "skill_target": "word selection",
+                "options": [
+                  "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting"
+                ]
+              }
+            ],
+            "quiz": [
+              {
+                "q": "വസ്തുവും ഗുണവും: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "വസ്തുവും ഗുണവും: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "വസ്തുവും ഗുണവും: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "വസ്തുവും ഗുണവും: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "വസ്തുവും ഗുണവും: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "വസ്തുവും ഗുണവും workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate case, participles, aspect, and discourse function.",
+                  "items": [
+                    "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                    "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്."
+                  ],
+                  "key": [
+                    "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning.",
+                    "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                    "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്."
+                  ],
+                  "key": [
+                    "This is the new book, and that is the red apple.",
+                    "There is a bus stop near the market."
+                  ]
+                },
+                {
+                  "instruction": "Transform spoken/written register and justify choices.",
+                  "items": [
+                    "This is the new book, and that is the red apple.",
+                    "There is a bus stop near the market."
+                  ],
+                  "key": [
+                    "Model: ഇത് പുതിയ പുസ്തകമാണ്, അത് ചുവന്ന ആപ്പിളാണ്.",
+                    "Model: ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "ഇത്",
+              "പുതിയ",
+              "പുസ്തകമാണ്",
+              "അത്"
+            ],
+            "srs_policy": "Only high-value forms are preselected; mistakes and productive patterns enter review after learner evidence."
+          },
+          {
+            "id": "ml-a1-l6",
+            "title": "സ്ഥലവും അസ്തിത്വവും",
+            "learn": "Control സ്ഥലവും അസ്തിത്വവും in level-appropriate Malayalam.",
+            "vocab": [
+              {
+                "t": "ചന്തയുടെ",
+                "r": "cantayuṭè",
+                "en": "discourse segment in “There is a bus stop near the market.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "അടുത്ത്",
+                "r": "aṭutt",
+                "en": "discourse segment in “There is a bus stop near the market.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ഒരു",
+                "r": "òru",
+                "en": "discourse segment in “There is a bus stop near the market.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ബസ്",
+                "r": "bas",
+                "en": "discourse segment in “There is a bus stop near the market.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "സ്റ്റോപ്പ്",
+                "r": "sṟṟopp",
+                "en": "discourse segment in “There is a bus stop near the market.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ഉണ്ട്",
+                "r": "uṇṭ",
+                "en": "discourse segment in “There is a bus stop near the market.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "അർഥം",
+                "r": "aർthaṃ",
+                "en": "discourse segment in “There is a bus stop near the market.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "സാഹചര്യം",
+                "r": "sāhacaryaṃ",
+                "en": "discourse segment in “There is a bus stop near the market.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "സ്ഥലവും അസ്തിത്വവും",
+              "explain": "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning.",
+              "pattern": "case-marked arguments + participial/adverbial material + auxiliaries + final predicate",
+              "examples": [
+                {
+                  "t": "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                  "r": "cantayuṭè aṭutt òru bas sṟṟopp uṇṭ.",
+                  "en": "There is a bus stop near the market."
+                },
+                {
+                  "t": "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                  "r": "namaskāraṃ, ènṟè per anu ènnāṇ.",
+                  "en": "Hello, my name is Anu."
+                },
+                {
+                  "t": "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                  "r": "ñāൻ vidyāർtthiyāṇ, niṅṅaൾ adhyāpakanāṇ.",
+                  "en": "I am a student, and you are a teacher."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with incorrect case, participle, negation, or register",
+                  "right": "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                  "why": "The corrected model aligns Malayalam morphology, clause linkage, and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "പഠിതാവ്",
+                "t": "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                "r": "cantayuṭè aṭutt òru bas sṟṟopp uṇṭ.",
+                "en": "There is a bus stop near the market."
+              },
+              {
+                "sp": "സഹപ്രവർത്തക",
+                "t": "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്.",
+                "r": "namaskāraṃ, ènṟè per anu ènnāṇ.",
+                "en": "Hello, my name is Anu."
+              },
+              {
+                "sp": "മധ്യസ്ഥൻ",
+                "t": "ഞാൻ വിദ്യാർത്ഥിയാണ്, നിങ്ങൾ അധ്യാപകനാണ്.",
+                "r": "ñāൻ vidyāർtthiyāṇ, niṅṅaൾ adhyāpakanāṇ.",
+                "en": "I am a student, and you are a teacher."
+              },
+              {
+                "sp": "പത്രാധിപർ",
+                "t": "ഞാൻ എല്ലാ രാവിലെയും മലയാളം പഠിക്കുന്നു.",
+                "r": "ñāൻ èllā rāvilèyuṃ malayāḻaṃ paṭhikkunnu.",
+                "en": "I study Malayalam every morning."
+              }
+            ],
+            "practice": [
+              {
+                "type": "fill_in_the_blank",
+                "q": "സ്ഥലവും അസ്തിത്വവും — fill in the blank: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                "answer": "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "സ്ഥലവും അസ്തിത്വവും — translation: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                "answer": "There is a bus stop near the market.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "സ്ഥലവും അസ്തിത്വവും — reverse translation: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                "answer": "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "സ്ഥലവും അസ്തിത്വവും — matching: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                "answer": "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                "skill_target": "matching",
+                "options": [
+                  "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "സ്ഥലവും അസ്തിത്വവും — reorder: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                "answer": "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "സ്ഥലവും അസ്തിത്വവും — sentence building: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                "answer": "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "സ്ഥലവും അസ്തിത്വവും — word selection: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                "answer": "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                "skill_target": "word selection",
+                "options": [
+                  "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "സ്ഥലവും അസ്തിത്വവും — error correction: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                "answer": "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "സ്ഥലവും അസ്തിത്വവും — dialogue completion: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                "answer": "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "സ്ഥലവും അസ്തിത്വവും — reading comprehension: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                "answer": "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "സ്ഥലവും അസ്തിത്വവും — paragraph comprehension: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                "answer": "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "സ്ഥലവും അസ്തിത്വവും — multiple choice: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                "answer": "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting"
+                ]
+              }
+            ],
+            "quiz": [
+              {
+                "q": "സ്ഥലവും അസ്തിത്വവും: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "സ്ഥലവും അസ്തിത്വവും: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "സ്ഥലവും അസ്തിത്വവും: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "സ്ഥലവും അസ്തിത്വവും: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "സ്ഥലവും അസ്തിത്വവും: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "സ്ഥലവും അസ്തിത്വവും workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate case, participles, aspect, and discourse function.",
+                  "items": [
+                    "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                    "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്."
+                  ],
+                  "key": [
+                    "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning.",
+                    "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                    "നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്."
+                  ],
+                  "key": [
+                    "There is a bus stop near the market.",
+                    "Hello, my name is Anu."
+                  ]
+                },
+                {
+                  "instruction": "Transform spoken/written register and justify choices.",
+                  "items": [
+                    "There is a bus stop near the market.",
+                    "Hello, my name is Anu."
+                  ],
+                  "key": [
+                    "Model: ചന്തയുടെ അടുത്ത് ഒരു ബസ് സ്റ്റോപ്പ് ഉണ്ട്.",
+                    "Model: നമസ്കാരം, എന്റെ പേര് അനു എന്നാണ്."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "ചന്തയുടെ",
+              "അടുത്ത്",
+              "ഒരു",
+              "ബസ്"
+            ],
+            "srs_policy": "Only high-value forms are preselected; mistakes and productive patterns enter review after learner evidence."
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "A1 final test",
+      "items": [
+        {
+          "type": "sentence_writing",
+          "q": "Malayalam A1 integrated task 1: respond with accurate script, grammar, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Malayalam course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Malayalam A1 integrated task 2: respond with accurate script, grammar, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Malayalam course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Malayalam A1 integrated task 3: respond with accurate script, grammar, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Malayalam course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Malayalam A1 integrated task 4: respond with accurate script, grammar, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Malayalam course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Malayalam A1 integrated task 5: respond with accurate script, grammar, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Malayalam course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Malayalam A1 integrated task 6: respond with accurate script, grammar, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Malayalam course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Malayalam A1 integrated task 7: respond with accurate script, grammar, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Malayalam course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Malayalam A1 integrated task 8: respond with accurate script, grammar, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Malayalam course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Malayalam A1 integrated task 9: respond with accurate script, grammar, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Malayalam course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Malayalam A1 integrated task 10: respond with accurate script, grammar, cohesion, and register.",
+          "answer": "A valid A1 response must satisfy the Malayalam course rubric."
+        }
+      ]
+    }
+  },
+  "research_basis": "data/language-research/ml.json"
+}
