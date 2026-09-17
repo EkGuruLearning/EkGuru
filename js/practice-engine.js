@@ -26,6 +26,19 @@
   "use strict";
 
   var KEY = "ekguru_mastery_v1";
+  var ROUND_KEY = "ekguru_practice_round_v1";
+
+  function roundNumber(id) {
+    try { return parseInt((JSON.parse(localStorage.getItem(ROUND_KEY) || "{}") || {})[id], 10) || 0; } catch (e) { return 0; }
+  }
+  function bumpRound(id) {
+    try {
+      var m = JSON.parse(localStorage.getItem(ROUND_KEY) || "{}") || {};
+      m[id] = (parseInt(m[id], 10) || 0) + 1;
+      localStorage.setItem(ROUND_KEY, JSON.stringify(m));
+      return m[id];
+    } catch (e) { return 0; }
+  }
 
   function bank(name) {
     return (window.EKGURU_PRACTICE_BANK || {})[name] || [];
@@ -171,19 +184,20 @@
     var entries;
     var mode = cfg.mode || "practice";
 
-    if (mode === "review") {
-      entries = dueEntries();
-    } else if (mode === "daily") {
-      entries = dayShuffle(allBanks(), "daily:" + (cfg.count || 10)).slice(0, cfg.count || 10);
-    } else if (mode === "placement") {
-      entries = bank("placement").map(function (item, i) { return { bank: "placement", index: i, item: item }; });
-    } else if (mode === "speak") {
-      entries = bank("speaking").map(function (item, i) { return { bank: "speaking", index: i, item: item }; });
-      entries = dayShuffle(entries, "speak").slice(0, cfg.count || entries.length);
-    } else {
+    var roundId = mode + ":" + (cfg.bank || "mixed") + ":" + (cfg.count || 0);
+    function chooseEntries() {
+      var round = roundNumber(roundId);
+      if (mode === "review") return dueEntries();
+      if (mode === "daily") return dayShuffle(allBanks(), "daily:" + (cfg.count || 10) + ":round:" + round).slice(0, cfg.count || 10);
+      if (mode === "placement") return bank("placement").map(function (item, i) { return { bank: "placement", index: i, item: item }; });
+      if (mode === "speak") {
+        var spoken = bank("speaking").map(function (item, i) { return { bank: "speaking", index: i, item: item }; });
+        return dayShuffle(spoken, "speak:round:" + round).slice(0, cfg.count || spoken.length);
+      }
       var src = bank(cfg.bank).map(function (item, i) { return { bank: cfg.bank, index: i, item: item }; });
-      entries = dayShuffle(src, cfg.bank).slice(0, cfg.count || src.length);
+      return dayShuffle(src, cfg.bank + ":round:" + round).slice(0, cfg.count || src.length);
     }
+    entries = chooseEntries();
 
     var state = { i: 0, score: 0, answered: false, answerWords: [] };
     var box = el;
@@ -443,6 +457,8 @@
       box.innerHTML = body;
       var again = box.querySelector(".px-again");
       if (again) again.addEventListener("click", function () {
+        bumpRound(roundId);
+        entries = chooseEntries();
         state.i = 0; state.score = 0; render();
       });
     }

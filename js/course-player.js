@@ -7,6 +7,7 @@
 var TTS_LANG = { en: "en-GB", fil: "fil-PH", pl: "pl-PL", ro: "ro-RO", tr: "tr-TR", uk: "uk-UA", uzn: "uz-UZ", vi: "vi-VN", kk: "kk-KZ", npi: "ne-NP", zsm: "ms-MY", sw: "sw-KE", nl: "nl-NL", fa: "fa-IR", so: "so-SO", ca: "ca-ES", es: "es-ES", fr: "fr-FR", de: "de-DE", it: "it-IT", pt: "pt-BR", ru: "ru-RU", ar: "ar-SA", ja: "ja-JP", ko: "ko-KR", zh: "zh-CN", hi: "hi-IN", bn: "bn-IN", pa: "pa-IN", ur: "ur-PK", ta: "ta-IN", te: "te-IN", mr: "mr-IN", gu: "gu-IN", kn: "kn-IN", ml: "ml-IN" };
 var LEVEL_NAMES = { A1: "Beginner", A2: "Elementary", B1: "Intermediate", B2: "Advanced", C1: "Proficient", C2: "Mastery" };
 var LS_KEY = "eg-course-progress-v1";
+var PRACTICE_KEY = "eg-course-practice-v1";
 var PRACTICE_CHOICE = ["choose", "multiple_choice", "matching", "word_selection", "listen_and_choose"];
 var PRACTICE_REORDER = ["reorder", "sentence_building", "listen_and_reorder", "discourse_ordering"];
 var PRACTICE_AUDIO = ["listening_comprehension", "dictation", "listen_and_choose", "listen_and_reorder", "listen_and_fill", "repeat_after_audio", "pronunciation", "shadowing"];
@@ -53,6 +54,23 @@ function markTest(key, score) {
   p[key] = p[key] || { done: [], test: 0 };
   p[key].test = Math.max(p[key].test || 0, score);
   saveProgress(p);
+}
+/* Free, quota-free course-data API: versioned JSON is fetched once and cached above.
+   Attempt state stays on-device, so reloads never erase question history or mastery. */
+function practiceId(code, item) {
+  var raw = code + "|" + String(item.type || "") + "|" + String(item.q || "") + "|" + String(item.answer || "");
+  var h = 2166136261;
+  for (var i = 0; i < raw.length; i++) { h ^= raw.charCodeAt(i); h = Math.imul(h, 16777619); }
+  return code + ":" + (h >>> 0).toString(36);
+}
+function practiceHistory() {
+  try { return JSON.parse(localStorage.getItem(PRACTICE_KEY) || "{}") || {}; } catch (e) { return {}; }
+}
+function recordPractice(code, item, correct) {
+  var all = practiceHistory(), id = practiceId(code, item), row = all[id] || { attempts: 0, correct: 0, last: 0 };
+  row.attempts++; if (correct) row.correct++; row.last = Date.now(); all[id] = row;
+  try { localStorage.setItem(PRACTICE_KEY, JSON.stringify(all)); } catch (e) {}
+  return row;
 }
 
 var CSS = [
@@ -337,13 +355,16 @@ Player.prototype.checkText = function (input, answer) {
 Player.prototype.buildPractice = function (box, items, code) {
   var self = this;
   items.forEach(function (it, idx) {
-    var wrap = el('<div class="q"><span class="pill">' + esc(practiceLabel(it.type)) + '</span><br><b>' + (idx + 1) + ".</b> " + esc(it.q || "") + '<div class="body"></div><div class="fb"></div></div>');
-    var body = wrap.querySelector(".body"), fb = wrap.querySelector(".fb");
-    function ok(msg) { fb.className = "fb ok"; fb.textContent = "✓ " + (msg || "Correct!"); }
-    function no(msg) { fb.className = "fb no"; fb.textContent = "✗ " + (msg || ("Answer: " + it.answer)); }
+    var prior = practiceHistory()[practiceId(code, it)];
+    var historyNote = prior ? '<div class="why">Saved history: ' + prior.correct + '/' + prior.attempts + ' correct · attempts do not reset on reload</div>' : '';
+    var wrap = el('<div class="q"><span class="pill">' + esc(practiceLabel(it.type)) + '</span><br><b>' + (idx + 1) + ".</b> " + esc(it.q || "") + historyNote + '<div class="body"></div><div class="fb"></div></div>');
+    var body = wrap.querySelector(".body"), fb = wrap.querySelector(".fb"), recorded = false;
+    function saveResult(good) { if (!recorded) { recordPractice(code, it, good); recorded = true; } }
+    function ok(msg) { saveResult(true); fb.className = "fb ok"; fb.textContent = "✓ " + (msg || "Correct!"); }
+    function no(msg) { saveResult(false); fb.className = "fb no"; fb.textContent = "✗ " + (msg || ("Answer: " + it.answer)); }
     if (hasType(PRACTICE_AUDIO, it.type)) {
       var audioBtn = el('<button class="btn ghost">🔊 Play synthetic ' + esc(TTS_LANG[code] || "voice") + ' audio</button>');
-      audioBtn.addEventListener("click", function () { if (!speak(it.audio_source || it.answer, code)) no("Synthetic audio is unavailable on this device."); });
+      audioBtn.addEventListener("click", function () { if (!speak(it.audio_source || it.answer, code)) { fb.className = "fb no"; fb.textContent = "Synthetic audio is unavailable on this device."; } });
       body.appendChild(audioBtn);
     }
     if (hasType(PRACTICE_CHOICE, it.type)) {
@@ -378,7 +399,7 @@ Player.prototype.buildPractice = function (box, items, code) {
       body.appendChild(builtBox); body.appendChild(poolBox); body.appendChild(chk); body.appendChild(clr);
     } else if (hasType(PRACTICE_SPEAK, it.type)) {
       var sb = el('<button class="btn">🔊 Listen</button>'), mb = el('<button class="btn green">I said it ✓</button>');
-      sb.addEventListener("click", function () { if (!speak(it.answer, code)) no("Audio not available — read aloud!"); });
+      sb.addEventListener("click", function () { if (!speak(it.answer, code)) { fb.className = "fb no"; fb.textContent = "Audio not available — read aloud!"; } });
       mb.addEventListener("click", function () { ok("Self-check recorded. No microphone evaluation was performed."); });
       body.appendChild(sb); body.appendChild(mb);
     } else {
