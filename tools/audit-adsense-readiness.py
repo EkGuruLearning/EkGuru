@@ -21,6 +21,11 @@ OUT=ROOT/'data/quality/adsense-readiness.json'
 EXCLUDED_DIRS={'.git','node_modules','.venv','vendor','reports','research','docs','tools','data'}
 TRUST={'about':'about/index.html','contact':'contact/index.html','privacy':'privacy/index.html','terms':'terms/index.html','disclaimer':'disclaimer/index.html','copyright':'copyright/index.html','cookie_or_consent':'cookie-policy/index.html'}
 COURSE_LEVELS=('A1','A2','B1','B2','C1','C2')
+PRACTICE_STANDARD_PATH=ROOT/'data/quality/global-practice-standard.json'
+PRACTICE_STANDARD=json.loads(PRACTICE_STANDARD_PATH.read_text()) if PRACTICE_STANDARD_PATH.exists() else {'level_policy':{}}
+PRACTICE_MINIMUMS={k:v['minimum_distinct_types'] for k,v in PRACTICE_STANDARD.get('level_policy',{}).items()}
+PLAYER_SOURCE=(ROOT/'js/course-player.js').read_text(errors='ignore') if (ROOT/'js/course-player.js').exists() else ''
+TTS_CODES=set(re.findall(r'\b([a-z]{2,3}):\s*"[a-z]{2,3}(?:-[A-Z]{2})?"',PLAYER_SOURCE))
 
 def state(pass_:bool, partial=False): return 'PASS' if pass_ else ('PARTIAL' if partial else 'FAIL')
 def norm(s): return re.sub(r'[^a-z0-9\u0900-\u0d7f]+',' ',s.lower()).strip()
@@ -104,14 +109,25 @@ def course_audit():
    for key in ('learn','vocab','grammar','dialogue','practice','quiz','worksheet'):
     if not l.get(key): issues.append(f"{l.get('id','?')}:missing_{key}")
    if len(l.get('practice',[]))<5: issues.append(f"{l.get('id','?')}:thin_practice")
-  types={x.get('type') for l in lessons for x in l.get('practice',[]) if x.get('type')}
+  practices=[x for l in lessons for x in l.get('practice',[]) if isinstance(x,dict)]
+  types={x.get('type') for x in practices if x.get('type')}
   lv=d.get('file_level','')
-  if len(types)<5: issues.append('narrow_practice_ecosystem')
+  minimum=PRACTICE_MINIMUMS.get(lv,5)
+  practice_pass=len(types)>=minimum
+  skill_coverage_pass=practice_pass and all(x.get('skill_target') for x in practices)
+  if not practice_pass: issues.append(f'narrow_practice_ecosystem_{len(types)}_below_{minimum}')
+  if not all(x.get('skill_target') for x in practices): issues.append('practice_skill_targets_missing')
   advanced_terms=('register','inference','stance','argument','rhetoric','semantic','academic','professional','idiom','discourse','style','pragmatic')
+  advanced_pass=True
   if lv in ('C1','C2'):
    blob=json.dumps(d,ensure_ascii=False).lower()
-   if sum(t in blob for t in advanced_terms)<4: issues.append('advanced_reality_review')
-  rows.append({'path':str(p.relative_to(ROOT)),'language':d.get('code'),'level':lv,'lesson_count':len(lessons),'practice_type_count':len(types),'status':'PASS' if not issues else 'REVIEW_REQUIRED','issues':sorted(set(issues))})
+   advanced_pass=sum(t in blob for t in advanced_terms)>=4
+   if not advanced_pass: issues.append('advanced_reality_review')
+  code=d.get('code','')
+  research_profile=(ROOT/f'data/language-research/{code}.json').exists() or code=='hi'
+  if not research_profile: issues.append('language_research_profile_missing')
+  gates={'CONTENT':'PASS' if len(lessons)==6 and not any('missing_' in x for x in issues) else 'REVIEW_REQUIRED','PRACTICE':'PASS' if practice_pass else 'REVIEW_REQUIRED','SKILL_COVERAGE':'PASS' if skill_coverage_pass else 'REVIEW_REQUIRED','LEVEL_APPROPRIATENESS':'PASS' if advanced_pass else 'REVIEW_REQUIRED','LANGUAGE_SPECIFIC':'PASS' if research_profile else 'REVIEW_REQUIRED','VOICE_AUDIO':'PASS' if code in TTS_CODES else 'REVIEW_REQUIRED','PLAYER':'PASS'}
+  rows.append({'path':str(p.relative_to(ROOT)),'language':code,'level':lv,'lesson_count':len(lessons),'practice_type_count':len(types),'minimum_practice_type_count':minimum,'gates':gates,'status':'PASS' if not issues and all(x=='PASS' for x in gates.values()) else 'REVIEW_REQUIRED','issues':sorted(set(issues))})
  return rows
 
 def main():

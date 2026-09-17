@@ -36,6 +36,27 @@ Every A1–C2 level must contain substantial explanation, vocabulary, grammar, o
 - **C1:** implicit stance, advanced discourse, complex grammar, idiom, register transformation, academic/professional synthesis and extended interaction.
 - **C2:** semantic precision, presupposition/implication, rhetoric, style, cultural pragmatics, high-stakes interaction, and sophisticated original production. Length or rare vocabulary cannot establish C2.
 
+## Global practice-depth contract
+
+The canonical machine-readable contract is `data/quality/global-practice-standard.json`. The practice **interaction types** are reusable infrastructure; prompts, answers, examples, audio, distractors, linguistic targets, and feedback must be authored for the target language and lesson. Copying the same exercise with language/country tokens replaced fails publication review.
+
+Supported ecosystem:
+
+- **Core:** multiple choice, fill in the blank, translation, reverse translation, matching, reorder, sentence building, word selection, error correction, dialogue completion.
+- **Reading:** reading comprehension, paragraph comprehension, main idea, detail identification, inference.
+- **Listening:** listening comprehension, dictation, listen and choose, listen and reorder, listen and fill.
+- **Speaking:** repeat after audio, pronunciation, shadowing, guided speaking, free response, roleplay.
+- **Writing:** sentence writing, short writing, paraphrase, summary, guided composition.
+- **Advanced:** register transformation, tone identification, semantic distinction, contextual meaning, argument construction, discourse ordering, style rewriting, idiom interpretation, implied meaning.
+
+No lesson must mechanically contain every format. Coverage is assessed at level scope: A1 prioritizes recognition and controlled production; A2 adds practical multi-step comprehension; B1 requires connected independent production; B2 adds argument and professional/social register; C1 requires inference, discourse, register, and academic/professional work; C2 requires semantic, rhetorical, stylistic, pragmatic, and sophisticated production.
+
+A technically valid level remains `REVIEW_REQUIRED` when its practice ecosystem is narrow. The global audit uses minimum diversity signals of 12/16/20/24/28/32 distinct supported formats for A1/A2/B1/B2/C1/C2 respectively. These are triage floors, not permission to add token exercises: each item must test its lesson, contain a valid answer and options where needed, state a skill target, and render through the player.
+
+Language adaptation is mandatory. Script, romanisation/transliteration, pronunciation, morphology, agreement, word order, register, pragmatics, regional variation, and audio tasks must reflect the language research profile. Examples include Devanagari and honorific agreement in Hindi; kana/kanji, particles, and politeness in Japanese; script and root-pattern awareness where pedagogically appropriate in Arabic; characters, pinyin, and tones in Chinese; liaison and formality in French; and Tamil script, agglutinative grammar, and formal/colloquial contrast in Tamil. These examples do not replace research for any language.
+
+A course completion claim requires separate `CONTENT`, `PRACTICE`, `SKILL_COVERAGE`, `LEVEL_APPROPRIATENESS`, `LANGUAGE_SPECIFIC`, `VOICE_AUDIO` (where applicable), and `PLAYER` gates. `validator errors=0` establishes schema validity only.
+
 ## JS and indexability
 
 Interactive practice can deepen a page but cannot be its only indexable value. Important course/guide outcomes need server-delivered headings, summaries, objectives, explanatory text, and internal links. A no-script or static route must still explain what the learner will learn and where to continue.

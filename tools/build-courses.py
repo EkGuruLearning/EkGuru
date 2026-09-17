@@ -36,6 +36,8 @@ PTYPES = (
 )
 CHOICE_PTYPES = ("multiple_choice", "matching", "word_selection", "listen_and_choose")
 AUDIO_PTYPES = ("listening_comprehension", "dictation", "listen_and_choose", "listen_and_reorder", "listen_and_fill", "repeat_after_audio", "pronunciation", "shadowing")
+LEGACY_PTYPES = ("translate_en", "translate_t", "fill", "choose", "reorder", "speak")
+EXTENDED_PTYPES = tuple(x for x in PTYPES if x not in LEGACY_PTYPES)
 ERRORS = []
 
 
@@ -105,6 +107,8 @@ def check_lesson(les, path):
             need_str(p, "q", path)
             if "answer" not in p or p["answer"] in (None, ""):
                 err(f"{path}.practice[{i}]", "missing answer")
+            if p.get("type") in EXTENDED_PTYPES:
+                need_str(p, "skill_target", f"{path}.practice[{i}]")
             if p.get("type") in CHOICE_PTYPES:
                 if not isinstance(p.get("options"), list) or len(p["options"]) < 2:
                     err(f"{path}.practice[{i}]", "choice-style practice needs >=2 options")
