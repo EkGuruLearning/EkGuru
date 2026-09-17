@@ -1,44 +1,44 @@
 {
-  "country": "AE,IR",
-  "language": "Persian",
-  "language_code": "fa",
-  "priority_source": "lang:fas P1 score 69; selected with Dutch to finish a five-country canonical batch while Amharic remains pending targeted authoring evidence",
+  "country": "DJ,ET,KE,SO",
+  "language": "Somali",
+  "language_code": "so",
+  "priority_source": "lang:som P1 score 69",
   "country_relationships": [
-    "AE",
-    "IR"
+    "DJ",
+    "ET",
+    "KE",
+    "SO"
   ],
-  "research": "PASS — data/language-research/fa.json",
+  "research": "PASS — data/language-research/so.json",
   "A1": "PASS",
   "A2": "PASS",
   "B1": "PASS",
   "B2": "PASS",
   "C1": "PASS",
   "C2": "PASS",
-  "QA": "PASS — builder, floors, all lessons, RTL/transliteration, grammar/register, audio, player, answers and duplicates",
+  "QA": "PASS — builder, floors, six-lesson sampling, Somali morphology/focus/register, audio, player, answers and duplicate gates",
   "push": "PASS",
   "course_files": [
-    "data/courses/phase-3/fa_A1.json",
-    "data/courses/phase-3/fa_A2.json",
-    "data/courses/phase-3/fa_B1.json",
-    "data/courses/phase-3/fa_B2.json",
-    "data/courses/phase-3/fa_C1.json",
-    "data/courses/phase-3/fa_C2.json"
+    "data/courses/phase-3/so_A1.json",
+    "data/courses/phase-3/so_A2.json",
+    "data/courses/phase-3/so_B1.json",
+    "data/courses/phase-3/so_B2.json",
+    "data/courses/phase-3/so_C1.json",
+    "data/courses/phase-3/so_C2.json"
   ],
-  "last_commit": "7f0e32e",
+  "last_commit": "b374cc2",
   "completed_multi_country_batch": {
     "languages": [
-      "Dutch",
-      "Persian"
+      "Somali"
     ],
     "country_contexts": [
-      "BE",
-      "NL",
-      "SR",
-      "AE",
-      "IR"
+      "DJ",
+      "ET",
+      "KE",
+      "SO"
     ],
-    "count": 5
+    "count": 4
   },
-  "next_inventory_candidate": "lang:amh Amharic, then lang:sin Sinhala",
+  "next_inventory_candidate": "lang:amh Amharic plus lang:sin Sinhala",
   "review_required": []
 }
