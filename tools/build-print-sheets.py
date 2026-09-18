@@ -4,7 +4,7 @@
 Prakash: "print worksheet pura page hi print karti hai, par humein sirf
 worksheet hi print karni hai."
 
-css/experience.css §26 does the printing. It cannot know, by itself, which
+css/experience.css §27 does the printing. It cannot know, by itself, which
 element on a page IS the sheet — that depends on the page. This tool marks it:
 
   · <body data-print="sheet">        this page prints as a sheet, not a page
@@ -18,7 +18,7 @@ Marked automatically, from what the page actually contains:
   · a printable guide (.art on the /materials/ pages) — 40-odd charts and
     revision sheets whose whole point is a piece of paper.
 
-Everything else keeps normal printing: §26 still turns the chrome off, so a
+Everything else keeps normal printing: §27 still turns the chrome off, so a
 lesson or an answer prints its content and nothing else either.
 
 IDEMPOTENT: the body attribute and the target are set once. Run it twice and

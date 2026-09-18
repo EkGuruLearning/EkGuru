@@ -25,25 +25,7 @@
 <meta name="theme-color" content="#4f32d9">
 <link rel="stylesheet" href="../../../../css/style.min.css">
 <link rel="stylesheet" href="../../../../css/storybook.css">
-<style>
-.art{max-width:760px;margin:0 auto;padding:0 20px 60px}
-.art h1{font-size:2rem;line-height:1.25;margin:26px 0 10px}
-.art .meta{color:var(--muted);font-size:.86rem;margin:0 0 26px}
-.art h2{font-size:1.28rem;margin:34px 0 12px;padding-top:6px}
-.art p,.art li{line-height:1.75}
-.art ul,.art ol{padding-left:22px}
-.art li{margin:7px 0}
-.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0}
-.crumb a{color:var(--muted)}
-.lede{color:var(--ink-2);font-size:1.05rem;line-height:1.7;margin:0 0 22px}
-.linklist{list-style:none;padding:0;margin:12px 0 0}
-.linklist li{padding:10px 0;border-bottom:1px solid var(--line)}
-.linklist li:last-child{border-bottom:0}
-.linklist a{font-weight:600}
-.linklist span{display:block;color:var(--muted);font-size:.87rem;margin-top:2px;line-height:1.5}
-.note{background:var(--bg-soft);border:1px solid #ddd8ff;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:.94rem;color:var(--ink-2)}
-.btn{margin:6px 6px 6px 0}
-.art table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.95rem}.art th,.art td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line)}.art th{font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}</style>
+
 <!-- ekguru:ads -->
 <meta name="google-adsense-account" content="ca-pub-8175326569491671">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8175326569491671" crossorigin="anonymous"></script>
@@ -71,7 +53,7 @@
 <script src="../../../../js/site-shell.js" defer></script>
 <script src="../../../../js/copywatch.js" defer></script>
 <!-- ekguru:shell-header:end -->
-<div class="art">
+<div class="art pw-legacy">
     <p class="crumb"><a href="/">EkGuru</a> › <a href="/courses/">Courses</a> › <a href="/languages/es/">Spanish</a> › <a href="/languages/es/course/">Course</a> › Spanish Numbers 1 to 20</p>
   <!-- ekguru:chapter -->
 <div class="sb-chapter" style="--sb-accent:#0f766e;--sb-tint:#ecfdfb"><span class="sb-ch-mascot" aria-hidden="true">🌍</span><span class="sb-ch-name">Spanish Numbers 1 to 20 <i>पाठ्यक्रम</i></span><span class="sb-ch-kind">Course</span><span class="sb-ch-floats" aria-hidden="true"></span></div>
@@ -89,18 +71,18 @@
   <table>
   <thead><tr><th>Number</th><th>Spanish</th></tr></thead>
   <tbody>
-<tr><td>1</td><td>uno</td></tr>
-<tr><td>2</td><td>dos</td></tr>
-<tr><td>3</td><td>tres</td></tr>
-<tr><td>4</td><td>cuatro</td></tr>
-<tr><td>5</td><td>cinco</td></tr>
-<tr><td>6</td><td>seis</td></tr>
-<tr><td>7</td><td>siete</td></tr>
-<tr><td>8</td><td>ocho</td></tr>
-<tr><td>9</td><td>nueve</td></tr>
-<tr><td>10</td><td>diez</td></tr>
-<tr><td>15</td><td>quince</td></tr>
-<tr><td>20</td><td>veinte</td></tr>
+<tr><td data-h="Number">1</td><td data-h="Spanish">uno</td></tr>
+<tr><td data-h="Number">2</td><td data-h="Spanish">dos</td></tr>
+<tr><td data-h="Number">3</td><td data-h="Spanish">tres</td></tr>
+<tr><td data-h="Number">4</td><td data-h="Spanish">cuatro</td></tr>
+<tr><td data-h="Number">5</td><td data-h="Spanish">cinco</td></tr>
+<tr><td data-h="Number">6</td><td data-h="Spanish">seis</td></tr>
+<tr><td data-h="Number">7</td><td data-h="Spanish">siete</td></tr>
+<tr><td data-h="Number">8</td><td data-h="Spanish">ocho</td></tr>
+<tr><td data-h="Number">9</td><td data-h="Spanish">nueve</td></tr>
+<tr><td data-h="Number">10</td><td data-h="Spanish">diez</td></tr>
+<tr><td data-h="Number">15</td><td data-h="Spanish">quince</td></tr>
+<tr><td data-h="Number">20</td><td data-h="Spanish">veinte</td></tr>
   </tbody>
   </table>
   <p style="margin-top:26px"><a class="btn" href="/languages/es/course/">Spanish course</a> <a class="btn" href="/languages/es/practice/">Practice</a> <a class="btn" href="/languages/es/quiz/">Quiz</a> <a class="btn" href="/languages/es/review/">Review</a></p>
@@ -125,6 +107,23 @@ if ("serviceWorker" in navigator) {
 </script>
 <!-- ekguru:consent -->
 <script src="../../../../js/cookie-consent.js" defer></script>
+<!-- ekguru:pw-bands:start -->
+<nav class="pw-next" aria-label="Next step">
+  <b>Learn Spanish properly</b>
+  <p>The free course takes it in order — A1 to C2, 36 lessons, from the first letter to real
+  conversation, and it works without an account.</p>
+  <p><a class="btn btn-primary" href="/courses/#/es">Open the Spanish course</a></p>
+</nav>
+<footer class="pw-support">
+  <div>
+    <b>Every lesson here is free, and always will be.</b>
+    <p>No account, no paywall, and never an ad on the free material — that is the
+    whole idea. Keeping it that way is the only thing this page asks of you.</p>
+  </div>
+  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
+  <a href="/find-tutors.html">Book a trial lesson</a>
+</footer>
+<!-- ekguru:pw-bands:end -->
 <!-- ekguru:shell-footer:start -->
 <footer class="ftr">
   <div class="wrap ftr-in">

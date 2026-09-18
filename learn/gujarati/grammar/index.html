@@ -26,36 +26,7 @@
 <link rel="stylesheet" href="../../../css/style.min.css">
 <!-- ekguru:storybook -->
 <link rel="stylesheet" href="../../../css/storybook.css">
-<style>
-.art{max-width:760px;margin:0 auto;padding:0 20px 60px}
-.art h1{font-size:clamp(1.7rem,4.6vw,2.1rem);line-height:1.2;margin:22px 0 10px;letter-spacing:-.01em;text-wrap:balance}
-.art .meta{color:var(--muted);font-size:.86rem;margin:0 0 26px}
-.art h2{font-size:1.28rem;margin:34px 0 12px;padding-top:6px}
-.art p,.art li{line-height:1.75}
-.art ul,.art ol{padding-left:22px}
-.art li{margin:7px 0}
-.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0}
-.crumb a{color:var(--muted)}
-.lede{color:var(--ink-2);font-size:1.05rem;line-height:1.7;margin:0 0 22px}
-.hs-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));margin:18px 0}
-.hs-card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:16px;padding:18px 16px 16px;text-decoration:none;background:var(--card,#fff);box-shadow:var(--sh-1);transition:transform .18s ease,box-shadow .18s ease}
-.hs-card::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,#4f32d9,#8b5cf6)}.hs-card:hover{transform:translateY(-3px);box-shadow:var(--sh-2)}
-.hs-card b{display:block;color:var(--brand);font-size:.98rem;margin-bottom:4px}
-.hs-card span{display:block;color:var(--ink-2);font-size:.86rem;line-height:1.5}
-.linklist{list-style:none;padding:0;margin:14px 0 0}
-.linklist li{padding:12px 14px;border:1px solid var(--line);border-radius:12px;margin-bottom:10px;background:var(--card,#fff);transition:transform .15s ease,box-shadow .15s ease}.linklist li:hover{transform:translateX(3px);box-shadow:var(--sh-1)}
-.linklist li:last-child{border-bottom:0}
-.linklist a{font-weight:600}
-.linklist span{display:block;color:var(--muted);font-size:.87rem;margin-top:2px;line-height:1.5}
-.note{background:var(--bg-soft);border:1px solid #ddd8ff;border-left:4px solid #4f32d9;border-radius:12px;padding:15px 18px;margin:16px 0;font-size:.94rem;color:var(--ink-2);box-shadow:var(--sh-1)}
-.tri td:nth-child(3){font-weight:600}.tbl{border-collapse:collapse;width:100%;margin:16px 0;font-size:.94rem}.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:10px 13px;text-align:left;line-height:1.6}.tbl thead th{background:var(--bg-soft);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-2)}.tbl tbody tr:nth-child(even){background:var(--bg-soft)}
-@media(pointer:coarse){.hs-card,.linklist a{min-height:44px;display:block}input,select,textarea,button{min-height:44px}}
-.prevnext{display:flex;justify-content:space-between;gap:12px;margin:34px 0 8px}
-.prevnext a{flex:1;border:1px solid var(--line);border-radius:14px;padding:14px 16px;text-decoration:none;color:var(--ink);background:var(--card,#fff);box-shadow:var(--sh-1);transition:transform .15s ease,box-shadow .15s ease}
-.prevnext a:hover{transform:translateY(-2px);box-shadow:var(--sh-2)}
-.prevnext .k{display:block;font-size:.78rem;color:var(--muted)}
-.prevnext .t{font-weight:600}
-</style>
+
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "CollectionPage", "@id": "https://ekguru.shop/learn/gujarati/grammar/#page", "name": "Gujarati grammar — word order, verbs and pronouns", "description": "Gujarati word order, verbs, pronouns and negation — explained with trilingual examples, not listed.", "url": "https://ekguru.shop/learn/gujarati/grammar/", "inLanguage": "en"}]}</script>
 
 <!-- ekguru:ads -->
@@ -85,7 +56,7 @@
 <script src="../../../js/site-shell.js" defer></script>
 <script src="../../../js/copywatch.js" defer></script>
 <!-- ekguru:shell-header:end -->
-<div class="art">
+<div class="art pw-legacy">
 <p class="crumb"><a href="../../../">EkGuru</a> › <a href="../../../learn/">Learn Gujarati</a> › <a href="../../../learn/gujarati/">Gujarati</a> › Grammar</p>
   <!-- ekguru:chapter -->
 <div class="sb-chapter" style="--sb-accent:#0f766e;--sb-tint:#ecfdfb"><span class="sb-ch-mascot" aria-hidden="true">🗣️</span><span class="sb-ch-name">Gujarati <i>गुजराती</i></span><span class="sb-ch-kind">Language</span><span class="sb-ch-floats" aria-hidden="true">અ આ ઇ</span></div>
@@ -100,38 +71,38 @@
   <h2>3. Pronouns</h2>
   <table class="tbl tri"><thead><tr><th>English</th><th>Hindi</th>
 <th>Gujarati</th><th>Say it</th></tr></thead><tbody>
-<tr><td>I</td><td>मैं</td><td>હું</td><td>huṁ</td></tr>
-<tr><td>we (excluding you)</td><td>हम</td><td>અમે</td><td>ame</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">આપણે (āpaṇe) = we-INCLUDING-you</td></tr>
-<tr><td>you (formal / plural)</td><td>आप / तुम सब</td><td>તમે</td><td>tame</td></tr>
-<tr><td>you (intimate)</td><td>तू</td><td>તું</td><td>tuṁ</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">Close friends, children — never strangers</td></tr>
-<tr><td>he / she</td><td>वह</td><td>તે</td><td>te</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">One word for both in daily speech; તેણી (she) is formal writing</td></tr>
-<tr><td>she (formal)</td><td>वह</td><td>તેણી</td><td>teṇī</td></tr>
-<tr><td>it (near)</td><td>यह</td><td>એ</td><td>e</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">Near-you &#x27;it&#x27;; તે covers far &#x27;it&#x27;</td></tr>
-<tr><td>they (people)</td><td>वे</td><td>તેઓ</td><td>teo</td></tr>
-<tr><td>this</td><td>यह</td><td>આ</td><td>ā</td></tr>
-<tr><td>that</td><td>वह</td><td>તે</td><td>te</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">Same word as he/she — context decides</td></tr>
-<tr><td>that man (over there)</td><td>वह आदमी</td><td>પેલો</td><td>pelo</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">પેલી (pelī) for a woman — pointing words</td></tr>
-<tr><td>what</td><td>क्या</td><td>શું</td><td>śuṁ</td></tr>
-<tr><td>who</td><td>कौन</td><td>કોણ</td><td>koṇ</td></tr>
-<tr><td>where</td><td>कहाँ</td><td>ક્યાં</td><td>kyāṁ</td></tr>
-<tr><td>when</td><td>कब</td><td>ક્યારે</td><td>kyāre</td></tr>
-<tr><td>why</td><td>क्यों</td><td>શા માટે</td><td>śā māṭe</td></tr>
-<tr><td>how</td><td>कैसे</td><td>કેવી રીતે</td><td>kevī rīte</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">કેમ also means how — and why! Context decides</td></tr>
-<tr><td>how much / how many</td><td>कितना</td><td>કેટલું</td><td>keṭluṁ</td></tr>
-<tr><td>which</td><td>कौन-सा</td><td>કયું</td><td>kayuṁ</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">કયો (masc) / કઈ (fem)</td></tr>
+<tr><td data-h="English">I</td><td data-h="Hindi">मैं</td><td data-h="Gujarati">હું</td><td data-h="Say it">huṁ</td></tr>
+<tr><td data-h="English">we (excluding you)</td><td data-h="Hindi">हम</td><td data-h="Gujarati">અમે</td><td data-h="Say it">ame</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">આપણે (āpaṇe) = we-INCLUDING-you</td></tr>
+<tr><td data-h="English">you (formal / plural)</td><td data-h="Hindi">आप / तुम सब</td><td data-h="Gujarati">તમે</td><td data-h="Say it">tame</td></tr>
+<tr><td data-h="English">you (intimate)</td><td data-h="Hindi">तू</td><td data-h="Gujarati">તું</td><td data-h="Say it">tuṁ</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">Close friends, children — never strangers</td></tr>
+<tr><td data-h="English">he / she</td><td data-h="Hindi">वह</td><td data-h="Gujarati">તે</td><td data-h="Say it">te</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">One word for both in daily speech; તેણી (she) is formal writing</td></tr>
+<tr><td data-h="English">she (formal)</td><td data-h="Hindi">वह</td><td data-h="Gujarati">તેણી</td><td data-h="Say it">teṇī</td></tr>
+<tr><td data-h="English">it (near)</td><td data-h="Hindi">यह</td><td data-h="Gujarati">એ</td><td data-h="Say it">e</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">Near-you &#x27;it&#x27;; તે covers far &#x27;it&#x27;</td></tr>
+<tr><td data-h="English">they (people)</td><td data-h="Hindi">वे</td><td data-h="Gujarati">તેઓ</td><td data-h="Say it">teo</td></tr>
+<tr><td data-h="English">this</td><td data-h="Hindi">यह</td><td data-h="Gujarati">આ</td><td data-h="Say it">ā</td></tr>
+<tr><td data-h="English">that</td><td data-h="Hindi">वह</td><td data-h="Gujarati">તે</td><td data-h="Say it">te</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">Same word as he/she — context decides</td></tr>
+<tr><td data-h="English">that man (over there)</td><td data-h="Hindi">वह आदमी</td><td data-h="Gujarati">પેલો</td><td data-h="Say it">pelo</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">પેલી (pelī) for a woman — pointing words</td></tr>
+<tr><td data-h="English">what</td><td data-h="Hindi">क्या</td><td data-h="Gujarati">શું</td><td data-h="Say it">śuṁ</td></tr>
+<tr><td data-h="English">who</td><td data-h="Hindi">कौन</td><td data-h="Gujarati">કોણ</td><td data-h="Say it">koṇ</td></tr>
+<tr><td data-h="English">where</td><td data-h="Hindi">कहाँ</td><td data-h="Gujarati">ક્યાં</td><td data-h="Say it">kyāṁ</td></tr>
+<tr><td data-h="English">when</td><td data-h="Hindi">कब</td><td data-h="Gujarati">ક્યારે</td><td data-h="Say it">kyāre</td></tr>
+<tr><td data-h="English">why</td><td data-h="Hindi">क्यों</td><td data-h="Gujarati">શા માટે</td><td data-h="Say it">śā māṭe</td></tr>
+<tr><td data-h="English">how</td><td data-h="Hindi">कैसे</td><td data-h="Gujarati">કેવી રીતે</td><td data-h="Say it">kevī rīte</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">કેમ also means how — and why! Context decides</td></tr>
+<tr><td data-h="English">how much / how many</td><td data-h="Hindi">कितना</td><td data-h="Gujarati">કેટલું</td><td data-h="Say it">keṭluṁ</td></tr>
+<tr><td data-h="English">which</td><td data-h="Hindi">कौन-सा</td><td data-h="Gujarati">કયું</td><td data-h="Say it">kayuṁ</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">કયો (masc) / કઈ (fem)</td></tr>
 </tbody></table>
   <h2>4. Present tense — one full verb</h2>
   <p>“To eat” (ખાવું) in the present. Gujarati present tense travels with a helper: the main verb plus છું/છે/છીએ (am/is/are). હું ખાઉં છું is literally &#x27;I eat am&#x27; — say both parts or it sounds unfinished.</p>
-  <table class="tbl"><thead><tr><th>Who</th><th></th><th>Verb</th><th>Say it</th></tr></thead><tbody><tr><td>I</td><td>હું</td><td><b>ખાઉં છું</b></td><td>khāuṁ chuṁ</td></tr><tr><td>you (intimate)</td><td>તું</td><td><b>ખાય છે</b></td><td>khāy che</td></tr><tr><td>you (formal)</td><td>તમે</td><td><b>ખાઓ છો</b></td><td>khāo cho</td></tr><tr><td>he</td><td>તે</td><td><b>ખાય છે</b></td><td>khāy che</td></tr><tr><td>she</td><td>તેણી</td><td><b>ખાય છે</b></td><td>khāy che</td></tr><tr><td>we</td><td>અમે</td><td><b>ખાઈએ છીએ</b></td><td>khāīe chīe</td></tr><tr><td>they</td><td>તેઓ</td><td><b>ખાય છે</b></td><td>khāy che</td></tr></tbody></table>
+  <table class="tbl"><thead><tr><th>Who</th><th></th><th>Verb</th><th>Say it</th></tr></thead><tbody><tr><td data-h="Who">I</td><td data-h="">હું</td><td data-h="Verb"><b>ખાઉં છું</b></td><td data-h="Say it">khāuṁ chuṁ</td></tr><tr><td data-h="Who">you (intimate)</td><td data-h="">તું</td><td data-h="Verb"><b>ખાય છે</b></td><td data-h="Say it">khāy che</td></tr><tr><td data-h="Who">you (formal)</td><td data-h="">તમે</td><td data-h="Verb"><b>ખાઓ છો</b></td><td data-h="Say it">khāo cho</td></tr><tr><td data-h="Who">he</td><td data-h="">તે</td><td data-h="Verb"><b>ખાય છે</b></td><td data-h="Say it">khāy che</td></tr><tr><td data-h="Who">she</td><td data-h="">તેણી</td><td data-h="Verb"><b>ખાય છે</b></td><td data-h="Say it">khāy che</td></tr><tr><td data-h="Who">we</td><td data-h="">અમે</td><td data-h="Verb"><b>ખાઈએ છીએ</b></td><td data-h="Say it">khāīe chīe</td></tr><tr><td data-h="Who">they</td><td data-h="">તેઓ</td><td data-h="Verb"><b>ખાય છે</b></td><td data-h="Say it">khāy che</td></tr></tbody></table>
   <h2>5. Past and future (first steps)</h2>
-  <table class="tbl tri"><thead><tr><th>English</th><th>Hindi</th><th>Gujarati</th><th>Say it</th></tr></thead><tbody><tr><td>I ate</td><td>मैंने खाया</td><td><b>મેં ખાધું</b></td><td>meṁ khādhuṁ</td></tr><tr><td>I went (a man)</td><td>मैं गया</td><td><b>હું ગયો</b></td><td>huṁ gayo</td></tr><tr><td>I went (a woman)</td><td>मैं गई</td><td><b>હું ગઈ</b></td><td>huṁ gaī</td></tr><tr><td>he ate</td><td>उसने खाया</td><td><b>તેણે ખાધું</b></td><td>teṇe khādhuṁ</td></tr><tr><td>I will eat</td><td>मैं खाऊँगा</td><td><b>હું ખાઈશ</b></td><td>huṁ khāīś</td></tr><tr><td>I will go</td><td>मैं जाऊँगा</td><td><b>હું જઈશ</b></td><td>huṁ jaīś</td></tr></tbody></table>
+  <table class="tbl tri"><thead><tr><th>English</th><th>Hindi</th><th>Gujarati</th><th>Say it</th></tr></thead><tbody><tr><td data-h="English">I ate</td><td data-h="Hindi">मैंने खाया</td><td data-h="Gujarati"><b>મેં ખાધું</b></td><td data-h="Say it">meṁ khādhuṁ</td></tr><tr><td data-h="English">I went (a man)</td><td data-h="Hindi">मैं गया</td><td data-h="Gujarati"><b>હું ગયો</b></td><td data-h="Say it">huṁ gayo</td></tr><tr><td data-h="English">I went (a woman)</td><td data-h="Hindi">मैं गई</td><td data-h="Gujarati"><b>હું ગઈ</b></td><td data-h="Say it">huṁ gaī</td></tr><tr><td data-h="English">he ate</td><td data-h="Hindi">उसने खाया</td><td data-h="Gujarati"><b>તેણે ખાધું</b></td><td data-h="Say it">teṇe khādhuṁ</td></tr><tr><td data-h="English">I will eat</td><td data-h="Hindi">मैं खाऊँगा</td><td data-h="Gujarati"><b>હું ખાઈશ</b></td><td data-h="Say it">huṁ khāīś</td></tr><tr><td data-h="English">I will go</td><td data-h="Hindi">मैं जाऊँगा</td><td data-h="Gujarati"><b>હું જઈશ</b></td><td data-h="Say it">huṁ jaīś</td></tr></tbody></table>
   <h2>6. Negation is one word</h2>
   <p>Put <b>નથી</b> (nathī) after the helper: હું જતો નથી (huṁ jato nathī) — I don't go. Past tense works the same: ગયો નથી (gayo nathī) — didn't go.</p>
   <h2>7. Postpositions (not prepositions)</h2>
-  <table class="tbl"><thead><tr><th>Meaning</th><th>Hindi</th><th>Gujarati</th><th>Example</th></tr></thead><tbody><tr><td>in / at</td><td>में</td><td><b>-માં</b></td><td>ઘરમાં (gharmāṁ) — at home</td></tr><tr><td>to</td><td>को</td><td><b>-ને</b></td><td>મને આપો (mane āpo) — give (to) me</td></tr><tr><td>from</td><td>से</td><td><b>-થી</b></td><td>અમદાવાદથી (amdāvādthī) — from Ahmedabad</td></tr><tr><td>with (using)</td><td>से</td><td><b>-થી</b></td><td>ચમચીથી (chamchīthī) — with a spoon</td></tr><tr><td>for</td><td>के लिए</td><td><b>-માટે</b></td><td>તમારા માટે (tamārā māṭe) — for you</td></tr><tr><td>with (a person)</td><td>के साथ</td><td><b>-સાથે</b></td><td>મિત્ર સાથે (mitra sāthe) — with a friend</td></tr></tbody></table>
+  <table class="tbl"><thead><tr><th>Meaning</th><th>Hindi</th><th>Gujarati</th><th>Example</th></tr></thead><tbody><tr><td data-h="Meaning">in / at</td><td data-h="Hindi">में</td><td data-h="Gujarati"><b>-માં</b></td><td data-h="Example">ઘરમાં (gharmāṁ) — at home</td></tr><tr><td data-h="Meaning">to</td><td data-h="Hindi">को</td><td data-h="Gujarati"><b>-ને</b></td><td data-h="Example">મને આપો (mane āpo) — give (to) me</td></tr><tr><td data-h="Meaning">from</td><td data-h="Hindi">से</td><td data-h="Gujarati"><b>-થી</b></td><td data-h="Example">અમદાવાદથી (amdāvādthī) — from Ahmedabad</td></tr><tr><td data-h="Meaning">with (using)</td><td data-h="Hindi">से</td><td data-h="Gujarati"><b>-થી</b></td><td data-h="Example">ચમચીથી (chamchīthī) — with a spoon</td></tr><tr><td data-h="Meaning">for</td><td data-h="Hindi">के लिए</td><td data-h="Gujarati"><b>-માટે</b></td><td data-h="Example">તમારા માટે (tamārā māṭe) — for you</td></tr><tr><td data-h="Meaning">with (a person)</td><td data-h="Hindi">के साथ</td><td data-h="Gujarati"><b>-સાથે</b></td><td data-h="Example">મિત્ર સાથે (mitra sāthe) — with a friend</td></tr></tbody></table>
   <h2>8. Counting words</h2>
   <p>Gujarati counts directly — number + noun, no classifier words:</p>
-  <table class="tbl"><thead><tr><th>Gujarati</th><th>Hindi</th><th>Note</th></tr></thead><tbody><tr><td><b>એક પુસ્તક</b> (ek pustak)</td><td>एक किताब</td><td>one book — number + noun, no extras</td></tr><tr><td><b>બે કેરી</b> (be kerī)</td><td>दो आम</td><td>two mangoes — counting form as listed</td></tr><tr><td><b>ત્રણ લોકો</b> (traṇ loko)</td><td>तीन लोग</td><td>three people — people count directly too</td></tr></tbody></table>
+  <table class="tbl"><thead><tr><th>Gujarati</th><th>Hindi</th><th>Note</th></tr></thead><tbody><tr><td data-h="Gujarati"><b>એક પુસ્તક</b> (ek pustak)</td><td data-h="Hindi">एक किताब</td><td data-h="Note">one book — number + noun, no extras</td></tr><tr><td data-h="Gujarati"><b>બે કેરી</b> (be kerī)</td><td data-h="Hindi">दो आम</td><td data-h="Note">two mangoes — counting form as listed</td></tr><tr><td data-h="Gujarati"><b>ત્રણ લોકો</b> (traṇ loko)</td><td data-h="Hindi">तीन लोग</td><td data-h="Note">three people — people count directly too</td></tr></tbody></table>
   <nav class="prevnext" aria-label="More lessons"><a href="../vocabulary/"><span class="k">← Previous</span><span class="t">Vocabulary</span></a><a href="../elementary/" style="text-align:right"><span class="k">Next →</span><span class="t">Elementary</span></a></nav></div>
 <!-- ekguru:trust-footer:start -->
 <!-- ekguru:trust-footer:end -->
@@ -151,6 +122,23 @@ if ("serviceWorker" in navigator) {
 <script src="../../../js/storybook.js" defer></script>
 <!-- ekguru:consent -->
 <script src="../../../js/cookie-consent.js" defer></script>
+<!-- ekguru:pw-bands:start -->
+<nav class="pw-next" aria-label="Next step">
+  <b>Learn Gujarati properly</b>
+  <p>The free course takes it in order — A1 to C2, 36 lessons, from the first letter to real
+  conversation, and it works without an account.</p>
+  <p><a class="btn btn-primary" href="/courses/#/gu">Open the Gujarati course</a></p>
+</nav>
+<footer class="pw-support">
+  <div>
+    <b>Every lesson here is free, and always will be.</b>
+    <p>No account, no paywall, and never an ad on the free material — that is the
+    whole idea. Keeping it that way is the only thing this page asks of you.</p>
+  </div>
+  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
+  <a href="/find-tutors.html">Book a trial lesson</a>
+</footer>
+<!-- ekguru:pw-bands:end -->
 <!-- ekguru:shell-footer:start -->
 <footer class="ftr">
   <div class="wrap ftr-in">

@@ -26,36 +26,7 @@
 <link rel="stylesheet" href="../../../css/style.min.css">
 <!-- ekguru:storybook -->
 <link rel="stylesheet" href="../../../css/storybook.css">
-<style>
-.art{max-width:760px;margin:0 auto;padding:0 20px 60px}
-.art h1{font-size:clamp(1.7rem,4.6vw,2.1rem);line-height:1.2;margin:22px 0 10px;letter-spacing:-.01em;text-wrap:balance}
-.art .meta{color:var(--muted);font-size:.86rem;margin:0 0 26px}
-.art h2{font-size:1.28rem;margin:34px 0 12px;padding-top:6px}
-.art p,.art li{line-height:1.75}
-.art ul,.art ol{padding-left:22px}
-.art li{margin:7px 0}
-.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0}
-.crumb a{color:var(--muted)}
-.lede{color:var(--ink-2);font-size:1.05rem;line-height:1.7;margin:0 0 22px}
-.hs-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));margin:18px 0}
-.hs-card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:16px;padding:18px 16px 16px;text-decoration:none;background:var(--card,#fff);box-shadow:var(--sh-1);transition:transform .18s ease,box-shadow .18s ease}
-.hs-card::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,#4f32d9,#8b5cf6)}.hs-card:hover{transform:translateY(-3px);box-shadow:var(--sh-2)}
-.hs-card b{display:block;color:var(--brand);font-size:.98rem;margin-bottom:4px}
-.hs-card span{display:block;color:var(--ink-2);font-size:.86rem;line-height:1.5}
-.linklist{list-style:none;padding:0;margin:14px 0 0}
-.linklist li{padding:12px 14px;border:1px solid var(--line);border-radius:12px;margin-bottom:10px;background:var(--card,#fff);transition:transform .15s ease,box-shadow .15s ease}.linklist li:hover{transform:translateX(3px);box-shadow:var(--sh-1)}
-.linklist li:last-child{border-bottom:0}
-.linklist a{font-weight:600}
-.linklist span{display:block;color:var(--muted);font-size:.87rem;margin-top:2px;line-height:1.5}
-.note{background:var(--bg-soft);border:1px solid #ddd8ff;border-left:4px solid #4f32d9;border-radius:12px;padding:15px 18px;margin:16px 0;font-size:.94rem;color:var(--ink-2);box-shadow:var(--sh-1)}
-.tri td:nth-child(3){font-weight:600}.tbl{border-collapse:collapse;width:100%;margin:16px 0;font-size:.94rem}.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:10px 13px;text-align:left;line-height:1.6}.tbl thead th{background:var(--bg-soft);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-2)}.tbl tbody tr:nth-child(even){background:var(--bg-soft)}
-@media(pointer:coarse){.hs-card,.linklist a{min-height:44px;display:block}input,select,textarea,button{min-height:44px}}
-.prevnext{display:flex;justify-content:space-between;gap:12px;margin:34px 0 8px}
-.prevnext a{flex:1;border:1px solid var(--line);border-radius:14px;padding:14px 16px;text-decoration:none;color:var(--ink);background:var(--card,#fff);box-shadow:var(--sh-1);transition:transform .15s ease,box-shadow .15s ease}
-.prevnext a:hover{transform:translateY(-2px);box-shadow:var(--sh-2)}
-.prevnext .k{display:block;font-size:.78rem;color:var(--muted)}
-.prevnext .t{font-weight:600}
-</style>
+
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "CollectionPage", "@id": "https://ekguru.shop/learn/telugu/grammar/#page", "name": "Telugu grammar — word order, verbs and pronouns", "description": "Telugu word order, verbs, pronouns and negation — explained with trilingual examples, not listed.", "url": "https://ekguru.shop/learn/telugu/grammar/", "inLanguage": "en"}]}</script>
 
 <!-- ekguru:ads -->
@@ -85,7 +56,7 @@
 <script src="../../../js/site-shell.js" defer></script>
 <script src="../../../js/copywatch.js" defer></script>
 <!-- ekguru:shell-header:end -->
-<div class="art">
+<div class="art pw-legacy">
 <p class="crumb"><a href="../../../">EkGuru</a> › <a href="../../../learn/">Learn Telugu</a> › <a href="../../../learn/telugu/">Telugu</a> › Grammar</p>
   <!-- ekguru:chapter -->
 <div class="sb-chapter" style="--sb-accent:#0f766e;--sb-tint:#ecfdfb"><span class="sb-ch-mascot" aria-hidden="true">🗣️</span><span class="sb-ch-name">Telugu <i>तेलुगू</i></span><span class="sb-ch-kind">Language</span><span class="sb-ch-floats" aria-hidden="true">అ ఆ ఇ</span></div>
@@ -100,38 +71,38 @@
   <h2>3. Pronouns</h2>
   <table class="tbl tri"><thead><tr><th>English</th><th>Hindi</th>
 <th>Telugu</th><th>Say it</th></tr></thead><tbody>
-<tr><td>I</td><td>मैं</td><td>నేను</td><td>nēnu</td></tr>
-<tr><td>we (excluding you)</td><td>हम</td><td>మేము</td><td>mēmu</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">మనం (manaṁ) = we-INCLUDING-you — Telugu splits what Hindi/English merge</td></tr>
-<tr><td>you (formal / plural)</td><td>आप / तुम सब</td><td>మీరు</td><td>mīru</td></tr>
-<tr><td>you (intimate)</td><td>तू</td><td>నువ్వు</td><td>nuvvu</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">Close friends, children — never strangers</td></tr>
-<tr><td>he</td><td>वह</td><td>అతను</td><td>atanu</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">వాడు (vāḍu) is the familiar &#x27;he&#x27; — friends only</td></tr>
-<tr><td>she</td><td>वह</td><td>ఆమె</td><td>āme</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">ఈమె (īme) = this woman, near you</td></tr>
-<tr><td>it</td><td>यह / वह</td><td>అది</td><td>adi</td></tr>
-<tr><td>they (people)</td><td>वे</td><td>వాళ్ళు</td><td>vāḷḷu</td></tr>
-<tr><td>they (things)</td><td>वे</td><td>అవి</td><td>avi</td></tr>
-<tr><td>this (thing)</td><td>यह</td><td>ఇది</td><td>idi</td></tr>
-<tr><td>that (thing)</td><td>वह</td><td>అది</td><td>adi</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">Same word as &#x27;it&#x27; — context decides</td></tr>
-<tr><td>what</td><td>क्या</td><td>ఏమిటి</td><td>ēmiṭi</td></tr>
-<tr><td>who</td><td>कौन</td><td>ఎవరు</td><td>evaru</td></tr>
-<tr><td>where</td><td>कहाँ</td><td>ఎక్కడ</td><td>ekkaḍa</td></tr>
-<tr><td>when</td><td>कब</td><td>ఎప్పుడు</td><td>eppuḍu</td></tr>
-<tr><td>why</td><td>क्यों</td><td>ఎందుకు</td><td>enduku</td></tr>
-<tr><td>how</td><td>कैसे</td><td>ఎలా</td><td>elā</td></tr>
-<tr><td>how much / how many</td><td>कितना</td><td>ఎంత</td><td>enta</td></tr>
-<tr><td>which (thing)</td><td>कौन-सा</td><td>ఏది</td><td>ēdi</td></tr>
+<tr><td data-h="English">I</td><td data-h="Hindi">मैं</td><td data-h="Telugu">నేను</td><td data-h="Say it">nēnu</td></tr>
+<tr><td data-h="English">we (excluding you)</td><td data-h="Hindi">हम</td><td data-h="Telugu">మేము</td><td data-h="Say it">mēmu</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">మనం (manaṁ) = we-INCLUDING-you — Telugu splits what Hindi/English merge</td></tr>
+<tr><td data-h="English">you (formal / plural)</td><td data-h="Hindi">आप / तुम सब</td><td data-h="Telugu">మీరు</td><td data-h="Say it">mīru</td></tr>
+<tr><td data-h="English">you (intimate)</td><td data-h="Hindi">तू</td><td data-h="Telugu">నువ్వు</td><td data-h="Say it">nuvvu</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">Close friends, children — never strangers</td></tr>
+<tr><td data-h="English">he</td><td data-h="Hindi">वह</td><td data-h="Telugu">అతను</td><td data-h="Say it">atanu</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">వాడు (vāḍu) is the familiar &#x27;he&#x27; — friends only</td></tr>
+<tr><td data-h="English">she</td><td data-h="Hindi">वह</td><td data-h="Telugu">ఆమె</td><td data-h="Say it">āme</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">ఈమె (īme) = this woman, near you</td></tr>
+<tr><td data-h="English">it</td><td data-h="Hindi">यह / वह</td><td data-h="Telugu">అది</td><td data-h="Say it">adi</td></tr>
+<tr><td data-h="English">they (people)</td><td data-h="Hindi">वे</td><td data-h="Telugu">వాళ్ళు</td><td data-h="Say it">vāḷḷu</td></tr>
+<tr><td data-h="English">they (things)</td><td data-h="Hindi">वे</td><td data-h="Telugu">అవి</td><td data-h="Say it">avi</td></tr>
+<tr><td data-h="English">this (thing)</td><td data-h="Hindi">यह</td><td data-h="Telugu">ఇది</td><td data-h="Say it">idi</td></tr>
+<tr><td data-h="English">that (thing)</td><td data-h="Hindi">वह</td><td data-h="Telugu">అది</td><td data-h="Say it">adi</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">Same word as &#x27;it&#x27; — context decides</td></tr>
+<tr><td data-h="English">what</td><td data-h="Hindi">क्या</td><td data-h="Telugu">ఏమిటి</td><td data-h="Say it">ēmiṭi</td></tr>
+<tr><td data-h="English">who</td><td data-h="Hindi">कौन</td><td data-h="Telugu">ఎవరు</td><td data-h="Say it">evaru</td></tr>
+<tr><td data-h="English">where</td><td data-h="Hindi">कहाँ</td><td data-h="Telugu">ఎక్కడ</td><td data-h="Say it">ekkaḍa</td></tr>
+<tr><td data-h="English">when</td><td data-h="Hindi">कब</td><td data-h="Telugu">ఎప్పుడు</td><td data-h="Say it">eppuḍu</td></tr>
+<tr><td data-h="English">why</td><td data-h="Hindi">क्यों</td><td data-h="Telugu">ఎందుకు</td><td data-h="Say it">enduku</td></tr>
+<tr><td data-h="English">how</td><td data-h="Hindi">कैसे</td><td data-h="Telugu">ఎలా</td><td data-h="Say it">elā</td></tr>
+<tr><td data-h="English">how much / how many</td><td data-h="Hindi">कितना</td><td data-h="Telugu">ఎంత</td><td data-h="Say it">enta</td></tr>
+<tr><td data-h="English">which (thing)</td><td data-h="Hindi">कौन-सा</td><td data-h="Telugu">ఏది</td><td data-h="Say it">ēdi</td></tr>
 </tbody></table>
   <h2>4. Present tense — one full verb</h2>
   <p>“To eat” (తినడం) in the present. One verb, seven endings: the ending tells you WHO — and in the third person, their gender. Formal మీరు shares its ending with they.</p>
-  <table class="tbl"><thead><tr><th>Who</th><th></th><th>Verb</th><th>Say it</th></tr></thead><tbody><tr><td>I</td><td>నేను</td><td><b>తింటాను</b></td><td>tinṭānu</td></tr><tr><td>you (intimate)</td><td>నువ్వు</td><td><b>తింటావు</b></td><td>tinṭāvu</td></tr><tr><td>you (formal)</td><td>మీరు</td><td><b>తింటారు</b></td><td>tinṭāru</td></tr><tr><td>he</td><td>వాడు / అతను</td><td><b>తింటాడు</b></td><td>tinṭāḍu</td></tr><tr><td>she</td><td>ఆమె</td><td><b>తింటుంది</b></td><td>tinṭundi</td></tr><tr><td>we</td><td>మేము</td><td><b>తింటాము</b></td><td>tinṭāmu</td></tr><tr><td>they</td><td>వాళ్ళు</td><td><b>తింటారు</b></td><td>tinṭāru</td></tr></tbody></table>
+  <table class="tbl"><thead><tr><th>Who</th><th></th><th>Verb</th><th>Say it</th></tr></thead><tbody><tr><td data-h="Who">I</td><td data-h="">నేను</td><td data-h="Verb"><b>తింటాను</b></td><td data-h="Say it">tinṭānu</td></tr><tr><td data-h="Who">you (intimate)</td><td data-h="">నువ్వు</td><td data-h="Verb"><b>తింటావు</b></td><td data-h="Say it">tinṭāvu</td></tr><tr><td data-h="Who">you (formal)</td><td data-h="">మీరు</td><td data-h="Verb"><b>తింటారు</b></td><td data-h="Say it">tinṭāru</td></tr><tr><td data-h="Who">he</td><td data-h="">వాడు / అతను</td><td data-h="Verb"><b>తింటాడు</b></td><td data-h="Say it">tinṭāḍu</td></tr><tr><td data-h="Who">she</td><td data-h="">ఆమె</td><td data-h="Verb"><b>తింటుంది</b></td><td data-h="Say it">tinṭundi</td></tr><tr><td data-h="Who">we</td><td data-h="">మేము</td><td data-h="Verb"><b>తింటాము</b></td><td data-h="Say it">tinṭāmu</td></tr><tr><td data-h="Who">they</td><td data-h="">వాళ్ళు</td><td data-h="Verb"><b>తింటారు</b></td><td data-h="Say it">tinṭāru</td></tr></tbody></table>
   <h2>5. Past and future (first steps)</h2>
-  <table class="tbl tri"><thead><tr><th>English</th><th>Hindi</th><th>Telugu</th><th>Say it</th></tr></thead><tbody><tr><td>I ate</td><td>मैंने खाया</td><td><b>నేను తిన్నాను</b></td><td>nēnu tinnānu</td></tr><tr><td>I went</td><td>मैं गया</td><td><b>నేను వెళ్ళాను</b></td><td>nēnu veḷḷānu</td></tr><tr><td>he ate</td><td>उसने खाया</td><td><b>వాడు తిన్నాడు</b></td><td>vāḍu tinnāḍu</td></tr><tr><td>she ate</td><td>उसने खाया</td><td><b>ఆమె తిన్నది</b></td><td>āme tinnadi</td></tr><tr><td>I will eat</td><td>मैं खाऊँगा</td><td><b>నేను తింటాను</b></td><td>nēnu tinṭānu</td></tr></tbody></table>
+  <table class="tbl tri"><thead><tr><th>English</th><th>Hindi</th><th>Telugu</th><th>Say it</th></tr></thead><tbody><tr><td data-h="English">I ate</td><td data-h="Hindi">मैंने खाया</td><td data-h="Telugu"><b>నేను తిన్నాను</b></td><td data-h="Say it">nēnu tinnānu</td></tr><tr><td data-h="English">I went</td><td data-h="Hindi">मैं गया</td><td data-h="Telugu"><b>నేను వెళ్ళాను</b></td><td data-h="Say it">nēnu veḷḷānu</td></tr><tr><td data-h="English">he ate</td><td data-h="Hindi">उसने खाया</td><td data-h="Telugu"><b>వాడు తిన్నాడు</b></td><td data-h="Say it">vāḍu tinnāḍu</td></tr><tr><td data-h="English">she ate</td><td data-h="Hindi">उसने खाया</td><td data-h="Telugu"><b>ఆమె తిన్నది</b></td><td data-h="Say it">āme tinnadi</td></tr><tr><td data-h="English">I will eat</td><td data-h="Hindi">मैं खाऊँगा</td><td data-h="Telugu"><b>నేను తింటాను</b></td><td data-h="Say it">nēnu tinṭānu</td></tr></tbody></table>
   <h2>6. Negation changes the ending</h2>
   <p>Telugu negates by swapping the verb ending: నేను తింటాను (I eat) → నేను <b>తినను</b> (tinanu, I don't eat). No extra word — the ending does the work.</p>
   <h2>7. Postpositions (not prepositions)</h2>
-  <table class="tbl"><thead><tr><th>Meaning</th><th>Hindi</th><th>Telugu</th><th>Example</th></tr></thead><tbody><tr><td>in / at</td><td>में</td><td><b>-లో</b></td><td>ఇంట్లో (inṭlō) — at home</td></tr><tr><td>to</td><td>को</td><td><b>-కి</b></td><td>నాకు ఇవ్వండి (nāku ivvaṇḍi) — give (to) me</td></tr><tr><td>from</td><td>से</td><td><b>-నుండి</b></td><td>హైదరాబాద్ నుండి (Hyderabad nunḍi) — from Hyderabad</td></tr><tr><td>with (using)</td><td>से</td><td><b>-తో</b></td><td>చెంచాతో (chen̄chātō) — with a spoon</td></tr><tr><td>for</td><td>के लिए</td><td><b>-కోసం</b></td><td>మీకోసం (mīkōsaṁ) — for you</td></tr><tr><td>with (a person)</td><td>के साथ</td><td><b>-తో</b></td><td>స్నేహితుడితో (snēhituḍitō) — with a friend</td></tr></tbody></table>
+  <table class="tbl"><thead><tr><th>Meaning</th><th>Hindi</th><th>Telugu</th><th>Example</th></tr></thead><tbody><tr><td data-h="Meaning">in / at</td><td data-h="Hindi">में</td><td data-h="Telugu"><b>-లో</b></td><td data-h="Example">ఇంట్లో (inṭlō) — at home</td></tr><tr><td data-h="Meaning">to</td><td data-h="Hindi">को</td><td data-h="Telugu"><b>-కి</b></td><td data-h="Example">నాకు ఇవ్వండి (nāku ivvaṇḍi) — give (to) me</td></tr><tr><td data-h="Meaning">from</td><td data-h="Hindi">से</td><td data-h="Telugu"><b>-నుండి</b></td><td data-h="Example">హైదరాబాద్ నుండి (Hyderabad nunḍi) — from Hyderabad</td></tr><tr><td data-h="Meaning">with (using)</td><td data-h="Hindi">से</td><td data-h="Telugu"><b>-తో</b></td><td data-h="Example">చెంచాతో (chen̄chātō) — with a spoon</td></tr><tr><td data-h="Meaning">for</td><td data-h="Hindi">के लिए</td><td data-h="Telugu"><b>-కోసం</b></td><td data-h="Example">మీకోసం (mīkōsaṁ) — for you</td></tr><tr><td data-h="Meaning">with (a person)</td><td data-h="Hindi">के साथ</td><td data-h="Telugu"><b>-తో</b></td><td data-h="Example">స్నేహితుడితో (snēhituḍitō) — with a friend</td></tr></tbody></table>
   <h2>8. Counting words</h2>
   <p>Telugu counts directly — but people get special number-words:</p>
-  <table class="tbl"><thead><tr><th>Telugu</th><th>Hindi</th><th>Note</th></tr></thead><tbody><tr><td><b>ఒక పుస్తకం</b> (oka pustakaṁ)</td><td>एक किताब</td><td>one book — number + noun, no extras</td></tr><tr><td><b>రెండు పండ్లు</b> (reṇḍu paṇḍlu)</td><td>दो फल</td><td>two fruits — counting form as listed</td></tr><tr><td><b>ముగ్గురు మనుషులు</b> (mugguru manuṣulu)</td><td>तीन लोग</td><td>three people — ముగ్గురు is the people-form of three; Telugu numbers change for humans</td></tr></tbody></table>
+  <table class="tbl"><thead><tr><th>Telugu</th><th>Hindi</th><th>Note</th></tr></thead><tbody><tr><td data-h="Telugu"><b>ఒక పుస్తకం</b> (oka pustakaṁ)</td><td data-h="Hindi">एक किताब</td><td data-h="Note">one book — number + noun, no extras</td></tr><tr><td data-h="Telugu"><b>రెండు పండ్లు</b> (reṇḍu paṇḍlu)</td><td data-h="Hindi">दो फल</td><td data-h="Note">two fruits — counting form as listed</td></tr><tr><td data-h="Telugu"><b>ముగ్గురు మనుషులు</b> (mugguru manuṣulu)</td><td data-h="Hindi">तीन लोग</td><td data-h="Note">three people — ముగ్గురు is the people-form of three; Telugu numbers change for humans</td></tr></tbody></table>
   <nav class="prevnext" aria-label="More lessons"><a href="../vocabulary/"><span class="k">← Previous</span><span class="t">Vocabulary</span></a><a href="../elementary/" style="text-align:right"><span class="k">Next →</span><span class="t">Elementary</span></a></nav></div>
 <!-- ekguru:trust-footer:start -->
 <!-- ekguru:trust-footer:end -->
@@ -151,6 +122,23 @@ if ("serviceWorker" in navigator) {
 <script src="../../../js/storybook.js" defer></script>
 <!-- ekguru:consent -->
 <script src="../../../js/cookie-consent.js" defer></script>
+<!-- ekguru:pw-bands:start -->
+<nav class="pw-next" aria-label="Next step">
+  <b>Learn Telugu properly</b>
+  <p>The free course takes it in order — A1 to C2, 36 lessons, from the first letter to real
+  conversation, and it works without an account.</p>
+  <p><a class="btn btn-primary" href="/courses/#/te">Open the Telugu course</a></p>
+</nav>
+<footer class="pw-support">
+  <div>
+    <b>Every lesson here is free, and always will be.</b>
+    <p>No account, no paywall, and never an ad on the free material — that is the
+    whole idea. Keeping it that way is the only thing this page asks of you.</p>
+  </div>
+  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
+  <a href="/find-tutors.html">Book a trial lesson</a>
+</footer>
+<!-- ekguru:pw-bands:end -->
 <!-- ekguru:shell-footer:start -->
 <footer class="ftr">
   <div class="wrap ftr-in">

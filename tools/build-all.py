@@ -23,9 +23,10 @@ deploys:
      the six market pages, every other page that lists tutors)
  13  legal pages (terms/privacy/disclaimer/copyright get ids + a contents
      card), courses by country, the reading layer (969 hand-written pages onto
-     one stylesheet, plus the support band and each page's next step), site
-     shell (one header + one footer on all 1,564 pages), copy index (the check
-     phase also runs the ownership, search-facet, drawer, course and reading
+     one stylesheet, plus the support band and each page's next step), the page
+     layer (the other 555 hand-written pages onto the same one), site shell
+     (one header + one footer on all 1,564 pages), copy index (the check phase
+     also runs the ownership, search-facet, drawer, course, reading and page
      layer tests)
  14  doctor (SEO + privacy + gate + admin stats)
 
@@ -83,6 +84,7 @@ def main():
             ["python3", "tools/build-legal-pages.py", "--check"])
         run("courses by country --check", ["python3", "tools/build-course-countries.py", "--check"])
         run("reading layer --check (969 hand-written pages)", ["python3", "tools/build-legacy-pages.py", "--check"])
+        run("page layer --check (555 lesson/answer/hub pages)", ["python3", "tools/build-page-layer.py", "--check"])
         run("print sheets --check (only the sheet prints)", ["python3", "tools/build-print-sheets.py", "--check"])
         run("site shell --check (header + footer on every page)", ["node", "tools/build-shell.js", "--check"])
         run("copy index --check", ["node", "tools/build-copy-index.js", "--check"])
@@ -91,6 +93,7 @@ def main():
         run("header drawer test (one owner, one open)", ["node", "tools/test-shell-drawer.mjs"])
         run("course country search test", ["node", "tools/test-course-country.mjs"])
         run("reading layer test (one stylesheet, two bands)", ["node", "tools/test-reading-layer.mjs"])
+        run("page layer test (one design on the other 555 pages)", ["node", "tools/test-page-layer.mjs"])
         run("print sheet test (what lands on paper)", ["node", "tools/test-print-sheets.mjs"])
         run("sheet-apply test (sheet row -> site)", ["node", "tools/test-sheet-apply.js"])
         run("experience DOM test", ["node", "tools/test-experience-dom.mjs"])
@@ -123,6 +126,7 @@ def main():
     run("courses by country (194 countries + the build queue)", ["python3", "tools/build-course-countries.py"])
     run("Hindi learning pages (learn/hindi/**)", ["python3", "tools/build-hindi-pages.py"])
     run("reading layer (969 pages onto the design system)", ["python3", "tools/build-legacy-pages.py"])
+    run("page layer (555 lesson + answer + hub pages onto the same one)", ["python3", "tools/build-page-layer.py"])
     run("print sheets (worksheet prints as a sheet)", ["python3", "tools/build-print-sheets.py"])
     run("site shell (one header + one footer, every page)", ["node", "tools/build-shell.js"])
     run("copy index (ownership fingerprints)", ["node", "tools/build-copy-index.js"])

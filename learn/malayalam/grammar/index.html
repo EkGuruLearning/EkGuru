@@ -26,36 +26,7 @@
 <link rel="stylesheet" href="../../../css/style.min.css">
 <!-- ekguru:storybook -->
 <link rel="stylesheet" href="../../../css/storybook.css">
-<style>
-.art{max-width:760px;margin:0 auto;padding:0 20px 60px}
-.art h1{font-size:clamp(1.7rem,4.6vw,2.1rem);line-height:1.2;margin:22px 0 10px;letter-spacing:-.01em;text-wrap:balance}
-.art .meta{color:var(--muted);font-size:.86rem;margin:0 0 26px}
-.art h2{font-size:1.28rem;margin:34px 0 12px;padding-top:6px}
-.art p,.art li{line-height:1.75}
-.art ul,.art ol{padding-left:22px}
-.art li{margin:7px 0}
-.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0}
-.crumb a{color:var(--muted)}
-.lede{color:var(--ink-2);font-size:1.05rem;line-height:1.7;margin:0 0 22px}
-.hs-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));margin:18px 0}
-.hs-card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:16px;padding:18px 16px 16px;text-decoration:none;background:var(--card,#fff);box-shadow:var(--sh-1);transition:transform .18s ease,box-shadow .18s ease}
-.hs-card::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,#4f32d9,#8b5cf6)}.hs-card:hover{transform:translateY(-3px);box-shadow:var(--sh-2)}
-.hs-card b{display:block;color:var(--brand);font-size:.98rem;margin-bottom:4px}
-.hs-card span{display:block;color:var(--ink-2);font-size:.86rem;line-height:1.5}
-.linklist{list-style:none;padding:0;margin:14px 0 0}
-.linklist li{padding:12px 14px;border:1px solid var(--line);border-radius:12px;margin-bottom:10px;background:var(--card,#fff);transition:transform .15s ease,box-shadow .15s ease}.linklist li:hover{transform:translateX(3px);box-shadow:var(--sh-1)}
-.linklist li:last-child{border-bottom:0}
-.linklist a{font-weight:600}
-.linklist span{display:block;color:var(--muted);font-size:.87rem;margin-top:2px;line-height:1.5}
-.note{background:var(--bg-soft);border:1px solid #ddd8ff;border-left:4px solid #4f32d9;border-radius:12px;padding:15px 18px;margin:16px 0;font-size:.94rem;color:var(--ink-2);box-shadow:var(--sh-1)}
-.tri td:nth-child(3){font-weight:600}.tbl{border-collapse:collapse;width:100%;margin:16px 0;font-size:.94rem}.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:10px 13px;text-align:left;line-height:1.6}.tbl thead th{background:var(--bg-soft);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-2)}.tbl tbody tr:nth-child(even){background:var(--bg-soft)}
-@media(pointer:coarse){.hs-card,.linklist a{min-height:44px;display:block}input,select,textarea,button{min-height:44px}}
-.prevnext{display:flex;justify-content:space-between;gap:12px;margin:34px 0 8px}
-.prevnext a{flex:1;border:1px solid var(--line);border-radius:14px;padding:14px 16px;text-decoration:none;color:var(--ink);background:var(--card,#fff);box-shadow:var(--sh-1);transition:transform .15s ease,box-shadow .15s ease}
-.prevnext a:hover{transform:translateY(-2px);box-shadow:var(--sh-2)}
-.prevnext .k{display:block;font-size:.78rem;color:var(--muted)}
-.prevnext .t{font-weight:600}
-</style>
+
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "CollectionPage", "@id": "https://ekguru.shop/learn/malayalam/grammar/#page", "name": "Malayalam grammar — word order, verbs and pronouns", "description": "Malayalam word order, verbs, pronouns and negation — explained with trilingual examples, not listed.", "url": "https://ekguru.shop/learn/malayalam/grammar/", "inLanguage": "en"}]}</script>
 
 <!-- ekguru:ads -->
@@ -85,7 +56,7 @@
 <script src="../../../js/site-shell.js" defer></script>
 <script src="../../../js/copywatch.js" defer></script>
 <!-- ekguru:shell-header:end -->
-<div class="art">
+<div class="art pw-legacy">
 <p class="crumb"><a href="../../../">EkGuru</a> › <a href="../../../learn/">Learn Malayalam</a> › <a href="../../../learn/malayalam/">Malayalam</a> › Grammar</p>
   <!-- ekguru:chapter -->
 <div class="sb-chapter" style="--sb-accent:#0f766e;--sb-tint:#ecfdfb"><span class="sb-ch-mascot" aria-hidden="true">🗣️</span><span class="sb-ch-name">Malayalam <i>मलयालम</i></span><span class="sb-ch-kind">Language</span><span class="sb-ch-floats" aria-hidden="true">അ ആ ഇ</span></div>
@@ -100,42 +71,42 @@
   <h2>3. Pronouns</h2>
   <table class="tbl tri"><thead><tr><th>English</th><th>Hindi</th>
 <th>Malayalam</th><th>Say it</th></tr></thead><tbody>
-<tr><td>I</td><td>मैं</td><td>ഞാൻ</td><td>ñān</td></tr>
-<tr><td>you (informal)</td><td>तू</td><td>നീ</td><td>nī</td></tr>
-<tr><td>you (formal / plural)</td><td>तुम/आप</td><td>നിങ്ങൾ</td><td>niṅṅaḷ</td></tr>
-<tr><td>he</td><td>वह</td><td>അവൻ</td><td>avan</td></tr>
-<tr><td>she</td><td>वह</td><td>അവൾ</td><td>avaḷ</td></tr>
-<tr><td>it / that</td><td>यह/वह</td><td>അത്</td><td>atŭ</td></tr>
-<tr><td>we (excluding you)</td><td>हम (तुम्हें छोड़कर)</td><td>ഞങ്ങൾ</td><td>ñaṅṅaḷ</td></tr>
-<tr><td>we (including you)</td><td>हम (तुम्हें मिलाकर)</td><td>നമ്മൾ</td><td>nammaḷ</td></tr>
-<tr><td>they</td><td>वे</td><td>അവർ</td><td>avar</td></tr>
-<tr><td>me</td><td>मुझे</td><td>എന്നെ</td><td>enne</td></tr>
-<tr><td>you (informal, to)</td><td>तुझे</td><td>നിന്നെ</td><td>ninne</td></tr>
-<tr><td>you (formal, to)</td><td>तुम्हें/आपको</td><td>നിങ്ങളെ</td><td>niṅṅaḷe</td></tr>
-<tr><td>him</td><td>उसे</td><td>അവനെ</td><td>avane</td></tr>
-<tr><td>her</td><td>उसे</td><td>അവളെ</td><td>avaḷe</td></tr>
-<tr><td>us</td><td>हमें</td><td>നമ്മളെ</td><td>nammaḷe</td></tr>
-<tr><td>my</td><td>मेरा</td><td>എന്റെ</td><td>ente</td></tr>
-<tr><td>your (informal)</td><td>तेरा</td><td>നിന്റെ</td><td>ninte</td></tr>
-<tr><td>your (formal)</td><td>तुम्हारा/आपका</td><td>നിങ്ങളുടെ</td><td>niṅṅaḷuḍe</td></tr>
-<tr><td>his</td><td>उसका</td><td>അവന്റെ</td><td>avante</td></tr>
-<tr><td>her</td><td>उसका</td><td>അവളുടെ</td><td>avaḷuḍe</td></tr>
-<tr><td>our</td><td>हमारा</td><td>നമ്മുടെ</td><td>nammuḍe</td></tr>
-<tr><td>who?</td><td>कौन?</td><td>ആര്?</td><td>ārŭ?</td></tr>
-<tr><td>what?</td><td>क्या?</td><td>എന്ത്?</td><td>entŭ?</td></tr>
+<tr><td data-h="English">I</td><td data-h="Hindi">मैं</td><td data-h="Malayalam">ഞാൻ</td><td data-h="Say it">ñān</td></tr>
+<tr><td data-h="English">you (informal)</td><td data-h="Hindi">तू</td><td data-h="Malayalam">നീ</td><td data-h="Say it">nī</td></tr>
+<tr><td data-h="English">you (formal / plural)</td><td data-h="Hindi">तुम/आप</td><td data-h="Malayalam">നിങ്ങൾ</td><td data-h="Say it">niṅṅaḷ</td></tr>
+<tr><td data-h="English">he</td><td data-h="Hindi">वह</td><td data-h="Malayalam">അവൻ</td><td data-h="Say it">avan</td></tr>
+<tr><td data-h="English">she</td><td data-h="Hindi">वह</td><td data-h="Malayalam">അവൾ</td><td data-h="Say it">avaḷ</td></tr>
+<tr><td data-h="English">it / that</td><td data-h="Hindi">यह/वह</td><td data-h="Malayalam">അത്</td><td data-h="Say it">atŭ</td></tr>
+<tr><td data-h="English">we (excluding you)</td><td data-h="Hindi">हम (तुम्हें छोड़कर)</td><td data-h="Malayalam">ഞങ്ങൾ</td><td data-h="Say it">ñaṅṅaḷ</td></tr>
+<tr><td data-h="English">we (including you)</td><td data-h="Hindi">हम (तुम्हें मिलाकर)</td><td data-h="Malayalam">നമ്മൾ</td><td data-h="Say it">nammaḷ</td></tr>
+<tr><td data-h="English">they</td><td data-h="Hindi">वे</td><td data-h="Malayalam">അവർ</td><td data-h="Say it">avar</td></tr>
+<tr><td data-h="English">me</td><td data-h="Hindi">मुझे</td><td data-h="Malayalam">എന്നെ</td><td data-h="Say it">enne</td></tr>
+<tr><td data-h="English">you (informal, to)</td><td data-h="Hindi">तुझे</td><td data-h="Malayalam">നിന്നെ</td><td data-h="Say it">ninne</td></tr>
+<tr><td data-h="English">you (formal, to)</td><td data-h="Hindi">तुम्हें/आपको</td><td data-h="Malayalam">നിങ്ങളെ</td><td data-h="Say it">niṅṅaḷe</td></tr>
+<tr><td data-h="English">him</td><td data-h="Hindi">उसे</td><td data-h="Malayalam">അവനെ</td><td data-h="Say it">avane</td></tr>
+<tr><td data-h="English">her</td><td data-h="Hindi">उसे</td><td data-h="Malayalam">അവളെ</td><td data-h="Say it">avaḷe</td></tr>
+<tr><td data-h="English">us</td><td data-h="Hindi">हमें</td><td data-h="Malayalam">നമ്മളെ</td><td data-h="Say it">nammaḷe</td></tr>
+<tr><td data-h="English">my</td><td data-h="Hindi">मेरा</td><td data-h="Malayalam">എന്റെ</td><td data-h="Say it">ente</td></tr>
+<tr><td data-h="English">your (informal)</td><td data-h="Hindi">तेरा</td><td data-h="Malayalam">നിന്റെ</td><td data-h="Say it">ninte</td></tr>
+<tr><td data-h="English">your (formal)</td><td data-h="Hindi">तुम्हारा/आपका</td><td data-h="Malayalam">നിങ്ങളുടെ</td><td data-h="Say it">niṅṅaḷuḍe</td></tr>
+<tr><td data-h="English">his</td><td data-h="Hindi">उसका</td><td data-h="Malayalam">അവന്റെ</td><td data-h="Say it">avante</td></tr>
+<tr><td data-h="English">her</td><td data-h="Hindi">उसका</td><td data-h="Malayalam">അവളുടെ</td><td data-h="Say it">avaḷuḍe</td></tr>
+<tr><td data-h="English">our</td><td data-h="Hindi">हमारा</td><td data-h="Malayalam">നമ്മുടെ</td><td data-h="Say it">nammuḍe</td></tr>
+<tr><td data-h="English">who?</td><td data-h="Hindi">कौन?</td><td data-h="Malayalam">ആര്?</td><td data-h="Say it">ārŭ?</td></tr>
+<tr><td data-h="English">what?</td><td data-h="Hindi">क्या?</td><td data-h="Malayalam">എന്ത്?</td><td data-h="Say it">entŭ?</td></tr>
 </tbody></table>
   <h2>4. Present tense — one full verb</h2>
   <p>“To eat” (കഴിക്കുക) in the present. Here is Malayalam&#x27;s famous gift: the present is stem + -ഉന്നു for EVERYONE. ഞാൻ, നീ, അവൻ, അവൾ, നമ്മൾ, അവർ — all take കഴിക്കുന്നു. One form, no exceptions. The table below proves it.</p>
-  <table class="tbl"><thead><tr><th>Who</th><th></th><th>Verb</th><th>Say it</th></tr></thead><tbody><tr><td>I</td><td>ഞാൻ</td><td><b>കഴിക്കുന്നു</b></td><td>kaḻikkunnu</td></tr><tr><td>you (nī — close friends)</td><td>നീ</td><td><b>കഴിക്കുന്നു</b></td><td>kaḻikkunnu</td></tr><tr><td>you (niṅṅaḷ — respectful)</td><td>നിങ്ങൾ</td><td><b>കഴിക്കുന്നു</b></td><td>kaḻikkunnu</td></tr><tr><td>he</td><td>അവൻ</td><td><b>കഴിക്കുന്നു</b></td><td>kaḻikkunnu</td></tr><tr><td>she</td><td>അവൾ</td><td><b>കഴിക്കുന്നു</b></td><td>kaḻikkunnu</td></tr><tr><td>we (nammaḷ — including you!)</td><td>നമ്മൾ</td><td><b>കഴിക്കുന്നു</b></td><td>kaḻikkunnu</td></tr><tr><td>they</td><td>അവർ</td><td><b>കഴിക്കുന്നു</b></td><td>kaḻikkunnu</td></tr></tbody></table>
+  <table class="tbl"><thead><tr><th>Who</th><th></th><th>Verb</th><th>Say it</th></tr></thead><tbody><tr><td data-h="Who">I</td><td data-h="">ഞാൻ</td><td data-h="Verb"><b>കഴിക്കുന്നു</b></td><td data-h="Say it">kaḻikkunnu</td></tr><tr><td data-h="Who">you (nī — close friends)</td><td data-h="">നീ</td><td data-h="Verb"><b>കഴിക്കുന്നു</b></td><td data-h="Say it">kaḻikkunnu</td></tr><tr><td data-h="Who">you (niṅṅaḷ — respectful)</td><td data-h="">നിങ്ങൾ</td><td data-h="Verb"><b>കഴിക്കുന്നു</b></td><td data-h="Say it">kaḻikkunnu</td></tr><tr><td data-h="Who">he</td><td data-h="">അവൻ</td><td data-h="Verb"><b>കഴിക്കുന്നു</b></td><td data-h="Say it">kaḻikkunnu</td></tr><tr><td data-h="Who">she</td><td data-h="">അവൾ</td><td data-h="Verb"><b>കഴിക്കുന്നു</b></td><td data-h="Say it">kaḻikkunnu</td></tr><tr><td data-h="Who">we (nammaḷ — including you!)</td><td data-h="">നമ്മൾ</td><td data-h="Verb"><b>കഴിക്കുന്നു</b></td><td data-h="Say it">kaḻikkunnu</td></tr><tr><td data-h="Who">they</td><td data-h="">അവർ</td><td data-h="Verb"><b>കഴിക്കുന്നു</b></td><td data-h="Say it">kaḻikkunnu</td></tr></tbody></table>
   <h2>5. Past and future (first steps)</h2>
-  <table class="tbl tri"><thead><tr><th>English</th><th>Hindi</th><th>Malayalam</th><th>Say it</th></tr></thead><tbody><tr><td>I ate</td><td>मैंने खाया</td><td><b>ഞാൻ കഴിച്ചു</b></td><td>Ñān kaḻichu</td></tr><tr><td>He went</td><td>वह गया</td><td><b>അവൻ പോയി</b></td><td>Avan pōyi</td></tr><tr><td>She came</td><td>वह आयी</td><td><b>അവൾ വന്നു</b></td><td>Avaḷ vannu</td></tr><tr><td>I will eat</td><td>मैं खाऊँगा/खाऊँगी</td><td><b>ഞാൻ കഴിക്കും</b></td><td>Ñān kaḻikkum</td></tr><tr><td>Did you eat? (respectful)</td><td>आपने खाया?</td><td><b>നിങ്ങൾ കഴിച്ചോ?</b></td><td>Niṅṅaḷ kaḻichō?</td></tr><tr><td>(Someone) will come tomorrow</td><td>कल आएगा</td><td><b>നാളെ വരും</b></td><td>Nāḷe varum</td></tr></tbody></table>
+  <table class="tbl tri"><thead><tr><th>English</th><th>Hindi</th><th>Malayalam</th><th>Say it</th></tr></thead><tbody><tr><td data-h="English">I ate</td><td data-h="Hindi">मैंने खाया</td><td data-h="Malayalam"><b>ഞാൻ കഴിച്ചു</b></td><td data-h="Say it">Ñān kaḻichu</td></tr><tr><td data-h="English">He went</td><td data-h="Hindi">वह गया</td><td data-h="Malayalam"><b>അവൻ പോയി</b></td><td data-h="Say it">Avan pōyi</td></tr><tr><td data-h="English">She came</td><td data-h="Hindi">वह आयी</td><td data-h="Malayalam"><b>അവൾ വന്നു</b></td><td data-h="Say it">Avaḷ vannu</td></tr><tr><td data-h="English">I will eat</td><td data-h="Hindi">मैं खाऊँगा/खाऊँगी</td><td data-h="Malayalam"><b>ഞാൻ കഴിക്കും</b></td><td data-h="Say it">Ñān kaḻikkum</td></tr><tr><td data-h="English">Did you eat? (respectful)</td><td data-h="Hindi">आपने खाया?</td><td data-h="Malayalam"><b>നിങ്ങൾ കഴിച്ചോ?</b></td><td data-h="Say it">Niṅṅaḷ kaḻichō?</td></tr><tr><td data-h="English">(Someone) will come tomorrow</td><td data-h="Hindi">कल आएगा</td><td data-h="Malayalam"><b>നാളെ വരും</b></td><td data-h="Say it">Nāḷe varum</td></tr></tbody></table>
   <h2>6. Negation with ഇല്ല (illa)</h2>
   <p>ഇല്ല (illa) melts into the verb: വരില്ല (won't come), അറിയില്ല (don't know), കഴിക്കില്ല (won't eat). Alone, ഇല്ല just means 'no'. To refuse an offer, വേണ്ട (vēṇṭa — 'don't want') is warmer: ചായ വേണ്ട (no tea for me, thanks). And അല്ല (alla) denies identity: ശരിയല്ല (that's not right).</p>
   <h2>7. Postpositions (not prepositions)</h2>
-  <table class="tbl"><thead><tr><th>Meaning</th><th>Hindi</th><th>Malayalam</th><th>Example</th></tr></thead><tbody><tr><td>(object marker)</td><td>को</td><td><b>-എ</b></td><td>എന്നെ ചോദിക്കൂ (Enne chōdikkū) — Ask me.</td></tr><tr><td>in; at</td><td>में</td><td><b>-ഇൽ</b></td><td>ഞാൻ വീട്ടിലുണ്ട് (Ñān vīṭṭiluṇḍŭ) — I&#x27;m at home.</td></tr><tr><td>on</td><td>पर</td><td><b>മുകളിൽ</b></td><td>പുസ്തകം മേശമുകളിലാണ് (Pustakam mēshamugaḷilāṇŭ) — The book is on the table.</td></tr><tr><td>with</td><td>के साथ</td><td><b>-ഓട്</b></td><td>കൂട്ടുകാരനോട് പോയി (Kūṭṭukāranōṭŭ pōyi) — I went with a friend.</td></tr><tr><td>for</td><td>के लिए</td><td><b>-വേണ്ടി</b></td><td>നിങ്ങൾക്കുവേണ്ടി കൊണ്ടുവന്നു (Niṅṅaḷkkuvēṇṭi koṇṭuvannu) — I brought (it) for you.</td></tr><tr><td>from</td><td>से</td><td><b>-ൽനിന്ന്</b></td><td>വീട്ടിൽനിന്ന് വന്നു (Vīṭṭilninnŭ vannu) — I came from home.</td></tr></tbody></table>
+  <table class="tbl"><thead><tr><th>Meaning</th><th>Hindi</th><th>Malayalam</th><th>Example</th></tr></thead><tbody><tr><td data-h="Meaning">(object marker)</td><td data-h="Hindi">को</td><td data-h="Malayalam"><b>-എ</b></td><td data-h="Example">എന്നെ ചോദിക്കൂ (Enne chōdikkū) — Ask me.</td></tr><tr><td data-h="Meaning">in; at</td><td data-h="Hindi">में</td><td data-h="Malayalam"><b>-ഇൽ</b></td><td data-h="Example">ഞാൻ വീട്ടിലുണ്ട് (Ñān vīṭṭiluṇḍŭ) — I&#x27;m at home.</td></tr><tr><td data-h="Meaning">on</td><td data-h="Hindi">पर</td><td data-h="Malayalam"><b>മുകളിൽ</b></td><td data-h="Example">പുസ്തകം മേശമുകളിലാണ് (Pustakam mēshamugaḷilāṇŭ) — The book is on the table.</td></tr><tr><td data-h="Meaning">with</td><td data-h="Hindi">के साथ</td><td data-h="Malayalam"><b>-ഓട്</b></td><td data-h="Example">കൂട്ടുകാരനോട് പോയി (Kūṭṭukāranōṭŭ pōyi) — I went with a friend.</td></tr><tr><td data-h="Meaning">for</td><td data-h="Hindi">के लिए</td><td data-h="Malayalam"><b>-വേണ്ടി</b></td><td data-h="Example">നിങ്ങൾക്കുവേണ്ടി കൊണ്ടുവന്നു (Niṅṅaḷkkuvēṇṭi koṇṭuvannu) — I brought (it) for you.</td></tr><tr><td data-h="Meaning">from</td><td data-h="Hindi">से</td><td data-h="Malayalam"><b>-ൽനിന്ന്</b></td><td data-h="Example">വീട്ടിൽനിന്ന് വന്നു (Vīṭṭilninnŭ vannu) — I came from home.</td></tr></tbody></table>
   <h2>8. Counting words</h2>
   <p>Malayalam has no classifiers — put the number straight before the noun. But the noun itself goes plural with -കൾ: ഒരു പുസ്തകം (one book), രണ്ട് പുസ്തകങ്ങൾ (two books), മൂന്ന് രൂപ (three rupees).</p>
-  <table class="tbl"><thead><tr><th>Malayalam</th><th>Hindi</th><th>Note</th></tr></thead><tbody><tr><td><b>ഒരു പുസ്തകം</b> (oru pustakam)</td><td>एक किताब</td><td>one book — ഒരു + noun, no extras</td></tr><tr><td><b>രണ്ട് പുസ്തകങ്ങൾ</b> (raṇḍŭ pustakaṅṅaḷ)</td><td>दो किताबें</td><td>two books — the noun takes the -കൾ plural</td></tr><tr><td><b>മൂന്ന് രൂപ</b> (mūnnŭ rūpa)</td><td>तीन रुपये</td><td>three rupees — currency counts directly</td></tr></tbody></table>
+  <table class="tbl"><thead><tr><th>Malayalam</th><th>Hindi</th><th>Note</th></tr></thead><tbody><tr><td data-h="Malayalam"><b>ഒരു പുസ്തകം</b> (oru pustakam)</td><td data-h="Hindi">एक किताब</td><td data-h="Note">one book — ഒരു + noun, no extras</td></tr><tr><td data-h="Malayalam"><b>രണ്ട് പുസ്തകങ്ങൾ</b> (raṇḍŭ pustakaṅṅaḷ)</td><td data-h="Hindi">दो किताबें</td><td data-h="Note">two books — the noun takes the -കൾ plural</td></tr><tr><td data-h="Malayalam"><b>മൂന്ന് രൂപ</b> (mūnnŭ rūpa)</td><td data-h="Hindi">तीन रुपये</td><td data-h="Note">three rupees — currency counts directly</td></tr></tbody></table>
   <nav class="prevnext" aria-label="More lessons"><a href="../vocabulary/"><span class="k">← Previous</span><span class="t">Vocabulary</span></a><a href="../elementary/" style="text-align:right"><span class="k">Next →</span><span class="t">Elementary</span></a></nav></div>
 <!-- ekguru:trust-footer:start -->
 <!-- ekguru:trust-footer:end -->
@@ -155,6 +126,23 @@ if ("serviceWorker" in navigator) {
 <script src="../../../js/storybook.js" defer></script>
 <!-- ekguru:consent -->
 <script src="../../../js/cookie-consent.js" defer></script>
+<!-- ekguru:pw-bands:start -->
+<nav class="pw-next" aria-label="Next step">
+  <b>Learn Malayalam properly</b>
+  <p>The free course takes it in order — A1 to C2, 36 lessons, from the first letter to real
+  conversation, and it works without an account.</p>
+  <p><a class="btn btn-primary" href="/courses/#/ml">Open the Malayalam course</a></p>
+</nav>
+<footer class="pw-support">
+  <div>
+    <b>Every lesson here is free, and always will be.</b>
+    <p>No account, no paywall, and never an ad on the free material — that is the
+    whole idea. Keeping it that way is the only thing this page asks of you.</p>
+  </div>
+  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
+  <a href="/find-tutors.html">Book a trial lesson</a>
+</footer>
+<!-- ekguru:pw-bands:end -->
 <!-- ekguru:shell-footer:start -->
 <footer class="ftr">
   <div class="wrap ftr-in">

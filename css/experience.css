@@ -4406,7 +4406,603 @@ body.xp-market .hdr .hdr-in {
 }
 
 /* ==========================================================================
-   26. PRINT — the sheet, not the website
+   26. THE PAGE LAYER — the 483 pages that were still carrying their own CSS
+   --------------------------------------------------------------------------
+   §25 put the 974 hand-written `.pw` pages on one stylesheet. These are the
+   rest: the lesson, answer, hub and directory pages, 483 of them, each still
+   shipping its own copy of the same ~1–6 KB of CSS in a <style> block at the
+   top of the file. They use a different container (.art, .qw, .aw) but they
+   are the same design: crumb, lede, table, cards, prevnext.
+
+   So they do not get a second stylesheet. tools/build-page-layer.py marks
+   their container with the class §25 already knows — <div class="art pw-legacy">
+   — and every §25 rule reaches them at once: the same crumb, the same tables
+   with their column names restacked on a phone, the same cards, the same
+   support and next bands. Then it removes their own copy of the rules, and
+   what is left here is only the part §25 never had: the components that exist
+   on these pages and nowhere else.
+
+   Everything below is written for a page whose container carries .pw-legacy,
+   so no rule here can reach a page that is not on the layer.
+
+   Read it as: cards (.hs-card, .lang-cell, .country-card), the vocabulary
+   and grammar blocks the language courses are built from (.v-*, .g-*), the
+   practice widgets (.sc-*, .ob-*, .chip), the callouts (.pg-note, .pg-cta),
+   and the small print (.meta, .lvl, .sub, .muted).
+   ========================================================================== */
+
+/* ---- the container -------------------------------------------------------
+   §25's own container rule sets the reading measure. These pages are wider
+   (the directories are grids) and they set their own padding; the only thing
+   that must not happen is a double gutter, so the padding is declared once,
+   here, against the shell's .wrap. */
+.pw-legacy.art,
+.pw-legacy.qw,
+.pw-legacy.aw {
+  max-width: min(var(--xp-max, 1160px), 820px);
+  margin-inline: auto;
+  padding: 0 clamp(16px, 4vw, 24px) clamp(48px, 8vw, 72px);
+}
+
+/* ---- the line under the h1 ---------------------------------------------- */
+.pw-legacy .meta {
+  color: var(--ink-2);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin: 0 0 26px;
+}
+
+.pw-legacy .muted { color: var(--ink-2); }
+
+/* ---- topic cards: .hs-card ----------------------------------------------
+   The 261-page family that carries the language topics. A card that is a
+   link, with the topic name, one line of what it is, and a gradient edge —
+   the same edge the v200 cards use, so a reader moving between the two
+   halves of the site sees one design. */
+.pw-legacy .hs-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  margin: 18px 0;
+}
+
+.pw-legacy .hs-card {
+  position: relative;
+  display: block;
+  min-height: 44px;
+  overflow: hidden;
+  padding: 18px 16px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-3, 16px);
+  background: var(--card, #fff);
+  color: inherit;
+  text-decoration: none;
+  box-shadow: var(--xp-sh-1, 0 1px 2px rgb(16 24 40 / 6%));
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.pw-legacy .hs-card::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline: 0;
+  block-size: 4px;
+  background: linear-gradient(90deg, var(--pw-a), #8b5cf6);
+}
+
+.pw-legacy .hs-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--xp-sh-2, 0 10px 24px rgb(16 24 40 / 10%));
+}
+
+.pw-legacy .hs-card b {
+  display: block;
+  margin-block-end: 4px;
+  color: var(--brand);
+  font-size: 0.98rem;
+}
+
+.pw-legacy .hs-card span {
+  display: block;
+  color: var(--ink-2);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+/* ---- the language directory: .lang-grid / .lang-cell -------------------- */
+.pw-legacy .lang-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 245px), 1fr));
+  margin: 18px 0;
+}
+
+.pw-legacy .lang-cell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  padding: 20px 18px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-4, 18px);
+  background: var(--card, #fff);
+  box-shadow: var(--xp-sh-1, 0 1px 2px rgb(16 24 40 / 6%));
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.pw-legacy .lang-cell::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline: 0;
+  block-size: 5px;
+  background: linear-gradient(90deg, var(--pw-a), #8b5cf6, #ec4899);
+}
+
+.pw-legacy .lang-cell:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--xp-sh-2, 0 10px 24px rgb(16 24 40 / 10%));
+}
+
+.pw-legacy .lang-cell .nm {
+  font-size: 1.06rem;
+  font-weight: 800;
+  letter-spacing: -0.005em;
+}
+
+.pw-legacy .lang-cell a.nm {
+  display: inline-block;
+  margin-block-end: 2px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.pw-legacy .lang-cell a.nm:hover { color: var(--brand); }
+
+.pw-legacy .lang-cell .sub,
+.pw-legacy .sub {
+  display: block;
+  margin-block-start: 3px;
+  color: var(--ink-2);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.pw-legacy .lang-cell p {
+  display: flex;
+  margin: auto 0 0;
+  padding-block-start: 14px;
+}
+
+.pw-legacy .lang-cell .btn {
+  flex: 1;
+  padding: 12px;
+  border: 0;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-align: center;
+  white-space: normal;
+}
+
+/* The status pills. §25 owns .tag; these are the four states. */
+.pw-legacy .tag.on, .pw-legacy .tag.live { background: #1a7f37; }
+.pw-legacy .tag.soon { background: #5c6570; }
+.pw-legacy .tag.beta { background: #9a6700; }
+.pw-legacy .tag.new { background: linear-gradient(135deg, var(--pw-a), #ec4899); }
+.pw-legacy .lb { display: inline-block; padding: 2px 8px; border-radius: 999px; background: var(--bg-soft); font-size: 0.78rem; }
+
+/* ---- the finder that sits above the directory --------------------------- */
+.pw-legacy .lang-finder {
+  margin: 0 0 6px;
+  padding-block: 10px;
+}
+
+.pw-legacy .lang-finder input[type="search"] {
+  width: 100%;
+  max-width: 420px;
+  padding: 11px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-2, 12px);
+  background: var(--card, #fff);
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+}
+
+.pw-legacy .lang-finder input[type="search"]:focus-visible {
+  border-color: var(--pw-a);
+  outline: 2px solid color-mix(in srgb, var(--pw-a) 45%, transparent);
+  outline-offset: 1px;
+}
+
+.pw-legacy .lang-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 4px;
+}
+
+.pw-legacy .chip {
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card, #fff);
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.pw-legacy .chip:hover { border-color: var(--pw-a); color: var(--brand); }
+
+.pw-legacy .chip.is-on {
+  border-color: var(--brand);
+  background: var(--brand);
+  color: #fff;
+}
+
+.pw-legacy #lang-count { margin: 6px 0 0; font-size: 0.85rem; }
+
+/* ---- audio: the listen pill --------------------------------------------- */
+.pw-legacy .hi-listen {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 32px;
+  margin-inline-start: 8px;
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card, #fff);
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.pw-legacy .hi-listen:hover { border-color: var(--pw-a); color: var(--brand); }
+
+.pw-legacy .hi-listen.playing,
+.pw-legacy .hi-listen.playing:hover {
+  border-color: var(--brand);
+  background: var(--brand);
+  color: #fff;
+}
+
+.pw-legacy .hi-review-add { margin-inline-start: 8px; }
+
+/* ---- vocabulary blocks: .v-* -------------------------------------------- */
+.pw-legacy .v-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr));
+  gap: 10px;
+  margin: 8px 0 16px;
+}
+
+.pw-legacy .v-item {
+  padding: 12px 13px;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-2, 12px);
+  background: var(--bg-soft);
+}
+
+.pw-legacy .v-target { margin: 0; font-size: 1.15rem; font-weight: 600; }
+.pw-legacy .v-roman { margin: 2px 0 6px; color: var(--ink-2); font-size: 0.85rem; }
+.pw-legacy .v-meaning { margin: 0; color: var(--ink-2); font-size: 0.92rem; }
+
+/* ---- grammar blocks: .g-* ----------------------------------------------- */
+.pw-legacy .g-concept {
+  margin: 12px 0;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-2, 12px);
+  background: var(--bg-soft);
+}
+
+.pw-legacy .g-concept h3 { margin: 0 0 6px; font-size: 1.02rem; }
+.pw-legacy .g-pattern { margin: 0 0 8px; }
+.pw-legacy .g-meta { margin: 0 0 10px; color: var(--ink-2); font-size: 0.8rem; }
+.pw-legacy .g-ex,
+.pw-legacy .g-exc,
+.pw-legacy .g-mis { margin: 6px 0; padding-inline-start: 20px; }
+.pw-legacy .g-ex li,
+.pw-legacy .g-exc li,
+.pw-legacy .g-mis li { margin: 4px 0; line-height: 1.55; }
+.pw-legacy .g-target { font-size: 1.02rem; font-weight: 600; }
+.pw-legacy .g-roman { margin: 0 6px; color: var(--ink-2); font-size: 0.86rem; }
+.pw-legacy .g-gloss { color: var(--ink-2); font-size: 0.88rem; }
+.pw-legacy .g-note { color: var(--ink-2); font-size: 0.92rem; }
+
+/* ---- practice widgets --------------------------------------------------- */
+.pw-legacy .sc-box {
+  margin: 10px 0;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-3, 14px);
+  background: var(--bg-soft);
+}
+
+.pw-legacy .sc-word { margin: 4px 0; font-size: 1.5rem; font-weight: 700; }
+.pw-legacy .sc-count { margin: 0 0 4px; color: var(--ink-2); font-size: 0.82rem; }
+.pw-legacy .sc-opts { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.pw-legacy .sc-opt:disabled { cursor: default; opacity: 0.92; }
+.pw-legacy .sc-opt.sc-right { border-color: #1a7f37; background: #e8f6ec; color: #1a7f37; }
+.pw-legacy .sc-opt.sc-wrong { border-color: #b42318; background: #fdeceb; color: #b42318; }
+.pw-legacy .sc-fb { min-height: 1.4em; margin: 8px 0; font-size: 0.95rem; }
+.pw-legacy .sc-nav { min-height: 40px; }
+
+.pw-legacy .ob-row { margin: 14px 0; }
+.pw-legacy .ob-row label { display: block; margin: 0 0 6px; font-weight: 600; }
+
+.pw-legacy .ob-row select,
+.pw-legacy .ob-row input {
+  width: 100%;
+  max-width: 420px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-2, 10px);
+  background: var(--card, #fff);
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+}
+
+.pw-legacy .ob-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 235px), 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+
+.pw-legacy .ob-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-2, 12px);
+  background: var(--card, #fff);
+}
+
+/* ---- callouts ----------------------------------------------------------- */
+.pw-legacy .pg-note {
+  margin: 0 0 26px;
+  padding: 15px 18px;
+  border: 1px solid var(--warn-line, #f0dfae);
+  border-inline-start: 4px solid var(--warn-line, #f0dfae);
+  border-radius: var(--xp-r-2, 12px);
+  background: var(--warn-soft, #fff8e6);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.pw-legacy .pg-note b { display: block; margin: 0 0 5px; color: var(--ink); }
+.pw-legacy .pg-note p { margin: 0; max-width: none; color: var(--ink-2); }
+.pw-legacy .lvl {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #f1edff;
+  color: var(--brand);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.pw-legacy .pg-cta,
+.pw-legacy .pg-cta-box {
+  margin: 36px 0 0;
+  padding: 22px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-3, 14px);
+  background: var(--bg-soft);
+}
+
+.pw-legacy .pg-cta h2,
+.pw-legacy .pg-cta-box h2 { margin: 0 0 8px; font-size: 1.05rem; }
+.pw-legacy .pg-cta p,
+.pw-legacy .pg-cta-box p { margin: 8px 0; }
+.pw-legacy .pg-cta a,
+.pw-legacy .pg-cta-box a { color: var(--brand); }
+
+/* ---- related links ----------------------------------------------------- */
+.pw-legacy .related,
+.pw-legacy .rel {
+  margin: 40px 0 0;
+  padding-block-start: 26px;
+  border-block-start: 1px solid var(--line);
+}
+
+.pw-legacy .related h2,
+.pw-legacy .rel h2 { margin: 0 0 12px; font-size: 1.05rem; }
+
+.pw-legacy .rel-list { margin: 14px 0 0; padding: 0; list-style: none; }
+.pw-legacy .rel-list li { padding: 11px 0; border-block-end: 1px solid var(--line); }
+.pw-legacy .rel-list li:last-child { border-block-end: 0; }
+.pw-legacy .rel-list a { display: block; min-height: 44px; font-weight: 600; }
+.pw-legacy .rel-list span { display: block; margin-block-start: 2px; color: var(--ink-2); font-size: 0.88rem; line-height: 1.5; }
+
+/* ---- the ask/answers pages use .qlist, and details without .more -------- */
+.pw-legacy .qlist { margin: 0; padding: 0; list-style: none; }
+.pw-legacy .qlist li {
+  margin: 0 0 10px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-2, 12px);
+  background: var(--card, #fff);
+}
+
+.pw-legacy details {
+  margin: 12px 0;
+  padding: 12px 15px;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-2, 12px);
+  background: var(--bg-soft);
+}
+
+.pw-legacy details summary { font-weight: 700; cursor: pointer; }
+.pw-legacy details p { margin: 10px 0 0; color: var(--ink-2); }
+
+/* ---- the hero stripes the directory pages open with --------------------- */
+.pw-legacy .hero-h1 {
+  font-size: clamp(1.7rem, 4.6vw, 2.3rem);
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.pw-legacy .hero-stats { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 6px; }
+.pw-legacy .hero-stats div {
+  flex: 1 1 120px;
+  padding: 12px 16px;
+  border-radius: var(--xp-r-3, 14px);
+  background: var(--grad, linear-gradient(135deg, var(--pw-a), #ec4899));
+  color: #fff;
+  text-align: center;
+}
+
+.pw-legacy .hero-stats b { display: block; font-size: 1.35rem; }
+.pw-legacy .hero-stats span { font-size: 0.8rem; opacity: 0.92; }
+
+/* ---- .lp-*: the product cards on the learn hub -------------------------- */
+.pw-legacy .lp-box {
+  margin: 26px 0;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-3, 14px);
+  background: var(--card, #fff);
+}
+
+.pw-legacy .lp-box h2 { margin: 0 0 8px; font-size: 1.15rem; }
+.pw-legacy .lp-head { margin-block-end: 14px; }
+.pw-legacy .lp-head h3 { margin: 0 0 6px; font-size: 1.05rem; }
+.pw-legacy .lp-tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  vertical-align: 2px;
+}
+
+.pw-legacy .lp-tag.beta { background: #9a6700; }
+
+/* ---- the country index -------------------------------------------------- */
+.pw-legacy .country-card {
+  position: relative;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-3, 14px);
+  background: var(--card, #fff);
+  scroll-margin-block-start: 96px;
+}
+
+.pw-legacy .country-code {
+  display: inline-block;
+  margin-inline-end: 6px;
+  color: var(--ink-2);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.pw-legacy .country-courses { margin: 8px 0 0; padding: 0; list-style: none; }
+.pw-legacy .country-course { margin: 4px 0; }
+
+/* ---- the last few rules the older tables carried ------------------------- */
+.pw-legacy .tbl thead th,
+.pw-legacy .tbl th { font-size: 0.8rem; }
+
+.pw-legacy .linklist li:last-child,
+.pw-legacy .rel-list li:last-child { border-block-end: 0; }
+
+.pw-legacy .prevnext .k { display: block; color: var(--ink-2); font-size: 0.78rem; }
+.pw-legacy .prevnext .t { font-weight: 600; }
+
+/* ---- the answer pages: the answer itself, and the small print around it -- */
+.pw-legacy .answer {
+  margin: 0 0 24px;
+  padding: 16px 20px;
+  border-inline-start: 4px solid var(--brand);
+  border-radius: 0 var(--xp-r-2, 12px) var(--xp-r-2, 12px) 0;
+  background: var(--bg-soft);
+  font-size: 1.04rem;
+  line-height: 1.7;
+}
+
+.pw-legacy .ans {
+  margin: 0 0 26px;
+  padding: 18px 20px;
+  border-radius: var(--xp-r-2, 12px);
+  background: var(--bg-soft, #f7f6ff);
+  font-size: 1.1rem;
+  line-height: 1.75;
+}
+
+.pw-legacy .pg-note a { color: var(--brand); text-decoration: underline; }
+
+.pw-legacy .qlist a { display: block; margin-block-end: 4px; font-weight: 600; }
+.pw-legacy .qlist span { color: var(--ink-2); font-size: 0.9rem; }
+
+/* ---- the plain lists the older .rel blocks carried ----------------------- */
+.pw-legacy .rel ul { margin: 12px 0 0; padding: 0; list-style: none; }
+.pw-legacy .rel li { border-block-end: 1px solid var(--line); }
+.pw-legacy .rel li:last-child,
+.pw-legacy .rel a:last-child { border-block-end: 0; }
+
+/* ---- the practice strip: counts, path and hint --------------------------- */
+.pw-legacy .sb-counts { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 4px; }
+.pw-legacy .sb-counts span {
+  padding: 5px 13px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg-soft);
+  color: var(--ink-2);
+  font-size: 0.84rem;
+}
+
+.pw-legacy .sb-counts b { color: var(--brand); }
+
+.pw-legacy .sb-path {
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-2, 12px);
+  background: var(--bg-soft);
+  color: var(--ink-2);
+  font-size: 0.9rem;
+}
+
+.pw-legacy .sb-path b { color: var(--brand); }
+
+.pw-legacy .sb-hint,
+.pw-legacy .pg-hint {
+  margin: 14px 0;
+  padding: 10px 14px;
+  border: 1px solid var(--warn-line, #f0dfae);
+  border-radius: var(--xp-r-2, 12px);
+  background: var(--warn-soft, #fff8e6);
+  color: var(--ink-2);
+  font-size: 0.88rem;
+}
+
+/* ---- a thumb, not a fingertip: every one of these is a target ------------ */
+.pw-legacy .pill,
+.pw-legacy .px-opt,
+.pw-legacy .px-word,
+.pw-legacy .pp-row a { min-height: 44px; }
+
+.pw-legacy .lang-cell .btn:hover { transform: translateY(-1px); box-shadow: var(--xp-sh-2, 0 10px 24px rgb(16 24 40 / 10%)); color: #fff; }
+
+/* ---- tables that only needed one extra rule ----------------------------- */
+.pw-legacy .tri td:nth-child(3) { font-weight: 600; }
+
+/* ==========================================================================
+   27. PRINT — the sheet, not the website
    --------------------------------------------------------------------------
    Prakash: "print worksheet pura page hi print karti hai, par humein sirf
    worksheet hi print karni hai."

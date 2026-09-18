@@ -26,36 +26,7 @@
 <link rel="stylesheet" href="../../../css/style.min.css">
 <!-- ekguru:storybook -->
 <link rel="stylesheet" href="../../../css/storybook.css">
-<style>
-.art{max-width:760px;margin:0 auto;padding:0 20px 60px}
-.art h1{font-size:clamp(1.7rem,4.6vw,2.1rem);line-height:1.2;margin:22px 0 10px;letter-spacing:-.01em;text-wrap:balance}
-.art .meta{color:var(--muted);font-size:.86rem;margin:0 0 26px}
-.art h2{font-size:1.28rem;margin:34px 0 12px;padding-top:6px}
-.art p,.art li{line-height:1.75}
-.art ul,.art ol{padding-left:22px}
-.art li{margin:7px 0}
-.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0}
-.crumb a{color:var(--muted)}
-.lede{color:var(--ink-2);font-size:1.05rem;line-height:1.7;margin:0 0 22px}
-.hs-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));margin:18px 0}
-.hs-card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:16px;padding:18px 16px 16px;text-decoration:none;background:var(--card,#fff);box-shadow:var(--sh-1);transition:transform .18s ease,box-shadow .18s ease}
-.hs-card::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,#4f32d9,#8b5cf6)}.hs-card:hover{transform:translateY(-3px);box-shadow:var(--sh-2)}
-.hs-card b{display:block;color:var(--brand);font-size:.98rem;margin-bottom:4px}
-.hs-card span{display:block;color:var(--ink-2);font-size:.86rem;line-height:1.5}
-.linklist{list-style:none;padding:0;margin:14px 0 0}
-.linklist li{padding:12px 14px;border:1px solid var(--line);border-radius:12px;margin-bottom:10px;background:var(--card,#fff);transition:transform .15s ease,box-shadow .15s ease}.linklist li:hover{transform:translateX(3px);box-shadow:var(--sh-1)}
-.linklist li:last-child{border-bottom:0}
-.linklist a{font-weight:600}
-.linklist span{display:block;color:var(--muted);font-size:.87rem;margin-top:2px;line-height:1.5}
-.note{background:var(--bg-soft);border:1px solid #ddd8ff;border-left:4px solid #4f32d9;border-radius:12px;padding:15px 18px;margin:16px 0;font-size:.94rem;color:var(--ink-2);box-shadow:var(--sh-1)}
-.tri td:nth-child(3){font-weight:600}.tbl{border-collapse:collapse;width:100%;margin:16px 0;font-size:.94rem}.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:10px 13px;text-align:left;line-height:1.6}.tbl thead th{background:var(--bg-soft);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-2)}.tbl tbody tr:nth-child(even){background:var(--bg-soft)}
-@media(pointer:coarse){.hs-card,.linklist a{min-height:44px;display:block}input,select,textarea,button{min-height:44px}}
-.prevnext{display:flex;justify-content:space-between;gap:12px;margin:34px 0 8px}
-.prevnext a{flex:1;border:1px solid var(--line);border-radius:14px;padding:14px 16px;text-decoration:none;color:var(--ink);background:var(--card,#fff);box-shadow:var(--sh-1);transition:transform .15s ease,box-shadow .15s ease}
-.prevnext a:hover{transform:translateY(-2px);box-shadow:var(--sh-2)}
-.prevnext .k{display:block;font-size:.78rem;color:var(--muted)}
-.prevnext .t{font-weight:600}
-</style>
+
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "CollectionPage", "@id": "https://ekguru.shop/learn/urdu/conversation/#page", "name": "Urdu conversation — greetings and first dialogues", "description": "What to actually say to a person in Urdu: greetings, introductions and small talk, trilingual.", "url": "https://ekguru.shop/learn/urdu/conversation/", "inLanguage": "en"}]}</script>
 
 <!-- ekguru:ads -->
@@ -85,7 +56,7 @@
 <script src="../../../js/site-shell.js" defer></script>
 <script src="../../../js/copywatch.js" defer></script>
 <!-- ekguru:shell-header:end -->
-<div class="art">
+<div class="art pw-legacy">
 <p class="crumb"><a href="../../../">EkGuru</a> › <a href="../../../learn/">Learn Urdu</a> › <a href="../../../learn/urdu/">Urdu</a> › Conversation</p>
   <!-- ekguru:chapter -->
 <div class="sb-chapter" style="--sb-accent:#0f766e;--sb-tint:#ecfdfb"><span class="sb-ch-mascot" aria-hidden="true">🗣️</span><span class="sb-ch-name">Urdu <i>उर्दू</i></span><span class="sb-ch-kind">Language</span><span class="sb-ch-floats" aria-hidden="true">ا ب پ</span></div>
@@ -96,27 +67,27 @@
   <h2>Greetings</h2>
   <table class="tbl tri"><thead><tr><th>English</th><th>Hindi</th>
 <th>Urdu</th><th>Say it</th></tr></thead><tbody>
-<tr><td>Hello! (peace greeting)</td><td>अस्सलाम अलैकुम</td><td>السلام علیکم!</td><td>Assalām Alaikum!</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">reply: وعلیکم السلام (Va Alaikum Assalām)</td></tr>
-<tr><td>Hello! (Lucknow style)</td><td>आदाब</td><td>آداب!</td><td>Ādāb!</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">the tehzeeb greeting — hand raised to the forehead</td></tr>
-<tr><td>How are you? (formal)</td><td>आप कैसे हैं?</td><td>آپ کیسے ہیں؟</td><td>Āp kaise hain?</td></tr>
-<tr><td>I&#x27;m fine</td><td>मैं ठीक हूँ</td><td>میں ٹھیک ہوں</td><td>Main ṭhīk hūn</td></tr>
-<tr><td>What is your name?</td><td>आपका नाम क्या है?</td><td>آپ کا نام کیا ہے؟</td><td>Āp kā nām kyā hai?</td></tr>
-<tr><td>My name is …</td><td>मेरा नाम … है</td><td>میرا نام … ہے</td><td>Merā nām … hai</td></tr>
-<tr><td>Nice to meet you</td><td>आपसे मिलकर खुशी हुई</td><td>آپ سے مل کر خوشی ہوئی</td><td>Āp se mil kar khushī huī</td></tr>
-<tr><td>Thank you</td><td>शुक्रिया</td><td>شکریہ</td><td>Shukriyā</td></tr>
-<tr><td>Welcome!</td><td>स्वागत है!</td><td>خوش آمدید!</td><td>Khush āmdīd!</td></tr>
-<tr><td>See you! (we&#x27;ll meet again)</td><td>फिर मिलेंगे!</td><td>پھر ملیں گے!</td><td>Phir milenge!</td></tr>
-<tr><td>Excuse me / Sorry</td><td>माफ़ कीजिए</td><td>معاف کیجیے</td><td>Muāf kījiye</td></tr>
-<tr><td>Please</td><td>मेहरबानी करके</td><td>مہربانی کرکے</td><td>Meharbānī karke</td></tr>
-<tr><td>Congratulations!</td><td>बधाई हो!</td><td>مبارک ہو!</td><td>Mubārak ho!</td></tr>
+<tr><td data-h="English">Hello! (peace greeting)</td><td data-h="Hindi">अस्सलाम अलैकुम</td><td data-h="Urdu">السلام علیکم!</td><td data-h="Say it">Assalām Alaikum!</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">reply: وعلیکم السلام (Va Alaikum Assalām)</td></tr>
+<tr><td data-h="English">Hello! (Lucknow style)</td><td data-h="Hindi">आदाब</td><td data-h="Urdu">آداب!</td><td data-h="Say it">Ādāb!</td></tr><tr><td></td><td colspan="3" style="color:var(--muted);font-size:.85rem">the tehzeeb greeting — hand raised to the forehead</td></tr>
+<tr><td data-h="English">How are you? (formal)</td><td data-h="Hindi">आप कैसे हैं?</td><td data-h="Urdu">آپ کیسے ہیں؟</td><td data-h="Say it">Āp kaise hain?</td></tr>
+<tr><td data-h="English">I&#x27;m fine</td><td data-h="Hindi">मैं ठीक हूँ</td><td data-h="Urdu">میں ٹھیک ہوں</td><td data-h="Say it">Main ṭhīk hūn</td></tr>
+<tr><td data-h="English">What is your name?</td><td data-h="Hindi">आपका नाम क्या है?</td><td data-h="Urdu">آپ کا نام کیا ہے؟</td><td data-h="Say it">Āp kā nām kyā hai?</td></tr>
+<tr><td data-h="English">My name is …</td><td data-h="Hindi">मेरा नाम … है</td><td data-h="Urdu">میرا نام … ہے</td><td data-h="Say it">Merā nām … hai</td></tr>
+<tr><td data-h="English">Nice to meet you</td><td data-h="Hindi">आपसे मिलकर खुशी हुई</td><td data-h="Urdu">آپ سے مل کر خوشی ہوئی</td><td data-h="Say it">Āp se mil kar khushī huī</td></tr>
+<tr><td data-h="English">Thank you</td><td data-h="Hindi">शुक्रिया</td><td data-h="Urdu">شکریہ</td><td data-h="Say it">Shukriyā</td></tr>
+<tr><td data-h="English">Welcome!</td><td data-h="Hindi">स्वागत है!</td><td data-h="Urdu">خوش آمدید!</td><td data-h="Say it">Khush āmdīd!</td></tr>
+<tr><td data-h="English">See you! (we&#x27;ll meet again)</td><td data-h="Hindi">फिर मिलेंगे!</td><td data-h="Urdu">پھر ملیں گے!</td><td data-h="Say it">Phir milenge!</td></tr>
+<tr><td data-h="English">Excuse me / Sorry</td><td data-h="Hindi">माफ़ कीजिए</td><td data-h="Urdu">معاف کیجیے</td><td data-h="Say it">Muāf kījiye</td></tr>
+<tr><td data-h="English">Please</td><td data-h="Hindi">मेहरबानी करके</td><td data-h="Urdu">مہربانی کرکے</td><td data-h="Say it">Meharbānī karke</td></tr>
+<tr><td data-h="English">Congratulations!</td><td data-h="Hindi">बधाई हो!</td><td data-h="Urdu">مبارک ہو!</td><td data-h="Say it">Mubārak ho!</td></tr>
 </tbody></table>
   <h2>Introducing yourself</h2>
   <table class="tbl tri"><thead><tr><th>English</th><th>Hindi</th>
 <th>Urdu</th><th>Say it</th></tr></thead><tbody>
-<tr><td>I go to work</td><td>मैं काम पर जाता हूँ</td><td>میں کام پر جاتا ہوں</td><td>Main kām par jātā hūn</td></tr>
-<tr><td>I eat lunch</td><td>मैं दोपहर का खाना खाता हूँ</td><td>میں دوپہر کا کھانا کھاتا ہوں</td><td>Main do-pahar kā khānā khātā hūn</td></tr>
-<tr><td>I come home in the evening</td><td>मैं शाम को घर आता हूँ</td><td>میں شام کو گھر آتا ہوں</td><td>Main shām ko ghar ātā hūn</td></tr>
-<tr><td>I watch TV</td><td>मैं टीवी देखता हूँ</td><td>میں ٹی وی دیکھتا ہوں</td><td>Main ṭī vī dekhtā hūn</td></tr>
+<tr><td data-h="English">I go to work</td><td data-h="Hindi">मैं काम पर जाता हूँ</td><td data-h="Urdu">میں کام پر جاتا ہوں</td><td data-h="Say it">Main kām par jātā hūn</td></tr>
+<tr><td data-h="English">I eat lunch</td><td data-h="Hindi">मैं दोपहर का खाना खाता हूँ</td><td data-h="Urdu">میں دوپہر کا کھانا کھاتا ہوں</td><td data-h="Say it">Main do-pahar kā khānā khātā hūn</td></tr>
+<tr><td data-h="English">I come home in the evening</td><td data-h="Hindi">मैं शाम को घर आता हूँ</td><td data-h="Urdu">میں شام کو گھر آتا ہوں</td><td data-h="Say it">Main shām ko ghar ātā hūn</td></tr>
+<tr><td data-h="English">I watch TV</td><td data-h="Hindi">मैं टीवी देखता हूँ</td><td data-h="Urdu">میں ٹی وی دیکھتا ہوں</td><td data-h="Say it">Main ṭī vī dekhtā hūn</td></tr>
 </tbody></table>
   <h2>Full dialogues</h2>
   <p>Three everyday scenes with every line in three languages: on the <a href="../practice/conversation/">convers<p>Three everyday scenes with every line in three languages: on the <a href="../practice/conversation/">conversation scenarios</a> page.</p>
@@ -139,6 +110,23 @@ if ("serviceWorker" in navigator) {
 <script src="../../../js/storybook.js" defer></script>
 <!-- ekguru:consent -->
 <script src="../../../js/cookie-consent.js" defer></script>
+<!-- ekguru:pw-bands:start -->
+<nav class="pw-next" aria-label="Next step">
+  <b>Learn Urdu properly</b>
+  <p>The free course takes it in order — A1 to C2, 36 lessons, from the first letter to real
+  conversation, and it works without an account.</p>
+  <p><a class="btn btn-primary" href="/courses/#/ur">Open the Urdu course</a></p>
+</nav>
+<footer class="pw-support">
+  <div>
+    <b>Every lesson here is free, and always will be.</b>
+    <p>No account, no paywall, and never an ad on the free material — that is the
+    whole idea. Keeping it that way is the only thing this page asks of you.</p>
+  </div>
+  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
+  <a href="/find-tutors.html">Book a trial lesson</a>
+</footer>
+<!-- ekguru:pw-bands:end -->
 <!-- ekguru:shell-footer:start -->
 <footer class="ftr">
   <div class="wrap ftr-in">

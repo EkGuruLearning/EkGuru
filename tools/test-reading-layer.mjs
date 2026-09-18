@@ -61,16 +61,22 @@ const check = (name, ok, detail) => {
   ok ? pass++ : fail++;
 };
 
-const legacy = [], modern = [];
+const legacy = [], modern = [], pageLayer = [];
 for (const p of pages) {
   const h = read(p);
-  if (/class="[^"]*\bpw-legacy\b/.test(h)) legacy.push([p, h]);
+  /* The reading layer owns the .pw container. The page layer puts the same
+     class on .art / .qw / .aw containers and tools/test-page-layer.mjs owns
+     those — counting them here would test the wrong layer's pages. */
+  if (/<div class="pw pw-legacy["\s]/.test(h)) legacy.push([p, h]);
+  else if (/class="[^"]*\bpw-legacy\b/.test(h)) pageLayer.push(p);
   else if (/class="[^"]*\bpw\b/.test(h) && /class="[^"]*\bxp-(page|main|sec|hero|doc|support-hero|freeband)\b/.test(h)) modern.push(p);
 }
 
 /* ---------- 1. the class is where it should be, and nowhere else ---------- */
 check("the reading layer is on every hand-written page", legacy.length === 969,
   legacy.length + " page(s)");
+check("the page layer's pages carry the same class, tested separately", pageLayer.length === 555,
+  pageLayer.length + " page(s)");
 check("the pages already on the v200 system were left alone", modern.length === 5,
   modern.join(", "));
 const untouched = ["terms/index.html", "privacy/index.html", "disclaimer/index.html",

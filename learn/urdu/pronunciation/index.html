@@ -26,36 +26,7 @@
 <link rel="stylesheet" href="../../../css/style.min.css">
 <!-- ekguru:storybook -->
 <link rel="stylesheet" href="../../../css/storybook.css">
-<style>
-.art{max-width:760px;margin:0 auto;padding:0 20px 60px}
-.art h1{font-size:clamp(1.7rem,4.6vw,2.1rem);line-height:1.2;margin:22px 0 10px;letter-spacing:-.01em;text-wrap:balance}
-.art .meta{color:var(--muted);font-size:.86rem;margin:0 0 26px}
-.art h2{font-size:1.28rem;margin:34px 0 12px;padding-top:6px}
-.art p,.art li{line-height:1.75}
-.art ul,.art ol{padding-left:22px}
-.art li{margin:7px 0}
-.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0}
-.crumb a{color:var(--muted)}
-.lede{color:var(--ink-2);font-size:1.05rem;line-height:1.7;margin:0 0 22px}
-.hs-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));margin:18px 0}
-.hs-card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:16px;padding:18px 16px 16px;text-decoration:none;background:var(--card,#fff);box-shadow:var(--sh-1);transition:transform .18s ease,box-shadow .18s ease}
-.hs-card::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,#4f32d9,#8b5cf6)}.hs-card:hover{transform:translateY(-3px);box-shadow:var(--sh-2)}
-.hs-card b{display:block;color:var(--brand);font-size:.98rem;margin-bottom:4px}
-.hs-card span{display:block;color:var(--ink-2);font-size:.86rem;line-height:1.5}
-.linklist{list-style:none;padding:0;margin:14px 0 0}
-.linklist li{padding:12px 14px;border:1px solid var(--line);border-radius:12px;margin-bottom:10px;background:var(--card,#fff);transition:transform .15s ease,box-shadow .15s ease}.linklist li:hover{transform:translateX(3px);box-shadow:var(--sh-1)}
-.linklist li:last-child{border-bottom:0}
-.linklist a{font-weight:600}
-.linklist span{display:block;color:var(--muted);font-size:.87rem;margin-top:2px;line-height:1.5}
-.note{background:var(--bg-soft);border:1px solid #ddd8ff;border-left:4px solid #4f32d9;border-radius:12px;padding:15px 18px;margin:16px 0;font-size:.94rem;color:var(--ink-2);box-shadow:var(--sh-1)}
-.tri td:nth-child(3){font-weight:600}.tbl{border-collapse:collapse;width:100%;margin:16px 0;font-size:.94rem}.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:10px 13px;text-align:left;line-height:1.6}.tbl thead th{background:var(--bg-soft);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-2)}.tbl tbody tr:nth-child(even){background:var(--bg-soft)}
-@media(pointer:coarse){.hs-card,.linklist a{min-height:44px;display:block}input,select,textarea,button{min-height:44px}}
-.prevnext{display:flex;justify-content:space-between;gap:12px;margin:34px 0 8px}
-.prevnext a{flex:1;border:1px solid var(--line);border-radius:14px;padding:14px 16px;text-decoration:none;color:var(--ink);background:var(--card,#fff);box-shadow:var(--sh-1);transition:transform .15s ease,box-shadow .15s ease}
-.prevnext a:hover{transform:translateY(-2px);box-shadow:var(--sh-2)}
-.prevnext .k{display:block;font-size:.78rem;color:var(--muted)}
-.prevnext .t{font-weight:600}
-</style>
+
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "CollectionPage", "@id": "https://ekguru.shop/learn/urdu/pronunciation/#page", "name": "Urdu pronunciation, reading & writing", "description": "The Urdu (Nastaliq) letter by letter, the sounds learners get wrong, and how to practise them.", "url": "https://ekguru.shop/learn/urdu/pronunciation/", "inLanguage": "en"}]}</script>
 
 <!-- ekguru:ads -->
@@ -85,7 +56,7 @@
 <script src="../../../js/site-shell.js" defer></script>
 <script src="../../../js/copywatch.js" defer></script>
 <!-- ekguru:shell-header:end -->
-<div class="art">
+<div class="art pw-legacy">
 <p class="crumb"><a href="../../../">EkGuru</a> › <a href="../../../learn/">Learn Urdu</a> › <a href="../../../learn/urdu/">Urdu</a> › Pronunciation</p>
   <!-- ekguru:chapter -->
 <div class="sb-chapter" style="--sb-accent:#0f766e;--sb-tint:#ecfdfb"><span class="sb-ch-mascot" aria-hidden="true">🗣️</span><span class="sb-ch-name">Urdu <i>उर्दू</i></span><span class="sb-ch-kind">Language</span><span class="sb-ch-floats" aria-hidden="true">ا ب پ</span></div>
@@ -93,57 +64,57 @@
   <p class="lede">The sounds learners get wrong, and the path from your first letter to reading real words. Urdu is written right to left in the beautiful Nastaliq style — start at the RIGHT end of the line! Letters change shape (start/middle/end) and join up, there are no capital letters, and short vowels (a/i/u) are usually left unwritten: you read مل as &#x27;mil&#x27; (meet) or &#x27;mal&#x27; by context. Dots do heavy lifting: ب ت ث ن ی are the same stroke with different dots. Persian gave Urdu پ چ ژ گ, India gave it ٹ ڈ ڑ, and nasalization comes from ں (nūn-ghunna): میں (main, I) vs مین — count the dots, then read.</p>
   <h2>Vowels (8)</h2>
   <table class="tbl"><thead><tr><th>Letter</th><th>Sound</th><th>Like…</th></tr></thead><tbody>
-<tr><td style="font-size:1.4rem">اَ</td><td><b>a</b></td><td>zabar mark: a as in about — usually left unwritten!</td></tr>
-<tr><td style="font-size:1.4rem">آ</td><td><b>ā</b></td><td>aa as in father — alif with a madd cap</td></tr>
-<tr><td style="font-size:1.4rem">اِ</td><td><b>i</b></td><td>zer mark: i as in bit — usually left unwritten</td></tr>
-<tr><td style="font-size:1.4rem">ی</td><td><b>ī</b></td><td>choṭī ye: ee as in feet</td></tr>
-<tr><td style="font-size:1.4rem">اُ</td><td><b>u</b></td><td>pesh mark: u as in put — usually left unwritten</td></tr>
-<tr><td style="font-size:1.4rem">و</td><td><b>ū / o</b></td><td>vāo: oo as in food — also o, as in دو (two)</td></tr>
-<tr><td style="font-size:1.4rem">ے</td><td><b>e</b></td><td>baṛī ye, word end only: ay as in say</td></tr>
-<tr><td style="font-size:1.4rem">و</td><td><b>au</b></td><td>vāo can also be ou: اور (and)</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">اَ</td><td data-h="Sound"><b>a</b></td><td data-h="Like…">zabar mark: a as in about — usually left unwritten!</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">آ</td><td data-h="Sound"><b>ā</b></td><td data-h="Like…">aa as in father — alif with a madd cap</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">اِ</td><td data-h="Sound"><b>i</b></td><td data-h="Like…">zer mark: i as in bit — usually left unwritten</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ی</td><td data-h="Sound"><b>ī</b></td><td data-h="Like…">choṭī ye: ee as in feet</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">اُ</td><td data-h="Sound"><b>u</b></td><td data-h="Like…">pesh mark: u as in put — usually left unwritten</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">و</td><td data-h="Sound"><b>ū / o</b></td><td data-h="Like…">vāo: oo as in food — also o, as in دو (two)</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ے</td><td data-h="Sound"><b>e</b></td><td data-h="Like…">baṛī ye, word end only: ay as in say</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">و</td><td data-h="Sound"><b>au</b></td><td data-h="Like…">vāo can also be ou: اور (and)</td></tr>
 </tbody></table>
   <h2>Consonants (40)</h2>
   <table class="tbl"><thead><tr><th>Letter</th><th>Sound</th><th>Like…</th></tr></thead><tbody>
-<tr><td style="font-size:1.4rem">ا</td><td><b>alif</b></td><td>a/ā — the tall first letter; a vowel-carrier</td></tr>
-<tr><td style="font-size:1.4rem">آ</td><td><b>alif-mad</b></td><td>aa as in father — alif with a madd cap</td></tr>
-<tr><td style="font-size:1.4rem">ب</td><td><b>be</b></td><td>b as in boy</td></tr>
-<tr><td style="font-size:1.4rem">پ</td><td><b>pe</b></td><td>p as in pin — Persian addition (3 dots below)</td></tr>
-<tr><td style="font-size:1.4rem">ت</td><td><b>te</b></td><td>soft t, tongue on teeth</td></tr>
-<tr><td style="font-size:1.4rem">ٹ</td><td><b>ṭe</b></td><td>hard T, tongue curled back — Indian addition</td></tr>
-<tr><td style="font-size:1.4rem">ث</td><td><b>se</b></td><td>s as in sun (in Urdu, just s)</td></tr>
-<tr><td style="font-size:1.4rem">ج</td><td><b>jīm</b></td><td>j as in jump</td></tr>
-<tr><td style="font-size:1.4rem">چ</td><td><b>che</b></td><td>ch as in chair — Persian addition</td></tr>
-<tr><td style="font-size:1.4rem">ح</td><td><b>baṛī he</b></td><td>h as in hat (deep, from the throat)</td></tr>
-<tr><td style="font-size:1.4rem">خ</td><td><b>khe</b></td><td>throaty kh as in Khan</td></tr>
-<tr><td style="font-size:1.4rem">د</td><td><b>dāl</b></td><td>soft d, tongue on teeth</td></tr>
-<tr><td style="font-size:1.4rem">ڈ</td><td><b>ḍāl</b></td><td>hard D, tongue curled back — Indian addition</td></tr>
-<tr><td style="font-size:1.4rem">ذ</td><td><b>zāl</b></td><td>z as in zoo (in Urdu, just z)</td></tr>
-<tr><td style="font-size:1.4rem">ر</td><td><b>re</b></td><td>rolled r</td></tr>
-<tr><td style="font-size:1.4rem">ڑ</td><td><b>ṛe</b></td><td>flapped ṛ — Indian addition</td></tr>
-<tr><td style="font-size:1.4rem">ز</td><td><b>ze</b></td><td>z as in zoo</td></tr>
-<tr><td style="font-size:1.4rem">ژ</td><td><b>zhe</b></td><td>s as in pleasure — Persian addition (3 dots)</td></tr>
-<tr><td style="font-size:1.4rem">س</td><td><b>sīn</b></td><td>s as in sun</td></tr>
-<tr><td style="font-size:1.4rem">ش</td><td><b>shīn</b></td><td>sh as in shoe</td></tr>
-<tr><td style="font-size:1.4rem">ص</td><td><b>suād</b></td><td>s as in sun (in Urdu, just s)</td></tr>
-<tr><td style="font-size:1.4rem">ض</td><td><b>zuād</b></td><td>z as in zoo (in Urdu, just z)</td></tr>
-<tr><td style="font-size:1.4rem">ط</td><td><b>toen</b></td><td>hard T (in Urdu, like ٹ)</td></tr>
-<tr><td style="font-size:1.4rem">ظ</td><td><b>zoen</b></td><td>z as in zoo (in Urdu, just z)</td></tr>
-<tr><td style="font-size:1.4rem">ع</td><td><b>ain</b></td><td>a deep throaty stop — عینک (glasses); learners say a plain vowel at first</td></tr>
-<tr><td style="font-size:1.4rem">غ</td><td><b>ghain</b></td><td>throaty gh — like gargling, as in غم (sorrow)</td></tr>
-<tr><td style="font-size:1.4rem">ف</td><td><b>fe</b></td><td>f as in fan</td></tr>
-<tr><td style="font-size:1.4rem">ق</td><td><b>qāf</b></td><td>deep throaty q — قمیض (shirt)</td></tr>
-<tr><td style="font-size:1.4rem">ک</td><td><b>kāf</b></td><td>k as in kite</td></tr>
-<tr><td style="font-size:1.4rem">گ</td><td><b>gāf</b></td><td>g as in go — Persian addition (extra stroke)</td></tr>
-<tr><td style="font-size:1.4rem">ل</td><td><b>lām</b></td><td>l as in love</td></tr>
-<tr><td style="font-size:1.4rem">م</td><td><b>mīm</b></td><td>m as in man</td></tr>
-<tr><td style="font-size:1.4rem">ن</td><td><b>nūn</b></td><td>n as in no</td></tr>
-<tr><td style="font-size:1.4rem">ں</td><td><b>nūn-ghunna</b></td><td>nasal n — no dots, as in میں (I)</td></tr>
-<tr><td style="font-size:1.4rem">و</td><td><b>vāo</b></td><td>v/w between vowels; doubles as ū/o/au</td></tr>
-<tr><td style="font-size:1.4rem">ہ</td><td><b>choṭī he</b></td><td>h as in hat; silent at many word ends</td></tr>
-<tr><td style="font-size:1.4rem">ھ</td><td><b>do-chashmī he</b></td><td>do-chashmī he — joins to make بھ پھ تھ جھ (breathy sounds)</td></tr>
-<tr><td style="font-size:1.4rem">ء</td><td><b>hamza</b></td><td>glottal stop — rare, mid-word breaks</td></tr>
-<tr><td style="font-size:1.4rem">ی</td><td><b>choṭī ye</b></td><td>y as in yes; ī as in feet at word end</td></tr>
-<tr><td style="font-size:1.4rem">ے</td><td><b>baṛī ye</b></td><td>e as in say — baṛī ye, only at word end</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ا</td><td data-h="Sound"><b>alif</b></td><td data-h="Like…">a/ā — the tall first letter; a vowel-carrier</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">آ</td><td data-h="Sound"><b>alif-mad</b></td><td data-h="Like…">aa as in father — alif with a madd cap</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ب</td><td data-h="Sound"><b>be</b></td><td data-h="Like…">b as in boy</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">پ</td><td data-h="Sound"><b>pe</b></td><td data-h="Like…">p as in pin — Persian addition (3 dots below)</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ت</td><td data-h="Sound"><b>te</b></td><td data-h="Like…">soft t, tongue on teeth</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ٹ</td><td data-h="Sound"><b>ṭe</b></td><td data-h="Like…">hard T, tongue curled back — Indian addition</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ث</td><td data-h="Sound"><b>se</b></td><td data-h="Like…">s as in sun (in Urdu, just s)</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ج</td><td data-h="Sound"><b>jīm</b></td><td data-h="Like…">j as in jump</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">چ</td><td data-h="Sound"><b>che</b></td><td data-h="Like…">ch as in chair — Persian addition</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ح</td><td data-h="Sound"><b>baṛī he</b></td><td data-h="Like…">h as in hat (deep, from the throat)</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">خ</td><td data-h="Sound"><b>khe</b></td><td data-h="Like…">throaty kh as in Khan</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">د</td><td data-h="Sound"><b>dāl</b></td><td data-h="Like…">soft d, tongue on teeth</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ڈ</td><td data-h="Sound"><b>ḍāl</b></td><td data-h="Like…">hard D, tongue curled back — Indian addition</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ذ</td><td data-h="Sound"><b>zāl</b></td><td data-h="Like…">z as in zoo (in Urdu, just z)</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ر</td><td data-h="Sound"><b>re</b></td><td data-h="Like…">rolled r</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ڑ</td><td data-h="Sound"><b>ṛe</b></td><td data-h="Like…">flapped ṛ — Indian addition</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ز</td><td data-h="Sound"><b>ze</b></td><td data-h="Like…">z as in zoo</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ژ</td><td data-h="Sound"><b>zhe</b></td><td data-h="Like…">s as in pleasure — Persian addition (3 dots)</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">س</td><td data-h="Sound"><b>sīn</b></td><td data-h="Like…">s as in sun</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ش</td><td data-h="Sound"><b>shīn</b></td><td data-h="Like…">sh as in shoe</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ص</td><td data-h="Sound"><b>suād</b></td><td data-h="Like…">s as in sun (in Urdu, just s)</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ض</td><td data-h="Sound"><b>zuād</b></td><td data-h="Like…">z as in zoo (in Urdu, just z)</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ط</td><td data-h="Sound"><b>toen</b></td><td data-h="Like…">hard T (in Urdu, like ٹ)</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ظ</td><td data-h="Sound"><b>zoen</b></td><td data-h="Like…">z as in zoo (in Urdu, just z)</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ع</td><td data-h="Sound"><b>ain</b></td><td data-h="Like…">a deep throaty stop — عینک (glasses); learners say a plain vowel at first</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">غ</td><td data-h="Sound"><b>ghain</b></td><td data-h="Like…">throaty gh — like gargling, as in غم (sorrow)</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ف</td><td data-h="Sound"><b>fe</b></td><td data-h="Like…">f as in fan</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ق</td><td data-h="Sound"><b>qāf</b></td><td data-h="Like…">deep throaty q — قمیض (shirt)</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ک</td><td data-h="Sound"><b>kāf</b></td><td data-h="Like…">k as in kite</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">گ</td><td data-h="Sound"><b>gāf</b></td><td data-h="Like…">g as in go — Persian addition (extra stroke)</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ل</td><td data-h="Sound"><b>lām</b></td><td data-h="Like…">l as in love</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">م</td><td data-h="Sound"><b>mīm</b></td><td data-h="Like…">m as in man</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ن</td><td data-h="Sound"><b>nūn</b></td><td data-h="Like…">n as in no</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ں</td><td data-h="Sound"><b>nūn-ghunna</b></td><td data-h="Like…">nasal n — no dots, as in میں (I)</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">و</td><td data-h="Sound"><b>vāo</b></td><td data-h="Like…">v/w between vowels; doubles as ū/o/au</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ہ</td><td data-h="Sound"><b>choṭī he</b></td><td data-h="Like…">h as in hat; silent at many word ends</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ھ</td><td data-h="Sound"><b>do-chashmī he</b></td><td data-h="Like…">do-chashmī he — joins to make بھ پھ تھ جھ (breathy sounds)</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ء</td><td data-h="Sound"><b>hamza</b></td><td data-h="Like…">glottal stop — rare, mid-word breaks</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ی</td><td data-h="Sound"><b>choṭī ye</b></td><td data-h="Like…">y as in yes; ī as in feet at word end</td></tr>
+<tr><td data-h="Letter" style="font-size:1.4rem">ے</td><td data-h="Sound"><b>baṛī ye</b></td><td data-h="Like…">e as in say — baṛī ye, only at word end</td></tr>
 </tbody></table>
   <h2>How to practise</h2>
   <ol>
@@ -170,6 +141,23 @@ if ("serviceWorker" in navigator) {
 <script src="../../../js/storybook.js" defer></script>
 <!-- ekguru:consent -->
 <script src="../../../js/cookie-consent.js" defer></script>
+<!-- ekguru:pw-bands:start -->
+<nav class="pw-next" aria-label="Next step">
+  <b>Learn Urdu properly</b>
+  <p>The free course takes it in order — A1 to C2, 36 lessons, from the first letter to real
+  conversation, and it works without an account.</p>
+  <p><a class="btn btn-primary" href="/courses/#/ur">Open the Urdu course</a></p>
+</nav>
+<footer class="pw-support">
+  <div>
+    <b>Every lesson here is free, and always will be.</b>
+    <p>No account, no paywall, and never an ad on the free material — that is the
+    whole idea. Keeping it that way is the only thing this page asks of you.</p>
+  </div>
+  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
+  <a href="/find-tutors.html">Book a trial lesson</a>
+</footer>
+<!-- ekguru:pw-bands:end -->
 <!-- ekguru:shell-footer:start -->
 <footer class="ftr">
   <div class="wrap ftr-in">

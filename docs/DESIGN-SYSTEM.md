@@ -216,6 +216,38 @@ Two bands are added to every one of the 969 pages, both as chrome
 Prose is untouched: a jsdom pass over all 969 pages compares the text before
 and after the rewrite, and 969/969 come out byte-identical.
 
+## The page layer (the other 555 hand-written pages)
+
+The reading layer covered the pages whose container is `.pw`. These are the
+rest of the hand-written site, and they were still carrying the same story:
+the language lessons, the answers, the ask pages, the directories and hubs —
+555 pages, each with its own `<style>` block holding a copy of the same rules,
+1.4 MB of it in total.
+
+They did not need a second stylesheet. Their container (`.art`, `.qw`, `.aw`)
+is marked with the class §25 already owns — `<div class="art pw-legacy">` —
+so every reading-layer rule reaches them at once, and `css/experience.css` §26
+adds only what these pages have and §25 did not: the topic cards (`.hs-card`),
+the language directory (`.lang-grid`, `.lang-cell`, `.lang-finder`, `.chip`),
+the vocabulary and grammar blocks the language courses are built from
+(`.v-*`, `.g-*`), the practice widgets (`.sc-*`, `.ob-*`, `.hi-listen`), the
+callouts (`.pg-note`, `.pg-cta`), the related-link lists, and the country
+index cards.
+
+`tools/build-page-layer.py` does the work, with the reading layer's own
+selector lookup (it imports it) so the two layers cannot drift apart, and one
+extra rule that matters: a page's `.art h1` and the layer's `.pw-legacy h1`
+style the same element once the container is marked, so the page's copy is
+dropped — otherwise it would sit after the bundle and quietly win, which is
+the stale style this project has shipped five times.
+
+Same guarantees as the reading layer: the duplicated CSS is gone (12.5 KB left
+site-wide, in 15 pages whose component exists on no other page — `.cc-*`, one
+SRS prompt each), tables are named and restack instead of hiding a column,
+`data-h` everywhere a column name is known, and every page gains the same two
+bands. Prose is untouched: `data/copy-index.json` — 1,459 page fingerprints
+over the prose alone — comes out byte-identical after the migration.
+
 ## Build / check loop
 
 ```bash
@@ -230,11 +262,13 @@ python3 tools/build-world-art.py   --check       # the nine market emblems
 python3 tools/build-course-hub.py  --check       # /courses/ + the home teaser
 python3 tools/build-course-countries.py --check   # /courses/by-country/ + its sitemaps
 python3 tools/build-legacy-pages.py --check       # the 969 pages on the reading layer
+python3 tools/build-page-layer.py  --check       # the 555 pages on the page layer
 node    tools/langsync.js          --check       # tutor <script> tags, all 23 pages
 node    tools/build-tutor-pages.js --check       # profiles + sitemaps + feed
 node    tools/build-home-tutors.js --check       # the home page's tutor grid
 node    tools/build-market-pages.js --check      # the six market home pages
 node    tools/build-roster-rows.js --check       # 44 more pages that list tutors
+node    tools/test-page-layer.mjs                # the page layer's own guardrails
 node    tools/test-experience-dom.mjs            # DOM smoke test (needs: npm i jsdom)
 node    tools/test-search-facets.mjs             # country + language dropdowns
 node    tools/test-shell-drawer.mjs              # one owner of the menu button

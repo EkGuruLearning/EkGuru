@@ -586,7 +586,13 @@ def pages():
             p = os.path.join(dirpath, f)
             with open(p, encoding="utf-8") as fh:
                 html = fh.read()
-            if not re.search(r'class="[^"]*\bpw\b', html):
+            # Token match, not \bpw\b: the page layer marks its own pages
+            # .pw-legacy, and a substring test would claim all 555 of them
+            # (and then try to put the reading layer on them a second time).
+            classes = set()
+            for m in re.finditer(r'class="([^"]*)"', html):
+                classes.update(m.group(1).split())
+            if "pw" not in classes:
                 continue
             # Five pages carry .pw and are already on the v200 system (the four
             # legal documents and /support/). Their CSS is the design, not a

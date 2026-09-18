@@ -26,36 +26,7 @@
 <link rel="stylesheet" href="../../../css/style.min.css">
 <!-- ekguru:storybook -->
 <link rel="stylesheet" href="../../../css/storybook.css">
-<style>
-.art{max-width:760px;margin:0 auto;padding:0 20px 60px}
-.art h1{font-size:clamp(1.7rem,4.6vw,2.1rem);line-height:1.2;margin:22px 0 10px;letter-spacing:-.01em;text-wrap:balance}
-.art .meta{color:var(--muted);font-size:.86rem;margin:0 0 26px}
-.art h2{font-size:1.28rem;margin:34px 0 12px;padding-top:6px}
-.art p,.art li{line-height:1.75}
-.art ul,.art ol{padding-left:22px}
-.art li{margin:7px 0}
-.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0}
-.crumb a{color:var(--muted)}
-.lede{color:var(--ink-2);font-size:1.05rem;line-height:1.7;margin:0 0 22px}
-.hs-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));margin:18px 0}
-.hs-card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:16px;padding:18px 16px 16px;text-decoration:none;background:var(--card,#fff);box-shadow:var(--sh-1);transition:transform .18s ease,box-shadow .18s ease}
-.hs-card::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,#4f32d9,#8b5cf6)}.hs-card:hover{transform:translateY(-3px);box-shadow:var(--sh-2)}
-.hs-card b{display:block;color:var(--brand);font-size:.98rem;margin-bottom:4px}
-.hs-card span{display:block;color:var(--ink-2);font-size:.86rem;line-height:1.5}
-.linklist{list-style:none;padding:0;margin:14px 0 0}
-.linklist li{padding:12px 14px;border:1px solid var(--line);border-radius:12px;margin-bottom:10px;background:var(--card,#fff);transition:transform .15s ease,box-shadow .15s ease}.linklist li:hover{transform:translateX(3px);box-shadow:var(--sh-1)}
-.linklist li:last-child{border-bottom:0}
-.linklist a{font-weight:600}
-.linklist span{display:block;color:var(--muted);font-size:.87rem;margin-top:2px;line-height:1.5}
-.note{background:var(--bg-soft);border:1px solid #ddd8ff;border-left:4px solid #4f32d9;border-radius:12px;padding:15px 18px;margin:16px 0;font-size:.94rem;color:var(--ink-2);box-shadow:var(--sh-1)}
-.tri td:nth-child(3){font-weight:600}.tbl{border-collapse:collapse;width:100%;margin:16px 0;font-size:.94rem}.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:10px 13px;text-align:left;line-height:1.6}.tbl thead th{background:var(--bg-soft);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-2)}.tbl tbody tr:nth-child(even){background:var(--bg-soft)}
-@media(pointer:coarse){.hs-card,.linklist a{min-height:44px;display:block}input,select,textarea,button{min-height:44px}}
-.prevnext{display:flex;justify-content:space-between;gap:12px;margin:34px 0 8px}
-.prevnext a{flex:1;border:1px solid var(--line);border-radius:14px;padding:14px 16px;text-decoration:none;color:var(--ink);background:var(--card,#fff);box-shadow:var(--sh-1);transition:transform .15s ease,box-shadow .15s ease}
-.prevnext a:hover{transform:translateY(-2px);box-shadow:var(--sh-2)}
-.prevnext .k{display:block;font-size:.78rem;color:var(--muted)}
-.prevnext .t{font-weight:600}
-</style>
+
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "CollectionPage", "@id": "https://ekguru.shop/learn/urdu/grammar/#page", "name": "Urdu grammar — word order, verbs and pronouns", "description": "Urdu word order, verbs, pronouns and negation — explained with trilingual examples, not listed.", "url": "https://ekguru.shop/learn/urdu/grammar/", "inLanguage": "en"}]}</script>
 
 <!-- ekguru:ads -->
@@ -85,7 +56,7 @@
 <script src="../../../js/site-shell.js" defer></script>
 <script src="../../../js/copywatch.js" defer></script>
 <!-- ekguru:shell-header:end -->
-<div class="art">
+<div class="art pw-legacy">
 <p class="crumb"><a href="../../../">EkGuru</a> › <a href="../../../learn/">Learn Urdu</a> › <a href="../../../learn/urdu/">Urdu</a> › Grammar</p>
   <!-- ekguru:chapter -->
 <div class="sb-chapter" style="--sb-accent:#0f766e;--sb-tint:#ecfdfb"><span class="sb-ch-mascot" aria-hidden="true">🗣️</span><span class="sb-ch-name">Urdu <i>उर्दू</i></span><span class="sb-ch-kind">Language</span><span class="sb-ch-floats" aria-hidden="true">ا ب پ</span></div>
@@ -100,38 +71,38 @@
   <h2>3. Pronouns</h2>
   <table class="tbl tri"><thead><tr><th>English</th><th>Hindi</th>
 <th>Urdu</th><th>Say it</th></tr></thead><tbody>
-<tr><td>I</td><td>मैं</td><td>میں</td><td>main</td></tr>
-<tr><td>you (informal)</td><td>तुम</td><td>تم</td><td>tum</td></tr>
-<tr><td>you (formal)</td><td>आप</td><td>آپ</td><td>āp</td></tr>
-<tr><td>this</td><td>यह</td><td>یہ</td><td>ye</td></tr>
-<tr><td>he / she / that</td><td>वह</td><td>وہ</td><td>vo</td></tr>
-<tr><td>we</td><td>हम</td><td>ہم</td><td>ham</td></tr>
-<tr><td>they</td><td>वे</td><td>وہ</td><td>vo</td></tr>
-<tr><td>me / to me</td><td>मुझे</td><td>مجھے</td><td>mujhe</td></tr>
-<tr><td>you (informal, to)</td><td>तुम्हें</td><td>تمہیں</td><td>tumhen</td></tr>
-<tr><td>you (formal, to)</td><td>आपको</td><td>آپ کو</td><td>āp ko</td></tr>
-<tr><td>him / her (to)</td><td>उसे</td><td>اسے</td><td>use</td></tr>
-<tr><td>us / to us</td><td>हमें</td><td>ہمیں</td><td>hamen</td></tr>
-<tr><td>my</td><td>मेरा/मेरी</td><td>میرا/میری</td><td>merā/merī</td></tr>
-<tr><td>your (informal)</td><td>तुम्हारा</td><td>تمہارا</td><td>tumhārā</td></tr>
-<tr><td>your (formal)</td><td>आपका</td><td>آپ کا</td><td>āp kā</td></tr>
-<tr><td>his / her</td><td>उसका</td><td>اس کا</td><td>us kā</td></tr>
-<tr><td>our</td><td>हमारा</td><td>ہمارا</td><td>hamārā</td></tr>
-<tr><td>who?</td><td>कौन?</td><td>کون؟</td><td>kaun?</td></tr>
-<tr><td>what?</td><td>क्या?</td><td>کیا؟</td><td>kyā?</td></tr>
+<tr><td data-h="English">I</td><td data-h="Hindi">मैं</td><td data-h="Urdu">میں</td><td data-h="Say it">main</td></tr>
+<tr><td data-h="English">you (informal)</td><td data-h="Hindi">तुम</td><td data-h="Urdu">تم</td><td data-h="Say it">tum</td></tr>
+<tr><td data-h="English">you (formal)</td><td data-h="Hindi">आप</td><td data-h="Urdu">آپ</td><td data-h="Say it">āp</td></tr>
+<tr><td data-h="English">this</td><td data-h="Hindi">यह</td><td data-h="Urdu">یہ</td><td data-h="Say it">ye</td></tr>
+<tr><td data-h="English">he / she / that</td><td data-h="Hindi">वह</td><td data-h="Urdu">وہ</td><td data-h="Say it">vo</td></tr>
+<tr><td data-h="English">we</td><td data-h="Hindi">हम</td><td data-h="Urdu">ہم</td><td data-h="Say it">ham</td></tr>
+<tr><td data-h="English">they</td><td data-h="Hindi">वे</td><td data-h="Urdu">وہ</td><td data-h="Say it">vo</td></tr>
+<tr><td data-h="English">me / to me</td><td data-h="Hindi">मुझे</td><td data-h="Urdu">مجھے</td><td data-h="Say it">mujhe</td></tr>
+<tr><td data-h="English">you (informal, to)</td><td data-h="Hindi">तुम्हें</td><td data-h="Urdu">تمہیں</td><td data-h="Say it">tumhen</td></tr>
+<tr><td data-h="English">you (formal, to)</td><td data-h="Hindi">आपको</td><td data-h="Urdu">آپ کو</td><td data-h="Say it">āp ko</td></tr>
+<tr><td data-h="English">him / her (to)</td><td data-h="Hindi">उसे</td><td data-h="Urdu">اسے</td><td data-h="Say it">use</td></tr>
+<tr><td data-h="English">us / to us</td><td data-h="Hindi">हमें</td><td data-h="Urdu">ہمیں</td><td data-h="Say it">hamen</td></tr>
+<tr><td data-h="English">my</td><td data-h="Hindi">मेरा/मेरी</td><td data-h="Urdu">میرا/میری</td><td data-h="Say it">merā/merī</td></tr>
+<tr><td data-h="English">your (informal)</td><td data-h="Hindi">तुम्हारा</td><td data-h="Urdu">تمہارا</td><td data-h="Say it">tumhārā</td></tr>
+<tr><td data-h="English">your (formal)</td><td data-h="Hindi">आपका</td><td data-h="Urdu">آپ کا</td><td data-h="Say it">āp kā</td></tr>
+<tr><td data-h="English">his / her</td><td data-h="Hindi">उसका</td><td data-h="Urdu">اس کا</td><td data-h="Say it">us kā</td></tr>
+<tr><td data-h="English">our</td><td data-h="Hindi">हमारा</td><td data-h="Urdu">ہمارا</td><td data-h="Say it">hamārā</td></tr>
+<tr><td data-h="English">who?</td><td data-h="Hindi">कौन?</td><td data-h="Urdu">کون؟</td><td data-h="Say it">kaun?</td></tr>
+<tr><td data-h="English">what?</td><td data-h="Hindi">क्या?</td><td data-h="Urdu">کیا؟</td><td data-h="Say it">kyā?</td></tr>
 </tbody></table>
   <h2>4. Present tense — one full verb</h2>
   <p>“To eat” (کھانا) in the present. The present is stem + -تا (m) / -تی (f) + helper: ہوں (I), ہو (tum), ہیں (āp and they), ہے (is). So میں کھاتا ہوں (I eat, m), آپ کھاتے ہیں (you eat, respectful), وہ کھاتی ہے (she eats). Exactly like Hindi — only the script changed.</p>
-  <table class="tbl"><thead><tr><th>Who</th><th></th><th>Verb</th><th>Say it</th></tr></thead><tbody><tr><td>I (male speaker)</td><td>میں</td><td><b>کھاتا ہوں</b></td><td>khātā hūn</td></tr><tr><td>I (female speaker)</td><td>میں</td><td><b>کھاتی ہوں</b></td><td>khātī hūn</td></tr><tr><td>you (tum — close friends)</td><td>تم</td><td><b>کھاتے/کھاتی ہو</b></td><td>khāte/khātī ho</td></tr><tr><td>you (āp — respectful)</td><td>آپ</td><td><b>کھاتے/کھاتی ہیں</b></td><td>khāte/khātī hain</td></tr><tr><td>he</td><td>وہ</td><td><b>کھاتا ہے</b></td><td>khātā hai</td></tr><tr><td>she</td><td>وہ</td><td><b>کھاتی ہے</b></td><td>khātī hai</td></tr><tr><td>they</td><td>وہ</td><td><b>کھاتے/کھاتی ہیں</b></td><td>khāte/khātī hain</td></tr></tbody></table>
+  <table class="tbl"><thead><tr><th>Who</th><th></th><th>Verb</th><th>Say it</th></tr></thead><tbody><tr><td data-h="Who">I (male speaker)</td><td data-h="">میں</td><td data-h="Verb"><b>کھاتا ہوں</b></td><td data-h="Say it">khātā hūn</td></tr><tr><td data-h="Who">I (female speaker)</td><td data-h="">میں</td><td data-h="Verb"><b>کھاتی ہوں</b></td><td data-h="Say it">khātī hūn</td></tr><tr><td data-h="Who">you (tum — close friends)</td><td data-h="">تم</td><td data-h="Verb"><b>کھاتے/کھاتی ہو</b></td><td data-h="Say it">khāte/khātī ho</td></tr><tr><td data-h="Who">you (āp — respectful)</td><td data-h="">آپ</td><td data-h="Verb"><b>کھاتے/کھاتی ہیں</b></td><td data-h="Say it">khāte/khātī hain</td></tr><tr><td data-h="Who">he</td><td data-h="">وہ</td><td data-h="Verb"><b>کھاتا ہے</b></td><td data-h="Say it">khātā hai</td></tr><tr><td data-h="Who">she</td><td data-h="">وہ</td><td data-h="Verb"><b>کھاتی ہے</b></td><td data-h="Say it">khātī hai</td></tr><tr><td data-h="Who">they</td><td data-h="">وہ</td><td data-h="Verb"><b>کھاتے/کھاتی ہیں</b></td><td data-h="Say it">khāte/khātī hain</td></tr></tbody></table>
   <h2>5. Past and future (first steps)</h2>
-  <table class="tbl tri"><thead><tr><th>English</th><th>Hindi</th><th>Urdu</th><th>Say it</th></tr></thead><tbody><tr><td>I ate (said by a man)</td><td>मैंने खाया</td><td><b>میں نے کھایا</b></td><td>Main ne khāyā</td></tr><tr><td>I ate (said by a woman)</td><td>मैंने खायी</td><td><b>میں نے کھائی</b></td><td>Main ne khāī</td></tr><tr><td>I will eat (said by a man)</td><td>मैं खाऊँगा</td><td><b>میں کھاؤں گا</b></td><td>Main khāūngā</td></tr><tr><td>I will eat (said by a woman)</td><td>मैं खाऊँगी</td><td><b>میں کھاؤں گی</b></td><td>Main khāūngī</td></tr><tr><td>I ate bread (verb matches روٹی)</td><td>मैंने रोटी खायी</td><td><b>میں نے روٹی کھائی</b></td><td>Main ne roṭī khāī</td></tr><tr><td>We ate</td><td>हमने खाया</td><td><b>ہم نے کھایا</b></td><td>Ham ne khāyā</td></tr></tbody></table>
+  <table class="tbl tri"><thead><tr><th>English</th><th>Hindi</th><th>Urdu</th><th>Say it</th></tr></thead><tbody><tr><td data-h="English">I ate (said by a man)</td><td data-h="Hindi">मैंने खाया</td><td data-h="Urdu"><b>میں نے کھایا</b></td><td data-h="Say it">Main ne khāyā</td></tr><tr><td data-h="English">I ate (said by a woman)</td><td data-h="Hindi">मैंने खायी</td><td data-h="Urdu"><b>میں نے کھائی</b></td><td data-h="Say it">Main ne khāī</td></tr><tr><td data-h="English">I will eat (said by a man)</td><td data-h="Hindi">मैं खाऊँगा</td><td data-h="Urdu"><b>میں کھاؤں گا</b></td><td data-h="Say it">Main khāūngā</td></tr><tr><td data-h="English">I will eat (said by a woman)</td><td data-h="Hindi">मैं खाऊँगी</td><td data-h="Urdu"><b>میں کھاؤں گی</b></td><td data-h="Say it">Main khāūngī</td></tr><tr><td data-h="English">I ate bread (verb matches روٹی)</td><td data-h="Hindi">मैंने रोटी खायी</td><td data-h="Urdu"><b>میں نے روٹی کھائی</b></td><td data-h="Say it">Main ne roṭī khāī</td></tr><tr><td data-h="English">We ate</td><td data-h="Hindi">हमने खाया</td><td data-h="Urdu"><b>ہم نے کھایا</b></td><td data-h="Say it">Ham ne khāyā</td></tr></tbody></table>
   <h2>6. Negation with نہیں (nahīn)</h2>
   <p>نہیں (nahīn) goes before the verb: میں نہیں کھاتا (I don't eat), وہ نہیں آیا (he didn't come). For commands use نہ or مت: یہاں نہ بیٹھیں (don't sit here). Exactly like Hindi.</p>
   <h2>7. Postpositions (not prepositions)</h2>
-  <table class="tbl"><thead><tr><th>Meaning</th><th>Hindi</th><th>Urdu</th><th>Example</th></tr></thead><tbody><tr><td>to</td><td>को</td><td><b>کو</b></td><td>مجھے پانی دیں (Mujhe pānī den) — Give me water.</td></tr><tr><td>from</td><td>से</td><td><b>سے</b></td><td>میں دلی سے ہوں (Main Dillī se hūn) — I&#x27;m from Delhi.</td></tr><tr><td>in</td><td>में</td><td><b>میں</b></td><td>بلی گھر میں ہے (Billī ghar men hai) — The cat is in the house.</td></tr><tr><td>on</td><td>पर</td><td><b>پر</b></td><td>کتاب میز پر ہے (Kitāb mez par hai) — The book is on the table.</td></tr><tr><td>with</td><td>के साथ</td><td><b>کے ساتھ</b></td><td>میں دوست کے ساتھ گیا (Main dost ke sāth gayā) — I went with a friend.</td></tr><tr><td>for</td><td>के लिए</td><td><b>کے لیے</b></td><td>یہ آپ کے لیے ہے (Ye āp ke liye hai) — This is for you.</td></tr></tbody></table>
+  <table class="tbl"><thead><tr><th>Meaning</th><th>Hindi</th><th>Urdu</th><th>Example</th></tr></thead><tbody><tr><td data-h="Meaning">to</td><td data-h="Hindi">को</td><td data-h="Urdu"><b>کو</b></td><td data-h="Example">مجھے پانی دیں (Mujhe pānī den) — Give me water.</td></tr><tr><td data-h="Meaning">from</td><td data-h="Hindi">से</td><td data-h="Urdu"><b>سے</b></td><td data-h="Example">میں دلی سے ہوں (Main Dillī se hūn) — I&#x27;m from Delhi.</td></tr><tr><td data-h="Meaning">in</td><td data-h="Hindi">में</td><td data-h="Urdu"><b>میں</b></td><td data-h="Example">بلی گھر میں ہے (Billī ghar men hai) — The cat is in the house.</td></tr><tr><td data-h="Meaning">on</td><td data-h="Hindi">पर</td><td data-h="Urdu"><b>پر</b></td><td data-h="Example">کتاب میز پر ہے (Kitāb mez par hai) — The book is on the table.</td></tr><tr><td data-h="Meaning">with</td><td data-h="Hindi">के साथ</td><td data-h="Urdu"><b>کے ساتھ</b></td><td data-h="Example">میں دوست کے ساتھ گیا (Main dost ke sāth gayā) — I went with a friend.</td></tr><tr><td data-h="Meaning">for</td><td data-h="Hindi">के लिए</td><td data-h="Urdu"><b>کے لیے</b></td><td data-h="Example">یہ آپ کے لیے ہے (Ye āp ke liye hai) — This is for you.</td></tr></tbody></table>
   <h2>8. Counting words</h2>
   <p>Urdu has no classifiers — put the number straight before the noun. But the noun itself goes plural: ایک کتاب (one book), دو کتابیں (two books), تین روپے (three rupees). Exactly like Hindi.</p>
-  <table class="tbl"><thead><tr><th>Urdu</th><th>Hindi</th><th>Note</th></tr></thead><tbody><tr><td><b>ایک کتاب</b> (ek kitāb)</td><td>एक किताब</td><td>one book — number + noun, no extras</td></tr><tr><td><b>دو کتابیں</b> (do kitāben)</td><td>दो किताबें</td><td>two books — the noun itself goes plural (-یں)</td></tr><tr><td><b>تین روپے</b> (tīn rupay)</td><td>तीन रुपये</td><td>three rupees — same pattern as Hindi</td></tr></tbody></table>
+  <table class="tbl"><thead><tr><th>Urdu</th><th>Hindi</th><th>Note</th></tr></thead><tbody><tr><td data-h="Urdu"><b>ایک کتاب</b> (ek kitāb)</td><td data-h="Hindi">एक किताब</td><td data-h="Note">one book — number + noun, no extras</td></tr><tr><td data-h="Urdu"><b>دو کتابیں</b> (do kitāben)</td><td data-h="Hindi">दो किताबें</td><td data-h="Note">two books — the noun itself goes plural (-یں)</td></tr><tr><td data-h="Urdu"><b>تین روپے</b> (tīn rupay)</td><td data-h="Hindi">तीन रुपये</td><td data-h="Note">three rupees — same pattern as Hindi</td></tr></tbody></table>
   <nav class="prevnext" aria-label="More lessons"><a href="../vocabulary/"><span class="k">← Previous</span><span class="t">Vocabulary</span></a><a href="../elementary/" style="text-align:right"><span class="k">Next →</span><span class="t">Elementary</span></a></nav></div>
 <!-- ekguru:trust-footer:start -->
 <!-- ekguru:trust-footer:end -->
@@ -151,6 +122,23 @@ if ("serviceWorker" in navigator) {
 <script src="../../../js/storybook.js" defer></script>
 <!-- ekguru:consent -->
 <script src="../../../js/cookie-consent.js" defer></script>
+<!-- ekguru:pw-bands:start -->
+<nav class="pw-next" aria-label="Next step">
+  <b>Learn Urdu properly</b>
+  <p>The free course takes it in order — A1 to C2, 36 lessons, from the first letter to real
+  conversation, and it works without an account.</p>
+  <p><a class="btn btn-primary" href="/courses/#/ur">Open the Urdu course</a></p>
+</nav>
+<footer class="pw-support">
+  <div>
+    <b>Every lesson here is free, and always will be.</b>
+    <p>No account, no paywall, and never an ad on the free material — that is the
+    whole idea. Keeping it that way is the only thing this page asks of you.</p>
+  </div>
+  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
+  <a href="/find-tutors.html">Book a trial lesson</a>
+</footer>
+<!-- ekguru:pw-bands:end -->
 <!-- ekguru:shell-footer:start -->
 <footer class="ftr">
   <div class="wrap ftr-in">
