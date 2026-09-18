@@ -17,6 +17,11 @@
    Bump CACHE when you deploy and the old one is cleared out.
    ========================================================= */
 
+/* v41 — two things a learner can use with no network at all:
+     · js/question-api.js, so a flag or a like thrown offline is queued and
+       still shows its badge (the API syncs when the network comes back)
+     · js/print-sheet.js, the printed-sheet clone
+   Bump CACHE so a returning visitor actually gets them. */
 /* v40 — a worksheet printed offline prints the sheet: js/print-sheet.js
    (loaded by tools/build-print-sheets.py) clones the finished worksheet into
    #ekguru-print-root. Cached, so the one place a learner prints has the same
@@ -26,7 +31,7 @@
    translated on the six market pages, with one owner of the drawer: the cache
    generation moves so a returning visitor cannot keep the old chrome, the old
    tagline or the second click handler on the menu button. */
-const CACHE = "ekguru-v40-only-the-sheet";
+const CACHE = "ekguru-v41-votes-and-sheet";
 
 /* Phase 6 §14 — "Save for offline" pins learner-chosen pages in a dedicated
    cache that survives the main cache rotation. Only same-origin, non-private
@@ -108,6 +113,9 @@ const SHELL = [
   "./js/hindi-audio.js",
   "./js/hindi-offline.js",
   "./js/hindi-tools.js",
+  /* v41 — flags and likes, offline-first (tools/apps-script-questions.gs is
+     the server half; with no endpoint the votes stay on the device). */
+  "./js/question-api.js",
   /* Phase 7 — global language registry + goal-based onboarding */
   "./js/languages.js",
   "./js/onboarding.js",

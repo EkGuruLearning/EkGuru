@@ -101,6 +101,10 @@ def main():
             ["python3", "tools/inject-ads.py", "--check"])
         run("ad policy test (excluded pages carry no ad tag)",
             ["node", "tools/test-ad-policy.mjs"])
+        run("questions api --check (votes on every question page)",
+            ["python3", "tools/inject-questions-api.py", "--check"])
+        run("questions api test (flag -> queue -> community)",
+            ["node", "tools/test-question-api.mjs"])
         run("page skeleton test (one main, skip link lands)", ["node", "tools/test-page-skeleton.mjs"])
         run("sheet-apply test (sheet row -> site)", ["node", "tools/test-sheet-apply.js"])
         run("experience DOM test", ["node", "tools/test-experience-dom.mjs"])
@@ -135,6 +139,8 @@ def main():
     run("reading layer (969 pages onto the design system)", ["python3", "tools/build-legacy-pages.py"])
     run("page layer (555 lesson + answer + hub pages onto the same one)", ["python3", "tools/build-page-layer.py"])
     run("print sheets (worksheet prints as a sheet)", ["python3", "tools/build-print-sheets.py"])
+    run("questions api (flags and likes reach other learners)",
+        ["python3", "tools/inject-questions-api.py"])
     run("site shell (one header + one footer, every page)", ["node", "tools/build-shell.js"])
     run("copy index (ownership fingerprints)", ["node", "tools/build-copy-index.js"])
     run("doctor", ["node", "tools/doctor.js"])
