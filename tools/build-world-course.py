@@ -153,6 +153,44 @@ def build_course_hub(C):
     return "languages/%s/course/index.html" % C["code"]
 
 
+def _explainer(C, kind):
+    """Prose for the app pages.
+
+    These pages are mostly a widget plus a note, which is honest but left them
+    under the 250-word mark and made them look like filler to a reviewer (and
+    to the AdSense "low value content" check, which is the reason this site was
+    rejected the first time). Two short paragraphs that actually explain how
+    the tool works fix that without padding.
+    """
+    n = esc_html(C["name"])
+    if kind == "practice":
+        return (
+            '  <h2>How the %s practice drills work</h2>\n'
+            '  <p>The drill shows one %s word or grammar point at a time and asks you to pick the meaning '
+            'from four options. Every answer is explained, so a wrong one tells you why it was wrong rather '
+            'than just marking it red, and the vocabulary comes from the same %s lessons on this site — '
+            'nothing here is drawn from another course. Use the speaker button to hear the word before you '
+            'answer; the computer voice is good enough to train the rhythm even where it clips a vowel.</p>\n'
+            '  <h2>What the score means</h2>\n'
+            '  <p>This is a recognition drill, not a fluency test: picking the right meaning is easier than '
+            'producing the word, so a high score means you can read %s, not that you can speak it. Aim to '
+            'finish a set without repeats, then come back the next day — the value is in the second pass, '
+            'when the options look familiar and you have to remember rather than guess.</p>\n'
+            % (n, n, n, n))
+    return (
+        '  <h2>How the %s review deck works</h2>\n'
+        '  <p>Review is a small spaced-repetition deck: load it once and it holds a set of %s words and '
+        'phrases from this course, then shows you each card again at growing intervals — today, in a few '
+        'days, in a couple of weeks. Cards live in this browser only, so they follow the device, not an '
+        'account, and clearing your browser data clears the deck.</p>\n'
+        '  <h2>Using it well</h2>\n'
+        '  <p>Answer out loud before you reveal the back — the deck is testing recall, not recognition. '
+        'If a card keeps coming back, write the %s word in a sentence of your own; that is usually what '
+        'makes it stick. Ten minutes a day is the whole routine, and skipping a day is fine: the schedule '
+        'simply pushes the next card later rather than marking you down.</p>\n'
+        % (n, n, n))
+
+
 def build_practice(C):
     code = C["code"]
     body = (
@@ -190,7 +228,8 @@ def build_practice(C):
                "languages/%s/practice/" % code,
                '<a href="/">EkGuru</a> › <a href="/languages/">Languages</a> › <a href="/languages/%s/">%s</a> › Practice'
                % (code, esc_html(C["name"])),
-               body, scripts=["course-%s.js" % code, "practice-engine.js"], index=True)
+               body + _explainer(C, "practice"),
+               scripts=["course-%s.js" % code, "practice-engine.js"], index=True)
     return "languages/%s/practice/index.html" % code
 
 
@@ -208,6 +247,16 @@ def build_quiz(C):
         '  <p class="muted" style="font-size:.8rem;margin-top:8px">Questions rotate each day for the same topic '
         '(rule-based, not random) — come back tomorrow for a new set.</p>\n'
         '  <div id="%s-q-body" style="margin-top:16px"></div>\n'
+        '  <h2>How the %s quiz works</h2>\n'
+        '  <p>Every question is drawn from the %s lesson bank on this site, not from a generic list. '
+        'Choose a topic and a length — five questions for a short break, twenty for a proper session — and '
+        'each answer comes back with a short explanation plus a link to the lesson it came from. The set '
+        'rotates with the date, so the same topic gives you different questions tomorrow; that is deliberate, '
+        'because recognising a question is not the same as knowing the word.</p>\n'
+        '  <h2>Getting the most out of a score</h2>\n'
+        '  <p>Read the explanations for the ones you missed before starting another round, and treat anything '
+        'under half as a signal to re-read that %s lesson rather than to grind more questions. Wrong answers '
+        'are the useful ones — they tell you which word has not stuck yet.</p>\n'
         '  <script>\n'
         '  (function () {\n'
         '    "use strict";\n'
@@ -254,7 +303,8 @@ def build_quiz(C):
         '  })();\n'
         '  </script>\n'
     ) % (esc_html(C["name"]), esc_html(C["name"]), code, code, code, code, code, code,
-         code, C["jsvar"], C["jsvar"], code, code, code, code, code, code, code, code, C["jsvar"])
+         code, C["jsvar"], C["jsvar"], code, code, code, code, code, code, code, code, C["jsvar"],
+         esc_html(C["name"]), esc_html(C["name"]), esc_html(C["name"]))
     write_page("languages/%s/quiz/index.html" % code, "../../../",
                "%s Quiz — Topic Questions with Explanations" % C["name"],
                "A free %s topic quiz: multiple-choice questions with explanations, drawn from the %s lessons. The set rotates daily." % (C["name"], C["name"]),
@@ -341,6 +391,7 @@ def build_review(C):
          C["jsvar"], C["jsvar"], C["category"], code,
          code, code, esc_html(C["name"]), code, code,
          code, code, code, code, code, C["speech"], code, code, code, code, code, code)
+    body = body + _explainer(C, "review")
     write_page("languages/%s/review/index.html" % code, "../../../",
                "%s Review — spaced repetition" % C["name"],
                "Review the %s words and phrases you saved, on a simple spaced-repetition schedule that lives in your browser." % C["name"],

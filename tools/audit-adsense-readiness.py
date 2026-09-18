@@ -28,7 +28,11 @@ PLAYER_SOURCE=(ROOT/'js/course-player.js').read_text(errors='ignore') if (ROOT/'
 TTS_CODES=set(re.findall(r'\b([a-z]{2,3}):\s*"[a-z]{2,3}(?:-[A-Z]{2})?"',PLAYER_SOURCE))
 
 def state(pass_:bool, partial=False): return 'PASS' if pass_ else ('PARTIAL' if partial else 'FAIL')
-def norm(s): return re.sub(r'[^a-z0-9\u0900-\u0d7f]+',' ',s.lower()).strip()
+def norm(s):
+ # Unicode-aware: the old class kept only Latin+Devanagari-to-Malayalam, so every
+ # Arabic/Japanese/Cyrillic/Urdu title collapsed to "ekguru" and the audit reported
+ # a 12-page duplicate-title group that did not exist.
+ return re.sub(r'[^\w]+',' ',s.lower()).strip()
 
 class Scan(HTMLParser):
  def __init__(self):
@@ -58,6 +62,22 @@ def html_files():
   out.append(p)
  return sorted(out)
 
+# Chrome is not content. The site header, the shell footer, the trust footer,
+# the two bands, the in-page navs and the storybook hint are identical on every
+# page ON PURPOSE — that is what makes them chrome. Counting them as duplicate
+# content made every page look templated and hid the pages that really are
+# ("Meetings, customers, contracts — professional Kannada for offices." repeated
+# per language). Paragraph and intro duplication is measured on the body only.
+CHROME = re.compile(
+    r"<!--\s*ekguru:(?:shell-header|shell-footer|trust-footer|pw-bands):start\s*-->[\s\S]*?"
+    r"<!--\s*ekguru:(?:shell-header|shell-footer|trust-footer|pw-bands):end\s*-->"
+    r"|<header\b[\s\S]*?</header>|<footer\b[\s\S]*?</footer>"
+    r"|<nav\b[\s\S]*?</nav>"
+    r"|<p class=\"[^\"]*hint[^\"]*\">[\s\S]*?</p>"
+    r"|<p class=\"crumbs?\">[\s\S]*?</p>"
+    r"|<aside\b[^>]*(?:class=\"[^\"]*pg-note[^\"]*\"|role=\"note\")[^>]*>[\s\S]*?</aside>", re.I)
+
+
 def signature(text):
  # Template-risk signature deliberately removes volatile names/numbers/currency.
  x=norm(text); x=re.sub(r'\b\d+(?: \d+)*\b','#',x)
@@ -67,7 +87,8 @@ def page_audit():
  pages=[]; title_map=defaultdict(list); meta_map=defaultdict(list); intro_map=defaultdict(list); paragraph_map=defaultdict(list)
  for p in html_files():
   raw=p.read_text('utf-8',errors='ignore'); s=Scan(); s.feed(raw); text=' '.join(s.text); words=re.findall(r"\b[\w'’-]+\b",text,flags=re.UNICODE); rel=str(p.relative_to(ROOT))
-  paras=[norm(re.sub('<[^>]+>',' ',x)) for x in re.findall(r'<p\b[^>]*>(.*?)</p>',raw,flags=re.I|re.S)]
+  body=CHROME.sub(' ',raw)
+  paras=[norm(re.sub('<[^>]+>',' ',x)) for x in re.findall(r'<p\b[^>]*>(.*?)</p>',body,flags=re.I|re.S)]
   paras=[x for x in paras if len(x.split())>=12]
   intro=paras[0] if paras else ''
   issues=[]

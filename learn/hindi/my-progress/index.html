@@ -27,11 +27,17 @@
 <link rel="stylesheet" href="../../../css/storybook.css">
 
 <!-- ekguru:adsense:start -->
+<!-- Auto ads: one account loader, and Google places the units. Whether
+     this block is in the page at all is decided by the page's class
+     (html[data-ad-class]) and data/monetization/google-monetization.json
+     -> ad_policy. tools/inject-ads.py enforces it. -->
+<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+<link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
 <meta name="google-adsense-account" content="ca-pub-8175326569491671">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8175326569491671" crossorigin="anonymous"></script>
 <!-- ekguru:adsense:end -->
 </head>
-<body>
+<body data-topic="section-progress">
 <!-- ekguru:shell-header:start -->
 <header class="hdr">
   <a class="skip" href="#main">Skip to content</a>
@@ -58,7 +64,11 @@
 <main id="main">
 <div class="art pw-legacy">
     <p class="crumb"><a href="../../../">EkGuru</a> › <a href="../../">Learn Hindi</a> › <a href="../">Hindi</a> › My Hindi</p>
-  <h1>My Hindi — progress on this device</h1>
+  <!-- ekguru:chapter -->
+<div class="sb-chapter" style="--sb-accent:#4f32d9;--sb-tint:#f1edfe"><span class="sb-ch-mascot" aria-hidden="true">📈</span><span class="sb-ch-name">My progress <i>मेरी प्रगति</i></span><span class="sb-ch-kind">Progress</span><span class="sb-ch-floats" aria-hidden="true">आगे</span></div>
+<h1>My Hindi — progress on this device</h1>
+<!-- ekguru:storybook -->
+<p class="sb-hint">🔊 <b>Tap any speaker button to hear Hindi spoken.</b> Too fast or slow? Use the <b>speed</b> button at the bottom-right of the page.</p>
   <p class="lede">Your own checklist: what you have read, finished and reviewed. <b>Saved on this device only</b> — no account, no upload, no cross-device sync.</p>
   <div class="sb-band"><span class="dev">प्रगति</span>Your journey, on this device.</div>
 
@@ -73,23 +83,6 @@
 
 </div>
 <!-- ekguru:trust-footer:start -->
-<!-- ekguru:pw-bands:start -->
-<nav class="pw-next" aria-label="Next step">
-  <b>Learn Hindi properly</b>
-  <p>The free course takes it in order — A1 to C2, 36 lessons, from the first letter to real
-  conversation, and it works without an account.</p>
-  <p><a class="btn btn-primary" href="/courses/#/hi">Open the Hindi course</a></p>
-</nav>
-<footer class="pw-support">
-  <div>
-    <b>Every lesson here is free, and always will be.</b>
-    <p>No account, no paywall, and never an ad on the free material — that is the
-    whole idea. Keeping it that way is the only thing this page asks of you.</p>
-  </div>
-  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
-  <a href="/find-tutors.html">Book a trial lesson</a>
-</footer>
-<!-- ekguru:pw-bands:end -->
 <!-- ekguru:trust-footer:end -->
 <script src="../../../js/site-config.js" defer></script>
 <script src="../../../js/analytics.js" defer></script>
@@ -168,6 +161,23 @@ if ("serviceWorker" in navigator) {
 </script>
 
 </main>
+<!-- ekguru:pw-bands:start -->
+<nav class="pw-next" aria-label="Next step">
+  <b>Learn Hindi properly</b>
+  <p>The free course takes it in order — A1 to C2, 36 lessons, from the first letter to real
+  conversation, and it works without an account.</p>
+  <p><a class="btn btn-primary" href="/courses/#/hi">Open the Hindi course</a></p>
+</nav>
+<footer class="pw-support">
+  <div>
+    <b>Every lesson here is free, and always will be.</b>
+    <p>No account, no paywall, and never an ad on the free material — that is the
+    whole idea. Keeping it that way is the only thing this page asks of you.</p>
+  </div>
+  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
+  <a href="/find-tutors.html">Book a trial lesson</a>
+</footer>
+<!-- ekguru:pw-bands:end -->
 <!-- ekguru:shell-footer:start -->
 <footer class="ftr">
   <div class="wrap ftr-in">

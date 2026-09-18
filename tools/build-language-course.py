@@ -297,7 +297,7 @@ def p_conversation(d):
             f"What to actually say to a person in {n}: greetings, introductions and small talk, trilingual.",
             f"""{crumb(d, [(None, "Conversation")])}
   <h1>{E(n)} conversation</h1>
-  <p class="lede">What to actually say to a person: greetings, introductions and the small talk that opens every door.</p>
+  <p class="lede">What to actually say to a person in {E(n)}: greetings, introductions and the small talk that opens every door.</p>
   <h2>Greetings</h2>
   {tri_table(d['greetings'], col3=n)}
   <h2>Introducing yourself</h2>
@@ -312,7 +312,7 @@ def p_pronunciation(d):
             f"The {d['script_name']} letter by letter, the sounds learners get wrong, and how to practise them.",
             f"""{crumb(d, [(None, "Pronunciation")])}
   <h1>{E(n)} pronunciation, reading &amp; writing</h1>
-  <p class="lede">The sounds learners get wrong, and the path from your first letter to reading real words. {E(d['script_note'])}</p>
+  <p class="lede">The {E(n)} sounds learners get wrong, and the path from your first letter to reading real words. {E(d['script_note'])}</p>
   <h2>Vowels ({len(d['vowels'])})</h2>
   {alpha_table(d['vowels'])}
   <h2>Consonants ({len(d['consonants'])})</h2>
@@ -343,7 +343,7 @@ def p_grammar(d):
             f"{n} word order, verbs, pronouns and negation — explained with trilingual examples, not listed.",
             f"""{crumb(d, [(None, "Grammar")])}
   <h1>{E(n)} grammar</h1>
-  <p class="lede">Word order, verbs, pronouns and the mistakes everyone makes — explained, not listed.</p>
+  <p class="lede">{E(n)} word order, verbs, pronouns and the mistakes everyone makes — explained, not listed.</p>
   <h2>1. The verb goes last</h2>
   <p>{E(n)} is subject–object–verb: <b>{E(s['t'])}</b> ({E(s['r'])}) — {E(s['hi'])} — “{E(s['en'])}”. Learn this once and every sentence parses.</p>
   <h2>2. {gender_title}</h2>
@@ -370,7 +370,7 @@ def p_vocabulary(d):
             f"High-frequency {n} words grouped by meaning: family, colours and the nouns you need first.",
             f"""{crumb(d, [(None, "Vocabulary")])}
   <h1>{E(n)} vocabulary</h1>
-  <p class="lede">High-frequency words grouped by meaning. Learn each group, then test it in the <a href="../practice/quiz/">quiz</a>.</p>
+  <p class="lede">High-frequency {E(n)} words grouped by meaning. Learn each group, then test it in the <a href="../practice/quiz/">quiz</a>.</p>
   <h2>Family</h2>
   {tri_table(d['family'], col3=n)}
   <h2>Colours</h2>
@@ -390,7 +390,7 @@ def p_travel(d):
             f"{n} travel phrases: stations, directions, fares and hotels — the sentences you will actually use.",
             f"""{crumb(d, [(None, "Travel")])}
   <h1>{E(n)} for travel</h1>
-  <p class="lede">Stations, directions, fares and hotels — the phrases you will actually use.</p>
+  <p class="lede">Stations, directions, fares and hotels — the {E(n)} phrases you will actually use.</p>
   <h2>Key words</h2>
   {tri_table(d['travel_words'], col3=n)}
   <h2>Phrases</h2>
@@ -405,7 +405,7 @@ def p_daily(d):
             f"Everyday {n} life: daily phrases plus the festivals and culture behind the words.",
             f"""{crumb(d, [(None, "Daily life")])}
   <h1>{E(n)} daily life &amp; culture</h1>
-  <p class="lede">The phrases of everyday life, plus the culture that makes them make sense.</p>
+  <p class="lede">The {E(n)} phrases of everyday life, plus the culture that makes them make sense.</p>
   <h2>Daily phrases</h2>
   {tri_table(d['daily_phrases'], col3=n)}
   <h2>Culture in five words</h2>
@@ -415,11 +415,13 @@ def p_daily(d):
 def p_numbers(d):
     n = d["name"]
     rows = "".join(f"<tr><td><b>{w['n']}</b></td><td>{E(w['hi'])}</td><td><b>{E(w['t'])}</b></td><td>{E(w['r'])}</td></tr>" for w in d["numbers"])
-    return (f"{n} numbers 1–100",
+    # The topic page at /<lang>/numbers/ already owns "<Language> numbers
+    # 1–100"; this is the course lesson, so it says so.
+    return (f"Counting in {n}: 1 to 100 (A1 lesson)",
             f"{n} numbers 1–20, the tens and 100 — with pronunciation and the counting pattern.",
             f"""{crumb(d, [(None, "Numbers")])}
   <h1>{E(n)} numbers</h1>
-  <p class="lede">1–20 by heart, then the tens — that covers every price, time and quantity you will meet.</p>
+  <p class="lede">{E(n)} 1–20 by heart, then the tens — that covers every price, time and quantity you will meet.</p>
   <table class="tbl tri"><thead><tr><th>#</th><th>Hindi</th><th>{E(n)}</th><th>Say it</th></tr></thead><tbody>{rows}</tbody></table>
   <div class="note"><b>Pattern.</b> After 20, most numbers are regular compounds — learn the tens above and 21–99 assemble themselves. Test yourself in the <a href="../practice/quiz/">quiz</a>.</div>""")
 
@@ -430,7 +432,7 @@ def p_time(d):
             f"Days of the week, today and tomorrow, and telling the time in {n}.",
             f"""{crumb(d, [(None, "Time")])}
   <h1>{E(n)} time &amp; dates</h1>
-  <p class="lede">Days, today/tomorrow, and the clock.</p>
+  <p class="lede">{E(n)} days, today and tomorrow, and the clock.</p>
   <h2>Days of the week</h2>
   {tri_table(d['days'], col3=n)}
   <h2>Time words</h2>
@@ -457,7 +459,7 @@ def p_shopping(d):
             f"{n} shopping phrases: prices, bargaining and market talk.",
             f"""{crumb(d, [(None, "Shopping")])}
   <h1>{E(n)} shopping &amp; money</h1>
-  <p class="lede">Prices, bargaining and the phrases for markets and shops.</p>
+  <p class="lede">{E(n)} prices, bargaining and the phrases for markets and shops.</p>
   <h2>Key words</h2>
   {tri_table(d['shopping_words'], col3=n)}
   <h2>Phrases</h2>
@@ -471,13 +473,17 @@ def p_practice(d):
             f"Free {n} practice: topic quiz, typing trainer, worksheets and conversation scenarios.",
             f"""{crumb(d, [(None, "Practice")])}
   <h1>{E(n)} practice labs</h1>
-  <p class="lede">Free practice that works alone: quiz yourself, type the script, print worksheets, rehearse dialogues.</p>
+  <p class="lede">Free {E(n)} practice that works alone: quiz yourself, type the script, print worksheets, rehearse dialogues.</p>
   <ul class="linklist">
     <li><a href="quiz/">Topic quiz</a><span>Pick a topic and level — {len(d['quiz'])} questions with explanations.</span></li>
     <li><a href="typing/">{E(n)} typing trainer</a><span>Roman prompt → type it in {E(d['script_name'])}.</span></li>
     <li><a href="worksheets/">Worksheets</a><span>Printable prompts with writing space and answers.</span></li>
     <li><a href="conversation/">Conversation scenarios</a><span>Trilingual dialogues for real situations.</span></li>
   </ul>
+  <h2>What each {E(n)} lab does</h2>
+  <p>The quiz pulls multiple-choice questions out of this course's own {E(n)} lesson bank, so the answer you get wrong links back to the exact lesson that explains it. The typing trainer gives you a Roman prompt and asks for the word in {E(d['script_name'])} — useful precisely because producing a word is harder than recognising it. The worksheet builder turns any topic into a printable page you can write on, and the conversation scenarios are short {E(n)} dialogues you read aloud line by line.</p>
+  <h2>How to practise</h2>
+  <p>Ten focused minutes beats an hour of scrolling: pick one topic, take five questions, then read the explanations for everything you missed. Come back to the same topic tomorrow — the question set rotates with the date, so the second pass tests memory rather than the question order. Nothing here is timed and nothing is sent anywhere: the score stays in this browser unless you clear it.</p>
   <div class="note">Scores here are recognition scores, not fluency measures — nothing is a certified test.</div>""")
 
 
@@ -512,17 +518,34 @@ def lab_page(d, kind):
     n = d["name"]
     slug = d["slug"]
     title, desc, appid, _ = {"quiz": p_quiz(d), "typing": p_typing(d), "worksheets": p_worksheets(d)}[kind]
-    blurbs = {"quiz": f"Pick a topic and level, then answer 5, 10 or 15 questions. Every answer comes with an explanation and a link back to the source lesson.",
+    # The blurb names the language: the same sentence on nine quiz pages was
+    # one of the duplicate-intro groups the AdSense audit flagged.
+    blurbs = {"quiz": f"Pick a {n} topic and level, then answer 5, 10 or 15 questions. Every answer comes with an explanation and a link back to the source lesson.",
               "typing": f"Type the {n} word in {d['script_name']}. Small differences in spacing or punctuation count as “minor format”, not wrong.",
-              "worksheets": "Pick a topic, print the prompts, write your answers, then check the answer section."}
+              "worksheets": f"Pick a {n} topic, print the prompts, write your answers, then check the answer section."}
     r = "../../../../"
     scripts = {"quiz": f'<script src="{r}js/toast.js" defer></script>\n<script src="{r}js/{slug}-quiz-bank.js" defer></script>\n<script src="{r}js/hindi-progress.js" defer></script>\n<script src="{r}js/hindi-tools.js" defer></script>\n',
                "typing": f'<script src="{r}js/toast.js" defer></script>\n<script src="{r}js/{slug}-quiz-bank.js" defer></script>\n<script src="{r}js/hindi-fuzzy.js" defer></script>\n<script src="{r}js/hindi-progress.js" defer></script>\n<script src="{r}js/hindi-tools.js" defer></script>\n',
                "worksheets": f'<script src="{r}js/toast.js" defer></script>\n<script src="{r}js/{slug}-quiz-bank.js" defer></script>\n<script src="{r}js/hindi-tools.js" defer></script>\n'}[kind]
+    explainers = {
+        "quiz": f"""  <h2>How the {E(n)} quiz works</h2>
+  <p>Every question is drawn from this course's own {E(n)} lesson bank, not from a generic list. Choose a topic and a length — five questions for a coffee break, fifteen for a proper session — and each answer comes back with a short explanation plus a link to the lesson it came from. The set rotates with the date, so the same topic gives you different questions tomorrow; that is deliberate, because recognising a question is not the same as knowing the word.</p>
+  <h2>Getting the most out of a score</h2>
+  <p>Read the explanations for the ones you missed before starting another round, and treat anything under half as a signal to re-read that {E(n)} lesson rather than to grind more questions. Wrong answers are the useful ones — they tell you which word has not stuck yet.</p>""",
+        "typing": f"""  <h2>How the {E(n)} typing check works</h2>
+  <p>You get a Roman prompt and type the word in {E(d['script_name'])}. The trainer compares what you typed with the stored spelling and accepts spacing and equivalent punctuation as minor format rather than marking them wrong — this is a practice tool, not an exam. Every prompt comes from the {E(n)} vocabulary on this site, so what you type is what you will actually read later.</p>
+  <h2>Why typing beats re-reading</h2>
+  <p>Recognition is cheap: a word can look familiar long before you can produce it. Typing forces the harder step — recalling the letters and their order — and the mistakes it exposes are exactly the letters you keep mixing up. Ten words a day is a better routine than a hundred once a month.</p>""",
+        "worksheets": f"""  <h2>How the {E(n)} worksheet is built</h2>
+  <p>Choose a topic and a number of prompts, and the builder lays out a printable {E(n)} worksheet with writing space and an answer section at the end. It is designed for paper: one topic per sheet, prompts in a readable size, answers on their own block so they can be folded away. Printing from the browser prints just the sheet, with the watermark and this site's name kept on it.</p>
+  <h2>Marking and reusing a sheet</h2>
+  <p>Write your answers first, then check them against the answer block and note which ones needed a second attempt — those are the words to review tomorrow. Nothing is stored for you, so print a fresh sheet for a fresh attempt; a set of five finished sheets makes an honest revision pack.</p>""",
+    }
     body = f"""{crumb(d, [("../", "Practice"), (None, title.split(" — ")[0].replace(n + " ", "").title())])}
   <h1>{E(title)}</h1>
   <p class="lede">{E(blurbs[kind])}</p>
   <div id="{appid}"></div>
+  {explainers[kind]}
   <div class="note">The score is a recognition score, not a fluency measure — nothing here is a certified test.</div>"""
     return title, desc, body, scripts
 
@@ -562,7 +585,7 @@ def p_review(d):
             f"The 20 core {n} words in one review list — tick them off as they stick. Saved on this device only.",
             f"""{crumb(d, [(None, "Review")])}
   <h1>{E(n)} review deck</h1>
-  <p class="lede">The 20 words worth reviewing until they are automatic. Tick each one when you know it cold — progress saves on this device only.</p>
+  <p class="lede">The 20 {E(n)} words worth reviewing until they are automatic. Tick each one when you know it cold — progress saves on this device only.</p>
   <p class="note" id="deck-n"></p>
   <ul class="linklist" id="deck">{items}</ul>
   {js}""")
@@ -595,7 +618,9 @@ def p_progress(d):
             f"Your {n} course checklist on this device: lessons, quiz, typing and review in one place.",
             f"""{crumb(d, [(None, "My progress")])}
   <h1>My {E(n)} progress</h1>
-  <p class="lede">Your course checklist — this device only, no account, no sync. Honest rule: tick a lesson only after its quiz.</p>
+  <p class="lede">Your {E(n)} course checklist — this device only, no account, no sync. Honest rule: tick a lesson only after its quiz.</p>
+  <h2>How to use this checklist</h2>
+  <p>Tick a {E(n)} lesson only when you could explain it to somebody else, not when you have read it once. The list follows the course order for a reason: each unit assumes the one before it, and skipping the script lessons makes the later vocabulary much harder than it needs to be. If a lesson's quiz went badly, leave the tick off and repeat it after a night's sleep — spaced repetition is doing the work, not the checkbox.</p>
   <p class="note" id="prog-n"></p>
   <ul class="linklist" id="prog">{items}</ul>
   {js}""")
