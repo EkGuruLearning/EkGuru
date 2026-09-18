@@ -5140,6 +5140,37 @@ body.xp-market .hdr .hdr-in {
 .lv-level-list a span { display: block; color: var(--muted); font-size: .85rem; margin-top: 3px; }
 
 /* ==========================================================================
+   30. THE COUNTRY FIGURES — one plate per country
+   --------------------------------------------------------------------------
+   tools/build-country-visuals.py writes images/vis/country-<cc>.svg from the
+   same data the country pages are built from (the language-country relations
+   file and the course catalogue) and drops a block on every
+   world-languages/<country>/ and learn-hindi-from-<country>/ page: the country's
+   name in its own language, its region, the official languages in their own
+   scripts, and two numbers — how many languages are documented for it here and
+   how many can be learned today. The colour comes from the country code (the
+   same rule the course cards use); it is a page colour, not a flag.
+
+   The figure is 320x200, so it sits in the reading column at its natural size
+   and never stretches: `max-width` with `height: auto`, one rule.
+   ========================================================================== */
+.ct-visual { margin: 34px 0 8px; }
+.ct-visual > h2 { font-size: clamp(1.1rem, 2.8vw, 1.3rem); line-height: 1.3; margin: 0 0 10px; }
+.ct-visual > p { max-width: 74ch; line-height: 1.7; color: var(--ink-2); }
+.ct-fig { margin: 16px 0 0; }
+.ct-fig img {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+}
+.ct-fig figcaption { margin-top: 8px; font-size: .87rem; line-height: 1.6; color: var(--ink-2); max-width: 60ch; }
+.ct-fig figcaption b { color: var(--ink); }
+
+/* ==========================================================================
    27. PRINT — the sheet, not the website
    --------------------------------------------------------------------------
    Prakash: "print worksheet pura page hi print karti hai, par humein sirf

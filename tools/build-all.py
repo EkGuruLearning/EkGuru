@@ -90,10 +90,14 @@ def main():
         run("page layer --check (555 lesson/answer/hub pages + 273 level pages)", ["python3", "tools/build-page-layer.py", "--check"])
         run("level visuals --check (a learner per language per rung)",
             ["python3", "tools/build-visuals.py", "--check"])
+        run("country visuals --check (one plate per country)",
+            ["python3", "tools/build-country-visuals.py", "--check"])
         run("level visuals test (the ladder, the figures, the strip)",
             ["node", "tools/test-level-visuals.mjs"])
         run("course levels test (every course readable at every level)",
             ["node", "tools/test-course-levels.mjs"])
+        run("country visuals test (numbers match the data)",
+            ["node", "tools/test-country-visuals.mjs"])
         run("readiness audit selftest (the word counter, on unspaced scripts)",
             ["python3", "tools/audit-adsense-readiness.py", "--selftest"])
         run("ads readiness, repository mode (ads.txt, canonicals, sitemaps)",
@@ -155,6 +159,8 @@ def main():
     run("legal pages (contents card + clause ids)", ["python3", "tools/build-legal-pages.py"])
     run("courses by country (194 countries + the build queue)", ["python3", "tools/build-course-countries.py"])
     run("Hindi learning pages (learn/hindi/**)", ["python3", "tools/build-hindi-pages.py"])
+    run("country visuals (one plate per country, on both country page sets)",
+        ["python3", "tools/build-country-visuals.py"])
     run("reading layer (969 pages onto the design system)", ["python3", "tools/build-legacy-pages.py"])
     run("page layer (555 lesson/answer/hub + 273 level pages)", ["python3", "tools/build-page-layer.py"])
     run("level visuals (a learner per language per rung)", ["python3", "tools/build-visuals.py"])

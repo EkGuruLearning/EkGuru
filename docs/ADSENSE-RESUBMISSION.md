@@ -50,7 +50,11 @@ machine-readable copy is `data/quality/adsense-readiness.json`.
   and `noindex` — a 404 that tries to be an article is filler. The 273 new level
   pages average several thousand words each, and the smallest is over 1,500.
 - **Creative work, not filler:** 32 languages with their own practice, quiz and
-  review engines; 352 level figures generated from the ladder; an eleven-rung
+  review engines; 352 level figures generated from the ladder (a learner whose
+  age is the level — a child at A1, an elder at C2); 193 country plates, each
+  built from the same language-country data as the page under it, showing the
+  country's own name in its own script and two honest numbers (languages
+  documented here, languages actually taught here); an eleven-rung
   level reference page (`/how-levels-work/`) that says plainly that CEFR has six
   levels and that the other five are half-steps; 32 tutor pages with real
   profiles; a cookie policy that names every cookie.
