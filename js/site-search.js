@@ -45,7 +45,9 @@
     ["Roman works too", "“paani”, “kitab”, “namaste” find the same pages when the fuzzy helper is loaded."],
     ["Try a place", "Japan, UAE, Brazil — every country funnel is indexed."],
     ["Try a tool", "flashcards, alphabet, transliteration, numbers."],
-    ["Search by type", "Use the filter chips to see only lessons, tools, tutors or materials."]
+    ["Search by type", "Use the filter chips to see only lessons, tools, tutors or materials."],
+    ["Search by country", "Pick your country in the Country list — lesson times come in your local time and prices in your currency."],
+    ["Search by language", "The Language list keeps the pages written for speakers of your first language."]
   ];
 
   var POPULAR = ["numbers", "past tense", "Devanagari", "flashcards", "Japan", "kids", "pronunciation", "worksheets"];
@@ -53,12 +55,14 @@
   var IDX = null;
   var ready = null;
   var SECTIONS = {};
-  var state = { q: "", section: "", active: -1, results: [] };
+  var state = { q: "", section: "", country: "", lang: "", active: -1, results: [] };
 
   var q = doc.getElementById("q");
   var res = doc.getElementById("res");
   var sc = doc.getElementById("sc");
   var sf = doc.getElementById("sf");
+  var cf = doc.getElementById("c-country");
+  var lf = doc.getElementById("c-lang");
   var live = doc.getElementById("search-live");
 
   if (!res) return;   /* not the search page */
@@ -92,6 +96,7 @@
         IDX = json || [];
         IDX.forEach(function (row) { SECTIONS[row.s] = (SECTIONS[row.s] || 0) + 1; });
         paintSectionCounts();
+        buildFacets(IDX);
         return IDX;
       })
       .catch(function () {
@@ -100,6 +105,149 @@
         return IDX;
       });
     return ready;
+  }
+
+  /* ---------- facets: country and language ------------------------------
+     Prakash: "search mai done se search ho ... country or language".
+
+     Every country funnel is already in the index (learn-hindi-from-japan/,
+     hindi-tutor/dubai/), and so is every language page
+     (learn-hindi-for-japanese-speakers/, languages/ja/, ja/hindi/). The
+     section pills answer "what kind of page is this"; these two answer the
+     question a visitor actually has — "for MY country" and "for MY
+     language" — and they combine with the pills rather than replacing them.
+
+     The facets are derived from the index at load, so a country funnel added
+     by a generator appears in the dropdown with no edit here.
+     ---------------------------------------------------------------------- */
+
+  /* A country slug from a URL, or "" — the two shapes the site uses. */
+  function countryOf(u) {
+    var m = /^learn-hindi-from-([a-z0-9-]+)(?:\/|$)/.exec(u);
+    if (m) return m[1];
+    m = /^hindi-tutor\/([a-z0-9-]+)\//.exec(u);
+    if (m) return m[1];
+    return "";
+  }
+
+  /* A language slug from a URL, or "". Three shapes: the "for speakers"
+     guides ("learn-hindi-for-japanese-speakers/"), the starter packs
+     ("languages/ja/") and the seven translated markets ("ja/hindi/").
+
+     The three shapes spell the same language three different ways — the
+     guides use the English name, the packs and markets use the ISO code —
+     so returning the raw slug would put "Japanese" and "ja" in the dropdown
+     as two separate languages, each with half the pages. LANG_ALIAS is
+     filled from the index itself (the starter pack's title carries the
+     name: "Learn Japanese basics") before the facets are counted. */
+  var LANG_ALIAS = Object.create(null);
+
+  function langSlugFromUrl(u) {
+    var m = /^learn-hindi-for-([a-z0-9-]+)-speakers(?:\/|$)/.exec(u);
+    if (m) return m[1];                                   /* japanese */
+    m = /^languages\/([a-z]{2,3})\//.exec(u);
+    if (m) return m[1];                                   /* ja */
+    m = /^([a-z]{2})\/hindi(?:\/|$)/.exec(u);
+    if (m) return m[1];                                   /* ja */
+    return "";
+  }
+
+  function languageOf(u) {
+    var slug = langSlugFromUrl(u);
+    return LANG_ALIAS[slug] || slug;
+  }
+
+  function slugify(name) {
+    return String(name).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  }
+
+  /* Code → English name, learned from the starter packs. */
+  function learnLanguageNames(index) {
+    index.forEach(function (row) {
+      var m = /^languages\/([a-z]{2,3})\//.exec(row.u);
+      if (!m) return;
+      var t = String(row.t || "");
+      /* "Learn Japanese basics — free starter pack", "Learn Kannada — free
+         course", "Learn Arabic with EkGuru …": the name is what sits between
+         "Learn" and the first noun-ish separator. */
+      var n = /^Learn ([A-Za-zÀ-ÿ' .-]+?)(?:\s+basics|\s+with EkGuru|\s*[—-])/.exec(t) ||
+              /^Learn ([A-Za-zÀ-ÿ' .-]+)$/.exec(t);
+      if (n) LANG_ALIAS[m[1]] = slugify(n[1]);
+    });
+    /* "ja/hindi/" is the Japanese-language site, so its language is Japanese
+       even where no starter pack exists. */
+    index.forEach(function (row) {
+      var m = /^([a-z]{2})\/hindi(?:\/|$)/.exec(row.u);
+      if (m && LANG_ALIAS[m[1]]) return;
+      if (m) LANG_ALIAS[m[1]] = m[1];
+    });
+  }
+
+  var SMALL = { and: 1, of: 1, the: 1, "in": 1, for: 1, "a": 1, to: 1, st: 1 };
+
+  function pretty(slug) {
+    return String(slug).split("-").map(function (w, i) {
+      if (i && SMALL[w]) return w;
+      return w.charAt(0).toUpperCase() + w.slice(1);
+    }).join(" ")
+      .replace(/\bUsa\b/, "USA").replace(/\bUae\b/, "UAE")
+      .replace(/\bUk\b/, "UK").replace(/\bGcc\b/, "GCC");
+  }
+
+  /* The starter packs carry the language name in their title
+     ("Learn Japanese basics — free starter pack"), which beats mapping a
+     code through a table that would go stale. */
+  function languageLabel(slug, index) {
+    for (var i = 0; i < index.length; i++) {
+      var row = index[i];
+      if (languageOf(row.u) !== slug) continue;
+      var t = String(row.t || "");
+      var m = /^Learn ([A-Za-zÀ-ÿ' ]+?) basics/.exec(t);
+      if (m) return m[1];
+      m = /^Learn ([A-Za-zÀ-ÿ' ]+?) with EkGuru/.exec(t);
+      if (m) return m[1];
+      m = /Hindi for ([A-Za-zÀ-ÿ' ]+?) Speakers/.exec(t);
+      if (m) return m[1] + " speakers";
+      if (t) return t.split(" — ")[0];
+    }
+    return pretty(slug);
+  }
+
+  /* The facet key is the English name, so the label is the key itself. */
+  function languageLabel2(slug) {
+    if (slug.length === 2 && /^[a-z]{2}$/.test(slug)) {
+      /* No starter pack to learn the name from — the ISO code is all we have. */
+      return slug.toUpperCase();
+    }
+    return pretty(slug);
+  }
+
+  function buildFacets(index) {
+    learnLanguageNames(index);
+    var countries = Object.create(null), langs = Object.create(null);
+    index.forEach(function (row) {
+      var c = countryOf(row.u);
+      if (c) countries[c] = (countries[c] || 0) + 1;
+      var l = languageOf(row.u);
+      if (l) langs[l] = (langs[l] || 0) + 1;
+    });
+    function options(map, label) {
+      return Object.keys(map).sort(function (a, b) {
+        return map[b] - map[a] || a.localeCompare(b);
+      }).map(function (k) {
+        return '<option value="' + esc(k) + '">' + esc(label(k)) +
+          " (" + map[k] + ")</option>";
+      }).join("");
+    }
+    if (cf) cf.innerHTML = '<option value="">Every country</option>' + options(countries, pretty);
+    if (lf) lf.innerHTML = '<option value="">Every language</option>' +
+      options(langs, languageLabel2);
+  }
+
+  function matchesFacets(row) {
+    if (state.country && countryOf(row.u) !== state.country) return false;
+    if (state.lang && languageOf(row.u) !== state.lang) return false;
+    return true;
   }
 
   /* ---------- matching --------------------------------------------------- */
@@ -159,6 +307,7 @@
     for (var i = 0; i < index.length; i++) {
       var row = index[i];
       if (section && row.s !== section) continue;
+      if (!matchesFacets(row)) continue;
       var sc2 = scoreRow(row, terms);
       if (sc2 > 0) out.push({ row: row, score: sc2 });
     }
@@ -326,11 +475,12 @@
       var terms = query.toLowerCase().split(/\s+/).filter(Boolean);
       var hits = search(index, query, state.section);
       render(hits, terms);
-      var total = index.length;
-      sc.textContent = hits.length
-        ? hits.length + (hits.length === 1 ? " result" : " results") +
-          (state.section ? " in " + state.section : "") + " · " + total + " pages indexed"
-        : "Nothing matched “" + query + "”" + (state.section ? " in " + state.section : "");
+      /* One place writes the status line (updateCount) so the country and
+         language the visitor picked are always named in it — otherwise the
+         list is filtered by something the page does not mention. */
+      if (hits.length) updateCount(hits.length);
+      else sc.textContent = "Nothing matched “" + query + "”" +
+        (state.section ? " in " + state.section : "") + describeFacets();
       remember(query);
     });
   }
@@ -369,6 +519,64 @@
     });
   }
 
+  /* The two facet selects. Change is the only event that matters (a select
+     has no "typing"), and both re-run the current query immediately so the
+     result list never disagrees with the controls above it. */
+  function bindFacets() {
+    if (cf) cf.addEventListener("change", function () {
+      state.country = cf.value || "";
+      mirror();
+      rerun();
+    });
+    if (lf) lf.addEventListener("change", function () {
+      state.lang = lf.value || "";
+      mirror();
+      rerun();
+    });
+  }
+
+  /* The URL carries ?q= already; the facet selections belong there too, so a
+     narrowed search can be linked or bookmarked and ?c=…&l=… opens with the
+     lists already set (see the boot block). */
+  function mirror() {
+    try {
+      var params = new URLSearchParams(location.search);
+      if (state.country) params.set("c", state.country); else params.delete("c");
+      if (state.lang) params.set("l", state.lang); else params.delete("l");
+      var qs = params.toString();
+      history.replaceState(null, "", qs ? "?" + qs : location.pathname);
+    } catch (e) {}
+  }
+
+  function rerun() {
+    if (!IDX) return;
+    var hits = search(IDX, state.q, state.section);
+    render(hits, termsOf(state.q));
+    updateCount(hits.length);
+  }
+
+  function termsOf(query) {
+    return String(query || "").toLowerCase().split(/\s+/).filter(Boolean);
+  }
+
+  function describeFacets() {
+    var bits = [];
+    if (state.country) bits.push(pretty(state.country));
+    if (state.lang) bits.push(languageLabel2(state.lang));
+    return bits.length ? " · " + bits.join(" · ") : "";
+  }
+
+  function updateCount(shown) {
+    if (!sc) return;
+    sc.textContent = state.q
+      ? shown + " result" + (shown === 1 ? "" : "s") + " for “" + state.q + "”" +
+        (state.section ? " in " + state.section : "") + describeFacets() +
+        " · " + IDX.length + " pages indexed"
+      : (state.country || state.lang
+          ? IDX.filter(matchesFacets).length + " pages" + describeFacets()
+          : "Type to search " + IDX.length + " pages");
+  }
+
   if (sf) {
     sf.addEventListener("click", function (e) {
       var btn = e.target.closest ? e.target.closest(".pill") : null;
@@ -380,6 +588,13 @@
       run(false);
     });
   }
+
+  bindFacets();
+
+  /* Fill both dropdowns immediately. load() used to run only when the visitor
+     typed, which left an empty "Every country" list under the search box —
+     the facets have to be there before the search, or they look broken. */
+  load().then(function () { updateCount(0); });
 
   /* Section jumps: /search/?s=Tool opens the page already filtered. */
   try {
@@ -395,7 +610,11 @@
         });
       }
     }
+    var preC = pre.get("c"), preL = pre.get("l");
+    if (preC && cf) { state.country = preC; cf.value = preC; }
+    if (preL && lf) { state.lang = preL; lf.value = preL; }
     if (preQ && q) { q.value = preQ; run(false); }
+    else if (preC || preL) load().then(function () { updateCount(0); });
   } catch (e) {}
 
   paintRecent();

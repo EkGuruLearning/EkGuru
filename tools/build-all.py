@@ -21,7 +21,9 @@ deploys:
      /courses/ + the home teaser)
  12  tutor layer (script tags, profile pages + sitemaps + feed, home cards,
      the six market pages, every other page that lists tutors)
- 13  doctor (SEO + privacy + gate + admin stats)
+ 13  site shell (one header + one footer on all 1,563 pages) + copy index
+     (the check phase also runs the ownership and search-facet tests)
+ 14  doctor (SEO + privacy + gate + admin stats)
 
 The two layers in 11-12 are generated from the same data the pages are, so
 they run last and cannot be overwritten by an injector. `python3
@@ -73,6 +75,11 @@ def main():
         run("home tutor grid --check", ["node", "tools/build-home-tutors.js", "--check"])
         run("market pages --check", ["node", "tools/build-market-pages.js", "--check"])
         run("roster rows --check", ["node", "tools/build-roster-rows.js", "--check"])
+        run("site shell --check (header + footer on every page)", ["node", "tools/build-shell.js", "--check"])
+        run("copy index --check", ["node", "tools/build-copy-index.js", "--check"])
+        run("ownership test (matcher vs its own corpus)", ["node", "tools/test-copy-index.mjs"])
+        run("search facet test (country + language)", ["node", "tools/test-search-facets.mjs"])
+        run("header drawer test (one owner, one open)", ["node", "tools/test-shell-drawer.mjs"])
         run("sheet-apply test (sheet row -> site)", ["node", "tools/test-sheet-apply.js"])
         run("experience DOM test", ["node", "tools/test-experience-dom.mjs"])
         print("\n✔ every generated layer is up to date.")
@@ -100,6 +107,8 @@ def main():
     run("home tutor grid", ["node", "tools/build-home-tutors.js"])
     run("market pages (6 locales)", ["node", "tools/build-market-pages.js"])
     run("roster rows (long-tail tutor lists)", ["node", "tools/build-roster-rows.js"])
+    run("site shell (one header + one footer, every page)", ["node", "tools/build-shell.js"])
+    run("copy index (ownership fingerprints)", ["node", "tools/build-copy-index.js"])
     run("doctor", ["node", "tools/doctor.js"])
     print("\n══════════════════════════════════════════")
     print("build-all complete — every step passed.")
