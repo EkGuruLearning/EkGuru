@@ -54,4 +54,8 @@ No experiment is currently running. Every future test records hypothesis, page c
 
 ## Approval protection
 
-Do not re-request review while major content, duplicate/thin-page, consent, mobile, accessibility, broken-link, or ad-placement findings remain. Run `python tools/audit-adsense-readiness.py` and `node tools/adsready.js`. Neither tool predicts approval.
+Do not re-request review while major content, duplicate/thin-page, consent, mobile, accessibility, broken-link, or ad-placement findings remain. Run `python3 tools/audit-adsense-readiness.py` and `node tools/adsready.js` (add `--local` for the
+repository-only checks when there is no network). Neither tool predicts approval. The current
+state and the re-submission packet are in `docs/ADSENSE-RESUBMISSION.md`: 0 indexable thin pages,
+1,442 pages carrying the loader, 125 ad-free by policy — practice, quizzes, worksheets, review,
+the course player, legal pages, contact and admin among them.
