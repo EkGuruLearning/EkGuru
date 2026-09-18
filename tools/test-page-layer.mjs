@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ==========================================================================
-   test-page-layer.mjs — the 555 pages that joined §25
+   test-page-layer.mjs — the 556 pages that joined §25
 
    The page layer (tools/build-page-layer.py) marks the lesson, answer, hub and
    directory pages with the class §25 already owns, drops the copy of the

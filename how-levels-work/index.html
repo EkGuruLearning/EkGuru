@@ -54,26 +54,10 @@
 ]}
 </script>
 <style>
-.pw{max-width:860px;margin:0 auto;padding:0 20px 64px}
-.pw h1{font-size:clamp(1.6rem,4.4vw,2.05rem);line-height:1.24;margin:24px 0 14px}
-.pw h2{font-size:clamp(1.12rem,3vw,1.32rem);line-height:1.3;margin:34px 0 12px}
-.pw h3{font-size:1.02rem;margin:22px 0 8px}
-.pw p,.pw li{line-height:1.72;font-size:1rem}
-.pw p,.pw ul,.pw ol{max-width:74ch}
-.lede{color:var(--ink-2);font-size:1.06rem;line-height:1.7}
-.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0;word-break:break-word}
-.crumb a{color:var(--muted)}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
-.fact{border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:var(--bg-soft)}
-.fact b{display:block;font-size:1.24rem;line-height:1.2}
-.fact span{font-size:.86rem;color:var(--muted)}
-/* .lv-strip / .lv-fig live in css/experience.css §28 — the same strip every
-   language hub carries, so the ladder looks the same wherever you meet it. */
 table.lv{width:100%;border-collapse:collapse;margin:16px 0;font-size:.96rem}
 table.lv th,table.lv td{border-bottom:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top}
 table.lv th{background:var(--bg-soft);font-size:.86rem;text-transform:uppercase;letter-spacing:.04em}
 table.lv td:first-child{white-space:nowrap;font-weight:700}
-.note{border-left:3px solid var(--accent);background:var(--bg-soft);padding:12px 15px;border-radius:0 10px 10px 0;margin:18px 0}
 .note p{margin:.35em 0}
 </style>
 <!-- ekguru:adsense:start -->
@@ -111,7 +95,7 @@ table.lv td:first-child{white-space:nowrap;font-weight:700}
 <script src="../js/site-shell.js" defer></script>
 <script src="../js/copywatch.js" defer></script>
 <!-- ekguru:shell-header:end -->
-<main class="pw" id="main">
+<main class="pw pw-legacy" id="main">
 <nav class="crumb" aria-label="Breadcrumb"><a href="../index.html">EkGuru</a> › <span>How the levels work</span></nav>
 
 <h1>How EkGuru levels work — A1 to C2, and why C4 does not exist</h1>
@@ -149,17 +133,17 @@ not have an A3. It does not have a B3, a C3, a C4 or a C5. If a language school 
   <caption>What each rung means — and how long it usually takes</caption>
   <thead><tr><th>Level</th><th>What it is</th><th>What you can do at this level</th><th>Typical guided hours</th></tr></thead>
   <tbody>
-    <tr><td>A1</td><td>First words</td><td>Greet someone, count to twenty, read a shop sign, say your name and where you are from.</td><td>60–80</td></tr>
-    <tr><td>A1+</td><td>Getting around</td><td>Ask for things, give your phone number, name the days and the months, understand a simple direction.</td><td>100–120</td></tr>
-    <tr><td>A2</td><td>Everyday sentences</td><td>Talk about your day, shop, order food, write a short message, understand slow clear speech.</td><td>180–200</td></tr>
-    <tr><td>A2+</td><td>Holding a chat</td><td>Keep a conversation going for a few minutes, tell a short story about something that happened.</td><td>250–280</td></tr>
-    <tr><td>B1</td><td>Independent</td><td>Explain a problem, write a real message, follow a podcast or a film with subtitles, handle a doctor or an office.</td><td>350–400</td></tr>
-    <tr><td>B1+</td><td>Comfortable</td><td>Work in the language, argue a point politely, read a simple article without a dictionary.</td><td>450–500</td></tr>
-    <tr><td>B2</td><td>Fluent enough</td><td>Read a newspaper, write a real letter, joke, follow a fast conversation between two native speakers.</td><td>550–600</td></tr>
-    <tr><td>B2+</td><td>Professional</td><td>Run a meeting, read a contract, disagree well, switch register between office and street.</td><td>650–700</td></tr>
-    <tr><td>C1</td><td>Nuance</td><td>Idiom, register, tone — and hear when something is slightly wrong. Write clearly on a complex subject.</td><td>800–900</td></tr>
-    <tr><td>C1+</td><td>Almost native</td><td>Write for work, translate, teach a beginner, sit an entrance exam that assumes fluency.</td><td>950–1,000</td></tr>
-    <tr><td>C2</td><td>Mastery</td><td>Poetry, law, humour — and the one mistake that still sounds foreign. Essentially everything a native speaker can do.</td><td>1,100+</td></tr>
+    <tr><td data-h="Level">A1</td><td data-h="What it is">First words</td><td data-h="What you can do at this lev…">Greet someone, count to twenty, read a shop sign, say your name and where you are from.</td><td data-h="Typical guided hours">60–80</td></tr>
+    <tr><td data-h="Level">A1+</td><td data-h="What it is">Getting around</td><td data-h="What you can do at this lev…">Ask for things, give your phone number, name the days and the months, understand a simple direction.</td><td data-h="Typical guided hours">100–120</td></tr>
+    <tr><td data-h="Level">A2</td><td data-h="What it is">Everyday sentences</td><td data-h="What you can do at this lev…">Talk about your day, shop, order food, write a short message, understand slow clear speech.</td><td data-h="Typical guided hours">180–200</td></tr>
+    <tr><td data-h="Level">A2+</td><td data-h="What it is">Holding a chat</td><td data-h="What you can do at this lev…">Keep a conversation going for a few minutes, tell a short story about something that happened.</td><td data-h="Typical guided hours">250–280</td></tr>
+    <tr><td data-h="Level">B1</td><td data-h="What it is">Independent</td><td data-h="What you can do at this lev…">Explain a problem, write a real message, follow a podcast or a film with subtitles, handle a doctor or an office.</td><td data-h="Typical guided hours">350–400</td></tr>
+    <tr><td data-h="Level">B1+</td><td data-h="What it is">Comfortable</td><td data-h="What you can do at this lev…">Work in the language, argue a point politely, read a simple article without a dictionary.</td><td data-h="Typical guided hours">450–500</td></tr>
+    <tr><td data-h="Level">B2</td><td data-h="What it is">Fluent enough</td><td data-h="What you can do at this lev…">Read a newspaper, write a real letter, joke, follow a fast conversation between two native speakers.</td><td data-h="Typical guided hours">550–600</td></tr>
+    <tr><td data-h="Level">B2+</td><td data-h="What it is">Professional</td><td data-h="What you can do at this lev…">Run a meeting, read a contract, disagree well, switch register between office and street.</td><td data-h="Typical guided hours">650–700</td></tr>
+    <tr><td data-h="Level">C1</td><td data-h="What it is">Nuance</td><td data-h="What you can do at this lev…">Idiom, register, tone — and hear when something is slightly wrong. Write clearly on a complex subject.</td><td data-h="Typical guided hours">800–900</td></tr>
+    <tr><td data-h="Level">C1+</td><td data-h="What it is">Almost native</td><td data-h="What you can do at this lev…">Write for work, translate, teach a beginner, sit an entrance exam that assumes fluency.</td><td data-h="Typical guided hours">950–1,000</td></tr>
+    <tr><td data-h="Level">C2</td><td data-h="What it is">Mastery</td><td data-h="What you can do at this lev…">Poetry, law, humour — and the one mistake that still sounds foreign. Essentially everything a native speaker can do.</td><td data-h="Typical guided hours">1,100+</td></tr>
   </tbody>
 </table>
 
@@ -226,6 +210,19 @@ their Indian equivalents — and use this site to get to the level those exams a
 <a href="../courses/index.html">course list</a>.</p>
 
 </main>
+<!-- ekguru:pw-bands:start -->
+<footer class="pw-support">
+  <div>
+    <b>Every lesson here is free, and always will be.</b>
+    <p>No account, no paywall. The practice itself — every quiz, worksheet
+    and drill — carries no ad at all; the pages around it sometimes do,
+    and that is what keeps the lessons running. Keeping it free is the
+    only thing this page asks of you.</p>
+  </div>
+  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
+  <a href="/find-tutors.html">Book a trial lesson</a>
+</footer>
+<!-- ekguru:pw-bands:end -->
 <!-- ekguru:shell-footer:start -->
 <footer class="ftr">
   <div class="wrap ftr-in">
