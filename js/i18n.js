@@ -291,6 +291,7 @@ window.EKGURU_I18N = {
     "ftr.terms": "Terms of use",
     "ftr.disclaimer": "Disclaimer",
     "ftr.copyright": "Copyright",
+    "ftr.cookies": "Cookie policy",
     "ftr.langs": "Languages",
 
     "wa.soon": "WhatsApp coming soon",
@@ -475,6 +476,7 @@ window.EKGURU_I18N = {
     "ftr.terms": "Términos de uso",
     "ftr.disclaimer": "Aviso legal",
     "ftr.copyright": "Derechos de autor",
+    "ftr.cookies": "Política de cookies",
     "ftr.langs": "Idiomas", "wa.soon": "WhatsApp próximamente",
     "days.Mon": "Lun", "days.Tue": "Mar", "days.Wed": "Mié", "days.Thu": "Jue",
     "days.Fri": "Vie", "days.Sat": "Sáb", "days.Sun": "Dom"
@@ -657,6 +659,7 @@ window.EKGURU_I18N = {
     "ftr.terms": "Conditions d'utilisation",
     "ftr.disclaimer": "Avertissement",
     "ftr.copyright": "Droits d'auteur",
+    "ftr.cookies": "Politique de cookies",
     "ftr.langs": "Langues", "wa.soon": "WhatsApp bientôt",
     "days.Mon": "Lun", "days.Tue": "Mar", "days.Wed": "Mer", "days.Thu": "Jeu",
     "days.Fri": "Ven", "days.Sat": "Sam", "days.Sun": "Dim"
@@ -839,6 +842,7 @@ window.EKGURU_I18N = {
     "ftr.terms": "Nutzungsbedingungen",
     "ftr.disclaimer": "Haftungsausschluss",
     "ftr.copyright": "Urheberrecht",
+    "ftr.cookies": "Cookie-Richtlinie",
     "ftr.langs": "Sprachen", "wa.soon": "WhatsApp folgt bald",
     "days.Mon": "Mo", "days.Tue": "Di", "days.Wed": "Mi", "days.Thu": "Do",
     "days.Fri": "Fr", "days.Sat": "Sa", "days.Sun": "So"
@@ -1021,6 +1025,7 @@ window.EKGURU_I18N = {
     "ftr.terms": "Termos de uso",
     "ftr.disclaimer": "Aviso legal",
     "ftr.copyright": "Direitos autorais",
+    "ftr.cookies": "Política de cookies",
     "ftr.langs": "Idiomas", "wa.soon": "WhatsApp em breve",
     "days.Mon": "Seg", "days.Tue": "Ter", "days.Wed": "Qua", "days.Thu": "Qui",
     "days.Fri": "Sex", "days.Sat": "Sáb", "days.Sun": "Dom"
@@ -1203,6 +1208,7 @@ window.EKGURU_I18N = {
     "ftr.terms": "利用規約",
     "ftr.disclaimer": "免責事項",
     "ftr.copyright": "著作権",
+    "ftr.cookies": "Cookieポリシー",
     "ftr.langs": "言語", "wa.soon": "WhatsApp近日対応",
     "days.Mon": "月", "days.Tue": "火", "days.Wed": "水", "days.Thu": "木",
     "days.Fri": "金", "days.Sat": "土", "days.Sun": "日"
@@ -1385,6 +1391,7 @@ window.EKGURU_I18N = {
     "ftr.terms": "شروط الاستخدام",
     "ftr.disclaimer": "إخلاء المسؤولية",
     "ftr.copyright": "حقوق النشر",
+    "ftr.cookies": "سياسة ملفات تعريف الارتباط",
     "ftr.langs": "اللغات", "wa.soon": "واتساب قريباً",
     "days.Mon": "الإثنين", "days.Tue": "الثلاثاء", "days.Wed": "الأربعاء", "days.Thu": "الخميس",
     "days.Fri": "الجمعة", "days.Sat": "السبت", "days.Sun": "الأحد"

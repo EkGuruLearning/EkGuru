@@ -277,8 +277,24 @@ node    tools/test-course-country.mjs            # course search by country, bot
 node    tools/test-reading-layer.mjs             # one stylesheet, two bands, 969 pages
 node    tools/build-shell.js            --check  # header + footer on 1,563 pages
 node    tools/build-copy-index.js       --check  # ownership fingerprints
-python3 tools/build-legal-pages.py      --check  # legal contents cards
+python3 tools/build-legal-pages.py      --check  # the five legal pages' contents cards
+python3 tools/inject-ads.py             --check  # the ad policy: loader only where the matrix says
+node    tools/test-ad-policy.mjs                 # no ad tag on a page the policy excludes
+node    tools/test-print-sheet-dom.mjs           # printing prints the sheet, not the page
 ```
+
+### The ad policy is data, not a directory list
+
+`data/monetization/google-monetization.json` → `ad_policy` names seven page
+classes and the path patterns that belong to each. `tools/inject-ads.py` puts
+one marked loader block in `<head>` only where `loader_allowed` says so, strips
+every ad tag, marker and unit everywhere else, and writes the class the page got
+onto `<html data-ad-class="…">`. `--check` fails if a page disagrees with the
+matrix, and `tools/test-ad-policy.mjs` proves the negative: **no page the policy
+excludes carries the ad loader**, which is the only promise that survives Auto
+ads placing units by itself. A hard-coded directory list and the matrix had
+drifted apart — which is how the legal pages ended up loading an advertising
+script they were excluded from.
 
 Without `check` the same chain writes instead of comparing — `python3
 tools/build-all.py` runs it as the last phase of the full rebuild (phase 12),
@@ -290,6 +306,17 @@ tools/gate.js` runs the five tutor generators a second time as the
 the stylesheet — country funnels, lessons, tools, guides — re-tint and
 re-motif with no HTML edit at all. **Always re-run the bundler after editing
 `css/experience.css`**; `--check` exits 1 when the bundle is stale.
+
+## The cookie policy is a page, not a banner
+
+`cookie-policy/index.html` is the fifth legal page (`tools/build-legal-pages.py`
+gives it ids and a contents card like the other four) and every footer links to
+it. It answers what the site actually does: **no cookie is set by EkGuru at
+all**; preferences and progress live in named `localStorage` keys listed in the
+page; analytics is cookieless and ships nothing while no provider is configured;
+the only third-party cookies are Google's advertising and consent products,
+covered by a Google-certified CMP — `js/cookie-consent.js` stays a no-UI
+boundary and a home-made banner is never the answer.
 
 ## Adding a language
 

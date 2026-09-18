@@ -16,7 +16,7 @@ deploys:
   7  inventory (validate + build data/global + country language pages)
   8  search index
   9  storybook injector (Hindi pages get TTS + design)
- 10  ads + consent injectors
+ 10  ads policy + consent boundary
  11  experience layer (css/experience.css -> style.min.css, world artwork,
      /courses/ + the home teaser)
  12  tutor layer (script tags, profile pages + sitemaps + feed, home cards,
@@ -97,6 +97,10 @@ def main():
         run("print sheet test (what lands on paper)", ["node", "tools/test-print-sheets.mjs"])
         run("print sheet dom test (the copy the script builds)",
             ["node", "tools/test-print-sheet-dom.mjs"])
+        run("ad policy --check (loader only where the matrix allows)",
+            ["python3", "tools/inject-ads.py", "--check"])
+        run("ad policy test (excluded pages carry no ad tag)",
+            ["node", "tools/test-ad-policy.mjs"])
         run("page skeleton test (one main, skip link lands)", ["node", "tools/test-page-skeleton.mjs"])
         run("sheet-apply test (sheet row -> site)", ["node", "tools/test-sheet-apply.js"])
         run("experience DOM test", ["node", "tools/test-experience-dom.mjs"])
@@ -115,7 +119,7 @@ def main():
     run("country language pages", ["python3", "tools/build-country-language-pages.py"])
     run("search index", ["python3", "tools/build-search-index.py"])
     run("storybook injector (Hindi TTS + design)", ["python3", "tools/inject-storybook.py"])
-    run("ads injector (AdSense Auto Ads)", ["python3", "tools/inject-ads.py"])
+    run("ads policy (which pages may load the ad script)", ["python3", "tools/inject-ads.py"])
     run("consent injector (cookie notice)", ["python3", "tools/inject-consent.py"])
     run("experience bundle (css/experience.css -> style.min.css)", ["python3", "tools/bundle-experience-css.py"])
     run("world artwork (9 emblems)", ["python3", "tools/build-world-art.py"])

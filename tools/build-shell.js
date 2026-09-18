@@ -149,6 +149,7 @@ const COLUMNS = [
     ["Terms of use", "ftr.terms", "terms"],
     ["Disclaimer", "ftr.disclaimer", "disclaimer"],
     ["Copyright", "ftr.copyright", "copyright"],
+    ["Cookie policy", "ftr.cookies", "cookies"],
   ]],
 ];
 
@@ -160,6 +161,7 @@ const TARGETS = {
   ask: "ask/", answers: "answers/", countries: "learn-hindi-by-country/",
   contact: "contact/", about: "about/", privacy: "privacy/",
   terms: "terms/", disclaimer: "disclaimer/", copyright: "copyright/",
+  cookies: "cookie-policy/",
 };
 
 /* A market page keeps its own three pages — a Spanish visitor lands on the

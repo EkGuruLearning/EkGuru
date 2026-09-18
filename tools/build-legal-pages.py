@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Redesign the four legal pages (terms, privacy, disclaimer, copyright).
+"""Redesign the five legal pages (terms, privacy, disclaimer, copyright,
+cookie policy).
 
     python3 tools/build-legal-pages.py [--check]
 
@@ -40,7 +41,7 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
 
-PAGES = ["terms", "privacy", "disclaimer", "copyright"]
+PAGES = ["terms", "privacy", "disclaimer", "copyright", "cookie-policy"]
 
 START = "<!-- ekguru:legal:start -->"
 END = "<!-- ekguru:legal:end -->"
