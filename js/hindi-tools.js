@@ -340,7 +340,7 @@
     }).join("");
 
     host.innerHTML =
-      '<div class="row" style="gap:12px;flex-wrap:wrap;align-items:end">' +
+      '<div class="row no-print" style="gap:12px;flex-wrap:wrap;align-items:end">' +
       '<div><label for="w-topic">Topic</label><br><select id="w-topic">' + topicOpts + '</select></div>' +
       '<div><label for="w-n">Prompts</label><br><select id="w-n">' +
       '<option value="5">5</option><option value="10">10</option><option value="15">15</option></select></div>' +
@@ -349,6 +349,11 @@
       '<button type="button" class="btn ghost" id="w-print">Print</button>' +
       '</div>' +
       '<div id="w-sheet" style="margin-top:16px"></div>';
+
+    /* The sheet in the file is a REAL worksheet (the language's own quiz bank,
+       baked at build time), so a reader who never presses a button — or has
+       scripting off — still has something on paper. Put it back after the
+       controls are in place; "Make worksheet" replaces it as before. */
 
     if (arrived) host.querySelector("#w-sheet").innerHTML = arrived.innerHTML;
 

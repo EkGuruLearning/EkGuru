@@ -149,6 +149,167 @@ def sample_questions(path):
     return None
 
 
+CHAIN = "data-print-chain"
+CHAIN_RE = re.compile(r"\s+" + CHAIN + r'(="[^"]*")?')
+
+VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link",
+        "meta", "param", "source", "track", "wbr"}
+
+# A tolerant tokenizer: comments and script/style BODIES are skipped whole, so
+# a `<` inside a quiz string cannot be mistaken for a tag. Everything else is
+# matched as an open tag, a close tag, or nothing.
+TAGRE = re.compile(
+    r"<!--.*?-->|<script\b[^>]*>.*?</script>|<style\b[^>]*>.*?</style>"
+    r"|</?([a-zA-Z][a-zA-Z0-9-]*)(?:\"[^\"]*\"|'[^']*'|[^>\"'])*>",
+    re.S | re.I)
+
+
+def ancestors(html, pos):
+    """The open elements around offset `pos`, outermost first."""
+    stack = []
+    for m in TAGRE.finditer(html):
+        if m.start() >= pos:
+            break
+        tag = m.group(0)
+        name = m.group(1)
+        if name is None:                      # comment / script / style body
+            continue
+        name = name.lower()
+        if tag.startswith("</"):
+            for k in range(len(stack) - 1, -1, -1):
+                if stack[k][0] == name:
+                    del stack[k:]
+                    break
+        elif not (tag.rstrip().endswith("/>") or name in VOID):
+            stack.append([name, m.start(), m.end()])
+    return stack
+
+
+def mark_chain(html, target):
+    """Mark every wrapper between <body> and the sheet.
+
+    Idempotent by construction: the previous marks are dropped first, then the
+    chain is recomputed from the markup in front of us.
+    """
+    out = CHAIN_RE.sub("", html)
+    m = target.search(out)
+    if not m:
+        return out
+    chain = [x for x in ancestors(out, m.start()) if x[0] not in ("html", "body")]
+    for _name, _s, end in reversed(chain):    # right to left, so offsets hold
+        out = out[:end - 1] + " " + CHAIN + out[end - 1:]
+    return out
+
+
+
+STATIC_MARK = "<!-- ekguru:static-sheet -->"
+
+BANK_FOR = {
+    "hindi": "js/hindi-quiz-bank.js",
+}
+
+
+def _bank_questions(path, html):
+    """The quiz bank behind a worksheet page, parsed without eval()."""
+    slug = None
+    m = re.search(r'data-topic="lang-([a-z]+)"', html)
+    if m:
+        slug = m.group(1)
+    if not slug:
+        m = re.search(r"/learn/([a-z]+)/practice/worksheets/", path)
+        slug = m.group(1) if m else None
+    if not slug:
+        return None, None
+    bank = BANK_FOR.get(slug, "js/%s-quiz-bank.js" % slug)
+    if not os.path.exists(bank):
+        return None, None
+    src = open(bank, encoding="utf-8").read()
+    i = src.find('"questions"')
+    if i < 0:
+        i = src.find("'questions'")
+    if i < 0:
+        return None, None
+    i = src.find("[", i)
+    if i < 0:
+        return None, None
+    # A brace/bracket matcher that skips string contents, so a `]` inside a
+    # question ("opts": [ ... ]) cannot end the array early.
+    depth, j, in_str, esc = 0, i, False, False
+    while j < len(src):
+        c = src[j]
+        if in_str:
+            if esc:
+                esc = False
+            elif c == "\\":
+                esc = True
+            elif c == '"':
+                in_str = False
+        elif c == '"':
+            in_str = True
+        elif c == "[":
+            depth += 1
+        elif c == "]":
+            depth -= 1
+            if depth == 0:
+                try:
+                    import json
+                    return json.loads(src[i:j + 1]), slug
+                except Exception:
+                    return None, slug
+        j += 1
+    return None, slug
+
+
+def _esc(t):
+    return (str(t).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
+
+
+def static_sheet(path, html):
+    """A printable worksheet that exists in the FILE, not only after a click."""
+    if STATIC_MARK in html or 'data-print-target' not in html:
+        return html
+    target = WS_APP.search(html)
+    if not target:
+        return html
+    qs, slug = _bank_questions(path, html)
+    if not qs:
+        return html
+    name = slug.capitalize()
+    picked = qs[:5]
+    # Five questions on one topic read better than five at random: use the
+    # first question's topic when the bank has five of them.
+    topic = picked[0].get("topic") if picked else None
+    if topic:
+        same = [q for q in qs if q.get("topic") == topic][:5]
+        if len(same) == 5:
+            picked = same
+    lines = "".join(
+        '<p style="font-weight:700;margin:16px 0 0">%d. %s</p>\n'
+        '<div style="border-bottom:1px solid var(--line);height:46px;margin:0 0 10px"></div>\n'
+        % (i + 1, _esc(q.get("q", "")))
+        for i, q in enumerate(picked))
+    answers = "".join(
+        '<p style="margin:4px 0">%d. <b>%s</b>%s</p>'
+        % (i + 1, _esc(q.get("a", "")),
+           " — " + _esc(q.get("explain", "")) if q.get("explain") else "")
+        for i, q in enumerate(picked))
+    sheet = (
+        '\n' + STATIC_MARK + '\n'
+        '<div id="w-sheet"><div class="ws-page" style="background:#fff;border:1px solid var(--line);'
+        'border-radius:12px;padding:20px;max-width:640px">'
+        '<h2 style="margin:0 0 4px">%s practice worksheet</h2>'
+        '<p class="muted" style="margin:0 0 12px">Five questions from the free %s course on EkGuru, '
+        'with the answers at the foot of the sheet. Press <b>Make worksheet</b> for a fresh set, '
+        'or print this one as it is.</p>'
+        '<p style="margin:0 0 14px"><b>Name</b> <span style="display:inline-block;width:180px;'
+        'border-bottom:1px solid var(--line)"></span> &nbsp; <b>Date</b> '
+        '<span style="display:inline-block;width:110px;border-bottom:1px solid var(--line)"></span></p>'
+        '%s<h3 style="margin:20px 0 6px">Answers</h3>%s'
+        '<p class="muted" style="margin-top:12px;font-size:.78rem">From the EkGuru %s quiz bank — '
+        'free to print and share.</p></div></div>' % (name, name, lines, answers, name))
+    return html[:target.end()] + sheet + html[target.end():]
+
+
 def esc(t):
     return (str(t).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
 
@@ -254,7 +415,9 @@ def mark(path, html):
         out = out[:m.end() - 1] + " data-print-target" + out[m.end() - 1:]
 
     out = sample_sheet(path, out)
+    out = static_sheet(path, out)
     out = insert_script(out, path)
+    out = mark_chain(out, target)
     return out, kind
 
 

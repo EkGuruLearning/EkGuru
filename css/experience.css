@@ -5163,42 +5163,61 @@ body.xp-market .hdr .hdr-in {
   #ekguru-consent, .ad-slot, ins.adsbygoogle, .skip { display: none !important; }
 
   /* ---- mode 2: only the sheet -------------------------------------------
-     The sheet on a printable page is not always a direct child of a div we
-     know the class of — a worksheet builder nests it two levels down, and a
-     guide sits inside .art inside main. `display:none` on siblings therefore
-     judged wrong twice: it left the target's wrappers on the paper, and on a
-     page whose container was not in the list at all it printed the whole page,
-     which is the bug Prakash kept reporting.
+     A worksheet is assembled in the browser, so there is no element in the
+     file to mark; the sheet element is marked by tools/build-print-sheets.py
+     instead, together with every wrapper between <body> and the sheet
+     (data-print-chain).
 
-     visibility is inherited and can be turned back ON by a descendant, so the
-     rule below does not care how deep the target is: hide the document, then
-     reveal the target's whole subtree. Everything else on the sheet is
-     controlled by the explicit list under it. */
-  body[data-print="sheet"] * { visibility: hidden !important; }
+     WHY DISPLAY AND NOT VISIBILITY. The first attempt hid the page with
+     `visibility: hidden`, which keeps every element's BOX: the header, hero,
+     control row and footer still occupied their full height on paper, so the
+     sheet printed somewhere down a page of blank space — "pura page hi print
+     karti hai". `display: none` removes the box, so the sheet starts at the
+     top of the first page and nothing else is on the paper.
+
+     Every rule here is !important: print has one shot, and a page-level rule
+     must not be able to put the chrome back. */
+  body[data-print="sheet"] * { display: none !important; }
+  /* The sheet's own chain, then the sheet and everything inside it. `revert`
+     restores each element's natural display (block for the containers, table
+     for a table); the `block` line before it is the fallback for engines that
+     do not know `revert`, where the later declaration is simply ignored. */
+  body[data-print="sheet"] [data-print-chain],
   body[data-print="sheet"] [data-print-target],
-  body[data-print="sheet"] [data-print-target] * { visibility: visible !important; }
-  /* The isolated copy (js/print-sheet.js) must stay visible even though it
-     lives outside the target. */
+  body[data-print="sheet"] [data-print-target] *,
   body[data-print="sheet"] #ekguru-print-root,
-  body[data-print="sheet"] #ekguru-print-root * { visibility: visible !important; }
-  body[data-print="sheet"] [data-print-target] {
+  body[data-print="sheet"] #ekguru-print-root * {
     display: block !important;
+    display: revert !important;
+  }
+  /* The isolated copy (js/print-sheet.js) is the whole sheet when it exists. */
+  body[data-print="sheet"] [data-print-target] { max-width: none !important; }
+  body[data-print="sheet"] [data-print-target] {
     margin: 0 !important;
     padding: 0 !important;
     border: 0 !important;
-    max-width: none !important;
     background: #fff !important;
   }
-  /* Controls are not content: they build the sheet, they are not on it. */
+  /* Controls are not content: they build the sheet, they are not on it. The
+     selectors are deliberately two classes deep so they beat the reveal
+     above, which is what the first pass got wrong. */
+  body[data-print="sheet"] [data-print-target] .no-print,
+  body[data-print="sheet"] [data-print-target] button,
+  body[data-print="sheet"] [data-print-target] select,
+  body[data-print="sheet"] [data-print-target] input,
+  body[data-print="sheet"] [data-print-target] label,
+  body[data-print="sheet"] [data-print-target] .sb-hint,
   body[data-print="sheet"] .no-print,
   body[data-print="sheet"] button,
   body[data-print="sheet"] select,
   body[data-print="sheet"] input,
   body[data-print="sheet"] label { display: none !important; }
+  /* Inside the worksheet builder only the sheet itself prints. */
   body[data-print="sheet"] #ws-app > *:not(#w-sheet) { display: none !important; }
-  body[data-print="sheet"] #w-sheet { margin: 0 !important; }
+  body[data-print="sheet"] #w-sheet { margin: 0 !important; padding: 0 !important; }
   body[data-print="sheet"] .ws-page {
     max-width: none !important;
+    margin: 0 !important;
     padding: 0 !important;
     border: 0 !important;
     border-radius: 0 !important;
@@ -5212,4 +5231,17 @@ body.xp-market .hdr .hdr-in {
   body[data-print="sheet"] .ws-page div[style*="border-bottom"] {
     border-bottom-color: #666 !important;
   }
+
+  /* ---- the last word: when an isolated copy exists, it IS the paper -----
+     js/print-sheet.js has already built the finished sheet in
+     #ekguru-print-root by the time these rules are read. The in-page sheet
+     must not print beside it, and the chain that was put back a moment ago
+     must come out again. Stated last on purpose: it beats mode 2 by order of
+     the cascade, which is what keeps this true in browsers whose handling of
+     :not(#id) specificity differs. */
+  html.eg-printing body > *:not(#ekguru-print-root) { display: none !important; }
+  html.eg-printing [data-print-chain],
+  html.eg-printing [data-print-target] { display: none !important; }
+  html.eg-printing #ekguru-print-root,
+  html.eg-printing #ekguru-print-root * { display: revert !important; }
 }

@@ -97,6 +97,8 @@ def main():
         run("print sheet test (what lands on paper)", ["node", "tools/test-print-sheets.mjs"])
         run("print sheet dom test (the copy the script builds)",
             ["node", "tools/test-print-sheet-dom.mjs"])
+        run("print visible test (what the printer receives)",
+            ["node", "tools/test-print-visible.mjs"])
         run("ad policy --check (loader only where the matrix allows)",
             ["python3", "tools/inject-ads.py", "--check"])
         run("ad policy test (excluded pages carry no ad tag)",

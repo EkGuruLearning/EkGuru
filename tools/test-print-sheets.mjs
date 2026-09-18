@@ -197,11 +197,29 @@ ok("the print target is the element that holds the sheet",
   }));
 
 /* ---- the CSS must not depend on where the target sits in the tree -------- */
-ok("print mode 2 reveals the target by visibility, not by its parent",
-  /body\[data-print="sheet"\] \*\s*\{\s*visibility:\s*hidden/.test(printCss) &&
-  /body\[data-print="sheet"\] \[data-print-target\],[\s\S]{0,80}?visibility:\s*visible/.test(printCss));
-ok("print mode 2 keeps the isolated copy visible",
-  /body\[data-print="sheet"\] #ekguru-print-root[^{]*\{[^}]*visibility:\s*visible/.test(printCss));
+ok("print mode 2 takes everything off the paper with display, not visibility",
+  /body\[data-print="sheet"\] \*\s*\{\s*display:\s*none\s*!important/.test(printCss) &&
+  !/body\[data-print="sheet"\] \*\s*\{\s*visibility:\s*hidden/.test(printCss),
+  "visibility kept every element's BOX: the sheet printed under a page of blank layout");
+ok("print mode 2 puts the sheet's whole wrapper chain back",
+  /body\[data-print="sheet"\] \[data-print-chain\]/.test(printCss) &&
+  /display:\s*revert\s*!important/.test(printCss));
+ok("every printable page marks the chain it needs",
+  marked.every((p) => /data-print-chain/.test(read(p))),
+  marked.filter((p) => !read(p).includes("data-print-chain")).slice(0, 5).join(", "));
+ok("the chain sits between body and the sheet, not on the sheet",
+  marked.every((p) => {
+    const h = read(p);
+    const chain = h.indexOf("data-print-chain");
+    const target = h.indexOf("data-print-target");
+    return chain >= 0 && target > chain;
+  }));
+ok("a worksheet prints with scripting off: it is written into the file",
+  /<!-- ekguru:static-sheet -->/.test(read("learn/bengali/practice/worksheets/index.html")) &&
+  /class="ws-page"/.test(read("learn/bengali/practice/worksheets/index.html").split("<!-- ekguru:static-sheet -->").pop()));
+ok("the isolated copy is the last word in the print cascade",
+  /html\.eg-printing \[data-print-chain\]/.test(printCss) &&
+  printCss.indexOf('html.eg-printing [data-print-chain]') > printCss.indexOf('body[data-print="sheet"] [data-print-chain]'));
 ok("print mode 2 drops the controls",
   /body\[data-print="sheet"\] button/.test(printCss) &&
   /body\[data-print="sheet"\] \.no-print/.test(printCss));
