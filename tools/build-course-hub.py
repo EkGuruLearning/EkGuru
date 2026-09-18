@@ -68,6 +68,21 @@ def esc(text):
 # carry iso_639_1 too — but six languages only appear under their ISO 639-3
 # id. Without this bridge their cards lost the native name and the country
 # count and printed the English name twice (Arabic read "Arabic / Arabic").
+# ISO 3166-1 alpha-2 → English name. tools/_countries-cache.json is the copy
+# the repo already carries (used by the phase-7 registries), so country names
+# on the course cards come from data, not from a list typed into this file.
+COUNTRIES_CACHE = "tools/_countries-cache.json"
+
+
+def country_names():
+    try:
+        with open(COUNTRIES_CACHE, encoding="utf-8") as f:
+            return {c["cca2"]: (c.get("name") or {}).get("common") or c["cca2"]
+                    for c in json.load(f) if c.get("cca2")}
+    except Exception:
+        return {}
+
+
 ISO3_ALIAS = {
     "arb": "ar",     # Standard Arabic
     "cmn": "zh",     # Mandarin
@@ -130,13 +145,20 @@ def counts(courses, levels):
     return lessons, tests
 
 
-def card(course, levels, meta, deep_prefix=".."):
+def card(course, levels, meta, deep_prefix="..", names=None):
     code = course["code"]
     name = course["name"]
     lv = sorted(course.get("levels") or {}, key=lambda x: levels.index(x) if x in levels else 99)
     info = meta.get(code, {})
     native = info.get("native") or ""
-    countries = len(info.get("countries") or [])
+    names = names or {}
+    codes = sorted(info.get("countries") or [])
+    countries = len(codes)
+    # Named, not counted. "30 country contexts" told a reader nothing and told
+    # a search engine less; the four biggest are the ones people look for
+    # (India · United States · United Arab Emirates · +26 more).
+    named = [names.get(c, c) for c in codes]
+    named.sort()
     href = course_href(code, levels)
     if href.startswith("/"):
         # /courses/ links a page up (deep_prefix ".."); the home page sits at
@@ -154,7 +176,7 @@ def card(course, levels, meta, deep_prefix=".."):
                    if native and native.strip().lower() != name.strip().lower()
                    else "")
     return (
-        '<article class="card course-card" style="--course-hue:{hue}" data-code="{code}">'
+        '<article class="card course-card" style="--course-hue:{hue}" data-code="{code}" data-countries="{country_attr}">'
         '<a class="course-link" href="{href}" aria-label="Open the {name} course">'
         '<span class="course-monogram" aria-hidden="true">{mono}</span>'
         '<span class="course-copy">'
@@ -169,13 +191,20 @@ def card(course, levels, meta, deep_prefix=".."):
         hue=hue_for(code), code=esc(code), href=esc(href), name=esc(name),
         mono=esc(monogram), native_line=native_line,
         lvline=esc(lvline), n=6 * len(lv) if lv else 24,
-        chips=("".join("<em>%d country contexts</em>" % countries) if countries
-               else "<em>documented</em>"),
+        chips=("".join("<em>%s</em>" % esc(x) for x in named[:4]) +
+               ("<em>+%d more</em>" % (countries - 4) if countries > 4 else "")
+               if countries else "<em>documented</em>"),
+        country_attr=esc(" ".join(codes)),
     )
 
 
-def build_hub(courses, levels, meta):
+def build_hub(courses, levels, meta, names=None):
     lessons, tests = counts(courses, levels)
+    # Countries the COURSES cover — not every country in the inventory. The
+    # hero used to count every country any language is documented in, which
+    # overstates what a visitor can actually learn today.
+    countries_with_courses = {c for course in courses
+                              for c in (meta.get(course["code"], {}).get("countries") or [])}
     by_phase = {}
     for c in courses:
         by_phase.setdefault(c.get("phase") or "phase-3", []).append(c)
@@ -203,7 +232,9 @@ def build_hub(courses, levels, meta):
         "<h1>Choose your language journey</h1>"
         "<p>One complete learning space for courses, country contexts, lessons, deep "
         "practice, review history and level tests. Every course below is free, runs in "
-        "your browser and keeps its progress on your own device.</p>"
+        "your browser and keeps its progress on your own device. "
+        "Not sure which language? <a href=\"../courses/by-country/\"><b>Browse courses by "
+        "country</b></a> — %d countries, each with the languages we can teach for it.</p>"
         '<div class="course-hero-stats">'
         "<span><b>%d</b> languages</span>"
         "<span><b>6</b> levels each</span>"
@@ -213,8 +244,9 @@ def build_hub(courses, levels, meta):
         "</div>"
         '<div class="course-orbit" aria-hidden="true"><i>अ</i><i>Α</i><i>ع</i><i>あ</i><i>മ</i></div>'
         "</section>" % (
+            len(countries_with_courses),        # the sentence in the lede
             len(courses), lessons, tests,
-            len({c for m in meta.values() for c in m["countries"]}),
+            len(countries_with_courses),        # the stat
         )
     )
 
@@ -243,7 +275,7 @@ def build_hub(courses, levels, meta):
             '<section class="course-phase" id="%s"><h2>%s</h2>'
             '<div class="grid course-grid course-cards">%s</div></section>' % (
                 esc(phase), esc(PHASE_TITLES.get(phase, phase.title())),
-                "".join(card(c, levels, meta) for c in rows),
+                "".join(card(c, levels, meta, names=names) for c in rows),
             )
         )
 
@@ -383,7 +415,8 @@ def splice(path, block, start, end, check):
 def main():
     check = "--check" in sys.argv
     courses, levels, meta = load()
-    hub = build_hub(courses, levels, meta)
+    names = country_names()
+    hub = build_hub(courses, levels, meta, names)
     home = build_home(courses, levels, meta)
 
     stale = []
