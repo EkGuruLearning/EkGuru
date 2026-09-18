@@ -57,7 +57,7 @@ CORE_STYLE = """
 def head(title, desc, url, up, index=True, extra_style=""):
     robots = "index, follow, max-snippet:-1, max-image-preview:large" if index else "noindex, follow"
     return """<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" data-ad-class="HIGH">
 <head>
 <meta charset="utf-8">
 <meta name="google-site-verification" content="hFaqyp-9LdUXSKPA9RF011TkO2m_-7AUMasXqm_0dGI" />
@@ -73,10 +73,12 @@ def head(title, desc, url, up, index=True, extra_style=""):
 <meta property="og:url" content="%s/%s">
 <meta property="og:image" content="%s/images/og-cover.jpg">
 <meta property="og:site_name" content="EkGuru">
-<meta property="article:published_time" content="2026-09-12">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-09-18">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="%s">
 <meta name="twitter:description" content="%s">
+<meta name="twitter:image" content="%s/images/og-cover.jpg">
 <link rel="icon" href="%simages/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="%simages/apple-touch-icon.png">
 <link rel="manifest" href="%smanifest.webmanifest">
@@ -86,9 +88,9 @@ def head(title, desc, url, up, index=True, extra_style=""):
 <style>%s%s</style>
 </head>
 <body>
-<div class="art">
-""" % (title, desc, robots, BASE, url, title, desc, BASE, url, BASE, title, desc,
-       up, up, up, up, up, CORE_STYLE, extra_style)
+<main id="main">
+<div class="art pw-legacy">
+""" % (title, desc, robots, BASE, url, title, desc, BASE, url, BASE, title, desc, BASE, up, up, up, up, up, CORE_STYLE, extra_style)
 
 
 def foot(up, scripts=()):
@@ -97,6 +99,7 @@ def foot(up, scripts=()):
         s += '\n<script src="%sjs/%s" defer></script>' % (up, src)
     return """
 </div>
+</main>
 <!-- ekguru:trust-footer:start -->
 <footer class="pw-ftr">
   <nav aria-label="Site information">

@@ -112,7 +112,20 @@
     try { st = history.state; } catch (e) {}
     if (st && st.ekgKey) return st.ekgKey;
 
-    var k = "e" + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+    var k = "";
+    try {
+      if (window.crypto && window.crypto.randomUUID) {
+        k = "e" + window.crypto.randomUUID().replace(/-/g, "").slice(0, 10);
+      } else if (window.crypto && window.crypto.getRandomValues) {
+        var arr = new Uint32Array(2);
+        window.crypto.getRandomValues(arr);
+        k = "e" + Date.now().toString(36) + arr[0].toString(36).slice(0, 4);
+      } else {
+        k = "e" + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+      }
+    } catch (e2) {
+      k = "e" + Date.now().toString(36) + "0";
+    }
     try {
       var merged = {};
       if (st && typeof st === "object") {

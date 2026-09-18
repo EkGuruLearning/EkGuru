@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="en" data-ad-class="ADMIN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow,noarchive">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="noindex,nofollow,noarchive" name="robots"/>
 <title>EkGuru — bookings</title>
 <style>
   :root{--ink:#0f1222;--muted:#5b6178;--line:#e3e6ef;--brand:#e0682a;--ok:#15803d;--bad:#b91c1c;--soft:#f7f8fb}
@@ -69,7 +70,6 @@
   html.ekg-locked body > .wrap { display: none !important; }
   html.ekg-locked { background: #0f1222; }
 </style>
-
 <!-- ===================================================================
      THE GATE MUST RUN FIRST.
      It was previously at the bottom of the page, after the entire
@@ -86,7 +86,7 @@
 <script src="js/scroll-restore.js"></script>
 <!-- ekguru:scroll-restore:end -->
 <!-- ekguru:recovery:start -->
-<script src="js/recovery.js" defer></script>
+<script defer="" src="js/recovery.js"></script>
 <!-- ekguru:recovery:end -->
 <script src="js/gate.js"></script>
 <script>
@@ -126,8 +126,7 @@
 .ow-verdict.warn{border-color:#f0d79a;background:#fdf8ec}
 #owText{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;min-height:120px}
 </style>
-
-</head>
+<meta content="EkGuru — bookings Private tool.noindex, never linked from the site. Anyone with the URL can open i" name="description"/><meta content="EkGuru — bookings" property="og:title"/><meta content="EkGuru — bookings Private tool.noindex, never linked from the site. Anyone with the URL can open i" property="og:description"/><meta content="https://ekguru.shop/images/og-cover.jpg" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="website" property="og:type"/><meta content="EkGuru" property="og:site_name"/><meta content="en_US" property="og:locale"/><meta content="https://ekguru.shop/admin.html" property="og:url"/><meta content="summary_large_image" name="twitter:card"/><meta content="EkGuru — bookings" name="twitter:title"/><meta content="EkGuru — bookings Private tool.noindex, never linked from the site. Anyone with the URL can open i" name="twitter:description"/><meta content="https://ekguru.shop/images/og-cover.jpg" name="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://ekguru.shop/admin.html#page", "url": "https://ekguru.shop/admin.html", "name": "EkGuru — bookings", "description": "EkGuru — bookings Private tool.noindex, never linked from the site. Anyone with the URL can open i", "isPartOf": {"@type": "WebSite", "@id": "https://ekguru.shop/#website", "url": "https://ekguru.shop/", "name": "EkGuru"}, "about": {"@type": "Organization", "name": "EkGuru", "url": "https://ekguru.shop/"}, "inLanguage": "en"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "EkGuru", "item": "https://ekguru.shop/"}]}]}</script><meta content="#4f32d9" name="theme-color"/></head>
 <body>
 <!-- ekguru:shell-header:start -->
 <header class="hdr">
@@ -153,17 +152,14 @@
 <script src="js/copywatch.js" defer></script>
 <!-- ekguru:shell-header:end -->
 <div class="wrap">
-
 <h1>EkGuru — bookings</h1>
 <p class="sub">Private tool. <code>noindex</code>, never linked from the site. Anyone with the URL can open it, so treat it as unlisted, not secret.</p>
-
 <div class="row" style="margin:0 0 18px">
-  <button id="lockNow" class="ghost">🔒 Lock this dashboard</button>
-  <span class="muted">Closing the tab locks it automatically.</span>
+<button class="ghost" id="lockNow">🔒 Lock this dashboard</button>
+<span class="muted">Closing the tab locks it automatically.</span>
 </div>
-
 <div class="note warn">
-  <b>What this page does and does not protect.</b>
+<b>What this page does and does not protect.</b>
   GitHub Pages serves every file in the repository, so this URL is reachable by
   anyone who knows it — a passcode gate is a lock on the door, not a vault.
   What matters is that <b>the booking records are not in the repo</b>: they live
@@ -171,23 +167,20 @@
   machine sees an empty dashboard. Keep the passcode long, and export your CSV
   regularly.
 </div>
-
 <div class="note">
-  <b>The honest picture on databases.</b>
+<b>The honest picture on databases.</b>
   GitHub has no built-in database — GitHub Pages serves files and nothing else, no server, no SQL.
   So there are three layers instead, and together they do the job:
-  <br><br>
-  <b>1. FormSubmit archive</b> — a real server-side database. Every booking sent through the site is already
+  <br/><br/>
+<b>1. FormSubmit archive</b> — a real server-side database. Every booking sent through the site is already
   stored there, timestamped, for 30 days. Read it below with a key.
-  <br>
-  <b>2. This browser</b> — every booking made or tested on <i>this device</i> is kept in local storage.
-  <br>
-  <b>3. Your export</b> — the CSV button below. Do that monthly and the 30-day limit stops mattering.
+  <br/>
+<b>2. This browser</b> — every booking made or tested on <i>this device</i> is kept in local storage.
+  <br/>
+<b>3. Your export</b> — the CSV button below. Do that monthly and the 30-day limit stops mattering.
   That file is yours permanently.
 </div>
-
 <div class="stats" id="stats"></div>
-
 <!-- ═══════════════════════════════════════════════════════
      v95 — GROUPED, BECAUSE SEVENTEEN FLAT TABS IS NOT A MENU
      ───────────────────────────────────────────────────────
@@ -218,240 +211,210 @@
      (v74), so grouping needs no change there.
      ═══════════════════════════════════════════════════════ -->
 <div class="tabs">
-  <span class="tabgrp">Overview</span>
-  <button data-tab="overview" class="on">Overview</button>
-  <button data-tab="local">Bookings</button>
-  <button data-tab="activity">Activity</button>
-  <button data-tab="tutors">Tutors</button>
-  <button data-tab="rates">Live rates</button>
-
-  <span class="tabgrp">Mail</span>
-  <!-- v87 — every relay, every access key, and a bulk sender that
+<span class="tabgrp">Overview</span>
+<button class="on" data-tab="overview">Overview</button>
+<button data-tab="local">Bookings</button>
+<button data-tab="activity">Activity</button>
+<button data-tab="tutors">Tutors</button>
+<button data-tab="rates">Live rates</button>
+<span class="tabgrp">Mail</span>
+<!-- v87 — every relay, every access key, and a bulk sender that
        picks the cheapest route per recipient. The place to START
        for anything to do with mail. -->
-  <button data-tab="mailcentre">Mail centre</button>
-  <button data-tab="compose">Send a message</button>
-  <!-- v93 — "admin mein saare reference number". Every message
+<button data-tab="mailcentre">Mail centre</button>
+<button data-tab="compose">Send a message</button>
+<!-- v93 — "admin mein saare reference number". Every message
        with a reference, searchable, with who actually received it. -->
-  <button data-tab="refs">References</button>
-  <!-- v77 — where a booking WOULD land, verified without sending
+<button data-tab="refs">References</button>
+<!-- v77 — where a booking WOULD land, verified without sending
        a test booking. -->
-  <button data-tab="delivery">Delivery routes</button>
-  <!-- v78 — is the public contact route actually alive, and answer
+<button data-tab="delivery">Delivery routes</button>
+<!-- v78 — is the public contact route actually alive, and answer
        one without leaving the dashboard. -->
-  <button data-tab="contact">Contact form</button>
-  <button data-tab="server">FormSubmit archive</button>
-
-  <span class="tabgrp">Site</span>
-  <!-- v89 — every other tab describes THIS BUILD. This one
+<button data-tab="contact">Contact form</button>
+<button data-tab="server">FormSubmit archive</button>
+<span class="tabgrp">Site</span>
+<!-- v89 — every other tab describes THIS BUILD. This one
        describes the site as it exists on the internet right now,
        and says loudly when the two disagree. -->
-  <button data-tab="livehealth">Live health</button>
-  <button data-tab="health">Site health</button>
-  <button data-tab="coverage">Coverage</button>
-  <button data-tab="release">Release status</button>
-
-  <span class="tabgrp">Growth</span>
-  <button data-tab="traffic">Traffic</button>
-  <button data-tab="seo">SEO monitor</button>
-  <button data-tab="growth">Growth</button>
-  <button data-tab="ranking">Tutor ranking</button>
-
-  <span class="tabgrp">Learn</span>
-  <!-- v100 — learning paths, practice bank, tool control, content
+<button data-tab="livehealth">Live health</button>
+<button data-tab="health">Site health</button>
+<button data-tab="coverage">Coverage</button>
+<button data-tab="release">Release status</button>
+<span class="tabgrp">Growth</span>
+<button data-tab="traffic">Traffic</button>
+<button data-tab="seo">SEO monitor</button>
+<button data-tab="growth">Growth</button>
+<button data-tab="ranking">Tutor ranking</button>
+<span class="tabgrp">Learn</span>
+<!-- v100 — learning paths, practice bank, tool control, content
        quality, gap engine, health and diagnostics. Reads the same
        data files the learner pages read (learning-paths.js,
        practice-bank.js, learn-quality.js, tool-registry.js). -->
-  <button data-tab="learnops">Learn Ops</button>
+<button data-tab="learnops">Learn Ops</button>
 </div>
-
 <!-- ================= OVERVIEW ================= -->
 <section id="tab-overview">
-  <div class="stats" id="ovStats"></div>
-
-  <div class="card" id="actionCard">
-    <h2>Needs your attention</h2>
-    <div id="actions"></div>
-  </div>
-
-  <div class="card">
-    <h2>Tutor performance</h2>
-    <p class="muted">Who is getting requests, and who is converting them into confirmed lessons.</p>
-    <div class="scroll"><table id="perfTbl"></table></div>
-  </div>
-
-  <div class="card">
-    <h2>Money</h2>
-    <p class="muted">Counted from bookings you have marked confirmed. Mark them on the Bookings tab.</p>
-    <div class="stats" id="moneyStats"></div>
-  </div>
-
-  <div class="card">
-    <h2>Integrations</h2>
-    <p class="muted">Optional services. Each is off until you configure it, and
+<div class="stats" id="ovStats"></div>
+<div class="card" id="actionCard">
+<h2>Needs your attention</h2>
+<div id="actions"></div>
+</div>
+<div class="card">
+<h2>Tutor performance</h2>
+<p class="muted">Who is getting requests, and who is converting them into confirmed lessons.</p>
+<div class="scroll"><table id="perfTbl"></table></div>
+</div>
+<div class="card">
+<h2>Money</h2>
+<p class="muted">Counted from bookings you have marked confirmed. Mark them on the Bookings tab.</p>
+<div class="stats" id="moneyStats"></div>
+</div>
+<div class="card">
+<h2>Integrations</h2>
+<p class="muted">Optional services. Each is off until you configure it, and
     the site works without any of them.</p>
-    <div class="scroll"><table id="intTbl"></table></div>
-  </div>
-
-  <div class="card">
-    <h2>Site health</h2>
-    <div class="scroll"><table id="healthTbl"></table></div>
-  </div>
+<div class="scroll"><table id="intTbl"></table></div>
+</div>
+<div class="card">
+<h2>Site health</h2>
+<div class="scroll"><table id="healthTbl"></table></div>
+</div>
 </section>
-
 <!-- ================= LOCAL ================= -->
 <section id="tab-local">
-  <div class="card">
-    <h2>Bookings stored on this device</h2>
-    <div class="row" style="margin-bottom:14px">
-      <button id="csv">⬇ Download CSV</button>
-      <button id="json" class="ghost">⬇ Download JSON</button>
-      <button id="importBtn" class="ghost">⬆ Import a JSON backup</button>
-      <input type="file" id="importFile" accept=".json,application/json" hidden>
-      <button id="wipe" class="ghost">Clear this device</button>
-    </div>
-    <div class="row" style="margin-bottom:14px">
-      <input type="text" id="bkSearch" placeholder="Search name, email, tutor or reference…">
-      <select id="bkStatus">
-        <option value="">All statuses</option>
-        <option value="sent">Awaiting reply</option>
-        <option value="confirmed">Confirmed</option>
-        <option value="declined">Declined</option>
-        <option value="email_degraded">Email degraded (saved, emails pending)</option>
-        <option value="sending">Sending</option>
-      </select>
-      <span class="muted" id="bkCount"></span>
-    </div>
-    <div class="scroll"><table id="localTbl"></table></div>
-  </div>
+<div class="card">
+<h2>Bookings stored on this device</h2>
+<div class="row" style="margin-bottom:14px">
+<button id="csv">⬇ Download CSV</button>
+<button class="ghost" id="json">⬇ Download JSON</button>
+<button class="ghost" id="importBtn">⬆ Import a JSON backup</button>
+<input accept=".json,application/json" hidden="" id="importFile" type="file"/>
+<button class="ghost" id="wipe">Clear this device</button>
+</div>
+<div class="row" style="margin-bottom:14px">
+<input id="bkSearch" placeholder="Search name, email, tutor or reference…" type="text"/>
+<select id="bkStatus">
+<option value="">All statuses</option>
+<option value="sent">Awaiting reply</option>
+<option value="confirmed">Confirmed</option>
+<option value="declined">Declined</option>
+<option value="email_degraded">Email degraded (saved, emails pending)</option>
+<option value="sending">Sending</option>
+</select>
+<span class="muted" id="bkCount"></span>
+</div>
+<div class="scroll"><table id="localTbl"></table></div>
+</div>
 </section>
-
 <!-- ================= SERVER ================= -->
-<section id="tab-server" hidden>
-  <div class="card">
-    <h2>FormSubmit archive — the real stored copy</h2>
-    <p class="muted">Everything the relay received, whichever device it came from. Retained 30 days. The API allows 5 reads a day.</p>
-
-    <div class="note warn">
-      <b>Treat this key like a password.</b> Anyone holding it can read every
+<section hidden="" id="tab-server">
+<div class="card">
+<h2>FormSubmit archive — the real stored copy</h2>
+<p class="muted">Everything the relay received, whichever device it came from. Retained 30 days. The API allows 5 reads a day.</p>
+<div class="note warn">
+<b>Treat this key like a password.</b> Anyone holding it can read every
       booking in your archive — names, email addresses and messages. Never paste
       it into a chat, a screenshot, an email or the repo. It is stored in this
       browser only, and the "Forget key" button below wipes it.
-      <br><br>
+      <br/><br/>
       If a key is ever exposed, press <b>Email me an API key</b> again — a fresh
       key is issued and you should stop using the old one.
     </div>
-
-    <p><b>Step 1 — get your key, once.</b> It is emailed to you.</p>
-    <div class="row" style="margin-bottom:14px">
-      <button id="getKey">Email me an API key</button>
-      <span class="muted">sent to <code id="siteMail"></code></span>
-    </div>
-
-    <p><b>Step 2 — paste it here.</b> It is remembered in this browser only.</p>
-    <div class="row" style="margin-bottom:14px">
-      <input type="password" id="apiKey" placeholder="paste the API key from your email" autocomplete="off">
-      <button id="peekKey" class="ghost" type="button">Show</button>
-      <button id="load">Load submissions</button>
-      <button id="forgetKey" class="ghost">Forget key</button>
-    </div>
-
-    <div id="serverMsg"></div>
-    <div class="scroll"><table id="serverTbl"></table></div>
-  </div>
+<p><b>Step 1 — get your key, once.</b> It is emailed to you.</p>
+<div class="row" style="margin-bottom:14px">
+<button id="getKey">Email me an API key</button>
+<span class="muted">sent to <code id="siteMail"></code></span>
+</div>
+<p><b>Step 2 — paste it here.</b> It is remembered in this browser only.</p>
+<div class="row" style="margin-bottom:14px">
+<input autocomplete="off" id="apiKey" placeholder="paste the API key from your email" type="password"/>
+<button class="ghost" id="peekKey" type="button">Show</button>
+<button id="load">Load submissions</button>
+<button class="ghost" id="forgetKey">Forget key</button>
+</div>
+<div id="serverMsg"></div>
+<div class="scroll"><table id="serverTbl"></table></div>
+</div>
 </section>
-
 <!-- ================= COMPOSE ================= -->
-<section id="tab-compose" hidden>
-  <div class="card">
-    <h2>Send a message</h2>
-    <p class="muted">Write to a tutor, a student who has booked, or any address.
+<section hidden="" id="tab-compose">
+<div class="card">
+<h2>Send a message</h2>
+<p class="muted">Write to a tutor, a student who has booked, or any address.
     Sent through the same relay as booking emails — no mail client needed.</p>
-
-    <div id="provNote"></div>
-
-    <div style="display:grid;gap:12px;max-width:640px">
-      <label>
-        <div class="muted" style="font-size:.82rem;margin-bottom:4px">To</div>
-        <select id="cmpPreset" style="width:100%;margin-bottom:8px"></select>
-        <input type="email" id="cmpTo" placeholder="or type an address" style="width:100%">
-      </label>
-      <label>
-        <div class="muted" style="font-size:.82rem;margin-bottom:4px">Subject</div>
-        <input type="text" id="cmpSubject" placeholder="Subject" style="width:100%">
-      </label>
-      <label>
-        <div class="muted" style="font-size:.82rem;margin-bottom:4px">Message</div>
-        <textarea id="cmpBody" rows="9" placeholder="Write your message…"
-          style="width:100%;font:inherit;padding:11px 13px;border:1px solid var(--line);border-radius:9px"></textarea>
-      </label>
-      <div class="row">
-        <button id="cmpSend">Send</button>
-        <button id="cmpClear" class="ghost">Clear</button>
-        <span class="muted" id="cmpStatus"></span>
-      </div>
-    </div>
-
-    <div style="margin-top:20px">
-      <div class="muted" style="font-size:.82rem;margin-bottom:6px">Quick templates</div>
-      <div class="row">
-        <button class="ghost cmp-tpl" data-tpl="welcome">Welcome a new tutor</button>
-        <button class="ghost cmp-tpl" data-tpl="chase">Chase an unanswered booking</button>
-        <button class="ghost cmp-tpl" data-tpl="details">Ask a tutor for missing details</button>
-        <button class="ghost cmp-tpl" data-tpl="activate">Ask a tutor to activate email</button>
-        <button class="ghost cmp-tpl" data-tpl="shikha">Shikha — congratulations + what is needed</button>
-      </div>
-    </div>
-  </div>
+<div id="provNote"></div>
+<div style="display:grid;gap:12px;max-width:640px">
+<label>
+<div class="muted" style="font-size:.82rem;margin-bottom:4px">To</div>
+<select id="cmpPreset" style="width:100%;margin-bottom:8px"></select>
+<input id="cmpTo" placeholder="or type an address" style="width:100%" type="email"/>
+</label>
+<label>
+<div class="muted" style="font-size:.82rem;margin-bottom:4px">Subject</div>
+<input id="cmpSubject" placeholder="Subject" style="width:100%" type="text"/>
+</label>
+<label>
+<div class="muted" style="font-size:.82rem;margin-bottom:4px">Message</div>
+<textarea id="cmpBody" placeholder="Write your message…" rows="9" style="width:100%;font:inherit;padding:11px 13px;border:1px solid var(--line);border-radius:9px"></textarea>
+</label>
+<div class="row">
+<button id="cmpSend">Send</button>
+<button class="ghost" id="cmpClear">Clear</button>
+<span class="muted" id="cmpStatus"></span>
+</div>
+</div>
+<div style="margin-top:20px">
+<div class="muted" style="font-size:.82rem;margin-bottom:6px">Quick templates</div>
+<div class="row">
+<button class="ghost cmp-tpl" data-tpl="welcome">Welcome a new tutor</button>
+<button class="ghost cmp-tpl" data-tpl="chase">Chase an unanswered booking</button>
+<button class="ghost cmp-tpl" data-tpl="details">Ask a tutor for missing details</button>
+<button class="ghost cmp-tpl" data-tpl="activate">Ask a tutor to activate email</button>
+<button class="ghost cmp-tpl" data-tpl="shikha">Shikha — congratulations + what is needed</button>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ================= TRAFFIC ================= -->
-<section id="tab-traffic" hidden>
-  <!-- v48: this panel used to say "you have not set it up yet". GoatCounter
+<section hidden="" id="tab-traffic">
+<!-- v48: this panel used to say "you have not set it up yet". GoatCounter
        went live on 8 Sep 2026, so that sentence became a lie the moment it
        was switched on. It now reads the real config instead of asserting. -->
-  <div class="note" id="realTrafficNote"></div>
-
-  <div class="note warn">
-    <b>Read this before trusting the numbers below.</b>
+<div class="note" id="realTrafficNote"></div>
+<div class="note warn">
+<b>Read this before trusting the numbers below.</b>
     Everything on this tab comes from <b>the browser you are using now</b>. It is
     real, but it is <b>not site-wide traffic</b> — a static page cannot count
     other people's visits on its own.
-    <br><br>
+    <br/><br/>
     Site-wide numbers live in the two links above. This tab is for checking that
     the booking funnel works, not for counting visitors.
   </div>
-
-  <div class="stats" id="trafStats"></div>
-
-  <div class="card">
-    <h2>Last 30 days</h2>
-    <div id="trend"></div>
-  </div>
-
-  <div class="card">
-    <h2>Where visits came from</h2>
-    <div class="scroll"><table id="chanTbl"></table></div>
-  </div>
-
-  <div class="card">
-    <h2>Referring sites</h2>
-    <p class="muted">Hostnames only — never the full URL, which can carry private search terms.</p>
-    <div class="scroll"><table id="refTbl"></table></div>
-  </div>
-
-  <div class="card">
-    <h2>Pages people landed on first</h2>
-    <p class="muted">The first page of each session. These are your entry points from search.</p>
-    <div class="scroll"><table id="landTbl"></table></div>
-  </div>
-
-  <div class="card">
-    <h2>Every page, by views</h2>
-    <div class="scroll"><table id="pagesTbl"></table></div>
-  </div>
+<div class="stats" id="trafStats"></div>
+<div class="card">
+<h2>Last 30 days</h2>
+<div id="trend"></div>
+</div>
+<div class="card">
+<h2>Where visits came from</h2>
+<div class="scroll"><table id="chanTbl"></table></div>
+</div>
+<div class="card">
+<h2>Referring sites</h2>
+<p class="muted">Hostnames only — never the full URL, which can carry private search terms.</p>
+<div class="scroll"><table id="refTbl"></table></div>
+</div>
+<div class="card">
+<h2>Pages people landed on first</h2>
+<p class="muted">The first page of each session. These are your entry points from search.</p>
+<div class="scroll"><table id="landTbl"></table></div>
+</div>
+<div class="card">
+<h2>Every page, by views</h2>
+<div class="scroll"><table id="pagesTbl"></table></div>
+</div>
 </section>
-
 <!-- ================= SEO MONITOR ================= -->
 <!-- v52. WHY THIS EXISTS:
      Every SEO problem this site has had was invisible from the
@@ -463,8 +426,8 @@
      This tab runs the checks that matter against the LIVE site,
      from the browser, so a problem shows up where you actually
      look. It fetches real URLs — nothing is assumed. -->
-<section id="tab-seo" hidden>
-  <!-- ═══════════════════════════════════════════════════════
+<section hidden="" id="tab-seo">
+<!-- ═══════════════════════════════════════════════════════
        v96 — THE DUPLICATE PRAKASH KEPT SEEING WAS REAL.
 
        "admin mein duplicate tab feature bhi hai"
@@ -493,33 +456,30 @@
        reading the page can. Recorded here so it is not renamed
        back into a collision.
        ═══════════════════════════════════════════════════════ -->
-  <div class="card">
-    <h2>What Google sees — titles, descriptions, drift</h2>
-    <p class="muted">Live HTTP requests made just now, about how the site
+<div class="card">
+<h2>What Google sees — titles, descriptions, drift</h2>
+<p class="muted">Live HTTP requests made just now, about how the site
     <b>ranks</b>. For whether pages <b>load</b> at all — 404s, robots,
     sitemaps, broken scripts — use <b>Site → Live health</b> instead.</p>
-    <p><button class="btn btn-primary" id="seoRun">Run all checks</button>
-       <span class="muted" id="seoWhen"></span></p>
-    <div id="seoOut"></div>
-  </div>
-
-  <div class="card">
-    <h2>What Google sees on each page</h2>
-    <p class="muted">Title and description length, measured the way Google
+<p><button class="btn btn-primary" id="seoRun">Run all checks</button>
+<span class="muted" id="seoWhen"></span></p>
+<div id="seoOut"></div>
+</div>
+<div class="card">
+<h2>What Google sees on each page</h2>
+<p class="muted">Title and description length, measured the way Google
     measures them. Over the limit means your text is cut off in the result
     with an ellipsis — usually the half containing the reason to click.</p>
-    <div class="scroll"><table id="seoMetaTbl"></table></div>
-  </div>
-
-  <div class="card">
-    <h2>Is the live site current?</h2>
-    <p class="muted">Compares the sitemap on the live site with the pages
+<div class="scroll"><table id="seoMetaTbl"></table></div>
+</div>
+<div class="card">
+<h2>Is the live site current?</h2>
+<p class="muted">Compares the sitemap on the live site with the pages
     this dashboard knows about. A gap means you built something and did not
     push it.</p>
-    <div id="seoDrift"></div>
-  </div>
+<div id="seoDrift"></div>
+</div>
 </section>
-
 <!-- ================= GROWTH ================= -->
 <!-- v52. WHY THIS EXISTS:
      "Is it working yet" was previously unanswerable without opening
@@ -527,137 +487,128 @@
      one place, with the honest state of each stage, and gives you
      the one button that actually does something: resubmitting the
      URL list to IndexNow. -->
-<section id="tab-growth" hidden>
-  <div class="card">
-    <h2>Where you are in the pipeline</h2>
-    <p class="muted">Traffic arrives in stages, and each one has to finish
+<section hidden="" id="tab-growth">
+<div class="card">
+<h2>Where you are in the pipeline</h2>
+<p class="muted">Traffic arrives in stages, and each one has to finish
     before the next can start. This is the honest position.</p>
-    <div id="pipeline"></div>
-  </div>
-
-  <div class="card">
-    <h2>Tell the search engines again</h2>
-    <p class="muted">Pushes every URL to Bing, Yandex, DuckDuckGo, Seznam
+<div id="pipeline"></div>
+</div>
+<div class="card">
+<h2>Tell the search engines again</h2>
+<p class="muted">Pushes every URL to Bing, Yandex, DuckDuckGo, Seznam
     and Naver. Google does not take part in IndexNow — it decides its own
     schedule.</p>
-    <div class="note warn" style="margin-top:0">
-      <b>Only after a real change.</b> Resubmitting unchanged pages is
+<div class="note warn" style="margin-top:0">
+<b>Only after a real change.</b> Resubmitting unchanged pages is
       treated as spam and the endpoint starts ignoring you. Once per
       content update, not on a timer.
     </div>
-    <p><button class="btn btn-primary" id="inowBtn">Submit all URLs to IndexNow</button></p>
-    <div id="inowOut"></div>
-  </div>
-
+<p><button class="btn btn-primary" id="inowBtn">Submit all URLs to IndexNow</button></p>
+<div id="inowOut"></div>
+</div>
 <!-- v200.2 — OWNERSHIP. The site's text is EkGuru's, and "prove it" has to
        be a button and not a feeling. data/copy-index.json carries a dated
        fingerprint of every page (tools/build-copy-index.js); this card
        compares any pasted passage against it, so a lifted paragraph is
        visible in two seconds — and the same record is what shows a page on
        another site was ours first. -->
-  <div class="card" id="ownership">
-    <h2>Is this text ours? (ownership check)</h2>
-    <p class="muted">Paste a paragraph, a whole page, a competitor's article or a
+<div class="card" id="ownership">
+<h2>Is this text ours? (ownership check)</h2>
+<p class="muted">Paste a paragraph, a whole page, a competitor's article or a
     row out of the spreadsheet. This says which EkGuru page it matches, how much
     of it matches, and shows the dated fingerprint of that page. Nothing leaves
     your browser — the fingerprint file is a static file on the site.</p>
-    <textarea id="owText" rows="7" style="width:100%" placeholder="Paste the text here…"></textarea>
-    <p class="muted" id="owStatus"></p>
-    <p>
-      <button class="btn btn-primary btn-sm" type="button" id="owRun">Check this text</button>
-      <button class="btn btn-sm" type="button" id="owClear">Clear</button>
-      <span class="muted">Ctrl/⌘ + Enter also runs it.</span>
-    </p>
-    <div id="owResult"></div>
-    <p class="muted">Every page also prints with a watermark and copies with a
+<textarea id="owText" placeholder="Paste the text here…" rows="7" style="width:100%"></textarea>
+<p class="muted" id="owStatus"></p>
+<p>
+<button class="btn btn-primary btn-sm" id="owRun" type="button">Check this text</button>
+<button class="btn btn-sm" id="owClear" type="button">Clear</button>
+<span class="muted">Ctrl/⌘ + Enter also runs it.</span>
+</p>
+<div id="owResult"></div>
+<p class="muted">Every page also prints with a watermark and copies with a
     source line — see <a href="copyright/">Copyright</a> for what that means and
     <a href="terms/">Terms of use</a> for what other people may do with the text.
     Rebuild the fingerprints after editing pages: <code>node tools/build-copy-index.js</code>.</p>
-  </div>
-
-  <div class="card">
-    <h2>Check your own indexing</h2>
-    <p class="muted">These open the live search results for your site. If a
+</div>
+<div class="card">
+<h2>Check your own indexing</h2>
+<p class="muted">These open the live search results for your site. If a
     page is indexed it appears here; if the list is empty it has not been
     crawled yet.</p>
-    <div id="indexLinks"></div>
-  </div>
-
-  <!-- v55: the mail chain. Previously the only signal was one row in
+<div id="indexLinks"></div>
+</div>
+<!-- v55: the mail chain. Previously the only signal was one row in
        the Integrations table saying "FormSubmit" or "Web3Forms", which
        could not express "three relays, one of them spent this month". -->
-  <!-- v58: the second spreadsheet tab. This is the one that makes new
+<!-- v58: the second spreadsheet tab. This is the one that makes new
        PAGES, which is the only thing on this dashboard that directly
        creates traffic rather than measuring it. -->
-  <div class="card">
-    <h2>Write a new page from the spreadsheet</h2>
-    <p class="muted">Tab 1 controls the tutor roster. <b>Tab 2 makes pages.</b>
+<div class="card">
+<h2>Write a new page from the spreadsheet</h2>
+<p class="muted">Tab 1 controls the tutor roster. <b>Tab 2 makes pages.</b>
     One row becomes a real page under <code>/answers/</code> with schema,
     breadcrumbs and a sitemap entry — no code change.</p>
-    <div id="contentSheetState"></div>
-    <table class="scroll">
-      <tr><th>Column</th><th>What to write</th></tr>
-      <tr><td><code>slug</code></td><td class="muted">the URL — lowercase-with-hyphens</td></tr>
-      <tr><td><code>question</code></td><td class="muted">the exact phrase someone types into Google</td></tr>
-      <tr><td><code>answer</code></td><td class="muted">2–3 sentences. Google lifts this as the snippet. <b>200 characters minimum</b></td></tr>
-      <tr><td><code>body</code></td><td class="muted">the fuller answer. Blank line = paragraph. <code>## heading</code>, <code>- bullet</code>, <code>**bold**</code>. 400 characters minimum, or leave empty</td></tr>
-      <tr><td><code>keywords</code></td><td class="muted">comma separated</td></tr>
-      <tr><td><code>related</code></td><td class="muted">slugs of other rows</td></tr>
-      <tr><td><code>status</code></td><td class="muted"><code>live</code> or <code>draft</code> — only live is published</td></tr>
-    </table>
-    <div class="note warn" style="margin-top:12px">
-      <b>The minimum lengths are not a suggestion.</b> A row shorter than that
+<div id="contentSheetState"></div>
+<table class="scroll">
+<tr><th>Column</th><th>What to write</th></tr>
+<tr><td><code>slug</code></td><td class="muted">the URL — lowercase-with-hyphens</td></tr>
+<tr><td><code>question</code></td><td class="muted">the exact phrase someone types into Google</td></tr>
+<tr><td><code>answer</code></td><td class="muted">2–3 sentences. Google lifts this as the snippet. <b>200 characters minimum</b></td></tr>
+<tr><td><code>body</code></td><td class="muted">the fuller answer. Blank line = paragraph. <code>## heading</code>, <code>- bullet</code>, <code>**bold**</code>. 400 characters minimum, or leave empty</td></tr>
+<tr><td><code>keywords</code></td><td class="muted">comma separated</td></tr>
+<tr><td><code>related</code></td><td class="muted">slugs of other rows</td></tr>
+<tr><td><code>status</code></td><td class="muted"><code>live</code> or <code>draft</code> — only live is published</td></tr>
+</table>
+<div class="note warn" style="margin-top:12px">
+<b>The minimum lengths are not a suggestion.</b> A row shorter than that
       is refused by the build, on purpose. Thin pages made at scale are what
       Google calls doorway pages, and a penalty would take the other 101 pages
       down with them. One real answer beats fifty stubs.
     </div>
-  </div>
-
-  <!-- v56: the Sheet grew from 22 columns to 31 and every one was
+</div>
+<!-- v56: the Sheet grew from 22 columns to 31 and every one was
        verified individually. This table is generated from the live
        tutor data so it can never drift out of date the way a written
        list would. -->
-  <div class="card">
-    <h2>What you can change from the spreadsheet</h2>
-    <p class="muted">Every column below is applied to the live site within
+<div class="card">
+<h2>What you can change from the spreadsheet</h2>
+<p class="muted">Every column below is applied to the live site within
     the hour. A <b>blank cell changes nothing</b> — that is how the email
     column stays private even though the Sheet is public.</p>
-    <p id="sheetLink"></p>
-    <div class="scroll"><table id="sheetColsTbl"></table></div>
-  </div>
-
-  <div class="card">
-    <h2>How your email actually gets sent</h2>
-    <p class="muted">Booking emails try each relay in order. If one runs out
+<p id="sheetLink"></p>
+<div class="scroll"><table id="sheetColsTbl"></table></div>
+</div>
+<div class="card">
+<h2>How your email actually gets sent</h2>
+<p class="muted">Booking emails try each relay in order. If one runs out
     for the month, the same message is resent through the next one
     automatically — a booking is never lost to a billing limit.</p>
-    <div class="scroll"><table id="chainTbl2"></table></div>
-    <div id="chainNote"></div>
-  </div>
-
-  <div class="card">
-    <h2>Content you have, and the gaps</h2>
-    <p class="muted">What is published, and where the next page is worth
+<div class="scroll"><table id="chainTbl2"></table></div>
+<div id="chainNote"></div>
+</div>
+<div class="card">
+<h2>Content you have, and the gaps</h2>
+<p class="muted">What is published, and where the next page is worth
     writing.</p>
-    <div class="scroll"><table id="contentTbl"></table></div>
-    <!-- v80 — the sentence that explains the number. Prakash saw
+<div class="scroll"><table id="contentTbl"></table></div>
+<!-- v80 — the sentence that explains the number. Prakash saw
          "126 URLs" against a build of 465 and reasonably read it as
          a bug. It was the truth, badly presented: this panel reads
          the LIVE sitemap, and only 126 URLs have ever been pushed.
          A true number with no context reads as a false one. -->
-    <div class="note" id="contentGap" style="margin-top:10px">Comparing this build with the live site…</div>
-
-    <!-- v83 — WHICH pages, not just how many.
+<div class="note" id="contentGap" style="margin-top:10px">Comparing this build with the live site…</div>
+<!-- v83 — WHICH pages, not just how many.
          The count above answers "is there a gap". This answers
          "which pages, and does it matter" — and the four that
          block an AdSense application are named explicitly,
          because "4 pages missing" does not tell you that those
          four are the reason your application was rejected. -->
-    <h3 style="margin-top:18px">Exactly which pages are not live</h3>
-    <div class="scroller" id="driftList"></div>
-  </div>
+<h3 style="margin-top:18px">Exactly which pages are not live</h3>
+<div class="scroller" id="driftList"></div>
+</div>
 </section>
-
 <!-- ================= TUTORS ================= -->
 <!-- v57. WHY THIS EXISTS:
      Adding a tutor meant opening a terminal, copying _TEMPLATE.js,
@@ -673,16 +624,14 @@
      It deliberately does NOT try to write to disk — a browser
      cannot, and pretending otherwise would produce a button that
      silently does nothing. It downloads. -->
-<section id="tab-tutors" hidden>
-
-  <div class="card">
-    <h2>Who is on the site</h2>
-    <p class="muted">Read live from the tutor files, with the Sheet applied.
+<section hidden="" id="tab-tutors">
+<div class="card">
+<h2>Who is on the site</h2>
+<p class="muted">Read live from the tutor files, with the Sheet applied.
     "Missing" is what is stopping that profile converting.</p>
-    <div class="scroll"><table id="rosterTbl"></table></div>
-  </div>
-
-  <!-- ================= MODERATION (v80) =================
+<div class="scroll"><table id="rosterTbl"></table></div>
+</div>
+<!-- ================= MODERATION (v80) =================
        Prakash: "student report kar sake … phir hum usko hide aur
        suspend aur delete kar denge."
 
@@ -698,76 +647,71 @@
        attacker would very much like to reach. What this panel
        does is tell you EXACTLY what to change and what will
        happen, then verify it took effect. -->
-  <div class="card">
-    <h2>Hide, suspend or remove a tutor</h2>
-    <p class="muted">When a student reports a problem. Each action is one cell in
+<div class="card">
+<h2>Hide, suspend or remove a tutor</h2>
+<p class="muted">When a student reports a problem. Each action is one cell in
     the tutors sheet — no deploy, and the site follows within a page load.</p>
-    <div class="scroll"><table id="modTbl"></table></div>
-    <div id="modHow" class="note" style="margin-top:12px"></div>
-  </div>
-
-  <div class="card">
-    <h2>Add a tutor</h2>
-    <p class="muted"><b>You do not need this form.</b> Since v62 the quickest way
+<div class="scroll"><table id="modTbl"></table></div>
+<div class="note" id="modHow" style="margin-top:12px"></div>
+</div>
+<div class="card">
+<h2>Add a tutor</h2>
+<p class="muted"><b>You do not need this form.</b> Since v62 the quickest way
     to add someone is to type a new row straight into the tutors tab of your
     Google Sheet — put their id in the first column and their name in the name
     column, and the next build writes their page, their sitemap entry and their
     schema for you. Nothing to save, nothing to upload.</p>
-    <p class="muted">This form is still here because it is easier to fill in on a
+<p class="muted">This form is still here because it is easier to fill in on a
     phone than a spreadsheet, and because it checks the id and the hours before
     you commit to them. It gives you a <b>spreadsheet row to paste</b>, and the
     tutor file underneath it only if you want it.</p>
-    <p class="muted">For the photo, paste a <b>Google Drive share link</b> — open
+<p class="muted">For the photo, paste a <b>Google Drive share link</b> — open
     the photo in Drive, Share, "Anyone with the link", Copy link. No image ever
     has to be pushed to GitHub. Leave it blank and a placeholder is used until
     you fill it in.</p>
-
-    <div class="grid2">
-      <label>Full name <input id="nt-name" placeholder="Anita Sharma"></label>
-      <label>Short id <input id="nt-id" placeholder="anita-sharma"></label>
-      <label>Nickname <input id="nt-nick" placeholder="Anita"></label>
-      <label>Their email <input id="nt-email" placeholder="anita@example.com"></label>
-      <label>Price in USD <input id="nt-price" type="number" value="8"></label>
-      <label>Lesson length <input id="nt-len" value="50 min"></label>
-      <label>City <input id="nt-city" placeholder="Lucknow, India"></label>
-      <label>Country <input id="nt-country" value="India"></label>
-      <label>Years teaching <input id="nt-years" type="number" value="3"></label>
-      <label>YouTube id <input id="nt-video" placeholder="11 characters, optional"></label>
-      <label>Photo <input id="nt-photo" placeholder="paste a Google Drive share link"></label>
-    </div>
-
-    <label>Headline<input id="nt-headline" placeholder="Patient native Hindi teacher for beginners"></label>
-    <label>What they teach <span class="muted">comma separated</span>
-      <input id="nt-teaches" value="Hindi for beginners, Conversational Hindi, Hindi grammar"></label>
-    <label>Levels <span class="muted">comma separated</span>
-      <input id="nt-levels" value="Beginner, Intermediate"></label>
-    <label>Languages <span class="muted">Hindi: Native, English: C1</span>
-      <input id="nt-speaks" value="Hindi: Native, English: C1"></label>
-    <label>Hours <span class="muted">Mon-Fri 19:00,20:00; Sat 10:00</span>
-      <input id="nt-avail" value="Mon-Fri 19:00,20:00,21:00"></label>
-    <label>About <span class="muted">one paragraph per line</span>
-      <textarea id="nt-about" rows="4" placeholder="I have taught Hindi for six years.&#10;My lessons are conversation first."></textarea></label>
-
-    <div class="row" style="margin-top:12px">
-      <button id="ntBuild">Build the tutor file</button>
-      <span class="muted" id="ntStatus"></span>
-    </div>
-    <div id="ntOut"></div>
-  </div>
-
-  <div class="card">
-    <h2>What each profile is missing</h2>
-    <p class="muted">Ranked by how much it costs you. A profile with no video
+<div class="grid2">
+<label>Full name <input id="nt-name" placeholder="Anita Sharma"/></label>
+<label>Short id <input id="nt-id" placeholder="anita-sharma"/></label>
+<label>Nickname <input id="nt-nick" placeholder="Anita"/></label>
+<label>Their email <input id="nt-email" placeholder="anita@example.com"/></label>
+<label>Price in USD <input id="nt-price" type="number" value="8"/></label>
+<label>Lesson length <input id="nt-len" value="50 min"/></label>
+<label>City <input id="nt-city" placeholder="Lucknow, India"/></label>
+<label>Country <input id="nt-country" value="India"/></label>
+<label>Years teaching <input id="nt-years" type="number" value="3"/></label>
+<label>YouTube id <input id="nt-video" placeholder="11 characters, optional"/></label>
+<label>Photo <input id="nt-photo" placeholder="paste a Google Drive share link"/></label>
+</div>
+<label>Headline<input id="nt-headline" placeholder="Patient native Hindi teacher for beginners"/></label>
+<label>What they teach <span class="muted">comma separated</span>
+<input id="nt-teaches" value="Hindi for beginners, Conversational Hindi, Hindi grammar"/></label>
+<label>Levels <span class="muted">comma separated</span>
+<input id="nt-levels" value="Beginner, Intermediate"/></label>
+<label>Languages <span class="muted">Hindi: Native, English: C1</span>
+<input id="nt-speaks" value="Hindi: Native, English: C1"/></label>
+<label>Hours <span class="muted">Mon-Fri 19:00,20:00; Sat 10:00</span>
+<input id="nt-avail" value="Mon-Fri 19:00,20:00,21:00"/></label>
+<label>About <span class="muted">one paragraph per line</span>
+<textarea id="nt-about" placeholder="I have taught Hindi for six years.
+My lessons are conversation first." rows="4"></textarea></label>
+<div class="row" style="margin-top:12px">
+<button id="ntBuild">Build the tutor file</button>
+<span class="muted" id="ntStatus"></span>
+</div>
+<div id="ntOut"></div>
+</div>
+<div class="card">
+<h2>What each profile is missing</h2>
+<p class="muted">Ranked by how much it costs you. A profile with no video
     converts noticeably worse than one with a video.</p>
-    <div id="gapList"></div>
-  </div>
+<div id="gapList"></div>
+</div>
 </section>
-
 <!-- ================= ACTIVITY ================= -->
-<section id="tab-activity" hidden>
-  <div class="card">
-    <h2>What people did on the site</h2>
-    <p class="muted">
+<section hidden="" id="tab-activity">
+<div class="card">
+<h2>What people did on the site</h2>
+<p class="muted">
       Recorded in the visitor's own browser, never sent anywhere — so on this
       machine you are seeing <b>your own</b> activity plus anyone who used this
       exact browser. It is not site-wide analytics; a static site cannot collect
@@ -775,271 +719,233 @@
       picture of the booking funnel on any device you test from, and it is the
       same data your CSV export carries.
     </p>
-    <div class="stats" id="actStats"></div>
-  </div>
-
-  <div class="card">
-    <h2>The booking funnel</h2>
-    <p class="muted">Where people stop. The gap between "opened the booking box" and "sent it" is the number worth reducing.</p>
-    <div class="scroll"><table id="funnelTbl"></table></div>
-  </div>
-
-  <div class="card">
-    <h2>Which tutors get looked at</h2>
-    <div class="scroll"><table id="tutorTbl"></table></div>
-  </div>
-
-  <div class="card">
-    <h2>What people searched for</h2>
-    <p class="muted">Searches that found <b>nothing</b> are the most useful line here: someone told you what they wanted and you did not have it.</p>
-    <div class="scroll"><table id="searchTbl"></table></div>
-  </div>
-
-  <div class="card">
-    <h2>Every event</h2>
-    <div class="row" style="margin-bottom:14px">
-      <button id="actCsv">⬇ Download activity CSV</button>
-      <button id="actWipe" class="ghost">Clear activity on this device</button>
-    </div>
-    <div class="scroll"><table id="actTbl"></table></div>
-  </div>
-</section>
-
-<!-- ================= RATES ================= -->
-<section id="tab-rates" hidden>
-  <div class="card">
-    <h2>Exchange rates in use right now</h2>
-    <div id="rateInfo"></div>
-    <div class="row" style="margin:14px 0">
-      <button id="refreshRates">Refresh from the API now</button>
-    </div>
-    <div class="scroll"><table id="rateTbl" class="rate-tbl"></table></div>
-  </div>
-</section>
-
+<div class="stats" id="actStats"></div>
 </div>
-
-
+<div class="card">
+<h2>The booking funnel</h2>
+<p class="muted">Where people stop. The gap between "opened the booking box" and "sent it" is the number worth reducing.</p>
+<div class="scroll"><table id="funnelTbl"></table></div>
+</div>
+<div class="card">
+<h2>Which tutors get looked at</h2>
+<div class="scroll"><table id="tutorTbl"></table></div>
+</div>
+<div class="card">
+<h2>What people searched for</h2>
+<p class="muted">Searches that found <b>nothing</b> are the most useful line here: someone told you what they wanted and you did not have it.</p>
+<div class="scroll"><table id="searchTbl"></table></div>
+</div>
+<div class="card">
+<h2>Every event</h2>
+<div class="row" style="margin-bottom:14px">
+<button id="actCsv">⬇ Download activity CSV</button>
+<button class="ghost" id="actWipe">Clear activity on this device</button>
+</div>
+<div class="scroll"><table id="actTbl"></table></div>
+</div>
+</section>
+<!-- ================= RATES ================= -->
+<section hidden="" id="tab-rates">
+<div class="card">
+<h2>Exchange rates in use right now</h2>
+<div id="rateInfo"></div>
+<div class="row" style="margin:14px 0">
+<button id="refreshRates">Refresh from the API now</button>
+</div>
+<div class="scroll"><table class="rate-tbl" id="rateTbl"></table></div>
+</div>
+</section>
+</div>
 <!-- ================= SITE HEALTH (v74) ================= -->
-<section id="tab-health" hidden>
-  <h2>Site health</h2>
-  <p class="sub" id="health-age"></p>
-  <div class="cards" id="health-cards"></div>
-  <h3>Validators</h3>
-  <div id="health-validators"></div>
-  <h3>What this page cannot tell you</h3>
-  <div id="health-gaps"></div>
+<section hidden="" id="tab-health">
+<h2>Site health</h2>
+<p class="sub" id="health-age"></p>
+<div class="cards" id="health-cards"></div>
+<h3>Validators</h3>
+<div id="health-validators"></div>
+<h3>What this page cannot tell you</h3>
+<div id="health-gaps"></div>
 </section>
-
 <!-- ================= COVERAGE (v74) ================= -->
-<section id="tab-coverage" hidden>
-  <h2>Country and language coverage</h2>
-  <p class="sub" id="cov-summary"></p>
-  <div class="cards" id="cov-cards"></div>
-  <h3>Countries</h3>
-  <div class="row" style="gap:8px;flex-wrap:wrap;margin:10px 0">
-    <input type="search" id="cov-search" placeholder="Search country, ISO code or language" style="flex:1;min-width:200px">
-    <select id="cov-filter">
-      <option value="">All</option>
-      <option value="PUBLISHED">Published only</option>
-      <option value="PLANNED">Planned only</option>
-      <option value="A">Tier A</option><option value="B">Tier B</option>
-      <option value="C">Tier C</option><option value="D">Tier D</option>
-    </select>
-  </div>
-  <div id="cov-table" class="scroller"></div>
-  <h3>Learning pairs</h3>
-  <p class="sub">Phase 7 architecture: every pair targets Hindi today, and the
+<section hidden="" id="tab-coverage">
+<h2>Country and language coverage</h2>
+<p class="sub" id="cov-summary"></p>
+<div class="cards" id="cov-cards"></div>
+<h3>Countries</h3>
+<div class="row" style="gap:8px;flex-wrap:wrap;margin:10px 0">
+<input id="cov-search" placeholder="Search country, ISO code or language" style="flex:1;min-width:200px" type="search"/>
+<select id="cov-filter">
+<option value="">All</option>
+<option value="PUBLISHED">Published only</option>
+<option value="PLANNED">Planned only</option>
+<option value="A">Tier A</option><option value="B">Tier B</option>
+<option value="C">Tier C</option><option value="D">Tier D</option>
+</select>
+</div>
+<div class="scroller" id="cov-table"></div>
+<h3>Learning pairs</h3>
+<p class="sub">Phase 7 architecture: every pair targets Hindi today, and the
   structure carries a target language so the first non-Hindi pair needs no schema change.</p>
-  <div id="cov-pairs" class="scroller"></div>
+<div class="scroller" id="cov-pairs"></div>
 </section>
-
 <!-- ================= MAIL DELIVERY (v77) ================= -->
-<section id="tab-delivery" hidden>
-  <h2>Where every booking goes</h2>
-  <p class="sub">Computed live from the tutor data with the Sheet applied, using the
+<section hidden="" id="tab-delivery">
+<h2>Where every booking goes</h2>
+<p class="sub">Computed live from the tutor data with the Sheet applied, using the
   same precedence <code>js/mailer.js</code> uses. Change an address in the tutors
   sheet and this table changes on the next page load — no deploy.</p>
-
-  <div class="cards" id="dl-cards"></div>
-
-  <h3>Student confirmation relay — live</h3>
-  <p class="sub">Only a relay that can write to an <em>arbitrary</em> student
+<div class="cards" id="dl-cards"></div>
+<h3>Student confirmation relay — live</h3>
+<p class="sub">Only a relay that can write to an <em>arbitrary</em> student
   address (your own Apps Script / Gmail) can carry the student's own booking
   receipt with a verified EkGuru sender. Its health is fetched live, not assumed.</p>
-  <div class="scroller" id="dl-relay"></div>
-
-  <h3>Per tutor</h3>
-  <div class="scroller" id="dl-table"></div>
-
-  <h3>How the destination is chosen</h3>
-  <p class="sub">First match wins. This is the actual order in
+<div class="scroller" id="dl-relay"></div>
+<h3>Per tutor</h3>
+<div class="scroller" id="dl-table"></div>
+<h3>How the destination is chosen</h3>
+<p class="sub">First match wins. This is the actual order in
   <code>tutorTarget()</code>, not a description of it.</p>
-  <div class="scroller" id="dl-rules"></div>
-
-  <h3>Simulate a booking</h3>
-  <p class="sub">No mail is sent. This shows exactly who would receive what.</p>
-  <div class="row" style="gap:8px;flex-wrap:wrap;margin:10px 0">
-    <select id="dl-tutor"></select>
-    <input type="email" id="dl-student" placeholder="student@example.com" value="student@example.com" style="flex:1;min-width:200px">
-  </div>
-  <div id="dl-sim"></div>
+<div class="scroller" id="dl-rules"></div>
+<h3>Simulate a booking</h3>
+<p class="sub">No mail is sent. This shows exactly who would receive what.</p>
+<div class="row" style="gap:8px;flex-wrap:wrap;margin:10px 0">
+<select id="dl-tutor"></select>
+<input id="dl-student" placeholder="student@example.com" style="flex:1;min-width:200px" type="email" value="student@example.com"/>
+</div>
+<div id="dl-sim"></div>
 </section>
-
 <!-- ================= CONTACT FORM (v78) =================
      Every number on this tab is DERIVED — from the shipped HTML,
      from js/site-config.js, from tools/contactform.js's own topic
      list read back out of the built page. Nothing here is typed
      in by hand. A hardcoded roster or count has broken this
      project thirteen times; the fourteenth will not be here. -->
-<section id="tab-contact" hidden>
-  <h2>The contact form</h2>
-  <p class="sub">Visitors write to you from <code>/contact/</code> instead of a
+<section hidden="" id="tab-contact">
+<h2>The contact form</h2>
+<p class="sub">Visitors write to you from <code>/contact/</code> instead of a
   <code>mailto:</code> link. This tab shows where those messages land, checks the
   route is actually configured, and lets you answer one from here.</p>
-
-  <div class="cards" id="ct-cards"></div>
-
-  <h3>Is the route alive?</h3>
-  <p class="sub">Each of these is checked, not assumed. A red row means a message
+<div class="cards" id="ct-cards"></div>
+<h3>Is the route alive?</h3>
+<p class="sub">Each of these is checked, not assumed. A red row means a message
   a visitor sends right now would not reach you.</p>
-  <div class="scroller" id="ct-checks"></div>
-
-  <h3>What the form asks for</h3>
-  <p class="sub">Read back out of the page that actually shipped, so this cannot
+<div class="scroller" id="ct-checks"></div>
+<h3>What the form asks for</h3>
+<p class="sub">Read back out of the page that actually shipped, so this cannot
   describe a form that is no longer there.</p>
-  <div class="scroller" id="ct-fields"></div>
-
-  <h3>Topics a visitor can pick</h3>
-  <div class="scroller" id="ct-topics"></div>
-
-  <h3>Contact records — this browser</h3>
-  <p class="sub">Every contact and report submitted in this browser, with the honest
+<div class="scroller" id="ct-fields"></div>
+<h3>Topics a visitor can pick</h3>
+<div class="scroller" id="ct-topics"></div>
+<h3>Contact records — this browser</h3>
+<p class="sub">Every contact and report submitted in this browser, with the honest
   per-role email state (internal copy / visitor confirmation). Per-browser, like the
   rest of the dashboard — the inbox itself is the complete record. A failed row can
   be retried here without creating a duplicate record.</p>
-  <div class="scroller" id="ct-records"></div>
-
-  <h3>Answer someone</h3>
-  <p class="sub">Paste the address from their message. This sends through the same
+<div class="scroller" id="ct-records"></div>
+<h3>Answer someone</h3>
+<p class="sub">Paste the address from their message. This sends through the same
   relay the form uses — the reply arrives from EkGuru, not from a personal inbox.</p>
-  <div class="row" style="gap:8px;flex-wrap:wrap;margin:10px 0">
-    <input type="email" id="ct-to" placeholder="them@example.com" style="flex:1;min-width:220px">
-    <input type="text" id="ct-ref" placeholder="Their reference, e.g. C-4K2P9X" style="width:210px">
-  </div>
-  <input type="text" id="ct-subject" placeholder="Subject" style="width:100%;margin-bottom:8px">
-  <textarea id="ct-body" rows="7" placeholder="Your reply…" style="width:100%"></textarea>
-  <div class="row" style="gap:8px;margin-top:8px">
-    <button class="btn" id="ct-send">Send reply</button>
-    <span id="ct-status" class="muted"></span>
-  </div>
+<div class="row" style="gap:8px;flex-wrap:wrap;margin:10px 0">
+<input id="ct-to" placeholder="them@example.com" style="flex:1;min-width:220px" type="email"/>
+<input id="ct-ref" placeholder="Their reference, e.g. C-4K2P9X" style="width:210px" type="text"/>
+</div>
+<input id="ct-subject" placeholder="Subject" style="width:100%;margin-bottom:8px" type="text"/>
+<textarea id="ct-body" placeholder="Your reply…" rows="7" style="width:100%"></textarea>
+<div class="row" style="gap:8px;margin-top:8px">
+<button class="btn" id="ct-send">Send reply</button>
+<span class="muted" id="ct-status"></span>
+</div>
 </section>
-
 <!-- ================= REFERENCES (v93) ================= -->
-<section id="tab-refs" hidden>
-
-  <div class="card">
-    <h2>Look up a reference</h2>
-    <p class="muted">Somebody writes in quoting <code>C-4K2P9X</code> or
+<section hidden="" id="tab-refs">
+<div class="card">
+<h2>Look up a reference</h2>
+<p class="muted">Somebody writes in quoting <code>C-4K2P9X</code> or
     <code>EK-2JNNYW</code>. Paste it here. Works with or without the prefix,
     and also searches names, addresses, tutors and subjects.</p>
-    <div class="row" style="margin-bottom:12px">
-      <input type="text" id="refQ" placeholder="Reference, name, email or tutor…"
-             style="min-width:280px;flex:1">
-      <button id="refGo">Find</button>
-      <button id="refCsv" class="ghost">Export CSV</button>
-    </div>
-    <div id="refOut"></div>
-  </div>
-
-  <div class="card">
-    <h2>Needs a human</h2>
-    <p class="muted">Messages where something did not fully arrive. A booking
+<div class="row" style="margin-bottom:12px">
+<input id="refQ" placeholder="Reference, name, email or tutor…" style="min-width:280px;flex:1" type="text"/>
+<button id="refGo">Find</button>
+<button class="ghost" id="refCsv">Export CSV</button>
+</div>
+<div id="refOut"></div>
+</div>
+<div class="card">
+<h2>Needs a human</h2>
+<p class="muted">Messages where something did not fully arrive. A booking
     whose student copy failed is still a booking — it just needs that copy
     sending by hand.</p>
-    <div id="refProblems"></div>
-  </div>
-
-  <div class="card">
-    <h2>Everything this browser has recorded</h2>
-    <div class="stats" id="refStats"></div>
-    <div class="note warn">
-      <b>Read this before trusting the list below.</b>
+<div id="refProblems"></div>
+</div>
+<div class="card">
+<h2>Everything this browser has recorded</h2>
+<div class="stats" id="refStats"></div>
+<div class="note warn">
+<b>Read this before trusting the list below.</b>
       This is stored in <b>the browser you are using now</b>. A booking made on a
       visitor's phone was written to <i>their</i> browser, not yours — you will
       never see it here.
-      <br><br>
-      <b>The complete record is your inbox.</b> Every booking sends a
+      <br/><br/>
+<b>The complete record is your inbox.</b> Every booking sends a
       <code>[record]</code> copy to <span id="refInbox">EkGuru</span> and every
       contact message sends its own. Those survive a cleared cache; this does not.
       This tab exists so a reference can be <i>looked up fast</i>, not to replace
       the inbox.
     </div>
-    <div class="scroll"><table id="refAll"></table></div>
-  </div>
-
+<div class="scroll"><table id="refAll"></table></div>
+</div>
 </section>
-
 <!-- ================= LIVE HEALTH (v89) ================= -->
-<section id="tab-livehealth" hidden>
-
-  <div class="card">
-    <h2>Built here vs live on the internet</h2>
-    <p class="muted">Every other tab in this dashboard reads
+<section hidden="" id="tab-livehealth">
+<div class="card">
+<h2>Built here vs live on the internet</h2>
+<p class="muted">Every other tab in this dashboard reads
     <code>js/admin-stats.js</code>, which is generated at build time and
     describes <b>the files on disk</b>. That is the right source for
     "what did this build produce" and completely the wrong one for
     "what can a visitor see". This tab asks the live site.</p>
-    <div id="lhDrift"></div>
-  </div>
-
-  <div class="card">
-    <h2>The pages a visitor — or an AdSense reviewer — can actually open</h2>
-    <p class="muted">Fetched live, one request each. A 404 here is a real 404
+<div id="lhDrift"></div>
+</div>
+<div class="card">
+<h2>The pages a visitor — or an AdSense reviewer — can actually open</h2>
+<p class="muted">Fetched live, one request each. A 404 here is a real 404
     for a real person.</p>
-    <div class="scroll"><table id="lhPages"></table></div>
-  </div>
-
-  <div class="card">
-    <h2>Discovery</h2>
-    <p class="muted">Robots, sitemaps and feeds — the files a crawler reads
+<div class="scroll"><table id="lhPages"></table></div>
+</div>
+<div class="card">
+<h2>Discovery</h2>
+<p class="muted">Robots, sitemaps and feeds — the files a crawler reads
     before it reads anything else. A sitemap advertised in
     <code>robots.txt</code> that returns 404 wastes the crawl budget for
     every URL inside it.</p>
-    <div class="scroll"><table id="lhCrawl"></table></div>
-  </div>
-
-  <div class="card">
-    <h2>Integrity</h2>
-    <p class="muted">Cheap checks that catch the failures which report success:
+<div class="scroll"><table id="lhCrawl"></table></div>
+</div>
+<div class="card">
+<h2>Integrity</h2>
+<p class="muted">Cheap checks that catch the failures which report success:
     a page that loads but is empty, a script that 404s, a stylesheet that never
     updated.</p>
-    <div id="lhIntegrity"></div>
-  </div>
-
-  <div class="row" style="margin-bottom:18px">
-    <button id="lhRun">Check the live site now</button>
-    <span class="muted" id="lhStatus"></span>
-  </div>
-
+<div id="lhIntegrity"></div>
+</div>
+<div class="row" style="margin-bottom:18px">
+<button id="lhRun">Check the live site now</button>
+<span class="muted" id="lhStatus"></span>
+</div>
 </section>
-
 <!-- ================= MAIL CENTRE (v87) ================= -->
-<section id="tab-mailcentre" hidden>
-
-  <div class="card">
-    <h2>Incidents — this browser</h2>
-    <p class="muted">Failed and degraded sends, <b>deduplicated</b> so a busy day
+<section hidden="" id="tab-mailcentre">
+<div class="card">
+<h2>Incidents — this browser</h2>
+<p class="muted">Failed and degraded sends, <b>deduplicated</b> so a busy day
     does not fill the screen with one alert per message. Grouped by role and
     relay; one line per distinct incident. (Per-browser, like the rest of the
     dashboard — the inbox is the shared record.)</p>
-    <div class="scroll" id="mcIncidents"></div>
-    <p class="sub" style="margin-top:8px"><button class="ghost" data-clear-sent>
+<div class="scroll" id="mcIncidents"></div>
+<p class="sub" style="margin-top:8px"><button class="ghost" data-clear-sent="">
     Clear the sent-log (idempotency) for this browser</button> — do this after
     re-activating FormSubmit, so already-sent roles can be sent again if needed.</p>
-  </div>
-
-  <!-- ═══════════════════════════════════════════════════════
+</div>
+<!-- ═══════════════════════════════════════════════════════
        v100 — MAIL OPS  (Email ULTRA §38–§40)
 
        The owner-facing control panel for the Apps Script primary:
@@ -1052,67 +958,60 @@
          · template preview (Priya / Tara / BOOK-TEST-001);
          · send-test, restricted to inboxes the owner controls.
        ═══════════════════════════════════════════════════════ -->
-  <div class="card">
-    <h2>Mail Ops — primary route &amp; sender identity</h2>
-    <p class="muted">One orchestration layer, one primary relay. Green means
+<div class="card">
+<h2>Mail Ops — primary route &amp; sender identity</h2>
+<p class="muted">One orchestration layer, one primary relay. Green means
     verified here; a grey chip means the truth is not yet known and is shown as
     grey, never green.</p>
-    <div id="moChips" style="display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px"></div>
-    <div id="moSender" class="sub" style="margin:8px 0 16px"></div>
-
-    <h3 style="margin:0 0 6px">Routing matrix</h3>
-    <p class="muted">Seven message types, one row each. From is always the
+<div id="moChips" style="display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px"></div>
+<div class="sub" id="moSender" style="margin:8px 0 16px"></div>
+<h3 style="margin:0 0 6px">Routing matrix</h3>
+<p class="muted">Seven message types, one row each. From is always the
     verified EkGuru sender; Reply-To is per role. Read live from
     <code>js/email-templates.js</code>.</p>
-    <div class="scroll"><table id="moRoutes"></table></div>
-
-    <h3 style="margin:18px 0 6px">Template health</h3>
-    <p class="muted">Every fixture is rendered now. A broken template fails
+<div class="scroll"><table id="moRoutes"></table></div>
+<h3 style="margin:18px 0 6px">Template health</h3>
+<p class="muted">Every fixture is rendered now. A broken template fails
     loudly here before it can fail silently on a real booking.</p>
-    <div id="moTemplates" style="display:grid;gap:10px"></div>
-
-    <h3 style="margin:18px 0 6px">Per-role delivery (this browser)</h3>
-    <p class="muted">Most recent bookings, one row per role, honest state.
+<div id="moTemplates" style="display:grid;gap:10px"></div>
+<h3 style="margin:18px 0 6px">Per-role delivery (this browser)</h3>
+<p class="muted">Most recent bookings, one row per role, honest state.
     ACCEPTED ≠ DELIVERED.</p>
-    <div class="scroll"><table id="moDelivery"></table></div>
-
-    <h3 style="margin:18px 0 6px">Send-test (controlled addresses only)</h3>
-    <p class="muted">Sends one real templated message to an inbox you control
+<div class="scroll"><table id="moDelivery"></table></div>
+<h3 style="margin:18px 0 6px">Send-test (controlled addresses only)</h3>
+<p class="muted">Sends one real templated message to an inbox you control
     (your own, or an <code>alwaysCc</code> entry). Any other address is
     refused. The subject is prefixed <code>[TEST]</code> so you can filter it.</p>
-    <div style="display:grid;gap:10px;max-width:720px">
-      <div class="row" style="gap:8px;flex-wrap:wrap">
-        <select id="moTestType" style="font:inherit">
-          <option value="BOOKING_STUDENT_CONFIRMATION">Booking — student confirmation (Priya)</option>
-          <option value="BOOKING_TUTOR_NOTIFICATION">Booking — tutor notification (Tara)</option>
-          <option value="BOOKING_EKGURU_NOTIFICATION">Booking — internal record</option>
-          <option value="CONTACT_VISITOR_CONFIRMATION">Contact — visitor confirmation</option>
-          <option value="CONTACT_EKGURU_NOTIFICATION">Contact — internal</option>
-          <option value="ADMIN_CONTACT_OUTBOUND">Admin → recipient</option>
-          <option value="ADMIN_CONTACT_INTERNAL_COPY">Admin internal copy</option>
-        </select>
-        <input type="text" id="moTestTo" placeholder="Recipient (your inbox)" style="font:inherit;flex:1;min-width:220px">
-        <button id="moTestSend" class="btn btn-primary">Send test</button>
-      </div>
-      <div class="muted" id="moTestStatus"></div>
-    </div>
-
-    <h3 style="margin:18px 0 6px">Template preview (fixtures)</h3>
-    <p class="muted">Priya, Tara, and <code>BOOK-TEST-001</code> — never real
+<div style="display:grid;gap:10px;max-width:720px">
+<div class="row" style="gap:8px;flex-wrap:wrap">
+<select id="moTestType" style="font:inherit">
+<option value="BOOKING_STUDENT_CONFIRMATION">Booking — student confirmation (Priya)</option>
+<option value="BOOKING_TUTOR_NOTIFICATION">Booking — tutor notification (Tara)</option>
+<option value="BOOKING_EKGURU_NOTIFICATION">Booking — internal record</option>
+<option value="CONTACT_VISITOR_CONFIRMATION">Contact — visitor confirmation</option>
+<option value="CONTACT_EKGURU_NOTIFICATION">Contact — internal</option>
+<option value="ADMIN_CONTACT_OUTBOUND">Admin → recipient</option>
+<option value="ADMIN_CONTACT_INTERNAL_COPY">Admin internal copy</option>
+</select>
+<input id="moTestTo" placeholder="Recipient (your inbox)" style="font:inherit;flex:1;min-width:220px" type="text"/>
+<button class="btn btn-primary" id="moTestSend">Send test</button>
+</div>
+<div class="muted" id="moTestStatus"></div>
+</div>
+<h3 style="margin:18px 0 6px">Template preview (fixtures)</h3>
+<p class="muted">Priya, Tara, and <code>BOOK-TEST-001</code> — never real
     customer data.</p>
-    <div id="moPreview" style="display:grid;gap:10px"></div>
-  </div>
-
-  <div class="card">
-    <h2>Every relay, and what it can actually do</h2>
-    <p class="muted">Rendered from what <code>js/mailer.js</code> declares, not
+<div id="moPreview" style="display:grid;gap:10px"></div>
+</div>
+<div class="card">
+<h2>Every relay, and what it can actually do</h2>
+<p class="muted">Rendered from what <code>js/mailer.js</code> declares, not
     written out by hand — so this table cannot drift from the behaviour the way
     the old one could.</p>
-    <div class="scroll"><table id="mcRelays"></table></div>
-    <div id="mcKeys" style="margin-top:16px"></div>
-  </div>
-
-  <!-- ═══════════════════════════════════════════════════════
+<div class="scroll"><table id="mcRelays"></table></div>
+<div id="mcKeys" style="margin-top:16px"></div>
+</div>
+<!-- ═══════════════════════════════════════════════════════
        v96 — IS THE RELAY ACTUALLY ALIVE RIGHT NOW?
 
        "admin live new real working feature advance level par"
@@ -1150,115 +1049,106 @@
           Script check proves delivery capacity, because only it
           answers a question we are allowed to read.
        ═══════════════════════════════════════════════════════ -->
-  <div class="card">
-    <h2>Are the relays alive right now?</h2>
-    <p class="muted">This asks the internet, not our own code. Each relay is
+<div class="card">
+<h2>Are the relays alive right now?</h2>
+<p class="muted">This asks the internet, not our own code. Each relay is
     contacted with a request that <b>cannot send an email</b> and cannot spend
     quota. <b>Reached</b> means the service answered; it does not prove it will
     deliver. Only the relay you own reports a real remaining count.</p>
-    <div class="row" style="margin-bottom:10px">
-      <button id="mcPing" class="btn btn-primary">Test every relay now</button>
-      <span class="muted" id="mcPingWhen"></span>
-    </div>
-    <div class="scroll"><table id="mcPingTbl"></table></div>
-  </div>
-
-  <div class="card">
-    <h2>What a message costs</h2>
-    <p class="muted">Two rules decide every route. <b>(1)</b> Only one relay can
+<div class="row" style="margin-bottom:10px">
+<button class="btn btn-primary" id="mcPing">Test every relay now</button>
+<span class="muted" id="mcPingWhen"></span>
+</div>
+<div class="scroll"><table id="mcPingTbl"></table></div>
+</div>
+<div class="card">
+<h2>What a message costs</h2>
+<p class="muted">Two rules decide every route. <b>(1)</b> Only one relay can
     deliver to somebody we have never emailed, and it is capped. <b>(2)</b> Mail to
     an inbox <b>you own</b> must never spend one of those — the free relays reach
     it (FormSubmit first; if FormSubmit is unactivated, StaticForms), at no cost.</p>
-    <div class="scroll"><table id="mcRules"></table></div>
-  </div>
-
-  <div class="card">
-    <h2>Send to many people at once</h2>
-    <p class="muted">One message, many recipients, sent one at a time so no relay
+<div class="scroll"><table id="mcRules"></table></div>
+</div>
+<div class="card">
+<h2>Send to many people at once</h2>
+<p class="muted">One message, many recipients, sent one at a time so no relay
     throttles the burst. Each recipient is routed independently — the cheapest
     relay that can actually reach <i>them</i>. Write <code>{{name}}</code> anywhere
     and it becomes that person's name.</p>
+<div class="row" style="margin-bottom:10px">
+<button class="ghost mc-fill" data-fill="tutors">All tutors</button>
+<button class="ghost mc-fill" data-fill="students">Everyone who has booked</button>
+<button class="ghost mc-fill" data-fill="noemail">Tutors with no address yet</button>
+<button class="ghost mc-fill" data-fill="clear">Clear</button>
+</div>
+<div style="display:grid;gap:12px;max-width:720px">
+<label>
+<div class="muted" style="font-size:.82rem;margin-bottom:4px">Recipients — one per line, <code>name &lt;address&gt;</code> or just the address</div>
+<textarea id="mcTo" placeholder="Hemlata &lt;hemlata@example.com&gt;
+someone@example.com" rows="6" style="width:100%;font:inherit;padding:11px 13px;border:1px solid var(--line);border-radius:9px"></textarea>
+</label>
+<label>
+<div class="muted" style="font-size:.82rem;margin-bottom:4px">Subject</div>
+<input id="mcSubject" placeholder="Subject" style="width:100%" type="text"/>
+</label>
+<label>
+<div class="muted" style="font-size:.82rem;margin-bottom:4px">Message</div>
+<textarea id="mcBody" placeholder="Hello {{name}},
 
-    <div class="row" style="margin-bottom:10px">
-      <button class="ghost mc-fill" data-fill="tutors">All tutors</button>
-      <button class="ghost mc-fill" data-fill="students">Everyone who has booked</button>
-      <button class="ghost mc-fill" data-fill="noemail">Tutors with no address yet</button>
-      <button class="ghost mc-fill" data-fill="clear">Clear</button>
-    </div>
-
-    <div style="display:grid;gap:12px;max-width:720px">
-      <label>
-        <div class="muted" style="font-size:.82rem;margin-bottom:4px">Recipients — one per line, <code>name &lt;address&gt;</code> or just the address</div>
-        <textarea id="mcTo" rows="6" placeholder="Hemlata &lt;hemlata@example.com&gt;&#10;someone@example.com"
-          style="width:100%;font:inherit;padding:11px 13px;border:1px solid var(--line);border-radius:9px"></textarea>
-      </label>
-      <label>
-        <div class="muted" style="font-size:.82rem;margin-bottom:4px">Subject</div>
-        <input type="text" id="mcSubject" placeholder="Subject" style="width:100%">
-      </label>
-      <label>
-        <div class="muted" style="font-size:.82rem;margin-bottom:4px">Message</div>
-        <textarea id="mcBody" rows="9" placeholder="Hello {{name}},&#10;&#10;…"
-          style="width:100%;font:inherit;padding:11px 13px;border:1px solid var(--line);border-radius:9px"></textarea>
-      </label>
-      <div id="mcCost" class="note"></div>
-      <div class="row">
-        <button id="mcSend">Send to everyone listed</button>
-        <span class="muted" id="mcStatus"></span>
-      </div>
-    </div>
-
-    <div id="mcLog" style="margin-top:16px"></div>
-  </div>
-
+…" rows="9" style="width:100%;font:inherit;padding:11px 13px;border:1px solid var(--line);border-radius:9px"></textarea>
+</label>
+<div class="note" id="mcCost"></div>
+<div class="row">
+<button id="mcSend">Send to everyone listed</button>
+<span class="muted" id="mcStatus"></span>
+</div>
+</div>
+<div id="mcLog" style="margin-top:16px"></div>
+</div>
 </section>
-
 <!-- ================= TUTOR RANKING (v74) ================= -->
-<section id="tab-ranking" hidden>
-  <h2>Tutor ranking</h2>
-  <p class="sub">The live order from <code>js/ranking.js</code>, with the score
+<section hidden="" id="tab-ranking">
+<h2>Tutor ranking</h2>
+<p class="sub">The live order from <code>js/ranking.js</code>, with the score
   broken down. Deterministic: the same inputs always produce the same order.</p>
-  <div class="row" style="gap:8px;flex-wrap:wrap;margin:10px 0">
-    <input type="search" id="rk-query" placeholder="Simulate a search query">
-    <select id="rk-lang">
-      <option value="">No learner language</option>
-      <option value="english">English speaker</option>
-      <option value="spanish">Spanish speaker</option>
-      <option value="french">French speaker</option>
-      <option value="arabic">Arabic speaker</option>
-      <option value="japanese">Japanese speaker</option>
-    </select>
-    <select id="rk-level">
-      <option value="">Any level</option>
-      <option value="beginner">Beginner</option>
-      <option value="intermediate">Intermediate</option>
-      <option value="advanced">Advanced</option>
-    </select>
-  </div>
-  <div id="rk-list"></div>
-  <h3>Factors</h3>
-  <p class="sub">Factors with no data contribute exactly zero and say what they
+<div class="row" style="gap:8px;flex-wrap:wrap;margin:10px 0">
+<input id="rk-query" placeholder="Simulate a search query" type="search"/>
+<select id="rk-lang">
+<option value="">No learner language</option>
+<option value="english">English speaker</option>
+<option value="spanish">Spanish speaker</option>
+<option value="french">French speaker</option>
+<option value="arabic">Arabic speaker</option>
+<option value="japanese">Japanese speaker</option>
+</select>
+<select id="rk-level">
+<option value="">Any level</option>
+<option value="beginner">Beginner</option>
+<option value="intermediate">Intermediate</option>
+<option value="advanced">Advanced</option>
+</select>
+</div>
+<div id="rk-list"></div>
+<h3>Factors</h3>
+<p class="sub">Factors with no data contribute exactly zero and say what they
   would need. Nothing is defaulted to a flattering midpoint.</p>
-  <div id="rk-factors" class="scroller"></div>
+<div class="scroller" id="rk-factors"></div>
 </section>
-
-<section id="tab-release" hidden>
-  <h2>Release status</h2>
-  <p class="sub">What this build is, what it contains, and what still needs doing.
+<section hidden="" id="tab-release">
+<h2>Release status</h2>
+<p class="sub">What this build is, what it contains, and what still needs doing.
   A local commit is never reported as a production deployment — the two are
   tracked separately below.</p>
-  <div id="relBoard"></div>
+<div id="relBoard"></div>
 </section>
-
-<section id="tab-learnops" hidden>
-  <h2>Learn Ops</h2>
-  <p class="sub">Learning paths, practice bank, tool control, content quality,
+<section hidden="" id="tab-learnops">
+<h2>Learn Ops</h2>
+<p class="sub">Learning paths, practice bank, tool control, content quality,
   the gap engine and the learning health board. Everything below reads the same
   data files the learner-facing pages read — nothing here invents its own copy
   of the truth.</p>
-  <!-- rendered by js/admin-learn-ops.js -->
+<!-- rendered by js/admin-learn-ops.js -->
 </section>
-
 <script src="js/site-config.js"></script>
 <!-- v48: the admin dashboard deliberately does NOT load js/analytics.js —
      Prakash's own visits must never inflate the numbers he is reading.
@@ -1290,8 +1180,8 @@
      the contact form, an admin reply or a bulk send. Before v93 a
      contact reference existed on the visitor's screen and nowhere
      else. See js/ledger.js. -->
-  <script src="js/ledger.js"></script>
-  <script src="js/toast.js"></script>
+<script src="js/ledger.js"></script>
+<script src="js/toast.js"></script>
 <!-- compose needs the mailer; without it the Send a message tab
      silently does nothing -->
 <script src="js/email-templates.js"></script>
@@ -3816,7 +3706,6 @@
   });
 })();
 </script>
-
 <!-- =========================================================
      v74 — SITE HEALTH · COVERAGE · TUTOR RANKING
      ---------------------------------------------------------
@@ -6140,8 +6029,8 @@
 })();
 </script>
 <!-- ekguru:consent -->
-<script src="js/cookie-consent.js" defer></script>
-<script src="js/admin-ownership.js" defer></script>
+<script defer="" src="js/cookie-consent.js"></script>
+<script defer="" src="js/admin-ownership.js"></script>
 <!-- ekguru:shell-footer:start -->
 <footer class="ftr">
   <div class="wrap ftr-in">
@@ -6192,5 +6081,13 @@
   </div>
 </footer>
 <!-- ekguru:shell-footer:end -->
+<script src="js/monetization.js" defer></script>
+<script src="js/print-sheet.js" defer></script>
+<script src="js/offline-games.js" defer></script>
+<script src="js/level-visuals.js" defer></script>
+<script src="js/visual-learning.js" defer></script>
+<script src="js/practice-api.js" defer></script>
+<script src="js/refresh-guard.js" defer></script>
+<script src="js/course-player.js" defer></script>
 </body>
 </html>
