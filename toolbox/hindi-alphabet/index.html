@@ -37,89 +37,7 @@
 <link rel="stylesheet" href="../../css/style.min.css">
 <!-- ekguru:storybook -->
 <link rel="stylesheet" href="../../css/storybook.css">
-<style>
-.pw{max-width:820px;margin:0 auto;padding:0 20px 64px}
-.pw h1{font-size:clamp(1.6rem,4.4vw,2.05rem);line-height:1.24;margin:24px 0 14px}
-.pw h2{font-size:clamp(1.12rem,3vw,1.3rem);line-height:1.3;margin:34px 0 12px}
-.pw h3{font-size:1.02rem;margin:24px 0 8px}
-.pw p,.pw li{line-height:1.72;font-size:1rem}
-.pw p,.pw ul,.pw ol{max-width:72ch}
-.lede{color:var(--ink-2);font-size:1.06rem;line-height:1.7}
-.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0;word-break:break-word}
-.crumb a{color:var(--muted)}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
-.fact{border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:var(--bg-soft)}
-.fact b{display:block;font-size:1.12rem;margin-bottom:2px;color:var(--ink)}
-.fact span{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
-.faq{border:1px solid var(--line);border-radius:12px;padding:15px 17px;margin:12px 0;background:var(--card,#fff)}
-.faq b{display:block;margin-bottom:6px;color:var(--ink)}
-.faq p{margin:0;color:var(--ink-2)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
-.chips a{font-size:.87rem;border:1px solid var(--line);border-radius:20px;padding:7px 13px;text-decoration:none;background:var(--card,#fff);color:var(--brand);min-height:34px;display:inline-flex;align-items:center}
-/* v97 — measured 40px in real Chromium at 320px, under the 44px
-   touch floor. This CSS is inlined into the page AFTER style.css
-   loads, so the global @media (pointer:coarse) rule cannot win —
-   the override has to live beside the rule it overrides. */
-@media (pointer:coarse){.chips a{min-height:44px}}
-.chips a:hover{border-color:var(--brand-2)}
-.cta{border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:12px;background:var(--bg-soft);padding:16px 18px;margin:26px 0}
-.cta b{display:block;margin-bottom:6px;color:var(--ink)}
-.cta p{margin:0 0 10px;color:var(--ink-2)}
-.tbl{width:100%;border-collapse:collapse;margin:16px 0;font-size:.95rem;display:block;overflow-x:auto}
-.tbl th,.tbl td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
-.tbl th{background:var(--bg-soft);font-weight:600;color:var(--ink)}
-.dv{font-family:"Noto Sans Devanagari","Nirmala UI",system-ui,sans-serif;line-height:1.85}
-.note{background:var(--warn-soft);border:1px solid var(--warn-line);border-radius:10px;padding:12px 15px;margin:18px 0;font-size:.94rem;color:var(--ink-2)}
-.pw .btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
-@media(max-width:520px){.pw{padding:0 15px 48px}}
-/* v79 — the trust footer's styling lives in css/style.css as
-   .pw-ftr, NOT here. tools/patch.js emits the identical footer on
-   the 115 pages built by the five pre-shell generators, and two
-   copies of the same rule in two files is how this project has
-   shipped a stale style five separate times. One class, one
-   place, all 465 pages. */
 
-.tool{border:1px solid var(--line);border-radius:14px;padding:18px;margin:22px 0;background:var(--card,#fff)}
-.tool label{display:block;font-size:.9rem;color:var(--ink-2);margin:0 0 6px;font-weight:600}
-.tool input[type=text],.tool input[type=search],.tool select{width:100%;padding:11px 13px;font-size:1rem;
-  border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);min-height:44px}
-.tool input:focus,.tool select:focus{outline:2px solid var(--focus);outline-offset:1px}
-.grid{display:grid;gap:9px}
-.g6{grid-template-columns:repeat(auto-fill,minmax(88px,1fr))}
-.g4{grid-template-columns:repeat(auto-fill,minmax(132px,1fr))}
-.cell{border:1px solid var(--line);border-radius:11px;padding:10px 6px;text-align:center;background:var(--bg-soft);
-  cursor:pointer;min-height:44px}
-.cell:hover,.cell:focus{border-color:var(--brand-2);background:#fff}
-.cell .ch{font-size:1.6rem;line-height:1.3;color:var(--ink);font-family:"Noto Sans Devanagari","Nirmala UI",serif}
-.cell .rm{font-size:.8rem;color:var(--muted);display:block}
-.detail{margin-top:14px;padding:15px;border:1px solid var(--brand-2);border-radius:12px;background:var(--bg-soft)}
-.detail .big{font-size:2.6rem;line-height:1.2;color:var(--brand);font-family:"Noto Sans Devanagari","Nirmala UI",serif}
-.detail p{margin:6px 0;color:var(--ink-2)}
-.row{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:12px 0}
-.row .btn{min-height:44px}
-.pill{font-size:.82rem;border:1px solid var(--line);border-radius:18px;padding:6px 12px;background:var(--bg-soft);
-  cursor:pointer;color:var(--ink-2);min-height:34px}
-/* v97 — .pill above declares min-height:34px and measured 40px
-   on a phone, under the 44px touch floor. This CSS is inlined
-   into each tool page after style.css, so the global
-   pointer:coarse rule cannot win on cascade order. */
-@media (pointer:coarse){.pill{min-height:44px}}
-.pill[aria-pressed=true]{background:var(--brand);color:#fff;border-color:var(--brand)}
-.card{border:1px solid var(--line);border-radius:14px;padding:26px 18px;text-align:center;background:var(--bg-soft);min-height:170px;
-  display:flex;flex-direction:column;justify-content:center;gap:8px}
-.card .front{font-size:1.35rem;color:var(--ink)}
-.card .back{font-size:2rem;color:var(--brand);font-family:"Noto Sans Devanagari","Nirmala UI",serif}
-.card .rom{font-size:.95rem;color:var(--muted)}
-.score{font-size:.9rem;color:var(--ink-2);margin:10px 0}
-.bar{height:8px;border-radius:4px;background:var(--line);overflow:hidden;margin:8px 0}
-.bar>i{display:block;height:100%;background:var(--brand);width:0}
-.out{font-size:1.6rem;min-height:2.4rem;padding:12px;border:1px solid var(--line);border-radius:10px;
-  background:var(--bg-soft);color:var(--ink);font-family:"Noto Sans Devanagari","Nirmala UI",serif;word-break:break-word}
-.ok{color:var(--green);font-weight:600}
-.no{color:var(--brand-3);font-weight:600}
-.nojs{font-size:.9rem;color:var(--muted);margin:6px 0 0}
-.tbl td.dv,.tbl th.dv{font-family:"Noto Sans Devanagari","Nirmala UI",serif;font-size:1.05rem}
-@media(pointer:coarse){.chips a,.chips button,.pill,.rel a,.art-nav a,.crumbs a,.ftr a,.tag,.chip-btn{min-height:44px}.rel a,.art-nav a,.crumbs a,.ftr a{display:inline-block;padding-block:10px}b>a,strong>a,h3>a,h2>a{display:inline-block;padding-block:12px}input,select,textarea,button{min-height:44px}}</style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","@id":"https://ekguru.shop/toolbox/hindi-alphabet/#app","name":"Hindi Alphabet Explorer","description":"Interactive Devanagari alphabet chart","url":"https://ekguru.shop/toolbox/hindi-alphabet/","applicationCategory":"EducationalApplication","operatingSystem":"Any modern browser","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"EkGuru","url":"https://ekguru.shop/"}},{"@id":"https://ekguru.shop/toolbox/hindi-alphabet/#faq","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many letters are in the Hindi alphabet?","acceptedAnswer":{"@type":"Answer","text":"Standard Devanagari for Hindi has 11 vowels and 33 consonants — 44 core letters. You will also meet five consonants with a dot underneath (क़ ख़ ग़ ज़ फ़) used mainly in words from Persian, Arabic and English, and a set of conjuncts where two consonants join."}},{"@type":"Question","name":"Is Devanagari an alphabet?","acceptedAnswer":{"@type":"Answer","text":"Not quite. It is an abugida: each consonant carries a built-in 'a' sound, and vowel marks called matras change it. That is why क is 'ka' rather than 'k', and why का is 'kaa'."}},{"@type":"Question","name":"What order should I learn the letters in?","acceptedAnswer":{"@type":"Answer","text":"The traditional order is not arbitrary — it groups consonants by where in the mouth they are made, starting at the back (क ख ग घ) and moving forward to the lips (प फ ब भ). Learning it in that order teaches you the sound system at the same time, which is why this page keeps it."}},{"@type":"Question","name":"How long does it take to learn Devanagari?","acceptedAnswer":{"@type":"Answer","text":"Most learners read simple words within four to six weeks of regular practice. It is phonetic and consistent, so once you know the letters you can pronounce any word you see — which is more than English offers."}}]},{"@id":"https://ekguru.shop/toolbox/hindi-alphabet/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"EkGuru","item":"https://ekguru.shop/"},{"@type":"ListItem","position":2,"name":"Learn Hindi","item":"https://ekguru.shop/learn/"},{"@type":"ListItem","position":3,"name":"Tools","item":"https://ekguru.shop/toolbox/"},{"@type":"ListItem","position":4,"name":"Alphabet explorer","item":"https://ekguru.shop/toolbox/hindi-alphabet/"}]}]}</script>
 <!-- Google AdSense. Emitted only because ads.client is set to a valid
      publisher id in js/site-config.js. Clear that value and every one
@@ -154,7 +72,7 @@
 <script src="../../js/site-shell.js" defer></script>
 <script src="../../js/copywatch.js" defer></script>
 <!-- ekguru:shell-header:end -->
-<div class="pw">
+<div class="pw pw-legacy pw-tool">
 
 <p class="crumb"><a href="../../">EkGuru</a> › <a href="../../learn/">Learn Hindi</a> › <a href="../../toolbox/">Tools</a> › Alphabet explorer</p>
 <!-- ekguru:chapter -->
@@ -278,55 +196,55 @@ sound, and once it lands, reading gets much faster.</p>
 <h2>Vowels</h2>
 <table class="tbl">
   <tr><th>Letter</th><th>Sounds like</th><th>Example</th></tr>
-  <tr><td class="dv">अ <small>a</small></td><td>the u in 'but' — short and neutral</td><td class="dv">अनार <small>— anaar, pomegranate</small></td></tr>
-  <tr><td class="dv">आ <small>aa</small></td><td>the a in 'father' — held longer</td><td class="dv">आम <small>— aam, mango</small></td></tr>
-  <tr><td class="dv">इ <small>i</small></td><td>the i in 'sit'</td><td class="dv">इमली <small>— imli, tamarind</small></td></tr>
-  <tr><td class="dv">ई <small>ee</small></td><td>the ee in 'see'</td><td class="dv">ईख <small>— eekh, sugarcane</small></td></tr>
-  <tr><td class="dv">उ <small>u</small></td><td>the u in 'put'</td><td class="dv">उल्लू <small>— ulloo, owl</small></td></tr>
-  <tr><td class="dv">ऊ <small>oo</small></td><td>the oo in 'boot'</td><td class="dv">ऊन <small>— oon, wool</small></td></tr>
-  <tr><td class="dv">ऋ <small>ri</small></td><td>roughly 'ri' in modern Hindi; a Sanskrit vowel</td><td class="dv">ऋषि <small>— rishi, sage</small></td></tr>
-  <tr><td class="dv">ए <small>e</small></td><td>the e in 'they', without the y glide</td><td class="dv">एक <small>— ek, one</small></td></tr>
-  <tr><td class="dv">ऐ <small>ai</small></td><td>the a in 'cat', roughly</td><td class="dv">ऐनक <small>— ainak, spectacles</small></td></tr>
-  <tr><td class="dv">ओ <small>o</small></td><td>the o in 'go', without the w glide</td><td class="dv">ओखली <small>— okhli, mortar</small></td></tr>
-  <tr><td class="dv">औ <small>au</small></td><td>the aw in 'law'</td><td class="dv">औरत <small>— aurat, woman</small></td></tr>
+  <tr><td data-h="Letter" class="dv">अ <small>a</small></td><td data-h="Sounds like">the u in 'but' — short and neutral</td><td data-h="Example" class="dv">अनार <small>— anaar, pomegranate</small></td></tr>
+  <tr><td data-h="Letter" class="dv">आ <small>aa</small></td><td data-h="Sounds like">the a in 'father' — held longer</td><td data-h="Example" class="dv">आम <small>— aam, mango</small></td></tr>
+  <tr><td data-h="Letter" class="dv">इ <small>i</small></td><td data-h="Sounds like">the i in 'sit'</td><td data-h="Example" class="dv">इमली <small>— imli, tamarind</small></td></tr>
+  <tr><td data-h="Letter" class="dv">ई <small>ee</small></td><td data-h="Sounds like">the ee in 'see'</td><td data-h="Example" class="dv">ईख <small>— eekh, sugarcane</small></td></tr>
+  <tr><td data-h="Letter" class="dv">उ <small>u</small></td><td data-h="Sounds like">the u in 'put'</td><td data-h="Example" class="dv">उल्लू <small>— ulloo, owl</small></td></tr>
+  <tr><td data-h="Letter" class="dv">ऊ <small>oo</small></td><td data-h="Sounds like">the oo in 'boot'</td><td data-h="Example" class="dv">ऊन <small>— oon, wool</small></td></tr>
+  <tr><td data-h="Letter" class="dv">ऋ <small>ri</small></td><td data-h="Sounds like">roughly 'ri' in modern Hindi; a Sanskrit vowel</td><td data-h="Example" class="dv">ऋषि <small>— rishi, sage</small></td></tr>
+  <tr><td data-h="Letter" class="dv">ए <small>e</small></td><td data-h="Sounds like">the e in 'they', without the y glide</td><td data-h="Example" class="dv">एक <small>— ek, one</small></td></tr>
+  <tr><td data-h="Letter" class="dv">ऐ <small>ai</small></td><td data-h="Sounds like">the a in 'cat', roughly</td><td data-h="Example" class="dv">ऐनक <small>— ainak, spectacles</small></td></tr>
+  <tr><td data-h="Letter" class="dv">ओ <small>o</small></td><td data-h="Sounds like">the o in 'go', without the w glide</td><td data-h="Example" class="dv">ओखली <small>— okhli, mortar</small></td></tr>
+  <tr><td data-h="Letter" class="dv">औ <small>au</small></td><td data-h="Sounds like">the aw in 'law'</td><td data-h="Example" class="dv">औरत <small>— aurat, woman</small></td></tr>
 </table>
 
 <h2>Consonants</h2>
 <table class="tbl">
   <tr><th>Letter</th><th>Sounds like</th><th>Example</th></tr>
-  <tr><td class="dv">क <small>ka</small></td><td>k as in 'skin' — no puff of air</td><td class="dv">कमल <small>— kamal, lotus</small></td></tr>
-  <tr><td class="dv">ख <small>kha</small></td><td>k with a strong puff of air, as in 'kite'</td><td class="dv">खरगोश <small>— khargosh, rabbit</small></td></tr>
-  <tr><td class="dv">ग <small>ga</small></td><td>g as in 'go'</td><td class="dv">गमला <small>— gamla, flowerpot</small></td></tr>
-  <tr><td class="dv">घ <small>gha</small></td><td>g with breath behind it — no English equivalent</td><td class="dv">घर <small>— ghar, house</small></td></tr>
-  <tr><td class="dv">ङ <small>nga</small></td><td>ng as in 'sing'; never starts a word</td><td class="dv">— <small>— , found inside words only</small></td></tr>
-  <tr><td class="dv">च <small>cha</small></td><td>ch as in 'church', but lighter</td><td class="dv">चम्मच <small>— chammach, spoon</small></td></tr>
-  <tr><td class="dv">छ <small>chha</small></td><td>ch with a puff of air</td><td class="dv">छाता <small>— chhaata, umbrella</small></td></tr>
-  <tr><td class="dv">ज <small>ja</small></td><td>j as in 'jam'</td><td class="dv">जहाज़ <small>— jahaaz, ship</small></td></tr>
-  <tr><td class="dv">झ <small>jha</small></td><td>j with breath behind it</td><td class="dv">झंडा <small>— jhanda, flag</small></td></tr>
-  <tr><td class="dv">ञ <small>nya</small></td><td>ny as in 'canyon'; rare on its own</td><td class="dv">— <small>— , found in conjuncts</small></td></tr>
-  <tr><td class="dv">ट <small>ta</small></td><td>hard t — tongue curled back to the roof</td><td class="dv">टमाटर <small>— tamaatar, tomato</small></td></tr>
-  <tr><td class="dv">ठ <small>tha</small></td><td>the same, with a puff of air</td><td class="dv">ठंडा <small>— thanda, cold</small></td></tr>
-  <tr><td class="dv">ड <small>da</small></td><td>hard d — tongue curled back</td><td class="dv">डमरू <small>— damaroo, small drum</small></td></tr>
-  <tr><td class="dv">ढ <small>dha</small></td><td>the same, with breath</td><td class="dv">ढोल <small>— dhol, drum</small></td></tr>
-  <tr><td class="dv">ण <small>na</small></td><td>n with the tongue curled back</td><td class="dv">— <small>— , found inside words</small></td></tr>
-  <tr><td class="dv">त <small>ta</small></td><td>soft t — tongue against the upper teeth, as in Spanish</td><td class="dv">तितली <small>— titli, butterfly</small></td></tr>
-  <tr><td class="dv">थ <small>tha</small></td><td>the same, with a puff of air</td><td class="dv">थाली <small>— thaali, plate</small></td></tr>
-  <tr><td class="dv">द <small>da</small></td><td>soft d — tongue against the teeth</td><td class="dv">दवात <small>— davaat, inkpot</small></td></tr>
-  <tr><td class="dv">ध <small>dha</small></td><td>the same, with breath</td><td class="dv">धनुष <small>— dhanush, bow</small></td></tr>
-  <tr><td class="dv">न <small>na</small></td><td>n as in 'net'</td><td class="dv">नल <small>— nal, tap</small></td></tr>
-  <tr><td class="dv">प <small>pa</small></td><td>p as in 'spin' — no puff</td><td class="dv">पतंग <small>— patang, kite</small></td></tr>
-  <tr><td class="dv">फ <small>pha</small></td><td>p with a puff; in loanwords often f</td><td class="dv">फल <small>— phal, fruit</small></td></tr>
-  <tr><td class="dv">ब <small>ba</small></td><td>b as in 'bat'</td><td class="dv">बकरी <small>— bakri, goat</small></td></tr>
-  <tr><td class="dv">भ <small>bha</small></td><td>b with breath behind it</td><td class="dv">भालू <small>— bhaaloo, bear</small></td></tr>
-  <tr><td class="dv">म <small>ma</small></td><td>m as in 'man'</td><td class="dv">मछली <small>— machhli, fish</small></td></tr>
-  <tr><td class="dv">य <small>ya</small></td><td>y as in 'yes'</td><td class="dv">यज्ञ <small>— yagya, ritual offering</small></td></tr>
-  <tr><td class="dv">र <small>ra</small></td><td>a light tapped r, as in Spanish 'pero'</td><td class="dv">रथ <small>— rath, chariot</small></td></tr>
-  <tr><td class="dv">ल <small>la</small></td><td>l as in 'love'</td><td class="dv">लट्टू <small>— lattoo, spinning top</small></td></tr>
-  <tr><td class="dv">व <small>va</small></td><td>between English v and w</td><td class="dv">वन <small>— van, forest</small></td></tr>
-  <tr><td class="dv">श <small>sha</small></td><td>sh as in 'ship'</td><td class="dv">शेर <small>— sher, lion</small></td></tr>
-  <tr><td class="dv">ष <small>sha</small></td><td>a retroflex sh; in modern Hindi usually said like श</td><td class="dv">षट्कोण <small>— shatkon, hexagon</small></td></tr>
-  <tr><td class="dv">स <small>sa</small></td><td>s as in 'sun'</td><td class="dv">सूरज <small>— sooraj, sun</small></td></tr>
-  <tr><td class="dv">ह <small>ha</small></td><td>h as in 'hat' — always pronounced</td><td class="dv">हाथी <small>— haathi, elephant</small></td></tr>
+  <tr><td data-h="Letter" class="dv">क <small>ka</small></td><td data-h="Sounds like">k as in 'skin' — no puff of air</td><td data-h="Example" class="dv">कमल <small>— kamal, lotus</small></td></tr>
+  <tr><td data-h="Letter" class="dv">ख <small>kha</small></td><td data-h="Sounds like">k with a strong puff of air, as in 'kite'</td><td data-h="Example" class="dv">खरगोश <small>— khargosh, rabbit</small></td></tr>
+  <tr><td data-h="Letter" class="dv">ग <small>ga</small></td><td data-h="Sounds like">g as in 'go'</td><td data-h="Example" class="dv">गमला <small>— gamla, flowerpot</small></td></tr>
+  <tr><td data-h="Letter" class="dv">घ <small>gha</small></td><td data-h="Sounds like">g with breath behind it — no English equivalent</td><td data-h="Example" class="dv">घर <small>— ghar, house</small></td></tr>
+  <tr><td data-h="Letter" class="dv">ङ <small>nga</small></td><td data-h="Sounds like">ng as in 'sing'; never starts a word</td><td data-h="Example" class="dv">— <small>— , found inside words only</small></td></tr>
+  <tr><td data-h="Letter" class="dv">च <small>cha</small></td><td data-h="Sounds like">ch as in 'church', but lighter</td><td data-h="Example" class="dv">चम्मच <small>— chammach, spoon</small></td></tr>
+  <tr><td data-h="Letter" class="dv">छ <small>chha</small></td><td data-h="Sounds like">ch with a puff of air</td><td data-h="Example" class="dv">छाता <small>— chhaata, umbrella</small></td></tr>
+  <tr><td data-h="Letter" class="dv">ज <small>ja</small></td><td data-h="Sounds like">j as in 'jam'</td><td data-h="Example" class="dv">जहाज़ <small>— jahaaz, ship</small></td></tr>
+  <tr><td data-h="Letter" class="dv">झ <small>jha</small></td><td data-h="Sounds like">j with breath behind it</td><td data-h="Example" class="dv">झंडा <small>— jhanda, flag</small></td></tr>
+  <tr><td data-h="Letter" class="dv">ञ <small>nya</small></td><td data-h="Sounds like">ny as in 'canyon'; rare on its own</td><td data-h="Example" class="dv">— <small>— , found in conjuncts</small></td></tr>
+  <tr><td data-h="Letter" class="dv">ट <small>ta</small></td><td data-h="Sounds like">hard t — tongue curled back to the roof</td><td data-h="Example" class="dv">टमाटर <small>— tamaatar, tomato</small></td></tr>
+  <tr><td data-h="Letter" class="dv">ठ <small>tha</small></td><td data-h="Sounds like">the same, with a puff of air</td><td data-h="Example" class="dv">ठंडा <small>— thanda, cold</small></td></tr>
+  <tr><td data-h="Letter" class="dv">ड <small>da</small></td><td data-h="Sounds like">hard d — tongue curled back</td><td data-h="Example" class="dv">डमरू <small>— damaroo, small drum</small></td></tr>
+  <tr><td data-h="Letter" class="dv">ढ <small>dha</small></td><td data-h="Sounds like">the same, with breath</td><td data-h="Example" class="dv">ढोल <small>— dhol, drum</small></td></tr>
+  <tr><td data-h="Letter" class="dv">ण <small>na</small></td><td data-h="Sounds like">n with the tongue curled back</td><td data-h="Example" class="dv">— <small>— , found inside words</small></td></tr>
+  <tr><td data-h="Letter" class="dv">त <small>ta</small></td><td data-h="Sounds like">soft t — tongue against the upper teeth, as in Spanish</td><td data-h="Example" class="dv">तितली <small>— titli, butterfly</small></td></tr>
+  <tr><td data-h="Letter" class="dv">थ <small>tha</small></td><td data-h="Sounds like">the same, with a puff of air</td><td data-h="Example" class="dv">थाली <small>— thaali, plate</small></td></tr>
+  <tr><td data-h="Letter" class="dv">द <small>da</small></td><td data-h="Sounds like">soft d — tongue against the teeth</td><td data-h="Example" class="dv">दवात <small>— davaat, inkpot</small></td></tr>
+  <tr><td data-h="Letter" class="dv">ध <small>dha</small></td><td data-h="Sounds like">the same, with breath</td><td data-h="Example" class="dv">धनुष <small>— dhanush, bow</small></td></tr>
+  <tr><td data-h="Letter" class="dv">न <small>na</small></td><td data-h="Sounds like">n as in 'net'</td><td data-h="Example" class="dv">नल <small>— nal, tap</small></td></tr>
+  <tr><td data-h="Letter" class="dv">प <small>pa</small></td><td data-h="Sounds like">p as in 'spin' — no puff</td><td data-h="Example" class="dv">पतंग <small>— patang, kite</small></td></tr>
+  <tr><td data-h="Letter" class="dv">फ <small>pha</small></td><td data-h="Sounds like">p with a puff; in loanwords often f</td><td data-h="Example" class="dv">फल <small>— phal, fruit</small></td></tr>
+  <tr><td data-h="Letter" class="dv">ब <small>ba</small></td><td data-h="Sounds like">b as in 'bat'</td><td data-h="Example" class="dv">बकरी <small>— bakri, goat</small></td></tr>
+  <tr><td data-h="Letter" class="dv">भ <small>bha</small></td><td data-h="Sounds like">b with breath behind it</td><td data-h="Example" class="dv">भालू <small>— bhaaloo, bear</small></td></tr>
+  <tr><td data-h="Letter" class="dv">म <small>ma</small></td><td data-h="Sounds like">m as in 'man'</td><td data-h="Example" class="dv">मछली <small>— machhli, fish</small></td></tr>
+  <tr><td data-h="Letter" class="dv">य <small>ya</small></td><td data-h="Sounds like">y as in 'yes'</td><td data-h="Example" class="dv">यज्ञ <small>— yagya, ritual offering</small></td></tr>
+  <tr><td data-h="Letter" class="dv">र <small>ra</small></td><td data-h="Sounds like">a light tapped r, as in Spanish 'pero'</td><td data-h="Example" class="dv">रथ <small>— rath, chariot</small></td></tr>
+  <tr><td data-h="Letter" class="dv">ल <small>la</small></td><td data-h="Sounds like">l as in 'love'</td><td data-h="Example" class="dv">लट्टू <small>— lattoo, spinning top</small></td></tr>
+  <tr><td data-h="Letter" class="dv">व <small>va</small></td><td data-h="Sounds like">between English v and w</td><td data-h="Example" class="dv">वन <small>— van, forest</small></td></tr>
+  <tr><td data-h="Letter" class="dv">श <small>sha</small></td><td data-h="Sounds like">sh as in 'ship'</td><td data-h="Example" class="dv">शेर <small>— sher, lion</small></td></tr>
+  <tr><td data-h="Letter" class="dv">ष <small>sha</small></td><td data-h="Sounds like">a retroflex sh; in modern Hindi usually said like श</td><td data-h="Example" class="dv">षट्कोण <small>— shatkon, hexagon</small></td></tr>
+  <tr><td data-h="Letter" class="dv">स <small>sa</small></td><td data-h="Sounds like">s as in 'sun'</td><td data-h="Example" class="dv">सूरज <small>— sooraj, sun</small></td></tr>
+  <tr><td data-h="Letter" class="dv">ह <small>ha</small></td><td data-h="Sounds like">h as in 'hat' — always pronounced</td><td data-h="Example" class="dv">हाथी <small>— haathi, elephant</small></td></tr>
 </table>
 
 <div class="note"><b>A note on the Hindi spellings</b>
@@ -538,6 +456,23 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
 <script src="../../js/storybook.js" defer></script>
 <!-- ekguru:consent -->
 <script src="../../js/cookie-consent.js" defer></script>
+<!-- ekguru:pw-bands:start -->
+<nav class="pw-next" aria-label="Next step">
+  <b>Turn a tool on, then learn around it</b>
+  <p>The free Hindi course is what these tools belong to — A1 to C2, 36 lessons, and it works
+  without an account.</p>
+  <p><a class="btn btn-primary" href="/courses/#/hi">Open the Hindi course</a></p>
+</nav>
+<footer class="pw-support">
+  <div>
+    <b>Every lesson here is free, and always will be.</b>
+    <p>No account, no paywall, and never an ad on the free material — that is the
+    whole idea. Keeping it that way is the only thing this page asks of you.</p>
+  </div>
+  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
+  <a href="/find-tutors.html">Book a trial lesson</a>
+</footer>
+<!-- ekguru:pw-bands:end -->
 <!-- ekguru:shell-footer:start -->
 <footer class="ftr">
   <div class="wrap ftr-in">

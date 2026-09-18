@@ -37,89 +37,7 @@
 <link rel="stylesheet" href="../../css/style.min.css">
 <!-- ekguru:storybook -->
 <link rel="stylesheet" href="../../css/storybook.css">
-<style>
-.pw{max-width:820px;margin:0 auto;padding:0 20px 64px}
-.pw h1{font-size:clamp(1.6rem,4.4vw,2.05rem);line-height:1.24;margin:24px 0 14px}
-.pw h2{font-size:clamp(1.12rem,3vw,1.3rem);line-height:1.3;margin:34px 0 12px}
-.pw h3{font-size:1.02rem;margin:24px 0 8px}
-.pw p,.pw li{line-height:1.72;font-size:1rem}
-.pw p,.pw ul,.pw ol{max-width:72ch}
-.lede{color:var(--ink-2);font-size:1.06rem;line-height:1.7}
-.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0;word-break:break-word}
-.crumb a{color:var(--muted)}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
-.fact{border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:var(--bg-soft)}
-.fact b{display:block;font-size:1.12rem;margin-bottom:2px;color:var(--ink)}
-.fact span{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
-.faq{border:1px solid var(--line);border-radius:12px;padding:15px 17px;margin:12px 0;background:var(--card,#fff)}
-.faq b{display:block;margin-bottom:6px;color:var(--ink)}
-.faq p{margin:0;color:var(--ink-2)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
-.chips a{font-size:.87rem;border:1px solid var(--line);border-radius:20px;padding:7px 13px;text-decoration:none;background:var(--card,#fff);color:var(--brand);min-height:34px;display:inline-flex;align-items:center}
-/* v97 — measured 40px in real Chromium at 320px, under the 44px
-   touch floor. This CSS is inlined into the page AFTER style.css
-   loads, so the global @media (pointer:coarse) rule cannot win —
-   the override has to live beside the rule it overrides. */
-@media (pointer:coarse){.chips a{min-height:44px}}
-.chips a:hover{border-color:var(--brand-2)}
-.cta{border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:12px;background:var(--bg-soft);padding:16px 18px;margin:26px 0}
-.cta b{display:block;margin-bottom:6px;color:var(--ink)}
-.cta p{margin:0 0 10px;color:var(--ink-2)}
-.tbl{width:100%;border-collapse:collapse;margin:16px 0;font-size:.95rem;display:block;overflow-x:auto}
-.tbl th,.tbl td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
-.tbl th{background:var(--bg-soft);font-weight:600;color:var(--ink)}
-.dv{font-family:"Noto Sans Devanagari","Nirmala UI",system-ui,sans-serif;line-height:1.85}
-.note{background:var(--warn-soft);border:1px solid var(--warn-line);border-radius:10px;padding:12px 15px;margin:18px 0;font-size:.94rem;color:var(--ink-2)}
-.pw .btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
-@media(max-width:520px){.pw{padding:0 15px 48px}}
-/* v79 — the trust footer's styling lives in css/style.css as
-   .pw-ftr, NOT here. tools/patch.js emits the identical footer on
-   the 115 pages built by the five pre-shell generators, and two
-   copies of the same rule in two files is how this project has
-   shipped a stale style five separate times. One class, one
-   place, all 465 pages. */
 
-.tool{border:1px solid var(--line);border-radius:14px;padding:18px;margin:22px 0;background:var(--card,#fff)}
-.tool label{display:block;font-size:.9rem;color:var(--ink-2);margin:0 0 6px;font-weight:600}
-.tool input[type=text],.tool input[type=search],.tool select{width:100%;padding:11px 13px;font-size:1rem;
-  border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);min-height:44px}
-.tool input:focus,.tool select:focus{outline:2px solid var(--focus);outline-offset:1px}
-.grid{display:grid;gap:9px}
-.g6{grid-template-columns:repeat(auto-fill,minmax(88px,1fr))}
-.g4{grid-template-columns:repeat(auto-fill,minmax(132px,1fr))}
-.cell{border:1px solid var(--line);border-radius:11px;padding:10px 6px;text-align:center;background:var(--bg-soft);
-  cursor:pointer;min-height:44px}
-.cell:hover,.cell:focus{border-color:var(--brand-2);background:#fff}
-.cell .ch{font-size:1.6rem;line-height:1.3;color:var(--ink);font-family:"Noto Sans Devanagari","Nirmala UI",serif}
-.cell .rm{font-size:.8rem;color:var(--muted);display:block}
-.detail{margin-top:14px;padding:15px;border:1px solid var(--brand-2);border-radius:12px;background:var(--bg-soft)}
-.detail .big{font-size:2.6rem;line-height:1.2;color:var(--brand);font-family:"Noto Sans Devanagari","Nirmala UI",serif}
-.detail p{margin:6px 0;color:var(--ink-2)}
-.row{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:12px 0}
-.row .btn{min-height:44px}
-.pill{font-size:.82rem;border:1px solid var(--line);border-radius:18px;padding:6px 12px;background:var(--bg-soft);
-  cursor:pointer;color:var(--ink-2);min-height:34px}
-/* v97 — .pill above declares min-height:34px and measured 40px
-   on a phone, under the 44px touch floor. This CSS is inlined
-   into each tool page after style.css, so the global
-   pointer:coarse rule cannot win on cascade order. */
-@media (pointer:coarse){.pill{min-height:44px}}
-.pill[aria-pressed=true]{background:var(--brand);color:#fff;border-color:var(--brand)}
-.card{border:1px solid var(--line);border-radius:14px;padding:26px 18px;text-align:center;background:var(--bg-soft);min-height:170px;
-  display:flex;flex-direction:column;justify-content:center;gap:8px}
-.card .front{font-size:1.35rem;color:var(--ink)}
-.card .back{font-size:2rem;color:var(--brand);font-family:"Noto Sans Devanagari","Nirmala UI",serif}
-.card .rom{font-size:.95rem;color:var(--muted)}
-.score{font-size:.9rem;color:var(--ink-2);margin:10px 0}
-.bar{height:8px;border-radius:4px;background:var(--line);overflow:hidden;margin:8px 0}
-.bar>i{display:block;height:100%;background:var(--brand);width:0}
-.out{font-size:1.6rem;min-height:2.4rem;padding:12px;border:1px solid var(--line);border-radius:10px;
-  background:var(--bg-soft);color:var(--ink);font-family:"Noto Sans Devanagari","Nirmala UI",serif;word-break:break-word}
-.ok{color:var(--green);font-weight:600}
-.no{color:var(--brand-3);font-weight:600}
-.nojs{font-size:.9rem;color:var(--muted);margin:6px 0 0}
-.tbl td.dv,.tbl th.dv{font-family:"Noto Sans Devanagari","Nirmala UI",serif;font-size:1.05rem}
-@media(pointer:coarse){.chips a,.chips button,.pill,.rel a,.art-nav a,.crumbs a,.ftr a,.tag,.chip-btn{min-height:44px}.rel a,.art-nav a,.crumbs a,.ftr a{display:inline-block;padding-block:10px}b>a,strong>a,h3>a,h2>a{display:inline-block;padding-block:12px}input,select,textarea,button{min-height:44px}}</style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","@id":"https://ekguru.shop/toolbox/hindi-verbs/#app","name":"Hindi Verb Explorer","description":"Common Hindi verbs in three tenses","url":"https://ekguru.shop/toolbox/hindi-verbs/","applicationCategory":"EducationalApplication","operatingSystem":"Any modern browser","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"EkGuru","url":"https://ekguru.shop/"}},{"@id":"https://ekguru.shop/toolbox/hindi-verbs/#faq","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why do Hindi verbs change with gender?","acceptedAnswer":{"@type":"Answer","text":"Because the verb agrees with its subject in gender and number, not only in person. मैं बोलता हूँ from a man, मैं बोलती हूँ from a woman. It is the same principle as adjective agreement in Spanish or French, extended to the verb."}},{"@type":"Question","name":"What is the ने construction?","acceptedAnswer":{"@type":"Answer","text":"In the perfective — completed — form of a transitive verb, the subject takes ने and the verb agrees with the OBJECT instead of the subject. मैंने किताब पढ़ी: the verb is feminine because किताब is, not because the speaker is. This is called split ergativity and it is the single hardest structural feature of Hindi for most learners."}},{"@type":"Question","name":"Which verbs should I learn first?","acceptedAnswer":{"@type":"Answer","text":"होना (to be) before anything else, then करना, जाना, आना and चाहना. Those five carry an enormous share of everyday speech, partly because Hindi builds many expressions as noun plus करना."}}]},{"@id":"https://ekguru.shop/toolbox/hindi-verbs/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"EkGuru","item":"https://ekguru.shop/"},{"@type":"ListItem","position":2,"name":"Learn Hindi","item":"https://ekguru.shop/learn/"},{"@type":"ListItem","position":3,"name":"Tools","item":"https://ekguru.shop/toolbox/"},{"@type":"ListItem","position":4,"name":"Verb explorer","item":"https://ekguru.shop/toolbox/hindi-verbs/"}]}]}</script>
 <!-- Google AdSense. Emitted only because ads.client is set to a valid
      publisher id in js/site-config.js. Clear that value and every one
@@ -154,7 +72,7 @@
 <script src="../../js/site-shell.js" defer></script>
 <script src="../../js/copywatch.js" defer></script>
 <!-- ekguru:shell-header:end -->
-<div class="pw">
+<div class="pw pw-legacy pw-tool">
 
 <p class="crumb"><a href="../../">EkGuru</a> › <a href="../../learn/">Learn Hindi</a> › <a href="../../toolbox/">Tools</a> › Verb explorer</p>
 <!-- ekguru:chapter -->
@@ -173,26 +91,26 @@ tenses a beginner needs, with the gender agreement shown rather than hidden.</p>
 
 <table class="tbl" id="vt">
   <tr><th>English</th><th>Verb</th><th>Present</th><th>Past</th><th>Future</th></tr>
-  <tr><td>to be</td><td class="dv">होना <small>hona</small></td><td class="dv">है</td><td class="dv">था</td><td class="dv">होगा</td></tr>
-  <tr><td>to do</td><td class="dv">करना <small>karna</small></td><td class="dv">करता है</td><td class="dv">किया</td><td class="dv">करेगा</td></tr>
-  <tr><td>to go</td><td class="dv">जाना <small>jaana</small></td><td class="dv">जाता है</td><td class="dv">गया</td><td class="dv">जाएगा</td></tr>
-  <tr><td>to come</td><td class="dv">आना <small>aana</small></td><td class="dv">आता है</td><td class="dv">आया</td><td class="dv">आएगा</td></tr>
-  <tr><td>to eat</td><td class="dv">खाना <small>khaana</small></td><td class="dv">खाता है</td><td class="dv">खाया</td><td class="dv">खाएगा</td></tr>
-  <tr><td>to drink</td><td class="dv">पीना <small>peena</small></td><td class="dv">पीता है</td><td class="dv">पिया</td><td class="dv">पिएगा</td></tr>
-  <tr><td>to speak</td><td class="dv">बोलना <small>bolna</small></td><td class="dv">बोलता है</td><td class="dv">बोला</td><td class="dv">बोलेगा</td></tr>
-  <tr><td>to see</td><td class="dv">देखना <small>dekhna</small></td><td class="dv">देखता है</td><td class="dv">देखा</td><td class="dv">देखेगा</td></tr>
-  <tr><td>to hear</td><td class="dv">सुनना <small>sunna</small></td><td class="dv">सुनता है</td><td class="dv">सुना</td><td class="dv">सुनेगा</td></tr>
-  <tr><td>to learn</td><td class="dv">सीखना <small>seekhna</small></td><td class="dv">सीखता है</td><td class="dv">सीखा</td><td class="dv">सीखेगा</td></tr>
-  <tr><td>to understand</td><td class="dv">समझना <small>samajhna</small></td><td class="dv">समझता है</td><td class="dv">समझा</td><td class="dv">समझेगा</td></tr>
-  <tr><td>to write</td><td class="dv">लिखना <small>likhna</small></td><td class="dv">लिखता है</td><td class="dv">लिखा</td><td class="dv">लिखेगा</td></tr>
-  <tr><td>to read</td><td class="dv">पढ़ना <small>padhna</small></td><td class="dv">पढ़ता है</td><td class="dv">पढ़ा</td><td class="dv">पढ़ेगा</td></tr>
-  <tr><td>to live / stay</td><td class="dv">रहना <small>rehna</small></td><td class="dv">रहता है</td><td class="dv">रहा</td><td class="dv">रहेगा</td></tr>
-  <tr><td>to give</td><td class="dv">देना <small>dena</small></td><td class="dv">देता है</td><td class="dv">दिया</td><td class="dv">देगा</td></tr>
-  <tr><td>to take</td><td class="dv">लेना <small>lena</small></td><td class="dv">लेता है</td><td class="dv">लिया</td><td class="dv">लेगा</td></tr>
-  <tr><td>to want</td><td class="dv">चाहना <small>chaahna</small></td><td class="dv">चाहता है</td><td class="dv">चाहा</td><td class="dv">चाहेगा</td></tr>
-  <tr><td>to meet</td><td class="dv">मिलना <small>milna</small></td><td class="dv">मिलता है</td><td class="dv">मिला</td><td class="dv">मिलेगा</td></tr>
-  <tr><td>to sleep</td><td class="dv">सोना <small>sona</small></td><td class="dv">सोता है</td><td class="dv">सोया</td><td class="dv">सोएगा</td></tr>
-  <tr><td>to walk / move</td><td class="dv">चलना <small>chalna</small></td><td class="dv">चलता है</td><td class="dv">चला</td><td class="dv">चलेगा</td></tr>
+  <tr><td data-h="English">to be</td><td data-h="Verb" class="dv">होना <small>hona</small></td><td data-h="Present" class="dv">है</td><td data-h="Past" class="dv">था</td><td data-h="Future" class="dv">होगा</td></tr>
+  <tr><td data-h="English">to do</td><td data-h="Verb" class="dv">करना <small>karna</small></td><td data-h="Present" class="dv">करता है</td><td data-h="Past" class="dv">किया</td><td data-h="Future" class="dv">करेगा</td></tr>
+  <tr><td data-h="English">to go</td><td data-h="Verb" class="dv">जाना <small>jaana</small></td><td data-h="Present" class="dv">जाता है</td><td data-h="Past" class="dv">गया</td><td data-h="Future" class="dv">जाएगा</td></tr>
+  <tr><td data-h="English">to come</td><td data-h="Verb" class="dv">आना <small>aana</small></td><td data-h="Present" class="dv">आता है</td><td data-h="Past" class="dv">आया</td><td data-h="Future" class="dv">आएगा</td></tr>
+  <tr><td data-h="English">to eat</td><td data-h="Verb" class="dv">खाना <small>khaana</small></td><td data-h="Present" class="dv">खाता है</td><td data-h="Past" class="dv">खाया</td><td data-h="Future" class="dv">खाएगा</td></tr>
+  <tr><td data-h="English">to drink</td><td data-h="Verb" class="dv">पीना <small>peena</small></td><td data-h="Present" class="dv">पीता है</td><td data-h="Past" class="dv">पिया</td><td data-h="Future" class="dv">पिएगा</td></tr>
+  <tr><td data-h="English">to speak</td><td data-h="Verb" class="dv">बोलना <small>bolna</small></td><td data-h="Present" class="dv">बोलता है</td><td data-h="Past" class="dv">बोला</td><td data-h="Future" class="dv">बोलेगा</td></tr>
+  <tr><td data-h="English">to see</td><td data-h="Verb" class="dv">देखना <small>dekhna</small></td><td data-h="Present" class="dv">देखता है</td><td data-h="Past" class="dv">देखा</td><td data-h="Future" class="dv">देखेगा</td></tr>
+  <tr><td data-h="English">to hear</td><td data-h="Verb" class="dv">सुनना <small>sunna</small></td><td data-h="Present" class="dv">सुनता है</td><td data-h="Past" class="dv">सुना</td><td data-h="Future" class="dv">सुनेगा</td></tr>
+  <tr><td data-h="English">to learn</td><td data-h="Verb" class="dv">सीखना <small>seekhna</small></td><td data-h="Present" class="dv">सीखता है</td><td data-h="Past" class="dv">सीखा</td><td data-h="Future" class="dv">सीखेगा</td></tr>
+  <tr><td data-h="English">to understand</td><td data-h="Verb" class="dv">समझना <small>samajhna</small></td><td data-h="Present" class="dv">समझता है</td><td data-h="Past" class="dv">समझा</td><td data-h="Future" class="dv">समझेगा</td></tr>
+  <tr><td data-h="English">to write</td><td data-h="Verb" class="dv">लिखना <small>likhna</small></td><td data-h="Present" class="dv">लिखता है</td><td data-h="Past" class="dv">लिखा</td><td data-h="Future" class="dv">लिखेगा</td></tr>
+  <tr><td data-h="English">to read</td><td data-h="Verb" class="dv">पढ़ना <small>padhna</small></td><td data-h="Present" class="dv">पढ़ता है</td><td data-h="Past" class="dv">पढ़ा</td><td data-h="Future" class="dv">पढ़ेगा</td></tr>
+  <tr><td data-h="English">to live / stay</td><td data-h="Verb" class="dv">रहना <small>rehna</small></td><td data-h="Present" class="dv">रहता है</td><td data-h="Past" class="dv">रहा</td><td data-h="Future" class="dv">रहेगा</td></tr>
+  <tr><td data-h="English">to give</td><td data-h="Verb" class="dv">देना <small>dena</small></td><td data-h="Present" class="dv">देता है</td><td data-h="Past" class="dv">दिया</td><td data-h="Future" class="dv">देगा</td></tr>
+  <tr><td data-h="English">to take</td><td data-h="Verb" class="dv">लेना <small>lena</small></td><td data-h="Present" class="dv">लेता है</td><td data-h="Past" class="dv">लिया</td><td data-h="Future" class="dv">लेगा</td></tr>
+  <tr><td data-h="English">to want</td><td data-h="Verb" class="dv">चाहना <small>chaahna</small></td><td data-h="Present" class="dv">चाहता है</td><td data-h="Past" class="dv">चाहा</td><td data-h="Future" class="dv">चाहेगा</td></tr>
+  <tr><td data-h="English">to meet</td><td data-h="Verb" class="dv">मिलना <small>milna</small></td><td data-h="Present" class="dv">मिलता है</td><td data-h="Past" class="dv">मिला</td><td data-h="Future" class="dv">मिलेगा</td></tr>
+  <tr><td data-h="English">to sleep</td><td data-h="Verb" class="dv">सोना <small>sona</small></td><td data-h="Present" class="dv">सोता है</td><td data-h="Past" class="dv">सोया</td><td data-h="Future" class="dv">सोएगा</td></tr>
+  <tr><td data-h="English">to walk / move</td><td data-h="Verb" class="dv">चलना <small>chalna</small></td><td data-h="Present" class="dv">चलता है</td><td data-h="Past" class="dv">चला</td><td data-h="Future" class="dv">चलेगा</td></tr>
 </table>
 
 <div class="note"><b>All forms above are masculine singular</b>
@@ -425,6 +343,23 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
 <script src="../../js/storybook.js" defer></script>
 <!-- ekguru:consent -->
 <script src="../../js/cookie-consent.js" defer></script>
+<!-- ekguru:pw-bands:start -->
+<nav class="pw-next" aria-label="Next step">
+  <b>Turn a tool on, then learn around it</b>
+  <p>The free Hindi course is what these tools belong to — A1 to C2, 36 lessons, and it works
+  without an account.</p>
+  <p><a class="btn btn-primary" href="/courses/#/hi">Open the Hindi course</a></p>
+</nav>
+<footer class="pw-support">
+  <div>
+    <b>Every lesson here is free, and always will be.</b>
+    <p>No account, no paywall, and never an ad on the free material — that is the
+    whole idea. Keeping it that way is the only thing this page asks of you.</p>
+  </div>
+  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
+  <a href="/find-tutors.html">Book a trial lesson</a>
+</footer>
+<!-- ekguru:pw-bands:end -->
 <!-- ekguru:shell-footer:start -->
 <footer class="ftr">
   <div class="wrap ftr-in">

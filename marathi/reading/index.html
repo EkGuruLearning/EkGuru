@@ -28,133 +28,7 @@
 <link rel="stylesheet" href="../../css/style.min.css">
 <!-- ekguru:storybook -->
 <link rel="stylesheet" href="../../css/storybook.css">
-<style>
-/* Modern-Pro topic system (v158): theme-aware via --sb-accent/--sb-tint. */
-.pw{max-width:880px;margin:0 auto;padding:0 20px 64px}
-.pw h1{font-size:clamp(1.7rem,4.6vw,2.3rem);line-height:1.2;margin:14px 0;letter-spacing:-.01em}
-.pw h2{font-size:clamp(1.15rem,3vw,1.35rem);line-height:1.3;margin:36px 0 12px;letter-spacing:-.005em}
-.pw h3{font-size:1.02rem;margin:24px 0 8px}
-.pw p,.pw li{line-height:1.72;font-size:1rem}
-.pw p,.pw ul,.pw ol{max-width:72ch}
-.lede{color:var(--ink-2);font-size:1.08rem;line-height:1.7}
-.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0;word-break:break-word}
-.crumb a{color:var(--muted)}
-/* hero band */
-.hero{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:22px;
-  padding:clamp(22px,4.5vw,36px);margin:14px 0 8px;color:var(--ink);
-  background:linear-gradient(135deg,var(--sb-tint,#f4f1ff) 0%,var(--card,#fff) 78%);
-  box-shadow:var(--sh-1)}
-.hero::after{content:"";position:absolute;right:-70px;top:-70px;width:220px;height:220px;border-radius:50%;
-  background:radial-gradient(circle,var(--sb-tint,#f4f1ff) 0%,transparent 70%);opacity:.9;pointer-events:none}
-.hero h1{margin:10px 0 8px}
-.hero .lede{margin:0;max-width:60ch}
-.kicker{display:inline-flex;align-items:center;gap:7px;font-size:.74rem;font-weight:800;letter-spacing:.09em;
-  text-transform:uppercase;color:var(--sb-accent,#4f32d9);background:rgba(255,255,255,.75);
-  border:1px solid var(--line);border-radius:999px;padding:5px 13px}
-.statline{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px}
-.statline span{display:inline-flex;align-items:center;gap:7px;font-size:.85rem;font-weight:600;
-  border:1px solid var(--line);border-radius:999px;padding:7px 14px;background:var(--card,#fff);color:var(--ink-2)}
-.statline i{width:8px;height:8px;border-radius:50%;background:var(--sb-accent,#4f32d9);font-style:normal}
-/* facts */
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
-.fact{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--card,#fff);box-shadow:var(--sh-1)}
-.fact b{display:block;font-size:1.25rem;margin-bottom:2px;color:var(--sb-accent,#4f32d9);letter-spacing:-.01em}
-.fact span{font-size:.76rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
-/* faq */
-.faq{position:relative;border:1px solid var(--line);border-radius:14px;padding:16px 18px 16px 20px;margin:12px 0;
-  background:var(--card,#fff);box-shadow:var(--sh-1);overflow:hidden}
-.faq::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--sb-accent,#4f32d9)}
-.faq b{display:block;margin-bottom:6px;color:var(--ink);font-size:1.02rem}
-.faq p{margin:0;color:var(--ink-2)}
-/* chips */
-.chips{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0}
-.chips a{font-size:.88rem;font-weight:600;border:1px solid var(--line);border-radius:999px;padding:9px 16px;
-  text-decoration:none;background:var(--card,#fff);color:var(--brand);min-height:44px;display:inline-flex;
-  align-items:center;transition:all .18s ease;box-shadow:var(--sh-1)}
-.chips a:hover{background:var(--sb-accent,#4f32d9);border-color:var(--sb-accent,#4f32d9);color:#fff;
-  transform:translateY(-1px)}
-/* phrase table */
-.twrap{overflow-x:auto;max-width:72ch;border:1px solid var(--line);border-radius:16px;margin:16px 0;
-  box-shadow:var(--sh-1);background:var(--card,#fff)}
-table.phr{border-collapse:collapse;width:100%;margin:0}
-table.phr th,table.phr td{border:0;border-bottom:1px solid var(--line);padding:11px 14px;text-align:left;
-  font-size:.95rem;line-height:1.6}
-table.phr tbody tr:last-child td{border-bottom:0}
-table.phr tbody tr:nth-child(even){background:var(--bg-soft)}
-table.phr thead th{position:sticky;top:0;background:var(--sb-tint,#f4f1ff);font-size:.8rem;
-  text-transform:uppercase;letter-spacing:.05em;color:var(--ink-2);white-space:nowrap}
-table.phr td.bn{font-size:1.1rem}
-.ssay{border:1px solid var(--sb-accent,#4f32d9);background:var(--sb-tint,#f4f1ff);color:var(--sb-accent,#4f32d9);
-  border-radius:999px;cursor:pointer;font-size:.85rem;padding:4px 12px;margin-left:10px;min-height:36px;
-  font-weight:700;transition:all .15s ease;vertical-align:middle}
-.ssay:hover{background:var(--sb-accent,#4f32d9);color:#fff}
-/* cards */
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;margin:20px 0}
-.card{position:relative;border:1px solid var(--line);border-radius:16px;padding:18px;background:var(--card,#fff);
-  overflow:hidden;transition:transform .18s ease,box-shadow .18s ease}
-.card::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;
-  background:linear-gradient(90deg,var(--sb-accent,#4f32d9),transparent);opacity:.85}
-.card b{display:block;margin-bottom:5px;font-size:1.02rem}
-.card span{font-size:.88rem;color:var(--muted);line-height:1.55}
-.card a{text-decoration:none;color:var(--ink);display:block}
-.card a::after{content:"\2192";display:inline-block;margin-top:10px;font-weight:800;color:var(--sb-accent,#4f32d9);
-  transition:transform .18s ease}
-.card a:hover b{color:var(--brand)}
-.card:hover{transform:translateY(-3px);box-shadow:var(--sh-2)}
-.card:hover a::after{transform:translateX(5px)}
-.card.soon{opacity:1;background:var(--bg-soft);border-style:dashed}
-.card.soon::before{background:var(--line)}
-.card.soon:hover{transform:none;box-shadow:none}
-.soonbadge{display:inline-block;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;
-  border:1px solid var(--line);border-radius:999px;padding:4px 12px;margin-top:10px;color:var(--muted);
-  background:var(--card,#fff)}
-/* prev/next */
-.prevnext{display:flex;justify-content:space-between;gap:12px;margin:40px 0 0;flex-wrap:wrap}
-.prevnext a{flex:1 1 220px;border:1px solid var(--line);border-radius:14px;padding:14px 18px;text-decoration:none;
-  min-height:44px;display:inline-flex;align-items:center;font-weight:600;background:var(--card,#fff);
-  box-shadow:var(--sh-1);transition:all .18s ease}
-.prevnext a:hover{border-color:var(--sb-accent,#4f32d9);box-shadow:var(--sh-2);transform:translateY(-2px)}
-.prevnext span{flex:1 1 220px}
-/* footer */
-.pw-ftr{border-top:3px solid var(--sb-accent,#4f32d9);border-radius:18px 18px 0 0;background:linear-gradient(180deg,var(--sb-tint,#f4f1ff),rgba(255,255,255,0) 90%);margin-top:48px;padding:26px 20px 44px;text-align:center;
-  color:var(--muted);font-size:.86rem}
-.pw-ftr nav{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;margin-bottom:12px}
-.pw-ftr a{color:var(--muted)}
-/* note + linklist */
-.note{background:var(--sb-tint,#f4f1ff);border:1px solid var(--line);border-left:4px solid var(--sb-accent,#4f32d9);
-  border-radius:12px;padding:15px 18px;margin:18px 0;font-size:.94rem;color:var(--ink-2);max-width:72ch}
-.linklist{list-style:none;padding:0;margin:12px 0 0;max-width:72ch}
-.linklist li{padding:12px 14px;border:1px solid var(--line);border-radius:12px;margin-bottom:10px;
-  background:var(--card,#fff);transition:all .15s ease}
-.linklist li:hover{box-shadow:var(--sh-1);transform:translateX(3px)}
-.linklist a{font-weight:700}
-.linklist span{display:block;color:var(--muted);font-size:.87rem;margin-top:2px;line-height:1.5}
-/* how-it-works steps */
-.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:16px 0;counter-reset:step}
-.howto{position:relative;border:1px solid var(--line);border-radius:14px;padding:16px 16px 16px 58px;background:var(--card,#fff)}
-.howto::before{counter-increment:step;content:counter(step);position:absolute;left:16px;top:14px;width:30px;height:30px;
-  border-radius:50%;background:var(--sb-accent,#4f32d9);color:#fff;font-weight:800;font-size:.9rem;
-  display:flex;align-items:center;justify-content:center}
-.howto b{display:block;margin-bottom:4px}
-.howto span{font-size:.9rem;color:var(--ink-2);line-height:1.6}
-/* CTA band */
-.cta{position:relative;overflow:hidden;margin:32px 0 8px;border-radius:20px;padding:clamp(24px,4.5vw,34px);
-  background:linear-gradient(135deg,var(--sb-accent,#4f32d9),#6d4de0);color:#fff;text-align:center;box-shadow:var(--sh-2)}
-.cta h2{margin:0 0 8px;color:#fff}
-.cta p{margin:0 auto 18px;color:rgba(255,255,255,.88);max-width:52ch}
-.cta a.cta-btn{display:inline-block;background:#fff;color:var(--sb-accent,#4f32d9);font-weight:800;
-  border-radius:999px;padding:12px 30px;text-decoration:none;min-height:48px;transition:transform .15s ease}
-.cta a.cta-btn:hover{transform:scale(1.04)}
-/* pro touches */
-.pw h1,.pw h2{text-wrap:balance}
-.pw,.card,.fact{overflow-wrap:break-word}
-::selection{background:var(--sb-tint,#f4f1ff)}
-a:focus-visible,button:focus-visible{outline:3px solid var(--sb-accent,#4f32d9);outline-offset:2px;border-radius:6px}
-@media(prefers-reduced-motion:reduce){.card,.card a::after,.chips a,.prevnext a,.linklist li,.cta a.cta-btn{transition:none}}
-@media(max-width:480px){.hero{border-radius:18px}.fact b{font-size:1.1rem}.pw{padding:0 16px 56px}}
-@media print{.hero::after,.cta{display:none}.card a::after{content:""}}
 
-</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://ekguru.shop/marathi/reading/#article", "headline": "Reading Marathi", "description": "Words to sentences to stories — reading Marathi from first signs to full pages. Free, no sign-up.", "inLanguage": "en", "about": {"@type": "Language", "name": "Marathi", "alternateName": "मराठी"}, "author": {"@type": "Organization", "name": "EkGuru", "url": "https://ekguru.shop/"}, "publisher": {"@type": "Organization", "name": "EkGuru", "url": "https://ekguru.shop/"}, "mainEntityOfPage": "https://ekguru.shop/marathi/reading/"}, {"@type": "FAQPage", "@id": "https://ekguru.shop/marathi/reading/#faq", "mainEntity": [{"@type": "Question", "name": "What should I read first?", "acceptedAnswer": {"@type": "Answer", "text": "Signboards: दुकान (shop), स्टेशन (station), हॉटेल (restaurant) — big letters, daily repetition, instant rewards. Streets teach faster than textbooks."}}, {"@type": "Question", "name": "When am I ready for books?", "acceptedAnswer": {"@type": "Answer", "text": "Children's books — short वाक्य (sentences), pictures for context, full conjuncts. Then comics, then पेपर headlines, then articles."}}, {"@type": "Question", "name": "How do I handle unknown words?", "acceptedAnswer": {"@type": "Answer", "text": "Keep a शब्दकोश (dictionary) app open and mine unknown words — five per page, no more. Reading with a dictionary beats studying word lists: context glues memory."}}]}]}</script>
 <!-- ekguru:ads -->
 <meta name="google-adsense-account" content="ca-pub-8175326569491671">
@@ -183,7 +57,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--sb-accent,#4f32d9);
 <script src="../../js/site-shell.js" defer></script>
 <script src="../../js/copywatch.js" defer></script>
 <!-- ekguru:shell-header:end -->
-<div class="pw">
+<div class="pw pw-legacy">
 <p class="crumb"><a href="../../">EkGuru</a> › <a href="../">Learn Marathi (मराठी)</a> › Reading Marathi</p>
 <div class="hero">
 <span class="kicker">Marathi</span>
@@ -196,7 +70,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--sb-accent,#4f32d9);
 <p>Paragraphs and articles follow: परिच्छेद (paragraph), लेख (article), कविता (poem). Children's stories first — short, illustrated, kind — then मासिक (magazines), then साहित्य (literature) itself. Marathi's written heritage spans eight centuries; start at the shallow end.</p>
 <p>Dictionaries deepen everything: शब्दकोश (dictionary) — five new words per page, written down, reviewed nightly. Reading without recording entertains; reading with recording teaches. Mine every page; keep every gem.</p>
 <h2>Words and phrases for this topic</h2>
-<div class="twrap"><table class="phr"><thead><tr><th>English</th><th>Marathi</th><th>Sounds like</th></tr></thead><tbody><tr><td>Please read</td><td class="bn" lang="mr">वाचा<button class="ssay" data-sb-say="वाचा" aria-label="Hear it in Marathi">🔊</button></td><td><i>vaachaa</i></td></tr><tr><td>Book</td><td class="bn" lang="mr">पुस्तक<button class="ssay" data-sb-say="पुस्तक" aria-label="Hear it in Marathi">🔊</button></td><td><i>pustak</i></td></tr><tr><td>Word</td><td class="bn" lang="mr">शब्द<button class="ssay" data-sb-say="शब्द" aria-label="Hear it in Marathi">🔊</button></td><td><i>shabda</i></td></tr><tr><td>Sentence</td><td class="bn" lang="mr">वाक्य<button class="ssay" data-sb-say="वाक्य" aria-label="Hear it in Marathi">🔊</button></td><td><i>vaakya</i></td></tr><tr><td>Paragraph</td><td class="bn" lang="mr">परिच्छेद<button class="ssay" data-sb-say="परिच्छेद" aria-label="Hear it in Marathi">🔊</button></td><td><i>parichchhed</i></td></tr><tr><td>Essay / article</td><td class="bn" lang="mr">लेख<button class="ssay" data-sb-say="लेख" aria-label="Hear it in Marathi">🔊</button></td><td><i>lekh</i></td></tr><tr><td>Newspaper</td><td class="bn" lang="mr">पेपर<button class="ssay" data-sb-say="पेपर" aria-label="Hear it in Marathi">🔊</button></td><td><i>paper</i></td></tr><tr><td>Magazine</td><td class="bn" lang="mr">मासिक<button class="ssay" data-sb-say="मासिक" aria-label="Hear it in Marathi">🔊</button></td><td><i>maasik</i></td></tr><tr><td>Poem</td><td class="bn" lang="mr">कविता<button class="ssay" data-sb-say="कविता" aria-label="Hear it in Marathi">🔊</button></td><td><i>kavitaa</i></td></tr><tr><td>Literature</td><td class="bn" lang="mr">साहित्य<button class="ssay" data-sb-say="साहित्य" aria-label="Hear it in Marathi">🔊</button></td><td><i>saahitya</i></td></tr><tr><td>Dictionary</td><td class="bn" lang="mr">शब्दकोश<button class="ssay" data-sb-say="शब्दकोश" aria-label="Hear it in Marathi">🔊</button></td><td><i>shabdakosh</i></td></tr><tr><td>Reading (the act)</td><td class="bn" lang="mr">वाचन<button class="ssay" data-sb-say="वाचन" aria-label="Hear it in Marathi">🔊</button></td><td><i>vaachan</i></td></tr><tr><td>Story</td><td class="bn" lang="mr">गोष्ट<button class="ssay" data-sb-say="गोष्ट" aria-label="Hear it in Marathi">🔊</button></td><td><i>goshta</i></td></tr></tbody></table></div>
+<div class="twrap"><table class="phr"><thead><tr><th>English</th><th>Marathi</th><th>Sounds like</th></tr></thead><tbody><tr><td data-h="English">Please read</td><td data-h="Marathi" class="bn" lang="mr">वाचा<button class="ssay" data-sb-say="वाचा" aria-label="Hear it in Marathi">🔊</button></td><td data-h="Sounds like"><i>vaachaa</i></td></tr><tr><td data-h="English">Book</td><td data-h="Marathi" class="bn" lang="mr">पुस्तक<button class="ssay" data-sb-say="पुस्तक" aria-label="Hear it in Marathi">🔊</button></td><td data-h="Sounds like"><i>pustak</i></td></tr><tr><td data-h="English">Word</td><td data-h="Marathi" class="bn" lang="mr">शब्द<button class="ssay" data-sb-say="शब्द" aria-label="Hear it in Marathi">🔊</button></td><td data-h="Sounds like"><i>shabda</i></td></tr><tr><td data-h="English">Sentence</td><td data-h="Marathi" class="bn" lang="mr">वाक्य<button class="ssay" data-sb-say="वाक्य" aria-label="Hear it in Marathi">🔊</button></td><td data-h="Sounds like"><i>vaakya</i></td></tr><tr><td data-h="English">Paragraph</td><td data-h="Marathi" class="bn" lang="mr">परिच्छेद<button class="ssay" data-sb-say="परिच्छेद" aria-label="Hear it in Marathi">🔊</button></td><td data-h="Sounds like"><i>parichchhed</i></td></tr><tr><td data-h="English">Essay / article</td><td data-h="Marathi" class="bn" lang="mr">लेख<button class="ssay" data-sb-say="लेख" aria-label="Hear it in Marathi">🔊</button></td><td data-h="Sounds like"><i>lekh</i></td></tr><tr><td data-h="English">Newspaper</td><td data-h="Marathi" class="bn" lang="mr">पेपर<button class="ssay" data-sb-say="पेपर" aria-label="Hear it in Marathi">🔊</button></td><td data-h="Sounds like"><i>paper</i></td></tr><tr><td data-h="English">Magazine</td><td data-h="Marathi" class="bn" lang="mr">मासिक<button class="ssay" data-sb-say="मासिक" aria-label="Hear it in Marathi">🔊</button></td><td data-h="Sounds like"><i>maasik</i></td></tr><tr><td data-h="English">Poem</td><td data-h="Marathi" class="bn" lang="mr">कविता<button class="ssay" data-sb-say="कविता" aria-label="Hear it in Marathi">🔊</button></td><td data-h="Sounds like"><i>kavitaa</i></td></tr><tr><td data-h="English">Literature</td><td data-h="Marathi" class="bn" lang="mr">साहित्य<button class="ssay" data-sb-say="साहित्य" aria-label="Hear it in Marathi">🔊</button></td><td data-h="Sounds like"><i>saahitya</i></td></tr><tr><td data-h="English">Dictionary</td><td data-h="Marathi" class="bn" lang="mr">शब्दकोश<button class="ssay" data-sb-say="शब्दकोश" aria-label="Hear it in Marathi">🔊</button></td><td data-h="Sounds like"><i>shabdakosh</i></td></tr><tr><td data-h="English">Reading (the act)</td><td data-h="Marathi" class="bn" lang="mr">वाचन<button class="ssay" data-sb-say="वाचन" aria-label="Hear it in Marathi">🔊</button></td><td data-h="Sounds like"><i>vaachan</i></td></tr><tr><td data-h="English">Story</td><td data-h="Marathi" class="bn" lang="mr">गोष्ट<button class="ssay" data-sb-say="गोष्ट" aria-label="Hear it in Marathi">🔊</button></td><td data-h="Sounds like"><i>goshta</i></td></tr></tbody></table></div>
 <div class="note"><b>A note on पेपर.</b> Marathi newspapers — लोकसत्ता, सकाळ — use formal written Marathi, nobler than street speech. Headlines first: big type, short lines, daily habit. One headline a day keeps illiteracy away.</div>
 <h2>Everything on this topic</h2>
 <ul class="linklist"><li><a href="/learn/marathi/vocabulary/">Marathi vocabulary</a><span>Words reading arranges.</span></li><li><a href="/learn/marathi/basics/">Marathi basics</a><span>Letters meet words here.</span></li><li><a href="/learn/marathi/practice/">Marathi practice lab</a><span>Read aloud daily.</span></li></ul>
@@ -213,6 +87,23 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--sb-accent,#4f32d9);
 <script src="../../js/storybook.js" defer></script>
 <!-- ekguru:consent -->
 <script src="../../js/cookie-consent.js" defer></script>
+<!-- ekguru:pw-bands:start -->
+<nav class="pw-next" aria-label="Next step">
+  <b>Learn Marathi properly</b>
+  <p>The free course takes it in order — A1 to C2, 36 lessons, from the first letter to real
+  conversation, and it works without an account.</p>
+  <p><a class="btn btn-primary" href="/courses/#/mr">Open the Marathi course</a></p>
+</nav>
+<footer class="pw-support">
+  <div>
+    <b>Every lesson here is free, and always will be.</b>
+    <p>No account, no paywall, and never an ad on the free material — that is the
+    whole idea. Keeping it that way is the only thing this page asks of you.</p>
+  </div>
+  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
+  <a href="/find-tutors.html">Book a trial lesson</a>
+</footer>
+<!-- ekguru:pw-bands:end -->
 <!-- ekguru:shell-footer:start -->
 <footer class="ftr">
   <div class="wrap ftr-in">

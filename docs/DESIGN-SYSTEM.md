@@ -108,6 +108,7 @@ can never drift from the colours the page uses.
 | the `<script>` tags that load the tutors | `js/tutors/_registry.js` | `tools/langsync.js` |
 | `hindi-tutor/*`, `tutor/`, `*/find-tutors.html` | `js/tutors/*` | `tools/build-roster-rows.js` |
 | the header and footer on **every** page | the settings tab (tagline, email, mode) | `tools/build-shell.js` |
+| the 969 pre-v200 pages: body design, the support band, each page's next step | `css/experience.css` §25 + the page itself | `tools/build-legacy-pages.py` |
 | `/terms/ /privacy/ /disclaimer/ /copyright/` contents card + clause ids | the page's own headings | `tools/build-legal-pages.py` |
 
 The market pages are generated because six hand-edited copies is exactly how
@@ -170,12 +171,50 @@ and marks the block `.xp-doc`. It never touches a word: the tool compares the
 prose before and after and refuses to write if they differ, because legal
 wording is the last thing a build script should rewrite to suit a stylesheet.
 
-The 974 older pages (country funnels, answers, lessons, worksheets) still carry
-their own 2024 markup and their own inline `<style>`, which loads *after*
-`style.min.css` and therefore wins. They keep their layout deliberately — the
-design system reaches them through `css/experience.css` §23 instead, with the
-two properties those pages never set: an anchor that lands below the sticky
-header (`scroll-margin-top`) and the redesigned focus ring.
+## The reading layer (the 969 hand-written pages)
+
+Every page written before the v200 system — 195 country funnels, the language
+topic pages, `daily-hindi/*`, the toolbox, the tutor lists, the answers — used
+to carry its own copy of the same body CSS: 13 template variants, ~3 KB each,
+239 distinct selectors, each copy a little further from the others. That is the
+duplication this project has already paid for five times (the v79 note in the
+tool pages counts them).
+
+`css/experience.css` §25 is that CSS now, once, in the v200 language. The
+pages carry `class="pw pw-legacy"` and nothing else: one accent per page
+(`--sb-accent` when the page has a language theme, the v200 accent when it does
+not), one radius family, one elevation family, one motion vocabulary, and the
+same components they always had — `.lede`, `.facts`, `.faq`, `.chips`, `.card`,
+`table.lang`, `table.phr`, `.note`, `.cta`, `.prevnext`, `.linklist`, `.howto`,
+`.tut`, the tool controls, the contact form.
+
+`tools/build-legacy-pages.py` is what puts them there, and it refuses to guess:
+
+* a rule is dropped only when §25 provably owns it — a real selector lookup
+  against `css/experience.css`, per rule, including inside `@media` blocks.
+  Anything unowned stays put. Today exactly one rule survives site-wide
+  (`#dlist li` on `daily-hindi/`), and `--report` prints the list.
+* every `<td>` in a table with a header row gets `data-h="<its <th>>"`, so the
+  phone layout restacks the row as labelled pairs. The old mobile rule *hid*
+  column four of `table.lang`; that rule is now dropped on purpose.
+* the five pages that are already v200 (`/terms/ /privacy/ /disclaimer/
+  /copyright/ /support/`) are left alone — they have the class `pw` but not
+  `pw-legacy`, so no rule in the layer can reach them, and `.card` keeps two
+  meanings safely (a link card in `.cards`, a flashcard inside a tool).
+
+Two bands are added to every one of the 969 pages, both as chrome
+(`<footer>`/`<nav>`) so the copy index reads them as chrome and not as prose:
+
+* `.pw-support` — the promise the site makes everywhere else and, until now,
+  said on none of these pages: every lesson is free and always will be, with
+  the two ways to keep it free.
+* `.pw-next` — the next step, derived from the page: a country page names the
+  languages EkGuru can actually teach for that country (from the same relation
+  `/courses/by-country/` is built from) and links to `/courses/?country=XX`;
+  a language page links to its own course.
+
+Prose is untouched: a jsdom pass over all 969 pages compares the text before
+and after the rewrite, and 969/969 come out byte-identical.
 
 ## Build / check loop
 
@@ -189,6 +228,8 @@ That one command is the gate. It runs, in order:
 python3 tools/bundle-experience-css.py --check   # css/experience.css → css/style.min.css
 python3 tools/build-world-art.py   --check       # the nine market emblems
 python3 tools/build-course-hub.py  --check       # /courses/ + the home teaser
+python3 tools/build-course-countries.py --check   # /courses/by-country/ + its sitemaps
+python3 tools/build-legacy-pages.py --check       # the 969 pages on the reading layer
 node    tools/langsync.js          --check       # tutor <script> tags, all 23 pages
 node    tools/build-tutor-pages.js --check       # profiles + sitemaps + feed
 node    tools/build-home-tutors.js --check       # the home page's tutor grid
@@ -198,6 +239,8 @@ node    tools/test-experience-dom.mjs            # DOM smoke test (needs: npm i 
 node    tools/test-search-facets.mjs             # country + language dropdowns
 node    tools/test-shell-drawer.mjs              # one owner of the menu button
 node    tools/test-copy-index.mjs                # the ownership matcher
+node    tools/test-course-country.mjs            # course search by country, both ways
+node    tools/test-reading-layer.mjs             # one stylesheet, two bands, 969 pages
 node    tools/build-shell.js            --check  # header + footer on 1,563 pages
 node    tools/build-copy-index.js       --check  # ownership fingerprints
 python3 tools/build-legal-pages.py      --check  # legal contents cards

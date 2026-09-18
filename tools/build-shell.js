@@ -164,8 +164,14 @@ const TARGETS = {
 
 /* A market page keeps its own three pages — a Spanish visitor lands on the
    Spanish home, books from the Spanish tutor list and applies on the Spanish
-   join page — and links out to the English tree for everything else. */
-const LOCAL = { home: "./", findTutors: "find-tutors.html", join: "join.html" };
+   join page — and links out to the English tree for everything else.
+
+   These are relative to the market's own root, not to the page: /ar/ holds the
+   Arabic home, tutor list and join page, and /ar/hindi/ is a page inside that
+   market. Writing "find-tutors.html" from /ar/hindi/ pointed at
+   /ar/hindi/find-tutors.html, which does not exist — 24 broken links, on
+   every page of every market, since the day the shell went in. */
+const LOCAL = { findTutors: "find-tutors.html", join: "join.html" };
 
 /* --------------------------------------------------------------------------
    the blocks
@@ -194,10 +200,15 @@ const LANGSWITCH = '      <div class="lang-wrap" id="lang-switch"></div>';
 
 function headerHTML(p, shell, loc, dict, hasMain) {
   const L = labeller(loc, dict);
+  /* l is the market's own root: one level up from the page for /ar/xx/, and
+     the page's own directory for the market home itself. */
   const l = loc ? p.replace(/^\.\.\//, "") : p;
-  const href = (target) =>
-    (loc && LOCAL[target]) ? LOCAL[target] : p + TARGETS[target];
-  void l;
+  const href = (target) => {
+    if (!loc) return p + TARGETS[target];
+    if (target === "home") return l;
+    if (LOCAL[target]) return l + LOCAL[target];
+    return p + TARGETS[target];
+  };
   const nav = NAV.map(([en, key, target]) =>
     "      " + anchor(href(target), en, key, L(en, key), loc)).join("\n");
   return `${H_START}
@@ -221,8 +232,13 @@ ${H_END}`;
 
 function footerHTML(p, shell, loc, dict) {
   const L = labeller(loc, dict);
-  const href = (target) =>
-    (loc && LOCAL[target]) ? LOCAL[target] : p + TARGETS[target];
+  const l = loc ? p.replace(/^\.\.\//, "") : p;
+  const href = (target) => {
+    if (!loc) return p + TARGETS[target];
+    if (target === "home") return l;
+    if (LOCAL[target]) return l + LOCAL[target];
+    return p + TARGETS[target];
+  };
   const mode = shell.mode
     ? ` · <span class="ftr-mode" data-mode>${esc(shell.mode)}</span>`
     : "";

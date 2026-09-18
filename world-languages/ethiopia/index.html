@@ -26,36 +26,7 @@
 <link rel="manifest" href="../../manifest.webmanifest">
 <meta name="theme-color" content="#4f32d9">
 <link rel="stylesheet" href="../../css/style.min.css">
-<style>
-.pw{max-width:860px;margin:0 auto;padding:0 20px 64px}
-.pw h1{font-size:clamp(1.6rem,4.4vw,2.05rem);line-height:1.24;margin:24px 0 14px}
-.pw h2{font-size:clamp(1.12rem,3vw,1.3rem);line-height:1.3;margin:34px 0 12px}
-.pw p,.pw li{line-height:1.72;font-size:1rem}
-.pw p,.pw ul{max-width:72ch}
-.lede{color:var(--ink-2);font-size:1.06rem;line-height:1.7}
-.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0;word-break:break-word}
-.crumb a{color:var(--muted)}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
-.fact{border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:var(--bg-soft)}
-.fact b{display:block;font-size:1.05rem;margin-bottom:2px;color:var(--ink)}
-.fact span{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
-table.lang{width:100%;border-collapse:collapse;margin:6px 0 8px;font-size:.95rem}
-table.lang th{text-align:left;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding:8px 10px;border-bottom:2px solid var(--line)}
-table.lang td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.6}
-table.lang td.nm{font-weight:600;white-space:nowrap}
-table.lang td.nt{font-size:.9rem;color:var(--ink-2)}
-.badge{display:inline-block;font-size:.72rem;border:1px solid var(--line);border-radius:10px;padding:1px 8px;margin:2px 4px 0 0;color:var(--muted);white-space:nowrap}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
-.chips a{font-size:.87rem;border:1px solid var(--line);border-radius:20px;padding:7px 13px;text-decoration:none;background:var(--card,#fff);color:var(--brand);min-height:44px;display:inline-flex;align-items:center}
-.research{border:1px dashed var(--line);border-radius:12px;padding:13px 16px;margin:26px 0;font-size:.9rem;color:var(--ink-2);background:var(--bg-soft)}
-details.more{margin:10px 0 26px;border:1px solid var(--line);border-radius:12px;padding:12px 16px;background:var(--card,#fff)}
-details.more summary{cursor:pointer;font-weight:600}
-@media(max-width:640px){table.lang th:nth-child(4),table.lang td:nth-child(4){display:none}}
-.say{border:1px solid var(--line);background:var(--card,#fff);border-radius:8px;cursor:pointer;font-size:.8rem;padding:2px 8px;margin-left:8px;color:var(--brand);vertical-align:middle}
-.say:hover{border-color:var(--brand-2)}
-@media(pointer:coarse){.say{min-height:44px;min-width:44px}}
 
-</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://ekguru.shop/world-languages/ethiopia/#page", "name": "Languages of Ethiopia", "description": "Languages of Ethiopia: Afar, Amharic, Oromo, Somali, Tigrinya; also Sidamo, Wolaytta. Official languages, speaker numbers, scripts and notes.", "url": "https://ekguru.shop/world-languages/ethiopia/", "inLanguage": "en", "isPartOf": {"@id": "https://ekguru.shop/#website"}}]}</script>
 </head>
 <body>
@@ -81,7 +52,7 @@ details.more summary{cursor:pointer;font-weight:600}
 <script src="../../js/site-shell.js" defer></script>
 <script src="../../js/copywatch.js" defer></script>
 <!-- ekguru:shell-header:end -->
-<div class="pw">
+<div class="pw pw-legacy">
 <p class="crumb"><a href="../../">EkGuru</a> › <a href="../">World languages</a> › Ethiopia</p>
 
 <h1>Languages of Ethiopia</h1>
@@ -91,31 +62,31 @@ details.more summary{cursor:pointer;font-weight:600}
 <h2>Official & national languages</h2>
 <table class='lang'>
 <tr><th>Language</th><th>ISO</th><th>Speakers</th><th>Script</th><th>Notes</th></tr>
-<tr><td class='nm'>Afar<br><span style='font-weight:400;color:var(--muted)'>qafar</span> <button class='say' type='button' data-say='qafar' data-lang='aa' aria-label='Hear the name in Afar'>🔊</button><br><span class="badge">Official</span></td><td><code>aar</code></td><td>≈2.1M L1</td><td>Latn</td><td class='nt'>Federal working (2020); Afar-region official (~2M+) — pass-2 verify code. Audit-14 (ET) 2026-09-14 [et-census-2007][wiki-languages-ethiopia][afanafrica-et-federal-2020]: 2007 share 1.7% (~2.1M). Federal working since 29 Feb 2020; Afar Region official. Code aar SIL-verified.</td></tr>
-<tr><td class='nm'>Amharic<br><span style='font-weight:400;color:var(--muted)'>አማርኛ</span> <button class='say' type='button' data-say='አማርኛ' data-lang='am' aria-label='Hear the name in Amharic'>🔊</button><br><span class="badge">Official</span></td><td><code>amh</code></td><td>≈32M L1</td><td>Ethi</td><td class='nt'>Federal working language (1995 constitution; +4 added 2020: Oromo, Somali, Tigrinya, Afar). Audit-14 (ET) 2026-09-14 [et-census-2007][wiki-languages-ethiopia][afanafrica-et-federal-2020]: 2007 share 29.3% (L1 ~31.8M; total ~60M incl L2 — most-spoken overall). Sole federal language until 29 Feb 2020; now one of 5.</td></tr>
-<tr><td class='nm'>Oromo<br><span style='font-weight:400;color:var(--muted)'>oromiffa</span> <button class='say' type='button' data-say='oromiffa' data-lang='om' aria-label='Hear the name in Oromo'>🔊</button><br><span class="badge">Official</span></td><td><code>gaz</code></td><td>≈36M L1</td><td>Latn</td><td class='nt'>Federal working (2020); Oromia official; Cushitic giant — pass-2 verify code. Audit-14 (ET) 2026-09-14 [et-census-2007][wiki-languages-ethiopia][afanafrica-et-federal-2020]: 2007 share 33.8% (largest L1, 36M+). Federal working since 29 Feb 2020; Oromia/Harar/Dire Dawa official. Code gaz SIL-verified.</td></tr>
-<tr><td class='nm'>Somali<br><span style='font-weight:400;color:var(--muted)'>soomaali</span> <button class='say' type='button' data-say='soomaali' data-lang='so' aria-label='Hear the name in Somali'>🔊</button><br><span class="badge">Official</span></td><td><code>som</code></td><td>≈6.7M L1</td><td>Latn</td><td class='nt'>Federal working (2020); Somali-region official (~7M+) — pass-2 verify code. Audit-14 (ET) 2026-09-14 [et-census-2007][wiki-languages-ethiopia][afanafrica-et-federal-2020]: 2007 share 6.2% (~6.7M). Federal working since 29 Feb 2020; Somali Region + Dire Dawa official. Code som SIL-verified.</td></tr>
-<tr><td class='nm'>Tigrinya<br><span style='font-weight:400;color:var(--muted)'>ትግርኛ</span> <button class='say' type='button' data-say='ትግርኛ' data-lang='ti' aria-label='Hear the name in Tigrinya'>🔊</button><br><span class="badge">Official</span></td><td><code>tir</code></td><td>≈6.4M L1</td><td>Ethi</td><td class='nt'>Federal working (2020); Tigray official (~7M+) — pass-2 verify code. Audit-14 (ET) 2026-09-14 [et-census-2007][wiki-languages-ethiopia][afanafrica-et-federal-2020]: 2007 share 5.9% (~6.4M). Federal working since 29 Feb 2020; Tigray official (post-2022 status fluid — watch). Code tir SIL-verified.</td></tr>
+<tr><td data-h="Language" class='nm'>Afar<br><span style='font-weight:400;color:var(--muted)'>qafar</span> <button class='say' type='button' data-say='qafar' data-lang='aa' aria-label='Hear the name in Afar'>🔊</button><br><span class="badge">Official</span></td><td data-h="ISO"><code>aar</code></td><td data-h="Speakers">≈2.1M L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Federal working (2020); Afar-region official (~2M+) — pass-2 verify code. Audit-14 (ET) 2026-09-14 [et-census-2007][wiki-languages-ethiopia][afanafrica-et-federal-2020]: 2007 share 1.7% (~2.1M). Federal working since 29 Feb 2020; Afar Region official. Code aar SIL-verified.</td></tr>
+<tr><td data-h="Language" class='nm'>Amharic<br><span style='font-weight:400;color:var(--muted)'>አማርኛ</span> <button class='say' type='button' data-say='አማርኛ' data-lang='am' aria-label='Hear the name in Amharic'>🔊</button><br><span class="badge">Official</span></td><td data-h="ISO"><code>amh</code></td><td data-h="Speakers">≈32M L1</td><td data-h="Script">Ethi</td><td data-h="Notes" class='nt'>Federal working language (1995 constitution; +4 added 2020: Oromo, Somali, Tigrinya, Afar). Audit-14 (ET) 2026-09-14 [et-census-2007][wiki-languages-ethiopia][afanafrica-et-federal-2020]: 2007 share 29.3% (L1 ~31.8M; total ~60M incl L2 — most-spoken overall). Sole federal language until 29 Feb 2020; now one of 5.</td></tr>
+<tr><td data-h="Language" class='nm'>Oromo<br><span style='font-weight:400;color:var(--muted)'>oromiffa</span> <button class='say' type='button' data-say='oromiffa' data-lang='om' aria-label='Hear the name in Oromo'>🔊</button><br><span class="badge">Official</span></td><td data-h="ISO"><code>gaz</code></td><td data-h="Speakers">≈36M L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Federal working (2020); Oromia official; Cushitic giant — pass-2 verify code. Audit-14 (ET) 2026-09-14 [et-census-2007][wiki-languages-ethiopia][afanafrica-et-federal-2020]: 2007 share 33.8% (largest L1, 36M+). Federal working since 29 Feb 2020; Oromia/Harar/Dire Dawa official. Code gaz SIL-verified.</td></tr>
+<tr><td data-h="Language" class='nm'>Somali<br><span style='font-weight:400;color:var(--muted)'>soomaali</span> <button class='say' type='button' data-say='soomaali' data-lang='so' aria-label='Hear the name in Somali'>🔊</button><br><span class="badge">Official</span></td><td data-h="ISO"><code>som</code></td><td data-h="Speakers">≈6.7M L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Federal working (2020); Somali-region official (~7M+) — pass-2 verify code. Audit-14 (ET) 2026-09-14 [et-census-2007][wiki-languages-ethiopia][afanafrica-et-federal-2020]: 2007 share 6.2% (~6.7M). Federal working since 29 Feb 2020; Somali Region + Dire Dawa official. Code som SIL-verified.</td></tr>
+<tr><td data-h="Language" class='nm'>Tigrinya<br><span style='font-weight:400;color:var(--muted)'>ትግርኛ</span> <button class='say' type='button' data-say='ትግርኛ' data-lang='ti' aria-label='Hear the name in Tigrinya'>🔊</button><br><span class="badge">Official</span></td><td data-h="ISO"><code>tir</code></td><td data-h="Speakers">≈6.4M L1</td><td data-h="Script">Ethi</td><td data-h="Notes" class='nt'>Federal working (2020); Tigray official (~7M+) — pass-2 verify code. Audit-14 (ET) 2026-09-14 [et-census-2007][wiki-languages-ethiopia][afanafrica-et-federal-2020]: 2007 share 5.9% (~6.4M). Federal working since 29 Feb 2020; Tigray official (post-2022 status fluid — watch). Code tir SIL-verified.</td></tr>
 </table>
 <h2>Widely spoken</h2>
 <table class='lang'>
 <tr><th>Language</th><th>ISO</th><th>Speakers</th><th>Script</th><th>Notes</th></tr>
-<tr><td class='nm'>Amharic<br><span style='font-weight:400;color:var(--muted)'>አማርኛ</span> <button class='say' type='button' data-say='አማርኛ' data-lang='am' aria-label='Hear the name in Amharic'>🔊</button><br><span class="badge">Widely Spoken</span></td><td><code>amh</code></td><td>≈32M L1</td><td>Ethi</td><td class='nt'>Federal working language (1995 constitution; +4 added 2020: Oromo, Somali, Tigrinya, Afar). Audit-14 (ET) 2026-09-14 [et-census-2007][wiki-languages-ethiopia][afanafrica-et-federal-2020]: 2007 share 29.3% (L1 ~31.8M; total ~60M incl L2 — most-spoken overall). Sole federal language until 29 Feb 2020; now one of 5.</td></tr>
-<tr><td class='nm'>English<br><span style='font-weight:400;color:var(--muted)'>English</span> <button class='say' type='button' data-say='English' data-lang='en' aria-label='Hear the name in English'>🔊</button><br><span class="badge">Widely Spoken</span></td><td><code>eng</code></td><td>unknown</td><td>Latn</td><td class='nt'>Secondary/university medium; business lingua franca. Audit-14 (ET) 2026-09-14 [et-census-2007][wiki-languages-ethiopia][afanafrica-et-federal-2020]: CIA: &#x27;major foreign language taught in schools&#x27;; secondary/university medium. No L1 claim.</td></tr>
-<tr><td class='nm'>Oromo<br><span style='font-weight:400;color:var(--muted)'>oromiffa</span> <button class='say' type='button' data-say='oromiffa' data-lang='om' aria-label='Hear the name in Oromo'>🔊</button><br><span class="badge">Widely Spoken</span></td><td><code>gaz</code></td><td>≈36M L1</td><td>Latn</td><td class='nt'>Federal working (2020); Oromia official; Cushitic giant — pass-2 verify code. Audit-14 (ET) 2026-09-14 [et-census-2007][wiki-languages-ethiopia][afanafrica-et-federal-2020]: 2007 share 33.8% (largest L1, 36M+). Federal working since 29 Feb 2020; Oromia/Harar/Dire Dawa official. Code gaz SIL-verified.</td></tr>
+<tr><td data-h="Language" class='nm'>Amharic<br><span style='font-weight:400;color:var(--muted)'>አማርኛ</span> <button class='say' type='button' data-say='አማርኛ' data-lang='am' aria-label='Hear the name in Amharic'>🔊</button><br><span class="badge">Widely Spoken</span></td><td data-h="ISO"><code>amh</code></td><td data-h="Speakers">≈32M L1</td><td data-h="Script">Ethi</td><td data-h="Notes" class='nt'>Federal working language (1995 constitution; +4 added 2020: Oromo, Somali, Tigrinya, Afar). Audit-14 (ET) 2026-09-14 [et-census-2007][wiki-languages-ethiopia][afanafrica-et-federal-2020]: 2007 share 29.3% (L1 ~31.8M; total ~60M incl L2 — most-spoken overall). Sole federal language until 29 Feb 2020; now one of 5.</td></tr>
+<tr><td data-h="Language" class='nm'>English<br><span style='font-weight:400;color:var(--muted)'>English</span> <button class='say' type='button' data-say='English' data-lang='en' aria-label='Hear the name in English'>🔊</button><br><span class="badge">Widely Spoken</span></td><td data-h="ISO"><code>eng</code></td><td data-h="Speakers">unknown</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Secondary/university medium; business lingua franca. Audit-14 (ET) 2026-09-14 [et-census-2007][wiki-languages-ethiopia][afanafrica-et-federal-2020]: CIA: &#x27;major foreign language taught in schools&#x27;; secondary/university medium. No L1 claim.</td></tr>
+<tr><td data-h="Language" class='nm'>Oromo<br><span style='font-weight:400;color:var(--muted)'>oromiffa</span> <button class='say' type='button' data-say='oromiffa' data-lang='om' aria-label='Hear the name in Oromo'>🔊</button><br><span class="badge">Widely Spoken</span></td><td data-h="ISO"><code>gaz</code></td><td data-h="Speakers">≈36M L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Federal working (2020); Oromia official; Cushitic giant — pass-2 verify code. Audit-14 (ET) 2026-09-14 [et-census-2007][wiki-languages-ethiopia][afanafrica-et-federal-2020]: 2007 share 33.8% (largest L1, 36M+). Federal working since 29 Feb 2020; Oromia/Harar/Dire Dawa official. Code gaz SIL-verified.</td></tr>
 </table>
 <h2>Regional, indigenous & minority languages</h2>
 <table class='lang'>
 <tr><th>Language</th><th>ISO</th><th>Speakers</th><th>Script</th><th>Notes</th></tr>
-<tr><td class='nm'>Dawro<br><span style='font-weight:400;color:var(--muted)'>dawro</span><br><span class="badge">Regional</span></td><td><code>dwr</code></td><td>≈510k L1</td><td>Latn</td><td class='nt'>Dawro Zone (~510K; Gamo-Gofa-Dawro continuum). Audit-14 step 2 (ET) 2026-09-14: new entry.</td></tr>
-<tr><td class='nm'>Gamo<br><span style='font-weight:400;color:var(--muted)'>gamo</span><br><span class="badge">Regional</span></td><td><code>gmv</code></td><td>≈1.6M L1</td><td>Latn</td><td class='nt'>Gamo Zone (~1.6M; continuum with Gofa/Dawro; old gmo retired→split). Audit-14 step 2 (ET) 2026-09-14: new entry (missing-major).</td></tr>
-<tr><td class='nm'>Gedeo<br><span style='font-weight:400;color:var(--muted)'>gedeo</span><br><span class="badge">Regional</span></td><td><code>drs</code></td><td>≈1.5M L1</td><td>Latn</td><td class='nt'>Gedeo Zone (~1.5M; 2007 share 1.3%; 1998 637K). Audit-14 step 2 (ET) 2026-09-14: new entry (missing-major).</td></tr>
-<tr><td class='nm'>Gofa<br><span style='font-weight:400;color:var(--muted)'>gofa</span><br><span class="badge">Regional</span></td><td><code>gof</code></td><td>≈360k L1</td><td>Latn</td><td class='nt'>Gofa Zone (~360K; Gamo-Gofa-Dawro continuum). Audit-14 step 2 (ET) 2026-09-14: new entry.</td></tr>
-<tr><td class='nm'>Hadiyya<br><span style='font-weight:400;color:var(--muted)'>hadiyya</span><br><span class="badge">Regional</span></td><td><code>hdy</code></td><td>≈2.1M L1</td><td>Latn</td><td class='nt'>Hadiya Zone (~2.1M; 2007 share 1.7%). Audit-14 step 2 (ET) 2026-09-14: new entry (missing-major).</td></tr>
-<tr><td class='nm'>Kafa<br><span style='font-weight:400;color:var(--muted)'>kafa</span><br><span class="badge">Regional</span></td><td><code>kbr</code></td><td>≈1.4M L1</td><td>Latn</td><td class='nt'>Keficho (~1.4M; 2007 share 1.1%; coffee-homeland fame). Audit-14 step 2 (ET) 2026-09-14: new entry (missing-major).</td></tr>
-<tr><td class='nm'>Sebat Bet Gurage<br><span style='font-weight:400;color:var(--muted)'>ጉራጌ</span><br><span class="badge">Regional</span></td><td><code>sgw</code></td><td>≈1M L1</td><td>Ethi</td><td class='nt'>Gurageland west (~1M MIDPOINT — published estimates span 200K–1.5M, VERIFY; census &#x27;Gurage 2.0%&#x27; is the cluster incl Silt&#x27;e-answers). Silt&#x27;e (stv) HELD: separate identity since 2000 referendum, figure unpinned. Soddo/Kistane (gru) sub-cluster, long-tail. Audit-14 step 2 (ET) 2026-09-14: new entry (missing-major, low).</td></tr>
-<tr><td class='nm'>Sidamo<br><span style='font-weight:400;color:var(--muted)'>sidaamu</span><br><span class="badge">Regional</span></td><td><code>sid</code></td><td>≈4.3M L1</td><td>Latn</td><td class='nt'>Sidama (~3M+) — pass-2 verify code. Audit-14 (ET) 2026-09-14 [et-census-2007][wiki-languages-ethiopia][afanafrica-et-federal-2020]: 2007 share 4.0% (~4.3M). Sidama Regional State official (new region 2020). Code sid SIL-verified.</td></tr>
-<tr><td class='nm'>Wolaytta<br><span style='font-weight:400;color:var(--muted)'>wolaytta</span><br><span class="badge">Regional</span></td><td><code>wal</code></td><td>≈2.38M L1</td><td>Latn</td><td class='nt'>South (~2M+) — pass-2 verify code. Audit-14 (ET) 2026-09-14 [et-census-2007][wiki-languages-ethiopia][afanafrica-et-federal-2020]: 2007 share 2.2% (~2.4M). Recognised regional (Wolayta). Code wal SIL-verified.</td></tr>
+<tr><td data-h="Language" class='nm'>Dawro<br><span style='font-weight:400;color:var(--muted)'>dawro</span><br><span class="badge">Regional</span></td><td data-h="ISO"><code>dwr</code></td><td data-h="Speakers">≈510k L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Dawro Zone (~510K; Gamo-Gofa-Dawro continuum). Audit-14 step 2 (ET) 2026-09-14: new entry.</td></tr>
+<tr><td data-h="Language" class='nm'>Gamo<br><span style='font-weight:400;color:var(--muted)'>gamo</span><br><span class="badge">Regional</span></td><td data-h="ISO"><code>gmv</code></td><td data-h="Speakers">≈1.6M L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Gamo Zone (~1.6M; continuum with Gofa/Dawro; old gmo retired→split). Audit-14 step 2 (ET) 2026-09-14: new entry (missing-major).</td></tr>
+<tr><td data-h="Language" class='nm'>Gedeo<br><span style='font-weight:400;color:var(--muted)'>gedeo</span><br><span class="badge">Regional</span></td><td data-h="ISO"><code>drs</code></td><td data-h="Speakers">≈1.5M L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Gedeo Zone (~1.5M; 2007 share 1.3%; 1998 637K). Audit-14 step 2 (ET) 2026-09-14: new entry (missing-major).</td></tr>
+<tr><td data-h="Language" class='nm'>Gofa<br><span style='font-weight:400;color:var(--muted)'>gofa</span><br><span class="badge">Regional</span></td><td data-h="ISO"><code>gof</code></td><td data-h="Speakers">≈360k L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Gofa Zone (~360K; Gamo-Gofa-Dawro continuum). Audit-14 step 2 (ET) 2026-09-14: new entry.</td></tr>
+<tr><td data-h="Language" class='nm'>Hadiyya<br><span style='font-weight:400;color:var(--muted)'>hadiyya</span><br><span class="badge">Regional</span></td><td data-h="ISO"><code>hdy</code></td><td data-h="Speakers">≈2.1M L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Hadiya Zone (~2.1M; 2007 share 1.7%). Audit-14 step 2 (ET) 2026-09-14: new entry (missing-major).</td></tr>
+<tr><td data-h="Language" class='nm'>Kafa<br><span style='font-weight:400;color:var(--muted)'>kafa</span><br><span class="badge">Regional</span></td><td data-h="ISO"><code>kbr</code></td><td data-h="Speakers">≈1.4M L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Keficho (~1.4M; 2007 share 1.1%; coffee-homeland fame). Audit-14 step 2 (ET) 2026-09-14: new entry (missing-major).</td></tr>
+<tr><td data-h="Language" class='nm'>Sebat Bet Gurage<br><span style='font-weight:400;color:var(--muted)'>ጉራጌ</span><br><span class="badge">Regional</span></td><td data-h="ISO"><code>sgw</code></td><td data-h="Speakers">≈1M L1</td><td data-h="Script">Ethi</td><td data-h="Notes" class='nt'>Gurageland west (~1M MIDPOINT — published estimates span 200K–1.5M, VERIFY; census &#x27;Gurage 2.0%&#x27; is the cluster incl Silt&#x27;e-answers). Silt&#x27;e (stv) HELD: separate identity since 2000 referendum, figure unpinned. Soddo/Kistane (gru) sub-cluster, long-tail. Audit-14 step 2 (ET) 2026-09-14: new entry (missing-major, low).</td></tr>
+<tr><td data-h="Language" class='nm'>Sidamo<br><span style='font-weight:400;color:var(--muted)'>sidaamu</span><br><span class="badge">Regional</span></td><td data-h="ISO"><code>sid</code></td><td data-h="Speakers">≈4.3M L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Sidama (~3M+) — pass-2 verify code. Audit-14 (ET) 2026-09-14 [et-census-2007][wiki-languages-ethiopia][afanafrica-et-federal-2020]: 2007 share 4.0% (~4.3M). Sidama Regional State official (new region 2020). Code sid SIL-verified.</td></tr>
+<tr><td data-h="Language" class='nm'>Wolaytta<br><span style='font-weight:400;color:var(--muted)'>wolaytta</span><br><span class="badge">Regional</span></td><td data-h="ISO"><code>wal</code></td><td data-h="Speakers">≈2.38M L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>South (~2M+) — pass-2 verify code. Audit-14 (ET) 2026-09-14 [et-census-2007][wiki-languages-ethiopia][afanafrica-et-federal-2020]: 2007 share 2.2% (~2.4M). Recognised regional (Wolayta). Code wal SIL-verified.</td></tr>
 </table>
 
 <div class='research'><b>Research note.</b> This guide is built from EkGuru's language inventory (pass-1 desk research: constitutions, censuses, Ethnologue 27, SIL ISO 639-3). Figures are order-of-magnitude estimates still being re-verified; language codes are verified against SIL and voice/translation coverage against the live Google/Microsoft engine lists (pass 2, 2026-09-14). All 194 countries covered.</div>
@@ -165,6 +136,23 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
   navigator.serviceWorker.register("../../sw.js").catch(function(){});
 });}
 </script>
+<!-- ekguru:pw-bands:start -->
+<nav class="pw-next" aria-label="Next step">
+  <b>Learn a language of Ethiopia with a tutor</b>
+  <p>EkGuru teaches <b>English and Somali</b> over video, one to one, with tutors who speak them. The first lesson costs nothing.</p>
+  <p><a class="btn btn-primary" href="/courses/?country=ET">Courses for Ethiopia</a>
+  <a class="btn btn-ghost" href="/courses/by-country/#country-ET">Every language of Ethiopia</a></p>
+</nav>
+<footer class="pw-support">
+  <div>
+    <b>Every lesson here is free, and always will be.</b>
+    <p>No account, no paywall, and never an ad on the free material — that is the
+    whole idea. Keeping it that way is the only thing this page asks of you.</p>
+  </div>
+  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
+  <a href="/find-tutors.html">Book a trial lesson</a>
+</footer>
+<!-- ekguru:pw-bands:end -->
 <!-- ekguru:shell-footer:start -->
 <footer class="ftr">
   <div class="wrap ftr-in">

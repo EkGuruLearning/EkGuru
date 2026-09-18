@@ -166,11 +166,11 @@ def build():
                ('<small>%s</small>' % esc(langs[code]["native"])) if langs[code]["native"] else "")
             for code in sorted(langs, key=lambda k: langs[k]["name"]))
         rows.append(
-            '<article class="country-card" data-country="%s" data-search="%s">'
+            '<article class="country-card" id="country-%s" data-country="%s" data-search="%s">'
             '<h3><span class="country-code" aria-hidden="true">%s</span>%s'
             '<small>%d %s</small></h3>'
             '<div class="country-courses">%s</div></article>'
-            % (esc(country), esc((name(country) + " " + country).lower()), esc(country),
+            % (esc(country), esc(country), esc((name(country) + " " + country).lower()), esc(country),
                esc(name(country)), len(langs), "language" if len(langs) == 1 else "languages",
                chips))
 

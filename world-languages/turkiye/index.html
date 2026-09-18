@@ -26,36 +26,7 @@
 <link rel="manifest" href="../../manifest.webmanifest">
 <meta name="theme-color" content="#4f32d9">
 <link rel="stylesheet" href="../../css/style.min.css">
-<style>
-.pw{max-width:860px;margin:0 auto;padding:0 20px 64px}
-.pw h1{font-size:clamp(1.6rem,4.4vw,2.05rem);line-height:1.24;margin:24px 0 14px}
-.pw h2{font-size:clamp(1.12rem,3vw,1.3rem);line-height:1.3;margin:34px 0 12px}
-.pw p,.pw li{line-height:1.72;font-size:1rem}
-.pw p,.pw ul{max-width:72ch}
-.lede{color:var(--ink-2);font-size:1.06rem;line-height:1.7}
-.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0;word-break:break-word}
-.crumb a{color:var(--muted)}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
-.fact{border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:var(--bg-soft)}
-.fact b{display:block;font-size:1.05rem;margin-bottom:2px;color:var(--ink)}
-.fact span{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
-table.lang{width:100%;border-collapse:collapse;margin:6px 0 8px;font-size:.95rem}
-table.lang th{text-align:left;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding:8px 10px;border-bottom:2px solid var(--line)}
-table.lang td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.6}
-table.lang td.nm{font-weight:600;white-space:nowrap}
-table.lang td.nt{font-size:.9rem;color:var(--ink-2)}
-.badge{display:inline-block;font-size:.72rem;border:1px solid var(--line);border-radius:10px;padding:1px 8px;margin:2px 4px 0 0;color:var(--muted);white-space:nowrap}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
-.chips a{font-size:.87rem;border:1px solid var(--line);border-radius:20px;padding:7px 13px;text-decoration:none;background:var(--card,#fff);color:var(--brand);min-height:44px;display:inline-flex;align-items:center}
-.research{border:1px dashed var(--line);border-radius:12px;padding:13px 16px;margin:26px 0;font-size:.9rem;color:var(--ink-2);background:var(--bg-soft)}
-details.more{margin:10px 0 26px;border:1px solid var(--line);border-radius:12px;padding:12px 16px;background:var(--card,#fff)}
-details.more summary{cursor:pointer;font-weight:600}
-@media(max-width:640px){table.lang th:nth-child(4),table.lang td:nth-child(4){display:none}}
-.say{border:1px solid var(--line);background:var(--card,#fff);border-radius:8px;cursor:pointer;font-size:.8rem;padding:2px 8px;margin-left:8px;color:var(--brand);vertical-align:middle}
-.say:hover{border-color:var(--brand-2)}
-@media(pointer:coarse){.say{min-height:44px;min-width:44px}}
 
-</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://ekguru.shop/world-languages/turkiye/#page", "name": "Languages of Türkiye", "description": "Languages of Türkiye: Turkish; also Northern Kurdish (Kurmanji), Levantine Arabic, Southern Zaza (Dimli), Northern Zaza (Kirmanjki), Adyghe (Circassian). Official languages, speaker numbers, scripts and notes.", "url": "https://ekguru.shop/world-languages/turkiye/", "inLanguage": "en", "isPartOf": {"@id": "https://ekguru.shop/#website"}}]}</script>
 </head>
 <body>
@@ -81,7 +52,7 @@ details.more summary{cursor:pointer;font-weight:600}
 <script src="../../js/site-shell.js" defer></script>
 <script src="../../js/copywatch.js" defer></script>
 <!-- ekguru:shell-header:end -->
-<div class="pw">
+<div class="pw pw-legacy">
 <p class="crumb"><a href="../../">EkGuru</a> › <a href="../">World languages</a> › Türkiye</p>
 
 <h1>Languages of Türkiye</h1>
@@ -91,32 +62,32 @@ details.more summary{cursor:pointer;font-weight:600}
 <h2>Official & national languages</h2>
 <table class='lang'>
 <tr><th>Language</th><th>ISO</th><th>Speakers</th><th>Script</th><th>Notes</th></tr>
-<tr><td class='nm'>Turkish<br><span style='font-weight:400;color:var(--muted)'>Türkçe</span> <button class='say' type='button' data-say='Türkçe' data-lang='tr' aria-label='Hear the name in Turkish'>🔊</button><br><span class="badge">National</span><span class="badge">Official</span></td><td><code>tur</code></td><td>≈68M L1</td><td>Latn</td><td class='nt'>Art.3: &#x27;The language of the State is Turkish&#x27; — no other language may be taught as a mother tongue (the legal root of all TR minority notes). Istanbul standard. No language question in TR censuses — ALL TR figures soft.</td></tr>
+<tr><td data-h="Language" class='nm'>Turkish<br><span style='font-weight:400;color:var(--muted)'>Türkçe</span> <button class='say' type='button' data-say='Türkçe' data-lang='tr' aria-label='Hear the name in Turkish'>🔊</button><br><span class="badge">National</span><span class="badge">Official</span></td><td data-h="ISO"><code>tur</code></td><td data-h="Speakers">≈68M L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Art.3: &#x27;The language of the State is Turkish&#x27; — no other language may be taught as a mother tongue (the legal root of all TR minority notes). Istanbul standard. No language question in TR censuses — ALL TR figures soft.</td></tr>
 </table>
 <h2>Widely spoken</h2>
 <table class='lang'>
 <tr><th>Language</th><th>ISO</th><th>Speakers</th><th>Script</th><th>Notes</th></tr>
-<tr><td class='nm'>English<br><span style='font-weight:400;color:var(--muted)'>English</span> <button class='say' type='button' data-say='English' data-lang='en' aria-label='Hear the name in English'>🔊</button><br><span class="badge">Widely Spoken</span></td><td><code>eng</code></td><td>unknown</td><td>Latn</td><td class='nt'>Tourism/business/university English (Istanbul/Antalya campuses). No L1 community of note; no official function.</td></tr>
-<tr><td class='nm'>Turkish<br><span style='font-weight:400;color:var(--muted)'>Türkçe</span> <button class='say' type='button' data-say='Türkçe' data-lang='tr' aria-label='Hear the name in Turkish'>🔊</button><br><span class="badge">Widely Spoken</span></td><td><code>tur</code></td><td>≈68M L1</td><td>Latn</td><td class='nt'>Art.3: &#x27;The language of the State is Turkish&#x27; — no other language may be taught as a mother tongue (the legal root of all TR minority notes). Istanbul standard. No language question in TR censuses — ALL TR figures soft.</td></tr>
+<tr><td data-h="Language" class='nm'>English<br><span style='font-weight:400;color:var(--muted)'>English</span> <button class='say' type='button' data-say='English' data-lang='en' aria-label='Hear the name in English'>🔊</button><br><span class="badge">Widely Spoken</span></td><td data-h="ISO"><code>eng</code></td><td data-h="Speakers">unknown</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Tourism/business/university English (Istanbul/Antalya campuses). No L1 community of note; no official function.</td></tr>
+<tr><td data-h="Language" class='nm'>Turkish<br><span style='font-weight:400;color:var(--muted)'>Türkçe</span> <button class='say' type='button' data-say='Türkçe' data-lang='tr' aria-label='Hear the name in Turkish'>🔊</button><br><span class="badge">Widely Spoken</span></td><td data-h="ISO"><code>tur</code></td><td data-h="Speakers">≈68M L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Art.3: &#x27;The language of the State is Turkish&#x27; — no other language may be taught as a mother tongue (the legal root of all TR minority notes). Istanbul standard. No language question in TR censuses — ALL TR figures soft.</td></tr>
 </table>
 <h2>Regional, indigenous & minority languages</h2>
 <table class='lang'>
 <tr><th>Language</th><th>ISO</th><th>Speakers</th><th>Script</th><th>Notes</th></tr>
-<tr><td class='nm'>Adyghe (Circassian)<br><span style='font-weight:400;color:var(--muted)'>Адыгабзэ</span><br><span class="badge">Minority</span></td><td><code>ady</code></td><td>≈100k L1</td><td>Latn</td><td class='nt'>L1 ~70–120K and falling (TR largest community; ethnic Circassians ~2M — do not confuse). Last sourced diaspora split 1997: TR 71K / JO 44K / SY 25K; global ~300–500K. DISPUTE RESOLVED 2026-09-14 (range narrowed 100–300k → 70–120k; shift ongoing). Code ady SIL-confirmed. TR Latin / RU Cyrillic — canonical primary Latn (bigger community), RU entry overrides.</td></tr>
-<tr><td class='nm'>Levantine Arabic<br><span style='font-weight:400;color:var(--muted)'>شامي</span><br><span class="badge">Minority</span></td><td><code>apc</code></td><td>≈4M L1</td><td>Arab</td><td class='nt'>Dual community: historic Hatay/Şanlıurfa Arabs (~1M) + Syrian refugees (~3M, declining with returns). South Levantine [ajp] RETIRED 2023-01-20, merged into apc — JO/Palestinian/Syrian are all apc now.</td></tr>
-<tr><td class='nm'>Northern Kurdish (Kurmanji)<br><span style='font-weight:400;color:var(--muted)'>Kurmancî</span><br><span class="badge">Regional</span></td><td><code>kmr</code></td><td>≈11M L1</td><td>Latn</td><td class='nt'>No official status (Art.3); TRT Kurdî state TV = statutory recognition short of official function. TR holds the BIGGEST Kurdish community on Earth. Latin script in TR (vs Perso-Arabic in IQ/SY — script split inside one code, note for shared pack).</td></tr>
-<tr><td class='nm'>Northern Zaza (Kirmanjki)<br><span style='font-weight:400;color:var(--muted)'>kirmanjkî</span><br><span class="badge">Regional</span></td><td><code>kiu</code></td><td>≈1M L1</td><td>Latn</td><td class='nt'>SIL &#x27;Kirmanjki (individual language)&#x27;; zza member. Tunceli/Dersim side. Alevi-majority community — religious + linguistic identity intertwined (record factually). Native null honestly (see diq).</td></tr>
-<tr><td class='nm'>Southern Zaza (Dimli)<br><span style='font-weight:400;color:var(--muted)'>dimilkî</span><br><span class="badge">Regional</span></td><td><code>diq</code></td><td>≈1M L1</td><td>Latn</td><td class='nt'>SIL &#x27;Dimli (individual language)&#x27;; member of Zaza macro (zza) with kiu. Diyarbakır/Siverek side. Mutual intelligibility with Kirmanjki partial — split stands per rule 12. Latin (Jacobson alphabet); endonym form verify, native null honestly.</td></tr>
+<tr><td data-h="Language" class='nm'>Adyghe (Circassian)<br><span style='font-weight:400;color:var(--muted)'>Адыгабзэ</span><br><span class="badge">Minority</span></td><td data-h="ISO"><code>ady</code></td><td data-h="Speakers">≈100k L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>L1 ~70–120K and falling (TR largest community; ethnic Circassians ~2M — do not confuse). Last sourced diaspora split 1997: TR 71K / JO 44K / SY 25K; global ~300–500K. DISPUTE RESOLVED 2026-09-14 (range narrowed 100–300k → 70–120k; shift ongoing). Code ady SIL-confirmed. TR Latin / RU Cyrillic — canonical primary Latn (bigger community), RU entry overrides.</td></tr>
+<tr><td data-h="Language" class='nm'>Levantine Arabic<br><span style='font-weight:400;color:var(--muted)'>شامي</span><br><span class="badge">Minority</span></td><td data-h="ISO"><code>apc</code></td><td data-h="Speakers">≈4M L1</td><td data-h="Script">Arab</td><td data-h="Notes" class='nt'>Dual community: historic Hatay/Şanlıurfa Arabs (~1M) + Syrian refugees (~3M, declining with returns). South Levantine [ajp] RETIRED 2023-01-20, merged into apc — JO/Palestinian/Syrian are all apc now.</td></tr>
+<tr><td data-h="Language" class='nm'>Northern Kurdish (Kurmanji)<br><span style='font-weight:400;color:var(--muted)'>Kurmancî</span><br><span class="badge">Regional</span></td><td data-h="ISO"><code>kmr</code></td><td data-h="Speakers">≈11M L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>No official status (Art.3); TRT Kurdî state TV = statutory recognition short of official function. TR holds the BIGGEST Kurdish community on Earth. Latin script in TR (vs Perso-Arabic in IQ/SY — script split inside one code, note for shared pack).</td></tr>
+<tr><td data-h="Language" class='nm'>Northern Zaza (Kirmanjki)<br><span style='font-weight:400;color:var(--muted)'>kirmanjkî</span><br><span class="badge">Regional</span></td><td data-h="ISO"><code>kiu</code></td><td data-h="Speakers">≈1M L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>SIL &#x27;Kirmanjki (individual language)&#x27;; zza member. Tunceli/Dersim side. Alevi-majority community — religious + linguistic identity intertwined (record factually). Native null honestly (see diq).</td></tr>
+<tr><td data-h="Language" class='nm'>Southern Zaza (Dimli)<br><span style='font-weight:400;color:var(--muted)'>dimilkî</span><br><span class="badge">Regional</span></td><td data-h="ISO"><code>diq</code></td><td data-h="Speakers">≈1M L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>SIL &#x27;Dimli (individual language)&#x27;; member of Zaza macro (zza) with kiu. Diyarbakır/Siverek side. Mutual intelligibility with Kirmanjki partial — split stands per rule 12. Latin (Jacobson alphabet); endonym form verify, native null honestly.</td></tr>
 </table>
 <h2>Immigrant & expatriate languages</h2>
 <table class='lang'>
 <tr><th>Language</th><th>ISO</th><th>Speakers</th><th>Script</th><th>Notes</th></tr>
-<tr><td class='nm'>Levantine Arabic<br><span style='font-weight:400;color:var(--muted)'>شامي</span><br><span class="badge">Immigrant</span></td><td><code>apc</code></td><td>≈4M L1</td><td>Arab</td><td class='nt'>Dual community: historic Hatay/Şanlıurfa Arabs (~1M) + Syrian refugees (~3M, declining with returns). South Levantine [ajp] RETIRED 2023-01-20, merged into apc — JO/Palestinian/Syrian are all apc now.</td></tr>
+<tr><td data-h="Language" class='nm'>Levantine Arabic<br><span style='font-weight:400;color:var(--muted)'>شامي</span><br><span class="badge">Immigrant</span></td><td data-h="ISO"><code>apc</code></td><td data-h="Speakers">≈4M L1</td><td data-h="Script">Arab</td><td data-h="Notes" class='nt'>Dual community: historic Hatay/Şanlıurfa Arabs (~1M) + Syrian refugees (~3M, declining with returns). South Levantine [ajp] RETIRED 2023-01-20, merged into apc — JO/Palestinian/Syrian are all apc now.</td></tr>
 </table>
 <h2>Sign languages</h2>
 <table class='lang'>
 <tr><th>Language</th><th>ISO</th><th>Speakers</th><th>Script</th><th>Notes</th></tr>
-<tr><td class='nm'>Turkish Sign Language<br><span style='font-weight:400;color:var(--muted)'>Türk İşaret Dili</span><br><span class="badge">Sign Language</span></td><td><code>tsm</code></td><td>unknown</td><td>Sgnw</td><td class='nt'>Code &#x27;tsm&#x27; (TİD). Relatively well-documented; Istanbul/Ankara/Izmir variation. Village sign (Mardin dsz) is separate — see long-tail.</td></tr>
+<tr><td data-h="Language" class='nm'>Turkish Sign Language<br><span style='font-weight:400;color:var(--muted)'>Türk İşaret Dili</span><br><span class="badge">Sign Language</span></td><td data-h="ISO"><code>tsm</code></td><td data-h="Speakers">unknown</td><td data-h="Script">Sgnw</td><td data-h="Notes" class='nt'>Code &#x27;tsm&#x27; (TİD). Relatively well-documented; Istanbul/Ankara/Izmir variation. Village sign (Mardin dsz) is separate — see long-tail.</td></tr>
 </table>
 <details class='more'><summary>More languages spoken in Türkiye (below listing threshold)</summary><p>Below-threshold/notes-only: Armenian hye (Istanbul ~60k ethnic, L1 soft — long-tail); Georgian kat (Chveneburi Muslim Georgians NE, L1 small); Greek ell (Istanbul ~2k remnant); Laz lzz (~20k L1, Kartvelian enclave — celebrity); Abkhaz abk (~40k); Chechen che (~30k L1); Bosnian bos (L1 small); Albanian sq (L1 small); Pomak (Bulgarian dialects); Gagauz (few k); Romani dialects; Mardin Sign dsz (village sign — celebrity, distinct from tsm); Quranic Arabic: Diyanet religious-education liturgical per AF/PK treatment (no entry).</p></details>
 <div class='research'><b>Research note.</b> This guide is built from EkGuru's language inventory (pass-1 desk research: constitutions, censuses, Ethnologue 27, SIL ISO 639-3). Figures are order-of-magnitude estimates still being re-verified; language codes are verified against SIL and voice/translation coverage against the live Google/Microsoft engine lists (pass 2, 2026-09-14). All 194 countries covered.</div>
@@ -165,6 +136,23 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
   navigator.serviceWorker.register("../../sw.js").catch(function(){});
 });}
 </script>
+<!-- ekguru:pw-bands:start -->
+<nav class="pw-next" aria-label="Next step">
+  <b>Learn a language of Türkiye with a tutor</b>
+  <p>EkGuru teaches <b>English and Turkish</b> over video, one to one, with tutors who speak them. The first lesson costs nothing.</p>
+  <p><a class="btn btn-primary" href="/courses/?country=TR">Courses for Türkiye</a>
+  <a class="btn btn-ghost" href="/courses/by-country/#country-TR">Every language of Türkiye</a></p>
+</nav>
+<footer class="pw-support">
+  <div>
+    <b>Every lesson here is free, and always will be.</b>
+    <p>No account, no paywall, and never an ad on the free material — that is the
+    whole idea. Keeping it that way is the only thing this page asks of you.</p>
+  </div>
+  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
+  <a href="/find-tutors.html">Book a trial lesson</a>
+</footer>
+<!-- ekguru:pw-bands:end -->
 <!-- ekguru:shell-footer:start -->
 <footer class="ftr">
   <div class="wrap ftr-in">

@@ -37,89 +37,7 @@
 <link rel="stylesheet" href="../../css/style.min.css">
 <!-- ekguru:storybook -->
 <link rel="stylesheet" href="../../css/storybook.css">
-<style>
-.pw{max-width:820px;margin:0 auto;padding:0 20px 64px}
-.pw h1{font-size:clamp(1.6rem,4.4vw,2.05rem);line-height:1.24;margin:24px 0 14px}
-.pw h2{font-size:clamp(1.12rem,3vw,1.3rem);line-height:1.3;margin:34px 0 12px}
-.pw h3{font-size:1.02rem;margin:24px 0 8px}
-.pw p,.pw li{line-height:1.72;font-size:1rem}
-.pw p,.pw ul,.pw ol{max-width:72ch}
-.lede{color:var(--ink-2);font-size:1.06rem;line-height:1.7}
-.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0;word-break:break-word}
-.crumb a{color:var(--muted)}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
-.fact{border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:var(--bg-soft)}
-.fact b{display:block;font-size:1.12rem;margin-bottom:2px;color:var(--ink)}
-.fact span{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
-.faq{border:1px solid var(--line);border-radius:12px;padding:15px 17px;margin:12px 0;background:var(--card,#fff)}
-.faq b{display:block;margin-bottom:6px;color:var(--ink)}
-.faq p{margin:0;color:var(--ink-2)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
-.chips a{font-size:.87rem;border:1px solid var(--line);border-radius:20px;padding:7px 13px;text-decoration:none;background:var(--card,#fff);color:var(--brand);min-height:34px;display:inline-flex;align-items:center}
-/* v97 — measured 40px in real Chromium at 320px, under the 44px
-   touch floor. This CSS is inlined into the page AFTER style.css
-   loads, so the global @media (pointer:coarse) rule cannot win —
-   the override has to live beside the rule it overrides. */
-@media (pointer:coarse){.chips a{min-height:44px}}
-.chips a:hover{border-color:var(--brand-2)}
-.cta{border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:12px;background:var(--bg-soft);padding:16px 18px;margin:26px 0}
-.cta b{display:block;margin-bottom:6px;color:var(--ink)}
-.cta p{margin:0 0 10px;color:var(--ink-2)}
-.tbl{width:100%;border-collapse:collapse;margin:16px 0;font-size:.95rem;display:block;overflow-x:auto}
-.tbl th,.tbl td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
-.tbl th{background:var(--bg-soft);font-weight:600;color:var(--ink)}
-.dv{font-family:"Noto Sans Devanagari","Nirmala UI",system-ui,sans-serif;line-height:1.85}
-.note{background:var(--warn-soft);border:1px solid var(--warn-line);border-radius:10px;padding:12px 15px;margin:18px 0;font-size:.94rem;color:var(--ink-2)}
-.pw .btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
-@media(max-width:520px){.pw{padding:0 15px 48px}}
-/* v79 — the trust footer's styling lives in css/style.css as
-   .pw-ftr, NOT here. tools/patch.js emits the identical footer on
-   the 115 pages built by the five pre-shell generators, and two
-   copies of the same rule in two files is how this project has
-   shipped a stale style five separate times. One class, one
-   place, all 465 pages. */
 
-.tool{border:1px solid var(--line);border-radius:14px;padding:18px;margin:22px 0;background:var(--card,#fff)}
-.tool label{display:block;font-size:.9rem;color:var(--ink-2);margin:0 0 6px;font-weight:600}
-.tool input[type=text],.tool input[type=search],.tool select{width:100%;padding:11px 13px;font-size:1rem;
-  border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);min-height:44px}
-.tool input:focus,.tool select:focus{outline:2px solid var(--focus);outline-offset:1px}
-.grid{display:grid;gap:9px}
-.g6{grid-template-columns:repeat(auto-fill,minmax(88px,1fr))}
-.g4{grid-template-columns:repeat(auto-fill,minmax(132px,1fr))}
-.cell{border:1px solid var(--line);border-radius:11px;padding:10px 6px;text-align:center;background:var(--bg-soft);
-  cursor:pointer;min-height:44px}
-.cell:hover,.cell:focus{border-color:var(--brand-2);background:#fff}
-.cell .ch{font-size:1.6rem;line-height:1.3;color:var(--ink);font-family:"Noto Sans Devanagari","Nirmala UI",serif}
-.cell .rm{font-size:.8rem;color:var(--muted);display:block}
-.detail{margin-top:14px;padding:15px;border:1px solid var(--brand-2);border-radius:12px;background:var(--bg-soft)}
-.detail .big{font-size:2.6rem;line-height:1.2;color:var(--brand);font-family:"Noto Sans Devanagari","Nirmala UI",serif}
-.detail p{margin:6px 0;color:var(--ink-2)}
-.row{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:12px 0}
-.row .btn{min-height:44px}
-.pill{font-size:.82rem;border:1px solid var(--line);border-radius:18px;padding:6px 12px;background:var(--bg-soft);
-  cursor:pointer;color:var(--ink-2);min-height:34px}
-/* v97 — .pill above declares min-height:34px and measured 40px
-   on a phone, under the 44px touch floor. This CSS is inlined
-   into each tool page after style.css, so the global
-   pointer:coarse rule cannot win on cascade order. */
-@media (pointer:coarse){.pill{min-height:44px}}
-.pill[aria-pressed=true]{background:var(--brand);color:#fff;border-color:var(--brand)}
-.card{border:1px solid var(--line);border-radius:14px;padding:26px 18px;text-align:center;background:var(--bg-soft);min-height:170px;
-  display:flex;flex-direction:column;justify-content:center;gap:8px}
-.card .front{font-size:1.35rem;color:var(--ink)}
-.card .back{font-size:2rem;color:var(--brand);font-family:"Noto Sans Devanagari","Nirmala UI",serif}
-.card .rom{font-size:.95rem;color:var(--muted)}
-.score{font-size:.9rem;color:var(--ink-2);margin:10px 0}
-.bar{height:8px;border-radius:4px;background:var(--line);overflow:hidden;margin:8px 0}
-.bar>i{display:block;height:100%;background:var(--brand);width:0}
-.out{font-size:1.6rem;min-height:2.4rem;padding:12px;border:1px solid var(--line);border-radius:10px;
-  background:var(--bg-soft);color:var(--ink);font-family:"Noto Sans Devanagari","Nirmala UI",serif;word-break:break-word}
-.ok{color:var(--green);font-weight:600}
-.no{color:var(--brand-3);font-weight:600}
-.nojs{font-size:.9rem;color:var(--muted);margin:6px 0 0}
-.tbl td.dv,.tbl th.dv{font-family:"Noto Sans Devanagari","Nirmala UI",serif;font-size:1.05rem}
-@media(pointer:coarse){.chips a,.chips button,.pill,.rel a,.art-nav a,.crumbs a,.ftr a,.tag,.chip-btn{min-height:44px}.rel a,.art-nav a,.crumbs a,.ftr a{display:inline-block;padding-block:10px}b>a,strong>a,h3>a,h2>a{display:inline-block;padding-block:12px}input,select,textarea,button{min-height:44px}}</style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","@id":"https://ekguru.shop/toolbox/hindi-phrasebook/#app","name":"Hindi Phrasebook","description":"Searchable Hindi phrasebook","url":"https://ekguru.shop/toolbox/hindi-phrasebook/","applicationCategory":"EducationalApplication","operatingSystem":"Any modern browser","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"EkGuru","url":"https://ekguru.shop/"}},{"@id":"https://ekguru.shop/toolbox/hindi-phrasebook/#faq","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many Hindi phrases do I need for a trip to India?","acceptedAnswer":{"@type":"Answer","text":"Fewer than you think, but you need them fast rather than well. Greetings, thank you, how much is this, where is, I do not understand, and the numbers to about a hundred will get you through almost any transaction. Everything else can be pointed at."}},{"@type":"Question","name":"Should I learn phrases or grammar first?","acceptedAnswer":{"@type":"Answer","text":"Phrases, if you are travelling within a few months. Grammar, if you intend to actually speak the language. Phrases give you transactions; grammar gives you sentences you have never heard before, which is what a conversation consists of."}},{"@type":"Question","name":"Why do some phrases have a gender warning?","acceptedAnswer":{"@type":"Answer","text":"Because in Hindi the verb agrees with the speaker's gender. A man says मैं सीख रहा हूँ, a woman says मैं सीख रही हूँ. Learning only one form means being wrong half the time, so both are marked here."}},{"@type":"Question","name":"Is namaste always correct?","acceptedAnswer":{"@type":"Answer","text":"It is always safe, which is not the same thing. Between friends nobody says it — they use a name, or hi. It is the respectful, neutral option with strangers and elders, and that is exactly when a learner needs it."}}]},{"@id":"https://ekguru.shop/toolbox/hindi-phrasebook/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"EkGuru","item":"https://ekguru.shop/"},{"@type":"ListItem","position":2,"name":"Learn Hindi","item":"https://ekguru.shop/learn/"},{"@type":"ListItem","position":3,"name":"Tools","item":"https://ekguru.shop/toolbox/"},{"@type":"ListItem","position":4,"name":"Phrasebook","item":"https://ekguru.shop/toolbox/hindi-phrasebook/"}]}]}</script>
 <!-- Google AdSense. Emitted only because ads.client is set to a valid
      publisher id in js/site-config.js. Clear that value and every one
@@ -154,7 +72,7 @@
 <script src="../../js/site-shell.js" defer></script>
 <script src="../../js/copywatch.js" defer></script>
 <!-- ekguru:shell-header:end -->
-<div class="pw">
+<div class="pw pw-legacy pw-tool">
 
 <p class="crumb"><a href="../../">EkGuru</a> › <a href="../../learn/">Learn Hindi</a> › <a href="../../toolbox/">Tools</a> › Phrasebook</p>
 <!-- ekguru:chapter -->
@@ -185,75 +103,75 @@ level of politeness is a bigger mistake than saying the wrong word.</p>
 
 <table class="tbl" id="pt">
   <tr><th>English</th><th>Hindi</th><th>Sounds like</th><th>Note</th></tr>
-  <tr data-cat="greetings" data-i="0"><td>Hello / greetings</td><td class="dv">नमस्ते</td><td>namaste</td><td>Neutral and safe with anyone. Not used between close friends, who mostly just say hi or the person's name.</td></tr>
-  <tr data-cat="greetings" data-i="1"><td>Hello (more formal)</td><td class="dv">नमस्कार</td><td>namaskaar</td><td>A shade more formal than namaste. Common on television and in speeches.</td></tr>
-  <tr data-cat="greetings" data-i="2"><td>Good morning</td><td class="dv">सुप्रभात</td><td>suprabhaat</td><td>Written and formal. In actual speech most people say namaste, or Good morning in English.</td></tr>
-  <tr data-cat="greetings" data-i="3"><td>How are you?</td><td class="dv">आप कैसे हैं?</td><td>aap kaise hain</td><td>To a woman: आप कैसी हैं? (aap kaisi hain). The adjective agrees with the person you are addressing.</td></tr>
-  <tr data-cat="greetings" data-i="4"><td>How are you? (informal)</td><td class="dv">तुम कैसे हो?</td><td>tum kaise ho</td><td>For friends and people younger than you. Using it with a stranger sounds abrupt.</td></tr>
-  <tr data-cat="greetings" data-i="5"><td>I am fine</td><td class="dv">मैं ठीक हूँ</td><td>main theek hoon</td><td></td></tr>
-  <tr data-cat="greetings" data-i="6"><td>And you?</td><td class="dv">और आप?</td><td>aur aap</td><td></td></tr>
-  <tr data-cat="greetings" data-i="7"><td>Goodbye</td><td class="dv">अलविदा</td><td>alvida</td><td>Heavier than English goodbye — it carries a sense of parting for a long time. Day to day, people say namaste again, or फिर मिलेंगे.</td></tr>
-  <tr data-cat="greetings" data-i="8"><td>See you later</td><td class="dv">फिर मिलेंगे</td><td>phir milenge</td><td>we will meet again</td></tr>
-  <tr data-cat="greetings" data-i="9"><td>Good night</td><td class="dv">शुभ रात्रि</td><td>shubh raatri</td><td>Formal. Good night in English is extremely common in speech.</td></tr>
-  <tr data-cat="courtesy" data-i="10"><td>Thank you</td><td class="dv">धन्यवाद</td><td>dhanyavaad</td><td>Formal and sincere. Between friends and family Hindi often uses no thank-you at all; that is not rudeness, it is a different norm.</td></tr>
-  <tr data-cat="courtesy" data-i="11"><td>Thanks (Urdu-origin, very common)</td><td class="dv">शुक्रिया</td><td>shukriya</td><td>Lighter and warmer than dhanyavaad, and heard far more often in everyday speech.</td></tr>
-  <tr data-cat="courtesy" data-i="12"><td>Please</td><td class="dv">कृपया</td><td>kripaya</td><td>Formal and mostly written. In speech, politeness is carried by the verb ending — कीजिए rather than a separate word for please.</td></tr>
-  <tr data-cat="courtesy" data-i="13"><td>Sorry / excuse me</td><td class="dv">माफ़ कीजिए</td><td>maaf keejiye</td><td>forgive (me)</td></tr>
-  <tr data-cat="courtesy" data-i="14"><td>No problem</td><td class="dv">कोई बात नहीं</td><td>koi baat nahin</td><td>no matter at all</td></tr>
-  <tr data-cat="courtesy" data-i="15"><td>Yes</td><td class="dv">हाँ</td><td>haan</td><td></td></tr>
-  <tr data-cat="courtesy" data-i="16"><td>Yes (polite)</td><td class="dv">जी हाँ</td><td>jee haan</td><td>जी is a respect particle. Adding it turns a blunt yes into a courteous one.</td></tr>
-  <tr data-cat="courtesy" data-i="17"><td>No</td><td class="dv">नहीं</td><td>nahin</td><td></td></tr>
-  <tr data-cat="courtesy" data-i="18"><td>No (polite)</td><td class="dv">जी नहीं</td><td>jee nahin</td><td></td></tr>
-  <tr data-cat="courtesy" data-i="19"><td>Okay / I see</td><td class="dv">अच्छा</td><td>achchha</td><td>Also means good. As a response its meaning shifts with tone: agreement, mild surprise, or is that so.</td></tr>
-  <tr data-cat="introductions" data-i="20"><td>My name is …</td><td class="dv">मेरा नाम … है</td><td>mera naam … hai</td><td></td></tr>
-  <tr data-cat="introductions" data-i="21"><td>What is your name?</td><td class="dv">आपका नाम क्या है?</td><td>aapka naam kya hai</td><td></td></tr>
-  <tr data-cat="introductions" data-i="22"><td>I am from …</td><td class="dv">मैं … से हूँ</td><td>main … se hoon</td><td></td></tr>
-  <tr data-cat="introductions" data-i="23"><td>Where are you from?</td><td class="dv">आप कहाँ से हैं?</td><td>aap kahaan se hain</td><td></td></tr>
-  <tr data-cat="introductions" data-i="24"><td>Nice to meet you</td><td class="dv">आपसे मिलकर अच्छा लगा</td><td>aapse milkar achchha laga</td><td></td></tr>
-  <tr data-cat="introductions" data-i="25"><td>I am learning Hindi</td><td class="dv">मैं हिंदी सीख रहा हूँ</td><td>main hindi seekh raha hoon</td><td>A woman says सीख रही हूँ (seekh rahi hoon). Hindi verbs agree with the speaker's gender.</td></tr>
-  <tr data-cat="introductions" data-i="26"><td>I speak a little Hindi</td><td class="dv">मैं थोड़ी हिंदी बोलता हूँ</td><td>main thodi hindi bolta hoon</td><td>A woman says बोलती हूँ (bolti hoon).</td></tr>
-  <tr data-cat="survival" data-i="27"><td>I don't understand</td><td class="dv">मुझे समझ नहीं आया</td><td>mujhe samajh nahin aaya</td><td></td></tr>
-  <tr data-cat="survival" data-i="28"><td>Please speak slowly</td><td class="dv">ज़रा धीरे बोलिए</td><td>zara dheere boliye</td><td></td></tr>
-  <tr data-cat="survival" data-i="29"><td>Say it again, please</td><td class="dv">फिर से कहिए</td><td>phir se kahiye</td><td></td></tr>
-  <tr data-cat="survival" data-i="30"><td>Do you speak English?</td><td class="dv">क्या आप अंग्रेज़ी बोलते हैं?</td><td>kya aap angrezi bolte hain</td><td></td></tr>
-  <tr data-cat="survival" data-i="31"><td>What does this mean?</td><td class="dv">इसका क्या मतलब है?</td><td>iska kya matlab hai</td><td></td></tr>
-  <tr data-cat="survival" data-i="32"><td>How do you say this in Hindi?</td><td class="dv">इसे हिंदी में क्या कहते हैं?</td><td>ise hindi mein kya kehte hain</td><td></td></tr>
-  <tr data-cat="survival" data-i="33"><td>Help!</td><td class="dv">मदद कीजिए!</td><td>madad keejiye</td><td></td></tr>
-  <tr data-cat="survival" data-i="34"><td>I need a doctor</td><td class="dv">मुझे डॉक्टर चाहिए</td><td>mujhe doctor chahiye</td><td></td></tr>
-  <tr data-cat="survival" data-i="35"><td>Where is the toilet?</td><td class="dv">बाथरूम कहाँ है?</td><td>bathroom kahaan hai</td><td>बाथरूम is the word people actually use, borrowed from English. शौचालय exists but is signage Hindi.</td></tr>
-  <tr data-cat="travel" data-i="36"><td>How much is this?</td><td class="dv">यह कितने का है?</td><td>yeh kitne ka hai</td><td></td></tr>
-  <tr data-cat="travel" data-i="37"><td>That's too expensive</td><td class="dv">यह बहुत महँगा है</td><td>yeh bahut mehanga hai</td><td></td></tr>
-  <tr data-cat="travel" data-i="38"><td>Please reduce the price a little</td><td class="dv">थोड़ा कम कीजिए</td><td>thoda kam keejiye</td><td></td></tr>
-  <tr data-cat="travel" data-i="39"><td>Where is …?</td><td class="dv">… कहाँ है?</td><td>… kahaan hai</td><td></td></tr>
-  <tr data-cat="travel" data-i="40"><td>Go straight</td><td class="dv">सीधे जाइए</td><td>seedhe jaaiye</td><td></td></tr>
-  <tr data-cat="travel" data-i="41"><td>Turn left</td><td class="dv">बाएँ मुड़िए</td><td>baayen mudiye</td><td></td></tr>
-  <tr data-cat="travel" data-i="42"><td>Turn right</td><td class="dv">दाएँ मुड़िए</td><td>daayen mudiye</td><td></td></tr>
-  <tr data-cat="travel" data-i="43"><td>Stop here</td><td class="dv">यहीं रोकिए</td><td>yaheen rokiye</td><td></td></tr>
-  <tr data-cat="travel" data-i="44"><td>How far is it?</td><td class="dv">कितनी दूर है?</td><td>kitni door hai</td><td></td></tr>
-  <tr data-cat="travel" data-i="45"><td>I want to go to …</td><td class="dv">मुझे … जाना है</td><td>mujhe … jaana hai</td><td></td></tr>
-  <tr data-cat="travel" data-i="46"><td>Please use the meter</td><td class="dv">मीटर से चलिए</td><td>meter se chaliye</td><td>Standard and expected in an auto-rickshaw. Saying it first, calmly, changes the negotiation.</td></tr>
-  <tr data-cat="food" data-i="47"><td>I am hungry</td><td class="dv">मुझे भूख लगी है</td><td>mujhe bhookh lagi hai</td><td>hunger has attached to me</td></tr>
-  <tr data-cat="food" data-i="48"><td>I am thirsty</td><td class="dv">मुझे प्यास लगी है</td><td>mujhe pyaas lagi hai</td><td></td></tr>
-  <tr data-cat="food" data-i="49"><td>Water, please</td><td class="dv">पानी दीजिए</td><td>paani deejiye</td><td></td></tr>
-  <tr data-cat="food" data-i="50"><td>Not spicy, please</td><td class="dv">तीखा मत बनाइए</td><td>teekha mat banaaiye</td><td>तीखा is chilli-hot. मसालेदार means well-spiced, which is not the same thing and is usually what you do want.</td></tr>
-  <tr data-cat="food" data-i="51"><td>I am vegetarian</td><td class="dv">मैं शाकाहारी हूँ</td><td>main shaakaahaari hoon</td><td></td></tr>
-  <tr data-cat="food" data-i="52"><td>It is delicious</td><td class="dv">बहुत स्वादिष्ट है</td><td>bahut svaadisht hai</td><td></td></tr>
-  <tr data-cat="food" data-i="53"><td>The bill, please</td><td class="dv">बिल दीजिए</td><td>bill deejiye</td><td></td></tr>
-  <tr data-cat="food" data-i="54"><td>I have eaten enough</td><td class="dv">बस, बहुत हो गया</td><td>bas, bahut ho gaya</td><td>Useful and often necessary. Refusing more food once is treated as politeness rather than a real answer.</td></tr>
-  <tr data-cat="family" data-i="55"><td>Mother</td><td class="dv">माँ</td><td>maa</td><td></td></tr>
-  <tr data-cat="family" data-i="56"><td>Father</td><td class="dv">पिता</td><td>pita</td><td>पापा (papa) is what people actually call their father.</td></tr>
-  <tr data-cat="family" data-i="57"><td>Elder brother</td><td class="dv">भाई</td><td>bhai</td><td>बड़ा भाई for elder specifically. Also used for any man of similar age, affectionately.</td></tr>
-  <tr data-cat="family" data-i="58"><td>Elder sister</td><td class="dv">दीदी</td><td>didi</td><td>Widely used for any older woman you are friendly with, not only a sister.</td></tr>
-  <tr data-cat="family" data-i="59"><td>Son</td><td class="dv">बेटा</td><td>beta</td><td></td></tr>
-  <tr data-cat="family" data-i="60"><td>Daughter</td><td class="dv">बेटी</td><td>beti</td><td></td></tr>
-  <tr data-cat="family" data-i="61"><td>Wife</td><td class="dv">पत्नी</td><td>patni</td><td></td></tr>
-  <tr data-cat="family" data-i="62"><td>Husband</td><td class="dv">पति</td><td>pati</td><td></td></tr>
-  <tr data-cat="family" data-i="63"><td>Friend</td><td class="dv">दोस्त</td><td>dost</td><td></td></tr>
-  <tr data-cat="feelings" data-i="64"><td>I like it</td><td class="dv">मुझे पसंद है</td><td>mujhe pasand hai</td><td>to me it is pleasing — the thing is the subject, not you</td></tr>
-  <tr data-cat="feelings" data-i="65"><td>I love you</td><td class="dv">मैं तुमसे प्यार करता हूँ</td><td>main tumse pyaar karta hoon</td><td>A woman says करती हूँ (karti hoon). This is the film version; in real life people more often say it in English or not at all.</td></tr>
-  <tr data-cat="feelings" data-i="66"><td>I am happy</td><td class="dv">मैं ख़ुश हूँ</td><td>main khush hoon</td><td></td></tr>
-  <tr data-cat="feelings" data-i="67"><td>I am tired</td><td class="dv">मैं थक गया हूँ</td><td>main thak gaya hoon</td><td>A woman: थक गई हूँ (thak gayi hoon).</td></tr>
-  <tr data-cat="feelings" data-i="68"><td>Don't worry</td><td class="dv">चिंता मत कीजिए</td><td>chinta mat keejiye</td><td></td></tr>
+  <tr data-cat="greetings" data-i="0"><td data-h="English">Hello / greetings</td><td data-h="Hindi" class="dv">नमस्ते</td><td data-h="Sounds like">namaste</td><td data-h="Note">Neutral and safe with anyone. Not used between close friends, who mostly just say hi or the person's name.</td></tr>
+  <tr data-cat="greetings" data-i="1"><td data-h="English">Hello (more formal)</td><td data-h="Hindi" class="dv">नमस्कार</td><td data-h="Sounds like">namaskaar</td><td data-h="Note">A shade more formal than namaste. Common on television and in speeches.</td></tr>
+  <tr data-cat="greetings" data-i="2"><td data-h="English">Good morning</td><td data-h="Hindi" class="dv">सुप्रभात</td><td data-h="Sounds like">suprabhaat</td><td data-h="Note">Written and formal. In actual speech most people say namaste, or Good morning in English.</td></tr>
+  <tr data-cat="greetings" data-i="3"><td data-h="English">How are you?</td><td data-h="Hindi" class="dv">आप कैसे हैं?</td><td data-h="Sounds like">aap kaise hain</td><td data-h="Note">To a woman: आप कैसी हैं? (aap kaisi hain). The adjective agrees with the person you are addressing.</td></tr>
+  <tr data-cat="greetings" data-i="4"><td data-h="English">How are you? (informal)</td><td data-h="Hindi" class="dv">तुम कैसे हो?</td><td data-h="Sounds like">tum kaise ho</td><td data-h="Note">For friends and people younger than you. Using it with a stranger sounds abrupt.</td></tr>
+  <tr data-cat="greetings" data-i="5"><td data-h="English">I am fine</td><td data-h="Hindi" class="dv">मैं ठीक हूँ</td><td data-h="Sounds like">main theek hoon</td><td data-h="Note"></td></tr>
+  <tr data-cat="greetings" data-i="6"><td data-h="English">And you?</td><td data-h="Hindi" class="dv">और आप?</td><td data-h="Sounds like">aur aap</td><td data-h="Note"></td></tr>
+  <tr data-cat="greetings" data-i="7"><td data-h="English">Goodbye</td><td data-h="Hindi" class="dv">अलविदा</td><td data-h="Sounds like">alvida</td><td data-h="Note">Heavier than English goodbye — it carries a sense of parting for a long time. Day to day, people say namaste again, or फिर मिलेंगे.</td></tr>
+  <tr data-cat="greetings" data-i="8"><td data-h="English">See you later</td><td data-h="Hindi" class="dv">फिर मिलेंगे</td><td data-h="Sounds like">phir milenge</td><td data-h="Note">we will meet again</td></tr>
+  <tr data-cat="greetings" data-i="9"><td data-h="English">Good night</td><td data-h="Hindi" class="dv">शुभ रात्रि</td><td data-h="Sounds like">shubh raatri</td><td data-h="Note">Formal. Good night in English is extremely common in speech.</td></tr>
+  <tr data-cat="courtesy" data-i="10"><td data-h="English">Thank you</td><td data-h="Hindi" class="dv">धन्यवाद</td><td data-h="Sounds like">dhanyavaad</td><td data-h="Note">Formal and sincere. Between friends and family Hindi often uses no thank-you at all; that is not rudeness, it is a different norm.</td></tr>
+  <tr data-cat="courtesy" data-i="11"><td data-h="English">Thanks (Urdu-origin, very common)</td><td data-h="Hindi" class="dv">शुक्रिया</td><td data-h="Sounds like">shukriya</td><td data-h="Note">Lighter and warmer than dhanyavaad, and heard far more often in everyday speech.</td></tr>
+  <tr data-cat="courtesy" data-i="12"><td data-h="English">Please</td><td data-h="Hindi" class="dv">कृपया</td><td data-h="Sounds like">kripaya</td><td data-h="Note">Formal and mostly written. In speech, politeness is carried by the verb ending — कीजिए rather than a separate word for please.</td></tr>
+  <tr data-cat="courtesy" data-i="13"><td data-h="English">Sorry / excuse me</td><td data-h="Hindi" class="dv">माफ़ कीजिए</td><td data-h="Sounds like">maaf keejiye</td><td data-h="Note">forgive (me)</td></tr>
+  <tr data-cat="courtesy" data-i="14"><td data-h="English">No problem</td><td data-h="Hindi" class="dv">कोई बात नहीं</td><td data-h="Sounds like">koi baat nahin</td><td data-h="Note">no matter at all</td></tr>
+  <tr data-cat="courtesy" data-i="15"><td data-h="English">Yes</td><td data-h="Hindi" class="dv">हाँ</td><td data-h="Sounds like">haan</td><td data-h="Note"></td></tr>
+  <tr data-cat="courtesy" data-i="16"><td data-h="English">Yes (polite)</td><td data-h="Hindi" class="dv">जी हाँ</td><td data-h="Sounds like">jee haan</td><td data-h="Note">जी is a respect particle. Adding it turns a blunt yes into a courteous one.</td></tr>
+  <tr data-cat="courtesy" data-i="17"><td data-h="English">No</td><td data-h="Hindi" class="dv">नहीं</td><td data-h="Sounds like">nahin</td><td data-h="Note"></td></tr>
+  <tr data-cat="courtesy" data-i="18"><td data-h="English">No (polite)</td><td data-h="Hindi" class="dv">जी नहीं</td><td data-h="Sounds like">jee nahin</td><td data-h="Note"></td></tr>
+  <tr data-cat="courtesy" data-i="19"><td data-h="English">Okay / I see</td><td data-h="Hindi" class="dv">अच्छा</td><td data-h="Sounds like">achchha</td><td data-h="Note">Also means good. As a response its meaning shifts with tone: agreement, mild surprise, or is that so.</td></tr>
+  <tr data-cat="introductions" data-i="20"><td data-h="English">My name is …</td><td data-h="Hindi" class="dv">मेरा नाम … है</td><td data-h="Sounds like">mera naam … hai</td><td data-h="Note"></td></tr>
+  <tr data-cat="introductions" data-i="21"><td data-h="English">What is your name?</td><td data-h="Hindi" class="dv">आपका नाम क्या है?</td><td data-h="Sounds like">aapka naam kya hai</td><td data-h="Note"></td></tr>
+  <tr data-cat="introductions" data-i="22"><td data-h="English">I am from …</td><td data-h="Hindi" class="dv">मैं … से हूँ</td><td data-h="Sounds like">main … se hoon</td><td data-h="Note"></td></tr>
+  <tr data-cat="introductions" data-i="23"><td data-h="English">Where are you from?</td><td data-h="Hindi" class="dv">आप कहाँ से हैं?</td><td data-h="Sounds like">aap kahaan se hain</td><td data-h="Note"></td></tr>
+  <tr data-cat="introductions" data-i="24"><td data-h="English">Nice to meet you</td><td data-h="Hindi" class="dv">आपसे मिलकर अच्छा लगा</td><td data-h="Sounds like">aapse milkar achchha laga</td><td data-h="Note"></td></tr>
+  <tr data-cat="introductions" data-i="25"><td data-h="English">I am learning Hindi</td><td data-h="Hindi" class="dv">मैं हिंदी सीख रहा हूँ</td><td data-h="Sounds like">main hindi seekh raha hoon</td><td data-h="Note">A woman says सीख रही हूँ (seekh rahi hoon). Hindi verbs agree with the speaker's gender.</td></tr>
+  <tr data-cat="introductions" data-i="26"><td data-h="English">I speak a little Hindi</td><td data-h="Hindi" class="dv">मैं थोड़ी हिंदी बोलता हूँ</td><td data-h="Sounds like">main thodi hindi bolta hoon</td><td data-h="Note">A woman says बोलती हूँ (bolti hoon).</td></tr>
+  <tr data-cat="survival" data-i="27"><td data-h="English">I don't understand</td><td data-h="Hindi" class="dv">मुझे समझ नहीं आया</td><td data-h="Sounds like">mujhe samajh nahin aaya</td><td data-h="Note"></td></tr>
+  <tr data-cat="survival" data-i="28"><td data-h="English">Please speak slowly</td><td data-h="Hindi" class="dv">ज़रा धीरे बोलिए</td><td data-h="Sounds like">zara dheere boliye</td><td data-h="Note"></td></tr>
+  <tr data-cat="survival" data-i="29"><td data-h="English">Say it again, please</td><td data-h="Hindi" class="dv">फिर से कहिए</td><td data-h="Sounds like">phir se kahiye</td><td data-h="Note"></td></tr>
+  <tr data-cat="survival" data-i="30"><td data-h="English">Do you speak English?</td><td data-h="Hindi" class="dv">क्या आप अंग्रेज़ी बोलते हैं?</td><td data-h="Sounds like">kya aap angrezi bolte hain</td><td data-h="Note"></td></tr>
+  <tr data-cat="survival" data-i="31"><td data-h="English">What does this mean?</td><td data-h="Hindi" class="dv">इसका क्या मतलब है?</td><td data-h="Sounds like">iska kya matlab hai</td><td data-h="Note"></td></tr>
+  <tr data-cat="survival" data-i="32"><td data-h="English">How do you say this in Hindi?</td><td data-h="Hindi" class="dv">इसे हिंदी में क्या कहते हैं?</td><td data-h="Sounds like">ise hindi mein kya kehte hain</td><td data-h="Note"></td></tr>
+  <tr data-cat="survival" data-i="33"><td data-h="English">Help!</td><td data-h="Hindi" class="dv">मदद कीजिए!</td><td data-h="Sounds like">madad keejiye</td><td data-h="Note"></td></tr>
+  <tr data-cat="survival" data-i="34"><td data-h="English">I need a doctor</td><td data-h="Hindi" class="dv">मुझे डॉक्टर चाहिए</td><td data-h="Sounds like">mujhe doctor chahiye</td><td data-h="Note"></td></tr>
+  <tr data-cat="survival" data-i="35"><td data-h="English">Where is the toilet?</td><td data-h="Hindi" class="dv">बाथरूम कहाँ है?</td><td data-h="Sounds like">bathroom kahaan hai</td><td data-h="Note">बाथरूम is the word people actually use, borrowed from English. शौचालय exists but is signage Hindi.</td></tr>
+  <tr data-cat="travel" data-i="36"><td data-h="English">How much is this?</td><td data-h="Hindi" class="dv">यह कितने का है?</td><td data-h="Sounds like">yeh kitne ka hai</td><td data-h="Note"></td></tr>
+  <tr data-cat="travel" data-i="37"><td data-h="English">That's too expensive</td><td data-h="Hindi" class="dv">यह बहुत महँगा है</td><td data-h="Sounds like">yeh bahut mehanga hai</td><td data-h="Note"></td></tr>
+  <tr data-cat="travel" data-i="38"><td data-h="English">Please reduce the price a little</td><td data-h="Hindi" class="dv">थोड़ा कम कीजिए</td><td data-h="Sounds like">thoda kam keejiye</td><td data-h="Note"></td></tr>
+  <tr data-cat="travel" data-i="39"><td data-h="English">Where is …?</td><td data-h="Hindi" class="dv">… कहाँ है?</td><td data-h="Sounds like">… kahaan hai</td><td data-h="Note"></td></tr>
+  <tr data-cat="travel" data-i="40"><td data-h="English">Go straight</td><td data-h="Hindi" class="dv">सीधे जाइए</td><td data-h="Sounds like">seedhe jaaiye</td><td data-h="Note"></td></tr>
+  <tr data-cat="travel" data-i="41"><td data-h="English">Turn left</td><td data-h="Hindi" class="dv">बाएँ मुड़िए</td><td data-h="Sounds like">baayen mudiye</td><td data-h="Note"></td></tr>
+  <tr data-cat="travel" data-i="42"><td data-h="English">Turn right</td><td data-h="Hindi" class="dv">दाएँ मुड़िए</td><td data-h="Sounds like">daayen mudiye</td><td data-h="Note"></td></tr>
+  <tr data-cat="travel" data-i="43"><td data-h="English">Stop here</td><td data-h="Hindi" class="dv">यहीं रोकिए</td><td data-h="Sounds like">yaheen rokiye</td><td data-h="Note"></td></tr>
+  <tr data-cat="travel" data-i="44"><td data-h="English">How far is it?</td><td data-h="Hindi" class="dv">कितनी दूर है?</td><td data-h="Sounds like">kitni door hai</td><td data-h="Note"></td></tr>
+  <tr data-cat="travel" data-i="45"><td data-h="English">I want to go to …</td><td data-h="Hindi" class="dv">मुझे … जाना है</td><td data-h="Sounds like">mujhe … jaana hai</td><td data-h="Note"></td></tr>
+  <tr data-cat="travel" data-i="46"><td data-h="English">Please use the meter</td><td data-h="Hindi" class="dv">मीटर से चलिए</td><td data-h="Sounds like">meter se chaliye</td><td data-h="Note">Standard and expected in an auto-rickshaw. Saying it first, calmly, changes the negotiation.</td></tr>
+  <tr data-cat="food" data-i="47"><td data-h="English">I am hungry</td><td data-h="Hindi" class="dv">मुझे भूख लगी है</td><td data-h="Sounds like">mujhe bhookh lagi hai</td><td data-h="Note">hunger has attached to me</td></tr>
+  <tr data-cat="food" data-i="48"><td data-h="English">I am thirsty</td><td data-h="Hindi" class="dv">मुझे प्यास लगी है</td><td data-h="Sounds like">mujhe pyaas lagi hai</td><td data-h="Note"></td></tr>
+  <tr data-cat="food" data-i="49"><td data-h="English">Water, please</td><td data-h="Hindi" class="dv">पानी दीजिए</td><td data-h="Sounds like">paani deejiye</td><td data-h="Note"></td></tr>
+  <tr data-cat="food" data-i="50"><td data-h="English">Not spicy, please</td><td data-h="Hindi" class="dv">तीखा मत बनाइए</td><td data-h="Sounds like">teekha mat banaaiye</td><td data-h="Note">तीखा is chilli-hot. मसालेदार means well-spiced, which is not the same thing and is usually what you do want.</td></tr>
+  <tr data-cat="food" data-i="51"><td data-h="English">I am vegetarian</td><td data-h="Hindi" class="dv">मैं शाकाहारी हूँ</td><td data-h="Sounds like">main shaakaahaari hoon</td><td data-h="Note"></td></tr>
+  <tr data-cat="food" data-i="52"><td data-h="English">It is delicious</td><td data-h="Hindi" class="dv">बहुत स्वादिष्ट है</td><td data-h="Sounds like">bahut svaadisht hai</td><td data-h="Note"></td></tr>
+  <tr data-cat="food" data-i="53"><td data-h="English">The bill, please</td><td data-h="Hindi" class="dv">बिल दीजिए</td><td data-h="Sounds like">bill deejiye</td><td data-h="Note"></td></tr>
+  <tr data-cat="food" data-i="54"><td data-h="English">I have eaten enough</td><td data-h="Hindi" class="dv">बस, बहुत हो गया</td><td data-h="Sounds like">bas, bahut ho gaya</td><td data-h="Note">Useful and often necessary. Refusing more food once is treated as politeness rather than a real answer.</td></tr>
+  <tr data-cat="family" data-i="55"><td data-h="English">Mother</td><td data-h="Hindi" class="dv">माँ</td><td data-h="Sounds like">maa</td><td data-h="Note"></td></tr>
+  <tr data-cat="family" data-i="56"><td data-h="English">Father</td><td data-h="Hindi" class="dv">पिता</td><td data-h="Sounds like">pita</td><td data-h="Note">पापा (papa) is what people actually call their father.</td></tr>
+  <tr data-cat="family" data-i="57"><td data-h="English">Elder brother</td><td data-h="Hindi" class="dv">भाई</td><td data-h="Sounds like">bhai</td><td data-h="Note">बड़ा भाई for elder specifically. Also used for any man of similar age, affectionately.</td></tr>
+  <tr data-cat="family" data-i="58"><td data-h="English">Elder sister</td><td data-h="Hindi" class="dv">दीदी</td><td data-h="Sounds like">didi</td><td data-h="Note">Widely used for any older woman you are friendly with, not only a sister.</td></tr>
+  <tr data-cat="family" data-i="59"><td data-h="English">Son</td><td data-h="Hindi" class="dv">बेटा</td><td data-h="Sounds like">beta</td><td data-h="Note"></td></tr>
+  <tr data-cat="family" data-i="60"><td data-h="English">Daughter</td><td data-h="Hindi" class="dv">बेटी</td><td data-h="Sounds like">beti</td><td data-h="Note"></td></tr>
+  <tr data-cat="family" data-i="61"><td data-h="English">Wife</td><td data-h="Hindi" class="dv">पत्नी</td><td data-h="Sounds like">patni</td><td data-h="Note"></td></tr>
+  <tr data-cat="family" data-i="62"><td data-h="English">Husband</td><td data-h="Hindi" class="dv">पति</td><td data-h="Sounds like">pati</td><td data-h="Note"></td></tr>
+  <tr data-cat="family" data-i="63"><td data-h="English">Friend</td><td data-h="Hindi" class="dv">दोस्त</td><td data-h="Sounds like">dost</td><td data-h="Note"></td></tr>
+  <tr data-cat="feelings" data-i="64"><td data-h="English">I like it</td><td data-h="Hindi" class="dv">मुझे पसंद है</td><td data-h="Sounds like">mujhe pasand hai</td><td data-h="Note">to me it is pleasing — the thing is the subject, not you</td></tr>
+  <tr data-cat="feelings" data-i="65"><td data-h="English">I love you</td><td data-h="Hindi" class="dv">मैं तुमसे प्यार करता हूँ</td><td data-h="Sounds like">main tumse pyaar karta hoon</td><td data-h="Note">A woman says करती हूँ (karti hoon). This is the film version; in real life people more often say it in English or not at all.</td></tr>
+  <tr data-cat="feelings" data-i="66"><td data-h="English">I am happy</td><td data-h="Hindi" class="dv">मैं ख़ुश हूँ</td><td data-h="Sounds like">main khush hoon</td><td data-h="Note"></td></tr>
+  <tr data-cat="feelings" data-i="67"><td data-h="English">I am tired</td><td data-h="Hindi" class="dv">मैं थक गया हूँ</td><td data-h="Sounds like">main thak gaya hoon</td><td data-h="Note">A woman: थक गई हूँ (thak gayi hoon).</td></tr>
+  <tr data-cat="feelings" data-i="68"><td data-h="English">Don't worry</td><td data-h="Hindi" class="dv">चिंता मत कीजिए</td><td data-h="Sounds like">chinta mat keejiye</td><td data-h="Note"></td></tr>
 </table>
 
 <h2>The thing phrasebooks get wrong</h2>
@@ -490,6 +408,23 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
 <script src="../../js/storybook.js" defer></script>
 <!-- ekguru:consent -->
 <script src="../../js/cookie-consent.js" defer></script>
+<!-- ekguru:pw-bands:start -->
+<nav class="pw-next" aria-label="Next step">
+  <b>Turn a tool on, then learn around it</b>
+  <p>The free Hindi course is what these tools belong to — A1 to C2, 36 lessons, and it works
+  without an account.</p>
+  <p><a class="btn btn-primary" href="/courses/#/hi">Open the Hindi course</a></p>
+</nav>
+<footer class="pw-support">
+  <div>
+    <b>Every lesson here is free, and always will be.</b>
+    <p>No account, no paywall, and never an ad on the free material — that is the
+    whole idea. Keeping it that way is the only thing this page asks of you.</p>
+  </div>
+  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
+  <a href="/find-tutors.html">Book a trial lesson</a>
+</footer>
+<!-- ekguru:pw-bands:end -->
 <!-- ekguru:shell-footer:start -->
 <footer class="ftr">
   <div class="wrap ftr-in">

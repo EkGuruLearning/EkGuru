@@ -22,8 +22,11 @@ deploys:
  12  tutor layer (script tags, profile pages + sitemaps + feed, home cards,
      the six market pages, every other page that lists tutors)
  13  legal pages (terms/privacy/disclaimer/copyright get ids + a contents
-     card), site shell (one header + one footer on all 1,563 pages), copy index
-     (the check phase also runs the ownership, search-facet and drawer tests)
+     card), courses by country, the reading layer (969 hand-written pages onto
+     one stylesheet, plus the support band and each page's next step), site
+     shell (one header + one footer on all 1,564 pages), copy index (the check
+     phase also runs the ownership, search-facet, drawer, course and reading
+     layer tests)
  14  doctor (SEO + privacy + gate + admin stats)
 
 The two layers in 11-12 are generated from the same data the pages are, so
@@ -79,12 +82,14 @@ def main():
         run("legal pages --check (terms, privacy, disclaimer, copyright)",
             ["python3", "tools/build-legal-pages.py", "--check"])
         run("courses by country --check", ["python3", "tools/build-course-countries.py", "--check"])
+        run("reading layer --check (969 hand-written pages)", ["python3", "tools/build-legacy-pages.py", "--check"])
         run("site shell --check (header + footer on every page)", ["node", "tools/build-shell.js", "--check"])
         run("copy index --check", ["node", "tools/build-copy-index.js", "--check"])
         run("ownership test (matcher vs its own corpus)", ["node", "tools/test-copy-index.mjs"])
         run("search facet test (country + language)", ["node", "tools/test-search-facets.mjs"])
         run("header drawer test (one owner, one open)", ["node", "tools/test-shell-drawer.mjs"])
         run("course country search test", ["node", "tools/test-course-country.mjs"])
+        run("reading layer test (one stylesheet, two bands)", ["node", "tools/test-reading-layer.mjs"])
         run("sheet-apply test (sheet row -> site)", ["node", "tools/test-sheet-apply.js"])
         run("experience DOM test", ["node", "tools/test-experience-dom.mjs"])
         print("\n✔ every generated layer is up to date.")
@@ -114,6 +119,7 @@ def main():
     run("roster rows (long-tail tutor lists)", ["node", "tools/build-roster-rows.js"])
     run("legal pages (contents card + clause ids)", ["python3", "tools/build-legal-pages.py"])
     run("courses by country (194 countries + the build queue)", ["python3", "tools/build-course-countries.py"])
+    run("reading layer (969 pages onto the design system)", ["python3", "tools/build-legacy-pages.py"])
     run("site shell (one header + one footer, every page)", ["node", "tools/build-shell.js"])
     run("copy index (ownership fingerprints)", ["node", "tools/build-copy-index.js"])
     run("doctor", ["node", "tools/doctor.js"])

@@ -26,36 +26,7 @@
 <link rel="manifest" href="../../manifest.webmanifest">
 <meta name="theme-color" content="#4f32d9">
 <link rel="stylesheet" href="../../css/style.min.css">
-<style>
-.pw{max-width:860px;margin:0 auto;padding:0 20px 64px}
-.pw h1{font-size:clamp(1.6rem,4.4vw,2.05rem);line-height:1.24;margin:24px 0 14px}
-.pw h2{font-size:clamp(1.12rem,3vw,1.3rem);line-height:1.3;margin:34px 0 12px}
-.pw p,.pw li{line-height:1.72;font-size:1rem}
-.pw p,.pw ul{max-width:72ch}
-.lede{color:var(--ink-2);font-size:1.06rem;line-height:1.7}
-.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0;word-break:break-word}
-.crumb a{color:var(--muted)}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
-.fact{border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:var(--bg-soft)}
-.fact b{display:block;font-size:1.05rem;margin-bottom:2px;color:var(--ink)}
-.fact span{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
-table.lang{width:100%;border-collapse:collapse;margin:6px 0 8px;font-size:.95rem}
-table.lang th{text-align:left;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding:8px 10px;border-bottom:2px solid var(--line)}
-table.lang td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.6}
-table.lang td.nm{font-weight:600;white-space:nowrap}
-table.lang td.nt{font-size:.9rem;color:var(--ink-2)}
-.badge{display:inline-block;font-size:.72rem;border:1px solid var(--line);border-radius:10px;padding:1px 8px;margin:2px 4px 0 0;color:var(--muted);white-space:nowrap}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
-.chips a{font-size:.87rem;border:1px solid var(--line);border-radius:20px;padding:7px 13px;text-decoration:none;background:var(--card,#fff);color:var(--brand);min-height:44px;display:inline-flex;align-items:center}
-.research{border:1px dashed var(--line);border-radius:12px;padding:13px 16px;margin:26px 0;font-size:.9rem;color:var(--ink-2);background:var(--bg-soft)}
-details.more{margin:10px 0 26px;border:1px solid var(--line);border-radius:12px;padding:12px 16px;background:var(--card,#fff)}
-details.more summary{cursor:pointer;font-weight:600}
-@media(max-width:640px){table.lang th:nth-child(4),table.lang td:nth-child(4){display:none}}
-.say{border:1px solid var(--line);background:var(--card,#fff);border-radius:8px;cursor:pointer;font-size:.8rem;padding:2px 8px;margin-left:8px;color:var(--brand);vertical-align:middle}
-.say:hover{border-color:var(--brand-2)}
-@media(pointer:coarse){.say{min-height:44px;min-width:44px}}
 
-</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://ekguru.shop/world-languages/indonesia/#page", "name": "Languages of Indonesia", "description": "Languages of Indonesia: Indonesian; also Javanese, Sundanese, Madurese, Minangkabau, Buginese. Official languages, speaker numbers, scripts and notes.", "url": "https://ekguru.shop/world-languages/indonesia/", "inLanguage": "en", "isPartOf": {"@id": "https://ekguru.shop/#website"}}]}</script>
 </head>
 <body>
@@ -81,7 +52,7 @@ details.more summary{cursor:pointer;font-weight:600}
 <script src="../../js/site-shell.js" defer></script>
 <script src="../../js/copywatch.js" defer></script>
 <!-- ekguru:shell-header:end -->
-<div class="pw">
+<div class="pw pw-legacy">
 <p class="crumb"><a href="../../">EkGuru</a> › <a href="../">World languages</a> › Indonesia</p>
 
 <h1>Languages of Indonesia</h1>
@@ -91,35 +62,35 @@ details.more summary{cursor:pointer;font-weight:600}
 <h2>Official & national languages</h2>
 <table class='lang'>
 <tr><th>Language</th><th>ISO</th><th>Speakers</th><th>Script</th><th>Notes</th></tr>
-<tr><td class='nm'>Indonesian<br><span style='font-weight:400;color:var(--muted)'>Bahasa Indonesia</span> <button class='say' type='button' data-say='Bahasa Indonesia' data-lang='id' aria-label='Hear the name in Indonesian'>🔊</button><br><span class="badge">National</span><span class="badge">Official</span></td><td><code>ind</code></td><td>≈45M L1</td><td>Latn</td><td class='nt'>Art.36 state language; Youth Pledge 1928 (Sumpah Pemuda) root — a trade Malay elevated to unifier of 700 languages. 639-1 &#x27;id&#x27; (SIL). L1 ~45M (Jakarta + youth) but L2 ~160M+ — the L1/L2 inversion is the famous fact. msa member.</td></tr>
+<tr><td data-h="Language" class='nm'>Indonesian<br><span style='font-weight:400;color:var(--muted)'>Bahasa Indonesia</span> <button class='say' type='button' data-say='Bahasa Indonesia' data-lang='id' aria-label='Hear the name in Indonesian'>🔊</button><br><span class="badge">National</span><span class="badge">Official</span></td><td data-h="ISO"><code>ind</code></td><td data-h="Speakers">≈45M L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Art.36 state language; Youth Pledge 1928 (Sumpah Pemuda) root — a trade Malay elevated to unifier of 700 languages. 639-1 &#x27;id&#x27; (SIL). L1 ~45M (Jakarta + youth) but L2 ~160M+ — the L1/L2 inversion is the famous fact. msa member.</td></tr>
 </table>
 <h2>Widely spoken</h2>
 <table class='lang'>
 <tr><th>Language</th><th>ISO</th><th>Speakers</th><th>Script</th><th>Notes</th></tr>
-<tr><td class='nm'>English<br><span style='font-weight:400;color:var(--muted)'>English</span> <button class='say' type='button' data-say='English' data-lang='en' aria-label='Hear the name in English'>🔊</button><br><span class="badge">Widely Spoken</span></td><td><code>eng</code></td><td>unknown</td><td>Latn</td><td class='nt'>Business/tourism/higher-education English (Jakarta/Bali). No official function; Dutch colonial layer is gone (see long-tail).</td></tr>
-<tr><td class='nm'>Indonesian<br><span style='font-weight:400;color:var(--muted)'>Bahasa Indonesia</span> <button class='say' type='button' data-say='Bahasa Indonesia' data-lang='id' aria-label='Hear the name in Indonesian'>🔊</button><br><span class="badge">Widely Spoken</span><span class="badge">Widely Spoken · lingua franca</span></td><td><code>ind</code></td><td>≈45M L1</td><td>Latn</td><td class='nt'>Art.36 state language; Youth Pledge 1928 (Sumpah Pemuda) root — a trade Malay elevated to unifier of 700 languages. 639-1 &#x27;id&#x27; (SIL). L1 ~45M (Jakarta + youth) but L2 ~160M+ — the L1/L2 inversion is the famous fact. msa member.</td></tr>
+<tr><td data-h="Language" class='nm'>English<br><span style='font-weight:400;color:var(--muted)'>English</span> <button class='say' type='button' data-say='English' data-lang='en' aria-label='Hear the name in English'>🔊</button><br><span class="badge">Widely Spoken</span></td><td data-h="ISO"><code>eng</code></td><td data-h="Speakers">unknown</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Business/tourism/higher-education English (Jakarta/Bali). No official function; Dutch colonial layer is gone (see long-tail).</td></tr>
+<tr><td data-h="Language" class='nm'>Indonesian<br><span style='font-weight:400;color:var(--muted)'>Bahasa Indonesia</span> <button class='say' type='button' data-say='Bahasa Indonesia' data-lang='id' aria-label='Hear the name in Indonesian'>🔊</button><br><span class="badge">Widely Spoken</span><span class="badge">Widely Spoken · lingua franca</span></td><td data-h="ISO"><code>ind</code></td><td data-h="Speakers">≈45M L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Art.36 state language; Youth Pledge 1928 (Sumpah Pemuda) root — a trade Malay elevated to unifier of 700 languages. 639-1 &#x27;id&#x27; (SIL). L1 ~45M (Jakarta + youth) but L2 ~160M+ — the L1/L2 inversion is the famous fact. msa member.</td></tr>
 </table>
 <h2>Regional, indigenous & minority languages</h2>
 <table class='lang'>
 <tr><th>Language</th><th>ISO</th><th>Speakers</th><th>Script</th><th>Notes</th></tr>
-<tr><td class='nm'>Acehnese<br><span style='font-weight:400;color:var(--muted)'>Bahsa Acèh</span><br><span class="badge">Regional</span></td><td><code>ace</code></td><td>≈3.5M L1</td><td>Latn</td><td class='nt'>Aceh ~3.5M. SIL spells &#x27;Achinese&#x27;. Jawoë (Jawi-Arab) heritage. Post-2004-tsunami + post-conflict revival — record factually.</td></tr>
-<tr><td class='nm'>Balinese<br><span style='font-weight:400;color:var(--muted)'>Basa Bali</span><br><span class="badge">Regional</span></td><td><code>ban</code></td><td>≈3.5M L1</td><td>Bali</td><td class='nt'>Bali ~3.5M + tourism-learner demand (Ubud effect — real niche). Balinese-script ceremonial use (temples/signage). Speech levels (like Javanese).</td></tr>
-<tr><td class='nm'>Banjar<br><span style='font-weight:400;color:var(--muted)'>Bahasa Banjar</span><br><span class="badge">Regional</span></td><td><code>bjn</code></td><td>≈4M L1</td><td>Latn</td><td class='nt'>SE Kalimantan ~4M (Banjarmasin river culture). msa member. Malay-based but distinct — do not fold into ind.</td></tr>
-<tr><td class='nm'>Batak Toba<br><span style='font-weight:400;color:var(--muted)'>Hata Batak</span><br><span class="badge">Regional</span></td><td><code>bbc</code></td><td>≈2M L1</td><td>Latn</td><td class='nt'>N. Sumatra ~2M (Toba highlands + Medan). NO Batak macro code exists (btk absent from SIL — verified) — sisters (Karo btx, Simalungun bts, Angkola akb, Mandailing btm, Dairi btd) are separate codes, long-tailed. Batak-script (Surat Batak) heritage.</td></tr>
-<tr><td class='nm'>Buginese<br><span style='font-weight:400;color:var(--muted)'>Basa Ugi</span><br><span class="badge">Regional</span></td><td><code>bug</code></td><td>≈5M L1</td><td>Bugi</td><td class='nt'>South Sulawesi ~5M + seafaring diaspora (MY/SG/Borneo). Lontara (Bugi) script still seen — the pack hook. Pinisi-boat culture.</td></tr>
-<tr><td class='nm'>Hakka<br><span style='font-weight:400;color:var(--muted)'>客家话</span><br><span class="badge">Minority</span></td><td><code>hak</code></td><td>≈1M L1</td><td>Latn</td><td class='nt'>ID Chinese ~2.5M split Hakka/Hokkien/Teochew/Cantonese — splits SOFT (no-fabrication: only Hakka entered as largest, rest long-tailed). Singkawang = Hakka-majority city (unique!). zho member.</td></tr>
-<tr><td class='nm'>Hokkien<br><span style='font-weight:400;color:var(--muted)'>閩南語</span><br><span class="badge">Minority</span></td><td><code>nan</code></td><td>1M-10M</td><td>Latn</td><td class='nt'>Medan Chinese community (~1.5M; bigger than Hakka there). Added by ID audit §3.</td></tr>
-<tr><td class='nm'>Javanese<br><span style='font-weight:400;color:var(--muted)'>Basa Jawa</span> <button class='say' type='button' data-say='Basa Jawa' data-lang='jv' aria-label='Hear the name in Javanese'>🔊</button><br><span class="badge">Regional</span></td><td><code>jav</code></td><td>≈85M L1</td><td>Latn</td><td class='nt'>L1 ~85M+ (Java + transmigration + Suriname/MY/SG diaspora!). 639-1 &#x27;jv&#x27; (SIL). Speech levels (ngoko/madya/krama) — teach the sociolinguistics, not just words. Javanese script heritage (Latin dominant now).</td></tr>
-<tr><td class='nm'>Madurese<br><span style='font-weight:400;color:var(--muted)'>Basa Madura</span><br><span class="badge">Regional</span></td><td><code>mad</code></td><td>≈15M L1</td><td>Latn</td><td class='nt'>Madura + E. Java + Kalimantan diaspora ~15M. Famous for... being famously blunt (record the stereotype as linguistics, gently: direct speech style). Latin + Pegon heritage.</td></tr>
-<tr><td class='nm'>Makassar<br><span style='font-weight:400;color:var(--muted)'>Basa Makassar</span><br><span class="badge">Regional</span></td><td><code>mak</code></td><td>≈2M L1</td><td>Latn</td><td class='nt'>SW Sulawesi ~2M. SIL spells &#x27;Makasar&#x27;. Lontara script shared with Buginese (same script, different language — say it plainly). Gowa-Tallo history.</td></tr>
-<tr><td class='nm'>Minangkabau<br><span style='font-weight:400;color:var(--muted)'>Baso Minangkabau</span><br><span class="badge">Regional</span></td><td><code>min</code></td><td>≈8M L1</td><td>Latn</td><td class='nt'>West Sumatra ~8M + rantau (wandering-merchant) diaspora across ID/MY/SG. msa member (closest to Malay proper). Matrilineal adat — the culture hook. Jawi heritage.</td></tr>
-<tr><td class='nm'>Sasak<br><span style='font-weight:400;color:var(--muted)'>Base Sasak</span><br><span class="badge">Regional</span></td><td><code>sas</code></td><td>≈2.5M L1</td><td>Latn</td><td class='nt'>Lombok ~2.5M. Five dialects (Ngeno-ngene etc. — one line, not a split). Next-door-to-Bali tourism spillover.</td></tr>
-<tr><td class='nm'>Sundanese<br><span style='font-weight:400;color:var(--muted)'>Basa Sunda</span> <button class='say' type='button' data-say='Basa Sunda' data-lang='su' aria-label='Hear the name in Sundanese'>🔊</button><br><span class="badge">Regional</span></td><td><code>sun</code></td><td>≈40M L1</td><td>Latn</td><td class='nt'>West Java ~40M. 639-1 &#x27;su&#x27; (SIL). Own script heritage (Aksara Sunda revival in Bandung signage — nice pack hook). Speech levels like Javanese, gentler.</td></tr>
+<tr><td data-h="Language" class='nm'>Acehnese<br><span style='font-weight:400;color:var(--muted)'>Bahsa Acèh</span><br><span class="badge">Regional</span></td><td data-h="ISO"><code>ace</code></td><td data-h="Speakers">≈3.5M L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Aceh ~3.5M. SIL spells &#x27;Achinese&#x27;. Jawoë (Jawi-Arab) heritage. Post-2004-tsunami + post-conflict revival — record factually.</td></tr>
+<tr><td data-h="Language" class='nm'>Balinese<br><span style='font-weight:400;color:var(--muted)'>Basa Bali</span><br><span class="badge">Regional</span></td><td data-h="ISO"><code>ban</code></td><td data-h="Speakers">≈3.5M L1</td><td data-h="Script">Bali</td><td data-h="Notes" class='nt'>Bali ~3.5M + tourism-learner demand (Ubud effect — real niche). Balinese-script ceremonial use (temples/signage). Speech levels (like Javanese).</td></tr>
+<tr><td data-h="Language" class='nm'>Banjar<br><span style='font-weight:400;color:var(--muted)'>Bahasa Banjar</span><br><span class="badge">Regional</span></td><td data-h="ISO"><code>bjn</code></td><td data-h="Speakers">≈4M L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>SE Kalimantan ~4M (Banjarmasin river culture). msa member. Malay-based but distinct — do not fold into ind.</td></tr>
+<tr><td data-h="Language" class='nm'>Batak Toba<br><span style='font-weight:400;color:var(--muted)'>Hata Batak</span><br><span class="badge">Regional</span></td><td data-h="ISO"><code>bbc</code></td><td data-h="Speakers">≈2M L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>N. Sumatra ~2M (Toba highlands + Medan). NO Batak macro code exists (btk absent from SIL — verified) — sisters (Karo btx, Simalungun bts, Angkola akb, Mandailing btm, Dairi btd) are separate codes, long-tailed. Batak-script (Surat Batak) heritage.</td></tr>
+<tr><td data-h="Language" class='nm'>Buginese<br><span style='font-weight:400;color:var(--muted)'>Basa Ugi</span><br><span class="badge">Regional</span></td><td data-h="ISO"><code>bug</code></td><td data-h="Speakers">≈5M L1</td><td data-h="Script">Bugi</td><td data-h="Notes" class='nt'>South Sulawesi ~5M + seafaring diaspora (MY/SG/Borneo). Lontara (Bugi) script still seen — the pack hook. Pinisi-boat culture.</td></tr>
+<tr><td data-h="Language" class='nm'>Hakka<br><span style='font-weight:400;color:var(--muted)'>客家话</span><br><span class="badge">Minority</span></td><td data-h="ISO"><code>hak</code></td><td data-h="Speakers">≈1M L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>ID Chinese ~2.5M split Hakka/Hokkien/Teochew/Cantonese — splits SOFT (no-fabrication: only Hakka entered as largest, rest long-tailed). Singkawang = Hakka-majority city (unique!). zho member.</td></tr>
+<tr><td data-h="Language" class='nm'>Hokkien<br><span style='font-weight:400;color:var(--muted)'>閩南語</span><br><span class="badge">Minority</span></td><td data-h="ISO"><code>nan</code></td><td data-h="Speakers">1M-10M</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Medan Chinese community (~1.5M; bigger than Hakka there). Added by ID audit §3.</td></tr>
+<tr><td data-h="Language" class='nm'>Javanese<br><span style='font-weight:400;color:var(--muted)'>Basa Jawa</span> <button class='say' type='button' data-say='Basa Jawa' data-lang='jv' aria-label='Hear the name in Javanese'>🔊</button><br><span class="badge">Regional</span></td><td data-h="ISO"><code>jav</code></td><td data-h="Speakers">≈85M L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>L1 ~85M+ (Java + transmigration + Suriname/MY/SG diaspora!). 639-1 &#x27;jv&#x27; (SIL). Speech levels (ngoko/madya/krama) — teach the sociolinguistics, not just words. Javanese script heritage (Latin dominant now).</td></tr>
+<tr><td data-h="Language" class='nm'>Madurese<br><span style='font-weight:400;color:var(--muted)'>Basa Madura</span><br><span class="badge">Regional</span></td><td data-h="ISO"><code>mad</code></td><td data-h="Speakers">≈15M L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Madura + E. Java + Kalimantan diaspora ~15M. Famous for... being famously blunt (record the stereotype as linguistics, gently: direct speech style). Latin + Pegon heritage.</td></tr>
+<tr><td data-h="Language" class='nm'>Makassar<br><span style='font-weight:400;color:var(--muted)'>Basa Makassar</span><br><span class="badge">Regional</span></td><td data-h="ISO"><code>mak</code></td><td data-h="Speakers">≈2M L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>SW Sulawesi ~2M. SIL spells &#x27;Makasar&#x27;. Lontara script shared with Buginese (same script, different language — say it plainly). Gowa-Tallo history.</td></tr>
+<tr><td data-h="Language" class='nm'>Minangkabau<br><span style='font-weight:400;color:var(--muted)'>Baso Minangkabau</span><br><span class="badge">Regional</span></td><td data-h="ISO"><code>min</code></td><td data-h="Speakers">≈8M L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>West Sumatra ~8M + rantau (wandering-merchant) diaspora across ID/MY/SG. msa member (closest to Malay proper). Matrilineal adat — the culture hook. Jawi heritage.</td></tr>
+<tr><td data-h="Language" class='nm'>Sasak<br><span style='font-weight:400;color:var(--muted)'>Base Sasak</span><br><span class="badge">Regional</span></td><td data-h="ISO"><code>sas</code></td><td data-h="Speakers">≈2.5M L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Lombok ~2.5M. Five dialects (Ngeno-ngene etc. — one line, not a split). Next-door-to-Bali tourism spillover.</td></tr>
+<tr><td data-h="Language" class='nm'>Sundanese<br><span style='font-weight:400;color:var(--muted)'>Basa Sunda</span> <button class='say' type='button' data-say='Basa Sunda' data-lang='su' aria-label='Hear the name in Sundanese'>🔊</button><br><span class="badge">Regional</span></td><td data-h="ISO"><code>sun</code></td><td data-h="Speakers">≈40M L1</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>West Java ~40M. 639-1 &#x27;su&#x27; (SIL). Own script heritage (Aksara Sunda revival in Bandung signage — nice pack hook). Speech levels like Javanese, gentler.</td></tr>
 </table>
 <h2>Sign languages</h2>
 <table class='lang'>
 <tr><th>Language</th><th>ISO</th><th>Speakers</th><th>Script</th><th>Notes</th></tr>
-<tr><td class='nm'>Indonesian Sign Language<br><span style='font-weight:400;color:var(--muted)'>Indonesian Sign Language</span><br><span class="badge">Sign Language</span></td><td><code>inl</code></td><td>unknown</td><td>Sgnw</td><td class='nt'>Code &#x27;inl&#x27; confirmed. NOTE: Jakarta (JakSL?) vs Yogyakarta (YogSL?) varieties are distinct systems — one code covers a split reality (note, don&#x27;t split unilaterally).</td></tr>
+<tr><td data-h="Language" class='nm'>Indonesian Sign Language<br><span style='font-weight:400;color:var(--muted)'>Indonesian Sign Language</span><br><span class="badge">Sign Language</span></td><td data-h="ISO"><code>inl</code></td><td data-h="Speakers">unknown</td><td data-h="Script">Sgnw</td><td data-h="Notes" class='nt'>Code &#x27;inl&#x27; confirmed. NOTE: Jakarta (JakSL?) vs Yogyakarta (YogSL?) varieties are distinct systems — one code covers a split reality (note, don&#x27;t split unilaterally).</td></tr>
 </table>
 <details class='more'><summary>More languages spoken in Indonesia (below listing threshold)</summary><p>Below-threshold/notes-only (a hundred could go here — the famous ones): Batak sisters Karo btx / Simalungun bts / Angkola akb / Mandailing btm / Dairi btd; Lampung Api ljp?? (code UNVERIFIED — prose only, do not cite); Lampung Nyo abl?? (UNVERIFIED — prose only); Rejang (UNVERIFIED code — prose only); Gorontalo (UNVERIFIED — prose only); Toraja-Sa&#x27;dan; Mandar; Buton; Bima; Sumbawa; Flores (Manggarai/Kambera/Ngada — each 100k+!); Tetun tet (W. Timor — TL entry covers); Kupang Malay (UNVERIFIED — prose); Ambon Malay (UNVERIFIED — prose); N. Maluku (Ternate/Tidore); Papuan umbrella (250+ languages: Dani/Ekari/Asmat/Biak/Yali — each needs its own survey, VERIFY codes before citing); Hokkien nan + Teochew + Cantonese yue (soft splits — see hak note); Javanese dialects (Osing/Tengger/Banyumasan — dialects, correctly unlisted); Sundanese Baduy; Arabic arb (pesantren liturgical per protocol); Portuguese por (Flores few); Dutch nld?? (UNVERIFIED — elderly few k, prose only).</p></details>
 <div class='research'><b>Research note.</b> This guide is built from EkGuru's language inventory (pass-1 desk research: constitutions, censuses, Ethnologue 27, SIL ISO 639-3). Figures are order-of-magnitude estimates still being re-verified; language codes are verified against SIL and voice/translation coverage against the live Google/Microsoft engine lists (pass 2, 2026-09-14). All 194 countries covered.</div>
@@ -163,6 +134,23 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
   navigator.serviceWorker.register("../../sw.js").catch(function(){});
 });}
 </script>
+<!-- ekguru:pw-bands:start -->
+<nav class="pw-next" aria-label="Next step">
+  <b>Learn a language of Indonesia with a tutor</b>
+  <p>EkGuru teaches <b>English and Indonesian</b> over video, one to one, with tutors who speak them. The first lesson costs nothing.</p>
+  <p><a class="btn btn-primary" href="/courses/?country=ID">Courses for Indonesia</a>
+  <a class="btn btn-ghost" href="/courses/by-country/#country-ID">Every language of Indonesia</a></p>
+</nav>
+<footer class="pw-support">
+  <div>
+    <b>Every lesson here is free, and always will be.</b>
+    <p>No account, no paywall, and never an ad on the free material — that is the
+    whole idea. Keeping it that way is the only thing this page asks of you.</p>
+  </div>
+  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
+  <a href="/find-tutors.html">Book a trial lesson</a>
+</footer>
+<!-- ekguru:pw-bands:end -->
 <!-- ekguru:shell-footer:start -->
 <footer class="ftr">
   <div class="wrap ftr-in">

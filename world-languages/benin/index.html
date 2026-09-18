@@ -26,36 +26,7 @@
 <link rel="manifest" href="../../manifest.webmanifest">
 <meta name="theme-color" content="#4f32d9">
 <link rel="stylesheet" href="../../css/style.min.css">
-<style>
-.pw{max-width:860px;margin:0 auto;padding:0 20px 64px}
-.pw h1{font-size:clamp(1.6rem,4.4vw,2.05rem);line-height:1.24;margin:24px 0 14px}
-.pw h2{font-size:clamp(1.12rem,3vw,1.3rem);line-height:1.3;margin:34px 0 12px}
-.pw p,.pw li{line-height:1.72;font-size:1rem}
-.pw p,.pw ul{max-width:72ch}
-.lede{color:var(--ink-2);font-size:1.06rem;line-height:1.7}
-.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0;word-break:break-word}
-.crumb a{color:var(--muted)}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
-.fact{border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:var(--bg-soft)}
-.fact b{display:block;font-size:1.05rem;margin-bottom:2px;color:var(--ink)}
-.fact span{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
-table.lang{width:100%;border-collapse:collapse;margin:6px 0 8px;font-size:.95rem}
-table.lang th{text-align:left;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding:8px 10px;border-bottom:2px solid var(--line)}
-table.lang td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.6}
-table.lang td.nm{font-weight:600;white-space:nowrap}
-table.lang td.nt{font-size:.9rem;color:var(--ink-2)}
-.badge{display:inline-block;font-size:.72rem;border:1px solid var(--line);border-radius:10px;padding:1px 8px;margin:2px 4px 0 0;color:var(--muted);white-space:nowrap}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
-.chips a{font-size:.87rem;border:1px solid var(--line);border-radius:20px;padding:7px 13px;text-decoration:none;background:var(--card,#fff);color:var(--brand);min-height:44px;display:inline-flex;align-items:center}
-.research{border:1px dashed var(--line);border-radius:12px;padding:13px 16px;margin:26px 0;font-size:.9rem;color:var(--ink-2);background:var(--bg-soft)}
-details.more{margin:10px 0 26px;border:1px solid var(--line);border-radius:12px;padding:12px 16px;background:var(--card,#fff)}
-details.more summary{cursor:pointer;font-weight:600}
-@media(max-width:640px){table.lang th:nth-child(4),table.lang td:nth-child(4){display:none}}
-.say{border:1px solid var(--line);background:var(--card,#fff);border-radius:8px;cursor:pointer;font-size:.8rem;padding:2px 8px;margin-left:8px;color:var(--brand);vertical-align:middle}
-.say:hover{border-color:var(--brand-2)}
-@media(pointer:coarse){.say{min-height:44px;min-width:44px}}
 
-</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://ekguru.shop/world-languages/benin/#page", "name": "Languages of Benin", "description": "Languages of Benin: Aja, Bariba, Dendi, Fon, French, Gen, Western Niger Fulfulde, Yoruba. Official languages, speaker numbers, scripts and notes.", "url": "https://ekguru.shop/world-languages/benin/", "inLanguage": "en", "isPartOf": {"@id": "https://ekguru.shop/#website"}}]}</script>
 </head>
 <body>
@@ -81,7 +52,7 @@ details.more summary{cursor:pointer;font-weight:600}
 <script src="../../js/site-shell.js" defer></script>
 <script src="../../js/copywatch.js" defer></script>
 <!-- ekguru:shell-header:end -->
-<div class="pw">
+<div class="pw pw-legacy">
 <p class="crumb"><a href="../../">EkGuru</a> › <a href="../">World languages</a> › Benin</p>
 
 <h1>Languages of Benin</h1>
@@ -91,25 +62,25 @@ details.more summary{cursor:pointer;font-weight:600}
 <h2>Official & national languages</h2>
 <table class='lang'>
 <tr><th>Language</th><th>ISO</th><th>Speakers</th><th>Script</th><th>Notes</th></tr>
-<tr><td class='nm'>Aja<br><span style='font-weight:400;color:var(--muted)'>ajagbe</span><br><span class="badge">National</span></td><td><code>ajg</code></td><td>100K-1M</td><td>Latn</td><td class='nt'>South-west (~500K+) — pass-2 verify code.</td></tr>
-<tr><td class='nm'>Bariba<br><span style='font-weight:400;color:var(--muted)'>baatɔnum</span><br><span class="badge">National</span></td><td><code>bba</code></td><td>1M-10M</td><td>Latn</td><td class='nt'>North (Parakou/Nikki; ~1M) — pass-2 verify code.</td></tr>
-<tr><td class='nm'>Dendi<br><span style='font-weight:400;color:var(--muted)'>dendi</span><br><span class="badge">National</span></td><td><code>ddn</code></td><td>100K-1M</td><td>Latn</td><td class='nt'>Far north (Malanville/Niger-bend trade; ~200K) — pass-2 verify code.</td></tr>
-<tr><td class='nm'>Fon<br><span style='font-weight:400;color:var(--muted)'>fɔngbè</span><br><span class="badge">National</span></td><td><code>fon</code></td><td>1M-10M</td><td>Latn</td><td class='nt'>Largest national language (south/Abomey; ~2M+) — pass-2 verify code.</td></tr>
-<tr><td class='nm'>French<br><span style='font-weight:400;color:var(--muted)'>français</span> <button class='say' type='button' data-say='français' data-lang='fr' aria-label='Hear the name in French'>🔊</button><br><span class="badge">Official</span></td><td><code>fra</code></td><td>unknown</td><td>Latn</td><td class='nt'>Official (administration/schooling).</td></tr>
-<tr><td class='nm'>Gen<br><span style='font-weight:400;color:var(--muted)'>gẽ</span><br><span class="badge">National</span></td><td><code>gej</code></td><td>100K-1M</td><td>Latn</td><td class='nt'>Coastal Mina (Cotonou/Porto-Novo trade; ~200K+) — pass-2 verify code.</td></tr>
-<tr><td class='nm'>Western Niger Fulfulde<br><span style='font-weight:400;color:var(--muted)'>fulfulde</span> <button class='say' type='button' data-say='fulfulde' data-lang='ff' aria-label='Hear the name in Western Niger Fulfulde'>🔊</button><br><span class="badge">National</span></td><td><code>fuh</code></td><td>100K-1M</td><td>Latn</td><td class='nt'>Northern pastoralists (~500K+) — code boundary TBD pass 2.</td></tr>
-<tr><td class='nm'>Yoruba<br><span style='font-weight:400;color:var(--muted)'>èdè Yorùbá</span> <button class='say' type='button' data-say='èdè Yorùbá' data-lang='yo' aria-label='Hear the name in Yoruba'>🔊</button><br><span class="badge">National</span></td><td><code>yor</code></td><td>1M-10M</td><td>Latn</td><td class='nt'>South-east (Porto-Novo/Kétou; ~1M+) — pass-2 verify code.</td></tr>
+<tr><td data-h="Language" class='nm'>Aja<br><span style='font-weight:400;color:var(--muted)'>ajagbe</span><br><span class="badge">National</span></td><td data-h="ISO"><code>ajg</code></td><td data-h="Speakers">100K-1M</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>South-west (~500K+) — pass-2 verify code.</td></tr>
+<tr><td data-h="Language" class='nm'>Bariba<br><span style='font-weight:400;color:var(--muted)'>baatɔnum</span><br><span class="badge">National</span></td><td data-h="ISO"><code>bba</code></td><td data-h="Speakers">1M-10M</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>North (Parakou/Nikki; ~1M) — pass-2 verify code.</td></tr>
+<tr><td data-h="Language" class='nm'>Dendi<br><span style='font-weight:400;color:var(--muted)'>dendi</span><br><span class="badge">National</span></td><td data-h="ISO"><code>ddn</code></td><td data-h="Speakers">100K-1M</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Far north (Malanville/Niger-bend trade; ~200K) — pass-2 verify code.</td></tr>
+<tr><td data-h="Language" class='nm'>Fon<br><span style='font-weight:400;color:var(--muted)'>fɔngbè</span><br><span class="badge">National</span></td><td data-h="ISO"><code>fon</code></td><td data-h="Speakers">1M-10M</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Largest national language (south/Abomey; ~2M+) — pass-2 verify code.</td></tr>
+<tr><td data-h="Language" class='nm'>French<br><span style='font-weight:400;color:var(--muted)'>français</span> <button class='say' type='button' data-say='français' data-lang='fr' aria-label='Hear the name in French'>🔊</button><br><span class="badge">Official</span></td><td data-h="ISO"><code>fra</code></td><td data-h="Speakers">unknown</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Official (administration/schooling).</td></tr>
+<tr><td data-h="Language" class='nm'>Gen<br><span style='font-weight:400;color:var(--muted)'>gẽ</span><br><span class="badge">National</span></td><td data-h="ISO"><code>gej</code></td><td data-h="Speakers">100K-1M</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Coastal Mina (Cotonou/Porto-Novo trade; ~200K+) — pass-2 verify code.</td></tr>
+<tr><td data-h="Language" class='nm'>Western Niger Fulfulde<br><span style='font-weight:400;color:var(--muted)'>fulfulde</span> <button class='say' type='button' data-say='fulfulde' data-lang='ff' aria-label='Hear the name in Western Niger Fulfulde'>🔊</button><br><span class="badge">National</span></td><td data-h="ISO"><code>fuh</code></td><td data-h="Speakers">100K-1M</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Northern pastoralists (~500K+) — code boundary TBD pass 2.</td></tr>
+<tr><td data-h="Language" class='nm'>Yoruba<br><span style='font-weight:400;color:var(--muted)'>èdè Yorùbá</span> <button class='say' type='button' data-say='èdè Yorùbá' data-lang='yo' aria-label='Hear the name in Yoruba'>🔊</button><br><span class="badge">National</span></td><td data-h="ISO"><code>yor</code></td><td data-h="Speakers">1M-10M</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>South-east (Porto-Novo/Kétou; ~1M+) — pass-2 verify code.</td></tr>
 </table>
 <h2>Widely spoken</h2>
 <table class='lang'>
 <tr><th>Language</th><th>ISO</th><th>Speakers</th><th>Script</th><th>Notes</th></tr>
-<tr><td class='nm'>Fon<br><span style='font-weight:400;color:var(--muted)'>fɔngbè</span><br><span class="badge">Widely Spoken</span></td><td><code>fon</code></td><td>1M-10M</td><td>Latn</td><td class='nt'>Largest national language (south/Abomey; ~2M+) — pass-2 verify code.</td></tr>
-<tr><td class='nm'>Yoruba<br><span style='font-weight:400;color:var(--muted)'>èdè Yorùbá</span> <button class='say' type='button' data-say='èdè Yorùbá' data-lang='yo' aria-label='Hear the name in Yoruba'>🔊</button><br><span class="badge">Widely Spoken</span></td><td><code>yor</code></td><td>1M-10M</td><td>Latn</td><td class='nt'>South-east (Porto-Novo/Kétou; ~1M+) — pass-2 verify code.</td></tr>
+<tr><td data-h="Language" class='nm'>Fon<br><span style='font-weight:400;color:var(--muted)'>fɔngbè</span><br><span class="badge">Widely Spoken</span></td><td data-h="ISO"><code>fon</code></td><td data-h="Speakers">1M-10M</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>Largest national language (south/Abomey; ~2M+) — pass-2 verify code.</td></tr>
+<tr><td data-h="Language" class='nm'>Yoruba<br><span style='font-weight:400;color:var(--muted)'>èdè Yorùbá</span> <button class='say' type='button' data-say='èdè Yorùbá' data-lang='yo' aria-label='Hear the name in Yoruba'>🔊</button><br><span class="badge">Widely Spoken</span></td><td data-h="ISO"><code>yor</code></td><td data-h="Speakers">1M-10M</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>South-east (Porto-Novo/Kétou; ~1M+) — pass-2 verify code.</td></tr>
 </table>
 <h2>Regional, indigenous & minority languages</h2>
 <table class='lang'>
 <tr><th>Language</th><th>ISO</th><th>Speakers</th><th>Script</th><th>Notes</th></tr>
-<tr><td class='nm'>Bariba<br><span style='font-weight:400;color:var(--muted)'>baatɔnum</span><br><span class="badge">Regional</span></td><td><code>bba</code></td><td>1M-10M</td><td>Latn</td><td class='nt'>North (Parakou/Nikki; ~1M) — pass-2 verify code.</td></tr>
+<tr><td data-h="Language" class='nm'>Bariba<br><span style='font-weight:400;color:var(--muted)'>baatɔnum</span><br><span class="badge">Regional</span></td><td data-h="ISO"><code>bba</code></td><td data-h="Speakers">1M-10M</td><td data-h="Script">Latn</td><td data-h="Notes" class='nt'>North (Parakou/Nikki; ~1M) — pass-2 verify code.</td></tr>
 </table>
 
 <div class='research'><b>Research note.</b> This guide is built from EkGuru's language inventory (pass-1 desk research: constitutions, censuses, Ethnologue 27, SIL ISO 639-3). Figures are order-of-magnitude estimates still being re-verified; language codes are verified against SIL and voice/translation coverage against the live Google/Microsoft engine lists (pass 2, 2026-09-14). All 194 countries covered.</div>
@@ -158,6 +129,23 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
   navigator.serviceWorker.register("../../sw.js").catch(function(){});
 });}
 </script>
+<!-- ekguru:pw-bands:start -->
+<nav class="pw-next" aria-label="Next step">
+  <b>Learn a language of Benin with a tutor</b>
+  <p>EkGuru teaches <b>French</b> over video, one to one, with a tutor who speaks it. The first lesson costs nothing.</p>
+  <p><a class="btn btn-primary" href="/courses/?country=BJ">Courses for Benin</a>
+  <a class="btn btn-ghost" href="/courses/by-country/#country-BJ">Every language of Benin</a></p>
+</nav>
+<footer class="pw-support">
+  <div>
+    <b>Every lesson here is free, and always will be.</b>
+    <p>No account, no paywall, and never an ad on the free material — that is the
+    whole idea. Keeping it that way is the only thing this page asks of you.</p>
+  </div>
+  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
+  <a href="/find-tutors.html">Book a trial lesson</a>
+</footer>
+<!-- ekguru:pw-bands:end -->
 <!-- ekguru:shell-footer:start -->
 <footer class="ftr">
   <div class="wrap ftr-in">

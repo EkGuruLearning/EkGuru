@@ -36,27 +36,7 @@
 <link rel="apple-touch-icon" href="../../images/apple-touch-icon.png">
 <meta name="theme-color" content="#4f32d9">
 <link rel="stylesheet" href="../../css/style.min.css">
-<style>
-.pw{max-width:800px;margin:0 auto;padding:0 20px 60px}
-.pw h1{font-size:1.95rem;line-height:1.25;margin:26px 0 12px}
-.pw h2{font-size:1.24rem;margin:32px 0 12px}
-.pw p,.pw li{line-height:1.75}
-.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0}
-.crumb a{color:var(--muted)}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:22px 0}
-.fact{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--bg-soft)}
-.fact b{display:block;font-size:1.15rem;margin-bottom:2px}
-.fact span{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
-.tut{display:flex;gap:14px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:14px;margin:10px 0}
-.tut img{width:64px;height:64px;border-radius:50%;object-fit:cover;flex:none}
-.tut b{display:block}
-.tut small{color:var(--muted)}
-.faq{border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:12px 0;background:var(--card,#fff)}
-.faq b{display:block;margin-bottom:6px}
-.faq p{margin:0;color:var(--muted)}
-.other{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.other a{font-size:.86rem;border:1px solid var(--line);border-radius:20px;padding:5px 12px;text-decoration:none}
-@media(pointer:coarse){.chips a,.chips button,.pill,.rel a,.art-nav a,.crumbs a,.ftr a,.tag,.chip-btn{min-height:44px}.rel a,.art-nav a,.crumbs a,.ftr a{display:inline-block;padding-block:10px}b>a,strong>a,h3>a,h2>a{display:inline-block;padding-block:12px}input,select,textarea,button{min-height:44px}}</style>
+
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Service","@id":"https://ekguru.shop/hindi-tutor/london/#service","serviceType":"Online Hindi lessons","name":"Online Hindi tutors for students in London","description":"One-to-one online Hindi lessons with native-speaking tutors, for students in London.","provider":{"@type":"Organization","name":"EkGuru","url":"https://ekguru.shop/"},"areaServed":{"@type":"City","name":"London","address":{"@type":"PostalAddress","addressCountry":"GB"}},"availableChannel":{"@type":"ServiceChannel","serviceUrl":"https://ekguru.shop/find-tutors.html","availableLanguage":["Hindi","English"]},"offers":{"@type":"Offer","price":"6","priceCurrency":"USD","availability":"https://schema.org/InStock"}},{"@type":"FAQPage","@id":"https://ekguru.shop/hindi-tutor/london/#faq","mainEntity":[{"@type":"Question","name":"Do you have Hindi tutors in London?","acceptedAnswer":{"@type":"Answer","text":"Our tutors are in India and teach online, one to one, over video. So you are not limited to whoever happens to live nearby — you get a native speaker regardless of where you are, with lessons available from 03:30 to 16:30 your local time."}},{"@type":"Question","name":"What times can I have a lesson?","acceptedAnswer":{"@type":"Answer","text":"Converted to local time in London, lessons run from about 03:30 to 16:30. The booking page converts every slot to your own timezone automatically."}},{"@type":"Question","name":"How much does a Hindi lesson cost in GBP?","acceptedAnswer":{"@type":"Answer","text":"Lessons start at $6 for 50 min, roughly 4 GBP at current rates. Prices on the site are shown in your own currency automatically. Most tutors offer a trial lesson."}},{"@type":"Question","name":"Do I need to know the Devanagari script first?","acceptedAnswer":{"@type":"Answer","text":"No. Many students start with spoken Hindi and add the script later. If you do want to read and write, our free alphabet guide covers every letter and most learners can read simple words within six weeks."}}]},{"@type":"BreadcrumbList","@id":"https://ekguru.shop/hindi-tutor/london/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"EkGuru","item":"https://ekguru.shop/"},{"@type":"ListItem","position":2,"name":"Hindi tutors by location","item":"https://ekguru.shop/hindi-tutor/"},{"@type":"ListItem","position":3,"name":"London","item":"https://ekguru.shop/hindi-tutor/london/"}]}]}</script>
 <!-- ekguru:adsense:start -->
 <!-- Google AdSense. Emitted only because ads.client is set to a valid
@@ -91,7 +71,7 @@
 <script src="../../js/site-shell.js" defer></script>
 <script src="../../js/copywatch.js" defer></script>
 <!-- ekguru:shell-header:end -->
-<div class="pw">
+<div class="pw pw-legacy">
   <p class="crumb"><a href="../../">EkGuru</a> › <a href="../">Hindi tutors by location</a> › London</p>
 
   <h1>Hindi tutors for students in London</h1>
@@ -309,6 +289,23 @@ if ("serviceWorker" in navigator) {
 <!-- ekguru:trust-footer:end -->
 <!-- ekguru:consent -->
 <script src="../../js/cookie-consent.js" defer></script>
+<!-- ekguru:pw-bands:start -->
+<nav class="pw-next" aria-label="Next step">
+  <b>Learn Hindi properly</b>
+  <p>The free course takes it in order — A1 to C2, 36 lessons, from the first letter to real
+  conversation, and it works without an account.</p>
+  <p><a class="btn btn-primary" href="/courses/#/hi">Open the Hindi course</a></p>
+</nav>
+<footer class="pw-support">
+  <div>
+    <b>Every lesson here is free, and always will be.</b>
+    <p>No account, no paywall, and never an ad on the free material — that is the
+    whole idea. Keeping it that way is the only thing this page asks of you.</p>
+  </div>
+  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
+  <a href="/find-tutors.html">Book a trial lesson</a>
+</footer>
+<!-- ekguru:pw-bands:end -->
 <!-- ekguru:shell-footer:start -->
 <footer class="ftr">
   <div class="wrap ftr-in">

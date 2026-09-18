@@ -3213,6 +3213,9 @@ body.xp-market .hdr .hdr-in {
 
 .xp-country-page .country-tools { margin-block: 18px 6px; }
 
+/* The 195 country pages link straight to their card here. */
+.country-card { scroll-margin-block-start: 96px; }
+
 .country-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
@@ -3368,4 +3371,1036 @@ body.xp-market .hdr .hdr-in {
 @media (max-width: 520px) {
   .country-grid { grid-template-columns: 1fr; }
   .country-card h3 small { margin-inline-start: 0; }
+}
+
+/* ==========================================================================
+   25. THE READING LAYER — the 974 hand-written pages
+   --------------------------------------------------------------------------
+   974 pages were written before the v200 system existed. Each one carries its
+   own copy of the same body CSS in a <style> block in its own <head> — 13
+   template variants of it, ~3 KB each, 239 distinct selectors across them, and
+   every copy drifts a little further from the others. The project has paid for
+   that five separate times (see the v79 note still sitting in the tool pages:
+   "two copies of the same rule in two files is how this project has shipped a
+   stale style five separate times. One class, one place").
+
+   This section is that one place. It owns the whole vocabulary those pages use
+   — .lede, .crumb, .facts, .faq, .tbl, table.lang, table.phr, .cards, .chips,
+   .cta, .note, .prevnext, .linklist, .howto, .tut, the tool controls and the
+   contact form — and expresses it in the v200 language: one radius family, one
+   elevation family, one motion vocabulary, one accent per page.
+
+   SCOPE. Everything is under .pw-legacy, a class tools/build-legacy-pages.py
+   adds to <div class="pw"> — and to nothing else. The v200 pages use xp-*
+   classes and are not touched: a rule here cannot reach a modern page even if
+   the two systems name a class the same way (.card means a link card on a topic
+   page and a flashcard inside a tool, and both keep working).
+
+   THEME. Pages that carry a language accent set --sb-accent/--sb-tint inline
+   (112 of them, e.g. Bengali teal). Those win; where nobody set one, the page
+   falls back to the v200 accent, so every page has a theme and none has two.
+
+   MOBILE. The old tables hid a column below 640px — that is information loss,
+   not a responsive design. Here each cell carries data-h (written by the same
+   builder, from the table's own <th> row) and the row becomes a labelled block.
+   Same data, readable on a phone, no horizontal scroll.
+   ========================================================================== */
+
+.pw-legacy {
+  --pw-a: var(--sb-accent, var(--xp-a));
+  --pw-tint: var(--sb-tint, var(--xp-surface));
+  --pw-measure: 72ch;
+  max-width: 900px;
+  margin-inline: auto;
+  padding: 0 clamp(16px, 4vw, 24px) clamp(56px, 8vw, 88px);
+  color: var(--ink);
+  overflow-wrap: break-word;
+}
+
+/* ---- the page's own text ------------------------------------------------- */
+.pw-legacy > p, .pw-legacy > ul, .pw-legacy > ol { max-width: var(--pw-measure); }
+.pw-legacy p, .pw-legacy li, .pw-legacy ul, .pw-legacy ol { max-width: var(--pw-measure); }
+.pw-legacy p, .pw-legacy li { line-height: 1.75; font-size: 1rem; }
+.pw-legacy li { margin-block: 4px; }
+.pw-legacy ul, .pw-legacy ol { padding-inline-start: 1.25em; }
+.pw-legacy h1, .pw-legacy h2, .pw-legacy h3, .pw-legacy h4 { text-wrap: balance; }
+.pw-legacy h1 {
+  font-size: clamp(1.75rem, 5vw, 2.4rem);
+  line-height: 1.15;
+  letter-spacing: -.021em;
+  margin: 6px 0 12px;
+}
+.pw-legacy h2 {
+  position: relative;
+  font-size: clamp(1.2rem, 3.2vw, 1.5rem);
+  line-height: 1.25;
+  letter-spacing: -.012em;
+  margin: clamp(34px, 5vw, 52px) 0 12px;
+  padding-block-start: 14px;
+  border-block-start: 1px solid var(--line);
+}
+.pw-legacy h2::before {
+  content: "";
+  position: absolute;
+  inset-block-start: -1px;
+  inset-inline-start: 0;
+  width: 54px;
+  height: 2px;
+  background: var(--pw-a);
+  border-radius: var(--xp-pill);
+}
+.pw-legacy h3 { font-size: 1.08rem; margin: 26px 0 8px; }
+.pw-legacy h4 { font-size: 1rem; margin: 20px 0 6px; }
+.pw-legacy a { color: var(--brand); text-underline-offset: 3px; }
+.pw-legacy a:hover { color: var(--pw-a); }
+.pw-legacy strong, .pw-legacy b { font-weight: 700; }
+.pw-legacy hr { border: 0; border-block-start: 1px solid var(--line); margin: 32px 0; }
+.pw-legacy code {
+  font-size: .9em;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+}
+.pw-legacy blockquote {
+  margin: 20px 0;
+  padding: 4px 0 4px 18px;
+  border-inline-start: 3px solid var(--pw-a);
+  color: var(--ink-2);
+  max-width: var(--pw-measure);
+}
+.pw-legacy img { max-width: 100%; height: auto; }
+.pw-legacy ::selection { background: var(--pw-tint); }
+.pw-legacy a:focus-visible, .pw-legacy button:focus-visible,
+.pw-legacy summary:focus-visible, .pw-legacy input:focus-visible,
+.pw-legacy select:focus-visible, .pw-legacy textarea:focus-visible {
+  outline: 3px solid var(--pw-a);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* ---- breadcrumb ---------------------------------------------------------- */
+.pw-legacy .crumb {
+  font-size: .84rem;
+  color: var(--muted);
+  padding-block-start: 18px;
+  margin-block-end: 4px;
+  word-break: break-word;
+}
+.pw-legacy .crumb a { color: var(--muted); text-decoration: none; border-block-end: 1px solid transparent; }
+.pw-legacy .crumb a:hover { color: var(--pw-a); border-block-end-color: currentColor; }
+
+/* ---- the lead paragraph -------------------------------------------------- */
+.pw-legacy .lede {
+  color: var(--ink-2);
+  font-size: clamp(1.04rem, 2.4vw, 1.14rem);
+  line-height: 1.7;
+  max-width: 64ch;
+}
+
+/* ---- hero band ----------------------------------------------------------- */
+.pw-legacy .hero {
+  position: relative;
+  overflow: hidden;
+  margin: 16px 0 10px;
+  padding: clamp(22px, 4.5vw, 38px);
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-3);
+  background:
+    radial-gradient(120% 120% at 100% 0%, var(--pw-tint) 0%, transparent 62%),
+    var(--card, #fff);
+  box-shadow: var(--xp-sh-1);
+}
+.pw-legacy .hero::after {
+  content: "";
+  position: absolute;
+  inset-block-start: -80px;
+  inset-inline-end: -80px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--pw-tint) 0%, transparent 70%);
+  opacity: .85;
+  pointer-events: none;
+}
+.pw-legacy .hero > * { position: relative; }
+.pw-legacy .hero h1 { margin: 10px 0 8px; }
+.pw-legacy .hero .lede { margin: 0; max-width: 60ch; }
+.pw-legacy .kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .73rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--pw-a);
+  background: var(--card, #fff);
+  border: 1px solid var(--line);
+  border-radius: var(--xp-pill);
+  padding: 6px 14px;
+}
+.pw-legacy .statline { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 2px; }
+.pw-legacy .statline span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--ink-2);
+  background: var(--card, #fff);
+  border: 1px solid var(--line);
+  border-radius: var(--xp-pill);
+  padding: 8px 15px;
+}
+.pw-legacy .statline i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--pw-a);
+  font-style: normal;
+}
+
+/* ---- where you are: the chapter strip ------------------------------------ */
+.pw-legacy .sb-chapter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 16px 0 6px;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-pill);
+  background: var(--pw-tint);
+  font-size: .9rem;
+}
+.pw-legacy .sb-ch-mascot {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--card, #fff);
+  border: 1px solid var(--line);
+  font-size: 1.05rem;
+  flex: none;
+}
+.pw-legacy .sb-ch-name { font-weight: 700; }
+.pw-legacy .sb-ch-name i { font-style: normal; color: var(--muted); font-weight: 600; }
+.pw-legacy .sb-ch-kind, .pw-legacy .soonbadge {
+  display: inline-block;
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--pw-a);
+  background: var(--card, #fff);
+  border: 1px solid var(--line);
+  border-radius: var(--xp-pill);
+  padding: 3px 11px;
+}
+.pw-legacy .sb-ch-floats {
+  margin-inline-start: auto;
+  color: var(--pw-a);
+  opacity: var(--xp-motif-op, .5);
+  font-size: 1.1rem;
+  letter-spacing: .1em;
+}
+
+/* ---- the facts row ------------------------------------------------------- */
+.pw-legacy .facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+  gap: 12px;
+  margin: 24px 0;
+}
+.pw-legacy .fact {
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-2);
+  padding: 15px 17px;
+  background: var(--card, #fff);
+  box-shadow: var(--xp-sh-1);
+}
+.pw-legacy .fact b {
+  display: block;
+  font-size: 1.2rem;
+  line-height: 1.25;
+  letter-spacing: -.015em;
+  color: var(--pw-a);
+  margin-block-end: 3px;
+}
+.pw-legacy .fact span {
+  font-size: .74rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+/* ---- questions (705 pages carry these) ----------------------------------- */
+.pw-legacy .faq {
+  position: relative;
+  overflow: hidden;
+  margin: 12px 0;
+  padding: 17px 20px 17px 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-2);
+  background: var(--card, #fff);
+  box-shadow: var(--xp-sh-1);
+}
+.pw-legacy .faq::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  width: 4px;
+  background: var(--pw-a);
+}
+.pw-legacy .faq b { display: block; margin-block-end: 6px; font-size: 1.03rem; }
+.pw-legacy .faq p { margin: 0; color: var(--ink-2); }
+
+/* ---- tables: one treatment for lang, phr and tbl ------------------------- */
+.pw-legacy .twrap {
+  overflow-x: auto;
+  margin: 18px 0;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-2);
+  background: var(--card, #fff);
+  box-shadow: var(--xp-sh-1);
+}
+.pw-legacy table.lang, .pw-legacy table.phr, .pw-legacy .tbl {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+  font-size: .95rem;
+}
+.pw-legacy table.lang { margin: 14px 0 6px; }
+.pw-legacy .tbl { display: block; overflow-x: auto; }
+.pw-legacy table.lang th, .pw-legacy table.phr th, .pw-legacy .tbl th {
+  text-align: start;
+  font-size: .76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--ink-2);
+  background: var(--pw-tint);
+  padding: 11px 13px;
+  border-block-end: 1px solid var(--line);
+}
+.pw-legacy table.phr thead th { position: sticky; inset-block-start: 0; z-index: 1; }
+.pw-legacy table.lang td, .pw-legacy table.phr td, .pw-legacy .tbl td {
+  padding: 12px 13px;
+  border-block-end: 1px solid var(--line);
+  vertical-align: top;
+  line-height: 1.6;
+}
+.pw-legacy table.lang tr:last-child td,
+.pw-legacy table.phr tbody tr:last-child td,
+.pw-legacy .tbl tr:last-child td { border-block-end: 0; }
+.pw-legacy table.phr tbody tr:nth-child(even),
+.pw-legacy table.lang tbody tr:nth-child(even),
+.pw-legacy .tbl tbody tr:nth-child(even) { background: var(--bg-soft); }
+.pw-legacy td.nm { font-weight: 700; }
+.pw-legacy td.nt { font-size: .9rem; color: var(--ink-2); }
+.pw-legacy td.dv, .pw-legacy th.dv, .pw-legacy table.phr td.bn {
+  font-family: var(--xp-script-font, "Noto Sans Devanagari", "Nirmala UI", serif);
+  font-size: 1.12rem;
+  line-height: var(--xp-script-lh, 1.5);
+}
+.pw-legacy .tbl td.dv { color: var(--pw-a); }
+.pw-legacy .tbl td:first-child { font-weight: 600; }
+
+/* ---- badges, chips, and the hear-it buttons ------------------------------ */
+.pw-legacy .badge {
+  display: inline-block;
+  font-size: .71rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  color: var(--muted);
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--xp-pill);
+  padding: 2px 9px;
+  margin: 3px 4px 0 0;
+  white-space: nowrap;
+}
+.pw-legacy .chips { display: flex; flex-wrap: wrap; gap: 9px; margin: 16px 0; }
+.pw-legacy .chips a, .pw-legacy .other a, .pw-legacy .rel a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 9px 16px;
+  font-size: .88rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--brand);
+  background: var(--card, #fff);
+  border: 1px solid var(--line);
+  border-radius: var(--xp-pill);
+  box-shadow: var(--xp-sh-1);
+  transition: transform var(--xp-t-fast) var(--xp-ease),
+              background var(--xp-t-fast) var(--xp-ease),
+              border-color var(--xp-t-fast) var(--xp-ease),
+              color var(--xp-t-fast) var(--xp-ease);
+}
+.pw-legacy .chips a:hover, .pw-legacy .other a:hover, .pw-legacy .rel a:hover {
+  transform: translateY(-2px);
+  background: var(--pw-a);
+  border-color: var(--pw-a);
+  color: var(--xp-ink-on-brand, #fff);
+}
+.pw-legacy .other { display: flex; flex-wrap: wrap; gap: 9px; margin: 14px 0 22px; }
+.pw-legacy .say, .pw-legacy .ssay {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 34px;
+  padding: 4px 12px;
+  margin-inline-start: 8px;
+  font-size: .82rem;
+  font-weight: 800;
+  color: var(--pw-a);
+  background: var(--pw-tint);
+  border: 1px solid var(--pw-a);
+  border-radius: var(--xp-pill);
+  cursor: pointer;
+  vertical-align: middle;
+  transition: background var(--xp-t-fast) var(--xp-ease), color var(--xp-t-fast) var(--xp-ease);
+}
+.pw-legacy .say:hover, .pw-legacy .ssay:hover { background: var(--pw-a); color: var(--xp-ink-on-brand, #fff); }
+@media (pointer: coarse) { .pw-legacy .say, .pw-legacy .ssay { min-height: 44px; min-width: 44px; } }
+
+/* ---- cards: link cards live in .cards, never alone ------------------------ */
+.pw-legacy .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+  margin: 22px 0;
+}
+.pw-legacy .cards > .card {
+  position: relative;
+  overflow: hidden;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-2);
+  background: var(--card, #fff);
+  transition: transform var(--xp-t-fast) var(--xp-ease), box-shadow var(--xp-t-fast) var(--xp-ease);
+}
+.pw-legacy .cards > .card::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--pw-a), transparent);
+}
+.pw-legacy .cards > .card b { display: block; margin-block-end: 6px; font-size: 1.03rem; }
+.pw-legacy .cards > .card span { font-size: .88rem; color: var(--muted); line-height: 1.55; }
+.pw-legacy .cards > .card a { display: block; text-decoration: none; color: var(--ink); }
+.pw-legacy .cards > .card a:hover b, .pw-legacy .cards > .card:hover b { color: var(--brand); }
+.pw-legacy .cards > .card a::after {
+  content: "\2192";
+  display: inline-block;
+  margin-block-start: 10px;
+  font-weight: 800;
+  color: var(--pw-a);
+  transition: transform var(--xp-t-fast) var(--xp-ease);
+}
+.pw-legacy .cards > .card:hover { transform: translateY(-3px); box-shadow: var(--xp-sh-2); }
+.pw-legacy .cards > .card:hover a::after { transform: translateX(5px); }
+.pw-legacy .cards > .card.soon { background: var(--bg-soft); border-style: dashed; }
+.pw-legacy .cards > .card.soon::before { background: var(--line); }
+.pw-legacy .cards > .card.soon:hover { transform: none; box-shadow: none; }
+
+/* ---- notes, research boxes, disclosures ---------------------------------- */
+.pw-legacy .note {
+  max-width: var(--pw-measure);
+  margin: 20px 0;
+  padding: 15px 18px;
+  font-size: .95rem;
+  color: var(--ink-2);
+  background: var(--pw-tint);
+  border: 1px solid var(--line);
+  border-inline-start: 4px solid var(--pw-a);
+  border-radius: var(--xp-r-1);
+}
+.pw-legacy .research {
+  max-width: var(--pw-measure);
+  margin: 26px 0;
+  padding: 14px 17px;
+  font-size: .9rem;
+  color: var(--ink-2);
+  background: var(--bg-soft);
+  border: 1px dashed var(--line);
+  border-radius: var(--xp-r-1);
+}
+.pw-legacy details.more {
+  max-width: var(--pw-measure);
+  margin: 12px 0 26px;
+  padding: 12px 17px;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-1);
+  background: var(--card, #fff);
+}
+.pw-legacy details.more summary { cursor: pointer; font-weight: 700; }
+.pw-legacy details.more summary::marker { color: var(--pw-a); }
+
+/* ---- link collections: linklist, deep-links, rel ------------------------- */
+.pw-legacy .linklist, .pw-legacy .deep-list {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+  max-width: var(--pw-measure);
+  display: grid;
+  gap: 10px;
+}
+.pw-legacy .linklist li, .pw-legacy .deep-list li {
+  margin: 0;
+  padding: 13px 15px;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-1);
+  background: var(--card, #fff);
+  transition: transform var(--xp-t-fast) var(--xp-ease), box-shadow var(--xp-t-fast) var(--xp-ease);
+}
+.pw-legacy .linklist li:hover, .pw-legacy .deep-list li:hover {
+  transform: translateX(3px);
+  box-shadow: var(--xp-sh-1);
+}
+.pw-legacy .linklist a, .pw-legacy .deep-list a { font-weight: 700; text-decoration: none; }
+.pw-legacy .linklist span, .pw-legacy .deep-list span {
+  display: block;
+  margin-block-start: 3px;
+  font-size: .87rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+.pw-legacy .deep-links > p { max-width: var(--pw-measure); color: var(--ink-2); }
+
+/* ---- how it works -------------------------------------------------------- */
+.pw-legacy .how {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin: 18px 0;
+  counter-reset: step;
+}
+.pw-legacy .howto {
+  position: relative;
+  padding: 16px 16px 16px 58px;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-2);
+  background: var(--card, #fff);
+}
+.pw-legacy .howto::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  inset-block-start: 14px;
+  inset-inline-start: 16px;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--pw-a);
+  color: var(--xp-ink-on-brand, #fff);
+  font-size: .9rem;
+  font-weight: 800;
+}
+.pw-legacy .howto b { display: block; margin-block-end: 4px; }
+.pw-legacy .howto span { font-size: .9rem; color: var(--ink-2); line-height: 1.6; }
+
+/* ---- the closing call to action ------------------------------------------ */
+.pw-legacy .cta {
+  position: relative;
+  overflow: hidden;
+  margin: 34px 0 10px;
+  padding: clamp(24px, 4.5vw, 36px);
+  border-radius: var(--xp-r-3);
+  background: linear-gradient(135deg, var(--pw-a), var(--brand-2, var(--xp-b)));
+  color: var(--xp-ink-on-brand, #fff);
+  text-align: center;
+  box-shadow: var(--xp-sh-2);
+}
+.pw-legacy .cta::after {
+  content: "";
+  position: absolute;
+  inset-block-start: -60%;
+  inset-inline-start: -10%;
+  width: 60%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, .28) 0%, transparent 62%);
+  pointer-events: none;
+}
+.pw-legacy .cta > * { position: relative; }
+.pw-legacy .cta h2 { margin: 0 0 8px; padding: 0; border: 0; color: inherit; }
+.pw-legacy .cta h2::before { display: none; }
+.pw-legacy .cta b { font-size: clamp(1.2rem, 3.4vw, 1.5rem); display: block; }
+.pw-legacy .cta p { margin: 0 auto 18px; max-width: 52ch; color: rgba(255, 255, 255, .9); }
+.pw-legacy .cta a.cta-btn, .pw-legacy .cta .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 30px;
+  font-weight: 800;
+  text-decoration: none;
+  color: var(--pw-a);
+  background: #fff;
+  border: 0;
+  border-radius: var(--xp-pill);
+  transition: transform var(--xp-t-fast) var(--xp-ease);
+}
+.pw-legacy .cta a.cta-btn:hover, .pw-legacy .cta .btn:hover { transform: scale(1.04); color: var(--pw-a); }
+.pw-legacy .cta a:not(.btn):not(.cta-btn) { color: inherit; text-decoration: underline; }
+.pw-legacy .cta .btn-primary { color: var(--pw-a); background: #fff; border-color: transparent; }
+.pw-legacy .cta .btn-ghost {
+  color: var(--xp-ink-on-brand, #fff);
+  background: rgba(255, 255, 255, .16);
+  border-color: rgba(255, 255, 255, .55);
+}
+
+/* ---- pager --------------------------------------------------------------- */
+.pw-legacy .prevnext {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 42px 0 0;
+}
+.pw-legacy .prevnext a {
+  flex: 1 1 220px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 14px 18px;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--card, #fff);
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-2);
+  box-shadow: var(--xp-sh-1);
+  transition: transform var(--xp-t-fast) var(--xp-ease), border-color var(--xp-t-fast) var(--xp-ease), box-shadow var(--xp-t-fast) var(--xp-ease);
+}
+.pw-legacy .prevnext a:hover {
+  transform: translateY(-2px);
+  border-color: var(--pw-a);
+  box-shadow: var(--xp-sh-2);
+}
+.pw-legacy .prevnext span { flex: 1 1 220px; }
+
+/* ---- buttons ------------------------------------------------------------- */
+.pw-legacy .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 11px 20px;
+  font-size: .95rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-pill);
+  background: var(--card, #fff);
+  color: var(--ink);
+  cursor: pointer;
+  transition: transform var(--xp-t-fast) var(--xp-ease), background var(--xp-t-fast) var(--xp-ease);
+}
+.pw-legacy .btn:hover { transform: translateY(-1px); }
+.pw-legacy .btn-primary {
+  color: var(--xp-ink-on-brand, #fff);
+  background: linear-gradient(135deg, var(--pw-a), var(--brand-2, var(--xp-b)));
+  border-color: transparent;
+}
+.pw-legacy .btn-ghost { background: transparent; }
+.pw-legacy .btn-sm { min-height: 36px; padding: 7px 14px; font-size: .85rem; }
+
+/* ---- tutor rows ---------------------------------------------------------- */
+.pw-legacy .tut {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin: 12px 0;
+  padding: 15px 17px;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-2);
+  background: var(--card, #fff);
+  box-shadow: var(--xp-sh-1);
+}
+.pw-legacy .tut img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--pw-tint);
+  flex: none;
+}
+.pw-legacy .tut b { display: block; font-size: 1.02rem; }
+.pw-legacy .tut small { color: var(--muted); font-size: .88rem; line-height: 1.5; }
+
+/* ---- form controls (contact form + any page-level field) ------------------ */
+.pw-legacy input:not([type="checkbox"]):not([type="radio"]),
+.pw-legacy select,
+.pw-legacy textarea,
+.pw-legacy .tool input[type="text"],
+.pw-legacy .tool input[type="search"],
+.pw-legacy .tool select {
+  width: 100%;
+  min-height: 44px;
+  padding: 11px 13px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--ink);
+  background: var(--card, #fff);
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-1);
+}
+.pw-legacy button { font-family: inherit; }
+.pw-legacy .cf-wrap { max-width: 720px; margin: 28px 0 0; }
+.pw-legacy .cf-h { font-size: 1.1rem; margin: 0 0 8px; }
+.pw-legacy .cf-lede { margin: 0 0 20px; color: var(--ink-2); max-width: var(--pw-measure); }
+.pw-legacy .cf-f { margin: 22px 0; }
+.pw-legacy .cf-f label { display: block; margin: 0 0 6px; font-size: .9rem; font-weight: 600; color: var(--ink-2); }
+.pw-legacy .cf-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+.pw-legacy .cf-req { color: var(--warn-line); }
+.pw-legacy .cf-opt, .pw-legacy .cf-hint, .pw-legacy .cf-under {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: .83rem;
+  line-height: 1.5;
+}
+.pw-legacy .cf-f textarea { min-height: 140px; resize: vertical; }
+.pw-legacy .cf-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-block-start: 16px; }
+
+/* ---- the tool pages (13 of them, their own component set) ---------------- */
+.pw-tool .tool {
+  margin: 24px 0;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-2);
+  background: var(--card, #fff);
+  box-shadow: var(--xp-sh-1);
+}
+.pw-tool .tool label { display: block; margin: 0 0 6px; font-size: .9rem; font-weight: 600; color: var(--ink-2); }
+.pw-tool .grid { display: grid; gap: 9px; }
+.pw-tool .g6 { grid-template-columns: repeat(auto-fill, minmax(88px, 1fr)); }
+.pw-tool .g4 { grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); }
+.pw-tool .cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  min-height: 44px;
+  padding: 10px 6px;
+  text-align: center;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-1);
+  cursor: pointer;
+  transition: background var(--xp-t-fast) var(--xp-ease), border-color var(--xp-t-fast) var(--xp-ease);
+}
+.pw-tool .cell:hover, .pw-tool .cell:focus {
+  background: var(--card, #fff);
+  border-color: var(--pw-a);
+}
+.pw-tool .cell .ch {
+  font-family: var(--xp-script-font, "Noto Sans Devanagari", "Nirmala UI", serif);
+  font-size: 1.6rem;
+  line-height: 1.3;
+}
+.pw-tool .cell .rm { display: block; font-size: .8rem; color: var(--muted); }
+.pw-tool .detail {
+  margin-block-start: 14px;
+  padding: 16px;
+  background: var(--pw-tint);
+  border: 1px solid var(--pw-a);
+  border-radius: var(--xp-r-1);
+}
+.pw-tool .detail .big {
+  font-family: var(--xp-script-font, "Noto Sans Devanagari", "Nirmala UI", serif);
+  font-size: 2.6rem;
+  line-height: 1.2;
+  color: var(--pw-a);
+}
+.pw-tool .detail p { margin: 6px 0; color: var(--ink-2); }
+/* A row of filters, and one filter. Not tool-only: the thirty daily-Hindi
+   pages carry the same control, so it belongs to the reading layer. */
+.pw-legacy .row { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin: 12px 0; }
+.pw-legacy .pill {
+  min-height: 36px;
+  padding: 7px 15px;
+  font-size: .84rem;
+  font-weight: 600;
+  color: var(--ink-2);
+  background: var(--card, #fff);
+  border: 1px solid var(--line);
+  border-radius: var(--xp-pill);
+  cursor: pointer;
+  transition: background var(--xp-t-fast) var(--xp-ease), border-color var(--xp-t-fast) var(--xp-ease),
+              color var(--xp-t-fast) var(--xp-ease);
+}
+.pw-legacy .pill:hover { border-color: var(--pw-a); }
+.pw-legacy .pill[aria-pressed="true"] {
+  color: var(--xp-ink-on-brand, #fff);
+  background: var(--pw-a);
+  border-color: var(--pw-a);
+}
+.pw-tool .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  min-height: 170px;
+  padding: 26px 18px;
+  text-align: center;
+  background: var(--pw-tint);
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-2);
+}
+.pw-tool .card .front { font-size: 1.35rem; }
+.pw-tool .card .back {
+  font-family: var(--xp-script-font, "Noto Sans Devanagari", "Nirmala UI", serif);
+  font-size: 2rem;
+  color: var(--pw-a);
+}
+.pw-tool .card .rom { font-size: .95rem; color: var(--muted); }
+.pw-tool .score { margin: 10px 0; font-size: .9rem; color: var(--ink-2); }
+.pw-tool .bar { height: 8px; border-radius: 4px; background: var(--line); overflow: hidden; }
+.pw-tool .bar > i { display: block; height: 100%; background: var(--pw-a); border-radius: 4px; }
+.pw-tool .ok { color: var(--green, #1a7f52); }
+.pw-tool .no { color: var(--warn-line, #b42318); }
+.pw-tool .nojs, .pw-tool .out { color: var(--ink-2); font-size: .92rem; }
+
+/* ---- script spans, link walls and the document look ---------------------- */
+.pw-legacy .dv, .pw-legacy .vhi {
+  font-family: var(--xp-script-font, "Noto Sans Devanagari", "Nirmala UI", system-ui, sans-serif);
+  line-height: var(--xp-script-lh, 1.85);
+}
+.pw-legacy .deep-links { margin: 30px 0 8px; }
+.pw-legacy .deep-links h2 { margin-block-start: 0; }
+.pw-legacy .deep-list b { display: block; }
+.pw-legacy .deep-list a { text-decoration: none; }
+.pw-legacy .deep-list a:hover b { color: var(--pw-a); }
+.pw-legacy .art-nav, .pw-legacy .crumbs { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+.pw-legacy .rel { display: flex; flex-wrap: wrap; gap: 9px; margin: 14px 0; }
+.pw-legacy .tag, .pw-legacy .chip-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 6px 14px;
+  font-size: .84rem;
+  font-weight: 600;
+  color: var(--ink-2);
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--xp-pill);
+}
+
+/* The five pages that kept the old .legal wrapper (about, cookies, …) read as
+   documents, the way §23 makes terms/privacy read — same measure, same
+   heading rule, same "last updated" pill. */
+.pw-legacy .legal { max-width: var(--pw-measure); }
+.pw-legacy .legal h2 { margin-block-start: clamp(30px, 4.5vw, 44px); }
+.pw-legacy .legal p, .pw-legacy .legal li { line-height: 1.75; }
+.pw-legacy .legal .upd {
+  display: inline-block;
+  margin: 0 0 14px;
+  padding: 5px 13px;
+  font-size: .8rem;
+  color: var(--muted);
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--xp-pill);
+}
+.pw-legacy .legal .tbl td:first-child { font-weight: 700; white-space: nowrap; }
+
+/* The contact form's own classes. */
+.pw-legacy .cf-form {
+  padding: clamp(18px, 3vw, 24px);
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-2);
+  background: var(--card, #fff);
+  box-shadow: var(--xp-sh-1);
+}
+.pw-legacy .cf-f input.cf-bad, .pw-legacy .cf-f textarea.cf-bad { border-color: var(--warn-line); }
+.pw-legacy .cf-e { color: var(--warn-line); font-size: .88rem; }
+.pw-legacy .cf-err {
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  color: var(--warn-line);
+  font-size: .9rem;
+  background: var(--card, #fff);
+  border: 1px solid var(--warn-line);
+  border-radius: var(--xp-r-1);
+}
+.pw-legacy .cf-err a, .pw-legacy .cf-privacy a { color: inherit; text-decoration: underline; }
+.pw-legacy .cf-small, .pw-legacy .cf-ref { font-size: .82rem; color: var(--muted); }
+.pw-legacy .cf-count, .pw-legacy .cf-hint { font-size: .82rem; color: var(--muted); }
+.pw-legacy .cf-count-hot { color: var(--warn-line); font-weight: 700; }
+.pw-legacy .cf-hp { position: absolute; left: -9999px; }
+.pw-legacy .cf-send { min-height: 48px; padding-inline: 26px; }
+.pw-legacy .cf-send[disabled] { opacity: .6; cursor: progress; }
+.pw-legacy .cf-done { padding: 20px; border: 1px solid var(--line); border-radius: var(--xp-r-2); background: var(--pw-tint); }
+.pw-legacy .cf-done h2 { margin-block-start: 0; border: 0; padding-block-start: 0; }
+.pw-legacy .cf-done p { margin: 6px 0; color: var(--ink-2); }
+.pw-legacy .cf-tick { font-size: 1.6rem; }
+
+/* Touch targets, once, in the layer that owns the vocabulary — not repeated in
+   a media block on 944 pages. Every link here is a real control a thumb has to
+   hit: a chip, a pager card, a crumb, a button, a field. */
+@media (pointer: coarse) {
+  .pw-legacy .chips a, .pw-legacy .chips button, .pw-legacy .other a, .pw-legacy .rel a,
+  .pw-legacy .pill, .pw-legacy .art-nav a, .pw-legacy .crumbs a, .pw-legacy .tag,
+  .pw-legacy .chip-btn, .pw-legacy .linklist a, .pw-legacy .deep-list a,
+  .pw-legacy input, .pw-legacy select, .pw-legacy textarea, .pw-legacy button { min-height: 44px; }
+  .pw-legacy .rel a, .pw-legacy .art-nav a, .pw-legacy .crumbs a { display: inline-flex; align-items: center; }
+  .pw-legacy b > a, .pw-legacy strong > a, .pw-legacy h2 > a, .pw-legacy h3 > a {
+    display: inline-block;
+    padding-block: 12px;
+  }
+}
+
+/* ---- the in-page language nav (hand-written on six pages) ---------------- */
+.pw-legacy .eg-globalnav { margin: 30px 0 8px; }
+.pw-legacy .eg-gn-h { margin: 0 0 14px; font-size: 1.05rem; }
+.pw-legacy .eg-gn-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+.pw-legacy .eg-gn-list a {
+  display: block;
+  min-height: 44px;
+  padding: 13px 15px;
+  text-decoration: none;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-1);
+  transition: border-color var(--xp-t-fast) var(--xp-ease), background var(--xp-t-fast) var(--xp-ease),
+              transform var(--xp-t-fast) var(--xp-ease);
+}
+.pw-legacy .eg-gn-list a:hover {
+  transform: translateY(-2px);
+  border-color: var(--pw-a);
+  background: var(--card, #fff);
+}
+.pw-legacy .eg-gn-list b { display: block; margin-block-end: 3px; font-size: .96rem; color: var(--brand); }
+.pw-legacy .eg-gn-list span { display: block; font-size: .85rem; line-height: 1.5; color: var(--ink-2); }
+
+/* pointer focus on a field, not only keyboard focus: a field you cannot see
+   yourself in is a field you cannot use. */
+.pw-legacy input:focus, .pw-legacy select:focus, .pw-legacy textarea:focus,
+.pw-legacy .tool input:focus, .pw-legacy .tool select:focus {
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
+  border-color: var(--pw-a);
+}
+
+/* ---- the two bands the builder adds --------------------------------------
+   EkGuru's free material is most of the site, and until now not one of these
+   974 pages said so or asked for anything. The support band says it once, at
+   the end of the page, in the site's own voice; the next-step band points a
+   country page at the courses for the languages of that country — which is
+   exactly the question the reader arrived with. */
+.pw-legacy .pw-support {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 20px;
+  margin: 44px 0 0;
+  padding: 20px 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-3);
+  background: radial-gradient(120% 140% at 0% 0%, var(--pw-tint) 0%, transparent 60%), var(--card, #fff);
+  box-shadow: var(--xp-sh-1);
+}
+.pw-legacy .pw-support div { flex: 1 1 320px; }
+.pw-legacy .pw-support b { display: block; font-size: 1.05rem; }
+.pw-legacy .pw-support p { margin: 4px 0 0; font-size: .92rem; color: var(--ink-2); max-width: 58ch; }
+.pw-legacy .pw-support a { font-weight: 700; }
+.pw-legacy .pw-support .pw-support-cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 11px 20px;
+  font-weight: 800;
+  text-decoration: none;
+  color: var(--xp-ink-on-brand, #fff);
+  background: linear-gradient(135deg, var(--pw-a), var(--brand-2, var(--xp-b)));
+  border-radius: var(--xp-pill);
+  transition: transform var(--xp-t-fast) var(--xp-ease);
+}
+.pw-legacy .pw-support .pw-support-cta:hover { transform: translateY(-1px); color: var(--xp-ink-on-brand, #fff); }
+
+.pw-legacy .pw-next {
+  margin: 18px 0 0;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--xp-r-2);
+  background: var(--card, #fff);
+  box-shadow: var(--xp-sh-1);
+}
+.pw-legacy .pw-next b { display: block; margin-block-end: 4px; }
+.pw-legacy .pw-next p { margin: 0 0 12px; color: var(--ink-2); font-size: .93rem; max-width: var(--pw-measure); }
+
+/* ---- motion and print ---------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .pw-legacy .card, .pw-legacy .cards > .card, .pw-legacy .chips a,
+  .pw-legacy .other a, .pw-legacy .prevnext a, .pw-legacy .linklist li,
+  .pw-legacy .deep-list li, .pw-legacy .cta a.cta-btn, .pw-legacy .btn,
+  .pw-legacy .cards > .card a::after { transition: none; transform: none; }
+}
+@media (max-width: 480px) {
+  .pw-legacy .hero { border-radius: var(--xp-r-2); }
+  .pw-legacy .fact b { font-size: 1.1rem; }
+  .pw-legacy .pw-support, .pw-legacy .pw-next { padding: 16px; }
+}
+@media (max-width: 640px) {
+  /* No hidden columns: every cell keeps its label. */
+  .pw-legacy table.lang, .pw-legacy table.phr, .pw-legacy .tbl,
+  .pw-legacy table.lang thead, .pw-legacy table.phr thead, .pw-legacy .tbl thead,
+  .pw-legacy table.lang tbody, .pw-legacy table.phr tbody, .pw-legacy .tbl tbody,
+  .pw-legacy table.lang tr, .pw-legacy table.phr tr, .pw-legacy .tbl tr,
+  .pw-legacy table.lang td, .pw-legacy table.phr td, .pw-legacy .tbl td { display: block; width: auto; }
+  .pw-legacy table.lang thead, .pw-legacy table.phr thead, .pw-legacy .tbl thead { display: none; }
+  .pw-legacy table.lang tr, .pw-legacy table.phr tr, .pw-legacy .tbl tr {
+    padding: 12px 14px;
+    border-block-end: 1px solid var(--line);
+  }
+  .pw-legacy table.phr tbody tr:nth-child(even),
+  .pw-legacy table.lang tbody tr:nth-child(even),
+  .pw-legacy .tbl tbody tr:nth-child(even) { background: var(--bg-soft); }
+  .pw-legacy table.lang td, .pw-legacy table.phr td, .pw-legacy .tbl td {
+    border: 0;
+    padding: 3px 0;
+    display: grid;
+    grid-template-columns: minmax(84px, 34%) 1fr;
+    gap: 10px;
+  }
+  .pw-legacy table.lang td::before, .pw-legacy table.phr td::before, .pw-legacy .tbl td::before {
+    content: attr(data-h);
+    font-size: .72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--muted);
+    padding-block-start: 2px;
+  }
+  .pw-legacy td[data-h=""]::before, .pw-legacy td:not([data-h])::before { display: none; }
+  .pw-legacy table.lang td:not([data-h]), .pw-legacy .tbl td:not([data-h]) { display: block; }
+  .pw-legacy .sb-ch-floats { display: none; }
+}
+@media print {
+  .pw-legacy .hero::after, .pw-legacy .cta::after, .pw-legacy .sb-ch-mascot, .pw-legacy .say,
+  .pw-legacy .ssay, .pw-legacy .sb-ch-floats, .pw-legacy .pw-next { display: none; }
+  .pw-legacy .cta, .pw-legacy .hero, .pw-legacy .facts, .pw-legacy .faq,
+  .pw-legacy .cards > .card, .pw-legacy .pw-support { box-shadow: none; }
+  .pw-legacy .cta { color: var(--ink); background: var(--bg-soft); }
+  .pw-legacy .cta p, .pw-legacy .cta a.cta-btn { color: var(--ink); }
+  .pw-legacy .cards > .card a::after { content: ""; }
 }

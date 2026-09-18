@@ -35,48 +35,7 @@
 <link rel="manifest" href="../manifest.webmanifest">
 <meta name="theme-color" content="#4f32d9">
 <link rel="stylesheet" href="../css/style.min.css">
-<style>
-.pw{max-width:820px;margin:0 auto;padding:0 20px 64px}
-.pw h1{font-size:clamp(1.6rem,4.4vw,2.05rem);line-height:1.24;margin:24px 0 14px}
-.pw h2{font-size:clamp(1.12rem,3vw,1.3rem);line-height:1.3;margin:34px 0 12px}
-.pw h3{font-size:1.02rem;margin:24px 0 8px}
-.pw p,.pw li{line-height:1.72;font-size:1rem}
-.pw p,.pw ul,.pw ol{max-width:72ch}
-.lede{color:var(--ink-2);font-size:1.06rem;line-height:1.7}
-.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0;word-break:break-word}
-.crumb a{color:var(--muted)}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
-.fact{border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:var(--bg-soft)}
-.fact b{display:block;font-size:1.12rem;margin-bottom:2px;color:var(--ink)}
-.fact span{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
-.faq{border:1px solid var(--line);border-radius:12px;padding:15px 17px;margin:12px 0;background:var(--card,#fff)}
-.faq b{display:block;margin-bottom:6px;color:var(--ink)}
-.faq p{margin:0;color:var(--ink-2)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
-.chips a{font-size:.87rem;border:1px solid var(--line);border-radius:20px;padding:7px 13px;text-decoration:none;background:var(--card,#fff);color:var(--brand);min-height:34px;display:inline-flex;align-items:center}
-/* v97 — measured 40px in real Chromium at 320px, under the 44px
-   touch floor. This CSS is inlined into the page AFTER style.css
-   loads, so the global @media (pointer:coarse) rule cannot win —
-   the override has to live beside the rule it overrides. */
-@media (pointer:coarse){.chips a{min-height:44px}}
-.chips a:hover{border-color:var(--brand-2)}
-.cta{border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:12px;background:var(--bg-soft);padding:16px 18px;margin:26px 0}
-.cta b{display:block;margin-bottom:6px;color:var(--ink)}
-.cta p{margin:0 0 10px;color:var(--ink-2)}
-.tbl{width:100%;border-collapse:collapse;margin:16px 0;font-size:.95rem;display:block;overflow-x:auto}
-.tbl th,.tbl td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
-.tbl th{background:var(--bg-soft);font-weight:600;color:var(--ink)}
-.dv{font-family:"Noto Sans Devanagari","Nirmala UI",system-ui,sans-serif;line-height:1.85}
-.note{background:var(--warn-soft);border:1px solid var(--warn-line);border-radius:10px;padding:12px 15px;margin:18px 0;font-size:.94rem;color:var(--ink-2)}
-.pw .btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
-@media(max-width:520px){.pw{padding:0 15px 48px}}
-/* v79 — the trust footer's styling lives in css/style.css as
-   .pw-ftr, NOT here. tools/patch.js emits the identical footer on
-   the 115 pages built by the five pre-shell generators, and two
-   copies of the same rule in two files is how this project has
-   shipped a stale style five separate times. One class, one
-   place, all 465 pages. */
-@media(pointer:coarse){.chips a,.chips button,.pill,.rel a,.art-nav a,.crumbs a,.ftr a,.tag,.chip-btn{min-height:44px}.rel a,.art-nav a,.crumbs a,.ftr a{display:inline-block;padding-block:10px}b>a,strong>a,h3>a,h2>a{display:inline-block;padding-block:12px}input,select,textarea,button{min-height:44px}}</style>
+
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://ekguru.shop/learn-hindi-for-dutch-speakers/#article","headline":"Learn Hindi for Dutch Speakers","description":"What Dutch gives you for free when learning Hindi, what it does not, the sounds to watch, and a realistic first thirty days.","inLanguage":"en","about":{"@type":"Language","name":"Hindi","alternateName":"हिन्दी"},"author":{"@type":"Organization","name":"EkGuru","url":"https://ekguru.shop/"},"publisher":{"@type":"Organization","name":"EkGuru","url":"https://ekguru.shop/"},"mainEntityOfPage":"https://ekguru.shop/learn-hindi-for-dutch-speakers/"},{"@type":"FAQPage","@id":"https://ekguru.shop/learn-hindi-for-dutch-speakers/#faq","mainEntity":[{"@type":"Question","name":"Is Hindi hard for Dutch speakers?","acceptedAnswer":{"@type":"Answer","text":"It depends entirely on what you are comparing. Verb-final word order, above, and a phonetic inventory that covers most of Hindi's hard consonants. Dutch g and ch prepare you for ख and ग़. Dutch has no trouble with consonant clusters. And a very large share of Dutch speakers already handle two or three languages daily, which is the single strongest predictor of learning another one as an adult. Surinamese-Dutch speakers get far more: Sarnami is a living Hindustani variety and puts them close to fluent already."}},{"@type":"Question","name":"What is the hardest part of Hindi for a Dutch speaker?","acceptedAnswer":{"@type":"Answer","text":"Retroflex consonants, entirely absent from Dutch. Grammatical gender exists in Dutch but has collapsed into de/het, which is less help than it sounds — Hindi's gender reaches into the verb and must be learned properly. And Dutch's strong diphthongs need flattening: Hindi vowels are pure."}},{"@type":"Question","name":"Do Dutch speakers need to learn Devanagari?","acceptedAnswer":{"@type":"Answer","text":"Not to speak. Many learners work in romanised Hindi for months. If you want to read signs, messages or anything written, the script is phonetic and consistent, and most learners read simple words within a few weeks."}},{"@type":"Question","name":"How long does Hindi take from Dutch?","acceptedAnswer":{"@type":"Answer","text":"Nobody can give you an honest number, because it depends on hours per week far more than on your first language. What this page can tell you is which parts will be quick for you and which will be slow, which is more useful than a figure."}}]},{"@id":"https://ekguru.shop/learn-hindi-for-dutch-speakers/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"EkGuru","item":"https://ekguru.shop/"},{"@type":"ListItem","position":2,"name":"Learn Hindi","item":"https://ekguru.shop/learn/"},{"@type":"ListItem","position":3,"name":"By first language","item":"https://ekguru.shop/learn-hindi-for-speakers/"},{"@type":"ListItem","position":4,"name":"Dutch","item":"https://ekguru.shop/learn-hindi-for-dutch-speakers/"}]}]}</script>
 <!-- Google AdSense. Emitted only because ads.client is set to a valid
      publisher id in js/site-config.js. Clear that value and every one
@@ -111,7 +70,7 @@
 <script src="../js/site-shell.js" defer></script>
 <script src="../js/copywatch.js" defer></script>
 <!-- ekguru:shell-header:end -->
-<div class="pw">
+<div class="pw pw-legacy">
 
 <p class="crumb"><a href="../">EkGuru</a> › <a href="../learn/">Learn Hindi</a> › <a href="../learn-hindi-for-speakers/">By first language</a> › Dutch</p>
 
@@ -134,22 +93,20 @@ before spending a year finding out.</p>
 <h2>Sounds to work on</h2>
 <table class="tbl">
   <tr><th>What</th><th>Why it matters</th></tr>
-  <tr><td><strong>Retroflex ट ठ ड ढ</strong></td><td>New. The most audible gap for a Dutch speaker.</td></tr>
-  <tr><td><strong>Aspiration</strong></td><td>Dutch has no contrastive aspiration. क versus ख needs building.</td></tr>
-  <tr><td><strong>Flatten the diphthongs</strong></td><td>Dutch ij and ui have no Hindi equivalent. Hindi ए and ओ are pure, held vowels with no glide.</td></tr>
-  <tr><td><strong>ग़ and ख़ — your advantage</strong></td><td>Dutch g and ch land close enough that these Persian-origin sounds come almost free.</td></tr>
+  <tr><td data-h="What"><strong>Retroflex ट ठ ड ढ</strong></td><td data-h="Why it matters">New. The most audible gap for a Dutch speaker.</td></tr>
+  <tr><td data-h="What"><strong>Aspiration</strong></td><td data-h="Why it matters">Dutch has no contrastive aspiration. क versus ख needs building.</td></tr>
+  <tr><td data-h="What"><strong>Flatten the diphthongs</strong></td><td data-h="Why it matters">Dutch ij and ui have no Hindi equivalent. Hindi ए and ओ are pure, held vowels with no glide.</td></tr>
+  <tr><td data-h="What"><strong>ग़ and ख़ — your advantage</strong></td><td data-h="Why it matters">Dutch g and ch land close enough that these Persian-origin sounds come almost free.</td></tr>
 </table>
 
 <h2>Grammar, compared with Dutch</h2>
 <table class="tbl">
   <tr><th>Feature</th><th>How it compares</th></tr>
-  <tr><td><strong>Verb-final is already yours</strong></td><td>In subordinate clauses at least. The extension to all clauses is small.</td></tr>
-  <tr><td><strong>Postpositions</strong></td><td>Dutch uses prepositions; Hindi puts them after. Straightforward reversal.</td></tr>
-  <tr><td><strong>Gender needs real work</strong></td><td>de/het is a two-way distinction with little agreement. Hindi's masculine/feminine agrees adjectives AND verbs.</td></tr>
-  <tr><td><strong>No articles in Hindi</strong></td><td>No de, het or een. Disorienting for a week, restful afterwards.</td></tr>
+  <tr><td data-h="Feature"><strong>Verb-final is already yours</strong></td><td data-h="How it compares">In subordinate clauses at least. The extension to all clauses is small.</td></tr>
+  <tr><td data-h="Feature"><strong>Postpositions</strong></td><td data-h="How it compares">Dutch uses prepositions; Hindi puts them after. Straightforward reversal.</td></tr>
+  <tr><td data-h="Feature"><strong>Gender needs real work</strong></td><td data-h="How it compares">de/het is a two-way distinction with little agreement. Hindi's masculine/feminine agrees adjectives AND verbs.</td></tr>
+  <tr><td data-h="Feature"><strong>No articles in Hindi</strong></td><td data-h="How it compares">No de, het or een. Disorienting for a week, restful afterwards.</td></tr>
 </table>
-
-
 
 <h2>A realistic first thirty days</h2>
 <ol>
@@ -282,19 +239,7 @@ way to write Hindi in Latin letters.</p></div>
     <li><a href="mistakes/"><b>The mistakes speakers of your language make</b><span>Predictable, specific and fixable — the errors a teacher hears from you before you make them.</span></a></li>
   </ul>
 </section>
-<style>
-.deep-links{max-width:820px;margin:36px auto 0;padding:22px 20px 0;border-top:1px solid var(--line)}
-.deep-links h2{font-size:1.15rem;margin:0 0 8px;color:var(--ink)}
-.deep-links>p{color:var(--ink-2);font-size:.96rem;line-height:1.65;margin:0 0 14px}
-.deep-list{list-style:none;padding:0;margin:0;display:grid;gap:10px;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-.deep-list a{display:block;padding:13px 15px;border:1px solid var(--line);border-radius:12px;
-  text-decoration:none;background:var(--bg-soft);min-height:44px}
-.deep-list a:hover{border-color:var(--brand-2);background:var(--card,#fff)}
-.deep-list b{display:block;color:var(--brand);font-size:.96rem;margin-bottom:3px}
-.deep-list span{display:block;color:var(--ink-2);font-size:.85rem;line-height:1.5}
-@media(max-width:520px){.deep-links{padding:18px 15px 0;margin-top:28px}}
-</style>
+
 <!-- ekguru:deep-links:end -->
 <script src="../js/site-config.js" defer></script>
 <!-- v79 — back returns you where you were. Prakash: "back aaun to
@@ -319,7 +264,6 @@ way to write Hindi in Latin letters.</p></div>
      NOTE: no backtick may appear in this comment. It sits inside a
      JS template literal, and a stray backtick ends the literal —
      which is exactly how this line first broke the build. -->
-
 
 <script defer>
 /* =========================================================
@@ -425,6 +369,23 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
 </script>
 <!-- ekguru:consent -->
 <script src="../js/cookie-consent.js" defer></script>
+<!-- ekguru:pw-bands:start -->
+<nav class="pw-next" aria-label="Next step">
+  <b>Learn Hindi properly</b>
+  <p>The free course takes it in order — A1 to C2, 36 lessons, from the first letter to real
+  conversation, and it works without an account.</p>
+  <p><a class="btn btn-primary" href="/courses/#/hi">Open the Hindi course</a></p>
+</nav>
+<footer class="pw-support">
+  <div>
+    <b>Every lesson here is free, and always will be.</b>
+    <p>No account, no paywall, and never an ad on the free material — that is the
+    whole idea. Keeping it that way is the only thing this page asks of you.</p>
+  </div>
+  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
+  <a href="/find-tutors.html">Book a trial lesson</a>
+</footer>
+<!-- ekguru:pw-bands:end -->
 <!-- ekguru:shell-footer:start -->
 <footer class="ftr">
   <div class="wrap ftr-in">
