@@ -18,6 +18,13 @@ Marked automatically, from what the page actually contains:
   · a printable guide (.art on the /materials/ pages) — 40-odd charts and
     revision sheets whose whole point is a piece of paper.
 
+and it loads js/print-sheet.js on those pages. A stylesheet can only hide what
+is in the file; a worksheet is assembled in the browser when the reader clicks
+"Make worksheet", so nothing in the file can be marked as the paper. The script
+clones the finished sheet into #ekguru-print-root on beforeprint, which is the
+one thing that makes "print only the worksheet" true even when the page around
+it is a full page of navigation, controls and notes.
+
 Everything else keeps normal printing: §27 still turns the chrome off, so a
 lesson or an answer prints its content and nothing else either.
 
@@ -42,14 +49,23 @@ MARK = "data-print"
 # point of the page: the ten worksheet builders, and the printed guides under
 # /materials/ that carry their own Print button. Lessons, answers and hubs
 # print as content with the chrome off — they are not sheets.
+WS_APP = re.compile(r'<div id="ws-app"[^>]*>')
+ART = re.compile(r'<div\b[^>]*\bclass="[^"]*\bart\b[^"]*"[^>]*>')
+
+
 def judge(path, html):
-    """(target_regex, kind) for this page, or None."""
-    if '<div id="ws-app"' in html:
-        return re.compile(r'(<div id="ws-app")'), "worksheet builder"
+    """(the target tag, kind) for this page, or None.
+
+    The target depends on the KIND of page, not on what happens to come first
+    in the file: a worksheet page prints the worksheet builder (its controls
+    are hidden and #w-sheet prints), a printable guide prints the article.
+    """
+    if WS_APP.search(html):
+        return WS_APP, "worksheet builder"
     if "materials/" in path and re.search(r"window\.print\s*\(\s*\)", html):
-        m = re.compile(r'(<div class="art")')
-        if m.search(html):
-            return m, "printed guide"
+        m = ART.search(html)   # class="art", or "art pw-legacy" once layered
+        if m:
+            return ART, "printed guide"
     return None
 
 
@@ -65,8 +81,35 @@ def pages():
     return sorted(out)
 
 
+SCRIPT_MARK = "<!-- ekguru:print-sheet -->"
+SCRIPT_TAG = '<script src="%sjs/print-sheet.js" defer></script>'
+
+
+def depth_prefix(path):
+    """../ per directory, so the script resolves from any depth."""
+    parts = [p for p in path.replace("\\", "/").split("/") if p and p != "."]
+    # the last part is the file itself; every directory before it is one level
+    return "../" * (len(parts) - 1)
+
+
+def insert_script(html, path):
+    """Load js/print-sheet.js on this page, once."""
+    if SCRIPT_MARK in html or "js/print-sheet.js" in html:
+        return html
+    tag = SCRIPT_MARK + "\n" + SCRIPT_TAG % depth_prefix(path)
+    anchor = "<!-- ekguru:shell-header:end -->"
+    if anchor in html:
+        return html.replace(anchor, anchor + "\n" + tag, 1)
+    i = html.find("</head>")
+    if i >= 0:
+        return html[:i] + tag + "\n" + html[i:]
+    return html
+
+
 def mark(path, html):
-    """Returns (new_html, kind|None)."""
+    """Returns (new_html, kind|None). Moves the target if it is on the wrong
+    element — the attribute is a statement about the page, so it has one home.
+    """
     found = judge(path, html)
     if not found:
         return html, None
@@ -77,8 +120,16 @@ def mark(path, html):
         out = re.sub(r"<body([^>]*)>", r'<body\1 %s="sheet">' % MARK, out, count=1)
 
     m = target.search(out)
-    if m and "data-print-target" not in out:
-        out = out[:m.end(0)] + " data-print-target" + out[m.end(0):]
+    if m and "data-print-target" in m.group(0):
+        pass                                        # already on the right tag
+    elif m:
+        # strip every copy first (the wrong element, if there is one) …
+        out = out.replace(" data-print-target", "")
+        m = target.search(out)
+        # … then put it on the tag this page's kind prints
+        out = out[:m.end() - 1] + " data-print-target" + out[m.end() - 1:]
+
+    out = insert_script(out, path)
     return out, kind
 
 

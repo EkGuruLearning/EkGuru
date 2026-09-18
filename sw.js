@@ -17,11 +17,16 @@
    Bump CACHE when you deploy and the old one is cleared out.
    ========================================================= */
 
-/* v200.2 — ONE header and ONE footer on all 1,563 pages (tools/build-shell.js),
+/* v40 — a worksheet printed offline prints the sheet: js/print-sheet.js
+   (loaded by tools/build-print-sheets.py) clones the finished worksheet into
+   #ekguru-print-root. Cached, so the one place a learner prints has the same
+   rule as the online one.
+
+   v200.2 — ONE header and ONE footer on all 1,563 pages (tools/build-shell.js),
    translated on the six market pages, with one owner of the drawer: the cache
    generation moves so a returning visitor cannot keep the old chrome, the old
    tagline or the second click handler on the menu button. */
-const CACHE = "ekguru-v39-print-sheets";
+const CACHE = "ekguru-v40-only-the-sheet";
 
 /* Phase 6 §14 — "Save for offline" pins learner-chosen pages in a dedicated
    cache that survives the main cache rotation. Only same-origin, non-private
@@ -57,6 +62,11 @@ const SHELL = [
      watermark. A cached page without them is the half-open drawer. */
   "./js/site-shell.js",
   "./js/copywatch.js",
+  /* v40 — what actually reaches the printer. js/print-sheet.js clones the
+     finished worksheet into #ekguru-print-root on Ctrl+P, so a worksheet
+     printed offline prints the sheet and not the page around it. It belongs
+     in the same cache generation as the copy source line it complements. */
+  "./js/print-sheet.js",
   "./js/rates.js",
   "./js/store.js",
   "./js/analytics.js",

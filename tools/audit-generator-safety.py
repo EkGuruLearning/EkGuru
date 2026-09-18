@@ -38,18 +38,41 @@ reg = subprocess.run([sys.executable, "tools/build-hindi-pages.py"],
 results.append(check("tools/build-hindi-pages.py (regeneration run)",
                      reg.returncode == 0, reg.stdout.strip().splitlines()[-1] if reg.stdout else reg.stderr[:200]))
 
-# ---- 1b. PUT THE SHELL BACK ON ----
-# This audit *regenerates* pages, and the generator emits them without the site
-# header and footer: the shell is applied afterwards by tools/build-shell.js
-# (build-all step 13). Running the audit on its own therefore used to leave
-# eight pages — the ones learners actually use — with no header, no footer and
-# no way back to the site, until someone happened to run the shell. On a live
-# site that is the "I refreshed and it is a different website" bug. The audit
-# now puts the shell back itself, so it can never leave the tree half-built.
-shell = subprocess.run(["node", "tools/build-shell.js"], capture_output=True, text=True)
-results.append(check("tools/build-shell.js (re-stamped after regeneration)",
-                     shell.returncode == 0,
-                     (shell.stdout.strip().splitlines() or [shell.stderr[:200]])[0]))
+# ---- 1b. PUT THE SITE BACK ON ----
+# This audit *regenerates* pages, and the generator emits them as they were
+# written years ago: no site header and footer, and the page's own copy of
+# every style rule the design system already owns. The layers and the chrome
+# are applied afterwards (build-all steps 12-13). Running the audit on its own
+# therefore used to leave eight pages — the ones learners actually use — with
+# no header, no footer, no way back to the site and a second, older stylesheet
+# inside them, until someone happened to run the build. On a live site that is
+# the "I refreshed and it is a different website" bug. The audit now runs the
+# same tail of the build it disturbed, in the same order.
+TAIL = [("reading layer (969 pages onto the design system)",
+         [sys.executable, "tools/build-legacy-pages.py"]),
+        ("page layer (555 lesson + answer + hub pages)",
+         [sys.executable, "tools/build-page-layer.py"]),
+        ("print sheets (worksheet prints as a sheet)",
+         [sys.executable, "tools/build-print-sheets.py"]),
+        ("site shell (one header + one footer, every page)",
+         ["node", "tools/build-shell.js"])]
+for label, cmd in TAIL:
+    done = subprocess.run(cmd, capture_output=True, text=True)
+    results.append(check("%s — re-run after regeneration" % label,
+                         done.returncode == 0,
+                         (done.stdout.strip().splitlines() or [done.stderr[:200]])[0]))
+EIGHT = ["learn/hindi/review/index.html", "learn/hindi/my-progress/index.html",
+         "learn/hindi/practice/typing/index.html", "learn/hindi/practice/quiz/index.html",
+         "learn/hindi/practice/worksheets/index.html", "learn/hindi/practice/index.html",
+         "learn/hindi/practice/conversation/index.html", "learn/hindi/intermediate/index.html"]
+UNLAYERED = []
+for p in EIGHT:
+    html = open(p, encoding="utf-8").read()
+    if 'class="art pw-legacy"' not in html or "\.art{max-width" in html:
+        UNLAYERED.append(p)
+results.append(check("the eight learner pages are on the shared stylesheet, not their own copy",
+                     not UNLAYERED, ", ".join(UNLAYERED) or "8/8 layered, no page-owned CSS"))
+
 BROKEN_SHELL = [p for p in ("learn/hindi/review/index.html", "learn/hindi/my-progress/index.html",
                             "learn/hindi/practice/typing/index.html", "learn/hindi/practice/quiz/index.html",
                             "learn/hindi/practice/worksheets/index.html", "learn/hindi/practice/index.html",

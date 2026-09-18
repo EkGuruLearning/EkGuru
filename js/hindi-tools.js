@@ -287,6 +287,11 @@
 
     host.querySelector("#w-print").addEventListener("click", function () {
       if (!made.length) { host.querySelector("#w-make").click(); }
+      /* Print the sheet, not the page: js/print-sheet.js clones the finished
+         worksheet into #ekguru-print-root and hides everything else on paper.
+         Without it a reader gets the header, the intro, the controls, the note
+         and the footer on the same sheet as the questions. */
+      if (window.EKGURU_PRINT_SHEET) { window.EKGURU_PRINT_SHEET.now(); return; }
       window.print();
     });
   }

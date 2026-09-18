@@ -95,6 +95,8 @@ def main():
         run("reading layer test (one stylesheet, two bands)", ["node", "tools/test-reading-layer.mjs"])
         run("page layer test (one design on the other 555 pages)", ["node", "tools/test-page-layer.mjs"])
         run("print sheet test (what lands on paper)", ["node", "tools/test-print-sheets.mjs"])
+        run("print sheet dom test (the copy the script builds)",
+            ["node", "tools/test-print-sheet-dom.mjs"])
         run("page skeleton test (one main, skip link lands)", ["node", "tools/test-page-skeleton.mjs"])
         run("sheet-apply test (sheet row -> site)", ["node", "tools/test-sheet-apply.js"])
         run("experience DOM test", ["node", "tools/test-experience-dom.mjs"])

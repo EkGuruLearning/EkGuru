@@ -5058,6 +5058,11 @@ body.xp-market .hdr .hdr-in {
    it came from.
    ========================================================================== */
 
+
+/* The printed copy lives in #ekguru-print-root, which only exists for the
+   duration of a print. On screen it is never rendered. */
+#ekguru-print-root { display: none; }
+
 @media print {
   @page { margin: 12mm; }
 
@@ -5119,6 +5124,43 @@ body.xp-market .hdr .hdr-in {
     line-height: 1.35 !important;
     text-align: center;
   }
+
+  /* ---- mode 1b: the printed copy js/print-sheet.js builds --------------
+     A worksheet is assembled in the browser, so there is no element in the
+     file for the rules above to mark. The script clones the finished sheet
+     into #ekguru-print-root and sets html.eg-printing; from then on the paper
+     carries that one element and nothing else. */
+  html.eg-printing body > *:not(#ekguru-print-root) { display: none !important; }
+  html.eg-printing #ekguru-print-root { display: block !important; }
+
+  #ekguru-print-root .ws-page {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: #fff !important;
+    color: #000 !important;
+    box-shadow: none !important;
+  }
+
+  #ekguru-print-root .ws-page h2 { margin-block-start: 0; }
+  #ekguru-print-root .ws-page .muted { color: #444 !important; }
+  #ekguru-print-root .ws-page div[style*="border-bottom"] { border-bottom-color: #666 !important; }
+  #ekguru-print-root .print-stamp {
+    margin-block-start: 10mm;
+    padding-block-start: 2mm;
+    border-block-start: 1px solid #999;
+    color: #444 !important;
+    font-size: 8.5pt !important;
+    line-height: 1.35 !important;
+    text-align: center;
+  }
+
+  /* Nothing that is a control is content: hints, listen pills, buttons, the
+     consent bar, the toast stack and any ad are not part of a lesson. */
+  .sb-hint, .hi-listen, .say, .toast-stack, .eg-globalnav, .drawer,
+  #ekguru-consent, .ad-slot, ins.adsbygoogle, .skip { display: none !important; }
 
   /* ---- mode 2: only the sheet ---- */
   body[data-print="sheet"] .pw-legacy > *,

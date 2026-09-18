@@ -37,7 +37,9 @@ const copywatch = read("js/copywatch.js");
    not the whole stylesheet. */
 const i = css.indexOf("@media print");
 ok("css/experience.css has a print section", i > -1);
-const printCss = i > -1 ? css.slice(i) : "";
+/* Comments are prose, and prose about selectors is not a selector: strip them
+   before asserting on rules (the §27 banner quotes #ekguru-print-src). */
+const printCss = (i > -1 ? css.slice(i) : "").replace(/\/\*[\s\S]*?\*\//g, "");
 
 console.log("\n1. the rules exist\n");
 
@@ -130,6 +132,41 @@ ok("the sheet is built with a class the print layer knows",
   read("js/hindi-tools.js").includes('class="ws-page"'));
 ok("the sheet carries the free-to-print line",
   /free to print and share/.test(read("js/hindi-tools.js")));
+
+console.log("\n5. the printed copy the script builds\n");
+
+const script = read("js/print-sheet.js");
+ok("js/print-sheet.js exists", script.length > 800);
+ok("it prints one element and hides the page",
+  script.includes("ekguru-print-root") && script.includes("eg-printing"));
+ok("it watermarks the printed copy",
+  /setAttribute\("data-watermark"/.test(script));
+ok("its stamp line carries the live sheet tagline", /EKGURU_SHEET_SETTINGS/.test(script));
+ok("its stamp line carries the source, the year and the domain",
+  script.includes("ekguru.shop") && script.includes("getFullYear"));
+ok("it hooks beforeprint (Ctrl+P), not only the button", /beforeprint/.test(script));
+ok("it builds the worksheet when the reader prints without pressing Make",
+  script.includes("w-make"));
+ok("the print root is invisible on screen", /#ekguru-print-root\s*\{\s*display:\s*none/.test(printCss));
+ok("print mode 1b hides everything but the printed copy",
+  /html\.eg-printing body > \*:not\(#ekguru-print-root\)/.test(printCss));
+ok("print mode 1b reaches the bundle",
+  bundle.includes("eg-printing") && bundle.includes("ekguru-print-root"));
+ok("the worksheet's Print button prints the sheet, not the page",
+  read("js/hindi-tools.js").includes("EKGURU_PRINT_SHEET"));
+ok(`every sheet page loads the script (${marked.length} pages)`,
+  marked.length > 0 && marked.every((p) => read(p).includes("js/print-sheet.js")),
+  marked.filter((p) => !read(p).includes("js/print-sheet.js")).slice(0, 5).join(", "));
+ok("the script path resolves from every page's own depth",
+  marked.every((p) => {
+    const depth = p.split("/").length - 1;
+    return read(p).includes(`<script src="${"../".repeat(depth)}js/print-sheet.js" defer></script>`);
+  }),
+  marked.filter((p) => {
+    const depth = p.split("/").length - 1;
+    return !read(p).includes(`<script src="${"../".repeat(depth)}js/print-sheet.js" defer></script>`);
+  }).slice(0, 5).join(", "));
+ok("the offline cache carries the script", /print-sheet\.js/.test(read("sw.js")));
 
 console.log(`\n${fail ? "FAIL" : "PASS"}  ${pass} passed, ${fail} failed\n`);
 process.exit(fail ? 1 : 0);

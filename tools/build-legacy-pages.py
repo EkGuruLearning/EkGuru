@@ -512,6 +512,25 @@ def next_band(path, countries, by_country):
     return None
 
 
+# Where the bands go when the page has no bands yet. The shell footer is the
+# right answer on a built page, but a page freshly written by a generator has
+# no shell markers at all (tools/build-shell.js runs last, on purpose), and an
+# earlier version of this function refused to build such a page at all:
+# "ERROR: <page> has neither the bands nor the shell footer marker". The bands
+# still belong inside the page — before its own footer, or at the end of main,
+# or at the end of the body — so that is where they go.
+BAND_ANCHORS = ('<div class="pw-ftr', "<footer", "</main>", "</body>")
+
+
+def band_anchor(html, path):
+    if SHELL_FOOTER in html:
+        return html.index(SHELL_FOOTER)
+    for anchor in BAND_ANCHORS:
+        if anchor in html:
+            return html.index(anchor)
+    raise SystemExit("ERROR: %s has neither the bands nor any place to put them" % path)
+
+
 def splice_bands(html, path, countries, by_country):
     block = (BAND_START + "\n" + (next_band(path, countries, by_country) or "")
              + support_band() + BAND_END + "\n")
@@ -521,10 +540,8 @@ def splice_bands(html, path, countries, by_country):
         tail = html[end:]
         tail = tail[1:] if tail.startswith("\n") else tail
         return html[:start] + block + tail
-    if SHELL_FOOTER in html:
-        i = html.index(SHELL_FOOTER)
-        return html[:i] + block + html[i:]
-    raise SystemExit("ERROR: %s has neither the bands nor the shell footer marker" % path)
+    i = band_anchor(html, path)
+    return html[:i] + block + html[i:]
 
 
 # ---------------------------------------------------------------------------

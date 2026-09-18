@@ -150,7 +150,9 @@ def splice_bands(html, path, countries, by_country):
         tail = html[end:]
         tail = tail[1:] if tail.startswith("\n") else tail
         return html[:start] + block + tail
-    i = html.index(blp.SHELL_FOOTER)
+    # A page freshly written by a generator has no shell markers yet; blp
+    # knows where the bands belong in that case (before the page's own footer).
+    i = blp.band_anchor(html, path)
     return html[:i] + block + html[i:]
 
 
