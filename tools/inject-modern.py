@@ -29,10 +29,14 @@ MODERN_JS = [
     ("js/monetization.js", "monetization"),
     ("js/print-sheet.js", "print-sheet"),
     ("js/offline-games.js", "offline-games"),
+    ("js/offline-game.js", "offline-game"),
     ("js/level-visuals.js", "level-visuals"),
     ("js/visual-learning.js", "visual-learning"),
     ("js/practice-api.js", "practice-api"),
+    ("js/adaptive-practice.js", "adaptive-practice"),
+    ("js/global-srs.js", "global-srs"),
     ("js/refresh-guard.js", "refresh-guard"),
+    ("js/scroll-restore.js", "scroll-restore"),
     ("js/course-player.js", "course-player"),
 ]
 

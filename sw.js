@@ -31,7 +31,9 @@
    translated on the six market pages, with one owner of the drawer: the cache
    generation moves so a returning visitor cannot keep the old chrome, the old
    tagline or the second click handler on the menu button. */
-const CACHE = "ekguru-v42-every-refresh-shows-the-truth";
+/* BUILD: 2026-09-18T17:16:22Z dc5dde0 v43 - unique build identifier per P0-B */
+const BUILD_ID = "2026-09-18T17:16:22Z-dc5dde0-v43";
+const CACHE = "ekguru-" + BUILD_ID;
 
 /* Phase 6 §14 — "Save for offline" pins learner-chosen pages in a dedicated
    cache that survives the main cache rotation. Only same-origin, non-private
@@ -119,6 +121,19 @@ const SHELL = [
   /* Phase 7 — global language registry + goal-based onboarding */
   "./js/languages.js",
   "./js/onboarding.js",
+  /* v300 — modern learning enhancements, offline games, visuals, adaptive */
+  "./js/offline-games.js",
+  "./js/level-visuals.js",
+  "./js/visual-learning.js",
+  "./js/practice-api.js",
+  "./js/refresh-guard.js",
+  "./js/cookie-consent.js",
+  "./js/monetization.js",
+  "./js/adaptive-practice.js",
+  "./js/offline-game.js",
+  "./js/scroll-restore.js",
+  "./js/seo.js",
+  "./js/seo-engine.js",
   /* v200 — the world emblems. Three small SVGs (5-6 KB each) rather than the
      whole set: these are the ones the home page, support/ and the courses hub
      show, so they are worth having before the first paint. The other markets'

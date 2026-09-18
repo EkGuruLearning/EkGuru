@@ -272,7 +272,6 @@ ${cols}
   <div class="wrap ftr-bot">
     <p class="ftr-founder">Written and maintained by Prakash in Jaipur, India.</p>
     <p>© <span data-year>${new Date().getFullYear()}</span> <span data-brand>EkGuru</span> — <span data-tagline>${esc(shell.tagline)}</span>${mode}</p>
-    <p class="ftr-copy">All text, worksheets and artwork on this site are © EkGuru. Print or download a page and the watermark stays on it; copy a passage and the source comes with it. Nothing here is public domain.</p>
   </div>
 </footer>
 ${F_END}`;
