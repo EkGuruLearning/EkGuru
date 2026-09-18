@@ -27,7 +27,7 @@ Google documents Auto ads controls for intent-driven, overlay, in-page formats, 
 
 - **HIGH_CONTENT:** conservative in-page inventory after quality pass. Overlay experiments require separate approval.
 - **MEDIUM_CONTENT:** at most one conservative in-page opportunity after review.
-- **INTERACTIVE_LEARNING:** no ad intents, anchors, vignettes, or ads near answers/audio/navigation.
+- **INTERACTIVE_LEARNING:** no ad intents, anchors, vignettes, or ads near answers/audio/navigation. Includes the course player (`/courses/**`) and **the 273 level pages** at `/languages/<code>/level/**` written by `tools/build-course-levels.py`: a learner there is mid-task from the first word to the level test, so the loader is not in the page at all. The practice band on those pages says so, and `tools/test-course-levels.mjs` fails the build if a loader ever appears on one.
 - **UTILITY / TRANSACTIONAL / ACCOUNT / ADMIN:** excluded.
 
 The canonical path list is in `data/monetization/google-monetization.json`. Configure the same exclusions in the AdSense Auto ads account; repository code cannot prove account-side settings.

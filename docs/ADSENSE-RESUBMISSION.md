@@ -37,24 +37,34 @@ Found by auditing the repository rather than guessing:
 | Languages reachable but with nothing in them ("coming soon" hubs) | yes | removed — a language appears only when real lessons exist |
 | Duplicate intros across localised market pages | 6 pages | pages extended per locale |
 | A band on 1,527 pages claiming "never an ad on the free material" | — | corrected: the practice is ad-free, the pages around it are not |
+| The whole of A2–C2 of every course, plus A1 of 29 languages | reachable only inside a JavaScript player on a `#` route — invisible to a crawler | **273 real pages** at `/languages/<code>/level/<a1..c2>/`, plain HTML, answers included (`tools/build-course-levels.py`) |
 
 The audit that produces these numbers is `tools/audit-adsense-readiness.py`; the
 machine-readable copy is `data/quality/adsense-readiness.json`.
 
 ## 3 · What the site is now
 
-- **1,565 pages scanned**, 234 courses, **technical SEO PASS on all of them**
+- **1,838 pages scanned**, 234 courses, **technical SEO PASS on all of them**
   (title, meta description, exactly one `h1`, canonical, main landmark).
 - **0 indexable thin pages.** The two that remain short are deliberately short
-  and `noindex` — a 404 that tries to be an article is filler.
+  and `noindex` — a 404 that tries to be an article is filler. The 273 new level
+  pages average several thousand words each, and the smallest is over 1,500.
 - **Creative work, not filler:** 32 languages with their own practice, quiz and
   review engines; 352 level figures generated from the ladder; an eleven-rung
   level reference page (`/how-levels-work/`) that says plainly that CEFR has six
   levels and that the other five are half-steps; 32 tutor pages with real
   profiles; a cookie policy that names every cookie.
+- **The courses are readable without JavaScript.** Every level of every one of
+  the 39 courses is a page: 273 pages carrying the lessons, the vocabulary with
+  romanisation, the grammar, the dialogues, all the practice questions, the quiz,
+  the worksheet, the answers and the ten-item level test. Before this round that
+  material existed only behind `/courses/#/<code>/<level>` — a hash route, which
+  is not a URL a crawler can read. This is the "insufficient content" answer in
+  its most literal form: the content was written and unreachable.
 - **Ad policy enforced in code:** the loader is present on 1,442 pages, absent
-  on 125 by policy — practice, quizzes, worksheets, review, the course player,
-  legal pages, contact, admin.
+  on 398 by policy — practice, quizzes, worksheets, typing, review, the course
+  player, **the 273 level pages** (a learner is mid-task there from top to
+  bottom), legal pages, contact, admin.
 - **ads.txt** is correct and the canonical domain is consistent everywhere.
 
 ## 4 · The account-side steps — these are not code, and they are not done

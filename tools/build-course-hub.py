@@ -120,11 +120,21 @@ def load():
 
 
 def course_href(code, levels):
-    """Prefer the pre-rendered course page; fall back to the player route."""
+    """Prefer a pre-rendered page over the player route, always.
+
+    The card used to fall back to `/courses/#/<code>` for every language with no
+    `languages/<code>/course/` directory — which, since
+    tools/build-course-levels.py, means eleven languages whose whole course (six
+    levels, every lesson, every practice question and answer) is real HTML at
+    `languages/<code>/level/`. A hash route is not a page: the card sent a
+    crawler, and a reader without JavaScript, to a spinner when a complete
+    course page existed. The player route is the last resort, not the first."""
     if os.path.isdir(os.path.join("languages", code, "course")):
         return "/languages/%s/course/" % code
     if os.path.isdir(os.path.join("learn", code)):
         return "/learn/%s/" % code
+    if os.path.exists(os.path.join("languages", code, "level", "index.html")):
+        return "/languages/%s/level/" % code
     return "/courses/#/%s" % code
 
 

@@ -41,6 +41,20 @@ MARK = "<!-- ekguru:storybook -->"
 HINT = ('<p class="sb-hint">🔊 <b>Tap any speaker button to hear Hindi spoken.</b> '
         "Too fast or slow? Use the <b>speed</b> button at the "
         "bottom-right of the page.</p>")
+# The hint used to be added to every page that contains ONE Devanagari letter —
+# so the Marathi, Nepali, Bengali and Punjabi pages were told to "hear Hindi
+# spoken" and a Bengali page with a single Hindi gloss in it said the same. The
+# claim has to be true of the page it is printed on: Hindi pages keep the exact
+# sentence above, and every other page gets the sentence that is true of it.
+HINT_WORDS = ('<p class="sb-hint">🔊 <b>Tap any speaker button to hear the words on this '
+              "page spoken.</b> Too fast or slow? Use the <b>speed</b> button at the "
+              "bottom-right of the page.</p>")
+HINDI_PATHS = ("learn/hindi", "hindi-tutor", "toolbox/hindi", "learn-hindi-",
+               "daily-hindi", "languages/hi/", "/hindi/", "hindi/index.html")
+
+
+def hint_for(path):
+    return HINT if any(bit in path for bit in HINDI_PATHS) else HINT_WORDS
 DEVA = re.compile(r"[\u0900-\u097F]")
 
 MARK2 = "<!-- ekguru:chapter -->"
@@ -144,10 +158,20 @@ def process(path):
                 h = h.replace("</head>", css_tag + "\n</head>", 1)
             did.append("css")
 
-        # Hint, once, on pages that actually contain Hindi.
-        if DEVA.search(h) and "</h1>" in h and "sb-hint" not in h:
-            h = h.replace("</h1>", "</h1>\n" + MARK + "\n" + HINT, 1)
+
+    # Hint: the sentence has to be true of the page it is printed on. This runs
+    # whether or not the page already carries the storybook mark — the first
+    # version only ran on a page's first visit, so a page that had been told to
+    # "hear Hindi spoken" while carrying Marathi or Bengali words kept the
+    # wrong sentence forever.
+    if DEVA.search(h) and "</h1>" in h:
+        want = hint_for(path)
+        if "sb-hint" not in h:
+            h = h.replace("</h1>", "</h1>\n" + MARK + "\n" + want, 1)
             did.append("hint")
+        elif want not in h:
+            h = re.sub(r'<p class="sb-hint">.*?</p>', want, h, count=1, flags=re.S)
+            did.append("hint-fixed")
 
     # Chapter banner + palette (v147), once per page.
     if MARK2 not in h:

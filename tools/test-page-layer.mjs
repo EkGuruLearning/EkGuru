@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 /* ==========================================================================
-   test-page-layer.mjs — the 556 pages that joined §25
+   test-page-layer.mjs — the 828 pages that joined §25 (556 lesson/answer/hub
+   pages, plus the 273 A1–C2 level pages tools/build-course-levels.py writes)
 
-   The page layer (tools/build-page-layer.py) marks the lesson, answer, hub and
-   directory pages with the class §25 already owns, drops the copy of the
+   The page layer (tools/build-page-layer.py) marks the lesson, answer, hub,
+   directory and level pages with the class §25 already owns, drops the copy of the
    stylesheet each of them was carrying, names their tables' columns and adds
    the two bands. This test is what stops that from drifting:
 

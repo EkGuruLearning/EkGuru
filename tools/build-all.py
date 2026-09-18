@@ -24,7 +24,8 @@ deploys:
  13  legal pages (terms/privacy/disclaimer/copyright get ids + a contents
      card), courses by country, the reading layer (969 hand-written pages onto
      one stylesheet, plus the support band and each page's next step), the page
-     layer (the other 555 hand-written pages onto the same one), site shell
+     layer (the other 555 hand-written pages onto the same one), the A1–C2 level
+     pages of every course, site shell
      (one header + one footer on all 1,564 pages), copy index (the check phase
      also runs the ownership, search-facet, drawer, course, reading and page
      layer tests)
@@ -75,6 +76,8 @@ def main():
         run("experience bundle --check", ["python3", "tools/bundle-experience-css.py", "--check"])
         run("world artwork --check", ["python3", "tools/build-world-art.py", "--check"])
         run("course hub --check", ["python3", "tools/build-course-hub.py", "--check"])
+        run("course levels --check (the A1-C2 pages of every course)",
+            ["python3", "tools/build-course-levels.py", "--check"])
         run("tutor script tags --check", ["node", "tools/langsync.js", "--check"])
         run("tutor profiles --check", ["node", "tools/build-tutor-pages.js", "--check"])
         run("home tutor grid --check", ["node", "tools/build-home-tutors.js", "--check"])
@@ -84,11 +87,13 @@ def main():
             ["python3", "tools/build-legal-pages.py", "--check"])
         run("courses by country --check", ["python3", "tools/build-course-countries.py", "--check"])
         run("reading layer --check (969 hand-written pages)", ["python3", "tools/build-legacy-pages.py", "--check"])
-        run("page layer --check (555 lesson/answer/hub pages)", ["python3", "tools/build-page-layer.py", "--check"])
+        run("page layer --check (555 lesson/answer/hub pages + 273 level pages)", ["python3", "tools/build-page-layer.py", "--check"])
         run("level visuals --check (a learner per language per rung)",
             ["python3", "tools/build-visuals.py", "--check"])
         run("level visuals test (the ladder, the figures, the strip)",
             ["node", "tools/test-level-visuals.mjs"])
+        run("course levels test (every course readable at every level)",
+            ["node", "tools/test-course-levels.mjs"])
         run("readiness audit selftest (the word counter, on unspaced scripts)",
             ["python3", "tools/audit-adsense-readiness.py", "--selftest"])
         run("ads readiness, repository mode (ads.txt, canonicals, sitemaps)",
@@ -101,7 +106,7 @@ def main():
         run("header drawer test (one owner, one open)", ["node", "tools/test-shell-drawer.mjs"])
         run("course country search test", ["node", "tools/test-course-country.mjs"])
         run("reading layer test (one stylesheet, two bands)", ["node", "tools/test-reading-layer.mjs"])
-        run("page layer test (one design on the other 555 pages)", ["node", "tools/test-page-layer.mjs"])
+        run("page layer test (one design on all 828 pages)", ["node", "tools/test-page-layer.mjs"])
         run("print sheet test (what lands on paper)", ["node", "tools/test-print-sheets.mjs"])
         run("print sheet dom test (the copy the script builds)",
             ["node", "tools/test-print-sheet-dom.mjs"])
@@ -134,12 +139,14 @@ def main():
     run("inventory build", ["python3", "tools/build-inventory.py"])
     run("country language pages", ["python3", "tools/build-country-language-pages.py"])
     run("search index", ["python3", "tools/build-search-index.py"])
-    run("storybook injector (Hindi TTS + design)", ["python3", "tools/inject-storybook.py"])
-    run("ads policy (which pages may load the ad script)", ["python3", "tools/inject-ads.py"])
-    run("consent injector (cookie notice)", ["python3", "tools/inject-consent.py"])
     run("experience bundle (css/experience.css -> style.min.css)", ["python3", "tools/bundle-experience-css.py"])
     run("world artwork (9 emblems)", ["python3", "tools/build-world-art.py"])
     run("course hub + home teaser", ["python3", "tools/build-course-hub.py"])
+    run("course levels (A1-C2 pages, and the rail on every hub)",
+        ["python3", "tools/build-course-levels.py"])
+    run("storybook injector (Hindi TTS + design)", ["python3", "tools/inject-storybook.py"])
+    run("ads policy (which pages may load the ad script)", ["python3", "tools/inject-ads.py"])
+    run("consent injector (cookie notice)", ["python3", "tools/inject-consent.py"])
     run("tutor script tags (langsync)", ["node", "tools/langsync.js"])
     run("tutor profiles (page + sitemaps + feed)", ["node", "tools/build-tutor-pages.js"])
     run("home tutor grid", ["node", "tools/build-home-tutors.js"])
@@ -149,7 +156,7 @@ def main():
     run("courses by country (194 countries + the build queue)", ["python3", "tools/build-course-countries.py"])
     run("Hindi learning pages (learn/hindi/**)", ["python3", "tools/build-hindi-pages.py"])
     run("reading layer (969 pages onto the design system)", ["python3", "tools/build-legacy-pages.py"])
-    run("page layer (555 lesson + answer + hub pages onto the same one)", ["python3", "tools/build-page-layer.py"])
+    run("page layer (555 lesson/answer/hub + 273 level pages)", ["python3", "tools/build-page-layer.py"])
     run("level visuals (a learner per language per rung)", ["python3", "tools/build-visuals.py"])
     run("print sheets (worksheet prints as a sheet)", ["python3", "tools/build-print-sheets.py"])
     run("questions api (flags and likes reach other learners)",
