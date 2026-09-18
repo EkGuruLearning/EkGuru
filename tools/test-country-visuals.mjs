@@ -163,7 +163,31 @@ ok(`the figure carries the country's own name where the data has one (${withNati
   `${nativesShown.length}/${withNative.length} shown`);
 ok("India's plate shows भारत", read("images/vis/country-in.svg").includes("भारत"));
 
-console.log("\n4. the manifest is honest\n");
+console.log("\n4. nothing runs off the plate\n");
+
+{
+  /* The plates are 320px wide and unforgiving. Right-to-left lines are the
+     obvious way to fail this, but so is a long language list: estimate each
+     run's width and fail when it leaves the picture. */
+  const overflow = [];
+  for (const [cc, f] of Object.entries(figures)) {
+    const svg = read(`images/vis/country-${cc.toLowerCase()}.svg`);
+    for (const m of svg.matchAll(/<text x="(\d+)"([^>]*)>([^<]*)<\/text>/g)) {
+      const x = Number(m[1]), attrs = m[2], body = m[3];
+      const size = Number((attrs.match(/font-size="([\d.]+)"/) || [, 12])[1]);
+      const wide = /[\u0590-\u08FF\u0900-\u0DFF]/.test(body) ? 0.62 : 0.58;
+      const width = body.length * size * wide;
+      const anchor = (attrs.match(/text-anchor="(\w+)"/) || [, "start"])[1];
+      const start = anchor === "end" ? x - width : anchor === "middle" ? x - width / 2 : x;
+      if (start + width > 314 || start < 2) {
+        overflow.push(`${cc}: "${body.slice(0, 20)}" ${Math.round(start)}→${Math.round(start + width)}`);
+      }
+    }
+  }
+  ok("every word stays on the plate", overflow.length === 0, overflow.slice(0, 4).join("; "));
+}
+
+console.log("\n5. the manifest is honest\n");
 ok("every figure has a region and a slug",
   Object.values(figures).every((f) => f.slug && f.name && typeof f.taught === "number"));
 ok("no figure claims a course count above its documented count",

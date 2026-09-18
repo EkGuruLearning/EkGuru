@@ -92,12 +92,16 @@ def main():
             ["python3", "tools/build-visuals.py", "--check"])
         run("country visuals --check (one plate per country)",
             ["python3", "tools/build-country-visuals.py", "--check"])
+        run("toolbox visuals --check (one plate per tool)",
+            ["python3", "tools/build-toolbox-visuals.py", "--check"])
         run("level visuals test (the ladder, the figures, the strip)",
             ["node", "tools/test-level-visuals.mjs"])
         run("course levels test (every course readable at every level)",
             ["node", "tools/test-course-levels.mjs"])
         run("country visuals test (numbers match the data)",
             ["node", "tools/test-country-visuals.mjs"])
+        run("toolbox visuals test (the plates cannot lie about the pages)",
+            ["node", "tools/test-toolbox-visuals.mjs"])
         run("offline playable test (the game plays with the network off)",
             ["node", "tools/test-offline-playable.mjs"])
         run("readiness audit selftest (the word counter, on unspaced scripts)",
@@ -163,6 +167,8 @@ def main():
     run("Hindi learning pages (learn/hindi/**)", ["python3", "tools/build-hindi-pages.py"])
     run("country visuals (one plate per country, on both country page sets)",
         ["python3", "tools/build-country-visuals.py"])
+    run("toolbox visuals (one plate per tool, from the tool's own data)",
+        ["python3", "tools/build-toolbox-visuals.py"])
     run("reading layer (969 pages onto the design system)", ["python3", "tools/build-legacy-pages.py"])
     run("page layer (555 lesson/answer/hub + 273 level pages)", ["python3", "tools/build-page-layer.py"])
     run("level visuals (a learner per language per rung)", ["python3", "tools/build-visuals.py"])

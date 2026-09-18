@@ -76,6 +76,35 @@ def load(path, default=None):
         return default
 
 
+def text_w(txt, size):
+    """Roughly how wide a string will be drawn, in px, at this font size."""
+    w = 0.0
+    for ch in txt:
+        if "\u0590" <= ch <= "\u08ff" or "\u0900" <= ch <= "\u0dff":
+            w += size * 0.62          # Arabic, Hebrew, Indic
+        elif "\u2e80" <= ch <= "\u9fff" or "\uff00" <= ch <= "\uffef":
+            w += size * 1.0           # CJK
+        else:
+            w += size * 0.58
+    return w
+
+
+def fit_names(names, size, avail, sep=" \u00b7 "):
+    """As many language names as fit on one plate line, and how many were left.
+
+    A list truncated by character count runs off the plate when the names are
+    wide (CJK) or right-to-left, so the line is measured instead."""
+    kept = []
+    for name, script in names:
+        trial = sep.join([n for n, _ in kept] + [name])
+        if kept and text_w(trial + " +99", size) > avail:
+            break
+        kept.append((name, script))
+    if not kept:
+        kept = names[:1]
+    return kept, max(0, len(names) - len(kept))
+
+
 def esc(t):
     return (str(t).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
 
@@ -177,14 +206,17 @@ def figure(info, rows, taught):
     more = max(0, len(headline) - len(names))
 
     native_line = " · ".join(esc(n) for n, _ in names) or "—"
-    rtl = any(s in RTL_SCRIPTS for _, s in names)
+    # A list that MIXES scripts (China: 普通话 · 粵語 · ئۇيغۇرچە) has one reading
+    # direction, and it is the direction of the language it starts with. Before
+    # this, one RTL language anywhere in the list flipped the whole line and the
+    # Chinese names ran off the left edge.
+    rtl = names[0][1] in RTL_SCRIPTS if names else False
     # A right-to-left string anchored "start" at x=18 runs off the left edge of
     # the plate; a left-to-right string anchored "end" at the right edge would
     # look like a mistake. Each line is anchored on the side it is read from.
     nat_rtl = any("\u0590" <= ch <= "\u08ff" for ch in info["native"])
     nat_x = '302" text-anchor="end' if nat_rtl else '78'
     nat_dir = ' direction="rtl"' if nat_rtl else ""
-    lang_x = '302" text-anchor="end' if rtl else '18'
     region = info["subregion"] or info["region"] or ""
 
     who = "%s (%s)" % (info["name"], info["cc"])
@@ -219,15 +251,37 @@ def figure(info, rows, taught):
     nums = ("%d documented · %d taught here" % (documented, len(taught_here))
             if taught_here else
             "%d documented · no course here yet" % documented)
-    name_size = 15 if len(native_line) <= 34 else (12 if len(native_line) <= 60 else 10)
+    avail = 320 - 18 - 8
+    list_size = 15
+    kept = names
+    for size in (15, 13, 12, 11, 10):
+        kept, dropped = fit_names(names, size, avail)
+        list_size = size
+        if not dropped:
+            break
+    more = dropped
+    rtl = kept[0][1] in RTL_SCRIPTS if kept else rtl
+    lang_x = '302" text-anchor="end' if rtl else '18'
+    native_line = " · ".join(esc(n) for n, _ in kept) or "—"
+
+    name_size = 15
+    while name_size > 10 and text_w(native_line, name_size) > avail:
+        name_size -= 1
+
+    native_avail = 320 - 78 - 10
+    native_name = info["native"]
+    while len(native_name) > 6 and text_w(native_name, 12) > native_avail:
+        native_name = native_name[:-2]
+    if native_name != info["native"]:
+        native_name = native_name.rstrip() + "…"
     return svg % (
         esc(alt), esc(alt), tint, a,
         b, b,
         a, esc(info["cc"]),
         esc(info["name"][:22]),
-        nat_x, nat_dir, esc(info["native"][:34]),
+        nat_x, nat_dir, esc(native_name),
         a, esc(label),
-        lang_x, name_size,
+        lang_x, list_size,
         ' direction="rtl"' if rtl else "",
         native_line + ((" +%d" % more) if more else ""),
         "#5b5876", esc(region + (" · %s" % info["region"] if info["region"] and info["subregion"] and info["region"] != info["subregion"] else "")),
