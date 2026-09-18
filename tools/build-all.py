@@ -98,6 +98,8 @@ def main():
             ["node", "tools/test-course-levels.mjs"])
         run("country visuals test (numbers match the data)",
             ["node", "tools/test-country-visuals.mjs"])
+        run("offline playable test (the game plays with the network off)",
+            ["node", "tools/test-offline-playable.mjs"])
         run("readiness audit selftest (the word counter, on unspaced scripts)",
             ["python3", "tools/audit-adsense-readiness.py", "--selftest"])
         run("ads readiness, repository mode (ads.txt, canonicals, sitemaps)",
