@@ -38,6 +38,7 @@
 window.EKGURU_I18N = {
 
   en: {
+    "nav.skip": "Skip to content",
     "search.headerPh": "Search tutors…",
     "search.suggest": "Tutors",
     "search.viewAll": "View all results",
@@ -298,6 +299,7 @@ window.EKGURU_I18N = {
   },
 
   es: {
+    "nav.skip": "Ir al contenido",
     "search.headerPh": "Buscar profesores…",
     "search.suggest": "Profesores",
     "search.viewAll": "Ver todos los resultados",
@@ -479,6 +481,7 @@ window.EKGURU_I18N = {
   },
 
   fr: {
+    "nav.skip": "Aller au contenu",
     "search.headerPh": "Rechercher…",
     "search.suggest": "Professeurs",
     "search.viewAll": "Voir tous les résultats",
@@ -660,6 +663,7 @@ window.EKGURU_I18N = {
   },
 
   de: {
+    "nav.skip": "Zum Inhalt springen",
     "search.headerPh": "Lehrkräfte suchen…",
     "search.suggest": "Lehrkräfte",
     "search.viewAll": "Alle Ergebnisse ansehen",
@@ -841,6 +845,7 @@ window.EKGURU_I18N = {
   },
 
   pt: {
+    "nav.skip": "Ir para o conteúdo",
     "search.headerPh": "Buscar professores…",
     "search.suggest": "Professores",
     "search.viewAll": "Ver todos os resultados",
@@ -1022,6 +1027,7 @@ window.EKGURU_I18N = {
   },
 
   ja: {
+    "nav.skip": "本文へスキップ",
     "search.headerPh": "講師を検索…",
     "search.suggest": "講師",
     "search.viewAll": "すべての結果を見る",
@@ -1203,6 +1209,7 @@ window.EKGURU_I18N = {
   },
 
   ar: {
+    "nav.skip": "تخطَّ إلى المحتوى",
     "search.headerPh": "ابحث عن معلم…",
     "search.suggest": "المعلمون",
     "search.viewAll": "عرض كل النتائج",

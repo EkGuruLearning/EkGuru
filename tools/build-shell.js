@@ -213,6 +213,7 @@ function headerHTML(p, shell, loc, dict, hasMain) {
     "      " + anchor(href(target), en, key, L(en, key), loc)).join("\n");
   return `${H_START}
 <header class="hdr">
+  <a class="skip" href="#main">${esc(L("Skip to content", "nav.skip"))}</a>
   <div class="hdr-in">
     <a class="logo" href="${esc(href("home"))}">
       <span class="logo-mark" aria-hidden="true">E</span>
@@ -330,6 +331,37 @@ function swapChrome(out, re, block, what) {
   return { out, count };
 }
 
+/* Pages that set their own body layout, and the Google verification file with
+   no body at all: not wrapped, on purpose. */
+const MAIN_SKIP = new Set(["admin.html", "googleb3b0e3defc1daa17.html"]);
+
+function ensureMain(html, file) {
+  if (MAIN_SKIP.has(file.replace(/^\.\//, ""))) return html;
+
+  if (/<main\b/i.test(html)) {
+    return html.replace(/<main\b(?![^>]*\bid=)/i, '<main id="main"');
+  }
+
+  const hEnd = html.indexOf(H_END);
+  let from = hEnd >= 0 ? hEnd + H_END.length : -1;
+  if (from < 0) {
+    const m = html.match(/<\/header\s*>/i);
+    if (m) from = m.index + m[0].length;
+  }
+  if (from < 0) {
+    const m = html.match(/<body[^>]*>/i);
+    if (m) from = m.index + m[0].length;
+  }
+  if (from < 0) return html;
+
+  const fAt = html.indexOf(F_START);
+  const to = fAt >= 0 ? fAt : html.lastIndexOf("</body>");
+  if (to <= from) return html;
+
+  return html.slice(0, from) + "\n<main id=\"main\">" +
+    html.slice(from, to) + "</main>\n" + html.slice(to);
+}
+
 function rebuild(html, file, shell, dict) {
   if (!/<\/body>/i.test(html)) return null;
 
@@ -395,6 +427,16 @@ function rebuild(html, file, shell, dict) {
     touched = true;
     stats.injectedFooter = 1;
   }
+
+  /* 4. THE PAGE SKELETON — one <main id="main">, so the skip link in the
+     header has somewhere to land. The shell header has carried
+     <a class="skip" href="#main"> since v150 and only 30 of 1,564 pages had
+     the target: pressing it did nothing on every other page. Rather than
+     hand-place the landmark 1,500 times, wrap what is between the header and
+     the footer — the content, bands and scripts — which is what the element
+     means. Pages that already mark their own main (the v200 ones) keep it and
+     only gain the id. */
+  out = ensureMain(out, file);
 
   /* the pages that write their own chrome used to be the only ones with a
      hand-written header, and they were the only ones without copywatch */
