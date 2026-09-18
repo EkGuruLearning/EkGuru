@@ -16,7 +16,17 @@ deploys:
   7  inventory (validate + build data/global + country language pages)
   8  search index
   9  storybook injector (Hindi pages get TTS + design)
-  10 doctor (SEO + privacy + gate + admin stats)
+ 10  ads + consent injectors
+ 11  experience layer (css/experience.css -> style.min.css, world artwork,
+     /courses/ + the home teaser)
+ 12  tutor layer (script tags, profile pages + sitemaps + feed, home cards,
+     the six market pages, every other page that lists tutors)
+ 13  doctor (SEO + privacy + gate + admin stats)
+
+The two layers in 11-12 are generated from the same data the pages are, so
+they run last and cannot be overwritten by an injector. `python3
+tools/build-all.py check` runs every generator's --check instead of writing,
+and is what CI should call.
 
 Steps 2-3 both feed data/courses.json + sitemap-courses.xml; steps
 4-6 read those, so the order above is load-bearing — do not reorder.
@@ -54,6 +64,19 @@ def main():
             run("Indian course: " + slug, ["python3", "tools/build-language-course.py", slug])
         return
 
+    if only and only[0] == "check":
+        run("experience bundle --check", ["python3", "tools/bundle-experience-css.py", "--check"])
+        run("world artwork --check", ["python3", "tools/build-world-art.py", "--check"])
+        run("course hub --check", ["python3", "tools/build-course-hub.py", "--check"])
+        run("tutor script tags --check", ["node", "tools/langsync.js", "--check"])
+        run("tutor profiles --check", ["node", "tools/build-tutor-pages.js", "--check"])
+        run("home tutor grid --check", ["node", "tools/build-home-tutors.js", "--check"])
+        run("market pages --check", ["node", "tools/build-market-pages.js", "--check"])
+        run("roster rows --check", ["node", "tools/build-roster-rows.js", "--check"])
+        run("experience DOM test", ["node", "tools/test-experience-dom.mjs"])
+        print("\n✔ every generated layer is up to date.")
+        return
+
     run("sheetsync (live sheet -> overrides)", ["node", "tools/sheetsync.js"])
     run("world courses (all)", ["python3", "tools/build-world-course.py"])
     for slug in INDIAN_SLUGS:
@@ -68,6 +91,14 @@ def main():
     run("storybook injector (Hindi TTS + design)", ["python3", "tools/inject-storybook.py"])
     run("ads injector (AdSense Auto Ads)", ["python3", "tools/inject-ads.py"])
     run("consent injector (cookie notice)", ["python3", "tools/inject-consent.py"])
+    run("experience bundle (css/experience.css -> style.min.css)", ["python3", "tools/bundle-experience-css.py"])
+    run("world artwork (9 emblems)", ["python3", "tools/build-world-art.py"])
+    run("course hub + home teaser", ["python3", "tools/build-course-hub.py"])
+    run("tutor script tags (langsync)", ["node", "tools/langsync.js"])
+    run("tutor profiles (page + sitemaps + feed)", ["node", "tools/build-tutor-pages.js"])
+    run("home tutor grid", ["node", "tools/build-home-tutors.js"])
+    run("market pages (6 locales)", ["node", "tools/build-market-pages.js"])
+    run("roster rows (long-tail tutor lists)", ["node", "tools/build-roster-rows.js"])
     run("doctor", ["node", "tools/doctor.js"])
     print("\n══════════════════════════════════════════")
     print("build-all complete — every step passed.")

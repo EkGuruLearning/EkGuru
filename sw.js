@@ -17,7 +17,10 @@
    Bump CACHE when you deploy and the old one is cleared out.
    ========================================================= */
 
-const CACHE = "ekguru-v34-world-art";
+/* v200.1 — the redesigned pages plus the fifth tutor (Sarshtee Baliyan) and
+   the regenerated tutor lists on every page that carries one. A returning
+   visitor must not keep the four-tutor shell, so the cache generation moves. */
+const CACHE = "ekguru-v35-tutor-roster";
 
 /* Phase 6 §14 — "Save for offline" pins learner-chosen pages in a dedicated
    cache that survives the main cache rotation. Only same-origin, non-private

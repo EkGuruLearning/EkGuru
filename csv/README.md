@@ -17,7 +17,7 @@ renamed or invented.
 | `ekguru_settings.csv` | settings | `key, value, what it does` | 8 keys |
 | `ekguru_content.csv` | content | `slug, question, answer, body, keywords, related, status` | 29 (28 live + 1 draft example) |
 | `ekguru_reviews.csv` | reviews | `tutor, name, date, stars, text, source, status` | 3 live reviews |
-| `ekguru_tutors.csv` | tutors | 48 columns (see below) | 4 tutors + 1 `#help` row |
+| `ekguru_tutors.csv` | tutors | 48 columns (see below) | 5 tutors + 1 `#help` row |
 | `ekguru_github_urls.csv` | github_urls | URL crawl inventory (18 cols) | 555 |
 | `ekguru_urls.csv` | urls | site URL inventory (17 cols) | 548 |
 
@@ -49,6 +49,22 @@ character, 90 characters or fewer**. The loader deliberately refuses anything
 else (a pasted methodology block is the common mistake — tara's production row
 currently has one, so it is ignored on purpose). Fix it in the new sheet to
 make the caption appear.
+
+### Adding a tutor
+
+A new tutor is one more row with the same 48 cells. `csv/ekguru_tutors.csv`
+carries Sarshtee Baliyan's row; the paste-ready copy of it, including her
+`notification_email`, is kept out of Git on purpose (`.gitignore` → `*.local.csv`)
+because this repository is public. See `docs/ADD-A-TUTOR.md` for the whole
+procedure and for what each of her cells means.
+
+Regenerate that private copy at any time — it is a derived file, nothing is
+lost if it goes away:
+
+```bash
+python3 tools/make-tutor-row.py sarshtee-baliyan --email her@example.com
+# → csv/sarshtee-baliyan-row.local.csv  (header + the sheet's #help row + her row)
+```
 
 ### Rules that already hold (do not fight them)
 

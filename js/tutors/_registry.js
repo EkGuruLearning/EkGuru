@@ -31,6 +31,7 @@ window.EKGURU_TUTOR_ORDER = [
   "hemlata",
   "shikha-dutta",
   "tara",
+  "sarshtee-baliyan",
 ];
 
 /* ---------------------------------------------------------

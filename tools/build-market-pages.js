@@ -46,7 +46,8 @@
 
 const fs = require("fs");
 const path = require("path");
-const vm = require("vm");
+
+const { loadSite } = require("./lib/site-data");
 
 const ROOT = path.resolve(__dirname, "..");
 process.chdir(ROOT);
@@ -77,9 +78,15 @@ const RAIL = [
 
 /* The seven markets, for the "students from around the world" strip. The flag
    and the native name are the same in every language; the label is the
-   country, which js/i18n.js does not translate (it is a proper noun). */
+   country, which js/i18n.js does not translate (it is a proper noun).
+
+   ⚠️ The slug must be the ACTUAL directory under learn-hindi-from-<slug>/,
+   written by tools/build-country-funnel-pages.py. The first chip said
+   `united-states` while the directory on disk is `usa`, so all six market
+   pages shipped a 404 as their very first "students from around the world"
+   link. `assertWorldTargets()` below now fails the build instead. */
 const WORLD = [
-  ["united-states", "🇺🇸", "United States", "English"],
+  ["usa", "🇺🇸", "United States", "English"],
   ["spain", "🇪🇸", "Spain", "Español"],
   ["france", "🇫🇷", "France", "Français"],
   ["germany", "🇩🇪", "Germany", "Deutsch"],
@@ -92,42 +99,9 @@ const WORLD = [
    sources
    -------------------------------------------------------------------------- */
 
-function loadSite() {
-  const sandbox = { console: { warn() {}, log() {}, error() {} } };
-  vm.createContext(sandbox);
-  sandbox.window = sandbox;                 // in a browser, window IS the global
-  sandbox.document = { addEventListener() {}, querySelector: () => null, querySelectorAll: () => [] };
-  sandbox.navigator = { languages: [], language: "en" };
-  sandbox.localStorage = { getItem: () => null, setItem() {} };
-
-  const files = ["js/site-config.js", "js/tutors/_registry.js"];
-  const registry = fs.readFileSync("js/tutors/_registry.js", "utf8");
-  registry.replace(/"([a-z0-9-]+)"/g, (m, id) => id).split("\n");
-  fs.readdirSync("js/tutors")
-    .filter((f) => f.endsWith(".js") && !f.startsWith("_"))
-    .sort()
-    .forEach((f) => files.push("js/tutors/" + f));
-  files.push("js/tutors/_overrides.js", "js/tutors-data.js", "js/i18n.js");
-
-  for (const f of files) {
-    try {
-      vm.runInContext(fs.readFileSync(f, "utf8"), sandbox, { filename: f });
-    } catch (e) {
-      throw new Error("could not load " + f + ": " + e.message);
-    }
-  }
-
-  /* The roster in registry order. The sheet-hidden list is NOT applied here:
-     it is a runtime filter (js/tutors-data.js) that changes the moment the
-     owner edits the spreadsheet, while this file is crawled and indexed.
-     Baking a temporary state into the HTML is how a tutor disappears from
-     Google. The static page lists the roster; the live page filters it. */
-  const order = sandbox.EKGURU_TUTOR_ORDER || [];
-  const registered = sandbox.EKGURU_TUTOR_FILES || {};
-  const tutors = order.filter((id) => registered[id]).map((id) => registered[id]);
-
-  return { i18n: sandbox.EKGURU_I18N || {}, tutors };
-}
+/* The roster and the translations come from the one shared loader, so this
+   generator and tools/build-tutor-pages.js can never disagree about who
+   exists or what they charge. See tools/lib/site-data.js. */
 
 /* --------------------------------------------------------------------------
    helpers
@@ -306,8 +280,21 @@ function tutorCards(t, lang, tutors) {
          English cards. */
       const price =
         '<b data-usd="' + x.priceUSD + '" data-usd-mode="bare">$' + x.priceUSD + "</b>";
-      const stars = "★".repeat(Math.round(x.rating || 5));
-      const reviews = x.reviewsCount ? ` (${x.reviewsCount})` : "";
+
+      /* Stars only when there ARE reviews. These cards used to print
+         `"★".repeat(Math.round(x.rating || 5))` — five gold stars and a 5.0
+         for a tutor with an empty reviews array, on all six market pages.
+         A brand-new tutor's card claimed a perfect record they had not
+         earned yet. */
+      const stars = x.reviewsCount
+        ? `<span class="stars">${"★".repeat(
+            Math.max(1, Math.min(5, Math.round(Number(x.rating) || 0)))
+          )} ${Number(x.rating || 0).toFixed(1)} (${x.reviewsCount})</span>`
+        : x.trialAvailable
+        ? `<span>${esc(t(lang, "pf.trial"))}</span>`
+        : x.badge
+        ? `<span>${esc(x.badge)}</span>`
+        : "";
       return `      <article class="xp-card xp-tutor">
         <img class="xp-tutor-photo" src="../${esc(x.thumb || x.photo)}" alt="${esc(x.name)}, ${esc(
         x.subject
@@ -315,7 +302,7 @@ function tutorCards(t, lang, tutors) {
         <h3><a href="../tutor/${esc(x.id)}/">${esc(x.name)}</a></h3>
         <p class="xp-tutor-meta">${price} · <span data-i18n="tutor.perLesson">${esc(
         t(lang, "tutor.perLesson")
-      )}</span> · <span class="stars">${stars} ${(x.rating || 5).toFixed(1)}${reviews}</span></p>
+      )}</span>${stars ? " · " + stars : ""}</p>
         <p class="xp-tutor-headline">${esc(x.headline || "")}</p>
         <p class="xp-tutor-teaches">${esc(teaches)}</p>
         <a class="btn btn-primary btn-sm" href="../tutor/${esc(x.id)}/" data-i18n="hero.viewProfile">${esc(
@@ -372,7 +359,26 @@ ${steps}
 </section>`;
 }
 
+/* Every chip in the "students from around the world" strip is a hard link to a
+   directory that build-country-funnel-pages.py writes. Check the seven of them
+   before a single byte is written: a chip that 404s is worse than no chip, and
+   a generator is exactly the place where an unreachable link can hide for
+   months (it did — see the note on WORLD). */
+function assertWorldTargets() {
+  const missing = WORLD.map(([slug]) => slug).filter(
+    (slug) => !fs.existsSync(path.join("learn-hindi-from-" + slug, "index.html"))
+  );
+  if (missing.length) {
+    throw new Error(
+      "world-market chips point at directories that do not exist: " +
+        missing.map((s) => "learn-hindi-from-" + s + "/").join(", ") +
+        " — fix WORLD in tools/build-market-pages.js"
+    );
+  }
+}
+
 function markets(t, lang) {
+  assertWorldTargets();
   const chips = WORLD.map(
     ([slug, flag, name, native]) =>
       `      <a class="mkt" href="../learn-hindi-from-${slug}/"><span class="mkt-flag" aria-hidden="true">${flag}</span><b>${name}</b><span>${native}</span></a>`

@@ -534,7 +534,7 @@
        creates traffic rather than measuring it. -->
   <div class="card">
     <h2>Write a new page from the spreadsheet</h2>
-    <p class="muted">Tab 1 controls the four tutors. <b>Tab 2 makes pages.</b>
+    <p class="muted">Tab 1 controls the tutor roster. <b>Tab 2 makes pages.</b>
     One row becomes a real page under <code>/answers/</code> with schema,
     breadcrumbs and a sitemap entry — no code change.</p>
     <div id="contentSheetState"></div>
@@ -1244,6 +1244,7 @@
 <script src="js/tutors/hemlata.js"></script>
 <script src="js/tutors/tara.js"></script>
 <script src="js/tutors/shikha-dutta.js"></script>
+<script src="js/tutors/sarshtee-baliyan.js"></script>
 <script src="js/tutors/_overrides.js"></script>
 <script src="js/tutors-data.js"></script>
 <!-- v100 — Learn Ops data layer. learning-paths.js and practice-bank.js
@@ -2042,7 +2043,7 @@
             : "Edit prices, videos and bios in a spreadsheet instead of code." +
               "<br><b>Ready to go:</b> " +
               '<a href="tutors-sheet.csv" download>download tutors-sheet.csv</a>' +
-              " — it already has all four tutors in it. Import to Google Sheets, " +
+              " — it already has every tutor in it. Import to Google Sheets, " +
               "File → Share → Publish to web → CSV, then paste the link into " +
               "<code>sheet.csvUrl</code>. Full steps in SHEET-SETUP.md.")],
         /* v53: this row said "off" and told you to go and create four
@@ -2085,7 +2086,7 @@
                              "</code>, and the access key " +
                              "arrives by email. Paste it into <code>mail.web3formsKey</code> " +
                              "in js/site-config.js and push. No account, no card. " +
-                             "250 emails a month — far more than four tutors will use."
+                             "250 emails a month — far more than the roster will use."
                            : "Emails go out as EkGuru with your own sign-off"]
       ], "");
 
@@ -4678,7 +4679,7 @@
 
        3. BULK SEND, routed PER RECIPIENT. Not a loop around
           compose() — the cheapest relay that can reach each
-          person is chosen individually, so mailing four tutors
+          person is chosen individually, so mailing each tutor
           and thirty students does not spend thirty-four metered
           sends when most of them are free.
      ═══════════════════════════════════════════════════════ */

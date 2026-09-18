@@ -81,7 +81,14 @@ function check(name, cond, extra) {
 /* sheet.js fetches synchronously-ish via promise; wait a tick. */
 setTimeout(function () {
   const T = window.EKGURU_TUTORS;
-  check("4 tutors still present after apply", T.length === 4, "got " + T.length);
+  /* the roster grows — compare against the registry, not a frozen number */
+  const registryCount = (() => {
+    const src = require("fs").readFileSync(path.join(ROOT, "js", "tutors", "_registry.js"), "utf8");
+    const m = /window\.EKGURU_TUTOR_ORDER\s*=\s*\[([\s\S]*?)\]/.exec(src);
+    return (m[1].match(/"[a-z0-9-]+"/g) || []).length;
+  })();
+  check("every registered tutor still present after apply", T.length === registryCount,
+    "got " + T.length + ", registry has " + registryCount);
 
   const byId = {};
   T.forEach(function (t) { byId[t.id] = t; });

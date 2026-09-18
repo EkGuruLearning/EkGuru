@@ -102,6 +102,10 @@ can never drift from the colours the page uses.
 | `/search/` | hand-written (`js/site-search.js` is the engine) | — |
 | `/courses/` | catalogue in `data/courses/index.json` | `tools/build-course-hub.py` |
 | `/es/ /fr/ /de/ /pt/ /ja/ /ar/` | `js/i18n.js` + `js/tutors/*` | `tools/build-market-pages.js` |
+| `tutor/<id>/` + `sitemap-tutors.xml`, `sitemap.xml`, `feed.xml` | `js/tutors/<id>.js` + `_registry.js` | `tools/build-tutor-pages.js` |
+| the tutor grid on `/`, and the six market grids | `js/tutors/*` | `tools/build-home-tutors.js` |
+| the `<script>` tags that load the tutors | `js/tutors/_registry.js` | `tools/langsync.js` |
+| `hindi-tutor/*`, `tutor/`, `*/find-tutors.html` | `js/tutors/*` | `tools/build-roster-rows.js` |
 
 The market pages are generated because six hand-edited copies is exactly how
 they drifted apart before. The generator rewrites **only `<main>`** — head,
@@ -111,12 +115,28 @@ those pages can never be lost by a rebuild.
 ## Build / check loop
 
 ```bash
-python3 tools/build-world-art.py            # redraw the emblems (--check in CI)
-python3 tools/build-course-hub.py           # /courses/ + the home teaser (--check)
-python3 tools/bundle-experience-css.py      # css/experience.css → css/style.min.css (--check)
-node    tools/build-market-pages.js         # the six market home pages (--check)
-node    tools/test-experience-dom.mjs       # DOM smoke test (needs: npm i jsdom)
+python3 tools/build-all.py check            # every generator's --check + the DOM test
 ```
+
+That one command is the gate. It runs, in order:
+
+```bash
+python3 tools/bundle-experience-css.py --check   # css/experience.css → css/style.min.css
+python3 tools/build-world-art.py   --check       # the nine market emblems
+python3 tools/build-course-hub.py  --check       # /courses/ + the home teaser
+node    tools/langsync.js          --check       # tutor <script> tags, all 23 pages
+node    tools/build-tutor-pages.js --check       # profiles + sitemaps + feed
+node    tools/build-home-tutors.js --check       # the home page's tutor grid
+node    tools/build-market-pages.js --check      # the six market home pages
+node    tools/build-roster-rows.js --check       # 44 more pages that list tutors
+node    tools/test-experience-dom.mjs            # DOM smoke test (needs: npm i jsdom)
+```
+
+Without `check` the same chain writes instead of comparing — `python3
+tools/build-all.py` runs it as the last phase of the full rebuild (phase 12),
+after the injectors, so nothing can overwrite a generated block. `node
+tools/gate.js` runs the five tutor generators a second time as the
+`tutor-roster` check, so a deploy where one page still lists four tutors fails.
 
 `css/style.min.css` carries the whole layer, so the ~1,500 pages that only link
 the stylesheet — country funnels, lessons, tools, guides — re-tint and
