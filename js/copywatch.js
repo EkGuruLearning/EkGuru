@@ -107,7 +107,19 @@
     note.style.cssText =
       "border-top:1px solid #999;margin:18px 0 0;padding-top:8px;" +
       "font:400 11px/1.5 system-ui,sans-serif;color:#333";
+    /* The tagline under the sheet is the one the site is running on RIGHT
+       NOW — the settings tab — not the string this page was built with.
+       js/site-shell.js and js/main.js already correct the footer; this
+       covers the printed copy even on a page built before the sheet
+       changed. Falls back to whatever the footer shows. */
+    var sheet = window.EKGURU_SHEET_SETTINGS || {};
+    var tagline = sheet.tagline;
+    if (!tagline) {
+      var el = doc.querySelector("[data-tagline]");
+      tagline = el && el.textContent ? el.textContent.trim() : "";
+    }
     note.textContent = path() + "  ·  © " + YEAR + " " + BRAND +
+      (tagline ? "  ·  " + tagline : "") +
       "  ·  printed " + new Date().toISOString().slice(0, 10) +
       "  ·  ekguru.shop";
     (doc.querySelector("main") || doc.body).appendChild(note);

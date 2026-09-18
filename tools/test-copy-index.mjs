@@ -194,6 +194,49 @@ await wait(50);
 check("Clear empties both the box and the answer",
   box.value === "" && result() === "");
 
+/* ---------- the printed sheet carries the live tagline ----------
+   Prakash: "jab bhi koi print ya download kare to watermark EkGuru, aur niche
+   tagline aani chahiye jo present us time sheet mai mode hai." The watermark
+   is the stylesheet's; the line under the sheet is copywatch's, and it has to
+   read the settings the site is running on NOW — not the string the page was
+   built with. */
+{
+  const src = fs.readFileSync("js/copywatch.js", "utf8");
+  const page = new JSDOM(`<!doctype html><html><body>
+    <header class="hdr"><small data-tagline>OLD BAKED TAGLINE</small></header>
+    <main><h1>Worksheet</h1><div class="worksheet">1 + 1</div></main>
+    <footer class="ftr"><span data-tagline>OLD BAKED TAGLINE</span></footer>
+    <script>${src}<\/script>
+  </body></html>`, {
+    url: "https://ekguru.shop/answers/hindi-numbers-1-to-100/",
+    runScripts: "dangerously",
+    pretendToBeVisual: true,
+    beforeParse(window) {
+      window.EKGURU_SHEET_SETTINGS = { tagline: "One Student. One Goal. One Guru." };
+      window.matchMedia = () => ({ matches: false, addListener() {}, removeListener() {} });
+    },
+  });
+  /* jsdom's own DOMContentLoaded, which is when copywatch binds its hooks */
+  await new Promise((resolve) => {
+    if (page.window.document.readyState !== "loading") return resolve();
+    page.window.document.addEventListener("DOMContentLoaded", () => resolve());
+    setTimeout(resolve, 500);
+  });
+  page.window.dispatchEvent(new page.window.Event("beforeprint"));
+
+  const stamp = page.window.document.getElementById("ekguru-print-src");
+  check("printing stamps the page with its own URL",
+    !!stamp && /hindi-numbers-1-to-100/.test(stamp.textContent),
+    stamp ? stamp.textContent.slice(0, 80) : "no stamp");
+  check("the printed tagline is the live sheet value, not the baked one",
+    !!stamp && /One Student\. One Goal\. One Guru\./.test(stamp.textContent) &&
+    !/OLD BAKED TAGLINE/.test(stamp.textContent),
+    stamp ? stamp.textContent : "");
+  check("the watermark is stamped onto worksheet blocks",
+    page.window.document.querySelector(".worksheet").getAttribute("data-watermark") === "EkGuru",
+    String(page.window.document.querySelector(".worksheet").getAttribute("data-watermark")));
+}
+
 console.log("\n" + (failures === 0
   ? `ALL OWNERSHIP CHECKS PASSED — ${index.pages.length} page fingerprints, ` +
     `${B.SHINGLE}-word windows, ${index.pages[0].s.length} samples/page, ` +
