@@ -31,7 +31,7 @@
    translated on the six market pages, with one owner of the drawer: the cache
    generation moves so a returning visitor cannot keep the old chrome, the old
    tagline or the second click handler on the menu button. */
-const CACHE = "ekguru-v41-votes-and-sheet";
+const CACHE = "ekguru-v42-every-refresh-shows-the-truth";
 
 /* Phase 6 §14 — "Save for offline" pins learner-chosen pages in a dedicated
    cache that survives the main cache rotation. Only same-origin, non-private
@@ -232,7 +232,19 @@ self.addEventListener("fetch", event => {
      The cost is a few milliseconds. The benefit is that when
      something is removed, it is actually gone.
      ========================================================= */
-  const isCode = /\.(html?|js|json|webmanifest)$/i.test(url.pathname) ||
+  /* v42 — CSS BELONGS IN THIS LIST, and its absence was the bug Prakash kept
+     hitting. style.min.css is NOT fingerprinted: the name never changes and
+     the contents change on every build. It was falling through to the
+     stale-while-revalidate branch at the bottom, which paints the OLD
+     stylesheet and only stores the new one for "next time". So the first
+     refresh after a deploy showed the old rules — a fresh print fix, a fresh
+     palette, a fresh layout — and the *next* refresh suddenly showed
+     something different. "Refresh karne pe kuch aur hi chalta hai."
+
+     Everything that is code or styling is network-first now: one request,
+     and what you see after a refresh is what is deployed. Offline, the
+     cached copy is used, which is what the cache is for. */
+  const isCode = /\.(html?|js|json|webmanifest|css)$/i.test(url.pathname) ||
                  url.pathname.endsWith("/");
 
   if (isCode) {

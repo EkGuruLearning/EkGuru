@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "note": "EkGuru's level ladder. CEFR has SIX levels: A1, A2, B1, B2, C1, C2. Prakash asked for A1-A3, B1-B3, C1-C5 — eleven rungs. There is no A3 and no C3 to C5 on the CEFR scale, and a site that prints 'C4' on a page is a site an examiner stops trusting. The eleven rungs below are the honest version of the same request: the six real levels plus the half-step after each of the first five, written the way language schools write them (A1+ is a recognised label). Eleven rungs, one name each, no invented certificate.",
+  "rungs": [
+    { "id": "a1",  "label": "A1",  "name": "A1 · First words",        "age": 7,  "stage": "child",   "who": "a child", "can": "greet, count to twenty, read a shop sign" },
+    { "id": "a1p", "label": "A1+", "name": "A1+ · Getting around",     "age": 10, "stage": "child",   "who": "a child", "can": "ask for things, give a phone number, name the days" },
+    { "id": "a2",  "label": "A2",  "name": "A2 · Everyday sentences",  "age": 13, "stage": "teen",    "who": "a teenager", "can": "talk about your day, shop, order food" },
+    { "id": "a2p", "label": "A2+", "name": "A2+ · Holding a chat",     "age": 16, "stage": "teen",    "who": "a teenager", "can": "keep a conversation going, tell a short story" },
+    { "id": "b1",  "label": "B1",  "name": "B1 · Independent",         "age": 20, "stage": "youth",   "who": "a young adult", "can": "explain a problem, write a message, follow a podcast" },
+    { "id": "b1p", "label": "B1+", "name": "B1+ · Comfortable",        "age": 26, "stage": "adult",   "who": "an adult", "can": "work in the language, argue a point politely" },
+    { "id": "b2",  "label": "B2",  "name": "B2 · Fluent enough",       "age": 34, "stage": "adult",   "who": "an adult", "can": "read a newspaper, write a real letter, joke" },
+    { "id": "b2p", "label": "B2+", "name": "B2+ · Professional",       "age": 45, "stage": "adult",   "who": "an adult", "can": "run a meeting, read a contract, disagree well" },
+    { "id": "c1",  "label": "C1",  "name": "C1 · Nuance",              "age": 58, "stage": "senior",  "who": "an older adult", "can": "idiom, register, tone — and hear when it is wrong" },
+    { "id": "c1p", "label": "C1+", "name": "C1+ · Almost native",      "age": 68, "stage": "senior",  "who": "an older adult", "can": "write for work, translate, teach a beginner" },
+    { "id": "c2",  "label": "C2",  "name": "C2 · Mastery",             "age": 78, "stage": "elder",   "who": "an elder", "can": "poetry, law, humour, and the mistake that sounds foreign" }
+  ],
+  "age_bands": {
+    "child":  { "ages": [5, 12],     "means": "the visual on the page is a child" },
+    "teen":   { "ages": [13, 17],    "means": "a teenager" },
+    "youth":  { "ages": [18, 24],    "means": "a young adult" },
+    "adult":  { "ages": [25, 55],    "means": "an adult" },
+    "senior": { "ages": [56, 72],    "means": "an older adult" },
+    "elder":  { "ages": [73, 95],    "means": "an elder" }
+  }
+}

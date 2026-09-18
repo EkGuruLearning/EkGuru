@@ -5028,6 +5028,39 @@ body.xp-market .hdr .hdr-in {
 .pw-legacy .tri td:nth-child(3) { font-weight: 600; }
 
 /* ==========================================================================
+   28. THE LEVEL VISUALS — a strip of learners, one rung each
+   --------------------------------------------------------------------------
+   tools/build-visuals.py writes eleven figures per language into images/vis/
+   and drops the strip into that language's hub, between markers. The figure is
+   the level: a child at A1, a teenager at A2, an adult through B2, and by C1
+   and C2 someone who has used the language for a lifetime. The ladder itself —
+   with the hours, and with the honest note that CEFR has six levels and not
+   eleven — is /how-levels-work/.
+
+   A grid of fixed-ratio images: no layout shift, no script, and it becomes two
+   columns on a phone without a media query to keep in sync.
+   ========================================================================== */
+.lv-visuals { margin: 34px 0 8px; }
+.lv-visuals > h2 { font-size: clamp(1.1rem, 2.8vw, 1.3rem); line-height: 1.3; margin: 0 0 10px; }
+.lv-visuals > p { max-width: 74ch; line-height: 1.7; color: var(--ink-2); }
+.lv-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 12px;
+  margin: 18px 0 6px;
+}
+.lv-fig {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg-soft);
+}
+.lv-fig img { display: block; width: 100%; height: auto; }
+.lv-fig figcaption { padding: 8px 11px 9px; font-size: .84rem; line-height: 1.45; color: var(--ink-2); }
+.lv-fig figcaption b { color: var(--ink); }
+
+/* ==========================================================================
    27. PRINT — the sheet, not the website
    --------------------------------------------------------------------------
    Prakash: "print worksheet pura page hi print karti hai, par humein sirf

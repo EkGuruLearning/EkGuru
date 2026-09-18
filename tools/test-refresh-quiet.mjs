@@ -217,5 +217,76 @@ console.log("\n4. a second boot adds nothing (the reload case)\n");
 
 function dom_close(w) { try { w.close(); } catch (e) {} }
 
+/* ------------------------------------------------------------------ */
+
+console.log("\n5. a reload shows what is deployed, not yesterday's copy\n");
+
+{
+  /* THE BUG THIS SECTION EXISTS FOR (v42).
+
+     sw.js served HTML and JavaScript network-first, but let css fall through
+     to the stale-while-revalidate branch at the bottom. style.min.css is NOT
+     fingerprinted: the filename never changes and the contents change on
+     every build. So the first reload after a deploy painted the OLD
+     stylesheet — a fresh print fix, a fresh palette, a fresh layout — and
+     only stored the new one for "next time"; the reload after that suddenly
+     showed something different. Two refreshes, two different sites.
+
+     Everything that is code or styling is network-first now; images stay
+     cache-first, because a filename that never changes meaning is safe to
+     serve from cache. */
+  const sw = read("sw.js");
+  const isCode = sw.match(/const isCode = ([^;]+);/s);
+  const isImage = sw.match(/const isImage = ([^;]+);/s);
+  ok("sw.js treats CSS as code, so a reload cannot paint a stale stylesheet",
+    !!isCode && /css/.test(isCode[1]), isCode ? isCode[1].replace(/\s+/g, " ") : "no isCode rule");
+  ok("HTML and JavaScript are still network-first",
+    !!isCode && /html\?/.test(isCode[1]) && /js/.test(isCode[1]));
+  ok("images are still cache-first (their names never change meaning)",
+    !!isImage && !/css/.test(isImage[1]), isImage ? isImage[1].replace(/\s+/g, " ") : "no isImage rule");
+  ok("offline still falls back to the saved copy instead of failing",
+    /catch\(\(\) =>[\s\S]{0,240}caches\.open\(OFFLINE\)/.test(sw));
+  ok("the cache generation was bumped, so nobody keeps the old stylesheet",
+    /ekguru-v4[2-9]/.test(sw), (sw.match(/const CACHE = "([^"]+)"/) || [])[1]);
+  ok("the worker never forces the tab to reload",
+    !/location\.reload\(\)/.test(sw) && !/clients\.claim[\s\S]{0,120}reload/.test(sw));
+}
+
+/* ------------------------------------------------------------------ */
+
+console.log("\n6. the same page, booted twice, is the same page\n");
+
+{
+  /* A reload must land the reader in the same place, not somewhere else. Boot
+     a page, boot it again from the same bytes, and compare the structure the
+     reader sees: the same landmarks, the same number of them, and no
+     navigation started the second time either. */
+  const SAME = [
+    "index.html",
+    "learn/bengali/practice/quiz/index.html",
+    "learn/bengali/practice/worksheets/index.html",
+    "languages/ar/practice/index.html",
+    "contact/index.html"
+  ];
+  const shape = (d) => ({
+    ids: [...d.querySelectorAll("[id]")].map((e) => e.id).sort().join(","),
+    landmarks: [d.querySelector("header.hdr"), d.querySelector("main"), d.querySelector("footer.ftr")]
+      .map((e) => !!e).join(","),
+    count: d.querySelectorAll("*").length
+  });
+  const drift = [];
+  for (const page of SAME) {
+    const a = boot(page), b = boot(page);
+    const sa = shape(a.d), sb = shape(b.d);
+    if (sa.ids !== sb.ids || sa.landmarks !== sb.landmarks) {
+      drift.push(page + " (landmarks " + sa.landmarks + " vs " + sb.landmarks + ")");
+    }
+    if (b.seen.nav.length) drift.push(page + " navigates on the second boot (" + b.seen.nav.join(",") + ")");
+    a.dom.window.close(); b.dom.window.close();
+  }
+  ok("a reload lands on the same page it reloaded, with the same landmarks",
+    drift.length === 0, drift.slice(0, 3).join("; "));
+}
+
 console.log(`\n${fail ? "FAIL" : "PASS"}  ${pass} passed, ${fail} failed\n`);
 process.exit(fail ? 1 : 0);

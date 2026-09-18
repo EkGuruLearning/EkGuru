@@ -85,6 +85,10 @@ def main():
         run("courses by country --check", ["python3", "tools/build-course-countries.py", "--check"])
         run("reading layer --check (969 hand-written pages)", ["python3", "tools/build-legacy-pages.py", "--check"])
         run("page layer --check (555 lesson/answer/hub pages)", ["python3", "tools/build-page-layer.py", "--check"])
+        run("level visuals --check (a learner per language per rung)",
+            ["python3", "tools/build-visuals.py", "--check"])
+        run("level visuals test (the ladder, the figures, the strip)",
+            ["node", "tools/test-level-visuals.mjs"])
         run("print sheets --check (only the sheet prints)", ["python3", "tools/build-print-sheets.py", "--check"])
         run("site shell --check (header + footer on every page)", ["node", "tools/build-shell.js", "--check"])
         run("copy index --check", ["node", "tools/build-copy-index.js", "--check"])
@@ -107,7 +111,7 @@ def main():
             ["python3", "tools/inject-questions-api.py", "--check"])
         run("questions api test (flag -> queue -> community)",
             ["node", "tools/test-question-api.mjs"])
-        run("refresh quiet test (a reload starts nothing)",
+        run("refresh test (a reload shows the deploy and starts nothing)",
             ["node", "tools/test-refresh-quiet.mjs"])
         run("page skeleton test (one main, skip link lands)", ["node", "tools/test-page-skeleton.mjs"])
         run("sheet-apply test (sheet row -> site)", ["node", "tools/test-sheet-apply.js"])
@@ -142,6 +146,7 @@ def main():
     run("Hindi learning pages (learn/hindi/**)", ["python3", "tools/build-hindi-pages.py"])
     run("reading layer (969 pages onto the design system)", ["python3", "tools/build-legacy-pages.py"])
     run("page layer (555 lesson + answer + hub pages onto the same one)", ["python3", "tools/build-page-layer.py"])
+    run("level visuals (a learner per language per rung)", ["python3", "tools/build-visuals.py"])
     run("print sheets (worksheet prints as a sheet)", ["python3", "tools/build-print-sheets.py"])
     run("questions api (flags and likes reach other learners)",
         ["python3", "tools/inject-questions-api.py"])
