@@ -71,16 +71,28 @@
 <!-- ekguru:adsense:end -->
 </head>
 <body>
-<header class="hdr"><div class="hdr-in">
-  <a class="logo" href="../index.html?lang=ja"><span class="logo-mark" aria-hidden="true">E</span>
-  <span>EkGuru<small>One Student. One Guru. One Goal.</small></span></a>
-  <nav class="nav" aria-label="Main">
-    <a href="./">ホーム</a>
-    <a href="find-tutors.html">講師を探す</a>
-    <a href="../courses/">コース</a>
-    <a class="btn btn-primary btn-sm" href="../find-tutors.html?lang=ja">体験レッスン</a>
-  </nav>
-</div></header>
+<!-- ekguru:shell-header:start -->
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="logo" href="./">
+      <span class="logo-mark" aria-hidden="true">E</span>
+      <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
+    </a>
+    <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
+    <nav class="nav" aria-label="Main">
+      <a href="./" data-i18n="nav.home">ホーム</a>
+      <a href="find-tutors.html" data-i18n="nav.tutors">講師を探す</a>
+      <a href="../courses/index.html" data-i18n="nav.courses">コース</a>
+      <a href="../learn/" data-i18n="nav.learn">学ぶ</a>
+      <a href="../support/index.html" data-i18n="nav.support">サポート</a>
+      <a href="../search/" data-i18n="nav.search">検索</a>
+      <a class="btn btn-primary btn-sm" href="find-tutors.html" data-i18n="nav.cta">体験レッスン</a>
+    </nav>
+  </div>
+</header>
+<script src="../js/site-shell.js" defer></script>
+<script src="../js/copywatch.js" defer></script>
+<!-- ekguru:shell-header:end -->
 
 <main class="lp-wrap">
   <p class="lp-note">
@@ -217,26 +229,6 @@
 <!-- ekguru:lang-depth:end -->
 </main>
 
-<footer class="ftr">
-  <div class="wrap ftr-in">
-    <div><a class="logo" href="../index.html"><span class="logo-mark" aria-hidden="true">E</span>
-      <span>EkGuru<small>One Student. One Guru. One Goal.</small></span></a>
-      <p style="margin-top:14px">認証済み講師によるオンラインヒンディー語レッスン。暗記ではなく「話せる」学習を。</p></div>
-    <div><h3>サイト</h3>
-      <a href="./">ホーム</a>
-      <a href="find-tutors.html">講師を探す</a>
-      <a href="join.html">講師になる</a></div>
-    <div><h3>お問い合わせ</h3>
-      <a data-s="email" data-s-text href="mailto:EkGuruLearning@gmail.com">EkGuruLearning@gmail.com</a>
-      <!-- ekguru:lang-contact:start -->
-      <a href="../contact/">お問い合わせフォーム</a>
-      <!-- ekguru:lang-contact:end --></div>
-  </div>
-  <div class="wrap ftr-bot">
-    <p class="ftr-founder">Founded by <strong class="fdr-name">Prakash</strong> · MNIT Jaipur · B.Tech CSE 2022–2026</p>
-    <p>© 2026 EkGuru — One Student. One Guru. One Goal.</p>
-  </div>
-</footer>
 <!-- The page above is complete without JavaScript. These scripts add the
      live search, the currency switcher and the price conversion. -->
 <script src="../js/site-config.js"></script>
@@ -286,22 +278,56 @@ document.addEventListener("DOMContentLoaded",function(){
      between the markers is replaced on every build. Exists so the
      pages built by the pre-shell generators still reach the privacy
      policy — see the note in tools/patch.js. -->
-<footer class="pw-ftr">
-  <nav aria-label="Site information">
-    <a href="../">Home</a>
-    <a href="../about/">About</a>
-    <a href="../contact/">Contact</a>
-    <a href="../privacy/">Privacy</a>
-    <a href="../terms/">Terms</a>
-    <a href="../disclaimer/">Disclaimer</a>
-  </nav>
-  <p>
-  © 2026 EkGuru — One Student. One Goal. One Guru.<br>
-  Written and maintained by Prakash. Hindi lessons with native-speaking tutors, one to one.
-  </p>
-</footer>
 <!-- ekguru:trust-footer:end -->
 <!-- ekguru:consent -->
 <script src="../js/cookie-consent.js" defer></script>
+<!-- ekguru:shell-footer:start -->
+<footer class="ftr">
+  <div class="wrap ftr-in">
+    <div>
+      <a class="logo" href="./">
+        <span class="logo-mark" aria-hidden="true">E</span>
+        <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
+      </a>
+      <p style="margin-top:14px" data-i18n="ftr.about">認証済み講師によるオンラインヒンディー語レッスン。暗記ではなく「話せる」学習を。</p>
+    </div>
+    <div>
+      <h3 data-i18n="ftr.site">サイト</h3>
+      <a href="./" data-i18n="nav.home">ホーム</a>
+      <a href="find-tutors.html" data-i18n="nav.tutors">講師を探す</a>
+      <a href="join.html" data-i18n="nav.join">講師になる</a>
+      <a href="../tutor/" data-i18n="ftr.tutors">講師一覧</a>
+      <a href="../hindi-tutor/" data-i18n="ftr.locations">地域別ヒンディー語講師</a>
+      <a href="../courses/index.html" data-i18n="nav.courses">コース</a>
+      <a href="../search/" data-i18n="ftr.search">サイト内検索</a>
+    </div>
+    <div>
+      <h3 data-i18n="ftr.learn">ヒンディー語を学ぶ</h3>
+      <a href="../learn/" data-i18n="ftr.guides">無料ガイド</a>
+      <a href="../hindi/" data-i18n="ftr.topics">全トピック一覧</a>
+      <a href="../toolbox/" data-i18n="ftr.tools">インタラクティブツール</a>
+      <a href="../daily-hindi/" data-i18n="ftr.daily">毎日のヒンディー語 — 30日</a>
+      <a href="../ask/" data-i18n="ftr.ask">よくある質問</a>
+      <a href="../answers/" data-i18n="ftr.answers">短い答え</a>
+      <a href="../learn-hindi-by-country/" data-i18n="ftr.countries">国と言語</a>
+    </div>
+    <div>
+      <h3 data-i18n="ftr.legal">お問い合わせと法的情報</h3>
+      <a href="../contact/" data-i18n="ftr.contactForm">お問い合わせフォーム</a>
+      <a href="mailto:EkGuruLearning@gmail.com">EkGuruLearning@gmail.com</a>
+      <a href="../about/" data-i18n="ftr.about2">EkGuruについて</a>
+      <a href="../privacy/" data-i18n="ftr.privacy">プライバシーポリシー</a>
+      <a href="../terms/" data-i18n="ftr.terms">利用規約</a>
+      <a href="../disclaimer/" data-i18n="ftr.disclaimer">免責事項</a>
+      <a href="../copyright/" data-i18n="ftr.copyright">著作権</a>
+    </div>
+  </div>
+  <div class="wrap ftr-bot">
+    <p class="ftr-founder">Written and maintained by Prakash in Jaipur, India.</p>
+    <p>© <span data-year>2026</span> <span data-brand>EkGuru</span> — <span data-tagline>One Student. One Goal. One Guru.</span></p>
+    <p class="ftr-copy">All text, worksheets and artwork on this site are © EkGuru. Print or download a page and the watermark stays on it; copy a passage and the source comes with it. Nothing here is public domain.</p>
+  </div>
+</footer>
+<!-- ekguru:shell-footer:end -->
 </body>
 </html>

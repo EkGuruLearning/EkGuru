@@ -719,13 +719,48 @@
     }
 
     var open = false;
+    var savedY = 0;
+
+    /* ==================================================================
+       THE LOCK — same shape as js/main.js v74, for the same reason.
+
+       Prakash, twice: "header mai 3 lines open kerne pr kai bug hai
+       background running nahi hota." — open the drawer on a phone
+       part-way down a long page and the page behind either keeps
+       scrolling under the finger or snaps to the top, and once it has
+       snapped the drawer's own links no longer point where the visitor
+       was reading.
+
+       The class alone is not a lock. body.nav-open is position:fixed
+       (that is what stops the scroll), and a fixed body with no offset
+       is a body at the top of the document. So the offset is recorded
+       before the class goes on, written into `top`, and restored on
+       close with behavior:"auto" — with smooth scrolling on <html>,
+       the restore animates and reads as the very jump this prevents.
+       ================================================================== */
 
     function set(next) {
+      if (next === open) return;
       open = next;
-      nav.classList.toggle("open", open);
-      doc.body.classList.toggle("nav-open", open);
-      burger.setAttribute("aria-expanded", open ? "true" : "false");
-      backdrop.setAttribute("aria-hidden", open ? "false" : "true");
+      if (open) {
+        savedY = window.scrollY || window.pageYOffset || 0;
+        nav.classList.add("open");
+        doc.body.classList.add("nav-open");
+        doc.body.style.top = "-" + savedY + "px";
+        burger.setAttribute("aria-expanded", "true");
+        backdrop.setAttribute("aria-hidden", "false");
+        nav.removeAttribute("aria-hidden");
+        var first = nav.querySelector("a[href], button:not([disabled])");
+        if (first) { try { first.focus(); } catch (e) {} }
+      } else {
+        nav.classList.remove("open");
+        doc.body.classList.remove("nav-open");
+        backdrop.setAttribute("aria-hidden", "true");
+        burger.setAttribute("aria-expanded", "false");
+        doc.body.style.top = "";
+        try { window.scrollTo({ top: savedY, behavior: "auto" }); }
+        catch (e2) { window.scrollTo(0, savedY); }
+      }
     }
 
     on(burger, "click", function (e) { e.stopPropagation(); set(!open); });
@@ -742,6 +777,9 @@
     /* Growing past the drawer breakpoint (1200px, the same one main.js uses)
        must unlock the page, or a visitor who resized cannot scroll. */
     on(root, "resize", function () { if (open && root.innerWidth > 1200) set(false); });
+    /* Back from the bfcache with body.nav-open still set is a page that
+       cannot scroll with no visible reason. Reset it. */
+    on(root, "pageshow", function () { if (open) set(false); });
   }
 
   function boot() {

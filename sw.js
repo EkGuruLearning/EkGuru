@@ -17,10 +17,11 @@
    Bump CACHE when you deploy and the old one is cleared out.
    ========================================================= */
 
-/* v200.1 — the redesigned pages plus the fifth tutor (Sarshtee Baliyan) and
-   the regenerated tutor lists on every page that carries one. A returning
-   visitor must not keep the four-tutor shell, so the cache generation moves. */
-const CACHE = "ekguru-v35-tutor-roster";
+/* v200.2 — ONE header and ONE footer on all 1,563 pages (tools/build-shell.js),
+   translated on the six market pages, with one owner of the drawer: the cache
+   generation moves so a returning visitor cannot keep the old chrome, the old
+   tagline or the second click handler on the menu button. */
+const CACHE = "ekguru-v37-one-shell";
 
 /* Phase 6 §14 — "Save for offline" pins learner-chosen pages in a dedicated
    cache that survives the main cache rotation. Only same-origin, non-private
@@ -50,6 +51,12 @@ const SHELL = [
      above, so they belong in the same cache generation. */
   "./js/experience.js",
   "./js/site-search.js",
+  /* v200.2 — the shell. Every content page now carries the site header and
+     footer (tools/build-shell.js) and these two give it behaviour: the
+     drawer, the sheet-owned tagline, the copy source line and the print
+     watermark. A cached page without them is the half-open drawer. */
+  "./js/site-shell.js",
+  "./js/copywatch.js",
   "./js/rates.js",
   "./js/store.js",
   "./js/analytics.js",

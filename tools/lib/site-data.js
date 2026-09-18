@@ -108,6 +108,11 @@ function loadSite(options) {
     unlisted,
     hidden,
     site: sandbox.EKGURU_SITE || {},
+    /* The settings tab as of the last sync (tools/sheetsync.js writes it into
+       _overrides.js). The shell generator bakes `tagline`/`mode`/`email` from
+       here, so the line under the logo is one value from one place on every
+       page instead of a string repeated in 1,500 files. */
+    settings: sandbox.EKGURU_SHEET_SETTINGS || {},
   };
 }
 

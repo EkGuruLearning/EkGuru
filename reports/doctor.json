@@ -1,7 +1,7 @@
 {
-  "doctorProblems": 0,
+  "doctorProblems": 4,
   "doctorWarnings": 0,
-  "doctorChecks": 11,
+  "doctorChecks": 12,
   "seoPass": true,
   "privacyState": "PASS",
   "results": [
@@ -14,8 +14,8 @@
     {
       "id": "deployed",
       "label": "Production serves the current tree",
-      "status": "PASS",
-      "detail": "live site-config.js status:\"live\""
+      "status": "FAIL",
+      "detail": "live site-config.js status=\"unreachable\" (local is \"live\") — deploy pending"
     },
     {
       "id": "privacy",
@@ -45,32 +45,38 @@
       "id": "seo",
       "label": "No broken internal links",
       "status": "PASS",
-      "detail": "1562 pages, 0 broken, 0 orphans"
+      "detail": "1563 pages, 0 broken, 0 orphans"
     },
     {
       "id": "ads-txt",
       "label": "ads.txt declares the correct publisher",
-      "status": "PASS",
-      "detail": "200 — publisher id matches"
+      "status": "FAIL",
+      "detail": "fetch failed"
     },
     {
       "id": "robots",
       "label": "robots.txt safe and declares sitemap",
-      "status": "PASS",
-      "detail": "200 — sitemap declared, not all-blocked"
+      "status": "FAIL",
+      "detail": "fetch failed"
     },
     {
       "id": "canonical",
       "label": "Homepage canonical is https://ekguru.shop/",
-      "status": "PASS",
-      "detail": "200 — canonical https://ekguru.shop/"
+      "status": "FAIL",
+      "detail": "fetch failed"
     },
     {
       "id": "sheet-sanity",
       "label": "Sheet values sanitised (no cross-column leakage)",
       "status": "PASS",
       "detail": "videoTitle guard active"
+    },
+    {
+      "id": "tutor-roster",
+      "label": "Tutor roster is current on every page that lists tutors",
+      "status": "PASS",
+      "detail": "5 generators clean (scripts, profiles, home, markets, long-tail lists)"
     }
   ],
-  "generated": "2026-09-14T07:27:49.689Z"
+  "generated": "2026-09-18T04:05:28.777Z"
 }

@@ -58,19 +58,28 @@
 </style>
 </head>
 <body class="xp-page xp-market xp-page xp-market">
-<header class="hdr"><div class="hdr-in">
-  <a class="logo" href="../index.html?lang=de"><span class="logo-mark" aria-hidden="true">E</span>
-  <span>EkGuru<small>One Student. One Guru. One Goal.</small></span></a>
-  <!-- v200 — these pages do not load js/main.js, so the drawer
-       behaviour is wired by js/experience.js instead. -->
-  <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
-  <nav class="nav" aria-label="Main">
-    <a href="./">Startseite</a>
-    <a href="find-tutors.html">Lehrer finden</a>
-    <a href="../courses/">Kurse</a>
-    <a class="btn btn-primary btn-sm" href="../find-tutors.html?lang=de">Probestunde buchen</a>
-  </nav>
-</div></header>
+<!-- ekguru:shell-header:start -->
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="logo" href="./">
+      <span class="logo-mark" aria-hidden="true">E</span>
+      <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
+    </a>
+    <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
+    <nav class="nav" aria-label="Main">
+      <a href="./" data-i18n="nav.home">Startseite</a>
+      <a href="find-tutors.html" data-i18n="nav.tutors">Lehrer finden</a>
+      <a href="../courses/index.html" data-i18n="nav.courses">Kurse</a>
+      <a href="../learn/" data-i18n="nav.learn">Lernen</a>
+      <a href="../support/index.html" data-i18n="nav.support">Hilfe</a>
+      <a href="../search/" data-i18n="nav.search">Suche</a>
+      <a class="btn btn-primary btn-sm" href="find-tutors.html" data-i18n="nav.cta">Probestunde buchen</a>
+    </nav>
+  </div>
+</header>
+<script src="../js/site-shell.js" defer></script>
+<script src="../js/copywatch.js" defer></script>
+<!-- ekguru:shell-header:end -->
 
 <main id="main" class="xp-main">
 <section class="xp-hero xp-band">
@@ -300,26 +309,6 @@
 </section>
 </main>
 
-<footer class="ftr">
-  <div class="wrap ftr-in">
-    <div><a class="logo" href="../index.html"><span class="logo-mark" aria-hidden="true">E</span>
-      <span>EkGuru<small>One Student. One Guru. One Goal.</small></span></a>
-      <p style="margin-top:14px">Hindi-Onlineunterricht mit geprüften Lehrkräften. Sprechen lernen statt auswendig lernen.</p></div>
-    <div><h3>Seite</h3>
-      <a href="./">Startseite</a>
-      <a href="find-tutors.html">Lehrer finden</a>
-      <a href="join.html">Lehrer werden</a></div>
-    <div><h3>Kontakt</h3>
-      <a data-s="email" data-s-text href="mailto:EkGuruLearning@gmail.com">EkGuruLearning@gmail.com</a>
-      <!-- ekguru:lang-contact:start -->
-      <a href="../contact/">Kontaktformular</a>
-      <!-- ekguru:lang-contact:end --></div>
-  </div>
-  <div class="wrap ftr-bot">
-    <p class="ftr-founder">Founded by <strong class="fdr-name">Prakash</strong> · MNIT Jaipur · B.Tech CSE 2022–2026</p>
-    <p>© 2026 EkGuru — One Student. One Guru. One Goal.</p>
-  </div>
-</footer>
 <!-- The page above is complete without JavaScript. These scripts add the
      live search, the currency switcher and the price conversion. -->
 <script src="../js/site-config.js"></script>
@@ -371,22 +360,56 @@ document.addEventListener("DOMContentLoaded",function(){
      between the markers is replaced on every build. Exists so the
      pages built by the pre-shell generators still reach the privacy
      policy — see the note in tools/patch.js. -->
-<footer class="pw-ftr">
-  <nav aria-label="Site information">
-    <a href="../">Home</a>
-    <a href="../about/">About</a>
-    <a href="../contact/">Contact</a>
-    <a href="../privacy/">Privacy</a>
-    <a href="../terms/">Terms</a>
-    <a href="../disclaimer/">Disclaimer</a>
-  </nav>
-  <p>
-  © 2026 EkGuru — One Student. One Goal. One Guru.<br>
-  Written and maintained by Prakash. Hindi lessons with native-speaking tutors, one to one.
-  </p>
-</footer>
 <!-- ekguru:trust-footer:end -->
 <!-- ekguru:consent -->
 <script src="../js/cookie-consent.js" defer></script>
+<!-- ekguru:shell-footer:start -->
+<footer class="ftr">
+  <div class="wrap ftr-in">
+    <div>
+      <a class="logo" href="./">
+        <span class="logo-mark" aria-hidden="true">E</span>
+        <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
+      </a>
+      <p style="margin-top:14px" data-i18n="ftr.about">Hindi-Onlineunterricht mit geprüften Lehrkräften. Sprechen lernen statt auswendig lernen.</p>
+    </div>
+    <div>
+      <h3 data-i18n="ftr.site">Seite</h3>
+      <a href="./" data-i18n="nav.home">Startseite</a>
+      <a href="find-tutors.html" data-i18n="nav.tutors">Lehrer finden</a>
+      <a href="join.html" data-i18n="nav.join">Lehrer werden</a>
+      <a href="../tutor/" data-i18n="ftr.tutors">Alle Lehrkräfte</a>
+      <a href="../hindi-tutor/" data-i18n="ftr.locations">Hindi-Lehrkräfte nach Ort</a>
+      <a href="../courses/index.html" data-i18n="nav.courses">Kurse</a>
+      <a href="../search/" data-i18n="ftr.search">Website durchsuchen</a>
+    </div>
+    <div>
+      <h3 data-i18n="ftr.learn">Hindi lernen</h3>
+      <a href="../learn/" data-i18n="ftr.guides">Kostenlose Leitfäden</a>
+      <a href="../hindi/" data-i18n="ftr.topics">Alle Themen</a>
+      <a href="../toolbox/" data-i18n="ftr.tools">Interaktive Tools</a>
+      <a href="../daily-hindi/" data-i18n="ftr.daily">Täglich Hindi — 30 Tage</a>
+      <a href="../ask/" data-i18n="ftr.ask">Fragen beantwortet</a>
+      <a href="../answers/" data-i18n="ftr.answers">Kurze Antworten</a>
+      <a href="../learn-hindi-by-country/" data-i18n="ftr.countries">Länder &amp;amp; Sprachen</a>
+    </div>
+    <div>
+      <h3 data-i18n="ftr.legal">Kontakt &amp;amp; Rechtliches</h3>
+      <a href="../contact/" data-i18n="ftr.contactForm">Kontaktformular</a>
+      <a href="mailto:EkGuruLearning@gmail.com">EkGuruLearning@gmail.com</a>
+      <a href="../about/" data-i18n="ftr.about2">Über EkGuru</a>
+      <a href="../privacy/" data-i18n="ftr.privacy">Datenschutz</a>
+      <a href="../terms/" data-i18n="ftr.terms">Nutzungsbedingungen</a>
+      <a href="../disclaimer/" data-i18n="ftr.disclaimer">Haftungsausschluss</a>
+      <a href="../copyright/" data-i18n="ftr.copyright">Urheberrecht</a>
+    </div>
+  </div>
+  <div class="wrap ftr-bot">
+    <p class="ftr-founder">Written and maintained by Prakash in Jaipur, India.</p>
+    <p>© <span data-year>2026</span> <span data-brand>EkGuru</span> — <span data-tagline>One Student. One Goal. One Guru.</span></p>
+    <p class="ftr-copy">All text, worksheets and artwork on this site are © EkGuru. Print or download a page and the watermark stays on it; copy a passage and the source comes with it. Nothing here is public domain.</p>
+  </div>
+</footer>
+<!-- ekguru:shell-footer:end -->
 </body>
 </html>

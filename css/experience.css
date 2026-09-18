@@ -2907,3 +2907,133 @@ body.xp-market .hdr .hdr-in {
   .hdr .nav a { padding-inline: 10px; }
 }
 
+
+/* ==========================================================================
+   21. OWNERSHIP — WATERMARK, PRINT, AND THE COPY LINE
+   ==========================================================================
+   Prakash: "jo text apna hai vo apna hi hona chahiye ... watermark hona
+   chahiye jab bhi koi print ya download kare ... copy kare to pata chale."
+
+   Three surfaces, one idea: the text stays EkGuru's wherever it travels.
+
+     1. On screen the pages look normal — a watermark over every page all
+        the time makes a lesson harder to read and teaches nobody.
+     2. On paper and in a PDF (which is a download in every sense) the
+        watermark is always there, plus the source URL, because that is
+        the copy that leaves the site.
+     3. On the clipboard, js/copywatch.js appends the source line, so a
+        paragraph pasted into a document still says where it came from.
+
+   The watermark is TEXT, not an image: it prints on grayscale printers,
+   it survives "print backgrounds: off" (the default in every browser),
+   and it is selectable, so a screenshot of it still reads EkGuru.
+   ========================================================================== */
+
+.ftr-copy {
+  max-width: 62ch;
+  margin-inline: auto;
+  color: #9298b4;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.ftr-mode {
+  color: #d8dbe8;
+  font-weight: 600;
+}
+
+/* The printable area of a worksheet. Generators mark it with
+   data-watermark so the mark lands on the sheet and not on the chrome. */
+[data-watermark] {
+  position: relative;
+}
+
+[data-watermark]::after {
+  content: attr(data-watermark);
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  transform: translate(-50%, -50%) rotate(-24deg);
+  font: 700 clamp(1.6rem, 6vw, 3.2rem) / 1.1 var(--font, system-ui, sans-serif);
+  letter-spacing: 0.08em;
+  color: color-mix(in srgb, var(--brand) 16%, transparent);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* ==========================================================================
+   22. PRINT — the watermark and the source line
+   ==========================================================================
+   `content` text prints; background images do not (and "print backgrounds"
+   is off by default). So every rule below uses text and borders only.
+   ========================================================================== */
+
+@media print {
+  @page {
+    margin: 14mm 12mm 16mm;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+  }
+
+  /* The watermark: faint, diagonal, repeated over the whole sheet. Fixed
+     positioning puts it on every printed page, not just the first. */
+  body::after {
+    content: "EkGuru  ·  ekguru.shop  ·  © EkGuru";
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    transform: rotate(-32deg) scale(2.4);
+    font: 700 11pt / 1.4 system-ui, sans-serif;
+    letter-spacing: 0.14em;
+    color: rgba(91, 61, 245, 0.16);
+    white-space: pre;
+    pointer-events: none;
+    z-index: 2147483647;
+  }
+
+  /* The source line at the foot of the last page — small, always legible,
+     and impossible to lose by printing without backgrounds. */
+  .ftr {
+    background: #fff !important;
+    color: #000 !important;
+    border-top: 1px solid #999;
+    padding-block: 10px 0;
+  }
+
+  .ftr h3,
+  .ftr a,
+  .ftr p,
+  .ftr-bot,
+  .ftr-founder {
+    color: #000 !important;
+  }
+
+  .ftr a[href^="http"]::after,
+  .ftr-bot a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #444;
+  }
+
+  .hdr,
+  .burger,
+  .nav,
+  .fab,
+  .wa-float,
+  .to-top,
+  .nav-backdrop,
+  .eg-globalnav,
+  .toast-stack {
+    display: none !important;
+  }
+
+  [data-watermark]::after {
+    color: rgba(91, 61, 245, 0.22);
+  }
+}

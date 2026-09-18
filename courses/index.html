@@ -48,22 +48,29 @@
 </style>
 </head>
 <body class="courses-page xp-page">
-<a class="skip" href="#main">Skip to courses</a>
-<header class="hdr course-site-header">
+<!-- ekguru:shell-header:start -->
+<header class="hdr">
   <div class="hdr-in">
-    <a class="logo" href="../"><span class="logo-mark" aria-hidden="true">E</span>
-      <span>EkGuru<small>Learn worldwide</small></span></a>
-    <button class="burger" type="button" aria-label="Open menu" aria-expanded="false"><span></span></button>
-    <nav class="nav" aria-label="Main navigation">
-      <a href="../">Home</a>
-      <a href="./" aria-current="page">Courses</a>
-      <a href="../start/">Find my level</a>
-      <a href="../learn/">Guides</a>
-      <a href="../support/">Support</a>
-      <a class="btn btn-primary btn-sm" href="#course-search">Explore courses</a>
+    <a class="logo" href="../index.html">
+      <span class="logo-mark" aria-hidden="true">E</span>
+      <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
+    </a>
+    <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html">Home</a>
+      <a href="../find-tutors.html">Find Tutors</a>
+      <a href="../courses/index.html">Courses</a>
+      <a href="../learn/">Learn</a>
+      <a href="../support/index.html">Support</a>
+      <a href="../search/">Search</a>
+      <a class="btn btn-primary btn-sm" href="../find-tutors.html">Book a trial</a>
     </nav>
   </div>
 </header>
+<script src="../js/site-shell.js" defer></script>
+<script src="../js/copywatch.js" defer></script>
+<!-- ekguru:shell-header:end -->
+<a class="skip" href="#main">Skip to courses</a>
 <main id="main" class="xp-main">
 <!-- =========================================================
      THE CATALOGUE IS IN THE HTML, NOT ONLY IN JAVASCRIPT
@@ -102,11 +109,6 @@
 These free courses need JavaScript for quizzes, voice and progress. Please enable it to learn —
 or start from <a href="../learn/">the free guides</a>.</p></noscript>
 </main>
-<footer class="course-footer"><div class="wrap"><b>EkGuru</b>
-  <p>Country-connected language learning from first script to C2 mastery.</p>
-  <nav aria-label="Footer"><a href="../courses/">Courses</a><a href="../learn/">Guides</a>
-  <a href="../support/">Support</a><a href="../privacy/">Privacy</a><a href="../contact/">Contact</a></nav>
-</div></footer>
 <script src="../js/cookie-consent.js" defer></script>
 <script src="../js/monetization.js" defer></script>
 <script src="../js/experience.js" defer></script>
@@ -123,5 +125,53 @@ addEventListener("DOMContentLoaded",function(){
 if("serviceWorker" in navigator){addEventListener("load",function(){
   navigator.serviceWorker.register("../sw.js").catch(function(){})})}
 </script>
+<!-- ekguru:shell-footer:start -->
+<footer class="ftr">
+  <div class="wrap ftr-in">
+    <div>
+      <a class="logo" href="../index.html">
+        <span class="logo-mark" aria-hidden="true">E</span>
+        <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
+      </a>
+      <p style="margin-top:14px">Online Hindi lessons with verified, caring tutors.</p>
+    </div>
+    <div>
+      <h3>Site</h3>
+      <a href="../index.html">Home</a>
+      <a href="../find-tutors.html">Find Tutors</a>
+      <a href="../join.html">Become a tutor</a>
+      <a href="../tutor/">All tutors — text directory</a>
+      <a href="../hindi-tutor/">Hindi tutors by location</a>
+      <a href="../courses/index.html">Courses</a>
+      <a href="../search/">Search the site</a>
+    </div>
+    <div>
+      <h3>Learn Hindi</h3>
+      <a href="../learn/">Free guides</a>
+      <a href="../hindi/">Every topic, mapped</a>
+      <a href="../toolbox/">Interactive tools</a>
+      <a href="../daily-hindi/">Daily Hindi — 30 days</a>
+      <a href="../ask/">Questions answered</a>
+      <a href="../answers/">Short answers</a>
+      <a href="../learn-hindi-by-country/">Countries &amp; languages</a>
+    </div>
+    <div>
+      <h3>Contact &amp; legal</h3>
+      <a href="../contact/">Contact form</a>
+      <a href="mailto:EkGuruLearning@gmail.com">EkGuruLearning@gmail.com</a>
+      <a href="../about/">About EkGuru</a>
+      <a href="../privacy/">Privacy policy</a>
+      <a href="../terms/">Terms of use</a>
+      <a href="../disclaimer/">Disclaimer</a>
+      <a href="../copyright/">Copyright</a>
+    </div>
+  </div>
+  <div class="wrap ftr-bot">
+    <p class="ftr-founder">Written and maintained by Prakash in Jaipur, India.</p>
+    <p>© <span data-year>2026</span> <span data-brand>EkGuru</span> — <span data-tagline>One Student. One Goal. One Guru.</span></p>
+    <p class="ftr-copy">All text, worksheets and artwork on this site are © EkGuru. Print or download a page and the watermark stays on it; copy a passage and the source comes with it. Nothing here is public domain.</p>
+  </div>
+</footer>
+<!-- ekguru:shell-footer:end -->
 </body>
 </html>

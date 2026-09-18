@@ -231,7 +231,16 @@
     $all("[data-i18n-ph]").forEach(function (el) { el.setAttribute("placeholder", t(el.getAttribute("data-i18n-ph"))); });
     $all("[data-i18n-aria]").forEach(function (el) { el.setAttribute("aria-label", t(el.getAttribute("data-i18n-aria"))); });
     $all("[data-brand]").forEach(function (el) { el.textContent = SITE.brand; });
-    $all("[data-tagline]").forEach(function (el) { el.textContent = SITE.tagline; });
+    /* The tagline lives in the settings tab, like the email and the phone
+       number. js/site-config.js carries a fallback so the page still has a
+       line with no sheet; when the sheet has one, that is the value — the
+       two said different things ("One Student. One Guru. One Goal." vs
+       "One Student. One Goal. One Guru.") in three separate places before
+       tools/build-shell.js made every page read from here. */
+    var SHEET = window.EKGURU_SHEET_SETTINGS || {};
+    $all("[data-tagline]").forEach(function (el) {
+      el.textContent = SHEET.tagline || SITE.tagline;
+    });
     $all("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
     $all("[data-email]").forEach(function (el) {
       el.textContent = SITE.email;
@@ -330,6 +339,14 @@
   function initHeader() {
     var b = $(".burger"), nav = $(".nav");
     if (b && nav) {
+      /* v200.2 — the header is now the same header on every page, and the
+         content pages carry js/site-shell.js for it. Both files want to bind
+         this burger; whoever gets there first owns it, the other stands
+         down. Two handlers on one button is not a cosmetic bug: one click
+         opens the drawer and closes it again, which is the "3 lines open
+         karne pr kai bug hai" report in another costume. */
+      if (window.EKGURU_DRAWER) return;
+      window.EKGURU_DRAWER = "main";
       var savedScrollY = 0;
       var isOpen = false;
 
