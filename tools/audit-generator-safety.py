@@ -38,6 +38,26 @@ reg = subprocess.run([sys.executable, "tools/build-hindi-pages.py"],
 results.append(check("tools/build-hindi-pages.py (regeneration run)",
                      reg.returncode == 0, reg.stdout.strip().splitlines()[-1] if reg.stdout else reg.stderr[:200]))
 
+# ---- 1b. PUT THE SHELL BACK ON ----
+# This audit *regenerates* pages, and the generator emits them without the site
+# header and footer: the shell is applied afterwards by tools/build-shell.js
+# (build-all step 13). Running the audit on its own therefore used to leave
+# eight pages — the ones learners actually use — with no header, no footer and
+# no way back to the site, until someone happened to run the shell. On a live
+# site that is the "I refreshed and it is a different website" bug. The audit
+# now puts the shell back itself, so it can never leave the tree half-built.
+shell = subprocess.run(["node", "tools/build-shell.js"], capture_output=True, text=True)
+results.append(check("tools/build-shell.js (re-stamped after regeneration)",
+                     shell.returncode == 0,
+                     (shell.stdout.strip().splitlines() or [shell.stderr[:200]])[0]))
+BROKEN_SHELL = [p for p in ("learn/hindi/review/index.html", "learn/hindi/my-progress/index.html",
+                            "learn/hindi/practice/typing/index.html", "learn/hindi/practice/quiz/index.html",
+                            "learn/hindi/practice/worksheets/index.html", "learn/hindi/practice/index.html",
+                            "learn/hindi/practice/conversation/index.html", "learn/hindi/intermediate/index.html")
+                if "ekguru:shell-header:start" not in open(p, encoding="utf-8").read()]
+results.append(check("the eight learner pages carry the site shell", not BROKEN_SHELL,
+                     ", ".join(BROKEN_SHELL) or "8/8 have header + footer"))
+
 # ---- 2. review page: the queue=[] phantom-card fix survives regeneration ----
 h = open("learn/hindi/review/index.html", encoding="utf-8").read()
 results.append(check("learn/hindi/review/index.html — srs-reset clears queue (v31 fix)",

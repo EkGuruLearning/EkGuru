@@ -4404,3 +4404,119 @@ body.xp-market .hdr .hdr-in {
   .pw-legacy .cta p, .pw-legacy .cta a.cta-btn { color: var(--ink); }
   .pw-legacy .cards > .card a::after { content: ""; }
 }
+
+/* ==========================================================================
+   26. PRINT — the sheet, not the website
+   --------------------------------------------------------------------------
+   Prakash: "print worksheet pura page hi print karti hai, par humein sirf
+   worksheet hi print karni hai."
+
+   He is describing every printable page on the site. A worksheet lives inside
+   a normal page: header, breadcrumb, an intro paragraph, the controls that
+   build it, the site footer, the support band. window.print() printed all of
+   it, so a teacher handed a child a page whose first third was navigation.
+
+   TWO RULES, IN THIS ORDER
+
+   1. On ANY page, printing is for the content. The site chrome — header,
+      footer, breadcrumb, bands, ads, the skip link, anything marked
+      .no-print — is not content, and paper is not a phone. Everything here is
+      !important on purpose: print has one shot, and a page-level rule must not
+      be able to keep the header on the sheet.
+
+   2. On a page marked data-print="sheet" (a worksheet or a printable guide,
+      marked by tools/build-print-sheets.py) only the marked element prints.
+      Everything else in the page, including the intro and the controls, is
+      off the paper. The sheet itself is flattened: no card border, no shadow,
+      full width, black on white.
+
+   The one thing that DOES print either way is the copy source stamp that
+   js/copywatch.js writes (#ekguru-print-src): the URL, the date and the
+   tagline. That is the whole point of it — a printed EkGuru page carries where
+   it came from.
+   ========================================================================== */
+
+@media print {
+  @page { margin: 12mm; }
+
+  html, body { background: #fff !important; }
+
+  .hdr, .ftr, .skip, .burger, .lang-wrap, .crumb, .pw-support, .pw-next,
+  .rel, .art-nav, .no-print, .sb-band, .sb-chapter, .chips, .prevnext,
+  .cta, .xp-orb, .xp-progress, .adsbygoogle, ins, .ad-slot, #ekguru-consent,
+  .cf-actions { display: none !important; }
+
+  .pw, .pw-legacy, .pw-tool, .art, .xp-page, .xp-main, main, .wrap {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    background: #fff !important;
+  }
+
+  .pw-legacy h2 { border-block-start: 0; padding-block-start: 0; }
+  .pw-legacy h2::before { display: none; }
+
+  a { color: #000 !important; text-decoration: underline; }
+
+  /* Blocks that must not be split across two sheets of paper. */
+  .fact, .faq, .card, .linklist li, .deep-list li, .howto, .note, .research,
+  .tut, tr, li, .ws-page > p { break-inside: avoid; }
+  h1, h2, h3, h4 { break-after: avoid; }
+  /* A table that runs onto a second sheet repeats its header row. */
+  thead { display: table-header-group; }
+  tfoot { display: table-footer-group; }
+  table, .tbl, .twrap {
+    display: table !important;
+    overflow: visible !important;
+    border: 1px solid #000 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  /* The mobile restack must not survive onto paper: on A4 the table is a
+     table, with all of its columns. */
+  .pw-legacy table.lang td, .pw-legacy table.phr td, .pw-legacy .tbl td {
+    display: table-cell !important;
+    padding: 6px 8px !important;
+    border: 1px solid #ccc !important;
+  }
+  .pw-legacy table.lang td::before, .pw-legacy table.phr td::before,
+  .pw-legacy .tbl td::before { display: none !important; }
+  .pw-legacy table.lang thead, .pw-legacy table.phr thead,
+  .pw-legacy .tbl thead { display: table-header-group !important; }
+
+  /* The copy source stamp, made to look like a printer's line. */
+  #ekguru-print-src {
+    display: block !important;
+    margin-block-start: 10mm;
+    padding-block-start: 2mm;
+    border-block-start: 1px solid #999;
+    color: #444 !important;
+    font-size: 8.5pt !important;
+    line-height: 1.35 !important;
+    text-align: center;
+  }
+
+  /* ---- mode 2: only the sheet ---- */
+  body[data-print="sheet"] .pw-legacy > *,
+  body[data-print="sheet"] .art > *:not([data-print-target]) { display: none !important; }
+  body[data-print="sheet"] [data-print-target] { display: block !important; }
+  body[data-print="sheet"] #ws-app > *:not(#w-sheet) { display: none !important; }
+  body[data-print="sheet"] #w-sheet { margin: 0 !important; }
+  body[data-print="sheet"] .ws-page {
+    max-width: none !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: #fff !important;
+    color: #000 !important;
+    box-shadow: none !important;
+  }
+  body[data-print="sheet"] .ws-page h2 { margin-block-start: 0; }
+  body[data-print="sheet"] .ws-page .muted { color: #444 !important; }
+  /* The writing lines are the sheet: they stay, and they stay dark. */
+  body[data-print="sheet"] .ws-page div[style*="border-bottom"] {
+    border-bottom-color: #666 !important;
+  }
+}

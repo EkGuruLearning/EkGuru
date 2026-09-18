@@ -134,7 +134,8 @@
      attribute below for anything that renders a sheet on screen.
      --------------------------------------------------------- */
   function stampSheets() {
-    var sel = "[data-watermark], .worksheet, .sheet, .print-area, .ws, .flashcards, .quiz-sheet";
+    var sel = "[data-watermark], .worksheet, .sheet, .print-area, .ws, .ws-page, " +
+      ".flashcards, .quiz-sheet, .art";
     var nodes = doc.querySelectorAll(sel);
     for (var i = 0; i < nodes.length; i++) {
       var el = nodes[i];
