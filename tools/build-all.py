@@ -21,8 +21,9 @@ deploys:
      /courses/ + the home teaser)
  12  tutor layer (script tags, profile pages + sitemaps + feed, home cards,
      the six market pages, every other page that lists tutors)
- 13  site shell (one header + one footer on all 1,563 pages) + copy index
-     (the check phase also runs the ownership and search-facet tests)
+ 13  legal pages (terms/privacy/disclaimer/copyright get ids + a contents
+     card), site shell (one header + one footer on all 1,563 pages), copy index
+     (the check phase also runs the ownership, search-facet and drawer tests)
  14  doctor (SEO + privacy + gate + admin stats)
 
 The two layers in 11-12 are generated from the same data the pages are, so
@@ -75,6 +76,8 @@ def main():
         run("home tutor grid --check", ["node", "tools/build-home-tutors.js", "--check"])
         run("market pages --check", ["node", "tools/build-market-pages.js", "--check"])
         run("roster rows --check", ["node", "tools/build-roster-rows.js", "--check"])
+        run("legal pages --check (terms, privacy, disclaimer, copyright)",
+            ["python3", "tools/build-legal-pages.py", "--check"])
         run("site shell --check (header + footer on every page)", ["node", "tools/build-shell.js", "--check"])
         run("copy index --check", ["node", "tools/build-copy-index.js", "--check"])
         run("ownership test (matcher vs its own corpus)", ["node", "tools/test-copy-index.mjs"])
@@ -107,6 +110,7 @@ def main():
     run("home tutor grid", ["node", "tools/build-home-tutors.js"])
     run("market pages (6 locales)", ["node", "tools/build-market-pages.js"])
     run("roster rows (long-tail tutor lists)", ["node", "tools/build-roster-rows.js"])
+    run("legal pages (contents card + clause ids)", ["python3", "tools/build-legal-pages.py"])
     run("site shell (one header + one footer, every page)", ["node", "tools/build-shell.js"])
     run("copy index (ownership fingerprints)", ["node", "tools/build-copy-index.js"])
     run("doctor", ["node", "tools/doctor.js"])

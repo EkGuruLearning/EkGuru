@@ -108,6 +108,7 @@ can never drift from the colours the page uses.
 | the `<script>` tags that load the tutors | `js/tutors/_registry.js` | `tools/langsync.js` |
 | `hindi-tutor/*`, `tutor/`, `*/find-tutors.html` | `js/tutors/*` | `tools/build-roster-rows.js` |
 | the header and footer on **every** page | the settings tab (tagline, email, mode) | `tools/build-shell.js` |
+| `/terms/ /privacy/ /disclaimer/ /copyright/` contents card + clause ids | the page's own headings | `tools/build-legal-pages.py` |
 
 The market pages are generated because six hand-edited copies is exactly how
 they drifted apart before. The generator rewrites **only `<main>`** — head,
@@ -160,6 +161,22 @@ They are merged into one English name learned from the index itself, so
 "Japanese" appears once with all seven of its pages rather than twice with
 half. `tools/test-search-facets.mjs` holds that line.
 
+## The document pages (legal, and the long tail)
+
+Terms, privacy, disclaimer and copyright arrive with one question and no
+patience for a wall of prose, so `tools/build-legal-pages.py` gives every
+clause an `id`, builds the **On this page** contents card from those headings
+and marks the block `.xp-doc`. It never touches a word: the tool compares the
+prose before and after and refuses to write if they differ, because legal
+wording is the last thing a build script should rewrite to suit a stylesheet.
+
+The 974 older pages (country funnels, answers, lessons, worksheets) still carry
+their own 2024 markup and their own inline `<style>`, which loads *after*
+`style.min.css` and therefore wins. They keep their layout deliberately — the
+design system reaches them through `css/experience.css` §23 instead, with the
+two properties those pages never set: an anchor that lands below the sticky
+header (`scroll-margin-top`) and the redesigned focus ring.
+
 ## Build / check loop
 
 ```bash
@@ -183,6 +200,7 @@ node    tools/test-shell-drawer.mjs              # one owner of the menu button
 node    tools/test-copy-index.mjs                # the ownership matcher
 node    tools/build-shell.js            --check  # header + footer on 1,563 pages
 node    tools/build-copy-index.js       --check  # ownership fingerprints
+python3 tools/build-legal-pages.py      --check  # legal contents cards
 ```
 
 Without `check` the same chain writes instead of comparing — `python3
