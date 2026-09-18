@@ -129,6 +129,7 @@ const COLUMNS = [
     ["All tutors — text directory", "ftr.tutors", "tutorDir"],
     ["Hindi tutors by location", "ftr.locations", "locations"],
     ["Courses", "nav.courses", "courses"],
+    ["Courses by country", "ftr.bycountry", "byCountry"],
     ["Search the site", "ftr.search", "search"],
   ]],
   ["Learn Hindi", "ftr.learn", [
@@ -153,7 +154,7 @@ const COLUMNS = [
 
 const TARGETS = {
   home: "index.html", findTutors: "find-tutors.html", join: "join.html",
-  courses: "courses/index.html", learn: "learn/", support: "support/index.html",
+  courses: "courses/index.html", byCountry: "courses/by-country/index.html", learn: "learn/", support: "support/index.html",
   search: "search/", tutorDir: "tutor/", locations: "hindi-tutor/",
   guides: "learn/", topics: "hindi/", tools: "toolbox/", daily: "daily-hindi/",
   ask: "ask/", answers: "answers/", countries: "learn-hindi-by-country/",
