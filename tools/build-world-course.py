@@ -305,6 +305,11 @@ def build_quiz(C):
     ) % (esc_html(C["name"]), esc_html(C["name"]), code, code, code, code, code, code,
          code, C["jsvar"], C["jsvar"], code, code, code, code, code, code, code, code, C["jsvar"],
          esc_html(C["name"]), esc_html(C["name"]), esc_html(C["name"]))
+    # A language CODE is not a language NAME: the heading read
+    # "How the ar quiz works", "How the zh quiz works". The code stays where
+    # it belongs — element ids and file paths — and the reader sees the name.
+    body = body.replace("How the %s quiz works" % code,
+                        "How the %s quiz works" % esc_html(C["name"]))
     write_page("languages/%s/quiz/index.html" % code, "../../../",
                "%s Quiz — Topic Questions with Explanations" % C["name"],
                "A free %s topic quiz: multiple-choice questions with explanations, drawn from the %s lessons. The set rotates daily." % (C["name"], C["name"]),
