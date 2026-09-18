@@ -86,7 +86,7 @@ ADV_HERO = {
 }
 
 def flip_cards(words):
-    out = ['  <p><b>Tap to flip:</b> Hindi on the front, English on the back — and a speaker button.</p>',
+    out = ['  <p class="hint"><b>Tap to flip:</b> Hindi on the front, English on the back — and a speaker button.</p>',
            '  <div class="vcards">']
     for w in words[:8]:
         out.append(

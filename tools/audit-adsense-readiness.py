@@ -34,31 +34,66 @@ def norm(s):
  # a 12-page duplicate-title group that did not exist.
  return re.sub(r'[^\w]+',' ',s.lower()).strip()
 
+VOID = {'area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr'}
+
 class Scan(HTMLParser):
+ """A tolerant page scan.
+
+ The tag state is a STACK, not the last tag seen: this site writes its
+ headings with an inner <span> (``<h1><span …>Learn Hindi …</span></h1>``),
+ and a single "last tag" slot attributed that text to the span, not the h1 —
+ which is why the home page was once reported as having no h1 at all.
+
+ ``<template>`` is inert markup and is ignored entirely: nothing in it
+ renders, so a template copy of a heading is not a heading on the page.
+ """
  def __init__(self):
-  super().__init__(); self.title=''; self.h1=[]; self.text=[]; self.meta=''; self.canonical=''; self.links=[]; self.headings=[]; self._tag=''; self.noindex=False; self.main=False; self.ad=False
+  super().__init__(); self.title=''; self.h1=[]; self.text=[]; self.meta=''; self.canonical=''; self.links=[]; self.headings=[]; self.stack=[]; self.noindex=False; self.main=False; self.ad=False
+ def _enclosing(self):
+  return self.stack[::-1]
  def handle_starttag(self,tag,attrs):
-  self._tag=tag; a=dict(attrs)
+  a=dict(attrs)
+  if tag=='template': self.stack.append(tag); return
+  if 'template' in self.stack: 
+   if tag not in VOID: self.stack.append(tag)
+   return
   if tag=='meta' and a.get('name','').lower()=='description': self.meta=a.get('content','')
   if tag=='meta' and a.get('name','').lower()=='robots' and 'noindex' in a.get('content','').lower(): self.noindex=True
   if tag=='link' and 'canonical' in a.get('rel',[]): self.canonical=a.get('href','')
   if tag=='a' and a.get('href'): self.links.append(a['href'])
   if tag=='main': self.main=True
+  if tag=='h1': self.h1.append('')          # the TAG is the count, not its text
   if tag in ('h1','h2','h3'): self.headings.append(tag)
   if 'adsbygoogle' in a.get('class','') or 'ad-slot' in a.get('class',''): self.ad=True
- def handle_endtag(self,tag): self._tag=''
+  if tag not in VOID: self.stack.append(tag)
+ def handle_endtag(self,tag):
+  if tag in VOID: return
+  if tag in self.stack:
+   self.stack = self.stack[:len(self.stack) - 1 - self.stack[::-1].index(tag)]
  def handle_data(self,data):
   s=data.strip()
-  if not s or self._tag in ('script','style','noscript'): return
+  if not s or 'template' in self.stack: return
+  t=self._enclosing()
+  if t and t[0] in ('script','style','noscript'): return
   self.text.append(s)
-  if self._tag=='title': self.title+=s
-  if self._tag=='h1': self.h1.append(s)
+  if 'title' in t: self.title+=s
+  if 'h1' in t and self.h1:
+   self.h1[-1] = (self.h1[-1] + ' ' + s).strip()
+
+# Machine files, not pages: Google's Search Console verification file is a
+# named fragment with no title, no heading and three words, and it was the
+# only page in the whole audit carrying missing_title, missing_meta,
+# missing_canonical, missing_main_landmark, weak_internal_navigation AND one
+# of the depth reviews. It is not published content and never appears in a
+# sitemap; walking it as a page makes real numbers unreadable.
+MACHINE_FILES = re.compile(r'^google[a-z0-9]+\.html$')
 
 def html_files():
  out=[]
  for p in ROOT.rglob('*.html'):
   rel=p.relative_to(ROOT)
   if any(x in EXCLUDED_DIRS for x in rel.parts) or p.name=='admin.html': continue
+  if MACHINE_FILES.match(p.name): continue
   out.append(p)
  return sorted(out)
 
@@ -73,8 +108,8 @@ CHROME = re.compile(
     r"<!--\s*ekguru:(?:shell-header|shell-footer|trust-footer|pw-bands):end\s*-->"
     r"|<header\b[\s\S]*?</header>|<footer\b[\s\S]*?</footer>"
     r"|<nav\b[\s\S]*?</nav>"
-    r"|<p class=\"[^\"]*hint[^\"]*\">[\s\S]*?</p>"
-    r"|<p class=\"crumbs?\">[\s\S]*?</p>"
+    r"|<p class=\"[^\"]*\bhint\b[^\"]*\"[^>]*>[\s\S]*?</p>"
+    r"|<p class=\"[^\"]*\b(?:crumbs?|upd|updated|dateline|meta|byline)\b[^\"]*\"[^>]*>[\s\S]*?</p>"
     r"|<aside\b[^>]*(?:class=\"[^\"]*pg-note[^\"]*\"|role=\"note\")[^>]*>[\s\S]*?</aside>", re.I)
 
 

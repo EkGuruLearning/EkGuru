@@ -244,7 +244,7 @@ def build_quiz(C):
         '      <option value="5">5</option><option value="10">10</option><option value="20">20</option></select></div>\n'
         '    <button type="button" class="btn" id="%s-q-start">Start</button>\n'
         '  </div>\n'
-        '  <p class="muted" style="font-size:.8rem;margin-top:8px">Questions rotate each day for the same topic '
+        '  <p class="muted hint" style="font-size:.8rem;margin-top:8px">Questions rotate each day for the same topic '
         '(rule-based, not random) — come back tomorrow for a new set.</p>\n'
         '  <div id="%s-q-body" style="margin-top:16px"></div>\n'
         '  <h2>How the %s quiz works</h2>\n'
