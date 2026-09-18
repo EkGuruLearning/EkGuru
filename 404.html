@@ -57,6 +57,11 @@
   .e-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px}
   .e-tutors{margin-top:26px;padding-top:20px;border-top:1px solid var(--line);font-size:.9rem}
   .e-tutors a{color:var(--brand);font-weight:700;margin:0 8px}
+  .e-paths{margin-top:26px;text-align:left}
+  .e-paths-h{font-weight:700;margin:0 0 8px}
+  .e-paths ul{list-style:none;padding:0;margin:0}
+  .e-paths li{padding:8px 0;border-top:1px solid var(--line);font-size:.92rem;line-height:1.6}
+  .e-paths a{font-weight:600}
 @media(pointer:coarse){.chips a,.chips button,.pill,.rel a,.art-nav a,.crumbs a,.ftr a,.tag,.chip-btn{min-height:44px}.rel a,.art-nav a,.crumbs a,.ftr a{display:inline-block;padding-block:10px}b>a,strong>a,h3>a,h2>a{display:inline-block;padding-block:12px}input,select,textarea,button{min-height:44px}}</style>
 </head>
 <body>
@@ -98,6 +103,19 @@
     <a href="tutor/shikha-dutta/">Shikha Dutta</a>
     <a href="tutor/tara/">Tara</a>
   </p>
+  <!-- noindex and short on purpose: a 404 is a utility page, not a lesson,
+       and padding it with article text would be exactly the filler Google's
+       raters call thin. What it must do is get the reader somewhere real, so
+       the four doors below are the ones people actually arrive for. -->
+  <div class="e-paths">
+    <p class="e-paths-h">Or start from one of these</p>
+    <ul>
+      <li><a href="learn/">Every free Hindi guide</a> — greetings, numbers, script, verbs, travel</li>
+      <li><a href="how-levels-work/">How the levels work</a> — A1 to C2, and where to begin</li>
+      <li><a href="languages/">32 languages</a> — each with its own practice, quiz and review</li>
+      <li><a href="search/">Search the site</a> — if you know the word, this finds the page</li>
+    </ul>
+  </div>
 </div>
 <!-- v48: count 404s too. A 404 that keeps getting hits is a broken link
      somewhere real, and GoatCounter is the only way we would ever see it. -->

@@ -89,6 +89,8 @@ def main():
             ["python3", "tools/build-visuals.py", "--check"])
         run("level visuals test (the ladder, the figures, the strip)",
             ["node", "tools/test-level-visuals.mjs"])
+        run("readiness audit selftest (the word counter, on unspaced scripts)",
+            ["python3", "tools/audit-adsense-readiness.py", "--selftest"])
         run("print sheets --check (only the sheet prints)", ["python3", "tools/build-print-sheets.py", "--check"])
         run("site shell --check (header + footer on every page)", ["node", "tools/build-shell.js", "--check"])
         run("copy index --check", ["node", "tools/build-copy-index.js", "--check"])
