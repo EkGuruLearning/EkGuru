@@ -168,5 +168,51 @@ ok("the script path resolves from every page's own depth",
   }).slice(0, 5).join(", "));
 ok("the offline cache carries the script", /print-sheet\.js/.test(read("sw.js")));
 
+/* ---- the target must have something IN it ---------------------------------
+   This is the bug Prakash kept reporting. #ws-app sat empty in the file and
+   was filled by a script; with scripting off — or a browser that had not
+   finished booting — the print target held nothing, so "print only the sheet"
+   printed nothing at all, and the browser fell back to the page. Every
+   worksheet page now arrives with a real sample sheet. */
+const sheets = marked.filter((p) => /\/worksheets\/index\.html$/.test(p) || /id="ws-app"/.test(read(p)));
+ok(`worksheets ship a sheet in the file (${sheets.length} pages)`,
+  sheets.length >= 10 && sheets.every((p) => {
+    const h = read(p);
+    return h.includes("ekguru:sample-sheet") && /<div id="w-sheet">[\s\S]*?<div class="ws-page"/.test(h);
+  }),
+  sheets.filter((p) => !read(p).includes("ekguru:sample-sheet")).slice(0, 6).join(", "));
+
+ok("the baked sheet has real questions and answers",
+  sheets.every((p) => {
+    const h = read(p);
+    const qs = (h.match(/<p style="font-weight:700[^>]*>\d+\./g) || []).length;
+    return qs >= 3 && /<h3 style="margin:18px 0 6px">Answers<\/h3>/.test(h);
+  }));
+
+ok("the print target is the element that holds the sheet",
+  marked.filter((p) => /id="ws-app"/.test(read(p))).every((p) => {
+    const h = read(p);
+    const t = h.match(/<div id="ws-app"[^>]*>/);
+    return t && /data-print-target/.test(t[0]);
+  }));
+
+/* ---- the CSS must not depend on where the target sits in the tree -------- */
+ok("print mode 2 reveals the target by visibility, not by its parent",
+  /body\[data-print="sheet"\] \*\s*\{\s*visibility:\s*hidden/.test(printCss) &&
+  /body\[data-print="sheet"\] \[data-print-target\],[\s\S]{0,80}?visibility:\s*visible/.test(printCss));
+ok("print mode 2 keeps the isolated copy visible",
+  /body\[data-print="sheet"\] #ekguru-print-root[^{]*\{[^}]*visibility:\s*visible/.test(printCss));
+ok("print mode 2 drops the controls",
+  /body\[data-print="sheet"\] button/.test(printCss) &&
+  /body\[data-print="sheet"\] \.no-print/.test(printCss));
+ok("the worksheet controls are marked not-for-print",
+  read("js/hindi-tools.js").includes('class="row no-print"'));
+ok("a language's sheet is built from that language's own bank",
+  read("learn/bengali/practice/worksheets/index.html").includes("নমস্কার") &&
+  !read("learn/bengali/practice/worksheets/index.html").includes("Devanagari alphabet"));
+ok("the sample survives the script mounting",
+  read("js/hindi-tools.js").includes("arrived") &&
+  /host\.querySelector\("#w-sheet"\)\.innerHTML = arrived\.innerHTML/.test(read("js/hindi-tools.js")));
+
 console.log(`\n${fail ? "FAIL" : "PASS"}  ${pass} passed, ${fail} failed\n`);
 process.exit(fail ? 1 : 0);

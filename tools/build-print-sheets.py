@@ -18,7 +18,13 @@ Marked automatically, from what the page actually contains:
   · a printable guide (.art on the /materials/ pages) — 40-odd charts and
     revision sheets whose whole point is a piece of paper.
 
-and it loads js/print-sheet.js on those pages. A stylesheet can only hide what
+and it loads js/print-sheet.js on those pages. As of this round it also bakes
+a real SAMPLE SHEET into every worksheet page: `#ws-app` used to be empty until
+a script filled it, so a reader with JavaScript off — or a browser that had not
+finished booting — had nothing inside the print target and the print fell back
+to the whole page. The sample is five questions from that language's own quiz
+bank, marked with <!-- ekguru:sample-sheet -->, replaced in place when the
+reader builds their own. A stylesheet can only hide what
 is in the file; a worksheet is assembled in the browser when the reader clicks
 "Make worksheet", so nothing in the file can be marked as the paper. The script
 clones the finished sheet into #ekguru-print-root on beforeprint, which is the
@@ -67,6 +73,124 @@ def judge(path, html):
         if m:
             return ART, "printed guide"
     return None
+
+
+SAMPLE_MARK = "<!-- ekguru:sample-sheet -->"
+BANK_OF = {"hindi": "hindi"}          # js/<slug>-quiz-bank.js
+
+# Which languages have a worksheet page, and which bank file holds the
+# questions. The page names the language in data-topic="lang-<slug>"; the
+# Hindi page is the original and its bank is not named after a slug.
+BANK_NAME = re.compile(r'data-topic="lang-([a-z]+)"')
+
+
+def json_object(src, marker):
+    """The JS object assigned to `marker`, without eval.
+
+    The generated banks are `window.EKGURU_X_QUIZ = {json};` followed by two
+    more statements, so a regex to the end of the file does not work and a
+    brace matcher does. Strings are skipped so a `}` inside a question — and
+    there are plenty — cannot end the object early.
+    """
+    i = src.find(marker)
+    if i < 0:
+        return None
+    i = src.find("{", i)
+    if i < 0:
+        return None
+    depth, j, in_str, esc = 0, i, False, False
+    while j < len(src):
+        c = src[j]
+        if in_str:
+            if esc:
+                esc = False
+            elif c == "\\":
+                esc = True
+            elif c == '"':
+                in_str = False
+        elif c == '"':
+            in_str = True
+        elif c == "{":
+            depth += 1
+        elif c == "}":
+            depth -= 1
+            if depth == 0:
+                try:
+                    import json
+                    return json.loads(src[i:j + 1])
+                except Exception:
+                    return None
+        j += 1
+    return None
+
+
+def sample_questions(path):
+    """Five questions from the page's own quiz bank, or None.
+
+    A worksheet page prints `[data-print-target]` = #ws-app. With scripting
+    off, that element held nothing at all, so the browser had no sheet to
+    print and fell back to the page. Baking a real sample sheet into the page
+    at build time is what makes "print only the worksheet" true before any
+    script runs — and it is the same sheet a reader sees on arrival.
+    """
+    m = BANK_NAME.search(open(path, encoding="utf-8").read())
+    slug = m.group(1) if m else ("hindi" if "/hindi/" in path else None)
+    if not slug:
+        return None
+    bank = "js/%s-quiz-bank.js" % slug
+    if not os.path.exists(bank):
+        return None
+    src = open(bank, encoding="utf-8").read()
+    for marker in ("window.EKGURU_%s_QUIZ" % slug.upper(),
+                   "window.EKGURU_HINDI_QUIZ", "window.EKGURU_QUIZ"):
+        d = json_object(src, marker)
+        if d and d.get("questions"):
+            return d["questions"]
+    return None
+
+
+def esc(t):
+    return (str(t).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
+
+
+def sample_sheet(path, html):
+    """Insert the built-in sample sheet inside #ws-app, once."""
+    if SAMPLE_MARK in html:
+        return html
+    qs = sample_questions(path)
+    m = WS_APP.search(html)
+    if not qs or not m:
+        return html
+    topic = qs[0].get("topic") or "basics"
+    picked = [q for q in qs if (q.get("topic") or topic) == topic][:5]
+    if len(picked) < 3:
+        picked = qs[:5]
+    name = ""
+    h1 = re.search(r"<h1[^>]*>(.*?)</h1>", html, re.S)
+    if h1:
+        name = re.sub(r"\s+", " ", re.sub("<[^>]+>", "", h1.group(1))).split(" — ")[0]
+        name = name.replace(" worksheets", "").replace(" Worksheet", "").strip()
+    lines = "".join(
+        '<p style="font-weight:700;margin:14px 0 0">%d. %s</p>'
+        '<div style="border-bottom:1px solid var(--line);height:44px;margin:0 0 12px"></div>'
+        % (i + 1, esc(q["q"])) for i, q in enumerate(picked))
+    answers = "".join(
+        '<p style="margin:4px 0">%d. <b>%s</b>%s</p>'
+        % (i + 1, esc(q.get("a", "")),
+           " — " + esc(q.get("explain", "")) if q.get("explain") else "")
+        for i, q in enumerate(picked))
+    sheet = (
+        '\n' + SAMPLE_MARK + '\n'
+        '<div id="w-sheet"><div class="ws-page" style="background:#fff;border:1px solid var(--line);'
+        'border-radius:12px;padding:20px;max-width:640px">'
+        '<h2 style="margin:0 0 4px">%s worksheet — sample</h2>'
+        '<p class="muted" style="margin:0 0 14px">Five questions from the %s quiz bank on this page&rsquo;s '
+        'topic. Pick a topic and press <b>Make worksheet</b> for a fresh sheet, or print this one as it is.</p>'
+        '%s<h3 style="margin:18px 0 6px">Answers</h3>%s'
+        '<p class="muted" style="margin-top:12px;font-size:.78rem">From the EkGuru %s quiz bank — '
+        'free to print and share.</p></div></div>' % (esc(name or "EkGuru"), esc(name or "EkGuru"),
+                                                      lines, answers, esc(name or "EkGuru")))
+    return html[:m.end()] + sheet + html[m.end():]
 
 
 def pages():
@@ -129,6 +253,7 @@ def mark(path, html):
         # … then put it on the tag this page's kind prints
         out = out[:m.end() - 1] + " data-print-target" + out[m.end() - 1:]
 
+    out = sample_sheet(path, out)
     out = insert_script(out, path)
     return out, kind
 

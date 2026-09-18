@@ -5162,10 +5162,39 @@ body.xp-market .hdr .hdr-in {
   .sb-hint, .hi-listen, .say, .toast-stack, .eg-globalnav, .drawer,
   #ekguru-consent, .ad-slot, ins.adsbygoogle, .skip { display: none !important; }
 
-  /* ---- mode 2: only the sheet ---- */
-  body[data-print="sheet"] .pw-legacy > *,
-  body[data-print="sheet"] .art > *:not([data-print-target]) { display: none !important; }
-  body[data-print="sheet"] [data-print-target] { display: block !important; }
+  /* ---- mode 2: only the sheet -------------------------------------------
+     The sheet on a printable page is not always a direct child of a div we
+     know the class of — a worksheet builder nests it two levels down, and a
+     guide sits inside .art inside main. `display:none` on siblings therefore
+     judged wrong twice: it left the target's wrappers on the paper, and on a
+     page whose container was not in the list at all it printed the whole page,
+     which is the bug Prakash kept reporting.
+
+     visibility is inherited and can be turned back ON by a descendant, so the
+     rule below does not care how deep the target is: hide the document, then
+     reveal the target's whole subtree. Everything else on the sheet is
+     controlled by the explicit list under it. */
+  body[data-print="sheet"] * { visibility: hidden !important; }
+  body[data-print="sheet"] [data-print-target],
+  body[data-print="sheet"] [data-print-target] * { visibility: visible !important; }
+  /* The isolated copy (js/print-sheet.js) must stay visible even though it
+     lives outside the target. */
+  body[data-print="sheet"] #ekguru-print-root,
+  body[data-print="sheet"] #ekguru-print-root * { visibility: visible !important; }
+  body[data-print="sheet"] [data-print-target] {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    max-width: none !important;
+    background: #fff !important;
+  }
+  /* Controls are not content: they build the sheet, they are not on it. */
+  body[data-print="sheet"] .no-print,
+  body[data-print="sheet"] button,
+  body[data-print="sheet"] select,
+  body[data-print="sheet"] input,
+  body[data-print="sheet"] label { display: none !important; }
   body[data-print="sheet"] #ws-app > *:not(#w-sheet) { display: none !important; }
   body[data-print="sheet"] #w-sheet { margin: 0 !important; }
   body[data-print="sheet"] .ws-page {

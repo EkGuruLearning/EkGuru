@@ -171,7 +171,7 @@
     }).join("");
 
     host.innerHTML =
-      '<div class="row" style="gap:12px;flex-wrap:wrap;align-items:end">' +
+      '<div class="row no-print" style="gap:12px;flex-wrap:wrap;align-items:end">' +
       '<div><label for="q-topic">Topic</label><br><select id="q-topic">' + topicOpts + '</select></div>' +
       '<div><label for="q-level">Level</label><br><select id="q-level">' + levelOpts + '</select></div>' +
       '<div><label for="q-n">Questions</label><br><select id="q-n">' +
@@ -243,6 +243,12 @@
      WORKSHEETS
      ========================================================= */
   function mountWorksheet(host) {
+    /* The sheet the page arrived with: tools/build-print-sheets.py bakes a
+       five-question sample into #ws-app so there is always something to print
+       — with scripting off, or before this script runs, the print target used
+       to be empty and the browser printed the page instead. Keep it until the
+       reader builds their own. */
+    var arrived = host.querySelector("#w-sheet");
     var qs = bank();
     var topics = {};
     qs.forEach(function (q) { topics[q.topic] = 1; });
@@ -260,6 +266,8 @@
       '<button type="button" class="btn ghost" id="w-print">Print</button>' +
       '</div>' +
       '<div id="w-sheet" style="margin-top:16px"></div>';
+
+    if (arrived) host.querySelector("#w-sheet").innerHTML = arrived.innerHTML;
 
     var made = [];
 
