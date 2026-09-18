@@ -105,6 +105,8 @@ def main():
             ["python3", "tools/inject-questions-api.py", "--check"])
         run("questions api test (flag -> queue -> community)",
             ["node", "tools/test-question-api.mjs"])
+        run("refresh quiet test (a reload starts nothing)",
+            ["node", "tools/test-refresh-quiet.mjs"])
         run("page skeleton test (one main, skip link lands)", ["node", "tools/test-page-skeleton.mjs"])
         run("sheet-apply test (sheet row -> site)", ["node", "tools/test-sheet-apply.js"])
         run("experience DOM test", ["node", "tools/test-experience-dom.mjs"])
