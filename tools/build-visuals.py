@@ -1,0 +1,375 @@
+#!/usr/bin/env python3
+"""EkGuru — the level visuals: the same learner, from A1 to C2.
+
+Prakash: "visuals har subject/language/page pe honi chahiye, country theme ke
+hisab se, aur level ke hisab se umar badalni chahiye — chhote level pe bachche,
+master level pe buzurg."
+
+So there is one figure per LANGUAGE per LEVEL, and the figure's AGE is the
+level's: a child at A1, a teenager around A2, a young adult at B1, an adult
+through B2, and by C1 and C2 an older person — grey hair, glasses, a lifetime
+of it. A learner who moves up a level sees themselves grow up with the course.
+
+  · colours come from the language's own theme (the same accent its course
+    pages use), so a page looks like the language it teaches
+  · the rung label and the native name are part of the picture, not decoration
+    added later: the file itself says "B1 · Independent / Deutsch"
+  · every figure is a plain SVG (2-4 KB), no fonts to load, no requests
+
+Output:  images/vis/<code>-<rung>.svg          (32 languages x 11 rungs)
+         data/visuals.json                     (the manifest: age, stage, alt)
+         the gallery on every course hub       (languages/<code>/course/)
+
+The ladder itself is data/levels.json — eleven rungs: CEFR's six levels plus
+the half-step after each of the first five (A1+, A2+, B1+, B2+, C1+). CEFR has
+no A3 and no C3-C5; see the note in that file.
+
+Run:  python3 tools/build-visuals.py [--check]
+"""
+
+import hashlib
+import json
+import os
+import re
+import sys
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+os.chdir(ROOT)
+
+OUT = "images/vis"
+MARK_START = "<!-- ekguru:level-visuals:start -->"
+MARK_END = "<!-- ekguru:level-visuals:end -->"
+
+# A theme per language: the same families the course pages already use.
+THEMES = {
+    "hi": ("#e0682a", "#b5430b"), "bn": ("#3f8f5b", "#226b3c"),
+    "gu": ("#0f7b8a", "#0a5b66"), "kn": ("#8a5ab8", "#5f3a8c"),
+    "ml": ("#2f7d32", "#1c5a20"), "mr": ("#c2571a", "#8a3a0d"),
+    "pa": ("#b8860b", "#8a6408"), "ta": ("#b3261e", "#7f1a13"),
+    "te": ("#1f6feb", "#14509e"), "ur": ("#2b5f3f", "#1b3f29"),
+    "ar": ("#1f7a5c", "#125240"), "zh": ("#c0392b", "#8e2a1f"),
+    "ja": ("#b03060", "#7d1f43"), "ko": ("#2b6cb0", "#1c4c80"),
+    "fr": ("#3b5bdb", "#28409e"), "de": ("#4b4b58", "#2f2f38"),
+    "es": ("#d97706", "#a35705"), "it": ("#0e8a6d", "#0a6350"),
+    "pt": ("#137a4b", "#0d5735"), "ru": ("#3f67a8", "#2b4877"),
+    "en": ("#5b4bd6", "#3f31a0"), "fa": ("#0f766e", "#0b554f"),
+    "he": ("#2563b0", "#1a4780"), "id": ("#b45309", "#833a06"),
+    "ms": ("#15803d", "#0f5c2b"), "nl": ("#ea580c", "#b23f08"),
+    "pl": ("#b91c1c", "#871414"), "sw": ("#047857", "#03553e"),
+    "th": ("#7c3aed", "#5a25b0"), "tr": ("#0e7490", "#0a5568"),
+    "uk": ("#1d4ed8", "#153aa0"), "vi": ("#ca8a04", "#946406"),
+}
+
+DEFAULT_THEME = ("#4f32d9", "#3a2299")
+
+# An English name for any language whose data file did not carry one, so a
+# figure is never captioned with a bare two-letter code.
+NAMES = {
+    "en": "English", "hi": "Hindi", "bn": "Bengali", "gu": "Gujarati",
+    "kn": "Kannada", "ml": "Malayalam", "mr": "Marathi", "pa": "Punjabi",
+    "ta": "Tamil", "te": "Telugu", "ur": "Urdu", "ar": "Arabic",
+    "zh": "Chinese", "ja": "Japanese", "ko": "Korean", "fr": "French",
+    "de": "German", "es": "Spanish", "it": "Italian", "pt": "Portuguese",
+    "ru": "Russian", "fa": "Persian", "he": "Hebrew", "id": "Indonesian",
+    "ms": "Malay", "nl": "Dutch", "pl": "Polish", "sw": "Swahili",
+    "th": "Thai", "tr": "Turkish", "uk": "Ukrainian", "vi": "Vietnamese",
+}
+
+
+def themes_for(code):
+    return THEMES.get(code, DEFAULT_THEME)
+
+
+# Where a language's own hub page lives. The first existing path wins.
+INDIAN = {"hi": "hindi", "bn": "bengali", "gu": "gujarati", "kn": "kannada",
+          "ml": "malayalam", "mr": "marathi", "pa": "punjabi", "ta": "tamil",
+          "te": "telugu", "ur": "urdu"}
+
+
+def hub_for(code):
+    for cand in ("languages/%s/course/index.html" % code,
+                 "learn/%s/index.html" % INDIAN.get(code, ""),
+                 "languages/%s/index.html" % code):
+        if cand and "//" not in cand and os.path.exists(cand):
+            return cand
+    return ""
+
+
+def courses():
+    """Every language that has a page on the site, with the route to it.
+
+    `data/courses.json` covers the ten world courses; the Indian languages and
+    Hindi live in `learn/`. The list is read from the site rather than kept by
+    hand here, so a new language appears the day its page does — and a language
+    with no page yet simply does not get a figure.
+    """
+    out = {}
+    if os.path.exists("data/courses.json"):
+        data = json.load(open("data/courses.json", encoding="utf-8"))
+        for c in data.get("courses", []):
+            out[c["lang"]] = {"name": c["name"], "native": c.get("native", ""),
+                              "url": c.get("url", ""), "speech": c.get("speechTag", "")}
+    for code in sorted(set(list(out) + list(INDIAN) +
+                           [d[5:7] for d in os.listdir("data") if re.fullmatch(r"lang-[a-z]{2}\.json", d)])):
+        info = out.setdefault(code, {"name": code, "native": "", "url": "", "speech": ""})
+        f = "data/lang-%s.json" % code
+        if os.path.exists(f):
+            d = json.load(open(f, encoding="utf-8"))
+            tl = d.get("target_language") or {}
+            if isinstance(tl, dict):
+                info["name"] = tl.get("name") or info["name"]
+                info["native"] = tl.get("native_name") or info.get("native", "")
+        if code == "hi":
+            info.update({"name": "Hindi", "native": "हिन्दी", "speech": "hi-IN"})
+        hub = hub_for(code)
+        if not hub:
+            out.pop(code)
+            continue
+        info["url"] = hub
+        info["page"] = hub
+        if info["name"] == code:
+            info["name"] = NAMES.get(code, code.upper())
+    return out
+
+
+def esc(t):
+    return (str(t).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
+
+
+def figure(code, lang, rung, index):
+    """One SVG: a person whose age IS the level."""
+    a, b = themes_for(code)
+    age = rung["age"]
+    label = rung["label"]
+    stage = rung["stage"]
+    n = float(index)
+
+    # Proportions: a child is short with a big head; an elder is stooped.
+    head = 26.0 - n * 0.7
+    if stage == "child":
+        body_h, shoulder = 30.0 + n * 3, 20.0
+    elif stage == "teen":
+        body_h, shoulder = 46.0 + (n - 2) * 5, 24.0
+    else:
+        body_h, shoulder = 56.0 + (n - 4) * 1.8, 28.0
+    light = min(0.85, max(0.0, (age - 8) / 78.0))       # 0 dark hair, 1 white
+    grey = int(40 + light * 200)
+    hair_colour = "rgb(%d,%d,%d)" % (grey, grey, min(255, grey + 6))
+
+    cx = 160.0
+    head_y = 96.0 - body_h - head / 2 + 26
+    torso_top = head_y + head - 2
+    r8 = lambda v: round(v, 1)
+
+    # Props say what the level is FOR.
+    if stage == "child":
+        py = 132 + n * 2
+        props = ('<rect x="222" y="%s" width="30" height="30" rx="6" fill="#fff" stroke="%s" stroke-width="2"/>'
+                 '<text x="237" y="%s" font-size="17" text-anchor="middle" fill="%s" '
+                 'font-family="system-ui,sans-serif">A</text>' % (r8(py), a, r8(py + 21), a))
+    elif stage == "teen":
+        props = ('<rect x="220" y="134" width="36" height="26" rx="4" fill="#fff" stroke="%s" stroke-width="2"/>'
+                 '<path d="M226 144 h24 M226 152 h18" stroke="%s" stroke-width="2"/>' % (a, a))
+    elif stage == "youth":
+        props = ('<rect x="226" y="128" width="20" height="34" rx="4" fill="#fff" stroke="%s" stroke-width="2"/>'
+                 '<circle cx="236" cy="136" r="2.5" fill="%s"/>' % (a, a))
+    elif stage == "adult":
+        props = ('<rect x="216" y="130" width="46" height="30" rx="4" fill="#fff" stroke="%s" stroke-width="2"/>'
+                 '<rect x="221" y="152" width="36" height="4" rx="2" fill="%s" opacity=".5"/>' % (a, a))
+    else:
+        props = ('<rect x="216" y="128" width="44" height="32" rx="4" fill="#fff" stroke="%s" stroke-width="2"/>'
+                 '<path d="M238 128 v32" stroke="%s" stroke-width="1.6" opacity=".5"/>' % (a, a))
+        if stage == "elder":
+            props += ('<path d="M118 168 q-14 -6 -10 -34" stroke="%s" stroke-width="3" fill="none" '
+                      'stroke-linecap="round"/>' % b)
+
+    glasses = ""
+    if age >= 34:
+        glasses = ('<g stroke="%s" stroke-width="2" fill="none"><circle cx="%s" cy="%s" r="7"/>'
+                   '<circle cx="%s" cy="%s" r="7"/><path d="M%s %s h6"/></g>'
+                   % (b, r8(cx - 9), r8(head_y + 2), r8(cx + 9), r8(head_y + 2),
+                      r8(cx - 2), r8(head_y + 2)))
+    beard = ""
+    if age >= 45:
+        beard = ('<path d="M%s %s q%s 22 %s 0" fill="none" stroke="%s" stroke-width="%d" '
+                 'stroke-linecap="round"/>'
+                 % (r8(cx - head * 0.42), r8(head_y + head * 0.34), int(head * 0.42),
+                    int(head * 0.84), hair_colour, 7 if age < 62 else 9))
+
+    if stage == "child" and index == 0:
+        hair = ('<circle cx="%s" cy="%s" r="%s" fill="%s"/>'
+                % (r8(cx), r8(head_y - head * 0.30), r8(head * 0.52), hair_colour))
+    else:
+        hair = ('<path d="M%s %s a%s %s 0 0 1 %s 0 q%s -%s -%s -%s q-%s 0 -%s %s z" fill="%s"/>'
+                % (r8(cx - head / 2), r8(head_y - head * 0.16), r8(head / 2), r8(head * 0.6),
+                   r8(head), r8(head * 0.5), r8(head * 0.5), r8(head * 0.5), r8(head * 0.2),
+                   r8(head * 0.5), r8(head * 0.5), r8(head * 0.5), hair_colour))
+
+    head_shape = ('<circle cx="%s" cy="%s" r="%s" fill="#f3c9a8"/>'
+                  % (r8(cx), r8(head_y), r8(head / 2))) if stage == "child" else \
+                 ('<ellipse cx="%s" cy="%s" rx="%s" ry="%s" fill="#f3c9a8"/>'
+                  % (r8(cx), r8(head_y), r8(head / 2), r8(head / 2 + 3)))
+
+    native = esc(lang.get("native") or lang["name"])
+    name = esc(lang["name"])
+    who = esc(rung["who"])
+    can = esc(rung["can"])
+    direction = "rtl" if code in ("ar", "fa", "he", "ur") else "ltr"
+    stage_name = rung["name"].split(" · ")[-1]
+
+    return (
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" width="320" height="200" '
+        'role="img" aria-label="%s at level %s: %s. %s">\n'
+        '<title>%s at %s \u2014 %s</title>\n'
+        '<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">'
+        '<stop offset="0" stop-color="%s" stop-opacity=".16"/>'
+        '<stop offset="1" stop-color="%s" stop-opacity=".3"/></linearGradient></defs>\n'
+        '<rect width="320" height="200" rx="14" fill="url(#bg)"/>\n'
+        '<circle cx="%s" cy="%s" r="%s" fill="%s" opacity=".18"/>\n'
+        '<rect x="0" y="168" width="320" height="32" fill="%s" opacity=".1"/>\n'
+        '<g><rect x="%s" y="%s" width="%s" height="%s" rx="10" fill="%s"/>'
+        '<rect x="%s" y="%s" width="%s" height="%s" rx="8" fill="#f3c9a8"/>%s%s%s%s</g>\n'
+        '%s\n'
+        '<text x="16" y="26" font-size="13" font-weight="700" fill="%s" '
+        'font-family="system-ui,-apple-system,Segoe UI,sans-serif">%s</text>\n'
+        '<text x="16" y="44" font-size="11" fill="%s" direction="%s" '
+        'font-family="system-ui,-apple-system,Segoe UI,sans-serif">%s</text>\n'
+        '<text x="304" y="26" text-anchor="end" font-size="11" fill="%s" '
+        'font-family="system-ui,-apple-system,Segoe UI,sans-serif">age %d</text>\n'
+        '<text x="304" y="44" text-anchor="end" font-size="10" fill="%s" '
+        'font-family="system-ui,-apple-system,Segoe UI,sans-serif">%s</text>\n'
+        '<text x="16" y="190" font-size="10" fill="%s" '
+        'font-family="system-ui,-apple-system,Segoe UI,sans-serif">%s \u2014 %s</text>\n'
+        '</svg>\n'
+        % (name, label, who, can, name, label, who,
+           a, b,
+           r8(cx), r8(head_y), r8(head * 1.7), a,
+           a,
+           r8(cx - shoulder / 2), r8(torso_top - 4), r8(shoulder), r8(body_h + 10), "#f3c9a8",
+           r8(cx - head / 2), r8(head_y - head / 2), r8(head), r8(head),
+           head_shape, hair, glasses, beard,
+           props,
+           a, label, b, direction, native,
+           b, age,
+           b, esc(stage_name),
+           b, name, esc(stage_name))
+    )
+
+
+def gallery(code, lang, page, rungs, manifest):
+    """The strip of eleven figures a language hub carries.
+
+    Written with the page's own depth (`../../`), the way every other link and
+    image on the site is written: a root-absolute `/images/...` would break the
+    moment the site is served from a folder rather than a domain root, and the
+    local preview is exactly that.
+    """
+    prefix = "../" * (page.count("/") - 0) if "/" in page else ""
+    prefix = "../" * page.count("/")
+    items = []
+    for r in rungs:
+        info = manifest["figures"]["%s-%s" % (code, r["id"])]
+        items.append(
+            '<figure class="lv-fig">'
+            '<img src="%s%s" width="320" height="200" loading="lazy" alt="%s">'
+            '<figcaption><b>%s</b> %s</figcaption></figure>'
+            % (prefix, info["path"], esc(info["alt"]), r["label"], esc(r["who"])))
+    return (
+        MARK_START + "\n"
+        '<section class="lv-visuals" aria-labelledby="lv-visuals-h">\n'
+        '<h2 id="lv-visuals-h">The same learner, from %s to %s</h2>\n'
+        '<p>Each rung of this course is a person at a different age: a child at the '
+        'first level, an adult using the language at work in the middle, and by the '
+        'last level someone who has spoken it for a lifetime. The picture is the level — '
+        'the same ladder every language here climbs, '
+        '<a href="%show-levels-work/">and here is how the eleven rungs work</a>.</p>\n'
+        '<div class="lv-strip">\n%s\n</div>\n'
+        '</section>\n'
+        % (rungs[0]["label"], rungs[-1]["label"], prefix, "\n".join(items)) +
+        MARK_END + "\n")
+
+
+def main():
+    check = "--check" in sys.argv
+    levels = json.load(open("data/levels.json", encoding="utf-8"))
+    rungs = levels["rungs"]
+    langs = courses()
+    os.makedirs(OUT, exist_ok=True)
+
+    manifest = {"version": 1, "generated_note": "generated by tools/build-visuals.py",
+                "rungs": [r["id"] for r in rungs], "languages": {}, "figures": {}}
+    written = 0
+    for code in sorted(langs):
+        lang = langs[code]
+        manifest["languages"][code] = {"name": lang["name"], "native": lang.get("native", ""),
+                                       "url": lang.get("url", ""), "theme": list(themes_for(code))}
+        for i, r in enumerate(rungs):
+            path = "%s/%s-%s.svg" % (OUT, code, r["id"])
+            svg = figure(code, lang, r, i)
+            key = "%s-%s" % (code, r["id"])
+            manifest["figures"][key] = {
+                "path": path, "language": code, "language_name": lang["name"], "rung": r["id"],
+                "label": r["label"], "age": r["age"], "stage": r["stage"],
+                "alt": "%s learning %s at level %s (%s)" % (r["who"].capitalize(), lang["name"], r["label"], r["stage"]),
+            }
+            if os.path.exists(path) and open(path, encoding="utf-8").read() == svg:
+                continue
+            if check:
+                print("STALE %s — run tools/build-visuals.py" % path)
+                return 1
+            open(path, "w", encoding="utf-8").write(svg)
+            written += 1
+
+    body = json.dumps(manifest, indent=1, ensure_ascii=False, sort_keys=True) + "\n"
+    if not (os.path.exists("data/visuals.json") and open("data/visuals.json", encoding="utf-8").read() == body):
+        if check:
+            print("STALE data/visuals.json — run tools/build-visuals.py")
+            return 1
+        open("data/visuals.json", "w", encoding="utf-8").write(body)
+        written += 1
+
+    # The gallery goes on every course hub, once.
+    hubs = 0
+    for code, lang in sorted(langs.items()):
+        page = lang.get("page") or ""
+        if not page or not os.path.exists(page):
+            continue
+        original = open(page, encoding="utf-8").read()
+        html = original
+        block = gallery(code, lang, page, rungs, manifest)
+        if MARK_START in html:                     # a rebuild moves the strip, never stacks it
+            start = html.index(MARK_START)
+            end = html.index(MARK_END) + len(MARK_END)
+            html = html[:start] + html[end:]
+        # inside the page's content, at the end of it: after </main> the strip
+        # would sit in the chrome band, outside the reading column and outside
+        # anything a reader-mode or a plugin keeps.
+        anchor = html.rfind("</main>")
+        if anchor < 0:
+            anchor = html.find("<!-- ekguru:shell-footer:start -->")
+        if anchor < 0:
+            anchor = html.find("<footer")
+        if anchor < 0:
+            continue
+        new = html[:anchor].rstrip("\n") + "\n" + block + html[anchor:]
+        # compare against the page as it was on disk, not against the copy the
+        # old strip was just cut out of — otherwise a page that already carries
+        # a strip can never check clean.
+        if new != original:
+            if check:
+                print("STALE %s — run tools/build-visuals.py" % page)
+                return 1
+            open(page, "w", encoding="utf-8").write(new)
+            written += 1
+        hubs += 1
+
+    if check:
+        print("ok    level visuals: %d language(s) x %d rungs, %d hub(s)" % (len(langs), len(rungs), hubs))
+        return 0
+    print("level visuals: %d file(s) written — %d language(s) x %d rungs, %d hub(s)"
+          % (written, len(langs), len(rungs), hubs))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

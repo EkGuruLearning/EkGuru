@@ -27,7 +27,7 @@ Google documents Auto ads controls for intent-driven, overlay, in-page formats, 
 
 - **HIGH_CONTENT:** conservative in-page inventory after quality pass. Overlay experiments require separate approval.
 - **MEDIUM_CONTENT:** at most one conservative in-page opportunity after review.
-- **INTERACTIVE_LEARNING:** no ad intents, anchors, vignettes, or ads near answers/audio/navigation.
+- **INTERACTIVE_LEARNING:** no ad intents, anchors, vignettes, or ads near answers/audio/navigation. Includes the course player (`/courses/**`) and **the 273 level pages** at `/languages/<code>/level/**` written by `tools/build-course-levels.py`: a learner there is mid-task from the first word to the level test, so the loader is not in the page at all. The practice band on those pages says so, and `tools/test-course-levels.mjs` fails the build if a loader ever appears on one.
 - **UTILITY / TRANSACTIONAL / ACCOUNT / ADMIN:** excluded.
 
 The canonical path list is in `data/monetization/google-monetization.json`. Configure the same exclusions in the AdSense Auto ads account; repository code cannot prove account-side settings.
@@ -54,4 +54,8 @@ No experiment is currently running. Every future test records hypothesis, page c
 
 ## Approval protection
 
-Do not re-request review while major content, duplicate/thin-page, consent, mobile, accessibility, broken-link, or ad-placement findings remain. Run `python tools/audit-adsense-readiness.py` and `node tools/adsready.js`. Neither tool predicts approval.
+Do not re-request review while major content, duplicate/thin-page, consent, mobile, accessibility, broken-link, or ad-placement findings remain. Run `python3 tools/audit-adsense-readiness.py` and `node tools/adsready.js` (add `--local` for the
+repository-only checks when there is no network). Neither tool predicts approval. The current
+state and the re-submission packet are in `docs/ADSENSE-RESUBMISSION.md`: 0 indexable thin pages,
+1,442 pages carrying the loader, 125 ad-free by policy — practice, quizzes, worksheets, review,
+the course player, legal pages, contact and admin among them.

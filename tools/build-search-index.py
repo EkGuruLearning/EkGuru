@@ -172,6 +172,21 @@ def main():
         by_url[d] = idx[-1]
         added += 1
 
+    # 8) tutor profile pages (tutor/<id>/) — added as soon as the profile
+    #    exists, so a new tutor is findable by name without a hand edit
+    #    (tools/build-tutor-pages.js writes the page and its meta).
+    #    Add-only: existing tutor entries keep their hand-tuned keywords.
+    for d in sorted(_glob.glob("tutor/*/")):
+        f = os.path.join(d, "index.html")
+        if not os.path.exists(f) or d in by_url:
+            continue
+        t = title_of(f) or d.strip("/").rsplit("/", 1)[-1].replace("-", " ").title()
+        dd = desc_of(f) or ""
+        idx.append({"u": d, "t": t, "d": dd, "s": "Tutor", "k": keywords(t, dd)})
+        by_url[d] = idx[-1]
+        added += 1
+        print("added tutor:", d)
+
     # 4) sort by section order then title, write
     order = {s: i for i, s in enumerate(SECTION_ORDER)}
     idx.sort(key=lambda e: (order.get(e["s"], 99), e["t"].lower()))
@@ -196,8 +211,12 @@ def main():
                          rf'\g<1>{len(idx)}\g<2>', html2, count=1)
     html2, n3 = re.subn(r'(<p class="lede">[^<]*?— )\d+( pages of )',
                          rf'\g<1>{len(idx)}\g<2>', html2, count=1)
-    if n2 or n3:
-        print(f"updated page counts (score={n2}, lede={n3}) -> {len(idx)}")
+    # the meta description carries the count too — keep it honest for anyone
+    # who sees the result in a search engine rather than on the page
+    html2, n4 = re.subn(r'(content="Search )\d+( Hindi lessons)',
+                         rf'\g<1>{len(idx)}\g<2>', html2, count=1)
+    if n2 or n3 or n4:
+        print(f"updated page counts (score={n2}, lede={n3}, meta={n4}) -> {len(idx)}")
     with open(SEARCH, "w", encoding="utf-8") as f:
         f.write(html2)
 

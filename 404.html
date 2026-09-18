@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-ad-class="UTILITY">
 <head>
 <meta charset="utf-8">
 <meta name="google-site-verification" content="hFaqyp-9LdUXSKPA9RF011TkO2m_-7AUMasXqm_0dGI" />
@@ -57,9 +57,38 @@
   .e-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px}
   .e-tutors{margin-top:26px;padding-top:20px;border-top:1px solid var(--line);font-size:.9rem}
   .e-tutors a{color:var(--brand);font-weight:700;margin:0 8px}
+  .e-paths{margin-top:26px;text-align:left}
+  .e-paths-h{font-weight:700;margin:0 0 8px}
+  .e-paths ul{list-style:none;padding:0;margin:0}
+  .e-paths li{padding:8px 0;border-top:1px solid var(--line);font-size:.92rem;line-height:1.6}
+  .e-paths a{font-weight:600}
 @media(pointer:coarse){.chips a,.chips button,.pill,.rel a,.art-nav a,.crumbs a,.ftr a,.tag,.chip-btn{min-height:44px}.rel a,.art-nav a,.crumbs a,.ftr a{display:inline-block;padding-block:10px}b>a,strong>a,h3>a,h2>a{display:inline-block;padding-block:12px}input,select,textarea,button{min-height:44px}}</style>
 </head>
 <body>
+<!-- ekguru:shell-header:start -->
+<header class="hdr">
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="hdr-in">
+    <a class="logo" href="index.html">
+      <span class="logo-mark" aria-hidden="true">E</span>
+      <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
+    </a>
+    <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="find-tutors.html">Find Tutors</a>
+      <a href="courses/index.html">Courses</a>
+      <a href="learn/">Learn</a>
+      <a href="support/index.html">Support</a>
+      <a href="search/">Search</a>
+      <a class="btn btn-primary btn-sm" href="find-tutors.html">Book a trial</a>
+    </nav>
+  </div>
+</header>
+<script src="js/site-shell.js" defer></script>
+<script src="js/copywatch.js" defer></script>
+<!-- ekguru:shell-header:end -->
+<main id="main">
 <div class="e-box">
   <div class="e-num">404</div>
   <h1 style="margin:.2em 0">Page not found</h1>
@@ -74,6 +103,19 @@
     <a href="tutor/shikha-dutta/">Shikha Dutta</a>
     <a href="tutor/tara/">Tara</a>
   </p>
+  <!-- noindex and short on purpose: a 404 is a utility page, not a lesson,
+       and padding it with article text would be exactly the filler Google's
+       raters call thin. What it must do is get the reader somewhere real, so
+       the four doors below are the ones people actually arrive for. -->
+  <div class="e-paths">
+    <p class="e-paths-h">Or start from one of these</p>
+    <ul>
+      <li><a href="learn/">Every free Hindi guide</a> — greetings, numbers, script, verbs, travel</li>
+      <li><a href="how-levels-work/">How the levels work</a> — A1 to C2, and where to begin</li>
+      <li><a href="languages/">32 languages</a> — each with its own practice, quiz and review</li>
+      <li><a href="search/">Search the site</a> — if you know the word, this finds the page</li>
+    </ul>
+  </div>
 </div>
 <!-- v48: count 404s too. A 404 that keeps getting hits is a broken link
      somewhere real, and GoatCounter is the only way we would ever see it. -->
@@ -93,22 +135,59 @@
      between the markers is replaced on every build. Exists so the
      pages built by the pre-shell generators still reach the privacy
      policy — see the note in tools/patch.js. -->
-<footer class="pw-ftr">
-  <nav aria-label="Site information">
-    <a href="./">Home</a>
-    <a href="about/">About</a>
-    <a href="contact/">Contact</a>
-    <a href="privacy/">Privacy</a>
-    <a href="terms/">Terms</a>
-    <a href="disclaimer/">Disclaimer</a>
-  </nav>
-  <p>
-  © 2026 EkGuru — One Student. One Goal. One Guru.<br>
-  Written and maintained by Prakash. Hindi lessons with native-speaking tutors, one to one.
-  </p>
-</footer>
 <!-- ekguru:trust-footer:end -->
 <!-- ekguru:consent -->
 <script src="js/cookie-consent.js" defer></script>
+</main>
+<!-- ekguru:shell-footer:start -->
+<footer class="ftr">
+  <div class="wrap ftr-in">
+    <div>
+      <a class="logo" href="index.html">
+        <span class="logo-mark" aria-hidden="true">E</span>
+        <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
+      </a>
+      <p style="margin-top:14px">Online Hindi lessons with verified, caring tutors.</p>
+    </div>
+    <div>
+      <h3>Site</h3>
+      <a href="index.html">Home</a>
+      <a href="find-tutors.html">Find Tutors</a>
+      <a href="join.html">Become a tutor</a>
+      <a href="tutor/">All tutors — text directory</a>
+      <a href="hindi-tutor/">Hindi tutors by location</a>
+      <a href="courses/index.html">Courses</a>
+      <a href="courses/by-country/index.html">Courses by country</a>
+      <a href="search/">Search the site</a>
+    </div>
+    <div>
+      <h3>Learn Hindi</h3>
+      <a href="learn/">Free guides</a>
+      <a href="hindi/">Every topic, mapped</a>
+      <a href="toolbox/">Interactive tools</a>
+      <a href="daily-hindi/">Daily Hindi — 30 days</a>
+      <a href="ask/">Questions answered</a>
+      <a href="answers/">Short answers</a>
+      <a href="learn-hindi-by-country/">Countries &amp; languages</a>
+    </div>
+    <div>
+      <h3>Contact &amp; legal</h3>
+      <a href="contact/">Contact form</a>
+      <a href="mailto:EkGuruLearning@gmail.com">EkGuruLearning@gmail.com</a>
+      <a href="about/">About EkGuru</a>
+      <a href="privacy/">Privacy policy</a>
+      <a href="terms/">Terms of use</a>
+      <a href="disclaimer/">Disclaimer</a>
+      <a href="copyright/">Copyright</a>
+      <a href="cookie-policy/">Cookie policy</a>
+    </div>
+  </div>
+  <div class="wrap ftr-bot">
+    <p class="ftr-founder">Written and maintained by Prakash in Jaipur, India.</p>
+    <p>© <span data-year>2026</span> <span data-brand>EkGuru</span> — <span data-tagline>One Student. One Goal. One Guru.</span></p>
+    <p class="ftr-copy">All text, worksheets and artwork on this site are © EkGuru. Print or download a page and the watermark stays on it; copy a passage and the source comes with it. Nothing here is public domain.</p>
+  </div>
+</footer>
+<!-- ekguru:shell-footer:end -->
 </body>
 </html>

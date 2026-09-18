@@ -12,6 +12,7 @@
 "use strict";
 const fs = require("fs");
 const path = require("path");
+const { execFileSync } = require("child_process");
 
 const ROOT = path.join(__dirname, "..");
 const REPORTS = path.join(ROOT, "reports");
@@ -131,6 +132,31 @@ async function main() {
     !/"videoTitle":\s*"[^"]*\|[^"]*"/.test(read("js/tutors/_overrides.js") || "");
   check("sheet-sanity", "Sheet values sanitised (no cross-column leakage)", sheetOk,
     sheetOk ? "videoTitle guard active" : "a multi-line / | value leaked into videoTitle");
+
+  /* 11 — the tutor roster is complete everywhere it is listed, and every
+     generated page is current. Each tool below has a --check that exits 1
+     when a file is out of date; running them here means a tutor added to the
+     registry but missed on one of the pages that lists tutors fails the
+     deploy gate instead of shipping quietly. */
+  const rosterChecks = [
+    ["script-tags", "tools/langsync.js"],
+    ["profiles", "tools/build-tutor-pages.js"],
+    ["home-grid", "tools/build-home-tutors.js"],
+    ["market-pages", "tools/build-market-pages.js"],
+    ["roster-rows", "tools/build-roster-rows.js"],
+  ];
+  const staleLayers = [];
+  for (const [id, tool] of rosterChecks) {
+    try {
+      execFileSync(process.execPath, [tool, "--check"], { cwd: ROOT, stdio: "pipe" });
+    } catch (e) {
+      staleLayers.push(id);
+    }
+  }
+  check("tutor-roster", "Tutor roster is current on every page that lists tutors", staleLayers.length === 0,
+    staleLayers.length
+      ? `stale: ${staleLayers.join(", ")} — run the tool without --check`
+      : `${rosterChecks.length} generators clean (scripts, profiles, home, markets, long-tail lists)`);
 
   const problems = results.filter(r => r.status === "FAIL").length;
   const warnings = results.filter(r => r.status === "WARN").length;

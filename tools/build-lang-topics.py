@@ -16,8 +16,10 @@ unlinked "Coming soon" cards — never fake links, never invented URLs.
 After running, run tools/inject-storybook.py for banners + dock.
 """
 import html as H
+import glob
 import json
 import os
+import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -165,6 +167,21 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--sb-accent,#4f32d9);
 
 
 
+def localised(text, lang):
+    lang = re.sub(r"^Learn\s+", "", lang or "")
+    """A per-language page gets its own title.
+
+    The topic titles come from per-language JSON and the good ones already name
+    the language ("Bengali vs Assamese"). The rest — "Family words", "Shopping
+    and bargaining", "Speaking practice" — were the same words on nine pages,
+    which is exactly the template pattern AdSense flagged. Naming the language
+    in the title (and the h1) makes each page say what it is.
+    """
+    if not lang or lang.lower() in text.lower() or text.lower() in lang.lower():
+        return text
+    return "%s in %s" % (text, lang)
+
+
 def head(title, desc, url, pre, ld_json):
     t, d = H.escape(title), H.escape(desc)
     return """<!DOCTYPE html>
@@ -244,7 +261,8 @@ def topic_page(cfg, tp, prev_tp, next_tp, live):
         % (H.escape(f["q"]), H.escape(f["a"])) for f in tp["faqs"])
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "Article", "@id": "%s/%s#article" % (BASE, url),
-         "headline": tp["title"], "description": tp["desc"],
+         "headline": localised(tp["title"], cfg["title"]),
+         "description": tp["desc"],
          "inLanguage": "en",
          "about": {"@type": "Language", "name": cfg["title"],
                    "alternateName": cfg["native"]},
@@ -267,13 +285,16 @@ def topic_page(cfg, tp, prev_tp, next_tp, live):
     cta = ('<div class="cta"><h2>Ready to test yourself?</h2>'
            '<p>Turn this topic into lasting memory — quiz, practice and review, all free.</p>'
            '<a class="cta-btn" href="%s">Quiz yourself</a></div>') % cfg["quiz_url"]
+    seo_title = localised(tp["title"], cfg["title"])
+    seo_desc = tp["desc"] if cfg["title"].lower() in tp["desc"].lower() else \
+        "%s: %s" % (cfg["title"], tp["desc"])
     body = ["<div class=\"pw\">",
             "<p class=\"crumb\"><a href=\"%s\">EkGuru</a> \u203a "
             "<a href=\"../\">%s</a> \u203a %s</p>"
             % (pre, H.escape(cfg["hub_title"]), H.escape(tp["title"])),
             '<div class="hero">',
             '<span class="kicker">%s</span>' % H.escape(cfg["title"]),
-            "<h1>%s</h1>" % H.escape(tp["h1"]),
+            "<h1>%s</h1>" % H.escape(localised(tp["h1"], cfg["title"])),
             "<p class=\"lede\">%s</p>" % H.escape(tp["lede"]),
             '</div>',
             hint(cfg["title"])]
@@ -299,7 +320,7 @@ def topic_page(cfg, tp, prev_tp, next_tp, live):
                  '<a href="../%s/">%s</a>' % (t["slug"], H.escape(t["title"]))
                  for t in live if t["slug"] != tp["slug"]) + "</div>",
              cta, nav, "</div>"]
-    page = (head(tp["title"], tp["desc"], url, pre,
+    page = (head(seo_title, seo_desc, url, pre,
                  json.dumps(ld, ensure_ascii=False))
             + "<body>\n" + "\n".join(body) + "\n" + footer(pre)
             + MARK + "\n" + '<script src="%sjs/storybook.js" defer></script>\n'
@@ -370,7 +391,9 @@ def hub_page(cfg, live, coming):
             "real phrases, every word speakable. Bookmark this page; the "
             "coming-soon cards turn into lessons week by week.</p>",
             "</div>"]
-    return (head(cfg["hub_title"], cfg["lede"], d + "/", pre,
+    hub_desc = cfg["lede"] if cfg["title"].lower() in cfg["lede"].lower() else \
+        "%s: %s" % (cfg["title"], cfg["lede"])
+    return (head(cfg["hub_title"], hub_desc, d + "/", pre,
                  json.dumps(ld, ensure_ascii=False))
             + "<body>\n" + "\n".join(body) + "\n" + footer(pre)
             + MARK + "\n" + '<script src="%sjs/storybook.js" defer></script>\n'
@@ -378,7 +401,13 @@ def hub_page(cfg, live, coming):
 
 
 def main():
-    code = sys.argv[1] if len(sys.argv) > 1 else "bn"
+    codes = sys.argv[1:] or sorted(
+        os.path.basename(f)[:-5] for f in glob.glob("data/topics/*.json"))
+    for code in codes:
+        build(code)
+
+
+def build(code):
     with open("data/topics/%s.json" % code, encoding="utf-8") as f:
         cfg = json.load(f)
     live = cfg["topics"]

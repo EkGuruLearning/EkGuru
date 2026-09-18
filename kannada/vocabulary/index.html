@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" data-ad-class="MEDIUM_CONTENT">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -28,140 +28,45 @@
 <link rel="stylesheet" href="../../css/style.min.css">
 <!-- ekguru:storybook -->
 <link rel="stylesheet" href="../../css/storybook.css">
-<style>
-/* Modern-Pro topic system (v158): theme-aware via --sb-accent/--sb-tint. */
-.pw{max-width:880px;margin:0 auto;padding:0 20px 64px}
-.pw h1{font-size:clamp(1.7rem,4.6vw,2.3rem);line-height:1.2;margin:14px 0;letter-spacing:-.01em}
-.pw h2{font-size:clamp(1.15rem,3vw,1.35rem);line-height:1.3;margin:36px 0 12px;letter-spacing:-.005em}
-.pw h3{font-size:1.02rem;margin:24px 0 8px}
-.pw p,.pw li{line-height:1.72;font-size:1rem}
-.pw p,.pw ul,.pw ol{max-width:72ch}
-.lede{color:var(--ink-2);font-size:1.08rem;line-height:1.7}
-.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0;word-break:break-word}
-.crumb a{color:var(--muted)}
-/* hero band */
-.hero{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:22px;
-  padding:clamp(22px,4.5vw,36px);margin:14px 0 8px;color:var(--ink);
-  background:linear-gradient(135deg,var(--sb-tint,#f4f1ff) 0%,var(--card,#fff) 78%);
-  box-shadow:var(--sh-1)}
-.hero::after{content:"";position:absolute;right:-70px;top:-70px;width:220px;height:220px;border-radius:50%;
-  background:radial-gradient(circle,var(--sb-tint,#f4f1ff) 0%,transparent 70%);opacity:.9;pointer-events:none}
-.hero h1{margin:10px 0 8px}
-.hero .lede{margin:0;max-width:60ch}
-.kicker{display:inline-flex;align-items:center;gap:7px;font-size:.74rem;font-weight:800;letter-spacing:.09em;
-  text-transform:uppercase;color:var(--sb-accent,#4f32d9);background:rgba(255,255,255,.75);
-  border:1px solid var(--line);border-radius:999px;padding:5px 13px}
-.statline{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px}
-.statline span{display:inline-flex;align-items:center;gap:7px;font-size:.85rem;font-weight:600;
-  border:1px solid var(--line);border-radius:999px;padding:7px 14px;background:var(--card,#fff);color:var(--ink-2)}
-.statline i{width:8px;height:8px;border-radius:50%;background:var(--sb-accent,#4f32d9);font-style:normal}
-/* facts */
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
-.fact{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--card,#fff);box-shadow:var(--sh-1)}
-.fact b{display:block;font-size:1.25rem;margin-bottom:2px;color:var(--sb-accent,#4f32d9);letter-spacing:-.01em}
-.fact span{font-size:.76rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
-/* faq */
-.faq{position:relative;border:1px solid var(--line);border-radius:14px;padding:16px 18px 16px 20px;margin:12px 0;
-  background:var(--card,#fff);box-shadow:var(--sh-1);overflow:hidden}
-.faq::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--sb-accent,#4f32d9)}
-.faq b{display:block;margin-bottom:6px;color:var(--ink);font-size:1.02rem}
-.faq p{margin:0;color:var(--ink-2)}
-/* chips */
-.chips{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0}
-.chips a{font-size:.88rem;font-weight:600;border:1px solid var(--line);border-radius:999px;padding:9px 16px;
-  text-decoration:none;background:var(--card,#fff);color:var(--brand);min-height:44px;display:inline-flex;
-  align-items:center;transition:all .18s ease;box-shadow:var(--sh-1)}
-.chips a:hover{background:var(--sb-accent,#4f32d9);border-color:var(--sb-accent,#4f32d9);color:#fff;
-  transform:translateY(-1px)}
-/* phrase table */
-.twrap{overflow-x:auto;max-width:72ch;border:1px solid var(--line);border-radius:16px;margin:16px 0;
-  box-shadow:var(--sh-1);background:var(--card,#fff)}
-table.phr{border-collapse:collapse;width:100%;margin:0}
-table.phr th,table.phr td{border:0;border-bottom:1px solid var(--line);padding:11px 14px;text-align:left;
-  font-size:.95rem;line-height:1.6}
-table.phr tbody tr:last-child td{border-bottom:0}
-table.phr tbody tr:nth-child(even){background:var(--bg-soft)}
-table.phr thead th{position:sticky;top:0;background:var(--sb-tint,#f4f1ff);font-size:.8rem;
-  text-transform:uppercase;letter-spacing:.05em;color:var(--ink-2);white-space:nowrap}
-table.phr td.bn{font-size:1.1rem}
-.ssay{border:1px solid var(--sb-accent,#4f32d9);background:var(--sb-tint,#f4f1ff);color:var(--sb-accent,#4f32d9);
-  border-radius:999px;cursor:pointer;font-size:.85rem;padding:4px 12px;margin-left:10px;min-height:36px;
-  font-weight:700;transition:all .15s ease;vertical-align:middle}
-.ssay:hover{background:var(--sb-accent,#4f32d9);color:#fff}
-/* cards */
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;margin:20px 0}
-.card{position:relative;border:1px solid var(--line);border-radius:16px;padding:18px;background:var(--card,#fff);
-  overflow:hidden;transition:transform .18s ease,box-shadow .18s ease}
-.card::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;
-  background:linear-gradient(90deg,var(--sb-accent,#4f32d9),transparent);opacity:.85}
-.card b{display:block;margin-bottom:5px;font-size:1.02rem}
-.card span{font-size:.88rem;color:var(--muted);line-height:1.55}
-.card a{text-decoration:none;color:var(--ink);display:block}
-.card a::after{content:"\2192";display:inline-block;margin-top:10px;font-weight:800;color:var(--sb-accent,#4f32d9);
-  transition:transform .18s ease}
-.card a:hover b{color:var(--brand)}
-.card:hover{transform:translateY(-3px);box-shadow:var(--sh-2)}
-.card:hover a::after{transform:translateX(5px)}
-.card.soon{opacity:1;background:var(--bg-soft);border-style:dashed}
-.card.soon::before{background:var(--line)}
-.card.soon:hover{transform:none;box-shadow:none}
-.soonbadge{display:inline-block;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;
-  border:1px solid var(--line);border-radius:999px;padding:4px 12px;margin-top:10px;color:var(--muted);
-  background:var(--card,#fff)}
-/* prev/next */
-.prevnext{display:flex;justify-content:space-between;gap:12px;margin:40px 0 0;flex-wrap:wrap}
-.prevnext a{flex:1 1 220px;border:1px solid var(--line);border-radius:14px;padding:14px 18px;text-decoration:none;
-  min-height:44px;display:inline-flex;align-items:center;font-weight:600;background:var(--card,#fff);
-  box-shadow:var(--sh-1);transition:all .18s ease}
-.prevnext a:hover{border-color:var(--sb-accent,#4f32d9);box-shadow:var(--sh-2);transform:translateY(-2px)}
-.prevnext span{flex:1 1 220px}
-/* footer */
-.pw-ftr{border-top:3px solid var(--sb-accent,#4f32d9);border-radius:18px 18px 0 0;background:linear-gradient(180deg,var(--sb-tint,#f4f1ff),rgba(255,255,255,0) 90%);margin-top:48px;padding:26px 20px 44px;text-align:center;
-  color:var(--muted);font-size:.86rem}
-.pw-ftr nav{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;margin-bottom:12px}
-.pw-ftr a{color:var(--muted)}
-/* note + linklist */
-.note{background:var(--sb-tint,#f4f1ff);border:1px solid var(--line);border-left:4px solid var(--sb-accent,#4f32d9);
-  border-radius:12px;padding:15px 18px;margin:18px 0;font-size:.94rem;color:var(--ink-2);max-width:72ch}
-.linklist{list-style:none;padding:0;margin:12px 0 0;max-width:72ch}
-.linklist li{padding:12px 14px;border:1px solid var(--line);border-radius:12px;margin-bottom:10px;
-  background:var(--card,#fff);transition:all .15s ease}
-.linklist li:hover{box-shadow:var(--sh-1);transform:translateX(3px)}
-.linklist a{font-weight:700}
-.linklist span{display:block;color:var(--muted);font-size:.87rem;margin-top:2px;line-height:1.5}
-/* how-it-works steps */
-.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:16px 0;counter-reset:step}
-.howto{position:relative;border:1px solid var(--line);border-radius:14px;padding:16px 16px 16px 58px;background:var(--card,#fff)}
-.howto::before{counter-increment:step;content:counter(step);position:absolute;left:16px;top:14px;width:30px;height:30px;
-  border-radius:50%;background:var(--sb-accent,#4f32d9);color:#fff;font-weight:800;font-size:.9rem;
-  display:flex;align-items:center;justify-content:center}
-.howto b{display:block;margin-bottom:4px}
-.howto span{font-size:.9rem;color:var(--ink-2);line-height:1.6}
-/* CTA band */
-.cta{position:relative;overflow:hidden;margin:32px 0 8px;border-radius:20px;padding:clamp(24px,4.5vw,34px);
-  background:linear-gradient(135deg,var(--sb-accent,#4f32d9),#6d4de0);color:#fff;text-align:center;box-shadow:var(--sh-2)}
-.cta h2{margin:0 0 8px;color:#fff}
-.cta p{margin:0 auto 18px;color:rgba(255,255,255,.88);max-width:52ch}
-.cta a.cta-btn{display:inline-block;background:#fff;color:var(--sb-accent,#4f32d9);font-weight:800;
-  border-radius:999px;padding:12px 30px;text-decoration:none;min-height:48px;transition:transform .15s ease}
-.cta a.cta-btn:hover{transform:scale(1.04)}
-/* pro touches */
-.pw h1,.pw h2{text-wrap:balance}
-.pw,.card,.fact{overflow-wrap:break-word}
-::selection{background:var(--sb-tint,#f4f1ff)}
-a:focus-visible,button:focus-visible{outline:3px solid var(--sb-accent,#4f32d9);outline-offset:2px;border-radius:6px}
-@media(prefers-reduced-motion:reduce){.card,.card a::after,.chips a,.prevnext a,.linklist li,.cta a.cta-btn{transition:none}}
-@media(max-width:480px){.hero{border-radius:18px}.fact b{font-size:1.1rem}.pw{padding:0 16px 56px}}
-@media print{.hero::after,.cta{display:none}.card a::after{content:""}}
 
-</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "@id": "https://ekguru.shop/kannada/vocabulary/#article", "headline": "Core Kannada vocabulary", "description": "Water, money, time, today — the everyday Kannada words that unlock daily life. Free, no sign-up.", "inLanguage": "en", "about": {"@type": "Language", "name": "Kannada", "alternateName": "ಕನ್ನಡ"}, "author": {"@type": "Organization", "name": "EkGuru", "url": "https://ekguru.shop/"}, "publisher": {"@type": "Organization", "name": "EkGuru", "url": "https://ekguru.shop/"}, "mainEntityOfPage": "https://ekguru.shop/kannada/vocabulary/"}, {"@type": "FAQPage", "@id": "https://ekguru.shop/kannada/vocabulary/#faq", "mainEntity": [{"@type": "Question", "name": "Which words pay off fastest?", "acceptedAnswer": {"@type": "Answer", "text": "Time words first: ಇಂದು (today), ನಾಳೆ (tomorrow), ನಿನ್ನೆ (yesterday), ಈಗ (now). You will use them ten times a day — shopping, planning, chatting — while rare nouns gather dust."}}, {"@type": "Question", "name": "Is mixing English okay?", "acceptedAnswer": {"@type": "Answer", "text": "Kannada happily absorbs English — ಬಸ್ (bus), ಟಿಕೆಟ್ (ticket), ಆಫೀಸು (office). Use the pure Kannada word when you know it, the loanword when you don't. Fluency first, purity later."}}, {"@type": "Question", "name": "Nouns or verbs first?", "acceptedAnswer": {"@type": "Answer", "text": "Nouns first, verbs second, adjectives third. With fifty nouns and the twelve verbs from the verbs page, you can point, ask and survive — grammar glues them later."}}]}]}</script>
-<!-- ekguru:ads -->
+<!-- ekguru:adsense:start -->
+<!-- Auto ads: one account loader, and Google places the units. Whether
+     this block is in the page at all is decided by the page's class
+     (html[data-ad-class]) and data/monetization/google-monetization.json
+     -> ad_policy. tools/inject-ads.py enforces it. -->
+<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+<link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
 <meta name="google-adsense-account" content="ca-pub-8175326569491671">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8175326569491671" crossorigin="anonymous"></script>
+<!-- ekguru:adsense:end -->
 </head>
 <body>
-<div class="pw">
+<!-- ekguru:shell-header:start -->
+<header class="hdr">
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="hdr-in">
+    <a class="logo" href="../../index.html">
+      <span class="logo-mark" aria-hidden="true">E</span>
+      <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
+    </a>
+    <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
+    <nav class="nav" aria-label="Main">
+      <a href="../../index.html">Home</a>
+      <a href="../../find-tutors.html">Find Tutors</a>
+      <a href="../../courses/index.html">Courses</a>
+      <a href="../../learn/">Learn</a>
+      <a href="../../support/index.html">Support</a>
+      <a href="../../search/">Search</a>
+      <a class="btn btn-primary btn-sm" href="../../find-tutors.html">Book a trial</a>
+    </nav>
+  </div>
+</header>
+<script src="../../js/site-shell.js" defer></script>
+<script src="../../js/copywatch.js" defer></script>
+<!-- ekguru:shell-header:end -->
+<main id="main">
+<div class="pw pw-legacy">
 <p class="crumb"><a href="../../">EkGuru</a> › <a href="../">Learn Kannada (ಕನ್ನಡ)</a> › Core Kannada vocabulary</p>
 <div class="hero">
 <span class="kicker">Kannada</span>
@@ -174,7 +79,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--sb-accent,#4f32d9);
 <p>Opinions need adjectives: ಒಳ್ಳೆ (olle — good), ದೊಡ್ಡ (dodda — big), ಚಿಕ್ಕ (chikka — small), ಹೊಸ (hosa — new), ಹಳೆಯ (haleya — old). ಒಳ್ಳೆಯದು (olleyadu — that's good) approves everything from food to plans — the most useful single opinion in Kannada.</p>
 <p>Weather and mood close the kit: ಮಳೆ (male — rain) matters half the year, ಬಿಸಿಲು (bisilu — sun/heat) the other half. ಮಳೆ ಬರುತ್ತಿದೆ (rain is coming) starts conversations with strangers; in Karnataka, weather talk is friendship's front door.</p>
 <h2>Words and phrases for this topic</h2>
-<div class="twrap"><table class="phr"><thead><tr><th>English</th><th>Kannada</th><th>Sounds like</th></tr></thead><tbody><tr><td>Water</td><td class="bn" lang="kn">ನೀರು<button class="ssay" data-sb-say="ನೀರು" aria-label="Hear it in Kannada">🔊</button></td><td><i>neeru</i></td></tr><tr><td>Food</td><td class="bn" lang="kn">ಆಹಾರ<button class="ssay" data-sb-say="ಆಹಾರ" aria-label="Hear it in Kannada">🔊</button></td><td><i>aahaara</i></td></tr><tr><td>Home / house</td><td class="bn" lang="kn">ಮನೆ<button class="ssay" data-sb-say="ಮನೆ" aria-label="Hear it in Kannada">🔊</button></td><td><i>mane</i></td></tr><tr><td>Money</td><td class="bn" lang="kn">ಹಣ<button class="ssay" data-sb-say="ಹಣ" aria-label="Hear it in Kannada">🔊</button></td><td><i>hana</i></td></tr><tr><td>Time</td><td class="bn" lang="kn">ಸಮಯ<button class="ssay" data-sb-say="ಸಮಯ" aria-label="Hear it in Kannada">🔊</button></td><td><i>samaya</i></td></tr><tr><td>Today</td><td class="bn" lang="kn">ಇಂದು<button class="ssay" data-sb-say="ಇಂದು" aria-label="Hear it in Kannada">🔊</button></td><td><i>indu</i></td></tr><tr><td>Tomorrow</td><td class="bn" lang="kn">ನಾಳೆ<button class="ssay" data-sb-say="ನಾಳೆ" aria-label="Hear it in Kannada">🔊</button></td><td><i>naale</i></td></tr><tr><td>Book</td><td class="bn" lang="kn">ಪುಸ್ತಕ<button class="ssay" data-sb-say="ಪುಸ್ತಕ" aria-label="Hear it in Kannada">🔊</button></td><td><i>pustaka</i></td></tr><tr><td>Shop</td><td class="bn" lang="kn">ಅಂಗಡಿ<button class="ssay" data-sb-say="ಅಂಗಡಿ" aria-label="Hear it in Kannada">🔊</button></td><td><i>angadi</i></td></tr><tr><td>Road</td><td class="bn" lang="kn">ರಸ್ತೆ<button class="ssay" data-sb-say="ರಸ್ತೆ" aria-label="Hear it in Kannada">🔊</button></td><td><i>raste</i></td></tr><tr><td>Bus</td><td class="bn" lang="kn">ಬಸ್<button class="ssay" data-sb-say="ಬಸ್" aria-label="Hear it in Kannada">🔊</button></td><td><i>bas</i></td></tr><tr><td>That&#x27;s good</td><td class="bn" lang="kn">ಒಳ್ಳೆಯದು<button class="ssay" data-sb-say="ಒಳ್ಳೆಯದು" aria-label="Hear it in Kannada">🔊</button></td><td><i>olleyadu</i></td></tr><tr><td>Rain</td><td class="bn" lang="kn">ಮಳೆ<button class="ssay" data-sb-say="ಮಳೆ" aria-label="Hear it in Kannada">🔊</button></td><td><i>male</i></td></tr></tbody></table></div>
+<div class="twrap"><table class="phr"><thead><tr><th>English</th><th>Kannada</th><th>Sounds like</th></tr></thead><tbody><tr><td data-h="English">Water</td><td data-h="Kannada" class="bn" lang="kn">ನೀರು<button class="ssay" data-sb-say="ನೀರು" aria-label="Hear it in Kannada">🔊</button></td><td data-h="Sounds like"><i>neeru</i></td></tr><tr><td data-h="English">Food</td><td data-h="Kannada" class="bn" lang="kn">ಆಹಾರ<button class="ssay" data-sb-say="ಆಹಾರ" aria-label="Hear it in Kannada">🔊</button></td><td data-h="Sounds like"><i>aahaara</i></td></tr><tr><td data-h="English">Home / house</td><td data-h="Kannada" class="bn" lang="kn">ಮನೆ<button class="ssay" data-sb-say="ಮನೆ" aria-label="Hear it in Kannada">🔊</button></td><td data-h="Sounds like"><i>mane</i></td></tr><tr><td data-h="English">Money</td><td data-h="Kannada" class="bn" lang="kn">ಹಣ<button class="ssay" data-sb-say="ಹಣ" aria-label="Hear it in Kannada">🔊</button></td><td data-h="Sounds like"><i>hana</i></td></tr><tr><td data-h="English">Time</td><td data-h="Kannada" class="bn" lang="kn">ಸಮಯ<button class="ssay" data-sb-say="ಸಮಯ" aria-label="Hear it in Kannada">🔊</button></td><td data-h="Sounds like"><i>samaya</i></td></tr><tr><td data-h="English">Today</td><td data-h="Kannada" class="bn" lang="kn">ಇಂದು<button class="ssay" data-sb-say="ಇಂದು" aria-label="Hear it in Kannada">🔊</button></td><td data-h="Sounds like"><i>indu</i></td></tr><tr><td data-h="English">Tomorrow</td><td data-h="Kannada" class="bn" lang="kn">ನಾಳೆ<button class="ssay" data-sb-say="ನಾಳೆ" aria-label="Hear it in Kannada">🔊</button></td><td data-h="Sounds like"><i>naale</i></td></tr><tr><td data-h="English">Book</td><td data-h="Kannada" class="bn" lang="kn">ಪುಸ್ತಕ<button class="ssay" data-sb-say="ಪುಸ್ತಕ" aria-label="Hear it in Kannada">🔊</button></td><td data-h="Sounds like"><i>pustaka</i></td></tr><tr><td data-h="English">Shop</td><td data-h="Kannada" class="bn" lang="kn">ಅಂಗಡಿ<button class="ssay" data-sb-say="ಅಂಗಡಿ" aria-label="Hear it in Kannada">🔊</button></td><td data-h="Sounds like"><i>angadi</i></td></tr><tr><td data-h="English">Road</td><td data-h="Kannada" class="bn" lang="kn">ರಸ್ತೆ<button class="ssay" data-sb-say="ರಸ್ತೆ" aria-label="Hear it in Kannada">🔊</button></td><td data-h="Sounds like"><i>raste</i></td></tr><tr><td data-h="English">Bus</td><td data-h="Kannada" class="bn" lang="kn">ಬಸ್<button class="ssay" data-sb-say="ಬಸ್" aria-label="Hear it in Kannada">🔊</button></td><td data-h="Sounds like"><i>bas</i></td></tr><tr><td data-h="English">That&#x27;s good</td><td data-h="Kannada" class="bn" lang="kn">ಒಳ್ಳೆಯದು<button class="ssay" data-sb-say="ಒಳ್ಳೆಯದು" aria-label="Hear it in Kannada">🔊</button></td><td data-h="Sounds like"><i>olleyadu</i></td></tr><tr><td data-h="English">Rain</td><td data-h="Kannada" class="bn" lang="kn">ಮಳೆ<button class="ssay" data-sb-say="ಮಳೆ" aria-label="Hear it in Kannada">🔊</button></td><td data-h="Sounds like"><i>male</i></td></tr></tbody></table></div>
 <div class="note"><b>A note on ಇಂದು, ನಾಳೆ, ನಿನ್ನೆ.</b> Kannada time words pivot around today: ಇಂದು (indu — today), ನಾಳೆ (naale — tomorrow), ನಿನ್ನೆ (ninne — yesterday). Master this trio and half your daily sentences assemble themselves — ನಾಳೆ ಸಿಗೋಣ (see you tomorrow) alone is worth the lesson.</div>
 <h2>Everything on this topic</h2>
 <ul class="linklist"><li><a href="/learn/kannada/vocabulary/">Kannada vocabulary</a><span>Words in course order, with drills.</span></li><li><a href="/learn/kannada/practice/">Kannada practice lab</a><span>Drill every word until it sticks.</span></li><li><a href="/learn/kannada/basics/">Kannada basics</a><span>Where the course begins, step by step.</span></li></ul>
@@ -187,20 +92,72 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--sb-accent,#4f32d9);
 <div class="cta"><h2>Ready to test yourself?</h2><p>Turn this topic into lasting memory — quiz, practice and review, all free.</p><a class="cta-btn" href="/learn/kannada/practice/quiz/">Quiz yourself</a></div>
 <nav class="prevnext" aria-label="More Kannada topics"><a href="../verbs/">&larr; Kannada verbs</a><a href="../phrases-food/">Food phrases &rarr;</a></nav>
 </div>
-<footer class="pw-ftr">
-  <nav aria-label="Site information">
-    <a href="../../">Home</a>
-    <a href="../../about/">About</a>
-    <a href="../../contact/">Contact</a>
-    <a href="../../privacy/">Privacy</a>
-    <a href="../../terms/">Terms</a>
-    <a href="../../disclaimer/">Disclaimer</a>
-  </nav>
-  <p>&copy; <span>2026</span> EkGuru &mdash; One Student. One Goal. One Guru.<br>
-  Written and maintained by Prakash.</p>
+<!-- ekguru:pw-bands:start -->
+<footer class="pw-support">
+  <div>
+    <b>Every lesson here is free, and always will be.</b>
+    <p>No account, no paywall. The practice itself — every quiz, worksheet
+    and drill — carries no ad at all; the pages around it sometimes do,
+    and that is what keeps the lessons running. Keeping it free is the
+    only thing this page asks of you.</p>
+  </div>
+  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
+  <a href="/find-tutors.html">Book a trial lesson</a>
 </footer>
+<!-- ekguru:pw-bands:end -->
 <!-- ekguru:storybook -->
 <script src="../../js/storybook.js" defer></script>
+</main>
+<!-- ekguru:shell-footer:start -->
+<footer class="ftr">
+  <div class="wrap ftr-in">
+    <div>
+      <a class="logo" href="../../index.html">
+        <span class="logo-mark" aria-hidden="true">E</span>
+        <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
+      </a>
+      <p style="margin-top:14px">Online Hindi lessons with verified, caring tutors.</p>
+    </div>
+    <div>
+      <h3>Site</h3>
+      <a href="../../index.html">Home</a>
+      <a href="../../find-tutors.html">Find Tutors</a>
+      <a href="../../join.html">Become a tutor</a>
+      <a href="../../tutor/">All tutors — text directory</a>
+      <a href="../../hindi-tutor/">Hindi tutors by location</a>
+      <a href="../../courses/index.html">Courses</a>
+      <a href="../../courses/by-country/index.html">Courses by country</a>
+      <a href="../../search/">Search the site</a>
+    </div>
+    <div>
+      <h3>Learn Hindi</h3>
+      <a href="../../learn/">Free guides</a>
+      <a href="../../hindi/">Every topic, mapped</a>
+      <a href="../../toolbox/">Interactive tools</a>
+      <a href="../../daily-hindi/">Daily Hindi — 30 days</a>
+      <a href="../../ask/">Questions answered</a>
+      <a href="../../answers/">Short answers</a>
+      <a href="../../learn-hindi-by-country/">Countries &amp; languages</a>
+    </div>
+    <div>
+      <h3>Contact &amp; legal</h3>
+      <a href="../../contact/">Contact form</a>
+      <a href="mailto:EkGuruLearning@gmail.com">EkGuruLearning@gmail.com</a>
+      <a href="../../about/">About EkGuru</a>
+      <a href="../../privacy/">Privacy policy</a>
+      <a href="../../terms/">Terms of use</a>
+      <a href="../../disclaimer/">Disclaimer</a>
+      <a href="../../copyright/">Copyright</a>
+      <a href="../../cookie-policy/">Cookie policy</a>
+    </div>
+  </div>
+  <div class="wrap ftr-bot">
+    <p class="ftr-founder">Written and maintained by Prakash in Jaipur, India.</p>
+    <p>© <span data-year>2026</span> <span data-brand>EkGuru</span> — <span data-tagline>One Student. One Goal. One Guru.</span></p>
+    <p class="ftr-copy">All text, worksheets and artwork on this site are © EkGuru. Print or download a page and the watermark stays on it; copy a passage and the source comes with it. Nothing here is public domain.</p>
+  </div>
+</footer>
+<!-- ekguru:shell-footer:end -->
 <!-- ekguru:consent -->
 <script src="../../js/cookie-consent.js" defer></script>
 </body>

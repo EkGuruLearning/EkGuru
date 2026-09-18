@@ -353,7 +353,14 @@
         if (apply(pairs)) paint();
       })
       .catch(function (e) {
-        if (timer) clearTimeout(timer);
+        /* v200 — this line used to throw a ReferenceError, because `timer`
+           is declared inside the loader function above and is not in scope
+           here. It only ever ran when the sheet FAILED to load, which is
+           exactly the case this handler exists for: a blocked or offline
+           sheet produced an uncaught error instead of the intended quiet
+           fallback to js/site-config.js. Guarded so the graceful path is
+           actually reached. */
+        try { if (timer) clearTimeout(timer); } catch (err) {}
         root.EKGURU_SETTINGS_INFO = { loaded: false, error: e.message };
         /* Silent by design in the console only — a settings sheet
            that will not load must never change anything, and the

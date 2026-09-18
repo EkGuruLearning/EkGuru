@@ -17,7 +17,21 @@
    Bump CACHE when you deploy and the old one is cleared out.
    ========================================================= */
 
-const CACHE = "ekguru-v32-course-hotfix";
+/* v41 — two things a learner can use with no network at all:
+     · js/question-api.js, so a flag or a like thrown offline is queued and
+       still shows its badge (the API syncs when the network comes back)
+     · js/print-sheet.js, the printed-sheet clone
+   Bump CACHE so a returning visitor actually gets them. */
+/* v40 — a worksheet printed offline prints the sheet: js/print-sheet.js
+   (loaded by tools/build-print-sheets.py) clones the finished worksheet into
+   #ekguru-print-root. Cached, so the one place a learner prints has the same
+   rule as the online one.
+
+   v200.2 — ONE header and ONE footer on all 1,563 pages (tools/build-shell.js),
+   translated on the six market pages, with one owner of the drawer: the cache
+   generation moves so a returning visitor cannot keep the old chrome, the old
+   tagline or the second click handler on the menu button. */
+const CACHE = "ekguru-v42-every-refresh-shows-the-truth";
 
 /* Phase 6 §14 — "Save for offline" pins learner-chosen pages in a dedicated
    cache that survives the main cache rotation. Only same-origin, non-private
@@ -40,6 +54,24 @@ const SHELL = [
   "./js/tutors-data.js",
   "./js/pricing.js",
   "./js/main.js",
+  /* v200 — the language-aware experience layer. js/experience.js drives the
+     redesigned home/support/courses/search pages (reveal animation, hero
+     script letters, language rail, search suggestions); js/site-search.js is
+     the /search/ engine. Both are useless without the bundled stylesheet
+     above, so they belong in the same cache generation. */
+  "./js/experience.js",
+  "./js/site-search.js",
+  /* v200.2 — the shell. Every content page now carries the site header and
+     footer (tools/build-shell.js) and these two give it behaviour: the
+     drawer, the sheet-owned tagline, the copy source line and the print
+     watermark. A cached page without them is the half-open drawer. */
+  "./js/site-shell.js",
+  "./js/copywatch.js",
+  /* v40 — what actually reaches the printer. js/print-sheet.js clones the
+     finished worksheet into #ekguru-print-root on Ctrl+P, so a worksheet
+     printed offline prints the sheet and not the page around it. It belongs
+     in the same cache generation as the copy source line it complements. */
+  "./js/print-sheet.js",
   "./js/rates.js",
   "./js/store.js",
   "./js/analytics.js",
@@ -81,9 +113,19 @@ const SHELL = [
   "./js/hindi-audio.js",
   "./js/hindi-offline.js",
   "./js/hindi-tools.js",
+  /* v41 — flags and likes, offline-first (tools/apps-script-questions.gs is
+     the server half; with no endpoint the votes stay on the device). */
+  "./js/question-api.js",
   /* Phase 7 — global language registry + goal-based onboarding */
   "./js/languages.js",
   "./js/onboarding.js",
+  /* v200 — the world emblems. Three small SVGs (5-6 KB each) rather than the
+     whole set: these are the ones the home page, support/ and the courses hub
+     show, so they are worth having before the first paint. The other markets'
+     files are cached on demand by the runtime handler like any other image. */
+  "./images/xp/world-en.svg",
+  "./images/xp/world-hi.svg",
+  "./images/xp/world-multi.svg",
   "./images/logo.svg"
 ];
 
@@ -190,7 +232,19 @@ self.addEventListener("fetch", event => {
      The cost is a few milliseconds. The benefit is that when
      something is removed, it is actually gone.
      ========================================================= */
-  const isCode = /\.(html?|js|json|webmanifest)$/i.test(url.pathname) ||
+  /* v42 — CSS BELONGS IN THIS LIST, and its absence was the bug Prakash kept
+     hitting. style.min.css is NOT fingerprinted: the name never changes and
+     the contents change on every build. It was falling through to the
+     stale-while-revalidate branch at the bottom, which paints the OLD
+     stylesheet and only stores the new one for "next time". So the first
+     refresh after a deploy showed the old rules — a fresh print fix, a fresh
+     palette, a fresh layout — and the *next* refresh suddenly showed
+     something different. "Refresh karne pe kuch aur hi chalta hai."
+
+     Everything that is code or styling is network-first now: one request,
+     and what you see after a refresh is what is deployed. Offline, the
+     cached copy is used, which is what the cache is for. */
+  const isCode = /\.(html?|js|json|webmanifest|css)$/i.test(url.pathname) ||
                  url.pathname.endsWith("/");
 
   if (isCode) {

@@ -17,7 +17,7 @@ renamed or invented.
 | `ekguru_settings.csv` | settings | `key, value, what it does` | 8 keys |
 | `ekguru_content.csv` | content | `slug, question, answer, body, keywords, related, status` | 29 (28 live + 1 draft example) |
 | `ekguru_reviews.csv` | reviews | `tutor, name, date, stars, text, source, status` | 3 live reviews |
-| `ekguru_tutors.csv` | tutors | 48 columns (see below) | 4 tutors + 1 `#help` row |
+| `ekguru_tutors.csv` | tutors | 48 columns (see below) | 5 tutors + 1 `#help` row |
 | `ekguru_github_urls.csv` | github_urls | URL crawl inventory (18 cols) | 555 |
 | `ekguru_urls.csv` | urls | site URL inventory (17 cols) | 548 |
 
@@ -50,6 +50,41 @@ else (a pasted methodology block is the common mistake — tara's production row
 currently has one, so it is ignored on purpose). Fix it in the new sheet to
 make the caption appear.
 
+### Adding a tutor
+
+A new tutor is one more row with the same 48 cells. `csv/ekguru_tutors.csv`
+carries Sarshtee Baliyan's row; the paste-ready copy of it, including her
+`notification_email`, is kept out of Git on purpose (`.gitignore` → `*.local.csv`)
+because this repository is public. See `docs/ADD-A-TUTOR.md` for the whole
+procedure and for what each of her cells means.
+
+Regenerate that private copy at any time — it is a derived file, nothing is
+lost if it goes away:
+
+```bash
+# just the one tutor: header + the sheet's #help row + their row
+#   → Import ▸ Insert new sheet(s), then copy the row into the tutors tab
+python3 tools/make-tutor-row.py sarshtee-baliyan --email her@example.com
+
+# the whole tutors tab, every row, in sheet order
+#   → select A1 in the tutors tab ▸ Import ▸ Replace data at selected cell
+python3 tools/make-tutor-row.py sarshtee-baliyan --email her@example.com --full
+```
+
+`--full` is built from `live-sheets/tutors.csv` — the copy of the owner's
+current tab — not from this pack. That matters: the pack is a fresh-workbook
+file, and two of its cells disagree with the live tab (`hemlata` and `tara` are
+`active=no` live, and tara's production `videoTitle` still holds the pasted
+methodology block the loader refuses). Replacing a live tab with the pack would
+silently un-hide two tutors; `--full` adds only the new row.
+
+Before importing, prove the file behaves — the same test the build runs, with
+the file itself as the source of the expectations:
+
+```bash
+EKGURU_TEST_CSV=csv/ekguru_tutors.local.csv node tools/test-sheet-apply.js
+```
+
 ### Rules that already hold (do not fight them)
 
 - Blank cell = **keep the current value**, never "erase". The word `none`
@@ -61,9 +96,9 @@ make the caption appear.
 ## Upload steps
 
 1. Create a **new** Google Sheets workbook (File → New → Spreadsheet).
-2. One tab per file. File → Import → **Upload** → select the CSV →
-   **Replace current sheet** (never "Replace spreadsheet" — that changes the
-   tab's gid and breaks links).
+2. One tab per file. File → Import → **Upload** → select the CSV → **Replace
+   data at selected cell** with `A1` selected (never "Replace spreadsheet" —
+   that replaces every tab in the workbook).
 3. Rename each tab to the name in the table above.
 4. For each tab: File → Share → **Publish to web** → choose that tab →
    **Comma-separated values (.csv)** → Publish.

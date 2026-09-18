@@ -822,6 +822,21 @@ window.EKGURU_SITE = {
     brandColor: "#e0682a"
   },
 
+  /* =========================================================
+     API — the small server-side pieces the static site talks to.
+     Everything here fails soft: leave a value empty and the
+     feature it belongs to keeps working, locally, and says so.
+
+     questions — flags and likes on practice questions, so a
+     question one learner flags shows up for the next learner.
+     Deploy tools/apps-script-questions.gs (docs/QUESTIONS-API-SETUP.md)
+     and paste its /exec URL here. Empty = votes stay on the
+     device and the UI says "community sync is off".
+     ========================================================= */
+  api: {
+    questions: ""
+  },
+
   /* ---------- Founding year (for schema) ---------- */
   foundingYear: 2026,
 

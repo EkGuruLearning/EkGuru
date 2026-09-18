@@ -1,127 +1,146 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" data-ad-class="TRANSACTIONAL">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Support EkGuru — Keep Hindi Lessons Free | EkGuru</title>
-<meta name="description" content="EkGuru's Hindi lessons are free. If they helped you, support the site with UPI, PayPal or crypto (Bitcoin, Ethereum, USDT). Every contribution goes directly to the owner.">
+<title>Support EkGuru — keep Hindi lessons free | EkGuru</title>
+<meta name="description" content="Every Hindi lesson on EkGuru is free. If they helped you, support the site by UPI, PayPal, Razorpay, Stripe, Revolut or crypto (Bitcoin, Ethereum, USDT). Contributions go directly to the owner.">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <link rel="canonical" href="https://ekguru.shop/support/">
 <meta name="google-site-verification" content="hFaqyp-9LdUXSKPA9RF011TkO2m_-7AUMasXqm_0dGI" />
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="EkGuru">
 <meta property="og:locale" content="en_US">
-<meta property="og:title" content="Support EkGuru — Keep Hindi Lessons Free">
-<meta property="og:description" content="Free Hindi lessons stay free with your help. Pay by UPI, PayPal or crypto — every contribution goes directly to the owner.">
+<meta property="og:title" content="Support EkGuru — keep Hindi lessons free">
+<meta property="og:description" content="Free Hindi lessons stay free with your help. Pay by UPI, PayPal, Razorpay, Stripe or crypto — every contribution goes directly to the owner.">
 <meta property="og:url" content="https://ekguru.shop/support/">
 <meta property="og:image" content="https://ekguru.shop/images/og-cover.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Support EkGuru — Keep Hindi Lessons Free">
-<meta name="twitter:description" content="Free Hindi lessons stay free with your help. Pay by UPI, PayPal or crypto.">
+<meta name="twitter:title" content="Support EkGuru — keep Hindi lessons free">
+<meta name="twitter:description" content="Free Hindi lessons stay free with your help. Pay by UPI, PayPal, Razorpay, Stripe or crypto.">
 <meta name="twitter:image" content="https://ekguru.shop/images/og-cover.jpg">
 <link rel="icon" href="../images/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="../images/logo.svg">
 <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
 <link rel="manifest" href="../manifest.webmanifest">
 <meta name="theme-color" content="#4f32d9">
 <link rel="stylesheet" href="../css/style.min.css">
 <style>
-/* Support Modern-Pro (v158). Hooks (#m-*, .m-go, .m-soon, [data-*]) are
-   painted by js/support.js — class names and structure are contractual. */
-.pw{max-width:920px;margin:0 auto;padding:0 20px 64px}
+/* Support page (v200 redesign).
+   CONTRACT — js/support.js paints this page from the settings sheet and it
+   looks up: #support-empty, #support-list, #m-<method>, .m-card.off,
+   [data-val], [data-go], [data-amt], [data-copy]. Those hooks and their
+   nesting are unchanged; everything else here is presentation.
+   The shared look (hero, cards, headings, motion) comes from
+   css/experience.css, which is bundled into style.min.css. */
+.pw{max-width:960px;margin:0 auto;padding:0 20px 64px}
 .crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0}
 .crumb a{color:var(--muted)}
-.hero{position:relative;overflow:hidden;border-radius:24px;margin:14px 0 8px;
-  padding:clamp(28px,5vw,44px);color:#fff;text-align:center;
-  background:linear-gradient(135deg,#4f32d9 0%,#6d4de0 55%,#8b5cf6 100%);
-  box-shadow:var(--sh-2)}
-.hero::before{content:"";position:absolute;left:-60px;bottom:-80px;width:240px;height:240px;border-radius:50%;
-  background:radial-gradient(circle,rgba(255,255,255,.22) 0%,transparent 70%)}
-.hero::after{content:"";position:absolute;right:-40px;top:-60px;width:200px;height:200px;border-radius:50%;
-  background:radial-gradient(circle,rgba(255,255,255,.16) 0%,transparent 70%)}
-.hero .mark{display:inline-flex;align-items:center;justify-content:center;width:58px;height:58px;border-radius:18px;
-  background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);font-size:1.7rem;margin-bottom:12px}
-.hero h1{font-size:clamp(1.6rem,4.6vw,2.3rem);line-height:1.2;margin:0 0 12px;letter-spacing:-.01em;text-wrap:balance;color:#fff}
-.hero .lede{color:rgba(255,255,255,.92);font-size:1.05rem;line-height:1.7;margin:0 auto;max-width:62ch}
-.hero .lede b{color:#fff}
-.trust{display:flex;flex-direction:row;flex-wrap:wrap;gap:8px;justify-content:center;margin:18px 0 0;color:#fff}
-.trust span{display:inline-flex;align-items:center;gap:7px;font-size:.83rem;font-weight:700;color:#fff;
-  border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:7px 15px;background:rgba(255,255,255,.12)}
-.sec-t{font-size:clamp(1.15rem,3vw,1.35rem);margin:38px 0 4px;letter-spacing:-.005em}
-.sec-s{color:var(--muted);font-size:.95rem;margin:0 0 6px}
-.m-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));margin:18px 0}
-.m-card{position:relative;border:1px solid var(--line);border-radius:18px;padding:20px;background:var(--card,#fff);
-  box-shadow:var(--sh-1);overflow:hidden;transition:transform .18s ease,box-shadow .18s ease}
-.m-card::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;
-  background:linear-gradient(90deg,#4f32d9,#8b5cf6)}
-.m-card:hover{transform:translateY(-3px);box-shadow:var(--sh-2)}
-.m-top{display:flex;align-items:center;gap:12px;margin-bottom:2px}
-.m-ic{flex:none;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:14px;
-  background:#f4f1ff;font-size:1.35rem}
-.m-card h2{font-size:1.06rem;margin:0}
-.m-card .who{font-size:.83rem;color:var(--muted);margin:6px 0 14px;line-height:1.55}
-.m-card code{display:block;font-size:.78rem;word-break:break-all;background:var(--bg-soft);
-  border:1px solid var(--line);border-radius:10px;padding:9px 11px;margin:0 0 12px;color:var(--ink)}
-.m-row{display:flex;gap:10px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 20px;border-radius:999px;
-  font-weight:800;font-size:.9rem;border:1px solid var(--line);background:var(--card,#fff);cursor:pointer;
-  text-decoration:none;color:var(--ink);min-height:44px;transition:all .15s ease}
-.btn:hover{transform:translateY(-1px);box-shadow:var(--sh-1)}
-.btn-primary{background:linear-gradient(135deg,#4f32d9,#6d4de0);color:#fff;border:none}
-.m-soon{display:none;background:var(--bg-soft);border:1px dashed var(--line);border-radius:10px;
-  padding:10px 12px;font-size:.87rem;color:var(--muted)}
-.m-card.off .m-go{display:none}
-.m-card.off .m-soon{display:block}
-.m-card.off{opacity:.9}
-.m-card.off::before{background:var(--line)}
-.impact{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:18px 0;counter-reset:imp}
-.impact div{border:1px solid var(--line);border-radius:16px;padding:18px;background:var(--card,#fff);box-shadow:var(--sh-1)}
-.impact b{display:block;margin-bottom:4px;font-size:1rem}
-.impact span{font-size:.9rem;color:var(--ink-2);line-height:1.6}
-.freeband{border-radius:18px;padding:22px;margin:20px 0;font-size:.95rem;color:var(--ink-2);
-  background:linear-gradient(135deg,#f4f1ff,#fff);border:1px solid #ddd8ff}
-.freeband ul{margin:10px 0 0;padding-left:20px}
-.freeband li{margin:7px 0;line-height:1.6}
-#support-empty{background:#fff8e6;border:1px solid #f0dfae;border-radius:16px;padding:18px;margin:20px 0;color:var(--ink-2)}
-.faq{border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0;background:var(--card,#fff);box-shadow:var(--sh-1)}
-.faq b{display:block;margin-bottom:6px;font-size:1rem}
-.faq p{margin:0;color:var(--ink-2);line-height:1.7;font-size:.95rem}
-.backlinks{margin-top:26px;color:var(--muted)}
-a:focus-visible,button:focus-visible{outline:3px solid #4f32d9;outline-offset:2px;border-radius:8px}
-.pw-ftr{border-top:3px solid #4f32d9;border-radius:18px 18px 0 0;background:linear-gradient(180deg,#f4f1ff,rgba(255,255,255,0) 90%);padding-top:26px;margin-top:48px}
-.pw-ftr nav a{font-weight:600;padding:6px 12px;border-radius:999px}
-.pw-ftr nav a:hover{background:#f4f1ff;text-decoration:none}
-@media(prefers-reduced-motion:reduce){.m-card,.btn{transition:none}}
-@media(max-width:480px){.pw{padding:0 16px 56px}.hero{border-radius:20px}}
-@media print{.hero{color:#000;background:none;border:1px solid #ccc}.hero .lede{color:#333}}
+.sec-t{font-size:clamp(1.15rem,3vw,1.4rem);margin:38px 0 4px;letter-spacing:-.01em}
+.sec-s{color:var(--muted);font-size:.95rem;margin:0 0 10px;max-width:68ch}
+.impact b{font-size:1rem}
+.m-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr))}
+.xp-steps-note{color:var(--muted);font-size:.86rem;margin-block:0 18px}
+.backlinks{margin-top:30px;color:var(--muted);font-size:.92rem}
+@media print{.xp-support-hero{color:#000;background:none;border:1px solid #ccc}.xp-support-hero .xp-lead{color:#333}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Support EkGuru","url":"https://ekguru.shop/support/","description":"Support EkGuru with UPI, PayPal or crypto so Hindi lessons stay free.","isPartOf":{"@type":"WebSite","name":"EkGuru","url":"https://ekguru.shop/"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where does my contribution go?","acceptedAnswer":{"@type":"Answer","text":"Directly to the owner, Prakash. It pays server and domain bills and funds new free lessons, tools and worksheets."}},{"@type":"Question","name":"Which payment methods are accepted?","acceptedAnswer":{"@type":"Answer","text":"UPI for India, PayPal, Razorpay, Stripe and Revolut for cards, plus Bitcoin, Ethereum and USDT for crypto supporters worldwide."}},{"@type":"Question","name":"Will EkGuru stay free?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every lesson is free and always will be — contributions keep it that way instead of a paywall."}}]}]}
 </script>
 </head>
-<body>
-<div class="pw">
+<body class="support-page xp-page">
+<!-- ekguru:shell-header:start -->
+<header class="hdr">
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="hdr-in">
+    <a class="logo" href="../index.html">
+      <span class="logo-mark" aria-hidden="true">E</span>
+      <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
+    </a>
+    <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html">Home</a>
+      <a href="../find-tutors.html">Find Tutors</a>
+      <a href="../courses/index.html">Courses</a>
+      <a href="../learn/">Learn</a>
+      <a href="../support/index.html">Support</a>
+      <a href="../search/">Search</a>
+      <a class="btn btn-primary btn-sm" href="../find-tutors.html">Book a trial</a>
+    </nav>
+  </div>
+</header>
+<script src="../js/site-shell.js" defer></script>
+<script src="../js/copywatch.js" defer></script>
+<!-- ekguru:shell-header:end -->
+<main id="main">
+<div class="pw xp-main">
+
   <p class="crumb"><a href="../">EkGuru</a> › Support</p>
-  <div class="hero">
-    <span class="mark" aria-hidden="true">❤</span>
+
+  <!-- =========================================================
+       HERO
+       ========================================================= -->
+  <section class="xp-support-hero">
+    <span class="xp-heart" aria-hidden="true">❤</span>
+    <!-- The letters this page exists to keep free. Decorative. -->
+    <img class="xp-world xp-world-hero" data-xp-world="hi" src="../images/xp/world-hi.svg" alt=""
+         aria-hidden="true" width="430" height="430" loading="lazy" decoding="async">
     <h1>Support EkGuru — keep Hindi lessons free</h1>
-    <p class="lede">Every Hindi lesson on EkGuru is free, and always will be. If the lessons helped you — you learned to read <b>अ आ इ</b>, said your first <b>नमस्ते</b>, or finally understood verb tenses — a small contribution keeps the site running and new lessons coming.</p>
-    <div class="trust"><span>✔ Direct to the owner</span><span>✔ No middlemen</span><span>✔ Free forever</span></div>
+    <p class="xp-lead">Every Hindi lesson on EkGuru is free, and always will be. If the lessons helped you —
+      you learned to read <b class="xp-script" lang="hi">अ आ इ</b>, said your first
+      <b class="xp-script" lang="hi">नमस्ते</b>, or finally understood verb tenses — a small contribution keeps
+      the site running and new lessons coming.</p>
+    <ul class="xp-trust-pills">
+      <li>✔ Direct to the owner</li>
+      <li>✔ No middlemen</li>
+      <li>✔ Free forever</li>
+    </ul>
+  </section>
+
+  <div class="xp-grid xp-grid-3 xp-stagger" style="margin-top:22px">
+    <a class="xp-card" href="#methods">
+      <div class="xp-card-ico" aria-hidden="true">💳</div>
+      <h3>Give once, from anywhere</h3>
+      <p>UPI, cards or crypto — one-off, any amount, no account on EkGuru.</p>
+      <span class="xp-card-link">Choose a method</span>
+    </a>
+    <a class="xp-card" href="../courses/">
+      <div class="xp-card-ico" aria-hidden="true">📚</div>
+      <h3>Can't give? Learn something</h3>
+      <p>39 free courses, A1 to C2. Using them is support too — it tells us what to build next.</p>
+      <span class="xp-card-link">Open the courses</span>
+    </a>
+    <a class="xp-card" href="../contact/">
+      <div class="xp-card-ico" aria-hidden="true">✏️</div>
+      <h3>Report a mistake</h3>
+      <p>Every typo you flag improves the site for the thousands who read the same page.</p>
+      <span class="xp-card-link">Tell us what's wrong</span>
+    </a>
   </div>
 
+  <!-- =========================================================
+       WHERE THE MONEY GOES
+       ========================================================= -->
   <h2 class="sec-t">Where your money goes</h2>
   <p class="sec-s">Payment providers take only their usual fee. Everything else funds the mission.</p>
-  <div class="impact">
-    <div><b>🖥️ Servers & domain</b><span>Keeping EkGuru online, fast and safe for every learner.</span></div>
-    <div><b>📚 New lessons & tools</b><span>More free Hindi, more languages, more worksheets.</span></div>
+  <div class="impact xp-stagger">
+    <div><b>🖥️ Servers &amp; domain</b><span>Keeping EkGuru online, fast and safe for every learner.</span></div>
+    <div><b>📚 New lessons &amp; tools</b><span>More free Hindi, more languages, more worksheets.</span></div>
     <div><b>🔓 No paywall, ever</b><span>Your support is the reason lessons stay free for all.</span></div>
   </div>
 
-  <h2 class="sec-t">Choose a method</h2>
-  <p class="sec-s">Every method below goes directly to the owner.</p>
+  <!-- =========================================================
+       METHODS — every value comes from the settings sheet
+       ========================================================= -->
+  <h2 class="sec-t" id="methods">Choose a method</h2>
+  <p class="sec-s">Every method below goes directly to the owner. Cards marked “coming soon” are being
+    connected — nothing here ever shows a broken button.</p>
+
   <div id="support-empty" style="display:none">
-    <b>Support options are being set up.</b> Please check back soon — or help right now, free, with the ideas at the bottom of this page.
+    <b>Support options are being set up.</b> Please check back soon — or help right now, free, with the ideas
+    at the bottom of this page.
   </div>
 
   <div class="m-grid" id="support-list">
@@ -157,7 +176,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #4f32d9;outline-offset:2p
 
     <div class="m-card off" id="m-razorpay">
       <div class="m-top"><span class="m-ic" aria-hidden="true">💳</span><h2>Razorpay</h2></div>
-      <p class="who">India · UPI, cards & netbanking on a secure page</p>
+      <p class="who">India · UPI, cards &amp; netbanking on a secure page</p>
       <div class="m-go">
         <div class="m-row">
           <a class="btn btn-primary" data-go href="#" target="_blank" rel="noopener">Pay with Razorpay</a>
@@ -228,35 +247,57 @@ a:focus-visible,button:focus-visible{outline:3px solid #4f32d9;outline-offset:2p
     </div>
   </div>
 
-  <div class="freeband">
+  <!-- =========================================================
+       HELP WITHOUT PAYING
+       ========================================================= -->
+  <div class="xp-freeband">
     <b>Prefer to help free? These matter just as much:</b>
     <ul>
       <li>📣 <b>Share EkGuru</b> with one friend learning Hindi.</li>
-      <li>✏️ <b>Spot a mistake?</b> <a href="../contact/">Report it</a> — every fix improves the site for thousands.</li>
+      <li>📚 <b>Finish a lesson</b> in a <a href="../courses/">free course</a> — progress is stored on your
+        device, so it costs us nothing and tells us what to write next.</li>
+      <li>✏️ <b>Spot a mistake?</b> <a href="../contact/">Report it</a> — every fix improves the site for
+        thousands.</li>
       <li>⭐ Learning with a tutor? Leave them a review — it keeps good teachers teaching.</li>
     </ul>
   </div>
 
+  <!-- =========================================================
+       FAQ
+       ========================================================= -->
   <h2 class="sec-t">Questions about supporting</h2>
-  <div class="faq"><b>Where does my contribution go?</b><p>Directly to the owner, Prakash. It pays server and domain bills and funds new free lessons, tools and worksheets — payment providers take only their usual fee.</p></div>
-  <div class="faq"><b>Which methods can I use?</b><p>UPI for India; PayPal, Razorpay, Stripe and Revolut for cards; Bitcoin, Ethereum and USDT for crypto supporters worldwide. Cards marked “coming soon” are being connected.</p></div>
-  <div class="faq"><b>Will EkGuru stay free?</b><p>Yes — every lesson is free and always will be. Contributions keep it that way instead of a paywall.</p></div>
+  <div class="faq-wrap">
+    <details class="faq" open>
+      <summary>Where does my contribution go?</summary>
+      <p>Directly to the owner, Prakash. It pays server and domain bills and funds new free lessons, tools and
+        worksheets — payment providers take only their usual fee.</p>
+    </details>
+    <details class="faq">
+      <summary>Which methods can I use?</summary>
+      <p>UPI for India; PayPal, Razorpay, Stripe and Revolut for cards; Bitcoin, Ethereum and USDT for crypto
+        supporters worldwide. Cards marked “coming soon” are being connected.</p>
+    </details>
+    <details class="faq">
+      <summary>Will EkGuru stay free?</summary>
+      <p>Yes — every lesson is free and always will be. Contributions keep it that way instead of a paywall.</p>
+    </details>
+    <details class="faq">
+      <summary>Is my payment secure?</summary>
+      <p>No card details ever touch EkGuru. Card payments open the provider's own secure page (PayPal, Stripe,
+        Razorpay, Revolut); UPI opens your own UPI app; crypto is a plain address you copy. EkGuru stores no
+        payment information at all.</p>
+    </details>
+    <details class="faq">
+      <summary>Do I get a receipt?</summary>
+      <p>Your payment provider issues the receipt for the transaction — check your UPI app, PayPal account or
+        exchange history. EkGuru is not a registered charity and does not claim tax-deductible status.</p>
+    </details>
+  </div>
 
-  <p class="backlinks"><a href="../">← Back to Home</a> · <a href="../learn/hindi/">Learn Hindi</a></p>
+  <p class="backlinks"><a href="../">← Back to Home</a> · <a href="../learn/hindi/">Learn Hindi</a> ·
+    <a href="../courses/">Free courses</a></p>
 </div>
-<footer class="pw-ftr">
-  <nav aria-label="Site information">
-    <a href="../">Home</a>
-    <a href="../about/">About</a>
-    <a href="../contact/">Contact</a>
-    <a href="../privacy/">Privacy</a>
-    <a href="../terms/">Terms</a>
-    <a href="../disclaimer/">Disclaimer</a>
-  </nav>
-  <p>© <span>2026</span> EkGuru — One Student. One Goal. One Guru.<br>
-  Written and maintained by Prakash.
-  Hindi lessons with native-speaking tutors, one to one.</p>
-</footer>
+
 <script src="../js/site-config.js" defer></script>
 <script src="../js/scroll-restore.js"></script>
 <!-- ekguru:recovery:start -->
@@ -266,6 +307,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #4f32d9;outline-offset:2p
 <script src="../js/tutors/_overrides.js" defer></script>
 <script src="../js/settings.js" defer></script>
 <script src="../js/support.js" defer></script>
+<script src="../js/experience.js" defer></script>
 <script defer>
 document.addEventListener("DOMContentLoaded",function(){
   function paint(){try{var P=window.EkGuruPrice;if(P&&P.redraw)P.redraw();}catch(e){}}
@@ -277,5 +319,56 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
 </script>
 <!-- ekguru:consent -->
 <script src="../js/cookie-consent.js" defer></script>
+</main>
+<!-- ekguru:shell-footer:start -->
+<footer class="ftr">
+  <div class="wrap ftr-in">
+    <div>
+      <a class="logo" href="../index.html">
+        <span class="logo-mark" aria-hidden="true">E</span>
+        <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
+      </a>
+      <p style="margin-top:14px">Online Hindi lessons with verified, caring tutors.</p>
+    </div>
+    <div>
+      <h3>Site</h3>
+      <a href="../index.html">Home</a>
+      <a href="../find-tutors.html">Find Tutors</a>
+      <a href="../join.html">Become a tutor</a>
+      <a href="../tutor/">All tutors — text directory</a>
+      <a href="../hindi-tutor/">Hindi tutors by location</a>
+      <a href="../courses/index.html">Courses</a>
+      <a href="../courses/by-country/index.html">Courses by country</a>
+      <a href="../search/">Search the site</a>
+    </div>
+    <div>
+      <h3>Learn Hindi</h3>
+      <a href="../learn/">Free guides</a>
+      <a href="../hindi/">Every topic, mapped</a>
+      <a href="../toolbox/">Interactive tools</a>
+      <a href="../daily-hindi/">Daily Hindi — 30 days</a>
+      <a href="../ask/">Questions answered</a>
+      <a href="../answers/">Short answers</a>
+      <a href="../learn-hindi-by-country/">Countries &amp; languages</a>
+    </div>
+    <div>
+      <h3>Contact &amp; legal</h3>
+      <a href="../contact/">Contact form</a>
+      <a href="mailto:EkGuruLearning@gmail.com">EkGuruLearning@gmail.com</a>
+      <a href="../about/">About EkGuru</a>
+      <a href="../privacy/">Privacy policy</a>
+      <a href="../terms/">Terms of use</a>
+      <a href="../disclaimer/">Disclaimer</a>
+      <a href="../copyright/">Copyright</a>
+      <a href="../cookie-policy/">Cookie policy</a>
+    </div>
+  </div>
+  <div class="wrap ftr-bot">
+    <p class="ftr-founder">Written and maintained by Prakash in Jaipur, India.</p>
+    <p>© <span data-year>2026</span> <span data-brand>EkGuru</span> — <span data-tagline>One Student. One Goal. One Guru.</span></p>
+    <p class="ftr-copy">All text, worksheets and artwork on this site are © EkGuru. Print or download a page and the watermark stays on it; copy a passage and the source comes with it. Nothing here is public domain.</p>
+  </div>
+</footer>
+<!-- ekguru:shell-footer:end -->
 </body>
 </html>

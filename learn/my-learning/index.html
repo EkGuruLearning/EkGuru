@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" data-ad-class="HIGH_CONTENT">
 <head>
 <meta charset="utf-8">
 <meta name="google-site-verification" content="hFaqyp-9LdUXSKPA9RF011TkO2m_-7AUMasXqm_0dGI" />
@@ -25,26 +25,7 @@
 <meta name="theme-color" content="#4f32d9">
 <link rel="stylesheet" href="../../css/style.min.css">
 <link rel="stylesheet" href="../../css/storybook.css">
-<style>
-.art{max-width:760px;margin:0 auto;padding:0 20px 60px}
-.art h1{font-size:2rem;line-height:1.25;margin:26px 0 10px}
-.art .meta{color:var(--muted);font-size:.86rem;margin:0 0 26px}
-.art h2{font-size:1.28rem;margin:34px 0 12px;padding-top:6px}
-.art p,.art li{line-height:1.75}
-.art ul,.art ol{padding-left:22px}
-.art li{margin:7px 0}
-.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0}
-.crumb a{color:var(--muted)}
-.lede{color:var(--ink-2);font-size:1.05rem;line-height:1.7;margin:0 0 22px}
-.linklist{list-style:none;padding:0;margin:12px 0 0}
-.linklist li{padding:10px 0;border-bottom:1px solid var(--line)}
-.linklist li:last-child{border-bottom:0}
-.linklist a{font-weight:600}
-.linklist span{display:block;color:var(--muted);font-size:.87rem;margin-top:2px;line-height:1.5}
-.note{background:var(--bg-soft);border:1px solid #ddd8ff;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:.94rem;color:var(--ink-2)}
-.btn{margin:6px 6px 6px 0}
-
-.dash{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:18px 0}
+<style>.dash{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:18px 0}
 .dash .k{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
 .dash .k b{display:block;font-size:1.25rem;color:var(--ink)}
 .dash .k span{font-size:.76rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
@@ -59,21 +40,6 @@
 .goal-status.partial{background:#fff6e0;color:#9a6700;border-color:#f0dcae}
 .goal-status.planned{background:var(--bg-soft);color:var(--muted)}
 .goal-blurb{flex-basis:100%;margin:0;color:var(--ink-2);font-size:.92rem;line-height:1.55}
-.g-concept{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:12px 0;background:var(--bg-soft)}
-.g-concept h3{margin:0 0 6px;font-size:1.02rem}
-.g-pattern{margin:0 0 8px}
-.g-meta{font-size:.8rem;color:var(--muted);margin:0 0 10px}
-.g-ex,.g-exc,.g-mis{padding-left:20px;margin:6px 0}
-.g-ex li,.g-exc li,.g-mis li{margin:4px 0;line-height:1.55}
-.g-target{font-weight:600;font-size:1.02rem}
-.g-roman{color:var(--muted);font-size:.86rem;margin:0 6px}
-.g-gloss{color:var(--ink-2);font-size:.88rem}
-.g-note{font-size:.92rem;color:var(--ink-2)}
-.v-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
-.v-item{border:1px solid var(--line);border-radius:12px;padding:12px 13px;background:var(--bg-soft)}
-.v-target{font-size:1.15rem;font-weight:600;margin:0}
-.v-roman{color:var(--muted);font-size:.85rem;margin:2px 0 6px}
-.v-meaning{margin:0;color:var(--ink-2);font-size:.92rem}
 .v-pos,.v-reg,.v-topic{font-size:.72rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 7px;margin-right:4px}
 .searchbox{width:100%;padding:12px 14px;font-size:1.02rem;border:1px solid var(--line);border-radius:10px;min-height:44px;color:var(--ink);background:#fff}
 .searchbox:focus{outline:2px solid var(--focus);outline-offset:1px}
@@ -92,16 +58,48 @@
 .offline-list{list-style:none;padding:0;margin:6px 0 0;font-size:.92rem}
 .offline-list li{margin:5px 0;color:var(--ink-2)}
 </style>
-<!-- ekguru:ads -->
+
+<!-- ekguru:adsense:start -->
+<!-- Auto ads: one account loader, and Google places the units. Whether
+     this block is in the page at all is decided by the page's class
+     (html[data-ad-class]) and data/monetization/google-monetization.json
+     -> ad_policy. tools/inject-ads.py enforces it. -->
+<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+<link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
 <meta name="google-adsense-account" content="ca-pub-8175326569491671">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8175326569491671" crossorigin="anonymous"></script>
+<!-- ekguru:adsense:end -->
 </head>
 <body>
-<div class="art">
+<!-- ekguru:shell-header:start -->
+<header class="hdr">
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="hdr-in">
+    <a class="logo" href="../../index.html">
+      <span class="logo-mark" aria-hidden="true">E</span>
+      <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
+    </a>
+    <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
+    <nav class="nav" aria-label="Main">
+      <a href="../../index.html">Home</a>
+      <a href="../../find-tutors.html">Find Tutors</a>
+      <a href="../../courses/index.html">Courses</a>
+      <a href="../../learn/">Learn</a>
+      <a href="../../support/index.html">Support</a>
+      <a href="../../search/">Search</a>
+      <a class="btn btn-primary btn-sm" href="../../find-tutors.html">Book a trial</a>
+    </nav>
+  </div>
+</header>
+<script src="../../js/site-shell.js" defer></script>
+<script src="../../js/copywatch.js" defer></script>
+<!-- ekguru:shell-header:end -->
+<main id="main">
+<div class="art pw-legacy">
     <p class="crumb"><a href="../../">EkGuru</a> › <a href="../">Learn</a> › My Learning</p>
   <h1>My Learning</h1>
 <!-- ekguru:storybook -->
-<p class="sb-hint">🔊 <b>Tap any speaker button to hear Hindi spoken.</b> Too fast or slow? Use the <b>speed</b> button at the bottom-right of the page.</p>
+<p class="sb-hint">🔊 <b>Tap any speaker button to hear the words on this page spoken.</b> Too fast or slow? Use the <b>speed</b> button at the bottom-right of the page.</p>
   <p class="lede">One dashboard for everything you are learning on EkGuru —
   your progress, your review queue, your goals and a search across all the
   learning content, in your browser.</p>
@@ -291,20 +289,6 @@
 
 </div>
 <!-- ekguru:trust-footer:start -->
-<footer class="pw-ftr">
-  <nav aria-label="Site information">
-    <a href="../../">Home</a>
-    <a href="../../about/">About</a>
-    <a href="../../contact/">Contact</a>
-    <a href="../../privacy/">Privacy</a>
-    <a href="../../terms/">Terms</a>
-    <a href="../../disclaimer/">Disclaimer</a>
-  </nav>
-  <p>
-  © 2026 EkGuru — One Student. One Goal. One Guru.<br>
-  Written and maintained by Prakash. Hindi lessons with native-speaking tutors, one to one.
-  </p>
-</footer>
 <!-- ekguru:trust-footer:end -->
 <script src="../../js/site-config.js" defer></script>
 <script src="../../js/analytics.js" defer></script>
@@ -333,5 +317,69 @@ if ("serviceWorker" in navigator) {
 </script>
 <!-- ekguru:consent -->
 <script src="../../js/cookie-consent.js" defer></script>
+<!-- ekguru:pw-bands:start -->
+<footer class="pw-support">
+  <div>
+    <b>Every lesson here is free, and always will be.</b>
+    <p>No account, no paywall. The practice itself — every quiz, worksheet
+    and drill — carries no ad at all; the pages around it sometimes do,
+    and that is what keeps the lessons running. Keeping it free is the
+    only thing this page asks of you.</p>
+  </div>
+  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
+  <a href="/find-tutors.html">Book a trial lesson</a>
+</footer>
+<!-- ekguru:pw-bands:end -->
+</main>
+<!-- ekguru:shell-footer:start -->
+<footer class="ftr">
+  <div class="wrap ftr-in">
+    <div>
+      <a class="logo" href="../../index.html">
+        <span class="logo-mark" aria-hidden="true">E</span>
+        <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
+      </a>
+      <p style="margin-top:14px">Online Hindi lessons with verified, caring tutors.</p>
+    </div>
+    <div>
+      <h3>Site</h3>
+      <a href="../../index.html">Home</a>
+      <a href="../../find-tutors.html">Find Tutors</a>
+      <a href="../../join.html">Become a tutor</a>
+      <a href="../../tutor/">All tutors — text directory</a>
+      <a href="../../hindi-tutor/">Hindi tutors by location</a>
+      <a href="../../courses/index.html">Courses</a>
+      <a href="../../courses/by-country/index.html">Courses by country</a>
+      <a href="../../search/">Search the site</a>
+    </div>
+    <div>
+      <h3>Learn Hindi</h3>
+      <a href="../../learn/">Free guides</a>
+      <a href="../../hindi/">Every topic, mapped</a>
+      <a href="../../toolbox/">Interactive tools</a>
+      <a href="../../daily-hindi/">Daily Hindi — 30 days</a>
+      <a href="../../ask/">Questions answered</a>
+      <a href="../../answers/">Short answers</a>
+      <a href="../../learn-hindi-by-country/">Countries &amp; languages</a>
+    </div>
+    <div>
+      <h3>Contact &amp; legal</h3>
+      <a href="../../contact/">Contact form</a>
+      <a href="mailto:EkGuruLearning@gmail.com">EkGuruLearning@gmail.com</a>
+      <a href="../../about/">About EkGuru</a>
+      <a href="../../privacy/">Privacy policy</a>
+      <a href="../../terms/">Terms of use</a>
+      <a href="../../disclaimer/">Disclaimer</a>
+      <a href="../../copyright/">Copyright</a>
+      <a href="../../cookie-policy/">Cookie policy</a>
+    </div>
+  </div>
+  <div class="wrap ftr-bot">
+    <p class="ftr-founder">Written and maintained by Prakash in Jaipur, India.</p>
+    <p>© <span data-year>2026</span> <span data-brand>EkGuru</span> — <span data-tagline>One Student. One Goal. One Guru.</span></p>
+    <p class="ftr-copy">All text, worksheets and artwork on this site are © EkGuru. Print or download a page and the watermark stays on it; copy a passage and the source comes with it. Nothing here is public domain.</p>
+  </div>
+</footer>
+<!-- ekguru:shell-footer:end -->
 </body>
 </html>

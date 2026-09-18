@@ -229,9 +229,14 @@ Player.prototype.crumbs = function (items) {
 };
 Player.prototype.renderHub = function () {
   var self = this, courses = (this.index && this.index.courses) || [], relations = this.relations || [];
+  /* Country contexts per course code. Six languages have no ISO 639-1 row in
+     the relations data (Standard Arabic is only "arb", Mandarin only "cmn"),
+     so without the bridge their cards showed no countries at all while the
+     static HTML — which uses the same bridge — showed thirty. */
+  var ISO3_ALIAS = { arb: "ar", cmn: "zh", fil: "fil", npi: "npi", uzn: "uzn", zsm: "zsm" };
   var countriesByCode = {};
   relations.forEach(function (r) {
-    var code = r.iso_639_1 || r.iso_639_3;
+    var code = r.iso_639_1 || ISO3_ALIAS[r.iso_639_3] || r.iso_639_3;
     if (!code) return;
     (countriesByCode[code] = countriesByCode[code] || []).push(r.country_id);
   });
@@ -241,13 +246,48 @@ Player.prototype.renderHub = function () {
   var relationsByCountry = {};
   relations.forEach(function (r) { (relationsByCountry[r.country_id] = relationsByCountry[r.country_id] || []).push(r); });
   var countries = Array.from(new Set([].concat.apply([], Object.keys(countriesByCode).map(function (k) { return countriesByCode[k]; })))).sort();
+
+  /* Which countries actually have a course — computed BEFORE the hero, which
+     counts them, and used again by the dropdown and the empty state. */
+  var courseCountries = {}, countryCourseCount = {};
+  courses.forEach(function (c) {
+    (countriesByCode[c.code] || []).forEach(function (cc) {
+      courseCountries[cc] = 1;
+      countryCourseCount[cc] = (countryCourseCount[cc] || 0) + 1;
+    });
+  });
+  var withCourses = countries.filter(function (c) { return courseCountries[c]; });
+  var withoutCourses = countries.filter(function (c) { return !courseCountries[c]; });
+
   var displayNames;
   try { displayNames = new Intl.DisplayNames([document.documentElement.lang || "en"], { type: "region" }); } catch (e) {}
   function countryName(code) { try { return displayNames ? displayNames.of(code) : code; } catch (e) { return code; } }
   var h = '<div class="egc course-hub google-anno-skip"><section class="course-hero"><span class="pill">Worldwide · A1–C2 · free</span><h1>Choose your language journey</h1>';
-  h += '<p>One complete learning space for courses, country contexts, lessons, deep practice, review history and level tests.</p><div class="course-orbit" aria-hidden="true"><i>अ</i><i>Α</i><i>ع</i><i>あ</i><i>മ</i></div></section>';
-  h += '<div class="course-tools"><label>Find a course<input id="course-search" type="search" placeholder="Search language" autocomplete="off"></label><label>Country context<select id="country-filter"><option value="">All countries</option>' + countries.map(function (c) { return '<option value="' + esc(c) + '">' + esc(countryName(c)) + ' · ' + esc(c) + '</option>'; }).join("") + '</select></label><span id="course-result-count" role="status"></span></div>';
+  /* "course mai language ko country wise bi search kr ske": the dropdown and
+     the search box below cover the question for anyone who types. The static
+     page covers everyone else — 194 countries written out, linked and
+     crawlable — so it is linked from here rather than hidden in a footer. */
+  h += '<p>One complete learning space for courses, country contexts, lessons, deep practice, review history and level tests. Not sure which language? <a href="' + esc(self.base) + 'courses/by-country/"><b>Browse courses by country</b></a> — ' + withCourses.length + ' countries with a course today.</p><div class="course-orbit" aria-hidden="true"><i>अ</i><i>Α</i><i>ع</i><i>あ</i><i>മ</i></div></section>';
+  /* Which countries actually have a course. The dropdown used to list every
+     country in the inventory — all 200 — so picking most of them emptied the
+     grid with a bare "0 courses", which reads as a broken search. Prakash:
+     "course mai language ko country wise bi search kr ske jo abhi work nahi
+     kar raha". The two groups tell the truth up front: countries you can
+     learn a language for today, and countries the inventory documents but no
+     course has been written for yet. */
+  h += '<div class="course-tools"><label>Find a language or country<input id="course-search" type="search" placeholder="e.g. Italian, Japan, Arabic" autocomplete="off" aria-describedby="course-result-count"></label><label>Country context<select id="country-filter">';
+  h += '<option value="">All countries</option>';
+  h += '<optgroup label="Learn a language for (' + withCourses.length + ')">' + withCourses.map(function (c) { return '<option value="' + esc(c) + '">' + esc(countryName(c)) + ' · ' + countryCourseCount[c] + '</option>'; }).join("") + '</optgroup>';
+  /* Today the inventory's 194 countries are all covered by at least one of the
+     39 courses, so this group is usually empty — an empty <optgroup> renders
+     as a stray heading, so it is only written when it has members. A country
+     added to the inventory before its language is authored lands here. */
+  if (withoutCourses.length) {
+    h += '<optgroup label="Documented, no course yet (' + withoutCourses.length + ')">' + withoutCourses.map(function (c) { return '<option value="' + esc(c) + '">' + esc(countryName(c)) + '</option>'; }).join("") + '</optgroup>';
+  }
+  h += '</select></label><span id="course-result-count" role="status"></span></div>';
   h += '<section id="country-story" class="country-story" hidden aria-live="polite"></section>';
+  h += '<div id="course-empty" class="course-empty" hidden></div>';
   var phases = {};
   courses.forEach(function (c) { var ph = c.phase || "phase-1"; (phases[ph] = phases[ph] || []).push(c); });
   Object.keys(phases).sort().forEach(function (ph) {
@@ -257,12 +297,32 @@ Player.prototype.renderHub = function () {
       var saved = loadProgress(), done = 0, total = 0;
       lvs.forEach(function (lv) { var row = saved[c.code + "_" + lv]; done += row && row.done ? row.done.length : 0; total += (c.levels[lv] && c.levels[lv].lessons) || 6; });
       var pct = total ? Math.min(100, Math.round(done / total * 100)) : 0;
-      var nativeName = c.native || ((relations.find(function (r) { return (r.iso_639_1 || r.iso_639_3) === c.code && r.native_name; }) || {}).native_name) || c.name;
+      /* Native name lookup. The catalogue is keyed by ISO 639-1 and some
+         row sets carry only ISO 639-3 (Arabic ships as "arb", Chinese as
+         "cmn"), so those codes are bridged instead of falling back to the
+         English name — which is how a card ended up reading "Arabic /
+         Arabic". When the native name really is the English name the line is
+         dropped rather than repeated. */
+      var nativeName = c.native || ((relations.find(function (r) {
+        return (r.iso_639_1 === c.code || ISO3_ALIAS[r.iso_639_3] === c.code || r.iso_639_3 === c.code) && r.native_name;
+      }) || {}).native_name) || "";
+      var nativeSpan = (nativeName && nativeName.toLowerCase() !== String(c.name).toLowerCase())
+        ? '<span class="native-name" lang="' + esc(c.code) + '" dir="auto">' + esc(nativeName) + '</span>'
+        : "";
+      if (!nativeName) nativeName = c.name;
       /* The voice control is a button, so it must live OUTSIDE the <a> that
          opens the course (a <button> inside an <a> is invalid HTML and lets a
          tap trigger the link instead of the sound). The link is stretched to
          cover the card; the button sits above it with a higher z-index. */
-      h += '<article class="card course-card" data-name="' + esc(c.name.toLowerCase()) + '" data-countries="' + esc(cs.join(" ")) + '" style="--course-hue:' + hue + '"><a href="#/' + esc(c.code) + '" class="course-link" aria-label="Open ' + esc(c.name) + ' course"><span class="course-monogram" aria-hidden="true">' + esc(nativeName.slice(0, 2)) + '</span><span class="course-copy"><b>' + esc(c.name) + '</b><span class="native-name">' + esc(nativeName) + '</span><span class="sub">' + esc(lvs.join(" · ")) + (c.complete ? " · complete" : "") + '</span><span class="country-chips">' + cs.slice(0, 5).map(function (x) { return '<em title="' + esc(countryName(x)) + '">' + esc(countryName(x)) + '</em>'; }).join("") + (cs.length > 5 ? '<em>+' + (cs.length - 5) + '</em>' : '') + '</span><span class="course-progress"><i style="width:' + pct + '%"></i></span><small class="progress-label">' + (done ? done + ' of ' + total + ' lessons complete' : 'Start at A1 or choose your level') + '</small></span><span class="course-arrow">→</span></a><button type="button" class="course-voice" data-voice-code="' + esc(c.code) + '" data-voice-text="' + esc(nativeName) + '" aria-label="Hear ' + esc(c.name) + '">🔊 Hear language</button></article>';
+      /* data-search is what the box matches against — the language, its own
+         name, its code, and every country it is documented in. The first
+         version matched the language name only, so typing "Japan" or "UAE"
+         returned nothing and the country box was the only way through. */
+      var searchBlob = [c.name, nativeName, c.code, c.phase || ""]
+        .concat(cs, cs.map(countryName))
+        .concat(cs.map(function (x) { return countryName(x); }).join(" "))
+        .join(" ");
+      h += '<article class="card course-card" data-name="' + esc(c.name.toLowerCase()) + '" data-search="' + esc(norm(searchBlob)) + '" data-countries="' + esc(cs.join(" ")) + '" style="--course-hue:' + hue + '"><a href="#/' + esc(c.code) + '" class="course-link" aria-label="Open ' + esc(c.name) + ' course"><span class="course-monogram" aria-hidden="true">' + esc(nativeName.slice(0, 2)) + '</span><span class="course-copy"><b>' + esc(c.name) + '</b>' + nativeSpan + '<span class="sub">' + esc(lvs.join(" · ")) + (c.complete ? " · complete" : "") + '</span><span class="country-chips">' + cs.slice(0, 5).map(function (x) { return '<em title="' + esc(countryName(x)) + '">' + esc(countryName(x)) + '</em>'; }).join("") + (cs.length > 5 ? '<em>+' + (cs.length - 5) + '</em>' : '') + '</span><span class="course-progress"><i style="width:' + pct + '%"></i></span><small class="progress-label">' + (done ? done + ' of ' + total + ' lessons complete' : 'Start at A1 or choose your level') + '</small></span><span class="course-arrow">→</span></a><button type="button" class="course-voice" data-voice-code="' + esc(c.code) + '" data-voice-text="' + esc(nativeName) + '" aria-label="Hear ' + esc(c.name) + '">🔊 Hear language</button></article>';
     });
     h += "</div></section>";
   });
@@ -277,22 +337,176 @@ Player.prototype.renderHub = function () {
     });
   });
   var search = this.mount.querySelector("#course-search"), filter = this.mount.querySelector("#country-filter"), count = this.mount.querySelector("#course-result-count"), story = this.mount.querySelector("#country-story");
+  var empty = this.mount.querySelector("#course-empty");
+
+  /* ---------------------------------------------------------------
+     Country → language, the two directions of the same question.
+
+     A reader arrives with one of these in their head:
+
+        "I am in Japan — what can I learn?"     (the country box)
+        "Japanese — is that here?"              (the search box)
+        "What do you have for the Gulf?"        (a country, by name, typed)
+
+     All three have to work, and they have to say something useful when the
+     answer is "nothing yet" — an empty grid with no explanation is what made
+     this look broken. So: every card is searchable by its countries, the
+     country list is split into countries with a course and countries without,
+     and an empty result offers the closest real options instead of a blank.
+     --------------------------------------------------------------- */
+
+  /* The first inventory row for a course's language — its family and script
+     are what "closest course" is decided on. */
+  var relByCode = {};
+  relations.forEach(function (r) {
+    var code = r.iso_639_1 || ISO3_ALIAS[r.iso_639_3] || r.iso_639_3;
+    if (code && !relByCode[code]) relByCode[code] = r;
+  });
+
+  function documented(country) {
+    var seen = {}, rows = [];
+    (relationsByCountry[country] || []).forEach(function (r) {
+      var k = r.language_id || r.language_name;
+      if (!k || seen[k]) return;
+      seen[k] = 1;
+      rows.push(r);
+    });
+    return rows.sort(function (x, y) {
+      return String(x.language_name).localeCompare(String(y.language_name));
+    });
+  }
+
+  function hasCourse(row) {
+    var code = row.iso_639_1 || ISO3_ALIAS[row.iso_639_3] || row.iso_639_3;
+    return courses.some(function (c) { return c.code === code; });
+  }
+
+  /* "The closest thing we do have": the same language if we have it, else a
+     language sharing the country's writing system, else the same family. */
+  function suggestionsFor(country, limit) {
+    var rows = documented(country), fams = {}, scripts = {}, langs = {};
+    rows.forEach(function (r) {
+      if (r.language_family) fams[r.language_family] = 1;
+      if (r.script) scripts[r.script] = 1;
+      langs[r.iso_639_1 || r.iso_639_3] = 1;
+    });
+    var out = [];
+    courses.forEach(function (c) {
+      var rel = relByCode[c.code] || {}, why = "";
+      if (langs[c.code]) why = "the language itself";
+      else if (rel.script && scripts[rel.script]) why = "same writing system (" + rel.script + ")";
+      else if (rel.language_family && fams[rel.language_family]) why = "same language family (" + rel.language_family + ")";
+      if (why) out.push({ c: c, why: why });
+    });
+    out.sort(function (x, y) {
+      var xs = x.why === "the language itself" ? 0 : 1, ys = y.why === "the language itself" ? 0 : 1;
+      return xs - ys || String(x.c.name).localeCompare(String(y.c.name));
+    });
+    return out.slice(0, limit || 3);
+  }
+
+  function courseLink(c, why) {
+    return '<a class="course-suggest" href="#/' + esc(c.code) + '"><b>' + esc(c.name) + "</b>" +
+      (why ? "<small>" + esc(why) + "</small>" : "") + "</a>";
+  }
+
   function renderCountryStory(country) {
     if (!country) { story.hidden = true; story.innerHTML = ""; return; }
-    var rows = relationsByCountry[country] || [], unique = {}, categories = {}, scripts = {}, bands = {};
-    rows.forEach(function (r) {
-      unique[r.language_id || r.language_name] = r;
+    var langs = documented(country), categories = {}, scripts = {}, bands = {};
+    langs.forEach(function (r) {
       if (r.category) categories[r.category] = 1;
       if (r.script) scripts[r.script] = 1;
       if (r.estimated_speaker_band) bands[r.estimated_speaker_band] = 1;
     });
-    var langs = Object.keys(unique).map(function (k) { return unique[k]; }).sort(function (a, b) { return String(a.language_name).localeCompare(String(b.language_name)); });
-    var available = langs.filter(function (r) { return courses.some(function (c) { return c.code === (r.iso_639_1 || r.iso_639_3); }); });
+    var available = langs.filter(hasCourse);
     var hue = Math.abs(country.charCodeAt(0) * 31 + country.charCodeAt(1)) % 360;
     story.style.setProperty("--country-hue", hue);
-    story.innerHTML = '<div class="country-emblem" aria-hidden="true"><span>' + esc(country) + '</span><i></i><i></i><i></i></div><div class="country-narrative"><span class="pill">Country learning guide</span><h2>' + esc(countryName(country)) + '</h2><p>Explore this country through its documented language landscape. EkGuru connects one canonical language course to every relevant country context instead of duplicating the same course by border.</p><div class="country-facts"><span><b>' + langs.length + '</b> documented language relationships</span><span><b>' + available.length + '</b> courses available now</span><span><b>' + Object.keys(scripts).length + '</b> writing systems represented</span></div><div class="country-languages">' + available.map(function (r) { var code = r.iso_639_1 || r.iso_639_3; return '<a href="#/' + esc(code) + '"><b>' + esc(r.language_name) + '</b><small>' + esc(r.native_name || "") + ' · ' + esc(r.category || "documented") + '</small></a>'; }).join("") + '</div><details><summary>Language context and evidence</summary><p>Relationship categories: ' + esc(Object.keys(categories).sort().join(", ") || "documented") + '. Speaker bands represented: ' + esc(Object.keys(bands).sort().join(", ") || "not stated") + '. Scripts: ' + esc(Object.keys(scripts).sort().join(", ") || "not stated") + '.</p><p class="source-note">Source: EkGuru canonical global language-country inventory. These are language-learning contexts, not claims that every resident has the same identity or language.</p></details></div>';
+    var chips = (available.length ? available : langs.slice(0, 12)).map(function (r) {
+      var code = r.iso_639_1 || ISO3_ALIAS[r.iso_639_3] || r.iso_639_3;
+      var course = courses.filter(function (c) { return c.code === code; })[0];
+      /* The course's own name when there is one: the inventory calls the same
+         language "Mandarin" where the course is "Chinese", and a link that
+         opens the Chinese course should say "Chinese". */
+      var label = course ? course.name : r.language_name;
+      return course
+        ? '<a href="#/' + esc(code) + '"><b>' + esc(label) + "</b><small>" + esc(r.native_name || "") + " · course ready</small></a>"
+        : '<span class="country-lang-nocourse"><b>' + esc(label) + "</b><small>" + esc(r.native_name || "") + " · documented, no course yet</small></span>";
+    }).join("");
+    var more = !available.length && langs.length > 12
+      ? '<p class="source-note">Showing the first 12 of ' + langs.length + " documented languages.</p>" : "";
+    story.innerHTML = '<div class="country-emblem" aria-hidden="true"><span>' + esc(country) + '</span><i></i><i></i><i></i></div><div class="country-narrative"><span class="pill">Country learning guide</span><h2>' + esc(countryName(country)) + '</h2><p>Explore this country through its documented language landscape. EkGuru connects one canonical language course to every relevant country context instead of duplicating the same course by border.</p><div class="country-facts"><span><b>' + langs.length + '</b> documented language relationships</span><span><b>' + available.length + '</b> courses available now</span><span><b>' + Object.keys(scripts).length + '</b> writing systems represented</span></div><div class="country-languages">' + chips + '</div>' + more + '<details><summary>Language context and evidence</summary><p>Relationship categories: ' + esc(Object.keys(categories).sort().join(", ") || "documented") + '. Speaker bands represented: ' + esc(Object.keys(bands).sort().join(", ") || "not stated") + '. Scripts: ' + esc(Object.keys(scripts).sort().join(", ") || "not stated") + '.</p><p class="source-note">Source: EkGuru canonical global language-country inventory. These are language-learning contexts, not claims that every resident has the same identity or language.</p></details></div>';
     story.hidden = false;
   }
+
+  /* The country a typed query names, if any — "Japan", "japan", "JP". */
+  function countryFromQuery(q) {
+    if (!q) return "";
+    for (var i = 0; i < countries.length; i++) {
+      var c = countries[i];
+      if (c.toLowerCase() === q || norm(countryName(c)) === q) return c;
+    }
+    return "";
+  }
+
+  function renderEmpty(q, country, shown) {
+    if (!empty) return;
+    if (shown) { empty.hidden = true; empty.innerHTML = ""; return; }
+    var h = "";
+    var rowsInCountry = country ? courses.filter(function (c) {
+      return (countriesByCode[c.code] || []).indexOf(country) >= 0;
+    }) : [];
+    if (country && !rowsInCountry.length) {
+      /* No course for this country at all (the future case: a country in the
+         inventory whose language has not been authored yet). */
+      var documentedRows = documented(country), sug0 = suggestionsFor(country, 3);
+      h += "<h3>No course for " + esc(countryName(country)) + " yet</h3>";
+      h += "<p>The inventory documents <b>" + documentedRows.length + "</b> language" +
+        (documentedRows.length === 1 ? "" : "s") + " in " + esc(countryName(country)) +
+        ", and none of them has a finished EkGuru course. Courses are written one language " +
+        "at a time, by hand — more are coming.</p>";
+      if (sug0.length) {
+        h += '<p class="course-empty-h">Closest courses we do have</p><div class="course-suggest-row">' +
+          sug0.map(function (x) { return courseLink(x.c, x.why); }).join("") + "</div>";
+      }
+      h += '<p class="source-note">Want a language added? <a href="' + self.base + 'contact/?topic=Course%20request">Ask for it</a> — requests decide what is built next.</p>';
+    } else if (country) {
+      /* The reachable case: a country has courses, but the query excluded all
+         of them. Say which filter did it and offer the way back — an empty
+         grid that keeps the reader staring at it is the bug report. */
+      h += "<h3>Nothing in " + esc(countryName(country)) + " matches “" + esc(q) + "”</h3>";
+      h += "<p>" + esc(countryName(country)) + " has <b>" + rowsInCountry.length + "</b> course" +
+        (rowsInCountry.length === 1 ? "" : "s") + " on EkGuru. Clear the search box to see " +
+        (rowsInCountry.length === 1 ? "it" : "them all") + ", or start with one of these.</p>";
+      h += '<div class="course-suggest-row">' + rowsInCountry.slice(0, 4).map(function (c) {
+        return courseLink(c, "");
+      }).join("") + "</div>";
+      h += '<p class="source-note"><button type="button" class="btn btn-sm" id="course-empty-clear">Clear the search</button></p>';
+    } else {
+      var hitCountries = countries.filter(function (c) {
+        return courseCountries[c] && (norm(countryName(c)).indexOf(q) === 0 || c.toLowerCase().indexOf(q) === 0);
+      }).slice(0, 6);
+      var names = courses.map(function (c) { return c.name; }).filter(function (n) { return norm(n).indexOf(q) === 0; }).slice(0, 6);
+      h += "<h3>Nothing matches “" + esc(q) + "”</h3>";
+      h += "<p>Every course name, native name, code and country is searchable — try a country (Japan), a language (Italian) or a code (it).</p>";
+      if (hitCountries.length) {
+        h += '<p class="course-empty-h">Countries with courses</p><div class="course-suggest-row">' +
+          hitCountries.map(function (c) { return '<a class="course-suggest" href="?country=' + esc(c) + '"><b>' + esc(countryName(c)) + "</b><small>" + countryCourseCount[c] + " language" + (countryCourseCount[c] === 1 ? "" : "s") + "</small></a>"; }).join("") + "</div>";
+      }
+      if (names.length) {
+        h += '<p class="course-empty-h">Languages</p><div class="course-suggest-row">' +
+          names.map(function (n) { var c = courses.filter(function (x) { return x.name === n; })[0]; return courseLink(c, ""); }).join("") + "</div>";
+      }
+    }
+    empty.innerHTML = h;
+    empty.hidden = false;
+    var clear = doc_clear();
+    if (clear) clear.addEventListener("click", function () { search.value = ""; applyFilters(); search.focus(); });
+  }
+
+  function doc_clear() {
+    return empty.querySelector("#course-empty-clear");
+  }
+
   function applyFilters() {
     var q = norm(search.value), country = filter.value, shown = 0;
     if (country) {
@@ -302,13 +516,45 @@ Player.prototype.renderHub = function () {
     }
     renderCountryStory(country);
     self.mount.querySelectorAll(".course-card").forEach(function (card) {
-      var visible = (!q || card.getAttribute("data-name").indexOf(q) >= 0) && (!country || (" " + card.getAttribute("data-countries") + " ").indexOf(" " + country + " ") >= 0);
+      var blob = card.getAttribute("data-search") || card.getAttribute("data-name") || "";
+      var visible = (!q || blob.indexOf(q) >= 0) && (!country || (" " + card.getAttribute("data-countries") + " ").indexOf(" " + country + " ") >= 0);
       card.hidden = !visible; if (visible) shown++;
     });
     self.mount.querySelectorAll(".course-phase").forEach(function (phase) { phase.hidden = !phase.querySelector(".course-card:not([hidden])"); });
-    count.textContent = shown + " courses";
+    renderEmpty(q, country, shown);
+    /* The status line names what is filtering the grid — a country the
+       reader picked, and a country their query named. */
+    var named = q ? countryFromQuery(q) : "";
+    var where = country ? countryName(country) : (named ? countryName(named) : "");
+    count.textContent = shown + (shown === 1 ? " course" : " courses") +
+      (where ? " · " + where : "");
   }
+  /* ?country=JP opens the hub already filtered — the country page links here,
+     and so does anything the reader bookmarks. Anything unknown is ignored
+     rather than silently emptying the grid. */
+  try {
+    var pre = new URLSearchParams(location.search);
+    var preCountry = (pre.get("country") || "").toUpperCase();
+    if (preCountry && filter.querySelector('option[value="' + preCountry.replace(/"/g, "") + '"]')) {
+      filter.value = preCountry;
+    }
+    var preQ = pre.get("q");
+    if (preQ) search.value = preQ;
+  } catch (e) {}
+
   search.addEventListener("input", applyFilters); filter.addEventListener("change", applyFilters); applyFilters();
+
+  /* The filter belongs in the URL too: a filtered hub is worth linking to,
+     and it means the country page's chips and the back button both work. */
+  filter.addEventListener("change", function () {
+    try {
+      var params = new URLSearchParams(location.search);
+      if (filter.value) params.set("country", filter.value); else params.delete("country");
+      var qs = params.toString();
+      history.replaceState(null, "", qs ? "?" + qs : location.pathname);
+    } catch (e) {}
+    applyFilters();
+  });
   window.scrollTo(0, 0);
 };
 Player.prototype.langMeta = function (code) {

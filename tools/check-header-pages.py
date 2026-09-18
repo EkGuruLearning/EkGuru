@@ -15,8 +15,10 @@ PAGES = {'index': '/', 'ar': '/ar/', 'de': '/de/', 'find': '/find-tutors.html',
          'tutor': '/tutor.html', 'tara': '/tutor/tara/',
          'arjoin': '/ar/join.html', 'join': '/join.html'}
 WIDTHS = [320, 375, 390, 480, 640, 900, 1000, 1100, 1200, 1220, 1366, 1920]
-# pages whose header ships a .burger element (drawer below 1200px)
-WITH_BURGER = {'index', 'find', 'tutor', 'join'}
+# pages whose header ships a .burger element (drawer below 1200px).
+# The translated pages joined this list in v200 — their header used to be
+# burger-less and wrapped into two rows on a phone.
+WITH_BURGER = {'index', 'find', 'tutor', 'join', 'ar', 'de', 'arjoin'}
 
 JS = '''() => {
   const hdr = document.querySelector('.hdr');

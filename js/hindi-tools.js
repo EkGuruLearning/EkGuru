@@ -171,7 +171,7 @@
     }).join("");
 
     host.innerHTML =
-      '<div class="row" style="gap:12px;flex-wrap:wrap;align-items:end">' +
+      '<div class="row no-print" style="gap:12px;flex-wrap:wrap;align-items:end">' +
       '<div><label for="q-topic">Topic</label><br><select id="q-topic">' + topicOpts + '</select></div>' +
       '<div><label for="q-level">Level</label><br><select id="q-level">' + levelOpts + '</select></div>' +
       '<div><label for="q-n">Questions</label><br><select id="q-n">' +
@@ -182,6 +182,78 @@
       '<div id="q-body" style="margin-top:16px"></div>';
 
     var state = null;
+
+    /* Which bank this page votes about — the same value the progress store
+       uses ("bengali-quiz"), so a flag from one learner is filed against the
+       question another learner will see. */
+    function bankName() {
+      return window.EKGURU_QUIZ_NAME || "quiz";
+    }
+
+    function voteRow(q) {
+      var api = window.EKGURU_QUESTIONS;
+      if (!api || !q.id) return "";
+      var mine = api.myVote(bankName(), q.id);
+      var c = (api.counts(bankName())[q.id]) || { flags: 0, likes: 0 };
+      var badge = [];
+      if (c.likes) badge.push("\u2605 " + c.likes);
+      if (c.flags) badge.push("\u2691 " + c.flags + (c.flags === 1 ? " learner flagged this" : " learners flagged this"));
+      return '<div class="q-vote no-print" data-vote="' + esc(q.id) + '" style="margin-top:10px">' +
+        '<button type="button" class="btn ghost" data-like="' + esc(q.id) + '">' +
+        (mine === "like" ? "\u2605 Liked" : "\u2605 Helpful") + '</button> ' +
+        '<button type="button" class="btn ghost" data-flag="' + esc(q.id) + '">' +
+        (mine === "flag" ? "\u2691 Flagged" : "\u2691 Flag a problem") + '</button> ' +
+        '<span class="muted" style="font-size:.8rem">' + badge.join(" \u00b7 ") +
+        (api.enabled() ? "" : " \u00b7 saved on this device; community sync is off") + '</span>' +
+        '<div data-flagbox="' + esc(q.id) + '" style="display:none;margin-top:8px">' +
+        api.reasons.map(function (r) {
+          return '<button type="button" class="btn ghost" style="font-size:.8rem" data-reason="' +
+            esc(r) + '" data-q="' + esc(q.id) + '">' + esc(r) + '</button> ';
+        }).join("") +
+        '</div></div>';
+    }
+
+    /* The five most-flagged questions in this bank, for everyone: this is how
+       one learner's flag reaches the next learner. */
+    function topBlock() {
+      var api = window.EKGURU_QUESTIONS;
+      if (!api) return "";
+      var rows = api.topFlagged(bankName(), 5);
+      if (!rows.length) return "";
+      var byId = {};
+      qs.forEach(function (q) { byId[q.id] = q; });
+      return '<div data-voteblock><h3 style="margin-top:22px">Flagged by other ' + esc(LANG.name) + ' learners</h3>' +
+        '<ul class="linklist">' + rows.map(function (r) {
+          var q = byId[r.id];
+          if (!q) return "";
+          return '<li><b>' + esc(q.q) + '</b><span>' + r.flags +
+            (r.flags === 1 ? " learner flagged this" : " learners flagged this") +
+            ' \u2014 ' + esc(q.topic) + '</span></li>';
+        }).join("") + '</ul></div>';
+    }
+
+    function wireVote(scope) {
+      var api = window.EKGURU_QUESTIONS;
+      if (!api) return;
+      scope.querySelectorAll("[data-like]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          api.like(bankName(), b.getAttribute("data-like"));
+          renderQuestion();
+        });
+      });
+      scope.querySelectorAll("[data-flag]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          var box = scope.querySelector('[data-flagbox="' + b.getAttribute("data-flag") + '"]');
+          if (box) box.style.display = box.style.display === "none" ? "block" : "none";
+        });
+      });
+      scope.querySelectorAll("[data-reason]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          api.flag(bankName(), b.getAttribute("data-q"), b.getAttribute("data-reason"));
+          renderQuestion();
+        });
+      });
+    }
 
     function start() {
       var topic = host.querySelector("#q-topic").value;
@@ -206,7 +278,8 @@
         body.innerHTML =
           '<h3>Score: ' + state.correct + ' / ' + total + ' (' + per + '%)</h3>' +
           '<p class="muted">A recognition score, not a fluency measure.</p>' +
-          '<button type="button" class="btn" id="q-again">Try again</button>';
+          '<button type="button" class="btn" id="q-again">Try again</button>' +
+          topBlock();
         body.querySelector("#q-again").addEventListener("click", start);
         return;
       }
@@ -230,19 +303,35 @@
             (ok ? "Correct." : "Not quite — the answer was “" + esc(q.a) + "”.") + '</p>' +
             '<p class="muted">' + esc(q.explain) + '</p>' +
             '<p class="muted">Source: <a href="../../' + esc(q.lesson) + '/">' + esc(q.lesson.replace(/-/g, " ")) + '</a></p>' +
-            '<button type="button" class="btn" id="q-next">Next</button>';
+            '<button type="button" class="btn" id="q-next">Next</button>' +
+            voteRow(q);
           body.querySelector("#q-next").addEventListener("click", function () { state.i++; renderQuestion(); });
+          wireVote(body);
         });
       });
     }
 
     host.querySelector("#q-start").addEventListener("click", start);
+    var painted = topBlock();
+    if (painted) host.insertAdjacentHTML("beforeend", painted);
+    window.addEventListener("ekguru:questions", function () {
+      var old = host.querySelector("[data-voteblock]");
+      if (old) old.remove();
+      var block = topBlock();
+      if (block) host.insertAdjacentHTML("beforeend", block);
+    });
   }
 
   /* =========================================================
      WORKSHEETS
      ========================================================= */
   function mountWorksheet(host) {
+    /* The sheet the page arrived with: tools/build-print-sheets.py bakes a
+       five-question sample into #ws-app so there is always something to print
+       — with scripting off, or before this script runs, the print target used
+       to be empty and the browser printed the page instead. Keep it until the
+       reader builds their own. */
+    var arrived = host.querySelector("#w-sheet");
     var qs = bank();
     var topics = {};
     qs.forEach(function (q) { topics[q.topic] = 1; });
@@ -251,7 +340,7 @@
     }).join("");
 
     host.innerHTML =
-      '<div class="row" style="gap:12px;flex-wrap:wrap;align-items:end">' +
+      '<div class="row no-print" style="gap:12px;flex-wrap:wrap;align-items:end">' +
       '<div><label for="w-topic">Topic</label><br><select id="w-topic">' + topicOpts + '</select></div>' +
       '<div><label for="w-n">Prompts</label><br><select id="w-n">' +
       '<option value="5">5</option><option value="10">10</option><option value="15">15</option></select></div>' +
@@ -260,6 +349,13 @@
       '<button type="button" class="btn ghost" id="w-print">Print</button>' +
       '</div>' +
       '<div id="w-sheet" style="margin-top:16px"></div>';
+
+    /* The sheet in the file is a REAL worksheet (the language's own quiz bank,
+       baked at build time), so a reader who never presses a button — or has
+       scripting off — still has something on paper. Put it back after the
+       controls are in place; "Make worksheet" replaces it as before. */
+
+    if (arrived) host.querySelector("#w-sheet").innerHTML = arrived.innerHTML;
 
     var made = [];
 
@@ -287,6 +383,11 @@
 
     host.querySelector("#w-print").addEventListener("click", function () {
       if (!made.length) { host.querySelector("#w-make").click(); }
+      /* Print the sheet, not the page: js/print-sheet.js clones the finished
+         worksheet into #ekguru-print-root and hides everything else on paper.
+         Without it a reader gets the header, the intro, the controls, the note
+         and the footer on the same sheet as the questions. */
+      if (window.EKGURU_PRINT_SHEET) { window.EKGURU_PRINT_SHEET.now(); return; }
       window.print();
     });
   }

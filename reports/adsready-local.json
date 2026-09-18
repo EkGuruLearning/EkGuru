@@ -1,0 +1,89 @@
+{
+  "ready": true,
+  "passed": 13,
+  "total": 13,
+  "failed": [],
+  "checks": [
+    {
+      "id": "ads-txt",
+      "label": "ads.txt carries exactly the authorised line",
+      "ok": true,
+      "detail": "google.com, pub-8175326569491671, DIRECT, f08c47fec0942fa0"
+    },
+    {
+      "id": "robots",
+      "label": "robots.txt declares a sitemap and does not disallow everything",
+      "ok": true,
+      "detail": "robots.txt present"
+    },
+    {
+      "id": "sitemap",
+      "label": "sitemap-index lists child sitemaps that exist",
+      "ok": true,
+      "detail": "18 child sitemaps"
+    },
+    {
+      "id": "canonical",
+      "label": "every indexable page canonicalises to https://ekguru.shop/",
+      "ok": true,
+      "detail": "1840 pages; only noindex utilities (admin.html, the Search Console file) omit one"
+    },
+    {
+      "id": "page-privacy",
+      "label": "/privacy/ exists",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "page-about",
+      "label": "/about/ exists",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "page-contact",
+      "label": "/contact/ exists",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "page-terms",
+      "label": "/terms/ exists",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "page-cookie-policy",
+      "label": "/cookie-policy/ exists",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "page-disclaimer",
+      "label": "/disclaimer/ exists",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "page-copyright",
+      "label": "/copyright/ exists",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "content-volume",
+      "label": "Substantial unique content (≥100 published pages)",
+      "ok": true,
+      "detail": "1840 HTML pages in tree"
+    },
+    {
+      "id": "real-pages",
+      "label": "Country pages are real, distinct pages (not redirects to one)",
+      "ok": true,
+      "detail": "learn-hindi-from-usa/ checked"
+    }
+  ],
+  "generated": "2026-09-18T09:42:22.895Z",
+  "mode": "local",
+  "disclaimer": "Readiness only — NOT an approval signal. AdSense approval is Google's decision."
+}

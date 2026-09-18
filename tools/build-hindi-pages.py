@@ -398,6 +398,10 @@ def tool_pages():
   <p class="lede">See a Roman prompt, type the word in Devanagari. Small differences in spacing or punctuation are accepted as “minor format”, not marked wrong.</p>
 """ + sb_band("लिखो", "Type it in Devanagari.") + """
   <div id="typing-app"></div>
+  <h2>How the Hindi typing trainer works</h2>
+  <p>You get a Roman prompt and type the Hindi word in Devanagari. The trainer compares your spelling with the curated list from the lessons and accepts spacing and equivalent punctuation as minor format rather than marking them wrong — this is a practice tool, not an exam. Every prompt comes from vocabulary already taught on this site, so what you type is what you will read later.</p>
+  <h2>Why typing beats re-reading</h2>
+  <p>Recognition is cheap: a Hindi word can look familiar long before you can produce it. Typing forces the harder step — recalling the matras and their order — and the mistakes it exposes are exactly the letters you keep mixing up. Ten words a day is a better routine than a hundred once a month.</p>
   <div class="note">This trainer checks your typed Devanagari against a curated word list from the lessons. It is not a full transliteration engine and makes no claim to be one.</div>
 """, scripts=["hindi-fuzzy.js", "hindi-tools.js"])
 
@@ -406,9 +410,13 @@ def tool_pages():
         "Free Hindi quiz: pick a topic and level, answer 5, 10 or 15 multiple-choice questions from the lesson bank, and get an explanation with every answer.",
         "learn/hindi/practice/quiz/", crumb_base + "Quiz",
         """  <h1>Hindi Topic Quiz</h1>
-  <p class="lede">Pick a topic and level, then answer 5, 10 or 15 questions. Every answer comes with an explanation and a link back to the source lesson.</p>
+  <p class="lede">Pick a Hindi topic and level, then answer 5, 10 or 15 questions. Every answer comes with an explanation and a link back to the source lesson.</p>
 """ + sb_band("बताओ", "Answer with reasons.") + """
   <div id="quiz-app"></div>
+  <h2>How the Hindi quiz works</h2>
+  <p>Every question comes out of the Hindi lesson bank this site already teaches, in the same order — no trivia, no questions about words you have not met. Pick a topic and a length, and each answer comes back with a short explanation plus a link to the lesson it came from. The set rotates with the date, so the same topic gives different questions tomorrow.</p>
+  <h2>Getting the most out of a score</h2>
+  <p>Read the explanations for the ones you missed before starting another round, and treat anything under half as a signal to re-read that lesson rather than to grind more questions. Wrong answers are the useful ones — they tell you which word has not stuck yet.</p>
   <div class="note">The score is a recognition score, not a fluency measure — nothing here is a certified test.</div>
 """, scripts=["hindi-quiz-bank.js", "hindi-progress.js", "hindi-tools.js"])
 
@@ -420,6 +428,10 @@ def tool_pages():
   <p class="lede">Build a worksheet from the quiz bank: choose a topic and a number of prompts, then print. Answers are included at the end unless you turn them off.</p>
 """ + sb_band("काग़ज़", "Print it, write on it.") + """
   <div id="ws-app"></div>
+  <h2>How the Hindi worksheet is built</h2>
+  <p>Choose a topic and a number of prompts, and the builder lays out a printable worksheet with writing space and an answer section at the end. It is designed for paper: one topic per sheet, prompts in a readable size, answers on their own block so they can be folded away. Printing from the browser prints just the sheet, with the watermark and this site's name kept on it.</p>
+  <h2>Marking and reusing a sheet</h2>
+  <p>Write your answers first, then check them against the answer block and note the ones that needed a second attempt — those are the words to review tomorrow. Nothing is stored for you, so print a fresh sheet for a fresh attempt; five finished sheets make an honest revision pack.</p>
 """, scripts=["hindi-quiz-bank.js", "hindi-tools.js"])
 
 

@@ -1,9 +1,9 @@
 {
-  "generated": "2026-09-13T13:27:58.490Z",
+  "generated": "2026-09-18T09:41:00.523Z",
   "decision": {
     "RELEASE": {
-      "result": "GO",
-      "evidence": "All gates green"
+      "result": "NO-GO",
+      "evidence": "BLOCKED: fixes staged locally but not pushed (no git remote/credentials in sandbox). Production still runs the pre-fix tree."
     },
     "ADSENSE_REVIEW": {
       "result": "READY",
@@ -15,15 +15,15 @@
     },
     "PRIVACY": {
       "result": "PASS",
-      "evidence": "863 files, 0 secrets, 0 blocked"
+      "evidence": "1904 files, 0 secrets, 0 blocked"
     },
     "DOCTOR": {
-      "result": "PASS",
-      "evidence": "11 checks, 0 problems, 0 warnings"
+      "result": "FAIL",
+      "evidence": "12 checks, 4 problems, 0 warnings"
     },
     "DATA": {
       "result": "PASS",
-      "evidence": "PAUSED_FOR_REUPLOAD (by design, v101): 4 csvUrl empty + paused flags set; local csv/*.csv are the live data (read live from js/site-config.js; schema: python3 tools/test-data-sources.py)"
+      "evidence": "4 sheet URLs configured (read live from js/site-config.js; schema: python3 tools/test-data-sources.py)"
     },
     "EMAIL": {
       "result": "FAIL",
@@ -67,7 +67,7 @@
     },
     "SEO": {
       "result": "PASS",
-      "evidence": "669 pages, 0 broken, 0 orphans, 608 sitemap urls"
+      "evidence": "1565 pages, 0 broken, 0 orphans, 1296 sitemap urls"
     },
     "MOBILE": {
       "result": "PASS",
@@ -87,12 +87,12 @@
     },
     "CONTENT": {
       "result": "PASS",
-      "evidence": "669 pages, 171 fingerprinted, 210 VERY_HIGH self-similar pairs (city-page template cluster — remediation planned)"
+      "evidence": "1565 pages, 171 fingerprinted, 210 VERY_HIGH self-similar pairs (city-page template cluster — remediation planned)"
     },
     "COPY_PROTECTION": {
       "result": "DEGRADED",
       "evidence": "fingerprints + self-copy detection + probes + evidence pipeline built; external web-copy monitoring requires scheduled runner (documented limitation)"
     }
   },
-  "blocker": null
+  "blocker": "Deployment: fixes are committed locally (working tree clean) but cannot be pushed from this sandbox — no git credentials. Production still serves the pre-fix tree."
 }
