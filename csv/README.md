@@ -62,8 +62,27 @@ Regenerate that private copy at any time — it is a derived file, nothing is
 lost if it goes away:
 
 ```bash
+# just the one tutor: header + the sheet's #help row + their row
+#   → Import ▸ Insert new sheet(s), then copy the row into the tutors tab
 python3 tools/make-tutor-row.py sarshtee-baliyan --email her@example.com
-# → csv/sarshtee-baliyan-row.local.csv  (header + the sheet's #help row + her row)
+
+# the whole tutors tab, every row, in sheet order
+#   → select A1 in the tutors tab ▸ Import ▸ Replace data at selected cell
+python3 tools/make-tutor-row.py sarshtee-baliyan --email her@example.com --full
+```
+
+`--full` is built from `live-sheets/tutors.csv` — the copy of the owner's
+current tab — not from this pack. That matters: the pack is a fresh-workbook
+file, and two of its cells disagree with the live tab (`hemlata` and `tara` are
+`active=no` live, and tara's production `videoTitle` still holds the pasted
+methodology block the loader refuses). Replacing a live tab with the pack would
+silently un-hide two tutors; `--full` adds only the new row.
+
+Before importing, prove the file behaves — the same test the build runs, with
+the file itself as the source of the expectations:
+
+```bash
+EKGURU_TEST_CSV=csv/ekguru_tutors.local.csv node tools/test-sheet-apply.js
 ```
 
 ### Rules that already hold (do not fight them)
@@ -77,9 +96,9 @@ python3 tools/make-tutor-row.py sarshtee-baliyan --email her@example.com
 ## Upload steps
 
 1. Create a **new** Google Sheets workbook (File → New → Spreadsheet).
-2. One tab per file. File → Import → **Upload** → select the CSV →
-   **Replace current sheet** (never "Replace spreadsheet" — that changes the
-   tab's gid and breaks links).
+2. One tab per file. File → Import → **Upload** → select the CSV → **Replace
+   data at selected cell** with `A1` selected (never "Replace spreadsheet" —
+   that replaces every tab in the workbook).
 3. Rename each tab to the name in the table above.
 4. For each tab: File → Share → **Publish to web** → choose that tab →
    **Comma-separated values (.csv)** → Publish.

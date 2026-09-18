@@ -47,14 +47,38 @@ mistake that hid Shikha Dutta from all six translated pages.
 row + `#help` row included). A new tutor is one more row with the same 48
 cells in the same order — see `csv/README.md` for the column table.
 
-`csv/sarshtee-baliyan-row.local.csv` is a ready-to-paste copy of the row for
-Sarshtee Baliyan: header, the sheet's own `#help` row, then her row. Import it
-into the tutors tab (File → Import → *Insert new rows*) or copy the last line
-and paste it below the existing tutors. Rebuild it whenever it is missing or
-her address changes:
+Two private files are ready to hand to Google Sheets, both built by the same
+tool. Neither is committed, and both are rebuilt in one command when they are
+missing or an address changes:
+
+| File | Shape | Import as |
+|---|---|---|
+| `csv/sarshtee-baliyan-row.local.csv` | header + the sheet's `#help` row + her row | File → Import → Upload → **Insert new sheet(s)**, then copy her row into the tutors tab |
+| `csv/ekguru_tutors.local.csv` | the whole tutors tab, every tutor, in sheet order | select `A1` in the tutors tab → File → Import → Upload → **Replace data at selected cell** |
 
 ```bash
 python3 tools/make-tutor-row.py sarshtee-baliyan --email her@example.com
+python3 tools/make-tutor-row.py sarshtee-baliyan --email her@example.com --full
+```
+
+`--full` is built from `live-sheets/tutors.csv` (the copy of the live tab), not
+from the committed pack — the pack is a fresh-workbook file, and replacing the
+live tab with it would re-activate Hemlata and Tara, who are `active=no` today.
+`--full` therefore changes exactly one thing: the new tutor appears.
+
+Both routes keep the header row in row 1 and the `#help` row in row 2 — the
+loader reads the header, and the `#help` row is the column key the owner reads.
+Never paste the raw CSV line into a cell: Sheets splits pasted text on tabs, not
+commas, so it lands as one long cell. Import it, or paste the cells from the
+imported sheet.
+
+Before importing, run the pipeline test with the file itself as the fixture —
+it proves every row in it lands on the site (name, price, availability, the
+multi-line cells, the booking inbox) and that a row with no tutor file yet
+still creates the tutor:
+
+```bash
+EKGURU_TEST_CSV=csv/ekguru_tutors.local.csv node tools/test-sheet-apply.js
 ```
 
 **It is not committed, and it is regenerated, not hand-edited.** The

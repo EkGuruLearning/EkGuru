@@ -73,6 +73,7 @@ def main():
         run("home tutor grid --check", ["node", "tools/build-home-tutors.js", "--check"])
         run("market pages --check", ["node", "tools/build-market-pages.js", "--check"])
         run("roster rows --check", ["node", "tools/build-roster-rows.js", "--check"])
+        run("sheet-apply test (sheet row -> site)", ["node", "tools/test-sheet-apply.js"])
         run("experience DOM test", ["node", "tools/test-experience-dom.mjs"])
         print("\n✔ every generated layer is up to date.")
         return
