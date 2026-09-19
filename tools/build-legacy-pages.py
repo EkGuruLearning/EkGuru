@@ -407,19 +407,200 @@ def load_countries():
     return out
 
 
-def support_band():
+# The reusable support band in the page's own language (v3 hardening, Gate 14).
+# Page language decides; English is the fallback. Reusable CTA strings only —
+# never lesson content. Keys: (title, paragraph, cta, trial).
+SUPPORT_BAND_I18N = {
+    "en": (
+        "Every lesson here is free, and always will be.",
+        "No account, no paywall. The practice itself — every quiz, worksheet "
+        "and drill — carries no ad at all; the pages around it sometimes do, "
+        "and that is what keeps the lessons running. Keeping it free is the "
+        "only thing this page asks of you.",
+        "Support EkGuru",
+        "Book a trial lesson",
+    ),
+    "es": (
+        "Cada lección aquí es gratis, y siempre lo será.",
+        "Sin cuenta, sin muro de pago. La práctica en sí — cada cuestionario, "
+        "hoja de trabajo y ejercicio — no lleva ningún anuncio; las páginas "
+        "que la rodean a veces sí, y eso es lo que mantiene las lecciones en "
+        "marcha. Mantenerlo gratis es lo único que te pide esta página.",
+        "Apoya a EkGuru",
+        "Reserva una lección de prueba",
+    ),
+    "fr": (
+        "Chaque leçon ici est gratuite, et le restera toujours.",
+        "Ni compte, ni abonnement. La pratique elle-même — chaque quiz, fiche "
+        "et exercice — ne comporte aucune publicité ; les pages autour parfois, "
+        "et c'est ce qui fait vivre les leçons. Les garder gratuites est la "
+        "seule chose que cette page vous demande.",
+        "Soutenez EkGuru",
+        "Réservez un cours d'essai",
+    ),
+    "de": (
+        "Jede Lektion hier ist kostenlos — und bleibt es für immer.",
+        "Kein Konto, keine Bezahlschranke. Das Üben selbst — jedes Quiz, jedes "
+        "Arbeitsblatt, jede Übung — trägt gar keine Werbung; die Seiten "
+        "drumherum manchmal schon, und genau das hält die Lektionen am Laufen. "
+        "Es kostenlos zu halten, ist das Einzige, worum diese Seite dich bittet.",
+        "EkGuru unterstützen",
+        "Probestunde buchen",
+    ),
+    "pt": (
+        "Cada lição aqui é grátis, e sempre será.",
+        "Sem conta, sem paywall. A prática em si — cada quiz, ficha e exercício "
+        "— não tem nenhum anúncio; as páginas ao redor às vezes têm, e é isso "
+        "que mantém as lições no ar. Mantê-lo grátis é a única coisa que esta "
+        "página pede de você.",
+        "Apoie a EkGuru",
+        "Reserve uma aula experimental",
+    ),
+    "ja": (
+        "ここのレッスンはすべて無料です。これからもずっと無料です。",
+        "アカウント不要、ペイウォールなし。練習そのもの——すべてのクイズ、"
+        "ワークシート、ドリル——には広告が一切ありません。周囲のページに広告が"
+        "表示されることがあり、それがレッスンの運営を支えています。このページの"
+        "お願いは、無料を守ることだけです。",
+        "EkGuruを応援する",
+        "体験レッスンを予約する",
+    ),
+    "ar": (
+        "كل درس هنا مجاني، وسيبقى كذلك دائمًا.",
+        "لا حساب ولا جدار دفع. التدرّب نفسه — كل اختبار وورقة عمل وتدريب — لا "
+        "يحمل أي إعلان إطلاقًا؛ أما الصفحات المحيطة فأحيانًا تفعل، وهذا ما "
+        "يُبقي الدروس مستمرة. إبقاؤه مجانيًا هو الشيء الوحيد الذي تطلبه منك "
+        "هذه الصفحة.",
+        "ادعم EkGuru",
+        "احجز درسًا تجريبيًا",
+    ),
+    "bn": (
+        "এখানকার প্রতিটি পাঠ বিনামূল্যে, এবং সবসময় তাই থাকবে।",
+        "কোনো অ্যাকাউন্ট নেই, কোনো পেওয়াল নেই। অনুশীলন নিজেই — প্রতিটি কুইজ, "
+        "ওয়ার্কশিট ও ড্রিল — কোনো বিজ্ঞাপন বহন করে না; আশপাশের পৃষ্ঠাগুলো "
+        "কখনো কখনো করে, আর সেটাই পাঠগুলো চালিয়ে রাখে। এটিকে বিনামূল্যে রাখাই "
+        "এই পৃষ্ঠার একমাত্র অনুরোধ।",
+        "EkGuru-কে সমর্থন করুন",
+        "ট্রায়াল পাঠ বুক করুন",
+    ),
+    "id": (
+        "Setiap pelajaran di sini gratis, dan akan selalu gratis.",
+        "Tanpa akun, tanpa paywall. Latihannya sendiri — setiap kuis, lembar "
+        "kerja, dan latihan — sama sekali tidak memuat iklan; halaman di "
+        "sekitarnya kadang memuat, dan itulah yang membuat pelajaran terus "
+        "berjalan. Menjaganya tetap gratis adalah satu-satunya hal yang "
+        "diminta halaman ini darimu.",
+        "Dukung EkGuru",
+        "Pesan pelajaran percobaan",
+    ),
+    "it": (
+        "Ogni lezione qui è gratuita, e lo sarà sempre.",
+        "Niente account, niente paywall. La pratica in sé — ogni quiz, scheda "
+        "ed esercizio — non contiene alcuna pubblicità; le pagine intorno a "
+        "volte sì, ed è questo che tiene in piedi le lezioni. Mantenerlo "
+        "gratuito è l'unica cosa che questa pagina ti chiede.",
+        "Sostieni EkGuru",
+        "Prenota una lezione di prova",
+    ),
+    "ko": (
+        "여기의 모든 수업은 무료이며, 앞으로도 계속 무료입니다.",
+        "계정도 없고 페이월도 없습니다. 연습 자체——모든 퀴즈, 워크시트, 훈련——"
+        "에는 광고가 전혀 없습니다. 주변 페이지에는 가끔 광고가 나오는데, "
+        "그것이 수업을 유지하는 힘입니다. 무료로 지키는 것, 그것이 이 페이지의 "
+        "유일한 부탁입니다.",
+        "EkGuru 후원하기",
+        "체험 수업 예약하기",
+    ),
+    "pl": (
+        "Każda lekcja tutaj jest darmowa i zawsze będzie.",
+        "Bez konta, bez paywalla. Sama praktyka — każdy quiz, karta pracy i "
+        "ćwiczenie — nie zawiera żadnych reklam; strony wokół czasem tak, i to "
+        "właśnie utrzymuje lekcje przy życiu. Utrzymanie tego za darmo to "
+        "jedyna rzecz, o którą prosi cię ta strona.",
+        "Wesprzyj EkGuru",
+        "Zarezerwuj lekcję próbną",
+    ),
+    "ru": (
+        "Каждый урок здесь бесплатен и навсегда останется таким.",
+        "Без аккаунта и платной подписки. Сама практика — каждый тест, рабочий "
+        "лист и упражнение — не содержит никакой рекламы; страницы вокруг "
+        "иногда содержат, и именно это поддерживает уроки. Сохранить это "
+        "бесплатным — единственное, о чём просит вас эта страница.",
+        "Поддержать EkGuru",
+        "Записаться на пробный урок",
+    ),
+    "tr": (
+        "Buradaki her ders ücretsizdir ve hep öyle kalacaktır.",
+        "Hesap yok, ödeme duvarı yok. Alıştırmanın kendisi — her test, çalışma "
+        "kâğıdı ve egzersiz — hiç reklam taşımaz; çevresindeki sayfalar bazen "
+        "taşır ve dersleri ayakta tutan da budur. Bunu ücretsiz tutmak, bu "
+        "sayfanın senden istediği tek şeydir.",
+        "EkGuru'yu destekle",
+        "Deneme dersi ayırt",
+    ),
+    "ur": (
+        "یہاں کا ہر سبق مفت ہے، اور ہمیشہ مفت رہے گا۔",
+        "نہ اکاؤنٹ، نہ پے وال۔ مشق خود — ہر کوئز، ورک شیٹ اور ڈرل — کوئی اشتہار "
+        "نہیں رکھتی؛ آس پاس کے صفحات کبھی کبھی رکھتے ہیں، اور یہی اسباق کو جاری "
+        "رکھتا ہے۔ اسے مفت رکھنا ہی اس صفحے کی آپ سے واحد گزارش ہے۔",
+        "EkGuru کی حمایت کریں",
+        "آزمائشی سبق بک کریں",
+    ),
+    "vi": (
+        "Mọi bài học ở đây đều miễn phí, và sẽ luôn như vậy.",
+        "Không tài khoản, không tường phí. Bản thân việc luyện tập — mỗi câu "
+        "đố, phiếu bài tập và bài rèn luyện — hoàn toàn không có quảng cáo; "
+        "các trang xung quanh đôi khi có, và chính điều đó giúp các bài học "
+        "tiếp tục. Giữ nó miễn phí là điều duy nhất trang này mong ở bạn.",
+        "Ủng hộ EkGuru",
+        "Đặt buổi học thử",
+    ),
+    "zh": (
+        "这里的每节课都是免费的，而且永远免费。",
+        "无需账号，没有付费墙。练习本身——每个测验、练习卷和训练——完全没有广告；"
+        "周围的页面有时会有，而这正是维持课程运转的方式。保持免费是本页面对你的"
+        "唯一请求。",
+        "支持 EkGuru",
+        "预约试听课",
+    ),
+}
+
+
+def page_lang(html):
+    """Two-letter page language from <html lang>. Page language decides copy."""
+    m = re.search(r'<html[^>]*\blang="([a-zA-Z-]+)"', html)
+    if not m:
+        return "en"
+    return m.group(1).lower().split("-")[0].split("_")[0]
+
+
+def support_band(lang="en"):
+    if lang in (None, "", "en") or lang not in SUPPORT_BAND_I18N:
+        # Legacy byte-exact English: 1,500+ shipped pages already carry it,
+        # and changing its wrapping would mark every one stale.
+        return (
+            '<footer class="pw-support">\n'
+            '  <div>\n'
+            '    <b>Every lesson here is free, and always will be.</b>\n'
+            '    <p>No account, no paywall. The practice itself — every quiz, worksheet\n'
+            '    and drill — carries no ad at all; the pages around it sometimes do,\n'
+            '    and that is what keeps the lessons running. Keeping it free is the\n'
+            '    only thing this page asks of you.</p>\n'
+            '  </div>\n'
+            '  <a class="pw-support-cta" href="/support/">Support EkGuru</a>\n'
+            '  <a href="/find-tutors.html">Book a trial lesson</a>\n'
+            '</footer>\n'
+        )
+    title, para, cta, trial = SUPPORT_BAND_I18N[lang]
     return (
         '<footer class="pw-support">\n'
         '  <div>\n'
-        '    <b>Every lesson here is free, and always will be.</b>\n'
-        '    <p>No account, no paywall. The practice itself — every quiz, worksheet\n'
-        '    and drill — carries no ad at all; the pages around it sometimes do,\n'
-        '    and that is what keeps the lessons running. Keeping it free is the\n'
-        '    only thing this page asks of you.</p>\n'
+        '    <b>%s</b>\n'
+        '    <p>%s</p>\n'
         '  </div>\n'
-        '  <a class="pw-support-cta" href="/support/">Support EkGuru</a>\n'
-        '  <a href="/find-tutors.html">Book a trial lesson</a>\n'
-        '</footer>\n'
+        '  <a class="pw-support-cta" href="/support/">%s</a>\n'
+        '  <a href="/find-tutors.html">%s</a>\n'
+        '</footer>\n' % (title, para, cta, trial)
     )
 
 
@@ -535,7 +716,7 @@ def band_anchor(html, path):
 
 def splice_bands(html, path, countries, by_country):
     block = (BAND_START + "\n" + (next_band(path, countries, by_country) or "")
-             + support_band() + BAND_END + "\n")
+             + support_band(page_lang(html)) + BAND_END + "\n")
     if BAND_START in html:
         start = html.index(BAND_START)
         end = html.index(BAND_END, start) + len(BAND_END)

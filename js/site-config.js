@@ -888,7 +888,10 @@ window.EKGURU_SITE = {
 window.PAYMENT_MODE = window.PAYMENT_MODE || "COMING_SOON"; // "COMING_SOON" (production default) | "LIVE_API"
 window.PAYMENT_BACKEND_URL = "https://script.google.com/macros/s/AKfycbz8u_rBr2o4VPgmQgaweswLWKdYb-MMGrsa7WfckTCruLP-ZEasWnpkqJrZHux5Y8_4zA/exec";
 window.RAZORPAY_PAYMENT_LINK = "https://rzp.io/rzp/EkGuru";
-window.RAZORPAY_BUTTON_ID = "pl_TdkrmHjhK9ip3r";
+/* The live Payment Page id (pl_TdvVT9QL3k7cSY) lives ONLY in
+   support/index.html's embed + docs/RAZORPAY_PAYMENT_SETUP.md.
+   (A stale second id was defined here, read nowhere — removed so no
+   future code can wire itself to the wrong page.) */
 
 /* Global Payment CTA Guard — Enforces "Coming Soon" on any generic payment trigger */
 (function () {

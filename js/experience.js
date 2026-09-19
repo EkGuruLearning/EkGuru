@@ -449,15 +449,39 @@
       return s;
     }
 
+    function announce(open) {
+      /* The support toast (js/monetization.js) hides while search is open so
+         the two surfaces can never overlap. A plain DOM event keeps the two
+         features decoupled: either file can load without the other. */
+      try {
+        var holder = form.parentNode;
+        if (holder && holder.classList) {
+          if (open) holder.classList.add("is-open");
+          else holder.classList.remove("is-open");
+        }
+        var ev;
+        if (typeof root.CustomEvent === "function") {
+          ev = new root.CustomEvent(open ? "ekguru:search-open" : "ekguru:search-close");
+        } else if (doc.createEvent) {
+          ev = doc.createEvent("Event");
+          ev.initEvent(open ? "ekguru:search-open" : "ekguru:search-close", false, false);
+        }
+        if (ev) doc.dispatchEvent(ev);
+      } catch (e) { /* coordination is optional */ }
+    }
+
     function close() {
+      var wasOpen = !box.hidden;
       box.hidden = true;
       active = -1;
       input.setAttribute("aria-expanded", "false");
+      if (wasOpen) announce(false);
     }
 
     function paint(list) {
       items = list;
       if (!list.length) { close(); return; }
+      announce(true);
       box.innerHTML =
         '<div class="xp-sugg-head"><span>' + esc(copy.hint) + "</span>" +
         '<span class="xp-kbd">Enter</span></div>' +

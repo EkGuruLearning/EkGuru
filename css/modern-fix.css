@@ -129,7 +129,7 @@ button{font:inherit}
 /* ===== PRINT FIX — ONLY WORKSHEET PRINTS ===== */
 @media print{
   html,body{background:#fff !important}
-  .hdr,.ftr,.nav,.burger,.skip,.no-print,button,.btn,.course-tools,.course-hero,.xp-orb,.xp-progress,.adsbygoogle,ins,#ekguru-consent,#ekguru-offline-game,.pw-support,.pw-next,.crumb,.cf-actions{display:none !important}
+  .hdr,.ftr,.nav,.burger,.skip,.no-print,button,.btn,.course-tools,.course-hero,.xp-orb,.xp-progress,.adsbygoogle,ins,#ekguru-consent,.pw-support,.pw-next,.crumb,.cf-actions{display:none !important}
   body{padding:0 !important;margin:0 !important}
   main,.wrap,.art,.pw-legacy,.egc{max-width:none !important;margin:0 !important;padding:0 !important;box-shadow:none !important;border:none !important;background:#fff !important}
   /* Worksheet only */
@@ -159,18 +159,6 @@ button{font:inherit}
 .consent-settings{background:transparent;color:#5f6577;text-decoration:underline;border:none;cursor:pointer;font-size:.85rem}
 
 /* ===== OFFLINE GAMES ===== */
-#ekguru-offline-game{position:fixed;bottom:20px;right:20px;z-index:1000;background:#fff;border:1px solid #e4e4ef;border-radius:20px;box-shadow:0 8px 32px rgba(0,0,0,.12);padding:16px;width:min(340px,calc(100vw - 32px));transform:translateY(calc(100% + 40px));transition:transform .4s cubic-bezier(.22,1,.36,1)}
-#ekguru-offline-game.show{transform:translateY(0)}
-.offline-game-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.offline-game-header b{font-size:1rem;color:#10131f}
-.offline-game-close{width:32px;height:32px;border-radius:50%;border:1px solid #e4e4ef;background:#fff;cursor:pointer;display:grid;place-items:center;font-size:1.2rem}
-.offline-game-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
-.offline-game-cell{aspect-ratio:1;border-radius:12px;background:#f5f2ff;border:1px solid #e6e1fb;display:grid;place-items:center;font-size:1.4rem;cursor:pointer;transition:.2s;font-weight:800}
-.offline-game-cell:hover{background:#ede8ff;transform:scale(1.05)}
-.offline-game-cell.matched{background:#d1fae5;border-color:#10b981;pointer-events:none}
-.offline-game-cell.flipped{background:#fff;border-color:#4f32d9}
-.offline-game-score{display:flex;justify-content:space-between;font-size:.85rem;color:#5f6577;margin-top:8px}
-.offline-game-actions{display:flex;gap:8px;margin-top:12px}
 
 /* ===== MONETIZATION / ADS PLACEMENTS ===== */
 .ad-slot{margin:24px 0;padding:0;border-radius:12px;overflow:hidden;background:#f8f7fd;border:1px dashed #d9d6e8;min-height:90px;display:grid;place-items:center;color:#8b7fb5;font-size:.8rem}

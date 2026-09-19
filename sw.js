@@ -37,8 +37,13 @@
    choose-a-method grid are gone; the custom API checkout stays disabled
    (PAYMENT_MODE = "COMING_SOON"). Cache generation moves so returning
    visitors cannot keep the old payment surface or the removed hero art. */
-/* BUILD: 2026-09-19T17:00:00Z v49 - support razorpay payment page embed */
-const BUILD_ID = "2026-09-19T17:00:00Z-v49-support-razorpay-embed";
+/* v50 — exec-v3 hardening pass: shared 8-language greeting (js/greeting.js)
+   joins the shell so the cached home page greets offline too; the support
+   surface lost its stale second Payment Page id and its stub section; the
+   non-English support bands are localized. Cache generation moves so no
+   returning visitor keeps the old greeting-less shell or the old bands. */
+/* BUILD: 2026-09-19T16:53:00Z v50 - exec-v3 greeting/i18n/support hardening */
+const BUILD_ID = "2026-09-19T16:53:00Z-v50-exec-v3-greeting-i18n-support";
 const CACHE = "ekguru-" + BUILD_ID;
 
 /* Phase 6 §14 — "Save for offline" pins learner-chosen pages in a dedicated
@@ -72,6 +77,9 @@ const SHELL = [
      above, so they belong in the same cache generation. */
   "./js/experience.js",
   "./js/site-search.js",
+  /* v50 — the shared greeting. The cached home page mounts it in the hero;
+     without this entry an offline revisit greets with an empty line. */
+  "./js/greeting.js",
   /* v200.2 — the shell. Every content page now carries the site header and
      footer (tools/build-shell.js) and these two give it behaviour: the
      drawer, the sheet-owned tagline, the copy source line and the print
@@ -130,8 +138,8 @@ const SHELL = [
   /* Phase 7 — global language registry + goal-based onboarding */
   "./js/languages.js",
   "./js/onboarding.js",
-  /* v300 — modern learning enhancements, offline games, visuals, adaptive */
-  "./js/offline-games.js",
+  /* v300 — modern learning enhancements, visuals, adaptive
+     (offline games removed outright; see cleanupRemovedGame) */
   "./js/level-visuals.js",
   "./js/visual-learning.js",
   "./js/practice-api.js",
@@ -139,7 +147,6 @@ const SHELL = [
   "./js/cookie-consent.js",
   "./js/monetization.js",
   "./js/adaptive-practice.js",
-  "./js/offline-game.js",
   "./js/scroll-restore.js",
   "./js/seo.js",
   "./js/seo-engine.js",

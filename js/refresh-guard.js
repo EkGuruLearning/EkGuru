@@ -76,7 +76,7 @@
               var cls = n.className || "";
               if (/[a-z0-9]{8,}-[a-z0-9]{4,}/i.test(id) || /random|ad-|popup|overlay/i.test(cls)) {
                 // Check if it's our own known elements
-                if (n.closest && n.closest("#ekguru-print-root, #ekguru-consent, #ekguru-offline-game, .adsbygoogle")) return;
+                if (n.closest && n.closest("#ekguru-print-root, #ekguru-consent, .adsbygoogle")) return;
                 mutationCount++;
                 if (mutationCount < 10) log("unexpected-dom-add", (n.tagName||"")+"#"+id+"."+String(cls).slice(0,30));
               }

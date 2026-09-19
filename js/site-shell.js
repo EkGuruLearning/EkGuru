@@ -187,6 +187,55 @@
   function boot() {
     try { initMenu(); } catch (e) {}
     try { initValues(); } catch (e) {}
+    try { cleanupRemovedGame(); } catch (e2) {}
+  }
+
+  /* ---------------------------------------------------------
+     3. one-time cleanup for the removed Offline Game product
+     ---------------------------------------------------------
+     The old Offline Game (js/offline-game.js, js/offline-games.js)
+     was deleted from the site. Its floating button/dialog can no
+     longer be created, but a returning visitor may still hold its
+     localStorage keys and, if a stale cached page rendered the
+     dialog, its DOM. Remove both once, then never touch storage
+     again. Legitimate keys (progress, SRS, consent, settings)
+     are never matched by the prefixes below.
+     --------------------------------------------------------- */
+  var GAME_CLEANED_KEY = "ekguru:game-removed:v1";
+  function cleanupRemovedGame() {
+    var box = null;
+    try {
+      if (window.localStorage) box = window.localStorage;
+    } catch (e) { box = null; }
+    if (box) {
+      try {
+        if (box.getItem(GAME_CLEANED_KEY) === "1") return;
+      } catch (e) {}
+      try {
+        var drop = [];
+        for (var i = 0; i < box.length; i++) {
+          var k = box.key(i);
+          if (k && (k.indexOf("ekguru:offline-game") === 0 ||
+                    k.indexOf("ekguru:offline_game") === 0 ||
+                    k.indexOf("ekguru:game:") === 0)) {
+            drop.push(k);
+          }
+        }
+        for (var d = 0; d < drop.length; d++) box.removeItem(drop[d]);
+        box.setItem(GAME_CLEANED_KEY, "1");
+      } catch (e2) {}
+    }
+    /* A stale cached page may still render the old dialog/button. */
+    try {
+      var stale = doc.querySelectorAll(
+        "#ekguru-offline-game, #ekguru-offline-game-btn, .offline-game-header"
+      );
+      for (var s = 0; s < stale.length; s++) {
+        var n = stale[s].id === "" && stale[s].className === "offline-game-header"
+          ? stale[s].parentNode : stale[s];
+        if (n && n.parentNode) n.parentNode.removeChild(n);
+      }
+    } catch (e3) {}
   }
 
   if (doc.readyState === "loading") doc.addEventListener("DOMContentLoaded", boot);

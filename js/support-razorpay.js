@@ -411,6 +411,11 @@
 
     API_BASE = getApiBase();
 
+    /* Read once: every enable/disable decision below keys off this, so no
+       later code path (busy-reset, error state, DOM tampering recovery)
+       can switch the submit on while the API is gated. */
+    var gated = ((typeof window !== "undefined" && window.PAYMENT_MODE) || "COMING_SOON").toUpperCase() !== "LIVE_API";
+
     function populateCurrencies(list) {
       if (!currencySelect) return;
       var curVal = currencySelect.value || "INR";
@@ -543,7 +548,9 @@
     }
 
     function setFormBusy(busy) {
-      submitBtn.disabled = busy;
+      /* While gated the submit stays disabled even when the form is not
+         busy — setFormBusy(false) must never become an unlock. */
+      submitBtn.disabled = busy || gated;
       currencySelect.disabled = busy;
       amountInput.disabled = busy;
       if (nameInput) nameInput.disabled = busy;
@@ -787,8 +794,7 @@
     // (Earlier window.open/copy-link handlers for the removed duplicate
     //  buttons are gone with the markup.)
 
-    var paymentMode = (window.PAYMENT_MODE || "COMING_SOON").toUpperCase();
-    if (paymentMode === "COMING_SOON") {
+    if (gated) {
       if (submitBtn) {
         submitBtn.setAttribute("disabled", "disabled");
         submitBtn.setAttribute("aria-disabled", "true");

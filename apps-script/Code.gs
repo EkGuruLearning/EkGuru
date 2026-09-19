@@ -53,7 +53,7 @@
 "use strict";
 
 var SPREADSHEET_ID_DEFAULT = "1u5Jkbe_2lMoLWsaDPQkxTWhNACewRaOyZLLANy2dfVI";
-var BACKEND_VERSION = "1.4.0";
+var BACKEND_VERSION = "1.5.0";
 
 // Tab Names
 var TAB_PAYMENTS = "Payments";
@@ -1095,8 +1095,16 @@ function handleCreateOrder_(ss, data) {
   var props = PropertiesService.getScriptProperties();
   var keyId = props.getProperty("RAZORPAY_KEY_ID") || "";
   var keySecret = props.getProperty("RAZORPAY_KEY_SECRET") || "";
+  var rzpMode = (props.getProperty("RAZORPAY_MODE") || "TEST").toUpperCase();
 
   var razorpayOrderId = "";
+
+  /* Mock orders exist for TEST-mode development only. An unconfigured
+     LIVE backend must say so instead of minting order_mock_ rows that
+     look like real pending payments in the sheet. */
+  if ((!keyId || !keySecret || keyId.indexOf("mock_") !== -1 || keyId.indexOf("rzp_test_simulated") !== -1) && rzpMode !== "TEST") {
+    return { success: false, error: "Payment backend is not configured. Please use the Razorpay Payment Page on /support/." };
+  }
 
   // Call Razorpay API if credentials configured
   if (keyId && keySecret && keyId.indexOf("mock_") === -1 && keyId.indexOf("rzp_test_simulated") === -1) {
@@ -1458,8 +1466,11 @@ function handleVerifyPayment_(ss, data) {
   var isValid = false;
   if (keySecret) {
     isValid = verifyHmacSha256_(orderId + "|" + paymentId, signature, keySecret);
-  } else {
-    // If no secret configured in test runtime, test against mock signature
+  } else if ((props.getProperty("RAZORPAY_MODE") || "TEST").toUpperCase() === "TEST" &&
+             orderId.indexOf("order_mock_") === 0) {
+    /* TEST-mode mock orders only (v1.5.0): the old fallback accepted ANY
+       10+ character string as a valid signature whenever no secret was
+       configured — including for production-shaped order ids. */
     isValid = (signature.length >= 10);
   }
 
@@ -1536,11 +1547,16 @@ function handleWebhook_(ss, e, rawBody, payload) {
     signature = e.parameter["x-razorpay-signature"] || "";
   }
 
+  /* Fail closed (v1.5.0): without a configured webhook secret there is no
+     way to tell Razorpay from an attacker forging payment.captured, so
+     the receiver refuses everything instead of processing unsigned
+     events into SUCCESS rows and public supporter entries. */
+  if (!webhookSecret) {
+    return { success: false, status: 500, error: "Webhook receiver not configured" };
+  }
   // Enforce HMAC-SHA256 signature verification over raw request body
-  if (webhookSecret) {
-    if (!verifyHmacSha256_(rawBody, signature, webhookSecret)) {
-      return { success: false, status: 400, error: "Invalid webhook signature" };
-    }
+  if (!verifyHmacSha256_(rawBody, signature, webhookSecret)) {
+    return { success: false, status: 400, error: "Invalid webhook signature" };
   }
 
   var eventType = payload.event || "";
@@ -1662,19 +1678,23 @@ function handleWebhook_(ss, e, rawBody, payload) {
 function updateCustomerRecord_(ss, data) {
   var email = String(data.email || "").toLowerCase().trim();
   var name = String(data.name || "").trim();
-  var key = email || name || (data.phone ? String(data.phone).trim() : "") || "Supporter";
 
   var sheet = ss.getSheetByName(TAB_CUSTOMERS);
   var lastRow = sheet.getLastRow();
   var rowIndex = -1;
   var existingRow = null;
 
-  if (lastRow > 1) {
+  /* MERGE RULE (v1.5.0 fix): email is the ONLY merge key.
+     The old rule also merged on bare name, so every anonymous donor
+     ("Supporter", common first names) collapsed into ONE row — lifetime
+     totals then mixed strangers' money together. A payment without an
+     email now always opens its own row: repeat anonymous donors split
+     across rows (provably safe) instead of merging across people. */
+  if (lastRow > 1 && email) {
     var values = sheet.getRange(2, 1, lastRow - 1, HEADERS.Customers.length).getValues();
     for (var i = 0; i < values.length; i++) {
       var rEmail = String(values[i][2] || "").toLowerCase().trim();
-      var rName = String(values[i][1] || "").trim();
-      if ((email && rEmail === email) || (name && rName === name)) {
+      if (rEmail === email) {
         rowIndex = i + 2;
         existingRow = values[i];
         break;
