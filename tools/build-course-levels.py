@@ -91,14 +91,26 @@ INDIAN = {"hi": "hindi", "bn": "bengali", "gu": "gujarati", "kn": "kannada",
           "ml": "malayalam", "mr": "marathi", "pa": "punjabi", "ta": "tamil",
           "te": "telugu", "ur": "urdu"}
 
-# The level → ladder rung bridge. The ladder has eleven rungs (six CEFR levels
-# plus the half-step after each of the first five — see data/levels.json); a
-# course has the six. A level page takes its figure from its own rung.
-LEVEL_RUNG = {"A1": "a1", "A2": "a2", "B1": "b1", "B2": "b2", "C1": "c1", "C2": "c2"}
-NEXT_RUNG = {"A1": "a1p", "A2": "a2p", "B1": "b1p", "B2": "b2p", "C1": "c1p", "C2": ""}
+# v2 ladder (data/levels.json, version 2): eleven levels in the exact order
+# they appear everywhere: A1 A2 A3 B1 B2 B3 C1 C2 C3 C4 C5. A1, A2, B1, B2,
+# C1, C2 are the six official CEFR levels. A3, B3, C3, C4, C5 are EkGuru
+# Extended Mastery — EkGuru's own extension, NEVER official CEFR (CEFR stops
+# at C2). A level page is published only for a level that has authored data.
+LEVEL_ORDER = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3", "C4", "C5"]
+EXTENDED = {"A3", "B3", "C3", "C4", "C5"}
+EXTENDED_NOTE = ("an EkGuru Extended Mastery level — EkGuru's extension beyond the "
+                 "official CEFR scale, which has six levels and stops at C2. It is "
+                 "not a CEFR level and is never described as one.")
 
 LEVEL_NAMES = {"A1": "Beginner", "A2": "Elementary", "B1": "Intermediate",
-               "B2": "Upper intermediate", "C1": "Advanced", "C2": "Mastery"}
+               "B2": "Upper intermediate", "C1": "Advanced", "C2": "Mastery",
+               "A3": "Independent everyday use", "B3": "Mature fluency",
+               "C3": "Specialization", "C4": "Expert depth", "C5": "Teaching and mediation"}
+
+
+def rung_of(level):
+    """A level's rung id on the v2 ladder: its own lowercase form."""
+    return level.lower()
 
 TYPE_LABEL = {
     "multiple_choice": "multiple choice", "word_selection": "choose the word",
@@ -253,8 +265,16 @@ def href_of(path):
 def rail(code, levels, current):
     items = []
     for lv in levels:
-        cur = ' aria-current="page"' if lv == current else ""
-        items.append('<li><a href="../%s/"%s>%s</a></li>' % (lv.lower(), cur, lv))
+        if lv in EXTENDED:
+            # The extended levels are part of the ladder in the exact A1-C5
+            # order, but a level page exists only once its content is
+            # authored. Until then the rung is labelled, not linked — a dead
+            # link on a ladder is how trust is lost.
+            items.append('<li class="lv-rail-ext"><span>%s</span> '
+                         '<em>Extended Mastery — in development</em></li>' % lv)
+        else:
+            cur = ' aria-current="page"' if lv == current else ""
+            items.append('<li><a href="../%s/"%s>%s</a></li>' % (lv.lower(), cur, lv))
     return ('<nav aria-label="Levels of this course"><ul class="lv-rail">'
             + "".join(items) + "</ul></nav>")
 
@@ -265,11 +285,15 @@ def figure_html(code, rung_id, figs, rung=None, tail=""):
     if not fig:
         return ""
     rung = rung or {}
-    caption = ("%s — on the ladder this level is %s, age %s: by the end of it "
-               "the learner can %s."
-               % (_clean(rung.get("label", fig.get("label", ""))),
-                  _clean(rung.get("who", "a learner")), fig.get("age", ""),
-                  _clean(rung.get("can", "read and speak a little")).rstrip(".")))
+    label = _clean(rung.get("label", fig.get("label", "")))
+    if rung.get("cefr") is False:
+        caption = ("%s — an EkGuru Extended Mastery level (not official CEFR): "
+                   "by the end of it the learner can %s."
+                   % (label, _clean(rung.get("can", "hold a longer, more precise conversation")).rstrip(".")))
+    else:
+        caption = ("%s — on the ladder this level is the official CEFR step %s: "
+                   "by the end of it the learner can %s."
+                   % (label, label, _clean(rung.get("can", "read and speak a little")).rstrip(".")))
     return ('<figure class="lv-fig"><img src="../../../%s" width="320" height="200" '
             'loading="lazy" decoding="async" alt="%s"><figcaption>%s%s</figcaption></figure>'
             % (fig.get("path", ""), _clean(fig.get("alt", "")), caption,
@@ -418,7 +442,7 @@ def counts_of(data, code, name):
 # the level page
 # ---------------------------------------------------------------------------
 
-def level_page(code, course, level, data, rungmap, figs, levels):
+def level_page(code, course, level, data, rungmap, figs, levels, loaded=None):
     name = course["name"]
     lv = (data or {}).get("level") or {}
     units = lv.get("units") or []
@@ -427,7 +451,7 @@ def level_page(code, course, level, data, rungmap, figs, levels):
 
     n = counts_of(data, code, name)
     questions = n["practice"] + n["quiz"] + n["drills"] + n["test"]
-    rung = rungmap.get(LEVEL_RUNG.get(level, level.lower()))
+    rung = rungmap.get(rung_of(level))
     targets = lang_targets(code)
 
     title = "%s %s — %s" % (name, level, lv.get("title", LEVEL_NAMES.get(level, level)))
@@ -445,15 +469,22 @@ def level_page(code, course, level, data, rungmap, figs, levels):
         "Nothing here is behind JavaScript, and nothing needs an account.</p>"
         % (name, level, n["units"], n["lessons"], n["vocab"], questions, n["test"]))
     if rung:
-        body.append('<div class="note"><b>Who this level is for.</b> %s is one of the six CEFR '
-                    "levels and the %s rung on this site’s ladder: the learner in the picture is "
-                    "%s, because on this site age is the rung — the same learner grows up the "
-                    "ladder as the language grows. By the end of it you can %s.</div>"
-                    % (level, _clean(rung.get("label", level)), _clean(rung.get("who", "a learner")),
-                       _clean(rung.get("can", "hold a simple conversation")).rstrip(".")))
-    body.append(figure_html(code, LEVEL_RUNG.get(level, level.lower()), figs, rung=rung,
+        if level in EXTENDED:
+            body.append('<div class="note"><b>What this level is.</b> %s is %s '
+                        "%s. By the end of it you can %s.</div>"
+                        % (level, EXTENDED_NOTE,
+                           _clean(rung.get("name", level)),
+                           _clean(rung.get("can", "hold a longer, more precise conversation")).rstrip(".")))
+        else:
+            body.append('<div class="note"><b>What this level is.</b> %s is one of the six '
+                        "official CEFR levels, and the %s rung on this site’s ladder. A learner "
+                        "of any age can study it — the level describes what you can do, not who "
+                        "you are. By the end of it you can %s.</div>"
+                        % (level, _clean(rung.get("label", level)),
+                           _clean(rung.get("can", "hold a simple conversation")).rstrip(".")))
+    body.append(figure_html(code, rung_of(level), figs, rung=rung,
                             tail="The same figure is on the course hub and in "
-                                 "<a href=\"/how-levels-work/\">how the eleven rungs work</a>."))
+                                 "<a href=\"/how-levels-work/\">how the eleven levels work</a>."))
     body.append(rail(code, levels, level))
 
     goals = lv.get("goals") or []
@@ -520,21 +551,31 @@ def level_page(code, course, level, data, rungmap, figs, levels):
                     "the same test decides whether the next level unlocks.</p>")
         body.append('<ol class="test">%s</ol>' % "".join(practice_item(i, k) for k, i in enumerate(test)))
 
-    nxt = NEXT_RUNG.get(level, "")
-    nxt_rung = rungmap.get(nxt) if nxt else None
     i = levels.index(level) if level in levels else -1
     nxt_level = levels[i + 1] if 0 <= i < len(levels) - 1 else ""
-    if nxt_rung:
-        body.append('<h2 id="checkpoint">After %s: the %s checkpoint</h2>'
-                    % (level, _clean(nxt_rung["label"])))
-        body.append("<p>%s is not a certificate — it is the half-step between this level and the "
-                    "next one, and it is on this site’s ladder because language schools use it. "
-                    "You are at %s when you can %s. Get there by working the recall drills above "
-                    "and the review deck until nothing on this page surprises you%s.</p>"
-                    % (_clean(nxt_rung["label"]), _clean(nxt_rung["label"]),
-                       _clean(nxt_rung.get("can", "the level feels easy")).rstrip("."),
-                       (", then open the <a href=\"../%s/\">%s pages</a>" % (nxt_level.lower(), nxt_level))
-                       if nxt_level else ""))
+    nxt_rung = rungmap.get(rung_of(nxt_level)) if nxt_level else None
+    nxt_has_data = nxt_level and loaded and nxt_level in [lv for lv, d in zip(levels, loaded) if d]
+    if nxt_level:
+        body.append('<h2 id="checkpoint">After %s: the next level is %s</h2>'
+                    % (level, _clean(nxt_level)))
+        if nxt_rung:
+            nxt_desc = _clean(nxt_rung.get("can", "use the language with less effort")).rstrip(".")
+        else:
+            nxt_desc = "use the language with less effort"
+        if nxt_level in EXTENDED:
+            body.append("<p>%s is %s. It is on this site’s ladder in the exact order "
+                        "A1 A2 A3 B1 B2 B3 C1 C2 C3 C4 C5, and it is marked Extended Mastery "
+                        "so nobody reads it as an official CEFR level. It is published for this "
+                        "course once its full content has been authored%s. Until then, work the "
+                        "recall drills and the review deck above until nothing on this page "
+                        "surprises you.</p>"
+                        % (_clean(nxt_level), EXTENDED_NOTE,
+                           "" if nxt_has_data else ", which has not happened yet"))
+        else:
+            body.append("<p>When %s feels easy — you can %s — the <a href=\"../%s/\">%s level</a> "
+                        "opens. Get there by working the recall drills above and the review deck "
+                        "until nothing on this page surprises you.</p>"
+                        % (_clean(level), nxt_desc, nxt_level.lower(), _clean(nxt_level)))
 
     cards = []
     if targets["practice"]:
@@ -599,52 +640,75 @@ def ladder_page(code, course, levels, loaded, rungmap, figs):
     name = course["name"]
     targets = lang_targets(code)
     body = ['<div class="lv-main">']
-    body.append('<h1 id="lv-h1">%s levels — all six, A1 to C2</h1>' % _clean(name))
-    body.append('<p class="lv-lede">%s runs the same six levels as every other course here, and '
-                "the same eleven rungs as the rest of the site. Below is the whole ladder for %s: "
-                "what each level holds, how many questions are in it, and who the learner in the "
-                "picture is — a child at the first rung, an elder by the last.</p>"
-                % (_clean(name), _clean(name)))
+    body.append('<h1 id="lv-h1">%s levels — A1 to C5, in order</h1>' % _clean(name))
+    body.append('<p class="lv-lede">%s runs the same eleven levels as every other course here, '
+                "in the same order: A1 A2 A3 B1 B2 B3 C1 C2 C3 C4 C5. The six official CEFR "
+                "levels carry the full authored content below; A3, B3, C3, C4 and C5 are "
+                "EkGuru Extended Mastery levels — EkGuru's own extension, never official CEFR. "
+                "A level is a description of what you can do, not an age group: a learner of "
+                "any age can study any level.</p>" % _clean(name))
 
     total = dict(lessons=0, vocab=0, questions=0)
-    cards = []
+    published = []
     for lv, data in zip(levels, loaded):
         if data is None:
             continue
+        published.append(lv)
         n = counts_of(data, code, name)
         total["lessons"] += n["lessons"]
         total["vocab"] += n["vocab"]
         total["questions"] += n["practice"] + n["quiz"] + n["drills"] + n["test"]
-        cards.append(
-            '<div class="lv-card"><b><a href="%s/">%s · %s</a></b>'
-            "<span>%s</span><span>%d lessons · %d words · %d questions</span></div>"
-            % (lv.lower(), lv, _clean(((data.get("level") or {}).get("title") or LEVEL_NAMES.get(lv, lv))),
-               _clean((rungmap.get(LEVEL_RUNG.get(lv, "")) or {}).get("can", "")),
-               n["lessons"], n["vocab"], n["practice"] + n["quiz"] + n["test"]))
-    body.append('<p class="note"><b>The whole course, counted.</b> %d lessons, %d words with '
-                "romanisation and %d questions with answers — every one of them readable on the "
-                "level pages below.</p>" % (total["lessons"], total["vocab"], total["questions"]))
 
-    body.append("<h2>The six levels</h2>")
+    cards = []
+    ext_cards = []
+    for lv, data in zip(levels, loaded):
+        rung = rungmap.get(rung_of(lv)) or {}
+        if data is not None:
+            n = counts_of(data, code, name)
+            cards.append(
+                '<div class="lv-card"><b><a href="%s/">%s · %s</a></b>'
+                "<span>%s</span><span>%d lessons · %d words · %d questions</span></div>"
+                % (lv.lower(), lv, _clean(((data.get("level") or {}).get("title") or LEVEL_NAMES.get(lv, lv))),
+                   _clean(rung.get("can", "")),
+                   n["lessons"], n["vocab"], n["practice"] + n["quiz"] + n["test"]))
+        else:
+            ext_cards.append(
+                '<div class="lv-card lv-card-ext"><b>%s · %s</b>'
+                "<span>EkGuru Extended Mastery — in development. %s</span>"
+                "<span>Published for this course when its content has been authored.</span></div>"
+                % (lv, _clean(LEVEL_NAMES.get(lv, "")),
+                   (_clean(rung.get("can", "deeper, more specialised use of the language"))[:1].upper() + _clean(rung.get("can", "deeper, more specialised use of the language"))[1:])))
+    body.append('<p class="note"><b>The published course, counted.</b> %d lessons, %d words '
+                "with romanisation and %d questions with answers — every one of them readable "
+                "on the level pages below, none of them filler.</p>"
+                % (total["lessons"], total["vocab"], total["questions"]))
+
+    body.append("<h2>The published levels</h2>")
     body.append('<div class="lv-cards">%s</div>' % "".join(cards))
+    if ext_cards:
+        body.append("<h2>EkGuru Extended Mastery — in development</h2>")
+        body.append('<p class="note">%s A course publishes an extended level only when its '
+                    "full content has been authored; an honest ladder shows the rungs in order "
+                    "and says so, instead of filling them with filler. "
+                    "<a href=\"/how-levels-work/\">How the eleven levels work →</a></p>"
+% (EXTENDED_NOTE[:1].upper() + EXTENDED_NOTE[1:]))
+        body.append('<div class="lv-cards">%s</div>' % "".join(ext_cards))
 
-    body.append("<h2>The eleven rungs, in pictures</h2>")
-    body.append("<p>CEFR has six levels. This site also names the half-step after each of the "
-                "first five — A1+, A2+, B1+, B2+, C1+ — because that is the honest label for the "
-                "learner who has finished the lessons but is not yet ready for the next level. "
-                "There is no A3 and no C3–C5; a page that prints them is a page an examiner stops "
-                "trusting. <a href=\"/how-levels-work/\">The full explanation is here.</a></p>")
     cells = []
-    for rid, r in rungmap.items():
+    for lv in levels:
+        rid = rung_of(lv)
+        r = rungmap.get(rid) or {}
         fig = figs.get("%s-%s" % (code, rid))
         if not fig:
             continue
+        extra = " · EkGuru Extended Mastery" if r.get("cefr") is False else ""
         cells.append('<figure><img src="../../../%s" width="320" height="200" loading="lazy" '
-                     'decoding="async" alt="%s"><figcaption><b>%s</b> %s · age %s</figcaption>'
+                     'decoding="async" alt="%s"><figcaption><b>%s</b> %s%s</figcaption>'
                      "</figure>"
                      % (fig["path"], _clean(fig.get("alt", "")), _clean(r.get("label", rid)),
-                        _clean(r.get("who", "")), fig.get("age", "")))
+                        _clean((r.get("name") or "").split(" · ")[-1]), extra))
     if cells:
+        body.append("<h2>The eleven levels, in pictures</h2>")
         body.append('<div class="lv-grid">%s</div>' % "".join(cells))
 
     cards = ['<div class="lv-card"><b>Not sure of your level?</b><span>Five questions, then a '
@@ -670,21 +734,25 @@ def ladder_page(code, course, levels, loaded, rungmap, figs):
 
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "CollectionPage", "@id": "%s/languages/%s/level/#page" % (BASE, code),
-         "name": "%s levels — A1 to C2" % name,
+         "name": "%s levels — A1 to C5, in order" % name,
          "description": "%s levels: %d lessons, %d words and %d questions with answers across the "
-                        "six levels." % (name, total["lessons"], total["vocab"], total["questions"]),
+                        "published CEFR levels (A1, A2, B1, B2, C1, C2); A3, B3, C3, C4 and C5 "
+                        "are EkGuru Extended Mastery levels, in development." % (
+                            name, total["lessons"], total["vocab"], total["questions"]),
          "url": "%s/languages/%s/level/" % (BASE, code), "inLanguage": "en"},
         {"@type": "ItemList", "itemListElement": [
             {"@type": "ListItem", "position": i + 1, "name": "%s %s" % (name, lv),
              "url": "%s/languages/%s/level/%s/" % (BASE, code, lv.lower())}
-            for i, lv in enumerate(levels)]},
+            for i, lv in enumerate(published)]},
     ]}
     body.append('<script type="application/ld+json">%s</script>'
                 % json.dumps(ld, ensure_ascii=False, separators=(",", ":")))
 
-    title = "%s levels — A1 to C2, lesson by lesson" % name
-    desc = ("Every %s level in full: %d lessons, %d words with romanisation and %d questions with "
-            "answers, from A1 to C2." % (name, total["lessons"], total["vocab"], total["questions"]))
+    title = "%s levels — A1 to C5, in order" % name
+    desc = ("Every published %s level in full: %d lessons, %d words with romanisation and %d "
+            "questions with answers (A1, A2, B1, B2, C1, C2), plus the EkGuru Extended "
+            "Mastery levels A3, B3, C3, C4, C5 in development." % (
+                name, total["lessons"], total["vocab"], total["questions"]))
     url = "languages/%s/level/" % code
     crumb = ('<a href="/">EkGuru</a> › <a href="/languages/">Languages</a> › '
              '<a href="%s">%s</a> › Levels'
@@ -699,18 +767,26 @@ def ladder_page(code, course, levels, loaded, rungmap, figs):
 def rail_block(code, course, levels, loaded):
     rows = []
     for lv, data in zip(levels, loaded):
-        n = counts_of(data, code, course["name"])
-        rows.append('<li><a href="/languages/%s/level/%s/"><b>%s</b> %s'
-                    "<span>%d lessons · %d questions</span></a></li>"
-                    % (code, lv.lower(), lv, _clean(((data or {}).get("level") or {}).get("title", "")),
-                       n["lessons"], n["practice"] + n["quiz"] + n["test"]))
+        if data is not None:
+            n = counts_of(data, code, course["name"])
+            rows.append('<li><a href="/languages/%s/level/%s/"><b>%s</b> %s'
+                        "<span>%d lessons · %d questions</span></a></li>"
+                        % (code, lv.lower(), lv, _clean(((data or {}).get("level") or {}).get("title", "")),
+                           n["lessons"], n["practice"] + n["quiz"] + n["test"]))
+        else:
+            # EkGuru Extended Mastery: shown in the exact A1-C5 order, marked
+            # in development, never linked to a page that does not exist.
+            rows.append('<li class="lv-level-ext"><b>%s</b> %s'
+                        "<span>EkGuru Extended Mastery — in development</span></li>"
+                        % (lv, _clean(LEVEL_NAMES.get(lv, ""))))
     return (RAIL_START + "\n"
             '<section class="lv-levels" aria-labelledby="lv-levels-h">\n'
             '<h2 id="lv-levels-h">This course, level by level, in plain HTML</h2>\n'
-            "<p>The player above keeps your progress; these pages keep the content. Every level of "
-            "the %s course — its lessons, vocabulary, grammar, dialogues, practice questions, quiz, "
-            "worksheet and level test, with all the answers — is also a page you can read without "
-            "JavaScript, print, or link to. "
+            "<p>The player above keeps your progress; these pages keep the content. Every published "
+            "level of the %s course — its lessons, vocabulary, grammar, dialogues, practice questions, "
+            "quiz, worksheet and level test, with all the answers — is also a page you can read without "
+            "JavaScript, print, or link to. A3, B3, C3, C4 and C5 are EkGuru Extended Mastery levels "
+            "(not official CEFR) and appear here in order as they are published. "
             '<a href="/languages/%s/level/">The %s ladder in full →</a></p>\n'
             '<ul class="lv-level-list">%s</ul>\n'
             "</section>\n" % (_clean(course["name"]), code, _clean(course["name"]), "".join(rows))
@@ -821,7 +897,9 @@ def main():
         loaded = []
         for lv in levels:
             data = level_data(code, phase, lv)
-            if data is None:
+            if data is None and lv not in EXTENDED:
+                # A missing CEFR level is a real problem; a missing extended
+                # level is the normal state (authored when the content is).
                 problems.append("%s %s: no data file" % (code, lv))
             loaded.append(data)
 
@@ -833,7 +911,7 @@ def main():
         for lv, data in zip(levels, loaded):
             if data is None:
                 continue
-            made, why = level_page(code, course, lv, data, rungmap, figs, levels)
+            made, why = level_page(code, course, lv, data, rungmap, figs, levels, loaded)
             if made is None:
                 problems.append("%s %s: %s" % (code, lv, why))
                 continue

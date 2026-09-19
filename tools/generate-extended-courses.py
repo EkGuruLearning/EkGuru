@@ -1,8 +1,21 @@
 #!/usr/bin/env python3
 """
-EkGuru — Generate Extended Courses v300
-Adds: A3, B3, C3, C4, C5 levels, more lessons, 194 country languages
-Purpose: Deep courses with visual learning, age-based progression, SEO
+DEPRECATED — DO NOT RUN. Retired 2026-09-19.
+
+This script generated the A3/C4/C5 (and A1+/B1+ …) level data that filled
+the catalogue with placeholder lessons — "Practice question N", "Example N
+in <language>", romanized word lists with no meaning — and it keyed every
+level to an AGE GROUP (A1 "Children 5-10" … C5 "Elders 75+"). Both were
+retired from production: the 751 fabricated level files it produced were
+deleted (see data/audit/retire-fake-courses.json) and the site no longer
+treats age as level eligibility.
+
+The eleven-level ladder A1 A2 A3 B1 B2 B3 C1 C2 C3 C4 C5 lives in
+data/levels.json (v2). A3, B3, C3, C4 and C5 are EkGuru Extended Mastery
+levels and get real content by authoring real lessons through the normal
+course pipeline (tools/course-data/, tools/build-course-levels.py) — never
+by this generator. Running it would re-fabricate the content the audit
+removed.
 """
 
 import json
@@ -285,8 +298,14 @@ def generate_course_json(lang, level):
     return course_data
 
 def main():
-    print("Generating extended courses for 194 countries coverage...")
-    
+    raise SystemExit(
+        "ERROR: tools/generate-extended-courses.py is DEPRECATED and disabled.\n"
+        "It fabricated placeholder level content and keyed levels to age groups;\n"
+        "both were retired. Author extended levels (A3/B3/C3/C4/C5) as real\n"
+        "lessons through tools/course-data/ + tools/build-course-levels.py.\n"
+        "The ladder lives in data/levels.json (v2). Do not re-run this file."
+    )
+
     # Load existing index
     index_path = "data/courses/index.json"
     with open(index_path, 'r', encoding='utf-8') as f:

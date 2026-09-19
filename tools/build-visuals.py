@@ -1,28 +1,25 @@
 #!/usr/bin/env python3
-"""EkGuru — the level visuals: the same learner, from A1 to C2.
+"""EkGuru — the level visuals: the same learner, from A1 to C5.
 
-Prakash: "visuals har subject/language/page pe honi chahiye, country theme ke
-hisab se, aur level ke hisab se umar badalni chahiye — chhote level pe bachche,
-master level pe buzurg."
-
-So there is one figure per LANGUAGE per LEVEL, and the figure's AGE is the
-level's: a child at A1, a teenager around A2, a young adult at B1, an adult
-through B2, and by C1 and C2 an older person — grey hair, glasses, a lifetime
-of it. A learner who moves up a level sees themselves grow up with the course.
+v2 of the ladder (2026-09-19): the figure is ONE neutral learner at every
+level. What changes with the level is the band (start -> expert): the prop
+beside the figure carries more of the page as the contexts get more complex.
+The old age-staged figures (a child at A1, an elder at C2) treated age as
+level eligibility; the site no longer does that, and nothing about the
+picture claims a level belongs to an age group.
 
   · colours come from the language's own theme (the same accent its course
     pages use), so a page looks like the language it teaches
-  · the rung label and the native name are part of the picture, not decoration
-    added later: the file itself says "B1 · Independent / Deutsch"
+  · the level label and the native name are part of the picture, not
+    decoration added later: the file itself says "B1 · Independent / Deutsch"
   · every figure is a plain SVG (2-4 KB), no fonts to load, no requests
 
-Output:  images/vis/<code>-<rung>.svg          (32 languages x 11 rungs)
-         data/visuals.json                     (the manifest: age, stage, alt)
+Output:  images/vis/<code>-<rung>.svg          (per language x 11 levels)
+         data/visuals.json                     (the manifest: band, cefr, alt)
          the gallery on every course hub       (languages/<code>/course/)
 
-The ladder itself is data/levels.json — eleven rungs: CEFR's six levels plus
-the half-step after each of the first five (A1+, A2+, B1+, B2+, C1+). CEFR has
-no A3 and no C3-C5; see the note in that file.
+The ladder itself is data/levels.json — eleven levels: A1 A2 A3 B1 B2 B3
+C1 C2 C3 C4 C5. A3/B3/C3/C4/C5 are EkGuru Extended Mastery, not CEFR.
 
 Run:  python3 tools/build-visuals.py [--check]
 """
@@ -136,90 +133,72 @@ def esc(t):
     return (str(t).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
 
 
+# The figure is a single neutral learner on every rung. What changes with the
+# level is the BAND (start -> expert): the prop beside the figure carries more
+# and more of the page, which is the honest way to show growing complexity
+# without assigning a level to an age group. (v2 of the ladder: age was the
+# old proxy and is gone — see data/levels.json.)
+BANDS = {
+    "start":  {"body": 34.0, "shoulder": 22.0, "head": 24.0},
+    "grow":   {"body": 42.0, "shoulder": 25.0, "head": 24.0},
+    "mature": {"body": 50.0, "shoulder": 27.0, "head": 23.5},
+    "deep":   {"body": 56.0, "shoulder": 29.0, "head": 23.0},
+    "expert": {"body": 60.0, "shoulder": 30.0, "head": 22.5},
+}
+
+
+def props_for(band, a):
+    """The prop says what the level is FOR: more of the page, level by level."""
+    if band == "start":
+        return ('<rect x="222" y="136" width="30" height="30" rx="6" fill="#fff" stroke="%s" stroke-width="2"/>'
+                '<text x="237" y="157" font-size="17" text-anchor="middle" fill="%s" '
+                'font-family="system-ui,sans-serif">A</text>' % (a, a))
+    if band == "grow":
+        return ('<rect x="220" y="134" width="36" height="26" rx="4" fill="#fff" stroke="%s" stroke-width="2"/>'
+                '<path d="M226 144 h24 M226 152 h18" stroke="%s" stroke-width="2"/>' % (a, a))
+    if band == "mature":
+        return ('<rect x="216" y="130" width="46" height="30" rx="4" fill="#fff" stroke="%s" stroke-width="2"/>'
+                '<rect x="221" y="152" width="36" height="4" rx="2" fill="%s" opacity=".5"/>'
+                '<path d="M221 140 h20" stroke="%s" stroke-width="2"/>' % (a, a, a))
+    if band == "deep":
+        return ('<rect x="216" y="128" width="44" height="32" rx="4" fill="#fff" stroke="%s" stroke-width="2"/>'
+                '<path d="M238 128 v32" stroke="%s" stroke-width="1.6" opacity=".5"/>'
+                '<path d="M221 138 h34 M221 146 h26" stroke="%s" stroke-width="2" opacity=".8"/>' % (a, a, a))
+    return ('<rect x="214" y="126" width="48" height="34" rx="4" fill="#fff" stroke="%s" stroke-width="2"/>'
+            '<path d="M238 126 v34" stroke="%s" stroke-width="1.6" opacity=".5"/>'
+            '<path d="M219 136 h38 M219 144 h30 M219 152 h36" stroke="%s" stroke-width="2" opacity=".8"/>'
+            '<circle cx="257" cy="136" r="2.5" fill="%s"/>' % (a, a, a, a))
+
+
 def figure(code, lang, rung, index):
-    """One SVG: a person whose age IS the level."""
+    """One SVG: the same neutral learner at every level, a busier prop at each band."""
     a, b = themes_for(code)
-    age = rung["age"]
     label = rung["label"]
-    stage = rung["stage"]
-    n = float(index)
-
-    # Proportions: a child is short with a big head; an elder is stooped.
-    head = 26.0 - n * 0.7
-    if stage == "child":
-        body_h, shoulder = 30.0 + n * 3, 20.0
-    elif stage == "teen":
-        body_h, shoulder = 46.0 + (n - 2) * 5, 24.0
-    else:
-        body_h, shoulder = 56.0 + (n - 4) * 1.8, 28.0
-    light = min(0.85, max(0.0, (age - 8) / 78.0))       # 0 dark hair, 1 white
-    grey = int(40 + light * 200)
-    hair_colour = "rgb(%d,%d,%d)" % (grey, grey, min(255, grey + 6))
-
+    band = rung.get("band") or "start"
+    p = BANDS[band]
+    body_h, shoulder, head = p["body"], p["shoulder"], p["head"]
     cx = 160.0
     head_y = 96.0 - body_h - head / 2 + 26
     torso_top = head_y + head - 2
     r8 = lambda v: round(v, 1)
+    props = props_for(band, a)
 
-    # Props say what the level is FOR.
-    if stage == "child":
-        py = 132 + n * 2
-        props = ('<rect x="222" y="%s" width="30" height="30" rx="6" fill="#fff" stroke="%s" stroke-width="2"/>'
-                 '<text x="237" y="%s" font-size="17" text-anchor="middle" fill="%s" '
-                 'font-family="system-ui,sans-serif">A</text>' % (r8(py), a, r8(py + 21), a))
-    elif stage == "teen":
-        props = ('<rect x="220" y="134" width="36" height="26" rx="4" fill="#fff" stroke="%s" stroke-width="2"/>'
-                 '<path d="M226 144 h24 M226 152 h18" stroke="%s" stroke-width="2"/>' % (a, a))
-    elif stage == "youth":
-        props = ('<rect x="226" y="128" width="20" height="34" rx="4" fill="#fff" stroke="%s" stroke-width="2"/>'
-                 '<circle cx="236" cy="136" r="2.5" fill="%s"/>' % (a, a))
-    elif stage == "adult":
-        props = ('<rect x="216" y="130" width="46" height="30" rx="4" fill="#fff" stroke="%s" stroke-width="2"/>'
-                 '<rect x="221" y="152" width="36" height="4" rx="2" fill="%s" opacity=".5"/>' % (a, a))
-    else:
-        props = ('<rect x="216" y="128" width="44" height="32" rx="4" fill="#fff" stroke="%s" stroke-width="2"/>'
-                 '<path d="M238 128 v32" stroke="%s" stroke-width="1.6" opacity=".5"/>' % (a, a))
-        if stage == "elder":
-            props += ('<path d="M118 168 q-14 -6 -10 -34" stroke="%s" stroke-width="3" fill="none" '
-                      'stroke-linecap="round"/>' % b)
-
-    glasses = ""
-    if age >= 34:
-        glasses = ('<g stroke="%s" stroke-width="2" fill="none"><circle cx="%s" cy="%s" r="7"/>'
-                   '<circle cx="%s" cy="%s" r="7"/><path d="M%s %s h6"/></g>'
-                   % (b, r8(cx - 9), r8(head_y + 2), r8(cx + 9), r8(head_y + 2),
-                      r8(cx - 2), r8(head_y + 2)))
-    beard = ""
-    if age >= 45:
-        beard = ('<path d="M%s %s q%s 22 %s 0" fill="none" stroke="%s" stroke-width="%d" '
-                 'stroke-linecap="round"/>'
-                 % (r8(cx - head * 0.42), r8(head_y + head * 0.34), int(head * 0.42),
-                    int(head * 0.84), hair_colour, 7 if age < 62 else 9))
-
-    if stage == "child" and index == 0:
-        hair = ('<circle cx="%s" cy="%s" r="%s" fill="%s"/>'
-                % (r8(cx), r8(head_y - head * 0.30), r8(head * 0.52), hair_colour))
-    else:
-        hair = ('<path d="M%s %s a%s %s 0 0 1 %s 0 q%s -%s -%s -%s q-%s 0 -%s %s z" fill="%s"/>'
-                % (r8(cx - head / 2), r8(head_y - head * 0.16), r8(head / 2), r8(head * 0.6),
-                   r8(head), r8(head * 0.5), r8(head * 0.5), r8(head * 0.5), r8(head * 0.2),
-                   r8(head * 0.5), r8(head * 0.5), r8(head * 0.5), hair_colour))
-
-    head_shape = ('<circle cx="%s" cy="%s" r="%s" fill="#f3c9a8"/>'
-                  % (r8(cx), r8(head_y), r8(head / 2))) if stage == "child" else \
-                 ('<ellipse cx="%s" cy="%s" rx="%s" ry="%s" fill="#f3c9a8"/>'
+    hair = ('<path d="M%s %s a%s %s 0 0 1 %s 0 q%s -%s -%s -%s q-%s 0 -%s %s z" fill="#3a3a44"/>'
+            % (r8(cx - head / 2), r8(head_y - head * 0.16), r8(head / 2), r8(head * 0.6),
+               r8(head), r8(head * 0.5), r8(head * 0.5), r8(head * 0.5), r8(head * 0.2),
+               r8(head * 0.5), r8(head * 0.5), r8(head * 0.5)))
+    head_shape = ('<ellipse cx="%s" cy="%s" rx="%s" ry="%s" fill="#f3c9a8"/>'
                   % (r8(cx), r8(head_y), r8(head / 2), r8(head / 2 + 3)))
 
     native = esc(lang.get("native") or lang["name"])
     name = esc(lang["name"])
-    who = esc(rung["who"])
     can = esc(rung["can"])
     direction = "rtl" if code in ("ar", "fa", "he", "ur") else "ltr"
     stage_name = rung["name"].split(" · ")[-1]
 
     return (
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" width="320" height="200" '
-        'role="img" aria-label="%s at level %s: %s. %s">\n'
+        'role="img" aria-label="%s at level %s: %s">\n'
         '<title>%s at %s \u2014 %s</title>\n'
         '<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">'
         '<stop offset="0" stop-color="%s" stop-opacity=".16"/>'
@@ -228,29 +207,26 @@ def figure(code, lang, rung, index):
         '<circle cx="%s" cy="%s" r="%s" fill="%s" opacity=".18"/>\n'
         '<rect x="0" y="168" width="320" height="32" fill="%s" opacity=".1"/>\n'
         '<g><rect x="%s" y="%s" width="%s" height="%s" rx="10" fill="%s"/>'
-        '<rect x="%s" y="%s" width="%s" height="%s" rx="8" fill="#f3c9a8"/>%s%s%s%s</g>\n'
+        '<rect x="%s" y="%s" width="%s" height="%s" rx="8" fill="#f3c9a8"/>%s%s</g>\n'
         '%s\n'
         '<text x="16" y="26" font-size="13" font-weight="700" fill="%s" '
         'font-family="system-ui,-apple-system,Segoe UI,sans-serif">%s</text>\n'
         '<text x="16" y="44" font-size="11" fill="%s" direction="%s" '
         'font-family="system-ui,-apple-system,Segoe UI,sans-serif">%s</text>\n'
-        '<text x="304" y="26" text-anchor="end" font-size="11" fill="%s" '
-        'font-family="system-ui,-apple-system,Segoe UI,sans-serif">age %d</text>\n'
         '<text x="304" y="44" text-anchor="end" font-size="10" fill="%s" '
         'font-family="system-ui,-apple-system,Segoe UI,sans-serif">%s</text>\n'
         '<text x="16" y="190" font-size="10" fill="%s" '
         'font-family="system-ui,-apple-system,Segoe UI,sans-serif">%s \u2014 %s</text>\n'
         '</svg>\n'
-        % (name, label, who, can, name, label, who,
+        % (name, label, can, name, label, esc(stage_name),
            a, b,
            r8(cx), r8(head_y), r8(head * 1.7), a,
            a,
            r8(cx - shoulder / 2), r8(torso_top - 4), r8(shoulder), r8(body_h + 10), "#f3c9a8",
            r8(cx - head / 2), r8(head_y - head / 2), r8(head), r8(head),
-           head_shape, hair, glasses, beard,
+           head_shape, hair,
            props,
            a, label, b, direction, native,
-           b, age,
            b, esc(stage_name),
            b, name, esc(stage_name))
     )
@@ -269,20 +245,23 @@ def gallery(code, lang, page, rungs, manifest):
     items = []
     for r in rungs:
         info = manifest["figures"]["%s-%s" % (code, r["id"])]
+        extra = " · EkGuru Extended Mastery" if r.get("cefr") is False else ""
         items.append(
-            '<figure class="lv-fig">'
+            '<figure class="lv-fig%s">'
             '<img src="%s%s" width="320" height="200" loading="lazy" alt="%s">'
-            '<figcaption><b>%s</b> %s</figcaption></figure>'
-            % (prefix, info["path"], esc(info["alt"]), r["label"], esc(r["who"])))
+            '<figcaption><b>%s</b> %s%s</figcaption></figure>'
+            % (" lv-fig-extended" if r.get("cefr") is False else "",
+               prefix, info["path"], esc(info["alt"]), r["label"],
+               esc(r["name"].split(" · ")[-1]), extra))
     return (
         MARK_START + "\n"
         '<section class="lv-visuals" aria-labelledby="lv-visuals-h">\n'
         '<h2 id="lv-visuals-h">The same learner, from %s to %s</h2>\n'
-        '<p>Each rung of this course is a person at a different age: a child at the '
-        'first level, an adult using the language at work in the middle, and by the '
-        'last level someone who has spoken it for a lifetime. The picture is the level — '
-        'the same ladder every language here climbs, '
-        '<a href="%show-levels-work/">and here is how the eleven rungs work</a>.</p>\n'
+        '<p>The same ladder every language here climbs, in eleven rungs: the six '
+        'official CEFR levels, and the EkGuru Extended Mastery levels (A3, B3, C3, '
+        'C4, C5) that go beyond them. The figure is the same person at every level — '
+        'the level is not an age group, and a learner of any age can study any rung. '
+        '<a href="%show-levels-work/">Here is how the eleven levels work</a>.</p>\n'
         '<div class="lv-strip">\n%s\n</div>\n'
         '</section>\n'
         % (rungs[0]["label"], rungs[-1]["label"], prefix, "\n".join(items)) +
@@ -309,8 +288,10 @@ def main():
             key = "%s-%s" % (code, r["id"])
             manifest["figures"][key] = {
                 "path": path, "language": code, "language_name": lang["name"], "rung": r["id"],
-                "label": r["label"], "age": r["age"], "stage": r["stage"],
-                "alt": "%s learning %s at level %s (%s)" % (r["who"].capitalize(), lang["name"], r["label"], r["stage"]),
+                "label": r["label"], "band": r.get("band", "start"), "cefr": r.get("cefr", True),
+                "alt": "Learner at level %s studying %s — %s%s" % (
+                    r["label"], lang["name"], r.get("can", ""),
+                    " (EkGuru Extended Mastery, not official CEFR)" if r.get("cefr") is False else ""),
             }
             if os.path.exists(path) and open(path, encoding="utf-8").read() == svg:
                 continue

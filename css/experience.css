@@ -1147,6 +1147,9 @@ html[dir="rtl"] .xp-sugg .xp-sugg-head { letter-spacing: 0; }
 
 .xp-step b { display: block; font-size: 1.06rem; margin-block-end: 8px; }
 .xp-step p { margin: 0; color: var(--ink-2); font-size: .94rem; }
+/* EkGuru Extended Mastery steps (A3 B3 C3 C4 C5): dashed so they read as
+   "on the ladder, not yet published". Never coloured like a real step. */
+.xp-step-ext { border-style: dashed; background: var(--bg-soft, #faf9ff); }
 
 /* Quotes ---------------------------------------------------------------- */
 
@@ -5138,6 +5141,17 @@ body.xp-market .hdr .hdr-in {
 .lv-level-list a { display: block; border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; text-decoration: none; background: #fff; }
 .lv-level-list a b { display: block; font-size: 1rem; }
 .lv-level-list a span { display: block; color: var(--muted); font-size: .85rem; margin-top: 3px; }
+
+/* EkGuru Extended Mastery rungs (A3 B3 C3 C4 C5): shown in the exact A1-C5
+   order, dashed so they read as "on the ladder, not yet published". They are
+   never links until a level page exists. */
+.lv-rail .lv-rail-ext { display: inline-flex; align-items: center; min-height: 44px; padding: 6px 15px; border: 1px dashed var(--line); border-radius: 999px; font-size: .9rem; color: var(--muted); }
+.lv-rail .lv-rail-ext em { font-style: normal; font-size: .78rem; }
+.lv-level-list .lv-level-ext { display: block; border: 1px dashed var(--line); border-radius: 12px; padding: 12px 14px; background: var(--bg-soft, #faf9ff); }
+.lv-level-ext b { display: block; font-size: 1rem; }
+.lv-level-ext span { display: block; color: var(--muted); font-size: .85rem; margin-top: 3px; }
+.lv-card-ext { border-style: dashed; background: var(--bg-soft, #faf9ff); }
+.lv-fig-extended figcaption b::after { content: " · Extended"; font-size: .8em; font-weight: 600; color: var(--muted); }
 
 /* ==========================================================================
    30. THE COUNTRY FIGURES — one plate per country
