@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-18T17:30:00Z",
+  "description": "Global adaptive practice bank index — language-neutral core, language-specific content",
+  "data_model": {
+    "question_id": "unique id per question",
+    "language": "ISO 639-1/3 code",
+    "country_context": "optional country code for local relevance",
+    "level": "A1-C5",
+    "lesson": "lesson id",
+    "skill": "vocabulary, grammar, reading, listening, speaking, writing, etc",
+    "topic": "topic string",
+    "difficulty": "1-5",
+    "answer": "correct answer",
+    "distractors": ["array of plausible distractors"],
+    "audio_source": "optional audio file or TTS marker",
+    "srs_eligible": "boolean — selective eligibility",
+    "variation_family": "group id for similar questions",
+    "seed_safe": "boolean — safe for seeded variation",
+    "created_at": "ISO timestamp",
+    "reviewed_at": "ISO timestamp"
+  },
+  "selection_score": [
+    "lesson alignment (30 points)",
+    "skill weakness (0-20)",
+    "recent errors (0-15 decaying)",
+    "difficulty matching (penalty)",
+    "unseen weight (25)",
+    "repetition suppression (-3 per seen)",
+    "SRS due status (20)",
+    "user seed variation (0-10)"
+  ],
+  "bank_status": {
+    "total_questions": 0,
+    "languages_covered": 89,
+    "levels_covered": ["A1","A2","A3","B1","B2","B3","C1","C2","C3","C4","C5"],
+    "source": "adaptive-practice.js loads from EKGURU_PRACTICE_BANK, EKGURU_HINDI_QUIZ, and synthetic fallback — server endpoint optional"
+  },
+  "server_endpoint": {
+    "description": "Optional server-side provider — must be server-side, quota-aware, timeout-aware, cached, fallback-safe, license-aware, disabled when not configured",
+    "config": "window.EKGURU_CONFIG.adaptiveEndpoint",
+    "fallback": "local bank mandatory",
+    "timeout": "5000ms mandatory",
+    "rate_limit": "mandatory",
+    "cache": "mandatory where safe",
+    "pii_minimization": "do not send unnecessary learner data to third-party"
+  },
+  "status": "PASS"
+}

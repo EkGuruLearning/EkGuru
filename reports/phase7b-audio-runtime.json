@@ -1,0 +1,79 @@
+{
+  "generated": "2026-09-12T15:53:27Z",
+  "pass": true,
+  "fails": [],
+  "facts": {
+    "listen_buttons": 6,
+    "honest_label_present": true,
+    "voice_count": 0,
+    "hi_in_voices": [],
+    "speechSynthesis_present": true,
+    "after_listen.label": "Stop",
+    "after_listen.aria_pressed": "false",
+    "after_listen.state": {
+      "speaking": false,
+      "pending": false,
+      "paused": false
+    },
+    "after_listen.state_600ms": {
+      "speaking": false,
+      "pending": false,
+      "paused": false
+    },
+    "after_listen.events": [
+      "error"
+    ],
+    "utterances_invoked": 1,
+    "after_stop.label": "Stop",
+    "after_stop.aria_pressed": "false",
+    "after_stop.state": {
+      "speaking": false,
+      "pending": false,
+      "paused": false
+    },
+    "replay.utterances": 3,
+    "after_return.buttons_remounted": 6,
+    "after_return.speaking": false,
+    "mobile.listen_buttons": 6,
+    "mobile.after_tap.label": "Stop",
+    "mobile.utterances_invoked": 1,
+    "provider_matrix": {
+      "hi-IN": {
+        "resolve": "BROWSER_TTS",
+        "describe": "computer voice (browser TTS)"
+      },
+      "es-ES": {
+        "resolve": "BROWSER_TTS",
+        "describe": "computer voice (browser TTS)"
+      },
+      "fr-FR": {
+        "resolve": "BROWSER_TTS",
+        "describe": "computer voice (browser TTS)"
+      },
+      "ar-SA": {
+        "resolve": "BROWSER_TTS",
+        "describe": "computer voice (browser TTS)"
+      },
+      "xx-XX": {
+        "resolve": "BROWSER_TTS",
+        "describe": "computer voice (browser TTS)"
+      },
+      "": {
+        "resolve": "BROWSER_TTS",
+        "describe": "computer voice (browser TTS)"
+      }
+    },
+    "page_errors": [],
+    "provider_with_enumerated_voices": {
+      "hi": "BROWSER_TTS",
+      "es": "UNAVAILABLE",
+      "xx": "UNAVAILABLE"
+    }
+  },
+  "environment": {
+    "voice_count": 0,
+    "hi_in_voices": [],
+    "utterances_invoked": 1,
+    "note": "headless Chromium may ship zero voices; if so, actual audible speech is impossible in this harness and that fact is recorded, never papered over."
+  }
+}

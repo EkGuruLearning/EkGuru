@@ -1,0 +1,68 @@
+{
+  "generated": "2026-09-11T18:06:41Z",
+  "source": "js/email-templates.js ROUTES (machine-readable, single source of truth)",
+  "rules": [
+    "From is ALWAYS the verified EkGuru sender; the visitor/student/tutor address is never the From.",
+    "Reply-To is per role: tutor copy -> student; internal records -> student; receipts -> support.",
+    "Contact is NOT a booking; seven distinct types (incl. admin outbound + internal copy), no one generic recipient array.",
+    "TUTOR_EMAIL_UNAVAILABLE when no verified tutor address exists (student + internal still send)."
+  ],
+  "routes": [
+    {
+      "type": "BOOKING_STUDENT_CONFIRMATION",
+      "role": "booking_student",
+      "from": "verified EkGuru sender",
+      "to": "exact booking student email",
+      "replyTo": "official EkGuru support",
+      "template": "bookingStudent"
+    },
+    {
+      "type": "BOOKING_TUTOR_NOTIFICATION",
+      "role": "booking_tutor",
+      "from": "verified EkGuru sender",
+      "to": "canonical tutor notification_email",
+      "replyTo": "supported direct-response route (the student's email)",
+      "template": "bookingTutor"
+    },
+    {
+      "type": "BOOKING_EKGURU_NOTIFICATION",
+      "role": "booking_internal",
+      "from": "verified EkGuru sender",
+      "to": "EkGuru internal inbox",
+      "replyTo": "exact booking student email",
+      "template": "bookingInternal"
+    },
+    {
+      "type": "CONTACT_VISITOR_CONFIRMATION",
+      "role": "contact_visitor",
+      "from": "verified EkGuru sender",
+      "to": "exact submitted visitor email",
+      "replyTo": "official EkGuru support",
+      "template": "contactVisitor"
+    },
+    {
+      "type": "CONTACT_EKGURU_NOTIFICATION",
+      "role": "contact_internal",
+      "from": "verified EkGuru sender",
+      "to": "EkGuru internal inbox",
+      "replyTo": "exact visitor email",
+      "template": "contactInternal"
+    },
+    {
+      "type": "ADMIN_CONTACT_OUTBOUND",
+      "role": "admin_outbound",
+      "from": "verified EkGuru sender",
+      "to": "exact admin-selected recipient",
+      "replyTo": "official EkGuru support",
+      "template": "adminOutbound"
+    },
+    {
+      "type": "ADMIN_CONTACT_INTERNAL_COPY",
+      "role": "admin_internal_copy",
+      "from": "verified EkGuru sender",
+      "to": "EkGuru internal inbox",
+      "replyTo": "official EkGuru support",
+      "template": "adminInternalCopy"
+    }
+  ]
+}

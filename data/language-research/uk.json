@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "language": {"code": "uk", "name": "Ukrainian", "native_name": "українська", "family": "Indo-European: East Slavic", "script": "Cyrillic", "direction": "ltr"},
+  "inventory_priority": {"language_id": "lang:ukr", "priority": "P1", "score": 73, "countries": ["UA", "BY", "CZ", "EE", "HU", "LT", "LV", "MD", "PL", "PT", "RO", "RU", "SK"]},
+  "orthography_pronunciation": {"needs": ["и versus і", "ї and є", "г versus ґ", "soft sign and apostrophe", "mobile stress", "consonant assimilation and intonation"], "voice_strategy": "Synthetic uk-UA browser voice, explicitly labelled; never claim native recording."},
+  "grammar": {"nominal": ["seven cases including vocative", "three genders", "animacy", "adjective/pronoun agreement", "numeral government"], "verbal": ["perfective/imperfective aspect", "past, present and future", "conditional with би/б", "imperative", "motion verbs and prefixes", "participles, adverbial participles and impersonal forms"], "syntax_discourse": ["flexible information-structure word order", "genitive under negation and quantity", "relative який/що clauses", "clitic and particle placement", "reported and evidential stance"]},
+  "register_pragmatics": ["ти versus ви", "vocative address", "polite conditional requests", "formal correspondence", "aspect in requests", "disagreement mitigation", "regional and diaspora variation without conflating Ukrainian and Russian"],
+  "CEFR_progression": {"A1": "alphabet, sound-spelling, introductions, present and basic cases", "A2": "past/future, genitive, locative, motion and practical aspect", "B1": "case integration, aspect pairs, conditionals, relative clauses and narration", "B2": "prefixed motion, participles, impersonal constructions, focus and register", "C1": "academic synthesis, mediation and calibrated stance", "C2": "scope, implication, rhetoric, idiom, genre transformation and epistemic precision"},
+  "country_relationship_source": "data/global/language-country-relations.json",
+  "sources": [
+    {"title": "Український правопис 2019", "url": "https://mon.gov.ua/static-objects/mon/sites/1/zagalna%20serednya/05062019-onovl-pravo.pdf", "use": "official orthography"},
+    {"title": "Словники України online", "url": "https://lcorp.ulif.org.ua/dictua/", "use": "National Academy morphology, inflection and stress reference"},
+    {"title": "CEFR Companion Volume 2020", "url": "https://rm.coe.int/cefr-companion-volume-with-new-descriptors-2020/16809ea0d4", "use": "level progression, mediation, interaction and phonology"}
+  ],
+  "reviewed_at": "2026-09-17"
+}

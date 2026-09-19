@@ -1,0 +1,75 @@
+{
+  "generated": "2026-09-13T13:26:28Z",
+  "pass": true,
+  "results": [
+    {
+      "file": "tools/build-hindi-pages.py (regeneration run)",
+      "ok": true,
+      "detail": "decorated lessons: 0 | hub nav updated: False"
+    },
+    {
+      "file": "learn/hindi/review/index.html — srs-reset clears queue (v31 fix)",
+      "ok": true,
+      "detail": "queue=[] found"
+    },
+    {
+      "file": "learn/hindi/review/index.html — toast.js included",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "file": "learn/hindi/my-progress/index.html — toast.js included",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "file": "learn/hindi/practice/typing/index.html — toast.js included",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "file": "learn/hindi/practice/quiz/index.html — toast.js included",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "file": "learn/hindi/practice/worksheets/index.html — toast.js included",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "file": "learn/hindi/intermediate/index.html — toast.js included",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "file": "15 decorated lessons — toast.js included",
+      "ok": true,
+      "detail": "15/15"
+    },
+    {
+      "file": "toolbox/hindi-typing/index.html — translit fix intact (hand-authored)",
+      "ok": true,
+      "detail": "loads both translit scripts + fixed API call"
+    },
+    {
+      "file": "js/hindi-audio.js — voiceExists v31 fix intact (hand-authored)",
+      "ok": true,
+      "detail": "v31 fix present"
+    }
+  ],
+  "summary": {
+    "handAuthoredFixes": [
+      "toolbox/hindi-typing/index.html",
+      "js/hindi-audio.js"
+    ],
+    "generatedFixes": [
+      "learn/hindi/review/index.html",
+      "learn/hindi/my-progress/index.html",
+      "learn/hindi/practice/* (typing/quiz/worksheets)",
+      "15 decorated lessons"
+    ],
+    "generator": "tools/build-hindi-pages.py (source of truth for the generated pages)",
+    "countryPages": "learn-hindi-from-* are NOT reproducible — their generator (countrypages.js/patch.js) is absent from the repo after the GitHub re-init; they were edited in place per §19."
+  }
+}

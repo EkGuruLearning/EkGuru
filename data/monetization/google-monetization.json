@@ -1,0 +1,464 @@
+{
+ "schema_version": 1,
+ "reviewed_at": "2026-09-17",
+ "publisher": {
+  "adsense_client": "ca-pub-8175326569491671",
+  "ads_txt_id": "pub-8175326569491671",
+  "seller_domain": "google.com",
+  "relationship": "DIRECT",
+  "certification_authority_id": "f08c47fec0942fa0",
+  "source_of_truth": "this file; public publisher identifiers are not secrets"
+ },
+ "approval_status": "NOT_CLAIMED",
+ "products": [
+  {
+   "product": "AdSense Auto ads",
+   "type": "website advertising",
+   "website_app": "website",
+   "current_status": "publisher code present; account/site eligibility not verifiable from repository",
+   "eligibility": "AdSense-approved site and policy-compliant pages",
+   "implementation_status": "READY_CONSERVATIVE_ACCOUNT_CONFIGURATION_REQUIRED",
+   "required_account_setup": [
+    "verify site status",
+    "preview formats",
+    "configure page and area exclusions",
+    "configure certified CMP"
+   ],
+   "required_code": [
+    "single publisher loader",
+    "verification meta",
+    "safe-zone annotations"
+   ],
+   "UX_risk": "medium",
+   "policy_risk": "medium",
+   "page_types": [
+    "HIGH_CONTENT",
+    "MEDIUM_CONTENT"
+   ],
+   "priority": "P0",
+   "source": "https://support.google.com/adsense/answer/9261805"
+  },
+  {
+   "product": "Auto ads banner/in-page",
+   "type": "in-page",
+   "website_app": "website",
+   "current_status": "available in Auto ads",
+   "eligibility": "eligible content-rich page",
+   "implementation_status": "ACCOUNT_OPT_IN_RECOMMENDED_AFTER_PAGE_REVIEW",
+   "required_account_setup": [
+    "low initial ad load",
+    "minimum spacing",
+    "preview"
+   ],
+   "required_code": [
+    "Auto ads loader"
+   ],
+   "UX_risk": "medium",
+   "policy_risk": "medium",
+   "page_types": [
+    "HIGH_CONTENT",
+    "MEDIUM_CONTENT"
+   ],
+   "priority": "P0",
+   "source": "https://support.google.com/adsense/answer/9305577"
+  },
+  {
+   "product": "Multiplex",
+   "type": "native grid",
+   "website_app": "website",
+   "current_status": "available where account/site eligible",
+   "eligibility": "AdSense availability and sufficient content",
+   "implementation_status": "DISABLED_PENDING_APPROVAL_AND_UX_TEST",
+   "required_account_setup": [
+    "enable separately",
+    "preview"
+   ],
+   "required_code": [
+    "Auto ads loader"
+   ],
+   "UX_risk": "medium",
+   "policy_risk": "medium",
+   "page_types": [
+    "HIGH_CONTENT"
+   ],
+   "priority": "P1",
+   "source": "https://support.google.com/adsense/answer/9305577"
+  },
+  {
+   "product": "Anchor ads",
+   "type": "overlay",
+   "website_app": "website",
+   "current_status": "available; mainly mobile and optionally desktop",
+   "eligibility": "Auto ads eligibility",
+   "implementation_status": "DISABLED_RECOMMENDED_DURING_APPROVAL; TEST_BOTTOM_ONLY_LATER",
+   "required_account_setup": [
+    "exclude interactive/transactional/account pages",
+    "choose bottom position",
+    "disable desktop initially"
+   ],
+   "required_code": [
+    "Auto ads loader"
+   ],
+   "UX_risk": "high",
+   "policy_risk": "medium",
+   "page_types": [
+    "HIGH_CONTENT"
+   ],
+   "priority": "P1",
+   "source": "https://support.google.com/adsense/answer/9305577"
+  },
+  {
+   "product": "Vignette ads",
+   "type": "interstitial overlay",
+   "website_app": "website",
+   "current_status": "available and skippable between page loads",
+   "eligibility": "Auto ads eligibility",
+   "implementation_status": "DISABLED_RECOMMENDED_FOR_LEARNING_FLOW",
+   "required_account_setup": [
+    "exclude assessments/forms/player",
+    "disable additional triggers",
+    "set conservative frequency if ever tested"
+   ],
+   "required_code": [
+    "Auto ads loader"
+   ],
+   "UX_risk": "high",
+   "policy_risk": "medium",
+   "page_types": [
+    "HIGH_CONTENT only after experiment approval"
+   ],
+   "priority": "P2",
+   "source": "https://support.google.com/adsense/answer/16531962"
+  },
+  {
+   "product": "Side rail ads",
+   "type": "desktop overlay",
+   "website_app": "website",
+   "current_status": "available on widescreen",
+   "eligibility": "Auto ads eligibility and wide viewport",
+   "implementation_status": "DISABLED_PENDING_RENDERED_OVERLAP_TEST",
+   "required_account_setup": [
+    "choose side",
+    "exclude player"
+   ],
+   "required_code": [
+    "Auto ads loader"
+   ],
+   "UX_risk": "medium",
+   "policy_risk": "medium",
+   "page_types": [
+    "HIGH_CONTENT"
+   ],
+   "priority": "P1",
+   "source": "https://support.google.com/adsense/answer/16242705"
+  },
+  {
+   "product": "Ad intents links/anchors/chips",
+   "type": "intent-driven",
+   "website_app": "website",
+   "current_status": "available as opt-in where account/site eligible",
+   "eligibility": "Auto ads and account availability",
+   "implementation_status": "DISABLED_RECOMMENDED_UNTIL_CONTENT_AND_CONTROL_CONFUSION_TESTS_PASS",
+   "required_account_setup": [
+    "opt in selectively",
+    "preview Gemini-generated content and styling"
+   ],
+   "required_code": [
+    "google-anno-skip on lessons, controls, navigation and forms"
+   ],
+   "UX_risk": "high",
+   "policy_risk": "high",
+   "page_types": [
+    "HIGH_CONTENT editorial guides only"
+   ],
+   "priority": "P1",
+   "source": "https://support.google.com/adsense/answer/13844047"
+  },
+  {
+   "product": "AdSense Offerwall rewarded ad",
+   "type": "user-choice access",
+   "website_app": "website",
+   "current_status": "generally available announcement; account availability unverified",
+   "eligibility": "AdSense Privacy & messaging availability",
+   "implementation_status": "DISABLED; OPTIONAL_DEEP_CONTENT_PILOT_ONLY",
+   "required_account_setup": [
+    "create in Privacy & messaging",
+    "maximum/effectively dismissible setting",
+    "exclude core lessons and essential content"
+   ],
+   "required_code": [
+    "none for rewarded choice; Google implements flow"
+   ],
+   "UX_risk": "high",
+   "policy_risk": "high",
+   "page_types": [
+    "optional enrichment only"
+   ],
+   "priority": "P1",
+   "source": "https://support.google.com/adsense/answer/13865318"
+  },
+  {
+   "product": "Related Search for Auto ads",
+   "type": "search monetization",
+   "website_app": "website",
+   "current_status": "discontinued 2026-08-06",
+   "eligibility": "none",
+   "implementation_status": "PROHIBITED_DISCONTINUED",
+   "required_account_setup": [],
+   "required_code": [],
+   "UX_risk": "not applicable",
+   "policy_risk": "high if represented as active",
+   "page_types": [],
+   "priority": "DO_NOT_IMPLEMENT",
+   "source": "https://support.google.com/adsense/answer/12999250"
+  },
+  {
+   "product": "Google Ad Manager",
+   "type": "ad server and inventory management",
+   "website_app": "website",
+   "current_status": "future scale option",
+   "eligibility": "business/account eligibility and operational need",
+   "implementation_status": "NOT_IMPLEMENTED",
+   "required_account_setup": [
+    "inventory hierarchy",
+    "orders/line items",
+    "demand and consent governance"
+   ],
+   "required_code": [
+    "GPT migration only after decision"
+   ],
+   "UX_risk": "medium",
+   "policy_risk": "high operational complexity",
+   "page_types": [
+    "future managed inventory"
+   ],
+   "priority": "P2",
+   "source": "https://support.google.com/admanager/answer/9248464"
+  },
+  {
+   "product": "Google AdMob",
+   "type": "mobile app advertising",
+   "website_app": "native Android/iOS/Unity app only",
+   "current_status": "not applicable to current website",
+   "eligibility": "registered native app and AdMob account",
+   "implementation_status": "NOT_IMPLEMENTED_NO_WEBSITE_CODE",
+   "required_account_setup": [
+    "future native app registration"
+   ],
+   "required_code": [
+    "future Google Mobile Ads SDK in app, never website"
+   ],
+   "UX_risk": "not applicable",
+   "policy_risk": "high if misapplied",
+   "page_types": [],
+   "priority": "P3",
+   "source": "https://developers.google.com/admob/"
+  }
+ ],
+ "page_classes": {
+  "HIGH_CONTENT": {
+   "formats": "conservative in-page after approval; later tested side rail",
+   "overlay": "off initially"
+  },
+  "MEDIUM_CONTENT": {
+   "formats": "at most conservative in-page after quality pass",
+   "overlay": "off"
+  },
+  "INTERACTIVE_LEARNING": {
+   "formats": "no ad intents; no vignette/anchor during lesson, speaking, quiz, test or answer interaction",
+   "overlay": "excluded"
+  },
+  "UTILITY": {
+   "formats": "normally excluded",
+   "overlay": "excluded"
+  },
+  "TRANSACTIONAL": {
+   "formats": "excluded",
+   "overlay": "excluded"
+  },
+  "ACCOUNT": {
+   "formats": "excluded",
+   "overlay": "excluded"
+  },
+  "ADMIN": {
+   "formats": "excluded",
+   "overlay": "excluded"
+  }
+ },
+ "excluded_paths": [
+  "/admin.html",
+  "/admin/",
+  "/privacy/",
+  "/cookie-policy/",
+  "/terms/",
+  "/disclaimer/",
+  "/copyright/",
+  "/contact/",
+  "/search/",
+  "/404.html",
+  "/tutor.html",
+  "/join.html",
+  "/join/",
+  "/booking/",
+  "/checkout/",
+  "/payment/",
+  "/courses/"
+ ],
+ "safe_zones": [
+  "navigation",
+  "forms",
+  "course player",
+  "quiz and assessment",
+  "answer keys",
+  "audio and speaking controls",
+  "accessibility controls",
+  "transaction and account interfaces"
+ ],
+ "consent": {
+  "status": "REVIEW_REQUIRED_ACCOUNT_CONFIGURATION",
+  "requirement": "Use a Google-certified CMP integrated with IAB TCF for personalized ads in EEA, UK and Switzerland; assess legal obligations independently.",
+  "source": "https://support.google.com/adsense/answer/13554116"
+ },
+ "experiments": {
+  "status": "NOT_RUNNING",
+  "required_fields": [
+   "hypothesis",
+   "primary learning-safe metric",
+   "guardrail metrics",
+   "page class",
+   "duration",
+   "rollback owner"
+  ],
+  "guardrails": [
+   "no decline in lesson completion",
+   "no accidental-click proximity",
+   "no accessibility regression",
+   "no Core Web Vitals regression",
+   "immediate rollback"
+  ]
+ },
+ "ad_policy": {
+  "schema_version": 1,
+  "reviewed_at": "2026-09-18",
+  "rule": "The page class decides whether the AdSense loader is even in the HTML. Auto ads place themselves, so the only reliable way to keep an ad off a page that must not have one is to not load the script there. tools/inject-ads.py enforces this; tools/test-ad-policy.mjs checks it.",
+  "loader_allowed": [
+   "HIGH_CONTENT",
+   "MEDIUM_CONTENT"
+  ],
+  "attr": "data-ad-class",
+  "classes": {
+   "ADMIN": {
+    "match": [
+     "/admin.html",
+     "/admin/**",
+     "/tools/**"
+    ],
+    "why": "owner console and build tooling: never public, never monetised"
+   },
+   "TRANSACTIONAL": {
+    "match": [
+     "/support/**",
+     "/join.html",
+     "/join/**",
+     "/booking/**",
+     "/checkout/**",
+     "/payment/**",
+     "/contact/**"
+    ],
+    "why": "money, forms and booking: an ad next to a payment or a signup is a policy risk"
+   },
+   "UTILITY": {
+    "match": [
+     "/404.html",
+     "/offline.html",
+     "/offline/**",
+     "/search/**",
+     "/tutor/**",
+     "/tutor.html",
+     "/google*.html",
+     "/sitemap*",
+     "/privacy/**",
+     "/terms/**",
+     "/disclaimer/**",
+     "/copyright/**",
+     "/cookie-policy/**"
+    ],
+    "why": "navigation, reference and legal pages: nothing of their own to read"
+   },
+   "INTERACTIVE_LEARNING": {
+    "match": [
+     "/courses/**",
+     "/learn/**/practice/**",
+     "/learn/**/review/**",
+     "/learn/**/quiz/**",
+     "/languages/**/practice/**",
+     "/languages/**/quiz/**",
+     "/languages/**/review/**",
+     "/languages/**/worksheets/**",
+     "/languages/**/typing/**",
+     "/languages/**/level/**",
+     "/toolbox/**"
+    ],
+    "why": "a learner is mid-task: quiz, worksheet, typing, review or the course player. The honest way to promise no ad intents is to not load the script"
+   },
+   "HIGH_CONTENT": {
+    "match": [
+     "/",
+     "/index.html",
+     "/learn/**",
+     "/languages/**",
+     "/world-languages/**",
+     "/answers/**",
+     "/ask/**",
+     "/hindi/**",
+     "/materials/**",
+     "/daily-hindi/**",
+     "/learn-hindi-by-country/**",
+     "/about/**"
+    ],
+    "why": "a page whose whole job is to be read"
+   },
+   "MEDIUM_CONTENT": {
+    "match": [
+     "/ar/**",
+     "/de/**",
+     "/es/**",
+     "/fr/**",
+     "/ja/**",
+     "/pt/**",
+     "/name-in-hindi/**",
+     "/hindi-tutor/**",
+     "/urdu/**",
+     "/zh/**",
+     "/vi/**",
+     "/ru/**",
+     "/fa/**",
+     "/tr/**",
+     "/id/**",
+     "/bn/**",
+     "/ta/**",
+     "/te/**",
+     "/ml/**",
+     "/mr/**",
+     "/gu/**",
+     "/kn/**",
+     "/pa/**"
+    ],
+    "why": "useful, shorter or translated pages: conservative formats only"
+   }
+  },
+  "excluded_classes": {
+   "ADMIN": "never",
+   "TRANSACTIONAL": "never",
+   "UTILITY": "never",
+   "INTERACTIVE_LEARNING": "never",
+   "HIGH_CONTENT": "auto ads, low load",
+   "MEDIUM_CONTENT": "auto ads, lowest load"
+  },
+  "notes": [
+   "Every page also carries its class as data-ad-class on <html>, so a reviewer (or the audit) can see the decision in the HTML itself.",
+   "The legal pages — privacy, terms, disclaimer, copyright, cookie policy — are in excluded_paths as well as being UTILITY: an ad on a page that explains the ad cookies is the worst possible trade.",
+   "Consent stays a certified-CMP question (see 'consent'); this file never authorises a home-made banner."
+  ]
+ }
+}

@@ -1,0 +1,194 @@
+{
+  "generated": "2026-09-12T16:04:36Z",
+  "verdict": "GREEN",
+  "facts": {
+    "myhindi.export_filename": "ekguru-hindi-progress.json",
+    "myhindi.export_json_len": 150,
+    "myhindi.import_roundtrip_toast": "Imported.",
+    "myhindi.corrupt_import_toast": "Not valid JSON.",
+    "myhindi.after_reset_summary": "Summary. 0 lessons opened · 0 marked complete · 0 review cards (0 due) · 0 paths",
+    "typing.correct_feedback": "Correct — मैं",
+    "typing.incorrect_feedback": "Not quite. Try again or show the answer.",
+    "typing.empty_feedback": "Type the word first.",
+    "typing.reset_score": "0 of 33 done (0 tries).",
+    "quiz.q5_header": "Question 1 of 5 — basics\n\nWhy is the alphabet the right plac",
+    "quiz.q5_finished": "Score: 1 / 5 (20%)\n\nA recognition score, not a fluency measure.\n\nTry again",
+    "quiz.retry_button": true,
+    "quiz.q10_header": "Question 1 of 6 — basics\n\nWhat does the ",
+    "quiz.q15_header": "Question 1 of 6 — basics\n\nWhat does the ",
+    "quiz.insufficient": "Question 1 of 3 — time-dates\n\nWhich day is रविवार (ravivaar)",
+    "worksheet.answers_on_has_answers": true,
+    "worksheet.answers_off_no_answers": true,
+    "worksheet.print_button": true,
+    "page_errors": []
+  },
+  "fails": [],
+  "pageErrors": [],
+  "matrix": [
+    {
+      "feature": "full-card clickability",
+      "phase": 5,
+      "route": "/index.html, /toolbox/, /find-tutors.html",
+      "source": "css/ style.min.css + inline stretched-link",
+      "result": "GREEN",
+      "evidence": "phase5-card-clickability.json 19/19 (mouse/touch/keyboard/whitespace)"
+    },
+    {
+      "feature": "nested card controls",
+      "phase": 5,
+      "route": "/learn/paths/hindi-from-zero/, lesson quiz <details>",
+      "source": "inline + build-hindi-pages.py",
+      "result": "GREEN",
+      "evidence": "checkbox toggles independently; <details> opens; no error"
+    },
+    {
+      "feature": "search cards",
+      "phase": 5,
+      "route": "/search/",
+      "source": "search/index.html + hindi-fuzzy.js",
+      "result": "GREEN",
+      "evidence": "result card navigates; namaste/नमस्ते/aap/kaise all return results"
+    },
+    {
+      "feature": "tutor cards",
+      "phase": 5,
+      "route": "/find-tutors.html",
+      "source": "find-tutors.html",
+      "result": "GREEN",
+      "evidence": "tutor card whitespace click navigates to profile"
+    },
+    {
+      "feature": "materials cards",
+      "phase": 5,
+      "route": "/materials/",
+      "source": "materials/index.html",
+      "result": "GREEN",
+      "evidence": "materials hub card click navigates"
+    },
+    {
+      "feature": "quick quizzes",
+      "phase": 6,
+      "route": "/learn/hindi/practice/quiz/ + 15 lesson quizzes",
+      "source": "js/hindi-tools.js + js/hindi-quiz-bank.js",
+      "result": "GREEN",
+      "evidence": "4 options, explanation+Source, 5-run score/retry; 15/15 lessons bank-validated"
+    },
+    {
+      "feature": "browser audio",
+      "phase": 6,
+      "route": "/learn/how-to-say-hello-in-hindi/",
+      "source": "js/hindi-audio.js",
+      "result": "GREEN",
+      "evidence": "6 listen buttons mounted, speak() invoked, onerror handled, honest label"
+    },
+    {
+      "feature": "SRS",
+      "phase": 6,
+      "route": "/learn/hindi/review/",
+      "source": "js/hindi-srs.js + build-hindi-pages.py",
+      "result": "GREEN",
+      "evidence": "seed 65 cards, rate again/hard/good/easy, persist, reset, corrupt-graceful"
+    },
+    {
+      "feature": "Add to Review",
+      "phase": 6,
+      "route": "lesson data-hi-card → ＋ Review",
+      "source": "js/hindi-srs.js",
+      "result": "GREEN",
+      "evidence": "＋ Review button added a card (65→66)"
+    },
+    {
+      "feature": "My Hindi",
+      "phase": 6,
+      "route": "/learn/hindi/my-progress/",
+      "source": "build-hindi-pages.py + hindi-progress.js",
+      "result": "GREEN",
+      "evidence": "export/import round-trip, corrupt→error, reset→empty, summary renders"
+    },
+    {
+      "feature": "typing",
+      "phase": 6,
+      "route": "/learn/hindi/practice/typing/",
+      "source": "js/hindi-tools.js",
+      "result": "GREEN",
+      "evidence": "correct/minor accepted, incorrect+empty feedback, reset 0-of"
+    },
+    {
+      "feature": "topic quiz",
+      "phase": 6,
+      "route": "/learn/hindi/practice/quiz/",
+      "source": "js/hindi-tools.js",
+      "result": "GREEN",
+      "evidence": "5/10/15 render, insufficient bank graceful, retry present"
+    },
+    {
+      "feature": "worksheets",
+      "phase": 6,
+      "route": "/learn/hindi/practice/worksheets/",
+      "source": "js/hindi-tools.js",
+      "result": "GREEN",
+      "evidence": "build with/without answer section, print button (no fake download)"
+    },
+    {
+      "feature": "offline",
+      "phase": 6,
+      "route": "/learn/hindi-alphabet-for-beginners/",
+      "source": "sw.js + hindi-offline.js",
+      "result": "GREEN",
+      "evidence": "SW active, save→offline→render→reconnect→remove, no page errors"
+    },
+    {
+      "feature": "fuzzy search",
+      "phase": 6,
+      "route": "/search/",
+      "source": "js/hindi-fuzzy.js",
+      "result": "GREEN",
+      "evidence": "Roman+Devanagari+case-insensitive queries return results"
+    },
+    {
+      "feature": "language hub",
+      "phase": 7,
+      "route": "/languages/",
+      "source": "build-phase7-pages.py + js/languages.js",
+      "result": "GREEN",
+      "evidence": "29 language cells, Hindi Available now, others Coming soon"
+    },
+    {
+      "feature": "/start/ onboarding",
+      "phase": 7,
+      "route": "/start/",
+      "source": "js/onboarding.js",
+      "result": "GREEN",
+      "evidence": "Hindi→travel→beginner gives 3 real links; Spanish→honest 'planned'"
+    },
+    {
+      "feature": "language registry",
+      "phase": 7,
+      "route": "js/languages.js",
+      "source": "build-phase7-registries.py",
+      "result": "GREEN",
+      "evidence": "29 langs, unique ISO ids, only hi PRODUCTION, faithful js copy"
+    },
+    {
+      "feature": "country registry",
+      "phase": 7,
+      "route": "reports/country-registry-phase7.json",
+      "source": "build-phase7-registries.py",
+      "result": "GREEN",
+      "evidence": "250 ISO entities, 194 sovereign, unique cca2, no auto pages"
+    },
+    {
+      "feature": "audio provider abstraction",
+      "phase": 7,
+      "route": "js/hindi-audio.js (EkGuruAudioProvider)",
+      "source": "js/hindi-audio.js",
+      "result": "GREEN",
+      "evidence": "hi→BROWSER_TTS, es/xx→UNAVAILABLE (enumerated), honest labels"
+    }
+  ],
+  "summary": {
+    "total": 20,
+    "green": 20,
+    "yellow": 0
+  }
+}

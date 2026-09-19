@@ -1,0 +1,34 @@
+{
+  "generated": "2026-09-13T08:40:40Z",
+  "commit": "2c47646b4138b0b7efcbbb7f2036ec7647089375",
+  "contexts": [
+    {
+      "id": "india-visitor",
+      "title": "Learn Hindi for India",
+      "modules": 7,
+      "phraseCount": 33,
+      "linkCount": 4,
+      "source": "all phrases copied from real published EkGuru pages"
+    },
+    {
+      "id": "heritage",
+      "title": "Hindi for Family / Heritage Learners",
+      "modules": 4,
+      "phraseCount": 9,
+      "linkCount": 7,
+      "source": "all phrases copied from real published EkGuru pages"
+    }
+  ],
+  "browserEvidence": {
+    "gate": "phase7c-context-test",
+    "pass": true,
+    "facts": {
+      "india_modules": 7,
+      "india_has_phrases": true,
+      "heritage_modules": 4,
+      "heritage_has_family": true,
+      "page_errors": []
+    }
+  },
+  "rule": "Country is a context, never a language. Contexts add a lens on shared content; they do not duplicate the course. No language×country URL spam."
+}

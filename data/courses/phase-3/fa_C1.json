@@ -1,0 +1,1884 @@
+{
+  "code": "fa",
+  "name": "Persian",
+  "native": "فارسی",
+  "phase": 3,
+  "medium": "en",
+  "file_level": "C1",
+  "research_basis": "data/language-research/fa.json",
+  "level": {
+    "title": "Persian C1",
+    "goals": [
+      "Control Persian ezafe, object marking, aspect, mood, and information structure",
+      "Develop reception, interaction, production, and mediation",
+      "Use script, pronunciation, politeness, register, and cohesion appropriately"
+    ],
+    "units": [
+      {
+        "id": "fa-c1-u1",
+        "title": "Discourse and Stance",
+        "lessons": [
+          {
+            "id": "fa-c1-l1",
+            "title": "احتیاط دانشگاهی",
+            "learn": "Control احتیاط دانشگاهی in level-appropriate Persian.",
+            "vocab": [
+              {
+                "t": "یافته‌ها",
+                "r": "yfthh",
+                "en": "discourse segment in “The findings apparently support the hypothesis, although other explanations cannot be excluded.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ظاهراً",
+                "r": "Zhran",
+                "en": "discourse segment in “The findings apparently support the hypothesis, although other explanations cannot be excluded.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "از",
+                "r": "z",
+                "en": "discourse segment in “The findings apparently support the hypothesis, although other explanations cannot be excluded.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "فرضیه",
+                "r": "frDyh",
+                "en": "discourse segment in “The findings apparently support the hypothesis, although other explanations cannot be excluded.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "پشتیبانی",
+                "r": "pshtybny",
+                "en": "discourse segment in “The findings apparently support the hypothesis, although other explanations cannot be excluded.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "می‌کنند",
+                "r": "mykhnnd",
+                "en": "discourse segment in “The findings apparently support the hypothesis, although other explanations cannot be excluded.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "هرچند",
+                "r": "hrchnd",
+                "en": "discourse segment in “The findings apparently support the hypothesis, although other explanations cannot be excluded.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "نمی‌توان",
+                "r": "nmytwn",
+                "en": "discourse segment in “The findings apparently support the hypothesis, although other explanations cannot be excluded.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "احتیاط دانشگاهی",
+              "explain": "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register.",
+              "pattern": "topic + marked object/complements + aspect/modal material + final verb",
+              "examples": [
+                {
+                  "t": "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                  "r": "yfthh Zhran z frDyh pshtybny mykhnnd, hrchnd nmytwn twDyHhy dygr r khnr gdhsht.",
+                  "en": "The findings apparently support the hypothesis, although other explanations cannot be excluded."
+                },
+                {
+                  "t": "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                  "r": "gstrsh sry` dstrsy bh bzngry dr wlwythy t'myn mly njmyd.",
+                  "en": "Rapid expansion of access led to reassessment of funding priorities."
+                },
+                {
+                  "t": "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                  "r": "anchh rzyby bh an nprdkht, t'thyr br ydgyrndgn rwstyy bwd.",
+                  "en": "What the review failed to address was the impact on rural learners."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with missing ezafe, را, or mismatched verb stem",
+                  "right": "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                  "why": "The corrected model aligns Persian morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "زبان‌آموز",
+                "t": "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                "r": "yfthh Zhran z frDyh pshtybny mykhnnd, hrchnd nmytwn twDyHhy dygr r khnr gdhsht.",
+                "en": "The findings apparently support the hypothesis, although other explanations cannot be excluded."
+              },
+              {
+                "sp": "همکار",
+                "t": "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "r": "gstrsh sry` dstrsy bh bzngry dr wlwythy t'myn mly njmyd.",
+                "en": "Rapid expansion of access led to reassessment of funding priorities."
+              },
+              {
+                "sp": "میانجی",
+                "t": "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "r": "anchh rzyby bh an nprdkht, t'thyr br ydgyrndgn rwstyy bwd.",
+                "en": "What the review failed to address was the impact on rural learners."
+              },
+              {
+                "sp": "ویراستار",
+                "t": "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "r": "gzrsh Dmn pdhyrsh hzynh' khwthmdt stdll mykhnd khh t'khyr prhzynhtr khwhd bwd.",
+                "en": "While accepting short-term cost, the report argues delay will be more expensive."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "احتیاط دانشگاهی — multiple choice: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                "answer": "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                  "Form with incorrect ezafe or verb stem",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "احتیاط دانشگاهی — fill in the blank: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                "answer": "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "احتیاط دانشگاهی — translation: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                "answer": "The findings apparently support the hypothesis, although other explanations cannot be excluded.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "احتیاط دانشگاهی — reverse translation: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                "answer": "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "احتیاط دانشگاهی — matching: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                "answer": "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                "skill_target": "matching",
+                "options": [
+                  "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                  "Form with incorrect ezafe or verb stem",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "احتیاط دانشگاهی — reorder: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                "answer": "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "احتیاط دانشگاهی — sentence building: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                "answer": "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "احتیاط دانشگاهی — word selection: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                "answer": "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                "skill_target": "word selection",
+                "options": [
+                  "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                  "Form with incorrect ezafe or verb stem",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "احتیاط دانشگاهی — error correction: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                "answer": "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "احتیاط دانشگاهی — dialogue completion: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                "answer": "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "احتیاط دانشگاهی — reading comprehension: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                "answer": "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "احتیاط دانشگاهی — paragraph comprehension: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                "answer": "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "احتیاط دانشگاهی: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "احتیاط دانشگاهی: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "احتیاط دانشگاهی: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "احتیاط دانشگاهی: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "احتیاط دانشگاهی: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "یافته‌ها",
+              "ظاهراً",
+              "از",
+              "فرضیه"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "احتیاط دانشگاهی workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate ezafe, TAM, and discourse function.",
+                  "items": [
+                    "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                    "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید."
+                  ],
+                  "key": [
+                    "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register.",
+                    "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                    "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید."
+                  ],
+                  "key": [
+                    "The findings apparently support the hypothesis, although other explanations cannot be excluded.",
+                    "Rapid expansion of access led to reassessment of funding priorities."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "The findings apparently support the hypothesis, although other explanations cannot be excluded.",
+                    "Rapid expansion of access led to reassessment of funding priorities."
+                  ],
+                  "key": [
+                    "Model: یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                    "Model: گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "fa-c1-l2",
+            "title": "اسم‌سازی",
+            "learn": "Control اسم‌سازی in level-appropriate Persian.",
+            "vocab": [
+              {
+                "t": "گسترش",
+                "r": "gstrsh",
+                "en": "discourse segment in “Rapid expansion of access led to reassessment of funding priorities.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "سریع",
+                "r": "sry`",
+                "en": "discourse segment in “Rapid expansion of access led to reassessment of funding priorities.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "دسترسی",
+                "r": "dstrsy",
+                "en": "discourse segment in “Rapid expansion of access led to reassessment of funding priorities.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "به",
+                "r": "bh",
+                "en": "discourse segment in “Rapid expansion of access led to reassessment of funding priorities.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "بازنگری",
+                "r": "bzngry",
+                "en": "discourse segment in “Rapid expansion of access led to reassessment of funding priorities.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "در",
+                "r": "dr",
+                "en": "discourse segment in “Rapid expansion of access led to reassessment of funding priorities.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "اولویت‌های",
+                "r": "wlwythy",
+                "en": "discourse segment in “Rapid expansion of access led to reassessment of funding priorities.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "تأمین",
+                "r": "t'myn",
+                "en": "discourse segment in “Rapid expansion of access led to reassessment of funding priorities.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "اسم‌سازی",
+              "explain": "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register.",
+              "pattern": "topic + marked object/complements + aspect/modal material + final verb",
+              "examples": [
+                {
+                  "t": "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                  "r": "gstrsh sry` dstrsy bh bzngry dr wlwythy t'myn mly njmyd.",
+                  "en": "Rapid expansion of access led to reassessment of funding priorities."
+                },
+                {
+                  "t": "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                  "r": "anchh rzyby bh an nprdkht, t'thyr br ydgyrndgn rwstyy bwd.",
+                  "en": "What the review failed to address was the impact on rural learners."
+                },
+                {
+                  "t": "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                  "r": "gzrsh Dmn pdhyrsh hzynh' khwthmdt stdll mykhnd khh t'khyr prhzynhtr khwhd bwd.",
+                  "en": "While accepting short-term cost, the report argues delay will be more expensive."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with missing ezafe, را, or mismatched verb stem",
+                  "right": "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                  "why": "The corrected model aligns Persian morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "زبان‌آموز",
+                "t": "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "r": "gstrsh sry` dstrsy bh bzngry dr wlwythy t'myn mly njmyd.",
+                "en": "Rapid expansion of access led to reassessment of funding priorities."
+              },
+              {
+                "sp": "همکار",
+                "t": "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "r": "anchh rzyby bh an nprdkht, t'thyr br ydgyrndgn rwstyy bwd.",
+                "en": "What the review failed to address was the impact on rural learners."
+              },
+              {
+                "sp": "میانجی",
+                "t": "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "r": "gzrsh Dmn pdhyrsh hzynh' khwthmdt stdll mykhnd khh t'khyr prhzynhtr khwhd bwd.",
+                "en": "While accepting short-term cost, the report argues delay will be more expensive."
+              },
+              {
+                "sp": "ویراستار",
+                "t": "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                "r": "mTl`hh dr khnr hm byshtr br thr bft dllt drnd t rbThy `lWy w jhnshmwl.",
+                "en": "Taken together, the studies indicate contextual influence rather than universal causality."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reorder",
+                "q": "اسم‌سازی — reorder: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "answer": "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "اسم‌سازی — sentence building: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "answer": "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "اسم‌سازی — word selection: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "answer": "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "skill_target": "word selection",
+                "options": [
+                  "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                  "Form with incorrect ezafe or verb stem",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "اسم‌سازی — error correction: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "answer": "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "اسم‌سازی — dialogue completion: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "answer": "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "اسم‌سازی — reading comprehension: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "answer": "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "اسم‌سازی — paragraph comprehension: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "answer": "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "main_idea",
+                "q": "اسم‌سازی — main idea: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "answer": "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "اسم‌سازی — detail identification: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "answer": "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "inference",
+                "q": "اسم‌سازی — inference: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "answer": "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "اسم‌سازی — listening comprehension: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "answer": "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید."
+              },
+              {
+                "type": "dictation",
+                "q": "اسم‌سازی — dictation: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "answer": "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "اسم‌سازی: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "اسم‌سازی: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "اسم‌سازی: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "اسم‌سازی: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "اسم‌سازی: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "گسترش",
+              "سریع",
+              "دسترسی",
+              "به"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "اسم‌سازی workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate ezafe, TAM, and discourse function.",
+                  "items": [
+                    "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                    "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود."
+                  ],
+                  "key": [
+                    "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register.",
+                    "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                    "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود."
+                  ],
+                  "key": [
+                    "Rapid expansion of access led to reassessment of funding priorities.",
+                    "What the review failed to address was the impact on rural learners."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "Rapid expansion of access led to reassessment of funding priorities.",
+                    "What the review failed to address was the impact on rural learners."
+                  ],
+                  "key": [
+                    "Model: گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                    "Model: آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "fa-c1-u2",
+        "title": "Professional and Academic Control",
+        "lessons": [
+          {
+            "id": "fa-c1-l3",
+            "title": "کانون تقابلی",
+            "learn": "Control کانون تقابلی in level-appropriate Persian.",
+            "vocab": [
+              {
+                "t": "آنچه",
+                "r": "anchh",
+                "en": "discourse segment in “What the review failed to address was the impact on rural learners.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ارزیابی",
+                "r": "rzyby",
+                "en": "discourse segment in “What the review failed to address was the impact on rural learners.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "به",
+                "r": "bh",
+                "en": "discourse segment in “What the review failed to address was the impact on rural learners.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "آن",
+                "r": "an",
+                "en": "discourse segment in “What the review failed to address was the impact on rural learners.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "نپرداخت",
+                "r": "nprdkht",
+                "en": "discourse segment in “What the review failed to address was the impact on rural learners.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "تأثیر",
+                "r": "t'thyr",
+                "en": "discourse segment in “What the review failed to address was the impact on rural learners.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "بر",
+                "r": "br",
+                "en": "discourse segment in “What the review failed to address was the impact on rural learners.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "یادگیرندگان",
+                "r": "ydgyrndgn",
+                "en": "discourse segment in “What the review failed to address was the impact on rural learners.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "کانون تقابلی",
+              "explain": "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register.",
+              "pattern": "topic + marked object/complements + aspect/modal material + final verb",
+              "examples": [
+                {
+                  "t": "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                  "r": "anchh rzyby bh an nprdkht, t'thyr br ydgyrndgn rwstyy bwd.",
+                  "en": "What the review failed to address was the impact on rural learners."
+                },
+                {
+                  "t": "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                  "r": "gzrsh Dmn pdhyrsh hzynh' khwthmdt stdll mykhnd khh t'khyr prhzynhtr khwhd bwd.",
+                  "en": "While accepting short-term cost, the report argues delay will be more expensive."
+                },
+                {
+                  "t": "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                  "r": "mTl`hh dr khnr hm byshtr br thr bft dllt drnd t rbThy `lWy w jhnshmwl.",
+                  "en": "Taken together, the studies indicate contextual influence rather than universal causality."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with missing ezafe, را, or mismatched verb stem",
+                  "right": "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                  "why": "The corrected model aligns Persian morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "زبان‌آموز",
+                "t": "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "r": "anchh rzyby bh an nprdkht, t'thyr br ydgyrndgn rwstyy bwd.",
+                "en": "What the review failed to address was the impact on rural learners."
+              },
+              {
+                "sp": "همکار",
+                "t": "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "r": "gzrsh Dmn pdhyrsh hzynh' khwthmdt stdll mykhnd khh t'khyr prhzynhtr khwhd bwd.",
+                "en": "While accepting short-term cost, the report argues delay will be more expensive."
+              },
+              {
+                "sp": "میانجی",
+                "t": "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                "r": "mTl`hh dr khnr hm byshtr br thr bft dllt drnd t rbThy `lWy w jhnshmwl.",
+                "en": "Taken together, the studies indicate contextual influence rather than universal causality."
+              },
+              {
+                "sp": "ویراستار",
+                "t": "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                "r": "b Htrm bh yn tfsyr, byd dmnh' khrbrd an r dqyqtr mshkhS khrd.",
+                "en": "With respect for this interpretation, its scope should be defined more precisely."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reading_comprehension",
+                "q": "کانون تقابلی — reading comprehension: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "answer": "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "کانون تقابلی — paragraph comprehension: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "answer": "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "main_idea",
+                "q": "کانون تقابلی — main idea: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "answer": "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "کانون تقابلی — detail identification: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "answer": "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "inference",
+                "q": "کانون تقابلی — inference: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "answer": "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "کانون تقابلی — listening comprehension: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "answer": "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود."
+              },
+              {
+                "type": "dictation",
+                "q": "کانون تقابلی — dictation: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "answer": "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "کانون تقابلی — listen and choose: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "answer": "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "skill_target": "listen and choose",
+                "options": [
+                  "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                  "Form with incorrect ezafe or verb stem",
+                  "An unrelated greeting"
+                ],
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود."
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "کانون تقابلی — listen and reorder: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "answer": "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود."
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "کانون تقابلی — listen and fill: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "answer": "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "skill_target": "listen and fill",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "کانون تقابلی — repeat after audio: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "answer": "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود."
+              },
+              {
+                "type": "pronunciation",
+                "q": "کانون تقابلی — pronunciation: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "answer": "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "کانون تقابلی: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "کانون تقابلی: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "کانون تقابلی: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "کانون تقابلی: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "کانون تقابلی: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "آنچه",
+              "ارزیابی",
+              "به",
+              "آن"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "کانون تقابلی workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate ezafe, TAM, and discourse function.",
+                  "items": [
+                    "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                    "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود."
+                  ],
+                  "key": [
+                    "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register.",
+                    "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                    "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود."
+                  ],
+                  "key": [
+                    "What the review failed to address was the impact on rural learners.",
+                    "While accepting short-term cost, the report argues delay will be more expensive."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "What the review failed to address was the impact on rural learners.",
+                    "While accepting short-term cost, the report argues delay will be more expensive."
+                  ],
+                  "key": [
+                    "Model: آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                    "Model: گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "fa-c1-l4",
+            "title": "امتیازدهی پیچیده",
+            "learn": "Control امتیازدهی پیچیده in level-appropriate Persian.",
+            "vocab": [
+              {
+                "t": "گزارش",
+                "r": "gzrsh",
+                "en": "discourse segment in “While accepting short-term cost, the report argues delay will be more expensive.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ضمن",
+                "r": "Dmn",
+                "en": "discourse segment in “While accepting short-term cost, the report argues delay will be more expensive.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "پذیرش",
+                "r": "pdhyrsh",
+                "en": "discourse segment in “While accepting short-term cost, the report argues delay will be more expensive.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "هزینهٔ",
+                "r": "hzynh'",
+                "en": "discourse segment in “While accepting short-term cost, the report argues delay will be more expensive.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "کوتاه‌مدت",
+                "r": "khwthmdt",
+                "en": "discourse segment in “While accepting short-term cost, the report argues delay will be more expensive.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "استدلال",
+                "r": "stdll",
+                "en": "discourse segment in “While accepting short-term cost, the report argues delay will be more expensive.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "می‌کند",
+                "r": "mykhnd",
+                "en": "discourse segment in “While accepting short-term cost, the report argues delay will be more expensive.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "که",
+                "r": "khh",
+                "en": "discourse segment in “While accepting short-term cost, the report argues delay will be more expensive.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "امتیازدهی پیچیده",
+              "explain": "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register.",
+              "pattern": "topic + marked object/complements + aspect/modal material + final verb",
+              "examples": [
+                {
+                  "t": "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                  "r": "gzrsh Dmn pdhyrsh hzynh' khwthmdt stdll mykhnd khh t'khyr prhzynhtr khwhd bwd.",
+                  "en": "While accepting short-term cost, the report argues delay will be more expensive."
+                },
+                {
+                  "t": "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                  "r": "mTl`hh dr khnr hm byshtr br thr bft dllt drnd t rbThy `lWy w jhnshmwl.",
+                  "en": "Taken together, the studies indicate contextual influence rather than universal causality."
+                },
+                {
+                  "t": "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                  "r": "b Htrm bh yn tfsyr, byd dmnh' khrbrd an r dqyqtr mshkhS khrd.",
+                  "en": "With respect for this interpretation, its scope should be defined more precisely."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with missing ezafe, را, or mismatched verb stem",
+                  "right": "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                  "why": "The corrected model aligns Persian morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "زبان‌آموز",
+                "t": "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "r": "gzrsh Dmn pdhyrsh hzynh' khwthmdt stdll mykhnd khh t'khyr prhzynhtr khwhd bwd.",
+                "en": "While accepting short-term cost, the report argues delay will be more expensive."
+              },
+              {
+                "sp": "همکار",
+                "t": "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                "r": "mTl`hh dr khnr hm byshtr br thr bft dllt drnd t rbThy `lWy w jhnshmwl.",
+                "en": "Taken together, the studies indicate contextual influence rather than universal causality."
+              },
+              {
+                "sp": "میانجی",
+                "t": "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                "r": "b Htrm bh yn tfsyr, byd dmnh' khrbrd an r dqyqtr mshkhS khrd.",
+                "en": "With respect for this interpretation, its scope should be defined more precisely."
+              },
+              {
+                "sp": "ویراستار",
+                "t": "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                "r": "yfthh Zhran z frDyh pshtybny mykhnnd, hrchnd nmytwn twDyHhy dygr r khnr gdhsht.",
+                "en": "The findings apparently support the hypothesis, although other explanations cannot be excluded."
+              }
+            ],
+            "practice": [
+              {
+                "type": "listening_comprehension",
+                "q": "امتیازدهی پیچیده — listening comprehension: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "answer": "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود."
+              },
+              {
+                "type": "dictation",
+                "q": "امتیازدهی پیچیده — dictation: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "answer": "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "امتیازدهی پیچیده — listen and choose: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "answer": "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "skill_target": "listen and choose",
+                "options": [
+                  "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                  "Form with incorrect ezafe or verb stem",
+                  "An unrelated greeting"
+                ],
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود."
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "امتیازدهی پیچیده — listen and reorder: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "answer": "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود."
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "امتیازدهی پیچیده — listen and fill: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "answer": "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "skill_target": "listen and fill",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "امتیازدهی پیچیده — repeat after audio: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "answer": "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود."
+              },
+              {
+                "type": "pronunciation",
+                "q": "امتیازدهی پیچیده — pronunciation: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "answer": "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود."
+              },
+              {
+                "type": "shadowing",
+                "q": "امتیازدهی پیچیده — shadowing: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "answer": "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "امتیازدهی پیچیده — guided speaking: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "answer": "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "امتیازدهی پیچیده — free response: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "answer": "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "امتیازدهی پیچیده — roleplay: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "answer": "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "امتیازدهی پیچیده — sentence writing: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "answer": "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                "skill_target": "sentence writing"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "امتیازدهی پیچیده: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "امتیازدهی پیچیده: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "امتیازدهی پیچیده: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "امتیازدهی پیچیده: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "امتیازدهی پیچیده: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "گزارش",
+              "ضمن",
+              "پذیرش",
+              "هزینهٔ"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "امتیازدهی پیچیده workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate ezafe, TAM, and discourse function.",
+                  "items": [
+                    "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                    "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول."
+                  ],
+                  "key": [
+                    "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register.",
+                    "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                    "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول."
+                  ],
+                  "key": [
+                    "While accepting short-term cost, the report argues delay will be more expensive.",
+                    "Taken together, the studies indicate contextual influence rather than universal causality."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "While accepting short-term cost, the report argues delay will be more expensive.",
+                    "Taken together, the studies indicate contextual influence rather than universal causality."
+                  ],
+                  "key": [
+                    "Model: گزارش ضمن پذیرش هزینهٔ کوتاه‌مدت استدلال می‌کند که تأخیر پرهزینه‌تر خواهد بود.",
+                    "Model: مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "fa-c1-u3",
+        "title": "Pragmatics and Synthesis",
+        "lessons": [
+          {
+            "id": "fa-c1-l5",
+            "title": "ترکیب منابع",
+            "learn": "Control ترکیب منابع in level-appropriate Persian.",
+            "vocab": [
+              {
+                "t": "مطالعه‌ها",
+                "r": "mTl`hh",
+                "en": "discourse segment in “Taken together, the studies indicate contextual influence rather than universal causality.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "در",
+                "r": "dr",
+                "en": "discourse segment in “Taken together, the studies indicate contextual influence rather than universal causality.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "کنار",
+                "r": "khnr",
+                "en": "discourse segment in “Taken together, the studies indicate contextual influence rather than universal causality.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "هم",
+                "r": "hm",
+                "en": "discourse segment in “Taken together, the studies indicate contextual influence rather than universal causality.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "بیشتر",
+                "r": "byshtr",
+                "en": "discourse segment in “Taken together, the studies indicate contextual influence rather than universal causality.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "بر",
+                "r": "br",
+                "en": "discourse segment in “Taken together, the studies indicate contextual influence rather than universal causality.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "اثر",
+                "r": "thr",
+                "en": "discourse segment in “Taken together, the studies indicate contextual influence rather than universal causality.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "بافت",
+                "r": "bft",
+                "en": "discourse segment in “Taken together, the studies indicate contextual influence rather than universal causality.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "ترکیب منابع",
+              "explain": "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register.",
+              "pattern": "topic + marked object/complements + aspect/modal material + final verb",
+              "examples": [
+                {
+                  "t": "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                  "r": "mTl`hh dr khnr hm byshtr br thr bft dllt drnd t rbThy `lWy w jhnshmwl.",
+                  "en": "Taken together, the studies indicate contextual influence rather than universal causality."
+                },
+                {
+                  "t": "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                  "r": "b Htrm bh yn tfsyr, byd dmnh' khrbrd an r dqyqtr mshkhS khrd.",
+                  "en": "With respect for this interpretation, its scope should be defined more precisely."
+                },
+                {
+                  "t": "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                  "r": "yfthh Zhran z frDyh pshtybny mykhnnd, hrchnd nmytwn twDyHhy dygr r khnr gdhsht.",
+                  "en": "The findings apparently support the hypothesis, although other explanations cannot be excluded."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with missing ezafe, را, or mismatched verb stem",
+                  "right": "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                  "why": "The corrected model aligns Persian morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "زبان‌آموز",
+                "t": "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                "r": "mTl`hh dr khnr hm byshtr br thr bft dllt drnd t rbThy `lWy w jhnshmwl.",
+                "en": "Taken together, the studies indicate contextual influence rather than universal causality."
+              },
+              {
+                "sp": "همکار",
+                "t": "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                "r": "b Htrm bh yn tfsyr, byd dmnh' khrbrd an r dqyqtr mshkhS khrd.",
+                "en": "With respect for this interpretation, its scope should be defined more precisely."
+              },
+              {
+                "sp": "میانجی",
+                "t": "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                "r": "yfthh Zhran z frDyh pshtybny mykhnnd, hrchnd nmytwn twDyHhy dygr r khnr gdhsht.",
+                "en": "The findings apparently support the hypothesis, although other explanations cannot be excluded."
+              },
+              {
+                "sp": "ویراستار",
+                "t": "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "r": "gstrsh sry` dstrsy bh bzngry dr wlwythy t'myn mly njmyd.",
+                "en": "Rapid expansion of access led to reassessment of funding priorities."
+              }
+            ],
+            "practice": [
+              {
+                "type": "repeat_after_audio",
+                "q": "ترکیب منابع — repeat after audio: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                "answer": "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول."
+              },
+              {
+                "type": "pronunciation",
+                "q": "ترکیب منابع — pronunciation: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                "answer": "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول."
+              },
+              {
+                "type": "shadowing",
+                "q": "ترکیب منابع — shadowing: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                "answer": "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: fa-IR browser voice when available; fallback disclosed; text=مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "ترکیب منابع — guided speaking: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                "answer": "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "ترکیب منابع — free response: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                "answer": "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "ترکیب منابع — roleplay: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                "answer": "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "ترکیب منابع — sentence writing: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                "answer": "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "ترکیب منابع — short writing: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                "answer": "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "ترکیب منابع — multiple choice: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                "answer": "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                  "Form with incorrect ezafe or verb stem",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "ترکیب منابع — fill in the blank: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                "answer": "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "ترکیب منابع — translation: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                "answer": "Taken together, the studies indicate contextual influence rather than universal causality.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "ترکیب منابع — reverse translation: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                "answer": "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                "skill_target": "reverse translation"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "ترکیب منابع: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "ترکیب منابع: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "ترکیب منابع: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "ترکیب منابع: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "ترکیب منابع: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "مطالعه‌ها",
+              "در",
+              "کنار",
+              "هم"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "ترکیب منابع workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate ezafe, TAM, and discourse function.",
+                  "items": [
+                    "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                    "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد."
+                  ],
+                  "key": [
+                    "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register.",
+                    "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                    "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد."
+                  ],
+                  "key": [
+                    "Taken together, the studies indicate contextual influence rather than universal causality.",
+                    "With respect for this interpretation, its scope should be defined more precisely."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "Taken together, the studies indicate contextual influence rather than universal causality.",
+                    "With respect for this interpretation, its scope should be defined more precisely."
+                  ],
+                  "key": [
+                    "Model: مطالعه‌ها در کنار هم بیشتر بر اثر بافت دلالت دارند تا رابطه‌ای علّی و جهان‌شمول.",
+                    "Model: با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "fa-c1-l6",
+            "title": "مخالفت دیپلماتیک",
+            "learn": "Control مخالفت دیپلماتیک in level-appropriate Persian.",
+            "vocab": [
+              {
+                "t": "با",
+                "r": "b",
+                "en": "discourse segment in “With respect for this interpretation, its scope should be defined more precisely.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "احترام",
+                "r": "Htrm",
+                "en": "discourse segment in “With respect for this interpretation, its scope should be defined more precisely.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "به",
+                "r": "bh",
+                "en": "discourse segment in “With respect for this interpretation, its scope should be defined more precisely.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "این",
+                "r": "yn",
+                "en": "discourse segment in “With respect for this interpretation, its scope should be defined more precisely.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "تفسیر",
+                "r": "tfsyr",
+                "en": "discourse segment in “With respect for this interpretation, its scope should be defined more precisely.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "باید",
+                "r": "byd",
+                "en": "discourse segment in “With respect for this interpretation, its scope should be defined more precisely.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "دامنهٔ",
+                "r": "dmnh'",
+                "en": "discourse segment in “With respect for this interpretation, its scope should be defined more precisely.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "کاربرد",
+                "r": "khrbrd",
+                "en": "discourse segment in “With respect for this interpretation, its scope should be defined more precisely.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "مخالفت دیپلماتیک",
+              "explain": "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register.",
+              "pattern": "topic + marked object/complements + aspect/modal material + final verb",
+              "examples": [
+                {
+                  "t": "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                  "r": "b Htrm bh yn tfsyr, byd dmnh' khrbrd an r dqyqtr mshkhS khrd.",
+                  "en": "With respect for this interpretation, its scope should be defined more precisely."
+                },
+                {
+                  "t": "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                  "r": "yfthh Zhran z frDyh pshtybny mykhnnd, hrchnd nmytwn twDyHhy dygr r khnr gdhsht.",
+                  "en": "The findings apparently support the hypothesis, although other explanations cannot be excluded."
+                },
+                {
+                  "t": "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                  "r": "gstrsh sry` dstrsy bh bzngry dr wlwythy t'myn mly njmyd.",
+                  "en": "Rapid expansion of access led to reassessment of funding priorities."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with missing ezafe, را, or mismatched verb stem",
+                  "right": "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                  "why": "The corrected model aligns Persian morphology and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "زبان‌آموز",
+                "t": "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                "r": "b Htrm bh yn tfsyr, byd dmnh' khrbrd an r dqyqtr mshkhS khrd.",
+                "en": "With respect for this interpretation, its scope should be defined more precisely."
+              },
+              {
+                "sp": "همکار",
+                "t": "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت.",
+                "r": "yfthh Zhran z frDyh pshtybny mykhnnd, hrchnd nmytwn twDyHhy dygr r khnr gdhsht.",
+                "en": "The findings apparently support the hypothesis, although other explanations cannot be excluded."
+              },
+              {
+                "sp": "میانجی",
+                "t": "گسترش سریع دسترسی به بازنگری در اولویت‌های تأمین مالی انجامید.",
+                "r": "gstrsh sry` dstrsy bh bzngry dr wlwythy t'myn mly njmyd.",
+                "en": "Rapid expansion of access led to reassessment of funding priorities."
+              },
+              {
+                "sp": "ویراستار",
+                "t": "آنچه ارزیابی به آن نپرداخت، تأثیر بر یادگیرندگان روستایی بود.",
+                "r": "anchh rzyby bh an nprdkht, t'thyr br ydgyrndgn rwstyy bwd.",
+                "en": "What the review failed to address was the impact on rural learners."
+              }
+            ],
+            "practice": [
+              {
+                "type": "roleplay",
+                "q": "مخالفت دیپلماتیک — roleplay: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                "answer": "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "مخالفت دیپلماتیک — sentence writing: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                "answer": "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "مخالفت دیپلماتیک — short writing: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                "answer": "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "مخالفت دیپلماتیک — multiple choice: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                "answer": "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                  "Form with incorrect ezafe or verb stem",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "مخالفت دیپلماتیک — fill in the blank: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                "answer": "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "مخالفت دیپلماتیک — translation: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                "answer": "With respect for this interpretation, its scope should be defined more precisely.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "مخالفت دیپلماتیک — reverse translation: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                "answer": "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "مخالفت دیپلماتیک — matching: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                "answer": "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                "skill_target": "matching",
+                "options": [
+                  "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                  "Form with incorrect ezafe or verb stem",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "مخالفت دیپلماتیک — reorder: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                "answer": "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "مخالفت دیپلماتیک — sentence building: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                "answer": "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "مخالفت دیپلماتیک — word selection: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                "answer": "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                "skill_target": "word selection",
+                "options": [
+                  "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                  "Form with incorrect ezafe or verb stem",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "مخالفت دیپلماتیک — error correction: analyse or produce the Persian model with correct ezafe, aspect, scope, and register: با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                "answer": "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                "skill_target": "error correction"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "مخالفت دیپلماتیک: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "مخالفت دیپلماتیک: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "مخالفت دیپلماتیک: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "مخالفت دیپلماتیک: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              },
+              {
+                "q": "مخالفت دیپلماتیک: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                  "Form with incorrect ezafe or scope",
+                  "An unrelated greeting",
+                  "A clause missing its final verb"
+                ],
+                "answer": 0,
+                "why": "The model preserves Persian grammar, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "با",
+              "احترام",
+              "به",
+              "این"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "مخالفت دیپلماتیک workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate ezafe, TAM, and discourse function.",
+                  "items": [
+                    "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                    "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت."
+                  ],
+                  "key": [
+                    "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register.",
+                    "Persian combines ezafe noun phrases, object marker را, analytic and prefixed aspect, compound verbs, subjunctive and conditional forms, SOV information structure, politeness, and prosody. Choices encode reference, time, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                    "یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت."
+                  ],
+                  "key": [
+                    "With respect for this interpretation, its scope should be defined more precisely.",
+                    "The findings apparently support the hypothesis, although other explanations cannot be excluded."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "With respect for this interpretation, its scope should be defined more precisely.",
+                    "The findings apparently support the hypothesis, although other explanations cannot be excluded."
+                  ],
+                  "key": [
+                    "Model: با احترام به این تفسیر، باید دامنهٔ کاربرد آن را دقیق‌تر مشخص کرد.",
+                    "Model: یافته‌ها ظاهراً از فرضیه پشتیبانی می‌کنند، هرچند نمی‌توان توضیح‌های دیگر را کنار گذاشت."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "Spanish C1 Proficiency Test",
+      "items": [
+        {
+          "type": "argument_construction",
+          "q": "Persian C1 integrated task 1: respond with accurate grammar, cohesion, and register.",
+          "answer": "A valid C1 response must satisfy the Persian course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Persian C1 integrated task 2: respond with accurate grammar, cohesion, and register.",
+          "answer": "A valid C1 response must satisfy the Persian course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Persian C1 integrated task 3: respond with accurate grammar, cohesion, and register.",
+          "answer": "A valid C1 response must satisfy the Persian course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Persian C1 integrated task 4: respond with accurate grammar, cohesion, and register.",
+          "answer": "A valid C1 response must satisfy the Persian course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Persian C1 integrated task 5: respond with accurate grammar, cohesion, and register.",
+          "answer": "A valid C1 response must satisfy the Persian course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Persian C1 integrated task 6: respond with accurate grammar, cohesion, and register.",
+          "answer": "A valid C1 response must satisfy the Persian course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Persian C1 integrated task 7: respond with accurate grammar, cohesion, and register.",
+          "answer": "A valid C1 response must satisfy the Persian course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Persian C1 integrated task 8: respond with accurate grammar, cohesion, and register.",
+          "answer": "A valid C1 response must satisfy the Persian course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Persian C1 integrated task 9: respond with accurate grammar, cohesion, and register.",
+          "answer": "A valid C1 response must satisfy the Persian course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Persian C1 integrated task 10: respond with accurate grammar, cohesion, and register.",
+          "answer": "A valid C1 response must satisfy the Persian course rubric."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "generated": "2026-09-11T18:06:41Z",
+  "ranking_note": "Apps Script = PRIMARY (rank 1). Everything else is a configured, tested fallback; Web3Forms/FormSubmit states that depend on live probing are marked, never faked.",
+  "providers": [
+    {
+      "id": "appsscript",
+      "provider": "Google Apps Script / Gmail",
+      "rank": 1,
+      "status": "PRIMARY",
+      "configured": true,
+      "sendable": true,
+      "enabled": true,
+      "can_address_strangers": true,
+      "metered": false,
+      "note": "primary transactional route; refuses every send until the client token is wired"
+    },
+    {
+      "id": "web3forms",
+      "provider": "Web3Forms",
+      "rank": 2,
+      "status": "FALLBACK",
+      "configured": true,
+      "keys": 4,
+      "can_address_strangers": true,
+      "metered": true,
+      "note": "fallback for stranger-addressed mail; unverifiable from the sandbox datacenter (Cloudflare)"
+    },
+    {
+      "id": "staticforms",
+      "provider": "StaticForms",
+      "rank": 3,
+      "status": "FALLBACK",
+      "configured": true,
+      "can_address_strangers": false,
+      "metered": false,
+      "note": "unlimited but only reaches its own registered inbox"
+    },
+    {
+      "id": "formsubmit",
+      "provider": "FormSubmit",
+      "rank": 4,
+      "status": "FLOOR",
+      "configured": true,
+      "can_address_strangers": false,
+      "metered": false,
+      "note": "free floor; needs per-address activation, so it cannot reach strangers"
+    },
+    {
+      "id": "emailjs",
+      "provider": "EmailJS",
+      "rank": 5,
+      "status": "INCOMPATIBLE",
+      "configured": false,
+      "can_address_strangers": true,
+      "metered": true,
+      "note": "not configured (empty keys in site-config)"
+    }
+  ]
+}

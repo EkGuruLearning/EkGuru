@@ -1,0 +1,1874 @@
+{
+  "code": "vi",
+  "name": "Vietnamese",
+  "native": "Tiếng Việt",
+  "phase": 3,
+  "medium": "en",
+  "file_level": "C2",
+  "research_basis": "data/language-research/vi.json",
+  "level": {
+    "title": "Vietnamese C2",
+    "goals": [
+      "Control Vietnamese classifiers, aspect, topic-focus, and address terms",
+      "Develop reception, interaction, production, and mediation",
+      "Use tones, pronunciation, politeness, register, and cohesion appropriately"
+    ],
+    "units": [
+      {
+        "id": "vi-c2-u1",
+        "title": "Semantic and Viewpoint Precision",
+        "lessons": [
+          {
+            "id": "vi-c2-l1",
+            "title": "Phạm vi phủ định",
+            "learn": "Control phạm vi phủ định in level-appropriate Vietnamese communication.",
+            "vocab": [
+              {
+                "t": "Không",
+                "r": "Không",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "phải",
+                "r": "phải",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "mọi",
+                "r": "mọi",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "cải",
+                "r": "cải",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "thiện",
+                "r": "thiện",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "bề",
+                "r": "bề",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ngoài",
+                "r": "ngoài",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "đều",
+                "r": "đều",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Phạm vi phủ định",
+              "explain": "Vietnamese combines analytic tense-aspect particles, classifiers, serial verbs, topic-comment organization, focus and sentence-final particles, kinship address, tone, and intonation. Choices encode time, participant status, evidence, focus, and social relationship.",
+              "pattern": "topic + aspect-marked predicate + classifier phrase + stance particle",
+              "examples": [
+                {
+                  "t": "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                  "r": "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                  "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                },
+                {
+                  "t": "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                  "r": "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                  "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                },
+                {
+                  "t": "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                  "r": "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                  "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with inappropriate classifier, aspect, tone cue, or address term",
+                  "right": "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                  "why": "The corrected model aligns analytic grammar and pragmatic relationship."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "r": "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "r": "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "r": "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              },
+              {
+                "sp": "Editor",
+                "t": "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "r": "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "en": "The compromise postponed the issue indefinitely while helping both sides save face."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Phạm vi phủ định — multiple choice: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "answer": "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                  "Form with an inappropriate classifier or address term",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Phạm vi phủ định — fill in the blank: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "answer": "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Phạm vi phủ định — translation: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "answer": "Not every apparent improvement is real progress; some results merely redistribute the burden.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Phạm vi phủ định — reverse translation: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "answer": "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Phạm vi phủ định — matching: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "answer": "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "skill_target": "matching",
+                "options": [
+                  "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                  "Form with an inappropriate classifier or address term",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Phạm vi phủ định — reorder: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "answer": "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Phạm vi phủ định — sentence building: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "answer": "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Phạm vi phủ định — word selection: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "answer": "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "skill_target": "word selection",
+                "options": [
+                  "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                  "Form with an inappropriate classifier or address term",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Phạm vi phủ định — error correction: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "answer": "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Phạm vi phủ định — dialogue completion: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "answer": "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Phạm vi phủ định — reading comprehension: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "answer": "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Phạm vi phủ định — paragraph comprehension: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "answer": "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Phạm vi phủ định: which model preserves intended grammar and social meaning? (1)",
+                "options": [
+                  "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              },
+              {
+                "q": "Phạm vi phủ định: which model preserves intended grammar and social meaning? (2)",
+                "options": [
+                  "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              },
+              {
+                "q": "Phạm vi phủ định: which model preserves intended grammar and social meaning? (3)",
+                "options": [
+                  "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              },
+              {
+                "q": "Phạm vi phủ định: which model preserves intended grammar and social meaning? (4)",
+                "options": [
+                  "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              },
+              {
+                "q": "Phạm vi phủ định: which model preserves intended grammar and social meaning? (5)",
+                "options": [
+                  "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Không",
+              "phải",
+              "mọi",
+              "cải"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Phạm vi phủ định workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate particles, address terms, and discourse function.",
+                  "items": [
+                    "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                    "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên."
+                  ],
+                  "key": [
+                    "Vietnamese combines analytic tense-aspect particles, classifiers, serial verbs, topic-comment organization, focus and sentence-final particles, kinship address, tone, and intonation. Choices encode time, participant status, evidence, focus, and social relationship.",
+                    "Vietnamese combines analytic tense-aspect particles, classifiers, serial verbs, topic-comment organization, focus and sentence-final particles, kinship address, tone, and intonation. Choices encode time, participant status, evidence, focus, and social relationship."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                    "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên."
+                  ],
+                  "key": [
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden.",
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden.",
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                  ],
+                  "key": [
+                    "Model: Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                    "Model: Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "vi-c2-l2",
+            "title": "Hàm ý và khoảng cách",
+            "learn": "Control hàm ý và khoảng cách in level-appropriate Vietnamese communication.",
+            "vocab": [
+              {
+                "t": "Gọi",
+                "r": "Gọi",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "kết",
+                "r": "kết",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "quả",
+                "r": "quả",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "là",
+                "r": "là",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "không",
+                "r": "không",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "hoàn",
+                "r": "hoàn",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "toàn",
+                "r": "toàn",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "bất",
+                "r": "bất",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Hàm ý và khoảng cách",
+              "explain": "Vietnamese combines analytic tense-aspect particles, classifiers, serial verbs, topic-comment organization, focus and sentence-final particles, kinship address, tone, and intonation. Choices encode time, participant status, evidence, focus, and social relationship.",
+              "pattern": "topic + aspect-marked predicate + classifier phrase + stance particle",
+              "examples": [
+                {
+                  "t": "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                  "r": "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                  "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                },
+                {
+                  "t": "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                  "r": "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                  "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                },
+                {
+                  "t": "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                  "r": "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                  "en": "The compromise postponed the issue indefinitely while helping both sides save face."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with inappropriate classifier, aspect, tone cue, or address term",
+                  "right": "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                  "why": "The corrected model aligns analytic grammar and pragmatic relationship."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "r": "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "r": "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "r": "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "en": "The compromise postponed the issue indefinitely while helping both sides save face."
+              },
+              {
+                "sp": "Editor",
+                "t": "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "r": "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reorder",
+                "q": "Hàm ý và khoảng cách — reorder: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "answer": "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Hàm ý và khoảng cách — sentence building: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "answer": "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Hàm ý và khoảng cách — word selection: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "answer": "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "skill_target": "word selection",
+                "options": [
+                  "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                  "Form with an inappropriate classifier or address term",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Hàm ý và khoảng cách — error correction: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "answer": "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Hàm ý và khoảng cách — dialogue completion: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "answer": "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Hàm ý và khoảng cách — reading comprehension: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "answer": "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Hàm ý và khoảng cách — paragraph comprehension: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "answer": "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "main_idea",
+                "q": "Hàm ý và khoảng cách — main idea: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "answer": "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Hàm ý và khoảng cách — detail identification: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "answer": "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "inference",
+                "q": "Hàm ý và khoảng cách — inference: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "answer": "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Hàm ý và khoảng cách — listening comprehension: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "answer": "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: vi-VN browser voice; not native recording; text=Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên."
+              },
+              {
+                "type": "dictation",
+                "q": "Hàm ý và khoảng cách — dictation: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "answer": "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: vi-VN browser voice; not native recording; text=Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Hàm ý và khoảng cách: which model preserves intended grammar and social meaning? (1)",
+                "options": [
+                  "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              },
+              {
+                "q": "Hàm ý và khoảng cách: which model preserves intended grammar and social meaning? (2)",
+                "options": [
+                  "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              },
+              {
+                "q": "Hàm ý và khoảng cách: which model preserves intended grammar and social meaning? (3)",
+                "options": [
+                  "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              },
+              {
+                "q": "Hàm ý và khoảng cách: which model preserves intended grammar and social meaning? (4)",
+                "options": [
+                  "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              },
+              {
+                "q": "Hàm ý và khoảng cách: which model preserves intended grammar and social meaning? (5)",
+                "options": [
+                  "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Gọi",
+              "kết",
+              "quả",
+              "là"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Hàm ý và khoảng cách workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate particles, address terms, and discourse function.",
+                  "items": [
+                    "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                    "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn."
+                  ],
+                  "key": [
+                    "Vietnamese combines analytic tense-aspect particles, classifiers, serial verbs, topic-comment organization, focus and sentence-final particles, kinship address, tone, and intonation. Choices encode time, participant status, evidence, focus, and social relationship.",
+                    "Vietnamese combines analytic tense-aspect particles, classifiers, serial verbs, topic-comment organization, focus and sentence-final particles, kinship address, tone, and intonation. Choices encode time, participant status, evidence, focus, and social relationship."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                    "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn."
+                  ],
+                  "key": [
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised.",
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised.",
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                  ],
+                  "key": [
+                    "Model: Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                    "Model: Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "vi-c2-u2",
+        "title": "Rhetoric and Genre Mastery",
+        "lessons": [
+          {
+            "id": "vi-c2-l3",
+            "title": "Song hành tu từ",
+            "learn": "Control song hành tu từ in level-appropriate Vietnamese communication.",
+            "vocab": [
+              {
+                "t": "Chúng",
+                "r": "Chúng",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ta",
+                "r": "ta",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "cần",
+                "r": "cần",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "tham",
+                "r": "tham",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "vọng",
+                "r": "vọng",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "không",
+                "r": "không",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "hấp",
+                "r": "hấp",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "tấp",
+                "r": "tấp",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Song hành tu từ",
+              "explain": "Vietnamese combines analytic tense-aspect particles, classifiers, serial verbs, topic-comment organization, focus and sentence-final particles, kinship address, tone, and intonation. Choices encode time, participant status, evidence, focus, and social relationship.",
+              "pattern": "topic + aspect-marked predicate + classifier phrase + stance particle",
+              "examples": [
+                {
+                  "t": "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                  "r": "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                  "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                },
+                {
+                  "t": "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                  "r": "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                  "en": "The compromise postponed the issue indefinitely while helping both sides save face."
+                },
+                {
+                  "t": "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                  "r": "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                  "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with inappropriate classifier, aspect, tone cue, or address term",
+                  "right": "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                  "why": "The corrected model aligns analytic grammar and pragmatic relationship."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "r": "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "r": "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "en": "The compromise postponed the issue indefinitely while helping both sides save face."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "r": "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              },
+              {
+                "sp": "Editor",
+                "t": "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "r": "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "en": "On current evidence, this is the least implausible explanation, not an indisputable verdict."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reading_comprehension",
+                "q": "Song hành tu từ — reading comprehension: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "answer": "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Song hành tu từ — paragraph comprehension: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "answer": "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "main_idea",
+                "q": "Song hành tu từ — main idea: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "answer": "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Song hành tu từ — detail identification: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "answer": "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "inference",
+                "q": "Song hành tu từ — inference: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "answer": "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Song hành tu từ — listening comprehension: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "answer": "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: vi-VN browser voice; not native recording; text=Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn."
+              },
+              {
+                "type": "dictation",
+                "q": "Song hành tu từ — dictation: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "answer": "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: vi-VN browser voice; not native recording; text=Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Song hành tu từ — listen and choose: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "answer": "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "skill_target": "listen and choose",
+                "options": [
+                  "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                  "Form with an inappropriate classifier or address term",
+                  "An unrelated greeting"
+                ],
+                "audio_source": "synthetic_tts: vi-VN browser voice; not native recording; text=Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn."
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "Song hành tu từ — listen and reorder: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "answer": "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: vi-VN browser voice; not native recording; text=Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn."
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Song hành tu từ — listen and fill: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "answer": "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "skill_target": "listen and fill",
+                "audio_source": "synthetic_tts: vi-VN browser voice; not native recording; text=Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Song hành tu từ — repeat after audio: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "answer": "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: vi-VN browser voice; not native recording; text=Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn."
+              },
+              {
+                "type": "pronunciation",
+                "q": "Song hành tu từ — pronunciation: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "answer": "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: vi-VN browser voice; not native recording; text=Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Song hành tu từ: which model preserves intended grammar and social meaning? (1)",
+                "options": [
+                  "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              },
+              {
+                "q": "Song hành tu từ: which model preserves intended grammar and social meaning? (2)",
+                "options": [
+                  "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              },
+              {
+                "q": "Song hành tu từ: which model preserves intended grammar and social meaning? (3)",
+                "options": [
+                  "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              },
+              {
+                "q": "Song hành tu từ: which model preserves intended grammar and social meaning? (4)",
+                "options": [
+                  "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              },
+              {
+                "q": "Song hành tu từ: which model preserves intended grammar and social meaning? (5)",
+                "options": [
+                  "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Chúng",
+              "ta",
+              "cần",
+              "tham"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Song hành tu từ workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate particles, address terms, and discourse function.",
+                  "items": [
+                    "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                    "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện."
+                  ],
+                  "key": [
+                    "Vietnamese combines analytic tense-aspect particles, classifiers, serial verbs, topic-comment organization, focus and sentence-final particles, kinship address, tone, and intonation. Choices encode time, participant status, evidence, focus, and social relationship.",
+                    "Vietnamese combines analytic tense-aspect particles, classifiers, serial verbs, topic-comment organization, focus and sentence-final particles, kinship address, tone, and intonation. Choices encode time, participant status, evidence, focus, and social relationship."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                    "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện."
+                  ],
+                  "key": [
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle.",
+                    "The compromise postponed the issue indefinitely while helping both sides save face."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle.",
+                    "The compromise postponed the issue indefinitely while helping both sides save face."
+                  ],
+                  "key": [
+                    "Model: Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                    "Model: Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "vi-c2-l4",
+            "title": "Giải thích thành ngữ",
+            "learn": "Control giải thích thành ngữ in level-appropriate Vietnamese communication.",
+            "vocab": [
+              {
+                "t": "Thỏa",
+                "r": "Thỏa",
+                "en": "discourse segment in “The compromise postponed the issue indefinitely while helping both sides save face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "hiệp",
+                "r": "hiệp",
+                "en": "discourse segment in “The compromise postponed the issue indefinitely while helping both sides save face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "đã",
+                "r": "đã",
+                "en": "discourse segment in “The compromise postponed the issue indefinitely while helping both sides save face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "gác",
+                "r": "gác",
+                "en": "discourse segment in “The compromise postponed the issue indefinitely while helping both sides save face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "vấn",
+                "r": "vấn",
+                "en": "discourse segment in “The compromise postponed the issue indefinitely while helping both sides save face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "đề",
+                "r": "đề",
+                "en": "discourse segment in “The compromise postponed the issue indefinitely while helping both sides save face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "lại",
+                "r": "lại",
+                "en": "discourse segment in “The compromise postponed the issue indefinitely while helping both sides save face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "vô",
+                "r": "vô",
+                "en": "discourse segment in “The compromise postponed the issue indefinitely while helping both sides save face.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Giải thích thành ngữ",
+              "explain": "Vietnamese combines analytic tense-aspect particles, classifiers, serial verbs, topic-comment organization, focus and sentence-final particles, kinship address, tone, and intonation. Choices encode time, participant status, evidence, focus, and social relationship.",
+              "pattern": "topic + aspect-marked predicate + classifier phrase + stance particle",
+              "examples": [
+                {
+                  "t": "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                  "r": "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                  "en": "The compromise postponed the issue indefinitely while helping both sides save face."
+                },
+                {
+                  "t": "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                  "r": "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                  "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                },
+                {
+                  "t": "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                  "r": "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                  "en": "On current evidence, this is the least implausible explanation, not an indisputable verdict."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with inappropriate classifier, aspect, tone cue, or address term",
+                  "right": "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                  "why": "The corrected model aligns analytic grammar and pragmatic relationship."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "r": "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "en": "The compromise postponed the issue indefinitely while helping both sides save face."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "r": "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "r": "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "en": "On current evidence, this is the least implausible explanation, not an indisputable verdict."
+              },
+              {
+                "sp": "Editor",
+                "t": "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "r": "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              }
+            ],
+            "practice": [
+              {
+                "type": "listening_comprehension",
+                "q": "Giải thích thành ngữ — listening comprehension: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "answer": "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: vi-VN browser voice; not native recording; text=Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện."
+              },
+              {
+                "type": "dictation",
+                "q": "Giải thích thành ngữ — dictation: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "answer": "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: vi-VN browser voice; not native recording; text=Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Giải thích thành ngữ — listen and choose: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "answer": "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "skill_target": "listen and choose",
+                "options": [
+                  "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                  "Form with an inappropriate classifier or address term",
+                  "An unrelated greeting"
+                ],
+                "audio_source": "synthetic_tts: vi-VN browser voice; not native recording; text=Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện."
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "Giải thích thành ngữ — listen and reorder: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "answer": "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: vi-VN browser voice; not native recording; text=Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện."
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Giải thích thành ngữ — listen and fill: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "answer": "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "skill_target": "listen and fill",
+                "audio_source": "synthetic_tts: vi-VN browser voice; not native recording; text=Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Giải thích thành ngữ — repeat after audio: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "answer": "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: vi-VN browser voice; not native recording; text=Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện."
+              },
+              {
+                "type": "pronunciation",
+                "q": "Giải thích thành ngữ — pronunciation: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "answer": "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: vi-VN browser voice; not native recording; text=Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện."
+              },
+              {
+                "type": "shadowing",
+                "q": "Giải thích thành ngữ — shadowing: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "answer": "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: vi-VN browser voice; not native recording; text=Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Giải thích thành ngữ — guided speaking: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "answer": "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "Giải thích thành ngữ — free response: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "answer": "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "Giải thích thành ngữ — roleplay: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "answer": "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Giải thích thành ngữ — sentence writing: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "answer": "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                "skill_target": "sentence writing"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Giải thích thành ngữ: which model preserves intended grammar and social meaning? (1)",
+                "options": [
+                  "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              },
+              {
+                "q": "Giải thích thành ngữ: which model preserves intended grammar and social meaning? (2)",
+                "options": [
+                  "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              },
+              {
+                "q": "Giải thích thành ngữ: which model preserves intended grammar and social meaning? (3)",
+                "options": [
+                  "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              },
+              {
+                "q": "Giải thích thành ngữ: which model preserves intended grammar and social meaning? (4)",
+                "options": [
+                  "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              },
+              {
+                "q": "Giải thích thành ngữ: which model preserves intended grammar and social meaning? (5)",
+                "options": [
+                  "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Thỏa",
+              "hiệp",
+              "đã",
+              "gác"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Giải thích thành ngữ workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate particles, address terms, and discourse function.",
+                  "items": [
+                    "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                    "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực."
+                  ],
+                  "key": [
+                    "Vietnamese combines analytic tense-aspect particles, classifiers, serial verbs, topic-comment organization, focus and sentence-final particles, kinship address, tone, and intonation. Choices encode time, participant status, evidence, focus, and social relationship.",
+                    "Vietnamese combines analytic tense-aspect particles, classifiers, serial verbs, topic-comment organization, focus and sentence-final particles, kinship address, tone, and intonation. Choices encode time, participant status, evidence, focus, and social relationship."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                    "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực."
+                  ],
+                  "key": [
+                    "The compromise postponed the issue indefinitely while helping both sides save face.",
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "The compromise postponed the issue indefinitely while helping both sides save face.",
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                  ],
+                  "key": [
+                    "Model: Thỏa hiệp đã gác vấn đề lại vô thời hạn trong khi giúp cả hai bên giữ thể diện.",
+                    "Model: Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "vi-c2-u3",
+        "title": "Cultural and High-Stakes Mediation",
+        "lessons": [
+          {
+            "id": "vi-c2-l5",
+            "title": "Chuyển đổi thể loại",
+            "learn": "Control chuyển đổi thể loại in level-appropriate Vietnamese communication.",
+            "vocab": [
+              {
+                "t": "Bản",
+                "r": "Bản",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ghi",
+                "r": "ghi",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "nhớ",
+                "r": "nhớ",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "thừa",
+                "r": "thừa",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "nhận",
+                "r": "nhận",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "sự",
+                "r": "sự",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "bất",
+                "r": "bất",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "định",
+                "r": "định",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Chuyển đổi thể loại",
+              "explain": "Vietnamese combines analytic tense-aspect particles, classifiers, serial verbs, topic-comment organization, focus and sentence-final particles, kinship address, tone, and intonation. Choices encode time, participant status, evidence, focus, and social relationship.",
+              "pattern": "topic + aspect-marked predicate + classifier phrase + stance particle",
+              "examples": [
+                {
+                  "t": "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                  "r": "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                  "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                },
+                {
+                  "t": "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                  "r": "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                  "en": "On current evidence, this is the least implausible explanation, not an indisputable verdict."
+                },
+                {
+                  "t": "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                  "r": "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                  "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with inappropriate classifier, aspect, tone cue, or address term",
+                  "right": "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                  "why": "The corrected model aligns analytic grammar and pragmatic relationship."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "r": "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "r": "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "en": "On current evidence, this is the least implausible explanation, not an indisputable verdict."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "r": "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              },
+              {
+                "sp": "Editor",
+                "t": "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "r": "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              }
+            ],
+            "practice": [
+              {
+                "type": "repeat_after_audio",
+                "q": "Chuyển đổi thể loại — repeat after audio: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "answer": "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: vi-VN browser voice; not native recording; text=Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực."
+              },
+              {
+                "type": "pronunciation",
+                "q": "Chuyển đổi thể loại — pronunciation: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "answer": "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: vi-VN browser voice; not native recording; text=Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực."
+              },
+              {
+                "type": "shadowing",
+                "q": "Chuyển đổi thể loại — shadowing: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "answer": "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: vi-VN browser voice; not native recording; text=Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Chuyển đổi thể loại — guided speaking: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "answer": "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "Chuyển đổi thể loại — free response: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "answer": "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "Chuyển đổi thể loại — roleplay: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "answer": "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Chuyển đổi thể loại — sentence writing: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "answer": "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "Chuyển đổi thể loại — short writing: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "answer": "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "paraphrase",
+                "q": "Chuyển đổi thể loại — paraphrase: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "answer": "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "Chuyển đổi thể loại — summary: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "answer": "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Chuyển đổi thể loại — guided composition: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "answer": "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Chuyển đổi thể loại — register transformation: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "answer": "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                "skill_target": "register transformation"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Chuyển đổi thể loại: which model preserves intended grammar and social meaning? (1)",
+                "options": [
+                  "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              },
+              {
+                "q": "Chuyển đổi thể loại: which model preserves intended grammar and social meaning? (2)",
+                "options": [
+                  "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              },
+              {
+                "q": "Chuyển đổi thể loại: which model preserves intended grammar and social meaning? (3)",
+                "options": [
+                  "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              },
+              {
+                "q": "Chuyển đổi thể loại: which model preserves intended grammar and social meaning? (4)",
+                "options": [
+                  "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              },
+              {
+                "q": "Chuyển đổi thể loại: which model preserves intended grammar and social meaning? (5)",
+                "options": [
+                  "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Bản",
+              "ghi",
+              "nhớ",
+              "thừa"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Chuyển đổi thể loại workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate particles, address terms, and discourse function.",
+                  "items": [
+                    "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                    "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi."
+                  ],
+                  "key": [
+                    "Vietnamese combines analytic tense-aspect particles, classifiers, serial verbs, topic-comment organization, focus and sentence-final particles, kinship address, tone, and intonation. Choices encode time, participant status, evidence, focus, and social relationship.",
+                    "Vietnamese combines analytic tense-aspect particles, classifiers, serial verbs, topic-comment organization, focus and sentence-final particles, kinship address, tone, and intonation. Choices encode time, participant status, evidence, focus, and social relationship."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                    "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi."
+                  ],
+                  "key": [
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence.",
+                    "On current evidence, this is the least implausible explanation, not an indisputable verdict."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence.",
+                    "On current evidence, this is the least implausible explanation, not an indisputable verdict."
+                  ],
+                  "key": [
+                    "Model: Bản ghi nhớ thừa nhận sự bất định; thông cáo công khai lại diễn đạt nó như sự tự tin có chừng mực.",
+                    "Model: Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "vi-c2-l6",
+            "title": "Độ chính xác nhận thức",
+            "learn": "Control độ chính xác nhận thức in level-appropriate Vietnamese communication.",
+            "vocab": [
+              {
+                "t": "Theo",
+                "r": "Theo",
+                "en": "discourse segment in “On current evidence, this is the least implausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "bằng",
+                "r": "bằng",
+                "en": "discourse segment in “On current evidence, this is the least implausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "chứng",
+                "r": "chứng",
+                "en": "discourse segment in “On current evidence, this is the least implausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "hiện",
+                "r": "hiện",
+                "en": "discourse segment in “On current evidence, this is the least implausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "có",
+                "r": "có",
+                "en": "discourse segment in “On current evidence, this is the least implausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "đây",
+                "r": "đây",
+                "en": "discourse segment in “On current evidence, this is the least implausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "là",
+                "r": "là",
+                "en": "discourse segment in “On current evidence, this is the least implausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "cách",
+                "r": "cách",
+                "en": "discourse segment in “On current evidence, this is the least implausible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Độ chính xác nhận thức",
+              "explain": "Vietnamese combines analytic tense-aspect particles, classifiers, serial verbs, topic-comment organization, focus and sentence-final particles, kinship address, tone, and intonation. Choices encode time, participant status, evidence, focus, and social relationship.",
+              "pattern": "topic + aspect-marked predicate + classifier phrase + stance particle",
+              "examples": [
+                {
+                  "t": "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                  "r": "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                  "en": "On current evidence, this is the least implausible explanation, not an indisputable verdict."
+                },
+                {
+                  "t": "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                  "r": "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                  "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                },
+                {
+                  "t": "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                  "r": "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                  "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with inappropriate classifier, aspect, tone cue, or address term",
+                  "right": "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                  "why": "The corrected model aligns analytic grammar and pragmatic relationship."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "r": "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "en": "On current evidence, this is the least implausible explanation, not an indisputable verdict."
+              },
+              {
+                "sp": "Colleague",
+                "t": "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "r": "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng.",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              },
+              {
+                "sp": "Mediator",
+                "t": "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "r": "Gọi kết quả là không hoàn toàn bất ngờ đã khéo léo tách người nói khỏi những người tỏ ra ngạc nhiên.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              },
+              {
+                "sp": "Editor",
+                "t": "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "r": "Chúng ta cần tham vọng không hấp tấp, thận trọng không tê liệt và trách nhiệm không phô diễn.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              }
+            ],
+            "practice": [
+              {
+                "type": "roleplay",
+                "q": "Độ chính xác nhận thức — roleplay: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "answer": "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Độ chính xác nhận thức — sentence writing: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "answer": "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "Độ chính xác nhận thức — short writing: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "answer": "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "paraphrase",
+                "q": "Độ chính xác nhận thức — paraphrase: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "answer": "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "Độ chính xác nhận thức — summary: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "answer": "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Độ chính xác nhận thức — guided composition: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "answer": "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Độ chính xác nhận thức — register transformation: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "answer": "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "skill_target": "register transformation"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Độ chính xác nhận thức — multiple choice: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "answer": "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                  "Form with an inappropriate classifier or address term",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Độ chính xác nhận thức — fill in the blank: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "answer": "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Độ chính xác nhận thức — translation: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "answer": "On current evidence, this is the least implausible explanation, not an indisputable verdict.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Độ chính xác nhận thức — reverse translation: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "answer": "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Độ chính xác nhận thức — matching: analyse or produce the Vietnamese model with correct tones, aspect, scope, and register: Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "answer": "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                "skill_target": "matching",
+                "options": [
+                  "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                  "Form with an inappropriate classifier or address term",
+                  "An unrelated greeting"
+                ]
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Độ chính xác nhận thức: which model preserves intended grammar and social meaning? (1)",
+                "options": [
+                  "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              },
+              {
+                "q": "Độ chính xác nhận thức: which model preserves intended grammar and social meaning? (2)",
+                "options": [
+                  "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              },
+              {
+                "q": "Độ chính xác nhận thức: which model preserves intended grammar and social meaning? (3)",
+                "options": [
+                  "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              },
+              {
+                "q": "Độ chính xác nhận thức: which model preserves intended grammar and social meaning? (4)",
+                "options": [
+                  "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              },
+              {
+                "q": "Độ chính xác nhận thức: which model preserves intended grammar and social meaning? (5)",
+                "options": [
+                  "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                  "Form with incorrect aspect or address",
+                  "An unrelated greeting",
+                  "A clause missing its classifier"
+                ],
+                "answer": 0,
+                "why": "The model preserves Vietnamese analytic grammar, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Theo",
+              "bằng",
+              "chứng",
+              "hiện"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Độ chính xác nhận thức workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate particles, address terms, and discourse function.",
+                  "items": [
+                    "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                    "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng."
+                  ],
+                  "key": [
+                    "Vietnamese combines analytic tense-aspect particles, classifiers, serial verbs, topic-comment organization, focus and sentence-final particles, kinship address, tone, and intonation. Choices encode time, participant status, evidence, focus, and social relationship.",
+                    "Vietnamese combines analytic tense-aspect particles, classifiers, serial verbs, topic-comment organization, focus and sentence-final particles, kinship address, tone, and intonation. Choices encode time, participant status, evidence, focus, and social relationship."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                    "Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng."
+                  ],
+                  "key": [
+                    "On current evidence, this is the least implausible explanation, not an indisputable verdict.",
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "On current evidence, this is the least implausible explanation, not an indisputable verdict.",
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                  ],
+                  "key": [
+                    "Model: Theo bằng chứng hiện có, đây là cách giải thích ít khó tin nhất, không phải phán quyết không thể tranh cãi.",
+                    "Model: Không phải mọi cải thiện bề ngoài đều là tiến bộ thật; một số kết quả chỉ phân phối lại gánh nặng."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "Spanish C2 Proficiency Test",
+      "items": [
+        {
+          "type": "argument_construction",
+          "q": "Vietnamese C2 integrated task 1: respond with accurate tones, particles, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Vietnamese course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Vietnamese C2 integrated task 2: respond with accurate tones, particles, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Vietnamese course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Vietnamese C2 integrated task 3: respond with accurate tones, particles, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Vietnamese course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Vietnamese C2 integrated task 4: respond with accurate tones, particles, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Vietnamese course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Vietnamese C2 integrated task 5: respond with accurate tones, particles, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Vietnamese course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Vietnamese C2 integrated task 6: respond with accurate tones, particles, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Vietnamese course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Vietnamese C2 integrated task 7: respond with accurate tones, particles, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Vietnamese course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Vietnamese C2 integrated task 8: respond with accurate tones, particles, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Vietnamese course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Vietnamese C2 integrated task 9: respond with accurate tones, particles, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Vietnamese course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Vietnamese C2 integrated task 10: respond with accurate tones, particles, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Vietnamese course rubric."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "language": {"code": "kk", "name": "Kazakh", "native_name": "қазақ тілі", "family": "Turkic: Kipchak", "script": "Cyrillic in current production; Latin transition must be treated as evolving policy", "direction": "ltr"},
+  "inventory_priority": {"language_id": "lang:kaz", "priority": "P1", "score": 71, "countries": ["KZ", "CN", "MN", "UZ"]},
+  "orthography_pronunciation": {"needs": ["ә/а, ө/о, ү/ұ/у and і/ы contrasts", "қ versus к and ғ versus г", "ң", "vowel harmony", "consonant assimilation", "stress and suffix rhythm"], "voice_strategy": "Synthetic kk-KZ browser voice when available; explicitly labelled with fallback limitations."},
+  "grammar": {"morphology": ["agglutinative suffix order", "seven cases", "possessive constructions", "plural and person-number endings", "postpositions", "vowel and consonant harmony"], "verbal": ["present forms", "definite and reported past", "future/intention", "conditional", "necessitative", "potential", "participles, converbs and verbal nouns"], "syntax_discourse": ["head-final SOV order", "pro-drop", "relative clauses with participles", "reported екен/еміс", "topic/focus ordering", "clause chaining"]},
+  "register_pragmatics": ["сен versus сіз", "polite plural and titles", "indirect requests", "formal correspondence", "evidential distance", "hospitality formulas", "regional and diaspora/script variation"],
+  "CEFR_progression": {"A1": "Cyrillic, introductions, present, questions and basic cases", "A2": "past/future, possession, directions, requests and case use", "B1": "aspect/evidential contrasts, conditionals, participial relatives and narration", "B2": "voice, converbs, modality, focus and register", "C1": "academic synthesis, mediation and stance", "C2": "scope, implication, rhetoric, idiom, genre transformation and epistemic precision"},
+  "country_relationship_source": "data/global/language-country-relations.json",
+  "sources": [
+    {"title": "Termincom — Kazakh terminology resources", "url": "https://termincom.kz/", "use": "official terminology and standard-language reference"},
+    {"title": "Kazakh language resources, Indiana University CeLCAR", "url": "https://celcar.indiana.edu/materials/language/kazakh.html", "use": "pedagogical grammar and proficiency materials"},
+    {"title": "CEFR Companion Volume 2020", "url": "https://rm.coe.int/cefr-companion-volume-with-new-descriptors-2020/16809ea0d4", "use": "level progression, mediation, interaction and phonology"}
+  ],
+  "reviewed_at": "2026-09-17"
+}

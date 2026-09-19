@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "language": {"code": "vi", "name": "Vietnamese", "native_name": "Tiếng Việt", "family": "Austroasiatic: Vietic", "script": "Latin quốc ngữ", "direction": "ltr"},
+  "inventory_priority": {"language_id": "lang:vie", "priority": "P1", "score": 73, "countries": ["VN", "AU", "CZ", "KH", "KR", "US"]},
+  "orthography_pronunciation": {"needs": ["six Northern tone categories with regional realizations", "tone marks and vowel diacritics", "vowel quality and glides", "initial/final consonant contrasts", "syllable timing", "Northern, Central and Southern variation without ranking accents"], "voice_strategy": "Synthetic vi-VN browser voice, explicitly labelled; never claim native recording."},
+  "grammar": {"nominal": ["classifiers", "demonstratives after nouns", "plural markers", "pronoun and kinship-term address", "analytic possession"], "verbal": ["analytic tense-aspect particles đã/đang/sẽ", "completion and experiential markers", "serial verbs", "directional/result complements", "modals and negation"], "syntax_discourse": ["topic-comment organization", "SVO clauses", "relative modification without inflection", "focus particles", "sentence-final particles", "connective and reference chains"]},
+  "register_pragmatics": ["kinship-based address", "age/status-sensitive pronouns", "ạ and sentence-final particles", "indirect requests", "disagreement mitigation", "formal correspondence", "regional lexical and phonological variation"],
+  "CEFR_progression": {"A1": "tone-aware sound-spelling, greetings, identity, basic classifiers and present contexts", "A2": "aspect particles, quantity, directions, plans and requests", "B1": "aspect sequencing, relative clauses, reported speech and narration", "B2": "topic-focus, modality, passive-like bị/được, clause chaining and register", "C1": "academic synthesis, mediation, formal stance", "C2": "scope, implication, rhetoric, idiom, genre transformation and epistemic precision"},
+  "country_relationship_source": "data/global/language-country-relations.json",
+  "sources": [
+    {"title": "Vietnamese language inventory", "path": "research/vietnam-language-inventory.md", "use": "repository canonical country and language evidence"},
+    {"title": "VDict / Vietnamese dictionaries", "url": "https://vdict.com/", "use": "lexical meanings and usage cross-check"},
+    {"title": "CEFR Companion Volume 2020", "url": "https://rm.coe.int/cefr-companion-volume-with-new-descriptors-2020/16809ea0d4", "use": "level progression, mediation, interaction and phonology"}
+  ],
+  "reviewed_at": "2026-09-17"
+}

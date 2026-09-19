@@ -1,0 +1,1878 @@
+{
+  "code": "ja",
+  "name": "Japanese",
+  "native": "日本語",
+  "phase": 1,
+  "medium": "en",
+  "file_level": "C2",
+  "research_basis": "data/language-research/ja.json",
+  "level": {
+    "title": "Japanese C2 Advanced Mastery",
+    "goals": [
+      "Control information structure, evidentiality, modality, and register",
+      "Mediate complex sources without increasing certainty",
+      "Transform academic, institutional, and literary genres"
+    ],
+    "units": [
+      {
+        "id": "ja-c2-u1",
+        "title": "Semantic precision and inference",
+        "lessons": [
+          {
+            "id": "ja-c2-l1",
+            "title": "Scope and focus with こそ",
+            "learn": "Control scope and focus with こそ in advanced Japanese discourse.",
+            "vocab": [
+              {
+                "t": "問題だったのは",
+                "r": "mondai dattanoha",
+                "en": "discourse segment 1 in “The problem lay less in the decision itself than precisely in the way it was implemented.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "ったのは決定そ",
+                "r": "ttanoha kettei so",
+                "en": "discourse segment 2 in “The problem lay less in the decision itself than precisely in the way it was implemented.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "は決定そのもの",
+                "r": "ha kettei sonomono",
+                "en": "discourse segment 3 in “The problem lay less in the decision itself than precisely in the way it was implemented.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "そのものという",
+                "r": "sonomonotoiu",
+                "en": "discourse segment 4 in “The problem lay less in the decision itself than precisely in the way it was implemented.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "のというより、",
+                "r": "notoiuyori ,",
+                "en": "discourse segment 5 in “The problem lay less in the decision itself than precisely in the way it was implemented.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "うより、まさに",
+                "r": "uyori , masani",
+                "en": "discourse segment 6 in “The problem lay less in the decision itself than precisely in the way it was implemented.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "、まさにその実",
+                "r": ", masanisono mi",
+                "en": "discourse segment 7 in “The problem lay less in the decision itself than precisely in the way it was implemented.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "にその実施のさ",
+                "r": "nisono jisshi nosa",
+                "en": "discourse segment 8 in “The problem lay less in the decision itself than precisely in the way it was implemented.”",
+                "pos": "discourse expression"
+              }
+            ],
+            "grammar": {
+              "title": "Scope and focus with こそ",
+              "explain": "Japanese uses particles, clause-final modality, relative clauses, ellipsis, information structure, and honorific/register choices to calibrate commitment and social stance. Preserve these relations rather than translating word for word.",
+              "pattern": "topic/frame + scoped proposition + clause-final stance",
+              "examples": [
+                {
+                  "t": "問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。",
+                  "r": "mondai dattanoha kettei sonomonotoiuyori , masanisono jisshi nosare hou nikosoatta .",
+                  "en": "The problem lay less in the decision itself than precisely in the way it was implemented."
+                },
+                {
+                  "t": "彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。",
+                  "r": "kano chinmoku ha doui toiuyori , tekkai no yochi wo nokosu tameno itoteki na kyori wohonomekashiteita .",
+                  "en": "His silence implied less agreement than deliberate distance preserving room for retreat."
+                },
+                {
+                  "t": "迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。",
+                  "r": "jinsoku saha tashikani hitsuyou da . shikashi , setsumei sekinin wo kaku jinsoku saha shinpo dehanaku , kiki no sakiokuri nisuginai .",
+                  "en": "Speed is certainly needed; however, speed without accountability is not progress, merely crisis deferred."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Unqualified plain assertion",
+                  "right": "問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。",
+                  "why": "The plain assertion erases evidential scope or interpersonal restraint."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "分析者",
+                "t": "問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。",
+                "r": "mondai dattanoha kettei sonomonotoiuyori , masanisono jisshi nosare hou nikosoatta .",
+                "en": "The problem lay less in the decision itself than precisely in the way it was implemented."
+              },
+              {
+                "sp": "編集者",
+                "t": "彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。",
+                "r": "kano chinmoku ha doui toiuyori , tekkai no yochi wo nokosu tameno itoteki na kyori wohonomekashiteita .",
+                "en": "His silence implied less agreement than deliberate distance preserving room for retreat."
+              },
+              {
+                "sp": "調停者",
+                "t": "迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。",
+                "r": "jinsoku saha tashikani hitsuyou da . shikashi , setsumei sekinin wo kaku jinsoku saha shinpo dehanaku , kiki no sakiokuri nisuginai .",
+                "en": "Speed is certainly needed; however, speed without accountability is not progress, merely crisis deferred."
+              },
+              {
+                "sp": "査読者",
+                "t": "その言葉は会議室で一度も発せられなかった。それでも、その余韻が後の決定をことごとく書き換えた。",
+                "r": "sono kotoba ha kaigishitsu de ichido mo hasse rarenakatta . soredemo , sono yoin ga nochino kettei wokotogotoku kakikae ta .",
+                "en": "The words were never uttered in the meeting room, yet their resonance rewrote every later decision."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Scope and focus with こそ — 文脈と待遇レベルを保つ文を選びなさい。 Select one option and justify the decisive cue.",
+                "answer": "問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。",
+                "skill_target": "multiple choice",
+                "options": [
+                  "問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。",
+                  "The problem lay less in the decision itself than precisely in the way it was implemented.",
+                  "根拠のない断定"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Scope and focus with こそ — 空所を補いなさい: 問題____は決定そのものというより、まさにその実施のされ方にこそあった。 Supply the form licensed by grammar and discourse.",
+                "answer": "だったの",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Scope and focus with こそ — Translate without strengthening the claim. Translate into English without flattening stance.",
+                "answer": "The problem lay less in the decision itself than precisely in the way it was implemented.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Scope and focus with こそ — 高度な日本語に訳しなさい: The problem lay less in the decision itself than precisely in the way it was implemented. Translate into the target language with natural advanced grammar.",
+                "answer": "問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Scope and focus with こそ — 文脈と待遇レベルを保つ文を選びなさい。 Pair each expression with its contextual function.",
+                "answer": "問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。",
+                "skill_target": "matching",
+                "options": [
+                  "問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。",
+                  "The problem lay less in the decision itself than precisely in the way it was implemented.",
+                  "根拠のない断定"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Scope and focus with こそ — 談話の順序を復元しなさい: まさにその実施のされ方にこそあった。 / 問題だったのは決定そのものというより Restore grammatical constituent order.",
+                "answer": "問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Scope and focus with こそ — 与えられた節から文を組み立てなさい: 問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。 Combine every cue into one well-formed sentence.",
+                "answer": "問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Scope and focus with こそ — 文脈と待遇レベルを保つ文を選びなさい。 Select the exact form required by the sentence.",
+                "answer": "問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。",
+                "skill_target": "word selection",
+                "options": [
+                  "問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。",
+                  "The problem lay less in the decision itself than precisely in the way it was implemented.",
+                  "根拠のない断定"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Scope and focus with こそ — 過度に断定的な言い換えを修正しなさい。 Locate, correct, and explain the language-specific error.",
+                "answer": "問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Scope and focus with こそ — モデルを用いて応答しなさい。 Supply a turn that answers the prior speaker coherently.",
+                "answer": "問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Scope and focus with こそ — 次の文の射程・含意・談話機能を説明しなさい: 問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。 Explain the whole passage in context.",
+                "answer": "The problem lay less in the decision itself than precisely in the way it was implemented.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Scope and focus with こそ — 次の文の射程・含意・談話機能を説明しなさい: 問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。 Trace how the clauses build one paragraph-level claim.",
+                "answer": "The problem lay less in the decision itself than precisely in the way it was implemented.",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Scope and focus with こそ: モデルの意味を最も正確に保つ解釈はどれか。",
+                "options": [
+                  "The problem lay less in the decision itself than precisely in the way it was implemented.",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              },
+              {
+                "q": "Scope and focus with こそ: 編集で守るべき原則は何か。",
+                "options": [
+                  "読み手を変えても命題の射程を保つ。",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              },
+              {
+                "q": "Scope and focus with こそ: 上級表現である理由は何か。",
+                "options": [
+                  "文法・態度・結束性・待遇が連動している。",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              },
+              {
+                "q": "Scope and focus with こそ: 媒介で避けるべきことは何か。",
+                "options": [
+                  "限定された主張を事実として強めること。",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              },
+              {
+                "q": "Scope and focus with こそ: 文体変換で説明すべきことは何か。",
+                "options": [
+                  "射程・レジスター・含意・結束性。",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "問題だったのは",
+              "ったのは決定そ",
+              "は決定そのもの",
+              "そのものという"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Scope and focus with こそ workshop",
+              "tasks": [
+                {
+                  "instruction": "形式と談話機能を注釈しなさい。",
+                  "items": [
+                    "問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。",
+                    "彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。"
+                  ],
+                  "key": [
+                    "Japanese uses particles, clause-final modality, relative clauses, ellipsis, information structure, and honorific/register choices to calibrate commitment and social stance. Preserve these relations rather than translating word for word.",
+                    "Japanese uses particles, clause-final modality, relative clauses, ellipsis, information structure, and honorific/register choices to calibrate commitment and social stance. Preserve these relations rather than translating word for word."
+                  ]
+                },
+                {
+                  "instruction": "確実性を強めず英語で媒介しなさい。",
+                  "items": [
+                    "問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。",
+                    "彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。"
+                  ],
+                  "key": [
+                    "The problem lay less in the decision itself than precisely in the way it was implemented.",
+                    "His silence implied less agreement than deliberate distance preserving room for retreat."
+                  ]
+                },
+                {
+                  "instruction": "ジャンルを変え選択を説明しなさい。",
+                  "items": [
+                    "The problem lay less in the decision itself than precisely in the way it was implemented.",
+                    "His silence implied less agreement than deliberate distance preserving room for retreat."
+                  ],
+                  "key": [
+                    "Model: 問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。",
+                    "Model: 彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "ja-c2-l2",
+            "title": "Implicature and strategic silence",
+            "learn": "Control implicature and strategic silence in advanced Japanese discourse.",
+            "vocab": [
+              {
+                "t": "彼の沈黙は同意",
+                "r": "kano chinmoku ha doui",
+                "en": "discourse segment 1 in “His silence implied less agreement than deliberate distance preserving room for retreat.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "黙は同意という",
+                "r": "moku ha doui toiu",
+                "en": "discourse segment 2 in “His silence implied less agreement than deliberate distance preserving room for retreat.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "意というより、",
+                "r": "i toiuyori ,",
+                "en": "discourse segment 3 in “His silence implied less agreement than deliberate distance preserving room for retreat.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "うより、撤回の",
+                "r": "uyori , tekkai no",
+                "en": "discourse segment 4 in “His silence implied less agreement than deliberate distance preserving room for retreat.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "、撤回の余地を",
+                "r": ", tekkai no yochi wo",
+                "en": "discourse segment 5 in “His silence implied less agreement than deliberate distance preserving room for retreat.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "の余地を残すた",
+                "r": "no yochi wo nokosu ta",
+                "en": "discourse segment 6 in “His silence implied less agreement than deliberate distance preserving room for retreat.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "を残すための意",
+                "r": "wo nokosu tameno i",
+                "en": "discourse segment 7 in “His silence implied less agreement than deliberate distance preserving room for retreat.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "ための意図的な",
+                "r": "tameno itoteki na",
+                "en": "discourse segment 8 in “His silence implied less agreement than deliberate distance preserving room for retreat.”",
+                "pos": "discourse expression"
+              }
+            ],
+            "grammar": {
+              "title": "Implicature and strategic silence",
+              "explain": "Japanese uses particles, clause-final modality, relative clauses, ellipsis, information structure, and honorific/register choices to calibrate commitment and social stance. Preserve these relations rather than translating word for word.",
+              "pattern": "topic/frame + scoped proposition + clause-final stance",
+              "examples": [
+                {
+                  "t": "彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。",
+                  "r": "kano chinmoku ha doui toiuyori , tekkai no yochi wo nokosu tameno itoteki na kyori wohonomekashiteita .",
+                  "en": "His silence implied less agreement than deliberate distance preserving room for retreat."
+                },
+                {
+                  "t": "迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。",
+                  "r": "jinsoku saha tashikani hitsuyou da . shikashi , setsumei sekinin wo kaku jinsoku saha shinpo dehanaku , kiki no sakiokuri nisuginai .",
+                  "en": "Speed is certainly needed; however, speed without accountability is not progress, merely crisis deferred."
+                },
+                {
+                  "t": "その言葉は会議室で一度も発せられなかった。それでも、その余韻が後の決定をことごとく書き換えた。",
+                  "r": "sono kotoba ha kaigishitsu de ichido mo hasse rarenakatta . soredemo , sono yoin ga nochino kettei wokotogotoku kakikae ta .",
+                  "en": "The words were never uttered in the meeting room, yet their resonance rewrote every later decision."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Unqualified plain assertion",
+                  "right": "彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。",
+                  "why": "The plain assertion erases evidential scope or interpersonal restraint."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "分析者",
+                "t": "彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。",
+                "r": "kano chinmoku ha doui toiuyori , tekkai no yochi wo nokosu tameno itoteki na kyori wohonomekashiteita .",
+                "en": "His silence implied less agreement than deliberate distance preserving room for retreat."
+              },
+              {
+                "sp": "編集者",
+                "t": "迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。",
+                "r": "jinsoku saha tashikani hitsuyou da . shikashi , setsumei sekinin wo kaku jinsoku saha shinpo dehanaku , kiki no sakiokuri nisuginai .",
+                "en": "Speed is certainly needed; however, speed without accountability is not progress, merely crisis deferred."
+              },
+              {
+                "sp": "調停者",
+                "t": "その言葉は会議室で一度も発せられなかった。それでも、その余韻が後の決定をことごとく書き換えた。",
+                "r": "sono kotoba ha kaigishitsu de ichido mo hasse rarenakatta . soredemo , sono yoin ga nochino kettei wokotogotoku kakikae ta .",
+                "en": "The words were never uttered in the meeting room, yet their resonance rewrote every later decision."
+              },
+              {
+                "sp": "査読者",
+                "t": "ご異論を退ける意図はなく、それが妥当する範囲を明確にし、過度な一般化を避けたいのです。",
+                "r": "go iron wo shirizoke ru ito hanaku , sorega datou suru han'i wo meikaku nishi , kado na ippanka wo sake tainodesu .",
+                "en": "I do not intend to reject your objection, but to clarify its valid scope and avoid overgeneralisation."
+              }
+            ],
+            "practice": [
+              {
+                "type": "word_selection",
+                "q": "Implicature and strategic silence — 文脈と待遇レベルを保つ文を選びなさい。 Select the exact form required by the sentence.",
+                "answer": "彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。",
+                "skill_target": "word selection",
+                "options": [
+                  "彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。",
+                  "His silence implied less agreement than deliberate distance preserving room for retreat.",
+                  "根拠のない断定"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Implicature and strategic silence — 過度に断定的な言い換えを修正しなさい。 Locate, correct, and explain the language-specific error.",
+                "answer": "彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Implicature and strategic silence — モデルを用いて応答しなさい。 Supply a turn that answers the prior speaker coherently.",
+                "answer": "彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Implicature and strategic silence — 次の文の射程・含意・談話機能を説明しなさい: 彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。 Explain the whole passage in context.",
+                "answer": "His silence implied less agreement than deliberate distance preserving room for retreat.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Implicature and strategic silence — 次の文の射程・含意・談話機能を説明しなさい: 彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。 Trace how the clauses build one paragraph-level claim.",
+                "answer": "His silence implied less agreement than deliberate distance preserving room for retreat.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "main_idea",
+                "q": "Implicature and strategic silence — 次の文の射程・含意・談話機能を説明しなさい: 彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。 State the single controlling idea.",
+                "answer": "His silence implied less agreement than deliberate distance preserving room for retreat.",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Implicature and strategic silence — 次の文の射程・含意・談話機能を説明しなさい: 彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。 Identify the exact supporting detail.",
+                "answer": "His silence implied less agreement than deliberate distance preserving room for retreat.",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "inference",
+                "q": "Implicature and strategic silence — 次の文の射程・含意・談話機能を説明しなさい: 彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。 Infer a conclusion not stated directly.",
+                "answer": "His silence implied less agreement than deliberate distance preserving room for retreat.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Implicature and strategic silence — 合成音声を聞き、句切りと態度を再現しなさい。 Report the meaning and stance of the synthetic audio.",
+                "answer": "彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: ja-JP browser voice; not a native-speaker recording; text=彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。"
+              },
+              {
+                "type": "dictation",
+                "q": "Implicature and strategic silence — 合成音声を聞き、句切りと態度を再現しなさい。 Write the synthetic model exactly, including inflection and particles.",
+                "answer": "彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: ja-JP browser voice; not a native-speaker recording; text=彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。"
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Implicature and strategic silence — 文脈と待遇レベルを保つ文を選びなさい。 Choose only after comparing the synthetic spoken alternatives.",
+                "answer": "彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。",
+                "skill_target": "listen and choose",
+                "options": [
+                  "彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。",
+                  "His silence implied less agreement than deliberate distance preserving room for retreat.",
+                  "根拠のない断定"
+                ],
+                "audio_source": "synthetic_tts: ja-JP browser voice; not a native-speaker recording; text=彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。"
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "Implicature and strategic silence — 談話の順序を復元しなさい: 撤回の余地を残すための意図的な距離をほのめかしていた。 / 彼の沈黙は同意というより Use prosodic cues in synthetic audio to restore order.",
+                "answer": "彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: ja-JP browser voice; not a native-speaker recording; text=彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Implicature and strategic silence: モデルの意味を最も正確に保つ解釈はどれか。",
+                "options": [
+                  "His silence implied less agreement than deliberate distance preserving room for retreat.",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              },
+              {
+                "q": "Implicature and strategic silence: 編集で守るべき原則は何か。",
+                "options": [
+                  "読み手を変えても命題の射程を保つ。",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              },
+              {
+                "q": "Implicature and strategic silence: 上級表現である理由は何か。",
+                "options": [
+                  "文法・態度・結束性・待遇が連動している。",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              },
+              {
+                "q": "Implicature and strategic silence: 媒介で避けるべきことは何か。",
+                "options": [
+                  "限定された主張を事実として強めること。",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              },
+              {
+                "q": "Implicature and strategic silence: 文体変換で説明すべきことは何か。",
+                "options": [
+                  "射程・レジスター・含意・結束性。",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "彼の沈黙は同意",
+              "黙は同意という",
+              "意というより、",
+              "うより、撤回の"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Implicature and strategic silence workshop",
+              "tasks": [
+                {
+                  "instruction": "形式と談話機能を注釈しなさい。",
+                  "items": [
+                    "彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。",
+                    "迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。"
+                  ],
+                  "key": [
+                    "Japanese uses particles, clause-final modality, relative clauses, ellipsis, information structure, and honorific/register choices to calibrate commitment and social stance. Preserve these relations rather than translating word for word.",
+                    "Japanese uses particles, clause-final modality, relative clauses, ellipsis, information structure, and honorific/register choices to calibrate commitment and social stance. Preserve these relations rather than translating word for word."
+                  ]
+                },
+                {
+                  "instruction": "確実性を強めず英語で媒介しなさい。",
+                  "items": [
+                    "彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。",
+                    "迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。"
+                  ],
+                  "key": [
+                    "His silence implied less agreement than deliberate distance preserving room for retreat.",
+                    "Speed is certainly needed; however, speed without accountability is not progress, merely crisis deferred."
+                  ]
+                },
+                {
+                  "instruction": "ジャンルを変え選択を説明しなさい。",
+                  "items": [
+                    "His silence implied less agreement than deliberate distance preserving room for retreat.",
+                    "Speed is certainly needed; however, speed without accountability is not progress, merely crisis deferred."
+                  ],
+                  "key": [
+                    "Model: 彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。",
+                    "Model: 迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "ja-c2-u2",
+        "title": "Rhetorical and stylistic command",
+        "lessons": [
+          {
+            "id": "ja-c2-l3",
+            "title": "Rhetorical parallelism",
+            "learn": "Control rhetorical parallelism in advanced Japanese discourse.",
+            "vocab": [
+              {
+                "t": "迅速さは確かに",
+                "r": "jinsoku saha tashikani",
+                "en": "discourse segment 1 in “Speed is certainly needed; however, speed without accountability is not progress, merely crisis deferred.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "は確かに必要だ",
+                "r": "ha tashikani hitsuyou da",
+                "en": "discourse segment 2 in “Speed is certainly needed; however, speed without accountability is not progress, merely crisis deferred.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "に必要だ。しか",
+                "r": "ni hitsuyou da . shika",
+                "en": "discourse segment 3 in “Speed is certainly needed; however, speed without accountability is not progress, merely crisis deferred.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "だ。しかし、説",
+                "r": "da . shikashi , setsu",
+                "en": "discourse segment 4 in “Speed is certainly needed; however, speed without accountability is not progress, merely crisis deferred.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "かし、説明責任",
+                "r": "kashi , setsumei sekinin",
+                "en": "discourse segment 5 in “Speed is certainly needed; however, speed without accountability is not progress, merely crisis deferred.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "説明責任を欠く",
+                "r": "setsumei sekinin wo kaku",
+                "en": "discourse segment 6 in “Speed is certainly needed; however, speed without accountability is not progress, merely crisis deferred.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "任を欠く迅速さ",
+                "r": "nin wo kaku jinsoku sa",
+                "en": "discourse segment 7 in “Speed is certainly needed; however, speed without accountability is not progress, merely crisis deferred.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "く迅速さは進歩",
+                "r": "ku jinsoku saha shinpo",
+                "en": "discourse segment 8 in “Speed is certainly needed; however, speed without accountability is not progress, merely crisis deferred.”",
+                "pos": "discourse expression"
+              }
+            ],
+            "grammar": {
+              "title": "Rhetorical parallelism",
+              "explain": "Japanese uses particles, clause-final modality, relative clauses, ellipsis, information structure, and honorific/register choices to calibrate commitment and social stance. Preserve these relations rather than translating word for word.",
+              "pattern": "topic/frame + scoped proposition + clause-final stance",
+              "examples": [
+                {
+                  "t": "迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。",
+                  "r": "jinsoku saha tashikani hitsuyou da . shikashi , setsumei sekinin wo kaku jinsoku saha shinpo dehanaku , kiki no sakiokuri nisuginai .",
+                  "en": "Speed is certainly needed; however, speed without accountability is not progress, merely crisis deferred."
+                },
+                {
+                  "t": "その言葉は会議室で一度も発せられなかった。それでも、その余韻が後の決定をことごとく書き換えた。",
+                  "r": "sono kotoba ha kaigishitsu de ichido mo hasse rarenakatta . soredemo , sono yoin ga nochino kettei wokotogotoku kakikae ta .",
+                  "en": "The words were never uttered in the meeting room, yet their resonance rewrote every later decision."
+                },
+                {
+                  "t": "ご異論を退ける意図はなく、それが妥当する範囲を明確にし、過度な一般化を避けたいのです。",
+                  "r": "go iron wo shirizoke ru ito hanaku , sorega datou suru han'i wo meikaku nishi , kado na ippanka wo sake tainodesu .",
+                  "en": "I do not intend to reject your objection, but to clarify its valid scope and avoid overgeneralisation."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Unqualified plain assertion",
+                  "right": "迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。",
+                  "why": "The plain assertion erases evidential scope or interpersonal restraint."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "分析者",
+                "t": "迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。",
+                "r": "jinsoku saha tashikani hitsuyou da . shikashi , setsumei sekinin wo kaku jinsoku saha shinpo dehanaku , kiki no sakiokuri nisuginai .",
+                "en": "Speed is certainly needed; however, speed without accountability is not progress, merely crisis deferred."
+              },
+              {
+                "sp": "編集者",
+                "t": "その言葉は会議室で一度も発せられなかった。それでも、その余韻が後の決定をことごとく書き換えた。",
+                "r": "sono kotoba ha kaigishitsu de ichido mo hasse rarenakatta . soredemo , sono yoin ga nochino kettei wokotogotoku kakikae ta .",
+                "en": "The words were never uttered in the meeting room, yet their resonance rewrote every later decision."
+              },
+              {
+                "sp": "調停者",
+                "t": "ご異論を退ける意図はなく、それが妥当する範囲を明確にし、過度な一般化を避けたいのです。",
+                "r": "go iron wo shirizoke ru ito hanaku , sorega datou suru han'i wo meikaku nishi , kado na ippanka wo sake tainodesu .",
+                "en": "I do not intend to reject your objection, but to clarify its valid scope and avoid overgeneralisation."
+              },
+              {
+                "sp": "査読者",
+                "t": "現時点の証拠に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。",
+                "r": "genjiten no shouko ni tera seba , koreha gaizensei no takai kaishaku dehaaruga , saishuuteki na dantei dehanai .",
+                "en": "In light of current evidence, this is a highly plausible interpretation, but not a final assertion."
+              }
+            ],
+            "practice": [
+              {
+                "type": "inference",
+                "q": "Rhetorical parallelism — 次の文の射程・含意・談話機能を説明しなさい: 迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。 Infer a conclusion not stated directly.",
+                "answer": "Speed is certainly needed; however, speed without accountability is not progress, merely crisis deferred.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Rhetorical parallelism — 合成音声を聞き、句切りと態度を再現しなさい。 Report the meaning and stance of the synthetic audio.",
+                "answer": "迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: ja-JP browser voice; not a native-speaker recording; text=迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。"
+              },
+              {
+                "type": "dictation",
+                "q": "Rhetorical parallelism — 合成音声を聞き、句切りと態度を再現しなさい。 Write the synthetic model exactly, including inflection and particles.",
+                "answer": "迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: ja-JP browser voice; not a native-speaker recording; text=迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。"
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Rhetorical parallelism — 文脈と待遇レベルを保つ文を選びなさい。 Choose only after comparing the synthetic spoken alternatives.",
+                "answer": "迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。",
+                "skill_target": "listen and choose",
+                "options": [
+                  "迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。",
+                  "Speed is certainly needed; however, speed without accountability is not progress, merely crisis deferred.",
+                  "根拠のない断定"
+                ],
+                "audio_source": "synthetic_tts: ja-JP browser voice; not a native-speaker recording; text=迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。"
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "Rhetorical parallelism — 談話の順序を復元しなさい: 危機の先送りにすぎない。 / 説明責任を欠く迅速さは進歩ではなく / 迅速さは確かに必要だ。しかし Use prosodic cues in synthetic audio to restore order.",
+                "answer": "迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: ja-JP browser voice; not a native-speaker recording; text=迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。"
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Rhetorical parallelism — 空所を補いなさい: 迅速____に必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。 Use the synthetic audio to restore the omitted form.",
+                "answer": "さは確か",
+                "skill_target": "listen and fill",
+                "audio_source": "synthetic_tts: ja-JP browser voice; not a native-speaker recording; text=迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。"
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Rhetorical parallelism — 合成音声を聞き、句切りと態度を再現しなさい。 Repeat with accurate segmental pronunciation and pausing.",
+                "answer": "迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: ja-JP browser voice; not a native-speaker recording; text=迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。"
+              },
+              {
+                "type": "pronunciation",
+                "q": "Rhetorical parallelism — 合成音声を聞き、句切りと態度を再現しなさい。 Focus on the named sound, stress, tone, or prosodic contrast.",
+                "answer": "迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: ja-JP browser voice; not a native-speaker recording; text=迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。"
+              },
+              {
+                "type": "shadowing",
+                "q": "Rhetorical parallelism — 合成音声を聞き、句切りと態度を再現しなさい。 Shadow continuously while preserving rhythm and phrasing.",
+                "answer": "迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: ja-JP browser voice; not a native-speaker recording; text=迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。"
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Rhetorical parallelism — 同じ構文で専門家として応答しなさい。 Produce a guided response using the specified frame.",
+                "answer": "Model: 迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "Rhetorical parallelism — 同じ構文で専門家として応答しなさい。 Produce an independent response and defend lexical choices.",
+                "answer": "Model: 迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "Rhetorical parallelism — 同じ構文で専門家として応答しなさい。 Respond in role with socially appropriate register.",
+                "answer": "Model: 迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。",
+                "skill_target": "roleplay"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Rhetorical parallelism: モデルの意味を最も正確に保つ解釈はどれか。",
+                "options": [
+                  "Speed is certainly needed; however, speed without accountability is not progress, merely crisis deferred.",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              },
+              {
+                "q": "Rhetorical parallelism: 編集で守るべき原則は何か。",
+                "options": [
+                  "読み手を変えても命題の射程を保つ。",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              },
+              {
+                "q": "Rhetorical parallelism: 上級表現である理由は何か。",
+                "options": [
+                  "文法・態度・結束性・待遇が連動している。",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              },
+              {
+                "q": "Rhetorical parallelism: 媒介で避けるべきことは何か。",
+                "options": [
+                  "限定された主張を事実として強めること。",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              },
+              {
+                "q": "Rhetorical parallelism: 文体変換で説明すべきことは何か。",
+                "options": [
+                  "射程・レジスター・含意・結束性。",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "迅速さは確かに",
+              "は確かに必要だ",
+              "に必要だ。しか",
+              "だ。しかし、説"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Rhetorical parallelism workshop",
+              "tasks": [
+                {
+                  "instruction": "形式と談話機能を注釈しなさい。",
+                  "items": [
+                    "迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。",
+                    "その言葉は会議室で一度も発せられなかった。それでも、その余韻が後の決定をことごとく書き換えた。"
+                  ],
+                  "key": [
+                    "Japanese uses particles, clause-final modality, relative clauses, ellipsis, information structure, and honorific/register choices to calibrate commitment and social stance. Preserve these relations rather than translating word for word.",
+                    "Japanese uses particles, clause-final modality, relative clauses, ellipsis, information structure, and honorific/register choices to calibrate commitment and social stance. Preserve these relations rather than translating word for word."
+                  ]
+                },
+                {
+                  "instruction": "確実性を強めず英語で媒介しなさい。",
+                  "items": [
+                    "迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。",
+                    "その言葉は会議室で一度も発せられなかった。それでも、その余韻が後の決定をことごとく書き換えた。"
+                  ],
+                  "key": [
+                    "Speed is certainly needed; however, speed without accountability is not progress, merely crisis deferred.",
+                    "The words were never uttered in the meeting room, yet their resonance rewrote every later decision."
+                  ]
+                },
+                {
+                  "instruction": "ジャンルを変え選択を説明しなさい。",
+                  "items": [
+                    "Speed is certainly needed; however, speed without accountability is not progress, merely crisis deferred.",
+                    "The words were never uttered in the meeting room, yet their resonance rewrote every later decision."
+                  ],
+                  "key": [
+                    "Model: 迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。",
+                    "Model: その言葉は会議室で一度も発せられなかった。それでも、その余韻が後の決定をことごとく書き換えた。"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "ja-c2-l4",
+            "title": "Literary–institutional transformation",
+            "learn": "Control literary–institutional transformation in advanced Japanese discourse.",
+            "vocab": [
+              {
+                "t": "その言葉は会議",
+                "r": "sono kotoba ha kaigi",
+                "en": "discourse segment 1 in “The words were never uttered in the meeting room, yet their resonance rewrote every later decision.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "葉は会議室で一",
+                "r": "ha ha kaigishitsu de ichi",
+                "en": "discourse segment 2 in “The words were never uttered in the meeting room, yet their resonance rewrote every later decision.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "議室で一度も発",
+                "r": "gi shitsu de ichido mo hatsu",
+                "en": "discourse segment 3 in “The words were never uttered in the meeting room, yet their resonance rewrote every later decision.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "一度も発せられ",
+                "r": "ichido mo hasse rare",
+                "en": "discourse segment 4 in “The words were never uttered in the meeting room, yet their resonance rewrote every later decision.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "発せられなかっ",
+                "r": "hasse rarenakatsu",
+                "en": "discourse segment 5 in “The words were never uttered in the meeting room, yet their resonance rewrote every later decision.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "れなかった。そ",
+                "r": "renakatta . so",
+                "en": "discourse segment 6 in “The words were never uttered in the meeting room, yet their resonance rewrote every later decision.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "った。それでも",
+                "r": "tta . soredemo",
+                "en": "discourse segment 7 in “The words were never uttered in the meeting room, yet their resonance rewrote every later decision.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "それでも、その",
+                "r": "soredemo , sono",
+                "en": "discourse segment 8 in “The words were never uttered in the meeting room, yet their resonance rewrote every later decision.”",
+                "pos": "discourse expression"
+              }
+            ],
+            "grammar": {
+              "title": "Literary–institutional transformation",
+              "explain": "Japanese uses particles, clause-final modality, relative clauses, ellipsis, information structure, and honorific/register choices to calibrate commitment and social stance. Preserve these relations rather than translating word for word.",
+              "pattern": "topic/frame + scoped proposition + clause-final stance",
+              "examples": [
+                {
+                  "t": "その言葉は会議室で一度も発せられなかった。それでも、その余韻が後の決定をことごとく書き換えた。",
+                  "r": "sono kotoba ha kaigishitsu de ichido mo hasse rarenakatta . soredemo , sono yoin ga nochino kettei wokotogotoku kakikae ta .",
+                  "en": "The words were never uttered in the meeting room, yet their resonance rewrote every later decision."
+                },
+                {
+                  "t": "ご異論を退ける意図はなく、それが妥当する範囲を明確にし、過度な一般化を避けたいのです。",
+                  "r": "go iron wo shirizoke ru ito hanaku , sorega datou suru han'i wo meikaku nishi , kado na ippanka wo sake tainodesu .",
+                  "en": "I do not intend to reject your objection, but to clarify its valid scope and avoid overgeneralisation."
+                },
+                {
+                  "t": "現時点の証拠に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。",
+                  "r": "genjiten no shouko ni tera seba , koreha gaizensei no takai kaishaku dehaaruga , saishuuteki na dantei dehanai .",
+                  "en": "In light of current evidence, this is a highly plausible interpretation, but not a final assertion."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Unqualified plain assertion",
+                  "right": "その言葉は会議室で一度も発せられなかった。それでも、その余韻が後の決定をことごとく書き換えた。",
+                  "why": "The plain assertion erases evidential scope or interpersonal restraint."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "分析者",
+                "t": "その言葉は会議室で一度も発せられなかった。それでも、その余韻が後の決定をことごとく書き換えた。",
+                "r": "sono kotoba ha kaigishitsu de ichido mo hasse rarenakatta . soredemo , sono yoin ga nochino kettei wokotogotoku kakikae ta .",
+                "en": "The words were never uttered in the meeting room, yet their resonance rewrote every later decision."
+              },
+              {
+                "sp": "編集者",
+                "t": "ご異論を退ける意図はなく、それが妥当する範囲を明確にし、過度な一般化を避けたいのです。",
+                "r": "go iron wo shirizoke ru ito hanaku , sorega datou suru han'i wo meikaku nishi , kado na ippanka wo sake tainodesu .",
+                "en": "I do not intend to reject your objection, but to clarify its valid scope and avoid overgeneralisation."
+              },
+              {
+                "sp": "調停者",
+                "t": "現時点の証拠に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。",
+                "r": "genjiten no shouko ni tera seba , koreha gaizensei no takai kaishaku dehaaruga , saishuuteki na dantei dehanai .",
+                "en": "In light of current evidence, this is a highly plausible interpretation, but not a final assertion."
+              },
+              {
+                "sp": "査読者",
+                "t": "問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。",
+                "r": "mondai dattanoha kettei sonomonotoiuyori , masanisono jisshi nosare hou nikosoatta .",
+                "en": "The problem lay less in the decision itself than precisely in the way it was implemented."
+              }
+            ],
+            "practice": [
+              {
+                "type": "pronunciation",
+                "q": "Literary–institutional transformation — 合成音声を聞き、句切りと態度を再現しなさい。 Focus on the named sound, stress, tone, or prosodic contrast.",
+                "answer": "その言葉は会議室で一度も発せられなかった。それでも、その余韻が後の決定をことごとく書き換えた。",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: ja-JP browser voice; not a native-speaker recording; text=その言葉は会議室で一度も発せられなかった。それでも、その余韻が後の決定をことごとく書き換えた。"
+              },
+              {
+                "type": "shadowing",
+                "q": "Literary–institutional transformation — 合成音声を聞き、句切りと態度を再現しなさい。 Shadow continuously while preserving rhythm and phrasing.",
+                "answer": "その言葉は会議室で一度も発せられなかった。それでも、その余韻が後の決定をことごとく書き換えた。",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: ja-JP browser voice; not a native-speaker recording; text=その言葉は会議室で一度も発せられなかった。それでも、その余韻が後の決定をことごとく書き換えた。"
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Literary–institutional transformation — 同じ構文で専門家として応答しなさい。 Produce a guided response using the specified frame.",
+                "answer": "Model: その言葉は会議室で一度も発せられなかった。それでも、その余韻が後の決定をことごとく書き換えた。",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "Literary–institutional transformation — 同じ構文で専門家として応答しなさい。 Produce an independent response and defend lexical choices.",
+                "answer": "Model: その言葉は会議室で一度も発せられなかった。それでも、その余韻が後の決定をことごとく書き換えた。",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "Literary–institutional transformation — 同じ構文で専門家として応答しなさい。 Respond in role with socially appropriate register.",
+                "answer": "Model: その言葉は会議室で一度も発せられなかった。それでも、その余韻が後の決定をことごとく書き換えた。",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Literary–institutional transformation — 主張・根拠・限定・帰結を含む文章を書きなさい。 Write one complete, grammatically controlled sentence.",
+                "answer": "Model: その言葉は会議室で一度も発せられなかった。それでも、その余韻が後の決定をことごとく書き換えた。",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "Literary–institutional transformation — 主張・根拠・限定・帰結を含む文章を書きなさい。 Develop a short connected response of several sentences.",
+                "answer": "Model: その言葉は会議室で一度も発せられなかった。それでも、その余韻が後の決定をことごとく書き換えた。",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "paraphrase",
+                "q": "Literary–institutional transformation — 確実性を変えずに要約・換言しなさい。 Change wording and syntax while preserving proposition and stance.",
+                "answer": "その言葉は会議室で一度も発せられなかった。それでも、その余韻が後の決定をことごとく書き換えた。",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "Literary–institutional transformation — 確実性を変えずに要約・換言しなさい。 Compress to essentials without adding a new claim.",
+                "answer": "その言葉は会議室で一度も発せられなかった。それでも、その余韻が後の決定をことごとく書き換えた。",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Literary–institutional transformation — 主張・根拠・限定・帰結を含む文章を書きなさい。 Follow the supplied rhetorical stages in a connected text.",
+                "answer": "Model: その言葉は会議室で一度も発せられなかった。それでも、その余韻が後の決定をことごとく書き換えた。",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Literary–institutional transformation — 公的な書き言葉に変換しなさい: The words were never uttered in the meeting room, yet their resonance rewrote every later decision. Change social and institutional register while preserving content.",
+                "answer": "その言葉は会議室で一度も発せられなかった。それでも、その余韻が後の決定をことごとく書き換えた。",
+                "skill_target": "register transformation"
+              },
+              {
+                "type": "tone_identification",
+                "q": "Literary–institutional transformation — 語調を判定しなさい。 Identify tone from linguistic evidence.",
+                "answer": "慎重で分析的な改まった語調",
+                "skill_target": "tone identification",
+                "options": [
+                  "慎重で分析的な改まった語調",
+                  "無根拠で断定的",
+                  "くだけた挨拶"
+                ]
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Literary–institutional transformation: モデルの意味を最も正確に保つ解釈はどれか。",
+                "options": [
+                  "The words were never uttered in the meeting room, yet their resonance rewrote every later decision.",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              },
+              {
+                "q": "Literary–institutional transformation: 編集で守るべき原則は何か。",
+                "options": [
+                  "読み手を変えても命題の射程を保つ。",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              },
+              {
+                "q": "Literary–institutional transformation: 上級表現である理由は何か。",
+                "options": [
+                  "文法・態度・結束性・待遇が連動している。",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              },
+              {
+                "q": "Literary–institutional transformation: 媒介で避けるべきことは何か。",
+                "options": [
+                  "限定された主張を事実として強めること。",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              },
+              {
+                "q": "Literary–institutional transformation: 文体変換で説明すべきことは何か。",
+                "options": [
+                  "射程・レジスター・含意・結束性。",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "その言葉は会議",
+              "葉は会議室で一",
+              "議室で一度も発",
+              "一度も発せられ"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Literary–institutional transformation workshop",
+              "tasks": [
+                {
+                  "instruction": "形式と談話機能を注釈しなさい。",
+                  "items": [
+                    "その言葉は会議室で一度も発せられなかった。それでも、その余韻が後の決定をことごとく書き換えた。",
+                    "ご異論を退ける意図はなく、それが妥当する範囲を明確にし、過度な一般化を避けたいのです。"
+                  ],
+                  "key": [
+                    "Japanese uses particles, clause-final modality, relative clauses, ellipsis, information structure, and honorific/register choices to calibrate commitment and social stance. Preserve these relations rather than translating word for word.",
+                    "Japanese uses particles, clause-final modality, relative clauses, ellipsis, information structure, and honorific/register choices to calibrate commitment and social stance. Preserve these relations rather than translating word for word."
+                  ]
+                },
+                {
+                  "instruction": "確実性を強めず英語で媒介しなさい。",
+                  "items": [
+                    "その言葉は会議室で一度も発せられなかった。それでも、その余韻が後の決定をことごとく書き換えた。",
+                    "ご異論を退ける意図はなく、それが妥当する範囲を明確にし、過度な一般化を避けたいのです。"
+                  ],
+                  "key": [
+                    "The words were never uttered in the meeting room, yet their resonance rewrote every later decision.",
+                    "I do not intend to reject your objection, but to clarify its valid scope and avoid overgeneralisation."
+                  ]
+                },
+                {
+                  "instruction": "ジャンルを変え選択を説明しなさい。",
+                  "items": [
+                    "The words were never uttered in the meeting room, yet their resonance rewrote every later decision.",
+                    "I do not intend to reject your objection, but to clarify its valid scope and avoid overgeneralisation."
+                  ],
+                  "key": [
+                    "Model: その言葉は会議室で一度も発せられなかった。それでも、その余韻が後の決定をことごとく書き換えた。",
+                    "Model: ご異論を退ける意図はなく、それが妥当する範囲を明確にし、過度な一般化を避けたいのです。"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "ja-c2-u3",
+        "title": "Cultural pragmatics and expert mediation",
+        "lessons": [
+          {
+            "id": "ja-c2-l5",
+            "title": "Face-sensitive delimitation",
+            "learn": "Control face-sensitive delimitation in advanced Japanese discourse.",
+            "vocab": [
+              {
+                "t": "ご異論を退ける",
+                "r": "go iron wo shirizoke ru",
+                "en": "discourse segment 1 in “I do not intend to reject your objection, but to clarify its valid scope and avoid overgeneralisation.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "を退ける意図は",
+                "r": "wo shirizoke ru ito ha",
+                "en": "discourse segment 2 in “I do not intend to reject your objection, but to clarify its valid scope and avoid overgeneralisation.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "る意図はなく、",
+                "r": "ru ito hanaku ,",
+                "en": "discourse segment 3 in “I do not intend to reject your objection, but to clarify its valid scope and avoid overgeneralisation.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "はなく、それが",
+                "r": "hanaku , sorega",
+                "en": "discourse segment 4 in “I do not intend to reject your objection, but to clarify its valid scope and avoid overgeneralisation.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "、それが妥当す",
+                "r": ", sorega datou su",
+                "en": "discourse segment 5 in “I do not intend to reject your objection, but to clarify its valid scope and avoid overgeneralisation.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "が妥当する範囲",
+                "r": "ga datou suru han'i",
+                "en": "discourse segment 6 in “I do not intend to reject your objection, but to clarify its valid scope and avoid overgeneralisation.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "する範囲を明確",
+                "r": "suru han'i wo meikaku",
+                "en": "discourse segment 7 in “I do not intend to reject your objection, but to clarify its valid scope and avoid overgeneralisation.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "囲を明確にし、",
+                "r": "i wo meikaku nishi ,",
+                "en": "discourse segment 8 in “I do not intend to reject your objection, but to clarify its valid scope and avoid overgeneralisation.”",
+                "pos": "discourse expression"
+              }
+            ],
+            "grammar": {
+              "title": "Face-sensitive delimitation",
+              "explain": "Japanese uses particles, clause-final modality, relative clauses, ellipsis, information structure, and honorific/register choices to calibrate commitment and social stance. Preserve these relations rather than translating word for word.",
+              "pattern": "topic/frame + scoped proposition + clause-final stance",
+              "examples": [
+                {
+                  "t": "ご異論を退ける意図はなく、それが妥当する範囲を明確にし、過度な一般化を避けたいのです。",
+                  "r": "go iron wo shirizoke ru ito hanaku , sorega datou suru han'i wo meikaku nishi , kado na ippanka wo sake tainodesu .",
+                  "en": "I do not intend to reject your objection, but to clarify its valid scope and avoid overgeneralisation."
+                },
+                {
+                  "t": "現時点の証拠に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。",
+                  "r": "genjiten no shouko ni tera seba , koreha gaizensei no takai kaishaku dehaaruga , saishuuteki na dantei dehanai .",
+                  "en": "In light of current evidence, this is a highly plausible interpretation, but not a final assertion."
+                },
+                {
+                  "t": "問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。",
+                  "r": "mondai dattanoha kettei sonomonotoiuyori , masanisono jisshi nosare hou nikosoatta .",
+                  "en": "The problem lay less in the decision itself than precisely in the way it was implemented."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Unqualified plain assertion",
+                  "right": "ご異論を退ける意図はなく、それが妥当する範囲を明確にし、過度な一般化を避けたいのです。",
+                  "why": "The plain assertion erases evidential scope or interpersonal restraint."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "分析者",
+                "t": "ご異論を退ける意図はなく、それが妥当する範囲を明確にし、過度な一般化を避けたいのです。",
+                "r": "go iron wo shirizoke ru ito hanaku , sorega datou suru han'i wo meikaku nishi , kado na ippanka wo sake tainodesu .",
+                "en": "I do not intend to reject your objection, but to clarify its valid scope and avoid overgeneralisation."
+              },
+              {
+                "sp": "編集者",
+                "t": "現時点の証拠に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。",
+                "r": "genjiten no shouko ni tera seba , koreha gaizensei no takai kaishaku dehaaruga , saishuuteki na dantei dehanai .",
+                "en": "In light of current evidence, this is a highly plausible interpretation, but not a final assertion."
+              },
+              {
+                "sp": "調停者",
+                "t": "問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。",
+                "r": "mondai dattanoha kettei sonomonotoiuyori , masanisono jisshi nosare hou nikosoatta .",
+                "en": "The problem lay less in the decision itself than precisely in the way it was implemented."
+              },
+              {
+                "sp": "査読者",
+                "t": "彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。",
+                "r": "kano chinmoku ha doui toiuyori , tekkai no yochi wo nokosu tameno itoteki na kyori wohonomekashiteita .",
+                "en": "His silence implied less agreement than deliberate distance preserving room for retreat."
+              }
+            ],
+            "practice": [
+              {
+                "type": "paraphrase",
+                "q": "Face-sensitive delimitation — 確実性を変えずに要約・換言しなさい。 Change wording and syntax while preserving proposition and stance.",
+                "answer": "ご異論を退ける意図はなく、それが妥当する範囲を明確にし、過度な一般化を避けたいのです。",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "Face-sensitive delimitation — 確実性を変えずに要約・換言しなさい。 Compress to essentials without adding a new claim.",
+                "answer": "ご異論を退ける意図はなく、それが妥当する範囲を明確にし、過度な一般化を避けたいのです。",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Face-sensitive delimitation — 主張・根拠・限定・帰結を含む文章を書きなさい。 Follow the supplied rhetorical stages in a connected text.",
+                "answer": "Model: ご異論を退ける意図はなく、それが妥当する範囲を明確にし、過度な一般化を避けたいのです。",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Face-sensitive delimitation — 公的な書き言葉に変換しなさい: I do not intend to reject your objection, but to clarify its valid scope and avoid overgeneralisation. Change social and institutional register while preserving content.",
+                "answer": "ご異論を退ける意図はなく、それが妥当する範囲を明確にし、過度な一般化を避けたいのです。",
+                "skill_target": "register transformation"
+              },
+              {
+                "type": "tone_identification",
+                "q": "Face-sensitive delimitation — 語調を判定しなさい。 Identify tone from linguistic evidence.",
+                "answer": "慎重で分析的な改まった語調",
+                "skill_target": "tone identification",
+                "options": [
+                  "慎重で分析的な改まった語調",
+                  "無根拠で断定的",
+                  "くだけた挨拶"
+                ]
+              },
+              {
+                "type": "semantic_distinction",
+                "q": "Face-sensitive delimitation — 断定文との意味差を説明しなさい。 Contrast the meanings and state when each form is licensed.",
+                "answer": "証拠への関与と命題の射程が限定されている。",
+                "skill_target": "semantic distinction"
+              },
+              {
+                "type": "contextual_meaning",
+                "q": "Face-sensitive delimitation — 次の文の射程・含意・談話機能を説明しなさい: ご異論を退ける意図はなく、それが妥当する範囲を明確にし、過度な一般化を避けたいのです。 Explain what the marked wording means in this context.",
+                "answer": "I do not intend to reject your objection, but to clarify its valid scope and avoid overgeneralisation.",
+                "skill_target": "contextual meaning"
+              },
+              {
+                "type": "argument_construction",
+                "q": "Face-sensitive delimitation — 主張・根拠・限定・帰結を含む文章を書きなさい。 Construct claim, evidence, warrant, qualification, and response.",
+                "answer": "Model: ご異論を退ける意図はなく、それが妥当する範囲を明確にし、過度な一般化を避けたいのです。",
+                "skill_target": "argument construction"
+              },
+              {
+                "type": "discourse_ordering",
+                "q": "Face-sensitive delimitation — 談話の順序を復元しなさい: 過度な一般化を避けたいのです。 / それが妥当する範囲を明確にし / ご異論を退ける意図はなく Restore claim, support, concession, and conclusion order.",
+                "answer": "ご異論を退ける意図はなく、それが妥当する範囲を明確にし、過度な一般化を避けたいのです。",
+                "skill_target": "discourse ordering"
+              },
+              {
+                "type": "style_rewriting",
+                "q": "Face-sensitive delimitation — 含意を保って報告書向けに書き換えなさい。 Recast for the named genre and explain stylistic changes.",
+                "answer": "ご異論を退ける意図はなく、それが妥当する範囲を明確にし、過度な一般化を避けたいのです。",
+                "skill_target": "style rewriting"
+              },
+              {
+                "type": "idiom_interpretation",
+                "q": "Face-sensitive delimitation — 次の文の射程・含意・談話機能を説明しなさい: ご異論を退ける意図はなく、それが妥当する範囲を明確にし、過度な一般化を避けたいのです。 Interpret the expression non-literally where appropriate.",
+                "answer": "I do not intend to reject your objection, but to clarify its valid scope and avoid overgeneralisation.",
+                "skill_target": "idiom interpretation"
+              },
+              {
+                "type": "implied_meaning",
+                "q": "Face-sensitive delimitation — 次の文の射程・含意・談話機能を説明しなさい: ご異論を退ける意図はなく、それが妥当する範囲を明確にし、過度な一般化を避けたいのです。 Recover the speaker’s unstated implication.",
+                "answer": "I do not intend to reject your objection, but to clarify its valid scope and avoid overgeneralisation.",
+                "skill_target": "implied meaning"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Face-sensitive delimitation: モデルの意味を最も正確に保つ解釈はどれか。",
+                "options": [
+                  "I do not intend to reject your objection, but to clarify its valid scope and avoid overgeneralisation.",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              },
+              {
+                "q": "Face-sensitive delimitation: 編集で守るべき原則は何か。",
+                "options": [
+                  "読み手を変えても命題の射程を保つ。",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              },
+              {
+                "q": "Face-sensitive delimitation: 上級表現である理由は何か。",
+                "options": [
+                  "文法・態度・結束性・待遇が連動している。",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              },
+              {
+                "q": "Face-sensitive delimitation: 媒介で避けるべきことは何か。",
+                "options": [
+                  "限定された主張を事実として強めること。",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              },
+              {
+                "q": "Face-sensitive delimitation: 文体変換で説明すべきことは何か。",
+                "options": [
+                  "射程・レジスター・含意・結束性。",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "ご異論を退ける",
+              "を退ける意図は",
+              "る意図はなく、",
+              "はなく、それが"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Face-sensitive delimitation workshop",
+              "tasks": [
+                {
+                  "instruction": "形式と談話機能を注釈しなさい。",
+                  "items": [
+                    "ご異論を退ける意図はなく、それが妥当する範囲を明確にし、過度な一般化を避けたいのです。",
+                    "現時点の証拠に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。"
+                  ],
+                  "key": [
+                    "Japanese uses particles, clause-final modality, relative clauses, ellipsis, information structure, and honorific/register choices to calibrate commitment and social stance. Preserve these relations rather than translating word for word.",
+                    "Japanese uses particles, clause-final modality, relative clauses, ellipsis, information structure, and honorific/register choices to calibrate commitment and social stance. Preserve these relations rather than translating word for word."
+                  ]
+                },
+                {
+                  "instruction": "確実性を強めず英語で媒介しなさい。",
+                  "items": [
+                    "ご異論を退ける意図はなく、それが妥当する範囲を明確にし、過度な一般化を避けたいのです。",
+                    "現時点の証拠に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。"
+                  ],
+                  "key": [
+                    "I do not intend to reject your objection, but to clarify its valid scope and avoid overgeneralisation.",
+                    "In light of current evidence, this is a highly plausible interpretation, but not a final assertion."
+                  ]
+                },
+                {
+                  "instruction": "ジャンルを変え選択を説明しなさい。",
+                  "items": [
+                    "I do not intend to reject your objection, but to clarify its valid scope and avoid overgeneralisation.",
+                    "In light of current evidence, this is a highly plausible interpretation, but not a final assertion."
+                  ],
+                  "key": [
+                    "Model: ご異論を退ける意図はなく、それが妥当する範囲を明確にし、過度な一般化を避けたいのです。",
+                    "Model: 現時点の証拠に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "ja-c2-l6",
+            "title": "Expert epistemic calibration",
+            "learn": "Control expert epistemic calibration in advanced Japanese discourse.",
+            "vocab": [
+              {
+                "t": "現時点の証拠に",
+                "r": "genjiten no shouko ni",
+                "en": "discourse segment 1 in “In light of current evidence, this is a highly plausible interpretation, but not a final assertion.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "の証拠に照らせ",
+                "r": "no shouko ni tera se",
+                "en": "discourse segment 2 in “In light of current evidence, this is a highly plausible interpretation, but not a final assertion.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "に照らせば、こ",
+                "r": "ni tera seba , ko",
+                "en": "discourse segment 3 in “In light of current evidence, this is a highly plausible interpretation, but not a final assertion.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "せば、これは蓋",
+                "r": "seba , koreha futa",
+                "en": "discourse segment 4 in “In light of current evidence, this is a highly plausible interpretation, but not a final assertion.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "これは蓋然性の",
+                "r": "koreha gaizensei no",
+                "en": "discourse segment 5 in “In light of current evidence, this is a highly plausible interpretation, but not a final assertion.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "蓋然性の高い解",
+                "r": "gaizensei no takai kai",
+                "en": "discourse segment 6 in “In light of current evidence, this is a highly plausible interpretation, but not a final assertion.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "の高い解釈では",
+                "r": "no takai kaishaku deha",
+                "en": "discourse segment 7 in “In light of current evidence, this is a highly plausible interpretation, but not a final assertion.”",
+                "pos": "discourse expression"
+              },
+              {
+                "t": "解釈ではあるが",
+                "r": "kaishaku dehaaruga",
+                "en": "discourse segment 8 in “In light of current evidence, this is a highly plausible interpretation, but not a final assertion.”",
+                "pos": "discourse expression"
+              }
+            ],
+            "grammar": {
+              "title": "Expert epistemic calibration",
+              "explain": "Japanese uses particles, clause-final modality, relative clauses, ellipsis, information structure, and honorific/register choices to calibrate commitment and social stance. Preserve these relations rather than translating word for word.",
+              "pattern": "topic/frame + scoped proposition + clause-final stance",
+              "examples": [
+                {
+                  "t": "現時点の証拠に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。",
+                  "r": "genjiten no shouko ni tera seba , koreha gaizensei no takai kaishaku dehaaruga , saishuuteki na dantei dehanai .",
+                  "en": "In light of current evidence, this is a highly plausible interpretation, but not a final assertion."
+                },
+                {
+                  "t": "問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。",
+                  "r": "mondai dattanoha kettei sonomonotoiuyori , masanisono jisshi nosare hou nikosoatta .",
+                  "en": "The problem lay less in the decision itself than precisely in the way it was implemented."
+                },
+                {
+                  "t": "彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。",
+                  "r": "kano chinmoku ha doui toiuyori , tekkai no yochi wo nokosu tameno itoteki na kyori wohonomekashiteita .",
+                  "en": "His silence implied less agreement than deliberate distance preserving room for retreat."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Unqualified plain assertion",
+                  "right": "現時点の証拠に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。",
+                  "why": "The plain assertion erases evidential scope or interpersonal restraint."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "分析者",
+                "t": "現時点の証拠に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。",
+                "r": "genjiten no shouko ni tera seba , koreha gaizensei no takai kaishaku dehaaruga , saishuuteki na dantei dehanai .",
+                "en": "In light of current evidence, this is a highly plausible interpretation, but not a final assertion."
+              },
+              {
+                "sp": "編集者",
+                "t": "問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。",
+                "r": "mondai dattanoha kettei sonomonotoiuyori , masanisono jisshi nosare hou nikosoatta .",
+                "en": "The problem lay less in the decision itself than precisely in the way it was implemented."
+              },
+              {
+                "sp": "調停者",
+                "t": "彼の沈黙は同意というより、撤回の余地を残すための意図的な距離をほのめかしていた。",
+                "r": "kano chinmoku ha doui toiuyori , tekkai no yochi wo nokosu tameno itoteki na kyori wohonomekashiteita .",
+                "en": "His silence implied less agreement than deliberate distance preserving room for retreat."
+              },
+              {
+                "sp": "査読者",
+                "t": "迅速さは確かに必要だ。しかし、説明責任を欠く迅速さは進歩ではなく、危機の先送りにすぎない。",
+                "r": "jinsoku saha tashikani hitsuyou da . shikashi , setsumei sekinin wo kaku jinsoku saha shinpo dehanaku , kiki no sakiokuri nisuginai .",
+                "en": "Speed is certainly needed; however, speed without accountability is not progress, merely crisis deferred."
+              }
+            ],
+            "practice": [
+              {
+                "type": "argument_construction",
+                "q": "Expert epistemic calibration — 主張・根拠・限定・帰結を含む文章を書きなさい。 Construct claim, evidence, warrant, qualification, and response.",
+                "answer": "Model: 現時点の証拠に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。",
+                "skill_target": "argument construction"
+              },
+              {
+                "type": "discourse_ordering",
+                "q": "Expert epistemic calibration — 談話の順序を復元しなさい: 最終的な断定ではない。 / これは蓋然性の高い解釈ではあるが / 現時点の証拠に照らせば Restore claim, support, concession, and conclusion order.",
+                "answer": "現時点の証拠に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。",
+                "skill_target": "discourse ordering"
+              },
+              {
+                "type": "style_rewriting",
+                "q": "Expert epistemic calibration — 含意を保って報告書向けに書き換えなさい。 Recast for the named genre and explain stylistic changes.",
+                "answer": "現時点の証拠に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。",
+                "skill_target": "style rewriting"
+              },
+              {
+                "type": "idiom_interpretation",
+                "q": "Expert epistemic calibration — 次の文の射程・含意・談話機能を説明しなさい: 現時点の証拠に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。 Interpret the expression non-literally where appropriate.",
+                "answer": "In light of current evidence, this is a highly plausible interpretation, but not a final assertion.",
+                "skill_target": "idiom interpretation"
+              },
+              {
+                "type": "implied_meaning",
+                "q": "Expert epistemic calibration — 次の文の射程・含意・談話機能を説明しなさい: 現時点の証拠に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。 Recover the speaker’s unstated implication.",
+                "answer": "In light of current evidence, this is a highly plausible interpretation, but not a final assertion.",
+                "skill_target": "implied meaning"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Expert epistemic calibration — 文脈と待遇レベルを保つ文を選びなさい。 Select one option and justify the decisive cue.",
+                "answer": "現時点の証拠に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。",
+                "skill_target": "multiple choice",
+                "options": [
+                  "現時点の証拠に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。",
+                  "In light of current evidence, this is a highly plausible interpretation, but not a final assertion.",
+                  "根拠のない断定"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Expert epistemic calibration — 空所を補いなさい: 現時____に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。 Supply the form licensed by grammar and discourse.",
+                "answer": "点の証拠",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Expert epistemic calibration — Translate without strengthening the claim. Translate into English without flattening stance.",
+                "answer": "In light of current evidence, this is a highly plausible interpretation, but not a final assertion.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Expert epistemic calibration — 高度な日本語に訳しなさい: In light of current evidence, this is a highly plausible interpretation, but not a final assertion. Translate into the target language with natural advanced grammar.",
+                "answer": "現時点の証拠に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Expert epistemic calibration — 文脈と待遇レベルを保つ文を選びなさい。 Pair each expression with its contextual function.",
+                "answer": "現時点の証拠に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。",
+                "skill_target": "matching",
+                "options": [
+                  "現時点の証拠に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。",
+                  "In light of current evidence, this is a highly plausible interpretation, but not a final assertion.",
+                  "根拠のない断定"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Expert epistemic calibration — 談話の順序を復元しなさい: 最終的な断定ではない。 / これは蓋然性の高い解釈ではあるが / 現時点の証拠に照らせば Restore grammatical constituent order.",
+                "answer": "現時点の証拠に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Expert epistemic calibration — 与えられた節から文を組み立てなさい: 現時点の証拠に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。 Combine every cue into one well-formed sentence.",
+                "answer": "現時点の証拠に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。",
+                "skill_target": "sentence building"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Expert epistemic calibration: モデルの意味を最も正確に保つ解釈はどれか。",
+                "options": [
+                  "In light of current evidence, this is a highly plausible interpretation, but not a final assertion.",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              },
+              {
+                "q": "Expert epistemic calibration: 編集で守るべき原則は何か。",
+                "options": [
+                  "読み手を変えても命題の射程を保つ。",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              },
+              {
+                "q": "Expert epistemic calibration: 上級表現である理由は何か。",
+                "options": [
+                  "文法・態度・結束性・待遇が連動している。",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              },
+              {
+                "q": "Expert epistemic calibration: 媒介で避けるべきことは何か。",
+                "options": [
+                  "限定された主張を事実として強めること。",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              },
+              {
+                "q": "Expert epistemic calibration: 文体変換で説明すべきことは何か。",
+                "options": [
+                  "射程・レジスター・含意・結束性。",
+                  "証拠なしに確実性を上げる。",
+                  "接続関係を削除する。",
+                  "挨拶に置き換える。"
+                ],
+                "answer": 0,
+                "why": "正解は日本語の情報構造、モダリティ、待遇、含意を保つ。"
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "現時点の証拠に",
+              "の証拠に照らせ",
+              "に照らせば、こ",
+              "せば、これは蓋"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Expert epistemic calibration workshop",
+              "tasks": [
+                {
+                  "instruction": "形式と談話機能を注釈しなさい。",
+                  "items": [
+                    "現時点の証拠に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。",
+                    "問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。"
+                  ],
+                  "key": [
+                    "Japanese uses particles, clause-final modality, relative clauses, ellipsis, information structure, and honorific/register choices to calibrate commitment and social stance. Preserve these relations rather than translating word for word.",
+                    "Japanese uses particles, clause-final modality, relative clauses, ellipsis, information structure, and honorific/register choices to calibrate commitment and social stance. Preserve these relations rather than translating word for word."
+                  ]
+                },
+                {
+                  "instruction": "確実性を強めず英語で媒介しなさい。",
+                  "items": [
+                    "現時点の証拠に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。",
+                    "問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。"
+                  ],
+                  "key": [
+                    "In light of current evidence, this is a highly plausible interpretation, but not a final assertion.",
+                    "The problem lay less in the decision itself than precisely in the way it was implemented."
+                  ]
+                },
+                {
+                  "instruction": "ジャンルを変え選択を説明しなさい。",
+                  "items": [
+                    "In light of current evidence, this is a highly plausible interpretation, but not a final assertion.",
+                    "The problem lay less in the decision itself than precisely in the way it was implemented."
+                  ],
+                  "key": [
+                    "Model: 現時点の証拠に照らせば、これは蓋然性の高い解釈ではあるが、最終的な断定ではない。",
+                    "Model: 問題だったのは決定そのものというより、まさにその実施のされ方にこそあった。"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "C2 integrated capstone",
+      "items": [
+        {
+          "type": "argument_construction",
+          "q": "統合課題1: 射程と待遇を明示して分析・媒介・文体変換を行いなさい。",
+          "answer": "六課の日本語表現を用い、証拠、含意、結束性、読み手への配慮を説明する。"
+        },
+        {
+          "type": "argument_construction",
+          "q": "統合課題2: 射程と待遇を明示して分析・媒介・文体変換を行いなさい。",
+          "answer": "六課の日本語表現を用い、証拠、含意、結束性、読み手への配慮を説明する。"
+        },
+        {
+          "type": "argument_construction",
+          "q": "統合課題3: 射程と待遇を明示して分析・媒介・文体変換を行いなさい。",
+          "answer": "六課の日本語表現を用い、証拠、含意、結束性、読み手への配慮を説明する。"
+        },
+        {
+          "type": "argument_construction",
+          "q": "統合課題4: 射程と待遇を明示して分析・媒介・文体変換を行いなさい。",
+          "answer": "六課の日本語表現を用い、証拠、含意、結束性、読み手への配慮を説明する。"
+        },
+        {
+          "type": "argument_construction",
+          "q": "統合課題5: 射程と待遇を明示して分析・媒介・文体変換を行いなさい。",
+          "answer": "六課の日本語表現を用い、証拠、含意、結束性、読み手への配慮を説明する。"
+        },
+        {
+          "type": "argument_construction",
+          "q": "統合課題6: 射程と待遇を明示して分析・媒介・文体変換を行いなさい。",
+          "answer": "六課の日本語表現を用い、証拠、含意、結束性、読み手への配慮を説明する。"
+        },
+        {
+          "type": "argument_construction",
+          "q": "統合課題7: 射程と待遇を明示して分析・媒介・文体変換を行いなさい。",
+          "answer": "六課の日本語表現を用い、証拠、含意、結束性、読み手への配慮を説明する。"
+        },
+        {
+          "type": "argument_construction",
+          "q": "統合課題8: 射程と待遇を明示して分析・媒介・文体変換を行いなさい。",
+          "answer": "六課の日本語表現を用い、証拠、含意、結束性、読み手への配慮を説明する。"
+        },
+        {
+          "type": "argument_construction",
+          "q": "統合課題9: 射程と待遇を明示して分析・媒介・文体変換を行いなさい。",
+          "answer": "六課の日本語表現を用い、証拠、含意、結束性、読み手への配慮を説明する。"
+        },
+        {
+          "type": "argument_construction",
+          "q": "統合課題10: 射程と待遇を明示して分析・媒介・文体変換を行いなさい。",
+          "answer": "六課の日本語表現を用い、証拠、含意、結束性、読み手への配慮を説明する。"
+        }
+      ]
+    }
+  }
+}

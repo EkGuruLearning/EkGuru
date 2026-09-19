@@ -1,0 +1,267 @@
+{
+  "generated": "2026-09-13T08:34:00Z",
+  "pass": true,
+  "stagesRun": 24,
+  "stagesTotal": 24,
+  "failures": [],
+  "results": [
+    {
+      "name": "build: content graph",
+      "exit": 0,
+      "seconds": 0.1,
+      "out": "content graph entities: 364 {'culture': 4, 'grammar': 6, 'lesson': 60, 'phrase': 69, 'practice': 112, 'pronunciation': 3, 'quiz': 45, 'review_card': 65}\n  quiz: 45 | practice: 112 | phrases: 69 | review cards: 65\n",
+      "tail": [
+        "content graph entities: 364 {'culture': 4, 'grammar': 6, 'lesson': 60, 'phrase': 69, 'practice': 112, 'pronunciation': 3, 'quiz': 45, 'review_card': 65}",
+        "  quiz: 45 | practice: 112 | phrases: 69 | review cards: 65"
+      ]
+    },
+    {
+      "name": "build: language packs",
+      "exit": 0,
+      "seconds": 0.1,
+      "out": "  wrote data/lang-en.json\n  wrote data/lang-bn.json\n  wrote data/lang-ta.json\n  wrote data/lang-te.json\n  wrote data/lang-mr.json\n  wrote data/lang-gu.json\n  wrote data/lang-pa.json\n  wrote data/lang-ur.json\n  wrote data/lang-fr.json\n  wrote data/lang-ar.json\n  wrote data/lang-de.json\n  wrote data/lang-ja.json\n  wrote data/lang-ko.json\n  wrote data/lang-zh.json\n  wrote data/lang-ru.json\n  wrote data/lang-pt.json\n  wrote data/lang-it.json\n  wrote data/lang-nl.json\n  wrote data/lang-pl.json\n  wrote data/lang-tr.json\n  wrote data/lang-fa.json\n  wrote data/lang-he.json\n  wrote data/lang-th.json\n  wrote data/lang-vi.json\n  wrote data/lang-id.json\n  wrote data/lang-ms.json\n  wrote data/lang-sw.json\n  wrote data/lang-uk.json\n  wrote data/language-packs.json (29 packs)\n",
+      "tail": [
+        "  wrote data/lang-sw.json",
+        "  wrote data/lang-uk.json",
+        "  wrote data/language-packs.json (29 packs)"
+      ]
+    },
+    {
+      "name": "build: language courses",
+      "exit": 0,
+      "seconds": 0.0,
+      "out": "Spanish course built (es):\n    js/course-es.js\n    languages/es/lessons/greetings-and-introductions/index.html\n    languages/es/lessons/ser-and-estar/index.html\n    languages/es/lessons/gender-and-articles/index.html\n    languages/es/lessons/numbers-1-to-20/index.html\n    languages/es/lessons/food-and-ordering/index.html\n    languages/es/lessons/present-tense-regular-verbs/index.html\n    languages/es/course/index.html\n    languages/es/practice/index.html\n    languages/es/quiz/index.html\n    languages/es/review/index.html\nFrench course built (fr):\n    js/course-fr.js\n    languages/fr/lessons/greetings-and-introductions/index.html\n    languages/fr/lessons/etre-and-avoir/index.html\n    languages/fr/lessons/gender-and-articles/index.html\n    languages/fr/lessons/numbers-1-to-20/index.html\n    languages/fr/lessons/food-and-ordering/index.html\n    languages/fr/lessons/present-tense-regular-verbs/index.html\n    languages/fr/course/index.html\n    languages/fr/practice/index.html\n    languages/fr/quiz/index.html\n    languages/fr/review/index.html\nmanifest: data/courses.json (2 courses)\n",
+      "tail": [
+        "    languages/fr/quiz/index.html",
+        "    languages/fr/review/index.html",
+        "manifest: data/courses.json (2 courses)"
+      ]
+    },
+    {
+      "name": "build: registries",
+      "exit": 0,
+      "seconds": 0.1,
+      "out": "languages 7C: 30 | production: ['hi']\ncountries 7C: 250 | sovereign: 195\nHindi 7C: {\"id\": \"hi\", \"iso639_1\": \"hi\", \"iso639_3\": \"hin\", \"name\": \"Hindi\", \"nativeName\": \"हिन्दी\", \"script\": \"Devanagari\", \"direction\": \"ltr\", \"transliterationSupport\": \"IAST/ISO 15919\", \"segmentationModel\": \"word-based (space-separated)\", \"speechLocales\": [\"hi-IN\"], \"audioStatus\": \"BROWSER_TTS\", \"grammarState\": \"PRODUCTION\", \"vocabularyState\": \"PRODUCTION\", \"lessonCount\": 60, \"practiceCount\": 112, \"quizC\n",
+      "tail": [
+        "languages 7C: 30 | production: ['hi']",
+        "countries 7C: 250 | sovereign: 195",
+        "Hindi 7C: {\"id\": \"hi\", \"iso639_1\": \"hi\", \"iso639_3\": \"hin\", \"name\": \"Hindi\", \"nativeName\": \"हिन्दी\", \"script\": \"Devanagari\", \"direction\": \"ltr\", \"transliterationSupport\": \"IAST/ISO 15919\", \"segmentationModel\": \"word-based (space-separated)\", \"speechLocales\": [\"hi-IN\"], \"audioStatus\": \"BROWSER_TTS\", \"grammarState\": \"PRODUCTION\", \"vocabularyState\": \"PRODUCTION\", \"lessonCount\": 60, \"practiceCount\": 112, \"quizC"
+      ]
+    },
+    {
+      "name": "build: languages/start pages",
+      "exit": 0,
+      "seconds": 0.0,
+      "out": "home already has the languages section (no change)\ngenerated: languages/index.html, 29 language pages, start/index.html, home synced\n",
+      "tail": [
+        "home already has the languages section (no change)",
+        "generated: languages/index.html, 29 language pages, start/index.html, home synced"
+      ]
+    },
+    {
+      "name": "build: Hindi pages",
+      "exit": 0,
+      "seconds": 0.0,
+      "out": "generated pages:\n   learn/hindi/review/index.html\n   learn/hindi/my-progress/index.html\n   learn/hindi/practice/index.html\n   learn/hindi/practice/conversation/index.html\n   learn/hindi/practice/typing/index.html\n   learn/hindi/practice/quiz/index.html\n   learn/hindi/practice/worksheets/index.html\n   learn/hindi/intermediate/index.html\ndecorated lessons: 0 | hub nav updated: False\n",
+      "tail": [
+        "   learn/hindi/practice/worksheets/index.html",
+        "   learn/hindi/intermediate/index.html",
+        "decorated lessons: 0 | hub nav updated: False"
+      ]
+    },
+    {
+      "name": "build: global pages",
+      "exit": 0,
+      "seconds": 0.0,
+      "out": "generated:\n   learn/my-learning/index.html\n   learn/contexts/india-visitor/index.html\n   learn/contexts/heritage/index.html\n   learn/contexts/index.html\nlearn hub card added: False\n",
+      "tail": [
+        "   learn/contexts/heritage/index.html",
+        "   learn/contexts/index.html",
+        "learn hub card added: False"
+      ]
+    },
+    {
+      "name": "build: search index",
+      "exit": 0,
+      "seconds": 0.0,
+      "out": "updated page counts (score=1, lede=1) -> 607\nsearch-index.json: 607 entries (added 0)\n  Answer        29\n  Country       159\n  Daily Hindi   31\n  Home          1\n  Language      141\n  Lesson        16\n  Location      33\n  Material      16\n  Page          97\n  Phrases       2\n  Practice      18\n  Question      44\n  Tool          14\n  Tutor         5\n  Vocabulary    1\npills regenerated: 15 sections\n",
+      "tail": [
+        "  Tutor         5",
+        "  Vocabulary    1",
+        "pills regenerated: 15 sections"
+      ]
+    },
+    {
+      "name": "gate: content graph",
+      "exit": 0,
+      "seconds": 2.5,
+      "out": "phase7c graph test: PASS\n  hub.cells                  30\n  hub.available/beta/coming  [true, true, false]\n  hub.live_inventory         \"Live content inventory: 364 items — 60 lessons · 45 quiz questions · 69 phrases · 65 review cards. Counts are read from the content graph, not typed \n  graph.query                {\"total\": 364, \"stats\": {\"total\": 364, \"byType\": {\"lesson\": 60, \"quiz\": 45, \"practice\": 112, \"phrase\": 69, \"review_card\": 65, \"grammar\": 6, \"pronuncia\n  page_errors                []\n",
+      "tail": [
+        "  hub.live_inventory         \"Live content inventory: 364 items — 60 lessons · 45 quiz questions · 69 phrases · 65 review cards. Counts are read from the content graph, not typed ",
+        "  graph.query                {\"total\": 364, \"stats\": {\"total\": 364, \"byType\": {\"lesson\": 60, \"quiz\": 45, \"practice\": 112, \"phrase\": 69, \"review_card\": 65, \"grammar\": 6, \"pronuncia",
+        "  page_errors                []"
+      ]
+    },
+    {
+      "name": "gate: conversation",
+      "exit": 0,
+      "seconds": 5.7,
+      "out": "conversation engine: PASS\n  scenario_count               6\n  scenario_labels              [\"Meeting someone\", \"Ordering food\", \"Taking a taxi\", \"At a shop\", \"Meeting family\", \"Asking for help\"]\n  npc_line                     \"नमस्ते! आप कैसे हैं?\"\n  stage_deterministic_tag      \"Deterministic practice — rule-based, not AI\"\n  choices_step1                2\n  wrong_feedback               \"Not quite. The polite reply is मैं ठीक हूँ (main theek hoon) — \\\"I am fine\\\" — and you return the ques\"\n  correct_feedback_has_vocab   true\n  completed                    true\n  restart_shows_choices        2\n  page_errors                  []\n",
+      "tail": [
+        "  completed                    true",
+        "  restart_shows_choices        2",
+        "  page_errors                  []"
+      ]
+    },
+    {
+      "name": "gate: engines/My Learning",
+      "exit": 0,
+      "seconds": 6.6,
+      "out": "engines + My Learning: PASS\n  goals                  [\"Travel|production · 36 items\", \"Family|production · 26 items\", \"Heritage|production · 17 items\", \"Conversation|production · 83 items\", \"Reading|prod\n  script_count           9\n  grammar_concepts       6\n  vocab_words            24\n  vocab_add_buttons      24\n  progress_dash          \"0 / LESSONS OPENED / 0 / LESSONS COMPLETED / 0 / QUIZZES TAKEN / 0 / REVIEW CARDS / 0 / REVIEWS DUE / 0 / PATHS STARTED\"\n  offline_state          \"You have not saved any pages for offline reading yet. Use “Save for offline” on \"\n  search_paani           \"wordपानी | paani — water | beginner · food | phraseमुझे पानी चाहिए | mujhe paani chaahiye — I need water | beginner · survival | gra\"\n  search_water           \"phraseWater, please | beginner · food | beginner · food | practiceBuild: Give me water | beginner · sentences | beginner · sentenc\"\n  search_devanagari      \"wordपानी | paani — water | beginner · food | practiceWhat does पानी mean? | beginner · vocabulary | beginner · vocabulary | practice\"\n  search_past_tense      \"lessonDay 21 — The past tense, part one | beginner · daily-life | beginner · daily-life\"\n  family_button_present  true\n  family_mode_on         {\"pressed\": \"true\", \"no_track\": \"1\"}\n  srs_card_language      \"hi\"\n  page_errors            []\n",
+      "tail": [
+        "  family_mode_on         {\"pressed\": \"true\", \"no_track\": \"1\"}",
+        "  srs_card_language      \"hi\"",
+        "  page_errors            []"
+      ]
+    },
+    {
+      "name": "gate: country context",
+      "exit": 0,
+      "seconds": 3.2,
+      "out": "country-context engine: PASS\n  india_modules          7\n  india_has_phrases      true\n  heritage_modules       4\n  heritage_has_family    true\n  page_errors            []\n",
+      "tail": [
+        "  heritage_modules       4",
+        "  heritage_has_family    true",
+        "  page_errors            []"
+      ]
+    },
+    {
+      "name": "gate: admin global ops",
+      "exit": 0,
+      "seconds": 6.3,
+      "out": "admin global language ops: PASS\n  panel_preview      \"Languages |  | 30 languages registered · PRODUCTION: hi · A language is PRODUCTION only with real content passing QA; counts below are read from data\n  language_rows      38\n  page_errors        []\n",
+      "tail": [
+        "  panel_preview      \"Languages |  | 30 languages registered · PRODUCTION: hi · A language is PRODUCTION only with real content passing QA; counts below are read from data",
+        "  language_rows      38",
+        "  page_errors        []"
+      ]
+    },
+    {
+      "name": "gate: language pack (Stage 2)",
+      "exit": 0,
+      "seconds": 2.4,
+      "out": "language-pack reuse proof: PASS\n  registry_production    [\"hi\"]\n  es_status              \"BETA\"\n  es_starterPack         true\n  pack_items             36\n  pack_grammar           4\n  has_hola               true\n  prod_grid              {\"count\": 1, \"texts\": [\"Hindi Available\\nहिन्दी · Devanagari script · free\\n🔊\\nListen\\n\\nStart learning Hindi\"]}\n  es_cell                \"Spanish Starter · beta Course\\nespañol · Latin script\\n🔊\\nListen\\n24 words · 12 phrases · 4 grammar — free\"\n  srs_card_language      \"es\"\n  page_errors            []\n",
+      "tail": [
+        "  es_cell                \"Spanish Starter · beta Course\\nespañol · Latin script\\n🔊\\nListen\\n24 words · 12 phrases · 4 grammar — free\"",
+        "  srs_card_language      \"es\"",
+        "  page_errors            []"
+      ]
+    },
+    {
+      "name": "gate: language packs (Stage 3)",
+      "exit": 0,
+      "seconds": 36.7,
+      "out": "multi-language packs + reachability: PASS\n  production           [\"hi\"]\n  beta_ids             [\"ar\", \"bn\", \"de\", \"en\", \"es\", \"fa\", \"fr\", \"gu\", \"he\", \"id\", \"it\", \"ja\", \"ko\", \"mr\", \"ms\", \"nl\", \"pa\", \"pl\", \"pt\", \"ru\",\n  planned_count        0\n  home_section         true\n  home_nav             true\n  home_pills           [\"Hindi full course\", \"Arabic\", \"Bengali\", \"Chinese\", \"Dutch\", \"English\", \"French\", \"German\", \"Gujarati\", \"Hebrew\", \"Ind\n  hub                  {\"prod_cells\": 1, \"beta_cells\": 29, \"select_opts\": [\"ar\", \"bn\", \"zh\", \"nl\", \"en\", \"fr\", \"de\", \"gu\", \"he\", \"id\", \"it\", \"j\n  detail_titles        [\"Learn Arabic basics — free starter pack | EkGuru\", \"Learn Bengali basics — free starter pack | EkGuru\", \"Learn German \n  planned_with_page    0\n  page_errors          []\n",
+      "tail": [
+        "  detail_titles        [\"Learn Arabic basics — free starter pack | EkGuru\", \"Learn Bengali basics — free starter pack | EkGuru\", \"Learn German ",
+        "  planned_with_page    0",
+        "  page_errors          []"
+      ]
+    },
+    {
+      "name": "gate: starter experience (Stage 4)",
+      "exit": 0,
+      "seconds": 11.9,
+      "out": "starter-pack learning experience: PASS\n  pack_speechTags    {\"ar\": \"ar-SA\", \"bn\": \"bn-IN\", \"de\": \"de-DE\", \"en\": \"en-IN\", \"es\": \"es-ES\", \"fa\": \"fa-IR\", \"fr\": \"fr-FR\", \"gu\": \"gu-IN\", \"he\": \"he\n  es_detail          {\"listen\": 36, \"say\": 36, \"computerVoice\": true, \"checkLabel\": true, \"questions\": 1}\n  es_spoken          [{\"text\": \"hola\", \"lang\": \"es-ES\"}]\n  es_check_done      \"A fixed rule-based check — the same 8 questions every time. Not an exam, not AI, nothing is saved.\\n\\nFinished\\n\\nYou got 8 of 8.\n  bn_spoken          {\"text\": \"আমি\", \"lang\": \"bn-IN\"}\n  ar_detail          {\"listen\": 36, \"rtl\": \"rtl\"}\n  ar_spoken          {\"text\": \"أنا\", \"lang\": \"ar-SA\"}\n  zh_spoken          {\"text\": \"我\", \"lang\": \"zh-CN\"}\n  hindi_regression   {\"items\": 24, \"say\": 0, \"listen\": 0}\n  page_errors        []\n",
+      "tail": [
+        "  zh_spoken          {\"text\": \"我\", \"lang\": \"zh-CN\"}",
+        "  hindi_regression   {\"items\": 24, \"say\": 0, \"listen\": 0}",
+        "  page_errors        []"
+      ]
+    },
+    {
+      "name": "gate: everyday polish (Stage 6)",
+      "exit": 0,
+      "seconds": 10.3,
+      "out": "stage6 everyday polish + honest tooling: PASS\n  nav:/                  {\"aria\": \"Learn languages\", \"heading\": \"Learn languages\"}\n  nav:/answers/          {\"aria\": \"Learn languages\", \"heading\": \"Learn languages\"}\n  hub_listen             {\"cells\": 30, \"withSay\": 30, \"listens\": 30, \"arTag\": true}\n  hub_ar_spoken          {\"text\": \"العربية\", \"lang\": \"ar-SA\"}\n  srs_review             {\"hasSay\": true, \"seen\": 16}\n  practice_listen        {\"hasListen\": true, \"hasNote\": true}\n  daily_rotation         {\"ok\": true, \"deterministic\": true, \"rotated\": true, \"note\": true}\n  page_errors            []\n",
+      "tail": [
+        "  practice_listen        {\"hasListen\": true, \"hasNote\": true}",
+        "  daily_rotation         {\"ok\": true, \"deterministic\": true, \"rotated\": true, \"note\": true}",
+        "  page_errors            []"
+      ]
+    },
+    {
+      "name": "gate: Spanish course (Stage 7)",
+      "exit": 0,
+      "seconds": 13.3,
+      "out": "Phase 7C full-course gate: PASS | courses: ['es', 'fr']\n  es: practice banks {'vocab': 12, 'grammar': 12} | spoken [{'text': 'gracias', 'lang': 'es-ES'}] | quiz topics 5 | rotation {'pool': 4, 'same': True, 'changed': True} | review spoken [{'text': 'hola', 'lang': 'es-ES'}]\n  fr: practice banks {'vocab': 12, 'grammar': 12} | spoken [{'text': \"s'il vous plaît\", 'lang': 'fr-FR'}] | quiz topics 5 | rotation {'pool': 4, 'same': True, 'changed': True} | review spoken [{'text': 'bonjour', 'lang': 'fr-FR'}]\n",
+      "tail": [
+        "Phase 7C full-course gate: PASS | courses: ['es', 'fr']",
+        "  es: practice banks {'vocab': 12, 'grammar': 12} | spoken [{'text': 'gracias', 'lang': 'es-ES'}] | quiz topics 5 | rotation {'pool': 4, 'same': True, 'changed': True} | review spoken [{'text': 'hola', 'lang': 'es-ES'}]",
+        "  fr: practice banks {'vocab': 12, 'grammar': 12} | spoken [{'text': \"s'il vous plaît\", 'lang': 'fr-FR'}] | quiz topics 5 | rotation {'pool': 4, 'same': True, 'changed': True} | review spoken [{'text': 'bonjour', 'lang': 'fr-FR'}]"
+      ]
+    },
+    {
+      "name": "gate: multi-viewport",
+      "exit": 0,
+      "seconds": 43.6,
+      "out": "multi-viewport gate: PASS (36 cells)\n",
+      "tail": [
+        "multi-viewport gate: PASS (36 cells)"
+      ]
+    },
+    {
+      "name": "seo: scale (static)",
+      "exit": 0,
+      "seconds": 0.3,
+      "out": "SEO scale (local): 655 pages, 647 indexable, 8 noindex\n  duplicate titles: 0 | duplicate descs: 0 | broken links: 0 | canonical drift: 1 | orphans: 0\n    CANON /tutor.html -> https://ekguru.shop/tutor/\n",
+      "tail": [
+        "SEO scale (local): 655 pages, 647 indexable, 8 noindex",
+        "  duplicate titles: 0 | duplicate descs: 0 | broken links: 0 | canonical drift: 1 | orphans: 0",
+        "    CANON /tutor.html -> https://ekguru.shop/tutor/"
+      ]
+    },
+    {
+      "name": "regression: Phase 7",
+      "exit": 0,
+      "seconds": 4.3,
+      "out": "phase7 browser: PASS\n  languages.cells            30\n  languages.available/beta   [True, True]\n  onboarding.hindi.result    Your starting point for Hindi. A lesson plus a practice session a day fits your time.\nHindi From Zero\n\nThe complete beginner track, in the order that actually works.\n\nStart this path\nHindi phrases for\n  onboarding.hindi.linkCount 3\n  onboarding.es.result       Spanish (español) has a free starter pack (beta). Basic words, phrases and grammar to get you started — but this is reference content, not a full course. Hindi is the only language with a full course \n  onboarding.es.link         /languages/es/\n  audioProvider              {'hi': 'BROWSER_TTS', 'es': 'BROWSER_TTS', 'desc': 'computer voice (browser TTS)'}\n",
+      "tail": [
+        "  onboarding.es.result       Spanish (español) has a free starter pack (beta). Basic words, phrases and grammar to get you started — but this is reference content, not a full course. Hindi is the only language with a full course ",
+        "  onboarding.es.link         /languages/es/",
+        "  audioProvider              {'hi': 'BROWSER_TTS', 'es': 'BROWSER_TTS', 'desc': 'computer voice (browser TTS)'}"
+      ]
+    },
+    {
+      "name": "regression: Phase 6",
+      "exit": 0,
+      "seconds": 42.0,
+      "out": "phase6 matrix: 117/117 cells ok | PASS\n",
+      "tail": [
+        "phase6 matrix: 117/117 cells ok | PASS"
+      ]
+    },
+    {
+      "name": "regression: Phase 5",
+      "exit": 0,
+      "seconds": 162.0,
+      "out": "card interactions: 19/19 ok\npages with errors: none\nverdict: PASS\nbrowser matrix: 146/146 cells ok\nmatrix verdict: PASS\nregression: 5/5 ok\nregression verdict: PASS\n",
+      "tail": [
+        "matrix verdict: PASS",
+        "regression: 5/5 ok",
+        "regression verdict: PASS"
+      ]
+    },
+    {
+      "name": "reports: final gate",
+      "exit": 0,
+      "seconds": 0.0,
+      "out": "  wrote reports/global-content-schema-phase7c.json\n  wrote reports/global-content-graph-phase7c.json\n  wrote reports/language-quality-phase7c.json\n  wrote reports/country-context-phase7c.json\n  wrote reports/global-link-graph-phase7c.json\n  wrote reports/global-performance-phase7c.json\n  wrote reports/global-accessibility-phase7c.json\n  wrote reports/global-seo-scale-phase7c.json\n  wrote reports/batch-manifest-phase7c.json\n  wrote reports/phase7c-final-gate.json\n  wrote reports/agent-handoff-phase7c.json\n  wrote reports/agent-handoff-phase7c.md\n\nVERDICT: GREEN_GLOBAL_ENGINE_PRODUCTION_READY (44/44)\n",
+      "tail": [
+        "  wrote reports/agent-handoff-phase7c.md",
+        "",
+        "VERDICT: GREEN_GLOBAL_ENGINE_PRODUCTION_READY (44/44)"
+      ]
+    }
+  ]
+}

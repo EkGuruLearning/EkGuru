@@ -1,0 +1,30 @@
+{
+  "generated": "2026-09-11T18:06:41Z",
+  "release": "Email ULTRA v100 (Apps Script primary + Sheets routing)",
+  "gates": {
+    "templates_render_all_ok": true,
+    "role_language_qa_ok": true,
+    "system_tests_pass": true,
+    "security_tests_pass": true,
+    "booking_snapshot_fields": [
+      "tutorNameSnapshot",
+      "tutorEmailSnapshot",
+      "tutorEmailState",
+      "lessonType"
+    ],
+    "relay_contract_complete": true
+  },
+  "blockers": [
+    "Owner must confirm the [TEST] emails arrived in EkGuruLearning@gmail.com (mailbox receipt).",
+    "GitHub push is credential-blocked from this sandbox; the release build must be pushed + Pages verified by the owner.",
+    "Real two-student/two-tutor cross-routing mailbox test still required; no DELIVERED claim until both student inboxes receive their receipts."
+  ],
+  "deploy_order": [
+    "1. (DONE) Owner wired the client token via tools/wire-token.py + redeployed the relay (v1, live-verified).",
+    "2. Push the release build (js/email-templates.js, js/mailer.js, js/store.js, js/ledger.js, js/features.js, js/contact.js, js/lazy.js, admin.html, js/site-config.js).",
+    "3. Verify ekguru.shop serves the new build.",
+    "4. Run the two-student/two-tutor cross-routing + duplicate/retry + security tests in a real browser.",
+    "5. Confirm real mailbox receipt, then mark the final report PASS."
+  ],
+  "security_tests": "tools/test-email-system.js covers escaping (XSS), unknown type, missing/undeclared vars; relay-side tests (invalid recipient, header injection, wrong/missing token, replay, oversize, open-relay) are defined in the .gs contract and require the live /exec to exercise."
+}

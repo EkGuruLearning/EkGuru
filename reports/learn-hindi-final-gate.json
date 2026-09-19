@@ -1,0 +1,162 @@
+{
+  "generated": "2026-09-12T05:40:51Z",
+  "overall": "YELLOW_PARTIAL_VERIFICATION",
+  "summary": "Structure built, wired and verified locally (browser + SEO + AdSense + links). Deployment is owner-blocked (RED); 12 lessons still lack the §7 quiz and the admin Hindi Ops panel is pending (YELLOW). Nothing is marked GREEN on placeholders.",
+  "items": [
+    {
+      "id": "S01 master objective — complete learner journey",
+      "status": "GREEN",
+      "note": "hub → level → topic → lesson → practice → quiz → review → next → path → tutor all link and resolve"
+    },
+    {
+      "id": "S02 canonical IA hub /learn/hindi/",
+      "status": "GREEN",
+      "note": "built with hero, 8-intent quick start, level selector, topic selector, paths, featured, practice, FAQ, tutor bridge"
+    },
+    {
+      "id": "S03 level pages only with real content",
+      "status": "GREEN",
+      "note": "beginner + elementary built; intermediate/advanced intentionally absent (2 built)"
+    },
+    {
+      "id": "S04 topic hubs only with real support",
+      "status": "GREEN",
+      "note": "11 of 12 requested topics built (basics, conversation, daily-life, food, grammar, numbers, pronunciation, shopping, time-dates, travel, vocabulary); 'directions' omitted — no real content"
+    },
+    {
+      "id": "S05 beginner curriculum in order",
+      "status": "GREEN",
+      "note": "12 lessons in a recommended order on the beginner level page (site's own 4-stage sequence)"
+    },
+    {
+      "id": "S06 lesson 13-section standard",
+      "status": "YELLOW",
+      "note": "3 of 15 lessons carry the full standard incl. <details> quick quiz; 12 lessons still need the quiz section"
+    },
+    {
+      "id": "S07 pronunciation hub, no fake audio",
+      "status": "GREEN",
+      "note": "pronunciation topic hub + hindi/pronunciation + 3 labs; audio honestly marked absent (no fake files)"
+    },
+    {
+      "id": "S08 Devanagari path",
+      "status": "GREEN",
+      "note": "alphabet guide → reading path → writing/typing labs chain"
+    },
+    {
+      "id": "S09 Roman Hindi (Roman→Devanagari confidence)",
+      "status": "GREEN",
+      "note": "every lesson carries Devanagari + romanisation + English; no fake confidence metric"
+    },
+    {
+      "id": "S10 vocabulary by use case, no word dumps",
+      "status": "GREEN",
+      "note": "materials grouped by category (family, verbs, 100 essentials); no flat dumps"
+    },
+    {
+      "id": "S11 phrase clusters with when-to-use/register",
+      "status": "GREEN",
+      "note": "phrases-food / phrases-travel / polite-vs-casual cover when-to-use and formal/casual"
+    },
+    {
+      "id": "S12 grammar map, deep pages where supported",
+      "status": "GREEN",
+      "note": "grammar topic hub maps word order/verbs/gender/postpositions/mistakes to deep guides"
+    },
+    {
+      "id": "S13 practice connected to lessons",
+      "status": "GREEN",
+      "note": "level pages + topic hubs link the 12 practice labs"
+    },
+    {
+      "id": "S14 review loops, no fake mastery %",
+      "status": "GREEN",
+      "note": "review lab is an honest box system; no fake mastery percentages anywhere"
+    },
+    {
+      "id": "S15 paths A–F links verified",
+      "status": "GREEN",
+      "note": "6 paths; every link resolves (seocheck 0 broken)"
+    },
+    {
+      "id": "S16 parent/current/related/next cross-links",
+      "status": "GREEN",
+      "note": "6-level breadcrumbs + level next + related lists; no circular spam"
+    },
+    {
+      "id": "S17 search index distinguishes Hindi types",
+      "status": "GREEN",
+      "note": "15 sections incl. Lesson/Material/Tool/Practice/Phrases/Vocabulary/Daily/Answer/Question"
+    },
+    {
+      "id": "S18 real FAQs only",
+      "status": "GREEN",
+      "note": "FAQ hub + ask/answers are real learner questions"
+    },
+    {
+      "id": "S19 breadcrumbs Home→Learn→Hindi→Level→Topic→Lesson, no header overload",
+      "status": "GREEN",
+      "note": "15 lessons rewired to the 6-level chain; global header untouched"
+    },
+    {
+      "id": "S20 Devanagari + Roman + English UX",
+      "status": "GREEN",
+      "note": "all lessons carry all three; no decorative translation spam"
+    },
+    {
+      "id": "S21 content quality 6 checks",
+      "status": "GREEN",
+      "note": "lessons graded A/B in learn-quality.js; no keyword intros, giant lists, fake stats"
+    },
+    {
+      "id": "S22 SEO unique title/description/H1/canonical",
+      "status": "GREEN",
+      "note": "seocheck PASS — 606 pages, 0 broken links, 0 orphans, 14 sitemaps, 601 URLs"
+    },
+    {
+      "id": "S23 AdSense-safe design",
+      "status": "GREEN",
+      "note": "adsready 12/12; no ad-slot-driven design; approval remains Google's call"
+    },
+    {
+      "id": "S24 consolidation KEEP/MERGE/REDIRECT/IMPROVE/REMOVE",
+      "status": "GREEN",
+      "note": "documented in reports/hindi-content-consolidation.json; 0 removed, 0 redirected"
+    },
+    {
+      "id": "S25 architecture + coverage matrix reports",
+      "status": "GREEN",
+      "note": "learn-hindi-architecture.json + learn-hindi-coverage-matrix.json written"
+    },
+    {
+      "id": "S26 auto-generation safety (reuse tools, no duplication)",
+      "status": "GREEN",
+      "note": "reused build-learn.py (fixed its sitemap double-learn bug) + build-search-index.py; new tools build-hindi-structure.py / build-hindi-nav.py add, not duplicate"
+    }
+  ],
+  "extra": [
+    {
+      "id": "browser matrix + idle regression (§29–31)",
+      "status": "GREEN",
+      "note": "real Chromium: 108/108 geometry ok, idle 60/120/180 s 0 problems on 5 page types"
+    },
+    {
+      "id": "performance / no giant nav payload (§32)",
+      "status": "GREEN",
+      "note": "new pages are lightweight static HTML + one shared stylesheet; header/nav payload unchanged"
+    },
+    {
+      "id": "admin Hindi Ops (§33)",
+      "status": "YELLOW",
+      "note": "phase4 data block (js/admin-stats.js) + Hindi structure card on the admin release tab added with 0 page errors; visual render not yet confirmed because the release tab sits behind the existing admin gate."
+    },
+    {
+      "id": "production deployment verification (§3)",
+      "status": "RED",
+      "note": "owner-blocked: no git remote/credentials in this environment; live ekguru.shop still serves the pre-Phase-4 build"
+    }
+  ],
+  "green": 27,
+  "yellow": 2,
+  "red": 1
+}

@@ -1,0 +1,23 @@
+# EkGuru — things that must never be committed or deployed.
+
+# The owner's shared mail token (Apps Script relay). Wired into
+# js/site-config.js at deploy time by tools/wire-token.py. Never commit.
+deploy-secrets.local.json
+
+# Tutor contact details being handed to the spreadsheet. The repository is
+# public and the site's rule (js/sheet.js, tools/sheetsync.js) is that a
+# tutor's personal address lives in the Google Sheet's `notification_email`
+# column, never in a committed file. The upload pack in csv/ keeps that cell
+# blank; the row you paste into the sheet keeps the address, and stays here.
+*.local.csv
+
+# Python
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db

@@ -1,0 +1,409 @@
+/* =========================================================
+   EkGuru — HINDI PRACTICE TOOLS  (v1)
+   ---------------------------------------------------------
+   Three small, dependency-free tools sharing the quiz bank and
+   the fuzzy helpers:
+
+     · TYPING TRAINER  (§11) — Roman prompt → learner types
+       Devanagari. Normalises harmless Unicode/space/punct
+       differences; states: correct / minor-format / incorrect.
+     · TOPIC QUIZ      (§12) — topic + level + 5/10/15 questions
+       from the canonical bank; score + explanations + retry +
+       link back to the source lesson. Score is NOT fluency.
+     · WORKSHEETS      (§13) — client-side printable worksheet
+       (prompts + writing space + optional answers). Real
+       window.print(); no fake download buttons.
+
+   Mounted automatically from #typing-app / #quiz-app / #ws-app.
+   ========================================================= */
+(function () {
+  "use strict";
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+  function shuffle(a) {
+    var out = a.slice();
+    for (var i = out.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = out[i]; out[i] = out[j]; out[j] = t;
+    }
+    return out;
+  }
+
+  /* deterministic daily rotation (rule-based, not AI): same date + salt
+     -> same order, different date -> different order. `when` optional Date. */
+  function dayShuffle(a, salt, when) {
+    var d = when || new Date();
+    var key = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") +
+              "-" + String(d.getDate()).padStart(2, "0") + ":" + (salt || "");
+    var h = 2166136261;
+    for (var i = 0; i < key.length; i++) { h ^= key.charCodeAt(i); h = Math.imul(h, 16777619); }
+    var seed = h >>> 0;
+    var out = a.slice();
+    var rnd = function () {
+      seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
+      var t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+    for (var i = out.length - 1; i > 0; i--) {
+      var j = Math.floor(rnd() * (i + 1));
+      var tmp = out[i]; out[i] = out[j]; out[j] = tmp;
+    }
+    return out;
+  }
+
+  /* ---------- curated typing data (from real lesson content) ---------- */
+  var TYPING = [
+    ["namaste", "नमस्ते"], ["aap", "आप"], ["tum", "तुम"], ["kaise", "कैसे"],
+    ["kya", "क्या"], ["shukriya", "शुक्रिया"], ["dhanyavaad", "धन्यवाद"],
+    ["paani", "पानी"], ["roti", "रोटी"], ["chai", "चाय"], ["ghar", "घर"],
+    ["dost", "दोस्त"], ["khaana", "खाना"], ["pyaar", "प्यार"], ["ek", "एक"],
+    ["do", "दो"], ["teen", "तीन"], ["sau", "सौ"], ["subah", "सुबह"],
+    ["shaam", "शाम"], ["aaj", "आज"], ["kal", "कल"], ["chacha", "चाचा"],
+    ["maama", "मामा"], ["daada", "दादा"], ["naana", "नाना"], ["kitab", "किताब"],
+    ["theek", "ठीक"], ["haan", "हाँ"], ["nahin", "नहीं"], ["main", "मैं"],
+    ["hum", "हम"], ["achchha", "अच्छा"]
+  ];
+  TYPING = window.EKGURU_TYPING_ACTIVE || TYPING;
+
+  /* Active-course overrides (set by js/<lang>-quiz-bank.js; Hindi is the default). */
+  var LANG = window.EKGURU_COURSE_LANG || { name: "Hindi", script: "Devanagari" };
+
+  var bank = function () {
+    var Q = window.EKGURU_QUIZ_ACTIVE || window.EKGURU_HINDI_QUIZ;
+    return (Q && Q.questions) || [];
+  };
+
+  /* =========================================================
+     TYPING TRAINER
+     ========================================================= */
+  function mountTyping(host) {
+    var F = window.EkGuruFuzzy;
+    var items = shuffle(TYPING);
+    var pos = 0, done = 0, tries = 0;
+
+    host.innerHTML =
+      '<p class="muted">Type the Hindi word in Devanagari. Small differences in ' +
+      'spacing or punctuation count as “minor format”, not wrong.</p>' +
+      '<div class="row" style="align-items:center;gap:12px;flex-wrap:wrap">' +
+      '<span class="lbl" style="font-weight:600">Roman prompt</span>' +
+      '<span id="tp-prompt" style="font-size:1.3rem;font-weight:700">' + esc(items[0][0]) + '</span>' +
+      '</div>' +
+      '<div class="row" style="align-items:center;gap:12px;flex-wrap:wrap;margin-top:10px">' +
+      '<label for="typing-in2" style="font-weight:600">Your ' + LANG.script + '</label>' +
+      '<input id="typing-in2" type="text" inputmode="text" autocomplete="off" ' +
+      'style="flex:1;min-width:220px" aria-label="Type the Hindi word in Devanagari">' +
+      '</div>' +
+      '<div class="row" style="gap:10px;margin-top:12px;flex-wrap:wrap">' +
+      '<button type="button" class="btn" id="tp-check">Check</button>' +
+      '<button type="button" class="btn ghost" id="tp-show">Show answer</button>' +
+      '<button type="button" class="btn ghost" id="tp-reset">Reset</button>' +
+      '</div>' +
+      '<p id="tp-feedback" role="status" style="margin:12px 0 0;font-weight:600"></p>' +
+      '<p class="muted" id="tp-score" style="margin:6px 0 0"></p>';
+
+    var prompt = host.querySelector("#tp-prompt");
+    var input = host.querySelector("#typing-in2");
+    var fb = host.querySelector("#tp-feedback");
+    var score = host.querySelector("#tp-score");
+    var answered = false;
+
+    function paintScore() { score.textContent = done + " of " + items.length + " done (" + tries + " tries)."; }
+    paintScore();
+
+    function next() {
+      pos++; answered = false; input.value = "";
+      if (pos >= items.length) {
+        prompt.textContent = "Done!";
+        fb.textContent = "You finished all " + items.length + " words.";
+        fb.style.color = "var(--ink)";
+        input.disabled = true;
+        return;
+      }
+      prompt.textContent = items[pos][0];
+    }
+
+    host.querySelector("#tp-check").addEventListener("click", function () {
+      if (answered) { next(); return; }
+      var r = F.compare(items[pos][1], input.value);
+      tries++;
+      if (r.state === "correct") {
+        fb.style.color = "var(--green,#1a7f37)"; fb.textContent = "Correct — " + items[pos][1];
+        done++; answered = true;
+      } else if (r.state === "minor-format") {
+        fb.style.color = "var(--accent,#b26a00)";
+        fb.textContent = "Minor format difference — accepted: " + items[pos][1];
+        done++; answered = true;
+      } else if (r.state === "empty") {
+        fb.style.color = "var(--red,#b3261e)"; fb.textContent = "Type the word first.";
+      } else {
+        fb.style.color = "var(--red,#b3261e)"; fb.textContent = "Not quite. Try again or show the answer.";
+      }
+      paintScore();
+    });
+    host.querySelector("#tp-show").addEventListener("click", function () {
+      fb.style.color = "var(--ink)"; fb.textContent = items[pos][1];
+    });
+    host.querySelector("#tp-reset").addEventListener("click", function () {
+      items = shuffle(TYPING); pos = 0; done = 0; tries = 0; answered = false;
+      input.disabled = false; input.value = ""; prompt.textContent = items[0][0];
+      fb.textContent = ""; fb.style.color = ""; paintScore();
+    });
+    input.addEventListener("keydown", function (e) { if (e.key === "Enter") host.querySelector("#tp-check").click(); });
+  }
+
+  /* =========================================================
+     TOPIC QUIZ
+     ========================================================= */
+  function mountQuiz(host) {
+    var qs = bank();
+    var topics = {}, levels = {};
+    qs.forEach(function (q) { topics[q.topic] = 1; levels[q.level] = 1; });
+
+    var topicOpts = Object.keys(topics).map(function (t) {
+      return '<option value="' + esc(t) + '">' + esc(t) + '</option>';
+    }).join("");
+    var levelOpts = Object.keys(levels).map(function (l) {
+      return '<option value="' + esc(l) + '">' + esc(l) + '</option>';
+    }).join("");
+
+    host.innerHTML =
+      '<div class="row no-print" style="gap:12px;flex-wrap:wrap;align-items:end">' +
+      '<div><label for="q-topic">Topic</label><br><select id="q-topic">' + topicOpts + '</select></div>' +
+      '<div><label for="q-level">Level</label><br><select id="q-level">' + levelOpts + '</select></div>' +
+      '<div><label for="q-n">Questions</label><br><select id="q-n">' +
+      '<option value="5">5</option><option value="10">10</option><option value="15">15</option></select></div>' +
+      '<button type="button" class="btn" id="q-start">Start</button>' +
+      '</div>' +
+      '<p class="muted" style="font-size:.8rem;margin-top:8px">Questions rotate each day for the same topic and level (rule-based, not random) — come back tomorrow for a new set.</p>' +
+      '<div id="q-body" style="margin-top:16px"></div>';
+
+    var state = null;
+
+    /* Which bank this page votes about — the same value the progress store
+       uses ("bengali-quiz"), so a flag from one learner is filed against the
+       question another learner will see. */
+    function bankName() {
+      return window.EKGURU_QUIZ_NAME || "quiz";
+    }
+
+    function voteRow(q) {
+      var api = window.EKGURU_QUESTIONS;
+      if (!api || !q.id) return "";
+      var mine = api.myVote(bankName(), q.id);
+      var c = (api.counts(bankName())[q.id]) || { flags: 0, likes: 0 };
+      var badge = [];
+      if (c.likes) badge.push("\u2605 " + c.likes);
+      if (c.flags) badge.push("\u2691 " + c.flags + (c.flags === 1 ? " learner flagged this" : " learners flagged this"));
+      return '<div class="q-vote no-print" data-vote="' + esc(q.id) + '" style="margin-top:10px">' +
+        '<button type="button" class="btn ghost" data-like="' + esc(q.id) + '">' +
+        (mine === "like" ? "\u2605 Liked" : "\u2605 Helpful") + '</button> ' +
+        '<button type="button" class="btn ghost" data-flag="' + esc(q.id) + '">' +
+        (mine === "flag" ? "\u2691 Flagged" : "\u2691 Flag a problem") + '</button> ' +
+        '<span class="muted" style="font-size:.8rem">' + badge.join(" \u00b7 ") +
+        (api.enabled() ? "" : " \u00b7 saved on this device; community sync is off") + '</span>' +
+        '<div data-flagbox="' + esc(q.id) + '" style="display:none;margin-top:8px">' +
+        api.reasons.map(function (r) {
+          return '<button type="button" class="btn ghost" style="font-size:.8rem" data-reason="' +
+            esc(r) + '" data-q="' + esc(q.id) + '">' + esc(r) + '</button> ';
+        }).join("") +
+        '</div></div>';
+    }
+
+    /* The five most-flagged questions in this bank, for everyone: this is how
+       one learner's flag reaches the next learner. */
+    function topBlock() {
+      var api = window.EKGURU_QUESTIONS;
+      if (!api) return "";
+      var rows = api.topFlagged(bankName(), 5);
+      if (!rows.length) return "";
+      var byId = {};
+      qs.forEach(function (q) { byId[q.id] = q; });
+      return '<div data-voteblock><h3 style="margin-top:22px">Flagged by other ' + esc(LANG.name) + ' learners</h3>' +
+        '<ul class="linklist">' + rows.map(function (r) {
+          var q = byId[r.id];
+          if (!q) return "";
+          return '<li><b>' + esc(q.q) + '</b><span>' + r.flags +
+            (r.flags === 1 ? " learner flagged this" : " learners flagged this") +
+            ' \u2014 ' + esc(q.topic) + '</span></li>';
+        }).join("") + '</ul></div>';
+    }
+
+    function wireVote(scope) {
+      var api = window.EKGURU_QUESTIONS;
+      if (!api) return;
+      scope.querySelectorAll("[data-like]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          api.like(bankName(), b.getAttribute("data-like"));
+          renderQuestion();
+        });
+      });
+      scope.querySelectorAll("[data-flag]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          var box = scope.querySelector('[data-flagbox="' + b.getAttribute("data-flag") + '"]');
+          if (box) box.style.display = box.style.display === "none" ? "block" : "none";
+        });
+      });
+      scope.querySelectorAll("[data-reason]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          api.flag(bankName(), b.getAttribute("data-q"), b.getAttribute("data-reason"));
+          renderQuestion();
+        });
+      });
+    }
+
+    function start() {
+      var topic = host.querySelector("#q-topic").value;
+      var level = host.querySelector("#q-level").value;
+      var n = parseInt(host.querySelector("#q-n").value, 10);
+      var pool = qs.filter(function (q) { return q.topic === topic && q.level === level; });
+      var use = dayShuffle(pool, "quiz:" + topic + ":" + level).slice(0, n);
+      if (!use.length) {
+        host.querySelector("#q-body").innerHTML = '<p class="muted">No questions for this combination yet.</p>';
+        return;
+      }
+      state = { use: use, i: 0, correct: 0 };
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      var body = host.querySelector("#q-body");
+      if (state.i >= state.use.length) {
+        var total = state.use.length;
+        var per = Math.round(state.correct / total * 100);
+        if (window.EkGuruProgress) window.EkGuruProgress.recordQuiz(window.EKGURU_QUIZ_NAME || "topic-quiz", state.correct, total);
+        body.innerHTML =
+          '<h3>Score: ' + state.correct + ' / ' + total + ' (' + per + '%)</h3>' +
+          '<p class="muted">A recognition score, not a fluency measure.</p>' +
+          '<button type="button" class="btn" id="q-again">Try again</button>' +
+          topBlock();
+        body.querySelector("#q-again").addEventListener("click", start);
+        return;
+      }
+      var q = state.use[state.i];
+      var opts = shuffle(q.opts.slice());
+      body.innerHTML =
+        '<p class="muted">Question ' + (state.i + 1) + ' of ' + state.use.length + ' — ' + esc(q.topic) + '</p>' +
+        '<p style="font-weight:700;font-size:1.05rem">' + esc(q.q) + '</p>' +
+        opts.map(function (o, idx) {
+          return '<button type="button" class="btn ghost" style="display:block;width:100%;text-align:left;margin:6px 0" data-opt="' + idx + '">' + esc(o) + '</button>';
+        }).join("") +
+        '<div id="q-fb" style="margin-top:10px"></div>';
+      body.querySelectorAll("[data-opt]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          var chosen = opts[parseInt(b.getAttribute("data-opt"), 10)];
+          var ok = chosen === q.a;
+          if (ok) state.correct++;
+          var fb = body.querySelector("#q-fb");
+          fb.innerHTML =
+            '<p style="font-weight:600;color:' + (ok ? 'var(--green,#1a7f37)' : 'var(--red,#b3261e)') + '">' +
+            (ok ? "Correct." : "Not quite — the answer was “" + esc(q.a) + "”.") + '</p>' +
+            '<p class="muted">' + esc(q.explain) + '</p>' +
+            '<p class="muted">Source: <a href="../../' + esc(q.lesson) + '/">' + esc(q.lesson.replace(/-/g, " ")) + '</a></p>' +
+            '<button type="button" class="btn" id="q-next">Next</button>' +
+            voteRow(q);
+          body.querySelector("#q-next").addEventListener("click", function () { state.i++; renderQuestion(); });
+          wireVote(body);
+        });
+      });
+    }
+
+    host.querySelector("#q-start").addEventListener("click", start);
+    var painted = topBlock();
+    if (painted) host.insertAdjacentHTML("beforeend", painted);
+    window.addEventListener("ekguru:questions", function () {
+      var old = host.querySelector("[data-voteblock]");
+      if (old) old.remove();
+      var block = topBlock();
+      if (block) host.insertAdjacentHTML("beforeend", block);
+    });
+  }
+
+  /* =========================================================
+     WORKSHEETS
+     ========================================================= */
+  function mountWorksheet(host) {
+    /* The sheet the page arrived with: tools/build-print-sheets.py bakes a
+       five-question sample into #ws-app so there is always something to print
+       — with scripting off, or before this script runs, the print target used
+       to be empty and the browser printed the page instead. Keep it until the
+       reader builds their own. */
+    var arrived = host.querySelector("#w-sheet");
+    var qs = bank();
+    var topics = {};
+    qs.forEach(function (q) { topics[q.topic] = 1; });
+    var topicOpts = Object.keys(topics).map(function (t) {
+      return '<option value="' + esc(t) + '">' + esc(t) + '</option>';
+    }).join("");
+
+    host.innerHTML =
+      '<div class="row no-print" style="gap:12px;flex-wrap:wrap;align-items:end">' +
+      '<div><label for="w-topic">Topic</label><br><select id="w-topic">' + topicOpts + '</select></div>' +
+      '<div><label for="w-n">Prompts</label><br><select id="w-n">' +
+      '<option value="5">5</option><option value="10">10</option><option value="15">15</option></select></div>' +
+      '<div><label><input type="checkbox" id="w-ans" checked> include answer section</label></div>' +
+      '<button type="button" class="btn" id="w-make">Make worksheet</button>' +
+      '<button type="button" class="btn ghost" id="w-print">Print</button>' +
+      '</div>' +
+      '<div id="w-sheet" style="margin-top:16px"></div>';
+
+    /* The sheet in the file is a REAL worksheet (the language's own quiz bank,
+       baked at build time), so a reader who never presses a button — or has
+       scripting off — still has something on paper. Put it back after the
+       controls are in place; "Make worksheet" replaces it as before. */
+
+    if (arrived) host.querySelector("#w-sheet").innerHTML = arrived.innerHTML;
+
+    var made = [];
+
+    host.querySelector("#w-make").addEventListener("click", function () {
+      var topic = host.querySelector("#w-topic").value;
+      var n = parseInt(host.querySelector("#w-n").value, 10);
+      made = dayShuffle(qs.filter(function (q) { return q.topic === topic; }), "ws:" + topic).slice(0, n);
+      var withAns = host.querySelector("#w-ans").checked;
+      var sheet = host.querySelector("#w-sheet");
+      var lines = made.map(function (q, i) {
+        return '<p style="font-weight:700">' + (i + 1) + '. ' + esc(q.q) + '</p>' +
+               '<div style="border-bottom:1px solid var(--line);height:44px;margin:0 0 18px"></div>';
+      }).join("");
+      var ans = withAns ? '<h3>Answers</h3>' + made.map(function (q, i) {
+        return '<p>' + (i + 1) + '. <b>' + esc(q.a) + '</b> — ' + esc(q.explain) + '</p>';
+      }).join("") : "";
+      sheet.innerHTML =
+        '<div class="ws-page" style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;max-width:640px">' +
+        '<h2 style="margin:0 0 4px">' + LANG.name + ' worksheet — ' + esc(topic) + '</h2>' +
+        '<p class="muted" style="margin:0 0 14px">Write your answers, then check the answer section.</p>' +
+        lines + ans +
+        '<p class="muted" style="margin-top:12px;font-size:.78rem">From the EkGuru ' + LANG.name + ' quiz bank — free to print and share.</p>' +
+        '</div>';
+    });
+
+    host.querySelector("#w-print").addEventListener("click", function () {
+      if (!made.length) { host.querySelector("#w-make").click(); }
+      /* Print the sheet, not the page: js/print-sheet.js clones the finished
+         worksheet into #ekguru-print-root and hides everything else on paper.
+         Without it a reader gets the header, the intro, the controls, the note
+         and the footer on the same sheet as the questions. */
+      if (window.EKGURU_PRINT_SHEET) { window.EKGURU_PRINT_SHEET.now(); return; }
+      window.print();
+    });
+  }
+
+  /* ---------- auto-mount ---------- */
+  function boot() {
+    var t = document.getElementById("typing-app");
+    var q = document.getElementById("quiz-app");
+    var w = document.getElementById("ws-app");
+    if (t) mountTyping(t);
+    if (q) mountQuiz(q);
+    if (w) mountWorksheet(w);
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
+})();

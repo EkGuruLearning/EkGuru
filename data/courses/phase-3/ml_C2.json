@@ -1,0 +1,1874 @@
+{
+  "code": "ml",
+  "name": "Malayalam",
+  "native": "മലയാളം",
+  "phase": 3,
+  "medium": "en",
+  "file_level": "C2",
+  "research_basis": "data/language-research/ml.json",
+  "level": {
+    "title": "Malayalam C2",
+    "goals": [
+      "Control Malayalam case, tense-aspect, participles, negation, and clause chaining",
+      "Develop script-first reception, interaction, production, and mediation",
+      "Use sound contrasts, spoken-written variation, honorific register, and cohesion appropriately"
+    ],
+    "units": [
+      {
+        "id": "ml-c2-u1",
+        "title": "Semantic and Viewpoint Precision",
+        "lessons": [
+          {
+            "id": "ml-c2-l1",
+            "title": "നിഷേധത്തിന്റെ വ്യാപ്തി",
+            "learn": "Control നിഷേധത്തിന്റെ വ്യാപ്തി in level-appropriate Malayalam.",
+            "vocab": [
+              {
+                "t": "പ്രകടമായി",
+                "r": "prakaṭamāyi",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some outcomes merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "കാണുന്ന",
+                "r": "kāṇunna",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some outcomes merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "എല്ലാ",
+                "r": "èllā",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some outcomes merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "മെച്ചവും",
+                "r": "mèccavuṃ",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some outcomes merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "യഥാർഥ",
+                "r": "yathāർtha",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some outcomes merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "പുരോഗതിയല്ല",
+                "r": "purogatiyalla",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some outcomes merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ചില",
+                "r": "cila",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some outcomes merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ഫലങ്ങൾ",
+                "r": "phalaṅṅaൾ",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some outcomes merely redistribute the burden.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "നിഷേധത്തിന്റെ വ്യാപ്തി",
+              "explain": "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning.",
+              "pattern": "case-marked arguments + participial/adverbial material + auxiliaries + final predicate",
+              "examples": [
+                {
+                  "t": "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                  "r": "prakaṭamāyi kāṇunna èllā mèccavuṃ yathāർtha purogatiyalla; cila phalaṅṅaൾ bhāraṃ punaർvitaraṇaṃ cèyyuka mātramāṇ.",
+                  "en": "Not every apparent improvement is real progress; some outcomes merely redistribute the burden."
+                },
+                {
+                  "t": "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                  "r": "phalaṃ tīർttuṃ apratīkṣitamallènn viśeṣippikkunnat atbhutappèṭṭavariൽninn prabhāṣakanè sūkṣmamāyi akaṟṟunnu.",
+                  "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                },
+                {
+                  "t": "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                  "r": "namukk dhṛtiyillātta abhilāṣavuṃ staṃbhanamillātta jāgratayuṃ prakaṭanamillātta uttaravāditvavuṃ veṇaṃ.",
+                  "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with incorrect case, participle, negation, or register",
+                  "right": "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                  "why": "The corrected model aligns Malayalam morphology, clause linkage, and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "പഠിതാവ്",
+                "t": "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                "r": "prakaṭamāyi kāṇunna èllā mèccavuṃ yathāർtha purogatiyalla; cila phalaṅṅaൾ bhāraṃ punaർvitaraṇaṃ cèyyuka mātramāṇ.",
+                "en": "Not every apparent improvement is real progress; some outcomes merely redistribute the burden."
+              },
+              {
+                "sp": "സഹപ്രവർത്തക",
+                "t": "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "r": "phalaṃ tīർttuṃ apratīkṣitamallènn viśeṣippikkunnat atbhutappèṭṭavariൽninn prabhāṣakanè sūkṣmamāyi akaṟṟunnu.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              },
+              {
+                "sp": "മധ്യസ്ഥൻ",
+                "t": "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "r": "namukk dhṛtiyillātta abhilāṣavuṃ staṃbhanamillātta jāgratayuṃ prakaṭanamillātta uttaravāditvavuṃ veṇaṃ.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              },
+              {
+                "sp": "പത്രാധിപർ",
+                "t": "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "r": "òttutīർpp praśnattè paravatānikkaṭiyiൽ òḻippikkukayuṃ irupakṣattinuṃ mukhaṃ rakṣikkāൻ avasaraṃ naൽkukayuṃ cèytu.",
+                "en": "The compromise swept the issue under the carpet and allowed both sides to save face."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "നിഷേധത്തിന്റെ വ്യാപ്തി — multiple choice: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                "answer": "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "നിഷേധത്തിന്റെ വ്യാപ്തി — fill in the blank: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                "answer": "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "നിഷേധത്തിന്റെ വ്യാപ്തി — translation: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                "answer": "Not every apparent improvement is real progress; some outcomes merely redistribute the burden.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "നിഷേധത്തിന്റെ വ്യാപ്തി — reverse translation: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                "answer": "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "നിഷേധത്തിന്റെ വ്യാപ്തി — matching: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                "answer": "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                "skill_target": "matching",
+                "options": [
+                  "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "നിഷേധത്തിന്റെ വ്യാപ്തി — reorder: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                "answer": "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "നിഷേധത്തിന്റെ വ്യാപ്തി — sentence building: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                "answer": "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "നിഷേധത്തിന്റെ വ്യാപ്തി — word selection: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                "answer": "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                "skill_target": "word selection",
+                "options": [
+                  "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "നിഷേധത്തിന്റെ വ്യാപ്തി — error correction: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                "answer": "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "നിഷേധത്തിന്റെ വ്യാപ്തി — dialogue completion: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                "answer": "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "നിഷേധത്തിന്റെ വ്യാപ്തി — reading comprehension: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                "answer": "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "നിഷേധത്തിന്റെ വ്യാപ്തി — paragraph comprehension: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                "answer": "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "നിഷേധത്തിന്റെ വ്യാപ്തി: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "നിഷേധത്തിന്റെ വ്യാപ്തി: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "നിഷേധത്തിന്റെ വ്യാപ്തി: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "നിഷേധത്തിന്റെ വ്യാപ്തി: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "നിഷേധത്തിന്റെ വ്യാപ്തി: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "പ്രകടമായി",
+              "കാണുന്ന",
+              "എല്ലാ",
+              "മെച്ചവും"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "നിഷേധത്തിന്റെ വ്യാപ്തി workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate case, participles, aspect, and discourse function.",
+                  "items": [
+                    "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                    "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു."
+                  ],
+                  "key": [
+                    "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning.",
+                    "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                    "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു."
+                  ],
+                  "key": [
+                    "Not every apparent improvement is real progress; some outcomes merely redistribute the burden.",
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                  ]
+                },
+                {
+                  "instruction": "Transform spoken/written register and justify choices.",
+                  "items": [
+                    "Not every apparent improvement is real progress; some outcomes merely redistribute the burden.",
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                  ],
+                  "key": [
+                    "Model: പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                    "Model: ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "ml-c2-l2",
+            "title": "വിവക്ഷയും അകലവും",
+            "learn": "Control വിവക്ഷയും അകലവും in level-appropriate Malayalam.",
+            "vocab": [
+              {
+                "t": "ഫലം",
+                "r": "phalaṃ",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "തീർത്തും",
+                "r": "tīർttuṃ",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "അപ്രതീക്ഷിതമല്ലെന്ന്",
+                "r": "apratīkṣitamallènn",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "വിശേഷിപ്പിക്കുന്നത്",
+                "r": "viśeṣippikkunnat",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "അത്ഭുതപ്പെട്ടവരിൽനിന്ന്",
+                "r": "atbhutappèṭṭavariൽninn",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "പ്രഭാഷകനെ",
+                "r": "prabhāṣakanè",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "സൂക്ഷ്മമായി",
+                "r": "sūkṣmamāyi",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "അകറ്റുന്നു",
+                "r": "akaṟṟunnu",
+                "en": "discourse segment in “Calling the result not entirely unexpected subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "വിവക്ഷയും അകലവും",
+              "explain": "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning.",
+              "pattern": "case-marked arguments + participial/adverbial material + auxiliaries + final predicate",
+              "examples": [
+                {
+                  "t": "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                  "r": "phalaṃ tīർttuṃ apratīkṣitamallènn viśeṣippikkunnat atbhutappèṭṭavariൽninn prabhāṣakanè sūkṣmamāyi akaṟṟunnu.",
+                  "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                },
+                {
+                  "t": "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                  "r": "namukk dhṛtiyillātta abhilāṣavuṃ staṃbhanamillātta jāgratayuṃ prakaṭanamillātta uttaravāditvavuṃ veṇaṃ.",
+                  "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                },
+                {
+                  "t": "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                  "r": "òttutīർpp praśnattè paravatānikkaṭiyiൽ òḻippikkukayuṃ irupakṣattinuṃ mukhaṃ rakṣikkāൻ avasaraṃ naൽkukayuṃ cèytu.",
+                  "en": "The compromise swept the issue under the carpet and allowed both sides to save face."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with incorrect case, participle, negation, or register",
+                  "right": "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                  "why": "The corrected model aligns Malayalam morphology, clause linkage, and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "പഠിതാവ്",
+                "t": "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "r": "phalaṃ tīർttuṃ apratīkṣitamallènn viśeṣippikkunnat atbhutappèṭṭavariൽninn prabhāṣakanè sūkṣmamāyi akaṟṟunnu.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              },
+              {
+                "sp": "സഹപ്രവർത്തക",
+                "t": "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "r": "namukk dhṛtiyillātta abhilāṣavuṃ staṃbhanamillātta jāgratayuṃ prakaṭanamillātta uttaravāditvavuṃ veṇaṃ.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              },
+              {
+                "sp": "മധ്യസ്ഥൻ",
+                "t": "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "r": "òttutīർpp praśnattè paravatānikkaṭiyiൽ òḻippikkukayuṃ irupakṣattinuṃ mukhaṃ rakṣikkāൻ avasaraṃ naൽkukayuṃ cèytu.",
+                "en": "The compromise swept the issue under the carpet and allowed both sides to save face."
+              },
+              {
+                "sp": "പത്രാധിപർ",
+                "t": "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "r": "āntarika kuṟipp aniścitatvaṃ aṃgīkarikkunnu; pòtuprastāvana atinè aḻannuṟappicca ātmaviśvāsamāyi punarāviṣkarikkunnu.",
+                "en": "The internal note acknowledges uncertainty; the public statement recasts it as measured confidence."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reorder",
+                "q": "വിവക്ഷയും അകലവും — reorder: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "answer": "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "വിവക്ഷയും അകലവും — sentence building: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "answer": "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "വിവക്ഷയും അകലവും — word selection: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "answer": "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "skill_target": "word selection",
+                "options": [
+                  "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "വിവക്ഷയും അകലവും — error correction: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "answer": "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "വിവക്ഷയും അകലവും — dialogue completion: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "answer": "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "വിവക്ഷയും അകലവും — reading comprehension: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "answer": "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "വിവക്ഷയും അകലവും — paragraph comprehension: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "answer": "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "main_idea",
+                "q": "വിവക്ഷയും അകലവും — main idea: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "answer": "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "വിവക്ഷയും അകലവും — detail identification: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "answer": "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "inference",
+                "q": "വിവക്ഷയും അകലവും — inference: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "answer": "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "വിവക്ഷയും അകലവും — listening comprehension: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "answer": "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: ml-IN browser voice when available; fallback and variation disclosed; text=ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു."
+              },
+              {
+                "type": "dictation",
+                "q": "വിവക്ഷയും അകലവും — dictation: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "answer": "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: ml-IN browser voice when available; fallback and variation disclosed; text=ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "വിവക്ഷയും അകലവും: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "വിവക്ഷയും അകലവും: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "വിവക്ഷയും അകലവും: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "വിവക്ഷയും അകലവും: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "വിവക്ഷയും അകലവും: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "ഫലം",
+              "തീർത്തും",
+              "അപ്രതീക്ഷിതമല്ലെന്ന്",
+              "വിശേഷിപ്പിക്കുന്നത്"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "വിവക്ഷയും അകലവും workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate case, participles, aspect, and discourse function.",
+                  "items": [
+                    "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                    "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം."
+                  ],
+                  "key": [
+                    "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning.",
+                    "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                    "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം."
+                  ],
+                  "key": [
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised.",
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                  ]
+                },
+                {
+                  "instruction": "Transform spoken/written register and justify choices.",
+                  "items": [
+                    "Calling the result not entirely unexpected subtly distances the speaker from those surprised.",
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                  ],
+                  "key": [
+                    "Model: ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                    "Model: നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "ml-c2-u2",
+        "title": "Rhetoric and Genre Mastery",
+        "lessons": [
+          {
+            "id": "ml-c2-l3",
+            "title": "വാഗ്മിതാ സമാന്തരത",
+            "learn": "Control വാഗ്മിതാ സമാന്തരത in level-appropriate Malayalam.",
+            "vocab": [
+              {
+                "t": "നമുക്ക്",
+                "r": "namukk",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ധൃതിയില്ലാത്ത",
+                "r": "dhṛtiyillātta",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "അഭിലാഷവും",
+                "r": "abhilāṣavuṃ",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "സ്തംഭനമില്ലാത്ത",
+                "r": "staṃbhanamillātta",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ജാഗ്രതയും",
+                "r": "jāgratayuṃ",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "പ്രകടനമില്ലാത്ത",
+                "r": "prakaṭanamillātta",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ഉത്തരവാദിത്വവും",
+                "r": "uttaravāditvavuṃ",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "വേണം",
+                "r": "veṇaṃ",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "വാഗ്മിതാ സമാന്തരത",
+              "explain": "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning.",
+              "pattern": "case-marked arguments + participial/adverbial material + auxiliaries + final predicate",
+              "examples": [
+                {
+                  "t": "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                  "r": "namukk dhṛtiyillātta abhilāṣavuṃ staṃbhanamillātta jāgratayuṃ prakaṭanamillātta uttaravāditvavuṃ veṇaṃ.",
+                  "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                },
+                {
+                  "t": "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                  "r": "òttutīർpp praśnattè paravatānikkaṭiyiൽ òḻippikkukayuṃ irupakṣattinuṃ mukhaṃ rakṣikkāൻ avasaraṃ naൽkukayuṃ cèytu.",
+                  "en": "The compromise swept the issue under the carpet and allowed both sides to save face."
+                },
+                {
+                  "t": "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                  "r": "āntarika kuṟipp aniścitatvaṃ aṃgīkarikkunnu; pòtuprastāvana atinè aḻannuṟappicca ātmaviśvāsamāyi punarāviṣkarikkunnu.",
+                  "en": "The internal note acknowledges uncertainty; the public statement recasts it as measured confidence."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with incorrect case, participle, negation, or register",
+                  "right": "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                  "why": "The corrected model aligns Malayalam morphology, clause linkage, and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "പഠിതാവ്",
+                "t": "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "r": "namukk dhṛtiyillātta abhilāṣavuṃ staṃbhanamillātta jāgratayuṃ prakaṭanamillātta uttaravāditvavuṃ veṇaṃ.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              },
+              {
+                "sp": "സഹപ്രവർത്തക",
+                "t": "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "r": "òttutīർpp praśnattè paravatānikkaṭiyiൽ òḻippikkukayuṃ irupakṣattinuṃ mukhaṃ rakṣikkāൻ avasaraṃ naൽkukayuṃ cèytu.",
+                "en": "The compromise swept the issue under the carpet and allowed both sides to save face."
+              },
+              {
+                "sp": "മധ്യസ്ഥൻ",
+                "t": "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "r": "āntarika kuṟipp aniścitatvaṃ aṃgīkarikkunnu; pòtuprastāvana atinè aḻannuṟappicca ātmaviśvāsamāyi punarāviṣkarikkunnu.",
+                "en": "The internal note acknowledges uncertainty; the public statement recasts it as measured confidence."
+              },
+              {
+                "sp": "പത്രാധിപർ",
+                "t": "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                "r": "labhyamāya tèḻivukaൾ kaṇakkilèṭuttāൽ it eṟṟavuṃ viśvasanīyamāya viśadīkaraṇamāṇ, codyaṃ cèyyānāvātta vidhiyalla.",
+                "en": "Given the available evidence, this is the most credible explanation, not an indisputable verdict."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reading_comprehension",
+                "q": "വാഗ്മിതാ സമാന്തരത — reading comprehension: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "answer": "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "വാഗ്മിതാ സമാന്തരത — paragraph comprehension: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "answer": "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "main_idea",
+                "q": "വാഗ്മിതാ സമാന്തരത — main idea: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "answer": "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "വാഗ്മിതാ സമാന്തരത — detail identification: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "answer": "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "inference",
+                "q": "വാഗ്മിതാ സമാന്തരത — inference: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "answer": "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "വാഗ്മിതാ സമാന്തരത — listening comprehension: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "answer": "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: ml-IN browser voice when available; fallback and variation disclosed; text=നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം."
+              },
+              {
+                "type": "dictation",
+                "q": "വാഗ്മിതാ സമാന്തരത — dictation: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "answer": "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: ml-IN browser voice when available; fallback and variation disclosed; text=നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "വാഗ്മിതാ സമാന്തരത — listen and choose: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "answer": "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "skill_target": "listen and choose",
+                "options": [
+                  "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting"
+                ],
+                "audio_source": "synthetic_tts: ml-IN browser voice when available; fallback and variation disclosed; text=നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം."
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "വാഗ്മിതാ സമാന്തരത — listen and reorder: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "answer": "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: ml-IN browser voice when available; fallback and variation disclosed; text=നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം."
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "വാഗ്മിതാ സമാന്തരത — listen and fill: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "answer": "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "skill_target": "listen and fill",
+                "audio_source": "synthetic_tts: ml-IN browser voice when available; fallback and variation disclosed; text=നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "വാഗ്മിതാ സമാന്തരത — repeat after audio: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "answer": "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: ml-IN browser voice when available; fallback and variation disclosed; text=നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം."
+              },
+              {
+                "type": "pronunciation",
+                "q": "വാഗ്മിതാ സമാന്തരത — pronunciation: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "answer": "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: ml-IN browser voice when available; fallback and variation disclosed; text=നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "വാഗ്മിതാ സമാന്തരത: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "വാഗ്മിതാ സമാന്തരത: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "വാഗ്മിതാ സമാന്തരത: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "വാഗ്മിതാ സമാന്തരത: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "വാഗ്മിതാ സമാന്തരത: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "നമുക്ക്",
+              "ധൃതിയില്ലാത്ത",
+              "അഭിലാഷവും",
+              "സ്തംഭനമില്ലാത്ത"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "വാഗ്മിതാ സമാന്തരത workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate case, participles, aspect, and discourse function.",
+                  "items": [
+                    "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                    "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു."
+                  ],
+                  "key": [
+                    "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning.",
+                    "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                    "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു."
+                  ],
+                  "key": [
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle.",
+                    "The compromise swept the issue under the carpet and allowed both sides to save face."
+                  ]
+                },
+                {
+                  "instruction": "Transform spoken/written register and justify choices.",
+                  "items": [
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle.",
+                    "The compromise swept the issue under the carpet and allowed both sides to save face."
+                  ],
+                  "key": [
+                    "Model: നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                    "Model: ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "ml-c2-l4",
+            "title": "ശൈലിയും പ്രയോഗവും",
+            "learn": "Control ശൈലിയും പ്രയോഗവും in level-appropriate Malayalam.",
+            "vocab": [
+              {
+                "t": "ഒത്തുതീർപ്പ്",
+                "r": "òttutīർpp",
+                "en": "discourse segment in “The compromise swept the issue under the carpet and allowed both sides to save face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "പ്രശ്നത്തെ",
+                "r": "praśnattè",
+                "en": "discourse segment in “The compromise swept the issue under the carpet and allowed both sides to save face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "പരവതാനിക്കടിയിൽ",
+                "r": "paravatānikkaṭiyiൽ",
+                "en": "discourse segment in “The compromise swept the issue under the carpet and allowed both sides to save face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ഒളിപ്പിക്കുകയും",
+                "r": "òḻippikkukayuṃ",
+                "en": "discourse segment in “The compromise swept the issue under the carpet and allowed both sides to save face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ഇരുപക്ഷത്തിനും",
+                "r": "irupakṣattinuṃ",
+                "en": "discourse segment in “The compromise swept the issue under the carpet and allowed both sides to save face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "മുഖം",
+                "r": "mukhaṃ",
+                "en": "discourse segment in “The compromise swept the issue under the carpet and allowed both sides to save face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "രക്ഷിക്കാൻ",
+                "r": "rakṣikkāൻ",
+                "en": "discourse segment in “The compromise swept the issue under the carpet and allowed both sides to save face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "അവസരം",
+                "r": "avasaraṃ",
+                "en": "discourse segment in “The compromise swept the issue under the carpet and allowed both sides to save face.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "ശൈലിയും പ്രയോഗവും",
+              "explain": "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning.",
+              "pattern": "case-marked arguments + participial/adverbial material + auxiliaries + final predicate",
+              "examples": [
+                {
+                  "t": "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                  "r": "òttutīർpp praśnattè paravatānikkaṭiyiൽ òḻippikkukayuṃ irupakṣattinuṃ mukhaṃ rakṣikkāൻ avasaraṃ naൽkukayuṃ cèytu.",
+                  "en": "The compromise swept the issue under the carpet and allowed both sides to save face."
+                },
+                {
+                  "t": "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                  "r": "āntarika kuṟipp aniścitatvaṃ aṃgīkarikkunnu; pòtuprastāvana atinè aḻannuṟappicca ātmaviśvāsamāyi punarāviṣkarikkunnu.",
+                  "en": "The internal note acknowledges uncertainty; the public statement recasts it as measured confidence."
+                },
+                {
+                  "t": "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                  "r": "labhyamāya tèḻivukaൾ kaṇakkilèṭuttāൽ it eṟṟavuṃ viśvasanīyamāya viśadīkaraṇamāṇ, codyaṃ cèyyānāvātta vidhiyalla.",
+                  "en": "Given the available evidence, this is the most credible explanation, not an indisputable verdict."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with incorrect case, participle, negation, or register",
+                  "right": "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                  "why": "The corrected model aligns Malayalam morphology, clause linkage, and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "പഠിതാവ്",
+                "t": "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "r": "òttutīർpp praśnattè paravatānikkaṭiyiൽ òḻippikkukayuṃ irupakṣattinuṃ mukhaṃ rakṣikkāൻ avasaraṃ naൽkukayuṃ cèytu.",
+                "en": "The compromise swept the issue under the carpet and allowed both sides to save face."
+              },
+              {
+                "sp": "സഹപ്രവർത്തക",
+                "t": "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "r": "āntarika kuṟipp aniścitatvaṃ aṃgīkarikkunnu; pòtuprastāvana atinè aḻannuṟappicca ātmaviśvāsamāyi punarāviṣkarikkunnu.",
+                "en": "The internal note acknowledges uncertainty; the public statement recasts it as measured confidence."
+              },
+              {
+                "sp": "മധ്യസ്ഥൻ",
+                "t": "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                "r": "labhyamāya tèḻivukaൾ kaṇakkilèṭuttāൽ it eṟṟavuṃ viśvasanīyamāya viśadīkaraṇamāṇ, codyaṃ cèyyānāvātta vidhiyalla.",
+                "en": "Given the available evidence, this is the most credible explanation, not an indisputable verdict."
+              },
+              {
+                "sp": "പത്രാധിപർ",
+                "t": "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                "r": "prakaṭamāyi kāṇunna èllā mèccavuṃ yathāർtha purogatiyalla; cila phalaṅṅaൾ bhāraṃ punaർvitaraṇaṃ cèyyuka mātramāṇ.",
+                "en": "Not every apparent improvement is real progress; some outcomes merely redistribute the burden."
+              }
+            ],
+            "practice": [
+              {
+                "type": "listening_comprehension",
+                "q": "ശൈലിയും പ്രയോഗവും — listening comprehension: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "answer": "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: ml-IN browser voice when available; fallback and variation disclosed; text=ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു."
+              },
+              {
+                "type": "dictation",
+                "q": "ശൈലിയും പ്രയോഗവും — dictation: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "answer": "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: ml-IN browser voice when available; fallback and variation disclosed; text=ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "ശൈലിയും പ്രയോഗവും — listen and choose: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "answer": "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "skill_target": "listen and choose",
+                "options": [
+                  "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting"
+                ],
+                "audio_source": "synthetic_tts: ml-IN browser voice when available; fallback and variation disclosed; text=ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു."
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "ശൈലിയും പ്രയോഗവും — listen and reorder: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "answer": "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: ml-IN browser voice when available; fallback and variation disclosed; text=ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു."
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "ശൈലിയും പ്രയോഗവും — listen and fill: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "answer": "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "skill_target": "listen and fill",
+                "audio_source": "synthetic_tts: ml-IN browser voice when available; fallback and variation disclosed; text=ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "ശൈലിയും പ്രയോഗവും — repeat after audio: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "answer": "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: ml-IN browser voice when available; fallback and variation disclosed; text=ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു."
+              },
+              {
+                "type": "pronunciation",
+                "q": "ശൈലിയും പ്രയോഗവും — pronunciation: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "answer": "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: ml-IN browser voice when available; fallback and variation disclosed; text=ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു."
+              },
+              {
+                "type": "shadowing",
+                "q": "ശൈലിയും പ്രയോഗവും — shadowing: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "answer": "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: ml-IN browser voice when available; fallback and variation disclosed; text=ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "ശൈലിയും പ്രയോഗവും — guided speaking: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "answer": "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "ശൈലിയും പ്രയോഗവും — free response: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "answer": "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "ശൈലിയും പ്രയോഗവും — roleplay: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "answer": "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "ശൈലിയും പ്രയോഗവും — sentence writing: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "answer": "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                "skill_target": "sentence writing"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "ശൈലിയും പ്രയോഗവും: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "ശൈലിയും പ്രയോഗവും: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "ശൈലിയും പ്രയോഗവും: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "ശൈലിയും പ്രയോഗവും: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "ശൈലിയും പ്രയോഗവും: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "ഒത്തുതീർപ്പ്",
+              "പ്രശ്നത്തെ",
+              "പരവതാനിക്കടിയിൽ",
+              "ഒളിപ്പിക്കുകയും"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "ശൈലിയും പ്രയോഗവും workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate case, participles, aspect, and discourse function.",
+                  "items": [
+                    "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                    "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു."
+                  ],
+                  "key": [
+                    "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning.",
+                    "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                    "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു."
+                  ],
+                  "key": [
+                    "The compromise swept the issue under the carpet and allowed both sides to save face.",
+                    "The internal note acknowledges uncertainty; the public statement recasts it as measured confidence."
+                  ]
+                },
+                {
+                  "instruction": "Transform spoken/written register and justify choices.",
+                  "items": [
+                    "The compromise swept the issue under the carpet and allowed both sides to save face.",
+                    "The internal note acknowledges uncertainty; the public statement recasts it as measured confidence."
+                  ],
+                  "key": [
+                    "Model: ഒത്തുതീർപ്പ് പ്രശ്നത്തെ പരവതാനിക്കടിയിൽ ഒളിപ്പിക്കുകയും ഇരുപക്ഷത്തിനും മുഖം രക്ഷിക്കാൻ അവസരം നൽകുകയും ചെയ്തു.",
+                    "Model: ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "ml-c2-u3",
+        "title": "Cultural and High-Stakes Mediation",
+        "lessons": [
+          {
+            "id": "ml-c2-l5",
+            "title": "രചനാരൂപ പരിവർത്തനം",
+            "learn": "Control രചനാരൂപ പരിവർത്തനം in level-appropriate Malayalam.",
+            "vocab": [
+              {
+                "t": "ആന്തരിക",
+                "r": "āntarika",
+                "en": "discourse segment in “The internal note acknowledges uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "കുറിപ്പ്",
+                "r": "kuṟipp",
+                "en": "discourse segment in “The internal note acknowledges uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "അനിശ്ചിതത്വം",
+                "r": "aniścitatvaṃ",
+                "en": "discourse segment in “The internal note acknowledges uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "അംഗീകരിക്കുന്നു",
+                "r": "aṃgīkarikkunnu",
+                "en": "discourse segment in “The internal note acknowledges uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "പൊതുപ്രസ്താവന",
+                "r": "pòtuprastāvana",
+                "en": "discourse segment in “The internal note acknowledges uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "അതിനെ",
+                "r": "atinè",
+                "en": "discourse segment in “The internal note acknowledges uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "അളന്നുറപ്പിച്ച",
+                "r": "aḻannuṟappicca",
+                "en": "discourse segment in “The internal note acknowledges uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ആത്മവിശ്വാസമായി",
+                "r": "ātmaviśvāsamāyi",
+                "en": "discourse segment in “The internal note acknowledges uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "രചനാരൂപ പരിവർത്തനം",
+              "explain": "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning.",
+              "pattern": "case-marked arguments + participial/adverbial material + auxiliaries + final predicate",
+              "examples": [
+                {
+                  "t": "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                  "r": "āntarika kuṟipp aniścitatvaṃ aṃgīkarikkunnu; pòtuprastāvana atinè aḻannuṟappicca ātmaviśvāsamāyi punarāviṣkarikkunnu.",
+                  "en": "The internal note acknowledges uncertainty; the public statement recasts it as measured confidence."
+                },
+                {
+                  "t": "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                  "r": "labhyamāya tèḻivukaൾ kaṇakkilèṭuttāൽ it eṟṟavuṃ viśvasanīyamāya viśadīkaraṇamāṇ, codyaṃ cèyyānāvātta vidhiyalla.",
+                  "en": "Given the available evidence, this is the most credible explanation, not an indisputable verdict."
+                },
+                {
+                  "t": "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                  "r": "prakaṭamāyi kāṇunna èllā mèccavuṃ yathāർtha purogatiyalla; cila phalaṅṅaൾ bhāraṃ punaർvitaraṇaṃ cèyyuka mātramāṇ.",
+                  "en": "Not every apparent improvement is real progress; some outcomes merely redistribute the burden."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with incorrect case, participle, negation, or register",
+                  "right": "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                  "why": "The corrected model aligns Malayalam morphology, clause linkage, and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "പഠിതാവ്",
+                "t": "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "r": "āntarika kuṟipp aniścitatvaṃ aṃgīkarikkunnu; pòtuprastāvana atinè aḻannuṟappicca ātmaviśvāsamāyi punarāviṣkarikkunnu.",
+                "en": "The internal note acknowledges uncertainty; the public statement recasts it as measured confidence."
+              },
+              {
+                "sp": "സഹപ്രവർത്തക",
+                "t": "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                "r": "labhyamāya tèḻivukaൾ kaṇakkilèṭuttāൽ it eṟṟavuṃ viśvasanīyamāya viśadīkaraṇamāṇ, codyaṃ cèyyānāvātta vidhiyalla.",
+                "en": "Given the available evidence, this is the most credible explanation, not an indisputable verdict."
+              },
+              {
+                "sp": "മധ്യസ്ഥൻ",
+                "t": "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                "r": "prakaṭamāyi kāṇunna èllā mèccavuṃ yathāർtha purogatiyalla; cila phalaṅṅaൾ bhāraṃ punaർvitaraṇaṃ cèyyuka mātramāṇ.",
+                "en": "Not every apparent improvement is real progress; some outcomes merely redistribute the burden."
+              },
+              {
+                "sp": "പത്രാധിപർ",
+                "t": "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "r": "phalaṃ tīർttuṃ apratīkṣitamallènn viśeṣippikkunnat atbhutappèṭṭavariൽninn prabhāṣakanè sūkṣmamāyi akaṟṟunnu.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              }
+            ],
+            "practice": [
+              {
+                "type": "repeat_after_audio",
+                "q": "രചനാരൂപ പരിവർത്തനം — repeat after audio: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "answer": "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: ml-IN browser voice when available; fallback and variation disclosed; text=ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു."
+              },
+              {
+                "type": "pronunciation",
+                "q": "രചനാരൂപ പരിവർത്തനം — pronunciation: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "answer": "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: ml-IN browser voice when available; fallback and variation disclosed; text=ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു."
+              },
+              {
+                "type": "shadowing",
+                "q": "രചനാരൂപ പരിവർത്തനം — shadowing: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "answer": "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: ml-IN browser voice when available; fallback and variation disclosed; text=ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "രചനാരൂപ പരിവർത്തനം — guided speaking: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "answer": "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "രചനാരൂപ പരിവർത്തനം — free response: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "answer": "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "രചനാരൂപ പരിവർത്തനം — roleplay: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "answer": "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "രചനാരൂപ പരിവർത്തനം — sentence writing: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "answer": "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "രചനാരൂപ പരിവർത്തനം — short writing: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "answer": "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "paraphrase",
+                "q": "രചനാരൂപ പരിവർത്തനം — paraphrase: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "answer": "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "രചനാരൂപ പരിവർത്തനം — summary: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "answer": "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "രചനാരൂപ പരിവർത്തനം — guided composition: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "answer": "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "രചനാരൂപ പരിവർത്തനം — register transformation: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "answer": "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                "skill_target": "register transformation"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "രചനാരൂപ പരിവർത്തനം: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "രചനാരൂപ പരിവർത്തനം: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "രചനാരൂപ പരിവർത്തനം: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "രചനാരൂപ പരിവർത്തനം: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "രചനാരൂപ പരിവർത്തനം: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "ആന്തരിക",
+              "കുറിപ്പ്",
+              "അനിശ്ചിതത്വം",
+              "അംഗീകരിക്കുന്നു"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "രചനാരൂപ പരിവർത്തനം workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate case, participles, aspect, and discourse function.",
+                  "items": [
+                    "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                    "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല."
+                  ],
+                  "key": [
+                    "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning.",
+                    "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                    "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല."
+                  ],
+                  "key": [
+                    "The internal note acknowledges uncertainty; the public statement recasts it as measured confidence.",
+                    "Given the available evidence, this is the most credible explanation, not an indisputable verdict."
+                  ]
+                },
+                {
+                  "instruction": "Transform spoken/written register and justify choices.",
+                  "items": [
+                    "The internal note acknowledges uncertainty; the public statement recasts it as measured confidence.",
+                    "Given the available evidence, this is the most credible explanation, not an indisputable verdict."
+                  ],
+                  "key": [
+                    "Model: ആന്തരിക കുറിപ്പ് അനിശ്ചിതത്വം അംഗീകരിക്കുന്നു; പൊതുപ്രസ്താവന അതിനെ അളന്നുറപ്പിച്ച ആത്മവിശ്വാസമായി പുനരാവിഷ്കരിക്കുന്നു.",
+                    "Model: ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "ml-c2-l6",
+            "title": "വിജ്ഞാനപരമായ കൃത്യത",
+            "learn": "Control വിജ്ഞാനപരമായ കൃത്യത in level-appropriate Malayalam.",
+            "vocab": [
+              {
+                "t": "ലഭ്യമായ",
+                "r": "labhyamāya",
+                "en": "discourse segment in “Given the available evidence, this is the most credible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "തെളിവുകൾ",
+                "r": "tèḻivukaൾ",
+                "en": "discourse segment in “Given the available evidence, this is the most credible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "കണക്കിലെടുത്താൽ",
+                "r": "kaṇakkilèṭuttāൽ",
+                "en": "discourse segment in “Given the available evidence, this is the most credible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ഇത്",
+                "r": "it",
+                "en": "discourse segment in “Given the available evidence, this is the most credible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ഏറ്റവും",
+                "r": "eṟṟavuṃ",
+                "en": "discourse segment in “Given the available evidence, this is the most credible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "വിശ്വസനീയമായ",
+                "r": "viśvasanīyamāya",
+                "en": "discourse segment in “Given the available evidence, this is the most credible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "വിശദീകരണമാണ്",
+                "r": "viśadīkaraṇamāṇ",
+                "en": "discourse segment in “Given the available evidence, this is the most credible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ചോദ്യം",
+                "r": "codyaṃ",
+                "en": "discourse segment in “Given the available evidence, this is the most credible explanation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "വിജ്ഞാനപരമായ കൃത്യത",
+              "explain": "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning.",
+              "pattern": "case-marked arguments + participial/adverbial material + auxiliaries + final predicate",
+              "examples": [
+                {
+                  "t": "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                  "r": "labhyamāya tèḻivukaൾ kaṇakkilèṭuttāൽ it eṟṟavuṃ viśvasanīyamāya viśadīkaraṇamāṇ, codyaṃ cèyyānāvātta vidhiyalla.",
+                  "en": "Given the available evidence, this is the most credible explanation, not an indisputable verdict."
+                },
+                {
+                  "t": "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                  "r": "prakaṭamāyi kāṇunna èllā mèccavuṃ yathāർtha purogatiyalla; cila phalaṅṅaൾ bhāraṃ punaർvitaraṇaṃ cèyyuka mātramāṇ.",
+                  "en": "Not every apparent improvement is real progress; some outcomes merely redistribute the burden."
+                },
+                {
+                  "t": "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                  "r": "phalaṃ tīർttuṃ apratīkṣitamallènn viśeṣippikkunnat atbhutappèṭṭavariൽninn prabhāṣakanè sūkṣmamāyi akaṟṟunnu.",
+                  "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with incorrect case, participle, negation, or register",
+                  "right": "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                  "why": "The corrected model aligns Malayalam morphology, clause linkage, and discourse meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "പഠിതാവ്",
+                "t": "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                "r": "labhyamāya tèḻivukaൾ kaṇakkilèṭuttāൽ it eṟṟavuṃ viśvasanīyamāya viśadīkaraṇamāṇ, codyaṃ cèyyānāvātta vidhiyalla.",
+                "en": "Given the available evidence, this is the most credible explanation, not an indisputable verdict."
+              },
+              {
+                "sp": "സഹപ്രവർത്തക",
+                "t": "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്.",
+                "r": "prakaṭamāyi kāṇunna èllā mèccavuṃ yathāർtha purogatiyalla; cila phalaṅṅaൾ bhāraṃ punaർvitaraṇaṃ cèyyuka mātramāṇ.",
+                "en": "Not every apparent improvement is real progress; some outcomes merely redistribute the burden."
+              },
+              {
+                "sp": "മധ്യസ്ഥൻ",
+                "t": "ഫലം തീർത്തും അപ്രതീക്ഷിതമല്ലെന്ന് വിശേഷിപ്പിക്കുന്നത് അത്ഭുതപ്പെട്ടവരിൽനിന്ന് പ്രഭാഷകനെ സൂക്ഷ്മമായി അകറ്റുന്നു.",
+                "r": "phalaṃ tīർttuṃ apratīkṣitamallènn viśeṣippikkunnat atbhutappèṭṭavariൽninn prabhāṣakanè sūkṣmamāyi akaṟṟunnu.",
+                "en": "Calling the result not entirely unexpected subtly distances the speaker from those surprised."
+              },
+              {
+                "sp": "പത്രാധിപർ",
+                "t": "നമുക്ക് ധൃതിയില്ലാത്ത അഭിലാഷവും സ്തംഭനമില്ലാത്ത ജാഗ്രതയും പ്രകടനമില്ലാത്ത ഉത്തരവാദിത്വവും വേണം.",
+                "r": "namukk dhṛtiyillātta abhilāṣavuṃ staṃbhanamillātta jāgratayuṃ prakaṭanamillātta uttaravāditvavuṃ veṇaṃ.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              }
+            ],
+            "practice": [
+              {
+                "type": "roleplay",
+                "q": "വിജ്ഞാനപരമായ കൃത്യത — roleplay: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                "answer": "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "വിജ്ഞാനപരമായ കൃത്യത — sentence writing: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                "answer": "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "വിജ്ഞാനപരമായ കൃത്യത — short writing: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                "answer": "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "paraphrase",
+                "q": "വിജ്ഞാനപരമായ കൃത്യത — paraphrase: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                "answer": "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "വിജ്ഞാനപരമായ കൃത്യത — summary: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                "answer": "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "വിജ്ഞാനപരമായ കൃത്യത — guided composition: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                "answer": "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "വിജ്ഞാനപരമായ കൃത്യത — register transformation: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                "answer": "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                "skill_target": "register transformation"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "വിജ്ഞാനപരമായ കൃത്യത — multiple choice: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                "answer": "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "വിജ്ഞാനപരമായ കൃത്യത — fill in the blank: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                "answer": "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "വിജ്ഞാനപരമായ കൃത്യത — translation: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                "answer": "Given the available evidence, this is the most credible explanation, not an indisputable verdict.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "വിജ്ഞാനപരമായ കൃത്യത — reverse translation: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                "answer": "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "വിജ്ഞാനപരമായ കൃത്യത — matching: analyse or produce the Malayalam model with correct case, aspect, clause linkage, and register: ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                "answer": "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                "skill_target": "matching",
+                "options": [
+                  "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting"
+                ]
+              }
+            ],
+            "quiz": [
+              {
+                "q": "വിജ്ഞാനപരമായ കൃത്യത: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "വിജ്ഞാനപരമായ കൃത്യത: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "വിജ്ഞാനപരമായ കൃത്യത: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "വിജ്ഞാനപരമായ കൃത്യത: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              },
+              {
+                "q": "വിജ്ഞാനപരമായ കൃത്യത: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                  "Form with incorrect case or participle",
+                  "An unrelated greeting",
+                  "A clause with incompatible register"
+                ],
+                "answer": 0,
+                "why": "The model preserves Malayalam morphology, script, discourse meaning, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "ലഭ്യമായ",
+              "തെളിവുകൾ",
+              "കണക്കിലെടുത്താൽ",
+              "ഇത്"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "വിജ്ഞാനപരമായ കൃത്യത workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate case, participles, aspect, and discourse function.",
+                  "items": [
+                    "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                    "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്."
+                  ],
+                  "key": [
+                    "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning.",
+                    "Malayalam uses rich case suffixes, head-final order, participles and non-finite clause chains. Dative subjects encode possession, experience and modality; illa supports negative patterns. Script, gemination, vowel length, retroflex contrasts and spoken-written register all affect meaning."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                    "പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്."
+                  ],
+                  "key": [
+                    "Given the available evidence, this is the most credible explanation, not an indisputable verdict.",
+                    "Not every apparent improvement is real progress; some outcomes merely redistribute the burden."
+                  ]
+                },
+                {
+                  "instruction": "Transform spoken/written register and justify choices.",
+                  "items": [
+                    "Given the available evidence, this is the most credible explanation, not an indisputable verdict.",
+                    "Not every apparent improvement is real progress; some outcomes merely redistribute the burden."
+                  ],
+                  "key": [
+                    "Model: ലഭ്യമായ തെളിവുകൾ കണക്കിലെടുത്താൽ ഇത് ഏറ്റവും വിശ്വസനീയമായ വിശദീകരണമാണ്, ചോദ്യം ചെയ്യാനാവാത്ത വിധിയല്ല.",
+                    "Model: പ്രകടമായി കാണുന്ന എല്ലാ മെച്ചവും യഥാർഥ പുരോഗതിയല്ല; ചില ഫലങ്ങൾ ഭാരം പുനർവിതരണം ചെയ്യുക മാത്രമാണ്."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "Spanish C2 Proficiency Test",
+      "items": [
+        {
+          "type": "argument_construction",
+          "q": "Malayalam C2 integrated task 1: respond with accurate script, grammar, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Malayalam course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Malayalam C2 integrated task 2: respond with accurate script, grammar, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Malayalam course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Malayalam C2 integrated task 3: respond with accurate script, grammar, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Malayalam course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Malayalam C2 integrated task 4: respond with accurate script, grammar, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Malayalam course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Malayalam C2 integrated task 5: respond with accurate script, grammar, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Malayalam course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Malayalam C2 integrated task 6: respond with accurate script, grammar, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Malayalam course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Malayalam C2 integrated task 7: respond with accurate script, grammar, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Malayalam course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Malayalam C2 integrated task 8: respond with accurate script, grammar, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Malayalam course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Malayalam C2 integrated task 9: respond with accurate script, grammar, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Malayalam course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Malayalam C2 integrated task 10: respond with accurate script, grammar, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Malayalam course rubric."
+        }
+      ]
+    }
+  }
+}

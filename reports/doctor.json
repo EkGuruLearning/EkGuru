@@ -1,0 +1,82 @@
+{
+  "doctorProblems": 4,
+  "doctorWarnings": 0,
+  "doctorChecks": 12,
+  "seoPass": true,
+  "privacyState": "PASS",
+  "results": [
+    {
+      "id": "status-live",
+      "label": "Site status is live (not Coming soon)",
+      "status": "PASS",
+      "detail": "status:\"live\""
+    },
+    {
+      "id": "deployed",
+      "label": "Production serves the current tree",
+      "status": "FAIL",
+      "detail": "live site-config.js status=\"unreachable\" (local is \"live\") — deploy pending"
+    },
+    {
+      "id": "privacy",
+      "label": "Privacy/secret scan passes",
+      "status": "PASS",
+      "detail": "PASS — 0 secrets, 4 sensitive, 0 blocked"
+    },
+    {
+      "id": "no-personal-emails",
+      "label": "No personal tutor emails in public data",
+      "status": "PASS",
+      "detail": "tutor emails route via site inbox/formKey"
+    },
+    {
+      "id": "booking-routing",
+      "label": "Every tutor can receive bookings",
+      "status": "PASS",
+      "detail": "2 tutor(s) routable (site-inbox fallback)"
+    },
+    {
+      "id": "header-geometry",
+      "label": "Header geometry clean at 17 widths",
+      "status": "PASS",
+      "detail": "17 widths, 0 failures"
+    },
+    {
+      "id": "seo",
+      "label": "No broken internal links",
+      "status": "PASS",
+      "detail": "1563 pages, 0 broken, 0 orphans"
+    },
+    {
+      "id": "ads-txt",
+      "label": "ads.txt declares the correct publisher",
+      "status": "FAIL",
+      "detail": "fetch failed"
+    },
+    {
+      "id": "robots",
+      "label": "robots.txt safe and declares sitemap",
+      "status": "FAIL",
+      "detail": "fetch failed"
+    },
+    {
+      "id": "canonical",
+      "label": "Homepage canonical is https://ekguru.shop/",
+      "status": "FAIL",
+      "detail": "fetch failed"
+    },
+    {
+      "id": "sheet-sanity",
+      "label": "Sheet values sanitised (no cross-column leakage)",
+      "status": "PASS",
+      "detail": "videoTitle guard active"
+    },
+    {
+      "id": "tutor-roster",
+      "label": "Tutor roster is current on every page that lists tutors",
+      "status": "PASS",
+      "detail": "5 generators clean (scripts, profiles, home, markets, long-tail lists)"
+    }
+  ],
+  "generated": "2026-09-18T04:07:51.732Z"
+}

@@ -1,0 +1,1874 @@
+{
+  "code": "sw",
+  "name": "Swahili",
+  "native": "Kiswahili",
+  "phase": 3,
+  "medium": "en",
+  "file_level": "C2",
+  "research_basis": "data/language-research/sw.json",
+  "level": {
+    "title": "Swahili C2",
+    "goals": [
+      "Control Swahili noun-class concord, verb template, extensions, and information structure",
+      "Develop reception, interaction, production, and mediation",
+      "Use pronunciation, politeness, register, and cohesion appropriately"
+    ],
+    "units": [
+      {
+        "id": "sw-c2-u1",
+        "title": "Semantic and Viewpoint Precision",
+        "lessons": [
+          {
+            "id": "sw-c2-l1",
+            "title": "Upeo wa ukanushi",
+            "learn": "Control upeo wa ukanushi in level-appropriate Swahili.",
+            "vocab": [
+              {
+                "t": "Si",
+                "r": "Si",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "kila",
+                "r": "kila",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "uboreshaji",
+                "r": "uboreshaji",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "unaoonekana",
+                "r": "unaoonekana",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ni",
+                "r": "ni",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "maendeleo",
+                "r": "maendeleo",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "halisi",
+                "r": "halisi",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "baadhi",
+                "r": "baadhi",
+                "en": "discourse segment in “Not every apparent improvement is real progress; some results merely redistribute the burden.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Upeo wa ukanushi",
+              "explain": "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register.",
+              "pattern": "class-marked topic + concord + tense/aspect + object + verb extension",
+              "examples": [
+                {
+                  "t": "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                  "r": "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                  "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                },
+                {
+                  "t": "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                  "r": "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                  "en": "Calling the result not entirely surprising subtly distances the speaker from those surprised."
+                },
+                {
+                  "t": "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                  "r": "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                  "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with mismatched noun-class concord, tense, or extension",
+                  "right": "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                  "why": "The corrected model aligns morphology and pragmatic meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Mwanafunzi",
+                "t": "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "r": "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              },
+              {
+                "sp": "Mwenzake",
+                "t": "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "r": "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "en": "Calling the result not entirely surprising subtly distances the speaker from those surprised."
+              },
+              {
+                "sp": "Mpatanishi",
+                "t": "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "r": "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              },
+              {
+                "sp": "Mhariri",
+                "t": "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "r": "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "en": "The agreement papered over the crack while allowing both sides to preserve face."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Upeo wa ukanushi — multiple choice: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "answer": "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                  "Form with incorrect noun-class concord",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Upeo wa ukanushi — fill in the blank: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "answer": "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Upeo wa ukanushi — translation: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "answer": "Not every apparent improvement is real progress; some results merely redistribute the burden.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Upeo wa ukanushi — reverse translation: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "answer": "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Upeo wa ukanushi — matching: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "answer": "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "skill_target": "matching",
+                "options": [
+                  "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                  "Form with incorrect noun-class concord",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Upeo wa ukanushi — reorder: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "answer": "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Upeo wa ukanushi — sentence building: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "answer": "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Upeo wa ukanushi — word selection: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "answer": "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "skill_target": "word selection",
+                "options": [
+                  "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                  "Form with incorrect noun-class concord",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Upeo wa ukanushi — error correction: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "answer": "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Upeo wa ukanushi — dialogue completion: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "answer": "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Upeo wa ukanushi — reading comprehension: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "answer": "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Upeo wa ukanushi — paragraph comprehension: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "answer": "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Upeo wa ukanushi: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Upeo wa ukanushi: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Upeo wa ukanushi: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Upeo wa ukanushi: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Upeo wa ukanushi: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Si",
+              "kila",
+              "uboreshaji",
+              "unaoonekana"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Upeo wa ukanushi workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate concord and discourse function.",
+                  "items": [
+                    "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                    "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa."
+                  ],
+                  "key": [
+                    "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register.",
+                    "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                    "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa."
+                  ],
+                  "key": [
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden.",
+                    "Calling the result not entirely surprising subtly distances the speaker from those surprised."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden.",
+                    "Calling the result not entirely surprising subtly distances the speaker from those surprised."
+                  ],
+                  "key": [
+                    "Model: Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                    "Model: Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "sw-c2-l2",
+            "title": "Maana iliyodokezwa",
+            "learn": "Control maana iliyodokezwa in level-appropriate Swahili.",
+            "vocab": [
+              {
+                "t": "Kuita",
+                "r": "Kuita",
+                "en": "discourse segment in “Calling the result not entirely surprising subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "matokeo",
+                "r": "matokeo",
+                "en": "discourse segment in “Calling the result not entirely surprising subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "si",
+                "r": "si",
+                "en": "discourse segment in “Calling the result not entirely surprising subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ya",
+                "r": "ya",
+                "en": "discourse segment in “Calling the result not entirely surprising subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "kushangaza",
+                "r": "kushangaza",
+                "en": "discourse segment in “Calling the result not entirely surprising subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "kabisa",
+                "r": "kabisa",
+                "en": "discourse segment in “Calling the result not entirely surprising subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "humtenga",
+                "r": "humtenga",
+                "en": "discourse segment in “Calling the result not entirely surprising subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "msemaji",
+                "r": "msemaji",
+                "en": "discourse segment in “Calling the result not entirely surprising subtly distances the speaker from those surprised.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Maana iliyodokezwa",
+              "explain": "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register.",
+              "pattern": "class-marked topic + concord + tense/aspect + object + verb extension",
+              "examples": [
+                {
+                  "t": "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                  "r": "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                  "en": "Calling the result not entirely surprising subtly distances the speaker from those surprised."
+                },
+                {
+                  "t": "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                  "r": "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                  "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                },
+                {
+                  "t": "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                  "r": "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                  "en": "The agreement papered over the crack while allowing both sides to preserve face."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with mismatched noun-class concord, tense, or extension",
+                  "right": "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                  "why": "The corrected model aligns morphology and pragmatic meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Mwanafunzi",
+                "t": "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "r": "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "en": "Calling the result not entirely surprising subtly distances the speaker from those surprised."
+              },
+              {
+                "sp": "Mwenzake",
+                "t": "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "r": "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              },
+              {
+                "sp": "Mpatanishi",
+                "t": "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "r": "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "en": "The agreement papered over the crack while allowing both sides to preserve face."
+              },
+              {
+                "sp": "Mhariri",
+                "t": "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "r": "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reorder",
+                "q": "Maana iliyodokezwa — reorder: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "answer": "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Maana iliyodokezwa — sentence building: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "answer": "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Maana iliyodokezwa — word selection: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "answer": "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "skill_target": "word selection",
+                "options": [
+                  "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                  "Form with incorrect noun-class concord",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Maana iliyodokezwa — error correction: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "answer": "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Maana iliyodokezwa — dialogue completion: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "answer": "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Maana iliyodokezwa — reading comprehension: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "answer": "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Maana iliyodokezwa — paragraph comprehension: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "answer": "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "main_idea",
+                "q": "Maana iliyodokezwa — main idea: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "answer": "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Maana iliyodokezwa — detail identification: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "answer": "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "inference",
+                "q": "Maana iliyodokezwa — inference: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "answer": "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Maana iliyodokezwa — listening comprehension: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "answer": "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa."
+              },
+              {
+                "type": "dictation",
+                "q": "Maana iliyodokezwa — dictation: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "answer": "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Maana iliyodokezwa: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Maana iliyodokezwa: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Maana iliyodokezwa: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Maana iliyodokezwa: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Maana iliyodokezwa: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Kuita",
+              "matokeo",
+              "si",
+              "ya"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Maana iliyodokezwa workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate concord and discourse function.",
+                  "items": [
+                    "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                    "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho."
+                  ],
+                  "key": [
+                    "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register.",
+                    "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                    "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho."
+                  ],
+                  "key": [
+                    "Calling the result not entirely surprising subtly distances the speaker from those surprised.",
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "Calling the result not entirely surprising subtly distances the speaker from those surprised.",
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                  ],
+                  "key": [
+                    "Model: Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                    "Model: Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "sw-c2-u2",
+        "title": "Rhetoric and Genre Mastery",
+        "lessons": [
+          {
+            "id": "sw-c2-l3",
+            "title": "Usambamba wa balagha",
+            "learn": "Control usambamba wa balagha in level-appropriate Swahili.",
+            "vocab": [
+              {
+                "t": "Tunahitaji",
+                "r": "Tunahitaji",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "tamaa",
+                "r": "tamaa",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "bila",
+                "r": "bila",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "pupa",
+                "r": "pupa",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "tahadhari",
+                "r": "tahadhari",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "bila",
+                "r": "bila",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "kupooza",
+                "r": "kupooza",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "na",
+                "r": "na",
+                "en": "discourse segment in “We need ambition without haste, caution without paralysis, and accountability without spectacle.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Usambamba wa balagha",
+              "explain": "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register.",
+              "pattern": "class-marked topic + concord + tense/aspect + object + verb extension",
+              "examples": [
+                {
+                  "t": "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                  "r": "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                  "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+                },
+                {
+                  "t": "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                  "r": "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                  "en": "The agreement papered over the crack while allowing both sides to preserve face."
+                },
+                {
+                  "t": "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                  "r": "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                  "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with mismatched noun-class concord, tense, or extension",
+                  "right": "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                  "why": "The corrected model aligns morphology and pragmatic meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Mwanafunzi",
+                "t": "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "r": "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              },
+              {
+                "sp": "Mwenzake",
+                "t": "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "r": "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "en": "The agreement papered over the crack while allowing both sides to preserve face."
+              },
+              {
+                "sp": "Mpatanishi",
+                "t": "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "r": "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              },
+              {
+                "sp": "Mhariri",
+                "t": "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "r": "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "en": "On available evidence, this is the most plausible interpretation, not an indisputable verdict."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reading_comprehension",
+                "q": "Usambamba wa balagha — reading comprehension: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "answer": "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Usambamba wa balagha — paragraph comprehension: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "answer": "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "main_idea",
+                "q": "Usambamba wa balagha — main idea: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "answer": "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "skill_target": "main idea"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Usambamba wa balagha — detail identification: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "answer": "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "skill_target": "detail identification"
+              },
+              {
+                "type": "inference",
+                "q": "Usambamba wa balagha — inference: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "answer": "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "skill_target": "inference"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Usambamba wa balagha — listening comprehension: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "answer": "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho."
+              },
+              {
+                "type": "dictation",
+                "q": "Usambamba wa balagha — dictation: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "answer": "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Usambamba wa balagha — listen and choose: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "answer": "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "skill_target": "listen and choose",
+                "options": [
+                  "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                  "Form with incorrect noun-class concord",
+                  "An unrelated greeting"
+                ],
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho."
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "Usambamba wa balagha — listen and reorder: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "answer": "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho."
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Usambamba wa balagha — listen and fill: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "answer": "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "skill_target": "listen and fill",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Usambamba wa balagha — repeat after audio: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "answer": "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho."
+              },
+              {
+                "type": "pronunciation",
+                "q": "Usambamba wa balagha — pronunciation: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "answer": "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Usambamba wa balagha: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Usambamba wa balagha: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Usambamba wa balagha: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Usambamba wa balagha: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Usambamba wa balagha: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Tunahitaji",
+              "tamaa",
+              "bila",
+              "pupa"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Usambamba wa balagha workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate concord and discourse function.",
+                  "items": [
+                    "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                    "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao."
+                  ],
+                  "key": [
+                    "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register.",
+                    "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                    "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao."
+                  ],
+                  "key": [
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle.",
+                    "The agreement papered over the crack while allowing both sides to preserve face."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "We need ambition without haste, caution without paralysis, and accountability without spectacle.",
+                    "The agreement papered over the crack while allowing both sides to preserve face."
+                  ],
+                  "key": [
+                    "Model: Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                    "Model: Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "sw-c2-l4",
+            "title": "Tafsiri ya methali",
+            "learn": "Control tafsiri ya methali in level-appropriate Swahili.",
+            "vocab": [
+              {
+                "t": "Makubaliano",
+                "r": "Makubaliano",
+                "en": "discourse segment in “The agreement papered over the crack while allowing both sides to preserve face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "yalifunika",
+                "r": "yalifunika",
+                "en": "discourse segment in “The agreement papered over the crack while allowing both sides to preserve face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ufa",
+                "r": "ufa",
+                "en": "discourse segment in “The agreement papered over the crack while allowing both sides to preserve face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "kwa",
+                "r": "kwa",
+                "en": "discourse segment in “The agreement papered over the crack while allowing both sides to preserve face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "karatasi",
+                "r": "karatasi",
+                "en": "discourse segment in “The agreement papered over the crack while allowing both sides to preserve face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "huku",
+                "r": "huku",
+                "en": "discourse segment in “The agreement papered over the crack while allowing both sides to preserve face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "yakiruhusu",
+                "r": "yakiruhusu",
+                "en": "discourse segment in “The agreement papered over the crack while allowing both sides to preserve face.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "pande",
+                "r": "pande",
+                "en": "discourse segment in “The agreement papered over the crack while allowing both sides to preserve face.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Tafsiri ya methali",
+              "explain": "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register.",
+              "pattern": "class-marked topic + concord + tense/aspect + object + verb extension",
+              "examples": [
+                {
+                  "t": "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                  "r": "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                  "en": "The agreement papered over the crack while allowing both sides to preserve face."
+                },
+                {
+                  "t": "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                  "r": "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                  "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                },
+                {
+                  "t": "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                  "r": "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                  "en": "On available evidence, this is the most plausible interpretation, not an indisputable verdict."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with mismatched noun-class concord, tense, or extension",
+                  "right": "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                  "why": "The corrected model aligns morphology and pragmatic meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Mwanafunzi",
+                "t": "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "r": "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "en": "The agreement papered over the crack while allowing both sides to preserve face."
+              },
+              {
+                "sp": "Mwenzake",
+                "t": "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "r": "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              },
+              {
+                "sp": "Mpatanishi",
+                "t": "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "r": "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "en": "On available evidence, this is the most plausible interpretation, not an indisputable verdict."
+              },
+              {
+                "sp": "Mhariri",
+                "t": "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "r": "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              }
+            ],
+            "practice": [
+              {
+                "type": "listening_comprehension",
+                "q": "Tafsiri ya methali — listening comprehension: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "answer": "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "skill_target": "listening comprehension",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao."
+              },
+              {
+                "type": "dictation",
+                "q": "Tafsiri ya methali — dictation: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "answer": "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "skill_target": "dictation",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Tafsiri ya methali — listen and choose: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "answer": "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "skill_target": "listen and choose",
+                "options": [
+                  "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                  "Form with incorrect noun-class concord",
+                  "An unrelated greeting"
+                ],
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao."
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "Tafsiri ya methali — listen and reorder: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "answer": "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "skill_target": "listen and reorder",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao."
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Tafsiri ya methali — listen and fill: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "answer": "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "skill_target": "listen and fill",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Tafsiri ya methali — repeat after audio: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "answer": "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao."
+              },
+              {
+                "type": "pronunciation",
+                "q": "Tafsiri ya methali — pronunciation: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "answer": "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao."
+              },
+              {
+                "type": "shadowing",
+                "q": "Tafsiri ya methali — shadowing: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "answer": "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Tafsiri ya methali — guided speaking: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "answer": "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "Tafsiri ya methali — free response: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "answer": "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "Tafsiri ya methali — roleplay: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "answer": "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Tafsiri ya methali — sentence writing: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "answer": "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                "skill_target": "sentence writing"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Tafsiri ya methali: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Tafsiri ya methali: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Tafsiri ya methali: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Tafsiri ya methali: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Tafsiri ya methali: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Makubaliano",
+              "yalifunika",
+              "ufa",
+              "kwa"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Tafsiri ya methali workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate concord and discourse function.",
+                  "items": [
+                    "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                    "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa."
+                  ],
+                  "key": [
+                    "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register.",
+                    "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                    "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa."
+                  ],
+                  "key": [
+                    "The agreement papered over the crack while allowing both sides to preserve face.",
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "The agreement papered over the crack while allowing both sides to preserve face.",
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                  ],
+                  "key": [
+                    "Model: Makubaliano yalifunika ufa kwa karatasi huku yakiruhusu pande zote kulinda heshima zao.",
+                    "Model: Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "sw-c2-u3",
+        "title": "Cultural and High-Stakes Mediation",
+        "lessons": [
+          {
+            "id": "sw-c2-l5",
+            "title": "Ubadilishaji wa utanzu",
+            "learn": "Control ubadilishaji wa utanzu in level-appropriate Swahili.",
+            "vocab": [
+              {
+                "t": "Waraka",
+                "r": "Waraka",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "unakiri",
+                "r": "unakiri",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "kutokuwa",
+                "r": "kutokuwa",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "na",
+                "r": "na",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "uhakika",
+                "r": "uhakika",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "taarifa",
+                "r": "taarifa",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ya",
+                "r": "ya",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "umma",
+                "r": "umma",
+                "en": "discourse segment in “The memorandum admits uncertainty; the public statement recasts it as measured confidence.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Ubadilishaji wa utanzu",
+              "explain": "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register.",
+              "pattern": "class-marked topic + concord + tense/aspect + object + verb extension",
+              "examples": [
+                {
+                  "t": "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                  "r": "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                  "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+                },
+                {
+                  "t": "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                  "r": "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                  "en": "On available evidence, this is the most plausible interpretation, not an indisputable verdict."
+                },
+                {
+                  "t": "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                  "r": "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                  "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with mismatched noun-class concord, tense, or extension",
+                  "right": "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                  "why": "The corrected model aligns morphology and pragmatic meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Mwanafunzi",
+                "t": "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "r": "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "en": "The memorandum admits uncertainty; the public statement recasts it as measured confidence."
+              },
+              {
+                "sp": "Mwenzake",
+                "t": "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "r": "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "en": "On available evidence, this is the most plausible interpretation, not an indisputable verdict."
+              },
+              {
+                "sp": "Mpatanishi",
+                "t": "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "r": "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              },
+              {
+                "sp": "Mhariri",
+                "t": "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "r": "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "en": "Calling the result not entirely surprising subtly distances the speaker from those surprised."
+              }
+            ],
+            "practice": [
+              {
+                "type": "repeat_after_audio",
+                "q": "Ubadilishaji wa utanzu — repeat after audio: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "answer": "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "skill_target": "repeat after audio",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa."
+              },
+              {
+                "type": "pronunciation",
+                "q": "Ubadilishaji wa utanzu — pronunciation: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "answer": "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "skill_target": "pronunciation",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa."
+              },
+              {
+                "type": "shadowing",
+                "q": "Ubadilishaji wa utanzu — shadowing: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "answer": "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "skill_target": "shadowing",
+                "audio_source": "synthetic_tts: sw-KE/sw-TZ browser voice when available; fallback disclosed; text=Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Ubadilishaji wa utanzu — guided speaking: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "answer": "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "skill_target": "guided speaking"
+              },
+              {
+                "type": "free_response",
+                "q": "Ubadilishaji wa utanzu — free response: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "answer": "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "skill_target": "free response"
+              },
+              {
+                "type": "roleplay",
+                "q": "Ubadilishaji wa utanzu — roleplay: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "answer": "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Ubadilishaji wa utanzu — sentence writing: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "answer": "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "Ubadilishaji wa utanzu — short writing: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "answer": "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "paraphrase",
+                "q": "Ubadilishaji wa utanzu — paraphrase: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "answer": "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "Ubadilishaji wa utanzu — summary: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "answer": "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Ubadilishaji wa utanzu — guided composition: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "answer": "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Ubadilishaji wa utanzu — register transformation: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "answer": "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                "skill_target": "register transformation"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Ubadilishaji wa utanzu: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Ubadilishaji wa utanzu: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Ubadilishaji wa utanzu: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Ubadilishaji wa utanzu: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Ubadilishaji wa utanzu: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Waraka",
+              "unakiri",
+              "kutokuwa",
+              "na"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Ubadilishaji wa utanzu workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate concord and discourse function.",
+                  "items": [
+                    "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                    "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika."
+                  ],
+                  "key": [
+                    "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register.",
+                    "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                    "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika."
+                  ],
+                  "key": [
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence.",
+                    "On available evidence, this is the most plausible interpretation, not an indisputable verdict."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "The memorandum admits uncertainty; the public statement recasts it as measured confidence.",
+                    "On available evidence, this is the most plausible interpretation, not an indisputable verdict."
+                  ],
+                  "key": [
+                    "Model: Waraka unakiri kutokuwa na uhakika; taarifa ya umma inaligeuza kuwa imani iliyopimwa.",
+                    "Model: Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika."
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "sw-c2-l6",
+            "title": "Usahihi wa kielimu",
+            "learn": "Control usahihi wa kielimu in level-appropriate Swahili.",
+            "vocab": [
+              {
+                "t": "Kwa",
+                "r": "Kwa",
+                "en": "discourse segment in “On available evidence, this is the most plausible interpretation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ushahidi",
+                "r": "ushahidi",
+                "en": "discourse segment in “On available evidence, this is the most plausible interpretation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "uliopo",
+                "r": "uliopo",
+                "en": "discourse segment in “On available evidence, this is the most plausible interpretation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "hii",
+                "r": "hii",
+                "en": "discourse segment in “On available evidence, this is the most plausible interpretation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "ndiyo",
+                "r": "ndiyo",
+                "en": "discourse segment in “On available evidence, this is the most plausible interpretation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "tafsiri",
+                "r": "tafsiri",
+                "en": "discourse segment in “On available evidence, this is the most plausible interpretation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "yenye",
+                "r": "yenye",
+                "en": "discourse segment in “On available evidence, this is the most plausible interpretation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "uwezekano",
+                "r": "uwezekano",
+                "en": "discourse segment in “On available evidence, this is the most plausible interpretation, not an indisputable verdict.”",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Usahihi wa kielimu",
+              "explain": "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register.",
+              "pattern": "class-marked topic + concord + tense/aspect + object + verb extension",
+              "examples": [
+                {
+                  "t": "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                  "r": "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                  "en": "On available evidence, this is the most plausible interpretation, not an indisputable verdict."
+                },
+                {
+                  "t": "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                  "r": "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                  "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                },
+                {
+                  "t": "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                  "r": "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                  "en": "Calling the result not entirely surprising subtly distances the speaker from those surprised."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Form with mismatched noun-class concord, tense, or extension",
+                  "right": "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                  "why": "The corrected model aligns morphology and pragmatic meaning."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Mwanafunzi",
+                "t": "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "r": "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "en": "On available evidence, this is the most plausible interpretation, not an indisputable verdict."
+              },
+              {
+                "sp": "Mwenzake",
+                "t": "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "r": "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu.",
+                "en": "Not every apparent improvement is real progress; some results merely redistribute the burden."
+              },
+              {
+                "sp": "Mpatanishi",
+                "t": "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "r": "Kuita matokeo si ya kushangaza kabisa humtenga msemaji kwa hila na wale walioshangaa.",
+                "en": "Calling the result not entirely surprising subtly distances the speaker from those surprised."
+              },
+              {
+                "sp": "Mhariri",
+                "t": "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "r": "Tunahitaji tamaa bila pupa, tahadhari bila kupooza, na uwajibikaji bila maonyesho.",
+                "en": "We need ambition without haste, caution without paralysis, and accountability without spectacle."
+              }
+            ],
+            "practice": [
+              {
+                "type": "roleplay",
+                "q": "Usahihi wa kielimu — roleplay: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "answer": "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "skill_target": "roleplay"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Usahihi wa kielimu — sentence writing: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "answer": "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "skill_target": "sentence writing"
+              },
+              {
+                "type": "short_writing",
+                "q": "Usahihi wa kielimu — short writing: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "answer": "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "skill_target": "short writing"
+              },
+              {
+                "type": "paraphrase",
+                "q": "Usahihi wa kielimu — paraphrase: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "answer": "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "skill_target": "paraphrase"
+              },
+              {
+                "type": "summary",
+                "q": "Usahihi wa kielimu — summary: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "answer": "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "skill_target": "summary"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Usahihi wa kielimu — guided composition: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "answer": "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "skill_target": "guided composition"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Usahihi wa kielimu — register transformation: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "answer": "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "skill_target": "register transformation"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Usahihi wa kielimu — multiple choice: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "answer": "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                  "Form with incorrect noun-class concord",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Usahihi wa kielimu — fill in the blank: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "answer": "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Usahihi wa kielimu — translation: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "answer": "On available evidence, this is the most plausible interpretation, not an indisputable verdict.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Usahihi wa kielimu — reverse translation: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "answer": "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Usahihi wa kielimu — matching: analyse or produce the Swahili model with correct concord, extensions, scope, and register: Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "answer": "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                "skill_target": "matching",
+                "options": [
+                  "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                  "Form with incorrect noun-class concord",
+                  "An unrelated greeting"
+                ]
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Usahihi wa kielimu: which model preserves intended grammar and meaning? (1)",
+                "options": [
+                  "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Usahihi wa kielimu: which model preserves intended grammar and meaning? (2)",
+                "options": [
+                  "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Usahihi wa kielimu: which model preserves intended grammar and meaning? (3)",
+                "options": [
+                  "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Usahihi wa kielimu: which model preserves intended grammar and meaning? (4)",
+                "options": [
+                  "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              },
+              {
+                "q": "Usahihi wa kielimu: which model preserves intended grammar and meaning? (5)",
+                "options": [
+                  "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                  "Form with incorrect concord or scope",
+                  "An unrelated greeting",
+                  "A verb missing its class agreement"
+                ],
+                "answer": 0,
+                "why": "The model preserves Swahili concord, information structure, and register."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "srs_candidates": [
+              "Kwa",
+              "ushahidi",
+              "uliopo",
+              "hii"
+            ],
+            "srs_policy": "Only high-value terms and evidenced mistakes enter review.",
+            "worksheet": {
+              "title": "Usahihi wa kielimu workshop",
+              "tasks": [
+                {
+                  "instruction": "Annotate concord and discourse function.",
+                  "items": [
+                    "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                    "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu."
+                  ],
+                  "key": [
+                    "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register.",
+                    "Swahili combines noun-class concord, subject-tense-object verb structure, derivational extensions, negation, relative marking, SVO/topic-focus order, social address, penultimate stress, and intonation. Choices encode participant roles, event structure, evidence, focus, and register."
+                  ]
+                },
+                {
+                  "instruction": "Mediate into English without changing scope.",
+                  "items": [
+                    "Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                    "Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu."
+                  ],
+                  "key": [
+                    "On available evidence, this is the most plausible interpretation, not an indisputable verdict.",
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                  ]
+                },
+                {
+                  "instruction": "Transform register and justify choices.",
+                  "items": [
+                    "On available evidence, this is the most plausible interpretation, not an indisputable verdict.",
+                    "Not every apparent improvement is real progress; some results merely redistribute the burden."
+                  ],
+                  "key": [
+                    "Model: Kwa ushahidi uliopo, hii ndiyo tafsiri yenye uwezekano mkubwa, si hukumu isiyopingika.",
+                    "Model: Si kila uboreshaji unaoonekana ni maendeleo halisi; baadhi ya matokeo hugawa mzigo upya tu."
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "Spanish C2 Proficiency Test",
+      "items": [
+        {
+          "type": "argument_construction",
+          "q": "Swahili C2 integrated task 1: respond with accurate concord, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Swahili course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Swahili C2 integrated task 2: respond with accurate concord, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Swahili course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Swahili C2 integrated task 3: respond with accurate concord, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Swahili course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Swahili C2 integrated task 4: respond with accurate concord, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Swahili course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Swahili C2 integrated task 5: respond with accurate concord, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Swahili course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Swahili C2 integrated task 6: respond with accurate concord, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Swahili course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Swahili C2 integrated task 7: respond with accurate concord, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Swahili course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Swahili C2 integrated task 8: respond with accurate concord, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Swahili course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Swahili C2 integrated task 9: respond with accurate concord, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Swahili course rubric."
+        },
+        {
+          "type": "argument_construction",
+          "q": "Swahili C2 integrated task 10: respond with accurate concord, cohesion, and register.",
+          "answer": "A valid C2 response must satisfy the Swahili course rubric."
+        }
+      ]
+    }
+  }
+}

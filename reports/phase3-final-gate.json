@@ -1,0 +1,73 @@
+{
+  "generated": "2026-09-12T05:12:29Z",
+  "gates": {
+    "repository_state_known": true,
+    "push_verified_or_owner_blocked": "OWNER_BLOCKED (exact commands in reports/owner-release-commands.md)",
+    "deployment_verified_or_owner_blocked": "OWNER_BLOCKED (live serves pre-Phase-2 build: /materials/ /faq/ 404)",
+    "live_route_checks": {
+      "total": 12,
+      "liveVerified": 10,
+      "missing": 2,
+      "errors": 0
+    },
+    "live_browser_matrix": {
+      "combos": 81,
+      "problems": 0,
+      "note": "materials/faq are LIVE_404 on production (Phase 2 not yet deployed)."
+    },
+    "live_seo_checks": {
+      "robots": 200,
+      "sitemaps": 13,
+      "leaks": "none",
+      "liveSheetsExposed": true
+    },
+    "sheets_validated_or_correctly_paused": "VALIDATED (4/4 PASS) + runtime still PAUSED_FOR_REUPLOAD (correct)",
+    "data_privacy_passed": true,
+    "student_email_e2e_verified_or_owner_blocked": "BLOCKED_OWNER",
+    "email_failure_matrix": "DONE (reports/email-failure-matrix.json)",
+    "booking_snapshot_integrity": true,
+    "admin_live_health_updated": "DONE (8-state release ladder)",
+    "search_quality": {
+      "total": 15,
+      "withResults": 13,
+      "noResultAsExpected": true,
+      "distinctTypesSeen": [
+        "Answer",
+        "Country",
+        "Daily Hindi",
+        "Lesson",
+        "Location",
+        "Material",
+        "Practice",
+        "Tutor"
+      ]
+    },
+    "tool_practice_quality": {
+      "tools": 12,
+      "pass": 12,
+      "fail": 0,
+      "failed": []
+    },
+    "production_ads_safety": "12/12 local preconditions; live observation clean",
+    "production_performance": "Real Chromium against production (currently the pre-Phase-2 build).",
+    "security_privacy": {
+      "runtimeTokenHits": 0,
+      "clientTokenBlank": true,
+      "secretsGitignored": true
+    },
+    "idle_live_final": {
+      "refreshRequiredAnywhere": false,
+      "stuckStateAnywhere": false,
+      "livePagesHaveRecovery": [],
+      "note": "recovery.js is 404 on live (P0 not yet deployed) \u2014 recoveryPresent=false there means the watchdog is absent, not that it passed.",
+      "localPagesHaveRecovery": [
+        "local-materials",
+        "local-faq"
+      ]
+    },
+    "release_zip": "EkGuru-phase3-20260912.zip (SHA256 05915e7b\u2026)",
+    "final_report": true
+  },
+  "overall": "YELLOW_PARTIAL_VERIFICATION",
+  "whyNotGreen": "Deployment to ekguru.shop, GitHub push, and the external student-email E2E test are owner-blocked. Everything verifiable from this environment is measured and recorded; the three external gates cannot be marked GREEN without owner action."
+}

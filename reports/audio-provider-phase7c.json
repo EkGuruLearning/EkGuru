@@ -1,0 +1,36 @@
+{
+  "generated": "2026-09-12T16:30:27Z",
+  "providers": [
+    "BROWSER_TTS",
+    "RECORDED",
+    "API_TTS",
+    "UNAVAILABLE"
+  ],
+  "resolveToday": {
+    "hi-IN": "BROWSER_TTS",
+    "es-ES": "UNAVAILABLE (no es voice installed)",
+    "xx-XX": "UNAVAILABLE",
+    "note": "RECORDED and API_TTS never resolve until real assets exist"
+  },
+  "runtimeEvidence": {
+    "speakInvoked": 1,
+    "onerrorHandled": true,
+    "honestLabel": true,
+    "voiceCountInHarness": 0
+  },
+  "recordedAudioInterface": {
+    "fields": [
+      "audio_id",
+      "language",
+      "locale",
+      "speaker",
+      "license/source",
+      "duration",
+      "transcript",
+      "slow/normal variant",
+      "quality_state"
+    ],
+    "state": "interface designed in js/hindi-audio.js provider abstraction; zero recorded assets exist"
+  },
+  "rule": "never autoplay; never label TTS as native; handle getVoices/voiceschanged async"
+}

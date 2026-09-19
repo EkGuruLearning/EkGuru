@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "language": {"code": "sw", "name": "Swahili", "native_name": "Kiswahili", "family": "Niger-Congo: Bantu", "script": "Latin", "direction": "ltr", "canonical_note": "One canonical lang:swa course with BI/CD/KE/RW/TZ/UG contexts; no country-duplicate language entities."},
+  "inventory_priority": {"language_id": "lang:swa", "priority": "P1", "score": 71, "countries": ["BI", "CD", "KE", "RW", "TZ", "UG"]},
+  "orthography_pronunciation": {"needs": ["five-vowel system", "open syllables", "prenasalised consonants", "ng versus ngʻ", "penultimate stress", "regional variation without ranking varieties"], "voice_strategy": "Synthetic sw-KE/sw-TZ browser voice when available; explicitly labelled with fallback limitations."},
+  "grammar": {"nominal": ["noun classes and agreement", "class concord on adjectives, demonstratives and possessives", "locative classes", "no articles", "class-sensitive relative markers"], "verbal": ["subject-tense-object-verb template", "tense/aspect markers", "negative conjugation", "subjunctive", "applicative, causative, passive, reciprocal and stative extensions", "relative constructions"], "syntax_discourse": ["SVO with rich agreement", "topic and focus constructions", "reported kwamba", "clause chaining", "reference through class concord"]},
+  "register_pragmatics": ["shikamoo/marahaba and age respect", "wewe versus honorific titles", "indirect requests", "formal Standard Swahili", "Kenyan/Tanzanian/Congolese and urban variation", "proverbs and culturally situated mediation"],
+  "CEFR_progression": {"A1": "sound-spelling, greetings, noun classes, present and basic agreement", "A2": "past/future, quantity, directions, requests and object markers", "B1": "tense sequencing, relative clauses, extensions and narration", "B2": "voice/extensions, modality, focus and register", "C1": "academic synthesis, mediation and calibrated stance", "C2": "scope, implication, rhetoric, proverb/idiom, genre transformation and precision"},
+  "country_relationship_source": "data/global/language-country-relations.json",
+  "sources": [
+    {"title": "BAKITA — Baraza la Kiswahili la Taifa", "url": "https://www.bakita.go.tz/", "use": "Standard Swahili terminology and language guidance"},
+    {"title": "Kamusi ya Kiswahili Sanifu, TUKI/University of Dar es Salaam", "url": "https://www.udsm.ac.tz/", "use": "standard lexicon and usage"},
+    {"title": "CEFR Companion Volume 2020", "url": "https://rm.coe.int/cefr-companion-volume-with-new-descriptors-2020/16809ea0d4", "use": "level progression, mediation, interaction and phonology"}
+  ],
+  "reviewed_at": "2026-09-17"
+}

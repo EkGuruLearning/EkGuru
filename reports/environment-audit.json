@@ -1,0 +1,21 @@
+{
+ "generated": "2026-09-11T09:09:38.983193+00:00",
+ "environments": {
+  "development": "local file tree / python http.server 8899 (sandbox preview)",
+  "test": "same tree driven by tools/*.py (Playwright Chromium)",
+  "production": "https://ekguru.shop/ (deployed static site)"
+ },
+ "config_audit": {
+  "config_location": "js/site-config.js (single source of truth)",
+  "csv_urls": "consolidated to ONE production workbook (2PACX-1vRGCkYfn_JfKP\u2026) \u2014 4 gids",
+  "apps_script_url": "corrected this pass to \u2026LnTPoOjqtdA/exec (user message had an extra 'o')",
+  "hardcoded_urls": "baseUrl https://ekguru.shop/ only; no http:// or github.io production refs remain in JS",
+  "secrets": "mail relay keys are public-by-design; admin passcode in gate.js (not in client config); no credentials in reports",
+  "stale_endpoints": "old 4-spreadsheet CSV URLs replaced by consolidated workbook (v97)",
+  "debug_flags": "none enabled; preview served on 8899 is local-only"
+ },
+ "warnings": [
+  "Production site-config.js live still returns status:'soon' \u2014 local tree is ahead; deploy required.",
+  "Apps Script token empty \u2192 relay answers 'Not authorised' and chain falls back (safe, no mail loss)."
+ ]
+}

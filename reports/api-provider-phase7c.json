@@ -1,0 +1,32 @@
+{
+  "generated": "2026-09-12T16:30:27Z",
+  "inUse": [
+    {
+      "id": "google-input-tools-translit",
+      "kind": "transliteration",
+      "endpoint": "https://inputtools.google.com/request?text=NAME&itc=hi-t-i0-und",
+      "key": "none (keyless public endpoint)",
+      "scope": "name/word transliteration (hi)",
+      "timeout": "yes (AbortController)",
+      "retry": "no (single attempt, offline fallback)",
+      "fallback": "rule-based js/translit.js",
+      "privacy": "text leaves the browser to Google",
+      "commercialUse": "public endpoint used as-is; no account/quota",
+      "file": "js/translit-api.js"
+    }
+  ],
+  "blocked": [
+    {
+      "capability": "AI translation/dictionary/grammar/conversation/pronunciation APIs",
+      "reason": "no secure server relay exists; \u00a721/\u00a722/\u00a723 rules forbid API keys in the client and forbid designing the core product around unverified free/unlimited APIs",
+      "state": "BLOCKED until a secure relay exists"
+    }
+  ],
+  "rules": [
+    "no secret in client/static/public JSON/release ZIP",
+    "timeout+fallback required",
+    "core rendering must continue when APIs fail",
+    "never publish raw API output without QA"
+  ],
+  "verified": "secret scan of repo + release ZIP: clean (no keys/tokens)"
+}

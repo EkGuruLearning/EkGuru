@@ -1,0 +1,3829 @@
+{
+  "generated": "2026-09-11T06:24:15.498811+00:00Z",
+  "final_release_baseline": "reports/final-release-baseline.json",
+  "note": "Captured BEFORE fixes; do not overwrite",
+  "snapshot": {
+    "generated": "2026-09-11T06:24:15.498811+00:00Z",
+    "production_url": "https://ekguru.shop/",
+    "git": {
+      "branch": "main",
+      "commit": "8de5b69d5c839453cab47011b23fdbcbcfa32e59",
+      "short": "8de5b69 Regenerate reports + admin-stats after final Doctor run",
+      "status_dirty": true
+    },
+    "deployment_identity": "GitHub Pages ekgurulearning/EkGuru via CNAME ekguru.shop (push-to-deploy)",
+    "doctor": {
+      "doctorProblems": 1,
+      "doctorWarnings": 0,
+      "doctorChecks": 11,
+      "seoPass": true,
+      "privacyState": "PASS",
+      "results": [
+        {
+          "id": "status-live",
+          "label": "Site status is live (not Coming soon)",
+          "status": "PASS",
+          "detail": "status:\"live\""
+        },
+        {
+          "id": "deployed",
+          "label": "Production serves the current tree",
+          "status": "FAIL",
+          "detail": "live site-config.js status=\"soon\" (local is \"live\") \u2014 deploy pending"
+        },
+        {
+          "id": "privacy",
+          "label": "Privacy/secret scan passes",
+          "status": "PASS",
+          "detail": "PASS \u2014 0 secrets, 0 sensitive, 0 blocked"
+        },
+        {
+          "id": "no-personal-emails",
+          "label": "No personal tutor emails in public data",
+          "status": "PASS",
+          "detail": "tutor emails route via site inbox/formKey"
+        },
+        {
+          "id": "booking-routing",
+          "label": "Every tutor can receive bookings",
+          "status": "PASS",
+          "detail": "4 tutor(s) routable (site-inbox fallback)"
+        },
+        {
+          "id": "header-geometry",
+          "label": "Header geometry clean at 17 widths",
+          "status": "PASS",
+          "detail": "17 widths, 0 failures"
+        },
+        {
+          "id": "seo",
+          "label": "No broken internal links",
+          "status": "PASS",
+          "detail": "554 pages, 0 broken, 0 orphans"
+        },
+        {
+          "id": "ads-txt",
+          "label": "ads.txt declares the correct publisher",
+          "status": "PASS",
+          "detail": "200 \u2014 publisher id matches"
+        },
+        {
+          "id": "robots",
+          "label": "robots.txt safe and declares sitemap",
+          "status": "PASS",
+          "detail": "200 \u2014 sitemap declared, not all-blocked"
+        },
+        {
+          "id": "canonical",
+          "label": "Homepage canonical is https://ekguru.shop/",
+          "status": "PASS",
+          "detail": "200 \u2014 canonical https://ekguru.shop/"
+        },
+        {
+          "id": "sheet-sanity",
+          "label": "Sheet values sanitised (no cross-column leakage)",
+          "status": "PASS",
+          "detail": "videoTitle guard active"
+        }
+      ],
+      "generated": "2026-09-11T06:20:33.616Z"
+    },
+    "privacy": {
+      "summary": {
+        "scanned_files": 620,
+        "findings": {
+          "secret": 0,
+          "sensitive": 0,
+          "internal": 1,
+          "public": 0
+        },
+        "blocked": 0,
+        "verdict": "PASS"
+      },
+      "findings": [
+        {
+          "category": "internal",
+          "file": "live:homepage",
+          "detail": "launch status = \"soon\"",
+          "note": "Coming soon pill visible \u2014 should be live"
+        }
+      ],
+      "files": {
+        "sheets:settings": {
+          "columns": [
+            {
+              "name": "key",
+              "class": "secret"
+            },
+            {
+              "name": "value",
+              "class": "public"
+            },
+            {
+              "name": "what it does",
+              "class": "public"
+            }
+          ]
+        },
+        "sheets:content": {
+          "columns": [
+            {
+              "name": "slug",
+              "class": "public"
+            },
+            {
+              "name": "question",
+              "class": "public"
+            },
+            {
+              "name": "answer",
+              "class": "public"
+            },
+            {
+              "name": "body",
+              "class": "public"
+            },
+            {
+              "name": "keywords",
+              "class": "secret"
+            },
+            {
+              "name": "related",
+              "class": "public"
+            },
+            {
+              "name": "status",
+              "class": "public"
+            }
+          ]
+        },
+        "sheets:reviews": {
+          "columns": [
+            {
+              "name": "tutor",
+              "class": "public"
+            },
+            {
+              "name": "name",
+              "class": "public"
+            },
+            {
+              "name": "date",
+              "class": "public"
+            },
+            {
+              "name": "stars",
+              "class": "public"
+            },
+            {
+              "name": "text",
+              "class": "public"
+            },
+            {
+              "name": "source",
+              "class": "public"
+            },
+            {
+              "name": "status",
+              "class": "public"
+            }
+          ]
+        },
+        "sheets:tutors": {
+          "columns": [
+            {
+              "name": "id",
+              "class": "public"
+            },
+            {
+              "name": "active",
+              "class": "public"
+            },
+            {
+              "name": "name",
+              "class": "public"
+            },
+            {
+              "name": "nickname",
+              "class": "public"
+            },
+            {
+              "name": "subject",
+              "class": "public"
+            },
+            {
+              "name": "priceUSD",
+              "class": "public"
+            },
+            {
+              "name": "lessonLength",
+              "class": "public"
+            },
+            {
+              "name": "availability",
+              "class": "public"
+            },
+            {
+              "name": "video",
+              "class": "public"
+            },
+            {
+              "name": "headline",
+              "class": "public"
+            },
+            {
+              "name": "city",
+              "class": "public"
+            },
+            {
+              "name": "country",
+              "class": "public"
+            },
+            {
+              "name": "timezone",
+              "class": "public"
+            },
+            {
+              "name": "teaches",
+              "class": "public"
+            },
+            {
+              "name": "tags",
+              "class": "public"
+            },
+            {
+              "name": "levels",
+              "class": "public"
+            },
+            {
+              "name": "speaks",
+              "class": "public"
+            },
+            {
+              "name": "trialAvailable",
+              "class": "public"
+            },
+            {
+              "name": "experienceYears",
+              "class": "public"
+            },
+            {
+              "name": "verified",
+              "class": "public"
+            },
+            {
+              "name": "superTutor",
+              "class": "public"
+            },
+            {
+              "name": "rating",
+              "class": "public"
+            },
+            {
+              "name": "reviewsCount",
+              "class": "public"
+            },
+            {
+              "name": "lessonsCount",
+              "class": "public"
+            },
+            {
+              "name": "email",
+              "class": "sensitive"
+            },
+            {
+              "name": "formKey",
+              "class": "secret"
+            },
+            {
+              "name": "calLink",
+              "class": "public"
+            },
+            {
+              "name": "preplyUrl",
+              "class": "public"
+            },
+            {
+              "name": "holiday",
+              "class": "public"
+            },
+            {
+              "name": "holidayUntil",
+              "class": "public"
+            },
+            {
+              "name": "holidayNote",
+              "class": "internal"
+            },
+            {
+              "name": "specialities",
+              "class": "public"
+            },
+            {
+              "name": "badge",
+              "class": "public"
+            },
+            {
+              "name": "trialMinutes",
+              "class": "public"
+            },
+            {
+              "name": "packageDiscount",
+              "class": "public"
+            },
+            {
+              "name": "responseHours",
+              "class": "public"
+            },
+            {
+              "name": "intro",
+              "class": "public"
+            },
+            {
+              "name": "exams",
+              "class": "public"
+            },
+            {
+              "name": "photo",
+              "class": "public"
+            },
+            {
+              "name": "thumb",
+              "class": "public"
+            },
+            {
+              "name": "banner",
+              "class": "public"
+            },
+            {
+              "name": "videoTitle",
+              "class": "public"
+            },
+            {
+              "name": "countryFlag",
+              "class": "internal"
+            },
+            {
+              "name": "about",
+              "class": "public"
+            },
+            {
+              "name": "experience",
+              "class": "public"
+            },
+            {
+              "name": "methodology",
+              "class": "public"
+            },
+            {
+              "name": "bio",
+              "class": "public"
+            }
+          ]
+        }
+      }
+    },
+    "seo": {
+      "pass": true,
+      "critical": 0,
+      "warnings": 0,
+      "pages": 554,
+      "sitemapUrls": 549,
+      "sitemapFiles": 13,
+      "brokenLinks": 0,
+      "orphans": 0,
+      "broken": [],
+      "orphanPages": [],
+      "generated": "2026-09-11T06:20:30.653Z"
+    },
+    "live_reachability": {
+      "total": 564,
+      "ok": 564,
+      "redirects": 0,
+      "missing": 0,
+      "results": [
+        {
+          "url": "https://ekguru.shop/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/404.html",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/about/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/admin.html",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ads.txt",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/best-hindi-movies-to-learn-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/best-way-to-learn-hindi-as-a-beginner/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/can-i-learn-hindi-without-learning-the-script/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/difference-between-hindi-and-urdu/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/hindi-body-parts-vocabulary/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/hindi-colours-list/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/hindi-days-of-the-week/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/hindi-family-words/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/hindi-greetings-namaste-and-others/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/hindi-months-and-seasons/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/hindi-numbers-1-to-100/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/hindi-phrases-for-travelling-in-india/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/hindi-postpositions-ka-ki-ke/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/hindi-pronouns-explained/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/hindi-verb-hona-to-be/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/hindi-vs-punjabi-vs-bengali/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/hindi-vs-sanskrit-difference/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/hindi-word-order-explained/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/how-to-ask-for-directions-in-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/how-to-order-food-in-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/how-to-practice-hindi-speaking-alone/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/how-to-say-goodbye-in-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/how-to-say-i-am-hungry-in-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/how-to-say-i-am-learning-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/how-to-say-please-and-thank-you-in-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/how-to-tell-the-time-in-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/how-to-type-hindi-on-phone/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/answers/what-does-ji-mean-in-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ar/find-tutors.html",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ar/hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ar/join.html",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/best-way-to-learn-hindi-for-beginners/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/can-i-learn-hindi-by-myself/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/can-i-learn-hindi-from-bollywood-alone/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/can-i-learn-hindi-in-3-months/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/cheapest-way-to-learn-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/do-hindi-speakers-mind-mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/do-i-need-to-learn-devanagari/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/hindi-alphabet-question/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/hindi-family-question/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/hindi-for-kids-how-to-start/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/hindi-or-urdu-question/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/hindi-or-urdu-which-to-learn/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/hindi-words-every-beginner-should-know/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/how-long-to-learn-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/how-long-to-read-hindi-script/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/how-many-words-do-i-need-in-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/how-much-does-a-hindi-tutor-cost/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/how-to-count-1-to-10-in-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/how-to-introduce-yourself-in-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/how-to-practice-hindi-without-a-partner/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/how-to-remember-hindi-genders/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/how-to-say-good-morning-in-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/how-to-say-hello-in-hindi-question/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/how-to-say-how-are-you-in-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/how-to-say-i-dont-understand-in-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/how-to-say-i-love-you-in-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/how-to-say-please-in-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/how-to-say-sorry-in-hindi-properly/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/how-to-say-sorry-in-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/how-to-say-thank-you-in-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/how-to-say-what-is-your-name-in-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/how-to-say-yes-and-no-in-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/how-to-write-name-hindi-question/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/is-duolingo-good-for-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/is-hindi-hard-to-learn/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/is-hindi-or-spanish-easier-to-learn/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/is-hindi-useful-to-learn/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/is-italki-or-preply-better-for-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/what-does-acha-mean-in-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/what-does-namaste-really-mean/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/what-does-yaar-mean-in-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/what-is-the-best-age-to-learn-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ask/what-is-the-hardest-part-of-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/bn/hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/contact/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/css/style.min.css",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-1/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-10/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-11/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-12/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-13/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-14/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-15/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-16/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-17/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-18/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-19/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-2/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-20/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-21/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-22/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-23/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-24/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-25/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-26/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-27/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-28/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-29/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-3/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-30/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-4/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-5/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-6/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-7/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-8/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/daily-hindi/day-9/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/de/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/de/find-tutors.html",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/de/hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/de/join.html",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/disclaimer/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/es/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/es/find-tutors.html",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/es/hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/es/join.html",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/find-tutors.html",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/fr/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/fr/find-tutors.html",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/fr/hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/fr/join.html",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/googleb3b0e3defc1daa17.html",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/ahmedabad/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/australia/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/bangalore/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/canada/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/chandigarh/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/chennai/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/delhi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/dubai/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/germany/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/houston/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/hyderabad/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/jaipur/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/japan/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/kolkata/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/london/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/lucknow/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/melbourne/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/mumbai/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/nepal/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/new-york/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/patna/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/pune/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/san-francisco/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/singapore/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/south-africa/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/spain/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/sydney/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/toronto/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/united-arab-emirates/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/united-kingdom/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/united-states/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi-tutor/worldwide/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/alphabet/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/beginners/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/bollywood/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/business/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/conversation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/emergency/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/family/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/flashcards-topic/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/for-kids/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/formal-informal/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/greetings/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/heritage/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/hindi-vs-urdu/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/hinglish/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/how-long/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/indian-languages/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/listening/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/name-topic/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/numbers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/phrases-food/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/phrases-travel/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/reading/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/relationships/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/sentence-structure/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/shopping/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/slang/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/speaking/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/time-date/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/verbs/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/vocabulary/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/hindi/writing/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/id/hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/images/placeholder-tutor.jpg",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/images/sushila.jpg",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/it/hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ja/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ja/find-tutors.html",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ja/hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ja/join.html",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/join.html",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/js/mailer.js",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/js/sheet.js",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/js/site-config.js",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/js/tutors/_overrides.js",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ko/hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-by-country/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-arabic-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-arabic-speakers/first-words/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-arabic-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-arabic-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-arabic-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-bengali-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-bengali-speakers/first-words/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-bengali-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-bengali-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-bengali-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-chinese-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-chinese-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-chinese-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-chinese-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-dutch-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-dutch-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-dutch-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-dutch-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-english-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-english-speakers/first-words/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-english-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-english-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-english-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-french-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-french-speakers/first-words/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-french-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-french-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-french-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-german-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-german-speakers/first-words/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-german-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-german-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-german-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-gujarati-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-gujarati-speakers/first-words/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-gujarati-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-gujarati-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-gujarati-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-hebrew-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-hebrew-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-hebrew-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-hebrew-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-indonesian-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-indonesian-speakers/first-words/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-indonesian-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-indonesian-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-indonesian-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-italian-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-italian-speakers/first-words/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-italian-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-italian-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-italian-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-japanese-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-japanese-speakers/first-words/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-japanese-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-japanese-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-japanese-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-korean-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-korean-speakers/first-words/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-korean-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-korean-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-korean-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-malay-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-malay-speakers/first-words/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-malay-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-malay-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-malay-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-marathi-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-marathi-speakers/first-words/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-marathi-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-marathi-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-marathi-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-nepali-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-nepali-speakers/first-words/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-nepali-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-nepali-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-nepali-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-persian-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-persian-speakers/first-words/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-persian-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-persian-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-persian-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-polish-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-polish-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-polish-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-polish-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-portuguese-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-portuguese-speakers/first-words/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-portuguese-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-portuguese-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-portuguese-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-punjabi-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-punjabi-speakers/first-words/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-punjabi-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-punjabi-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-punjabi-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-russian-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-russian-speakers/first-words/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-russian-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-russian-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-russian-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-spanish-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-spanish-speakers/first-words/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-spanish-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-spanish-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-spanish-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-swahili-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-swahili-speakers/first-words/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-swahili-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-swahili-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-swahili-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-tamil-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-tamil-speakers/first-words/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-tamil-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-tamil-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-tamil-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-telugu-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-telugu-speakers/first-words/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-telugu-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-telugu-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-telugu-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-thai-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-thai-speakers/first-words/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-thai-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-thai-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-thai-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-turkish-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-turkish-speakers/first-words/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-turkish-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-turkish-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-turkish-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-ukrainian-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-ukrainian-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-ukrainian-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-ukrainian-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-urdu-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-vietnamese-speakers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-vietnamese-speakers/grammar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-vietnamese-speakers/mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-for-vietnamese-speakers/pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-afghanistan/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-albania/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-algeria/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-argentina/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-armenia/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-australia/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-austria/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-azerbaijan/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-bahrain/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-bangladesh/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-barbados/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-belarus/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-belgium/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-belize/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-bhutan/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-bolivia/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-bosnia-and-herzegovina/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-botswana/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-brazil/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-brunei/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-bulgaria/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-cambodia/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-cameroon/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-canada/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-chile/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-china/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-colombia/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-comoros/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-congo/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-costa-rica/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-cote-divoire/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-croatia/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-cuba/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-cyprus/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-czechia/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-denmark/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-djibouti/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-dominican-republic/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-dr-congo/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-ecuador/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-egypt/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-el-salvador/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-eritrea/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-estonia/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-eswatini/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-ethiopia/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-fiji/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-finland/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-france/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-gabon/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-georgia/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-germany/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-ghana/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-greece/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-grenada/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-guatemala/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-guyana/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-haiti/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-honduras/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-hungary/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-iceland/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-india/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-indonesia/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-iran/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-iraq/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-ireland/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-israel/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-italy/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-jamaica/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-japan/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-jordan/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-kazakhstan/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-kenya/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-kosovo/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-kuwait/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-kyrgyzstan/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-laos/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-latvia/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-lebanon/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-lesotho/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-libya/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-lithuania/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-luxembourg/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-madagascar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-malawi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-malaysia/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-maldives/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-malta/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-mauritania/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-mauritius/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-mexico/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-moldova/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-mongolia/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-montenegro/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-morocco/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-mozambique/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-myanmar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-namibia/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-nepal/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-netherlands/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-new-zealand/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-nicaragua/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-nigeria/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-north-macedonia/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-norway/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-oman/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-pakistan/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-palestine/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-panama/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-papua-new-guinea/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-paraguay/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-peru/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-philippines/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-poland/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-portugal/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-qatar/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-romania/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-russia/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-rwanda/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-saint-lucia/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-saint-vincent-and-the-grenadines/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-saudi-arabia/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-senegal/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-serbia/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-seychelles/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-singapore/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-slovakia/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-slovenia/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-somalia/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-south-africa/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-south-korea/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-spain/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-sri-lanka/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-sudan/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-suriname/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-sweden/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-switzerland/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-syria/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-tajikistan/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-tanzania/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-thailand/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-timor-leste/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-trinidad-and-tobago/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-tunisia/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-turkiye/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-turkmenistan/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-uae/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-uganda/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-uk/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-ukraine/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-uruguay/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-usa/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-uzbekistan/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-venezuela/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-vietnam/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-yemen/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-zambia/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn-hindi-from-zimbabwe/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn/aap-tum-tu-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn/common-hindi-mistakes/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn/hindi-alphabet-for-beginners/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn/hindi-days-months-time/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn/hindi-family-words/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn/hindi-gender-masculine-feminine/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn/hindi-numbers-1-to-100/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn/hindi-or-urdu-difference/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn/hindi-phrases-for-travel/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn/hindi-sentence-structure/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn/hindi-verbs-present-past-future/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn/how-to-say-hello-in-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn/learn-hindi-from-bollywood/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn/learn-hindi-online-guide/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/learn/write-your-name-in-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/name-in-hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/pl/hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/privacy/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/pt/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/pt/find-tutors.html",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/pt/hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/pt/join.html",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/robots.txt",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ru/hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/search/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/sitemap-index.xml",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/terms/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/toolbox/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/toolbox/hindi-alphabet/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/toolbox/hindi-date-time/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/toolbox/hindi-flashcards/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/toolbox/hindi-level-test/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/toolbox/hindi-numbers/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/toolbox/hindi-phrasebook/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/toolbox/hindi-pronunciation/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/toolbox/hindi-quiz/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/toolbox/hindi-time-planner/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/toolbox/hindi-typing/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/toolbox/hindi-verbs/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/toolbox/hindi-vocabulary/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/tr/hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/tutor.html",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/tutor/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/tutor/hemlata/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/tutor/shikha-dutta/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/tutor/sushila-g/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/tutor/tara/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/ur/hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/vi/hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        },
+        {
+          "url": "https://ekguru.shop/zh/hindi/",
+          "status": 200,
+          "ok": true,
+          "redirect": null
+        }
+      ],
+      "generated": "2026-09-11T06:16:13.867Z"
+    },
+    "url_count": 564,
+    "health_dashboard": true,
+    "email_status": "CODE-VERIFIED (routing/Reply-To/honeypot); no live send performed",
+    "booking_status": "CODE-VERIFIED (3-audience routing + site-inbox fallback); no live send performed",
+    "payment_status": "NOT_APPLICABLE (no payment system on this static site)",
+    "auth_status": "NOT_APPLICABLE (static site, no backend auth)",
+    "inventory": {
+      "toolbox_tools": 12,
+      "tool_names": [
+        "index.html",
+        "index.html",
+        "index.html",
+        "index.html",
+        "index.html",
+        "index.html",
+        "index.html",
+        "index.html",
+        "index.html",
+        "index.html",
+        "index.html",
+        "index.html"
+      ],
+      "learn_pages": 15,
+      "daily_hindi_days": 30,
+      "answers": 29,
+      "hindi_tutor_places": 33,
+      "ask_questions": 44,
+      "tutor_profiles": 4
+    },
+    "data_sources": {
+      "settings": "gid=764031473",
+      "content": "gid=2135319947",
+      "reviews": "gid=1290168568",
+      "tutors": "gid=834026040",
+      "apps_script_health": "HTTP 200 {\"success\":\"true\"}"
+    }
+  }
+}

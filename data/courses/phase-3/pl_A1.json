@@ -1,0 +1,2286 @@
+{
+  "code": "pl",
+  "name": "Polish",
+  "native": "polski",
+  "phase": 3,
+  "medium": "en",
+  "file_level": "A1",
+  "pronunciation": {
+    "title": "Say it right from day one",
+    "rules": [
+      {
+        "rule": "Vowels never change",
+        "explain": "a=AH, e=EH, i=EE, o=OH, u=OO. Always. So CASA is KAH-sah.",
+        "examples": [
+          {
+            "t": "casa",
+            "r": "KAH-sah",
+            "en": "house"
+          },
+          {
+            "t": "mesa",
+            "r": "MEH-sah",
+            "en": "table"
+          }
+        ]
+      },
+      {
+        "rule": "H is silent, J sounds like H",
+        "explain": "HOLA is OH-lah (no H sound). J in JUEVES sounds like English H: HWEH-vehs.",
+        "examples": [
+          {
+            "t": "hola",
+            "r": "OH-lah",
+            "en": "hello"
+          },
+          {
+            "t": "jueves",
+            "r": "HWEH-vehs",
+            "en": "Thursday"
+          }
+        ]
+      },
+      {
+        "rule": "Ñ = NY, LL/Y = Y",
+        "explain": "Ñ is like NY in canyon: NIÑO = NEEN-yoh. LL and Y sound like Y in yes.",
+        "examples": [
+          {
+            "t": "niño",
+            "r": "NEEN-yoh",
+            "en": "boy"
+          },
+          {
+            "t": "calle",
+            "r": "KAH-yeh",
+            "en": "street"
+          }
+        ]
+      },
+      {
+        "rule": "R rolls a little",
+        "explain": "Tap your tongue once for R. PERRO (dog) rolls longer than PERO (but).",
+        "examples": [
+          {
+            "t": "pero",
+            "r": "PEH-roh",
+            "en": "but"
+          },
+          {
+            "t": "perro",
+            "r": "PEH-rroh",
+            "en": "dog"
+          }
+        ]
+      },
+      {
+        "rule": "Stress the second-last syllable",
+        "explain": "Most words stress the middle: HOLA = OH-lah, GRACIAS = GRAH-syahs. An accent mark (á) forces stress there.",
+        "examples": [
+          {
+            "t": "gracias",
+            "r": "GRAH-syahs",
+            "en": "thanks"
+          },
+          {
+            "t": "café",
+            "r": "kah-FEH",
+            "en": "coffee"
+          }
+        ]
+      }
+    ]
+  },
+  "alphabet": {
+    "title": "The Spanish alphabet: 27 letters",
+    "explain": "Spanish uses the same letters as English plus Ñ. Letter names matter for spelling your name aloud. Read each name, then say the example word.",
+    "letters": [
+      {
+        "t": "a",
+        "r": "ah",
+        "tip": "as in father: CASA"
+      },
+      {
+        "t": "b",
+        "r": "beh",
+        "tip": "soft, lips barely touch: BOCA"
+      },
+      {
+        "t": "c",
+        "r": "seh",
+        "tip": "CA=K, CE/CI=S: CENA"
+      },
+      {
+        "t": "d",
+        "r": "deh",
+        "tip": "soft, like TH in this: DÍA"
+      },
+      {
+        "t": "e",
+        "r": "eh",
+        "tip": "as in bet: MESA"
+      },
+      {
+        "t": "f",
+        "r": "EH-feh",
+        "tip": "same as English: FOTO"
+      },
+      {
+        "t": "g",
+        "r": "heh",
+        "tip": "GA=hard G, GE/J=silent H: GENTE"
+      },
+      {
+        "t": "h",
+        "r": "AH-cheh",
+        "tip": "always silent: HOLA = OH-lah"
+      },
+      {
+        "t": "i",
+        "r": "ee",
+        "tip": "as in machine: SÍ"
+      },
+      {
+        "t": "j",
+        "r": "HOH-tah",
+        "tip": "strong H sound: JUEVES"
+      },
+      {
+        "t": "k",
+        "r": "kah",
+        "tip": "rare, foreign words: KILO"
+      },
+      {
+        "t": "l",
+        "r": "EH-leh",
+        "tip": "same as English: LIBRO"
+      },
+      {
+        "t": "m",
+        "r": "EH-meh",
+        "tip": "same as English: MANO"
+      },
+      {
+        "t": "n",
+        "r": "EH-neh",
+        "tip": "same as English: NOCHE"
+      },
+      {
+        "t": "ñ",
+        "r": "EH-nyeh",
+        "tip": "NY as in canyon: NIÑO"
+      },
+      {
+        "t": "o",
+        "r": "oh",
+        "tip": "short, as in hot: OJO"
+      },
+      {
+        "t": "p",
+        "r": "peh",
+        "tip": "same, less puff: PAN"
+      },
+      {
+        "t": "q",
+        "r": "koo",
+        "tip": "always QU = K: QUESO"
+      },
+      {
+        "t": "r",
+        "r": "EH-reh",
+        "tip": "single tap: PERO"
+      },
+      {
+        "t": "s",
+        "r": "EH-seh",
+        "tip": "always S, never Z: SÍ"
+      },
+      {
+        "t": "t",
+        "r": "teh",
+        "tip": "same as English: TÍO"
+      },
+      {
+        "t": "u",
+        "r": "oo",
+        "tip": "as in moon: LUNA"
+      },
+      {
+        "t": "v",
+        "r": "oo-beh",
+        "tip": "sounds like soft B: VINO"
+      },
+      {
+        "t": "w",
+        "r": "oo-beh-DOH-bleh",
+        "tip": "rare, foreign words: WEB"
+      },
+      {
+        "t": "x",
+        "r": "EH-kees",
+        "tip": "KS sound: TAXI"
+      },
+      {
+        "t": "y",
+        "r": "ee-gree-EH-gah",
+        "tip": "Y in yes, or EE alone: YO"
+      },
+      {
+        "t": "z",
+        "r": "SEH-tah",
+        "tip": "S sound (Latin America): ZAPATO"
+      }
+    ]
+  },
+  "counting": {
+    "title": "Counting 0 to 100",
+    "explain": "Learn 0–15 by heart. 16–19 = DIEZ + number stuck together (dieciséis). 20s = VEINTI + number (veintidós). 30+ = tens + Y + ones (treinta y uno). 100 = CIEN (cien alone, ciento + more).",
+    "numbers": [
+      {
+        "t": "cero",
+        "r": "SEH-roh",
+        "en": "0"
+      },
+      {
+        "t": "uno",
+        "r": "OO-noh",
+        "en": "1"
+      },
+      {
+        "t": "dos",
+        "r": "dohs",
+        "en": "2"
+      },
+      {
+        "t": "tres",
+        "r": "trehs",
+        "en": "3"
+      },
+      {
+        "t": "cuatro",
+        "r": "KWAH-troh",
+        "en": "4"
+      },
+      {
+        "t": "cinco",
+        "r": "SEEN-koh",
+        "en": "5"
+      },
+      {
+        "t": "seis",
+        "r": "seh-ees",
+        "en": "6"
+      },
+      {
+        "t": "siete",
+        "r": "SYEH-teh",
+        "en": "7"
+      },
+      {
+        "t": "ocho",
+        "r": "OH-choh",
+        "en": "8"
+      },
+      {
+        "t": "nueve",
+        "r": "NWEH-veh",
+        "en": "9"
+      },
+      {
+        "t": "diez",
+        "r": "dyehs",
+        "en": "10"
+      },
+      {
+        "t": "once",
+        "r": "OHN-seh",
+        "en": "11"
+      },
+      {
+        "t": "doce",
+        "r": "DOH-seh",
+        "en": "12"
+      },
+      {
+        "t": "trece",
+        "r": "TREH-seh",
+        "en": "13"
+      },
+      {
+        "t": "catorce",
+        "r": "kah-TOHR-seh",
+        "en": "14"
+      },
+      {
+        "t": "quince",
+        "r": "KEEN-seh",
+        "en": "15"
+      },
+      {
+        "t": "dieciséis",
+        "r": "dyeh-see-SEH-ees",
+        "en": "16"
+      },
+      {
+        "t": "diecisiete",
+        "r": "dyeh-see-SYEH-teh",
+        "en": "17"
+      },
+      {
+        "t": "dieciocho",
+        "r": "dyeh-see-OH-choh",
+        "en": "18"
+      },
+      {
+        "t": "diecinueve",
+        "r": "dyeh-see-NWEH-veh",
+        "en": "19"
+      },
+      {
+        "t": "veinte",
+        "r": "BEH-een-teh",
+        "en": "20"
+      },
+      {
+        "t": "treinta",
+        "r": "TREH-een-tah",
+        "en": "30"
+      },
+      {
+        "t": "cuarenta",
+        "r": "kwah-REHN-tah",
+        "en": "40"
+      },
+      {
+        "t": "cincuenta",
+        "r": "seen-KWEHN-tah",
+        "en": "50"
+      },
+      {
+        "t": "sesenta",
+        "r": "seh-SEHN-tah",
+        "en": "60"
+      },
+      {
+        "t": "setenta",
+        "r": "seh-TEHN-tah",
+        "en": "70"
+      },
+      {
+        "t": "ochenta",
+        "r": "oh-CHEHN-tah",
+        "en": "80"
+      },
+      {
+        "t": "noventa",
+        "r": "noh-BEHN-tah",
+        "en": "90"
+      },
+      {
+        "t": "cien",
+        "r": "syehn",
+        "en": "100"
+      }
+    ],
+    "rules": [
+      "16–29 are glued together: dieciséis (16), veintidós (22).",
+      "30–99 use Y: treinta y uno (31), cuarenta y dos (42).",
+      "CIEN = exactly 100; CIENTO + more: ciento uno (101)."
+    ]
+  },
+  "level": {
+    "title": "Polish A1",
+    "goals": [
+      "Read core Polish spelling and pronounce key contrasts",
+      "Introduce yourself and manage basic daily exchanges",
+      "Use present-tense verbs and introductory nominative, instrumental, accusative, and locative patterns"
+    ],
+    "units": [
+      {
+        "id": "pl-a1-u1",
+        "title": "First words",
+        "lessons": [
+          {
+            "id": "pl-a1-l1",
+            "title": "Powitania i pan/pani",
+            "learn": "Use powitania i pan/pani in a short beginner exchange.",
+            "vocab": [
+              {
+                "t": "Dzień",
+                "r": "Dzień",
+                "en": "word in context: Good morning, my name is Anna.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "dobry",
+                "r": "dobry",
+                "en": "word in context: Good morning, my name is Anna.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "mam",
+                "r": "mam",
+                "en": "word in context: Good morning, my name is Anna.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "na",
+                "r": "na",
+                "en": "word in context: Good morning, my name is Anna.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "imię",
+                "r": "imię",
+                "en": "word in context: Good morning, my name is Anna.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "Anna",
+                "r": "Anna",
+                "en": "word in context: Good morning, my name is Anna.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "proszę",
+                "r": "proszę",
+                "en": "word in context: Good morning, my name is Anna.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "dziękuję",
+                "r": "dziękuję",
+                "en": "word in context: Good morning, my name is Anna.",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Powitania i pan/pani",
+              "explain": "Polish marks grammatical roles with endings. At A1, learn each noun together with its sentence pattern: nominative for naming, instrumental after jestem, accusative for a direct object, and locative after selected prepositions. Verbs agree with person; pan/pani requires third-person grammar.",
+              "pattern": "subject or polite address + agreeing verb + case-marked complement",
+              "examples": [
+                {
+                  "t": "Dzień dobry, mam na imię Anna.",
+                  "r": "Dzień dobry, mam na imię Anna.",
+                  "en": "Good morning, my name is Anna."
+                },
+                {
+                  "t": "Jestem studentką, a pan jest nauczycielem.",
+                  "r": "Jestem studentką, a pan jest nauczycielem.",
+                  "en": "I am a student, and you are a teacher."
+                },
+                {
+                  "t": "Codziennie rano uczę się polskiego.",
+                  "r": "Codziennie rano uczę się polskiego.",
+                  "en": "I study Polish every morning."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Jestem studentka.",
+                  "right": "Jestem studentką.",
+                  "why": "The complement after jestem uses the instrumental case."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Dzień dobry, mam na imię Anna.",
+                "r": "Dzień dobry, mam na imię Anna.",
+                "en": "Good morning, my name is Anna."
+              },
+              {
+                "sp": "Partner",
+                "t": "Jestem studentką, a pan jest nauczycielem.",
+                "r": "Jestem studentką, a pan jest nauczycielem.",
+                "en": "I am a student, and you are a teacher."
+              },
+              {
+                "sp": "Teacher",
+                "t": "Codziennie rano uczę się polskiego.",
+                "r": "Codziennie rano uczę się polskiego.",
+                "en": "I study Polish every morning."
+              },
+              {
+                "sp": "Reviewer",
+                "t": "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "r": "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "en": "Do you live near the school? No, I live in the centre."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Powitania i pan/pani — multiple choice: recognise or produce this A1 Polish model with the correct ending: Dzień dobry, mam na imię Anna.",
+                "answer": "Dzień dobry, mam na imię Anna.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Dzień dobry, mam na imię Anna.",
+                  "Jestem studentka.",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Powitania i pan/pani — fill in the blank: recognise or produce this A1 Polish model with the correct ending: Dzień dobry, mam na imię Anna.",
+                "answer": "Dzień dobry, mam na imię Anna.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Powitania i pan/pani — translation: recognise or produce this A1 Polish model with the correct ending: Dzień dobry, mam na imię Anna.",
+                "answer": "Good morning, my name is Anna.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Powitania i pan/pani — reverse translation: recognise or produce this A1 Polish model with the correct ending: Dzień dobry, mam na imię Anna.",
+                "answer": "Dzień dobry, mam na imię Anna.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Powitania i pan/pani — matching: recognise or produce this A1 Polish model with the correct ending: Dzień dobry, mam na imię Anna.",
+                "answer": "Dzień dobry, mam na imię Anna.",
+                "skill_target": "matching",
+                "options": [
+                  "Dzień dobry, mam na imię Anna.",
+                  "Jestem studentka.",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Powitania i pan/pani — reorder: recognise or produce this A1 Polish model with the correct ending: Dzień dobry, mam na imię Anna.",
+                "answer": "Dzień dobry, mam na imię Anna.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Powitania i pan/pani — sentence building: recognise or produce this A1 Polish model with the correct ending: Dzień dobry, mam na imię Anna.",
+                "answer": "Dzień dobry, mam na imię Anna.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Powitania i pan/pani — word selection: recognise or produce this A1 Polish model with the correct ending: Dzień dobry, mam na imię Anna.",
+                "answer": "Dzień dobry, mam na imię Anna.",
+                "skill_target": "word selection",
+                "options": [
+                  "Dzień dobry, mam na imię Anna.",
+                  "Jestem studentka.",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Powitania i pan/pani — error correction: recognise or produce this A1 Polish model with the correct ending: Dzień dobry, mam na imię Anna.",
+                "answer": "Dzień dobry, mam na imię Anna.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Powitania i pan/pani — dialogue completion: recognise or produce this A1 Polish model with the correct ending: Dzień dobry, mam na imię Anna.",
+                "answer": "Dzień dobry, mam na imię Anna.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Powitania i pan/pani — reading comprehension: recognise or produce this A1 Polish model with the correct ending: Dzień dobry, mam na imię Anna.",
+                "answer": "Dzień dobry, mam na imię Anna.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Powitania i pan/pani — paragraph comprehension: recognise or produce this A1 Polish model with the correct ending: Dzień dobry, mam na imię Anna.",
+                "answer": "Dzień dobry, mam na imię Anna.",
+                "skill_target": "paragraph comprehension"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Powitania i pan/pani: which model has the intended meaning and case ending? (1)",
+                "options": [
+                  "Dzień dobry, mam na imię Anna.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              },
+              {
+                "q": "Powitania i pan/pani: which model has the intended meaning and case ending? (2)",
+                "options": [
+                  "Dzień dobry, mam na imię Anna.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              },
+              {
+                "q": "Powitania i pan/pani: which model has the intended meaning and case ending? (3)",
+                "options": [
+                  "Dzień dobry, mam na imię Anna.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              },
+              {
+                "q": "Powitania i pan/pani: which model has the intended meaning and case ending? (4)",
+                "options": [
+                  "Dzień dobry, mam na imię Anna.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              },
+              {
+                "q": "Powitania i pan/pani: which model has the intended meaning and case ending? (5)",
+                "options": [
+                  "Dzień dobry, mam na imię Anna.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Powitania i pan/pani workshop",
+              "tasks": [
+                {
+                  "instruction": "Underline the verb and case ending.",
+                  "items": [
+                    "Dzień dobry, mam na imię Anna.",
+                    "Jestem studentką, a pan jest nauczycielem."
+                  ],
+                  "key": [
+                    "Polish marks grammatical roles with endings. At A1, learn each noun together with its sentence pattern: nominative for naming, instrumental after jestem, accusative for a direct object, and locative after selected prepositions. Verbs agree with person; pan/pani requires third-person grammar.",
+                    "Polish marks grammatical roles with endings. At A1, learn each noun together with its sentence pattern: nominative for naming, instrumental after jestem, accusative for a direct object, and locative after selected prepositions. Verbs agree with person; pan/pani requires third-person grammar."
+                  ]
+                },
+                {
+                  "instruction": "Translate the beginner exchange.",
+                  "items": [
+                    "Dzień dobry, mam na imię Anna.",
+                    "Jestem studentką, a pan jest nauczycielem."
+                  ],
+                  "key": [
+                    "Good morning, my name is Anna.",
+                    "I am a student, and you are a teacher."
+                  ]
+                },
+                {
+                  "instruction": "Write and read a parallel sentence.",
+                  "items": [
+                    "Good morning, my name is Anna.",
+                    "I am a student, and you are a teacher."
+                  ],
+                  "key": [
+                    "Model: Dzień dobry, mam na imię Anna.",
+                    "Model: Jestem studentką, a pan jest nauczycielem."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "Dzień",
+              "dobry",
+              "mam",
+              "na"
+            ],
+            "srs_policy": "Only high-value forms are preselected; mistakes and productive patterns enter review after learner evidence."
+          },
+          {
+            "id": "pl-a1-l2",
+            "title": "Tożsamość z narzędnikiem",
+            "learn": "Use tożsamość z narzędnikiem in a short beginner exchange.",
+            "vocab": [
+              {
+                "t": "Jestem",
+                "r": "Jestem",
+                "en": "word in context: I am a student, and you are a teacher.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "studentką",
+                "r": "studentką",
+                "en": "word in context: I am a student, and you are a teacher.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "a",
+                "r": "a",
+                "en": "word in context: I am a student, and you are a teacher.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "pan",
+                "r": "pan",
+                "en": "word in context: I am a student, and you are a teacher.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "jest",
+                "r": "jest",
+                "en": "word in context: I am a student, and you are a teacher.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "nauczycielem",
+                "r": "nauczycielem",
+                "en": "word in context: I am a student, and you are a teacher.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "proszę",
+                "r": "proszę",
+                "en": "word in context: I am a student, and you are a teacher.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "dziękuję",
+                "r": "dziękuję",
+                "en": "word in context: I am a student, and you are a teacher.",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Tożsamość z narzędnikiem",
+              "explain": "Polish marks grammatical roles with endings. At A1, learn each noun together with its sentence pattern: nominative for naming, instrumental after jestem, accusative for a direct object, and locative after selected prepositions. Verbs agree with person; pan/pani requires third-person grammar.",
+              "pattern": "subject or polite address + agreeing verb + case-marked complement",
+              "examples": [
+                {
+                  "t": "Jestem studentką, a pan jest nauczycielem.",
+                  "r": "Jestem studentką, a pan jest nauczycielem.",
+                  "en": "I am a student, and you are a teacher."
+                },
+                {
+                  "t": "Codziennie rano uczę się polskiego.",
+                  "r": "Codziennie rano uczę się polskiego.",
+                  "en": "I study Polish every morning."
+                },
+                {
+                  "t": "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                  "r": "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                  "en": "Do you live near the school? No, I live in the centre."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Jestem studentka.",
+                  "right": "Jestem studentką.",
+                  "why": "The complement after jestem uses the instrumental case."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Jestem studentką, a pan jest nauczycielem.",
+                "r": "Jestem studentką, a pan jest nauczycielem.",
+                "en": "I am a student, and you are a teacher."
+              },
+              {
+                "sp": "Partner",
+                "t": "Codziennie rano uczę się polskiego.",
+                "r": "Codziennie rano uczę się polskiego.",
+                "en": "I study Polish every morning."
+              },
+              {
+                "sp": "Teacher",
+                "t": "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "r": "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "en": "Do you live near the school? No, I live in the centre."
+              },
+              {
+                "sp": "Reviewer",
+                "t": "Mam nową książkę i mały słownik.",
+                "r": "Mam nową książkę i mały słownik.",
+                "en": "I have a new book and a small dictionary."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reorder",
+                "q": "Tożsamość z narzędnikiem — reorder: recognise or produce this A1 Polish model with the correct ending: Jestem studentką, a pan jest nauczycielem.",
+                "answer": "Jestem studentką, a pan jest nauczycielem.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Tożsamość z narzędnikiem — sentence building: recognise or produce this A1 Polish model with the correct ending: Jestem studentką, a pan jest nauczycielem.",
+                "answer": "Jestem studentką, a pan jest nauczycielem.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Tożsamość z narzędnikiem — word selection: recognise or produce this A1 Polish model with the correct ending: Jestem studentką, a pan jest nauczycielem.",
+                "answer": "Jestem studentką, a pan jest nauczycielem.",
+                "skill_target": "word selection",
+                "options": [
+                  "Jestem studentką, a pan jest nauczycielem.",
+                  "Jestem studentka.",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Tożsamość z narzędnikiem — error correction: recognise or produce this A1 Polish model with the correct ending: Jestem studentką, a pan jest nauczycielem.",
+                "answer": "Jestem studentką, a pan jest nauczycielem.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Tożsamość z narzędnikiem — dialogue completion: recognise or produce this A1 Polish model with the correct ending: Jestem studentką, a pan jest nauczycielem.",
+                "answer": "Jestem studentką, a pan jest nauczycielem.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Tożsamość z narzędnikiem — reading comprehension: recognise or produce this A1 Polish model with the correct ending: Jestem studentką, a pan jest nauczycielem.",
+                "answer": "Jestem studentką, a pan jest nauczycielem.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Tożsamość z narzędnikiem — paragraph comprehension: recognise or produce this A1 Polish model with the correct ending: Jestem studentką, a pan jest nauczycielem.",
+                "answer": "Jestem studentką, a pan jest nauczycielem.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Tożsamość z narzędnikiem — multiple choice: recognise or produce this A1 Polish model with the correct ending: Jestem studentką, a pan jest nauczycielem.",
+                "answer": "Jestem studentką, a pan jest nauczycielem.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Jestem studentką, a pan jest nauczycielem.",
+                  "Jestem studentka.",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Tożsamość z narzędnikiem — fill in the blank: recognise or produce this A1 Polish model with the correct ending: Jestem studentką, a pan jest nauczycielem.",
+                "answer": "Jestem studentką, a pan jest nauczycielem.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Tożsamość z narzędnikiem — translation: recognise or produce this A1 Polish model with the correct ending: Jestem studentką, a pan jest nauczycielem.",
+                "answer": "I am a student, and you are a teacher.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Tożsamość z narzędnikiem — reverse translation: recognise or produce this A1 Polish model with the correct ending: Jestem studentką, a pan jest nauczycielem.",
+                "answer": "Jestem studentką, a pan jest nauczycielem.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Tożsamość z narzędnikiem — matching: recognise or produce this A1 Polish model with the correct ending: Jestem studentką, a pan jest nauczycielem.",
+                "answer": "Jestem studentką, a pan jest nauczycielem.",
+                "skill_target": "matching",
+                "options": [
+                  "Jestem studentką, a pan jest nauczycielem.",
+                  "Jestem studentka.",
+                  "An unrelated greeting"
+                ]
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Tożsamość z narzędnikiem: which model has the intended meaning and case ending? (1)",
+                "options": [
+                  "Jestem studentką, a pan jest nauczycielem.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              },
+              {
+                "q": "Tożsamość z narzędnikiem: which model has the intended meaning and case ending? (2)",
+                "options": [
+                  "Jestem studentką, a pan jest nauczycielem.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              },
+              {
+                "q": "Tożsamość z narzędnikiem: which model has the intended meaning and case ending? (3)",
+                "options": [
+                  "Jestem studentką, a pan jest nauczycielem.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              },
+              {
+                "q": "Tożsamość z narzędnikiem: which model has the intended meaning and case ending? (4)",
+                "options": [
+                  "Jestem studentką, a pan jest nauczycielem.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              },
+              {
+                "q": "Tożsamość z narzędnikiem: which model has the intended meaning and case ending? (5)",
+                "options": [
+                  "Jestem studentką, a pan jest nauczycielem.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Tożsamość z narzędnikiem workshop",
+              "tasks": [
+                {
+                  "instruction": "Underline the verb and case ending.",
+                  "items": [
+                    "Jestem studentką, a pan jest nauczycielem.",
+                    "Codziennie rano uczę się polskiego."
+                  ],
+                  "key": [
+                    "Polish marks grammatical roles with endings. At A1, learn each noun together with its sentence pattern: nominative for naming, instrumental after jestem, accusative for a direct object, and locative after selected prepositions. Verbs agree with person; pan/pani requires third-person grammar.",
+                    "Polish marks grammatical roles with endings. At A1, learn each noun together with its sentence pattern: nominative for naming, instrumental after jestem, accusative for a direct object, and locative after selected prepositions. Verbs agree with person; pan/pani requires third-person grammar."
+                  ]
+                },
+                {
+                  "instruction": "Translate the beginner exchange.",
+                  "items": [
+                    "Jestem studentką, a pan jest nauczycielem.",
+                    "Codziennie rano uczę się polskiego."
+                  ],
+                  "key": [
+                    "I am a student, and you are a teacher.",
+                    "I study Polish every morning."
+                  ]
+                },
+                {
+                  "instruction": "Write and read a parallel sentence.",
+                  "items": [
+                    "I am a student, and you are a teacher.",
+                    "I study Polish every morning."
+                  ],
+                  "key": [
+                    "Model: Jestem studentką, a pan jest nauczycielem.",
+                    "Model: Codziennie rano uczę się polskiego."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "Jestem",
+              "studentką",
+              "a",
+              "pan"
+            ],
+            "srs_policy": "Only high-value forms are preselected; mistakes and productive patterns enter review after learner evidence."
+          }
+        ]
+      },
+      {
+        "id": "pl-a1-u2",
+        "title": "Daily life",
+        "lessons": [
+          {
+            "id": "pl-a1-l3",
+            "title": "Codzienne czynności",
+            "learn": "Use codzienne czynności in a short beginner exchange.",
+            "vocab": [
+              {
+                "t": "Codziennie",
+                "r": "Codziennie",
+                "en": "word in context: I study Polish every morning.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "rano",
+                "r": "rano",
+                "en": "word in context: I study Polish every morning.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "uczę",
+                "r": "uczę",
+                "en": "word in context: I study Polish every morning.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "się",
+                "r": "się",
+                "en": "word in context: I study Polish every morning.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "polskiego",
+                "r": "polskiego",
+                "en": "word in context: I study Polish every morning.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "proszę",
+                "r": "proszę",
+                "en": "word in context: I study Polish every morning.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "dziękuję",
+                "r": "dziękuję",
+                "en": "word in context: I study Polish every morning.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "tak",
+                "r": "tak",
+                "en": "word in context: I study Polish every morning.",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Codzienne czynności",
+              "explain": "Polish marks grammatical roles with endings. At A1, learn each noun together with its sentence pattern: nominative for naming, instrumental after jestem, accusative for a direct object, and locative after selected prepositions. Verbs agree with person; pan/pani requires third-person grammar.",
+              "pattern": "subject or polite address + agreeing verb + case-marked complement",
+              "examples": [
+                {
+                  "t": "Codziennie rano uczę się polskiego.",
+                  "r": "Codziennie rano uczę się polskiego.",
+                  "en": "I study Polish every morning."
+                },
+                {
+                  "t": "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                  "r": "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                  "en": "Do you live near the school? No, I live in the centre."
+                },
+                {
+                  "t": "Mam nową książkę i mały słownik.",
+                  "r": "Mam nową książkę i mały słownik.",
+                  "en": "I have a new book and a small dictionary."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Jestem studentka.",
+                  "right": "Jestem studentką.",
+                  "why": "The complement after jestem uses the instrumental case."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Codziennie rano uczę się polskiego.",
+                "r": "Codziennie rano uczę się polskiego.",
+                "en": "I study Polish every morning."
+              },
+              {
+                "sp": "Partner",
+                "t": "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "r": "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "en": "Do you live near the school? No, I live in the centre."
+              },
+              {
+                "sp": "Teacher",
+                "t": "Mam nową książkę i mały słownik.",
+                "r": "Mam nową książkę i mały słownik.",
+                "en": "I have a new book and a small dictionary."
+              },
+              {
+                "sp": "Reviewer",
+                "t": "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "r": "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "en": "The bus stop is by the market square, and the café is in the centre."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reading_comprehension",
+                "q": "Codzienne czynności — reading comprehension: recognise or produce this A1 Polish model with the correct ending: Codziennie rano uczę się polskiego.",
+                "answer": "Codziennie rano uczę się polskiego.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Codzienne czynności — paragraph comprehension: recognise or produce this A1 Polish model with the correct ending: Codziennie rano uczę się polskiego.",
+                "answer": "Codziennie rano uczę się polskiego.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Codzienne czynności — multiple choice: recognise or produce this A1 Polish model with the correct ending: Codziennie rano uczę się polskiego.",
+                "answer": "Codziennie rano uczę się polskiego.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Codziennie rano uczę się polskiego.",
+                  "Jestem studentka.",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Codzienne czynności — fill in the blank: recognise or produce this A1 Polish model with the correct ending: Codziennie rano uczę się polskiego.",
+                "answer": "Codziennie rano uczę się polskiego.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Codzienne czynności — translation: recognise or produce this A1 Polish model with the correct ending: Codziennie rano uczę się polskiego.",
+                "answer": "I study Polish every morning.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Codzienne czynności — reverse translation: recognise or produce this A1 Polish model with the correct ending: Codziennie rano uczę się polskiego.",
+                "answer": "Codziennie rano uczę się polskiego.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Codzienne czynności — matching: recognise or produce this A1 Polish model with the correct ending: Codziennie rano uczę się polskiego.",
+                "answer": "Codziennie rano uczę się polskiego.",
+                "skill_target": "matching",
+                "options": [
+                  "Codziennie rano uczę się polskiego.",
+                  "Jestem studentka.",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Codzienne czynności — reorder: recognise or produce this A1 Polish model with the correct ending: Codziennie rano uczę się polskiego.",
+                "answer": "Codziennie rano uczę się polskiego.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Codzienne czynności — sentence building: recognise or produce this A1 Polish model with the correct ending: Codziennie rano uczę się polskiego.",
+                "answer": "Codziennie rano uczę się polskiego.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Codzienne czynności — word selection: recognise or produce this A1 Polish model with the correct ending: Codziennie rano uczę się polskiego.",
+                "answer": "Codziennie rano uczę się polskiego.",
+                "skill_target": "word selection",
+                "options": [
+                  "Codziennie rano uczę się polskiego.",
+                  "Jestem studentka.",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Codzienne czynności — error correction: recognise or produce this A1 Polish model with the correct ending: Codziennie rano uczę się polskiego.",
+                "answer": "Codziennie rano uczę się polskiego.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Codzienne czynności — dialogue completion: recognise or produce this A1 Polish model with the correct ending: Codziennie rano uczę się polskiego.",
+                "answer": "Codziennie rano uczę się polskiego.",
+                "skill_target": "dialogue completion"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Codzienne czynności: which model has the intended meaning and case ending? (1)",
+                "options": [
+                  "Codziennie rano uczę się polskiego.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              },
+              {
+                "q": "Codzienne czynności: which model has the intended meaning and case ending? (2)",
+                "options": [
+                  "Codziennie rano uczę się polskiego.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              },
+              {
+                "q": "Codzienne czynności: which model has the intended meaning and case ending? (3)",
+                "options": [
+                  "Codziennie rano uczę się polskiego.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              },
+              {
+                "q": "Codzienne czynności: which model has the intended meaning and case ending? (4)",
+                "options": [
+                  "Codziennie rano uczę się polskiego.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              },
+              {
+                "q": "Codzienne czynności: which model has the intended meaning and case ending? (5)",
+                "options": [
+                  "Codziennie rano uczę się polskiego.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Codzienne czynności workshop",
+              "tasks": [
+                {
+                  "instruction": "Underline the verb and case ending.",
+                  "items": [
+                    "Codziennie rano uczę się polskiego.",
+                    "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum."
+                  ],
+                  "key": [
+                    "Polish marks grammatical roles with endings. At A1, learn each noun together with its sentence pattern: nominative for naming, instrumental after jestem, accusative for a direct object, and locative after selected prepositions. Verbs agree with person; pan/pani requires third-person grammar.",
+                    "Polish marks grammatical roles with endings. At A1, learn each noun together with its sentence pattern: nominative for naming, instrumental after jestem, accusative for a direct object, and locative after selected prepositions. Verbs agree with person; pan/pani requires third-person grammar."
+                  ]
+                },
+                {
+                  "instruction": "Translate the beginner exchange.",
+                  "items": [
+                    "Codziennie rano uczę się polskiego.",
+                    "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum."
+                  ],
+                  "key": [
+                    "I study Polish every morning.",
+                    "Do you live near the school? No, I live in the centre."
+                  ]
+                },
+                {
+                  "instruction": "Write and read a parallel sentence.",
+                  "items": [
+                    "I study Polish every morning.",
+                    "Do you live near the school? No, I live in the centre."
+                  ],
+                  "key": [
+                    "Model: Codziennie rano uczę się polskiego.",
+                    "Model: Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "Codziennie",
+              "rano",
+              "uczę",
+              "się"
+            ],
+            "srs_policy": "Only high-value forms are preselected; mistakes and productive patterns enter review after learner evidence."
+          },
+          {
+            "id": "pl-a1-l4",
+            "title": "Pytania i przeczenie",
+            "learn": "Use pytania i przeczenie in a short beginner exchange.",
+            "vocab": [
+              {
+                "t": "Czy",
+                "r": "Czy",
+                "en": "word in context: Do you live near the school? No, I live in the centre.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "mieszkasz",
+                "r": "mieszkasz",
+                "en": "word in context: Do you live near the school? No, I live in the centre.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "blisko",
+                "r": "blisko",
+                "en": "word in context: Do you live near the school? No, I live in the centre.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "szkoły",
+                "r": "szkoły",
+                "en": "word in context: Do you live near the school? No, I live in the centre.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "Nie",
+                "r": "Nie",
+                "en": "word in context: Do you live near the school? No, I live in the centre.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "mieszkam",
+                "r": "mieszkam",
+                "en": "word in context: Do you live near the school? No, I live in the centre.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "w",
+                "r": "w",
+                "en": "word in context: Do you live near the school? No, I live in the centre.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "centrum",
+                "r": "centrum",
+                "en": "word in context: Do you live near the school? No, I live in the centre.",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Pytania i przeczenie",
+              "explain": "Polish marks grammatical roles with endings. At A1, learn each noun together with its sentence pattern: nominative for naming, instrumental after jestem, accusative for a direct object, and locative after selected prepositions. Verbs agree with person; pan/pani requires third-person grammar.",
+              "pattern": "subject or polite address + agreeing verb + case-marked complement",
+              "examples": [
+                {
+                  "t": "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                  "r": "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                  "en": "Do you live near the school? No, I live in the centre."
+                },
+                {
+                  "t": "Mam nową książkę i mały słownik.",
+                  "r": "Mam nową książkę i mały słownik.",
+                  "en": "I have a new book and a small dictionary."
+                },
+                {
+                  "t": "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                  "r": "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                  "en": "The bus stop is by the market square, and the café is in the centre."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Jestem studentka.",
+                  "right": "Jestem studentką.",
+                  "why": "The complement after jestem uses the instrumental case."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "r": "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "en": "Do you live near the school? No, I live in the centre."
+              },
+              {
+                "sp": "Partner",
+                "t": "Mam nową książkę i mały słownik.",
+                "r": "Mam nową książkę i mały słownik.",
+                "en": "I have a new book and a small dictionary."
+              },
+              {
+                "sp": "Teacher",
+                "t": "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "r": "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "en": "The bus stop is by the market square, and the café is in the centre."
+              },
+              {
+                "sp": "Reviewer",
+                "t": "Dzień dobry, mam na imię Anna.",
+                "r": "Dzień dobry, mam na imię Anna.",
+                "en": "Good morning, my name is Anna."
+              }
+            ],
+            "practice": [
+              {
+                "type": "reverse_translation",
+                "q": "Pytania i przeczenie — reverse translation: recognise or produce this A1 Polish model with the correct ending: Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "answer": "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Pytania i przeczenie — matching: recognise or produce this A1 Polish model with the correct ending: Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "answer": "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "skill_target": "matching",
+                "options": [
+                  "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                  "Jestem studentka.",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Pytania i przeczenie — reorder: recognise or produce this A1 Polish model with the correct ending: Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "answer": "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Pytania i przeczenie — sentence building: recognise or produce this A1 Polish model with the correct ending: Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "answer": "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Pytania i przeczenie — word selection: recognise or produce this A1 Polish model with the correct ending: Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "answer": "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "skill_target": "word selection",
+                "options": [
+                  "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                  "Jestem studentka.",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Pytania i przeczenie — error correction: recognise or produce this A1 Polish model with the correct ending: Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "answer": "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Pytania i przeczenie — dialogue completion: recognise or produce this A1 Polish model with the correct ending: Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "answer": "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Pytania i przeczenie — reading comprehension: recognise or produce this A1 Polish model with the correct ending: Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "answer": "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Pytania i przeczenie — paragraph comprehension: recognise or produce this A1 Polish model with the correct ending: Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "answer": "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Pytania i przeczenie — multiple choice: recognise or produce this A1 Polish model with the correct ending: Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "answer": "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                  "Jestem studentka.",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Pytania i przeczenie — fill in the blank: recognise or produce this A1 Polish model with the correct ending: Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "answer": "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Pytania i przeczenie — translation: recognise or produce this A1 Polish model with the correct ending: Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                "answer": "Do you live near the school? No, I live in the centre.",
+                "skill_target": "translation"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Pytania i przeczenie: which model has the intended meaning and case ending? (1)",
+                "options": [
+                  "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              },
+              {
+                "q": "Pytania i przeczenie: which model has the intended meaning and case ending? (2)",
+                "options": [
+                  "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              },
+              {
+                "q": "Pytania i przeczenie: which model has the intended meaning and case ending? (3)",
+                "options": [
+                  "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              },
+              {
+                "q": "Pytania i przeczenie: which model has the intended meaning and case ending? (4)",
+                "options": [
+                  "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              },
+              {
+                "q": "Pytania i przeczenie: which model has the intended meaning and case ending? (5)",
+                "options": [
+                  "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Pytania i przeczenie workshop",
+              "tasks": [
+                {
+                  "instruction": "Underline the verb and case ending.",
+                  "items": [
+                    "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                    "Mam nową książkę i mały słownik."
+                  ],
+                  "key": [
+                    "Polish marks grammatical roles with endings. At A1, learn each noun together with its sentence pattern: nominative for naming, instrumental after jestem, accusative for a direct object, and locative after selected prepositions. Verbs agree with person; pan/pani requires third-person grammar.",
+                    "Polish marks grammatical roles with endings. At A1, learn each noun together with its sentence pattern: nominative for naming, instrumental after jestem, accusative for a direct object, and locative after selected prepositions. Verbs agree with person; pan/pani requires third-person grammar."
+                  ]
+                },
+                {
+                  "instruction": "Translate the beginner exchange.",
+                  "items": [
+                    "Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                    "Mam nową książkę i mały słownik."
+                  ],
+                  "key": [
+                    "Do you live near the school? No, I live in the centre.",
+                    "I have a new book and a small dictionary."
+                  ]
+                },
+                {
+                  "instruction": "Write and read a parallel sentence.",
+                  "items": [
+                    "Do you live near the school? No, I live in the centre.",
+                    "I have a new book and a small dictionary."
+                  ],
+                  "key": [
+                    "Model: Czy mieszkasz blisko szkoły? Nie, mieszkam w centrum.",
+                    "Model: Mam nową książkę i mały słownik."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "Czy",
+              "mieszkasz",
+              "blisko",
+              "szkoły"
+            ],
+            "srs_policy": "Only high-value forms are preselected; mistakes and productive patterns enter review after learner evidence."
+          }
+        ]
+      },
+      {
+        "id": "pl-a1-u3",
+        "title": "Describing words",
+        "lessons": [
+          {
+            "id": "pl-a1-l5",
+            "title": "Biernik i rodzaj",
+            "learn": "Use biernik i rodzaj in a short beginner exchange.",
+            "vocab": [
+              {
+                "t": "Mam",
+                "r": "Mam",
+                "en": "word in context: I have a new book and a small dictionary.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "nową",
+                "r": "nową",
+                "en": "word in context: I have a new book and a small dictionary.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "książkę",
+                "r": "książkę",
+                "en": "word in context: I have a new book and a small dictionary.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "i",
+                "r": "i",
+                "en": "word in context: I have a new book and a small dictionary.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "mały",
+                "r": "mały",
+                "en": "word in context: I have a new book and a small dictionary.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "słownik",
+                "r": "słownik",
+                "en": "word in context: I have a new book and a small dictionary.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "proszę",
+                "r": "proszę",
+                "en": "word in context: I have a new book and a small dictionary.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "dziękuję",
+                "r": "dziękuję",
+                "en": "word in context: I have a new book and a small dictionary.",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Biernik i rodzaj",
+              "explain": "Polish marks grammatical roles with endings. At A1, learn each noun together with its sentence pattern: nominative for naming, instrumental after jestem, accusative for a direct object, and locative after selected prepositions. Verbs agree with person; pan/pani requires third-person grammar.",
+              "pattern": "subject or polite address + agreeing verb + case-marked complement",
+              "examples": [
+                {
+                  "t": "Mam nową książkę i mały słownik.",
+                  "r": "Mam nową książkę i mały słownik.",
+                  "en": "I have a new book and a small dictionary."
+                },
+                {
+                  "t": "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                  "r": "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                  "en": "The bus stop is by the market square, and the café is in the centre."
+                },
+                {
+                  "t": "Dzień dobry, mam na imię Anna.",
+                  "r": "Dzień dobry, mam na imię Anna.",
+                  "en": "Good morning, my name is Anna."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Jestem studentka.",
+                  "right": "Jestem studentką.",
+                  "why": "The complement after jestem uses the instrumental case."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Mam nową książkę i mały słownik.",
+                "r": "Mam nową książkę i mały słownik.",
+                "en": "I have a new book and a small dictionary."
+              },
+              {
+                "sp": "Partner",
+                "t": "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "r": "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "en": "The bus stop is by the market square, and the café is in the centre."
+              },
+              {
+                "sp": "Teacher",
+                "t": "Dzień dobry, mam na imię Anna.",
+                "r": "Dzień dobry, mam na imię Anna.",
+                "en": "Good morning, my name is Anna."
+              },
+              {
+                "sp": "Reviewer",
+                "t": "Jestem studentką, a pan jest nauczycielem.",
+                "r": "Jestem studentką, a pan jest nauczycielem.",
+                "en": "I am a student, and you are a teacher."
+              }
+            ],
+            "practice": [
+              {
+                "type": "error_correction",
+                "q": "Biernik i rodzaj — error correction: recognise or produce this A1 Polish model with the correct ending: Mam nową książkę i mały słownik.",
+                "answer": "Mam nową książkę i mały słownik.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Biernik i rodzaj — dialogue completion: recognise or produce this A1 Polish model with the correct ending: Mam nową książkę i mały słownik.",
+                "answer": "Mam nową książkę i mały słownik.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Biernik i rodzaj — reading comprehension: recognise or produce this A1 Polish model with the correct ending: Mam nową książkę i mały słownik.",
+                "answer": "Mam nową książkę i mały słownik.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Biernik i rodzaj — paragraph comprehension: recognise or produce this A1 Polish model with the correct ending: Mam nową książkę i mały słownik.",
+                "answer": "Mam nową książkę i mały słownik.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Biernik i rodzaj — multiple choice: recognise or produce this A1 Polish model with the correct ending: Mam nową książkę i mały słownik.",
+                "answer": "Mam nową książkę i mały słownik.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Mam nową książkę i mały słownik.",
+                  "Jestem studentka.",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Biernik i rodzaj — fill in the blank: recognise or produce this A1 Polish model with the correct ending: Mam nową książkę i mały słownik.",
+                "answer": "Mam nową książkę i mały słownik.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Biernik i rodzaj — translation: recognise or produce this A1 Polish model with the correct ending: Mam nową książkę i mały słownik.",
+                "answer": "I have a new book and a small dictionary.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Biernik i rodzaj — reverse translation: recognise or produce this A1 Polish model with the correct ending: Mam nową książkę i mały słownik.",
+                "answer": "Mam nową książkę i mały słownik.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Biernik i rodzaj — matching: recognise or produce this A1 Polish model with the correct ending: Mam nową książkę i mały słownik.",
+                "answer": "Mam nową książkę i mały słownik.",
+                "skill_target": "matching",
+                "options": [
+                  "Mam nową książkę i mały słownik.",
+                  "Jestem studentka.",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Biernik i rodzaj — reorder: recognise or produce this A1 Polish model with the correct ending: Mam nową książkę i mały słownik.",
+                "answer": "Mam nową książkę i mały słownik.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Biernik i rodzaj — sentence building: recognise or produce this A1 Polish model with the correct ending: Mam nową książkę i mały słownik.",
+                "answer": "Mam nową książkę i mały słownik.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Biernik i rodzaj — word selection: recognise or produce this A1 Polish model with the correct ending: Mam nową książkę i mały słownik.",
+                "answer": "Mam nową książkę i mały słownik.",
+                "skill_target": "word selection",
+                "options": [
+                  "Mam nową książkę i mały słownik.",
+                  "Jestem studentka.",
+                  "An unrelated greeting"
+                ]
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Biernik i rodzaj: which model has the intended meaning and case ending? (1)",
+                "options": [
+                  "Mam nową książkę i mały słownik.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              },
+              {
+                "q": "Biernik i rodzaj: which model has the intended meaning and case ending? (2)",
+                "options": [
+                  "Mam nową książkę i mały słownik.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              },
+              {
+                "q": "Biernik i rodzaj: which model has the intended meaning and case ending? (3)",
+                "options": [
+                  "Mam nową książkę i mały słownik.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              },
+              {
+                "q": "Biernik i rodzaj: which model has the intended meaning and case ending? (4)",
+                "options": [
+                  "Mam nową książkę i mały słownik.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              },
+              {
+                "q": "Biernik i rodzaj: which model has the intended meaning and case ending? (5)",
+                "options": [
+                  "Mam nową książkę i mały słownik.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Biernik i rodzaj workshop",
+              "tasks": [
+                {
+                  "instruction": "Underline the verb and case ending.",
+                  "items": [
+                    "Mam nową książkę i mały słownik.",
+                    "Przystanek jest przy rynku, a kawiarnia w centrum."
+                  ],
+                  "key": [
+                    "Polish marks grammatical roles with endings. At A1, learn each noun together with its sentence pattern: nominative for naming, instrumental after jestem, accusative for a direct object, and locative after selected prepositions. Verbs agree with person; pan/pani requires third-person grammar.",
+                    "Polish marks grammatical roles with endings. At A1, learn each noun together with its sentence pattern: nominative for naming, instrumental after jestem, accusative for a direct object, and locative after selected prepositions. Verbs agree with person; pan/pani requires third-person grammar."
+                  ]
+                },
+                {
+                  "instruction": "Translate the beginner exchange.",
+                  "items": [
+                    "Mam nową książkę i mały słownik.",
+                    "Przystanek jest przy rynku, a kawiarnia w centrum."
+                  ],
+                  "key": [
+                    "I have a new book and a small dictionary.",
+                    "The bus stop is by the market square, and the café is in the centre."
+                  ]
+                },
+                {
+                  "instruction": "Write and read a parallel sentence.",
+                  "items": [
+                    "I have a new book and a small dictionary.",
+                    "The bus stop is by the market square, and the café is in the centre."
+                  ],
+                  "key": [
+                    "Model: Mam nową książkę i mały słownik.",
+                    "Model: Przystanek jest przy rynku, a kawiarnia w centrum."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "Mam",
+              "nową",
+              "książkę",
+              "i"
+            ],
+            "srs_policy": "Only high-value forms are preselected; mistakes and productive patterns enter review after learner evidence."
+          },
+          {
+            "id": "pl-a1-l6",
+            "title": "Miejsce z miejscownikiem",
+            "learn": "Use miejsce z miejscownikiem in a short beginner exchange.",
+            "vocab": [
+              {
+                "t": "Przystanek",
+                "r": "Przystanek",
+                "en": "word in context: The bus stop is by the market square, and the café is in the centre.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "jest",
+                "r": "jest",
+                "en": "word in context: The bus stop is by the market square, and the café is in the centre.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "przy",
+                "r": "przy",
+                "en": "word in context: The bus stop is by the market square, and the café is in the centre.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "rynku",
+                "r": "rynku",
+                "en": "word in context: The bus stop is by the market square, and the café is in the centre.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "a",
+                "r": "a",
+                "en": "word in context: The bus stop is by the market square, and the café is in the centre.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "kawiarnia",
+                "r": "kawiarnia",
+                "en": "word in context: The bus stop is by the market square, and the café is in the centre.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "w",
+                "r": "w",
+                "en": "word in context: The bus stop is by the market square, and the café is in the centre.",
+                "pos": "word or phrase"
+              },
+              {
+                "t": "centrum",
+                "r": "centrum",
+                "en": "word in context: The bus stop is by the market square, and the café is in the centre.",
+                "pos": "word or phrase"
+              }
+            ],
+            "grammar": {
+              "title": "Miejsce z miejscownikiem",
+              "explain": "Polish marks grammatical roles with endings. At A1, learn each noun together with its sentence pattern: nominative for naming, instrumental after jestem, accusative for a direct object, and locative after selected prepositions. Verbs agree with person; pan/pani requires third-person grammar.",
+              "pattern": "subject or polite address + agreeing verb + case-marked complement",
+              "examples": [
+                {
+                  "t": "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                  "r": "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                  "en": "The bus stop is by the market square, and the café is in the centre."
+                },
+                {
+                  "t": "Dzień dobry, mam na imię Anna.",
+                  "r": "Dzień dobry, mam na imię Anna.",
+                  "en": "Good morning, my name is Anna."
+                },
+                {
+                  "t": "Jestem studentką, a pan jest nauczycielem.",
+                  "r": "Jestem studentką, a pan jest nauczycielem.",
+                  "en": "I am a student, and you are a teacher."
+                }
+              ],
+              "mistakes": [
+                {
+                  "wrong": "Jestem studentka.",
+                  "right": "Jestem studentką.",
+                  "why": "The complement after jestem uses the instrumental case."
+                }
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Learner",
+                "t": "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "r": "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "en": "The bus stop is by the market square, and the café is in the centre."
+              },
+              {
+                "sp": "Partner",
+                "t": "Dzień dobry, mam na imię Anna.",
+                "r": "Dzień dobry, mam na imię Anna.",
+                "en": "Good morning, my name is Anna."
+              },
+              {
+                "sp": "Teacher",
+                "t": "Jestem studentką, a pan jest nauczycielem.",
+                "r": "Jestem studentką, a pan jest nauczycielem.",
+                "en": "I am a student, and you are a teacher."
+              },
+              {
+                "sp": "Reviewer",
+                "t": "Codziennie rano uczę się polskiego.",
+                "r": "Codziennie rano uczę się polskiego.",
+                "en": "I study Polish every morning."
+              }
+            ],
+            "practice": [
+              {
+                "type": "fill_in_the_blank",
+                "q": "Miejsce z miejscownikiem — fill in the blank: recognise or produce this A1 Polish model with the correct ending: Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "answer": "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "skill_target": "fill in the blank"
+              },
+              {
+                "type": "translation",
+                "q": "Miejsce z miejscownikiem — translation: recognise or produce this A1 Polish model with the correct ending: Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "answer": "The bus stop is by the market square, and the café is in the centre.",
+                "skill_target": "translation"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Miejsce z miejscownikiem — reverse translation: recognise or produce this A1 Polish model with the correct ending: Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "answer": "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "skill_target": "reverse translation"
+              },
+              {
+                "type": "matching",
+                "q": "Miejsce z miejscownikiem — matching: recognise or produce this A1 Polish model with the correct ending: Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "answer": "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "skill_target": "matching",
+                "options": [
+                  "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                  "Jestem studentka.",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Miejsce z miejscownikiem — reorder: recognise or produce this A1 Polish model with the correct ending: Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "answer": "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "skill_target": "reorder"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Miejsce z miejscownikiem — sentence building: recognise or produce this A1 Polish model with the correct ending: Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "answer": "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "skill_target": "sentence building"
+              },
+              {
+                "type": "word_selection",
+                "q": "Miejsce z miejscownikiem — word selection: recognise or produce this A1 Polish model with the correct ending: Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "answer": "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "skill_target": "word selection",
+                "options": [
+                  "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                  "Jestem studentka.",
+                  "An unrelated greeting"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Miejsce z miejscownikiem — error correction: recognise or produce this A1 Polish model with the correct ending: Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "answer": "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "skill_target": "error correction"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Miejsce z miejscownikiem — dialogue completion: recognise or produce this A1 Polish model with the correct ending: Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "answer": "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "skill_target": "dialogue completion"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Miejsce z miejscownikiem — reading comprehension: recognise or produce this A1 Polish model with the correct ending: Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "answer": "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "skill_target": "reading comprehension"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Miejsce z miejscownikiem — paragraph comprehension: recognise or produce this A1 Polish model with the correct ending: Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "answer": "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "skill_target": "paragraph comprehension"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Miejsce z miejscownikiem — multiple choice: recognise or produce this A1 Polish model with the correct ending: Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "answer": "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                "skill_target": "multiple choice",
+                "options": [
+                  "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                  "Jestem studentka.",
+                  "An unrelated greeting"
+                ]
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Miejsce z miejscownikiem: which model has the intended meaning and case ending? (1)",
+                "options": [
+                  "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              },
+              {
+                "q": "Miejsce z miejscownikiem: which model has the intended meaning and case ending? (2)",
+                "options": [
+                  "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              },
+              {
+                "q": "Miejsce z miejscownikiem: which model has the intended meaning and case ending? (3)",
+                "options": [
+                  "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              },
+              {
+                "q": "Miejsce z miejscownikiem: which model has the intended meaning and case ending? (4)",
+                "options": [
+                  "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              },
+              {
+                "q": "Miejsce z miejscownikiem: which model has the intended meaning and case ending? (5)",
+                "options": [
+                  "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                  "Jestem studentka.",
+                  "An unrelated sentence",
+                  "A sentence without a verb"
+                ],
+                "answer": 0,
+                "why": "The model uses the level-appropriate Polish ending and agreement."
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Miejsce z miejscownikiem workshop",
+              "tasks": [
+                {
+                  "instruction": "Underline the verb and case ending.",
+                  "items": [
+                    "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                    "Dzień dobry, mam na imię Anna."
+                  ],
+                  "key": [
+                    "Polish marks grammatical roles with endings. At A1, learn each noun together with its sentence pattern: nominative for naming, instrumental after jestem, accusative for a direct object, and locative after selected prepositions. Verbs agree with person; pan/pani requires third-person grammar.",
+                    "Polish marks grammatical roles with endings. At A1, learn each noun together with its sentence pattern: nominative for naming, instrumental after jestem, accusative for a direct object, and locative after selected prepositions. Verbs agree with person; pan/pani requires third-person grammar."
+                  ]
+                },
+                {
+                  "instruction": "Translate the beginner exchange.",
+                  "items": [
+                    "Przystanek jest przy rynku, a kawiarnia w centrum.",
+                    "Dzień dobry, mam na imię Anna."
+                  ],
+                  "key": [
+                    "The bus stop is by the market square, and the café is in the centre.",
+                    "Good morning, my name is Anna."
+                  ]
+                },
+                {
+                  "instruction": "Write and read a parallel sentence.",
+                  "items": [
+                    "The bus stop is by the market square, and the café is in the centre.",
+                    "Good morning, my name is Anna."
+                  ],
+                  "key": [
+                    "Model: Przystanek jest przy rynku, a kawiarnia w centrum.",
+                    "Model: Dzień dobry, mam na imię Anna."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "Przystanek",
+              "jest",
+              "przy",
+              "rynku"
+            ],
+            "srs_policy": "Only high-value forms are preselected; mistakes and productive patterns enter review after learner evidence."
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "A1 final test",
+      "items": [
+        {
+          "type": "sentence_writing",
+          "q": "Filipino A1 integrated task 1: tumugon nang may wastong pokus, aspekto, kohesyon, at antas.",
+          "answer": "A valid A1 response must satisfy the Filipino course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Filipino A1 integrated task 2: tumugon nang may wastong pokus, aspekto, kohesyon, at antas.",
+          "answer": "A valid A1 response must satisfy the Filipino course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Filipino A1 integrated task 3: tumugon nang may wastong pokus, aspekto, kohesyon, at antas.",
+          "answer": "A valid A1 response must satisfy the Filipino course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Filipino A1 integrated task 4: tumugon nang may wastong pokus, aspekto, kohesyon, at antas.",
+          "answer": "A valid A1 response must satisfy the Filipino course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Filipino A1 integrated task 5: tumugon nang may wastong pokus, aspekto, kohesyon, at antas.",
+          "answer": "A valid A1 response must satisfy the Filipino course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Filipino A1 integrated task 6: tumugon nang may wastong pokus, aspekto, kohesyon, at antas.",
+          "answer": "A valid A1 response must satisfy the Filipino course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Filipino A1 integrated task 7: tumugon nang may wastong pokus, aspekto, kohesyon, at antas.",
+          "answer": "A valid A1 response must satisfy the Filipino course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Filipino A1 integrated task 8: tumugon nang may wastong pokus, aspekto, kohesyon, at antas.",
+          "answer": "A valid A1 response must satisfy the Filipino course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Filipino A1 integrated task 9: tumugon nang may wastong pokus, aspekto, kohesyon, at antas.",
+          "answer": "A valid A1 response must satisfy the Filipino course rubric."
+        },
+        {
+          "type": "sentence_writing",
+          "q": "Filipino A1 integrated task 10: tumugon nang may wastong pokus, aspekto, kohesyon, at antas.",
+          "answer": "A valid A1 response must satisfy the Filipino course rubric."
+        }
+      ]
+    }
+  },
+  "research_basis": "data/language-research/pl.json"
+}

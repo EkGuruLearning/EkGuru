@@ -1,0 +1,53 @@
+{
+ "generated": "2026-09-11T09:09:38.983193+00:00",
+ "map": [
+  {
+   "page": "Tutor profile",
+   "dependency": "Tutors CSV (gid 834026040)",
+   "fallback": "cached copy + bundled js/tutors/*.js",
+   "degraded": "stale tutor data until next successful fetch"
+  },
+  {
+   "page": "Reviews",
+   "dependency": "Reviews CSV (gid 1290168568)",
+   "fallback": "cached reviews + 0-rating guard",
+   "degraded": "no reviews shown, tutor page still renders"
+  },
+  {
+   "page": "Settings",
+   "dependency": "Settings CSV (gid 764031473)",
+   "fallback": "values baked in site-config.js",
+   "degraded": "sheet edits ignored until fetch recovers"
+  },
+  {
+   "page": "Content",
+   "dependency": "Content CSV (gid 2135319947)",
+   "fallback": "cached content",
+   "degraded": "content may be stale"
+  },
+  {
+   "page": "Booking",
+   "dependency": "mail chain (Apps Script \u2192 Web3Forms \u2192 StaticForms \u2192 FormSubmit)",
+   "fallback": "sequential chain + mailto: last resort; record committed BEFORE send",
+   "degraded": "EMAIL_DEGRADED \u2014 booking kept, emails pending"
+  },
+  {
+   "page": "Contact",
+   "dependency": "mail chain",
+   "fallback": "chain + mailto:",
+   "degraded": "internal copy still delivered via StaticForms"
+  },
+  {
+   "page": "Admin health",
+   "dependency": "provider probes",
+   "fallback": "cached last-known state",
+   "degraded": "stale health, clearly timestamped"
+  },
+  {
+   "page": "Site",
+   "dependency": "Apps Script relay",
+   "fallback": "Web3Forms/StaticForms (v98 network fall-through)",
+   "degraded": "one dead relay never loses mail"
+  }
+ ]
+}

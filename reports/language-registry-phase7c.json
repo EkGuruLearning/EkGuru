@@ -1,0 +1,1528 @@
+{
+ "generated": "2026-09-14T06:53:24Z",
+ "count": 32,
+ "production": [
+  "hi"
+ ],
+ "policy": "PRODUCTION = Hindi (deepest course). AVAILABLE = completed course (lessons + practice + quiz + review). BETA = starter pack only. Counts below are read from data/content-graph.json.",
+ "languages": [
+  {
+   "id": "hi",
+   "iso639_1": "hi",
+   "iso639_3": "hin",
+   "name": "Hindi",
+   "nativeName": "हिन्दी",
+   "script": "Devanagari",
+   "direction": "ltr",
+   "transliterationSupport": "IAST/ISO 15919",
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "hi-IN"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "PRODUCTION",
+   "vocabularyState": "PRODUCTION",
+   "lessonCount": 60,
+   "practiceCount": 112,
+   "quizCount": 45,
+   "reviewCardCount": 65,
+   "phraseCount": 69,
+   "cultureCoverage": true,
+   "levelCoverage": [
+    "beginner",
+    "elementary",
+    "intermediate"
+   ],
+   "goalsSupported": [
+    "everyday",
+    "travel",
+    "reading",
+    "speaking",
+    "grammar"
+   ],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [
+    "IN"
+   ],
+   "qualityScore": 70,
+   "productionStatus": "PRODUCTION",
+   "starterPack": false,
+   "starterCounts": null,
+   "starterNote": null,
+   "course": null,
+   "referenceImplementation": true
+  },
+  {
+   "id": "en",
+   "iso639_1": "en",
+   "iso639_3": "eng",
+   "name": "English",
+   "nativeName": "English",
+   "script": "Latin",
+   "direction": "ltr",
+   "transliterationSupport": "n/a (same script)",
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "en-IN"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "BETA",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": null,
+   "referenceImplementation": false
+  },
+  {
+   "id": "es",
+   "iso639_1": "es",
+   "iso639_3": "spa",
+   "name": "Spanish",
+   "nativeName": "español",
+   "script": "Latin",
+   "direction": "ltr",
+   "transliterationSupport": "n/a (same script)",
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "es-ES"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "AVAILABLE",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": {
+    "lang": "es",
+    "name": "Spanish",
+    "native": "español",
+    "speechTag": "es-ES",
+    "status": "Available",
+    "lessons": 6,
+    "practiceItems": 24,
+    "quizQuestions": 20,
+    "reviewCards": 24,
+    "url": "languages/es/course/",
+    "note": "A real, authored Spanish course: 6 lessons, a practice lab, a topic quiz and a review deck — all running on the same engines as Hindi. It is not yet as deep as the Hindi course, and all audio is your browser's computer voice, never a native recording."
+   },
+   "referenceImplementation": false
+  },
+  {
+   "id": "fr",
+   "iso639_1": "fr",
+   "iso639_3": "fra",
+   "name": "French",
+   "nativeName": "français",
+   "script": "Latin",
+   "direction": "ltr",
+   "transliterationSupport": "n/a",
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "fr-FR"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "AVAILABLE",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": {
+    "lang": "fr",
+    "name": "French",
+    "native": "français",
+    "speechTag": "fr-FR",
+    "status": "Available",
+    "lessons": 6,
+    "practiceItems": 24,
+    "quizQuestions": 20,
+    "reviewCards": 24,
+    "url": "languages/fr/course/",
+    "note": "A real, authored French course: 6 lessons, a practice lab, a topic quiz and a review deck — all running on the same engines as Hindi. It is not yet as deep as the Hindi course, and all audio is your browser's computer voice, never a native recording."
+   },
+   "referenceImplementation": false
+  },
+  {
+   "id": "ar",
+   "iso639_1": "ar",
+   "iso639_3": "ara",
+   "name": "Arabic",
+   "nativeName": "العربية",
+   "script": "Arabic",
+   "direction": "rtl",
+   "transliterationSupport": "ALA-LC / Buckwalter",
+   "segmentationModel": "sentence-based",
+   "speechLocales": [
+    "ar-SA"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "AVAILABLE",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": {
+    "lang": "ar",
+    "name": "Arabic",
+    "native": "العربية",
+    "speechTag": "ar-SA",
+    "status": "Available",
+    "lessons": 6,
+    "practiceItems": 24,
+    "quizQuestions": 20,
+    "reviewCards": 24,
+    "url": "languages/ar/course/",
+    "note": "A real, authored Arabic course: 6 lessons, a practice lab, a topic quiz and a review deck — all running on the same engines as Hindi. It is not yet as deep as the Hindi course, and all audio is your browser's computer voice, never a native recording."
+   },
+   "referenceImplementation": false
+  },
+  {
+   "id": "de",
+   "iso639_1": "de",
+   "iso639_3": "deu",
+   "name": "German",
+   "nativeName": "Deutsch",
+   "script": "Latin",
+   "direction": "ltr",
+   "transliterationSupport": "n/a",
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "de-DE"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "AVAILABLE",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": {
+    "lang": "de",
+    "name": "German",
+    "native": "Deutsch",
+    "speechTag": "de-DE",
+    "status": "Available",
+    "lessons": 6,
+    "practiceItems": 24,
+    "quizQuestions": 20,
+    "reviewCards": 24,
+    "url": "languages/de/course/",
+    "note": "A real, authored German course: 6 lessons, a practice lab, a topic quiz and a review deck — all running on the same engines as Hindi. It is not yet as deep as the Hindi course, and all audio is your browser's computer voice, never a native recording."
+   },
+   "referenceImplementation": false
+  },
+  {
+   "id": "ja",
+   "iso639_1": "ja",
+   "iso639_3": "jpn",
+   "name": "Japanese",
+   "nativeName": "日本語",
+   "script": "Kana + Kanji",
+   "direction": "ltr",
+   "transliterationSupport": "Hepburn rōmaji",
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "ja-JP"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "AVAILABLE",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": {
+    "lang": "ja",
+    "name": "Japanese",
+    "native": "日本語",
+    "speechTag": "ja-JP",
+    "status": "Available",
+    "lessons": 6,
+    "practiceItems": 24,
+    "quizQuestions": 20,
+    "reviewCards": 24,
+    "url": "languages/ja/course/",
+    "note": "A real, authored Japanese course: 6 lessons, a practice lab, a topic quiz and a review deck — all running on the same engines as Hindi. It is not yet as deep as the Hindi course, and all audio is your browser's computer voice, never a native recording."
+   },
+   "referenceImplementation": false
+  },
+  {
+   "id": "ko",
+   "iso639_1": "ko",
+   "iso639_3": "kor",
+   "name": "Korean",
+   "nativeName": "한국어",
+   "script": "Hangul",
+   "direction": "ltr",
+   "transliterationSupport": "Revised Romanization",
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "ko-KR"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "AVAILABLE",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": {
+    "lang": "ko",
+    "name": "Korean",
+    "native": "한국어",
+    "speechTag": "ko-KR",
+    "status": "Available",
+    "lessons": 6,
+    "practiceItems": 24,
+    "quizQuestions": 20,
+    "reviewCards": 24,
+    "url": "languages/ko/course/",
+    "note": "A real, authored Korean course: 6 lessons, a practice lab, a topic quiz and a review deck — all running on the same engines as Hindi. It is not yet as deep as the Hindi course, and all audio is your browser's computer voice, never a native recording."
+   },
+   "referenceImplementation": false
+  },
+  {
+   "id": "zh",
+   "iso639_1": "zh",
+   "iso639_3": "zho",
+   "name": "Chinese",
+   "nativeName": "中文",
+   "script": "Han",
+   "direction": "ltr",
+   "transliterationSupport": "Pinyin",
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "zh-CN"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "AVAILABLE",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": {
+    "lang": "zh",
+    "name": "Chinese",
+    "native": "中文",
+    "speechTag": "zh-CN",
+    "status": "Available",
+    "lessons": 6,
+    "practiceItems": 24,
+    "quizQuestions": 20,
+    "reviewCards": 24,
+    "url": "languages/zh/course/",
+    "note": "A real, authored Mandarin course: 6 lessons, a practice lab, a topic quiz and a review deck — all running on the same engines as Hindi. It is not yet as deep as the Hindi course, and all audio is your browser's computer voice, never a native recording."
+   },
+   "referenceImplementation": false
+  },
+  {
+   "id": "ru",
+   "iso639_1": "ru",
+   "iso639_3": "rus",
+   "name": "Russian",
+   "nativeName": "русский",
+   "script": "Cyrillic",
+   "direction": "ltr",
+   "transliterationSupport": "BGN/PCGN",
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "ru-RU"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "AVAILABLE",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": {
+    "lang": "ru",
+    "name": "Russian",
+    "native": "русский",
+    "speechTag": "ru-RU",
+    "status": "Available",
+    "lessons": 6,
+    "practiceItems": 24,
+    "quizQuestions": 20,
+    "reviewCards": 24,
+    "url": "languages/ru/course/",
+    "note": "A real, authored Russian course: 6 lessons, a practice lab, a topic quiz and a review deck — all running on the same engines as Hindi. It is not yet as deep as the Hindi course, and all audio is your browser's computer voice, never a native recording."
+   },
+   "referenceImplementation": false
+  },
+  {
+   "id": "pt",
+   "iso639_1": "pt",
+   "iso639_3": "por",
+   "name": "Portuguese",
+   "nativeName": "português",
+   "script": "Latin",
+   "direction": "ltr",
+   "transliterationSupport": "n/a",
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "pt-BR"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "AVAILABLE",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": {
+    "lang": "pt",
+    "name": "Portuguese",
+    "native": "português",
+    "speechTag": "pt-BR",
+    "status": "Available",
+    "lessons": 6,
+    "practiceItems": 24,
+    "quizQuestions": 20,
+    "reviewCards": 24,
+    "url": "languages/pt/course/",
+    "note": "A real, authored Portuguese course: 6 lessons, a practice lab, a topic quiz and a review deck — all running on the same engines as Hindi. It is not yet as deep as the Hindi course, and all audio is your browser's computer voice, never a native recording."
+   },
+   "referenceImplementation": false
+  },
+  {
+   "id": "it",
+   "iso639_1": "it",
+   "iso639_3": "ita",
+   "name": "Italian",
+   "nativeName": "italiano",
+   "script": "Latin",
+   "direction": "ltr",
+   "transliterationSupport": "n/a",
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "it-IT"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "AVAILABLE",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": {
+    "lang": "it",
+    "name": "Italian",
+    "native": "italiano",
+    "speechTag": "it-IT",
+    "status": "Available",
+    "lessons": 6,
+    "practiceItems": 24,
+    "quizQuestions": 20,
+    "reviewCards": 24,
+    "url": "languages/it/course/",
+    "note": "A real, authored Italian course: 6 lessons, a practice lab, a topic quiz and a review deck — all running on the same engines as Hindi. It is not yet as deep as the Hindi course, and all audio is your browser's computer voice, never a native recording."
+   },
+   "referenceImplementation": false
+  },
+  {
+   "id": "nl",
+   "iso639_1": "nl",
+   "iso639_3": "nld",
+   "name": "Dutch",
+   "nativeName": "Nederlands",
+   "script": "Latin",
+   "direction": "ltr",
+   "transliterationSupport": "n/a",
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "nl-NL"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "BETA",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": null,
+   "referenceImplementation": false
+  },
+  {
+   "id": "pl",
+   "iso639_1": "pl",
+   "iso639_3": "pol",
+   "name": "Polish",
+   "nativeName": "polski",
+   "script": "Latin",
+   "direction": "ltr",
+   "transliterationSupport": "n/a",
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "pl-PL"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "BETA",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": null,
+   "referenceImplementation": false
+  },
+  {
+   "id": "tr",
+   "iso639_1": "tr",
+   "iso639_3": "tur",
+   "name": "Turkish",
+   "nativeName": "Türkçe",
+   "script": "Latin",
+   "direction": "ltr",
+   "transliterationSupport": "n/a",
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "tr-TR"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "BETA",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": null,
+   "referenceImplementation": false
+  },
+  {
+   "id": "fa",
+   "iso639_1": "fa",
+   "iso639_3": "fas",
+   "name": "Persian",
+   "nativeName": "فارسی",
+   "script": "Arabic",
+   "direction": "rtl",
+   "transliterationSupport": "UniPers",
+   "segmentationModel": "sentence-based",
+   "speechLocales": [
+    "fa-IR"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "BETA",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": null,
+   "referenceImplementation": false
+  },
+  {
+   "id": "he",
+   "iso639_1": "he",
+   "iso639_3": "heb",
+   "name": "Hebrew",
+   "nativeName": "עברית",
+   "script": "Hebrew",
+   "direction": "rtl",
+   "transliterationSupport": "ISO 259",
+   "segmentationModel": "sentence-based",
+   "speechLocales": [
+    "he-IL"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "BETA",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": null,
+   "referenceImplementation": false
+  },
+  {
+   "id": "ur",
+   "iso639_1": "ur",
+   "iso639_3": "urd",
+   "name": "Urdu",
+   "nativeName": "اردو",
+   "script": "Arabic",
+   "direction": "rtl",
+   "transliterationSupport": "ALA-LC",
+   "segmentationModel": "sentence-based",
+   "speechLocales": [
+    "ur-PK"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "AVAILABLE",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": {
+    "lang": "ur",
+    "name": "Urdu",
+    "native": "اردو",
+    "speechTag": "ur-PK",
+    "status": "Available",
+    "lessons": 21,
+    "practiceItems": 4,
+    "quizQuestions": 84,
+    "reviewCards": 20,
+    "url": "learn/urdu/",
+    "note": "A complete Urdu course: 21 reading pages across levels and topics, 800+ advanced words with phrases and dialogues, 84 quiz questions, typing and worksheet labs, and a 20-card review deck."
+   },
+   "referenceImplementation": false
+  },
+  {
+   "id": "th",
+   "iso639_1": "th",
+   "iso639_3": "tha",
+   "name": "Thai",
+   "nativeName": "ไทย",
+   "script": "Thai",
+   "direction": "ltr",
+   "transliterationSupport": "RTGS",
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "th-TH"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "BETA",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": null,
+   "referenceImplementation": false
+  },
+  {
+   "id": "vi",
+   "iso639_1": "vi",
+   "iso639_3": "vie",
+   "name": "Vietnamese",
+   "nativeName": "Tiếng Việt",
+   "script": "Latin",
+   "direction": "ltr",
+   "transliterationSupport": "n/a",
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "vi-VN"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "BETA",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": null,
+   "referenceImplementation": false
+  },
+  {
+   "id": "id",
+   "iso639_1": "id",
+   "iso639_3": "ind",
+   "name": "Indonesian",
+   "nativeName": "Bahasa Indonesia",
+   "script": "Latin",
+   "direction": "ltr",
+   "transliterationSupport": "n/a",
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "id-ID"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "BETA",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": null,
+   "referenceImplementation": false
+  },
+  {
+   "id": "ms",
+   "iso639_1": "ms",
+   "iso639_3": "msa",
+   "name": "Malay",
+   "nativeName": "Bahasa Melayu",
+   "script": "Latin",
+   "direction": "ltr",
+   "transliterationSupport": "n/a",
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "ms-MY"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "BETA",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": null,
+   "referenceImplementation": false
+  },
+  {
+   "id": "bn",
+   "iso639_1": "bn",
+   "iso639_3": "ben",
+   "name": "Bengali",
+   "nativeName": "বাংলা",
+   "script": "Bengali",
+   "direction": "ltr",
+   "transliterationSupport": "IAST",
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "bn-IN"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "AVAILABLE",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": {
+    "lang": "bn",
+    "name": "Bengali",
+    "native": "বাংলা",
+    "speechTag": "bn-IN",
+    "status": "Available",
+    "lessons": 21,
+    "practiceItems": 4,
+    "quizQuestions": 84,
+    "reviewCards": 20,
+    "url": "learn/bengali/",
+    "note": "A complete Bengali course: 21 reading pages across levels and topics, 800+ advanced words with phrases and dialogues, 84 quiz questions, typing and worksheet labs, and a 20-card review deck."
+   },
+   "referenceImplementation": false
+  },
+  {
+   "id": "ta",
+   "iso639_1": "ta",
+   "iso639_3": "tam",
+   "name": "Tamil",
+   "nativeName": "தமிழ்",
+   "script": "Tamil",
+   "direction": "ltr",
+   "transliterationSupport": "ISO 15919",
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "ta-IN"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "AVAILABLE",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": {
+    "lang": "ta",
+    "name": "Tamil",
+    "native": "தமிழ்",
+    "speechTag": "ta-IN",
+    "status": "Available",
+    "lessons": 21,
+    "practiceItems": 4,
+    "quizQuestions": 84,
+    "reviewCards": 20,
+    "url": "learn/tamil/",
+    "note": "A complete Tamil course: 21 reading pages across levels and topics, 800+ advanced words with phrases and dialogues, 84 quiz questions, typing and worksheet labs, and a 20-card review deck."
+   },
+   "referenceImplementation": false
+  },
+  {
+   "id": "te",
+   "iso639_1": "te",
+   "iso639_3": "tel",
+   "name": "Telugu",
+   "nativeName": "తెలుగు",
+   "script": "Telugu",
+   "direction": "ltr",
+   "transliterationSupport": "ISO 15919",
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "te-IN"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "AVAILABLE",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": {
+    "lang": "te",
+    "name": "Telugu",
+    "native": "తెలుగు",
+    "speechTag": "te-IN",
+    "status": "Available",
+    "lessons": 21,
+    "practiceItems": 4,
+    "quizQuestions": 84,
+    "reviewCards": 20,
+    "url": "learn/telugu/",
+    "note": "A complete Telugu course: 21 reading pages across levels and topics, 800+ advanced words with phrases and dialogues, 84 quiz questions, typing and worksheet labs, and a 20-card review deck."
+   },
+   "referenceImplementation": false
+  },
+  {
+   "id": "pa",
+   "iso639_1": "pa",
+   "iso639_3": "pan",
+   "name": "Punjabi",
+   "nativeName": "ਪੰਜਾਬੀ",
+   "script": "Gurmukhi",
+   "direction": "ltr",
+   "transliterationSupport": "ISO 15919",
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "pa-IN"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "AVAILABLE",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": {
+    "lang": "pa",
+    "name": "Punjabi",
+    "native": "ਪੰਜਾਬੀ",
+    "speechTag": "pa-IN",
+    "status": "Available",
+    "lessons": 21,
+    "practiceItems": 4,
+    "quizQuestions": 84,
+    "reviewCards": 20,
+    "url": "learn/punjabi/",
+    "note": "A complete Punjabi course: 21 reading pages across levels and topics, 800+ advanced words with phrases and dialogues, 84 quiz questions, typing and worksheet labs, and a 20-card review deck."
+   },
+   "referenceImplementation": false
+  },
+  {
+   "id": "gu",
+   "iso639_1": "gu",
+   "iso639_3": "guj",
+   "name": "Gujarati",
+   "nativeName": "ગુજરાતી",
+   "script": "Gujarati",
+   "direction": "ltr",
+   "transliterationSupport": "ISO 15919",
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "gu-IN"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "AVAILABLE",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": {
+    "lang": "gu",
+    "name": "Gujarati",
+    "native": "ગુજરાતી",
+    "speechTag": "gu-IN",
+    "status": "Available",
+    "lessons": 21,
+    "practiceItems": 4,
+    "quizQuestions": 84,
+    "reviewCards": 20,
+    "url": "learn/gujarati/",
+    "note": "A complete Gujarati course: 21 reading pages across levels and topics, 800+ advanced words with phrases and dialogues, 84 quiz questions, typing and worksheet labs, and a 20-card review deck."
+   },
+   "referenceImplementation": false
+  },
+  {
+   "id": "mr",
+   "iso639_1": "mr",
+   "iso639_3": "mar",
+   "name": "Marathi",
+   "nativeName": "मराठी",
+   "script": "Devanagari",
+   "direction": "ltr",
+   "transliterationSupport": "ISO 15919",
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "mr-IN"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "AVAILABLE",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": {
+    "lang": "mr",
+    "name": "Marathi",
+    "native": "मराठी",
+    "speechTag": "mr-IN",
+    "status": "Available",
+    "lessons": 21,
+    "practiceItems": 4,
+    "quizQuestions": 84,
+    "reviewCards": 20,
+    "url": "learn/marathi/",
+    "note": "A complete Marathi course: 21 reading pages across levels and topics, 800+ advanced words with phrases and dialogues, 84 quiz questions, typing and worksheet labs, and a 20-card review deck."
+   },
+   "referenceImplementation": false
+  },
+  {
+   "id": "sw",
+   "iso639_1": "sw",
+   "iso639_3": "swa",
+   "name": "Swahili",
+   "nativeName": "Kiswahili",
+   "script": "Latin",
+   "direction": "ltr",
+   "transliterationSupport": "n/a",
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "sw-KE"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "BETA",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": null,
+   "referenceImplementation": false
+  },
+  {
+   "id": "uk",
+   "iso639_1": "uk",
+   "iso639_3": "ukr",
+   "name": "Ukrainian",
+   "nativeName": "українська",
+   "script": "Cyrillic",
+   "direction": "ltr",
+   "transliterationSupport": "BGN/PCGN",
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "uk-UA"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "BETA",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": null,
+   "referenceImplementation": false
+  },
+  {
+   "id": "kn",
+   "iso639_1": "kn",
+   "iso639_3": "kan",
+   "name": "Kannada",
+   "nativeName": "ಕನ್ನಡ",
+   "script": "Kannada",
+   "direction": "ltr",
+   "transliterationSupport": null,
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "kn-IN"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "AVAILABLE",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": {
+    "lang": "kn",
+    "name": "Kannada",
+    "native": "ಕನ್ನಡ",
+    "speechTag": "kn-IN",
+    "status": "Available",
+    "lessons": 21,
+    "practiceItems": 4,
+    "quizQuestions": 84,
+    "reviewCards": 20,
+    "url": "learn/kannada/",
+    "note": "A complete Kannada course: 21 reading pages across levels and topics, 800+ advanced words with phrases and dialogues, 84 quiz questions, typing and worksheet labs, and a 20-card review deck."
+   },
+   "referenceImplementation": false,
+   "handPage": true
+  },
+  {
+   "id": "ml",
+   "iso639_1": "ml",
+   "iso639_3": "mal",
+   "name": "Malayalam",
+   "nativeName": "മലയാളം",
+   "script": "Malayalam",
+   "direction": "ltr",
+   "transliterationSupport": null,
+   "segmentationModel": "word-based (space-separated)",
+   "speechLocales": [
+    "ml-IN"
+   ],
+   "audioStatus": "BROWSER_TTS",
+   "grammarState": "STARTER",
+   "vocabularyState": "STARTER",
+   "lessonCount": 0,
+   "practiceCount": 0,
+   "quizCount": 0,
+   "reviewCardCount": 0,
+   "phraseCount": 0,
+   "cultureCoverage": false,
+   "levelCoverage": [],
+   "goalsSupported": [],
+   "sourceLanguageAvailability": [
+    "en"
+   ],
+   "countryAssociations": [],
+   "qualityScore": 0,
+   "productionStatus": "AVAILABLE",
+   "starterPack": true,
+   "starterCounts": {
+    "vocab": 24,
+    "phrase": 12,
+    "grammar": 4
+   },
+   "starterNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+   "course": {
+    "lang": "ml",
+    "name": "Malayalam",
+    "native": "മലയാളം",
+    "speechTag": "ml-IN",
+    "status": "Available",
+    "lessons": 21,
+    "practiceItems": 4,
+    "quizQuestions": 84,
+    "reviewCards": 20,
+    "url": "learn/malayalam/",
+    "note": "A complete Malayalam course: 21 reading pages across levels and topics, 800+ advanced words with phrases and dialogues, 84 quiz questions, typing and worksheet labs, and a 20-card review deck."
+   },
+   "referenceImplementation": false,
+   "handPage": true
+  }
+ ]
+}

@@ -1,0 +1,1922 @@
+{
+  "code": "gu",
+  "name": "Gujarati",
+  "native": "ગુજરાતી",
+  "phase": 2,
+  "medium": "en",
+  "file_level": "C1",
+  "research_basis": [
+    "George Cardona, A Gujarati Reference Grammar: complex verbal forms, syntax, comparison, derivation, emphasis.",
+    "CIIL, Madhu K. Sampat, Advanced Course Reader in Gujarati: advanced reading and communicative progression.",
+    "University of Pennsylvania Gujarati Language and Literature resources: clauses, causatives, passive/abilitative, pragmatics."
+  ],
+  "level": {
+    "title": "C1 Proficient Gujarati",
+    "goals": [
+      "Build cohesive multi-clause discourse with explicit logical relations and stance.",
+      "Negotiate, attribute claims, and argue in professional or academic Gujarati.",
+      "Interpret idioms and transform register without changing communicative intent."
+    ],
+    "units": [
+      {
+        "id": "gu-c1-u1",
+        "title": "Discourse and Stance",
+        "lessons": [
+          {
+            "id": "gu-c1-l1",
+            "title": "Complex Clauses and Discourse Links",
+            "learn": "Learn to organise a sustained Gujarati explanation with concession, cause, consequence, addition, and paired framing. Gujarati remains broadly verb-final, but connectors guide the listener through long clause relationships.",
+            "vocab": [
+              {
+                "t": "જોકે",
+                "r": "jokē",
+                "en": "although",
+                "pos": "connector"
+              },
+              {
+                "t": "તેમ છતાં",
+                "r": "tēm chhatāṁ",
+                "en": "nevertheless",
+                "pos": "connector"
+              },
+              {
+                "t": "પરિણામે",
+                "r": "pariṇāmē",
+                "en": "as a result",
+                "pos": "connector"
+              },
+              {
+                "t": "ઉપરાંત",
+                "r": "uparānt",
+                "en": "in addition",
+                "pos": "connector"
+              },
+              {
+                "t": "એક તરફ",
+                "r": "ēk taraf",
+                "en": "on one hand",
+                "pos": "phrase"
+              },
+              {
+                "t": "બીજી તરફ",
+                "r": "bījī taraf",
+                "en": "on the other hand",
+                "pos": "phrase"
+              },
+              {
+                "t": "જ્યાં સુધી",
+                "r": "jyāṁ sudhī",
+                "en": "as long as; to the extent that",
+                "pos": "connector"
+              },
+              {
+                "t": "એટલા માટે",
+                "r": "ēṭlā māṭē",
+                "en": "for that reason",
+                "pos": "connector"
+              }
+            ],
+            "grammar": {
+              "title": "Concession and paired discourse",
+              "explain": "A concessive clause with જોકે presents information that might suggest the opposite conclusion; the main clause can then be reinforced with તેમ છતાં. Paired એક તરફ…બીજી તરફ framing compares competing considerations without implying that either is trivial.",
+              "pattern": "જોકે + concessive clause, તેમ છતાં + main claim",
+              "examples": [
+                {
+                  "t": "જોકે યોજના ખર્ચાળ છે, તેમ છતાં લાંબા ગાળે તે લાભદાયક સાબિત થઈ શકે છે.",
+                  "r": "jokē yōjanā kharcāḷ chē, tēm chhatāṁ lāmbā gāḷē tē lābhadāyak sābit thaī śakē chē.",
+                  "en": "Although the plan is expensive, it may nevertheless prove beneficial in the long term."
+                },
+                {
+                  "t": "એક તરફ સમયની મર્યાદા છે, બીજી તરફ ગુણવત્તા જાળવવી પણ જરૂરી છે.",
+                  "r": "ēk taraf samaynī maryādā chē, bījī taraf guṇavattā jāḷavavī paṇ jarūrī chē.",
+                  "en": "On one hand time is limited; on the other, quality must also be maintained."
+                },
+                {
+                  "t": "માહિતી અધૂરી હતી; પરિણામે નિર્ણય મુલતવી રાખવામાં આવ્યો.",
+                  "r": "māhitī adhūrī hatī; pariṇāmē nirṇay mulatavī rākhavāmāṁ āvyō.",
+                  "en": "The information was incomplete; consequently, the decision was postponed."
+                }
+              ],
+              "mistakes": [
+                "Do not stack connectors mechanically; each connector must express a real logical relation."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Chair",
+                "t": "જોકે સમય ઓછો છે, તેમ છતાં દરેક મુદ્દાની ચર્ચા થવી જોઈએ.",
+                "r": "jokē samay ōchhō chē, tēm chhatāṁ darēk muddānī carcā thavī jōīē.",
+                "en": "Although time is short, every issue should still be discussed."
+              },
+              {
+                "sp": "Analyst",
+                "t": "એક તરફ ખર્ચ વધશે, બીજી તરફ સેવા વધુ વિશ્વસનીય બનશે.",
+                "r": "ēk taraf kharc vadhśē, bījī taraf sēvā vadhu viśvasanīya banaśē.",
+                "en": "Costs will rise on one hand, but the service will become more reliable on the other."
+              },
+              {
+                "sp": "Chair",
+                "t": "તો કયા પરિબળને પ્રાથમિકતા આપવી?",
+                "r": "tō kayā paribaḷnē prāthamikatā āpavī?",
+                "en": "Then which factor should receive priority?"
+              },
+              {
+                "sp": "Analyst",
+                "t": "જ્યાં સુધી સલામતીનો પ્રશ્ન છે, ત્યાં સુધી સમાધાન કરવું યોગ્ય નથી.",
+                "r": "jyāṁ sudhī salāmatīnō praśna chē, tyāṁ sudhī samādhān karavuṁ yōgya nathī.",
+                "en": "As far as safety is concerned, compromise is not appropriate."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "Practice 1 [multiple choice] — Complex Clauses and Discourse Links: Choose the lesson meaning of જોકે (jokē).",
+                "answer": "although",
+                "skill_target": "Gujarati multiple choice: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "options": [
+                  "although",
+                  "nevertheless",
+                  "as a result"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 2 [fill in the blank] — Complex Clauses and Discourse Links: Type the complete Gujarati script form for “nevertheless”.",
+                "answer": "તેમ છતાં",
+                "skill_target": "Gujarati fill in the blank: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 3 [translation] — Complex Clauses and Discourse Links: Read પરિણામે (pariṇāmē) and give its contextual English meaning.",
+                "answer": "as a result",
+                "skill_target": "Gujarati translation: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 4 [reverse translation] — Complex Clauses and Discourse Links: Write “in addition” in Gujarati script, not romanisation alone.",
+                "answer": "ઉપરાંત",
+                "skill_target": "Gujarati reverse translation: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 5 [matching] — Complex Clauses and Discourse Links: Match એક તરફ to its meaning in this lesson.",
+                "answer": "on one hand",
+                "skill_target": "Gujarati matching: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "options": [
+                  "on the other hand",
+                  "on one hand",
+                  "as long as; to the extent that"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 6 [reorder] — Complex Clauses and Discourse Links: Rebuild this model with correct Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register: The information was incomplete; consequently, the decision was postponed.",
+                "answer": "માહિતી અધૂરી હતી; પરિણામે નિર્ણય મુલતવી રાખવામાં આવ્યો.",
+                "skill_target": "Gujarati reorder: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 7 [sentence building] — Complex Clauses and Discourse Links: Rebuild this model with correct Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register: Although the plan is expensive, it may nevertheless prove beneficial in the long term.",
+                "answer": "જોકે યોજના ખર્ચાળ છે, તેમ છતાં લાંબા ગાળે તે લાભદાયક સાબિત થઈ શકે છે.",
+                "skill_target": "Gujarati sentence building: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 8 [word selection] — Complex Clauses and Discourse Links: Select the Gujarati script form for “for that reason”.",
+                "answer": "એટલા માટે",
+                "skill_target": "Gujarati word selection: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "options": [
+                  "જોકે",
+                  "તેમ છતાં",
+                  "એટલા માટે"
+                ]
+              },
+              {
+                "type": "error_correction",
+                "q": "Practice 9 [error correction] — Complex Clauses and Discourse Links: Replace a literal, agreement, or register error with the taught model for “The information was incomplete; consequently, the decision was postponed.”.",
+                "answer": "માહિતી અધૂરી હતી; પરિણામે નિર્ણય મુલતવી રાખવામાં આવ્યો.",
+                "skill_target": "Gujarati error correction: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 10 [dialogue completion] — Complex Clauses and Discourse Links: Complete Analyst’s turn: Costs will rise on one hand, but the service will become more reliable on the other.",
+                "answer": "એક તરફ ખર્ચ વધશે, બીજી તરફ સેવા વધુ વિશ્વસનીય બનશે.",
+                "skill_target": "Gujarati dialogue completion: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 11 [reading comprehension] — Complex Clauses and Discourse Links: Read તો કયા પરિબળને પ્રાથમિકતા આપવી? (tō kayā paribaḷnē prāthamikatā āpavī?). What exact detail does it communicate?",
+                "answer": "Then which factor should receive priority?",
+                "skill_target": "Gujarati reading comprehension: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 12 [paragraph comprehension] — Complex Clauses and Discourse Links: Read the whole dialogue and explain this turn’s contribution: જ્યાં સુધી સલામતીનો પ્રશ્ન છે, ત્યાં સુધી સમાધાન કરવું યોગ્ય નથી.",
+                "answer": "As far as safety is concerned, compromise is not appropriate.",
+                "skill_target": "Gujarati paragraph comprehension: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which interpretation best fits જોકે (jokē) in this lesson?",
+                "options": [
+                  "although",
+                  "nevertheless",
+                  "as a result",
+                  "in addition"
+                ],
+                "answer": 0,
+                "why": "In this discourse જોકે (jokē) means “although.”"
+              },
+              {
+                "q": "Which interpretation best fits તેમ છતાં (tēm chhatāṁ) in this lesson?",
+                "options": [
+                  "nevertheless",
+                  "as a result",
+                  "in addition",
+                  "on one hand"
+                ],
+                "answer": 0,
+                "why": "In this discourse તેમ છતાં (tēm chhatāṁ) means “nevertheless.”"
+              },
+              {
+                "q": "Which interpretation best fits પરિણામે (pariṇāmē) in this lesson?",
+                "options": [
+                  "as a result",
+                  "in addition",
+                  "on one hand",
+                  "on the other hand"
+                ],
+                "answer": 0,
+                "why": "In this discourse પરિણામે (pariṇāmē) means “as a result.”"
+              },
+              {
+                "q": "Which interpretation best fits ઉપરાંત (uparānt) in this lesson?",
+                "options": [
+                  "in addition",
+                  "on one hand",
+                  "on the other hand",
+                  "as long as; to the extent that"
+                ],
+                "answer": 0,
+                "why": "In this discourse ઉપરાંત (uparānt) means “in addition.”"
+              },
+              {
+                "q": "Which interpretation best fits એક તરફ (ēk taraf) in this lesson?",
+                "options": [
+                  "on one hand",
+                  "on the other hand",
+                  "as long as; to the extent that",
+                  "for that reason"
+                ],
+                "answer": 0,
+                "why": "In this discourse એક તરફ (ēk taraf) means “on one hand.”"
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Complex Clauses and Discourse Links C1 Workshop",
+              "tasks": [
+                {
+                  "instruction": "Explain the discourse function or contextual meaning.",
+                  "items": [
+                    "જોકે (jokē)",
+                    "તેમ છતાં (tēm chhatāṁ)"
+                  ],
+                  "key": [
+                    "although",
+                    "nevertheless"
+                  ]
+                },
+                {
+                  "instruction": "Translate while preserving stance and register.",
+                  "items": [
+                    "જોકે યોજના ખર્ચાળ છે, તેમ છતાં લાંબા ગાળે તે લાભદાયક સાબિત થઈ શકે છે. (jokē yōjanā kharcāḷ chē, tēm chhatāṁ lāmbā gāḷē tē lābhadāyak sābit thaī śakē chē.)",
+                    "એક તરફ સમયની મર્યાદા છે, બીજી તરફ ગુણવત્તા જાળવવી પણ જરૂરી છે. (ēk taraf samaynī maryādā chē, bījī taraf guṇavattā jāḷavavī paṇ jarūrī chē.)"
+                  ],
+                  "key": [
+                    "Although the plan is expensive, it may nevertheless prove beneficial in the long term.",
+                    "On one hand time is limited; on the other, quality must also be maintained."
+                  ]
+                },
+                {
+                  "instruction": "Produce precise Gujarati script and romanisation.",
+                  "items": [
+                    "in addition",
+                    "on one hand"
+                  ],
+                  "key": [
+                    "ઉપરાંત (uparānt)",
+                    "એક તરફ (ēk taraf)"
+                  ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Gujarati offline lab: read, transform in Gujarati script, and rehearse aloud. Check Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register.",
+                  "items": [
+                    "જોકે યોજના ખર્ચાળ છે, તેમ છતાં લાંબા ગાળે તે લાભદાયક સાબિત થઈ શકે છે.",
+                    "જોકે સમય ઓછો છે, તેમ છતાં દરેક મુદ્દાની ચર્ચા થવી જોઈએ."
+                  ],
+                  "key": [
+                    "Although the plan is expensive, it may nevertheless prove beneficial in the long term.",
+                    "Although time is short, every issue should still be discussed."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "જોકે",
+              "તેમ છતાં",
+              "પરિણામે",
+              "ઉપરાંત"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
+          },
+          {
+            "id": "gu-c1-l2",
+            "title": "Attribution, Stance, and Nuanced Opinion",
+            "learn": "Report claims without presenting them automatically as facts. Gujarati academic and media discourse uses attribution frames, evidential nouns, and cautious modal expressions to separate evidence, inference, and personal stance.",
+            "vocab": [
+              {
+                "t": "જણાવ્યા અનુસાર",
+                "r": "jaṇāvyā anusār",
+                "en": "according to what was stated",
+                "pos": "phrase"
+              },
+              {
+                "t": "દાવો",
+                "r": "dāvō",
+                "en": "claim",
+                "pos": "noun"
+              },
+              {
+                "t": "અભિપ્રાય",
+                "r": "abhiprāy",
+                "en": "considered opinion",
+                "pos": "noun"
+              },
+              {
+                "t": "દૃષ્ટિકોણ",
+                "r": "dr̥ṣṭikōṇ",
+                "en": "perspective",
+                "pos": "noun"
+              },
+              {
+                "t": "પુરાવો",
+                "r": "purāvō",
+                "en": "evidence",
+                "pos": "noun"
+              },
+              {
+                "t": "સંકેત",
+                "r": "saṅkēt",
+                "en": "indication",
+                "pos": "noun"
+              },
+              {
+                "t": "શક્યતા",
+                "r": "śakyatā",
+                "en": "possibility",
+                "pos": "noun"
+              },
+              {
+                "t": "નિષ્કર્ષ",
+                "r": "niṣkarṣ",
+                "en": "conclusion",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Reported clauses with કે and evidential distance",
+              "explain": "A reporting expression commonly introduces content with કે. Frames such as અહેવાલ અનુસાર and એવો દાવો કરવામાં આવ્યો છે distance the writer from the proposition; એવું જણાય છે કે marks an inference rather than certainty.",
+              "pattern": "source/reporting frame + કે + proposition",
+              "examples": [
+                {
+                  "t": "અહેવાલમાં જણાવવામાં આવ્યું છે કે પાણીની માંગ સતત વધી રહી છે.",
+                  "r": "ahēvāl māṁ jaṇāvavāmāṁ āvyuṁ chē kē pāṇīnī māṅg satat vadhī rahī chē.",
+                  "en": "The report states that demand for water is continually increasing."
+                },
+                {
+                  "t": "ઉપલબ્ધ પુરાવા પરથી એવું જણાય છે કે નીતિમાં ફેરફાર જરૂરી છે.",
+                  "r": "upalabdha purāvā parathī ēvuṁ jaṇāy chē kē nītimāṁ phēraphār jarūrī chē.",
+                  "en": "The available evidence suggests that a policy change is necessary."
+                },
+                {
+                  "t": "મારા અભિપ્રાય મુજબ આ નિષ્કર્ષ થોડો ઉતાવળિયો છે.",
+                  "r": "mārā abhiprāy mujab ā niṣkarṣ thōḍō utāvaḷiyō chē.",
+                  "en": "In my view, this conclusion is somewhat hasty."
+                }
+              ],
+              "mistakes": [
+                "Do not convert a source’s claim into an unqualified fact when reporting it."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Editor",
+                "t": "નિષ્ણાતોના જણાવ્યા અનુસાર પરિસ્થિતિ સુધરી રહી છે.",
+                "r": "niṣṇātōnā jaṇāvyā anusār paristhiti sudharī rahī chē.",
+                "en": "According to the experts, the situation is improving."
+              },
+              {
+                "sp": "Reporter",
+                "t": "પરંતુ આ દાવાને સમર્થન આપતો પૂરતો પુરાવો મળ્યો નથી.",
+                "r": "parantu ā dāvānē samarthan āpatō pūratō purāvō maḷyō nathī.",
+                "en": "But sufficient evidence supporting this claim has not been found."
+              },
+              {
+                "sp": "Editor",
+                "t": "તો ભાષા વધુ સાવધ રાખવી જોઈએ.",
+                "r": "tō bhāṣā vadhu sāvadh rākhavī jōīē.",
+                "en": "Then the wording should be more cautious."
+              },
+              {
+                "sp": "Reporter",
+                "t": "હું લખીશ કે પ્રાથમિક આંકડા સુધારાનો સંકેત આપે છે.",
+                "r": "huṁ lakhīś kē prāthamik āṅkaḍā sudhārānō saṅkēt āpē chē.",
+                "en": "I will write that the preliminary figures indicate improvement."
+              }
+            ],
+            "practice": [
+              {
+                "type": "main_idea",
+                "q": "Practice 2 [main idea] — Attribution, Stance, and Nuanced Opinion: State the main communicative purpose of “Attribution, Stance, and Nuanced Opinion”.",
+                "answer": "Report claims without presenting them automatically as facts.",
+                "skill_target": "Gujarati main idea: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Practice 3 [detail identification] — Attribution, Stance, and Nuanced Opinion: Read તો ભાષા વધુ સાવધ રાખવી જોઈએ. (tō bhāṣā vadhu sāvadh rākhavī jōīē.). What exact detail does it communicate?",
+                "answer": "Then the wording should be more cautious.",
+                "skill_target": "Gujarati detail identification: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "inference",
+                "q": "Practice 4 [inference] — Attribution, Stance, and Nuanced Opinion: Infer the intended meaning of અહેવાલમાં જણાવવામાં આવ્યું છે કે પાણીની માંગ સતત વધી રહી છે. without losing its qualification or social force.",
+                "answer": "The report states that demand for water is continually increasing.",
+                "skill_target": "Gujarati inference: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Practice 5 [listening comprehension] — Attribution, Stance, and Nuanced Opinion: Play the synthetic audio and give its precise contextual meaning.",
+                "answer": "According to the experts, the situation is improving.",
+                "skill_target": "Gujarati listening comprehension: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "નિષ્ણાતોના જણાવ્યા અનુસાર પરિસ્થિતિ સુધરી રહી છે."
+              },
+              {
+                "type": "dictation",
+                "q": "Practice 6 [dictation] — Attribution, Stance, and Nuanced Opinion: Play the labeled synthetic Gujarati audio and type the complete line in Gujarati script.",
+                "answer": "પરંતુ આ દાવાને સમર્થન આપતો પૂરતો પુરાવો મળ્યો નથી.",
+                "skill_target": "Gujarati dictation: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "પરંતુ આ દાવાને સમર્થન આપતો પૂરતો પુરાવો મળ્યો નથી."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Practice 7 [listen and choose] — Attribution, Stance, and Nuanced Opinion: Play the synthetic audio and choose its contextual meaning.",
+                "answer": "Then the wording should be more cautious.",
+                "skill_target": "Gujarati listen and choose: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "તો ભાષા વધુ સાવધ રાખવી જોઈએ.",
+                "options": [
+                  "Then the wording should be more cautious.",
+                  "I will write that the preliminary figures indicate improvement.",
+                  "possibility"
+                ]
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "Practice 8 [listen and reorder] — Attribution, Stance, and Nuanced Opinion: Rebuild this model with correct Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register: The available evidence suggests that a policy change is necessary.",
+                "answer": "ઉપલબ્ધ પુરાવા પરથી એવું જણાય છે કે નીતિમાં ફેરફાર જરૂરી છે.",
+                "skill_target": "Gujarati listen and reorder: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "નિષ્ણાતોના જણાવ્યા અનુસાર પરિસ્થિતિ સુધરી રહી છે."
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Practice 9 [listen and fill] — Attribution, Stance, and Nuanced Opinion: Play the synthetic audio and complete the line beginning “નિષ્ણાતોના…”.",
+                "answer": "નિષ્ણાતોના જણાવ્યા અનુસાર પરિસ્થિતિ સુધરી રહી છે.",
+                "skill_target": "Gujarati listen and fill: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "નિષ્ણાતોના જણાવ્યા અનુસાર પરિસ્થિતિ સુધરી રહી છે."
+              },
+              {
+                "type": "repeat_after_audio",
+                "q": "Practice 10 [repeat after audio] — Attribution, Stance, and Nuanced Opinion: Repeat the synthetic model with its phrase grouping; no microphone score is claimed.",
+                "answer": "પરંતુ આ દાવાને સમર્થન આપતો પૂરતો પુરાવો મળ્યો નથી.",
+                "skill_target": "Gujarati repeat after audio: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "પરંતુ આ દાવાને સમર્થન આપતો પૂરતો પુરાવો મળ્યો નથી."
+              },
+              {
+                "type": "pronunciation",
+                "q": "Practice 11 [pronunciation] — Attribution, Stance, and Nuanced Opinion: Practise અભિપ્રાય (abhiprāy) with the lesson-specific sound pattern. Self-check only.",
+                "answer": "અભિપ્રાય",
+                "skill_target": "Gujarati pronunciation: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "અભિપ્રાય"
+              },
+              {
+                "type": "shadowing",
+                "q": "Practice 12 [shadowing] — Attribution, Stance, and Nuanced Opinion: Shadow the synthetic Gujarati model, preserving rhythm and target-language sounds. Self-check only.",
+                "answer": "હું લખીશ કે પ્રાથમિક આંકડા સુધારાનો સંકેત આપે છે.",
+                "skill_target": "Gujarati shadowing: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "હું લખીશ કે પ્રાથમિક આંકડા સુધારાનો સંકેત આપે છે."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Practice 13 [guided speaking] — Attribution, Stance, and Nuanced Opinion: Produce a spoken response demonstrating “Attribution, Stance, and Nuanced Opinion”; compare with the model.",
+                "answer": "અહેવાલમાં જણાવવામાં આવ્યું છે કે પાણીની માંગ સતત વધી રહી છે.",
+                "skill_target": "Gujarati guided speaking: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which interpretation best fits જણાવ્યા અનુસાર (jaṇāvyā anusār) in this lesson?",
+                "options": [
+                  "according to what was stated",
+                  "claim",
+                  "considered opinion",
+                  "perspective"
+                ],
+                "answer": 0,
+                "why": "In this discourse જણાવ્યા અનુસાર (jaṇāvyā anusār) means “according to what was stated.”"
+              },
+              {
+                "q": "Which interpretation best fits દાવો (dāvō) in this lesson?",
+                "options": [
+                  "claim",
+                  "considered opinion",
+                  "perspective",
+                  "evidence"
+                ],
+                "answer": 0,
+                "why": "In this discourse દાવો (dāvō) means “claim.”"
+              },
+              {
+                "q": "Which interpretation best fits અભિપ્રાય (abhiprāy) in this lesson?",
+                "options": [
+                  "considered opinion",
+                  "perspective",
+                  "evidence",
+                  "indication"
+                ],
+                "answer": 0,
+                "why": "In this discourse અભિપ્રાય (abhiprāy) means “considered opinion.”"
+              },
+              {
+                "q": "Which interpretation best fits દૃષ્ટિકોણ (dr̥ṣṭikōṇ) in this lesson?",
+                "options": [
+                  "perspective",
+                  "evidence",
+                  "indication",
+                  "possibility"
+                ],
+                "answer": 0,
+                "why": "In this discourse દૃષ્ટિકોણ (dr̥ṣṭikōṇ) means “perspective.”"
+              },
+              {
+                "q": "Which interpretation best fits પુરાવો (purāvō) in this lesson?",
+                "options": [
+                  "evidence",
+                  "indication",
+                  "possibility",
+                  "conclusion"
+                ],
+                "answer": 0,
+                "why": "In this discourse પુરાવો (purāvō) means “evidence.”"
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Attribution, Stance, and Nuanced Opinion C1 Workshop",
+              "tasks": [
+                {
+                  "instruction": "Explain the discourse function or contextual meaning.",
+                  "items": [
+                    "જણાવ્યા અનુસાર (jaṇāvyā anusār)",
+                    "દાવો (dāvō)"
+                  ],
+                  "key": [
+                    "according to what was stated",
+                    "claim"
+                  ]
+                },
+                {
+                  "instruction": "Translate while preserving stance and register.",
+                  "items": [
+                    "અહેવાલમાં જણાવવામાં આવ્યું છે કે પાણીની માંગ સતત વધી રહી છે. (ahēvāl māṁ jaṇāvavāmāṁ āvyuṁ chē kē pāṇīnī māṅg satat vadhī rahī chē.)",
+                    "ઉપલબ્ધ પુરાવા પરથી એવું જણાય છે કે નીતિમાં ફેરફાર જરૂરી છે. (upalabdha purāvā parathī ēvuṁ jaṇāy chē kē nītimāṁ phēraphār jarūrī chē.)"
+                  ],
+                  "key": [
+                    "The report states that demand for water is continually increasing.",
+                    "The available evidence suggests that a policy change is necessary."
+                  ]
+                },
+                {
+                  "instruction": "Produce precise Gujarati script and romanisation.",
+                  "items": [
+                    "perspective",
+                    "evidence"
+                  ],
+                  "key": [
+                    "દૃષ્ટિકોણ (dr̥ṣṭikōṇ)",
+                    "પુરાવો (purāvō)"
+                  ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Gujarati offline lab: read, transform in Gujarati script, and rehearse aloud. Check Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register.",
+                  "items": [
+                    "અહેવાલમાં જણાવવામાં આવ્યું છે કે પાણીની માંગ સતત વધી રહી છે.",
+                    "નિષ્ણાતોના જણાવ્યા અનુસાર પરિસ્થિતિ સુધરી રહી છે."
+                  ],
+                  "key": [
+                    "The report states that demand for water is continually increasing.",
+                    "According to the experts, the situation is improving."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "જણાવ્યા અનુસાર",
+              "દાવો",
+              "અભિપ્રાય",
+              "દૃષ્ટિકોણ"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
+          }
+        ]
+      },
+      {
+        "id": "gu-c1-u2",
+        "title": "Professional and Academic Communication",
+        "lessons": [
+          {
+            "id": "gu-c1-l3",
+            "title": "Professional Negotiation and Polite Disagreement",
+            "learn": "Negotiate in Gujarati without making disagreement personal. Formal interaction often acknowledges the other position before stating a reservation, proposing a condition, or requesting clarification.",
+            "vocab": [
+              {
+                "t": "વાટાઘાટ",
+                "r": "vāṭāghāṭ",
+                "en": "negotiation",
+                "pos": "noun"
+              },
+              {
+                "t": "સમજૂતી",
+                "r": "samajūtī",
+                "en": "agreement; understanding",
+                "pos": "noun"
+              },
+              {
+                "t": "દરખાસ્ત",
+                "r": "darakhāst",
+                "en": "formal proposal",
+                "pos": "noun"
+              },
+              {
+                "t": "શરત",
+                "r": "śarat",
+                "en": "condition",
+                "pos": "noun"
+              },
+              {
+                "t": "વિકલ્પ",
+                "r": "vikalp",
+                "en": "alternative",
+                "pos": "noun"
+              },
+              {
+                "t": "વાંધો",
+                "r": "vāndhō",
+                "en": "objection",
+                "pos": "noun"
+              },
+              {
+                "t": "બાંયધરી",
+                "r": "bāṁyadharī",
+                "en": "assurance; guarantee",
+                "pos": "noun"
+              },
+              {
+                "t": "પ્રતિબદ્ધતા",
+                "r": "pratibaddhatā",
+                "en": "commitment",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Acknowledgement before disagreement",
+              "explain": "Use આપનો મુદ્દો સમજાય છે to acknowledge a position, followed by પરંતુ or તેમ છતાં for a reservation. Conditional acceptance can use જો…તો, while શું આપણે…વિચારી શકીએ? proposes an alternative collaboratively.",
+              "pattern": "acknowledgement + reservation + conditional alternative",
+              "examples": [
+                {
+                  "t": "આપનો મુદ્દો સમજાય છે, પરંતુ હાલની શરતો અમને સ્વીકાર્ય નથી.",
+                  "r": "āpanō muddō samajāy chē, parantu hālanī śaratō amanē svīkārya nathī.",
+                  "en": "I understand your point, but the current terms are not acceptable to us."
+                },
+                {
+                  "t": "જો સમયમર્યાદામાં થોડો ફેરફાર થાય, તો અમે દરખાસ્ત પર વિચાર કરી શકીએ.",
+                  "r": "jō samaymaryādāmāṁ thōḍō phēraphār thāy, tō amē darakhāst par vicār karī śakīē.",
+                  "en": "If the deadline is adjusted slightly, we can consider the proposal."
+                },
+                {
+                  "t": "શું આપણે બંને પક્ષને અનુકૂળ એવો વિકલ્પ શોધી શકીએ?",
+                  "r": "śuṁ āpaṇē bannē pakṣnē anukūḷ ēvō vikalp śōdhī śakīē?",
+                  "en": "Could we find an alternative suitable for both parties?"
+                }
+              ],
+              "mistakes": [
+                "A formal disagreement should challenge the proposal, not the competence or motives of the person."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Client",
+                "t": "આપની દરખાસ્ત રસપ્રદ છે, પરંતુ ખર્ચ અંગે અમને વાંધો છે.",
+                "r": "āpanī darakhāst rasaprad chē, parantu kharc aṅgē amanē vāndhō chē.",
+                "en": "Your proposal is interesting, but we have an objection regarding cost."
+              },
+              {
+                "sp": "Manager",
+                "t": "જો કરાર લાંબા ગાળાનો હોય, તો અમે કિંમતમાં ફેરફાર કરી શકીએ.",
+                "r": "jō karār lāmbā gāḷānō hōy, tō amē kīmmatmāṁ phēraphār karī śakīē.",
+                "en": "If the contract is long-term, we can adjust the price."
+              },
+              {
+                "sp": "Client",
+                "t": "ગુણવત્તા અંગે કઈ બાંયધરી આપવામાં આવશે?",
+                "r": "guṇavattā aṅgē kaī bāṁyadharī āpavāmāṁ āvaśē?",
+                "en": "What assurance will be provided regarding quality?"
+              },
+              {
+                "sp": "Manager",
+                "t": "અમે લેખિત પ્રતિબદ્ધતા અને નિયમિત સમીક્ષા બંને આપીશું.",
+                "r": "amē lēkhit pratibaddhatā anē niyamit samīkṣā bannē āpīśuṁ.",
+                "en": "We will provide both a written commitment and regular review."
+              }
+            ],
+            "practice": [
+              {
+                "type": "free_response",
+                "q": "Practice 3 [free response] — Professional Negotiation and Polite Disagreement: Produce a spoken response demonstrating “Professional Negotiation and Polite Disagreement”; compare with the model.",
+                "answer": "શું આપણે બંને પક્ષને અનુકૂળ એવો વિકલ્પ શોધી શકીએ?",
+                "skill_target": "Gujarati free response: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "roleplay",
+                "q": "Practice 4 [roleplay] — Professional Negotiation and Polite Disagreement: Role-play Manager with appropriate register: We will provide both a written commitment and regular review.",
+                "answer": "અમે લેખિત પ્રતિબદ્ધતા અને નિયમિત સમીક્ષા બંને આપીશું.",
+                "skill_target": "Gujarati roleplay: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Practice 5 [sentence writing] — Professional Negotiation and Polite Disagreement: Write one accurate Gujarati script sentence using વિકલ્પ.",
+                "answer": "જો સમયમર્યાદામાં થોડો ફેરફાર થાય, તો અમે દરખાસ્ત પર વિચાર કરી શકીએ.",
+                "skill_target": "Gujarati sentence writing: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "short_writing",
+                "q": "Practice 6 [short writing] — Professional Negotiation and Polite Disagreement: Write 2–3 connected Gujarati sentences applying Professional Negotiation and Polite Disagreement.",
+                "answer": "શું આપણે બંને પક્ષને અનુકૂળ એવો વિકલ્પ શોધી શકીએ? આપનો મુદ્દો સમજાય છે, પરંતુ હાલની શરતો અમને સ્વીકાર્ય નથી.",
+                "skill_target": "Gujarati short writing: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "paraphrase",
+                "q": "Practice 7 [paraphrase] — Professional Negotiation and Polite Disagreement: Paraphrase without changing meaning, morphology, or register: આપનો મુદ્દો સમજાય છે, પરંતુ હાલની શરતો અમને સ્વીકાર્ય નથી.",
+                "answer": "આપનો મુદ્દો સમજાય છે, પરંતુ હાલની શરતો અમને સ્વીકાર્ય નથી.",
+                "skill_target": "Gujarati paraphrase: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "summary",
+                "q": "Practice 8 [summary] — Professional Negotiation and Polite Disagreement: Summarize the dialogue in one precise Gujarati sentence.",
+                "answer": "અમે લેખિત પ્રતિબદ્ધતા અને નિયમિત સમીક્ષા બંને આપીશું.",
+                "skill_target": "Gujarati summary: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Practice 9 [guided composition] — Professional Negotiation and Polite Disagreement: Compose a short response with the taught pattern “acknowledgement + reservation + conditional alternative”.",
+                "answer": "શું આપણે બંને પક્ષને અનુકૂળ એવો વિકલ્પ શોધી શકીએ?",
+                "skill_target": "Gujarati guided composition: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Practice 10 [register transformation] — Professional Negotiation and Polite Disagreement: Recast “I understand your point, but the current terms are not acceptable to us.” in the formal/respectful or colloquial register taught here.",
+                "answer": "આપનો મુદ્દો સમજાય છે, પરંતુ હાલની શરતો અમને સ્વીકાર્ય નથી.",
+                "skill_target": "Gujarati register transformation: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "tone_identification",
+                "q": "Practice 11 [tone identification] — Professional Negotiation and Polite Disagreement: Identify the tone or stance of જો સમયમર્યાદામાં થોડો ફેરફાર થાય, તો અમે દરખાસ્ત પર વિચાર કરી શકીએ..",
+                "answer": "The wording realizes Acknowledgement before disagreement with the lesson-appropriate stance and register.",
+                "skill_target": "Gujarati tone identification: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "semantic_distinction",
+                "q": "Practice 12 [semantic distinction] — Professional Negotiation and Polite Disagreement: Distinguish શરત from વિકલ્પ in meaning and use.",
+                "answer": "શરત means “condition”; વિકલ્પ means “alternative”. Grammar and context determine the choice.",
+                "skill_target": "Gujarati semantic distinction: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "contextual_meaning",
+                "q": "Practice 13 [contextual meaning] — Professional Negotiation and Polite Disagreement: Explain the contextual force of વિકલ્પ in this lesson.",
+                "answer": "Here it contributes “alternative” within Acknowledgement before disagreement.",
+                "skill_target": "Gujarati contextual meaning: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "argument_construction",
+                "q": "Practice 14 [argument construction] — Professional Negotiation and Polite Disagreement: Build a claim and support in the register of “Professional Negotiation and Polite Disagreement”.",
+                "answer": "જો સમયમર્યાદામાં થોડો ફેરફાર થાય, તો અમે દરખાસ્ત પર વિચાર કરી શકીએ. શું આપણે બંને પક્ષને અનુકૂળ એવો વિકલ્પ શોધી શકીએ?",
+                "skill_target": "Gujarati argument construction: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which interpretation best fits વાટાઘાટ (vāṭāghāṭ) in this lesson?",
+                "options": [
+                  "negotiation",
+                  "agreement; understanding",
+                  "formal proposal",
+                  "condition"
+                ],
+                "answer": 0,
+                "why": "In this discourse વાટાઘાટ (vāṭāghāṭ) means “negotiation.”"
+              },
+              {
+                "q": "Which interpretation best fits સમજૂતી (samajūtī) in this lesson?",
+                "options": [
+                  "agreement; understanding",
+                  "formal proposal",
+                  "condition",
+                  "alternative"
+                ],
+                "answer": 0,
+                "why": "In this discourse સમજૂતી (samajūtī) means “agreement; understanding.”"
+              },
+              {
+                "q": "Which interpretation best fits દરખાસ્ત (darakhāst) in this lesson?",
+                "options": [
+                  "formal proposal",
+                  "condition",
+                  "alternative",
+                  "objection"
+                ],
+                "answer": 0,
+                "why": "In this discourse દરખાસ્ત (darakhāst) means “formal proposal.”"
+              },
+              {
+                "q": "Which interpretation best fits શરત (śarat) in this lesson?",
+                "options": [
+                  "condition",
+                  "alternative",
+                  "objection",
+                  "assurance; guarantee"
+                ],
+                "answer": 0,
+                "why": "In this discourse શરત (śarat) means “condition.”"
+              },
+              {
+                "q": "Which interpretation best fits વિકલ્પ (vikalp) in this lesson?",
+                "options": [
+                  "alternative",
+                  "objection",
+                  "assurance; guarantee",
+                  "commitment"
+                ],
+                "answer": 0,
+                "why": "In this discourse વિકલ્પ (vikalp) means “alternative.”"
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Professional Negotiation and Polite Disagreement C1 Workshop",
+              "tasks": [
+                {
+                  "instruction": "Explain the discourse function or contextual meaning.",
+                  "items": [
+                    "વાટાઘાટ (vāṭāghāṭ)",
+                    "સમજૂતી (samajūtī)"
+                  ],
+                  "key": [
+                    "negotiation",
+                    "agreement; understanding"
+                  ]
+                },
+                {
+                  "instruction": "Translate while preserving stance and register.",
+                  "items": [
+                    "આપનો મુદ્દો સમજાય છે, પરંતુ હાલની શરતો અમને સ્વીકાર્ય નથી. (āpanō muddō samajāy chē, parantu hālanī śaratō amanē svīkārya nathī.)",
+                    "જો સમયમર્યાદામાં થોડો ફેરફાર થાય, તો અમે દરખાસ્ત પર વિચાર કરી શકીએ. (jō samaymaryādāmāṁ thōḍō phēraphār thāy, tō amē darakhāst par vicār karī śakīē.)"
+                  ],
+                  "key": [
+                    "I understand your point, but the current terms are not acceptable to us.",
+                    "If the deadline is adjusted slightly, we can consider the proposal."
+                  ]
+                },
+                {
+                  "instruction": "Produce precise Gujarati script and romanisation.",
+                  "items": [
+                    "condition",
+                    "alternative"
+                  ],
+                  "key": [
+                    "શરત (śarat)",
+                    "વિકલ્પ (vikalp)"
+                  ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Gujarati offline lab: read, transform in Gujarati script, and rehearse aloud. Check Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register.",
+                  "items": [
+                    "આપનો મુદ્દો સમજાય છે, પરંતુ હાલની શરતો અમને સ્વીકાર્ય નથી.",
+                    "આપની દરખાસ્ત રસપ્રદ છે, પરંતુ ખર્ચ અંગે અમને વાંધો છે."
+                  ],
+                  "key": [
+                    "I understand your point, but the current terms are not acceptable to us.",
+                    "Your proposal is interesting, but we have an objection regarding cost."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "વાટાઘાટ",
+              "સમજૂતી",
+              "દરખાસ્ત",
+              "શરત"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
+          },
+          {
+            "id": "gu-c1-l4",
+            "title": "Academic Explanation and Argumentation",
+            "learn": "Build an expository argument by defining a question, naming criteria, comparing evidence, acknowledging limitations, and drawing a proportionate conclusion. Gujarati academic prose favours explicit logical relations over conversational implication.",
+            "vocab": [
+              {
+                "t": "પરિકલ્પના",
+                "r": "parikalpanā",
+                "en": "hypothesis",
+                "pos": "noun"
+              },
+              {
+                "t": "વિશ્લેષણ",
+                "r": "viślēṣaṇ",
+                "en": "analysis",
+                "pos": "noun"
+              },
+              {
+                "t": "માપદંડ",
+                "r": "māpadanḍ",
+                "en": "criterion",
+                "pos": "noun"
+              },
+              {
+                "t": "પરિબળ",
+                "r": "paribaḷ",
+                "en": "factor",
+                "pos": "noun"
+              },
+              {
+                "t": "પદ્ધતિ",
+                "r": "paddhati",
+                "en": "method",
+                "pos": "noun"
+              },
+              {
+                "t": "તુલનાત્મક",
+                "r": "tulanātmak",
+                "en": "comparative",
+                "pos": "adjective"
+              },
+              {
+                "t": "મર્યાદા",
+                "r": "maryādā",
+                "en": "limitation",
+                "pos": "noun"
+              },
+              {
+                "t": "તારણ",
+                "r": "tāraṇ",
+                "en": "finding; inference",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "Proportionate claims",
+              "explain": "Use પ્રથમ, ત્યારબાદ, and અંતે to stage an explanation. તુલનાત્મક રીતે frames a comparison; જોકે introduces a limitation. A cautious conclusion uses પરથી કહી શકાય કે rather than an absolute claim.",
+              "pattern": "research question + method/evidence + limitation + proportionate conclusion",
+              "examples": [
+                {
+                  "t": "પ્રથમ સમસ્યાના મુખ્ય પરિબળો ઓળખવામાં આવ્યા; ત્યારબાદ તેમનું તુલનાત્મક વિશ્લેષણ કરવામાં આવ્યું.",
+                  "r": "pratham samasyānā mukhya paribaḷō ōḷakhavāmāṁ āvyā; tyārabād tēmanuṁ tulanātmak viślēṣaṇ karavāmāṁ āvyuṁ.",
+                  "en": "First the main factors in the problem were identified; they were then analysed comparatively."
+                },
+                {
+                  "t": "આ પદ્ધતિ ઉપયોગી છે, જોકે નમૂનાનું કદ તેની એક મહત્વની મર્યાદા છે.",
+                  "r": "ā paddhati upayōgī chē, jokē namūnānuṁ kad tēnī ēk mahatvanī maryādā chē.",
+                  "en": "This method is useful, although sample size is an important limitation."
+                },
+                {
+                  "t": "આ તારણો પરથી કહી શકાય કે બંને પરિબળો વચ્ચે સંબંધ છે, પરંતુ કારણસંબંધ સાબિત થતો નથી.",
+                  "r": "ā tāraṇō parathī kahī śakāy kē bannē paribaḷō vaccē sambandh chē, parantu kāraṇsambandh sābit thatō nathī.",
+                  "en": "These findings suggest an association between the two factors, but do not establish causation."
+                }
+              ],
+              "mistakes": [
+                "Do not claim causation when the evidence supports only an association."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Student",
+                "t": "મારા વિશ્લેષણ માટે કયો માપદંડ સૌથી યોગ્ય રહેશે?",
+                "r": "mārā viślēṣaṇ māṭē kayō māpadanḍ sauthī yōgya rahēśē?",
+                "en": "Which criterion will be most appropriate for my analysis?"
+              },
+              {
+                "sp": "Supervisor",
+                "t": "એક જ માપદંડ પૂરતો નહીં હોય; તુલનાત્મક પદ્ધતિ અપનાવો.",
+                "r": "ēk ja māpadanḍ pūratō nahīṁ hōy; tulanātmak paddhati apanāvō.",
+                "en": "One criterion will not be sufficient; adopt a comparative method."
+              },
+              {
+                "sp": "Student",
+                "t": "શું મારે અભ્યાસની મર્યાદાઓ પણ સ્પષ્ટ કરવી જોઈએ?",
+                "r": "śuṁ mārē abhyāsanī maryādāō paṇ spaṣṭ karavī jōīē?",
+                "en": "Should I also state the limitations of the study clearly?"
+              },
+              {
+                "sp": "Supervisor",
+                "t": "હા, કારણ કે મર્યાદા સ્વીકારવાથી તારણ વધુ વિશ્વસનીય બને છે.",
+                "r": "hā, kāraṇ kē maryādā svīkāravāthī tāraṇ vadhu viśvasanīya banē chē.",
+                "en": "Yes, because acknowledging limitations makes the conclusion more credible."
+              }
+            ],
+            "practice": [
+              {
+                "type": "discourse_ordering",
+                "q": "Practice 4 [discourse ordering] — Academic Explanation and Argumentation: Rebuild this model with correct Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register: First the main factors in the problem were identified; they were then analysed comparatively.",
+                "answer": "પ્રથમ સમસ્યાના મુખ્ય પરિબળો ઓળખવામાં આવ્યા; ત્યારબાદ તેમનું તુલનાત્મક વિશ્લેષણ કરવામાં આવ્યું.",
+                "skill_target": "Gujarati discourse ordering: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "style_rewriting",
+                "q": "Practice 5 [style rewriting] — Academic Explanation and Argumentation: Rewrite “This method is useful, although sample size is an important limitation.” in this lesson’s genre and style.",
+                "answer": "આ પદ્ધતિ ઉપયોગી છે, જોકે નમૂનાનું કદ તેની એક મહત્વની મર્યાદા છે.",
+                "skill_target": "Gujarati style rewriting: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "idiom_interpretation",
+                "q": "Practice 6 [idiom interpretation] — Academic Explanation and Argumentation: Interpret તુલનાત્મક contextually; state its exact collocational meaning if it is not idiomatic.",
+                "answer": "comparative",
+                "skill_target": "Gujarati idiom interpretation: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "implied_meaning",
+                "q": "Practice 7 [implied meaning] — Academic Explanation and Argumentation: Explain what પ્રથમ સમસ્યાના મુખ્ય પરિબળો ઓળખવામાં આવ્યા; ત્યારબાદ તેમનું તુલનાત્મક વિશ્લેષણ કરવામાં આવ્યું. implies in context.",
+                "answer": "First the main factors in the problem were identified; they were then analysed comparatively.",
+                "skill_target": "Gujarati implied meaning: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "Practice 8 [multiple choice] — Academic Explanation and Argumentation: Choose the lesson meaning of તારણ (tāraṇ).",
+                "answer": "finding; inference",
+                "skill_target": "Gujarati multiple choice: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "options": [
+                  "finding; inference",
+                  "hypothesis",
+                  "analysis"
+                ]
+              },
+              {
+                "type": "fill_in_the_blank",
+                "q": "Practice 9 [fill in the blank] — Academic Explanation and Argumentation: Type the complete Gujarati script form for “hypothesis”.",
+                "answer": "પરિકલ્પના",
+                "skill_target": "Gujarati fill in the blank: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "translation",
+                "q": "Practice 10 [translation] — Academic Explanation and Argumentation: Read વિશ્લેષણ (viślēṣaṇ) and give its contextual English meaning.",
+                "answer": "analysis",
+                "skill_target": "Gujarati translation: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "reverse_translation",
+                "q": "Practice 11 [reverse translation] — Academic Explanation and Argumentation: Write “criterion” in Gujarati script, not romanisation alone.",
+                "answer": "માપદંડ",
+                "skill_target": "Gujarati reverse translation: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "matching",
+                "q": "Practice 12 [matching] — Academic Explanation and Argumentation: Match પરિબળ to its meaning in this lesson.",
+                "answer": "factor",
+                "skill_target": "Gujarati matching: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "options": [
+                  "method",
+                  "factor",
+                  "comparative"
+                ]
+              },
+              {
+                "type": "reorder",
+                "q": "Practice 13 [reorder] — Academic Explanation and Argumentation: Rebuild this model with correct Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register: First the main factors in the problem were identified; they were then analysed comparatively.",
+                "answer": "પ્રથમ સમસ્યાના મુખ્ય પરિબળો ઓળખવામાં આવ્યા; ત્યારબાદ તેમનું તુલનાત્મક વિશ્લેષણ કરવામાં આવ્યું.",
+                "skill_target": "Gujarati reorder: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "sentence_building",
+                "q": "Practice 14 [sentence building] — Academic Explanation and Argumentation: Rebuild this model with correct Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register: This method is useful, although sample size is an important limitation.",
+                "answer": "આ પદ્ધતિ ઉપયોગી છે, જોકે નમૂનાનું કદ તેની એક મહત્વની મર્યાદા છે.",
+                "skill_target": "Gujarati sentence building: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "word_selection",
+                "q": "Practice 15 [word selection] — Academic Explanation and Argumentation: Select the Gujarati script form for “limitation”.",
+                "answer": "મર્યાદા",
+                "skill_target": "Gujarati word selection: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "options": [
+                  "તારણ",
+                  "પરિકલ્પના",
+                  "મર્યાદા"
+                ]
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which interpretation best fits પરિકલ્પના (parikalpanā) in this lesson?",
+                "options": [
+                  "hypothesis",
+                  "analysis",
+                  "criterion",
+                  "factor"
+                ],
+                "answer": 0,
+                "why": "In this discourse પરિકલ્પના (parikalpanā) means “hypothesis.”"
+              },
+              {
+                "q": "Which interpretation best fits વિશ્લેષણ (viślēṣaṇ) in this lesson?",
+                "options": [
+                  "analysis",
+                  "criterion",
+                  "factor",
+                  "method"
+                ],
+                "answer": 0,
+                "why": "In this discourse વિશ્લેષણ (viślēṣaṇ) means “analysis.”"
+              },
+              {
+                "q": "Which interpretation best fits માપદંડ (māpadanḍ) in this lesson?",
+                "options": [
+                  "criterion",
+                  "factor",
+                  "method",
+                  "comparative"
+                ],
+                "answer": 0,
+                "why": "In this discourse માપદંડ (māpadanḍ) means “criterion.”"
+              },
+              {
+                "q": "Which interpretation best fits પરિબળ (paribaḷ) in this lesson?",
+                "options": [
+                  "factor",
+                  "method",
+                  "comparative",
+                  "limitation"
+                ],
+                "answer": 0,
+                "why": "In this discourse પરિબળ (paribaḷ) means “factor.”"
+              },
+              {
+                "q": "Which interpretation best fits પદ્ધતિ (paddhati) in this lesson?",
+                "options": [
+                  "method",
+                  "comparative",
+                  "limitation",
+                  "finding; inference"
+                ],
+                "answer": 0,
+                "why": "In this discourse પદ્ધતિ (paddhati) means “method.”"
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Academic Explanation and Argumentation C1 Workshop",
+              "tasks": [
+                {
+                  "instruction": "Explain the discourse function or contextual meaning.",
+                  "items": [
+                    "પરિકલ્પના (parikalpanā)",
+                    "વિશ્લેષણ (viślēṣaṇ)"
+                  ],
+                  "key": [
+                    "hypothesis",
+                    "analysis"
+                  ]
+                },
+                {
+                  "instruction": "Translate while preserving stance and register.",
+                  "items": [
+                    "પ્રથમ સમસ્યાના મુખ્ય પરિબળો ઓળખવામાં આવ્યા; ત્યારબાદ તેમનું તુલનાત્મક વિશ્લેષણ કરવામાં આવ્યું. (pratham samasyānā mukhya paribaḷō ōḷakhavāmāṁ āvyā; tyārabād tēmanuṁ tulanātmak viślēṣaṇ karavāmāṁ āvyuṁ.)",
+                    "આ પદ્ધતિ ઉપયોગી છે, જોકે નમૂનાનું કદ તેની એક મહત્વની મર્યાદા છે. (ā paddhati upayōgī chē, jokē namūnānuṁ kad tēnī ēk mahatvanī maryādā chē.)"
+                  ],
+                  "key": [
+                    "First the main factors in the problem were identified; they were then analysed comparatively.",
+                    "This method is useful, although sample size is an important limitation."
+                  ]
+                },
+                {
+                  "instruction": "Produce precise Gujarati script and romanisation.",
+                  "items": [
+                    "factor",
+                    "method"
+                  ],
+                  "key": [
+                    "પરિબળ (paribaḷ)",
+                    "પદ્ધતિ (paddhati)"
+                  ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Gujarati offline lab: read, transform in Gujarati script, and rehearse aloud. Check Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register.",
+                  "items": [
+                    "પ્રથમ સમસ્યાના મુખ્ય પરિબળો ઓળખવામાં આવ્યા; ત્યારબાદ તેમનું તુલનાત્મક વિશ્લેષણ કરવામાં આવ્યું.",
+                    "મારા વિશ્લેષણ માટે કયો માપદંડ સૌથી યોગ્ય રહેશે?"
+                  ],
+                  "key": [
+                    "First the main factors in the problem were identified; they were then analysed comparatively.",
+                    "Which criterion will be most appropriate for my analysis?"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "પરિકલ્પના",
+              "વિશ્લેષણ",
+              "માપદંડ",
+              "પરિબળ"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
+          }
+        ]
+      },
+      {
+        "id": "gu-c1-u3",
+        "title": "Idiomatic Meaning and Register",
+        "lessons": [
+          {
+            "id": "gu-c1-l5",
+            "title": "Idioms, Figurative Meaning, and Collocation",
+            "learn": "Interpret idioms as whole pragmatic units rather than literal word sequences. C1 control means knowing when a vivid idiom helps, when a neutral paraphrase is safer, and which words conventionally occur together.",
+            "vocab": [
+              {
+                "t": "આંખ આડા કાન કરવા",
+                "r": "āṅkh āḍā kān karavā",
+                "en": "to deliberately ignore",
+                "pos": "idiom"
+              },
+              {
+                "t": "પાણી પહેલાં પાળ બાંધવી",
+                "r": "pāṇī pahēlāṁ pāḷ bāndhavī",
+                "en": "to take precautions in advance",
+                "pos": "idiom"
+              },
+              {
+                "t": "હાથ પર હાથ ધરી બેસવું",
+                "r": "hāth par hāth dharī bēsavuṁ",
+                "en": "to sit idle",
+                "pos": "idiom"
+              },
+              {
+                "t": "દૂધનું દૂધ, પાણીનું પાણી",
+                "r": "dūdhnuṁ dūdh, pāṇīnuṁ pāṇī",
+                "en": "to establish the plain truth",
+                "pos": "idiom"
+              },
+              {
+                "t": "રંગે હાથ પકડવું",
+                "r": "raṅgē hāth pakaḍavuṁ",
+                "en": "to catch red-handed",
+                "pos": "idiom"
+              },
+              {
+                "t": "ઊંટના મોંમાં જીરું",
+                "r": "ūṇṭnā mōṁmāṁ jīruṁ",
+                "en": "a quantity far too small",
+                "pos": "idiom"
+              },
+              {
+                "t": "નક્કર પુરાવો",
+                "r": "nakkar purāvō",
+                "en": "solid evidence",
+                "pos": "collocation"
+              },
+              {
+                "t": "કડક પગલાં",
+                "r": "kaḍak pagalāṁ",
+                "en": "strict measures",
+                "pos": "collocation"
+              }
+            ],
+            "grammar": {
+              "title": "Literal meaning versus intended force",
+              "explain": "An idiom’s intended meaning comes from convention and context. In formal prose, a neutral paraphrase may be preferable; in an editorial or speech, an idiom can add evaluation and memorability.",
+              "pattern": "context + idiom/collocation + inferable evaluative force",
+              "examples": [
+                {
+                  "t": "અધિકારીઓએ ફરિયાદો પ્રત્યે આંખ આડા કાન કર્યા હોવાનો આક્ષેપ થયો.",
+                  "r": "adhikārīōē phariyādō pratyē āṅkh āḍā kān karyā hōvānō ākṣēp thayō.",
+                  "en": "Officials were accused of deliberately ignoring the complaints."
+                },
+                {
+                  "t": "સંકટ આવે તે પહેલાં પાણી પહેલાં પાળ બાંધવી વધુ સમજદારીભર્યું છે.",
+                  "r": "saṅkaṭ āvē tē pahēlāṁ pāṇī pahēlāṁ pāḷ bāndhavī vadhu samajadārībhar yuṁ chē.",
+                  "en": "It is wiser to take precautions before a crisis arrives."
+                },
+                {
+                  "t": "આટલી સહાય તો ઊંટના મોંમાં જીરું સમાન છે.",
+                  "r": "āṭalī sahāy tō ūṇṭnā mōṁmāṁ jīruṁ samān chē.",
+                  "en": "This much assistance is far too little for the need."
+                }
+              ],
+              "mistakes": [
+                "Do not use an idiom merely because its literal image resembles the situation; verify its conventional force and register."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Editor",
+                "t": "“આંખ આડા કાન કર્યા” લખવાથી વાક્યનો સ્વર આરોપાત્મક બને છે.",
+                "r": "“āṅkh āḍā kān karyā” lakhavāthī vākyanō svar ārōpātmak banē chē.",
+                "en": "Writing “deliberately ignored” makes the sentence accusatory."
+              },
+              {
+                "sp": "Writer",
+                "t": "તો અહેવાલમાં “યોગ્ય ધ્યાન આપવામાં આવ્યું નહીં” લખું?",
+                "r": "tō ahēvālmāṁ “yōgya dhyān āpavāmāṁ āvyuṁ nahīṁ” lakhuṁ?",
+                "en": "Then should I write “adequate attention was not given” in the report?"
+              },
+              {
+                "sp": "Editor",
+                "t": "હા, એ વધુ તટસ્થ છે; સંપાદકીયમાં મુહાવરો યોગ્ય રહેશે.",
+                "r": "hā, ē vadhu taṭastha chē; sampādakīyamāṁ muhāvarō yōgya rahēśē.",
+                "en": "Yes, that is more neutral; the idiom would suit an editorial."
+              },
+              {
+                "sp": "Writer",
+                "t": "અર્થ સમાન છે, પરંતુ વલણ અને અસર અલગ છે.",
+                "r": "artha samān chē, parantu valaṇ anē asar alag chē.",
+                "en": "The meaning is similar, but the stance and effect differ."
+              }
+            ],
+            "practice": [
+              {
+                "type": "error_correction",
+                "q": "Practice 5 [error correction] — Idioms, Figurative Meaning, and Collocation: Replace a literal, agreement, or register error with the taught model for “It is wiser to take precautions before a crisis arrives.”.",
+                "answer": "સંકટ આવે તે પહેલાં પાણી પહેલાં પાળ બાંધવી વધુ સમજદારીભર્યું છે.",
+                "skill_target": "Gujarati error correction: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "dialogue_completion",
+                "q": "Practice 6 [dialogue completion] — Idioms, Figurative Meaning, and Collocation: Complete Writer’s turn: Then should I write “adequate attention was not given” in the report?",
+                "answer": "તો અહેવાલમાં “યોગ્ય ધ્યાન આપવામાં આવ્યું નહીં” લખું?",
+                "skill_target": "Gujarati dialogue completion: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "reading_comprehension",
+                "q": "Practice 7 [reading comprehension] — Idioms, Figurative Meaning, and Collocation: Read હા, એ વધુ તટસ્થ છે; સંપાદકીયમાં મુહાવરો યોગ્ય રહેશે. (hā, ē vadhu taṭastha chē; sampādakīyamāṁ muhāvarō yōgya rahēśē.). What exact detail does it communicate?",
+                "answer": "Yes, that is more neutral; the idiom would suit an editorial.",
+                "skill_target": "Gujarati reading comprehension: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "paragraph_comprehension",
+                "q": "Practice 8 [paragraph comprehension] — Idioms, Figurative Meaning, and Collocation: Read the whole dialogue and explain this turn’s contribution: અર્થ સમાન છે, પરંતુ વલણ અને અસર અલગ છે.",
+                "answer": "The meaning is similar, but the stance and effect differ.",
+                "skill_target": "Gujarati paragraph comprehension: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "main_idea",
+                "q": "Practice 9 [main idea] — Idioms, Figurative Meaning, and Collocation: State the main communicative purpose of “Idioms, Figurative Meaning, and Collocation”.",
+                "answer": "Interpret idioms as whole pragmatic units rather than literal word sequences.",
+                "skill_target": "Gujarati main idea: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "detail_identification",
+                "q": "Practice 10 [detail identification] — Idioms, Figurative Meaning, and Collocation: Read તો અહેવાલમાં “યોગ્ય ધ્યાન આપવામાં આવ્યું નહીં” લખું? (tō ahēvālmāṁ “yōgya dhyān āpavāmāṁ āvyuṁ nahīṁ” lakhuṁ?). What exact detail does it communicate?",
+                "answer": "Then should I write “adequate attention was not given” in the report?",
+                "skill_target": "Gujarati detail identification: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "inference",
+                "q": "Practice 11 [inference] — Idioms, Figurative Meaning, and Collocation: Infer the intended meaning of સંકટ આવે તે પહેલાં પાણી પહેલાં પાળ બાંધવી વધુ સમજદારીભર્યું છે. without losing its qualification or social force.",
+                "answer": "It is wiser to take precautions before a crisis arrives.",
+                "skill_target": "Gujarati inference: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "listening_comprehension",
+                "q": "Practice 12 [listening comprehension] — Idioms, Figurative Meaning, and Collocation: Play the synthetic audio and give its precise contextual meaning.",
+                "answer": "The meaning is similar, but the stance and effect differ.",
+                "skill_target": "Gujarati listening comprehension: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "અર્થ સમાન છે, પરંતુ વલણ અને અસર અલગ છે."
+              },
+              {
+                "type": "dictation",
+                "q": "Practice 13 [dictation] — Idioms, Figurative Meaning, and Collocation: Play the labeled synthetic Gujarati audio and type the complete line in Gujarati script.",
+                "answer": "“આંખ આડા કાન કર્યા” લખવાથી વાક્યનો સ્વર આરોપાત્મક બને છે.",
+                "skill_target": "Gujarati dictation: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "“આંખ આડા કાન કર્યા” લખવાથી વાક્યનો સ્વર આરોપાત્મક બને છે."
+              },
+              {
+                "type": "listen_and_choose",
+                "q": "Practice 14 [listen and choose] — Idioms, Figurative Meaning, and Collocation: Play the synthetic audio and choose its contextual meaning.",
+                "answer": "Then should I write “adequate attention was not given” in the report?",
+                "skill_target": "Gujarati listen and choose: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "તો અહેવાલમાં “યોગ્ય ધ્યાન આપવામાં આવ્યું નહીં” લખું?",
+                "options": [
+                  "Then should I write “adequate attention was not given” in the report?",
+                  "Yes, that is more neutral; the idiom would suit an editorial.",
+                  "a quantity far too small"
+                ]
+              },
+              {
+                "type": "listen_and_reorder",
+                "q": "Practice 15 [listen and reorder] — Idioms, Figurative Meaning, and Collocation: Rebuild this model with correct Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register: This much assistance is far too little for the need.",
+                "answer": "આટલી સહાય તો ઊંટના મોંમાં જીરું સમાન છે.",
+                "skill_target": "Gujarati listen and reorder: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "“આંખ આડા કાન કર્યા” લખવાથી વાક્યનો સ્વર આરોપાત્મક બને છે."
+              },
+              {
+                "type": "listen_and_fill",
+                "q": "Practice 16 [listen and fill] — Idioms, Figurative Meaning, and Collocation: Play the synthetic audio and complete the line beginning “અર્થ…”.",
+                "answer": "અર્થ સમાન છે, પરંતુ વલણ અને અસર અલગ છે.",
+                "skill_target": "Gujarati listen and fill: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "અર્થ સમાન છે, પરંતુ વલણ અને અસર અલગ છે."
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which interpretation best fits આંખ આડા કાન કરવા (āṅkh āḍā kān karavā) in this lesson?",
+                "options": [
+                  "to deliberately ignore",
+                  "to take precautions in advance",
+                  "to sit idle",
+                  "to establish the plain truth"
+                ],
+                "answer": 0,
+                "why": "In this discourse આંખ આડા કાન કરવા (āṅkh āḍā kān karavā) means “to deliberately ignore.”"
+              },
+              {
+                "q": "Which interpretation best fits પાણી પહેલાં પાળ બાંધવી (pāṇī pahēlāṁ pāḷ bāndhavī) in this lesson?",
+                "options": [
+                  "to take precautions in advance",
+                  "to sit idle",
+                  "to establish the plain truth",
+                  "to catch red-handed"
+                ],
+                "answer": 0,
+                "why": "In this discourse પાણી પહેલાં પાળ બાંધવી (pāṇī pahēlāṁ pāḷ bāndhavī) means “to take precautions in advance.”"
+              },
+              {
+                "q": "Which interpretation best fits હાથ પર હાથ ધરી બેસવું (hāth par hāth dharī bēsavuṁ) in this lesson?",
+                "options": [
+                  "to sit idle",
+                  "to establish the plain truth",
+                  "to catch red-handed",
+                  "a quantity far too small"
+                ],
+                "answer": 0,
+                "why": "In this discourse હાથ પર હાથ ધરી બેસવું (hāth par hāth dharī bēsavuṁ) means “to sit idle.”"
+              },
+              {
+                "q": "Which interpretation best fits દૂધનું દૂધ, પાણીનું પાણી (dūdhnuṁ dūdh, pāṇīnuṁ pāṇī) in this lesson?",
+                "options": [
+                  "to establish the plain truth",
+                  "to catch red-handed",
+                  "a quantity far too small",
+                  "solid evidence"
+                ],
+                "answer": 0,
+                "why": "In this discourse દૂધનું દૂધ, પાણીનું પાણી (dūdhnuṁ dūdh, pāṇīnuṁ pāṇī) means “to establish the plain truth.”"
+              },
+              {
+                "q": "Which interpretation best fits રંગે હાથ પકડવું (raṅgē hāth pakaḍavuṁ) in this lesson?",
+                "options": [
+                  "to catch red-handed",
+                  "a quantity far too small",
+                  "solid evidence",
+                  "strict measures"
+                ],
+                "answer": 0,
+                "why": "In this discourse રંગે હાથ પકડવું (raṅgē hāth pakaḍavuṁ) means “to catch red-handed.”"
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Idioms, Figurative Meaning, and Collocation C1 Workshop",
+              "tasks": [
+                {
+                  "instruction": "Explain the discourse function or contextual meaning.",
+                  "items": [
+                    "આંખ આડા કાન કરવા (āṅkh āḍā kān karavā)",
+                    "પાણી પહેલાં પાળ બાંધવી (pāṇī pahēlāṁ pāḷ bāndhavī)"
+                  ],
+                  "key": [
+                    "to deliberately ignore",
+                    "to take precautions in advance"
+                  ]
+                },
+                {
+                  "instruction": "Translate while preserving stance and register.",
+                  "items": [
+                    "અધિકારીઓએ ફરિયાદો પ્રત્યે આંખ આડા કાન કર્યા હોવાનો આક્ષેપ થયો. (adhikārīōē phariyādō pratyē āṅkh āḍā kān karyā hōvānō ākṣēp thayō.)",
+                    "સંકટ આવે તે પહેલાં પાણી પહેલાં પાળ બાંધવી વધુ સમજદારીભર્યું છે. (saṅkaṭ āvē tē pahēlāṁ pāṇī pahēlāṁ pāḷ bāndhavī vadhu samajadārībhar yuṁ chē.)"
+                  ],
+                  "key": [
+                    "Officials were accused of deliberately ignoring the complaints.",
+                    "It is wiser to take precautions before a crisis arrives."
+                  ]
+                },
+                {
+                  "instruction": "Produce precise Gujarati script and romanisation.",
+                  "items": [
+                    "to establish the plain truth",
+                    "to catch red-handed"
+                  ],
+                  "key": [
+                    "દૂધનું દૂધ, પાણીનું પાણી (dūdhnuṁ dūdh, pāṇīnuṁ pāṇī)",
+                    "રંગે હાથ પકડવું (raṅgē hāth pakaḍavuṁ)"
+                  ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Gujarati offline lab: read, transform in Gujarati script, and rehearse aloud. Check Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register.",
+                  "items": [
+                    "અધિકારીઓએ ફરિયાદો પ્રત્યે આંખ આડા કાન કર્યા હોવાનો આક્ષેપ થયો.",
+                    "“આંખ આડા કાન કર્યા” લખવાથી વાક્યનો સ્વર આરોપાત્મક બને છે."
+                  ],
+                  "key": [
+                    "Officials were accused of deliberately ignoring the complaints.",
+                    "Writing “deliberately ignored” makes the sentence accusatory."
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "આંખ આડા કાન કરવા",
+              "પાણી પહેલાં પાળ બાંધવી",
+              "હાથ પર હાથ ધરી બેસવું",
+              "દૂધનું દૂધ, પાણીનું પાણી"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
+          },
+          {
+            "id": "gu-c1-l6",
+            "title": "Register Transformation and Advanced Communication",
+            "learn": "Shift a message between familiar, neutral, respectful, and institutional Gujarati without changing its core purpose. Register is expressed through pronouns, verb choices, honorific vocabulary, indirectness, and document conventions.",
+            "vocab": [
+              {
+                "t": "તું",
+                "r": "tuṁ",
+                "en": "you, intimate",
+                "pos": "pronoun"
+              },
+              {
+                "t": "તમે",
+                "r": "tamē",
+                "en": "you, polite/plural",
+                "pos": "pronoun"
+              },
+              {
+                "t": "આપ",
+                "r": "āp",
+                "en": "you, highly respectful",
+                "pos": "pronoun"
+              },
+              {
+                "t": "પધારવું",
+                "r": "padhāravuṁ",
+                "en": "to come, honorific",
+                "pos": "verb"
+              },
+              {
+                "t": "અવસાન",
+                "r": "avasān",
+                "en": "death, formal respectful",
+                "pos": "noun"
+              },
+              {
+                "t": "નિવાસસ્થાન",
+                "r": "nivāsasthān",
+                "en": "residence, formal",
+                "pos": "noun"
+              },
+              {
+                "t": "ક્ષમાપ્રાર્થી",
+                "r": "kṣamāprārthī",
+                "en": "apologetic; seeking pardon",
+                "pos": "adjective"
+              },
+              {
+                "t": "વિનંતીપૂર્વક",
+                "r": "vinantīpūrvak",
+                "en": "respectfully; by way of request",
+                "pos": "adverb"
+              }
+            ],
+            "grammar": {
+              "title": "Matching formality to relationship and genre",
+              "explain": "તું suits intimacy and can sound disrespectful elsewhere; તમે is the broad polite default; આપ and honorific verbs raise deference. Institutional writing often replaces direct commands with વિનંતી છે કે or કૃપા કરીને.",
+              "pattern": "same proposition → familiar / neutral / formal realization",
+              "examples": [
+                {
+                  "t": "તું કાલે વહેલો આવજે.",
+                  "r": "tuṁ kālē vahēlō āvajē.",
+                  "en": "Come early tomorrow. — familiar"
+                },
+                {
+                  "t": "તમે કાલે થોડા વહેલા આવશો?",
+                  "r": "tamē kālē thōḍā vahēlā āvaśō?",
+                  "en": "Could you come a little early tomorrow? — polite"
+                },
+                {
+                  "t": "આપને વિનંતી છે કે કાલે નિર્ધારિત સમય પહેલાં પધારશો.",
+                  "r": "āpanē vinantī chē kē kālē nirdhārit samay pahēlāṁ padhāraśō.",
+                  "en": "You are respectfully requested to arrive before the scheduled time tomorrow. — formal"
+                }
+              ],
+              "mistakes": [
+                "Do not mix highly honorific vocabulary with an intimate pronoun unless the contrast is deliberately humorous or quoted."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Colleague",
+                "t": "મિત્રને હું “તું વહેલો આવજે” કહી શકું.",
+                "r": "mitranē huṁ “tuṁ vahēlō āvajē” kahī śakuṁ.",
+                "en": "I can tell a friend, “Come early.”"
+              },
+              {
+                "sp": "Officer",
+                "t": "પરંતુ સત્તાવાર આમંત્રણમાં એ રૂપ યોગ્ય નહીં ગણાય.",
+                "r": "parantu sattāvār āmantraṇmāṁ ē rūp yōgya nahīṁ gaṇāy.",
+                "en": "But that form would not be considered suitable in an official invitation."
+              },
+              {
+                "sp": "Colleague",
+                "t": "ત્યાં “આપ સમયસર પધારશો” વધુ યોગ્ય રહેશે.",
+                "r": "tyāṁ “āp samaysar padhāraśō” vadhu yōgya rahēśē.",
+                "en": "There, “Please arrive on time” with honorific wording would be more appropriate."
+              },
+              {
+                "sp": "Officer",
+                "t": "બરાબર; સંદેશનો હેતુ એ જ રહે છે, પરંતુ સંબંધનો સ્વર બદલાય છે.",
+                "r": "barābar; sandēśnō hētu ē ja rahē chē, parantu sambandhnō svar badalāy chē.",
+                "en": "Exactly; the purpose remains the same, but the relational tone changes."
+              }
+            ],
+            "practice": [
+              {
+                "type": "repeat_after_audio",
+                "q": "Practice 6 [repeat after audio] — Register Transformation and Advanced Communication: Repeat the synthetic model with its phrase grouping; no microphone score is claimed.",
+                "answer": "પરંતુ સત્તાવાર આમંત્રણમાં એ રૂપ યોગ્ય નહીં ગણાય.",
+                "skill_target": "Gujarati repeat after audio: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "પરંતુ સત્તાવાર આમંત્રણમાં એ રૂપ યોગ્ય નહીં ગણાય."
+              },
+              {
+                "type": "pronunciation",
+                "q": "Practice 7 [pronunciation] — Register Transformation and Advanced Communication: Practise ક્ષમાપ્રાર્થી (kṣamāprārthī) with the lesson-specific sound pattern. Self-check only.",
+                "answer": "ક્ષમાપ્રાર્થી",
+                "skill_target": "Gujarati pronunciation: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "ક્ષમાપ્રાર્થી"
+              },
+              {
+                "type": "shadowing",
+                "q": "Practice 8 [shadowing] — Register Transformation and Advanced Communication: Shadow the synthetic Gujarati model, preserving rhythm and target-language sounds. Self-check only.",
+                "answer": "બરાબર; સંદેશનો હેતુ એ જ રહે છે, પરંતુ સંબંધનો સ્વર બદલાય છે.",
+                "skill_target": "Gujarati shadowing: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register",
+                "audio_source": "બરાબર; સંદેશનો હેતુ એ જ રહે છે, પરંતુ સંબંધનો સ્વર બદલાય છે."
+              },
+              {
+                "type": "guided_speaking",
+                "q": "Practice 9 [guided speaking] — Register Transformation and Advanced Communication: Produce a spoken response demonstrating “Register Transformation and Advanced Communication”; compare with the model.",
+                "answer": "આપને વિનંતી છે કે કાલે નિર્ધારિત સમય પહેલાં પધારશો.",
+                "skill_target": "Gujarati guided speaking: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "free_response",
+                "q": "Practice 10 [free response] — Register Transformation and Advanced Communication: Produce a spoken response demonstrating “Register Transformation and Advanced Communication”; compare with the model.",
+                "answer": "તું કાલે વહેલો આવજે.",
+                "skill_target": "Gujarati free response: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "roleplay",
+                "q": "Practice 11 [roleplay] — Register Transformation and Advanced Communication: Role-play Colleague with appropriate register: There, “Please arrive on time” with honorific wording would be more appropriate.",
+                "answer": "ત્યાં “આપ સમયસર પધારશો” વધુ યોગ્ય રહેશે.",
+                "skill_target": "Gujarati roleplay: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "sentence_writing",
+                "q": "Practice 12 [sentence writing] — Register Transformation and Advanced Communication: Write one accurate Gujarati script sentence using પધારવું.",
+                "answer": "આપને વિનંતી છે કે કાલે નિર્ધારિત સમય પહેલાં પધારશો.",
+                "skill_target": "Gujarati sentence writing: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "short_writing",
+                "q": "Practice 13 [short writing] — Register Transformation and Advanced Communication: Write 2–3 connected Gujarati sentences applying Register Transformation and Advanced Communication.",
+                "answer": "તું કાલે વહેલો આવજે. તમે કાલે થોડા વહેલા આવશો?",
+                "skill_target": "Gujarati short writing: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "paraphrase",
+                "q": "Practice 14 [paraphrase] — Register Transformation and Advanced Communication: Paraphrase without changing meaning, morphology, or register: તમે કાલે થોડા વહેલા આવશો?",
+                "answer": "તમે કાલે થોડા વહેલા આવશો?",
+                "skill_target": "Gujarati paraphrase: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "summary",
+                "q": "Practice 15 [summary] — Register Transformation and Advanced Communication: Summarize the dialogue in one precise Gujarati sentence.",
+                "answer": "ત્યાં “આપ સમયસર પધારશો” વધુ યોગ્ય રહેશે.",
+                "skill_target": "Gujarati summary: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "guided_composition",
+                "q": "Practice 16 [guided composition] — Register Transformation and Advanced Communication: Compose a short response with the taught pattern “same proposition → familiar / neutral / formal realization”.",
+                "answer": "તું કાલે વહેલો આવજે.",
+                "skill_target": "Gujarati guided composition: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              },
+              {
+                "type": "register_transformation",
+                "q": "Practice 17 [register transformation] — Register Transformation and Advanced Communication: Recast “Could you come a little early tomorrow? — polite” in the formal/respectful or colloquial register taught here.",
+                "answer": "તમે કાલે થોડા વહેલા આવશો?",
+                "skill_target": "Gujarati register transformation: Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "Which interpretation best fits તું (tuṁ) in this lesson?",
+                "options": [
+                  "you, intimate",
+                  "you, polite/plural",
+                  "you, highly respectful",
+                  "to come, honorific"
+                ],
+                "answer": 0,
+                "why": "In this discourse તું (tuṁ) means “you, intimate.”"
+              },
+              {
+                "q": "Which interpretation best fits તમે (tamē) in this lesson?",
+                "options": [
+                  "you, polite/plural",
+                  "you, highly respectful",
+                  "to come, honorific",
+                  "death, formal respectful"
+                ],
+                "answer": 0,
+                "why": "In this discourse તમે (tamē) means “you, polite/plural.”"
+              },
+              {
+                "q": "Which interpretation best fits આપ (āp) in this lesson?",
+                "options": [
+                  "you, highly respectful",
+                  "to come, honorific",
+                  "death, formal respectful",
+                  "residence, formal"
+                ],
+                "answer": 0,
+                "why": "In this discourse આપ (āp) means “you, highly respectful.”"
+              },
+              {
+                "q": "Which interpretation best fits પધારવું (padhāravuṁ) in this lesson?",
+                "options": [
+                  "to come, honorific",
+                  "death, formal respectful",
+                  "residence, formal",
+                  "apologetic; seeking pardon"
+                ],
+                "answer": 0,
+                "why": "In this discourse પધારવું (padhāravuṁ) means “to come, honorific.”"
+              },
+              {
+                "q": "Which interpretation best fits અવસાન (avasān) in this lesson?",
+                "options": [
+                  "death, formal respectful",
+                  "residence, formal",
+                  "apologetic; seeking pardon",
+                  "respectfully; by way of request"
+                ],
+                "answer": 0,
+                "why": "In this discourse અવસાન (avasān) means “death, formal respectful.”"
+              }
+            ],
+            "flashcards": "auto:vocab",
+            "worksheet": {
+              "title": "Register Transformation and Advanced Communication C1 Workshop",
+              "tasks": [
+                {
+                  "instruction": "Explain the discourse function or contextual meaning.",
+                  "items": [
+                    "તું (tuṁ)",
+                    "તમે (tamē)"
+                  ],
+                  "key": [
+                    "you, intimate",
+                    "you, polite/plural"
+                  ]
+                },
+                {
+                  "instruction": "Translate while preserving stance and register.",
+                  "items": [
+                    "તું કાલે વહેલો આવજે. (tuṁ kālē vahēlō āvajē.)",
+                    "તમે કાલે થોડા વહેલા આવશો? (tamē kālē thōḍā vahēlā āvaśō?)"
+                  ],
+                  "key": [
+                    "Come early tomorrow. — familiar",
+                    "Could you come a little early tomorrow? — polite"
+                  ]
+                },
+                {
+                  "instruction": "Produce precise Gujarati script and romanisation.",
+                  "items": [
+                    "to come, honorific",
+                    "death, formal respectful"
+                  ],
+                  "key": [
+                    "પધારવું (padhāravuṁ)",
+                    "અવસાન (avasān)"
+                  ]
+                },
+                {
+                  "quality_standard": "global-practice-v1",
+                  "instruction": "Integrated Gujarati offline lab: read, transform in Gujarati script, and rehearse aloud. Check Gujarati agreement, postpositions, aspect, honorific address, and formal versus colloquial register.",
+                  "items": [
+                    "તું કાલે વહેલો આવજે.",
+                    "મિત્રને હું “તું વહેલો આવજે” કહી શકું."
+                  ],
+                  "key": [
+                    "Come early tomorrow. — familiar",
+                    "I can tell a friend, “Come early.”"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "તું",
+              "તમે",
+              "આપ",
+              "પધારવું"
+            ],
+            "srs_policy": "Only selected high-value forms are preselected; actual mistakes and productive patterns enter personalized review after learner evidence."
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "Gujarati C1 Proficiency Test",
+      "items": [
+        {
+          "type": "translate_en",
+          "q": "Interpret in context: જોકે (jokē)",
+          "answer": "although"
+        },
+        {
+          "type": "translate_en",
+          "q": "Interpret in context: જણાવ્યા અનુસાર (jaṇāvyā anusār)",
+          "answer": "according to what was stated"
+        },
+        {
+          "type": "translate_en",
+          "q": "Interpret in context: વાટાઘાટ (vāṭāghāṭ)",
+          "answer": "negotiation"
+        },
+        {
+          "type": "translate_en",
+          "q": "Interpret in context: પરિકલ્પના (parikalpanā)",
+          "answer": "hypothesis"
+        },
+        {
+          "type": "translate_en",
+          "q": "Interpret in context: આંખ આડા કાન કરવા (āṅkh āḍā kān karavā)",
+          "answer": "to deliberately ignore"
+        },
+        {
+          "type": "translate_en",
+          "q": "Interpret in context: તું (tuṁ)",
+          "answer": "you, intimate"
+        },
+        {
+          "type": "translate_t",
+          "q": "Produce or reformulate in Gujarati: Although the plan is expensive, it may nevertheless prove beneficial in the long term.",
+          "answer": "જોકે યોજના ખર્ચાળ છે, તેમ છતાં લાંબા ગાળે તે લાભદાયક સાબિત થઈ શકે છે. (jokē yōjanā kharcāḷ chē, tēm chhatāṁ lāmbā gāḷē tē lābhadāyak sābit thaī śakē chē.)"
+        },
+        {
+          "type": "fill",
+          "q": "Produce or reformulate in Gujarati: The available evidence suggests that a policy change is necessary.",
+          "answer": "ઉપલબ્ધ પુરાવા પરથી એવું જણાય છે કે નીતિમાં ફેરફાર જરૂરી છે. (upalabdha purāvā parathī ēvuṁ jaṇāy chē kē nītimāṁ phēraphār jarūrī chē.)"
+        },
+        {
+          "type": "reorder",
+          "q": "Produce or reformulate in Gujarati: Could we find an alternative suitable for both parties?",
+          "answer": "શું આપણે બંને પક્ષને અનુકૂળ એવો વિકલ્પ શોધી શકીએ? (śuṁ āpaṇē bannē pakṣnē anukūḷ ēvō vikalp śōdhī śakīē?)"
+        },
+        {
+          "type": "speak",
+          "q": "Produce or reformulate in Gujarati: First the main factors in the problem were identified; they were then analysed comparatively.",
+          "answer": "પ્રથમ સમસ્યાના મુખ્ય પરિબળો ઓળખવામાં આવ્યા; ત્યારબાદ તેમનું તુલનાત્મક વિશ્લેષણ કરવામાં આવ્યું. (pratham samasyānā mukhya paribaḷō ōḷakhavāmāṁ āvyā; tyārabād tēmanuṁ tulanātmak viślēṣaṇ karavāmāṁ āvyuṁ.)"
+        }
+      ]
+    }
+  }
+}

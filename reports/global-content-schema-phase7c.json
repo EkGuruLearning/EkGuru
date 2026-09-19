@@ -1,0 +1,121 @@
+{
+  "generated": "2026-09-13T08:40:40Z",
+  "commit": "2c47646b4138b0b7efcbbb7f2036ec7647089375",
+  "purpose": "Unified multi-language content schema. Every engine consumes the same field shapes; a language pack is the SAME schema with a different target_language — that is the Stage 2 reuse proof.",
+  "entity": {
+    "id": "string",
+    "type": "lesson|quiz|practice|phrase|review_card|grammar|pronunciation|culture",
+    "slug": "string",
+    "title": "string",
+    "source_language": "en",
+    "target_language": "iso639-1",
+    "level": "beginner|elementary|intermediate|advanced",
+    "topic": "string",
+    "status": "PRODUCTION|BETA|PLANNED",
+    "url": "string|null",
+    "version": "int",
+    "source": "string|null",
+    "section": "string"
+  },
+  "vocabPhraseItem": {
+    "id": "string",
+    "type": "word|phrase",
+    "language": "iso639-1",
+    "target": "string (target script)",
+    "roman": "string (romanisation/pronunciation)",
+    "meaning": "string (source-language meaning)",
+    "pos": "string",
+    "register": "string|null",
+    "topic": "string",
+    "level": "string"
+  },
+  "grammarConcept": {
+    "id": "string",
+    "concept": "string",
+    "pattern": "string",
+    "examples": [
+      "list of {target, roman, gloss}"
+    ],
+    "exceptions": [
+      "string"
+    ],
+    "learnerNote": "string",
+    "commonMistakes": [
+      "string"
+    ],
+    "level": "string",
+    "prerequisite": "string|null",
+    "sourceUrl": "string|null",
+    "sourceTitle": "string|null"
+  },
+  "conversationScenario": {
+    "id": "string",
+    "title": "string",
+    "tagline": "string",
+    "level": "string",
+    "topic": "string",
+    "goal": "string",
+    "context": "string",
+    "steps": [
+      "list of {id, line, roman, en, prompt, choices[{text, roman, en, correct, note}], vocabulary[{target, roman, meaning}], explanation}"
+    ],
+    "completion": "string"
+  },
+  "scriptRecord": {
+    "id": "iso15924-ish",
+    "name": "string",
+    "iso15924": "string",
+    "direction": "ltr|rtl",
+    "productionStatus": "PRODUCTION|PLANNED",
+    "transliteration": "string|null",
+    "typing": "string|null"
+  },
+  "goal": {
+    "id": "string",
+    "name": "string",
+    "blurb": "string",
+    "topics": [
+      "string"
+    ],
+    "pathSlug": "string|null",
+    "honestNote": "string|null"
+  },
+  "countryContext": {
+    "id": "string",
+    "title": "string",
+    "subtitle": "string",
+    "audience": "string",
+    "sharedCourse": "string",
+    "modules": [
+      "list of {id, title, phrases[{target, roman, meaning, source}], links[{title, url}]}"
+    ]
+  },
+  "srsCard": {
+    "language": "iso639-1",
+    "target": "string",
+    "source": "string",
+    "prompt": "string",
+    "answer": "string",
+    "category": "string",
+    "level": "string",
+    "goal": "string|null",
+    "country": "string|null",
+    "schedule": "ease/interval/due_date",
+    "version": "int"
+  },
+  "languagePack": {
+    "version": "int",
+    "source_language": "en",
+    "target_language": "iso639-1",
+    "status": "BETA",
+    "scope": "string (honest)",
+    "honestNote": "string",
+    "items": [
+      "vocabPhraseItem"
+    ],
+    "concepts": [
+      "grammarConcept"
+    ]
+  },
+  "rule": "target script vs transliteration: romanisation is authored data; transliteration engines are per-script (Devanagari exists via js/translit.js). No universal transliteration claim. No language is PRODUCTION without a full reviewed course passing browser QA."
+}

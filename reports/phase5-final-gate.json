@@ -1,0 +1,74 @@
+{
+  "generated": "2026-09-12T06:44:46Z",
+  "phase": 5,
+  "verdict": "GREEN_INTERACTION_VERIFIED",
+  "components": {
+    "staticInventory": {
+      "totalCardInstances": 1766,
+      "byPattern": {
+        "no-link": 113,
+        "informational-faq": 1520,
+        "nested-actions": 50,
+        "whole-anchor": 78,
+        "stretched-link": 4,
+        "js-wired-action": 1
+      },
+      "deadLinks": 0,
+      "deadButtons": 0,
+      "hiddenInline": 0,
+      "misleadingAffordances": 0,
+      "ok": true
+    },
+    "browserInteractions": {
+      "ok": 19,
+      "total": 19,
+      "pageErrors": {},
+      "okFlag": true
+    },
+    "browserMatrix": {
+      "ok": 146,
+      "total": 146,
+      "okFlag": true
+    },
+    "regression": {
+      "ok": 5,
+      "total": 5,
+      "okFlag": true
+    },
+    "seo": {
+      "pass": "PASS",
+      "pages": "0",
+      "broken": "0",
+      "orphans": "0",
+      "okFlag": true
+    },
+    "recoveryInjection": {
+      "pages": 605,
+      "okFlag": true
+    }
+  },
+  "gaps": [
+    {
+      "id": "P5-G1",
+      "severity": "minor",
+      "blocking": false,
+      "title": "Quick quizzes cover 3 of 15 lesson guides",
+      "detail": "The <details>-based quick quiz exists on the 3 exemplar lessons (alphabet, hello, sentence-structure); the other 12 lesson guides have no quiz yet. Content gap carried from Phase 4, not an interaction defect."
+    },
+    {
+      "id": "P5-G2",
+      "severity": "minor",
+      "blocking": false,
+      "title": "Home markets strip hover-lift is already neutralised",
+      "detail": ".mkt:hover{transform:translateY(-6px)} exists but a later .mkt:hover{transform:none} rule overrides it, so the JS-rendered market cards never lifted on hover. Visual polish item, not a clickability defect."
+    },
+    {
+      "id": "P5-G3",
+      "severity": "info",
+      "blocking": false,
+      "title": "Live deploy / push remain owner-gated",
+      "detail": "Carried from Phase 3: no push credentials in this environment and the remote was reset to one squashed commit, so ekguru.shop still serves the pre-Phase-2 build. This Phase 5 build is verified locally only."
+    }
+  ],
+  "gapsBlocking": 0
+}

@@ -1,0 +1,884 @@
+{
+ "batch": "central-asia",
+ "note": "Pass 1: agent-compiled per METHOD.md source hierarchy. Every code pre-verified against SIL 2026-09-14 download (uzn=Northern/uzs=Southern audit applied). Medium/low items await verification pass 2.",
+ "pass": 1,
+ "countries": [
+  {
+   "cca2": "KZ",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-course — 12M+ state language, zero EkGuru coverage; Cyrillic now with official Latin transition underway (script-note cost, not blocker).",
+      "status": "none"
+     },
+     "iso639_3": "kaz",
+     "name": "Kazakh",
+     "native": "Қазақша",
+     "notes": "State language (Constitution Art.7); Russian 'officially used on equal grounds' — Kazakh is the state language, NOT co-official in the same clause. Latin-transition roadmap in progress (Cyrillic still dominant in print/schooling).",
+     "roles": [
+      "national",
+      "official",
+      "widely-spoken"
+     ],
+     "sources": [
+      "kz-constitution-art7",
+      "kz-census-2021",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "kz-census-2021",
+      "confidence": "medium",
+      "l1": 12000000,
+      "total": 14000000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "none — inventoried only. (EkGuru teaches Hindi TO Russian speakers via learn-hindi-for-russian-speakers — audience bridge, never a Russian course.)",
+      "status": "none"
+     },
+     "iso639_3": "rus",
+     "name": "Russian",
+     "native": "Русский",
+     "notes": "Officially used on equal grounds with Kazakh (Art.7) — still the interethnic lingua franca, though Kazakh-medium schooling keeps gaining. L1 ~3M (Russians 15% + others); L2 base very large, soft numbers.",
+     "roles": [
+      "official",
+      "widely-spoken",
+      "lingua-franca"
+     ],
+     "sources": [
+      "kz-constitution-art7",
+      "kz-census-2021",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "kz-census-2021",
+      "confidence": "low",
+      "l1": 3000000,
+      "total": 13000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Shared with Uzbekistan entry — one Northern Uzbek course serves all (notes on Kazakh-Uzbek contact).",
+      "status": "none"
+     },
+     "iso639_3": "uzn",
+     "name": "Uzbek",
+     "native": "Oʻzbekcha",
+     "notes": "Concentrated south (Turkestan region, Shymkent). Code 'uzn' = NORTHERN Uzbek (SIL identity audit 2026-09-14 — not uzs). Latin in principle, Cyrillic common in practice.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "kz-census-2021",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "kz-census-2021",
+      "confidence": "medium",
+      "l1": 600000,
+      "total": 650000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — diaspora demand, script politics (Perso-Arabic vs exile-Latin use); shared planning with KG entry.",
+      "status": "none"
+     },
+     "iso639_3": "uig",
+     "name": "Uyghur",
+     "native": "ئۇيغۇرچە",
+     "notes": "Concentrated Jetisu/Almaty region (Zharkent/Panfilov). SIL Ref_Name keeps old spelling 'Uighur'. Soviet-era Cyrillic publishing, now mostly Perso-Arabic; exile-Latin exists — script choice is political, note it.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "kz-census-2021",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "kz-census-2021",
+      "confidence": "low",
+      "l1": 250000,
+      "total": 280000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — dispersed urban; any Tatar action keys off the RU/Tatarstan entry (future batch).",
+      "status": "none"
+     },
+     "iso639_3": "tat",
+     "name": "Tatar",
+     "native": "Татарча",
+     "notes": "Dispersed urban minority (Almaty/Karaganda). Cyrillic. Mishar/Kazan dialect mix from deportation + labour migration layers.",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "kz-census-2021",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "kz-census-2021",
+      "confidence": "low",
+      "l1": 180000,
+      "total": 200000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Meskhetian community + Turkey-ties demand; a pan-Turkish course would subsume (not planned).",
+      "status": "none"
+     },
+     "iso639_3": "tur",
+     "name": "Turkish",
+     "native": "Türkçe",
+     "notes": "Mostly Meskhetian Turks (deportee community, south) + recent Turkey-linked migrants. Istanbul standard in schools/media; Meskhetian dialect at home — diglossia note, not a split.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "kz-census-2021",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "kz-census-2021",
+      "confidence": "low",
+      "l1": 120000,
+      "total": 150000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — inventoried only; unique script story, tiny base. Shared with KG entry.",
+      "status": "none"
+     },
+     "iso639_3": "dng",
+     "name": "Dungan",
+     "native": "Хуэйзў",
+     "notes": "THRESHOLD EXCEPTION (~70k L1): the world's only Cyrillic-script Sinitic language, compact high-retention villages (Sortobe/Masanchi, Zhambyl). Hui-Muslim ancestry, Gansu/Shaanxi roots. Cross-border planning unit with KG (~130k combined).",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "kz-census-2021",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "kz-census-2021",
+      "confidence": "low",
+      "l1": 70000,
+      "total": 80000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — Baku standard; small KZ base, real planning keys off the AZ entry (future batch).",
+      "status": "none"
+     },
+     "iso639_3": "azj",
+     "name": "Azerbaijani",
+     "native": "Azərbaycanca",
+     "notes": "Code 'azj' = NORTH Azerbaijani (Latin); distinct from Iranian South (azb, Perso-Arabic) — same split class as pan/pnb. Semi-dispersed south + cities.",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "kz-census-2021",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "kz-census-2021",
+      "confidence": "low",
+      "l1": 130000,
+      "total": 150000
+     }
+    },
+    {
+     "confidence": "low",
+     "disputed": false,
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "mis",
+     "name": "Kazakhstani Sign Language",
+     "notes": "No ISO code; Soviet boarding-school legacy means heavy Russian-SL influence. Almaty/Astana varieties. Verify pass 2 (WFD/KZ deaf orgs). Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "agent-knowledge",
+      "sil-iso639-3-tab-2026"
+     ]
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "medium",
+    "count": 44,
+    "note": "Ethnologue figure; deportee-layer languages inflate the count vs daily-use reality",
+    "source": "ethnologue-27"
+   },
+   "name": "Kazakhstan",
+   "notesLongTail": "Below-threshold/notes-only: German deu (~180k ethnic, L1 German only ~30k — deeply Russified, no entry); Ukrainian ukr (~260k ethnic north, L1 small — Russified); Korean kor Koryo-saram (~120k ethnic, L1 ~25k Koryo-mar dialect, barely intelligible with Seoul standard — no entry); Kurdish kmr (~50k deportee community); Tajik tgk (~50k south); Kyrgyz kir (border villages); Turkmen tuk (Mangystau ~3k); Karakalpak kaa (~5k); Belarusian bel; Polish pol; Chechen che (~30k+ deportee community — VERIFY, threshold edge); Ingush inh; Bashkir bak; Kazakh dialects (NE/S/SW — mutually intelligible, correctly unlisted); Quranic Arabic: as AF/PK treatment (madrassa liturgical, covered by MSA notes — no separate entry).",
+   "region": "Asia",
+   "subregion": "Central Asia"
+  },
+  {
+   "cca2": "KG",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-pack — 5M state language; pack first, course only if Turkic cluster funds together.",
+      "status": "none"
+     },
+     "iso639_3": "kir",
+     "name": "Kyrgyz",
+     "native": "Кыргызча",
+     "notes": "State language; Russian official alongside. SIL Ref_Name keeps old spelling 'Kirghiz'. North/South dialect split is real but one standard (Bishkek-based).",
+     "roles": [
+      "national",
+      "official",
+      "widely-spoken"
+     ],
+     "sources": [
+      "kg-constitution",
+      "kg-census-2022",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "kg-census-2022",
+      "confidence": "medium",
+      "l1": 5000000,
+      "total": 5500000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "none — inventoried only (Hindi-for-Russian-speakers page is the audience bridge).",
+      "status": "none"
+     },
+     "iso639_3": "rus",
+     "name": "Russian",
+     "native": "Русский",
+     "notes": "Official language (constitution) + Bishkek business/interethnic lingua franca. L1 base shrank with 1990s–2010s emigration; L2 stays high via labour migration to Russia.",
+     "roles": [
+      "official",
+      "widely-spoken",
+      "lingua-franca"
+     ],
+     "sources": [
+      "kg-constitution",
+      "kg-census-2022",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "kg-census-2022",
+      "confidence": "low",
+      "l1": 350000,
+      "total": 2500000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "Shared with Uzbekistan entry — one Northern Uzbek course serves all (Osh-dialect notes).",
+      "status": "none"
+     },
+     "iso639_3": "uzn",
+     "name": "Uzbek",
+     "native": "Oʻzbekcha",
+     "notes": "Concentrated Osh/Jalal-Abad (~15% of country). Uzbek-medium schooling contested after 2010 interethnic violence — status quo is politically loaded, record without taking sides. Code 'uzn' Northern.",
+     "roles": [
+      "regional",
+      "widely-spoken"
+     ],
+     "sources": [
+      "kg-census-2022",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "kg-census-2022",
+      "confidence": "medium",
+      "l1": 950000,
+      "total": 1000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — inventoried only. Shared with KZ entry.",
+      "status": "none"
+     },
+     "iso639_3": "dng",
+     "name": "Dungan",
+     "native": "Хуэйзў",
+     "notes": "THRESHOLD EXCEPTION (~60k L1, see KZ note): compact Chuy villages (Ivanovka/Alexandrovka) with Dungan-medium primary schooling — the only place on Earth teaching in Dungan. Cross-border unit with KZ.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "kg-census-2022",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "kg-census-2022",
+      "confidence": "low",
+      "l1": 60000,
+      "total": 70000
+     }
+    },
+    {
+     "confidence": "low",
+     "disputed": false,
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "mis",
+     "name": "Kyrgyz Sign Language",
+     "notes": "No ISO code; Bishkek-based, Russian-SL influence (Soviet legacy). Verify pass 2 (WFD/KG deaf orgs). Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "agent-knowledge",
+      "sil-iso639-3-tab-2026"
+     ]
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "medium",
+    "count": 34,
+    "source": "ethnologue-27"
+   },
+   "name": "Kyrgyzstan",
+   "notesLongTail": "Below-threshold/notes-only: Tajik tgk (~60k Batken/Chon-Alai — no entry, TJ entry covers planning); Uyghur uig (~60k — no entry, KZ entry covers); Turkish tur (~40k Meskhetian); Kazakh kaz (~30k north); Tatar tat (~30k); German deu + Plautdietsch pdt (Talas Mennonites, few k — most emigrated); Korean kor (~15k); Sart-Kalmak (Issyk-Kul ~12k, Oirat xal — Mongolic enclave celebrity, below threshold); Uzbek dialects (Osh); Kyrgyz N/S dialects; Quranic Arabic per AF/PK treatment (no entry).",
+   "region": "Asia",
+   "subregion": "Central Asia"
+  },
+  {
+   "cca2": "TJ",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-course — 8M+ state language + Samarkand/Bukhara cross-border (UZ); Cyrillic; plan inside the Persian cluster (fas/prs/tgk shared backbone).",
+      "status": "none"
+     },
+     "iso639_3": "tgk",
+     "name": "Tajik",
+     "native": "тоҷикӣ",
+     "notes": "State language (2009 Language Law spine + constitution). SIL 639-1 'tg' confirmed. NOT a fas member per SIL (standalone code) though Persian linguistically — same treatment note as fas canonical. Internal lingua franca (Pamiris, Uzbeks learn it).",
+     "roles": [
+      "national",
+      "official",
+      "widely-spoken",
+      "lingua-franca"
+     ],
+     "sources": [
+      "tj-language-law",
+      "tj-census-2020",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "tj-census-2020",
+      "confidence": "medium",
+      "l1": 8000000,
+      "total": 9000000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "none — inventoried only (Hindi-for-Russian-speakers page is the audience bridge).",
+      "status": "none"
+     },
+     "iso639_3": "rus",
+     "name": "Russian",
+     "native": "Русский",
+     "notes": "Language of interethnic communication — NOT an official language (common misstatement; mirror of the BD-English note). L1 tiny post-emigration (~35k); L2 massive via Russia labour migration (remittance economy runs on Russian).",
+     "roles": [
+      "widely-spoken",
+      "lingua-franca"
+     ],
+     "sources": [
+      "tj-language-law",
+      "tj-census-2020",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "tj-census-2020",
+      "confidence": "low",
+      "l1": 35000,
+      "total": 2000000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "Shared with Uzbekistan entry — one Northern Uzbek course serves all.",
+      "status": "none"
+     },
+     "iso639_3": "uzn",
+     "name": "Uzbek",
+     "native": "Oʻzbekcha",
+     "notes": "Concentrated Sughd/Khatlon (~12%). Uzbek-medium schools exist but shrinking share. Code 'uzn' Northern; Cyrillic in TJ (differs from UZ Latin — script note for shared course).",
+     "roles": [
+      "regional",
+      "widely-spoken"
+     ],
+     "sources": [
+      "tj-census-2020",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "tj-census-2020",
+      "confidence": "medium",
+      "l1": 1100000,
+      "total": 1200000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — inventoried only; GBAO tourism/development niche, no course case.",
+      "status": "none"
+     },
+     "iso639_3": "sgh",
+     "name": "Shughni",
+     "notes": "THRESHOLD EXCEPTION (~80k TJ L1): GBAO's principal indigenous language with state broadcast recognition (Khorog TV/radio) — the only Pamiri language with institutional foothold. Cross-border unit with AF side (total ~110k+). No standard orthography (Tajik-Cyrillic ad hoc + scholarly Latin); endonym form verify, native left null honestly.",
+     "roles": [
+      "indigenous"
+     ],
+     "sources": [
+      "tj-census-2020",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "ethnologue-27",
+      "confidence": "low",
+      "l1": 80000,
+      "total": 110000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — inventoried only; direct Sogdian descendant — linguistic-celebrity value, zero course case.",
+      "status": "none"
+     },
+     "iso639_3": "yai",
+     "name": "Yaghnobi",
+     "notes": "THRESHOLD EXCEPTION (~13k L1, Vedda-class): direct descendant of Sogdian, Yaghnob valley + resettled communities. SIL spells 'Yagnobi'. Primarily oral; no standard orthography (native null honestly).",
+     "roles": [
+      "indigenous"
+     ],
+     "sources": [
+      "ethnologue-27",
+      "glottolog-5.x",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "ethnologue-27",
+      "confidence": "low",
+      "l1": 13000,
+      "total": 13000
+     }
+    },
+    {
+     "confidence": "low",
+     "disputed": false,
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "mis",
+     "name": "Tajik Sign Language",
+     "notes": "No ISO code; Dushanbe-based, Russian-SL influence. Verify pass 2 (WFD/TJ deaf orgs). Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "agent-knowledge",
+      "sil-iso639-3-tab-2026"
+     ]
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "medium",
+    "count": 30,
+    "source": "ethnologue-27"
+   },
+   "name": "Tajikistan",
+   "notesLongTail": "Below-threshold/notes-only: Kyrgyz kir (~60k Murghab/Jirgatol — no entry, KG entry covers); Wakhi wbl (~20k TJ side of ~60k global); Yazgulyam yah (~4k); Ishkashimi isk (~2k TJ side); Sanglechi sgy (~2k); Sarikoli srh (~1k TJ side, mostly CN); Rushani/Roshani + Bartangi + Khufi (uncoded Shughni-cluster varieties — NO ISO codes, do not invent); Turkmen tuk (~15k north); Kazakh kaz (~10k); Tatar tat (~20k); Tajiki Arabic abh (~2k Khatlon, moribund — Arabic enclave celebrity); Tajik dialects (Northern/Central/Southern); Quranic Arabic per AF/PK treatment (no entry).",
+   "region": "Asia",
+   "subregion": "Central Asia"
+  },
+  {
+   "cca2": "TM",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-pack — 6M state language, LATIN script (cheap content cost); opaque market, pack first, course later.",
+      "status": "none"
+     },
+     "iso639_3": "tuk",
+     "name": "Turkmen",
+     "native": "Türkmençe",
+     "notes": "State language; Latin script since 1993–2000 reform (script override on this entry — canonical 'tuk' is Perso-Arabic for the AF/IR side). Teke-based standard; Yomut/Ersari dialects. All TM figures low-confidence (opaque stats).",
+     "roles": [
+      "national",
+      "official",
+      "widely-spoken",
+      "lingua-franca"
+     ],
+     "script": "Latn",
+     "sources": [
+      "tm-constitution",
+      "tm-census-2022",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "tm-census-2022",
+      "confidence": "low",
+      "l1": 5800000,
+      "total": 6000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Shared with Uzbekistan entry — one Northern Uzbek course serves all.",
+      "status": "none"
+     },
+     "iso639_3": "uzn",
+     "name": "Uzbek",
+     "native": "Oʻzbekcha",
+     "notes": "Concentrated north (Dashoguz/Lebap). Code 'uzn' Northern. Figures soft (census detail unpublished).",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "tm-census-2022",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 400000,
+      "total": 450000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — inventoried only (Hindi-for-Russian-speakers page is the audience bridge).",
+      "status": "none"
+     },
+     "iso639_3": "rus",
+     "name": "Russian",
+     "native": "Русский",
+     "notes": "NOT official (Soviet status lapsed 1990s, never restored). Urban/older lingua-franca residue + Ashgabat minority L1 (~100k). Russian-medium schooling nearly gone — steepest decline in CA.",
+     "roles": [
+      "minority",
+      "widely-spoken"
+     ],
+     "sources": [
+      "tm-census-2022",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "agent-knowledge",
+      "confidence": "low",
+      "l1": 100000,
+      "total": 500000
+     }
+    },
+    {
+     "confidence": "low",
+     "disputed": false,
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "mis",
+     "name": "Turkmen Sign Language",
+     "notes": "No ISO code; Ashgabat-based, Russian-SL influence. Documentation thinnest in CA. Verify pass 2. Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "agent-knowledge",
+      "sil-iso639-3-tab-2026"
+     ]
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "low",
+    "count": 32,
+    "note": "Ethnologue figure; TM publishes almost no language detail — all counts soft",
+    "source": "ethnologue-27"
+   },
+   "name": "Turkmenistan",
+   "notesLongTail": "Below-threshold/notes-only: Kazakh kaz (~90k — THRESHOLD EDGE, pass-2 VERIFY priority); Tatar tat (~30k); Balochi bgn (Mary/Merv ~30–100k, disputed — VERIFY); Persian pes (border, small); Kurdish kmr (small); Armenian hye (Ashgabat ethnic ~20k, L1 small); Azerbaijani azj (~20k west); Turkmen dialects (Teke/Yomut/Ersari — Yomut spans into IR); Quranic Arabic per AF/PK treatment (no entry).",
+   "region": "Asia",
+   "subregion": "Central Asia"
+  },
+  {
+   "cca2": "UZ",
+   "languages": [
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-course — 30M+ state language, LATIN script (low cost), zero EkGuru coverage; the single biggest CA course case.",
+      "status": "none"
+     },
+     "iso639_3": "uzn",
+     "name": "Uzbek",
+     "native": "Oʻzbekcha",
+     "notes": "State language (1989 law + constitution); Latin script official since 1993 (Cyrillic legacy still widespread in print). Code 'uzn' NORTHERN Uzbek — the UZ standard. Last full census 1989 (Soviet) — ALL UZ figures are estimates.",
+     "roles": [
+      "national",
+      "official",
+      "widely-spoken",
+      "lingua-franca"
+     ],
+     "sources": [
+      "uz-language-law",
+      "uz-stat-committee",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "uz-stat-committee",
+      "confidence": "low",
+      "l1": 29000000,
+      "total": 31000000
+     }
+    },
+    {
+     "confidence": "high",
+     "ekguru": {
+      "recommendation": "recommended-pack — 800k + official status + Latin script; autonomy sensitivities (2022) — strictly neutral framing.",
+      "status": "none"
+     },
+     "iso639_3": "kaa",
+     "name": "Karakalpak",
+     "native": "Qaraqalpaqsha",
+     "notes": "Official in the Republic of Karakalpakstan (sovereign-within-UZ; 2022 reform crisis left the status intact — record factually). SIL Ref_Name 'Kara-Kalpak'. Latin script (1995 reform) + Cyrillic legacy. Kipchak — closest major relative is Kazakh, NOT Uzbek.",
+     "roles": [
+      "official-regional",
+      "regional"
+     ],
+     "sources": [
+      "karakalpakstan-constitution",
+      "uz-stat-committee",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "uz-stat-committee",
+      "confidence": "low",
+      "l1": 750000,
+      "total": 800000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Shared with Tajikistan entry — one Tajik course serves both (Samarkand/Bukhara prestige-dialect notes).",
+      "status": "none"
+     },
+     "iso639_3": "tgk",
+     "name": "Tajik",
+     "native": "тоҷикӣ",
+     "notes": "CENTRAL ASIAN STATISTICAL DISPUTE: official ~1.7M (4.8%) but widely believed undercounted (many Tajiks registered as Uzbek; Samarkand/Bukhara are historically Tajik cities). Scholarly guesses run to 4M+. Figure carried as official-with-dispute, low confidence. Cyrillic in UZ.",
+     "roles": [
+      "regional",
+      "widely-spoken"
+     ],
+     "sources": [
+      "uz-stat-committee",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "uz-stat-committee",
+      "confidence": "low",
+      "l1": 1700000,
+      "total": 2000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "none — inventoried only (Hindi-for-Russian-speakers page is the audience bridge).",
+      "status": "none"
+     },
+     "iso639_3": "rus",
+     "name": "Russian",
+     "native": "Русский",
+     "notes": "NOT official. Tashkent business/interethnic lingua franca + large urban L1 minority (~650k). Labour-migration L2 (Russia-bound) keeps demand high despite no official function.",
+     "roles": [
+      "minority",
+      "widely-spoken",
+      "lingua-franca"
+     ],
+     "sources": [
+      "uz-stat-committee",
+      "ethnologue-27",
+      "agent-knowledge"
+     ],
+     "speakers": {
+      "asOf": "uz-stat-committee",
+      "confidence": "low",
+      "l1": 650000,
+      "total": 5000000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Shared with Kazakhstan entry — one Kazakh course serves both.",
+      "status": "none"
+     },
+     "iso639_3": "kaz",
+     "name": "Kazakh",
+     "native": "Қазақша",
+     "notes": "Concentrated northwest (Karakalpakstan/Nukus). Cyrillic (KZ Latin transition does not apply here). Cross-border with KZ entry.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "uz-stat-committee",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "uz-stat-committee",
+      "confidence": "low",
+      "l1": 800000,
+      "total": 850000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Shared with Kyrgyzstan entry — one Kyrgyz pack serves both.",
+      "status": "none"
+     },
+     "iso639_3": "kir",
+     "name": "Kyrgyz",
+     "native": "Кыргызча",
+     "notes": "Concentrated east (Andijan/Ferghana). Cross-border with KG entry.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "uz-stat-committee",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "uz-stat-committee",
+      "confidence": "low",
+      "l1": 500000,
+      "total": 550000
+     }
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "Shared with Turkmenistan entry — one Turkmen pack serves both (script note: UZ-side Turkmen mostly Cyrillic, TM-side Latin!).",
+      "status": "none"
+     },
+     "iso639_3": "tuk",
+     "name": "Turkmen",
+     "native": "Türkmençe",
+     "notes": "Concentrated Khorezm/south-Karakalpakstan. SCRIPT SPLIT inside one code: TM-side Latin (entry override), UZ-side mostly Cyrillic, AF/IR-side Perso-Arabic — the shared-pack script note writes itself.",
+     "roles": [
+      "regional"
+     ],
+     "sources": [
+      "uz-stat-committee",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "uz-stat-committee",
+      "confidence": "low",
+      "l1": 200000,
+      "total": 220000
+     },
+     "script": "Cyrl"
+    },
+    {
+     "confidence": "medium",
+     "ekguru": {
+      "recommendation": "watch — dispersed urban; any Tatar action keys off the RU/Tatarstan entry (future batch).",
+      "status": "none"
+     },
+     "iso639_3": "tat",
+     "name": "Tatar",
+     "native": "Татарча",
+     "notes": "Dispersed urban (Tashkent/Ferghana). Distinct from Crimean Tatar (crh, ~10k remnant — long-tail, most returned to Crimea).",
+     "roles": [
+      "minority"
+     ],
+     "sources": [
+      "uz-stat-committee",
+      "ethnologue-27"
+     ],
+     "speakers": {
+      "asOf": "uz-stat-committee",
+      "confidence": "low",
+      "l1": 200000,
+      "total": 220000
+     }
+    },
+    {
+     "confidence": "low",
+     "disputed": false,
+     "ekguru": {
+      "recommendation": "none — inventoried only.",
+      "status": "none"
+     },
+     "iso639_3": "mis",
+     "name": "Uzbek Sign Language",
+     "notes": "No ISO code; Tashkent-based, Russian-SL influence. Verify pass 2 (WFD/UZ deaf orgs). Pass 2 2026-09-14 [sil-iso639-3-tab-2026]: SIL 639-3 table confirms genuinely uncoded; code-dispute RESOLVED, confidence stays low; WFD/deaf-org consultation still pending (report §5.3).",
+     "roles": [
+      "sign"
+     ],
+     "sources": [
+      "agent-knowledge",
+      "sil-iso639-3-tab-2026"
+     ]
+    }
+   ],
+   "livingLanguages": {
+    "confidence": "low",
+    "count": 40,
+    "note": "Ethnologue figure; last full census 1989 — everything is estimated",
+    "source": "ethnologue-27"
+   },
+   "name": "Uzbekistan",
+   "notesLongTail": "Below-threshold/notes-only: Turkish tur (~50–70k Meskhetian remnant; 1989 Ferghana pogrom drove most out — record factually); Uyghur uig (~50k east); Crimean Tatar crh (~10k remnant); Tajiki Arabic abh (~3k Bukhara/Qashqadarya villages, moribund — Arabic enclave celebrity); Parya paq (~7k Hisor, Indo-Aryan enclave — celebrity); Bukharian (jpr variety, ~1k remnant — emigration to Israel/US); Lyuli/Central Asian Roma (NO ISO code — VERIFY treatment); Persian pes (Bukhara few); Uzbek dialects (Qarluq literary base vs Qipchaq vs Khorezm-Oghuz — Khorezm speech is Oghuz, closest to Turkmen!); Tajik prestige dialects (Samarkand/Bukhara); German/Ukrainian/Korean remnants (small, Russified); Quranic Arabic: Transoxiana madrassa core (Bukhara/Samarkand) per AF/PK treatment — covered by MSA notes, no entry.",
+   "region": "Asia",
+   "subregion": "Central Asia"
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "language": {"code": "tr", "name": "Turkish", "native_name": "Türkçe", "family": "Turkic: Oghuz", "script": "Latin", "direction": "ltr"},
+  "inventory_priority": {"language_id": "lang:tur", "priority": "P1", "score": 73, "countries": ["TR", "CY", "DE", "AT", "BE", "BG", "DK", "GR", "KZ", "MK", "NL", "RO"]},
+  "orthography_pronunciation": {"needs": ["ı/i and u/ü contrasts", "o/ö contrast", "ç/ş/ğ", "vowel harmony", "consonant alternations", "word stress and intonation"], "voice_strategy": "Synthetic tr-TR browser voice, explicitly labelled; never claim native recording."},
+  "grammar": {"morphology": ["agglutinative suffix order", "two-way and four-way vowel harmony", "six-case system", "possessive and genitive constructions", "plural and agreement", "buffer consonants"], "verbal": ["progressive, aorist, definite and reported past", "future", "necessitative", "conditional", "potential", "negative and interrogative suffixes", "participles, converbs and verbal nouns"], "syntax_discourse": ["head-final constituent order", "pro-drop", "relative clauses built with participles", "evidential -miş", "topic/focus ordering", "clause chaining"]},
+  "register_pragmatics": ["sen versus siz", "conditional and aorist politeness", "honorific titles", "indirect disagreement", "formal correspondence", "reported-evidence distinctions", "diaspora and regional variation"],
+  "CEFR_progression": {"A1": "sound-spelling, introductions, present progressive, basic cases and questions", "A2": "past/future, possession, directions, requests and practical case use", "B1": "aspect/evidential contrast, conditionals, relative participles and narration", "B2": "voice, converbs, modality, information structure and register", "C1": "academic nominalisation, synthesis, mediation and calibrated stance", "C2": "scope, implication, rhetoric, idiom, genre transformation and epistemic precision"},
+  "country_relationship_source": "data/global/language-country-relations.json",
+  "sources": [
+    {"title": "Türk Dil Kurumu", "url": "https://tdk.gov.tr/", "use": "official orthography, dictionary and usage guidance"},
+    {"title": "CEFR Companion Volume 2020", "url": "https://rm.coe.int/cefr-companion-volume-with-new-descriptors-2020/16809ea0d4", "use": "level progression, mediation, interaction and phonology"}
+  ],
+  "reviewed_at": "2026-09-17"
+}

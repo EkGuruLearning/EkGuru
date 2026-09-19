@@ -1,0 +1,535 @@
+{
+  "version": 1,
+  "generated": "2026-09-13T08:34:00Z",
+  "purpose": "Manifest of language packs (§53 Stage 2 + Stage 3 — proof of engine reuse). A pack makes a language BETA (starter reference content) — never PRODUCTION. PRODUCTION requires a full reviewed course (lessons + practice + quiz + review) passing QA in real Chromium; today only Hindi has that.",
+  "policy": "PRODUCTION = full course with browser QA. BETA = authored starter pack rendering through the shared engines. PLANNED = registered language with no authored content yet.",
+  "packs": [
+    {
+      "lang": "ar",
+      "name": "Arabic",
+      "nativeName": "العربية",
+      "script": "Arabic",
+      "direction": "rtl",
+      "speechTag": "ar-SA",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-ar.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "bn",
+      "name": "Bengali",
+      "nativeName": "বাংলা",
+      "script": "Bengali",
+      "direction": "ltr",
+      "speechTag": "bn-IN",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-bn.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "de",
+      "name": "German",
+      "nativeName": "Deutsch",
+      "script": "Latin",
+      "direction": "ltr",
+      "speechTag": "de-DE",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-de.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "en",
+      "name": "English",
+      "nativeName": "English",
+      "script": "Latin",
+      "direction": "ltr",
+      "speechTag": "en-IN",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-en.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "es",
+      "name": "Spanish",
+      "nativeName": "español",
+      "script": "Latin",
+      "direction": "ltr",
+      "speechTag": "es-ES",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-es.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "fa",
+      "name": "Persian",
+      "nativeName": "فارسی",
+      "script": "Arabic",
+      "direction": "rtl",
+      "speechTag": "fa-IR",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-fa.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "fr",
+      "name": "French",
+      "nativeName": "français",
+      "script": "Latin",
+      "direction": "ltr",
+      "speechTag": "fr-FR",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-fr.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "gu",
+      "name": "Gujarati",
+      "nativeName": "ગુજરાતી",
+      "script": "Gujarati",
+      "direction": "ltr",
+      "speechTag": "gu-IN",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-gu.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "he",
+      "name": "Hebrew",
+      "nativeName": "עברית",
+      "script": "Hebrew",
+      "direction": "rtl",
+      "speechTag": "he-IL",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-he.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "id",
+      "name": "Indonesian",
+      "nativeName": "Bahasa Indonesia",
+      "script": "Latin",
+      "direction": "ltr",
+      "speechTag": "id-ID",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-id.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "it",
+      "name": "Italian",
+      "nativeName": "italiano",
+      "script": "Latin",
+      "direction": "ltr",
+      "speechTag": "it-IT",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-it.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "ja",
+      "name": "Japanese",
+      "nativeName": "日本語",
+      "script": "Kana + Kanji",
+      "direction": "ltr",
+      "speechTag": "ja-JA",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-ja.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "ko",
+      "name": "Korean",
+      "nativeName": "한국어",
+      "script": "Hangul",
+      "direction": "ltr",
+      "speechTag": "ko-KO",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-ko.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "kn",
+      "name": "Kannada",
+      "nativeName": "ಕನ್ನಡ",
+      "script": "Kannada",
+      "direction": "ltr",
+      "speechTag": "kn-IN",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-kn.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "mr",
+      "name": "Marathi",
+      "nativeName": "मराठी",
+      "script": "Devanagari",
+      "direction": "ltr",
+      "speechTag": "mr-IN",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-mr.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "ms",
+      "name": "Malay",
+      "nativeName": "Bahasa Melayu",
+      "script": "Latin",
+      "direction": "ltr",
+      "speechTag": "ms-MY",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-ms.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "ml",
+      "name": "Malayalam",
+      "nativeName": "മലയാളം",
+      "script": "Malayalam",
+      "direction": "ltr",
+      "speechTag": "ml-IN",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-ml.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "nl",
+      "name": "Dutch",
+      "nativeName": "Nederlands",
+      "script": "Latin",
+      "direction": "ltr",
+      "speechTag": "nl-NL",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-nl.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "pa",
+      "name": "Punjabi",
+      "nativeName": "ਪੰਜਾਬੀ",
+      "script": "Gurmukhi",
+      "direction": "ltr",
+      "speechTag": "pa-IN",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-pa.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "pl",
+      "name": "Polish",
+      "nativeName": "polski",
+      "script": "Latin",
+      "direction": "ltr",
+      "speechTag": "pl-PL",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-pl.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "pt",
+      "name": "Portuguese",
+      "nativeName": "português",
+      "script": "Latin",
+      "direction": "ltr",
+      "speechTag": "pt-BR",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-pt.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "ru",
+      "name": "Russian",
+      "nativeName": "русский",
+      "script": "Cyrillic",
+      "direction": "ltr",
+      "speechTag": "ru-RU",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-ru.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "sw",
+      "name": "Swahili",
+      "nativeName": "Kiswahili",
+      "script": "Latin",
+      "direction": "ltr",
+      "speechTag": "sw-KE",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-sw.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "ta",
+      "name": "Tamil",
+      "nativeName": "தமிழ்",
+      "script": "Tamil",
+      "direction": "ltr",
+      "speechTag": "ta-IN",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-ta.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "te",
+      "name": "Telugu",
+      "nativeName": "తెలుగు",
+      "script": "Telugu",
+      "direction": "ltr",
+      "speechTag": "te-IN",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-te.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "th",
+      "name": "Thai",
+      "nativeName": "ไทย",
+      "script": "Thai",
+      "direction": "ltr",
+      "speechTag": "th-TH",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-th.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "tr",
+      "name": "Turkish",
+      "nativeName": "Türkçe",
+      "script": "Latin",
+      "direction": "ltr",
+      "speechTag": "tr-TR",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-tr.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "uk",
+      "name": "Ukrainian",
+      "nativeName": "українська",
+      "script": "Cyrillic",
+      "direction": "ltr",
+      "speechTag": "uk-UK",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-uk.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "ur",
+      "name": "Urdu",
+      "nativeName": "اردو",
+      "script": "Arabic",
+      "direction": "rtl",
+      "speechTag": "ur-PK",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-ur.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "vi",
+      "name": "Vietnamese",
+      "nativeName": "Tiếng Việt",
+      "script": "Latin",
+      "direction": "ltr",
+      "speechTag": "vi-VI",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-vi.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    },
+    {
+      "lang": "zh",
+      "name": "Chinese",
+      "nativeName": "中文",
+      "script": "Han",
+      "direction": "ltr",
+      "speechTag": "zh-CN",
+      "status": "BETA",
+      "scope": "Starter pack: beginner vocabulary + phrases + grammar reference, authored and checked. No lesson pages, no audio, no quizzes, no review course — this is NOT a full course and NOT PRODUCTION.",
+      "honestNote": "BETA proof of engine reuse. Not PRODUCTION: Hindi is the only production language. This is starter reference content only — not a course.",
+      "file": "data/lang-zh.json",
+      "counts": {
+        "vocab": 24,
+        "phrase": 12,
+        "grammar": 4
+      }
+    }
+  ]
+}
