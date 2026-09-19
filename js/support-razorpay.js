@@ -37,7 +37,18 @@
 
   var DEFAULT_APPS_SCRIPT_ENDPOINT = "https://script.google.com/macros/s/AKfycbz8u_rBr2o4VPgmQgaweswLWKdYb-MMGrsa7WfckTCruLP-ZEasWnpkqJrZHux5Y8_4zA/exec";
 
+  function isPreviewHost() {
+    if (typeof window === "undefined" || !window.location || !window.location.hostname) return false;
+    var h = String(window.location.hostname).toLowerCase();
+    return h === "localhost" || h === "127.0.0.1" || h.indexOf("arena.site") !== -1 || h.indexOf("e2b.app") !== -1;
+  }
+
   function getEndpoint() {
+    // In local development or Arena live preview, communicate with the local preview server
+    // unless explicitly instructed to force remote backend
+    if (isPreviewHost() && !(typeof window !== "undefined" && window.__FORCE_REMOTE_BACKEND__)) {
+      return "";
+    }
     if (typeof window !== "undefined" && window.PAYMENT_BACKEND_URL) {
       return String(window.PAYMENT_BACKEND_URL).trim();
     }
@@ -550,13 +561,14 @@
       var postUrl = buildApiUrl(action);
       var payload = Object.assign({ action: action }, params);
 
-      if (typeof fetch === "function") {
+      function tryFetch(url) {
         var controller = typeof AbortController !== "undefined" ? new AbortController() : null;
-        var fetchTimer = controller ? setTimeout(function () { controller.abort(); }, 4000) : null;
+        var fetchTimer = controller ? setTimeout(function () { controller.abort(); }, 12000) : null;
 
-        return fetch(postUrl, {
+        return fetch(url, {
           method: "POST",
           headers: { "Content-Type": "text/plain;charset=utf-8" },
+          redirect: "follow",
           body: JSON.stringify(payload),
           signal: controller ? controller.signal : undefined,
         })
@@ -569,10 +581,24 @@
               return data;
             });
           })
-          .catch(function () {
+          .catch(function (fetchErr) {
             if (fetchTimer) clearTimeout(fetchTimer);
-            // Browser 302 cross-origin redirect CORS failure or timeout: seamlessly fall back to JSONP!
-            return jsonpBackend(action, params, timeoutMs);
+            throw fetchErr;
+          });
+      }
+
+      if (typeof fetch === "function") {
+        return tryFetch(postUrl)
+          .catch(function () {
+            // Browser 302 cross-origin redirect CORS failure or timeout: try JSONP fallback
+            return jsonpBackend(action, params, timeoutMs).catch(function (jsonpErr) {
+              // If remote call failed in a preview environment, try local relative fallback
+              if (isPreviewHost() && postUrl.indexOf("http") === 0) {
+                var localUrl = (action === "create-order") ? "/api/payments/razorpay/order" : "/api/payments/razorpay/verify";
+                return tryFetch(localUrl);
+              }
+              throw jsonpErr;
+            });
           });
       }
 

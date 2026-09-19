@@ -30,9 +30,10 @@ const HOST = "0.0.0.0";
 const ROOT_DIR = path.resolve(__dirname, "..");
 
 const service = new RazorpayService({
-  keyId: process.env.RAZORPAY_KEY_ID || "",
-  keySecret: process.env.RAZORPAY_KEY_SECRET || "",
-  webhookSecret: process.env.RAZORPAY_WEBHOOK_SECRET || "",
+  keyId: process.env.RAZORPAY_KEY_ID || "rzp_test_ekguru_preview",
+  keySecret: process.env.RAZORPAY_KEY_SECRET || "mock_secret",
+  webhookSecret: process.env.RAZORPAY_WEBHOOK_SECRET || "mock_webhook_secret",
+  mockMode: !process.env.RAZORPAY_KEY_ID,
 });
 
 const MIME_TYPES = {
