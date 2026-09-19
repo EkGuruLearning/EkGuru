@@ -4,9 +4,10 @@
   "description": "EkGuru static site. Node is only used by the build and test tools in tools/ (tools/test-*.mjs), which run the pages in jsdom.",
   "scripts": {
     "start": "node server/server.js",
-    "test": "node tools/test-razorpay-api.mjs && node tools/test-browser-qa.mjs",
+    "test": "node tools/test-razorpay-api.mjs && node tools/test-browser-qa.mjs && node tools/test-apps-script.mjs",
     "test:payments": "node tools/test-razorpay-api.mjs",
-    "test:qa": "node tools/test-browser-qa.mjs"
+    "test:qa": "node tools/test-browser-qa.mjs",
+    "test:sheets": "node tools/test-apps-script.mjs"
   },
   "devDependencies": {
     "jsdom": "^30.1.0"

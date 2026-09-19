@@ -11,14 +11,14 @@ Razorpay API / Webhooks
         │
         ▼
 Cloudflare Worker / Backend API
-        │  (Authenticated with SHEETS_INGEST_TOKEN)
+        │  (Authenticated with SHEETS_INGEST_TOKEN in POST body)
         ▼
 Google Apps Script (Web App /exec)
         │
         ▼
 Google Spreadsheet (ID: 1u5Jkbe_2lMoLWsaDPQkxTWhNACewRaOyZLLANy2dfVI)
   ├── 1. Payments (Comprehensive private transaction ledger)
-  ├── 2. Customers (Aggregate patron profiles & lifetime stats)
+  ├── 2. Customers (Aggregate patron profiles & per-currency stats)
   ├── 3. Refunds (Refund synchronization from webhooks)
   ├── 4. WebhookEvents (Audit trail & event-level idempotency)
   └── 5. PublicSupport (Sanitized records for opted-in supporters only)
@@ -31,20 +31,22 @@ Google Spreadsheet (ID: 1u5Jkbe_2lMoLWsaDPQkxTWhNACewRaOyZLLANy2dfVI)
 ### Spreadsheet Identification
 - **Spreadsheet ID**: `1u5Jkbe_2lMoLWsaDPQkxTWhNACewRaOyZLLANy2dfVI`
 - **Access Rule**: Keep this spreadsheet **PRIVATE** (restricted to authorized EkGuru administrators). Do NOT share publicly.
+- **Safety Guarantee**: `apps-script/Code.gs` opens this specific ID via `SpreadsheetApp.openById(id)`. Fallback to `getActiveSpreadsheet()` is disabled, preventing accidental writes to any other sheet.
 
 ### Automated Tab Creation & Headers
-The Google Apps Script (`apps-script/Code.gs`) automatically detects, creates, and repairs all required sheets and header columns upon deployment or first run:
+The Google Apps Script automatically validates, creates, and safely repairs header rows without erasing existing transaction data:
 
 1. **Payments Tab**:
    `Created At`, `Updated At`, `Payment ID`, `Order ID`, `Status`, `Amount`, `Currency`, `International`, `Payment Method`, `Customer Name`, `Customer Email`, `Customer Phone`, `Country`, `Support Message`, `Razorpay Fee`, `Tax`, `Refund Status`, `Internal Reference`, `Verified`, `Sheet Sync Status`
 2. **Customers Tab**:
    `Customer ID`, `Name`, `Email`, `Phone`, `Country`, `First Payment`, `Last Payment`, `Total Payments`, `Total Supported Amount`, `Currencies Used`
+   *(Note: `Total Supported Amount` preserves totals strictly per currency, e.g. `INR 500.00, USD 25.00`. Cross-currency arithmetic is strictly prohibited)*
 3. **Refunds Tab**:
    `Created At`, `Refund ID`, `Payment ID`, `Order ID`, `Amount`, `Currency`, `Status`, `Reason`
 4. **WebhookEvents Tab**:
    `Received At`, `Event ID`, `Event Type`, `Payment ID`, `Order ID`, `Processed`, `Processing Result`
 5. **PublicSupport Tab**:
-   `Created At`, `Display Name`, `Country`, `Amount`, `Currency`, `Message`, `Public`, `Payment Date`
+   `Created At`, `Display Name`, `Country`, `Amount`, `Currency`, `Message`, `Public`, `Payment Date`, `Internal Reference`
 
 ---
 
@@ -77,23 +79,25 @@ The Google Apps Script (`apps-script/Code.gs`) automatically detects, creates, a
 3. Fill in the deployment details:
    - **Description**: `EkGuru Payment Ledger Webhook v1`
    - **Execute as**: `Me (your Google account)`
-   - **Who has access**: `Anyone` *(Note: Write requests are authenticated via SHEETS_INGEST_TOKEN; unauthenticated requests are strictly rejected)*
+   - **Who has access**: `Anyone` *(Note: Write requests are authenticated via SHEETS_INGEST_TOKEN in POST body; unauthenticated writes are strictly rejected)*
 4. Click **Deploy**.
 5. Copy the generated **Web App URL** (ends in `/exec`).
 6. Set this URL as the backend environment variable: `GOOGLE_SHEETS_ENDPOINT`.
 
 ---
 
-## 4. Privacy & Public Support Ingest Rules
+## 4. Privacy, Multi-Currency, & Public Support Ingest Rules
 
+- **Authentication Rule**: `SHEETS_INGEST_TOKEN` is accepted **only from the POST JSON body**. Tokens passed in URL query parameters are rejected and never logged.
 - **Default Privacy**: All payments, customer profiles, emails, and phone numbers are private.
-- **Opt-In Requirement**: A supporter's record is added to the `PublicSupport` tab **only if** `publicDisplayOptIn === true`.
+- **Opt-In Requirement**: A supporter's record is added to the `PublicSupport` tab **only if** `publicDisplayOptIn === true` and the transaction is verified and captured.
 - **Public Query Endpoint (`doGet`)**:
-  - The Web App `doGet` function responds **only** to `?action=recent-support`.
-  - It returns a maximum of 10 latest sanitized records containing:
+  - Responds **only** to `?action=recent-support`.
+  - Returns a maximum of 10 latest sanitized records containing:
     `displayName`, `country`, `amount`, `currency`, `message`, `date`.
-  - It **never** returns email, phone, payment ID, order ID, or private customer identifiers.
-  - Access to `Payments`, `Customers`, `Refunds`, or `WebhookEvents` via `doGet` is strictly forbidden and returns 403.
+  - It **never** returns email, phone, payment ID, order ID, or internal reference.
+  - Access to `Payments`, `Customers`, `Refunds`, or `WebhookEvents` via `doGet` is strictly forbidden.
+- **Idempotency**: `public_support_upsert` checks internal references to prevent duplicate public cards from replayed webhooks.
 
 ---
 

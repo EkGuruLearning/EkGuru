@@ -9,15 +9,25 @@
  *
  * TABS MANAGED:
  * 1. Payments        — Comprehensive private ledger of all contributions.
- * 2. Customers       — Aggregate patron profiles and lifetime contribution stats.
+ * 2. Customers       — Aggregate patron profiles and multi-currency contribution stats.
  * 3. Refunds         — Refund tracking synced from webhook/gateway events.
  * 4. WebhookEvents   — Webhook audit log with event-level idempotency tracking.
  * 5. PublicSupport   — Sanitized public records for opted-in supporters only.
  *
- * SECURITY & PRIVACY CONTRACT:
- * - Write operations require a valid SHEETS_INGEST_TOKEN set in Script Properties.
- * - Public GET queries return ONLY sanitized entries from PublicSupport tab.
- * - Never returns email, phone, payment ID, order ID, or private credentials publicly.
+ * PRODUCTION SECURITY & PRIVACY CONTRACT:
+ * - SHEETS_INGEST_TOKEN: Accepted ONLY from POST request payload body.
+ *   URL query parameters for tokens are strictly rejected.
+ * - Script Properties is the ONLY configuration source for SHEETS_INGEST_TOKEN.
+ * - SPREADSHEET SAFETY: SpreadsheetApp.openById(id) is required.
+ *   Fallback to getActiveSpreadsheet() is disabled to prevent writing to wrong sheet.
+ * - HEADER INTEGRITY: Verifies full expected headers on all tabs and safely repairs
+ *   missing/incorrect header rows without deleting existing transaction rows.
+ * - MULTI-CURRENCY TOTALS: Totals are preserved strictly per-currency.
+ *   Cross-currency arithmetic (e.g. INR + USD) is prohibited.
+ * - PUBLIC SUPPORT: Only verified successful payments with explicit publicDisplayOptIn
+ *   are recorded. Private identifiers (email, phone, payment IDs, order IDs) are NEVER exposed.
+ * - IDEMPOTENCY: Payment upserts, customer aggregations, webhook events, and public
+ *   support entries all deduplicate by unique IDs to avoid duplicate rows.
  * ============================================================================
  */
 
@@ -92,24 +102,32 @@ var HEADERS = {
     "Message",
     "Public",
     "Payment Date",
+    "Internal Reference",
   ],
 };
 
 /**
- * Gets the target spreadsheet.
+ * Gets the designated target spreadsheet.
+ * Fails clearly if designated ID cannot be opened; never silently writes to active sheet.
  */
 function getSpreadsheet_() {
   var prop = PropertiesService.getScriptProperties().getProperty("SPREADSHEET_ID");
-  var id = prop || SPREADSHEET_ID_DEFAULT;
+  var id = (prop && prop.trim()) ? prop.trim() : SPREADSHEET_ID_DEFAULT;
+
+  if (!id) {
+    throw new Error("Target Spreadsheet ID configuration is missing.");
+  }
+
   try {
     return SpreadsheetApp.openById(id);
-  } catch (e) {
-    return SpreadsheetApp.getActiveSpreadsheet();
+  } catch (err) {
+    // Fail clearly. Never fallback to getActiveSpreadsheet() or write to an arbitrary sheet.
+    throw new Error("Unable to open designated payment spreadsheet (ID: " + id + "): " + err.message);
   }
 }
 
 /**
- * Verifies or initializes required tabs and headers without erasing existing data.
+ * Verifies and safely repairs required tabs and headers without erasing existing data.
  */
 function ensureSheetsAndHeaders_(ss) {
   var tabNames = [
@@ -127,13 +145,25 @@ function ensureSheetsAndHeaders_(ss) {
       sheet = ss.insertSheet(name);
     }
     var expectedHeaders = HEADERS[name];
-    if (sheet.getLastRow() === 0) {
+    var lastRow = sheet.getLastRow();
+
+    if (lastRow === 0) {
       sheet.appendRow(expectedHeaders);
       sheet.getRange(1, 1, 1, expectedHeaders.length).setFontWeight("bold");
     } else {
-      // Check if header row matches, repair missing if empty
-      var currentHeaders = sheet.getRange(1, 1, 1, Math.max(sheet.getLastColumn(), 1)).getValues()[0];
-      if (!currentHeaders || currentHeaders.length === 0 || !currentHeaders[0]) {
+      var lastCol = Math.max(sheet.getLastColumn(), expectedHeaders.length);
+      var currentHeaders = sheet.getRange(1, 1, 1, lastCol).getValues()[0];
+      var needsRepair = false;
+
+      for (var c = 0; c < expectedHeaders.length; c++) {
+        if (!currentHeaders[c] || String(currentHeaders[c]).trim() !== expectedHeaders[c]) {
+          needsRepair = true;
+          break;
+        }
+      }
+
+      if (needsRepair) {
+        // Safe header repair: updates row 1 only; existing data in rows >= 2 is never deleted
         sheet.getRange(1, 1, 1, expectedHeaders.length).setValues([expectedHeaders]).setFontWeight("bold");
       }
     }
@@ -141,40 +171,100 @@ function ensureSheetsAndHeaders_(ss) {
 }
 
 /**
- * Validates the ingest token against Script Properties.
+ * Validates ingest token against Script Properties.
+ * SECURITY: Accepts authentication ONLY from POST payload body.
+ * Tokens in URL query parameters are strictly forbidden.
  */
-function isAuthorized_(e, payload) {
+function isAuthorized_(payload) {
   var expectedToken = PropertiesService.getScriptProperties().getProperty("SHEETS_INGEST_TOKEN");
-  // If no token has been configured yet in properties, fall back to check parameter or deny
-  if (!expectedToken) {
-    return false;
+  if (!expectedToken || typeof expectedToken !== "string" || !expectedToken.trim()) {
+    return false; // Fail closed if token not configured in Script Properties
   }
 
-  var incomingToken = "";
-  if (e && e.parameter && e.parameter.token) {
-    incomingToken = e.parameter.token;
-  } else if (payload && payload.token) {
-    incomingToken = payload.token;
-  }
+  var incomingToken = (payload && typeof payload.token === "string") ? payload.token.trim() : "";
+  return incomingToken.length > 0 && incomingToken === expectedToken.trim();
+}
 
-  return incomingToken === expectedToken;
+/**
+ * Strips any potential secret tokens or sensitive parameters from error messages.
+ */
+function sanitizeErrorMessage_(msg) {
+  if (!msg) return "An error occurred.";
+  var clean = String(msg);
+  clean = clean.replace(/token=[^&\s]+/gi, "token=[REDACTED]");
+  clean = clean.replace(/bearer\s+[a-zA-Z0-9_\-\.]+/gi, "Bearer [REDACTED]");
+  return clean;
 }
 
 /**
  * Standard JSON response helper.
  */
-function jsonOutput_(obj, statusCode) {
+function jsonOutput_(obj) {
   var output = ContentService.createTextOutput(JSON.stringify(obj));
   output.setMimeType(ContentService.MimeType.JSON);
   return output;
 }
 
 /**
+ * Parses currency-separated amounts string (e.g. "INR 500.00, USD 25.00").
+ * Prevents cross-currency addition.
+ */
+function parseCurrencyTotals_(str) {
+  var map = {};
+  if (!str) return map;
+
+  if (typeof str === "string" && str.trim().startsWith("{")) {
+    try {
+      var parsed = JSON.parse(str);
+      for (var k in parsed) {
+        map[k.toUpperCase()] = Number(parsed[k]) || 0;
+      }
+      return map;
+    } catch (e) {}
+  }
+
+  var parts = String(str).split(/[,|]/);
+  for (var i = 0; i < parts.length; i++) {
+    var p = parts[i].trim();
+    var match = p.match(/^([A-Z]{3})[:\s]+([\d.]+)/i);
+    if (match) {
+      var code = match[1].toUpperCase();
+      var amt = parseFloat(match[2]) || 0;
+      map[code] = (map[code] || 0) + amt;
+    }
+  }
+  return map;
+}
+
+/**
+ * Formats multi-currency map into a human- and machine-readable representation.
+ */
+function formatCurrencyTotals_(map) {
+  var items = [];
+  var codes = Object.keys(map).sort();
+  for (var i = 0; i < codes.length; i++) {
+    var c = codes[i];
+    items.push(c + " " + Number(map[c]).toFixed(2));
+  }
+  return items.join(", ");
+}
+
+/**
  * GET Handler — Public sanitized view ONLY.
  * Exposes /exec?action=recent-support
+ * Never exposes private tabs, emails, phones, payment IDs, or tokens.
  */
 function doGet(e) {
   try {
+    // Explicitly reject any query parameter tokens to prevent token leakage in URLs or logs
+    if (e && e.parameter && e.parameter.token) {
+      return jsonOutput_({
+        success: false,
+        error: "Forbidden: Tokens must never be passed in GET requests or query parameters.",
+        code: "FORBIDDEN_AUTH_METHOD"
+      });
+    }
+
     var action = (e && e.parameter && e.parameter.action) || "recent-support";
 
     if (action === "recent-support" || action === "recent") {
@@ -190,12 +280,13 @@ function doGet(e) {
       var data = sheet.getRange(2, 1, lastRow - 1, HEADERS.PublicSupport.length).getValues();
       var supporters = [];
 
-      // Read from latest to oldest
+      // Read from latest to oldest, returning max 10
       for (var i = data.length - 1; i >= 0 && supporters.length < 10; i--) {
         var row = data[i];
         var isPublic = row[6]; // "Public" column
         if (isPublic === true || String(isPublic).toLowerCase() === "true" || String(isPublic).toLowerCase() === "yes") {
           var displayName = String(row[1] || "").trim() || "Supporter";
+          // Strictly sanitized output: NEVER expose email, phone, payment IDs, or internal references
           supporters.push({
             displayName: displayName,
             country: String(row[2] || "").trim() || "International",
@@ -211,6 +302,7 @@ function doGet(e) {
         success: true,
         count: supporters.length,
         supporters: supporters,
+        items: supporters,
       });
     }
 
@@ -220,7 +312,7 @@ function doGet(e) {
 
     return jsonOutput_({ success: false, error: "Unauthorized or unknown action." });
   } catch (err) {
-    return jsonOutput_({ success: false, error: err.message });
+    return jsonOutput_({ success: false, error: sanitizeErrorMessage_(err.message) });
   }
 }
 
@@ -229,23 +321,41 @@ function doGet(e) {
  */
 function doPost(e) {
   try {
+    // Explicitly reject query parameter authentication to ensure tokens are never passed in URLs
+    if (e && e.parameter && e.parameter.token) {
+      return jsonOutput_({
+        success: false,
+        error: "Forbidden: Query parameter authentication is not permitted. Pass SHEETS_INGEST_TOKEN in POST body.",
+        code: "FORBIDDEN_AUTH_METHOD"
+      });
+    }
+
     var rawBody = (e && e.postData && e.postData.contents) || "{}";
     var payload = {};
     try {
       payload = JSON.parse(rawBody);
     } catch (parseErr) {
-      return jsonOutput_({ success: false, error: "Invalid JSON body." });
+      return jsonOutput_({ success: false, error: "Invalid JSON body payload." });
     }
 
-    if (!isAuthorized_(e, payload)) {
+    // Authenticate token ONLY from POST body
+    if (!isAuthorized_(payload)) {
       return jsonOutput_({ success: false, error: "Unauthorized: Invalid or missing SHEETS_INGEST_TOKEN." });
     }
 
-    var operation = payload.operation || (e && e.parameter && e.parameter.operation);
+    var operation = payload.operation;
+    if (!operation) {
+      return jsonOutput_({ success: false, error: "Missing required 'operation' in payload." });
+    }
+
     var ss = getSpreadsheet_();
     ensureSheetsAndHeaders_(ss);
 
     switch (operation) {
+      case "sheet_setup":
+        return jsonOutput_({ success: true, message: "Sheets and headers validated and initialized." });
+
+      case "payment_insert":
       case "payment_upsert":
         return jsonOutput_(handlePaymentUpsert_(ss, payload.data));
 
@@ -265,17 +375,23 @@ function doPost(e) {
         return jsonOutput_({ success: false, error: "Unknown operation: " + operation });
     }
   } catch (err) {
-    return jsonOutput_({ success: false, error: err.message });
+    return jsonOutput_({ success: false, error: sanitizeErrorMessage_(err.message) });
   }
 }
 
 /**
  * Upserts a row into the Payments tab.
+ * Deduplicates by internal reference, payment ID, or order ID.
  */
 function handlePaymentUpsert_(ss, data) {
-  if (!data || !data.internal_id) {
-    return { success: false, error: "Missing internal_id" };
+  var lookupId = data && (data.internal_id || data.internal_reference || data.payment_id || data.order_id);
+  if (!lookupId) {
+    return { success: false, error: "Missing required identifier (internal_id, payment_id, or order_id) for payment upsert." };
   }
+
+  var internalId = (data.internal_id || data.internal_reference || data.payment_id || "").toString().trim();
+  var paymentId = (data.payment_id || "").toString().trim();
+  var orderId = (data.order_id || "").toString().trim();
 
   var sheet = ss.getSheetByName(TAB_PAYMENTS);
   var lastRow = sheet.getLastRow();
@@ -284,14 +400,14 @@ function handlePaymentUpsert_(ss, data) {
   if (lastRow > 1) {
     var values = sheet.getRange(2, 1, lastRow - 1, HEADERS.Payments.length).getValues();
     for (var i = 0; i < values.length; i++) {
-      var rowInternalId = values[i][17]; // Internal Reference
-      var rowPaymentId = values[i][2]; // Payment ID
-      var rowOrderId = values[i][3]; // Order ID
+      var rowInternalId = String(values[i][17] || "").trim(); // Internal Reference
+      var rowPaymentId = String(values[i][2] || "").trim(); // Payment ID
+      var rowOrderId = String(values[i][3] || "").trim(); // Order ID
 
       if (
-        (data.internal_id && rowInternalId === data.internal_id) ||
-        (data.payment_id && rowPaymentId === data.payment_id) ||
-        (data.order_id && rowOrderId === data.order_id)
+        (internalId && rowInternalId === internalId) ||
+        (paymentId && rowPaymentId === paymentId) ||
+        (orderId && rowOrderId === orderId)
       ) {
         rowIndex = i + 2;
         break;
@@ -303,8 +419,8 @@ function handlePaymentUpsert_(ss, data) {
   var rowValues = [
     data.created_at || now,
     now,
-    data.payment_id || "",
-    data.order_id || "",
+    paymentId,
+    orderId,
     data.status || "created",
     data.amount != null ? data.amount : 0,
     (data.currency || "INR").toUpperCase(),
@@ -318,13 +434,13 @@ function handlePaymentUpsert_(ss, data) {
     data.fee != null ? data.fee : 0,
     data.tax != null ? data.tax : 0,
     data.refund_status || "none",
-    data.internal_id || "",
+    internalId,
     data.verified === true ? "true" : "false",
     data.sheet_sync_status || "synced",
   ];
 
   if (rowIndex > 0) {
-    // Preserve initial Created At if updating
+    // Preserve initial Created At if updating existing record
     var existingCreatedAt = sheet.getRange(rowIndex, 1).getValue();
     if (existingCreatedAt) rowValues[0] = existingCreatedAt;
     sheet.getRange(rowIndex, 1, 1, rowValues.length).setValues([rowValues]);
@@ -332,15 +448,22 @@ function handlePaymentUpsert_(ss, data) {
     sheet.appendRow(rowValues);
   }
 
-  return { success: true, operation: "payment_upsert", internal_id: data.internal_id, row: rowIndex > 0 ? rowIndex : sheet.getLastRow() };
+  return {
+    success: true,
+    operation: "payment_upsert",
+    internal_id: internalId,
+    row: rowIndex > 0 ? rowIndex : sheet.getLastRow(),
+    action: rowIndex > 0 ? "updated" : "inserted",
+  };
 }
 
 /**
- * Upserts a row into the Customers tab.
+ * Upserts a customer into the Customers tab.
+ * Enforces per-currency multi-currency tracking without summing different currencies.
  */
 function handleCustomerUpsert_(ss, data) {
   if (!data || (!data.email && !data.customer_id)) {
-    return { success: false, error: "Missing customer email or customer_id" };
+    return { success: false, error: "Missing customer email or customer_id." };
   }
 
   var sheet = ss.getSheetByName(TAB_CUSTOMERS);
@@ -370,7 +493,12 @@ function handleCustomerUpsert_(ss, data) {
     var custId = existingRow[0];
     var firstPayment = existingRow[5] || now;
     var totalPayments = (Number(existingRow[7]) || 0) + 1;
-    var totalAmount = (Number(existingRow[8]) || 0) + paymentAmount;
+
+    // Multi-currency safe aggregation: NEVER sum across currencies
+    var totalsMap = parseCurrencyTotals_(existingRow[8]);
+    totalsMap[currency] = (totalsMap[currency] || 0) + paymentAmount;
+    var totalAmountByCurrency = formatCurrencyTotals_(totalsMap);
+
     var currList = String(existingRow[9] || "").split(",").map(function(c) { return c.trim(); }).filter(Boolean);
     if (currList.indexOf(currency) === -1) {
       currList.push(currency);
@@ -385,14 +513,19 @@ function handleCustomerUpsert_(ss, data) {
       firstPayment,
       now,
       totalPayments,
-      totalAmount,
+      totalAmountByCurrency,
       currList.join(", "),
     ];
 
     sheet.getRange(rowIndex, 1, 1, updatedValues.length).setValues([updatedValues]);
     return { success: true, operation: "customer_upsert", customer_id: custId, action: "updated" };
   } else {
-    var newCustId = data.customer_id || "cust_" + Utilities.getUuid().substring(0, 8);
+    var uuidStr = (typeof Utilities !== "undefined" && Utilities.getUuid) ? Utilities.getUuid() : Math.random().toString(36).substring(2, 10);
+    var newCustId = data.customer_id || "cust_" + uuidStr.substring(0, 8);
+    var newTotalsMap = {};
+    newTotalsMap[currency] = paymentAmount;
+    var newTotalAmountByCurrency = formatCurrencyTotals_(newTotalsMap);
+
     var newRow = [
       newCustId,
       data.name || "",
@@ -402,7 +535,7 @@ function handleCustomerUpsert_(ss, data) {
       now,
       now,
       1,
-      paymentAmount,
+      newTotalAmountByCurrency,
       currency,
     ];
     sheet.appendRow(newRow);
@@ -411,11 +544,11 @@ function handleCustomerUpsert_(ss, data) {
 }
 
 /**
- * Upserts a refund record into Refunds tab and updates Payments tab.
+ * Upserts a refund record into Refunds tab and updates Payments tab refund status.
  */
 function handleRefundUpsert_(ss, data) {
   if (!data || !data.refund_id) {
-    return { success: false, error: "Missing refund_id" };
+    return { success: false, error: "Missing refund_id." };
   }
 
   var sheet = ss.getSheetByName(TAB_REFUNDS);
@@ -450,7 +583,7 @@ function handleRefundUpsert_(ss, data) {
     sheet.appendRow(row);
   }
 
-  // Also update Payments tab refund_status if payment_id matches
+  // Update corresponding Payments tab refund_status if payment_id is known
   if (data.payment_id) {
     var paySheet = ss.getSheetByName(TAB_PAYMENTS);
     var payLastRow = paySheet.getLastRow();
@@ -466,7 +599,7 @@ function handleRefundUpsert_(ss, data) {
     }
   }
 
-  return { success: true, operation: "refund_upsert", refund_id: data.refund_id };
+  return { success: true, operation: "refund_upsert", refund_id: data.refund_id, action: rowIndex > 0 ? "updated" : "inserted" };
 }
 
 /**
@@ -474,7 +607,7 @@ function handleRefundUpsert_(ss, data) {
  */
 function handleWebhookEventUpsert_(ss, data) {
   if (!data || !data.event_id) {
-    return { success: false, error: "Missing event_id" };
+    return { success: false, error: "Missing event_id." };
   }
 
   var sheet = ss.getSheetByName(TAB_WEBHOOK_EVENTS);
@@ -505,29 +638,74 @@ function handleWebhookEventUpsert_(ss, data) {
 }
 
 /**
- * Upserts a sanitized entry in PublicSupport tab ONLY if public opt-in is true.
- * Strictly avoids logging emails, phone numbers, or private internal identifiers.
+ * Upserts a sanitized entry in PublicSupport tab.
+ * IDEMPOTENCY: Avoids duplicate public entries for the same payment or reference.
+ * PRIVACY: Strictly avoids publishing email, phone, or payment IDs.
  */
 function handlePublicSupportUpsert_(ss, data) {
-  if (!data || data.publicDisplayOptIn !== true && data.public !== true) {
-    return { success: false, error: "Public opt-in not granted" };
+  // 1. Strict public opt-in requirement
+  var hasOptIn = data && (data.publicDisplayOptIn === true || data.public === true || data.public_display_opt_in === true);
+  if (!hasOptIn) {
+    return { success: false, error: "Public opt-in not granted." };
+  }
+
+  // 2. Only verified successful payments
+  var isVerified = data && (data.verified === true || data.status === "captured" || data.verification_status === "verified");
+  if (!isVerified) {
+    return { success: false, error: "Only verified successful payments may be published." };
   }
 
   var sheet = ss.getSheetByName(TAB_PUBLIC_SUPPORT);
-  var now = new Date().toISOString();
-  var paymentDate = data.payment_date || now.split("T")[0];
+  var lastRow = sheet.getLastRow();
+  var internalRef = data.internal_id || data.internal_reference || "";
+  var paymentId = data.payment_id || "";
+  var paymentDate = data.payment_date || new Date().toISOString().split("T")[0];
+  var displayName = String(data.displayName || data.display_name || data.customer_name || "Supporter").trim();
+  var country = String(data.country || "International").trim();
+  var amount = Number(data.amount) || 0;
+  var currency = String(data.currency || "INR").toUpperCase();
+  var message = String(data.message || data.support_message || "").trim();
 
+  // 3. Idempotency deduplication check: avoid duplicate public entries
+  if (lastRow > 1) {
+    var values = sheet.getRange(2, 1, lastRow - 1, HEADERS.PublicSupport.length).getValues();
+    for (var i = 0; i < values.length; i++) {
+      var rowRef = values[i][8]; // Internal Reference in column 9
+      var rowName = values[i][1];
+      var rowAmount = Number(values[i][3]) || 0;
+      var rowCurrency = values[i][4];
+      var rowDate = values[i][7] instanceof Date ? values[i][7].toISOString().split("T")[0] : String(values[i][7] || "").split("T")[0];
+
+      if (
+        (internalRef && rowRef === internalRef) ||
+        (paymentId && rowRef === paymentId) ||
+        (rowName === displayName && rowAmount === amount && rowCurrency === currency && rowDate === paymentDate)
+      ) {
+        return {
+          success: true,
+          operation: "public_support_upsert",
+          duplicate: true,
+          deduplicated: true,
+          message: "Public support entry already recorded.",
+        };
+      }
+    }
+  }
+
+  var now = new Date().toISOString();
+  // Row contains strictly sanitized fields. Column 9 holds internal reference for private deduplication only.
   var row = [
     now,
-    String(data.displayName || data.display_name || data.customer_name || "Supporter").trim(),
-    String(data.country || "International").trim(),
-    Number(data.amount) || 0,
-    String(data.currency || "INR").toUpperCase(),
-    String(data.message || data.support_message || "").trim(),
+    displayName,
+    country,
+    amount,
+    currency,
+    message,
     true,
     paymentDate,
+    internalRef || paymentId,
   ];
 
   sheet.appendRow(row);
-  return { success: true, operation: "public_support_upsert" };
+  return { success: true, operation: "public_support_upsert", duplicate: false };
 }
