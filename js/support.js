@@ -26,7 +26,7 @@
 (function () {
   "use strict";
 
-  var METHODS = ["upi", "razorpay", "paypal", "stripe", "revolut", "btc", "eth", "usdt"];
+  var METHODS = ["upi", "paypal", "stripe", "revolut", "btc", "eth", "usdt"];
 
   function val(card) {
     var key = "support" + card.charAt(0).toUpperCase() + card.slice(1);

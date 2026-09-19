@@ -28,6 +28,7 @@
 <link href="../manifest.webmanifest" rel="manifest"/>
 <meta content="#4f32d9" name="theme-color"/>
 <link href="../css/style.min.css" rel="stylesheet"/>
+<link href="../css/support-razorpay.css" rel="stylesheet"/>
 <style>
 /* Support page (v200 redesign).
    CONTRACT — js/support.js paints this page from the settings sheet and it
@@ -127,6 +128,79 @@
 <div><b>🔓 No paywall, ever</b><span>Your support is the reason lessons stay free for all.</span></div>
 </div>
 <!-- =========================================================
+       SUPPORT EKGURU — RAZORPAY INTERNATIONAL MULTI-CURRENCY API
+       ========================================================= -->
+<section class="support-component-card" id="support-razorpay-section" aria-labelledby="support-title">
+  <div class="support-header">
+    <div class="support-badge" aria-hidden="true">💳 International Multi-Currency Payment</div>
+    <h2 class="support-title" id="support-title">Support EkGuru</h2>
+    <p class="support-desc">Help us keep EkGuru's learning resources accessible and continuously improving.</p>
+    <p class="support-note">Support EkGuru's free learning platform. All contributions directly fund server costs, course development, and open learning tools for learners worldwide.</p>
+  </div>
+
+  <form id="support-payment-form" class="support-form" novalidate>
+    <div class="form-group">
+      <label for="support-currency-select" class="form-label">Currency</label>
+      <div class="select-wrap">
+        <select id="support-currency-select" class="form-select" aria-describedby="currency-hint">
+          <!-- Populated dynamically: INR, USD, EUR, GBP, AED, CAD, AUD, SGD, JPY, CNY, CHF and 100+ verified currencies -->
+        </select>
+      </div>
+      <p id="currency-hint" class="field-hint">Choose your preferred currency. Never silently converted.</p>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Suggested Amount</label>
+      <div class="quick-amounts" id="support-quick-amounts" role="group" aria-label="Suggested amounts"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="support-amount-input" class="form-label">Amount</label>
+      <div class="amount-input-wrap">
+        <span class="currency-prefix" id="support-currency-symbol" aria-hidden="true">₹</span>
+        <input
+          type="text"
+          inputmode="decimal"
+          id="support-amount-input"
+          class="form-input amount-input"
+          placeholder="500"
+          autocomplete="off"
+          required
+          aria-describedby="amount-feedback"
+        />
+        <span class="currency-code-badge" id="support-currency-code-badge">INR</span>
+      </div>
+      <div id="amount-feedback" class="field-feedback" role="alert" aria-live="polite"></div>
+    </div>
+
+    <div class="amount-summary" id="support-amount-summary" aria-live="polite">
+      <span>Contribution Summary:</span>
+      <strong id="support-formatted-summary">₹500</strong>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" id="support-submit-btn" class="btn btn-primary btn-support">
+        <span class="btn-text">Support EkGuru</span>
+        <span class="btn-spinner" aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <p class="security-badge">
+      <span aria-hidden="true">🔒</span>
+      <span>Encrypted · Official Razorpay International Checkout · Verified Server-side</span>
+    </p>
+  </form>
+
+  <div id="support-status-container" class="support-status-container" style="display:none" role="status" aria-live="polite">
+    <div class="status-card" id="support-status-card">
+      <h3 class="status-title" id="support-status-title"></h3>
+      <p class="status-msg" id="support-status-msg"></p>
+      <div class="status-details" id="support-status-details" style="display:none"></div>
+      <button type="button" id="support-reset-btn" class="btn btn-sm btn-outline" style="display:none">Make another contribution</button>
+    </div>
+  </div>
+</section>
+<!-- =========================================================
        METHODS — every value comes from the settings sheet
        ========================================================= -->
 <h2 class="sec-t" id="methods">Choose a method</h2>
@@ -164,17 +238,6 @@
 <p class="who" style="margin:10px 0 0">Opens paypal.me in a new tab. You choose the amount there.</p>
 </div>
 <p class="m-soon">Coming soon — PayPal is being set up.</p>
-</div>
-<div class="m-card off" id="m-razorpay">
-<div class="m-top"><span aria-hidden="true" class="m-ic">💳</span><h2>Razorpay</h2></div>
-<p class="who">India · UPI, cards &amp; netbanking on a secure page</p>
-<div class="m-go">
-<div class="m-row">
-<a class="btn btn-primary" data-go="" href="#" rel="noopener" target="_blank">Pay with Razorpay</a>
-</div>
-<p class="who" style="margin:10px 0 0">Opens a secure Razorpay payment page in a new tab.</p>
-</div>
-<p class="m-soon">Coming soon — Razorpay is being set up.</p>
 </div>
 <div class="m-card off" id="m-stripe">
 <div class="m-top"><span aria-hidden="true" class="m-ic">💳</span><h2>Stripe</h2></div>
@@ -289,6 +352,7 @@
 <script defer="" src="../js/tutors/_overrides.js"></script>
 <script defer="" src="../js/settings.js"></script>
 <script defer="" src="../js/support.js"></script>
+<script defer="" src="../js/support-razorpay.js"></script>
 <script defer="" src="../js/experience.js"></script>
 <script defer="">
 document.addEventListener("DOMContentLoaded",function(){
