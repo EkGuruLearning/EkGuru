@@ -126,8 +126,27 @@ ok("robots.txt does not block AdsBot",
   !/User-agent:\s*AdsBot/i.test(read("robots.txt")));
 ok("consent is a certified-CMP question, not a home-made banner",
   /certified/i.test(mon.consent.requirement) && /CMP/i.test(mon.consent.requirement));
-ok("js/cookie-consent.js still renders no UI",
-  !/createElement|innerHTML\s*=|appendChild/.test(read("js/cookie-consent.js")));
+/* the consent center (js/cookie-consent.js v4): compact, centered, honest.
+   It must render, it must offer the four required choices, it must not
+   pre-check the optional categories, it must not set a cookie, and it must
+   not claim a certification it does not have. */
+const consent = read("js/cookie-consent.js");
+ok("the consent center renders a compact dialog",
+  /createElement/.test(consent)
+  && /setAttribute\("role", "dialog"\)/.test(consent)
+  && /id = "ekguru-consent"/.test(consent));
+ok("it offers Accept all / Reject (essential only) / Customize / Privacy Policy",
+  /Accept all/.test(consent) && /Reject — essential only/.test(consent)
+  && /Customize/.test(consent) && /Privacy Policy/.test(consent) && /cookie-policy/.test(consent));
+ok("the optional categories start unchecked (no pre-consent)",
+  /type=\"checkbox\"/.test(consent)
+  && /cc-functional/.test(consent) && /cc-analytics/.test(consent)
+  && !/checkbox[^\n]*checked/.test(consent));
+ok("it says out loud that EkGuru is not a certified consent platform",
+  /not a certified consent platform/.test(consent)
+  && !/we are certified|certified CMP|certified for (gdpr|ccpa)/i.test(consent));
+ok("the center carries no decorative emoji",
+  !/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}]/u.test(consent));
 ok("no page anywhere sets a cookie",
   files.every((f) => !/document\.cookie\s*=/.test(read(f))));
 

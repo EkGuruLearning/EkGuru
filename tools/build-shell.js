@@ -161,6 +161,7 @@ const COLUMNS = [
     ["Disclaimer", "ftr.disclaimer", "disclaimer"],
     ["Copyright", "ftr.copyright", "copyright"],
     ["Cookie policy", "ftr.cookies", "cookies"],
+    ["Cookie preferences", "ftr.cookiesPrefs", "cookiesPrefs"],
   ]],
 ];
 
@@ -260,9 +261,17 @@ function footerHTML(p, shell, loc, dict) {
     : "";
   /* The address is a link in the legal column — from the settings sheet, not
      typed into the markup. */
-  const renderLink = ([en, key, target]) => target === "email"
-    ? `      <a href="mailto:${esc(shell.email)}">${esc(shell.email)}</a>`
-    : "      " + anchor(href(target), en, key, L(en, key), loc);
+  const renderLink = ([en, key, target]) => {
+    if (target === "email") {
+      return `      <a href="mailto:${esc(shell.email)}">${esc(shell.email)}</a>`;
+    }
+    /* not a page: js/cookie-consent.js binds this and reopens the center */
+    if (target === "cookiesPrefs") {
+      const i18n = loc ? ` data-i18n="${key}"` : "";
+      return `      <a href="#" data-ekguru-consent-open${i18n}>${esc(L(en, key))}</a>`;
+    }
+    return "      " + anchor(href(target), en, key, L(en, key), loc);
+  };
   const cols = COLUMNS.map(([heading, hkey, links]) => {
     const hi = loc ? ` data-i18n="${hkey}"` : "";
     return `    <div>

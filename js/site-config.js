@@ -502,7 +502,9 @@ window.EKGURU_SITE = {
        Your own visits are NOT counted — open the admin dashboard
        once on a browser, or run
          localStorage.setItem("ekguru_no_track","1")
-       See js/analytics.js. No cookies, no consent banner needed. */
+       See js/analytics.js. No cookies. Additionally gated by the
+       consent center's Analytics toggle: not counted until the
+       visitor accepts analytics (js/analytics.js). */
     provider: "goatcounter",
     site: "ekguru"
   },

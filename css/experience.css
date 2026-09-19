@@ -1135,6 +1135,92 @@ html[dir="rtl"] .xp-sugg .xp-sugg-head { letter-spacing: 0; }
 }
 
 /* ==========================================================================
+   10c. CONSENT CENTER  (js/cookie-consent.js v4)
+
+   The compact, centered bottom card the consent center is: one short
+   paragraph, three honest choices, and an opt-in panel that is hidden
+   until asked for. Compact on purpose — a full-width bar covering the
+   page's controls is the design this replaces. The print rules already
+   hide #ekguru-consent; this section only draws it.
+   ========================================================================== */
+#ekguru-consent {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 16px;
+  z-index: 900;
+  width: min(560px, calc(100vw - 32px));
+  background: #fff;
+  border: 1px solid var(--line, #e4e4ef);
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(15, 18, 34, .18);
+  padding: 16px 18px;
+}
+#ekguru-consent[hidden] { display: none; }
+
+.cc-in { display: grid; gap: 12px; }
+.cc-text {
+  margin: 0;
+  font-size: .86rem;
+  line-height: 1.5;
+  color: #3d4257;
+}
+.cc-text a { color: var(--violet, #4f32d9); }
+
+.cc-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.cc-btn {
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font: inherit;
+  font-size: .84rem;
+  font-weight: 700;
+  cursor: pointer;
+  min-height: 38px;
+  transition: background .2s, color .2s;
+}
+.cc-accept { background: var(--violet, #4f32d9); color: #fff; }
+.cc-accept:hover { background: #3b24b0; }
+.cc-reject { background: #fff; color: #3d4257; border-color: var(--line, #e4e4ef); }
+.cc-reject:hover { background: #f5f2ff; }
+.cc-customize {
+  background: none;
+  border: none;
+  color: var(--violet, #4f32d9);
+  padding: 9px 8px;
+}
+.cc-customize:hover { text-decoration: underline; }
+
+.cc-custom {
+  display: grid;
+  gap: 10px;
+  border-top: 1px solid var(--line, #e4e4ef);
+  padding-top: 12px;
+}
+.cc-custom[hidden] { display: none; }
+.cc-row {
+  display: flex;
+  gap: 10px;
+  align-items: start;
+  font-size: .84rem;
+  line-height: 1.4;
+  cursor: pointer;
+  color: #3d4257;
+}
+.cc-row input { margin-top: 3px; flex: none; }
+.cc-note { margin: 0; font-size: .78rem; line-height: 1.45; color: #6b7085; }
+.cc-custom-actions { display: flex; gap: 8px; }
+
+@media (max-width: 480px) {
+  #ekguru-consent { padding: 14px; bottom: 12px; }
+  .cc-actions { gap: 6px; }
+  .cc-btn { padding: 8px 13px; font-size: .82rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cc-btn { transition: none; }
+}
+
+/* ==========================================================================
    11. CARDS + GRIDS
    ========================================================================== */
 

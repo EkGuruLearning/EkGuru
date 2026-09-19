@@ -78,6 +78,18 @@
     }
   } catch (e) {}
 
+  /* The consent center (js/cookie-consent.js v4) makes analytics an
+     explicit choice: off until the visitor accepts it, and "Reject —
+     essential only" or a Customize without analytics keeps it off.
+     GoatCounter itself needs no cookie consent — it sets nothing — but
+     the site's own promise is stronger than the legal minimum: the
+     Analytics toggle in the center really controls this snippet. */
+  try {
+    var rawConsent = localStorage.getItem("ekguru_cookie_consent_v3");
+    var consent = rawConsent ? JSON.parse(rawConsent) : null;
+    if (!consent || consent.analytics !== true) return;  /* off until accepted */
+  } catch (e) {}
+
   /* Local development should not pollute real numbers. */
   var host = location.hostname;
   if (host === "localhost" || host === "127.0.0.1" || host === "" ||
