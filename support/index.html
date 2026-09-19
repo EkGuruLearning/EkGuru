@@ -132,57 +132,63 @@
        ========================================================= -->
 <section class="support-component-card support-active-card" id="support-active-section" aria-labelledby="support-title">
   <div class="support-header">
-    <div class="support-badge" aria-hidden="true">⚡ Verified Active Payment Options</div>
+    <div class="support-badge" aria-hidden="true">⚡ Verified Active Payment Gateway</div>
     <h2 class="support-title" id="support-title">Support EkGuru</h2>
     <p class="support-desc">Help us keep EkGuru's learning resources 100% free, open, and continuously improving for everyone worldwide.</p>
-    <p class="support-note">Every contribution directly funds server bills, course development, and open learning tools. Choose an active Razorpay option below:</p>
+    <p class="support-note">Every contribution directly funds server bills, course development, and open learning tools. Click below to open our official Razorpay checkout in a new page:</p>
   </div>
 
-  <div class="rzp-hosted-grid" id="rzp-hosted-grid">
-    <!-- Option 1: Official Razorpay Payment Link -->
-    <div class="rzp-hosted-card rzp-card-link">
-      <div class="rzp-card-header">
-        <div class="rzp-card-icon" aria-hidden="true">🔗</div>
-        <div>
-          <h3 class="rzp-card-title">Support EkGuru through Razorpay</h3>
-          <p class="rzp-card-desc">Quick, verified hosted payment page powered by Razorpay. Supports UPI (GPay, PhonePe, Paytm, BHIM), debit/credit cards, netbanking, and wallets.</p>
-        </div>
+  <div class="rzp-hosted-card" id="rzp-hosted-card">
+    <div class="rzp-card-header">
+      <div class="rzp-card-icon" aria-hidden="true">⚡</div>
+      <div>
+        <h3 class="rzp-card-title">Official Razorpay Hosted Payment Page</h3>
+        <p class="rzp-card-desc">
+          Instant, secure payment page hosted on Razorpay (<strong>rzp.io/rzp/EkGuru</strong>). Opens directly in a full window with zero popup closing issues or freezing. Supports all payment methods:
+        </p>
+        <ul class="rzp-methods-badges">
+          <li>📱 UPI (Google Pay, PhonePe, Paytm, BHIM)</li>
+          <li>💳 Credit &amp; Debit Cards (Visa, Mastercard, RuPay)</li>
+          <li>🏦 Netbanking (All major Indian banks)</li>
+          <li>👛 Wallets (Paytm, Mobikwik, etc.)</li>
+        </ul>
       </div>
-      <div class="rzp-card-action">
-        <a
-          href="https://rzp.io/rzp/EkGuru"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-primary btn-rzp-hosted"
-          id="razorpay-hosted-link"
-        >
-          <span>Continue with Razorpay</span>
-          <span aria-hidden="true">&rarr;</span>
-        </a>
-      </div>
-      <p class="rzp-card-footnote">🔒 Opens official Razorpay payment page (rzp.io/rzp/EkGuru) in a secure new tab.</p>
     </div>
 
-    <!-- Option 2: Official Razorpay Payment Button -->
-    <div class="rzp-hosted-card rzp-card-button">
-      <div class="rzp-card-header">
-        <div class="rzp-card-icon" aria-hidden="true">💳</div>
-        <div>
-          <h3 class="rzp-card-title">Razorpay Payment Button</h3>
-          <p class="rzp-card-desc">Instant payment button with pre-configured contribution amounts confirmed by EkGuru.</p>
-        </div>
-      </div>
-      <div class="rzp-button-container" id="rzp-button-container">
-        <form id="razorpay-payment-button-form">
-          <script
-            src="https://checkout.razorpay.com/v1/payment-button.js"
-            data-payment_button_id="pl_TdkrmHjhK9ip3r"
-            async>
-          </script>
-        </form>
-      </div>
-      <p class="rzp-card-footnote">🔒 Official Razorpay button embed (pl_TdkrmHjhK9ip3r)</p>
+    <div class="rzp-card-actions">
+      <!-- Primary Action: Opens in new tab, with smart fallback to direct redirect if popup blocked -->
+      <a
+        href="https://rzp.io/rzp/EkGuru"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-primary btn-rzp-hosted"
+        id="razorpay-hosted-link"
+      >
+        <span>Continue with Razorpay</span>
+        <span aria-hidden="true">&rarr;</span>
+      </a>
+
+      <!-- Direct Fallback Action: Opens top-level / direct page in case popup is blocked by iframe or browser -->
+      <a
+        href="https://rzp.io/rzp/EkGuru"
+        target="_top"
+        class="btn btn-secondary btn-rzp-direct"
+        id="razorpay-direct-page-btn"
+      >
+        <span>Open in this tab (Direct)</span>
+      </a>
     </div>
+
+    <!-- Direct URL Box with 1-Click Copy -->
+    <div class="rzp-url-row">
+      <span class="rzp-url-label">Direct Payment Link:</span>
+      <code class="rzp-url-code" id="rzp-url-code">https://rzp.io/rzp/EkGuru</code>
+      <button type="button" class="btn btn-sm btn-copy-rzp" id="rzp-copy-btn" data-copy-text="https://rzp.io/rzp/EkGuru">Copy Link</button>
+    </div>
+
+    <p class="rzp-card-footnote">
+      🔒 Opens official Razorpay verified checkout (rzp.io/rzp/EkGuru) in a fresh window. No popup modals that close or freeze.
+    </p>
   </div>
 </section>
 

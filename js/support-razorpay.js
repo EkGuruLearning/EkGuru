@@ -746,6 +746,69 @@
       });
     }
 
+    // Active Razorpay Hosted Options Handlers
+    var hostedLink = document.getElementById("razorpay-hosted-link");
+    if (hostedLink) {
+      hostedLink.addEventListener("click", function () {
+        var targetUrl = hostedLink.getAttribute("href") || "https://rzp.io/rzp/EkGuru";
+        try {
+          var w = window.open(targetUrl, "_blank", "noopener,noreferrer");
+          if (!w || w.closed || typeof w.closed === "undefined") {
+            // Popup blocked by browser or iframe sandbox — navigate directly
+            if (window.top && window.top !== window) {
+              window.top.location.href = targetUrl;
+            } else {
+              window.location.href = targetUrl;
+            }
+          }
+        } catch (err) {
+          // Native anchor handles it
+        }
+      });
+    }
+
+    var directBtn = document.getElementById("razorpay-direct-page-btn");
+    if (directBtn) {
+      directBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        var targetUrl = directBtn.getAttribute("href") || "https://rzp.io/rzp/EkGuru";
+        try {
+          if (window.top && window.top !== window) {
+            window.top.location.href = targetUrl;
+            return;
+          }
+        } catch (err) {}
+        window.location.href = targetUrl;
+      });
+    }
+
+    var rzpCopyBtn = document.getElementById("rzp-copy-btn");
+    if (rzpCopyBtn) {
+      rzpCopyBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        var text = rzpCopyBtn.getAttribute("data-copy-text") || "https://rzp.io/rzp/EkGuru";
+        function done(ok) {
+          var old = rzpCopyBtn.textContent;
+          rzpCopyBtn.textContent = ok ? "Copied ✓" : "Copy failed";
+          setTimeout(function () { rzpCopyBtn.textContent = old; }, 2000);
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); });
+        } else {
+          try {
+            var ta = document.createElement("textarea");
+            ta.value = text;
+            ta.style.position = "fixed";
+            ta.style.opacity = "0";
+            document.body.appendChild(ta);
+            ta.select();
+            done(document.execCommand("copy"));
+            document.body.removeChild(ta);
+          } catch (err) { done(false); }
+        }
+      });
+    }
+
     var paymentMode = (window.PAYMENT_MODE || "COMING_SOON").toUpperCase();
     if (paymentMode === "COMING_SOON") {
       if (submitBtn) {

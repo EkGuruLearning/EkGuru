@@ -551,19 +551,16 @@ async function runBrowserQA() {
     check(rzpLink.getAttribute("rel") === "noopener noreferrer", "Payment link has rel='noopener noreferrer'");
     check(rzpLink.textContent.includes("Continue with Razorpay"), "Payment link button text is 'Continue with Razorpay'");
 
-    // Check Razorpay Payment Button Embed
-    const rzpBtnForm = dom.window.document.getElementById("razorpay-payment-button-form");
-    check(!!rzpBtnForm, "Razorpay Payment Button form embed rendered");
-    const scriptTag = rzpBtnForm ? rzpBtnForm.querySelector("script") : null;
-    check(!!scriptTag, "Payment button script tag present in form");
-    check(
-      scriptTag && scriptTag.getAttribute("src") === "https://checkout.razorpay.com/v1/payment-button.js",
-      "Payment button script src is official checkout.razorpay.com/v1/payment-button.js"
-    );
-    check(
-      scriptTag && scriptTag.getAttribute("data-payment_button_id") === "pl_TdkrmHjhK9ip3r",
-      "Payment button data-payment_button_id matches confirmed owner ID 'pl_TdkrmHjhK9ip3r'"
-    );
+    // Check Direct Page Fallback Button
+    const directBtn = dom.window.document.getElementById("razorpay-direct-page-btn");
+    check(!!directBtn, "Direct page fallback button rendered");
+    check(directBtn.getAttribute("href") === "https://rzp.io/rzp/EkGuru", "Direct fallback button points to https://rzp.io/rzp/EkGuru");
+    check(directBtn.getAttribute("target") === "_top", "Direct fallback button has target='_top'");
+
+    // Check Copy Button
+    const copyBtn = dom.window.document.getElementById("rzp-copy-btn");
+    check(!!copyBtn, "Copy link button rendered");
+    check(copyBtn.getAttribute("data-copy-text") === "https://rzp.io/rzp/EkGuru", "Copy button targets https://rzp.io/rzp/EkGuru");
 
     // Check #m-razorpay in methods list
     const mRazorpay = dom.window.document.getElementById("m-razorpay");

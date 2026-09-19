@@ -636,16 +636,14 @@
   background: #ffffff;
   border: 1.5px solid #e2e8f0;
   border-radius: 14px;
-  padding: 22px 20px;
+  padding: 24px 22px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .rzp-hosted-card:hover {
-  transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(79, 50, 217, 0.12);
   border-color: #c7d2fe;
 }
@@ -653,24 +651,24 @@
 .rzp-card-header {
   display: flex;
   align-items: flex-start;
-  gap: 14px;
+  gap: 16px;
   margin-bottom: 16px;
 }
 
 .rzp-card-icon {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 12px;
-  background: rgba(79, 50, 217, 0.08);
+  background: rgba(79, 50, 217, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+  font-size: 24px;
   flex-shrink: 0;
 }
 
 .rzp-card-title {
-  font-size: 1.12rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #0f172a;
   margin: 0 0 6px;
@@ -678,14 +676,36 @@
 }
 
 .rzp-card-desc {
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   color: #475569;
-  line-height: 1.5;
-  margin: 0;
+  line-height: 1.55;
+  margin: 0 0 10px;
 }
 
-.rzp-card-action {
-  margin: 12px 0 8px;
+.rzp-methods-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 6px;
+}
+
+.rzp-methods-badges li {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #334155;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.rzp-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 18px 0 12px;
 }
 
 .btn-rzp-hosted {
@@ -693,36 +713,99 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  width: 100%;
-  padding: 12px 20px;
+  padding: 13px 26px;
   min-height: 48px;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.05rem;
+  font-weight: 700;
   color: #ffffff !important;
   background: #4f32d9;
+  border: none;
   border-radius: 10px;
   text-decoration: none;
   box-shadow: 0 4px 14px rgba(79, 50, 217, 0.3);
   transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .btn-rzp-hosted:hover {
   background: #4328be;
   transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(79, 50, 217, 0.4);
+  box-shadow: 0 6px 18px rgba(79, 50, 217, 0.45);
   color: #ffffff !important;
 }
 
-.rzp-button-container {
-  margin: 12px 0 8px;
+.btn-rzp-direct {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 20px;
   min-height: 48px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #475569 !important;
+  background: #f1f5f9;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.btn-rzp-direct:hover {
+  background: #e2e8f0;
+  border-color: #94a3b8;
+  color: #1e293b !important;
+}
+
+.rzp-url-row {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 12px 0 8px;
+  font-size: 0.88rem;
+}
+
+.rzp-url-label {
+  color: #64748b;
+  font-weight: 600;
+}
+
+.rzp-url-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  color: #4f32d9;
+  font-weight: 700;
+  background: rgba(79, 50, 217, 0.08);
+  padding: 4px 8px;
+  border-radius: 6px;
+  word-break: break-all;
+}
+
+.btn-copy-rzp {
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #334155;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn-copy-rzp:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
 }
 
 .rzp-card-footnote {
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   color: #64748b;
   margin: 8px 0 0;
   line-height: 1.4;
