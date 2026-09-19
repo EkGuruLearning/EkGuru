@@ -309,6 +309,11 @@
     if (failBtn) {
       failBtn.addEventListener("click", function () {
         closeMockModal();
+        callBackend("report-failure", {
+          razorpay_order_id: orderData.order_id,
+          internal_id: orderData.internal_id,
+          reason: "User simulated payment failure in test mode",
+        }, 8000).catch(function () {});
         if (typeof options.modal && typeof options.modal.ondismiss === "function") {
           options.modal.ondismiss();
         }
@@ -825,6 +830,11 @@
                 confirm_close: true,
                 ondismiss: function () {
                   setFormBusy(false);
+                  callBackend("report-cancel", {
+                    razorpay_order_id: orderData.order_id,
+                    internal_id: orderData.internal_id,
+                    reason: "Checkout modal dismissed by patron",
+                  }, 8000).catch(function () {});
                 },
               },
               handler: function (checkoutResponse) {
@@ -860,6 +870,11 @@
             var rzp = new RazorpayCtor(options);
             rzp.on("payment.failed", function (failResp) {
               var desc = (failResp && failResp.error && failResp.error.description) ? failResp.error.description : "Payment processing failed";
+              callBackend("report-failure", {
+                razorpay_order_id: orderData.order_id,
+                internal_id: orderData.internal_id,
+                reason: desc,
+              }, 8000).catch(function () {});
               showError(desc, "RAZORPAY_PAYMENT_FAILED");
             });
             rzp.open();

@@ -39,17 +39,67 @@ Razorpay Gateway -> Google Apps Script Web App (?action=webhook)
 ### Automated Tab Creation & Headers
 The Google Apps Script automatically validates, creates, and safely repairs header rows without erasing existing transaction data:
 
-1. **Payments Tab**:
-   `Created At`, `Updated At`, `Payment ID`, `Order ID`, `Status`, `Amount`, `Currency`, `International`, `Payment Method`, `Customer Name`, `Customer Email`, `Customer Phone`, `Country`, `Support Message`, `Razorpay Fee`, `Tax`, `Refund Status`, `Internal Reference`, `Verified`, `Sheet Sync Status`
-2. **Customers Tab**:
+1. **Payments Tab** (Production Transaction Ledger — 23 Columns):
+   - Col 1: `Created At` (ISO timestamp of order creation)
+   - Col 2: `Updated At` (ISO timestamp of latest state change)
+   - Col 3: `Payment ID` (Razorpay payment ID `pay_*`, empty until payment attempt)
+   - Col 4: `Order ID` (Authoritative Razorpay order ID `order_*`)
+   - Col 5: `Status` (Gateway technical status: `created`, `authorized`, `captured`, `failed`, `cancelled`)
+   - Col 6: `Amount` (Major currency units, e.g. `500.00`)
+   - Col 7: `Currency` (ISO 4217 code, e.g. `INR`, `USD`, `EUR`, `GBP`)
+   - Col 8: `International` (Boolean `true`/`false`)
+   - Col 9: `Payment Method` (`card`, `upi`, `netbanking`, `wallet`)
+   - Col 10: `Customer Name` (Sanitized patron name)
+   - Col 11: `Customer Email` (Patron email address)
+   - Col 12: `Customer Phone` (Patron phone number, if provided)
+   - Col 13: `Country` (Patron country)
+   - Col 14: `Support Message` (Optional contribution note)
+   - Col 15: `Razorpay Fee` (Gateway processing fee, if captured)
+   - Col 16: `Tax` (GST or tax on fee, if captured)
+   - Col 17: `Refund Status` (`none`, `partial`, `refunded`)
+   - Col 18: `Internal Reference` (`ekg_sup_*` idempotent reference)
+   - Col 19: `Verified` (Cryptographic verification flag: `true`/`false`)
+   - Col 20: `Sheet Sync Status` (`created`, `synced`, `failed`)
+   - Col 21: `Payment Result` (High-level ledger state: `SUCCESS`, `PENDING`, `FAILED`, `AUTHORIZED`, `REFUNDED`, `CANCELLED`)
+   - Col 22: `Payment Completed At` (Formatted timestamp `YYYY-MM-DD HH:MM:SS` when payment was captured; strictly blank for pending/failed/cancelled)
+   - Col 23: `Failure Reason` (Descriptive error explanation when status is failed or cancelled; empty for success)
+
+2. **PaymentSummary Tab** (Real-Time Executive Operations Dashboard):
+   `Metric`, `Value`, `Notes`
+   - Real-time counters: Successful Payments, Pending Payments, Failed Payments, Authorized Payments, Refunded Payments, Cancelled Payments.
+   - Segregated multi-currency totals: Currency amounts are strictly maintained per-currency (e.g. `INR 1,500.00, USD 75.00, EUR 30.00`) and **never numerically summed across different currencies**.
+   - Auto-updated whenever an order is created, verified, failed, refunded, or cancelled.
+
+3. **Customers Tab**:
    `Customer ID`, `Name`, `Email`, `Phone`, `Country`, `First Payment`, `Last Payment`, `Total Payments`, `Total Supported Amount`, `Currencies Used`
    *(Note: `Total Supported Amount` preserves totals strictly per currency, e.g. `INR 500.00, USD 25.00`. Numerical cross-currency addition is prohibited)*
-3. **Refunds Tab**:
+4. **Refunds Tab**:
    `Created At`, `Refund ID`, `Payment ID`, `Order ID`, `Amount`, `Currency`, `Status`, `Reason`
-4. **WebhookEvents Tab**:
+5. **WebhookEvents Tab**:
    `Received At`, `Event ID`, `Event Type`, `Payment ID`, `Order ID`, `Processed`, `Processing Result`
-5. **PublicSupport Tab**:
+6. **PublicSupport Tab**:
    `Created At`, `Display Name`, `Country`, `Amount`, `Currency`, `Message`, `Public`, `Payment Date`, `Internal Reference`
+
+### Conditional Formatting for Payment Result (Column 21)
+The Google Apps Script automatically installs conditional formatting rules on column 21 (`Payment Result`):
+- **`SUCCESS`**: Background `#d1fae5` (Soft Emerald), Text `#065f46` (Dark Green)
+- **`PENDING`**: Background `#fef3c7` (Soft Amber), Text `#92400e` (Dark Yellow/Brown)
+- **`FAILED`**: Background `#fee2e2` (Soft Rose), Text `#991b1b` (Dark Red)
+- **`AUTHORIZED`**: Background `#dbeafe` (Soft Blue), Text `#1e40af` (Dark Blue)
+- **`REFUNDED`**: Background `#f3e8ff` (Soft Purple), Text `#6b21a8` (Dark Purple)
+- **`CANCELLED`**: Background `#f1f5f9` (Soft Slate Gray), Text `#475569` (Dark Slate)
+
+### Non-Destructive Table Migration
+When migrating existing spreadsheets with 20 columns, `apps-script/Code.gs` executes `migratePaymentsTableIfNeeded_(sheet)`:
+- Detects whether `Payment Result` exists in the header row.
+- Appends the 3 new columns (`Payment Result`, `Payment Completed At`, `Failure Reason`) preserving indices 0 to 19 without shifting existing column positions.
+- Backfills existing rows based on their historical `status` and `verified` flags:
+  - Rows with `captured` or `verified=true` $\to$ `SUCCESS`, `Payment Completed At` set to `Updated At`.
+  - Rows with `failed` $\to$ `FAILED`, `Failure Reason` set to `Payment failed`.
+  - Rows with `authorized` $\to$ `AUTHORIZED`.
+  - Rows with `refunded` $\to$ `REFUNDED`.
+  - Rows with `created` $\to$ `PENDING`, `Payment Completed At` and `Failure Reason` left blank.
+- Recalculates and populates the `PaymentSummary` tab immediately.
 
 ---
 

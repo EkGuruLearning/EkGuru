@@ -667,6 +667,145 @@ runTest('Refund webhook creates Refunds entry and updates Payments without alter
   assert.equal(custSheet.grid[1][7], 1);
 });
 
+// 9. Frontend Checkout Dismissal (report-cancel)
+runTest('Frontend Checkout Dismissal updates Payments tab to CANCELLED without adding customer or public supporter', () => {
+  const { context, mockSpreadsheet } = createMockEnvironment();
+
+  // Create order
+  const createResp = JSON.parse(context.doPost({
+    postData: {
+      contents: JSON.stringify({
+        action: 'create-order',
+        amount: '15.00',
+        currency: 'USD',
+        customer_name: 'David Miller',
+        customer_email: 'david@example.com',
+        publicDisplayOptIn: true,
+      }),
+    },
+  }).getContent());
+
+  assert.equal(createResp.success, true);
+  const paySheet = mockSpreadsheet.getSheetByName('Payments');
+  assert.equal(paySheet.grid[1][20], 'PENDING');
+
+  // Patron dismisses checkout modal
+  const cancelResp = JSON.parse(context.doPost({
+    postData: {
+      contents: JSON.stringify({
+        action: 'report-cancel',
+        order_id: createResp.order_id,
+        internal_id: createResp.internal_id,
+        reason: 'Modal dismissed by user',
+      }),
+    },
+  }).getContent());
+
+  assert.equal(cancelResp.success, true);
+  assert.equal(cancelResp.payment_result, 'CANCELLED');
+  assert.equal(paySheet.grid[1][4], 'cancelled');
+  assert.equal(paySheet.grid[1][20], 'CANCELLED');
+  assert.equal(paySheet.grid[1][21], ''); // Completed At remains empty
+  assert.equal(paySheet.grid[1][22], 'Modal dismissed by user');
+
+  // Must NOT create customer or public supporter
+  const custSheet = mockSpreadsheet.getSheetByName('Customers');
+  assert.equal(custSheet.grid.length, 1); // Only header
+  const pubSheet = mockSpreadsheet.getSheetByName('PublicSupport');
+  assert.equal(pubSheet.grid.length, 1); // Only header
+});
+
+// 10. Frontend Payment Failure (report-failure)
+runTest('Frontend Payment Failure updates Payments tab to FAILED with explicit failure reason', () => {
+  const { context, mockSpreadsheet } = createMockEnvironment();
+
+  // Create order
+  const createResp = JSON.parse(context.doPost({
+    postData: {
+      contents: JSON.stringify({
+        action: 'create-order',
+        amount: '1200',
+        currency: 'INR',
+        customer_name: 'Anita Roy',
+        customer_email: 'anita@example.com',
+      }),
+    },
+  }).getContent());
+
+  // Payment fails at gateway / modal reports payment.failed
+  const failResp = JSON.parse(context.doPost({
+    postData: {
+      contents: JSON.stringify({
+        action: 'report-failure',
+        order_id: createResp.order_id,
+        internal_id: createResp.internal_id,
+        reason: 'Payment failed at bank gateway: Insufficient funds in account',
+      }),
+    },
+  }).getContent());
+
+  assert.equal(failResp.success, true);
+  assert.equal(failResp.payment_result, 'FAILED');
+
+  const paySheet = mockSpreadsheet.getSheetByName('Payments');
+  assert.equal(paySheet.grid[1][4], 'failed');
+  assert.equal(paySheet.grid[1][20], 'FAILED');
+  assert.equal(paySheet.grid[1][21], '');
+  assert.equal(paySheet.grid[1][22], 'Payment failed at bank gateway: Insufficient funds in account');
+});
+
+// 11. PaymentSummary Tab Segregated Currency Totals & Transaction Counters
+runTest('PaymentSummary tab calculates accurate counters and isolates currency totals', () => {
+  const { context, mockSpreadsheet, scriptProperties } = createMockEnvironment();
+
+  // 1. Success 1 (INR 500)
+  const o1 = JSON.parse(context.doPost({
+    postData: { contents: JSON.stringify({ action: 'create-order', amount: '500', currency: 'INR' }) }
+  }).getContent());
+  const s1 = crypto.createHmac('sha256', scriptProperties.RAZORPAY_KEY_SECRET).update(`${o1.order_id}|pay_11_1`).digest('hex');
+  context.doPost({
+    postData: { contents: JSON.stringify({ action: 'verify-payment', razorpay_order_id: o1.order_id, razorpay_payment_id: 'pay_11_1', razorpay_signature: s1, internal_id: o1.internal_id }) }
+  });
+
+  // 2. Success 2 (USD 50)
+  const o2 = JSON.parse(context.doPost({
+    postData: { contents: JSON.stringify({ action: 'create-order', amount: '50', currency: 'USD' }) }
+  }).getContent());
+  const s2 = crypto.createHmac('sha256', scriptProperties.RAZORPAY_KEY_SECRET).update(`${o2.order_id}|pay_11_2`).digest('hex');
+  context.doPost({
+    postData: { contents: JSON.stringify({ action: 'verify-payment', razorpay_order_id: o2.order_id, razorpay_payment_id: 'pay_11_2', razorpay_signature: s2, internal_id: o2.internal_id }) }
+  });
+
+  // 3. Pending 1 (EUR 20)
+  context.doPost({
+    postData: { contents: JSON.stringify({ action: 'create-order', amount: '20', currency: 'EUR' }) }
+  });
+
+  // 4. Cancelled 1 (GBP 15)
+  const o4 = JSON.parse(context.doPost({
+    postData: { contents: JSON.stringify({ action: 'create-order', amount: '15', currency: 'GBP' }) }
+  }).getContent());
+  context.doPost({
+    postData: { contents: JSON.stringify({ action: 'report-cancel', order_id: o4.order_id, internal_id: o4.internal_id, reason: 'Patron closed modal' }) }
+  });
+
+  const sumSheet = mockSpreadsheet.getSheetByName('PaymentSummary');
+  assert.ok(sumSheet, 'PaymentSummary sheet must exist');
+  const metrics = {};
+  for (let r = 1; r < sumSheet.grid.length; r++) {
+    metrics[sumSheet.grid[r][0]] = sumSheet.grid[r][1];
+  }
+
+  assert.equal(metrics['Successful Payments'], 2);
+  assert.equal(metrics['Pending Payments'], 1);
+  assert.equal(metrics['Cancelled Payments'], 1);
+  assert.equal(metrics['Failed Payments'], 0);
+  assert.ok(metrics['Total Successful Amount by Currency'].includes('INR 500.00'));
+  assert.ok(metrics['Total Successful Amount by Currency'].includes('USD 50.00'));
+  // Never numerically aggregated across disparate currencies
+  assert.ok(!metrics['Total Successful Amount by Currency'].includes('550'));
+});
+
 console.log('-------------------------------------------------------');
 console.log(`Results: ${passed} passed, 0 failed out of ${total} E2E gates.`);
 console.log('=======================================================');

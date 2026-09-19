@@ -95,6 +95,17 @@ function createMockEnvironment(customProperties = {}) {
       this.grid.push([...rowArr]);
     }
     setFrozenRows(n) { this.frozenRows = n; }
+    getMaxRows() { return Math.max(this.grid.length, 100); }
+    getMaxColumns() {
+      let maxCols = 23;
+      for (const row of this.grid) {
+        if (row && row.length > maxCols) maxCols = row.length;
+      }
+      return maxCols;
+    }
+    insertColumnsAfter(col, n) {}
+    setConditionalFormatRules(rules) { this.conditionalFormatRules = rules; }
+    getConditionalFormatRules() { return this.conditionalFormatRules || []; }
     getRange(row, col, numRows, numCols) {
       return new MockRange(this, row, col, numRows || 1, numCols || 1);
     }
@@ -131,6 +142,16 @@ function createMockEnvironment(customProperties = {}) {
           return mockSpreadsheet;
         }
         throw new Error('Spreadsheet not found with ID: ' + id);
+      },
+      newConditionalFormatRule: () => {
+        const rule = {
+          whenTextEqualTo: (t) => { rule.text = t; return rule; },
+          setBackground: (b) => { rule.bg = b; return rule; },
+          setFontColor: (c) => { rule.font = c; return rule; },
+          setRanges: (r) => { rule.ranges = r; return rule; },
+          build: () => rule,
+        };
+        return rule;
       }
     },
     PropertiesService: {
@@ -171,7 +192,7 @@ function createMockEnvironment(customProperties = {}) {
         return {
           getResponseCode: () => 200,
           getContentText: () => JSON.stringify({
-            id: 'order_test_' + Date.now(),
+            id: 'order_test_' + Date.now() + '_' + Math.random().toString(36).substring(2, 7),
             entity: 'order',
             amount: 50000,
             currency: 'INR',
@@ -776,4 +797,257 @@ function createMockEnvironment(customProperties = {}) {
   console.log('✓ PASS [23/23]: GET ?action=verify-payment with JSONP reconciles payment successfully');
 }
 
-console.log('All 23 Google Apps Script backend tests passed successfully!');
+// 24. TEST: Production Ledger Columns (Payment Result, Payment Completed At, Failure Reason) on order creation
+{
+  const { context, mockSpreadsheet } = createMockEnvironment();
+  const res = JSON.parse(context.doPost({
+    postData: { contents: JSON.stringify({ action: 'create-order', amount: '100', currency: 'INR' }) }
+  }).getContent());
+  assert.equal(res.success, true);
+
+  const paySheet = mockSpreadsheet.getSheetByName('Payments');
+  const headers = paySheet.grid[0];
+  assert.equal(headers[20], 'Payment Result');
+  assert.equal(headers[21], 'Payment Completed At');
+  assert.equal(headers[22], 'Failure Reason');
+
+  const row = paySheet.grid[1];
+  assert.equal(row[20], 'PENDING');
+  assert.equal(row[21], ''); // blank for pending
+  assert.equal(row[22], ''); // blank for pending
+  console.log('✓ PASS [24/31]: create-order initializes Payment Result=PENDING and blank completed_at/failure_reason');
+}
+
+// 25. TEST: Payment Result becomes SUCCESS and Payment Completed At is populated on verification
+{
+  const { context, mockSpreadsheet, scriptProperties } = createMockEnvironment();
+  const ord = JSON.parse(context.doPost({
+    postData: { contents: JSON.stringify({ action: 'create-order', amount: '200', currency: 'INR' }) }
+  }).getContent());
+
+  const payId = 'pay_succ_001';
+  const sig = crypto.createHmac('sha256', scriptProperties.RAZORPAY_KEY_SECRET).update(`${ord.order_id}|${payId}`).digest('hex');
+
+  const ver = JSON.parse(context.doPost({
+    postData: { contents: JSON.stringify({
+      action: 'verify-payment',
+      razorpay_order_id: ord.order_id,
+      razorpay_payment_id: payId,
+      razorpay_signature: sig,
+      internal_id: ord.internal_id,
+    }) }
+  }).getContent());
+  assert.equal(ver.success, true);
+
+  const paySheet = mockSpreadsheet.getSheetByName('Payments');
+  const row = paySheet.grid[1];
+  assert.equal(row[4], 'captured'); // Status unchanged at col 5
+  assert.equal(row[18], 'true');    // Verified unchanged at col 19
+  assert.equal(row[20], 'SUCCESS'); // Payment Result col 21
+  assert.ok(row[21], 'Payment Completed At must be populated');
+  assert.match(row[21], /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/);
+  assert.equal(row[22], '');       // Failure Reason must be empty
+  console.log('✓ PASS [25/31]: verify-payment sets Payment Result=SUCCESS, timestamps completed_at, clears failure_reason');
+}
+
+// 26. TEST: Signature failure sets Payment Result=FAILED with Failure Reason
+{
+  const { context, mockSpreadsheet } = createMockEnvironment();
+  const ord = JSON.parse(context.doPost({
+    postData: { contents: JSON.stringify({ action: 'create-order', amount: '300', currency: 'INR' }) }
+  }).getContent());
+
+  const ver = JSON.parse(context.doPost({
+    postData: { contents: JSON.stringify({
+      action: 'verify-payment',
+      razorpay_order_id: ord.order_id,
+      razorpay_payment_id: 'pay_bad_sig_001',
+      razorpay_signature: 'invalid_signature_hex_value_000',
+      internal_id: ord.internal_id,
+    }) }
+  }).getContent());
+  assert.equal(ver.success, false);
+
+  const paySheet = mockSpreadsheet.getSheetByName('Payments');
+  const row = paySheet.grid[1];
+  assert.equal(row[4], 'failed');
+  assert.equal(row[20], 'FAILED');
+  assert.equal(row[21], ''); // No completion timestamp
+  assert.equal(row[22], 'Invalid payment signature.');
+  console.log('✓ PASS [26/31]: Failed verification sets Payment Result=FAILED and Failure Reason');
+}
+
+// 27. TEST: Client-side failure reporting (report-failure)
+{
+  const { context, mockSpreadsheet } = createMockEnvironment();
+  const ord = JSON.parse(context.doPost({
+    postData: { contents: JSON.stringify({ action: 'create-order', amount: '400', currency: 'INR' }) }
+  }).getContent());
+
+  const rep = JSON.parse(context.doPost({
+    postData: { contents: JSON.stringify({
+      action: 'report-failure',
+      order_id: ord.order_id,
+      internal_id: ord.internal_id,
+      reason: 'Bank server network timeout at OTP step',
+    }) }
+  }).getContent());
+  assert.equal(rep.success, true);
+  assert.equal(rep.payment_result, 'FAILED');
+
+  const paySheet = mockSpreadsheet.getSheetByName('Payments');
+  const row = paySheet.grid[1];
+  assert.equal(row[4], 'failed');
+  assert.equal(row[20], 'FAILED');
+  assert.equal(row[21], '');
+  assert.equal(row[22], 'Bank server network timeout at OTP step');
+  console.log('✓ PASS [27/31]: report-failure endpoint transitions order to FAILED with descriptive reason');
+}
+
+// 28. TEST: Client-side cancellation reporting (report-cancel)
+{
+  const { context, mockSpreadsheet } = createMockEnvironment();
+  const ord = JSON.parse(context.doPost({
+    postData: { contents: JSON.stringify({ action: 'create-order', amount: '500', currency: 'INR' }) }
+  }).getContent());
+
+  const rep = JSON.parse(context.doPost({
+    postData: { contents: JSON.stringify({
+      action: 'report-cancel',
+      order_id: ord.order_id,
+      internal_id: ord.internal_id,
+      reason: 'Checkout modal dismissed by patron',
+    }) }
+  }).getContent());
+  assert.equal(rep.success, true);
+  assert.equal(rep.payment_result, 'CANCELLED');
+
+  const paySheet = mockSpreadsheet.getSheetByName('Payments');
+  const row = paySheet.grid[1];
+  assert.equal(row[4], 'cancelled');
+  assert.equal(row[20], 'CANCELLED');
+  assert.equal(row[21], '');
+  assert.equal(row[22], 'Checkout modal dismissed by patron');
+  console.log('✓ PASS [28/31]: report-cancel endpoint transitions pending order to CANCELLED');
+}
+
+// 29. TEST: Conditional formatting rules applied to Payment Result (col 21)
+{
+  const { context, mockSpreadsheet } = createMockEnvironment();
+  // Trigger initialization
+  context.doGet({ parameter: { action: 'recent-support' } });
+
+  const paySheet = mockSpreadsheet.getSheetByName('Payments');
+  const rules = paySheet.getConditionalFormatRules();
+  assert.ok(rules.length >= 6, 'Should have conditional rules for SUCCESS, PENDING, FAILED, AUTHORIZED, REFUNDED, CANCELLED');
+  const ruleTexts = rules.map(r => r.text);
+  assert.ok(ruleTexts.includes('SUCCESS'));
+  assert.ok(ruleTexts.includes('PENDING'));
+  assert.ok(ruleTexts.includes('FAILED'));
+  assert.ok(ruleTexts.includes('AUTHORIZED'));
+  assert.ok(ruleTexts.includes('REFUNDED'));
+  assert.ok(ruleTexts.includes('CANCELLED'));
+  console.log('✓ PASS [29/31]: Conditional formatting rules configure colors for all 6 payment states');
+}
+
+// 30. TEST: Dedicated PaymentSummary tab calculations & isolated currency totals
+{
+  const { context, mockSpreadsheet, scriptProperties } = createMockEnvironment();
+  // 1. Create order 1: INR 500 (captured)
+  const o1 = JSON.parse(context.doPost({
+    postData: { contents: JSON.stringify({ action: 'create-order', amount: '500', currency: 'INR' }) }
+  }).getContent());
+  const s1 = crypto.createHmac('sha256', scriptProperties.RAZORPAY_KEY_SECRET).update(`${o1.order_id}|pay_sum_001`).digest('hex');
+  context.doPost({
+    postData: { contents: JSON.stringify({ action: 'verify-payment', razorpay_order_id: o1.order_id, razorpay_payment_id: 'pay_sum_001', razorpay_signature: s1, internal_id: o1.internal_id }) }
+  });
+
+  // 2. Create order 2: USD 25 (captured)
+  const o2 = JSON.parse(context.doPost({
+    postData: { contents: JSON.stringify({ action: 'create-order', amount: '25.00', currency: 'USD' }) }
+  }).getContent());
+  const s2 = crypto.createHmac('sha256', scriptProperties.RAZORPAY_KEY_SECRET).update(`${o2.order_id}|pay_sum_002`).digest('hex');
+  context.doPost({
+    postData: { contents: JSON.stringify({ action: 'verify-payment', razorpay_order_id: o2.order_id, razorpay_payment_id: 'pay_sum_002', razorpay_signature: s2, internal_id: o2.internal_id }) }
+  });
+
+  // 3. Create order 3: pending
+  context.doPost({
+    postData: { contents: JSON.stringify({ action: 'create-order', amount: '1000', currency: 'INR' }) }
+  });
+
+  // 4. Create order 4: cancelled
+  const o4 = JSON.parse(context.doPost({
+    postData: { contents: JSON.stringify({ action: 'create-order', amount: '50', currency: 'EUR' }) }
+  }).getContent());
+  context.doPost({
+    postData: { contents: JSON.stringify({ action: 'report-cancel', order_id: o4.order_id, internal_id: o4.internal_id, reason: 'Dismissed' }) }
+  });
+
+  const sumSheet = mockSpreadsheet.getSheetByName('PaymentSummary');
+  assert.ok(sumSheet, 'PaymentSummary tab must exist');
+  assert.equal(sumSheet.grid[0][0], 'Metric');
+  assert.equal(sumSheet.grid[0][1], 'Value');
+  assert.equal(sumSheet.grid[0][2], 'Notes');
+
+  const summaryData = {};
+  for (let r = 1; r < sumSheet.grid.length; r++) {
+    summaryData[sumSheet.grid[r][0]] = sumSheet.grid[r][1];
+  }
+
+  assert.equal(summaryData['Successful Payments'], 2);
+  assert.equal(summaryData['Pending Payments'], 1);
+  assert.equal(summaryData['Cancelled Payments'], 1);
+  assert.ok(summaryData['Total Successful Amount by Currency'].includes('INR 500.00'));
+  assert.ok(summaryData['Total Successful Amount by Currency'].includes('USD 25.00'));
+  // Confirm currencies are segregated and not combined into a single numeric total
+  assert.ok(!summaryData['Total Successful Amount by Currency'].includes('525'));
+  console.log('✓ PASS [30/31]: PaymentSummary calculates segregated currency totals & accurate counters');
+}
+
+// 31. TEST: Safe migration of legacy 20-column Payments table
+{
+  const { context, mockSpreadsheet } = createMockEnvironment();
+  const paySheet = mockSpreadsheet.insertSheet('Payments');
+  // Populate legacy 20 columns
+  const legacyHeaders = [
+    "Created At", "Updated At", "Payment ID", "Order ID", "Status", "Amount", "Currency",
+    "International", "Payment Method", "Customer Name", "Customer Email", "Customer Phone",
+    "Country", "Support Message", "Razorpay Fee", "Tax", "Refund Status", "Internal Reference",
+    "Verified", "Sheet Sync Status"
+  ];
+  const legacyRow1 = [
+    "2026-03-01T10:00:00Z", "2026-03-01T10:05:00Z", "pay_leg_01", "order_leg_01", "captured",
+    750, "INR", false, "upi", "Legacy User", "legacy@example.com", "", "IN", "Thank you",
+    15, 2.7, "none", "ekg_sup_leg_01", "true", "synced"
+  ];
+  const legacyRow2 = [
+    "2026-03-02T10:00:00Z", "2026-03-02T10:00:00Z", "", "order_leg_02", "created",
+    1200, "INR", false, "card", "Pending User", "pending@example.com", "", "IN", "",
+    0, 0, "none", "ekg_sup_leg_02", "false", "created"
+  ];
+  paySheet.appendRow(legacyHeaders);
+  paySheet.appendRow(legacyRow1);
+  paySheet.appendRow(legacyRow2);
+
+  // Trigger migration through sheet initialization / GET query
+  context.doGet({ parameter: { action: 'recent-support' } });
+
+  assert.equal(paySheet.grid[0].length, 23, 'Headers must be updated to 23 columns');
+  assert.equal(paySheet.grid[0][20], 'Payment Result');
+  assert.equal(paySheet.grid[0][21], 'Payment Completed At');
+  assert.equal(paySheet.grid[0][22], 'Failure Reason');
+
+  // Row 1 (captured)
+  assert.equal(paySheet.grid[1][20], 'SUCCESS');
+  assert.equal(paySheet.grid[1][21], '2026-03-01T10:05:00Z');
+  assert.equal(paySheet.grid[1][22], '');
+
+  // Row 2 (created / pending)
+  assert.equal(paySheet.grid[2][20], 'PENDING');
+  assert.equal(paySheet.grid[2][21], '');
+  assert.equal(paySheet.grid[2][22], '');
+  console.log('✓ PASS [31/31]: Legacy sheet migration preserves all 20 columns and backfills Payment Result');
+}
+
+console.log('All 31 Google Apps Script backend tests passed successfully!');

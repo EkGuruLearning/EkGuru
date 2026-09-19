@@ -98,6 +98,9 @@ class PaymentStore {
       tax: data.tax != null ? data.tax : 0,
       refund_status: data.refund_status || "none", // none | partial | refunded
       sheet_sync_status: data.sheet_sync_status || "pending", // pending | synced | failed | retrying
+      payment_result: data.payment_result || (data.status === "captured" ? "SUCCESS" : (data.status === "failed" ? "FAILED" : (data.status === "authorized" ? "AUTHORIZED" : (data.status === "cancelled" ? "CANCELLED" : "PENDING")))),
+      payment_completed_at: data.payment_completed_at || (data.status === "captured" ? now : null),
+      failure_reason: data.failure_reason || null,
       created_at: data.created_at || now,
       updated_at: data.updated_at || now,
       source: data.source || "checkout", // checkout | webhook
@@ -153,6 +156,9 @@ class PaymentStore {
     if (updates.tax !== undefined) record.tax = updates.tax;
     if (updates.refund_status !== undefined) record.refund_status = updates.refund_status;
     if (updates.sheet_sync_status !== undefined) record.sheet_sync_status = updates.sheet_sync_status;
+    if (updates.payment_result !== undefined) record.payment_result = updates.payment_result;
+    if (updates.payment_completed_at !== undefined) record.payment_completed_at = updates.payment_completed_at;
+    if (updates.failure_reason !== undefined) record.failure_reason = updates.failure_reason;
 
     record.updated_at = new Date().toISOString();
     this._saveToFile();
