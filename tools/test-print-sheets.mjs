@@ -178,16 +178,19 @@ const sheets = marked.filter((p) => /\/worksheets\/index\.html$/.test(p) || /id=
 ok(`worksheets ship a sheet in the file (${sheets.length} pages)`,
   sheets.length >= 10 && sheets.every((p) => {
     const h = read(p);
-    return h.includes("ekguru:sample-sheet") && /<div id="w-sheet">[\s\S]*?<div class="ws-page"/.test(h);
+    return h.includes("ekguru:static-sheet") && /<div id="w-sheet">[\s\S]*?<div class="ws-page"/.test(h);
   }),
-  sheets.filter((p) => !read(p).includes("ekguru:sample-sheet")).slice(0, 6).join(", "));
+  sheets.filter((p) => !read(p).includes("ekguru:static-sheet")).slice(0, 6).join(", "));
 
 ok("the baked sheet has real questions and answers",
   sheets.every((p) => {
     const h = read(p);
     const qs = (h.match(/<p style="font-weight:700[^>]*>\d+\./g) || []).length;
-    return qs >= 3 && /<h3 style="margin:18px 0 6px">Answers<\/h3>/.test(h);
+    return qs >= 3 && /<h3[^>]*>Answers \(on screen only — never printed\)<\/h3>/.test(h);
   }));
+
+ok("the answer key is marked no-print on every baked sheet",
+  sheets.every((p) => /no-print ws-answers/.test(read(p))));
 
 ok("the print target is the element that holds the sheet",
   marked.filter((p) => /id="ws-app"/.test(read(p))).every((p) => {

@@ -369,13 +369,16 @@
         return '<p style="font-weight:700">' + (i + 1) + '. ' + esc(q.q) + '</p>' +
                '<div style="border-bottom:1px solid var(--line);height:44px;margin:0 0 18px"></div>';
       }).join("");
-      var ans = withAns ? '<h3>Answers</h3>' + made.map(function (q, i) {
-        return '<p>' + (i + 1) + '. <b>' + esc(q.a) + '</b> — ' + esc(q.explain) + '</p>';
-      }).join("") : "";
+      /* The key is for the screen only: the learner's paper never carries
+         it (the print CSS hides .no-print; js/print-sheet.js strips it too). */
+      var ans = withAns ? '<div class="no-print ws-answers" style="margin-top:18px">' +
+        '<h3>Answers (on screen only — never printed)</h3>' + made.map(function (q, i) {
+          return '<p>' + (i + 1) + '. <b>' + esc(q.a) + '</b> — ' + esc(q.explain) + '</p>';
+        }).join("") + '</div>' : "";
       sheet.innerHTML =
         '<div class="ws-page" style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;max-width:640px">' +
         '<h2 style="margin:0 0 4px">' + LANG.name + ' worksheet — ' + esc(topic) + '</h2>' +
-        '<p class="muted" style="margin:0 0 14px">Write your answers, then check the answer section.</p>' +
+        '<p class="muted" style="margin:0 0 14px">Write your answers on the lines below. The answer key stays on screen and is never on the printed sheet.</p>' +
         lines + ans +
         '<p class="muted" style="margin-top:12px;font-size:.78rem">From the EkGuru ' + LANG.name + ' quiz bank — free to print and share.</p>' +
         '</div>';

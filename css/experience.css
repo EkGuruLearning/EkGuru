@@ -5389,7 +5389,7 @@ body.xp-market .hdr .hdr-in {
     border-bottom-color: #666 !important;
   }
 
-  /* ---- the last word: when an isolated copy exists, it IS the paper -----
+  /* ---- the last word: when an isolated copy exists, it IS the paper ----
      js/print-sheet.js has already built the finished sheet in
      #ekguru-print-root by the time these rules are read. The in-page sheet
      must not print beside it, and the chain that was put back a moment ago
@@ -5401,4 +5401,35 @@ body.xp-market .hdr .hdr-in {
   html.eg-printing [data-print-target] { display: none !important; }
   html.eg-printing #ekguru-print-root,
   html.eg-printing #ekguru-print-root * { display: revert !important; }
+
+  /* ---- the EKGURU watermark ----------------------------------------------
+     Every printed worksheet carries a subtle diagonal EKGURU mark — the
+     paper's copy-source signature, the way the stamp line gives it a URL
+     and a date. It is drawn as an ::after overlay: pseudo-elements are not
+     matched by the *{background:#fff} and display:revert cleanups above, so
+     nothing in the print chain can wipe it. Five-percent black under black
+     text stays readable; the rotated Latin mark is language-neutral, so it
+     sits correctly over Devanagari, CJK, Arabic and Latin sheets alike,
+     A4 or Letter, Chrome or Safari. */
+  #ekguru-print-root .ws-page,
+  body[data-print="sheet"] [data-print-target] .ws-page {
+    position: relative !important;
+    overflow: visible !important;
+  }
+  #ekguru-print-root .ws-page::after,
+  body[data-print="sheet"] [data-print-target] .ws-page::after {
+    content: "EKGURU";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    direction: ltr;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 92pt;
+    font-weight: 800;
+    letter-spacing: .22em;
+    color: rgba(16, 19, 31, .05);
+    white-space: nowrap;
+    pointer-events: none;
+  }
 }

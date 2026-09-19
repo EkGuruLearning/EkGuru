@@ -55,7 +55,9 @@ MARK = "data-print"
 # point of the page: the ten worksheet builders, and the printed guides under
 # /materials/ that carry their own Print button. Lessons, answers and hubs
 # print as content with the chrome off — they are not sheets.
-WS_APP = re.compile(r'<div id="ws-app"[^>]*>')
+# Attribute-order independent: some pages carry data-print-target before id,
+# and the old regex silently skipped those pages.
+WS_APP = re.compile(r'<div (?=[^>]*\bid="ws-app")[^>]*>')
 ART = re.compile(r'<div\b[^>]*\bclass="[^"]*\bart\b[^"]*"[^>]*>')
 
 
@@ -151,6 +153,29 @@ def sample_questions(path):
 
 CHAIN = "data-print-chain"
 CHAIN_RE = re.compile(r"\s+" + CHAIN + r'(="[^"]*")?')
+
+SAMPLE_END = "<!-- /ekguru:sample-sheet -->"
+STATIC_END = "<!-- /ekguru:static-sheet -->"
+
+
+def strip_baked(html, mark, endmark):
+    """Remove a previously baked sheet block. Legacy blocks have no end
+    marker; they end at the first </div></div> after the start mark (the
+    sheet is one #w-sheet div holding one .ws-page div, and no inner
+    element closes two divs in a row)."""
+    i = html.find(mark)
+    if i < 0:
+        return html, False
+    if i > 0 and html[i - 1] == "\n":
+        i -= 1                       # take the leading newline with the block
+    j = html.find(endmark, i)
+    if j >= 0:
+        return html[:i] + html[j + len(endmark):], True
+    j = html.find("</div></div>", i)
+    if j < 0:
+        return html, False
+    return html[:i] + html[j + len("</div></div>"):], True
+
 
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link",
         "meta", "param", "source", "track", "wbr"}
@@ -266,8 +291,9 @@ def _esc(t):
 
 def static_sheet(path, html):
     """A printable worksheet that exists in the FILE, not only after a click."""
-    if STATIC_MARK in html or 'data-print-target' not in html:
+    if 'data-print-target' not in html:
         return html
+    html, _had = strip_baked(html, STATIC_MARK, STATIC_END)
     target = WS_APP.search(html)
     if not target:
         return html
@@ -298,15 +324,17 @@ def static_sheet(path, html):
         '<div id="w-sheet"><div class="ws-page" style="background:#fff;border:1px solid var(--line);'
         'border-radius:12px;padding:20px;max-width:640px">'
         '<h2 style="margin:0 0 4px">%s practice worksheet</h2>'
-        '<p class="muted" style="margin:0 0 12px">Five questions from the free %s course on EkGuru, '
-        'with the answers at the foot of the sheet. Press <b>Make worksheet</b> for a fresh set, '
-        'or print this one as it is.</p>'
+        '<p class="muted" style="margin:0 0 12px">Five questions from the free %s course on EkGuru. '
+        'The answers stay on screen below — the printed sheet never carries the answer key. '
+        'Press <b>Make worksheet</b> for a fresh set, or print this one as it is.</p>'
         '<p style="margin:0 0 14px"><b>Name</b> <span style="display:inline-block;width:180px;'
         'border-bottom:1px solid var(--line)"></span> &nbsp; <b>Date</b> '
         '<span style="display:inline-block;width:110px;border-bottom:1px solid var(--line)"></span></p>'
-        '%s<h3 style="margin:20px 0 6px">Answers</h3>%s'
+        '%s<div class="no-print ws-answers" style="margin-top:20px">'
+        '<h3 style="margin:0 0 6px">Answers (on screen only — never printed)</h3>%s</div>'
         '<p class="muted" style="margin-top:12px;font-size:.78rem">From the EkGuru %s quiz bank — '
-        'free to print and share.</p></div></div>' % (name, name, lines, answers, name))
+        'free to print and share.</p></div></div>'
+        % (name, name, lines, answers, name)) + STATIC_END
     return html[:target.end()] + sheet + html[target.end():]
 
 
@@ -315,45 +343,14 @@ def esc(t):
 
 
 def sample_sheet(path, html):
-    """Insert the built-in sample sheet inside #ws-app, once."""
-    if SAMPLE_MARK in html:
-        return html
-    qs = sample_questions(path)
-    m = WS_APP.search(html)
-    if not qs or not m:
-        return html
-    topic = qs[0].get("topic") or "basics"
-    picked = [q for q in qs if (q.get("topic") or topic) == topic][:5]
-    if len(picked) < 3:
-        picked = qs[:5]
-    name = ""
-    h1 = re.search(r"<h1[^>]*>(.*?)</h1>", html, re.S)
-    if h1:
-        name = re.sub(r"\s+", " ", re.sub("<[^>]+>", "", h1.group(1))).split(" — ")[0]
-        name = name.replace(" worksheets", "").replace(" Worksheet", "").strip()
-    lines = "".join(
-        '<p style="font-weight:700;margin:14px 0 0">%d. %s</p>'
-        '<div style="border-bottom:1px solid var(--line);height:44px;margin:0 0 12px"></div>'
-        % (i + 1, esc(q["q"])) for i, q in enumerate(picked))
-    answers = "".join(
-        '<p style="margin:4px 0">%d. <b>%s</b>%s</p>'
-        % (i + 1, esc(q.get("a", "")),
-           " — " + esc(q.get("explain", "")) if q.get("explain") else "")
-        for i, q in enumerate(picked))
-    sheet = (
-        '\n' + SAMPLE_MARK + '\n'
-        '<div id="w-sheet"><div class="ws-page" style="background:#fff;border:1px solid var(--line);'
-        'border-radius:12px;padding:20px;max-width:640px">'
-        '<h2 style="margin:0 0 4px">%s worksheet — sample</h2>'
-        '<p class="muted" style="margin:0 0 14px">Five questions from the %s quiz bank on this page&rsquo;s '
-        'topic. Pick a topic and press <b>Make worksheet</b> for a fresh sheet, or print this one as it is.</p>'
-        '%s<h3 style="margin:18px 0 6px">Answers</h3>%s'
-        '<p class="muted" style="margin-top:12px;font-size:.78rem">From the EkGuru %s quiz bank — '
-        'free to print and share.</p></div></div>' % (esc(name or "EkGuru"), esc(name or "EkGuru"),
-                                                      lines, answers, esc(name or "EkGuru")))
-    return html[:m.end()] + sheet + html[m.end():]
+    """Remove the legacy SAMPLE sheet from a worksheet page.
 
-
+    A worksheet page carries exactly ONE baked worksheet — the static sheet
+    (static_sheet, below). An earlier tool version baked a second, marked
+    sample sheet into the same #ws-app: dead weight at runtime (the builder
+    keeps only the first #w-sheet) and a duplicate on paper without
+    JavaScript. This pass strips it forever; it no longer re-injects."""
+    return strip_baked(html, SAMPLE_MARK, SAMPLE_END)[0]
 def pages():
     out = []
     for dirpath, dirs, files in os.walk("."):
@@ -379,6 +376,12 @@ def depth_prefix(path):
 
 def insert_script(html, path):
     """Load js/print-sheet.js on this page, once."""
+    # Older runs emitted a defer-first, two-line tag; normalize to the
+    # canonical form so the file (and the tests) see one shape.
+    html = re.sub(
+        r'<script defer="" src="((?:\.\./)+)js/print-sheet\.js">\s*</script>',
+        r'<script src="\1js/print-sheet.js" defer></script>',
+        html)
     if SCRIPT_MARK in html or "js/print-sheet.js" in html:
         return html
     tag = SCRIPT_MARK + "\n" + SCRIPT_TAG % depth_prefix(path)
@@ -406,7 +409,18 @@ def mark(path, html):
 
     m = target.search(out)
     if m and "data-print-target" in m.group(0):
-        pass                                        # already on the right tag
+        # already on the right tag — normalize the attribute (older runs
+        # wrote it with an empty value and before the id)
+        tag = m.group(0)
+        clean = re.sub(r'\s*data-print-target(?:=""|="[^"]*")?', "", tag)
+        if clean != tag:
+            # id stays first, the print attribute rides behind it; tags
+            # without an id (the .art guides) carry it right after the name
+            if re.search(r'id="[^"]+"', clean):
+                clean = re.sub(r'(id="[^"]+")', r"\1 data-print-target", clean, count=1)
+            else:
+                clean = re.sub(r"^<(\w+)", r"<\1 data-print-target", clean, count=1)
+            out = out[:m.start()] + clean + out[m.end():]
     elif m:
         # strip every copy first (the wrong element, if there is one) …
         out = out.replace(" data-print-target", "")
