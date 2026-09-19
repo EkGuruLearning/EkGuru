@@ -59,12 +59,14 @@
     if (window.EkGuruVoice && window.EkGuruVoice.speak) {
       try {
         var tag = langTag || DEF_LANG;
+        var rate = 0.8;
+        try { if (window.EKGURU_TTS) rate = window.EKGURU_TTS.getRate(); } catch (eR) {}
         btn.classList.add("playing");
         btn.setAttribute("aria-pressed", "true");
         var lblA = btn.querySelector(".hi-listen-lbl");
         if (lblA) lblA.textContent = "Stop";
         active = { btn: btn };
-        window.EkGuruVoice.speak(String(text), tag, 0.8, function () {
+        window.EkGuruVoice.speak(String(text), tag, rate, function () {
           if (active && active.btn === btn) stop();
         });
         return true;
@@ -73,7 +75,8 @@
     try {
       var u = new SpeechSynthesisUtterance(String(text));
       u.lang = langTag || DEF_LANG;
-      u.rate = 0.8;
+      try { u.rate = window.EKGURU_TTS ? window.EKGURU_TTS.getRate() : 0.8; }
+      catch (eR) { u.rate = 0.8; }
       u.onend = function () {
         if (active && active.btn === btn) stop();
       };

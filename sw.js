@@ -31,8 +31,8 @@
    translated on the six market pages, with one owner of the drawer: the cache
    generation moves so a returning visitor cannot keep the old chrome, the old
    tagline or the second click handler on the menu button. */
-/* BUILD: 2026-09-19T05:00:48Z 16ccdca-v3 */
-const BUILD_ID = "16ccdca-v3";
+/* BUILD: 2026-09-19T05:48:16Z f88ef2f-v4 */
+const BUILD_ID = "f88ef2f-v4";
 const CACHE = "ekguru-" + BUILD_ID;
 
 /* Phase 6 §14 — "Save for offline" pins learner-chosen pages in a dedicated
@@ -113,6 +113,9 @@ const SHELL = [
   "./js/hindi-srs.js",
   "./js/hindi-progress.js",
   "./js/hindi-audio.js",
+  /* Global speech-speed control (0.1 to 1.0, default 0.8, persisted) —
+     every voice surface reads it at speak time. */
+  "./js/tts-speed.js",
   "./js/hindi-offline.js",
   "./js/hindi-tools.js",
   /* v41 — flags and likes, offline-first (tools/apps-script-questions.gs is

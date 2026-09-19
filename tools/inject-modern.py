@@ -24,6 +24,7 @@ os.chdir(ROOT)
 SKIP_DIRS = {".git", "node_modules", "images", "css", "js", "data", "reports", "docs", "templates", "research", "tools", "csv"}
 
 MODERN_JS = [
+    ("js/tts-speed.js", "tts-speed"),
     ("js/cookie-consent.js", "cookie-consent"),
     ("js/monetization.js", "monetization"),
     ("js/print-sheet.js", "print-sheet"),

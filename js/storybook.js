@@ -34,14 +34,14 @@
     bindFlip(document);
 
     /* ---- speech: any .spk / [data-say] speaks Hindi ----
-       Rate is global + persisted: the speed pill writes
-       ekguru_tts_rate and every speak uses it. */
-    var RATE_KEY = "ekguru_tts_rate";
-    var ttsRate = 0.85;
-    try {
-      var r0 = parseFloat(window.localStorage && localStorage.getItem(RATE_KEY));
-      if (r0 >= 0.15 && r0 <= 1.5) ttsRate = r0;
-    } catch (eRate) {}
+       Rate is global + persisted: js/tts-speed.js owns the control
+       (0.1 to 1.0 in 0.1 steps, default 0.8, key ekguru_tts_rate)
+       and the pill is its. Read at speak time, so a change applies
+       to the very next utterance. */
+    function ttsRate() {
+      try { var r = window.EKGURU_TTS && window.EKGURU_TTS.getRate(); return r || 0.8; }
+      catch (eRate) { return 0.8; }
+    }
     /* ---- page language (v151): every language speaks its own ----
        Derived from the URL: /languages/<code>/ uses the code,
        /learn/<indian-slug>/ maps to its ISO code, root /<slug>/
@@ -413,7 +413,7 @@
       voiceNudge();
       try {
         var text = b.getAttribute("data-sb-say") || b.textContent;
-        voiceSpeak((text || "").trim(), pageLang === "hi" ? "hi-IN" : pageLang, ttsRate);
+        voiceSpeak((text || "").trim(), pageLang === "hi" ? "hi-IN" : pageLang, ttsRate());
         try {
           b.classList.add("tapped");
           setTimeout(function () { b.classList.remove("tapped"); }, 550);
@@ -545,41 +545,6 @@
       for (var k = 0; k < targets.length; k++) {
         targets[k].classList.add("shown");
       }
-    }
-
-    /* ---- speed pill: one global TTS speed control (v142) ----
-       Fixed bottom-right, cycles 0.6× → 0.85× → 1× → 1.25×.
-       Label is English-first so foreign learners get it; title
-       carries the Hindi. Shown whenever speech works. */
-    if ("speechSynthesis" in window) {
-      try {
-        var RATES = [0.2, 0.4, 0.6, 0.85, 1, 1.25];
-        var pill = document.createElement("button");
-        pill.type = "button";
-        pill.className = "sb-speed";
-        pill.title = "Speech speed · बोलने की गति — tap to change";
-        pill.setAttribute("aria-label", "Change speech speed");
-        var ri = 0;
-        for (var q = 0; q < RATES.length; q++) {
-          if (Math.abs(RATES[q] - ttsRate) < 0.01) ri = q;
-        }
-        function paintRate() {
-          ttsRate = RATES[ri];
-          var icon = RATES[ri] < 0.6 ? "🐢" : (RATES[ri] >= 1 ? "🐇" : "🎙");
-          pill.innerHTML = icon + " <b>" + (RATES[ri] === 1 ? "1" : RATES[ri]) +
-            "×</b> <span>speed</span>";
-          try {
-            if (window.localStorage) localStorage.setItem(RATE_KEY, String(RATES[ri]));
-          } catch (e) {}
-        }
-        paintRate();
-        pill.addEventListener("click", function (ev) {
-          ev.stopPropagation();
-          ri = (ri + 1) % RATES.length;
-          paintRate();
-        });
-        document.body.appendChild(pill);
-      } catch (e) {}
     }
 
     /* ---- auto-mount: Devanagari cells get a speaker (v142) ----
@@ -943,7 +908,7 @@
                 var f = document.querySelector("[data-sb-say]");
                 if (f) sample = ((f.getAttribute("data-sb-say") || f.textContent) || "Hello").trim() || "Hello";
               } catch (e) {}
-              try { window.EkGuruVoice._try(sample, pageLang === "hi" ? "hi-IN" : pageLang, ttsRate, it.name); } catch (e) {}
+              try { window.EkGuruVoice._try(sample, pageLang === "hi" ? "hi-IN" : pageLang, ttsRate(), it.name); } catch (e) {}
             });
             var useB = document.createElement("button");
             useB.type = "button"; useB.className = "sb-vpanel-use";

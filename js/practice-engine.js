@@ -162,12 +162,15 @@
       var tag = lang || DEF_LANG;
       /* v156: API voice engine when storybook.js is on the page. */
       if (window.EkGuruVoice && window.EkGuruVoice.speak) {
-        return window.EkGuruVoice.speak(String(text), tag, 0.8);
+        var r0 = 0.8;
+        try { if (window.EKGURU_TTS) r0 = window.EKGURU_TTS.getRate(); } catch (eR) {}
+        return window.EkGuruVoice.speak(String(text), tag, r0);
       }
       if (!("speechSynthesis" in window)) return false;
       var u = new SpeechSynthesisUtterance(String(text));
       u.lang = tag;
-      u.rate = 0.8;
+      try { u.rate = window.EKGURU_TTS ? window.EKGURU_TTS.getRate() : 0.8; }
+      catch (eR) { u.rate = 0.8; }
       window.speechSynthesis.cancel();
       window.speechSynthesis.speak(u);
       return true;

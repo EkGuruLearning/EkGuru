@@ -57,7 +57,8 @@ function speak(text, code) {
     if (!("speechSynthesis" in window)) return false;
     var u = new SpeechSynthesisUtterance(String(text));
     u.lang = TTS_LANG[code] || "en-US";
-    u.rate = 0.92;
+    try { u.rate = window.EKGURU_TTS ? window.EKGURU_TTS.getRate() : 0.8; }
+    catch (eR) { u.rate = 0.8; }
     window.speechSynthesis.cancel();
     window.speechSynthesis.speak(u);
     return true;
