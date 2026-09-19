@@ -100,13 +100,16 @@ The Web App exposes only safe, controlled operations:
 
 | Method | Action | Description | Public / Private |
 |---|---|---|---|
-| `POST` | `?action=create-order` | Server-side Razorpay order creation via UrlFetchApp. Validates currency & amounts. | Public input -> Safe checkout metadata |
-| `POST` | `?action=verify-payment` | Server-side HMAC-SHA256 payment verification against Razorpay secret. Calls central reconciler. | Public input -> Payment success/failure |
+| `POST` / `GET` (JSONP) | `?action=create-order` | Server-side Razorpay order creation via UrlFetchApp. Validates currency & amounts. Returns order_id & key_id. | Public input -> Safe checkout metadata |
+| `POST` / `GET` (JSONP) | `?action=verify-payment` | Server-side HMAC-SHA256 payment verification against Razorpay secret. Calls central reconciler. | Public input -> Payment success/failure |
 | `POST` | `?action=webhook` | Gateway webhook handling. Verifies HMAC over raw body before updating payments/refunds. | Razorpay Gateway -> Ledger update |
-| `GET` | `?action=recent-support` | Retrieves latest 10 sanitized opted-in supporters. Cached via CacheService. | Public read |
-| `GET` | `?action=health` | Service health, mode, and security booleans. | Public read |
-| `GET` | `?action=diagnostics` | Safe deployment diagnostics and sheet connectivity check. | Public read |
-| `GET` | `?action=currencies` | Returns all 128 verified supported currencies with exponents. | Public read |
+| `GET` (JSON / JSONP) | `?action=recent-support` | Retrieves latest 10 sanitized opted-in supporters. Cached via CacheService. | Public read |
+| `GET` (JSON / JSONP) | `?action=health` | Service health, mode, and security booleans. | Public read |
+| `GET` (JSON / JSONP) | `?action=diagnostics` | Safe deployment diagnostics and sheet connectivity check. | Public read |
+| `GET` (JSON / JSONP) | `?action=currencies` | Returns all 128 verified supported currencies with exponents. | Public read |
+
+*Note on Browser Cross-Origin Resilience:*
+Browser requests to Google Apps Script Web App (`/exec`) undergo an HTTP 302 redirect from `script.google.com` to `script.googleusercontent.com`. Google does not emit CORS headers on the 302 redirect response, which blocks standard cross-origin `fetch()` in many browsers. To provide 100% resilience without freezing the UI, both `create-order` and `verify-payment` support JSONP callbacks (`callback=...`) served with `ContentService.MimeType.JAVASCRIPT`. Script tags follow 302 redirects natively in all browsers without CORS restrictions.
 
 ---
 

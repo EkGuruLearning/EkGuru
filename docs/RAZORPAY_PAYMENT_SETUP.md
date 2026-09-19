@@ -13,8 +13,8 @@ Customer
 EkGuru Support UI (/support/)
    │  (Currency, Amount, Name, Email, Phone, Country, Support Message, Opt-in)
    ▼
-Google Apps Script Web App (POST ?action=create-order)
-   │  (Validates 128 currencies, amount bounds, sanitizes metadata)
+Google Apps Script Web App (POST or GET/JSONP ?action=create-order)
+   │  (Validates 128 currencies, amount bounds, sanitizes metadata, dual-path CORS resilience)
    ▼
 Razorpay Orders API (Server-to-Server via UrlFetchApp)
    │
@@ -22,7 +22,7 @@ Razorpay Orders API (Server-to-Server via UrlFetchApp)
 Razorpay Standard Checkout (Client Modal)
    │  (Pre-filled customer info, card/UPI/international payment processing)
    ▼
-Google Apps Script Verification (POST ?action=verify-payment)
+Google Apps Script Verification (POST or GET/JSONP ?action=verify-payment)
    │  (Validates HMAC-SHA256 signature, records to private Google Sheet)
    ▼
 Razorpay Webhook (POST ?action=webhook)
