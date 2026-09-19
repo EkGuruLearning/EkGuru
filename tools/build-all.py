@@ -110,6 +110,8 @@ def main():
             ["node", "tools/adsready.js", "--local"])
         run("print sheets --check (only the sheet prints)", ["python3", "tools/build-print-sheets.py", "--check"])
         run("site shell --check (header + footer on every page)", ["node", "tools/build-shell.js", "--check"])
+        run("sw build id --check (a reload shows the deploy, not yesterday)",
+            ["python3", "tools/bump-sw-build.py", "--check"])
         run("copy index --check", ["node", "tools/build-copy-index.js", "--check"])
         run("ownership test (matcher vs its own corpus)", ["node", "tools/test-copy-index.mjs"])
         run("search facet test (country + language)", ["node", "tools/test-search-facets.mjs"])
@@ -178,6 +180,7 @@ def main():
     run("site shell (one header + one footer, every page)", ["node", "tools/build-shell.js"])
     run("copy index (ownership fingerprints)", ["node", "tools/build-copy-index.js"])
     run("doctor", ["node", "tools/doctor.js"])
+    run("sw build id (the cache generation is this build)", ["python3", "tools/bump-sw-build.py"])
     print("\n══════════════════════════════════════════")
     print("build-all complete — every step passed.")
     print("Review `git status`, then commit + deploy.")

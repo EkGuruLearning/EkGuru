@@ -6,6 +6,13 @@
 (function () {
   "use strict";
 
+  // innerText is missing in some engines (jsdom, old WebKit) and can throw
+  // on hidden subtrees — textContent is the safe fallback for measuring.
+  function textLengthOf(el) {
+    if (!el) return 0;
+    try { return (el.innerText || el.textContent || "").length; } catch (e) { return 0; }
+  }
+
   var path = location.pathname.replace(/^\/+/, "/");
   var host = location.hostname;
 
@@ -64,7 +71,7 @@
 
   function addAdSlots() {
     // Don't add ads if page is too short (AdSense low value content policy)
-    var textLength = document.body.innerText.length;
+    var textLength = textLengthOf(document.body);
     if (textLength < 800) return; // Need enough content
 
     var positions = [
@@ -75,7 +82,7 @@
     positions.forEach(function(pos) {
       var containers = document.querySelectorAll(pos.selector);
       containers.forEach(function(container) {
-        if (container.innerText.length < pos.minLength) return;
+        if (textLengthOf(container) < pos.minLength) return;
         if (container.querySelector('.ad-slot')) return; // already has ad
 
         // Find safe insertion point - after first 2 paragraphs or after first section

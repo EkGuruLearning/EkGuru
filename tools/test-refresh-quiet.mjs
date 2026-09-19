@@ -74,8 +74,12 @@ function boot(page) {
   const nav = (what) => seen.nav.push(what);
   ["assign", "replace", "reload"].forEach((m) => { try { w.location[m] = () => nav("location." + m); } catch (e) {} });
 
-  /* Boot exactly what the page asks for: scripts in document order. */
-  const srcs = [...html.matchAll(/<script src="([^"]+)"/g)].map((m) => m[1]);
+  /* Boot exactly what the page asks for: scripts in document order.
+     src is not always the first attribute (the injector writes
+     <script defer="" src="...">) — match the tag, then the attribute,
+     or those scripts silently never boot and this test tests less than
+     the page. */
+  const srcs = [...html.matchAll(/<script\b[^>]*\bsrc="([^"]+)"/g)].map((m) => m[1]);
   for (const src of srcs) {
     const file = path.normalize(src.replace(/^\.\.\//, "").replace(/^(\.\.\/)+/, "").replace(/^\//, ""));
     if (!existsSync(file) || !file.endsWith(".js")) continue;
@@ -92,7 +96,7 @@ console.log("\n1. the page itself declares only what it needs\n");
      rest of the site does not load. */
   let dupe = [];
   for (const p of PAGES) {
-    const srcs = [...read(p).matchAll(/<script src="([^"]+)"/g)].map((m) => m[1]);
+    const srcs = [...read(p).matchAll(/<script\b[^>]*\bsrc="([^"]+)"/g)].map((m) => m[1]);
     const dup = srcs.filter((s, i) => srcs.indexOf(s) !== i);
     if (dup.length) dupe.push(p + " (" + dup.join(", ") + ")");
   }
@@ -246,8 +250,12 @@ console.log("\n5. a reload shows what is deployed, not yesterday's copy\n");
     !!isImage && !/css/.test(isImage[1]), isImage ? isImage[1].replace(/\s+/g, " ") : "no isImage rule");
   ok("offline still falls back to the saved copy instead of failing",
     /catch\(\(\) =>[\s\S]{0,240}caches\.open\(OFFLINE\)/.test(sw));
-  ok("the cache generation was bumped, so nobody keeps the old stylesheet",
-    /ekguru-v4[2-9]/.test(sw), (sw.match(/const CACHE = "([^"]+)"/) || [])[1]);
+  /* build-aware generation: the cache name is ekguru-<commit>-v<n>, rebuilt
+     from the working tree by tools/bump-sw-build.py on every build */
+  const buildId = (sw.match(/const BUILD_ID = "([^"]+)"/) || [])[1] || "";
+  ok("the cache generation is build-aware (commit + generation), so nobody keeps the old stylesheet",
+    /const CACHE = "ekguru-" \+ BUILD_ID/.test(sw) &&
+    /^(nosha|[0-9a-f]{4,40})-v\d+$/.test(buildId), buildId);
   ok("the worker never forces the tab to reload",
     !/location\.reload\(\)/.test(sw) && !/clients\.claim[\s\S]{0,120}reload/.test(sw));
 }

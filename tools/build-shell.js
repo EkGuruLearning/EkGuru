@@ -376,6 +376,25 @@ function ensureMain(html, file) {
     html.slice(from, to) + "</main>\n" + html.slice(to);
 }
 
+/* A page must never load the same script twice. A duplicate either runs
+   the code twice — double click handlers, double timers, double fetches —
+   or hides a broken first copy behind a working second one. The site's own
+   test (tools/test-refresh-quiet.mjs) treats a duplicate as a defect, so
+   the shell sweep removes them: keep the first occurrence of each src,
+   whatever attribute order the injector wrote it in, delete the rest. */
+const SCRIPT_TAG_RE = /<script\b[^>]*\bsrc="([^"]+)"[^>]*>\s*<\/script>/gi;
+function dedupeScripts(html) {
+  const seen = new Set();
+  let changed = false;
+  const out = html.replace(SCRIPT_TAG_RE, (m, src) => {
+    const key = src.replace(/^(\.\.\/)+/, "").replace(/^\.\//, "").toLowerCase();
+    if (seen.has(key)) { changed = true; return ""; }
+    seen.add(key);
+    return m;
+  });
+  return [out, changed];
+}
+
 function rebuild(html, file, shell, dict) {
   if (!/<\/body>/i.test(html)) return null;
 
@@ -398,6 +417,10 @@ function rebuild(html, file, shell, dict) {
   const hasMain = /<script[^>]+js\/main\.js/.test(html);
   let out = html;
   let touched = false;
+
+  /* 0. drop duplicate <script src> tags — the sweep that keeps the
+     "no page loads a script twice" rule true on every page, forever */
+  [out, touched] = dedupeScripts(out);
   const stats = { replacedHeader: 0, replacedFooter: 0, injectedHeader: 0, injectedFooter: 0 };
 
   /* 1. hold the existing shell blocks aside, so step 2 cannot see them.

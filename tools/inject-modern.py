@@ -7,7 +7,6 @@ Injects modern JS files into all HTML pages:
 - js/print-sheet.js (v300 print-only-worksheet)
 - js/offline-games.js (v300 5 offline games)
 - js/level-visuals.js (v300 age progression)
-- js/visual-learning.js (v300 dotted tracing)
 - js/practice-api.js (v300 shared flags/likes)
 - js/refresh-guard.js (v300 refresh bug fix)
 - js/course-player.js (v300 responsive)
@@ -31,7 +30,6 @@ MODERN_JS = [
     ("js/offline-games.js", "offline-games"),
     ("js/offline-game.js", "offline-game"),
     ("js/level-visuals.js", "level-visuals"),
-    ("js/visual-learning.js", "visual-learning"),
     ("js/practice-api.js", "practice-api"),
     ("js/adaptive-practice.js", "adaptive-practice"),
     ("js/global-srs.js", "global-srs"),

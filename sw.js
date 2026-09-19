@@ -31,8 +31,8 @@
    translated on the six market pages, with one owner of the drawer: the cache
    generation moves so a returning visitor cannot keep the old chrome, the old
    tagline or the second click handler on the menu button. */
-/* BUILD: 2026-09-18T17:16:22Z dc5dde0 v43 - unique build identifier per P0-B */
-const BUILD_ID = "2026-09-18T17:16:22Z-dc5dde0-v43";
+/* BUILD: 2026-09-19T05:00:48Z 16ccdca-v3 */
+const BUILD_ID = "16ccdca-v3";
 const CACHE = "ekguru-" + BUILD_ID;
 
 /* Phase 6 §14 — "Save for offline" pins learner-chosen pages in a dedicated

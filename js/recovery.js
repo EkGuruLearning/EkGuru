@@ -1,5 +1,5 @@
 /* =========================================================
-   EkGuru — IDLE-INTERACTION SELF-HEALING WATCHDOG     (v1)
+   EkGuru — IDLE-INTERACTION SELF-HEALING WATCHDOG     (v2)
    ---------------------------------------------------------
    WHAT THIS IS FOR
 
@@ -33,6 +33,23 @@
        moments that actually matter: tab becomes visible again,
        window focus, and bfcache restore (pageshow persisted).
 
+   v2 — the full idle-navigation surface the P0 command names:
+     · 30 / 60 / 180 s of idle each get a heartbeat in the incident
+       log, and the first wake from an idle of 30 s or more runs the
+       full sweep including the overlay scan
+     · hide/show of the tab, and a long hide (60 s+ — the shape of a
+       slept machine waking) get their own records with the real
+       duration
+     · popstate and hashchange (back/forward through history, and
+       in-page anchor hops) each trigger a cheap sweep
+     · the network going offline and back on triggers a sweep and a
+       record, so a page that loaded from the offline cache heals
+       the moment the connection returns
+     · a hard refresh needs no support at all: a reload rebuilds
+       everything, so this layer only promises that a page left open
+       — idled, backgrounded, restored from bfcache, or navigated
+       back to — never needs one
+
    Nothing here should ever change a healthy page.
    ========================================================= */
 (function () {
@@ -52,6 +69,36 @@
     try { console.warn("[ekguru-recovery]", code, detail || ""); } catch (e) {}
     try { window.dispatchEvent(new CustomEvent("ekguru:recovery", { detail: ev })); } catch (e) {}
   }
+
+  /* Idle and hidden bookkeeping. lastActivity is bumped by real user
+     input only (never by the timer itself), hiddenAt marks when the tab
+     went away. The 30/60/180 s boundaries are reported once each until
+     the visitor comes back. */
+  var lastActivity = Date.now();
+  var hiddenAt = 0;
+  var lastIdleNote = 0;      /* 30000 | 60000 | 180000, whichever was reached */
+  var offlineNow = false;
+  var sweepsRun = 0;
+
+  function noteIdleBoundary() {
+    var idle = Date.now() - lastActivity;
+    var b = idle >= 180000 ? 180000 : idle >= 60000 ? 60000 : idle >= 30000 ? 30000 : 0;
+    if (b && b > lastIdleNote) {
+      lastIdleNote = b;
+      record("idle-" + (b / 1000) + "s", "page idle for " + Math.round(idle / 1000) + "s");
+    }
+  }
+
+  function bumpActivity() {
+    var now = Date.now();
+    if (now - lastActivity >= 2000) {
+      lastActivity = now;
+      if (lastIdleNote) lastIdleNote = 0;   /* back from idle — arm again */
+    }
+  }
+  ["pointerdown", "keydown"].forEach(function (t) {
+    window.addEventListener(t, bumpActivity, true);
+  });
 
   var bootNodes = null; // WeakSet of elements present at first sweep
   function snapshotBoot() {
@@ -230,9 +277,14 @@
      --------------------------------------------------------- */
   var ticks = 0, lastSweep = 0;
   function guard(scanOverlay) {
+    /* every sweep path — the timer, an event, a wake — also checks the
+       30/60/180 s idle boundaries, so a page idled for minutes reports it
+       the instant anything pokes it, not only on the next 5 s tick */
+    noteIdleBoundary();
     var now = Date.now();
     if (now - lastSweep < 1200) return;
     lastSweep = now;
+    sweepsRun++;
     var f = sweep(scanOverlay);
     if (f.length) record("recovered", f.join(","));
   }
@@ -243,6 +295,9 @@
     try {
       cheapTimer = setInterval(function () {
         ticks++;
+        noteIdleBoundary();
+        /* the overlay scan is the only expensive pass; it rides the
+           third tick and every wake, never the bare 5 s tick */
         guard(ticks % 3 === 0);
       }, 5000);
     } catch (e) {}
@@ -256,10 +311,44 @@
   }
 
   document.addEventListener("visibilitychange", function () {
-    if (document.visibilityState === "visible") guard();
+    if (document.visibilityState === "hidden") {
+      hiddenAt = Date.now();
+      return;
+    }
+    /* visible again. A tab hidden for 60 s or more is the shape of a
+       slept machine waking: full sweep including the overlay scan, and a
+       record with the real duration so Diagnostics can show it. */
+    if (hiddenAt) {
+      var away = Date.now() - hiddenAt;
+      hiddenAt = 0;
+      guard(true);
+      if (away >= 60000) {
+        record("wake-after-" + Math.round(away / 1000) + "s",
+               "tab hidden " + Math.round(away / 1000) + "s");
+      }
+    } else {
+      guard();
+    }
+    lastActivity = Date.now();
+    lastIdleNote = 0;
   });
   window.addEventListener("focus", guard);
-  window.addEventListener("pageshow", function (e) { if (e && e.persisted) guard(); });
+  window.addEventListener("pageshow", function (e) { if (e && e.persisted) guard(true); });
+  /* back/forward through history and in-page anchor hops: the page may be
+     a restored one, so check it. Cheap sweep — the overlay scan is for
+     wakes, not for every anchor click. */
+  window.addEventListener("popstate", guard);
+  window.addEventListener("hashchange", guard);
+  window.addEventListener("online", function () {
+    if (!offlineNow) return;
+    offlineNow = false;
+    record("back-online", "network returned");
+    guard(true);
+  });
+  window.addEventListener("offline", function () {
+    offlineNow = true;
+    record("offline", "network lost — page will self-heal when it returns");
+  });
   window.addEventListener("load", function () { snapshotBoot(); });
 
   if (document.readyState === "loading") {
@@ -270,8 +359,31 @@
 
   /* Exposed for the admin Diagnostics page and for tests. */
   window.EkGuruRecovery = {
-    sweep: function () { var f = sweep(true); if (f.length) record("manual-sweep", f.join(",")); return f; },
+    /* the manual sweep is immediate (no throttle) so a test or Diagnostics
+       can force a full pass; it also checks the idle boundaries, like every
+       other sweep path does */
+    sweep: function () {
+      noteIdleBoundary();
+      var f = sweep(true);
+      if (f.length) record("manual-sweep", f.join(","));
+      return f;
+    },
     incidents: function () { return INCIDENTS.slice(); },
-    clear: function () { INCIDENTS.length = 0; }
+    clear: function () { INCIDENTS.length = 0; },
+    /* Diagnostics and the idle tests read the shape of the visit from here. */
+    idleStats: function () {
+      return {
+        idleMs: Date.now() - lastActivity,
+        hiddenMs: hiddenAt ? Date.now() - hiddenAt : 0,
+        sweeps: sweepsRun,
+        incidents: INCIDENTS.length
+      };
+    },
+    /* test hook: pretend the visitor last touched the page at this time */
+    _setActivity: function (ts) { lastActivity = ts || Date.now(); },
+    /* test hook: run the timer's idle-boundary check now */
+    _noteIdle: function () { noteIdleBoundary(); },
+    /* test hook: pretend the tab went hidden at this time */
+    _setHidden: function (ts) { hiddenAt = ts; }
   };
 })();
