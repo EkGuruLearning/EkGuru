@@ -23,7 +23,8 @@ Private Google Sheet (ID: 1u5Jkbe_2lMoLWsaDPQkxTWhNACewRaOyZLLANy2dfVI)
 Razorpay Gateway Webhooks:
 Razorpay Gateway -> Google Apps Script Web App (?action=webhook)
                  -> HMAC-SHA256 signature verification over raw body
-                 -> Idempotent state update in Payments, Customers, Refunds
+                 -> reconcileVerifiedPayment_() central reconciliation
+                 -> Synchronizes Payments, Customers, PublicSupport, and Refunds
 ```
 
 ---
@@ -68,8 +69,10 @@ The Google Apps Script automatically validates, creates, and safely repairs head
 1. In the left navigation bar of Apps Script, click on **Project Settings** (gear icon).
 2. Scroll to the **Script Properties** section and click **Edit script properties** $\to$ **Add script property**.
 3. Add the following properties:
+   - **Property**: `RAZORPAY_MODE`
+   - **Value**: `TEST` (switch to `LIVE` only after end-to-end testing)
    - **Property**: `RAZORPAY_KEY_ID`
-   - **Value**: Your Razorpay Key ID (e.g. `rzp_live_...` or `rzp_test_...`)
+   - **Value**: Your Razorpay Key ID (e.g. `rzp_test_...` or `rzp_live_...`)
    - **Property**: `RAZORPAY_KEY_SECRET`
    - **Value**: Your private Razorpay Key Secret
    - **Property**: `RAZORPAY_WEBHOOK_SECRET`
@@ -98,17 +101,20 @@ The Web App exposes only safe, controlled operations:
 | Method | Action | Description | Public / Private |
 |---|---|---|---|
 | `POST` | `?action=create-order` | Server-side Razorpay order creation via UrlFetchApp. Validates currency & amounts. | Public input -> Safe checkout metadata |
-| `POST` | `?action=verify-payment` | Server-side HMAC-SHA256 payment verification against Razorpay secret. Updates ledger. | Public input -> Payment success/failure |
+| `POST` | `?action=verify-payment` | Server-side HMAC-SHA256 payment verification against Razorpay secret. Calls central reconciler. | Public input -> Payment success/failure |
 | `POST` | `?action=webhook` | Gateway webhook handling. Verifies HMAC over raw body before updating payments/refunds. | Razorpay Gateway -> Ledger update |
 | `GET` | `?action=recent-support` | Retrieves latest 10 sanitized opted-in supporters. Cached via CacheService. | Public read |
-| `GET` | `?action=health` | Service health and currency registry count. | Public read |
+| `GET` | `?action=health` | Service health, mode, and security booleans. | Public read |
+| `GET` | `?action=diagnostics` | Safe deployment diagnostics and sheet connectivity check. | Public read |
 | `GET` | `?action=currencies` | Returns all 128 verified supported currencies with exponents. | Public read |
 
 ---
 
-## 5. Quotas, Performance, & Rate Limiting
+## 5. Single Payment Reconciler (`reconcileVerifiedPayment_`)
 
-- **Execution Quotas**: Google Apps Script has daily UrlFetchApp quotas (20,000 calls/day on standard Google accounts; 100,000/day on Google Workspace).
-- **Recent Supporters Caching**: `GET ?action=recent-support` caches records in `CacheService` for 120 seconds, drastically reducing sheet reads during traffic spikes.
-- **Input Validation**: All client inputs are validated server-side for bounds ($1.00 \le \text{amount} \le 25000$) and lengths (message max 300 characters).
-- **Idempotency**: Webhook events and duplicate payment verifications are checked against existing ledger entries, preventing double-processing.
+All payment state mutations flow through `reconcileVerifiedPayment_()`:
+- Reconciles both `verify-payment` (browser callback) and `webhook` (`payment.captured`, `order.paid`).
+- Idempotency guarantees that duplicate webhooks or dual execution do NOT double-count customer payments.
+- Recovers full patron details and opt-in intent from server-side order context cache.
+- Updates `Customers` tab per-currency totals strictly once per verified transaction.
+- Updates `PublicSupport` tab strictly once only when `publicDisplayOptIn === true`.

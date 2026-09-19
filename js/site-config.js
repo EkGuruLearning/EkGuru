@@ -834,7 +834,9 @@ window.EKGURU_SITE = {
      device and the UI says "community sync is off".
      ========================================================= */
   api: {
-    questions: ""
+    questions: "",
+    /* PRODUCTION PAYMENT BACKEND: Google Apps Script Web App (AKfycbz8u...) */
+    payments: "https://script.google.com/macros/s/AKfycbz8u_rBr2o4VPgmQgaweswLWKdYb-MMGrsa7WfckTCruLP-ZEasWnpkqJrZHux5Y8_4zA/exec"
   },
 
   /* ---------- Founding year (for schema) ---------- */
@@ -881,6 +883,9 @@ window.EKGURU_SITE = {
      ========================================================= */
   status: "live"
 };
+
+/* PRODUCTION CENTRALIZED PAYMENT BACKEND CONFIGURATION */
+window.PAYMENT_BACKEND_URL = "https://script.google.com/macros/s/AKfycbz8u_rBr2o4VPgmQgaweswLWKdYb-MMGrsa7WfckTCruLP-ZEasWnpkqJrZHux5Y8_4zA/exec";
 
 /* =========================================================
    The 7 major countries our students come from.

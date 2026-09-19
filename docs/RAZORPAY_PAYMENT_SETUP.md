@@ -98,12 +98,13 @@ Recent Supporters UI
 ## 5. Secret Handling & Configuration
 
 ### Required Script Properties (Apps Script Project Settings)
-| Property Name | Purpose | Scope |
-|---|---|---|
-| `RAZORPAY_KEY_ID` | Public Key ID (`rzp_live_...` or `rzp_test_...`) | Apps Script Script Property |
-| `RAZORPAY_KEY_SECRET` | Private API Secret | Apps Script Script Property (Secret) |
-| `RAZORPAY_WEBHOOK_SECRET` | Webhook HMAC verification secret | Apps Script Script Property (Secret) |
-| `SPREADSHEET_ID` | Target Google Spreadsheet ID (`1u5Jkbe_2lMoLWsaDPQkxTWhNACewRaOyZLLANy2dfVI`) | Apps Script Script Property |
+| Property Name | Purpose | Scope | Allowed Values |
+|---|---|---|---|
+| `RAZORPAY_MODE` | Runtime environment flag | Apps Script Script Property | `TEST` or `LIVE` |
+| `RAZORPAY_KEY_ID` | Public Key ID (`rzp_live_...` or `rzp_test_...`) | Apps Script Script Property | Key ID |
+| `RAZORPAY_KEY_SECRET` | Private API Secret | Apps Script Script Property (Secret) | Key Secret |
+| `RAZORPAY_WEBHOOK_SECRET` | Webhook HMAC verification secret | Apps Script Script Property (Secret) | Webhook Secret |
+| `SPREADSHEET_ID` | Target Google Spreadsheet ID | Apps Script Script Property | `1u5Jkbe_2lMoLWsaDPQkxTWhNACewRaOyZLLANy2dfVI` |
 
 *Note: No `SHEETS_INGEST_TOKEN` is needed because Apps Script executes inside the Google environment with direct access to the Spreadsheet.*
 
@@ -115,15 +116,19 @@ Recent Supporters UI
    ```bash
    curl -i "https://script.google.com/macros/s/AKfycbz8u_rBr2o4VPgmQgaweswLWKdYb-MMGrsa7WfckTCruLP-ZEasWnpkqJrZHux5Y8_4zA/exec?action=health"
    ```
-2. Verify supported currencies:
+2. Verify diagnostics & sheet connectivity:
+   ```bash
+   curl -i "https://script.google.com/macros/s/AKfycbz8u_rBr2o4VPgmQgaweswLWKdYb-MMGrsa7WfckTCruLP-ZEasWnpkqJrZHux5Y8_4zA/exec?action=diagnostics"
+   ```
+3. Verify supported currencies:
    ```bash
    curl -i "https://script.google.com/macros/s/AKfycbz8u_rBr2o4VPgmQgaweswLWKdYb-MMGrsa7WfckTCruLP-ZEasWnpkqJrZHux5Y8_4zA/exec?action=currencies"
    ```
-3. Verify sanitized recent supporters:
+4. Verify sanitized recent supporters:
    ```bash
    curl -i "https://script.google.com/macros/s/AKfycbz8u_rBr2o4VPgmQgaweswLWKdYb-MMGrsa7WfckTCruLP-ZEasWnpkqJrZHux5Y8_4zA/exec?action=recent-support"
    ```
-4. Run repository automated test suite:
+5. Run repository automated test suite:
    ```bash
    npm test
    ```

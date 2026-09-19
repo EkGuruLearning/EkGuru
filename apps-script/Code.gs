@@ -2,6 +2,7 @@
  * ============================================================================
  * EkGuru — Production Server-Side Razorpay Payment & Support Backend
  * ============================================================================
+ * Spreadsheet ID: 1u5Jkbe_2lMoLWsaDPQkxTWhNACewRaOyZLLANy2dfVI
  *
  * PRODUCTION RUNTIME ARCHITECTURE:
  * GitHub Pages Frontend (ekguru.shop)
@@ -21,33 +22,38 @@
  * Razorpay Gateway Webhooks:
  * Razorpay Gateway -> Google Apps Script Web App (?action=webhook)
  *                  -> HMAC-SHA256 signature verification over raw body
- *                  -> Idempotent state update in Payments, Customers, Refunds
+ *                  -> Idempotent state reconciliation via reconcileVerifiedPayment_()
+ *                  -> Synchronizes Payments, Customers, PublicSupport, and Refunds
  *
  * CONTROLLED PUBLIC ACTIONS:
  * - POST ?action=create-order   (Server-side order creation via Razorpay API)
- * - POST ?action=verify-payment (Server-side HMAC payment verification)
- * - POST ?action=webhook        (Out-of-band webhook processing)
+ * - POST ?action=verify-payment (Server-side HMAC payment verification & reconciliation)
+ * - POST ?action=webhook        (Out-of-band webhook processing & reconciliation)
  * - GET  ?action=recent-support (Sanitized public supporters, max 10)
  * - GET  ?action=health         (Health & status check)
+ * - GET  ?action=diagnostics    (Safe diagnostics & configuration status)
  * - GET  ?action=currencies     (Verified supported currencies registry)
  *
  * SCRIPT PROPERTIES REQUIRED (File -> Project Settings -> Script Properties):
+ * - RAZORPAY_MODE (TEST or LIVE, defaults to TEST)
  * - RAZORPAY_KEY_ID
  * - RAZORPAY_KEY_SECRET
  * - RAZORPAY_WEBHOOK_SECRET
  * - SPREADSHEET_ID (optional, defaults to 1u5Jkbe_2lMoLWsaDPQkxTWhNACewRaOyZLLANy2dfVI)
  *
- * SECURITY & PRIVACY:
+ * SECURITY & PRIVACY INVARIANTS:
  * - Razorpay secret keys NEVER leave Google Apps Script.
- * - Arbitrary sheet write operations are NOT exposed publicly.
  * - Customer emails, phones, payment IDs, and order IDs are strictly private.
  * - Multi-currency totals are strictly isolated per-currency (e.g. "INR 500.00, USD 25.00").
+ * - Single payment reconciliation function reconcileVerifiedPayment_() guarantees
+ *   Customers and PublicSupport are accurately updated without race conditions or double-counts.
  * ============================================================================
  */
 
 "use strict";
 
 var SPREADSHEET_ID_DEFAULT = "1u5Jkbe_2lMoLWsaDPQkxTWhNACewRaOyZLLANy2dfVI";
+var BACKEND_VERSION = "1.3.0";
 
 // Tab Names
 var TAB_PAYMENTS = "Payments";
@@ -183,15 +189,15 @@ var VERIFIED_CURRENCIES = {
   BWP: { code: "BWP", name: "Botswana Pula", symbol: "P", exponent: 2, minAmount: 15 },
   BZD: { code: "BZD", name: "Belize Dollar", symbol: "BZ$", exponent: 2, minAmount: 2 },
   COP: { code: "COP", name: "Colombian Peso", symbol: "COL$", exponent: 2, minAmount: 4000 },
-  CRC: { code: "CRC", name: "Costa Rican Colón", symbol: "₡", exponent: 2, minAmount: 600 },
+  CRC: { code: "CRC", name: "Costa Rican Colón", symbol: "₡", exponent: 2, minAmount: 500 },
   CUP: { code: "CUP", name: "Cuban Peso", symbol: "₱", exponent: 2, minAmount: 25 },
-  CVE: { code: "CVE", name: "Cape Verdean Escudo", symbol: "Esc", exponent: 2, minAmount: 100 },
+  CVE: { code: "CVE", name: "Cape Verdean Escudo", symbol: "CVE", exponent: 2, minAmount: 100 },
   CZK: { code: "CZK", name: "Czech Koruna", symbol: "Kč", exponent: 2, minAmount: 25 },
-  DKK: { code: "DKK", name: "Danish Krone", symbol: "kr", exponent: 2, minAmount: 7 },
+  DKK: { code: "DKK", name: "Danish Krone", symbol: "kr.", exponent: 2, minAmount: 7 },
   DOP: { code: "DOP", name: "Dominican Peso", symbol: "RD$", exponent: 2, minAmount: 60 },
   DZD: { code: "DZD", name: "Algerian Dinar", symbol: "DA", exponent: 2, minAmount: 150 },
   EGP: { code: "EGP", name: "Egyptian Pound", symbol: "E£", exponent: 2, minAmount: 50 },
-  ETB: { code: "ETB", name: "Ethiopian Birr", symbol: "Br", exponent: 2, minAmount: 50 },
+  ETB: { code: "ETB", name: "Ethiopian Birr", symbol: "Br", exponent: 2, minAmount: 55 },
   FJD: { code: "FJD", name: "Fijian Dollar", symbol: "FJ$", exponent: 2, minAmount: 2 },
   GHS: { code: "GHS", name: "Ghanaian Cedi", symbol: "GH₵", exponent: 2, minAmount: 15 },
   GIP: { code: "GIP", name: "Gibraltar Pound", symbol: "£", exponent: 2, minAmount: 1 },
@@ -201,7 +207,7 @@ var VERIFIED_CURRENCIES = {
   HNL: { code: "HNL", name: "Honduran Lempira", symbol: "L", exponent: 2, minAmount: 25 },
   HRK: { code: "HRK", name: "Croatian Kuna", symbol: "kn", exponent: 2, minAmount: 7 },
   HTG: { code: "HTG", name: "Haitian Gourde", symbol: "G", exponent: 2, minAmount: 130 },
-  HUF: { code: "HUF", name: "Hungarian Forint", symbol: "Ft", exponent: 2, minAmount: 350 },
+  HUF: { code: "HUF", name: "Hungarian Forint", symbol: "Ft", exponent: 2, minAmount: 360 },
   IDR: { code: "IDR", name: "Indonesian Rupiah", symbol: "Rp", exponent: 2, minAmount: 15000 },
   ILS: { code: "ILS", name: "Israeli New Shekel", symbol: "₪", exponent: 2, minAmount: 4 },
   JMD: { code: "JMD", name: "Jamaican Dollar", symbol: "J$", exponent: 2, minAmount: 150 },
@@ -209,78 +215,79 @@ var VERIFIED_CURRENCIES = {
   KGS: { code: "KGS", name: "Kyrgyzstani Som", symbol: "с", exponent: 2, minAmount: 90 },
   KHR: { code: "KHR", name: "Cambodian Riel", symbol: "៛", exponent: 2, minAmount: 4000 },
   KYD: { code: "KYD", name: "Cayman Islands Dollar", symbol: "CI$", exponent: 2, minAmount: 1 },
-  KZT: { code: "KZT", name: "Kazakhstani Tenge", symbol: "₸", exponent: 2, minAmount: 500 },
+  KZT: { code: "KZT", name: "Kazakhstani Tenge", symbol: "₸", exponent: 2, minAmount: 450 },
   LAK: { code: "LAK", name: "Lao Kip", symbol: "₭", exponent: 2, minAmount: 20000 },
   LKR: { code: "LKR", name: "Sri Lankan Rupee", symbol: "Rs", exponent: 2, minAmount: 300 },
   LRD: { code: "LRD", name: "Liberian Dollar", symbol: "L$", exponent: 2, minAmount: 200 },
   LSL: { code: "LSL", name: "Lesotho Loti", symbol: "L", exponent: 2, minAmount: 20 },
   MAD: { code: "MAD", name: "Moroccan Dirham", symbol: "DH", exponent: 2, minAmount: 10 },
-  MDL: { code: "MDL", name: "Moldovan Leu", symbol: "L", exponent: 2, minAmount: 20 },
+  MDL: { code: "MDL", name: "Moldovan Leu", symbol: "L", exponent: 2, minAmount: 18 },
   MGA: { code: "MGA", name: "Malagasy Ariary", symbol: "Ar", exponent: 2, minAmount: 4500 },
-  MKD: { code: "MKD", name: "Macedonian Denar", symbol: "den", exponent: 2, minAmount: 60 },
+  MKD: { code: "MKD", name: "Macedonian Denar", symbol: "ден", exponent: 2, minAmount: 60 },
   MMK: { code: "MMK", name: "Myanmar Kyat", symbol: "K", exponent: 2, minAmount: 2100 },
-  MNT: { code: "MNT", name: "Mongolian Tögrög", symbol: "₮", exponent: 2, minAmount: 3500 },
+  MNT: { code: "MNT", name: "Mongolian Tögrög", symbol: "₮", exponent: 2, minAmount: 3400 },
   MOP: { code: "MOP", name: "Macanese Pataca", symbol: "MOP$", exponent: 2, minAmount: 8 },
-  MUR: { code: "MUR", name: "Mauritian Rupee", symbol: "₨", exponent: 2, minAmount: 50 },
+  MUR: { code: "MUR", name: "Mauritian Rupee", symbol: "₨", exponent: 2, minAmount: 45 },
   MVR: { code: "MVR", name: "Maldivian Rufiyaa", symbol: "Rf", exponent: 2, minAmount: 15 },
   MWK: { code: "MWK", name: "Malawian Kwacha", symbol: "MK", exponent: 2, minAmount: 1700 },
   MXN: { code: "MXN", name: "Mexican Peso", symbol: "Mex$", exponent: 2, minAmount: 20 },
   MZN: { code: "MZN", name: "Mozambican Metical", symbol: "MT", exponent: 2, minAmount: 65 },
   NAD: { code: "NAD", name: "Namibian Dollar", symbol: "N$", exponent: 2, minAmount: 20 },
   NGN: { code: "NGN", name: "Nigerian Naira", symbol: "₦", exponent: 2, minAmount: 1500 },
-  NIO: { code: "NIO", name: "Nicaraguan Córdoba", symbol: "C$", exponent: 2, minAmount: 40 },
+  NIO: { code: "NIO", name: "Nicaraguan Córdoba", symbol: "C$", exponent: 2, minAmount: 35 },
   NOK: { code: "NOK", name: "Norwegian Krone", symbol: "kr", exponent: 2, minAmount: 10 },
-  NPR: { code: "NPR", name: "Nepalese Rupee", symbol: "₨", exponent: 2, minAmount: 130 },
+  NPR: { code: "NPR", name: "Nepalese Rupee", symbol: "Rs.", exponent: 2, minAmount: 130 },
   PEN: { code: "PEN", name: "Peruvian Sol", symbol: "S/.", exponent: 2, minAmount: 4 },
   PGK: { code: "PGK", name: "Papua New Guinean Kina", symbol: "K", exponent: 2, minAmount: 4 },
   PHP: { code: "PHP", name: "Philippine Peso", symbol: "₱", exponent: 2, minAmount: 60 },
-  PKR: { code: "PKR", name: "Pakistani Rupee", symbol: "₨", exponent: 2, minAmount: 300 },
+  PKR: { code: "PKR", name: "Pakistani Rupee", symbol: "Rs", exponent: 2, minAmount: 280 },
   PLN: { code: "PLN", name: "Polish Złoty", symbol: "zł", exponent: 2, minAmount: 4 },
   QAR: { code: "QAR", name: "Qatari Riyal", symbol: "QR", exponent: 2, minAmount: 4 },
   RON: { code: "RON", name: "Romanian Leu", symbol: "lei", exponent: 2, minAmount: 5 },
   RSD: { code: "RSD", name: "Serbian Dinar", symbol: "din", exponent: 2, minAmount: 110 },
   RUB: { code: "RUB", name: "Russian Ruble", symbol: "₽", exponent: 2, minAmount: 90 },
   SAR: { code: "SAR", name: "Saudi Riyal", symbol: "SR", exponent: 2, minAmount: 4 },
-  SCR: { code: "SCR", name: "Seychellois Rupee", symbol: "SR", exponent: 2, minAmount: 15 },
+  SCR: { code: "SCR", name: "Seychellois Rupee", symbol: "SR", exponent: 2, minAmount: 14 },
   SEK: { code: "SEK", name: "Swedish Krona", symbol: "kr", exponent: 2, minAmount: 10 },
   SLL: { code: "SLL", name: "Sierra Leonean Leone", symbol: "Le", exponent: 2, minAmount: 22000 },
-  SOS: { code: "SOS", name: "Somali Shilling", symbol: "S", exponent: 2, minAmount: 600 },
+  SOS: { code: "SOS", name: "Somali Shilling", symbol: "Ssh", exponent: 2, minAmount: 600 },
   SVC: { code: "SVC", name: "Salvadoran Colón", symbol: "₡", exponent: 2, minAmount: 9 },
-  SZL: { code: "SZL", name: "Swazi Lilangeni", symbol: "E", exponent: 2, minAmount: 20 },
+  SZL: { code: "SZL", name: "Swazi Lilangeni", symbol: "L", exponent: 2, minAmount: 20 },
   TRY: { code: "TRY", name: "Turkish Lira", symbol: "₺", exponent: 2, minAmount: 35 },
   TTD: { code: "TTD", name: "Trinidad and Tobago Dollar", symbol: "TT$", exponent: 2, minAmount: 7 },
   TWD: { code: "TWD", name: "New Taiwan Dollar", symbol: "NT$", exponent: 2, minAmount: 30 },
   TZS: { code: "TZS", name: "Tanzanian Shilling", symbol: "TSh", exponent: 2, minAmount: 2600 },
   UAH: { code: "UAH", name: "Ukrainian Hryvnia", symbol: "₴", exponent: 2, minAmount: 40 },
   UYU: { code: "UYU", name: "Uruguayan Peso", symbol: "$U", exponent: 2, minAmount: 40 },
-  UZS: { code: "UZS", name: "Uzbekistani Som", symbol: "so'm", exponent: 2, minAmount: 13000 },
+  UZS: { code: "UZS", name: "Uzbekistani Som", symbol: "so'm", exponent: 2, minAmount: 12500 },
   XCD: { code: "XCD", name: "East Caribbean Dollar", symbol: "EC$", exponent: 2, minAmount: 3 },
   YER: { code: "YER", name: "Yemeni Rial", symbol: "YR", exponent: 2, minAmount: 250 },
   ZMW: { code: "ZMW", name: "Zambian Kwacha", symbol: "ZK", exponent: 2, minAmount: 25 },
 };
 
 /**
- * Gets designated target spreadsheet.
- * Strictly prevents fallback to getActiveSpreadsheet().
+ * ============================================================================
+ * CORE SPREADSHEET INITIALIZATION & SECURITY
+ * ============================================================================
  */
-function getSpreadsheet_() {
-  var prop = PropertiesService.getScriptProperties().getProperty("SPREADSHEET_ID");
-  var id = (prop && prop.trim()) ? prop.trim() : SPREADSHEET_ID_DEFAULT;
 
-  if (!id) {
-    throw new Error("Target Spreadsheet ID configuration is missing.");
+function getSpreadsheetId_() {
+  var props = PropertiesService.getScriptProperties();
+  var configured = props.getProperty("SPREADSHEET_ID");
+  if (configured && configured.trim().length > 0) {
+    return configured.trim();
   }
-
-  try {
-    return SpreadsheetApp.openById(id);
-  } catch (err) {
-    throw new Error("Unable to open designated payment spreadsheet (ID: " + id + "): " + err.message);
-  }
+  return SPREADSHEET_ID_DEFAULT;
 }
 
-/**
- * Ensures required tabs exist and safely repairs header rows without data loss.
- */
+function getSpreadsheet_() {
+  var id = getSpreadsheetId_();
+  if (!id) {
+    throw new Error("Missing SPREADSHEET_ID configuration.");
+  }
+  return SpreadsheetApp.openById(id);
+}
+
 function ensureSheetsAndHeaders_(ss) {
   var tabNames = [
     TAB_PAYMENTS,
@@ -291,93 +298,95 @@ function ensureSheetsAndHeaders_(ss) {
   ];
 
   for (var i = 0; i < tabNames.length; i++) {
-    var name = tabNames[i];
-    var sheet = ss.getSheetByName(name);
-    if (!sheet) {
-      sheet = ss.insertSheet(name);
-    }
-    var expectedHeaders = HEADERS[name];
-    var lastRow = sheet.getLastRow();
+    var tabName = tabNames[i];
+    var sheet = ss.getSheetByName(tabName);
+    var expectedHeaders = HEADERS[tabName];
 
+    if (!sheet) {
+      sheet = ss.insertSheet(tabName);
+      sheet.appendRow(expectedHeaders);
+      styleHeaderRow_(sheet, expectedHeaders.length);
+      continue;
+    }
+
+    var lastRow = sheet.getLastRow();
     if (lastRow === 0) {
       sheet.appendRow(expectedHeaders);
-      sheet.getRange(1, 1, 1, expectedHeaders.length).setFontWeight("bold");
-    } else {
-      var lastCol = Math.max(sheet.getLastColumn(), expectedHeaders.length);
-      var currentHeaders = sheet.getRange(1, 1, 1, lastCol).getValues()[0];
-      var needsRepair = false;
+      styleHeaderRow_(sheet, expectedHeaders.length);
+      continue;
+    }
 
-      for (var c = 0; c < expectedHeaders.length; c++) {
-        if (!currentHeaders[c] || String(currentHeaders[c]).trim() !== expectedHeaders[c]) {
-          needsRepair = true;
+    // Verify existing header row
+    var currentHeaders = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+    var match = true;
+    if (currentHeaders.length < expectedHeaders.length) {
+      match = false;
+    } else {
+      for (var h = 0; h < expectedHeaders.length; h++) {
+        if (String(currentHeaders[h] || "").trim().toLowerCase() !== String(expectedHeaders[h]).trim().toLowerCase()) {
+          match = false;
           break;
         }
       }
+    }
 
-      if (needsRepair) {
-        // Safe non-destructive header repair
-        sheet.getRange(1, 1, 1, expectedHeaders.length).setValues([expectedHeaders]).setFontWeight("bold");
+    // Safe repair without deleting data
+    if (!match) {
+      var neededCols = expectedHeaders.length - sheet.getMaxColumns();
+      if (neededCols > 0) {
+        sheet.insertColumnsAfter(sheet.getMaxColumns(), neededCols);
       }
+      sheet.getRange(1, 1, 1, expectedHeaders.length).setValues([expectedHeaders]);
+      styleHeaderRow_(sheet, expectedHeaders.length);
     }
   }
 }
 
-/**
- * Converts signed byte array from Utilities.computeHmacSha256Signature into hex string.
- */
-function bytesToHex_(bytes) {
-  var hex = [];
-  for (var i = 0; i < bytes.length; i++) {
-    var b = bytes[i];
-    if (b < 0) b += 256;
-    var h = b.toString(16);
-    if (h.length === 1) h = "0" + h;
-    hex.push(h);
-  }
-  return hex.join("");
+function styleHeaderRow_(sheet, colCount) {
+  var range = sheet.getRange(1, 1, 1, colCount);
+  range.setFontWeight("bold");
+  range.setBackground("#2c3e50");
+  range.setFontColor("#ffffff");
+  sheet.setFrozenRows(1);
 }
 
 /**
- * Constant-time string comparison to prevent timing attacks.
+ * ============================================================================
+ * CRYPTO & SANITIZATION HELPERS
+ * ============================================================================
  */
-function timingSafeEqual_(a, b) {
-  if (typeof a !== "string" || typeof b !== "string") return false;
-  if (a.length !== b.length) return false;
-  var res = 0;
-  for (var i = 0; i < a.length; i++) {
-    res |= a.charCodeAt(i) ^ b.charCodeAt(i);
-  }
-  return res === 0;
-}
 
-/**
- * Verifies HMAC-SHA256 signature using Razorpay secret.
- */
-function verifyHmacSha256_(text, signature, secret) {
-  if (!text || !signature || !secret) return false;
+function verifyHmacSha256_(data, signatureHex, secret) {
+  if (!data || !signatureHex || !secret) return false;
   try {
-    var rawBytes = Utilities.computeHmacSha256Signature(text, secret);
-    var computedHex = bytesToHex_(rawBytes);
-    return timingSafeEqual_(signature.toLowerCase().trim(), computedHex.toLowerCase().trim());
-  } catch (e) {
+    var rawSig = Utilities.computeHmacSha256Signature(data, secret);
+    var calculatedHex = "";
+    for (var i = 0; i < rawSig.length; i++) {
+      var byteVal = rawSig[i];
+      if (byteVal < 0) byteVal += 256;
+      var hex = byteVal.toString(16);
+      if (hex.length === 1) hex = "0" + hex;
+      calculatedHex += hex;
+    }
+
+    calculatedHex = calculatedHex.toLowerCase();
+    signatureHex = String(signatureHex).trim().toLowerCase();
+
+    // Constant-time comparison
+    if (calculatedHex.length !== signatureHex.length) return false;
+    var result = 0;
+    for (var j = 0; j < calculatedHex.length; j++) {
+      result |= calculatedHex.charCodeAt(j) ^ signatureHex.charCodeAt(j);
+    }
+    return result === 0;
+  } catch (err) {
+    console.error("HMAC verification error: " + err.message);
     return false;
   }
 }
 
-/**
- * Standard JSON response helper for Google Apps Script.
- */
-function jsonOutput_(obj) {
-  var output = ContentService.createTextOutput(JSON.stringify(obj));
-  output.setMimeType(ContentService.MimeType.JSON);
-  return output;
-}
-
-/**
- * Strips secret tokens from error messages.
- */
 function sanitizeErrorMessage_(msg) {
-  if (!msg) return "An error occurred.";
+  if (!msg) return "An internal error occurred.";
   var clean = String(msg);
   clean = clean.replace(/key_secret=[^&\s]+/gi, "key_secret=[REDACTED]");
   clean = clean.replace(/secret=[^&\s]+/gi, "secret=[REDACTED]");
@@ -386,9 +395,6 @@ function sanitizeErrorMessage_(msg) {
   return clean;
 }
 
-/**
- * Formats multi-currency map into a readable per-currency string.
- */
 function formatCurrencyTotals_(map) {
   var items = [];
   var codes = Object.keys(map).sort();
@@ -399,9 +405,6 @@ function formatCurrencyTotals_(map) {
   return items.join(", ");
 }
 
-/**
- * Parses existing per-currency string (e.g. "INR 500.00, USD 25.00").
- */
 function parseCurrencyTotals_(str) {
   var map = {};
   if (!str) return map;
@@ -417,9 +420,6 @@ function parseCurrencyTotals_(str) {
   return map;
 }
 
-/**
- * Converts major unit amount into Razorpay integer subunits.
- */
 function toSubunits_(rawAmount, currencyCode) {
   var code = (currencyCode || "INR").trim().toUpperCase();
   var curr = VERIFIED_CURRENCIES[code];
@@ -463,17 +463,8 @@ function toSubunits_(rawAmount, currencyCode) {
   }
 
   var subunits = wholePart * Math.pow(10, exp) + parseInt(fracPart, 10);
-
-  // 3-decimal currencies: Razorpay requires last subunit digit to be 0
-  if (exp === 3) {
-    subunits = Math.floor(subunits / 10) * 10;
-  }
-
-  // Minimum amount check
-  if (code === "INR" && subunits < 100) {
-    throw new Error("Minimum amount for INR is ₹1.00 (100 paise).");
-  }
-  if (curr.minAmount && num < curr.minAmount) {
+  var minSubunits = (curr.minAmount || 1) * Math.pow(10, exp);
+  if (subunits < minSubunits) {
     throw new Error("Minimum amount for " + code + " is " + curr.minAmount + ".");
   }
 
@@ -482,7 +473,91 @@ function toSubunits_(rawAmount, currencyCode) {
 
 /**
  * ============================================================================
- * GET HANDLER — Public Queries (Health, Recent Supporters, Currencies)
+ * TRUSTED SERVER-SIDE ORDER CONTEXT STORAGE
+ * ============================================================================
+ * Persists full form fields (name, email, phone, country, message, opt-in)
+ * so that webhook events can recover complete patron intent.
+ */
+
+function storeOrderContext_(orderId, internalId, context) {
+  try {
+    var cache = CacheService.getScriptCache();
+    if (cache) {
+      var jsonStr = JSON.stringify(context);
+      if (orderId) cache.put("order_ctx_" + orderId, jsonStr, 21600); // 6 hours
+      if (internalId) cache.put("order_ctx_" + internalId, jsonStr, 21600);
+    }
+  } catch (e) {
+    console.warn("Failed to cache order context: " + e.message);
+  }
+}
+
+function getOrderContext_(key) {
+  if (!key) return null;
+  try {
+    var cache = CacheService.getScriptCache();
+    if (cache) {
+      var str = cache.get("order_ctx_" + key);
+      if (str) return JSON.parse(str);
+    }
+  } catch (e) {
+    console.warn("Failed to retrieve order context: " + e.message);
+  }
+  return null;
+}
+
+/**
+ * Internal manual test function for Razorpay connectivity.
+ */
+function testRazorpayConnectivity_() {
+  var props = PropertiesService.getScriptProperties();
+  var keyId = props.getProperty("RAZORPAY_KEY_ID") || "";
+  var keySecret = props.getProperty("RAZORPAY_KEY_SECRET") || "";
+  var mode = props.getProperty("RAZORPAY_MODE") || "TEST";
+
+  if (!keyId || !keySecret) {
+    return {
+      success: false,
+      reachable: false,
+      authenticated: false,
+      mode: mode,
+      error: "Razorpay credentials not configured in Script Properties.",
+    };
+  }
+
+  try {
+    var url = "https://api.razorpay.com/v1/orders?count=1";
+    var authHeader = "Basic " + Utilities.base64Encode(keyId + ":" + keySecret);
+    var resp = UrlFetchApp.fetch(url, {
+      method: "get",
+      headers: { Authorization: authHeader },
+      muteHttpExceptions: true,
+    });
+    var code = resp.getResponseCode();
+    if (code >= 200 && code < 300) {
+      return { success: true, reachable: true, authenticated: true, mode: mode, statusCode: code };
+    } else if (code === 401) {
+      return { success: false, reachable: true, authenticated: false, mode: mode, statusCode: code, error: "Authentication failed. Check Key ID and Secret." };
+    } else {
+      return { success: false, reachable: true, authenticated: false, mode: mode, statusCode: code, error: "Razorpay returned HTTP " + code };
+    }
+  } catch (err) {
+    return { success: false, reachable: false, authenticated: false, mode: mode, error: "Network error reaching Razorpay: " + err.message };
+  }
+}
+
+/**
+ * Helper to construct clean JSON response.
+ */
+function jsonOutput_(obj) {
+  return ContentService.createTextOutput(JSON.stringify(obj)).setMimeType(
+    ContentService.MimeType.JSON
+  );
+}
+
+/**
+ * ============================================================================
+ * GET HANDLER — Public Queries (Health, Diagnostics, Recent Supporters, Currencies)
  * ============================================================================
  */
 function doGet(e) {
@@ -499,18 +574,50 @@ function doGet(e) {
       });
     }
 
+    var props = PropertiesService.getScriptProperties();
+    var mode = props.getProperty("RAZORPAY_MODE") || "TEST";
+
     // 1. Health Check
     if (action === "health") {
       return jsonOutput_({
         success: true,
         status: "ok",
-        service: "EkGuru Apps Script Payment Backend",
+        service: "EkGuru Payment Backend",
+        mode: mode,
+        razorpayKeyConfigured: Boolean(props.getProperty("RAZORPAY_KEY_ID")),
+        razorpaySecretConfigured: Boolean(props.getProperty("RAZORPAY_KEY_SECRET")),
+        webhookSecretConfigured: Boolean(props.getProperty("RAZORPAY_WEBHOOK_SECRET")),
+        spreadsheetConfigured: Boolean(props.getProperty("SPREADSHEET_ID") || SPREADSHEET_ID_DEFAULT),
+        version: BACKEND_VERSION,
         currencies_count: Object.keys(VERIFIED_CURRENCIES).length,
         timestamp: new Date().toISOString(),
       });
     }
 
-    // 2. Currencies list
+    // 2. Diagnostics
+    if (action === "diagnostics") {
+      var ssOk = false;
+      try {
+        var ss = getSpreadsheet_();
+        ssOk = Boolean(ss);
+      } catch (e) {}
+      return jsonOutput_({
+        success: true,
+        service: "EkGuru Payment Backend",
+        deploymentUrl: "https://script.google.com/macros/s/AKfycbz8u_rBr2o4VPgmQgaweswLWKdYb-MMGrsa7WfckTCruLP-ZEasWnpkqJrZHux5Y8_4zA/exec",
+        mode: mode,
+        razorpayKeyConfigured: Boolean(props.getProperty("RAZORPAY_KEY_ID")),
+        razorpaySecretConfigured: Boolean(props.getProperty("RAZORPAY_KEY_SECRET")),
+        webhookSecretConfigured: Boolean(props.getProperty("RAZORPAY_WEBHOOK_SECRET")),
+        spreadsheetConfigured: Boolean(props.getProperty("SPREADSHEET_ID") || SPREADSHEET_ID_DEFAULT),
+        sheetAccessible: ssOk,
+        currencies_count: Object.keys(VERIFIED_CURRENCIES).length,
+        version: BACKEND_VERSION,
+        timestamp: new Date().toISOString(),
+      });
+    }
+
+    // 3. Currencies list
     if (action === "currencies") {
       var list = [];
       for (var code in VERIFIED_CURRENCIES) {
@@ -523,7 +630,7 @@ function doGet(e) {
       });
     }
 
-    // 3. Sanitized Recent Supporters
+    // 4. Sanitized Recent Supporters
     if (action === "recent-support" || action === "recent") {
       var cache = null;
       try {
@@ -646,8 +753,11 @@ function doPost(e) {
 }
 
 /**
+ * ============================================================================
  * 1. ACTION: create-order
- * Creates an order via Razorpay API and inserts initial row into Payments tab.
+ * ============================================================================
+ * Validates inputs, creates Razorpay Order via server-to-server API,
+ * stores complete trusted order context, and records initial row in Payments tab.
  */
 function handleCreateOrder_(ss, data) {
   var amount = data.amount;
@@ -675,7 +785,7 @@ function handleCreateOrder_(ss, data) {
   var name = String(data.customer_name || data.name || data.customerName || "").trim().slice(0, 100);
   var email = String(data.customer_email || data.email || data.customerEmail || "").trim().toLowerCase().slice(0, 120);
   var phone = String(data.customer_phone || data.phone || data.customerPhone || "").trim().slice(0, 30);
-  var country = String(data.country || "").trim().toUpperCase().slice(0, 4);
+  var country = String(data.country || "").trim().slice(0, 50);
   var message = String(data.support_message || data.message || data.supportMessage || "").trim().slice(0, 300);
   var optIn = Boolean(data.publicDisplayOptIn === true || data.public_display_opt_in === true || data.public === true);
 
@@ -702,6 +812,9 @@ function handleCreateOrder_(ss, data) {
           internal_id: internalId,
           customer_name: name,
           customer_email: email,
+          customer_phone: phone,
+          country: country,
+          support_message: message,
           public_opt_in: String(optIn),
         },
       };
@@ -731,14 +844,32 @@ function handleCreateOrder_(ss, data) {
       return { success: false, error: "Network error contacting Razorpay: " + fetchErr.message };
     }
   } else {
-    // Simulated test/mock order generation
+    // Simulated test/mock order generation for unit tests
     razorpayOrderId = "order_mock_" + Date.now() + "_" + Math.random().toString(36).substring(2, 8);
     if (!keyId) keyId = "rzp_test_simulated_key_001";
   }
 
+  var now = new Date().toISOString();
+
+  // Store trusted server-side order context so webhooks can recover full fields
+  var orderContext = {
+    order_id: razorpayOrderId,
+    internal_reference: internalId,
+    customer_name: name,
+    customer_email: email,
+    customer_phone: phone,
+    country: country,
+    amount: numAmount,
+    currency: currency,
+    support_message: message,
+    publicDisplayOptIn: optIn,
+    created_at: now,
+    status: "created",
+  };
+  storeOrderContext_(razorpayOrderId, internalId, orderContext);
+
   // Insert initial private order record into Payments tab
   var paySheet = ss.getSheetByName(TAB_PAYMENTS);
-  var now = new Date().toISOString();
   var row = [
     now,
     now,
@@ -777,13 +908,185 @@ function handleCreateOrder_(ss, data) {
       phone: phone,
       country: country,
     },
+    support_message: message,
     publicDisplayOptIn: optIn,
   };
 }
 
 /**
+ * ============================================================================
+ * SINGLE AUTHORITATIVE PAYMENT RECONCILIATION FUNCTION
+ * ============================================================================
+ * The ONLY function responsible for successful payment side effects.
+ * Called by BOTH handleVerifyPayment_ and handleWebhook_.
+ *
+ * Guarantees:
+ * 1. Payments row updated to captured and verified.
+ * 2. Customers row created/updated strictly ONCE per unique payment (per-currency totals).
+ * 3. PublicSupport row created strictly ONCE if publicDisplayOptIn is true.
+ * 4. Total Payments count incremented strictly ONCE even when webhook and
+ *    verify-payment both fire.
+ */
+function reconcileVerifiedPayment_(ss, paymentContext, razorpayPaymentData, eventContext) {
+  paymentContext = paymentContext || {};
+  razorpayPaymentData = razorpayPaymentData || {};
+  eventContext = eventContext || {};
+
+  var orderId = String(razorpayPaymentData.order_id || paymentContext.order_id || "").trim();
+  var paymentId = String(razorpayPaymentData.id || razorpayPaymentData.payment_id || paymentContext.payment_id || "").trim();
+  var internalId = String(paymentContext.internal_reference || paymentContext.internal_id || (razorpayPaymentData.notes && razorpayPaymentData.notes.internal_id) || "").trim();
+
+  // Retrieve cached trusted context
+  var cachedCtx = getOrderContext_(orderId) || getOrderContext_(internalId) || {};
+  var rzpNotes = razorpayPaymentData.notes || {};
+
+  // Resolve customer fields
+  var customerName = String(paymentContext.name || paymentContext.customer_name || cachedCtx.customer_name || rzpNotes.customer_name || "").trim();
+  var customerEmail = String(paymentContext.email || paymentContext.customer_email || cachedCtx.customer_email || rzpNotes.customer_email || "").toLowerCase().trim();
+  var customerPhone = String(paymentContext.phone || paymentContext.customer_phone || cachedCtx.customer_phone || rzpNotes.customer_phone || "").trim();
+  var country = String(paymentContext.country || cachedCtx.country || rzpNotes.country || "International").trim();
+  var supportMessage = String(paymentContext.support_message || paymentContext.supportMessage || cachedCtx.support_message || rzpNotes.support_message || "").trim();
+  var amount = Number(paymentContext.amount || cachedCtx.amount || (razorpayPaymentData.amount ? (razorpayPaymentData.amount / 100) : 0)) || 0;
+  var currency = String(paymentContext.currency || cachedCtx.currency || razorpayPaymentData.currency || "INR").toUpperCase().trim();
+
+  var isOptedIn = Boolean(
+    paymentContext.publicDisplayOptIn === true ||
+    paymentContext.public_display_opt_in === true ||
+    paymentContext.public === true ||
+    cachedCtx.publicDisplayOptIn === true ||
+    rzpNotes.public_opt_in === "true" ||
+    rzpNotes.publicDisplayOptIn === "true"
+  );
+
+  var fee = razorpayPaymentData.fee ? (Number(razorpayPaymentData.fee) / 100) : 0;
+  var tax = razorpayPaymentData.tax ? (Number(razorpayPaymentData.tax) / 100) : 0;
+  var paymentMethod = String(razorpayPaymentData.method || "card").trim();
+  var isInternational = (currency !== "INR");
+
+  var now = new Date().toISOString();
+
+  // 1. Reconcile Payments Tab
+  var paySheet = ss.getSheetByName(TAB_PAYMENTS);
+  var payLastRow = paySheet.getLastRow();
+  var rowIndex = -1;
+  var existingRecord = null;
+  var alreadyCaptured = false;
+
+  if (payLastRow > 1) {
+    var pValues = paySheet.getRange(2, 1, payLastRow - 1, HEADERS.Payments.length).getValues();
+    for (var j = 0; j < pValues.length; j++) {
+      var pOrderId = String(pValues[j][3] || "").trim();
+      var pPaymentId = String(pValues[j][2] || "").trim();
+      var pInternalId = String(pValues[j][17] || "").trim();
+
+      if ((orderId && pOrderId === orderId) || (paymentId && pPaymentId === paymentId) || (internalId && pInternalId === internalId)) {
+        rowIndex = j + 2;
+        existingRecord = pValues[j];
+        break;
+      }
+    }
+  }
+
+  if (rowIndex > 0 && existingRecord) {
+    if (String(existingRecord[4]) === "captured" && String(existingRecord[18]) === "true") {
+      alreadyCaptured = true;
+    }
+
+    if (!customerName) customerName = String(existingRecord[9] || "").trim();
+    if (!customerEmail) customerEmail = String(existingRecord[10] || "").toLowerCase().trim();
+    if (!customerPhone) customerPhone = String(existingRecord[11] || "").trim();
+    if (!country || country === "International") country = String(existingRecord[12] || "International").trim();
+    if (!supportMessage) supportMessage = String(existingRecord[13] || "").trim();
+    if (!amount) amount = Number(existingRecord[5]) || 0;
+    if (!currency) currency = String(existingRecord[6] || "INR").toUpperCase();
+
+    paySheet.getRange(rowIndex, 2).setValue(now); // Updated At
+    if (paymentId) paySheet.getRange(rowIndex, 3).setValue(paymentId);
+    paySheet.getRange(rowIndex, 5).setValue("captured");
+    if (fee) paySheet.getRange(rowIndex, 15).setValue(fee);
+    if (tax) paySheet.getRange(rowIndex, 16).setValue(tax);
+    paySheet.getRange(rowIndex, 19).setValue("true"); // Verified
+    paySheet.getRange(rowIndex, 20).setValue("synced"); // Sheet Sync Status
+  } else {
+    // Row not yet recorded: create it
+    var newRow = [
+      now,
+      now,
+      paymentId,
+      orderId,
+      "captured",
+      amount,
+      currency,
+      isInternational,
+      paymentMethod,
+      customerName,
+      customerEmail,
+      customerPhone,
+      country,
+      supportMessage,
+      fee,
+      tax,
+      "none",
+      internalId,
+      "true",
+      "synced",
+    ];
+    paySheet.appendRow(newRow);
+  }
+
+  // 2. Reconcile Customers Tab (Strictly increment ONCE per payment)
+  if (!alreadyCaptured) {
+    try {
+      updateCustomerRecord_(ss, {
+        email: customerEmail,
+        name: customerName,
+        phone: customerPhone,
+        country: country,
+        amount: amount,
+        currency: currency,
+        payment_id: paymentId,
+        created_at: now,
+      });
+    } catch (cErr) {
+      console.warn("Customer reconciliation error: " + cErr.message);
+    }
+  }
+
+  // 3. Reconcile PublicSupport Tab (Only if publicDisplayOptIn is true)
+  if (isOptedIn) {
+    try {
+      updatePublicSupportRecord_(ss, {
+        displayName: customerName || "Supporter",
+        country: country || "International",
+        amount: amount,
+        currency: currency,
+        message: supportMessage,
+        payment_date: now.split("T")[0],
+        internal_reference: internalId || paymentId || orderId,
+      });
+    } catch (pErr) {
+      console.warn("Public support reconciliation error: " + pErr.message);
+    }
+  }
+
+  return {
+    success: true,
+    status: "captured",
+    duplicate: alreadyCaptured,
+    order_id: orderId,
+    payment_id: paymentId,
+    internal_id: internalId,
+    amount: amount,
+    currency: currency,
+    display_amount: amount,
+  };
+}
+
+/**
+ * ============================================================================
  * 2. ACTION: verify-payment
- * Verifies Razorpay payment signature server-side and updates ledger.
+ * ============================================================================
+ * Verifies Razorpay payment signature server-side and reconciles ledger.
  */
 function handleVerifyPayment_(ss, data) {
   var orderId = String(data.razorpay_order_id || "").trim();
@@ -830,18 +1133,6 @@ function handleVerifyPayment_(ss, data) {
     return { success: false, error: "Currency tampering detected." };
   }
 
-  // Idempotency: if already verified as captured, return duplicate-safe success
-  if (String(paymentRecord[4]) === "captured" && String(paymentRecord[18]) === "true") {
-    return {
-      success: true,
-      duplicate: true,
-      status: "captured",
-      message: "Payment received. Thank you for supporting EkGuru.",
-      order_id: orderId,
-      payment_id: paymentId,
-    };
-  }
-
   // Verify HMAC-SHA256 signature
   var props = PropertiesService.getScriptProperties();
   var keySecret = props.getProperty("RAZORPAY_KEY_SECRET") || "";
@@ -857,7 +1148,6 @@ function handleVerifyPayment_(ss, data) {
   var now = new Date().toISOString();
 
   if (!isValid) {
-    // Record verification failure
     if (rowIndex > 0) {
       paySheet.getRange(rowIndex, 5).setValue("failed");
       paySheet.getRange(rowIndex, 19).setValue("false");
@@ -866,66 +1156,49 @@ function handleVerifyPayment_(ss, data) {
     return { success: false, error: "Invalid payment signature." };
   }
 
-  // Update Payments tab to captured & verified
-  paySheet.getRange(rowIndex, 3).setValue(paymentId);
-  paySheet.getRange(rowIndex, 5).setValue("captured");
-  paySheet.getRange(rowIndex, 19).setValue("true");
-  paySheet.getRange(rowIndex, 20).setValue("synced");
-  paySheet.getRange(rowIndex, 2).setValue(now);
-
-  var customerEmail = String(paymentRecord[10] || "").trim();
-  var customerName = String(paymentRecord[9] || "").trim();
-  var customerPhone = String(paymentRecord[11] || "").trim();
-  var customerCountry = String(paymentRecord[12] || "").trim();
-  var supportMessage = String(paymentRecord[13] || "").trim();
-
-  // Update Customers tab (per-currency safe aggregation)
-  if (customerEmail || customerName) {
-    try {
-      updateCustomerRecord_(ss, {
-        email: customerEmail,
-        name: customerName,
-        phone: customerPhone,
-        country: customerCountry,
-        amount: recordAmount,
-        currency: recordCurrency,
-        created_at: paymentRecord[0],
-      });
-    } catch (cErr) {
-      console.warn("Customer update error: " + cErr.message);
-    }
-  }
-
-  // Check opt-in for PublicSupport
-  var isOptedIn = Boolean(data.publicDisplayOptIn === true || data.public_display_opt_in === true || data.public === true);
-  if (isOptedIn) {
-    try {
-      updatePublicSupportRecord_(ss, {
-        displayName: customerName || "Supporter",
-        country: customerCountry || "International",
-        amount: recordAmount,
-        currency: recordCurrency,
-        message: supportMessage,
-        payment_date: now.split("T")[0],
-        internal_reference: internalId || paymentId,
-      });
-    } catch (pErr) {
-      console.warn("Public support update error: " + pErr.message);
-    }
-  }
+  // Call the central reconciliation function!
+  var result = reconcileVerifiedPayment_(
+    ss,
+    {
+      order_id: orderId,
+      internal_reference: internalId,
+      name: data.customer_name || data.name,
+      email: data.customer_email || data.email,
+      phone: data.customer_phone || data.phone,
+      country: data.country,
+      support_message: data.support_message || data.supportMessage,
+      amount: recordAmount,
+      currency: recordCurrency,
+      publicDisplayOptIn: Boolean(data.publicDisplayOptIn === true || data.public_display_opt_in === true || data.public === true),
+    },
+    {
+      id: paymentId,
+      order_id: orderId,
+      amount: recordAmount * 100,
+      currency: recordCurrency,
+    },
+    { source: "verify-payment" }
+  );
 
   return {
     success: true,
     status: "captured",
+    duplicate: result.duplicate,
     message: "Payment received. Thank you for supporting EkGuru.",
     order_id: orderId,
     payment_id: paymentId,
+    internal_id: internalId || result.internal_id,
+    display_amount: result.display_amount,
+    currency: result.currency,
   };
 }
 
 /**
+ * ============================================================================
  * 3. ACTION: webhook
- * Out-of-band webhook handling with raw body HMAC verification and event idempotency.
+ * ============================================================================
+ * Out-of-band webhook handling with raw body HMAC verification,
+ * event idempotency, and central reconciliation.
  */
 function handleWebhook_(ss, e, rawBody, payload) {
   var props = PropertiesService.getScriptProperties();
@@ -971,18 +1244,15 @@ function handleWebhook_(ss, e, rawBody, payload) {
   var paySheet = ss.getSheetByName(TAB_PAYMENTS);
   var payLastRow = paySheet.getLastRow();
   var targetRow = -1;
-  var existingRecord = null;
 
   if (payLastRow > 1) {
     var pValues = paySheet.getRange(2, 1, payLastRow - 1, HEADERS.Payments.length).getValues();
     for (var j = 0; j < pValues.length; j++) {
       var pOrderId = String(pValues[j][3] || "").trim();
       var pPaymentId = String(pValues[j][2] || "").trim();
-      var pInternalId = String(pValues[j][17] || "").trim();
 
       if ((orderId && pOrderId === orderId) || (paymentId && pPaymentId === paymentId)) {
         targetRow = j + 2;
-        existingRecord = pValues[j];
         break;
       }
     }
@@ -992,18 +1262,13 @@ function handleWebhook_(ss, e, rawBody, payload) {
 
   // Process event types
   if (eventType === "payment.captured" || eventType === "order.paid") {
-    if (targetRow > 0) {
-      paySheet.getRange(targetRow, 3).setValue(paymentId);
-      paySheet.getRange(targetRow, 5).setValue("captured");
-      paySheet.getRange(targetRow, 19).setValue("true");
-      paySheet.getRange(targetRow, 2).setValue(now);
-      if (paymentEntity && paymentEntity.fee) {
-        paySheet.getRange(targetRow, 15).setValue(paymentEntity.fee / 100);
-      }
-      if (paymentEntity && paymentEntity.tax) {
-        paySheet.getRange(targetRow, 16).setValue(paymentEntity.tax / 100);
-      }
-    }
+    // Reconcile verified payment through the single central function!
+    reconcileVerifiedPayment_(
+      ss,
+      {},
+      paymentEntity || { id: paymentId, order_id: orderId },
+      { source: "webhook", event_id: eventId, event_type: eventType }
+    );
   } else if (eventType === "payment.authorized") {
     if (targetRow > 0) {
       paySheet.getRange(targetRow, 3).setValue(paymentId);
@@ -1060,8 +1325,7 @@ function handleWebhook_(ss, e, rawBody, payload) {
 function updateCustomerRecord_(ss, data) {
   var email = String(data.email || "").toLowerCase().trim();
   var name = String(data.name || "").trim();
-  var key = email || name;
-  if (!key) return;
+  var key = email || name || (data.phone ? String(data.phone).trim() : "") || "Supporter";
 
   var sheet = ss.getSheetByName(TAB_CUSTOMERS);
   var lastRow = sheet.getLastRow();
@@ -1120,7 +1384,7 @@ function updateCustomerRecord_(ss, data) {
 
     var newRow = [
       newCustId,
-      name,
+      name || "Supporter",
       email,
       data.phone || "",
       data.country || "",

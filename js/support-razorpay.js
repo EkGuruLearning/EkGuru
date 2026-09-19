@@ -38,9 +38,12 @@
   var DEFAULT_APPS_SCRIPT_ENDPOINT = "https://script.google.com/macros/s/AKfycbz8u_rBr2o4VPgmQgaweswLWKdYb-MMGrsa7WfckTCruLP-ZEasWnpkqJrZHux5Y8_4zA/exec";
 
   function getEndpoint() {
+    if (typeof window !== "undefined" && window.PAYMENT_BACKEND_URL) {
+      return String(window.PAYMENT_BACKEND_URL).trim();
+    }
     var live = (window.EKGURU_SITE || {}).api || {};
-    if (live.appsScriptEndpoint) return String(live.appsScriptEndpoint).trim();
     if (live.payments) return String(live.payments).trim();
+    if (live.appsScriptEndpoint) return String(live.appsScriptEndpoint).trim();
     return DEFAULT_APPS_SCRIPT_ENDPOINT;
   }
 
@@ -340,16 +343,17 @@
       loadRecentSupporters();
     }
 
-    function showError(errorMsg) {
+    function showError(errorMsg, errorCode) {
       setFormBusy(false);
       if (statusContainer) {
         statusContainer.style.display = "block";
         statusContainer.className = "support-status-container state-failure";
         statusTitle.textContent = "Payment could not be completed.";
         statusMsg.textContent = "No successful payment has been recorded.";
+        var codeNotice = errorCode ? " <small style='display:block;opacity:0.75;margin-top:6px;font-family:monospace'>[" + escapeHtml(errorCode) + "]</small>" : "";
         if (statusDetails) {
           statusDetails.style.display = "block";
-          statusDetails.innerHTML = "<p class='error-text'>" + (errorMsg || "Transaction cancelled or payment authorization failed.") + "</p>";
+          statusDetails.innerHTML = "<p class='error-text'>" + (errorMsg || "Transaction cancelled or payment authorization failed.") + codeNotice + "</p>";
         }
         if (resetBtn) resetBtn.style.display = "inline-block";
       }
@@ -382,8 +386,11 @@
       });
     }
 
-    function verifyPaymentOnServer(checkoutResponse, internalId) {
+    function verifyPaymentOnServer(checkoutResponse, orderData) {
       btnText.textContent = "Verifying payment...";
+      var internalId = (orderData && orderData.internal_id) || "";
+      var cust = (orderData && orderData.customer) || {};
+
       fetch(buildApiUrl("verify-payment"), {
         method: "POST",
         headers: { "Content-Type": "text/plain;charset=utf-8" },
@@ -394,6 +401,12 @@
           razorpay_payment_id: checkoutResponse.razorpay_payment_id,
           razorpay_signature: checkoutResponse.razorpay_signature,
           internal_id: internalId,
+          customer_name: cust.name || "",
+          customer_email: cust.email || "",
+          customer_phone: cust.phone || "",
+          country: cust.country || "",
+          support_message: (orderData && (orderData.support_message || orderData.supportMessage)) || "",
+          publicDisplayOptIn: Boolean(orderData && (orderData.publicDisplayOptIn === true || orderData.public_display_opt_in === true)),
         }),
       })
         .then(function (r) {
@@ -405,11 +418,11 @@
           if (res.ok && res.data.success) {
             showSuccess(res.data);
           } else {
-            showError(res.data.error || "Signature verification failed.");
+            showError(res.data.error || "Signature verification failed.", "RAZORPAY_VERIFY_FAILED");
           }
         })
         .catch(function (err) {
-          showError("Unable to reach verification server: " + err.message);
+          showError("Unable to reach verification server: " + err.message, "SUPPORT_API_UNREACHABLE");
         });
     }
 
@@ -519,7 +532,7 @@
                 color: "#4f32d9",
               },
               handler: function (checkoutResponse) {
-                verifyPaymentOnServer(checkoutResponse, orderData.internal_id);
+                verifyPaymentOnServer(checkoutResponse, orderData);
               },
               modal: {
                 ondismiss: function () {
@@ -531,13 +544,19 @@
             var rzp = new RazorpayCtor(options);
             rzp.on("payment.failed", function (failResp) {
               var desc = failResp.error ? failResp.error.description : "Payment processing failed";
-              showError(desc);
+              showError(desc, "RAZORPAY_PAYMENT_FAILED");
             });
             rzp.open();
           });
         })
         .catch(function (err) {
-          showError(err.message);
+          var code = "SUPPORT_API_UNREACHABLE";
+          if (err.message && err.message.indexOf("Failed to load Razorpay") !== -1) {
+            code = "RAZORPAY_CHECKOUT_LOAD_FAILED";
+          } else if (err.message && err.message.indexOf("order") !== -1) {
+            code = "RAZORPAY_ORDER_CREATE_FAILED";
+          }
+          showError(err.message, code);
         });
     });
 
@@ -548,11 +567,14 @@
   }
 
   // Export for testing or manual re-init
+  root.PAYMENT_BACKEND_URL = DEFAULT_APPS_SCRIPT_ENDPOINT;
   root.EkGuruSupportPayments = {
     init: init,
     POPULAR_CURRENCIES: POPULAR_CURRENCIES,
     formatDisplay: formatDisplay,
     loadRecentSupporters: loadRecentSupporters,
+    getApiBase: getApiBase,
+    getEndpoint: getEndpoint,
   };
 
   if (document.readyState === "loading") {
