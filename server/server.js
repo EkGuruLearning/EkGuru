@@ -3,9 +3,10 @@
  * EkGuru — Local Development & Test Preview Server
  *
  * NOTE ON RUNTIME ARCHITECTURE:
- * - PRODUCTION BACKEND: Cloudflare Worker (`server/worker.js`) deployed to `api.ekguru.shop` via `wrangler.toml`.
+ * - PRODUCTION BACKEND: Google Apps Script Web App (NOT Cloudflare Worker).
+ *   Production endpoint: https://script.google.com/macros/s/AKfycbz8u_rBr2o4VPgmQgaweswLWKdYb-MMGrsa7WfckTCruLP-ZEasWnpkqJrZHux5Y8_4zA/exec
  * - LOCAL DEV & PREVIEW: This Node.js server (`server/server.js`) is used strictly for local development,
- *   automated browser QA, and sandbox live previews. It serves static assets and proxies API calls.
+ *   automated browser QA, and sandbox mock testing. It serves static assets and mock API endpoints.
  *
  * Serves the payment API endpoints:
  * - GET  /api/payments/razorpay/currencies
