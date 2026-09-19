@@ -389,7 +389,7 @@ def main():
         "total_languages": len(index_data["courses"]),
         "total_lessons": sum(sum(l["lessons"] for l in c["levels"].values()) for c in index_data["courses"]),
         "countries_covered": 194,
-        "visual_features": ["age-based characters", "dotted tracing", "country themes", "cultural motifs", "offline games"]
+        "visual_features": ["age-based characters", "dotted tracing", "country themes", "cultural motifs"]
     }
     
     # Save updated index

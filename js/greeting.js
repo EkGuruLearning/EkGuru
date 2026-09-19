@@ -11,6 +11,7 @@
      · Hindi on first render (also shipped in the HTML for no-JS/crawlers)
      · subtle fade/slide, stable line box (no vertical layout shift)
      · Arabic word carries dir="auto" so RTL shapes correctly
+     · every word carries its lang tag (font-stack correctness for CJK)
      · prefers-reduced-motion / no-JS: static Hindi, no timer at all
      · no network, no storage, screen-reader quiet (the animated word is
        aria-hidden; one static, visually-hidden label names the region)
@@ -25,6 +26,11 @@
   var WORDS = ["\u0928\u092E\u0938\u094D\u0924\u0947", "Hello", "Hola", "Bonjour",
                "Hallo", "Ol\u00E1", "\u3053\u3093\u306B\u3061\u306F",
                "\u0645\u0631\u062D\u0628\u064B\u0627"];
+  /* Word language tags, parallel to WORDS. The mount is aria-hidden, so this
+     is not for screen readers — it is for the font stack: without lang="ja"
+     the kanji in こんにちは can resolve to Chinese glyph variants on systems
+     whose CJK fallback lists Chinese fonts first. */
+  var LANGS = ["hi", "en", "es", "fr", "de", "pt", "ja", "ar"];
   var INTERVAL_MS = 500;
   var STYLE_ID = "ekguru-greeting-css";
 
@@ -74,11 +80,13 @@
       inner = doc.createElement("span");
       inner.className = "ekg-greet-w";
       inner.setAttribute("dir", "auto");
+      inner.setAttribute("lang", LANGS[0]);
       inner.textContent = WORDS[0];
       el.textContent = "";
       el.appendChild(inner);
     } else {
       inner.setAttribute("dir", "auto");
+      inner.setAttribute("lang", LANGS[index]);
       if (!inner.textContent) inner.textContent = WORDS[0];
     }
     /* The animation is decoration: hide it from assistive tech and name the
@@ -99,6 +107,7 @@
     for (var i = 0; i < mounts.length; i++) {
       var inner = mounts[i];
       inner.textContent = WORDS[index];
+      inner.setAttribute("lang", LANGS[index]);
       /* Restart the entrance animation without extra timers. */
       inner.classList.remove("ekg-swap");
       try { void inner.offsetWidth; } catch (e) {}
@@ -135,6 +144,7 @@
 
   root.EkGuruGreeting = {
     words: WORDS.slice(),
+    langs: LANGS.slice(),
     intervalMs: INTERVAL_MS,
     mountCount: function () { return mounts.length; },
     currentIndex: function () { return index; },

@@ -85,7 +85,7 @@ def improve_description(soup, path):
         if p:
             desc_text += " " + p.get_text(strip=True)[:80]
         if not desc_text:
-            desc_text = "Learn Hindi free with EkGuru — visual learning, dotted tracing, offline games, 194 countries, A1 to C5 mastery."
+            desc_text = "Learn Hindi free with EkGuru — visual learning, dotted tracing, free quizzes, 194 countries, A1 to C5 mastery."
         desc_text = desc_text.strip()[:160]
         # Add new tag in head
         head = soup.find("head")

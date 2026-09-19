@@ -495,7 +495,9 @@
 
     function paint(list) {
       items = list;
-      if (!list.length) { close(); return; }
+      /* Empty results must not leave the pre-index placeholder rows in the
+         box: hidden or not, a zero-result panel should hold zero rows. */
+      if (!list.length) { box.innerHTML = ""; close(); return; }
       announce(true);
       box.innerHTML =
         '<div class="xp-sugg-head"><span>' + esc(copy.hint) + "</span>" +

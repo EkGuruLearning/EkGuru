@@ -128,6 +128,24 @@
       if (isOpen) close(); else open();
     });
 
+    /* Swipe-to-close, ported verbatim from js/main.js v163: a rightward
+       flick inside the open drawer dismisses it like a native app sheet,
+       mostly-vertical movement (scrolling the menu) is ignored. Passive
+       listeners so scrolling never waits on JS. This restores the one
+       gesture the homepage lost when ownership moved here. */
+    var touchX = null, touchY = null;
+    nav.addEventListener("touchstart", function (e) {
+      if (!isOpen || !e.touches || !e.touches.length) return;
+      touchX = e.touches[0].clientX; touchY = e.touches[0].clientY;
+    }, { passive: true });
+    nav.addEventListener("touchend", function (e) {
+      if (!isOpen || touchX === null || !e.changedTouches || !e.changedTouches.length) return;
+      var dx = e.changedTouches[0].clientX - touchX;
+      var dy = e.changedTouches[0].clientY - touchY;
+      touchX = null; touchY = null;
+      if (dx > 70 && Math.abs(dy) < 60) close(false);
+    }, { passive: true });
+
     nav.addEventListener("click", function (e) {
       var a = e.target && e.target.closest ? e.target.closest("a") : null;
       if (a && isOpen) close(false);

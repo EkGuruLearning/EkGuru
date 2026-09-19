@@ -100,6 +100,8 @@ console.log("A. Shared greeting — runtime");
   ok(mounts.length === 2, "both mounts found");
   ok(mounts[0].getAttribute("aria-hidden") === "true", "mount aria-hidden (SR-quiet)");
   ok(mounts[0].querySelector(".ekg-greet-w").textContent === "नमस्ते", "Hindi on first render");
+  ok(mounts[0].querySelector(".ekg-greet-w").getAttribute("lang") === "hi", "first render tagged lang=hi");
+  ok(JSON.stringify(window.EkGuruGreeting.langs) === JSON.stringify(["hi", "en", "es", "fr", "de", "pt", "ja", "ar"]), "lang tags parallel to words");
   ok(mounts[0].querySelector(".ekg-greet-w").getAttribute("dir") === "auto", "RTL-safe dir=auto");
   ok(window.document.querySelectorAll(".ekg-greet-sr").length === 2, "one static SR label per mount");
   ok(window.document.getElementById("ekguru-greeting-css"), "shared styles injected once");
@@ -110,6 +112,10 @@ console.log("A. Shared greeting — runtime");
   const seen = [window.EkGuruGreeting.currentWord()];
   for (let i = 0; i < 8; i++) { clock.advance(500); seen.push(window.EkGuruGreeting.currentWord()); }
   ok(JSON.stringify(seen) === JSON.stringify([...EXPECT, EXPECT[0]]), "rotation order + wraparound over 8 ticks");
+  ok(mounts[0].querySelector(".ekg-greet-w").getAttribute("lang") === "hi", "lang follows word after wraparound (hi)");
+  for (let i = 0; i < 6; i++) { clock.advance(500); }
+  ok(mounts[0].querySelector(".ekg-greet-w").textContent === "こんにちは", "t≈3000ms shows Japanese");
+  ok(mounts[0].querySelector(".ekg-greet-w").getAttribute("lang") === "ja", "t≈3000ms tagged lang=ja (CJK glyph correctness)");
   ok(mounts[0].querySelector(".ekg-greet-w").textContent === mounts[1].querySelector(".ekg-greet-w").textContent, "all mounts move together");
   ok(mounts[0].querySelector(".ekg-greet-w").classList.contains("ekg-swap"), "swap animation class applied");
 
@@ -240,6 +246,37 @@ function toastPage(lang = "en", url = "http://localhost/learn/hindi/") {
   load(p.dom.window, "js/monetization.js");
   p.clock.advance(60000);
   ok(p.dom.window.document.getElementById("ekguru-support-toast").style.visibility === "hidden", "deferred while search open");
+
+  // mobile drawer open at show time: suppressed, chain stays single
+  const n = toastPage();
+  await ready(n.dom.window);
+  n.dom.window.document.body.classList.add("nav-open");
+  load(n.dom.window, "js/monetization.js");
+  n.clock.advance(60000);
+  ok(n.dom.window.document.getElementById("ekguru-support-toast").style.visibility === "hidden", "deferred while mobile drawer open");
+  ok(n.clock.pending().filter((t) => t.delay === 60000).length === 1, "suppressed show keeps exactly one pending chain");
+
+  // payment modal present: suppressed without needing layout (selector-based)
+  const m = toastPage();
+  await ready(m.dom.window);
+  const overlay = m.dom.window.document.createElement("div");
+  overlay.className = "ekg-checkout-modal-overlay";
+  m.dom.window.document.body.appendChild(overlay);
+  load(m.dom.window, "js/monetization.js");
+  m.clock.advance(60000);
+  ok(m.dom.window.document.getElementById("ekguru-support-toast").style.visibility === "hidden", "deferred while payment modal present");
+
+  // generic visible dialog: suppressed (offsetParent stubbed — JSDOM has no layout)
+  const d = toastPage();
+  await ready(d.dom.window);
+  const dlg = d.dom.window.document.createElement("div");
+  dlg.setAttribute("role", "dialog");
+  dlg.id = "some-modal";
+  d.dom.window.document.body.appendChild(dlg);
+  Object.defineProperty(dlg, "offsetParent", { value: d.dom.window.document.body, configurable: true });
+  load(d.dom.window, "js/monetization.js");
+  d.clock.advance(60000);
+  ok(d.dom.window.document.getElementById("ekguru-support-toast").style.visibility === "hidden", "deferred while a visible dialog is open");
 }
 {
   // reduced motion: no transition
@@ -468,6 +505,32 @@ function esc(win) {
   ok(window.EKGURU_RAZORPAY_READY === true, "razorpay guard flag set");
   ok(support === 1 && order === 0, "second injection fetches nothing (no double listener, no order risk)");
 
+  // E5: swipe-to-close on the shell-owned drawer (ported from main.js v163)
+  const sdom = drawerPage("en", ["js/site-shell.js", "js/experience.js", "js/main.js"]);
+  const swin = sdom.window;
+  await ready(swin);
+  load(swin, "js/experience.js");
+  load(swin, "js/site-shell.js");
+  const snav = swin.document.querySelector(".hdr .nav");
+  const sburger = swin.document.querySelector(".hdr .burger");
+  function swipe(x0, y0, x1, y1) {
+    const ts = new swin.Event("touchstart", { bubbles: true });
+    ts.touches = [{ clientX: x0, clientY: y0 }];
+    snav.dispatchEvent(ts);
+    const te = new swin.Event("touchend", { bubbles: true });
+    te.changedTouches = [{ clientX: x1, clientY: y1 }];
+    snav.dispatchEvent(te);
+  }
+  sburger.click();
+  ok(snav.classList.contains("open"), "swipe rig: drawer opens");
+  swipe(10, 50, 100, 55);
+  ok(!snav.classList.contains("open"), "rightward flick (dx>70, flat) closes the drawer");
+  sburger.click();
+  swipe(10, 50, 15, 200);
+  ok(snav.classList.contains("open"), "vertical scroll-swipe leaves the drawer open");
+  swipe(10, 50, 40, 55);
+  ok(snav.classList.contains("open"), "short flick (dx<70) leaves the drawer open");
+
   const dom2 = new JSDOM(`<!DOCTYPE html><html lang="en"><body><span data-s="email">x</span></body></html>`,
     { url: "http://localhost/", runScripts: "outside-only", pretendToBeVisual: true });
   const w2 = dom2.window;
@@ -481,6 +544,211 @@ function esc(win) {
   load(w2, "js/settings.js");
   ok(w2.EKGURU_SETTINGS_READY === true, "settings guard flag set");
   ok(sheet === 1, "second injection costs no second sheet fetch");
+}
+
+/* ================= F. SEARCH OVERLAP STATIC CONTRACT (§4) ================= */
+console.log("F. Search overlap contract — static + real-index runtime");
+{
+  // F1: the shipped dropdown CSS contract (source experience.css vs bundle style.min.css)
+  const src = fs.readFileSync(path.join(ROOT, "css/experience.css"), "utf8");
+  const shipped = fs.readFileSync(path.join(ROOT, "css/style.min.css"), "utf8");
+  const shipRule = (shipped.match(/\.xp-sugg\{[^}]*\}/) || [""])[0];
+  for (const prop of ["position:absolute", "background:#fff", "z-index:30",
+      "max-height:340px", "overflow:auto", "inset-block-start:calc(100%+10px)"]) {
+    ok(shipRule.includes(prop), "shipped .xp-sugg: " + prop);
+  }
+  ok(/\.xp-sugg\[hidden\]\{display:none\}/.test(shipped), "shipped: hidden dropdown removes from layout");
+  const srcRule = (src.match(/\.xp-sugg \{[^}]*\}/) || [""])[0].replace(/\s+/g, "");
+  for (const prop of ["position:absolute", "background:#fff", "z-index:30",
+      "max-height:340px", "overflow:auto"]) {
+    ok(srcRule.includes(prop.replace(/:(\d)/, ":$1")), "source .xp-sugg: " + prop);
+  }
+  ok(/\.xp-searchbox\{position:relative/.test(shipped), "shipped: .xp-searchbox anchors the dropdown");
+
+  // F1b: ancestor chain on the real homepage — the dropdown must escape vertically
+  const home = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+  const heroRule = (home.match(/\.xp-hero\{[^}]*\}/) || [""])[0];
+  ok(heroRule.includes("overflow-x:clip") && heroRule.includes("overflow-y:visible"),
+    "hero: overflow-x:clip + overflow-y:visible (dropdown escapes downward)");
+  const chain = ["xp-hero-in", "xp-hero-copy", "xp-searchbox", "xp-searchbar"]
+    .map((c) => (home.match(new RegExp("\\." + c + "\\{[^}]*\\}")) || [""])[0]).join(" ");
+  ok(!/transform:/.test(chain), "no transformed ancestor traps the dropdown (mobile: transform:none)");
+  ok(/\.xp-searchbar input\[type=search\]\{[^}]*min-width:0/.test(home),
+    "search input flex-safe (min-width:0, long query cannot break layout)");
+}
+{
+  // F2: home dropdown driven against the REAL 651-row index
+  const IDX = JSON.parse(fs.readFileSync(path.join(ROOT, "search-index.json"), "utf8"));
+  async function query(q) {
+    const dom = new JSDOM(`<!DOCTYPE html><html lang="en"><body><div class="xp-searchbox">` +
+      `<form id="home-search"><input id="home-q" autocomplete="off"></form></div></body></html>`,
+      { url: "http://localhost/", runScripts: "outside-only", pretendToBeVisual: true });
+    const { window } = dom;
+    polyfills(window);
+    window.fetch = () => Promise.resolve({ json: () => Promise.resolve(IDX) });
+    const clock = installClock(window);
+    await ready(window);
+    load(window, "js/experience.js");
+    const input = window.document.getElementById("home-q");
+    const box = window.document.getElementById("home-sugg");
+    input.value = q;
+    input.dispatchEvent(new window.Event("input", { bubbles: true }));
+    clock.advance(150); // 120ms debounce
+    await new Promise((r) => setTimeout(r, 20)); // index fetch resolves
+    return { window, box, options: box.querySelectorAll('a[role="option"]') };
+  }
+  let r = await query("beginner");
+  ok(!r.box.hidden && r.options.length >= 1 && r.options.length <= 6, "beginner: 1–6 rows paint (43 index hits)");
+  ok(/View all results/.test(r.box.textContent), "beginner: view-all escape hatch present");
+  r = await query("conversation");
+  ok(!r.box.hidden && r.options.length >= 1 && r.options.length <= 6, "conversation: 1–6 rows paint (19 hits)");
+  r = await query("kids");
+  ok(r.box.hidden && r.options.length === 0, "kids: 0 title/desc/keyword hits → closes honestly, no stale rows");
+  r = await query("/j");
+  ok(r.box.hidden, "/j: punctuation query closes honestly (no crash)");
+  r = await query("hindi");
+  ok(!r.box.hidden && r.options.length === 6, "hindi: 613 hits capped at exactly 6 rows (many-results path)");
+  r = await query("zzzzqqqx");
+  ok(r.box.hidden && r.options.length === 0, "zero results: panel closes, nothing painted");
+  r = await query("a".repeat(200) + '<img src=x onerror=alert(1)>');
+  ok(!/<img\s/i.test(r.box.innerHTML), "200-char query with markup: escaped, no crash (long-query safe)");
+}
+{
+  // F3: /search/ renders in-flow (no overlay) with honest empty state
+  const html = fs.readFileSync(path.join(ROOT, "search/index.html"), "utf8");
+  const IDX = JSON.parse(fs.readFileSync(path.join(ROOT, "search-index.json"), "utf8"));
+  const resCSS = (html.match(/#res\{[^}]*\}/) || [""])[0];
+  ok(!/position\s*:\s*(absolute|fixed)/.test(resCSS), "/search/: #res is in-flow (no overlay to overlap)");
+  async function squery(q) {
+    const dom = new JSDOM(html, { url: "http://localhost/search/", runScripts: "outside-only", pretendToBeVisual: true });
+    const { window } = dom;
+    polyfills(window);
+    window.fetch = () => Promise.resolve({ json: () => Promise.resolve(IDX) });
+    const clock = installClock(window);
+    await ready(window);
+    load(window, "js/site-search.js");
+    const input = window.document.getElementById("q");
+    input.value = q;
+    input.dispatchEvent(new window.Event("input", { bubbles: true }));
+    clock.advance(150); // 140ms debounce
+    await new Promise((r) => setTimeout(r, 20));
+    await new Promise((r) => setTimeout(r, 20));
+    return window;
+  }
+  let w = await squery("beginner");
+  ok(w.document.querySelectorAll("#res a").length >= 1, "/search/ beginner: in-flow result links render");
+  ok(w.document.getElementById("search-live").textContent.length > 0, "/search/: status announced to AT");
+  w = await squery("zzzzqqqx");
+  ok(/Nothing matched/.test(w.document.getElementById("res").textContent), "/search/ zero results: honest empty state");
+}
+{
+  // F4: find-tutors ?q= prefill + in-flow filter (no overlay surface at all)
+  const html = fs.readFileSync(path.join(ROOT, "find-tutors.html"), "utf8");
+  const dom = new JSDOM(html, { url: "http://localhost/find-tutors.html?q=kids", runScripts: "outside-only", pretendToBeVisual: true });
+  const { window } = dom;
+  polyfills(window);
+  window.fetch = () => Promise.reject(new Error("offline"));
+  installClock(window);
+  window.EKGURU_TUTORS = [
+    { id: "a", name: "Asha", headline: "Hindi for kids", city: "Jaipur", teaches: ["Hindi"], tags: [], levels: [], priceUSD: 5, rating: 4.9 },
+    { id: "b", name: "Ravi", headline: "Business Hindi", city: "Delhi", teaches: ["Hindi"], tags: [], levels: [], priceUSD: 8, rating: 4.7 },
+  ];
+  await ready(window);
+  load(window, "js/main.js");
+  ok(window.document.getElementById("f-q").value === "kids", "find-tutors: ?q=kids prefilled into #f-q");
+  ok(window.document.querySelectorAll("#find-list .tcard, #find-list .t-card").length >= 1 ||
+     /Asha/.test(window.document.getElementById("find-list").textContent), "find-tutors: matching tutor card rendered in-flow");
+  ok(!/Ravi/.test(window.document.getElementById("find-list").textContent), "find-tutors: non-match filtered out");
+}
+
+/* ================= G. SCRIPT-CHAIN SINGULARITY (§9) ================= */
+console.log("G. One module, one init chain — runtime");
+{
+  // G1: the two real duplicate inclusions found repo-wide stay fixed
+  for (const [file, script] of [["contact/index.html", "site-shell.js"], ["admin.html", "site-config.js"]]) {
+    const html = fs.readFileSync(path.join(ROOT, file), "utf8").replace(/<!--[\s\S]*?-->/g, "");
+    const n = (html.match(new RegExp('<script[^>]*src="[^"]*' + script.replace(/\./g, "\\."), "g")) || []).length;
+    ok(n === 1, `${file}: exactly one ${script} tag (was 2)`);
+  }
+}
+{
+  // G2: lazy loader skips ?v=-tagged copies (mailer must send once)
+  async function lazyCase(preTag) {
+    const dom = new JSDOM(`<!DOCTYPE html><html lang="en"><head><script src="js/lazy.js"></script>${preTag}</head><body></body></html>`,
+      { url: "http://localhost/", runScripts: "outside-only", pretendToBeVisual: true });
+    const { window } = dom;
+    polyfills(window);
+    installClock(window);
+    await ready(window);
+    load(window, "js/lazy.js");
+    window.EkGuruLazy.load();
+    return [...window.document.querySelectorAll('script[src*="mailer.js"]')].map((s) => s.getAttribute("src"));
+  }
+  let tags = await lazyCase('<script src="js/mailer.js?v=9"></script>');
+  ok(tags.length === 1 && tags[0] === "js/mailer.js?v=9", "lazy: ?v=-tagged mailer not appended twice");
+  // positive case: with nothing pre-tagged, firing each load in turn must
+  // append mailer exactly once (guards the guard against over-matching)
+  const dom3 = new JSDOM(`<!DOCTYPE html><html lang="en"><head><script src="js/lazy.js"></script></head><body></body></html>`,
+    { url: "http://localhost/", runScripts: "outside-only", pretendToBeVisual: true });
+  polyfills(dom3.window);
+  installClock(dom3.window);
+  await ready(dom3.window);
+  load(dom3.window, "js/lazy.js");
+  dom3.window.EkGuruLazy.load();
+  for (let i = 0; i < 8; i++) {
+    await new Promise((r) => setTimeout(r, 10)); // chain links run in microtasks
+    const pending = [...dom3.window.document.querySelectorAll("script[src]")]
+      .filter((s) => !s.getAttribute("src").includes("lazy.js") && !s._fired);
+    for (const s of pending) {
+      s._fired = true;
+      s.dispatchEvent(new dom3.window.Event("load"));
+    }
+  }
+  const appended = [...dom3.window.document.querySelectorAll('script[src*="mailer.js"]')];
+  ok(appended.length === 1, "lazy: missing mailer still lazy-appended exactly once");
+}
+{
+  // G3: mailer double-evaluation is a no-op (same exported object)
+  const dom = new JSDOM(`<!DOCTYPE html><html lang="en"><body></body></html>`,
+    { url: "http://localhost/", runScripts: "outside-only", pretendToBeVisual: true });
+  const { window } = dom;
+  polyfills(window);
+  await ready(window);
+  load(window, "js/mailer.js");
+  const first = window.EkGuruMail;
+  load(window, "js/mailer.js");
+  ok(typeof first === "object" && window.EkGuruMail === first, "mailer: second evaluation returns early (single Mail)");
+}
+{
+  // G4: site-config behavior IIFEs run once; banner + payment guard both alive
+  const dom = new JSDOM(`<!DOCTYPE html><html lang="en"><body></body></html>`,
+    { url: "http://localhost/", runScripts: "outside-only", pretendToBeVisual: true });
+  const { window } = dom;
+  polyfills(window);
+  await ready(window);
+  load(window, "js/site-config.js");
+  load(window, "js/site-config.js");
+  ok(window.EKGURU_SITECONFIG_BEHAVIOR === true && window.EKGURU_SITECONFIG_BANNER === true, "site-config: both behavior flags set, second eval skipped");
+  window.dispatchEvent(new window.Event("offline"));
+  ok(window.document.querySelectorAll("#ekg-net-banner").length === 1, "offline event paints exactly one banner (no double listener)");
+}
+
+/* ================= H. SERVICE-WORKER STATIC CONTRACT (§11) ================= */
+console.log("H. Service worker — static");
+{
+  const sw = fs.readFileSync(path.join(ROOT, "sw.js"), "utf8");
+  const build = (sw.match(/const BUILD_ID = "([^"]+)"/) || ["", ""])[1];
+  ok(/v51/.test(build), "cache generation at v51 (post-hardening content)");
+  const shell = (sw.match(/const SHELL = \[([\s\S]*?)\];/) || ["", ""])[1];
+  const urls = [...shell.matchAll(/"\.\/([^"]+)"/g)].map((m) => m[1]);
+  ok(urls.length > 40 && urls.every((u) => fs.existsSync(path.join(ROOT, u))), `all ${urls.length} precache entries exist on disk`);
+  ok(!/game/i.test(shell.replace(/\/\*[\s\S]*?\*\//g, "")), "no game assets in the precache list (comments excluded)");
+  ok(/fetch\(req\)\.then/.test(sw) && /caches\.open\(CACHE\)\.then\(c => c\.put\(req, copy\)\)/.test(sw),
+    "code path is network-first and stores the fresh copy (stale JS cannot persist online)");
+  ok(/keys\.filter\(k => k !== CACHE && k !== OFFLINE\)\.map\(k => caches\.delete\(k\)\)/.test(sw),
+    "activate rotates stale caches, keeps current + user-pinned OFFLINE");
+  ok(/skipWaiting\(\)/.test(sw) && /clients\.claim\(\)/.test(sw), "skipWaiting + clients.claim (fixes apply without waiting for tabs to close)");
+  ok(/booking\|join\|contact/.test(sw), "OFFLINE pin refuses private flows (admin/booking/join/contact)");
 }
 
 console.log(`\nRuntime QA: ${pass} passed, ${fail} failed.`);

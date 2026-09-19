@@ -42,8 +42,15 @@
    surface lost its stale second Payment Page id and its stub section; the
    non-English support bands are localized. Cache generation moves so no
    returning visitor keeps the old greeting-less shell or the old bands. */
-/* BUILD: 2026-09-19T16:53:00Z v50 - exec-v3 greeting/i18n/support hardening */
-const BUILD_ID = "2026-09-19T16:53:00Z-v50-exec-v3-greeting-i18n-support";
+/* v51 — PR #8 final hardening: single-owner drawer (js/experience.js stands
+   down protocol-side) with swipe-to-close restored in js/site-shell.js;
+   single-chain support toast; double-evaluation guards on the payment,
+   mailer, settings, lazy-loader and site-config chains; per-word greeting
+   lang tags; duplicate script tags removed (/contact/, admin). Cache
+   generation moves so no returning visitor keeps the double drawer, the
+   pre-guard payment file or the old toast chain. */
+/* BUILD: 2026-09-19T18:10:00Z v51 - pr8 final hardening: drawer-swipe-guards-toast */
+const BUILD_ID = "2026-09-19T18:10:00Z-v51-pr8-final-hardening";
 const CACHE = "ekguru-" + BUILD_ID;
 
 /* Phase 6 §14 — "Save for offline" pins learner-chosen pages in a dedicated

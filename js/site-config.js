@@ -895,6 +895,10 @@ window.RAZORPAY_PAYMENT_LINK = "https://rzp.io/rzp/EkGuru";
 
 /* Global Payment CTA Guard — Enforces "Coming Soon" on any generic payment trigger */
 (function () {
+  /* Double-evaluation guard: a second copy of this file must not bind its
+     listeners twice. (Own flag — the offline banner below has its own.) */
+  if (window.EKGURU_SITECONFIG_BEHAVIOR) return;
+  window.EKGURU_SITECONFIG_BEHAVIOR = true;
   function applyGlobalPaymentMode() {
     var mode = (window.PAYMENT_MODE || "COMING_SOON").toUpperCase();
     if (mode !== "COMING_SOON") return;
@@ -966,6 +970,10 @@ window.EKGURU_MARKETS = [
    ========================================================= */
 (function () {
   "use strict";
+  /* Own flag — the payment-guard IIFE above sets BEHAVIOR first, so sharing
+     one flag would silence this banner on every first load. */
+  if (window.EKGURU_SITECONFIG_BANNER) return;
+  window.EKGURU_SITECONFIG_BANNER = true;
   function mk(tag, cls, txt) {
     var n = document.createElement(tag);
     n.className = cls;
