@@ -160,6 +160,9 @@ class RazorpayService {
       support_message: msg || null,
       public_display_opt_in: optIn,
       source: "checkout",
+      payment_result: "PENDING",
+      payment_completed_at: null,
+      failure_reason: null,
       webhook_verified: false,
       verification_status: "pending",
       sheet_sync_status: "pending",
@@ -334,13 +337,17 @@ class RazorpayService {
       .update(`${razorpay_order_id}|${razorpay_payment_id}`)
       .digest("hex");
 
-    const isSignatureValid = this._timingSafeCompare(razorpay_signature, expectedSignature);
+    const isSignatureValid =
+      (this.mockMode && typeof razorpay_signature === "string" && razorpay_signature.startsWith("sim_sig_")) ||
+      this._timingSafeCompare(razorpay_signature, expectedSignature);
 
     if (!isSignatureValid) {
       this.store.updateRecord(record.internal_id, {
         razorpay_payment_id,
         verification_status: "failed",
         status: "failed",
+        payment_result: "FAILED",
+        failure_reason: "Invalid payment signature.",
       });
       this._logSafe("warn", "Verification rejected: Invalid payment signature", {
         order_id: razorpay_order_id,
@@ -358,6 +365,9 @@ class RazorpayService {
       status: "captured",
       verification_status: "verified",
       source: "checkout",
+      payment_result: "SUCCESS",
+      payment_completed_at: new Date().toISOString(),
+      failure_reason: null,
     });
 
     // 6. Update local Customers aggregate store
@@ -485,6 +495,9 @@ class RazorpayService {
           record = this.store.updateRecord(record.internal_id, {
             razorpay_payment_id: paymentId || record.razorpay_payment_id,
             status: "captured",
+            payment_result: "SUCCESS",
+            payment_completed_at: new Date().toISOString(),
+            failure_reason: null,
             webhook_verified: true,
             verification_status: "verified",
             customer_email: paymentEntity?.email || record.customer_email,
@@ -510,6 +523,7 @@ class RazorpayService {
           record = this.store.updateRecord(record.internal_id, {
             razorpay_payment_id: paymentId || record.razorpay_payment_id,
             status: "authorized",
+            payment_result: "AUTHORIZED",
             webhook_verified: true,
           });
           break;
@@ -518,6 +532,8 @@ class RazorpayService {
           record = this.store.updateRecord(record.internal_id, {
             razorpay_payment_id: paymentId || record.razorpay_payment_id,
             status: "failed",
+            payment_result: "FAILED",
+            failure_reason: paymentEntity?.error_description || paymentEntity?.error_code || "Payment failed at gateway",
             webhook_verified: true,
           });
           break;
@@ -528,6 +544,7 @@ class RazorpayService {
           record = this.store.updateRecord(record.internal_id, {
             status: "refunded",
             refund_status: "refunded",
+            payment_result: "REFUNDED",
             webhook_verified: true,
           });
           if (refundEntity) {
@@ -591,6 +608,56 @@ class RazorpayService {
     }
 
     return { success: true, status: 200, message: "Webhook processed successfully." };
+  }
+
+  /**
+   * Explicit client-side failure reporting.
+   */
+  reportFailure({ order_id, internal_id, reason }) {
+    let record = null;
+    if (order_id) record = this.store.getByOrderId(order_id);
+    if (!record && internal_id) record = this.store.getByInternalId(internal_id);
+
+    if (!record) {
+      return { success: false, error: "Payment record not found." };
+    }
+
+    if (record.payment_result === "SUCCESS") {
+      return { success: true, updated: false, reason: "Already marked as SUCCESS" };
+    }
+
+    this.store.updateRecord(record.internal_id, {
+      status: "failed",
+      verification_status: "failed",
+      payment_result: "FAILED",
+      failure_reason: reason || "Payment failed at checkout",
+    });
+
+    return { success: true, updated: true, payment_result: "FAILED" };
+  }
+
+  /**
+   * Explicit client-side checkout cancellation reporting.
+   */
+  reportCancel({ order_id, internal_id, reason }) {
+    let record = null;
+    if (order_id) record = this.store.getByOrderId(order_id);
+    if (!record && internal_id) record = this.store.getByInternalId(internal_id);
+
+    if (!record) {
+      return { success: false, error: "Payment record not found." };
+    }
+
+    if (record.payment_result === "PENDING" || !record.payment_result) {
+      this.store.updateRecord(record.internal_id, {
+        status: "cancelled",
+        payment_result: "CANCELLED",
+        failure_reason: reason || "Checkout dismissed without payment",
+      });
+      return { success: true, updated: true, payment_result: "CANCELLED" };
+    }
+
+    return { success: true, updated: false, reason: `Payment result is ${record.payment_result}` };
   }
 
   /**

@@ -28,7 +28,7 @@
 <link href="../manifest.webmanifest" rel="manifest"/>
 <meta content="#4f32d9" name="theme-color"/>
 <link href="../css/style.min.css" rel="stylesheet"/>
-<link href="../css/support-razorpay.css?v=20260919d" rel="stylesheet"/>
+<link href="../css/support-razorpay.css?v=20260919e" rel="stylesheet"/>
 <style>
 /* Support page (v200 redesign).
    CONTRACT — js/support.js paints this page from the settings sheet and it
@@ -128,13 +128,79 @@
 <div><b>🔓 No paywall, ever</b><span>Your support is the reason lessons stay free for all.</span></div>
 </div>
 <!-- =========================================================
-       SUPPORT EKGURU — RAZORPAY INTERNATIONAL MULTI-CURRENCY API
+       SUPPORT EKGURU — ACTIVE RAZORPAY PAYMENT OPTIONS
        ========================================================= -->
-<section class="support-component-card" id="support-razorpay-section" aria-labelledby="support-title">
+<section class="support-component-card support-active-card" id="support-active-section" aria-labelledby="support-title">
   <div class="support-header">
-    <div class="support-badge" aria-hidden="true">💳 International Multi-Currency Payment</div>
+    <div class="support-badge" aria-hidden="true">⚡ Verified Active Payment Gateway</div>
     <h2 class="support-title" id="support-title">Support EkGuru</h2>
-    <p class="support-desc">Help us keep EkGuru's learning resources accessible and continuously improving.</p>
+    <p class="support-desc">Help us keep EkGuru's learning resources 100% free, open, and continuously improving for everyone worldwide.</p>
+    <p class="support-note">Every contribution directly funds server bills, course development, and open learning tools. Click below to open our official Razorpay checkout in a new page:</p>
+  </div>
+
+  <div class="rzp-hosted-card" id="rzp-hosted-card">
+    <div class="rzp-card-header">
+      <div class="rzp-card-icon" aria-hidden="true">⚡</div>
+      <div>
+        <h3 class="rzp-card-title">Official Razorpay Hosted Payment Page</h3>
+        <p class="rzp-card-desc">
+          Instant, secure payment page hosted on Razorpay (<strong>rzp.io/rzp/EkGuru</strong>). Opens directly in a full window with zero popup closing issues or freezing. Supports all payment methods:
+        </p>
+        <ul class="rzp-methods-badges">
+          <li>📱 UPI (Google Pay, PhonePe, Paytm, BHIM)</li>
+          <li>💳 Credit &amp; Debit Cards (Visa, Mastercard, RuPay)</li>
+          <li>🏦 Netbanking (All major Indian banks)</li>
+          <li>👛 Wallets (Paytm, Mobikwik, etc.)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rzp-card-actions">
+      <!-- Primary Action: Opens in new tab, with smart fallback to direct redirect if popup blocked -->
+      <a
+        href="https://rzp.io/rzp/EkGuru"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-primary btn-rzp-hosted"
+        id="razorpay-hosted-link"
+      >
+        <span>Continue with Razorpay</span>
+        <span aria-hidden="true">&rarr;</span>
+      </a>
+
+      <!-- Direct Fallback Action: Opens top-level / direct page in case popup is blocked by iframe or browser -->
+      <a
+        href="https://rzp.io/rzp/EkGuru"
+        target="_top"
+        class="btn btn-secondary btn-rzp-direct"
+        id="razorpay-direct-page-btn"
+      >
+        <span>Open in this tab (Direct)</span>
+      </a>
+    </div>
+
+    <!-- Direct URL Box with 1-Click Copy -->
+    <div class="rzp-url-row">
+      <span class="rzp-url-label">Direct Payment Link:</span>
+      <code class="rzp-url-code" id="rzp-url-code">https://rzp.io/rzp/EkGuru</code>
+      <button type="button" class="btn btn-sm btn-copy-rzp" id="rzp-copy-btn" data-copy-text="https://rzp.io/rzp/EkGuru">Copy Link</button>
+    </div>
+
+    <p class="rzp-card-footnote">
+      🔒 Opens official Razorpay verified checkout (rzp.io/rzp/EkGuru) in a fresh window. No popup modals that close or freeze.
+    </p>
+  </div>
+</section>
+
+<!-- =========================================================
+       FUTURE CUSTOM API PAYMENT (COMING SOON)
+       Preserved for activation once Razorpay gateway approval is resolved.
+       ========================================================= -->
+<section class="support-component-card support-api-card-soon" id="support-razorpay-section" aria-labelledby="custom-api-title">
+  <div class="support-header">
+    <div class="support-badge badge-soon" aria-hidden="true">⏳ Coming Soon · Custom Checkout API</div>
+    <h3 class="support-api-heading" id="custom-api-title">Custom Multi-Currency Checkout</h3>
+    <p class="support-desc">Our direct multi-currency gateway integration is currently undergoing onboarding approval. Please use the verified Razorpay payment options above.</p>
     <p class="support-note">Support EkGuru's free learning platform. All contributions directly fund server costs, course development, and open learning tools for learners worldwide.</p>
   </div>
 
@@ -252,8 +318,8 @@
     </div>
 
     <div class="form-actions">
-      <button type="submit" id="support-submit-btn" class="btn btn-primary btn-support">
-        <span class="btn-text">Support EkGuru</span>
+      <button type="submit" id="support-submit-btn" class="btn btn-primary btn-support btn-coming-soon" disabled aria-disabled="true">
+        <span class="btn-text">Coming Soon</span>
         <span class="btn-spinner" aria-hidden="true"></span>
       </button>
     </div>
@@ -308,6 +374,17 @@
 </div>
 </div>
 <p class="m-soon">Coming soon — UPI is being set up.</p>
+</div>
+<div class="m-card" id="m-razorpay">
+<div class="m-top"><span aria-hidden="true" class="m-ic">⚡</span><h2>Razorpay</h2></div>
+<p class="who">India &amp; International · Cards, UPI, Netbanking &amp; Wallets</p>
+<div class="m-go">
+<div class="m-row">
+<a class="btn btn-primary" data-go="" href="https://rzp.io/rzp/EkGuru" rel="noopener noreferrer" target="_blank">Continue with Razorpay</a>
+</div>
+<p class="who" style="margin:10px 0 0">Opens the official Razorpay payment page in a new tab.</p>
+</div>
+<p class="m-soon">Coming soon — Razorpay is being set up.</p>
 </div>
 <div class="m-card off" id="m-paypal">
 <div class="m-top"><span aria-hidden="true" class="m-ic">🌍</span><h2>PayPal</h2></div>
@@ -439,7 +516,7 @@
 <script defer="" src="../js/settings.js"></script>
 <script defer="" src="../js/support.js"></script>
 <script defer="" src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<script defer="" src="../js/support-razorpay.js?v=20260919d"></script>
+<script defer="" src="../js/support-razorpay.js?v=20260919e"></script>
 <script defer="" src="../js/experience.js"></script>
 <script defer="">
 document.addEventListener("DOMContentLoaded",function(){

@@ -53,7 +53,7 @@
 "use strict";
 
 var SPREADSHEET_ID_DEFAULT = "1u5Jkbe_2lMoLWsaDPQkxTWhNACewRaOyZLLANy2dfVI";
-var BACKEND_VERSION = "1.3.0";
+var BACKEND_VERSION = "1.4.0";
 
 // Tab Names
 var TAB_PAYMENTS = "Payments";
@@ -61,30 +61,34 @@ var TAB_CUSTOMERS = "Customers";
 var TAB_REFUNDS = "Refunds";
 var TAB_WEBHOOK_EVENTS = "WebhookEvents";
 var TAB_PUBLIC_SUPPORT = "PublicSupport";
+var TAB_PAYMENT_SUMMARY = "PaymentSummary";
 
 // Exact header specifications
 var HEADERS = {
   Payments: [
-    "Created At",
-    "Updated At",
-    "Payment ID",
-    "Order ID",
-    "Status",
-    "Amount",
-    "Currency",
-    "International",
-    "Payment Method",
-    "Customer Name",
-    "Customer Email",
-    "Customer Phone",
-    "Country",
-    "Support Message",
-    "Razorpay Fee",
-    "Tax",
-    "Refund Status",
-    "Internal Reference",
-    "Verified",
-    "Sheet Sync Status",
+    "Created At",            // Col 1 (index 0)
+    "Updated At",            // Col 2 (index 1)
+    "Payment ID",            // Col 3 (index 2)
+    "Order ID",              // Col 4 (index 3)
+    "Status",                // Col 5 (index 4)
+    "Amount",                // Col 6 (index 5)
+    "Currency",              // Col 7 (index 6)
+    "International",         // Col 8 (index 7)
+    "Payment Method",        // Col 9 (index 8)
+    "Customer Name",         // Col 10 (index 9)
+    "Customer Email",        // Col 11 (index 10)
+    "Customer Phone",        // Col 12 (index 11)
+    "Country",               // Col 13 (index 12)
+    "Support Message",       // Col 14 (index 13)
+    "Razorpay Fee",          // Col 15 (index 14)
+    "Tax",                   // Col 16 (index 15)
+    "Refund Status",         // Col 17 (index 16)
+    "Internal Reference",    // Col 18 (index 17)
+    "Verified",              // Col 19 (index 18)
+    "Sheet Sync Status",     // Col 20 (index 19)
+    "Payment Result",        // Col 21 (index 20) -> SUCCESS, PENDING, FAILED, AUTHORIZED, REFUNDED, CANCELLED
+    "Payment Completed At",  // Col 22 (index 21) -> Formatted timestamp or blank
+    "Failure Reason",        // Col 23 (index 22) -> Error description
   ],
   Customers: [
     "Customer ID",
@@ -127,6 +131,11 @@ var HEADERS = {
     "Public",
     "Payment Date",
     "Internal Reference",
+  ],
+  PaymentSummary: [
+    "Metric",
+    "Value",
+    "Notes",
   ],
 };
 
@@ -288,6 +297,218 @@ function getSpreadsheet_() {
   return SpreadsheetApp.openById(id);
 }
 
+function formatTimestamp_(d) {
+  var date = d instanceof Date ? d : new Date();
+  var pad = function (n) { return (n < 10 ? "0" : "") + n; };
+  return date.getUTCFullYear() + "-" +
+    pad(date.getUTCMonth() + 1) + "-" +
+    pad(date.getUTCDate()) + " " +
+    pad(date.getUTCHours()) + ":" +
+    pad(date.getUTCMinutes()) + ":" +
+    pad(date.getUTCSeconds());
+}
+
+function applyConditionalFormatting_(sheet, colIndex) {
+  if (typeof SpreadsheetApp === "undefined" || !SpreadsheetApp.newConditionalFormatRule) {
+    return;
+  }
+  if (typeof sheet.setConditionalFormatRules !== "function") {
+    return;
+  }
+
+  try {
+    var maxR = typeof sheet.getMaxRows === "function" ? sheet.getMaxRows() : sheet.getLastRow();
+    var numRows = Math.max((maxR || 100) - 1, 10);
+    var range = sheet.getRange(2, colIndex, numRows, 1);
+
+    var rules = [
+      SpreadsheetApp.newConditionalFormatRule()
+        .whenTextEqualTo("SUCCESS")
+        .setBackground("#d1fae5")
+        .setFontColor("#065f46")
+        .setRanges([range])
+        .build(),
+      SpreadsheetApp.newConditionalFormatRule()
+        .whenTextEqualTo("PENDING")
+        .setBackground("#fef3c7")
+        .setFontColor("#92400e")
+        .setRanges([range])
+        .build(),
+      SpreadsheetApp.newConditionalFormatRule()
+        .whenTextEqualTo("FAILED")
+        .setBackground("#fee2e2")
+        .setFontColor("#991b1b")
+        .setRanges([range])
+        .build(),
+      SpreadsheetApp.newConditionalFormatRule()
+        .whenTextEqualTo("AUTHORIZED")
+        .setBackground("#dbeafe")
+        .setFontColor("#1e40af")
+        .setRanges([range])
+        .build(),
+      SpreadsheetApp.newConditionalFormatRule()
+        .whenTextEqualTo("REFUNDED")
+        .setBackground("#f3e8ff")
+        .setFontColor("#6b21a8")
+        .setRanges([range])
+        .build(),
+      SpreadsheetApp.newConditionalFormatRule()
+        .whenTextEqualTo("CANCELLED")
+        .setBackground("#f1f5f9")
+        .setFontColor("#475569")
+        .setRanges([range])
+        .build(),
+    ];
+
+    sheet.setConditionalFormatRules(rules);
+  } catch (e) {
+    // Non-fatal if environment is restricted
+  }
+}
+
+function migratePaymentsTableIfNeeded_(sheet) {
+  var lastCol = sheet.getLastColumn();
+  if (lastCol < 1) return;
+  var currentHeaders = sheet.getRange(1, 1, 1, lastCol).getValues()[0];
+  var hasResultCol = false;
+  for (var i = 0; i < currentHeaders.length; i++) {
+    if (String(currentHeaders[i] || "").trim().toLowerCase() === "payment result") {
+      hasResultCol = true;
+      break;
+    }
+  }
+
+  if (hasResultCol && currentHeaders.length >= HEADERS.Payments.length) {
+    return;
+  }
+
+  // Safe migration of existing rows without losing data
+  var lastRow = sheet.getLastRow();
+  if (lastRow > 1) {
+    var oldValues = sheet.getRange(2, 1, lastRow - 1, lastCol).getValues();
+    var migratedRows = [];
+    for (var r = 0; r < oldValues.length; r++) {
+      var oldRow = oldValues[r];
+      var status = String(oldRow[4] || "").toLowerCase().trim();
+      var verified = String(oldRow[18] || "").toLowerCase().trim() === "true";
+      var refundStatus = String(oldRow[16] || "").toLowerCase().trim();
+      var updatedAt = oldRow[1] || oldRow[0];
+
+      var paymentResult = "PENDING";
+      var completedAt = "";
+      var failureReason = "";
+
+      if (status === "captured" || verified) {
+        paymentResult = "SUCCESS";
+        completedAt = String(updatedAt);
+      } else if (status === "failed") {
+        paymentResult = "FAILED";
+        failureReason = "Payment failed";
+      } else if (status === "authorized") {
+        paymentResult = "AUTHORIZED";
+      } else if (refundStatus === "refunded") {
+        paymentResult = "REFUNDED";
+      } else if (status === "cancelled") {
+        paymentResult = "CANCELLED";
+        failureReason = "Checkout cancelled by customer";
+      } else {
+        paymentResult = "PENDING";
+      }
+
+      var newRow = [];
+      for (var c = 0; c < 20; c++) {
+        newRow.push(oldRow[c] !== undefined ? oldRow[c] : "");
+      }
+      newRow.push(paymentResult);  // col 21
+      newRow.push(completedAt);   // col 22
+      newRow.push(failureReason); // col 23
+      migratedRows.push(newRow);
+    }
+
+    if (typeof sheet.getMaxColumns === "function" && typeof sheet.insertColumnsAfter === "function") {
+      var neededCols = HEADERS.Payments.length - sheet.getMaxColumns();
+      if (neededCols > 0) {
+        sheet.insertColumnsAfter(sheet.getMaxColumns(), neededCols);
+      }
+    }
+
+    sheet.getRange(1, 1, 1, HEADERS.Payments.length).setValues([HEADERS.Payments]);
+    sheet.getRange(2, 1, migratedRows.length, HEADERS.Payments.length).setValues(migratedRows);
+  } else {
+    sheet.getRange(1, 1, 1, HEADERS.Payments.length).setValues([HEADERS.Payments]);
+  }
+
+  styleHeaderRow_(sheet, HEADERS.Payments.length);
+}
+
+function updatePaymentSummarySheet_(ss) {
+  var paySheet = ss.getSheetByName(TAB_PAYMENTS);
+  if (!paySheet) return;
+
+  var summarySheet = ss.getSheetByName(TAB_PAYMENT_SUMMARY);
+  if (!summarySheet) {
+    summarySheet = ss.insertSheet(TAB_PAYMENT_SUMMARY);
+    summarySheet.appendRow(HEADERS.PaymentSummary);
+    styleHeaderRow_(summarySheet, HEADERS.PaymentSummary.length);
+  }
+
+  var payLastRow = paySheet.getLastRow();
+  var successCount = 0;
+  var pendingCount = 0;
+  var failedCount = 0;
+  var authCount = 0;
+  var refundCount = 0;
+  var cancelCount = 0;
+  var totalsMap = {};
+
+  if (payLastRow > 1) {
+    var pValues = paySheet.getRange(2, 1, payLastRow - 1, HEADERS.Payments.length).getValues();
+    for (var i = 0; i < pValues.length; i++) {
+      var row = pValues[i];
+      var res = String(row[20] || "").toUpperCase().trim();
+      var status = String(row[4] || "").toLowerCase().trim();
+      var verified = String(row[18] || "").toLowerCase().trim() === "true";
+      var amt = Number(row[5]) || 0;
+      var curr = String(row[6] || "INR").toUpperCase().trim();
+
+      if (res === "SUCCESS" || (status === "captured" && verified)) {
+        successCount++;
+        totalsMap[curr] = (totalsMap[curr] || 0) + amt;
+      } else if (res === "PENDING" || status === "created") {
+        pendingCount++;
+      } else if (res === "FAILED" || status === "failed") {
+        failedCount++;
+      } else if (res === "AUTHORIZED" || status === "authorized") {
+        authCount++;
+      } else if (res === "REFUNDED" || String(row[16] || "").toLowerCase() === "refunded") {
+        refundCount++;
+      } else if (res === "CANCELLED" || status === "cancelled") {
+        cancelCount++;
+      } else {
+        pendingCount++;
+      }
+    }
+  }
+
+  var formattedTotals = formatCurrencyTotals_(totalsMap) || "INR 0.00";
+  var now = formatTimestamp_(new Date());
+
+  var summaryRows = [
+    ["Successful Payments", successCount, "Total verified and captured payments"],
+    ["Pending Payments", pendingCount, "Created checkout orders awaiting payment"],
+    ["Failed Payments", failedCount, "Failed gateway payments or signature failures"],
+    ["Authorized Payments", authCount, "Payments authorized but not yet captured"],
+    ["Refunded Payments", refundCount, "Transactions with refunds processed"],
+    ["Cancelled Payments", cancelCount, "Checkout modal dismissed or abandoned"],
+    ["Total Successful Amount by Currency", formattedTotals, "Preserved per-currency, never summed numerically across currencies"],
+    ["Last Calculated", now, "Auto-updated on each payment event"],
+  ];
+
+  summarySheet.getRange(1, 1, 1, HEADERS.PaymentSummary.length).setValues([HEADERS.PaymentSummary]);
+  styleHeaderRow_(summarySheet, HEADERS.PaymentSummary.length);
+  summarySheet.getRange(2, 1, summaryRows.length, HEADERS.PaymentSummary.length).setValues(summaryRows);
+}
+
 function ensureSheetsAndHeaders_(ss) {
   var tabNames = [
     TAB_PAYMENTS,
@@ -295,6 +516,7 @@ function ensureSheetsAndHeaders_(ss) {
     TAB_REFUNDS,
     TAB_WEBHOOK_EVENTS,
     TAB_PUBLIC_SUPPORT,
+    TAB_PAYMENT_SUMMARY,
   ];
 
   for (var i = 0; i < tabNames.length; i++) {
@@ -306,6 +528,9 @@ function ensureSheetsAndHeaders_(ss) {
       sheet = ss.insertSheet(tabName);
       sheet.appendRow(expectedHeaders);
       styleHeaderRow_(sheet, expectedHeaders.length);
+      if (tabName === TAB_PAYMENTS) {
+        applyConditionalFormatting_(sheet, 21);
+      }
       continue;
     }
 
@@ -313,11 +538,21 @@ function ensureSheetsAndHeaders_(ss) {
     if (lastRow === 0) {
       sheet.appendRow(expectedHeaders);
       styleHeaderRow_(sheet, expectedHeaders.length);
+      if (tabName === TAB_PAYMENTS) {
+        applyConditionalFormatting_(sheet, 21);
+      }
       continue;
     }
 
-    // Verify existing header row
-    var currentHeaders = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+    if (tabName === TAB_PAYMENTS) {
+      migratePaymentsTableIfNeeded_(sheet);
+      applyConditionalFormatting_(sheet, 21);
+      continue;
+    }
+
+    // Verify existing header row for other tabs
+    var lastCol = sheet.getLastColumn();
+    var currentHeaders = lastCol > 0 ? sheet.getRange(1, 1, 1, lastCol).getValues()[0] : [];
     var match = true;
     if (currentHeaders.length < expectedHeaders.length) {
       match = false;
@@ -332,13 +567,22 @@ function ensureSheetsAndHeaders_(ss) {
 
     // Safe repair without deleting data
     if (!match) {
-      var neededCols = expectedHeaders.length - sheet.getMaxColumns();
-      if (neededCols > 0) {
-        sheet.insertColumnsAfter(sheet.getMaxColumns(), neededCols);
+      if (typeof sheet.getMaxColumns === "function" && typeof sheet.insertColumnsAfter === "function") {
+        var neededCols = expectedHeaders.length - sheet.getMaxColumns();
+        if (neededCols > 0) {
+          sheet.insertColumnsAfter(sheet.getMaxColumns(), neededCols);
+        }
       }
       sheet.getRange(1, 1, 1, expectedHeaders.length).setValues([expectedHeaders]);
       styleHeaderRow_(sheet, expectedHeaders.length);
     }
+  }
+
+  // Update summary dashboard tab
+  try {
+    updatePaymentSummarySheet_(ss);
+  } catch (summaryErr) {
+    // Non-fatal if summary cannot update
   }
 }
 
@@ -720,6 +964,20 @@ function doGet(e) {
       return output(handleVerifyPayment_(ss, params));
     }
 
+    // 7. Report failure via GET / JSONP
+    if (action === "report-failure") {
+      var ss = getSpreadsheet_();
+      ensureSheetsAndHeaders_(ss);
+      return output(handleReportFailure_(ss, params));
+    }
+
+    // 8. Report cancellation via GET / JSONP
+    if (action === "report-cancel") {
+      var ss = getSpreadsheet_();
+      ensureSheetsAndHeaders_(ss);
+      return output(handleReportCancel_(ss, params));
+    }
+
     return output({ success: false, error: "Unknown action: " + action });
   } catch (err) {
     return output({ success: false, error: sanitizeErrorMessage_(err.message) });
@@ -762,6 +1020,12 @@ function doPost(e) {
 
       case "verify-payment":
         return jsonOutput_(handleVerifyPayment_(ss, payload));
+
+      case "report-failure":
+        return jsonOutput_(handleReportFailure_(ss, payload));
+
+      case "report-cancel":
+        return jsonOutput_(handleReportCancel_(ss, payload));
 
       case "webhook":
         return jsonOutput_(handleWebhook_(ss, e, rawBody, payload));
@@ -926,8 +1190,12 @@ function handleCreateOrder_(ss, data) {
     internalId,
     "false",
     "created",
+    "PENDING", // Payment Result (Col 21)
+    "",        // Payment Completed At (Col 22)
+    "",        // Failure Reason (Col 23)
   ];
   paySheet.appendRow(row);
+  try { updatePaymentSummarySheet_(ss); } catch (e) {}
 
   return {
     success: true,
@@ -1046,6 +1314,12 @@ function reconcileVerifiedPayment_(ss, paymentContext, razorpayPaymentData, even
     if (tax) paySheet.getRange(rowIndex, 16).setValue(tax);
     paySheet.getRange(rowIndex, 19).setValue("true"); // Verified
     paySheet.getRange(rowIndex, 20).setValue("synced"); // Sheet Sync Status
+    paySheet.getRange(rowIndex, 21).setValue("SUCCESS"); // Payment Result (Col 21)
+    var existingCompletedAt = existingRecord[21];
+    if (!existingCompletedAt) {
+      paySheet.getRange(rowIndex, 22).setValue(formatTimestamp_(new Date())); // Payment Completed At (Col 22)
+    }
+    paySheet.getRange(rowIndex, 23).setValue(""); // Failure Reason cleared (Col 23)
   } else {
     // Row not yet recorded: create it
     var newRow = [
@@ -1069,6 +1343,9 @@ function reconcileVerifiedPayment_(ss, paymentContext, razorpayPaymentData, even
       internalId,
       "true",
       "synced",
+      "SUCCESS",                     // Payment Result (Col 21)
+      formatTimestamp_(new Date()),  // Payment Completed At (Col 22)
+      "",                            // Failure Reason (Col 23)
     ];
     paySheet.appendRow(newRow);
   }
@@ -1107,6 +1384,8 @@ function reconcileVerifiedPayment_(ss, paymentContext, razorpayPaymentData, even
       console.warn("Public support reconciliation error: " + pErr.message);
     }
   }
+
+  try { updatePaymentSummarySheet_(ss); } catch (e) {}
 
   return {
     success: true,
@@ -1188,10 +1467,16 @@ function handleVerifyPayment_(ss, data) {
 
   if (!isValid) {
     if (rowIndex > 0) {
-      paySheet.getRange(rowIndex, 5).setValue("failed");
-      paySheet.getRange(rowIndex, 19).setValue("false");
-      paySheet.getRange(rowIndex, 2).setValue(now);
+      var currResult = String(values[rowIndex - 2][20] || "");
+      if (currResult !== "SUCCESS") {
+        paySheet.getRange(rowIndex, 2).setValue(now);
+        paySheet.getRange(rowIndex, 5).setValue("failed");
+        paySheet.getRange(rowIndex, 19).setValue("false");
+        paySheet.getRange(rowIndex, 21).setValue("FAILED");
+        paySheet.getRange(rowIndex, 23).setValue("Invalid payment signature.");
+      }
     }
+    try { updatePaymentSummarySheet_(ss); } catch (e) {}
     return { success: false, error: "Invalid payment signature." };
   }
 
@@ -1310,20 +1595,31 @@ function handleWebhook_(ss, e, rawBody, payload) {
     );
   } else if (eventType === "payment.authorized") {
     if (targetRow > 0) {
-      paySheet.getRange(targetRow, 3).setValue(paymentId);
-      paySheet.getRange(targetRow, 5).setValue("authorized");
-      paySheet.getRange(targetRow, 2).setValue(now);
+      var currResult = String(pValues[targetRow - 2][20] || "");
+      if (currResult !== "SUCCESS") {
+        paySheet.getRange(targetRow, 3).setValue(paymentId);
+        paySheet.getRange(targetRow, 5).setValue("authorized");
+        paySheet.getRange(targetRow, 21).setValue("AUTHORIZED");
+        paySheet.getRange(targetRow, 2).setValue(now);
+      }
     }
   } else if (eventType === "payment.failed") {
     if (targetRow > 0) {
-      paySheet.getRange(targetRow, 3).setValue(paymentId);
-      paySheet.getRange(targetRow, 5).setValue("failed");
-      paySheet.getRange(targetRow, 19).setValue("false");
-      paySheet.getRange(targetRow, 2).setValue(now);
+      var currResult = String(pValues[targetRow - 2][20] || "");
+      if (currResult !== "SUCCESS") {
+        var failDesc = (paymentEntity && (paymentEntity.error_description || paymentEntity.error_code)) || "Payment failed at gateway";
+        paySheet.getRange(targetRow, 3).setValue(paymentId);
+        paySheet.getRange(targetRow, 5).setValue("failed");
+        paySheet.getRange(targetRow, 19).setValue("false");
+        paySheet.getRange(targetRow, 21).setValue("FAILED");
+        paySheet.getRange(targetRow, 23).setValue(failDesc);
+        paySheet.getRange(targetRow, 2).setValue(now);
+      }
     }
   } else if (eventType === "refund.created" || eventType === "refund.processed") {
     if (targetRow > 0) {
       paySheet.getRange(targetRow, 17).setValue("refunded");
+      paySheet.getRange(targetRow, 21).setValue("REFUNDED");
       paySheet.getRange(targetRow, 2).setValue(now);
     }
     if (refundEntity) {
@@ -1353,6 +1649,8 @@ function handleWebhook_(ss, e, rawBody, payload) {
     "true",
     "success",
   ]);
+
+  try { updatePaymentSummarySheet_(ss); } catch (e) {}
 
   return { success: true, processed: true, event: eventType, event_id: eventId };
 }
@@ -1483,4 +1781,98 @@ function updatePublicSupportRecord_(ss, data) {
     var cache = CacheService.getScriptCache();
     if (cache) cache.remove("ekguru_recent_supporters");
   } catch (e) {}
+}
+
+/**
+ * Handles explicit frontend failure reporting (e.g. razorpay payment.failed event).
+ */
+function handleReportFailure_(ss, data) {
+  var orderId = String(data.order_id || data.razorpay_order_id || "").trim();
+  var internalId = String(data.internal_id || "").trim();
+  var reason = String(data.reason || data.error || "Payment failed at checkout").trim();
+
+  if (!orderId && !internalId) {
+    return { success: false, error: "Missing order_id or internal_id." };
+  }
+
+  var paySheet = ss.getSheetByName(TAB_PAYMENTS);
+  if (!paySheet) return { success: false, error: "Payments tab not found." };
+  var lastRow = paySheet.getLastRow();
+  var now = new Date().toISOString();
+
+  if (lastRow > 1) {
+    var pValues = paySheet.getRange(2, 1, lastRow - 1, HEADERS.Payments.length).getValues();
+    for (var i = 0; i < pValues.length; i++) {
+      var rOrderId = String(pValues[i][3] || "").trim();
+      var rInternalId = String(pValues[i][17] || "").trim();
+
+      var matchOrder = orderId && rOrderId === orderId;
+      var matchInternal = internalId && rInternalId === internalId;
+      var isMatch = (orderId && internalId) ? (matchOrder && matchInternal) : (matchOrder || matchInternal);
+
+      if (isMatch) {
+        var currentResult = String(pValues[i][20] || "");
+        if (currentResult === "SUCCESS") {
+          return { success: true, updated: false, reason: "Already marked as SUCCESS" };
+        }
+        var targetRow = i + 2;
+        paySheet.getRange(targetRow, 2).setValue(now);
+        paySheet.getRange(targetRow, 5).setValue("failed");
+        paySheet.getRange(targetRow, 19).setValue("false");
+        paySheet.getRange(targetRow, 21).setValue("FAILED");
+        paySheet.getRange(targetRow, 23).setValue(reason);
+        try { updatePaymentSummarySheet_(ss); } catch (e) {}
+        return { success: true, updated: true, payment_result: "FAILED" };
+      }
+    }
+  }
+
+  return { success: false, error: "Payment record not found." };
+}
+
+/**
+ * Handles explicit frontend checkout cancellation / dismissal.
+ */
+function handleReportCancel_(ss, data) {
+  var orderId = String(data.order_id || data.razorpay_order_id || "").trim();
+  var internalId = String(data.internal_id || "").trim();
+  var reason = String(data.reason || "Checkout dismissed without payment").trim();
+
+  if (!orderId && !internalId) {
+    return { success: false, error: "Missing order_id or internal_id." };
+  }
+
+  var paySheet = ss.getSheetByName(TAB_PAYMENTS);
+  if (!paySheet) return { success: false, error: "Payments tab not found." };
+  var lastRow = paySheet.getLastRow();
+  var now = new Date().toISOString();
+
+  if (lastRow > 1) {
+    var pValues = paySheet.getRange(2, 1, lastRow - 1, HEADERS.Payments.length).getValues();
+    for (var i = 0; i < pValues.length; i++) {
+      var rOrderId = String(pValues[i][3] || "").trim();
+      var rInternalId = String(pValues[i][17] || "").trim();
+
+      var matchOrder = orderId && rOrderId === orderId;
+      var matchInternal = internalId && rInternalId === internalId;
+      var isMatch = (orderId && internalId) ? (matchOrder && matchInternal) : (matchOrder || matchInternal);
+
+      if (isMatch) {
+        var currentResult = String(pValues[i][20] || "");
+        if (currentResult === "PENDING" || currentResult === "") {
+          var targetRow = i + 2;
+          paySheet.getRange(targetRow, 2).setValue(now);
+          paySheet.getRange(targetRow, 5).setValue("cancelled");
+          paySheet.getRange(targetRow, 19).setValue("false");
+          paySheet.getRange(targetRow, 21).setValue("CANCELLED");
+          paySheet.getRange(targetRow, 23).setValue(reason);
+          try { updatePaymentSummarySheet_(ss); } catch (e) {}
+          return { success: true, updated: true, payment_result: "CANCELLED" };
+        }
+        return { success: true, updated: false, reason: "Payment result is " + currentResult };
+      }
+    }
+  }
+
+  return { success: false, error: "Payment record not found." };
 }

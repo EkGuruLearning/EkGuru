@@ -142,3 +142,31 @@ For local offline development and test mock runs, the repository provides `serve
 npm run server
 ```
 The local server supports both REST paths and `?action=...` queries for unified integration testing. In production, requests go directly to the Google Apps Script Web App.
+
+---
+
+## 8. Production Payment Modes & Gateway Onboarding Lifecycle
+
+While custom Razorpay API credentials and international payment approvals are undergoing onboarding review with Razorpay, the platform enforces a fail-safe dual-track architecture:
+
+### A. Current Production Mode (`PAYMENT_MODE = "COMING_SOON"`)
+- **Default State**: Defined in `js/site-config.js` (`window.PAYMENT_MODE = "COMING_SOON"`).
+- **Custom Checkout API UI**: Form submit button is marked non-actionable (`disabled`, `aria-disabled="true"`) and labeled `"Coming Soon"`. Form submissions are intercepted without making backend order creation calls or displaying broken checkout modals.
+- **Global Payment CTA Guard**: Automatically prevents simulated or test payments on any generic payment trigger across the website.
+- **Active Hosted Razorpay Options**:
+  1. **Direct Razorpay Payment Link**: `https://rzp.io/rzp/EkGuru` (opens in a secure new tab with `target="_blank" rel="noopener noreferrer"`).
+  2. **Official Razorpay Payment Button**: Embedded via `pl_TdkrmHjhK9ip3r` using the standard Razorpay script `https://checkout.razorpay.com/v1/payment-button.js`.
+  3. **Choose-a-Method Grid**: Active `#m-razorpay` card linking directly to `https://rzp.io/rzp/EkGuru`.
+- **Recent Supporters Section**: Operates fully independently, fetching verified contributors via direct JSON or resilient JSONP fallback.
+
+### B. Activating Full Custom API Mode (`PAYMENT_MODE = "LIVE_API"`)
+Once Razorpay completes account approval:
+1. Populate live `RAZORPAY_KEY_ID` and `RAZORPAY_KEY_SECRET` in Google Apps Script Script Properties.
+2. In `js/site-config.js`, update the flag:
+   ```javascript
+   window.PAYMENT_MODE = "LIVE_API";
+   ```
+3. The custom multi-currency checkout form will instantly activate:
+   - Button text switches to `"Support EkGuru"`.
+   - Full order creation, currency decimal scaling, prefill metadata, and client-side modal checkout run through the production Apps Script backend.
+   - All backend Google Sheet ledgers (`Payments`, `Customers`, `Refunds`, `WebhookEvents`, `PublicSupport`, `PaymentSummary`) will record transactions in real time.

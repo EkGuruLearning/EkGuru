@@ -211,6 +211,44 @@ async function handleApiRequest(req, res, service) {
     return true;
   }
 
+  // 3c. Report Failure via GET / JSONP: GET ?action=report-failure
+  if (req.method === "GET" && queryAction === "report-failure") {
+    const cb = parsedUrl.searchParams.get("callback") || parsedUrl.searchParams.get("jsonp");
+    const result = service.reportFailure({
+      order_id: parsedUrl.searchParams.get("order_id") || parsedUrl.searchParams.get("razorpay_order_id"),
+      internal_id: parsedUrl.searchParams.get("internal_id"),
+      reason: parsedUrl.searchParams.get("reason"),
+    });
+    if (cb && /^[a-zA-Z0-9_$.]+$/.test(cb.trim())) {
+      setCorsHeaders(null, res);
+      res.statusCode = 200;
+      res.setHeader("Content-Type", "application/javascript; charset=utf-8");
+      res.end(`${cb.trim()}(${JSON.stringify(result)});`);
+      return true;
+    }
+    sendJson(res, result.success ? 200 : 400, result);
+    return true;
+  }
+
+  // 3d. Report Cancel via GET / JSONP: GET ?action=report-cancel
+  if (req.method === "GET" && queryAction === "report-cancel") {
+    const cb = parsedUrl.searchParams.get("callback") || parsedUrl.searchParams.get("jsonp");
+    const result = service.reportCancel({
+      order_id: parsedUrl.searchParams.get("order_id") || parsedUrl.searchParams.get("razorpay_order_id"),
+      internal_id: parsedUrl.searchParams.get("internal_id"),
+      reason: parsedUrl.searchParams.get("reason"),
+    });
+    if (cb && /^[a-zA-Z0-9_$.]+$/.test(cb.trim())) {
+      setCorsHeaders(null, res);
+      res.statusCode = 200;
+      res.setHeader("Content-Type", "application/javascript; charset=utf-8");
+      res.end(`${cb.trim()}(${JSON.stringify(result)});`);
+      return true;
+    }
+    sendJson(res, result.success ? 200 : 400, result);
+    return true;
+  }
+
   // Read raw body for POST requests
   if (req.method === "POST") {
     const rawBuffer = await readRawBody(req);
@@ -286,6 +324,28 @@ async function handleApiRequest(req, res, service) {
           detail: err.message,
         });
       }
+      return true;
+    }
+
+    // 7. Report Failure: POST ?action=report-failure OR /api/payments/razorpay/report-failure
+    if (effectiveAction === "report-failure" || pathname === "/api/payments/razorpay/report-failure") {
+      const result = service.reportFailure({
+        order_id: parsedBody.order_id || parsedBody.razorpay_order_id,
+        internal_id: parsedBody.internal_id,
+        reason: parsedBody.reason || parsedBody.error,
+      });
+      sendJson(res, result.success ? 200 : 400, result);
+      return true;
+    }
+
+    // 8. Report Cancel: POST ?action=report-cancel OR /api/payments/razorpay/report-cancel
+    if (effectiveAction === "report-cancel" || pathname === "/api/payments/razorpay/report-cancel") {
+      const result = service.reportCancel({
+        order_id: parsedBody.order_id || parsedBody.razorpay_order_id,
+        internal_id: parsedBody.internal_id,
+        reason: parsedBody.reason,
+      });
+      sendJson(res, result.success ? 200 : 400, result);
       return true;
     }
   }

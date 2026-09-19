@@ -100,6 +100,7 @@ async function runBrowserQA() {
     // Simulate viewport dimensions
     window.innerWidth = vp.width;
     window.innerHeight = vp.height;
+    window.PAYMENT_MODE = "LIVE_API"; // Enable API mode for viewport API contract tests
 
     // Track simulated fetch calls
     const fetchCalls = [];
@@ -389,6 +390,7 @@ async function runBrowserQA() {
     console.log("\n--- Testing Create-Order JSONP Fallback & Razorpay Modal Launch ---");
     const dom = new JSDOM(html, { url: "https://ekguru.shop/support/", runScripts: "outside-only" });
     const { window } = dom;
+    window.PAYMENT_MODE = "LIVE_API";
 
     let checkoutOpened = false;
     let receivedOrderId = null;
@@ -457,6 +459,7 @@ async function runBrowserQA() {
     console.log("\n--- Testing Form Unfreeze & Bounded Recovery on Error ---");
     const dom = new JSDOM(html, { url: "https://ekguru.shop/support/", runScripts: "outside-only" });
     const { window } = dom;
+    window.PAYMENT_MODE = "LIVE_API";
 
     window.fetch = async () => {
       throw new Error("Network offline");
@@ -488,6 +491,87 @@ async function runBrowserQA() {
     check(feedback.textContent.includes("Unable to"), "User-facing retryable feedback displayed on error");
 
     window.close();
+  }
+
+  // --- Testing Production PAYMENT_MODE = 'COMING_SOON' ---
+  console.log("\n--- Testing Production PAYMENT_MODE = 'COMING_SOON' ---");
+  {
+    const dom = new JSDOM(html, {
+      url: "https://ekguru.shop/support/",
+      runScripts: "outside-only",
+      pretendToBeVisual: true,
+    });
+    const { window } = dom;
+    // Default production mode is COMING_SOON
+    delete window.PAYMENT_MODE;
+
+    let fetchCalled = false;
+    window.fetch = async () => {
+      fetchCalled = true;
+      return { ok: true, json: async () => ({ success: true }) };
+    };
+
+    window.eval(js);
+    await new Promise((r) => setTimeout(r, 20));
+
+    const submitBtn = dom.window.document.getElementById("support-submit-btn");
+    const form = dom.window.document.getElementById("support-payment-form");
+
+    check(submitBtn.disabled === true, "Submit button is disabled in COMING_SOON mode");
+    check(submitBtn.getAttribute("aria-disabled") === "true", "Submit button has aria-disabled='true'");
+    check(submitBtn.textContent.includes("Coming Soon"), "Submit button text displays 'Coming Soon'");
+
+    // Attempt form submit
+    fetchCalled = false;
+    form.dispatchEvent(new window.Event("submit", { cancelable: true }));
+    await new Promise((r) => setTimeout(r, 40));
+
+    check(fetchCalled === false, "No backend fetch or order creation initiated in COMING_SOON mode");
+    check(!dom.window.document.getElementById("ekguru-mock-checkout-modal"), "Zero simulated or test modals opened in COMING_SOON mode");
+
+    window.close();
+  }
+
+  // --- Testing Active Razorpay Hosted Payment Options ---
+  console.log("\n--- Testing Active Razorpay Hosted Payment Options ---");
+  {
+    const dom = new JSDOM(html, {
+      url: "https://ekguru.shop/support/",
+      runScripts: "outside-only",
+    });
+
+    const activeSection = dom.window.document.getElementById("support-active-section");
+    check(!!activeSection, "Active Razorpay payment section rendered");
+
+    // Check Razorpay Payment Link
+    const rzpLink = dom.window.document.getElementById("razorpay-hosted-link");
+    check(!!rzpLink, "Razorpay hosted payment link button rendered");
+    check(rzpLink.getAttribute("href") === "https://rzp.io/rzp/EkGuru", "Payment link points to https://rzp.io/rzp/EkGuru");
+    check(rzpLink.getAttribute("target") === "_blank", "Payment link has target='_blank'");
+    check(rzpLink.getAttribute("rel") === "noopener noreferrer", "Payment link has rel='noopener noreferrer'");
+    check(rzpLink.textContent.includes("Continue with Razorpay"), "Payment link button text is 'Continue with Razorpay'");
+
+    // Check Direct Page Fallback Button
+    const directBtn = dom.window.document.getElementById("razorpay-direct-page-btn");
+    check(!!directBtn, "Direct page fallback button rendered");
+    check(directBtn.getAttribute("href") === "https://rzp.io/rzp/EkGuru", "Direct fallback button points to https://rzp.io/rzp/EkGuru");
+    check(directBtn.getAttribute("target") === "_top", "Direct fallback button has target='_top'");
+
+    // Check Copy Button
+    const copyBtn = dom.window.document.getElementById("rzp-copy-btn");
+    check(!!copyBtn, "Copy link button rendered");
+    check(copyBtn.getAttribute("data-copy-text") === "https://rzp.io/rzp/EkGuru", "Copy button targets https://rzp.io/rzp/EkGuru");
+
+    // Check #m-razorpay in methods list
+    const mRazorpay = dom.window.document.getElementById("m-razorpay");
+    check(!!mRazorpay, "Razorpay card exists in choose-a-method list");
+    const mLink = mRazorpay ? mRazorpay.querySelector("a[data-go]") : null;
+    check(
+      mLink && mLink.getAttribute("href") === "https://rzp.io/rzp/EkGuru",
+      "Razorpay card in methods list links directly to https://rzp.io/rzp/EkGuru"
+    );
+
+    dom.window.close();
   }
 
   console.log("\n-------------------------------------------------------");
