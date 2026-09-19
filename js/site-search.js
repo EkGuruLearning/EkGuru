@@ -23,7 +23,8 @@
      · the query is mirrored into ?q= so a result page can be linked to
 
    INDEX FORMAT (search-index.json, written by tools/build-search-index.py)
-     { "u": url, "t": title, "d": description, "s": section, "k": keywords }
+     { "u": url, "t": title, "d": description, "s": section, "k": keywords,
+       "b": first ~500 chars of visible body text (for real snippets) }
 
    OPTIONAL ENHANCEMENT: js/hindi-fuzzy.js, when present, expands a Roman
    query ("paani") into Devanagari forms ("पानी") and back, so a learner who
@@ -34,11 +35,6 @@
 (function (root, doc) {
   "use strict";
 
-  var ICONS = {
-    Answer: "💬", Country: "🌍", "Daily Hindi": "📅", Home: "🏠", Language: "🗣️",
-    Lesson: "📘", Location: "📍", Material: "📄", Page: "📃", Phrases: "💬",
-    Practice: "🎯", Question: "❓", Tool: "🧰", Tutor: "👩‍🏫", Vocabulary: "🔤"
-  };
 
   var HINTS = [
     ["Devanagari works", "Type पानी, किताब or नमस्ते — the index is Unicode-normalised."],
@@ -174,6 +170,14 @@
               /^Learn ([A-Za-zÀ-ÿ' .-]+)$/.exec(t);
       if (n) LANG_ALIAS[m[1]] = slugify(n[1]);
     });
+    /* Packs without a hub page still carry the name in their level titles
+       ("Haitian Creole A1 — ..."): fall back to that. */
+    index.forEach(function (row) {
+      var m = /^languages\/([a-z]{2,3})\//.exec(row.u);
+      if (!m || LANG_ALIAS[m[1]]) return;
+      var n = /^(.{2,40}?) A[12]\b/.exec(String(row.t || ""));
+      if (n) LANG_ALIAS[m[1]] = slugify(n[1]);
+    });
     /* "ja/hindi/" is the Japanese-language site, so its language is Japanese
        even where no starter pack exists. */
     index.forEach(function (row) {
@@ -250,16 +254,72 @@
     return true;
   }
 
-  /* ---------- matching --------------------------------------------------- */
+  /* ---------- matching ---------------------------------------------------
+     B7: exact, prefix, typo-tolerant and Unicode-normalised.
 
-  /* js/hindi-fuzzy.js is optional, and it is requested AFTER this file in the
-     page, so it must be looked up at match time rather than at load time —
-     capturing it here would always capture null. Without it, exact and prefix
-     matching still work, so the page never depends on it. */
+     · NFKC + lowercase on both query and index text, so composed and
+       decomposed forms compare equal (Devanagari matras, CJK widths,
+       accented Latin).
+     · a second, diacritic-folded pass finds "cafe" in "Café" without
+       touching non-Latin scripts (only U+0300-U+036F is stripped, which
+       is the Latin combining range).
+     · typos: the words of titles, descriptions and body excerpts are
+       pre-indexed (by first four folded letters for long words, global
+       for short ones); a term with no exact or prefix hit is matched at
+       OSA distance 1 (4+ letters) or 2 (7+ letters, or any non-Latin
+       script) and scored below a real hit.
+     · js/hindi-fuzzy.js is optional and loads AFTER this file, so it is
+       looked up at match time; without it, exact + prefix + typo still
+       work.
+     -------------------------------------------------------------------- */
+
+  function norm(s) {
+    /* NFKC + lowercase, and apostrophes dropped for MATCHING only (the
+       display text keeps them): "d'Ivoire" and "divoire" are the same
+       search target. */
+    var out = String(s == null ? "" : s);
+    try { out = out.normalize("NFKC"); } catch (e) {}
+    return out.toLowerCase().replace(/['’]/g, "");
+  }
+  function fold(s) {
+    try { return String(s).normalize("NFD").replace(/[\u0300-\u036f]/g, ""); }
+    catch (e) { return String(s); }
+  }
+  function dist(a, b, k) {
+    /* Optimal-string-alignment distance (Levenshtein + adjacent
+       transposition, the most common human typo) with an early exit
+       once every cell in a row exceeds k. */
+    var la = a.length, lb = b.length, i, j;
+    if (Math.abs(la - lb) > k) return k + 1;
+    if (!la) return lb;
+    if (!lb) return la;
+    var d = [];
+    for (i = 0; i <= la; i++) {
+      d[i] = [];
+      for (j = 0; j <= lb; j++) d[i][j] = i === 0 ? j : (j === 0 ? i : 0);
+    }
+    for (i = 1; i <= la; i++) {
+      var best = d[i][0];
+      for (j = 1; j <= lb; j++) {
+        var cost = a.charAt(i - 1) === b.charAt(j - 1) ? 0 : 1;
+        var m = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + cost);
+        if (i > 1 && j > 1 &&
+            a.charAt(i - 1) === b.charAt(j - 2) &&
+            a.charAt(i - 2) === b.charAt(j - 1)) {
+          m = Math.min(m, d[i - 2][j - 2] + cost);
+        }
+        d[i][j] = m;
+        if (m < best) best = m;
+      }
+      if (best > k) return k + 1;
+    }
+    return d[la][lb];
+  }
+
+  /* js/hindi-fuzzy.js — Roman <-> Devanagari expansion, optional. */
   function fuzzy() {
     return root.EkGuruFuzzy || null;
   }
-
   function forms(word) {
     var FZ = fuzzy();
     if (!FZ || !FZ.expand) return [word];
@@ -269,47 +329,152 @@
     } catch (e) { return [word]; }
   }
 
-  function scoreRow(row, terms) {
-    var t = String(row.t || "").toLowerCase();
-    var d = String(row.d || "").toLowerCase();
-    var k = String(row.k || "").toLowerCase();
-    var total = 0;
+  var P4 = Object.create(null);   /* first four folded letters -> word set */
+  var P4SEEN = Object.create(null);
+  var ALL_WORDS = [];             /* every folded word once (short-term typos) */
+  var prepared = [];              /* one prepared record per index row */
 
+  function prepare(index) {
+    P4 = Object.create(null);
+    P4SEEN = Object.create(null);
+    ALL_WORDS = [];
+    prepared = [];
+    /* \p{M} keeps vowel signs inside the word: "जवाब" is one word, not
+       three one-letter fragments (matters for Devanagari/Arabic typos).
+       Latin combining marks are already gone — fold() stripped them. */
+    var re = /[\p{L}\p{N}\p{M}]+/gu;
+    for (var i = 0; i < index.length; i++) {
+      var row = index[i];
+      var nt = norm(row.t);
+      var nd = norm(row.d || "");
+      var nb = norm(row.b || "");
+      var fb = fold(nt + " " + nd + " " + nb).match(re) || [];
+      var seen = Object.create(null), words = [];
+      for (var w = 0; w < fb.length; w++) {
+        var fword = fb[w];
+        if (fword.length < 2 || fword.length > 24) continue;
+        if (seen[fword]) continue;
+        seen[fword] = 1;
+        words.push(fword);
+        var p = fword.slice(0, 4);
+        var key = p + "\u0001" + fword;
+        if (!P4SEEN[key]) {
+          P4SEEN[key] = 1;
+          (P4[p] = P4[p] || Object.create(null))[fword] = 1;
+          ALL_WORDS.push(fword);
+        }
+      }
+      prepared.push({
+        row: row, nt: nt, nd: nd,
+        nb: nb,
+        fn: fold(nt), fd: fold(nd),
+        words: words
+      });
+    }
+  }
+
+  /* Typo candidates for a term: the distance test is term-global (it
+     doesn't depend on the row), so it runs once per query, not 1800x. */
+  var typoCache = null;
+  function typoCandidates(w, k) {
+    var c = typoCache[w + "\u0001" + k];
+    if (c) return c;
+    c = [];
+    var pool;
+    if (w.length <= 6) {
+      /* Short words: a single matra or letter edit can move the whole
+         prefix (जवाब -> जबाब), so the prefix pool is unreliable — test
+         the global word list instead. It is small, and this runs once
+         per term per query, not per row. */
+      pool = ALL_WORDS;
+      for (var i = 0; i < pool.length; i++) {
+        if (Math.abs(pool[i].length - w.length) > k) continue;
+        if (dist(w, pool[i], k) <= k) c.push(pool[i]);
+      }
+      typoCache[w + "\u0001" + k] = c;
+      return c;
+    }
+    var p = w.slice(0, 4);
+    if (p && P4[p]) {
+      pool = P4[p];
+      for (var word in pool) {
+        if (Math.abs(word.length - w.length) > k) continue;
+        if (dist(w, word, k) <= k) c.push(word);
+      }
+    }
+    typoCache[w + "\u0001" + k] = c;
+    return c;
+  }
+  function typoBest(prep, w, k) {
+    var cands = typoCandidates(w, k), best = 0, i, word;
+    var inTitle = fold(prep.nt), inDesc = fold(prep.nd), inBody = fold(prep.nb);
+    for (i = 0; i < cands.length; i++) {
+      word = cands[i];
+      if (inTitle.indexOf(word) > -1) best = Math.max(best, 9 - 2 * k);
+      else if (inDesc.indexOf(word) > -1) best = Math.max(best, 4 - k);
+      /* body words are indexed too, so a typo of a word that only appears
+         in the page text still finds the page — scored below desc. */
+      else if (inBody.indexOf(word) > -1) best = Math.max(best, 3 - k);
+    }
+    return best;
+  }
+
+  function scoreRow(prep, terms) {
+    var total = 0;
     for (var i = 0; i < terms.length; i++) {
       var w = terms[i];
       var best = 0;
       var alts = forms(w);
       for (var f = 0; f < alts.length; f++) {
-        var v = alts[f];
-        var penalty = (v === w) ? 0 : 1;
-        if (t.indexOf(v) > -1) best = Math.max(best, 12 - penalty);
-        else if (t.indexOf(v) === 0) best = Math.max(best, 14 - penalty);
-        else if (d.indexOf(v) > -1) best = Math.max(best, 5 - penalty);
-        else if (k.indexOf(v) > -1) best = Math.max(best, 2 - penalty);
+        var v = norm(alts[f]);
+        if (!v) continue;
+        var penalty = (alts[f] === w) ? 0 : 1;
+        if (prep.nt === v) best = Math.max(best, 16 - penalty);
+        else if (prep.nt.indexOf(v) === 0) best = Math.max(best, 14 - penalty);
+        else if (prep.nt.indexOf(v) > -1) best = Math.max(best, 12 - penalty);
+        else if (prep.nd.indexOf(v) > -1) best = Math.max(best, 5 - penalty);
+        else if (prep.nb.indexOf(v) > -1) best = Math.max(best, 4 - penalty);
+        else if (norm(prep.row.k || "").indexOf(v) > -1) best = Math.max(best, 2 - penalty);
+      }
+      /* diacritic-folded pass: "cafe" finds "Café", with a small penalty */
+      var fw = fold(w);
+      if (fw.length > 2 && best < 12) {
+        if (prep.fn.indexOf(fw) > -1) best = Math.max(best, 11);
+        else if (prep.fd.indexOf(fw) > -1) best = Math.max(best, 4);
+      }
+      /* typo tolerance: only worth trying when nothing real matched.
+         Two edits for long words, and also for non-Latin scripts, where
+         moving one matra is two codepoint edits (जवाब -> जबाब). */
+      if (best < 12 && w.length >= 4 && w.length <= 12) {
+        var k = (w.length >= 7 || /[\u0900-\u097F\u0600-\u06FF\u3040-\u30FF\u4E00-\u9FFF\u0400-\u04FF]/.test(w)) ? 2 : 1;
+        var tb = typoBest(prep, fold(w), k);
+        if (tb > best) best = tb;
       }
       if (best <= 0) return 0;   /* every term must appear somewhere */
       total += best;
     }
 
     var phrase = terms.join(" ");
-    if (t.indexOf(phrase) > -1) total += 18;
-    if (d.indexOf(phrase) > -1) total += 6;
-    if (t.toLowerCase() === phrase) total += 12;
+    if (prep.nt.indexOf(phrase) > -1) total += 18;
+    if (prep.nd.indexOf(phrase) > -1) total += 6;
+    if (prep.nt === phrase) total += 12;
     /* Shorter titles are more likely to be the page you meant. */
-    total += Math.max(0, 6 - Math.floor((row.t || "").length / 12));
+    total += Math.max(0, 6 - Math.floor((prep.row.t || "").length / 12));
     return total;
   }
 
   function search(index, query, section) {
-    var terms = query.toLowerCase().split(/\s+/).filter(Boolean);
+    var terms = norm(query).split(/\s+/).filter(Boolean);
     if (!terms.length) return [];
+    if (!prepared.length) prepare(index);
+    typoCache = Object.create(null);
     var out = [];
-    for (var i = 0; i < index.length; i++) {
-      var row = index[i];
-      if (section && row.s !== section) continue;
-      if (!matchesFacets(row)) continue;
-      var sc2 = scoreRow(row, terms);
-      if (sc2 > 0) out.push({ row: row, score: sc2 });
+    for (var i = 0; i < prepared.length; i++) {
+      var prep = prepared[i];
+      if (section && prep.row.s !== section) continue;
+      if (!matchesFacets(prep.row)) continue;
+      var sc2 = scoreRow(prep, terms);
+      if (sc2 > 0) out.push({ row: prep.row, score: sc2 });
     }
     out.sort(function (a, b) {
       return b.score - a.score || String(a.row.t).localeCompare(String(b.row.t));
@@ -317,6 +482,30 @@
     return out.slice(0, 60);
   }
 
+  /* ---------- real snippets ----------------------------------------------
+     A snippet is the page's own text around the first match, not a
+     truncated meta description. The "b" field of the index is the first
+     ~500 chars of visible body text (tools/build-search-index.py); when
+     a page has no excerpt, the description is the honest fallback. */
+
+  function realSnippet(row, terms) {
+    var b = String(row.b || "");
+    if (b) {
+      var nb = norm(b);
+      for (var i = 0; i < terms.length; i++) {
+        var w = norm(terms[i]);
+        var at = nb.indexOf(w);
+        if (at === -1 && fold(w).length > 2) at = nb.indexOf(fold(w));
+        if (at > -1) {
+          var start = Math.max(0, at - 70);
+          var end = Math.min(b.length, at + 120);
+          return (start > 0 ? "\u2026" : "") + b.slice(start, end) +
+            (end < b.length ? "\u2026" : "");
+        }
+      }
+    }
+    return String(row.d || "");
+  }
   /* ---------- highlighting ---------------------------------------------- */
 
   function mark(text, terms) {
@@ -334,11 +523,6 @@
   }
 
   /* ---------- rendering -------------------------------------------------- */
-
-  function snippet(text) {
-    var s = String(text || "");
-    return s.length > 190 ? s.slice(0, 187).replace(/\s+\S*$/, "") + "…" : s;
-  }
 
   function render(hits, terms) {
     state.results = hits;
@@ -378,17 +562,16 @@
       .sort(function (a, b) { return (SECTIONS[b] || 0) - (SECTIONS[a] || 0); })
       .forEach(function (section) {
         var rows = group[section];
-        html += '<h2 class="xp-results-head">' + (ICONS[section] || "🔎") + " " + esc(section) +
+        html += '<h2 class="xp-results-head">' + esc(section) +
           ' <small>' + rows.length + (rows.length === 1 ? " result" : " results") + "</small></h2>";
         html += '<div class="xp-results" role="listbox" aria-label="' + esc(section) + ' results">';
         rows.forEach(function (h) {
           var r = h.row;
           html +=
             '<a class="xp-result" role="option" aria-selected="false" href="' + BASE + esc(r.u) + '">' +
-              '<span class="xp-result-ico" aria-hidden="true">' + (ICONS[r.s] || "🔎") + "</span>" +
               "<span>" +
                 '<span class="xp-result-title">' + mark(r.t, terms) + "</span>" +
-                '<span class="xp-result-snippet">' + mark(snippet(r.d), terms) + "</span>" +
+                '<span class="xp-result-snippet">' + mark(realSnippet(r, terms), terms) + "</span>" +
                 '<span class="xp-result-meta"><span class="xp-badge">' + esc(r.s || "Page") + "</span>" +
                 "<span>" + esc(r.u) + "</span></span>" +
               "</span>" +

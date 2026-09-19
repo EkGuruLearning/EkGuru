@@ -104,7 +104,7 @@ check("the country list starts with the empty choice",
 check("the language list starts with the empty choice",
   optionTexts(lang)[0] === "Every language", optionTexts(lang)[0]);
 check("status line says how many pages are searchable",
-  /651 pages/.test(status()), status());
+  new RegExp(index.length + " pages").test(status()), status());
 
 /* ---------- one name per language, no bare codes ---------- */
 const bare = optionTexts(lang).filter((t) => /^[A-Z]{2} \(\d+\)$/.test(t));
