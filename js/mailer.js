@@ -50,6 +50,12 @@
 (function () {
   "use strict";
 
+  /* Double-evaluation guard: the lazy loader dedupes by script tag, but a
+     ?v=-tagged copy plus a lazy copy (or any re-injection) must still send
+     every email once, not twice. window.EkGuruMail is assigned synchronously
+     at the end of the first evaluation, so a second copy always sees it. */
+  if (window.EkGuruMail) return;
+
   var SITE = window.EKGURU_SITE || {};
   var CFG = SITE.mail || {};
 

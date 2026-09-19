@@ -80,7 +80,7 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3.4vw,2.3rem)}p{ma
 .xp-orb{position:absolute;border-radius:50%;filter:blur(52px);opacity:.5;pointer-events:none;z-index:-1}
 .xp-orb-1{width:min(420px,58vw);height:min(420px,58vw);top:-120px;inset-inline-end:-90px;background:rgba(79,50,217,.45)}
 .xp-orb-2{width:min(320px,48vw);height:min(320px,48vw);bottom:-140px;inset-inline-start:-80px;background:rgba(240,160,32,.4)}
-.xp-hero{position:relative;overflow:hidden;padding-block:clamp(52px,8vw,96px)}
+.xp-hero{position:relative;overflow:visible;overflow-x:clip;overflow-y:visible;padding-block:clamp(52px,8vw,96px)}
 .xp-hero-in{position:relative;display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:clamp(28px,4vw,56px);align-items:center}
 .xp-hero h1{font-size:clamp(2.1rem,5.2vw,3.6rem);letter-spacing:-.035em;margin-block:.35em .4em;text-wrap:balance}
 .xp-hero .xp-lead{font-size:clamp(1.02rem,1.5vw,1.16rem);color:var(--ink-2);max-width:56ch}
@@ -186,6 +186,7 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3.4vw,2.3rem)}p{ma
   </div>
 </header>
 <script src="js/site-shell.js" defer></script>
+<script src="js/greeting.js" defer></script>
 <script src="js/copywatch.js" defer></script>
 <!-- ekguru:shell-header:end -->
 <a class="skip" href="#main">Skip to content</a>
@@ -234,6 +235,7 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3.4vw,2.3rem)}p{ma
 <div class="xp-wrap xp-hero-in">
 <div class="xp-hero-copy xp-rise">
 <span class="xp-kicker">🇮🇳 <span data-i18n="hero.badge">100% Hindi · 1-on-1 Online</span></span>
+<p class="ekg-greeting-line"><span data-ekguru-greeting>नमस्ते</span></p>
 <h1><span data-i18n="hero.title1">Learn Hindi with your own</span>
 <span class="grad-text" data-i18n="hero.title2">personal Guru</span></h1>
 <p class="xp-lead" data-i18n="hero.lead">Every EkGuru student gets a dedicated Hindi teacher. Speak, read and write with real confidence — through live 1-on-1 lessons built around your goals.</p>
@@ -743,13 +745,11 @@ if ("serviceWorker" in navigator) {
 <!-- ekguru:shell-footer:end -->
 <script src="js/monetization.js" defer></script>
 <script src="js/print-sheet.js" defer></script>
-<script src="js/offline-games.js" defer></script>
 <script src="js/level-visuals.js" defer></script>
 <script src="js/visual-learning.js" defer></script>
 <script src="js/practice-api.js" defer></script>
 <script src="js/refresh-guard.js" defer></script>
 <script src="js/course-player.js" defer></script>
-<script src="js/offline-game.js" defer></script>
 <script src="js/adaptive-practice.js" defer></script>
 <script src="js/global-srs.js" defer></script>
 </body>

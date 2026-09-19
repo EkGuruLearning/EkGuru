@@ -232,7 +232,10 @@
          and must not get a second copy. A double-loaded mailer
          would register its listeners twice and send every email
          twice, which is the kind of bug you find from a customer. */
-      if (document.querySelector('script[src$="' + src + '"]')) return resolve();
+      /* Match with or without a ?v= cache-buster: src$="js/mailer.js" misses
+         <script src="js/mailer.js?v=9">, and a double-loaded mailer sends
+         every email twice. */
+      if (document.querySelector('script[src$="' + src + '"], script[src*="' + src + '?"]')) return resolve();
       var s = document.createElement("script");
       s.src = P + src;
       s.async = false;         /* preserve order — features.js is last */

@@ -5,7 +5,6 @@ Injects modern JS files into all HTML pages:
 - js/cookie-consent.js (v300 CMP)
 - js/monetization.js (v300 5 channels)
 - js/print-sheet.js (v300 print-only-worksheet)
-- js/offline-games.js (v300 5 offline games)
 - js/level-visuals.js (v300 age progression)
 - js/visual-learning.js (v300 dotted tracing)
 - js/practice-api.js (v300 shared flags/likes)
@@ -28,8 +27,6 @@ MODERN_JS = [
     ("js/cookie-consent.js", "cookie-consent"),
     ("js/monetization.js", "monetization"),
     ("js/print-sheet.js", "print-sheet"),
-    ("js/offline-games.js", "offline-games"),
-    ("js/offline-game.js", "offline-game"),
     ("js/level-visuals.js", "level-visuals"),
     ("js/visual-learning.js", "visual-learning"),
     ("js/practice-api.js", "practice-api"),

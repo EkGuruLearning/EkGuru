@@ -34,6 +34,12 @@
 (function (root, doc) {
   "use strict";
 
+  /* Double-load guard: a second copy must not re-run the inits (duplicate
+     #home-sugg IDs, double listeners). Same pattern as greeting.js and the
+     support toast. EkGuruXP is set synchronously at the end of the first
+     evaluation, so a second <script> tag always sees it. */
+  if (root.EkGuruXP) return;
+
   var html = doc.documentElement;
 
   /* The <script> tag itself, captured while it executes. document.currentScript
@@ -65,7 +71,16 @@
     bn: { hello: "নমস্কার", cta: "আজই কথা বলা শুরু করুন", hint: "“শিক্ষানবিশ”, “শিশু” বা “আলাপ” চেষ্টা করুন" },
     ta: { hello: "வணக்கம்", cta: "இன்றே பேசத் தொடங்குங்கள்", hint: "“தொடக்கம்”, “குழந்தைகள்” அல்லது “உரையாடல்”" },
     te: { hello: "నమస్కారం", cta: "ఈ రోజే మాట్లాడటం ప్రారంభించండి", hint: "“ప్రారంభ”, “పిల్లలు” లేదా “సంభాషణ” ప్రయత్నించండి" },
-    ur: { hello: "السلام علیکم", cta: "آج ہی بولنا شروع کریں", hint: "«ابتدائی»، «بچے» یا «گفتگو» آزمائیں" }
+    ur: { hello: "السلام علیکم", cta: "آج ہی بولنا شروع کریں", hint: "«ابتدائی»، «بچے» یا «گفتگو» آزمائیں" },
+    gu: { hello: "નમસ્તે", cta: "આજે જ બોલવાનું શરૂ કરો", hint: "“શરૂઆત”, “બાળકો” કે “વાતચીત” અજમાવો" },
+    kn: { hello: "ನಮಸ್ತೆ", cta: "ಇಂದೇ ಮಾತನಾಡಲು ಪ್ರಾರಂಭಿಸಿ", hint: "“ಆರಂಭಿಕ”, “ಮಕ್ಕಳು” ಅಥವಾ “ಸಂಭಾಷಣೆ” ಪ್ರಯತ್ನಿಸಿ" },
+    ml: { hello: "നമസ്തേ", cta: "ഇന്നുതന്നെ സംസാരിക്കാൻ തുടങ്ങൂ", hint: "“തുടക്കക്കാരൻ”, “കുട്ടികൾ” അല്ലെങ്കിൽ “സംഭാഷണം” പരീക്ഷിക്കൂ" },
+    mr: { hello: "नमस्ते", cta: "आजच बोलायला सुरुवात करा", hint: "“सुरुवात”, “मुले” किंवा “संभाषण” करून पाहा" },
+    pa: { hello: "ਨਮਸਤੇ", cta: "ਅੱਜ ਹੀ ਬੋਲਣਾ ਸ਼ੁਰੂ ਕਰੋ", hint: "“ਸ਼ੁਰੂਆਤੀ”, “ਬੱਚੇ” ਜਾਂ “ਗੱਲਬਾਤ” ਅਜ਼ਮਾਓ" },
+    ko: { hello: "나마스테", cta: "오늘부터 말하기 시작하세요", hint: "“초보자”, “어린이”, “회화”를 입력해 보세요" },
+    zh: { hello: "你好", cta: "今天就开始说", hint: "试试“初学者”、“儿童”或“会话”" },
+    vi: { hello: "Namaste", cta: "Bắt đầu nói ngay hôm nay", hint: "Thử “người mới”, “trẻ em” hoặc “hội thoại”" },
+    pl: { hello: "Namaste", cta: "Zacznij mówić już dziś", hint: "Wypróbuj „początkujący”, „dzieci” lub „konwersacja”" }
   };
 
   /* Learning language → the letters shown in the hero. EkGuru's main course is
@@ -449,15 +464,41 @@
       return s;
     }
 
+    function announce(open) {
+      /* The support toast (js/monetization.js) hides while search is open so
+         the two surfaces can never overlap. A plain DOM event keeps the two
+         features decoupled: either file can load without the other. */
+      try {
+        var holder = form.parentNode;
+        if (holder && holder.classList) {
+          if (open) holder.classList.add("is-open");
+          else holder.classList.remove("is-open");
+        }
+        var ev;
+        if (typeof root.CustomEvent === "function") {
+          ev = new root.CustomEvent(open ? "ekguru:search-open" : "ekguru:search-close");
+        } else if (doc.createEvent) {
+          ev = doc.createEvent("Event");
+          ev.initEvent(open ? "ekguru:search-open" : "ekguru:search-close", false, false);
+        }
+        if (ev) doc.dispatchEvent(ev);
+      } catch (e) { /* coordination is optional */ }
+    }
+
     function close() {
+      var wasOpen = !box.hidden;
       box.hidden = true;
       active = -1;
       input.setAttribute("aria-expanded", "false");
+      if (wasOpen) announce(false);
     }
 
     function paint(list) {
       items = list;
-      if (!list.length) { close(); return; }
+      /* Empty results must not leave the pre-index placeholder rows in the
+         box: hidden or not, a zero-result panel should hold zero rows. */
+      if (!list.length) { box.innerHTML = ""; close(); return; }
+      announce(true);
       box.innerHTML =
         '<div class="xp-sugg-head"><span>' + esc(copy.hint) + "</span>" +
         '<span class="xp-kbd">Enter</span></div>' +
@@ -699,13 +740,27 @@
 
   function initNav() {
     var nav = $(".hdr .nav"), burger = $(".hdr .burger");
-    if (!nav || !burger || nav.id) return;
+    if (!nav || !burger) return;
 
     var MENU = { es: "Menú", fr: "Menu", de: "Menü", pt: "Menu",
                  ja: "メニュー", ar: "القائمة", hi: "मेनू" };
+    /* The label is owner-independent and idempotent: whoever binds the
+       drawer, the burger is named in the page language. (Previously this
+       sat behind the early return, so on shell-owned pages it never ran.) */
     if (burger.getAttribute("aria-label") === "Menu") {
       burger.setAttribute("aria-label", MENU[lang] || "Menu");
     }
+
+    /* Binding is another matter. js/main.js and js/site-shell.js own richer
+       drawers (focus trap, focus return); this one exists only for pages
+       that load neither. Presence — not execution order — decides, so tag
+       order can never reintroduce the double-drawer (index.html bound both
+       this and main.js: same classes, two state machines, kept working only
+       by mirrored toggling). Comments mentioning main.js do not match:
+       querySelector sees elements, not comments. */
+    if (nav.id || root.EKGURU_DRAWER) return;
+    if (doc.querySelector('script[src*="main.js"], script[src*="site-shell.js"]')) return;
+    root.EKGURU_DRAWER = "experience";
 
     nav.id = "primary-nav";
     burger.setAttribute("aria-controls", nav.id);
