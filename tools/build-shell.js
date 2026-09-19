@@ -112,13 +112,24 @@ function loadI18n() {
 
 /* Every link in the chrome, once. `key` is the i18n key; `target` is the key
    into TARGETS below. */
+/* One list, two faces. Above 900px it is the desktop bar: Home, Find
+   Tutors, Courses, Learn, Support, Search, plus the trial CTA. At 900px and
+   below it is the drawer — and the drawer keeps exactly seven items:
+   Home, Languages, Courses, Practice, Worksheets, Support, Contact.
+   data-scope marks each item's face; css/experience.css hides the rest.
+   The tutor CTA never enters the drawer: the footer and the tutor page own
+   it, and the search box has no place in a menu. */
 const NAV = [
-  ["Home", "nav.home", "home"],
-  ["Find Tutors", "nav.tutors", "findTutors"],
-  ["Courses", "nav.courses", "courses"],
-  ["Learn", "nav.learn", "learn"],
-  ["Support", "nav.support", "support"],
-  ["Search", "nav.search", "search"],
+  ["Home", "nav.home", "home", ""],
+  ["Find Tutors", "nav.tutors", "findTutors", "desktop"],
+  ["Languages", "nav.languages", "languages", "drawer"],
+  ["Courses", "nav.courses", "courses", ""],
+  ["Practice", "nav.practice", "practice", "drawer"],
+  ["Worksheets", "nav.worksheets", "worksheets", "drawer"],
+  ["Learn", "nav.learn", "learn", "desktop"],
+  ["Support", "nav.support", "support", ""],
+  ["Search", "nav.search", "search", "desktop"],
+  ["Contact", "nav.contact", "contact", "drawer"],
 ];
 const CTA = ["Book a trial", "nav.cta", "findTutors"];
 const COLUMNS = [
@@ -156,6 +167,7 @@ const COLUMNS = [
 const TARGETS = {
   home: "index.html", findTutors: "find-tutors.html", join: "join.html",
   courses: "courses/index.html", byCountry: "courses/by-country/index.html", learn: "learn/", support: "support/index.html",
+  languages: "languages/", practice: "toolbox/", worksheets: "worksheets/", contact: "contact/",
   search: "search/", tutorDir: "tutor/", locations: "hindi-tutor/",
   guides: "learn/", topics: "hindi/", tools: "toolbox/", daily: "daily-hindi/",
   ask: "ask/", answers: "answers/", countries: "learn-hindi-by-country/",
@@ -190,9 +202,10 @@ function labeller(loc, dict) {
   };
 }
 
-function anchor(href, english, key, label, loc) {
+function anchor(href, english, key, label, loc, scope) {
   const i18n = loc ? ` data-i18n="${key}"` : "";
-  return `<a href="${esc(href)}"${i18n}>${esc(label)}</a>`;
+  const sc = scope ? ` data-scope="${scope}"` : "";
+  return `<a href="${esc(href)}"${sc}${i18n}>${esc(label)}</a>`;
 }
 
 /* js/main.js fills #lang-switch with the seven market links. Only the pages
@@ -211,8 +224,8 @@ function headerHTML(p, shell, loc, dict, hasMain) {
     if (LOCAL[target]) return l + LOCAL[target];
     return p + TARGETS[target];
   };
-  const nav = NAV.map(([en, key, target]) =>
-    "      " + anchor(href(target), en, key, L(en, key), loc)).join("\n");
+  const nav = NAV.map(([en, key, target, scope]) =>
+    "      " + anchor(href(target), en, key, L(en, key), loc, scope)).join("\n");
   return `${H_START}
 <header class="hdr">
   <a class="skip" href="#main">${esc(L("Skip to content", "nav.skip"))}</a>
@@ -224,7 +237,7 @@ function headerHTML(p, shell, loc, dict, hasMain) {
     <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
     <nav class="nav" aria-label="Main">
 ${nav}
-      <a class="btn btn-primary btn-sm" href="${esc(href("findTutors"))}"${loc ? ' data-i18n="nav.cta"' : ""}>${esc(L(CTA[0], CTA[1]))}</a>
+      <a class="btn btn-primary btn-sm" data-scope="desktop" href="${esc(href("findTutors"))}"${loc ? ' data-i18n="nav.cta"' : ""}>${esc(L(CTA[0], CTA[1]))}</a>
 ${hasMain ? LANGSWITCH + "\n" : ""}    </nav>
   </div>
 </header>

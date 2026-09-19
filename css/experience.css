@@ -1039,6 +1039,102 @@ html[dir="rtl"] .xp-sugg .xp-sugg-head { letter-spacing: 0; }
 }
 
 /* ==========================================================================
+   10b. COUNTRY RAIL  (194 countries, two rows, opposite directions)
+   --------------------------------------------------------------------------
+   tools/build-country-rail.py writes the items from
+   data/language-inventory/sovereign-194.json + the researched language
+   relations; every item is a plain anchor to the country's own page. Each
+   row's track carries its items twice (the duplicate is aria-hidden), so the
+   loop is seamless with zero JavaScript — a no-JS visitor sees the same rail.
+
+   The pace is deliberately slow (240s per half-lap of ~97 cards): the
+   requirement is "not fast", and the row pauses on hover or focus, which is
+   how a visitor reads an item. prefers-reduced-motion stops the animation
+   and leaves a scrollable row with the duplicate hidden.
+   ========================================================================== */
+
+.ct-rail {
+  position: relative;
+  overflow: hidden;
+  padding-block: 14px;
+  border-block: 1px solid color-mix(in srgb, var(--xp-a) 12%, var(--line));
+  background: color-mix(in srgb, var(--xp-surface) 55%, #fff);
+}
+
+.ct-rail-row {
+  overflow: hidden;
+  margin-block: 7px;
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+
+.ct-rail-track {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  animation: ct-marquee-left 240s linear infinite;
+}
+
+.ct-rail-row[data-dir="right"] .ct-rail-track {
+  animation-name: ct-marquee-right;
+}
+
+.ct-rail:hover .ct-rail-track,
+.ct-rail:focus-within .ct-rail-track {
+  animation-play-state: paused;
+}
+
+@keyframes ct-marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes ct-marquee-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.ct-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 168px;
+  max-width: 224px;
+  padding: 10px 14px;
+  border-radius: var(--xp-r-1);
+  border: 1px solid color-mix(in srgb, var(--xp-a) 14%, var(--line));
+  background: #fff;
+  box-shadow: var(--xp-sh-1);
+  text-decoration: none;
+  color: inherit;
+}
+
+.ct-item b {
+  font-size: .95rem;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+.ct-item small {
+  display: block;
+  margin-block-start: 3px;
+  color: var(--muted);
+  font-size: .78rem;
+  line-height: 1.35;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+/* The seamless duplicate: the same cards again, joined to the row so the
+   -50% loop has no seam. display:contents keeps the cards flex items of the
+   track; aria-hidden keeps the reader and the crawler on the real list. */
+.ct-dup {
+  display: contents;
+}
+
+/* ==========================================================================
    11. CARDS + GRIDS
    ========================================================================== */
 
@@ -2037,11 +2133,23 @@ html[dir="rtl"] .xp-sugg .xp-sugg-head { letter-spacing: 0; }
   .xp-letter,
   .xp-float,
   .xp-rail-track,
+  .ct-rail-track,
   .xp-sheen::after,
   .xp-heart,
   .course-orbit,
   .course-loading span {
     animation: none !important;
+  }
+
+  /* The country rail becomes a still, scrollable row: the duplicate that
+     exists only for the loop goes away, the mask goes away. */
+  .ct-rail-row {
+    overflow-x: auto;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+  .ct-dup {
+    display: none;
   }
 
   html.xp-anim .xp-rise,
@@ -2092,7 +2200,8 @@ html[dir="rtl"] .xp-sugg .xp-sugg-head { letter-spacing: 0; }
   .xp-progress,
   .course-tools,
   .course-orbit,
-  .xp-rail {
+  .xp-rail,
+  .ct-rail {
     display: none !important;
   }
 
@@ -2908,6 +3017,20 @@ body.xp-market .hdr .hdr-in {
 @media (min-width: 1201px) and (max-width: 1300px) {
   .hdr .nav { gap: 6px; }
   .hdr .nav a { padding-inline: 10px; }
+}
+
+/* The nav's two faces. The drawer (<= 900px, see css/modern-fix.css) keeps
+   exactly seven items — Home, Languages, Courses, Practice, Worksheets,
+   Support, Contact — so Find Tutors, Learn and Search are scoped out of it,
+   and the trial CTA never enters the drawer (the footer and the tutor page
+   own the tutor offer). Above 900px the bar shows its own face and the
+   drawer-only items stay out. tools/build-shell.js writes the data-scope
+   attribute; !important so no page-level rule can put an item back. */
+@media (max-width: 900px) {
+  .hdr .nav [data-scope="desktop"] { display: none !important; }
+}
+@media (min-width: 900.01px) {
+  .hdr .nav [data-scope="drawer"] { display: none !important; }
 }
 
 
