@@ -1,0 +1,25 @@
+# EkGuru Payment & Support API — Cloudflare Workers Configuration
+# Worker Name: ekguru-payment-api
+# Target Host: api.ekguru.shop
+
+name = "ekguru-payment-api"
+main = "server/worker.js"
+compatibility_date = "2024-09-01"
+
+routes = [
+  { pattern = "api.ekguru.shop/*", zone_name = "ekguru.shop" }
+]
+
+[vars]
+GOOGLE_SPREADSHEET_ID = "1u5Jkbe_2lMoLWsaDPQkxTWhNACewRaOyZLLANy2dfVI"
+
+# The following secrets MUST be configured securely via `wrangler secret put <NAME>`
+# or via the Cloudflare Dashboard under Settings -> Variables -> Secrets.
+# NEVER put secret values into this file or Git.
+#
+# Required Secret Names:
+# - RAZORPAY_KEY_ID
+# - RAZORPAY_KEY_SECRET
+# - RAZORPAY_WEBHOOK_SECRET
+# - SHEETS_INGEST_TOKEN
+# - GOOGLE_SHEETS_ENDPOINT

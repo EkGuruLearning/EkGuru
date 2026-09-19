@@ -1,11 +1,13 @@
 /**
- * EkGuru — Razorpay Payments API Router
+ * EkGuru — Razorpay Payments & Support API Router
  *
  * Implements:
  * GET  /api/payments/razorpay/currencies
  * POST /api/payments/razorpay/order
  * POST /api/payments/razorpay/verify
  * POST /api/payments/razorpay/webhook
+ * GET  /api/support/recent
+ * GET  /api/payments/health
  */
 
 "use strict";
@@ -41,16 +43,21 @@ function readRawBody(req) {
 /**
  * Sends a JSON response safely.
  */
-function sendJson(res, statusCode, data) {
+function sendJson(res, statusCode, data, extraHeaders = {}) {
   setCorsHeaders(null, res);
   res.statusCode = statusCode;
   res.setHeader("Content-Type", "application/json; charset=utf-8");
-  res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, private");
+  for (const [k, v] of Object.entries(extraHeaders)) {
+    res.setHeader(k, v);
+  }
+  if (!res.hasHeader("Cache-Control")) {
+    res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, private");
+  }
   res.end(JSON.stringify(data));
 }
 
 /**
- * Handles payment API requests.
+ * Handles payment and support API requests.
  *
  * @param {import('http').IncomingMessage} req
  * @param {import('http').ServerResponse} res
@@ -81,12 +88,45 @@ async function handleApiRequest(req, res, service) {
     return true;
   }
 
+  // 2. GET /api/support/recent
+  if (req.method === "GET" && pathname === "/api/support/recent") {
+    try {
+      const supporters = await service.getRecentSupporters();
+      sendJson(
+        res,
+        200,
+        {
+          success: true,
+          count: supporters.length,
+          supporters,
+        },
+        {
+          "Cache-Control": "public, max-age=60, s-maxage=120, stale-while-revalidate=300",
+        }
+      );
+    } catch (e) {
+      sendJson(res, 200, { success: true, count: 0, supporters: [] });
+    }
+    return true;
+  }
+
+  // 3. GET /api/payments/health
+  if (req.method === "GET" && pathname === "/api/payments/health") {
+    sendJson(res, 200, {
+      status: "ok",
+      service: "EkGuru Payments & Support API",
+      currencies_count: listSupportedCurrencies().length,
+      timestamp: new Date().toISOString(),
+    });
+    return true;
+  }
+
   // Read raw body for POST requests
   if (req.method === "POST") {
     const rawBuffer = await readRawBody(req);
     const rawBody = rawBuffer.toString("utf8");
 
-    // 2. POST /api/payments/razorpay/webhook
+    // 4. POST /api/payments/razorpay/webhook
     if (pathname === "/api/payments/razorpay/webhook") {
       const signature = req.headers["x-razorpay-signature"] || "";
       const result = await service.handleWebhook(rawBody, signature);
@@ -104,15 +144,19 @@ async function handleApiRequest(req, res, service) {
       }
     }
 
-    // 3. POST /api/payments/razorpay/order
+    // 5. POST /api/payments/razorpay/order
     if (pathname === "/api/payments/razorpay/order") {
       try {
         const orderData = await service.createOrder({
           amount: parsedBody.amount,
           currency: parsedBody.currency,
-          purpose: parsedBody.purpose || "ekguru_support",
+          customer: parsedBody.customer,
           customerEmail: parsedBody.customer_email || parsedBody.customerEmail,
           customerName: parsedBody.customer_name || parsedBody.customerName,
+          customerPhone: parsedBody.customer_phone || parsedBody.customerPhone,
+          country: parsedBody.country,
+          supportMessage: parsedBody.supportMessage || parsedBody.support_message,
+          publicDisplayOptIn: parsedBody.publicDisplayOptIn !== undefined ? parsedBody.publicDisplayOptIn : parsedBody.public_display_opt_in,
         });
         sendJson(res, 200, orderData);
       } catch (err) {
@@ -126,7 +170,7 @@ async function handleApiRequest(req, res, service) {
       return true;
     }
 
-    // 4. POST /api/payments/razorpay/verify
+    // 6. POST /api/payments/razorpay/verify
     if (pathname === "/api/payments/razorpay/verify") {
       try {
         const verifyResult = await service.verifyPayment({
@@ -155,7 +199,7 @@ async function handleApiRequest(req, res, service) {
   }
 
   // Not handled
-  if (pathname.startsWith("/api/payments/razorpay")) {
+  if (pathname.startsWith("/api/payments") || pathname.startsWith("/api/support")) {
     sendJson(res, 404, { success: false, error: "Endpoint not found." });
     return true;
   }

@@ -1,19 +1,21 @@
 /**
- * EkGuru — Razorpay International Multi-Currency Payment Client
+ * EkGuru — Razorpay International Multi-Currency Payment & Recent Supporters Client
  *
- * Sits on /support/ and manages the complete lifecycle:
+ * Manages the complete client-side support lifecycle:
  * 1. Dynamic verified currency registry loading
  * 2. Currency-aware quick amounts and decimal formatting
- * 3. Secure backend order creation via POST /api/payments/razorpay/order
- * 4. Razorpay Checkout modal invocation
- * 5. Server-side signature verification via POST /api/payments/razorpay/verify
- * 6. Authentic success/failure state rendering (never fake success)
+ * 3. Customer detail collection & opt-in consent handling
+ * 4. Secure backend order creation via POST /api/payments/razorpay/order
+ * 5. Razorpay Standard Checkout modal invocation with customer prefill
+ * 6. Server-side signature verification via POST /api/payments/razorpay/verify
+ * 7. Authentic success/failure state rendering (guaranteed no fake success)
+ * 8. Sanitized Recent Supporters lazy loading & rendering
  */
 
 (function (root) {
   "use strict";
 
-  // Verified currencies table for immediate offline-capable rendering
+  // Verified popular currencies table for instant rendering
   var POPULAR_CURRENCIES = [
     { code: "INR", name: "Indian Rupee", symbol: "₹", exponent: 2, defaultAmt: "500", quick: ["100", "250", "500", "1000"] },
     { code: "USD", name: "United States Dollar", symbol: "$", exponent: 2, defaultAmt: "10.00", quick: ["5.00", "10.00", "25.00", "50.00"] },
@@ -41,6 +43,16 @@
     return "";
   }
 
+  function escapeHtml(str) {
+    if (!str) return "";
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
   function formatDisplay(amount, currencyCode) {
     var c = currencyMap[currencyCode];
     var exp = c ? c.exponent : 2;
@@ -59,6 +71,54 @@
     }
   }
 
+  function loadRecentSupporters() {
+    var listEl = document.getElementById("recent-supporters-list");
+    if (!listEl) return;
+
+    fetch(API_BASE + "/api/support/recent")
+      .then(function (res) {
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        var supporters = (data && data.supporters) || [];
+        if (!Array.isArray(supporters) || supporters.length === 0) {
+          listEl.innerHTML = '<div class="supporter-empty">Be the first supporter to appear here.</div>';
+          return;
+        }
+
+        var html = "";
+        supporters.forEach(function (s) {
+          var name = escapeHtml(s.displayName || "Supporter");
+          var country = escapeHtml(s.country || "");
+          var amt = formatDisplay(s.amount, s.currency || "INR");
+          var msg = s.message ? escapeHtml(s.message) : "";
+          var date = escapeHtml(s.date || "");
+
+          html += '<div class="supporter-item">';
+          html += '  <div class="supporter-top">';
+          html += '    <h3 class="supporter-name">' + name + '</h3>';
+          html += '    <span class="supporter-amount">' + amt + '</span>';
+          html += '  </div>';
+          html += '  <div class="supporter-meta">';
+          html += '    <span class="supporter-country">' + (country || "International") + '</span>';
+          if (date) {
+            html += '    <span class="supporter-date">' + date + '</span>';
+          }
+          html += '  </div>';
+          if (msg) {
+            html += '  <div class="supporter-message">“' + msg + '”</div>';
+          }
+          html += '</div>';
+        });
+
+        listEl.innerHTML = html;
+      })
+      .catch(function () {
+        listEl.innerHTML = '<div class="supporter-error">Recent supporter updates are temporarily unavailable.</div>';
+      });
+  }
+
   function init() {
     var form = document.getElementById("support-payment-form");
     if (!form) return;
@@ -72,6 +132,13 @@
     var submitBtn = document.getElementById("support-submit-btn");
     var btnText = submitBtn.querySelector(".btn-text") || submitBtn;
     var feedbackEl = document.getElementById("amount-feedback");
+
+    var nameInput = document.getElementById("support-customer-name");
+    var emailInput = document.getElementById("support-customer-email");
+    var phoneInput = document.getElementById("support-customer-phone");
+    var countryInput = document.getElementById("support-customer-country");
+    var messageInput = document.getElementById("support-customer-message");
+    var optInCheckbox = document.getElementById("support-opt-in");
 
     var statusContainer = document.getElementById("support-status-container");
     var statusTitle = document.getElementById("support-status-title");
@@ -216,6 +283,13 @@
       submitBtn.disabled = busy;
       currencySelect.disabled = busy;
       amountInput.disabled = busy;
+      if (nameInput) nameInput.disabled = busy;
+      if (emailInput) emailInput.disabled = busy;
+      if (phoneInput) phoneInput.disabled = busy;
+      if (countryInput) countryInput.disabled = busy;
+      if (messageInput) messageInput.disabled = busy;
+      if (optInCheckbox) optInCheckbox.disabled = busy;
+
       if (busy) {
         form.classList.add("is-busy");
         btnText.textContent = "Creating secure payment...";
@@ -240,6 +314,8 @@
         }
         if (resetBtn) resetBtn.style.display = "inline-block";
       }
+      // Refresh Recent Supporters list
+      loadRecentSupporters();
     }
 
     function showError(errorMsg) {
@@ -248,7 +324,7 @@
         statusContainer.style.display = "block";
         statusContainer.className = "support-status-container state-failure";
         statusTitle.textContent = "Payment could not be completed.";
-        statusMsg.textContent = "No payment was marked successful by EkGuru.";
+        statusMsg.textContent = "No successful payment has been recorded.";
         if (statusDetails) {
           statusDetails.style.display = "block";
           statusDetails.innerHTML = "<p class='error-text'>" + (errorMsg || "Transaction cancelled or payment authorization failed.") + "</p>";
@@ -353,6 +429,13 @@
         return;
       }
 
+      var nameVal = (nameInput && nameInput.value.trim()) || "";
+      var emailVal = (emailInput && emailInput.value.trim()) || "";
+      var phoneVal = (phoneInput && phoneInput.value.trim()) || "";
+      var countryVal = (countryInput && countryInput.value.trim()) || "";
+      var messageVal = (messageInput && messageInput.value.trim()) || "";
+      var optInVal = Boolean(optInCheckbox && optInCheckbox.checked);
+
       setFormBusy(true);
 
       // 1. Create order on backend
@@ -362,7 +445,14 @@
         body: JSON.stringify({
           amount: amtVal,
           currency: code,
-          purpose: "ekguru_support",
+          customer: {
+            name: nameVal,
+            email: emailVal,
+            phone: phoneVal,
+            country: countryVal,
+          },
+          supportMessage: messageVal,
+          publicDisplayOptIn: optInVal,
         }),
       })
         .then(function (res) {
@@ -387,8 +477,12 @@
               description: "Support EkGuru's free learning platform",
               image: "https://ekguru.shop/images/logo.svg",
               order_id: orderData.order_id,
-              prefill: {},
-              notes: orderData.notes || { purpose: "ekguru_support" },
+              prefill: {
+                name: (orderData.customer && orderData.customer.name) || nameVal,
+                email: (orderData.customer && orderData.customer.email) || emailVal,
+                contact: (orderData.customer && orderData.customer.contact) || phoneVal,
+              },
+              notes: orderData.notes || { purpose: "Support EkGuru" },
               theme: {
                 color: "#4f32d9",
               },
@@ -417,6 +511,8 @@
 
     // Initial draw
     updateCurrencyUI();
+    // Initial lazy load of recent supporters
+    loadRecentSupporters();
   }
 
   // Export for testing or manual re-init
@@ -424,6 +520,7 @@
     init: init,
     POPULAR_CURRENCIES: POPULAR_CURRENCIES,
     formatDisplay: formatDisplay,
+    loadRecentSupporters: loadRecentSupporters,
   };
 
   if (document.readyState === "loading") {

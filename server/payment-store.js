@@ -13,7 +13,7 @@ const path = require("path");
 const FORBIDDEN_FIELDS = new Set([
   "card",
   "card_number",
-  "cardNumber",
+  "cardnumber",
   "cvv",
   "cvv2",
   "cvc",
@@ -24,6 +24,7 @@ const FORBIDDEN_FIELDS = new Set([
   "key_secret",
   "razorpay_key_secret",
   "webhook_secret",
+  "sheets_ingest_token",
 ]);
 
 class PaymentStore {
@@ -32,7 +33,9 @@ class PaymentStore {
     this.records = new Map(); // internal_id -> record
     this.orderIndex = new Map(); // razorpay_order_id -> internal_id
     this.paymentIndex = new Map(); // razorpay_payment_id -> internal_id
-    this.webhookEvents = new Set(); // event_id -> processed
+    this.webhookEvents = new Map(); // event_id -> eventData
+    this.customers = new Map(); // email/id -> customerRecord
+    this.refunds = new Map(); // refund_id -> refundRecord
 
     if (this.storagePath && fs.existsSync(this.storagePath)) {
       this._loadFromFile();
@@ -43,7 +46,7 @@ class PaymentStore {
     if (!data || typeof data !== "object") return {};
     for (const key of Object.keys(data)) {
       const lower = key.toLowerCase();
-      if (FORBIDDEN_FIELDS.has(lower) || lower.includes("card_num") || lower.includes("cvv") || lower.includes("secret")) {
+      if (FORBIDDEN_FIELDS.has(lower) || lower.includes("card_num") || lower.includes("cvv") || (lower.includes("secret") && !lower.includes("opt_in"))) {
         throw new Error(`Security Violation: Sensitive field '${key}' is strictly forbidden from payment storage.`);
       }
     }
@@ -52,22 +55,6 @@ class PaymentStore {
 
   /**
    * Creates a new payment record.
-   *
-   * Required fields:
-   * - internal_id
-   * - razorpay_order_id
-   * - razorpay_payment_id
-   * - currency
-   * - amount_minor
-   * - status
-   * - purpose
-   * - customer_email (if available)
-   * - customer_name (if available)
-   * - created_at
-   * - updated_at
-   * - source
-   * - webhook_verified
-   * - verification_status
    */
   createRecord(data) {
     this._sanitizeData(data);
@@ -90,10 +77,21 @@ class PaymentStore {
       razorpay_payment_id: data.razorpay_payment_id ? String(data.razorpay_payment_id) : null,
       currency: String(data.currency).toUpperCase(),
       amount_minor: data.amount_minor,
+      display_amount: data.display_amount != null ? data.display_amount : null,
       status: data.status || "created", // created, authorized, captured, failed, refunded
       purpose: data.purpose || "ekguru_support",
       customer_email: data.customer_email ? String(data.customer_email).trim() : null,
       customer_name: data.customer_name ? String(data.customer_name).trim() : null,
+      customer_phone: data.customer_phone ? String(data.customer_phone).trim() : null,
+      country: data.country ? String(data.country).trim() : null,
+      support_message: data.support_message ? String(data.support_message).trim() : null,
+      public_display_opt_in: Boolean(data.public_display_opt_in),
+      method: data.method || "card",
+      international: data.international != null ? Boolean(data.international) : (String(data.currency).toUpperCase() !== "INR"),
+      fee: data.fee != null ? data.fee : 0,
+      tax: data.tax != null ? data.tax : 0,
+      refund_status: data.refund_status || "none", // none | partial | refunded
+      sheet_sync_status: data.sheet_sync_status || "pending", // pending | synced | failed | retrying
       created_at: data.created_at || now,
       updated_at: data.updated_at || now,
       source: data.source || "checkout", // checkout | webhook
@@ -116,9 +114,6 @@ class PaymentStore {
 
   /**
    * Updates an existing payment record.
-   * @param {string} internalId
-   * @param {object} updates
-   * @returns {object|null}
    */
   updateRecord(internalId, updates) {
     this._sanitizeData(updates);
@@ -142,6 +137,16 @@ class PaymentStore {
     if (updates.source !== undefined) record.source = updates.source;
     if (updates.customer_email !== undefined) record.customer_email = updates.customer_email;
     if (updates.customer_name !== undefined) record.customer_name = updates.customer_name;
+    if (updates.customer_phone !== undefined) record.customer_phone = updates.customer_phone;
+    if (updates.country !== undefined) record.country = updates.country;
+    if (updates.support_message !== undefined) record.support_message = updates.support_message;
+    if (updates.public_display_opt_in !== undefined) record.public_display_opt_in = Boolean(updates.public_display_opt_in);
+    if (updates.display_amount !== undefined) record.display_amount = updates.display_amount;
+    if (updates.method !== undefined) record.method = updates.method;
+    if (updates.fee !== undefined) record.fee = updates.fee;
+    if (updates.tax !== undefined) record.tax = updates.tax;
+    if (updates.refund_status !== undefined) record.refund_status = updates.refund_status;
+    if (updates.sheet_sync_status !== undefined) record.sheet_sync_status = updates.sheet_sync_status;
 
     record.updated_at = new Date().toISOString();
     this._saveToFile();
@@ -177,9 +182,94 @@ class PaymentStore {
     return this.webhookEvents.has(String(eventId));
   }
 
-  recordWebhookEvent(eventId) {
+  recordWebhookEvent(eventId, details = {}) {
     if (!eventId) return;
-    this.webhookEvents.add(String(eventId));
+    this.webhookEvents.set(String(eventId), {
+      event_id: String(eventId),
+      recorded_at: new Date().toISOString(),
+      ...details,
+    });
+    this._saveToFile();
+  }
+
+  /**
+   * Upserts a customer into the local customer store.
+   */
+  upsertCustomer(customerData) {
+    this._sanitizeData(customerData);
+    const email = customerData.email ? customerData.email.toLowerCase().trim() : null;
+    const key = email || customerData.customer_id;
+    if (!key) return null;
+
+    const now = new Date().toISOString();
+    const existing = this.customers.get(key);
+    const amount = Number(customerData.amount) || 0;
+    const currency = (customerData.currency || "INR").toUpperCase();
+
+    if (existing) {
+      existing.last_payment = now;
+      existing.total_payments = (existing.total_payments || 1) + 1;
+      existing.total_amount = (existing.total_amount || 0) + amount;
+      if (!existing.currencies.includes(currency)) {
+        existing.currencies.push(currency);
+      }
+      if (customerData.name) existing.name = customerData.name;
+      if (customerData.phone) existing.phone = customerData.phone;
+      if (customerData.country) existing.country = customerData.country;
+      this._saveToFile();
+      return { ...existing };
+    } else {
+      const newCustomer = {
+        customer_id: customerData.customer_id || `cust_${Date.now().toString(36)}`,
+        name: customerData.name || "",
+        email: email || "",
+        phone: customerData.phone || "",
+        country: customerData.country || "",
+        first_payment: now,
+        last_payment: now,
+        total_payments: 1,
+        total_amount: amount,
+        currencies: [currency],
+      };
+      this.customers.set(key, newCustomer);
+      this._saveToFile();
+      return { ...newCustomer };
+    }
+  }
+
+  /**
+   * Records a refund into the local refund store.
+   */
+  recordRefund(refundData) {
+    this._sanitizeData(refundData);
+    if (!refundData.refund_id) return null;
+
+    const refund = {
+      refund_id: String(refundData.refund_id),
+      payment_id: refundData.payment_id || null,
+      order_id: refundData.order_id || null,
+      amount: refundData.amount,
+      currency: (refundData.currency || "INR").toUpperCase(),
+      status: refundData.status || "processed",
+      reason: refundData.reason || "supporter_request",
+      created_at: refundData.created_at || new Date().toISOString(),
+    };
+
+    this.refunds.set(refund.refund_id, refund);
+
+    // Update payment record refund_status if linked
+    if (refund.payment_id) {
+      const record = this.getByPaymentId(refund.payment_id);
+      if (record) {
+        this.updateRecord(record.internal_id, {
+          status: "refunded",
+          refund_status: "refunded",
+        });
+      }
+    }
+
+    this._saveToFile();
+    return { ...refund };
   }
 
   list(limit = 100) {
@@ -193,6 +283,8 @@ class PaymentStore {
     this.orderIndex.clear();
     this.paymentIndex.clear();
     this.webhookEvents.clear();
+    this.customers.clear();
+    this.refunds.clear();
     this._saveToFile();
   }
 
@@ -207,7 +299,17 @@ class PaymentStore {
       }
       if (Array.isArray(data.webhookEvents)) {
         for (const ev of data.webhookEvents) {
-          this.webhookEvents.add(ev);
+          this.webhookEvents.set(ev.event_id || ev, ev);
+        }
+      }
+      if (Array.isArray(data.customers)) {
+        for (const c of data.customers) {
+          this.customers.set(c.email || c.customer_id, c);
+        }
+      }
+      if (Array.isArray(data.refunds)) {
+        for (const rf of data.refunds) {
+          this.refunds.set(rf.refund_id, rf);
         }
       }
     } catch (e) {
@@ -222,7 +324,9 @@ class PaymentStore {
       if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
       const payload = {
         records: Array.from(this.records.values()),
-        webhookEvents: Array.from(this.webhookEvents),
+        webhookEvents: Array.from(this.webhookEvents.values()),
+        customers: Array.from(this.customers.values()),
+        refunds: Array.from(this.refunds.values()),
       };
       fs.writeFileSync(this.storagePath, JSON.stringify(payload, null, 2), "utf8");
     } catch (e) {

@@ -173,6 +173,79 @@
       <div id="amount-feedback" class="field-feedback" role="alert" aria-live="polite"></div>
     </div>
 
+    <!-- Customer Details -->
+    <div class="form-grid-2">
+      <div class="form-group">
+        <label for="support-customer-name" class="form-label">Full Name</label>
+        <input
+          type="text"
+          id="support-customer-name"
+          class="form-input"
+          placeholder="Your full name"
+          autocomplete="name"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="support-customer-email" class="form-label">Email</label>
+        <input
+          type="email"
+          id="support-customer-email"
+          class="form-input"
+          placeholder="name@example.com"
+          autocomplete="email"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="form-grid-2">
+      <div class="form-group">
+        <label for="support-customer-phone" class="form-label">Phone <small class="text-muted">(optional)</small></label>
+        <input
+          type="tel"
+          id="support-customer-phone"
+          class="form-input"
+          placeholder="+1 555 123 4567"
+          autocomplete="tel"
+        />
+      </div>
+      <div class="form-group">
+        <label for="support-customer-country" class="form-label">Country</label>
+        <input
+          type="text"
+          id="support-customer-country"
+          class="form-input"
+          placeholder="e.g. India, United States"
+          autocomplete="country-name"
+        />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="support-customer-message" class="form-label">Support Message <small class="text-muted">(optional)</small></label>
+      <textarea
+        id="support-customer-message"
+        class="form-textarea"
+        placeholder="Leave an encouraging note for EkGuru..."
+        rows="2"
+        maxlength="300"
+      ></textarea>
+    </div>
+
+    <!-- Public Consent Opt-in -->
+    <div class="form-group form-checkbox-group">
+      <label class="checkbox-label" for="support-opt-in">
+        <input type="checkbox" id="support-opt-in" class="form-checkbox" />
+        <span>Show my name and support amount in Recent Supporters</span>
+      </label>
+      <p class="privacy-hint">
+        Choose this only if you would like your display name, country and support amount to appear in EkGuru's Recent Supporters section.
+      </p>
+    </div>
+
+    <p class="currency-disclaimer">Available payment currencies depend on your payment provider and location.</p>
+
     <div class="amount-summary" id="support-amount-summary" aria-live="polite">
       <span>Contribution Summary:</span>
       <strong id="support-formatted-summary">₹500</strong>
@@ -198,6 +271,19 @@
       <div class="status-details" id="support-status-details" style="display:none"></div>
       <button type="button" id="support-reset-btn" class="btn btn-sm btn-outline" style="display:none">Make another contribution</button>
     </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     RECENT SUPPORTERS SECTION
+     ========================================================= -->
+<section class="recent-supporters-card" id="recent-supporters-section" aria-labelledby="recent-supporters-title">
+  <div class="recent-supporters-header">
+    <h2 class="recent-supporters-title" id="recent-supporters-title">Recent Supporters</h2>
+    <p class="recent-supporters-subtitle">Recent verified contributions from learners and patrons helping keep EkGuru free.</p>
+  </div>
+  <div id="recent-supporters-list" class="recent-supporters-list" aria-live="polite">
+    <div class="supporters-loading" id="supporters-loading">Loading recent supporters...</div>
   </div>
 </section>
 <!-- =========================================================
