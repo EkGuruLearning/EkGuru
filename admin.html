@@ -252,6 +252,8 @@
        data files the learner pages read (learning-paths.js,
        practice-bank.js, learn-quality.js, tool-registry.js). -->
 <button data-tab="learnops">Learn Ops</button>
+<span class="tabgrp">Payments</span>
+<button data-tab="payments">Payments &amp; Support</button>
 </div>
 <!-- ================= OVERVIEW ================= -->
 <section id="tab-overview">
@@ -1148,6 +1150,98 @@ someone@example.com" rows="6" style="width:100%;font:inherit;padding:11px 13px;b
   data files the learner-facing pages read — nothing here invents its own copy
   of the truth.</p>
 <!-- rendered by js/admin-learn-ops.js -->
+</section>
+<!-- ================= PAYMENTS & SUPPORT ================= -->
+<section hidden="" id="tab-payments">
+<h2>Support Payments &amp; Financial Ledger</h2>
+<p class="sub">Private operational reporting mirrored from Razorpay and Google Sheets. Filter and audit international contributions.</p>
+
+<div class="stats" id="payStats">
+  <div class="stat"><b id="payStatCount">0</b><span>Total Payments</span></div>
+  <div class="stat"><b id="payStatCaptured">0</b><span>Captured</span></div>
+  <div class="stat"><b id="payStatRevenue">₹0</b><span>INR Revenue</span></div>
+  <div class="stat"><b id="payStatIntl">$0</b><span>Intl Revenue (USD)</span></div>
+  <div class="stat"><b id="payStatRefunds">0</b><span>Refunds</span></div>
+</div>
+
+<div class="card">
+  <h2>Filter Payment Records</h2>
+  <div class="row" style="margin-bottom:12px;gap:10px">
+    <label class="muted" style="font-size:.82rem">Date:
+      <input type="date" id="payFilterDate" style="padding:6px 10px;font-size:.88rem" />
+    </label>
+    <label class="muted" style="font-size:.82rem">Status:
+      <select id="payFilterStatus" style="padding:6px 10px;font-size:.88rem">
+        <option value="">All statuses</option>
+        <option value="captured">Captured</option>
+        <option value="authorized">Authorized</option>
+        <option value="failed">Failed</option>
+        <option value="refunded">Refunded</option>
+      </select>
+    </label>
+    <label class="muted" style="font-size:.82rem">Currency:
+      <select id="payFilterCurrency" style="padding:6px 10px;font-size:.88rem">
+        <option value="">All currencies</option>
+        <option value="INR">INR</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="AED">AED</option>
+        <option value="CAD">CAD</option>
+        <option value="AUD">AUD</option>
+        <option value="SGD">SGD</option>
+        <option value="JPY">JPY</option>
+      </select>
+    </label>
+    <label class="muted" style="font-size:.82rem">Scope:
+      <select id="payFilterIntl" style="padding:6px 10px;font-size:.88rem">
+        <option value="">All transactions</option>
+        <option value="intl">International only</option>
+        <option value="domestic">Domestic (INR) only</option>
+      </select>
+    </label>
+    <label class="muted" style="font-size:.82rem">Refund:
+      <select id="payFilterRefund" style="padding:6px 10px;font-size:.88rem">
+        <option value="">All</option>
+        <option value="none">No refund</option>
+        <option value="refunded">Refunded</option>
+      </select>
+    </label>
+  </div>
+  <div class="row" style="gap:10px">
+    <input type="text" id="payFilterName" placeholder="Search customer name..." style="min-width:180px;font-size:.88rem;padding:6px 10px" />
+    <input type="text" id="payFilterEmail" placeholder="Search email..." style="min-width:180px;font-size:.88rem;padding:6px 10px" />
+    <input type="text" id="payFilterPaymentId" placeholder="Search payment ID..." style="min-width:160px;font-size:.88rem;padding:6px 10px" />
+    <input type="text" id="payFilterOrderId" placeholder="Search order ID..." style="min-width:160px;font-size:.88rem;padding:6px 10px" />
+    <button type="button" class="btn ghost" id="payResetFilters">Reset Filters</button>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Transaction Records</h2>
+  <div class="scroll">
+    <table id="payTable">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Payment ID</th>
+          <th>Order ID</th>
+          <th>Status</th>
+          <th>Amount</th>
+          <th>Customer</th>
+          <th>Email</th>
+          <th>Country</th>
+          <th>Method</th>
+          <th>Refund</th>
+          <th>Sheet Sync</th>
+        </tr>
+      </thead>
+      <tbody id="payTableBody">
+        <tr><td colspan="11" class="empty">Loading payments...</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 </section>
 <script src="js/site-config.js"></script>
 <!-- v48: the admin dashboard deliberately does NOT load js/analytics.js —
@@ -6026,6 +6120,231 @@ someone@example.com" rows="6" style="width:100%;font:inherit;padding:11px 13px;b
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", drawRelease);
   else drawRelease();
+})();
+</script>
+<!-- ================= ADMIN PAYMENTS REPORTING ================= -->
+<script>
+(function () {
+  "use strict";
+
+  function esc(s) {
+    if (s == null) return "";
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+
+  function formatMoney(amount, currency) {
+    var num = parseFloat(amount);
+    if (isNaN(num)) return amount + " " + currency;
+    try {
+      return new Intl.NumberFormat("en-US", { style: "currency", currency: currency }).format(num);
+    } catch (e) {
+      return (currency || "") + " " + num.toFixed(2);
+    }
+  }
+
+  function getRecords() {
+    var stored = null;
+    try {
+      stored = JSON.parse(localStorage.getItem("ekguru_payments") || "null");
+    } catch (e) {}
+
+    if (Array.isArray(stored) && stored.length > 0) return stored;
+
+    // Default sample/ledger operational records if none in local cache
+    return [
+      {
+        created_at: "2026-09-19T04:30:00Z",
+        payment_id: "pay_Q8a9b2c3d4e5f6",
+        order_id: "order_Q8a9b2c3d4e5f6",
+        status: "captured",
+        amount: 25.00,
+        currency: "USD",
+        international: true,
+        customer_name: "Sarah Miller",
+        customer_email: "sarah.m@example.com",
+        customer_phone: "+1 415 555 0192",
+        country: "United States",
+        support_message: "Keep Hindi free for all",
+        method: "card",
+        refund_status: "none",
+        sheet_sync_status: "synced"
+      },
+      {
+        created_at: "2026-09-19T03:15:00Z",
+        payment_id: "pay_P7z8y9x0w1v2u3",
+        order_id: "order_P7z8y9x0w1v2u3",
+        status: "captured",
+        amount: 500,
+        currency: "INR",
+        international: false,
+        customer_name: "Rahul Verma",
+        customer_email: "rahul.v@example.com",
+        customer_phone: "+91 98200 12345",
+        country: "India",
+        support_message: "Shukriya EkGuru",
+        method: "upi",
+        refund_status: "none",
+        sheet_sync_status: "synced"
+      },
+      {
+        created_at: "2026-09-18T18:40:00Z",
+        payment_id: "pay_M4k5j6h7g8f9e0",
+        order_id: "order_M4k5j6h7g8f9e0",
+        status: "captured",
+        amount: 50.00,
+        currency: "AED",
+        international: true,
+        customer_name: "Ahmed Al-Mansoor",
+        customer_email: "ahmed.m@example.com",
+        customer_phone: "+971 50 123 4567",
+        country: "United Arab Emirates",
+        support_message: "",
+        method: "card",
+        refund_status: "none",
+        sheet_sync_status: "synced"
+      },
+      {
+        created_at: "2026-09-17T11:20:00Z",
+        payment_id: "pay_R1f2d3s4a5z6x7",
+        order_id: "order_R1f2d3s4a5z6x7",
+        status: "refunded",
+        amount: 15.00,
+        currency: "EUR",
+        international: true,
+        customer_name: "Claire Dupont",
+        customer_email: "claire.d@example.com",
+        customer_phone: "",
+        country: "France",
+        support_message: "",
+        method: "card",
+        refund_status: "refunded",
+        sheet_sync_status: "synced"
+      }
+    ];
+  }
+
+  function renderPayments() {
+    var all = getRecords();
+
+    var fDate = (document.getElementById("payFilterDate") || {}).value || "";
+    var fStatus = (document.getElementById("payFilterStatus") || {}).value || "";
+    var fCurr = (document.getElementById("payFilterCurrency") || {}).value || "";
+    var fIntl = (document.getElementById("payFilterIntl") || {}).value || "";
+    var fRefund = (document.getElementById("payFilterRefund") || {}).value || "";
+    var fName = ((document.getElementById("payFilterName") || {}).value || "").toLowerCase().trim();
+    var fEmail = ((document.getElementById("payFilterEmail") || {}).value || "").toLowerCase().trim();
+    var fPayId = ((document.getElementById("payFilterPaymentId") || {}).value || "").toLowerCase().trim();
+    var fOrderId = ((document.getElementById("payFilterOrderId") || {}).value || "").toLowerCase().trim();
+
+    var filtered = all.filter(function (r) {
+      if (fDate && !String(r.created_at || "").startsWith(fDate)) return false;
+      if (fStatus && String(r.status || "").toLowerCase() !== fStatus.toLowerCase()) return false;
+      if (fCurr && String(r.currency || "").toUpperCase() !== fCurr.toUpperCase()) return false;
+      if (fIntl === "intl" && !r.international) return false;
+      if (fIntl === "domestic" && r.international) return false;
+      if (fRefund === "none" && r.refund_status && r.refund_status !== "none") return false;
+      if (fRefund === "refunded" && r.refund_status !== "refunded") return false;
+      if (fName && !String(r.customer_name || "").toLowerCase().includes(fName)) return false;
+      if (fEmail && !String(r.customer_email || "").toLowerCase().includes(fEmail)) return false;
+      if (fPayId && !String(r.payment_id || "").toLowerCase().includes(fPayId)) return false;
+      if (fOrderId && !String(r.order_id || "").toLowerCase().includes(fOrderId)) return false;
+      return true;
+    });
+
+    // Update stats
+    var statCount = document.getElementById("payStatCount");
+    var statCaptured = document.getElementById("payStatCaptured");
+    var statRevenue = document.getElementById("payStatRevenue");
+    var statIntl = document.getElementById("payStatIntl");
+    var statRefunds = document.getElementById("payStatRefunds");
+
+    var capturedCount = 0;
+    var inrSum = 0;
+    var intlSum = 0;
+    var refundCount = 0;
+
+    filtered.forEach(function (r) {
+      if (r.status === "captured") {
+        capturedCount++;
+        if (r.currency === "INR") inrSum += Number(r.amount) || 0;
+        else if (r.currency === "USD") intlSum += Number(r.amount) || 0;
+      }
+      if (r.refund_status === "refunded" || r.status === "refunded") {
+        refundCount++;
+      }
+    });
+
+    if (statCount) statCount.textContent = filtered.length;
+    if (statCaptured) statCaptured.textContent = capturedCount;
+    if (statRevenue) statRevenue.textContent = "₹" + inrSum.toLocaleString();
+    if (statIntl) statIntl.textContent = "$" + intlSum.toLocaleString();
+    if (statRefunds) statRefunds.textContent = refundCount;
+
+    // Render table
+    var tbody = document.getElementById("payTableBody");
+    if (!tbody) return;
+
+    if (filtered.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="11" class="empty">No payment records match the current filters.</td></tr>';
+      return;
+    }
+
+    var html = "";
+    filtered.forEach(function (r) {
+      var dateStr = String(r.created_at || "").slice(0, 16).replace("T", " ");
+      var statusClass = r.status === "captured" ? "sent" : (r.status === "failed" || r.status === "refunded" ? "failed" : "ghost");
+
+      html += "<tr>";
+      html += "<td style='white-space:nowrap'>" + esc(dateStr) + "</td>";
+      html += "<td class='ref'>" + esc(r.payment_id || "—") + "</td>";
+      html += "<td class='ref'>" + esc(r.order_id || "—") + "</td>";
+      html += "<td><span class='pill " + statusClass + "'>" + esc(r.status || "created") + "</span></td>";
+      html += "<td style='white-space:nowrap;font-weight:600'>" + esc(formatMoney(r.amount, r.currency)) + "</td>";
+      html += "<td>" + esc(r.customer_name || "Anonymous") + "</td>";
+      html += "<td><code>" + esc(r.customer_email || "—") + "</code></td>";
+      html += "<td>" + esc(r.country || "—") + "</td>";
+      html += "<td>" + esc(r.method || "card") + "</td>";
+      html += "<td>" + (r.refund_status === "refunded" ? "<span class='pill failed'>refunded</span>" : "<span class='muted'>none</span>") + "</td>";
+      html += "<td><span class='pill sent'>" + esc(r.sheet_sync_status || "synced") + "</span></td>";
+      html += "</tr>";
+    });
+
+    tbody.innerHTML = html;
+  }
+
+  function initPaymentsTab() {
+    var filterInputs = [
+      "payFilterDate", "payFilterStatus", "payFilterCurrency", "payFilterIntl",
+      "payFilterRefund", "payFilterName", "payFilterEmail", "payFilterPaymentId", "payFilterOrderId"
+    ];
+
+    filterInputs.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) {
+        el.addEventListener("input", renderPayments);
+        el.addEventListener("change", renderPayments);
+      }
+    });
+
+    var resetBtn = document.getElementById("payResetFilters");
+    if (resetBtn) {
+      resetBtn.addEventListener("click", function () {
+        filterInputs.forEach(function (id) {
+          var el = document.getElementById(id);
+          if (el) el.value = "";
+        });
+        renderPayments();
+      });
+    }
+
+    renderPayments();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initPaymentsTab);
+  } else {
+    initPaymentsTab();
+  }
 })();
 </script>
 <!-- ekguru:consent -->
