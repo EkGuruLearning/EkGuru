@@ -435,61 +435,148 @@
       updateSummary();
     }
 
-    function loadRazorpaySdk() {
+    function loadRazorpaySdk(timeoutMs) {
       return new Promise(function (resolve, reject) {
-        if (window.Razorpay) return resolve(window.Razorpay);
+        if (typeof window !== "undefined" && window.Razorpay) {
+          return resolve(window.Razorpay);
+        }
+        var timer = setTimeout(function () {
+          if (typeof window !== "undefined" && window.Razorpay) {
+            resolve(window.Razorpay);
+          } else {
+            reject(new Error("Payment service could not be loaded. Please check your network connection or ad blocker and try again."));
+          }
+        }, timeoutMs || 8000);
+
+        var existing = document.querySelector('script[src*="checkout.razorpay.com"]');
+        if (existing) {
+          existing.addEventListener("load", function () {
+            clearTimeout(timer);
+            if (typeof window !== "undefined" && window.Razorpay) {
+              resolve(window.Razorpay);
+            } else {
+              reject(new Error("Razorpay SDK script loaded but object missing."));
+            }
+          });
+          existing.addEventListener("error", function () {
+            clearTimeout(timer);
+            reject(new Error("Failed to load Razorpay Checkout script. Check your network connection or content blocker."));
+          });
+          return;
+        }
+
         var script = document.createElement("script");
         script.src = "https://checkout.razorpay.com/v1/checkout.js";
         script.async = true;
         script.onload = function () {
-          if (window.Razorpay) resolve(window.Razorpay);
-          else reject(new Error("Razorpay SDK script loaded but object missing."));
+          clearTimeout(timer);
+          if (typeof window !== "undefined" && window.Razorpay) {
+            resolve(window.Razorpay);
+          } else {
+            reject(new Error("Razorpay SDK script loaded but object missing."));
+          }
         };
         script.onerror = function () {
+          clearTimeout(timer);
           reject(new Error("Failed to load Razorpay Checkout script. Check your network connection or content blocker."));
         };
-        document.head.appendChild(script);
+        (document.head || document.body || document.documentElement).appendChild(script);
       });
     }
 
-    function verifyPaymentOnServer(checkoutResponse, orderData) {
-      btnText.textContent = "Verifying payment...";
-      var internalId = (orderData && orderData.internal_id) || "";
-      var cust = (orderData && orderData.customer) || {};
+    function jsonpBackend(action, params, timeoutMs) {
+      return new Promise(function (resolve, reject) {
+        var callbackName = "_ekg_pay_cb_" + Date.now() + "_" + Math.floor(Math.random() * 1000000);
+        var script = document.createElement("script");
+        var baseUrl = getEndpoint();
+        var sep = baseUrl.indexOf("?") === -1 ? "?" : "&";
 
-      fetch(buildApiUrl("verify-payment"), {
-        method: "POST",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        redirect: "follow",
-        body: JSON.stringify({
-          action: "verify-payment",
-          razorpay_order_id: checkoutResponse.razorpay_order_id,
-          razorpay_payment_id: checkoutResponse.razorpay_payment_id,
-          razorpay_signature: checkoutResponse.razorpay_signature,
-          internal_id: internalId,
-          customer_name: cust.name || "",
-          customer_email: cust.email || "",
-          customer_phone: cust.phone || "",
-          country: cust.country || "",
-          support_message: (orderData && (orderData.support_message || orderData.supportMessage)) || "",
-          publicDisplayOptIn: Boolean(orderData && (orderData.publicDisplayOptIn === true || orderData.public_display_opt_in === true)),
-        }),
-      })
-        .then(function (r) {
-          return r.json().then(function (data) {
-            return { ok: r.ok && data.success !== false, data: data };
-          });
-        })
-        .then(function (res) {
-          if (res.ok && res.data.success) {
-            showSuccess(res.data);
-          } else {
-            showError(res.data.error || "Signature verification failed.", "RAZORPAY_VERIFY_FAILED");
+        var queryParts = ["action=" + encodeURIComponent(action), "callback=" + encodeURIComponent(callbackName)];
+        if (params) {
+          for (var k in params) {
+            if (Object.prototype.hasOwnProperty.call(params, k)) {
+              var val = params[k];
+              if (val !== undefined && val !== null) {
+                queryParts.push(encodeURIComponent(k) + "=" + encodeURIComponent(val));
+              }
+            }
           }
+        }
+
+        script.src = baseUrl + sep + queryParts.join("&");
+        script.async = true;
+
+        var cleanedUp = false;
+        function cleanup() {
+          if (cleanedUp) return;
+          cleanedUp = true;
+          try {
+            delete window[callbackName];
+          } catch (e) {
+            window[callbackName] = undefined;
+          }
+          if (script.parentNode) {
+            script.parentNode.removeChild(script);
+          }
+        }
+
+        var timer = setTimeout(function () {
+          cleanup();
+          reject(new Error("Unable to start payment. Connection timed out. Please try again."));
+        }, timeoutMs || 15000);
+
+        window[callbackName] = function (data) {
+          clearTimeout(timer);
+          cleanup();
+          if (data && data.success === false) {
+            reject(new Error(data.error || "Payment backend returned an error."));
+          } else {
+            resolve(data);
+          }
+        };
+
+        script.onerror = function () {
+          clearTimeout(timer);
+          cleanup();
+          reject(new Error("Unable to contact payment backend. Please check your network and try again."));
+        };
+
+        (document.head || document.body || document.documentElement).appendChild(script);
+      });
+    }
+
+    function callBackend(action, params, timeoutMs) {
+      timeoutMs = timeoutMs || 15000;
+      var postUrl = buildApiUrl(action);
+      var payload = Object.assign({ action: action }, params);
+
+      if (typeof fetch === "function") {
+        var controller = typeof AbortController !== "undefined" ? new AbortController() : null;
+        var fetchTimer = controller ? setTimeout(function () { controller.abort(); }, 4000) : null;
+
+        return fetch(postUrl, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(payload),
+          signal: controller ? controller.signal : undefined,
         })
-        .catch(function (err) {
-          showError("Unable to reach verification server: " + err.message, "SUPPORT_API_UNREACHABLE");
-        });
+          .then(function (res) {
+            if (fetchTimer) clearTimeout(fetchTimer);
+            return res.json().then(function (data) {
+              if (!res.ok || data.success === false) {
+                throw new Error(data.error || "Failed payment request.");
+              }
+              return data;
+            });
+          })
+          .catch(function () {
+            if (fetchTimer) clearTimeout(fetchTimer);
+            // Browser 302 cross-origin redirect CORS failure or timeout: seamlessly fall back to JSONP!
+            return jsonpBackend(action, params, timeoutMs);
+          });
+      }
+
+      return jsonpBackend(action, params, timeoutMs);
     }
 
     // Event listeners
@@ -510,6 +597,10 @@
 
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
+
+      if (submitBtn.disabled || form.classList.contains("is-busy")) {
+        return;
+      }
 
       var code = currencySelect.value;
       var c = currencyMap[code];
@@ -541,45 +632,32 @@
 
       setFormBusy(true);
 
-      // 1. Create order on backend (Google Apps Script Web App)
-      fetch(buildApiUrl("create-order"), {
-        method: "POST",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        redirect: "follow",
-        body: JSON.stringify({
-          action: "create-order",
-          amount: amtVal,
-          currency: code,
-          customer: {
-            name: nameVal,
-            email: emailVal,
-            phone: phoneVal,
-            country: countryVal,
-          },
-          customer_name: nameVal,
-          customer_email: emailVal,
-          customer_phone: phoneVal,
+      callBackend("create-order", {
+        amount: amtVal,
+        currency: code,
+        customer: {
+          name: nameVal,
+          email: emailVal,
+          phone: phoneVal,
           country: countryVal,
-          supportMessage: messageVal,
-          support_message: messageVal,
-          publicDisplayOptIn: optInVal,
-          public_display_opt_in: optInVal,
-        }),
-      })
-        .then(function (res) {
-          return res.json().then(function (data) {
-            return { ok: res.ok && data.success !== false, data: data };
-          });
-        })
-        .then(function (res) {
-          if (!res.ok || !res.data.success) {
-            throw new Error(res.data.error || "Failed to create payment order.");
+        },
+        customer_name: nameVal,
+        customer_email: emailVal,
+        customer_phone: phoneVal,
+        country: countryVal,
+        support_message: messageVal,
+        supportMessage: messageVal,
+        publicDisplayOptIn: optInVal,
+        public_display_opt_in: optInVal,
+      }, 15000)
+        .then(function (orderData) {
+          if (!orderData || !orderData.order_id) {
+            throw new Error((orderData && orderData.error) ? orderData.error : "Unable to obtain order reference from payment backend.");
           }
 
-          var orderData = res.data;
+          btnText.textContent = "Launching checkout...";
 
-          // 2. Load Razorpay Checkout SDK
-          return loadRazorpaySdk().then(function (RazorpayCtor) {
+          return loadRazorpaySdk(8000).then(function (RazorpayCtor) {
             var options = {
               key: orderData.key_id,
               amount: orderData.amount,
@@ -598,7 +676,25 @@
                 color: "#4f32d9",
               },
               handler: function (checkoutResponse) {
-                verifyPaymentOnServer(checkoutResponse, orderData);
+                btnText.textContent = "Verifying payment...";
+                callBackend("verify-payment", {
+                  razorpay_order_id: checkoutResponse.razorpay_order_id,
+                  razorpay_payment_id: checkoutResponse.razorpay_payment_id,
+                  razorpay_signature: checkoutResponse.razorpay_signature,
+                  internal_id: orderData.internal_id,
+                  customer_name: (orderData.customer && orderData.customer.name) || nameVal,
+                  customer_email: (orderData.customer && orderData.customer.email) || emailVal,
+                  customer_phone: (orderData.customer && orderData.customer.contact) || phoneVal,
+                  country: (orderData.customer && orderData.customer.country) || countryVal,
+                  support_message: orderData.support_message || messageVal,
+                  publicDisplayOptIn: optInVal,
+                }, 15000)
+                  .then(function (verifyData) {
+                    showSuccess(verifyData || orderData);
+                  })
+                  .catch(function (verErr) {
+                    showError(verErr.message || "Payment verification failed.", "RAZORPAY_VERIFY_FAILED");
+                  });
               },
               modal: {
                 ondismiss: function () {
@@ -609,26 +705,30 @@
 
             var rzp = new RazorpayCtor(options);
             rzp.on("payment.failed", function (failResp) {
-              var desc = failResp.error ? failResp.error.description : "Payment processing failed";
+              var desc = (failResp && failResp.error && failResp.error.description) ? failResp.error.description : "Payment processing failed";
               showError(desc, "RAZORPAY_PAYMENT_FAILED");
             });
             rzp.open();
           });
         })
         .catch(function (err) {
-          var code = "SUPPORT_API_UNREACHABLE";
-          if (err.message && err.message.indexOf("Failed to load Razorpay") !== -1) {
-            code = "RAZORPAY_CHECKOUT_LOAD_FAILED";
-          } else if (err.message && err.message.indexOf("order") !== -1) {
-            code = "RAZORPAY_ORDER_CREATE_FAILED";
+          setFormBusy(false);
+          var msg = (err && err.message) ? err.message : "Unable to start payment. Please try again.";
+          showFeedback(msg, true);
+          if (err && err.message && err.message.indexOf("service could not be loaded") !== -1) {
+            showError("Payment service could not be loaded. Please check your network connection or content blocker and try again.", "RAZORPAY_CHECKOUT_LOAD_FAILED");
+          } else {
+            showError(msg, "PAYMENT_START_FAILED");
           }
-          showError(err.message, code);
         });
     });
 
+    // Start background preloading of Razorpay SDK
+    loadRazorpaySdk(10000).catch(function () {});
+
     // Initial draw
     updateCurrencyUI();
-    // Initial lazy load of recent supporters
+    // Initial lazy load of recent supporters (non-blocking)
     loadRecentSupporters();
   }
 

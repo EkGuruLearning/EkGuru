@@ -706,6 +706,20 @@ function doGet(e) {
       });
     }
 
+    // 5. Create Order via GET / JSONP (bypasses browser 302 cross-origin redirect CORS)
+    if (action === "create-order") {
+      var ss = getSpreadsheet_();
+      ensureSheetsAndHeaders_(ss);
+      return output(handleCreateOrder_(ss, params));
+    }
+
+    // 6. Verify Payment via GET / JSONP (bypasses browser 302 cross-origin redirect CORS)
+    if (action === "verify-payment") {
+      var ss = getSpreadsheet_();
+      ensureSheetsAndHeaders_(ss);
+      return output(handleVerifyPayment_(ss, params));
+    }
+
     return output({ success: false, error: "Unknown action: " + action });
   } catch (err) {
     return output({ success: false, error: sanitizeErrorMessage_(err.message) });
@@ -796,12 +810,19 @@ function handleCreateOrder_(ss, data) {
     return { success: false, error: valErr.message };
   }
 
-  var name = String(data.customer_name || data.name || data.customerName || "").trim().slice(0, 100);
-  var email = String(data.customer_email || data.email || data.customerEmail || "").trim().toLowerCase().slice(0, 120);
-  var phone = String(data.customer_phone || data.phone || data.customerPhone || "").trim().slice(0, 30);
-  var country = String(data.country || "").trim().slice(0, 50);
+  var name = String(data.customer_name || data.name || data.customerName || (data.customer && data.customer.name) || "").trim().slice(0, 100);
+  var email = String(data.customer_email || data.email || data.customerEmail || (data.customer && data.customer.email) || "").trim().toLowerCase().slice(0, 120);
+  var phone = String(data.customer_phone || data.phone || data.customerPhone || (data.customer && data.customer.phone) || "").trim().slice(0, 30);
+  var country = String(data.country || (data.customer && data.customer.country) || "").trim().slice(0, 50);
   var message = String(data.support_message || data.message || data.supportMessage || "").trim().slice(0, 300);
-  var optIn = Boolean(data.publicDisplayOptIn === true || data.public_display_opt_in === true || data.public === true);
+  var optIn = Boolean(
+    data.publicDisplayOptIn === true ||
+    String(data.publicDisplayOptIn).toLowerCase() === "true" ||
+    data.public_display_opt_in === true ||
+    String(data.public_display_opt_in).toLowerCase() === "true" ||
+    data.public === true ||
+    String(data.public).toLowerCase() === "true"
+  );
 
   var uuidStr = (typeof Utilities !== "undefined" && Utilities.getUuid) ? Utilities.getUuid() : Math.random().toString(36).substring(2, 10);
   var internalId = "ekg_sup_" + Date.now() + "_" + uuidStr.substring(0, 8);

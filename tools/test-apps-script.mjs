@@ -709,7 +709,71 @@ function createMockEnvironment(customProperties = {}) {
   const parsed = JSON.parse(innerJson);
   assert.equal(parsed.success, true);
   assert.deepEqual(parsed.supporters, []);
-  console.log('✓ PASS [21/21]: JSONP callback wrapped correctly with application/javascript MIME');
+  console.log('✓ PASS [21/23]: JSONP callback wrapped correctly with application/javascript MIME');
 }
 
-console.log('All 21 Google Apps Script backend tests passed successfully!');
+// 22. TEST: JSONP create-order via GET (bypasses browser 302 cross-origin redirect CORS)
+{
+  const { context, mockSpreadsheet } = createMockEnvironment();
+  const output = context.doGet({
+    parameter: {
+      action: 'create-order',
+      amount: '500',
+      currency: 'INR',
+      customer_name: 'Prakash',
+      customer_email: 'prakash@example.com',
+      callback: '_ekg_cb_order_test'
+    }
+  });
+  assert.equal(output._mime, 'application/javascript');
+  const raw = output.getContent();
+  assert.ok(raw.startsWith('_ekg_cb_order_test('));
+  assert.ok(raw.endsWith(');'));
+  const parsed = JSON.parse(raw.slice('_ekg_cb_order_test('.length, -2));
+  assert.equal(parsed.success, true);
+  assert.equal(parsed.amount, 50000);
+  assert.equal(parsed.currency, 'INR');
+  assert.ok(parsed.order_id);
+  assert.ok(parsed.key_id);
+
+  const paySheet = mockSpreadsheet.getSheetByName('Payments');
+  assert.equal(paySheet.grid.length, 2);
+  assert.equal(paySheet.grid[1][4], 'created');
+  console.log('✓ PASS [22/23]: GET ?action=create-order with JSONP returns order_id & key_id');
+}
+
+// 23. TEST: JSONP verify-payment via GET (bypasses browser 302 cross-origin redirect CORS)
+{
+  const { context, mockSpreadsheet, scriptProperties } = createMockEnvironment();
+  // First create order via GET
+  const ordRaw = context.doGet({
+    parameter: { action: 'create-order', amount: '25.00', currency: 'USD', callback: 'cbOrd' }
+  }).getContent();
+  const ord = JSON.parse(ordRaw.slice('cbOrd('.length, -2));
+
+  // Compute signature
+  const payId = 'pay_get_verify_001';
+  const sig = crypto.createHmac('sha256', scriptProperties.RAZORPAY_KEY_SECRET).update(`${ord.order_id}|${payId}`).digest('hex');
+
+  // Verify via GET
+  const verRaw = context.doGet({
+    parameter: {
+      action: 'verify-payment',
+      razorpay_order_id: ord.order_id,
+      razorpay_payment_id: payId,
+      razorpay_signature: sig,
+      internal_id: ord.internal_id,
+      callback: 'cbVer'
+    }
+  }).getContent();
+  assert.ok(verRaw.startsWith('cbVer('));
+  const ver = JSON.parse(verRaw.slice('cbVer('.length, -2));
+  assert.equal(ver.success, true);
+  assert.equal(ver.status, 'captured');
+
+  const paySheet = mockSpreadsheet.getSheetByName('Payments');
+  assert.equal(paySheet.grid[1][4], 'captured');
+  console.log('✓ PASS [23/23]: GET ?action=verify-payment with JSONP reconciles payment successfully');
+}
+
+console.log('All 23 Google Apps Script backend tests passed successfully!');

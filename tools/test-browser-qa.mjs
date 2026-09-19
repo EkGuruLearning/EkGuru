@@ -384,6 +384,112 @@ async function runBrowserQA() {
     window.close();
   }
 
+  // Dedicated test: Create-order JSONP fallback opens Razorpay Checkout
+  {
+    console.log("\n--- Testing Create-Order JSONP Fallback & Razorpay Modal Launch ---");
+    const dom = new JSDOM(html, { url: "https://ekguru.shop/support/", runScripts: "outside-only" });
+    const { window } = dom;
+
+    let checkoutOpened = false;
+    let receivedOrderId = null;
+
+    // Simulate fetch CORS failure on Apps Script
+    window.fetch = async () => {
+      throw new TypeError("Failed to fetch: CORS redirect not allowed");
+    };
+
+    window.Razorpay = function (opts) {
+      receivedOrderId = opts.order_id;
+      return {
+        open: function () {
+          checkoutOpened = true;
+        },
+        on: function () {},
+      };
+    };
+
+    // Intercept <script> tag injection for JSONP create-order
+    const origCreate = dom.window.document.createElement.bind(dom.window.document);
+    dom.window.document.createElement = function (tag) {
+      const el = origCreate(tag);
+      if (tag.toLowerCase() === "script") {
+        setTimeout(() => {
+          if (el.src && el.src.includes("action=create-order")) {
+            const match = el.src.match(/callback=([^&]+)/);
+            if (match) {
+              const cbName = decodeURIComponent(match[1]);
+              if (typeof window[cbName] === "function") {
+                window[cbName]({
+                  success: true,
+                  key_id: "rzp_test_jsonp_key",
+                  order_id: "order_jsonp_success_999",
+                  amount: 50000,
+                  currency: "INR",
+                  display_amount: 500,
+                });
+              }
+            }
+          }
+        }, 15);
+      }
+      return el;
+    };
+
+    window.eval(js);
+    await new Promise((r) => setTimeout(r, 20));
+
+    // Fill form and submit
+    const amtIn = dom.window.document.getElementById("support-amount-input");
+    amtIn.value = "500";
+    const form = dom.window.document.getElementById("support-payment-form");
+    form.dispatchEvent(new window.Event("submit", { cancelable: true }));
+
+    await new Promise((r) => setTimeout(r, 80));
+
+    check(receivedOrderId === "order_jsonp_success_999", "JSONP create-order successfully delivered Razorpay order_id");
+    check(checkoutOpened === true, "Razorpay Checkout modal opened via JSONP create-order flow");
+
+    window.close();
+  }
+
+  // Dedicated test: Form unfreezes gracefully on error without indefinite hang
+  {
+    console.log("\n--- Testing Form Unfreeze & Bounded Recovery on Error ---");
+    const dom = new JSDOM(html, { url: "https://ekguru.shop/support/", runScripts: "outside-only" });
+    const { window } = dom;
+
+    window.fetch = async () => {
+      throw new Error("Network offline");
+    };
+
+    const origCreate = dom.window.document.createElement.bind(dom.window.document);
+    dom.window.document.createElement = function (tag) {
+      const el = origCreate(tag);
+      if (tag.toLowerCase() === "script") {
+        setTimeout(() => {
+          if (typeof el.onerror === "function") el.onerror();
+        }, 10);
+      }
+      return el;
+    };
+
+    window.eval(js);
+    await new Promise((r) => setTimeout(r, 20));
+
+    const submitBtn = dom.window.document.getElementById("support-submit-btn");
+    const form = dom.window.document.getElementById("support-payment-form");
+    form.dispatchEvent(new window.Event("submit", { cancelable: true }));
+
+    await new Promise((r) => setTimeout(r, 80));
+
+    check(submitBtn.disabled === false, "Submit button re-enabled after network error");
+    check(!form.classList.contains("is-busy"), "Form busy class removed after error");
+    const feedback = dom.window.document.getElementById("amount-feedback");
+    check(feedback.textContent.includes("Unable to"), "User-facing retryable feedback displayed on error");
+
+    window.close();
+  }
+
   console.log("\n-------------------------------------------------------");
   console.log(`Browser QA Results: ${qaPassed} passed, ${qaFailed} failed.`);
   console.log("-------------------------------------------------------\n");

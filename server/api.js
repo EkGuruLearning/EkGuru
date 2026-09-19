@@ -142,6 +142,75 @@ async function handleApiRequest(req, res, service) {
     return true;
   }
 
+  // 3a. Create Order via GET / JSONP: GET ?action=create-order
+  if (req.method === "GET" && queryAction === "create-order") {
+    const cb = parsedUrl.searchParams.get("callback") || parsedUrl.searchParams.get("jsonp");
+    try {
+      const orderData = await service.createOrder({
+        amount: parsedUrl.searchParams.get("amount"),
+        currency: parsedUrl.searchParams.get("currency") || "INR",
+        customerEmail: parsedUrl.searchParams.get("customer_email") || parsedUrl.searchParams.get("email"),
+        customerName: parsedUrl.searchParams.get("customer_name") || parsedUrl.searchParams.get("name"),
+        customerPhone: parsedUrl.searchParams.get("customer_phone") || parsedUrl.searchParams.get("phone"),
+        country: parsedUrl.searchParams.get("country"),
+        supportMessage: parsedUrl.searchParams.get("support_message") || parsedUrl.searchParams.get("message"),
+        publicDisplayOptIn: parsedUrl.searchParams.get("publicDisplayOptIn") === "true" || parsedUrl.searchParams.get("public_display_opt_in") === "true",
+      });
+      if (cb && /^[a-zA-Z0-9_$.]+$/.test(cb.trim())) {
+        setCorsHeaders(null, res);
+        res.statusCode = 200;
+        res.setHeader("Content-Type", "application/javascript; charset=utf-8");
+        res.end(`${cb.trim()}(${JSON.stringify(orderData)});`);
+        return true;
+      }
+      sendJson(res, 200, orderData);
+    } catch (err) {
+      const status = err instanceof AmountValidationError ? 400 : 500;
+      const payload = { success: false, error: err.message, code: err.code || "ORDER_CREATION_FAILED" };
+      if (cb && /^[a-zA-Z0-9_$.]+$/.test(cb.trim())) {
+        setCorsHeaders(null, res);
+        res.statusCode = 200;
+        res.setHeader("Content-Type", "application/javascript; charset=utf-8");
+        res.end(`${cb.trim()}(${JSON.stringify(payload)});`);
+        return true;
+      }
+      sendJson(res, status, payload);
+    }
+    return true;
+  }
+
+  // 3b. Verify Payment via GET / JSONP: GET ?action=verify-payment
+  if (req.method === "GET" && queryAction === "verify-payment") {
+    const cb = parsedUrl.searchParams.get("callback") || parsedUrl.searchParams.get("jsonp");
+    try {
+      const verifyResult = await service.verifyPayment({
+        razorpay_order_id: parsedUrl.searchParams.get("razorpay_order_id"),
+        razorpay_payment_id: parsedUrl.searchParams.get("razorpay_payment_id"),
+        razorpay_signature: parsedUrl.searchParams.get("razorpay_signature"),
+        internal_id: parsedUrl.searchParams.get("internal_id"),
+      });
+      if (cb && /^[a-zA-Z0-9_$.]+$/.test(cb.trim())) {
+        setCorsHeaders(null, res);
+        res.statusCode = 200;
+        res.setHeader("Content-Type", "application/javascript; charset=utf-8");
+        res.end(`${cb.trim()}(${JSON.stringify(verifyResult)});`);
+        return true;
+      }
+      sendJson(res, verifyResult.success ? 200 : 400, verifyResult);
+    } catch (err) {
+      const payload = { success: false, error: "Internal server verification failure.", detail: err.message };
+      if (cb && /^[a-zA-Z0-9_$.]+$/.test(cb.trim())) {
+        setCorsHeaders(null, res);
+        res.statusCode = 200;
+        res.setHeader("Content-Type", "application/javascript; charset=utf-8");
+        res.end(`${cb.trim()}(${JSON.stringify(payload)});`);
+        return true;
+      }
+      sendJson(res, 500, payload);
+    }
+    return true;
+  }
+
   // Read raw body for POST requests
   if (req.method === "POST") {
     const rawBuffer = await readRawBody(req);
