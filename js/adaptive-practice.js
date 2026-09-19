@@ -98,80 +98,107 @@
     } catch(e){}
   }
 
-  // Question bank loader — tries multiple sources
+  // Normalize one raw practice item into the engine's question shape.
+  function normalize(raw, id, language, level, lesson, family){
+    return {
+      question_id: id,
+      language: language,
+      level: level,
+      lesson: lesson||"general",
+      skill: raw.skill||raw.type||"vocabulary",
+      topic: raw.topic||"general",
+      difficulty: raw.difficulty||2,
+      q: raw.q,
+      answer: raw.a!==undefined ? raw.a : raw.answer,
+      options: raw.options||raw.opts||[],
+      audio_source: raw.audio||null,
+      srs_eligible: !!raw.srs,
+      variation_family: raw.family||family||"default",
+      seed_safe: true,
+      created_at: new Date().toISOString(),
+      reviewed_at: new Date().toISOString()
+    };
+  }
+
+  // Honest fallback chain. Every question that reaches a learner must come
+  // from real authored content, in this order:
+  //   1. the lesson's own practice items (level JSON data the page carries)
+  //   2. other practice at the same level for this language
+  //   3. the language's own bank (every real item loaded for it)
+  //   4. a compatible global bank (only for the language the bank is written
+  //      in — the shared Hindi drill bank for "hi")
+  //   5. nothing. An empty bank is a valid answer: the UI shows the honest
+  //      "no practice for this level yet" state. This engine must NEVER
+  //      invent filler questions ("Practice question N" / "Answer 1" were
+  //      removed in v1.1 and will not be added back).
   function loadBank(lang, level, lesson){
-    var bank = [];
-    // Try global practice bank
-    if (window.EKGURU_PRACTICE_BANK && window.EKGURU_PRACTICE_BANK.questions){
-      bank = bank.concat(window.EKGURU_PRACTICE_BANK.questions.map(function(q,i){
-        return {
-          question_id: "bank-" + lang + "-" + level + "-" + i,
-          language: lang,
-          level: level,
-          lesson: lesson||"general",
-          skill: q.skill||q.type||"vocabulary",
-          topic: q.topic||"general",
-          difficulty: q.difficulty||2,
-          q: q.q,
-          answer: q.a,
-          options: q.options||[],
-          audio_source: q.audio||null,
-          srs_eligible: !!q.srs,
-          variation_family: q.family||"default",
-          seed_safe: true,
-          created_at: new Date().toISOString(),
-          reviewed_at: new Date().toISOString()
-        };
-      }));
+    var out = [];
+    var now = new Date().toISOString();
+    var seen = {};
+    function add(raw, id, family, only){
+      var q = raw.q || (raw.question || "");
+      var a = raw.a!==undefined ? raw.a : raw.answer;
+      if (!q || a===undefined || a===null) return;          // not a real item
+      var key = q + "|" + a;
+      if (seen[key]) return;
+      seen[key] = true;
+      if (only && only.language && only.language!==lang) return;
+      if (only && only.level && raw.level && raw.level!==only.level) return;
+      out.push(normalize(raw, id, lang, level, lesson, family));
     }
-    // Try hindi quiz bank for hi
-    if (lang==="hi" && window.EKGURU_HINDI_QUIZ && window.EKGURU_HINDI_QUIZ.questions){
-      bank = bank.concat(window.EKGURU_HINDI_QUIZ.questions.map(function(q,i){
-        return {
-          question_id: "hi-quiz-" + i,
-          language: "hi",
-          level: level,
-          lesson: lesson||"general",
-          skill: q.skill||"vocabulary",
-          topic: q.topic||"general",
-          difficulty: 2,
-          q: q.q,
-          answer: q.a,
-          options: q.options||[],
-          audio_source: null,
-          srs_eligible: true,
-          variation_family: "hi-quiz",
-          seed_safe: true,
-          created_at: new Date().toISOString(),
-          reviewed_at: new Date().toISOString()
-        };
-      }));
-    }
-    // Fallback synthetic bank from course JSON if available
-    if (bank.length===0){
-      // Generate 20 synthetic questions per level to ensure practice exists
-      for (var i=0;i<20;i++){
-        bank.push({
-          question_id: "synth-" + lang + "-" + level + "-" + i,
-          language: lang,
-          level: level,
-          lesson: lesson||"general",
-          skill: ["vocabulary","grammar","reading","listening","speaking","writing"][i%6],
-          topic: "general",
-          difficulty: (i%5)+1,
-          q: "Practice question " + (i+1) + " for " + lang + " " + level,
-          answer: "Answer " + (i+1),
-          options: ["Answer "+(i+1), "Distractor A", "Distractor B", "Distractor C"],
-          audio_source: null,
-          srs_eligible: i%3===0,
-          variation_family: "synth-" + (i%4),
-          seed_safe: true,
-          created_at: new Date().toISOString(),
-          reviewed_at: new Date().toISOString()
-        });
+
+    // 1+2. Lesson and level practice the page loaded from the level JSON:
+    //      window.EKGURU_LEVEL_DATA = { level, lessons: [{ practice: [...] }] }
+    var data = window.EKGURU_LEVEL_DATA;
+    if (data && data.lessons){
+      for (var li=0; li<data.lessons.length; li++){
+        var items = (data.lessons[li]||{}).practice||[];
+        for (var pi=0; pi<items.length; pi++){
+          add(items[pi], "lesson-" + (data.level||level) + "-" + li + "-" + pi,
+              "lesson-practice",
+              { level: data.level||level, lesson: lesson });
+        }
       }
     }
-    return bank;
+
+    // 3. The language's own bank, if the page loaded one
+    //    (window.EKGURU_LANG_PRACTICE = { lang, items: [...] }).
+    if (window.EKGURU_LANG_PRACTICE && window.EKGURU_LANG_PRACTICE.lang===lang
+        && window.EKGURU_LANG_PRACTICE.items){
+      for (var ki=0; ki<window.EKGURU_LANG_PRACTICE.items.length; ki++){
+        add(window.EKGURU_LANG_PRACTICE.items[ki],
+            "lang-" + lang + "-" + ki, "lang-bank");
+      }
+    }
+
+    // 4. The shared practice bank — real, hand-checked Hindi drills, keyed by
+    //    type (vocabulary, grammar, sentences, ...). Compatible only for hi.
+    var B = window.EKGURU_PRACTICE_BANK;
+    if (B && lang==="hi"){
+      for (var name in B){
+        var arr = B[name];
+        if (!arr || typeof arr!=="object" || typeof arr.length!=="number") continue;
+        for (var bi=0; bi<arr.length; bi++){
+          add(arr[bi], "bank-" + name + "-" + bi, name);
+        }
+      }
+    }
+
+    // 4b. The Hindi quiz bank, likewise hi-only.
+    if (lang==="hi" && window.EKGURU_HINDI_QUIZ && window.EKGURU_HINDI_QUIZ.questions){
+      for (var qi=0; qi<window.EKGURU_HINDI_QUIZ.questions.length; qi++){
+        add(window.EKGURU_HINDI_QUIZ.questions[qi], "hi-quiz-" + qi, "hi-quiz");
+      }
+    }
+
+    // 5. Nothing more. Return whatever real content there is (possibly none).
+    void now;
+    return out;
+  }
+
+  // True when at least one real question exists for this language.
+  function hasPractice(lang){
+    return loadBank(lang, "", "").length > 0;
   }
 
   function scoreQuestion(q, ctx){
@@ -396,9 +423,10 @@
     recordAnswer: recordAnswer,
     getSeed: getSeed,
     loadBank: loadBank,
+    hasPractice: hasPractice,
     readProgress: readProgress,
-    version: "1.0-global"
+    version: "1.1-honest"
   };
 
-  console.log("[EkGuruAdaptive] v1 loaded seed", getSeed());
+  console.log("[EkGuruAdaptive] v1.1 (honest bank, no synthetic items) seed", getSeed());
 })();

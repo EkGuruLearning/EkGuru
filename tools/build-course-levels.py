@@ -350,10 +350,20 @@ def grammar_box(g, lang="und"):
     return "".join(out)
 
 
+# The course data numbers each item "Practice 7: [multiple choice] …" and the
+# type is repeated in a visible tag next to the question, so the learner-facing
+# page strips that label and shows only the question itself.
+def question_text(q):
+    q = (q or "").strip()
+    q = re.sub(r"^Practice\s+\d+\s*:\s*\[[^\]]*\]\s*", "", q)
+    q = re.sub(r"^Practice\s+\d+\s+\[[^\]]*\]\s*—\s*", "", q)
+    return q
+
+
 def practice_item(item, n):
     tag = TYPE_LABEL.get(item.get("type", ""), str(item.get("type", "")).replace("_", " "))
     out = ['<li class="lv-q"><p><span class="tag">%s</span>%s</p>'
-           % (_clean(tag), _clean(item.get("q", "")))]
+           % (_clean(tag), _clean(question_text(item.get("q", ""))))]
     opts = item.get("options") or []
     if opts:
         out.append('<ol type="a">' + "".join("<li>%s</li>" % _clean(o) for o in opts) + "</ol>")
@@ -373,7 +383,7 @@ def quiz_item(item):
         ans_text = opts[ans]
     else:
         ans_text = ans
-    out = ['<li class="lv-q"><p><span class="tag">quick check</span>%s</p>' % _clean(item.get("q", ""))]
+    out = ['<li class="lv-q"><p><span class="tag">quick check</span>%s</p>' % _clean(question_text(item.get("q", "")))]
     if opts:
         out.append('<ol type="a">' + "".join("<li>%s</li>" % _clean(o) for o in opts) + "</ol>")
     out.append('<details><summary>Show the answer</summary><p class="ans" dir="auto">%s</p>'

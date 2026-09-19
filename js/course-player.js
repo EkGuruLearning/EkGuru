@@ -32,6 +32,14 @@ var PRACTICE_AUDIO = ["listening_comprehension", "dictation", "listen_and_choose
 var PRACTICE_SPEAK = ["speak", "repeat_after_audio", "pronunciation", "shadowing", "guided_speaking", "free_response", "roleplay"];
 function hasType(list, type) { return list.indexOf(type) >= 0; }
 function practiceLabel(type) { return String(type || "practice").replace(/_/g, " ").replace(/\b\w/g, function (c) { return c.toUpperCase(); }); }
+/* Course data labels items "Practice 7: [multiple choice] …"; the type pill
+   already shows the type, so the rendered question drops that label. */
+function questionText(q) {
+  q = String(q || "").trim();
+  q = q.replace(/^Practice\s+\d+\s*:\s*\[[^\]]*\]\s*/, "");
+  q = q.replace(/^Practice\s+\d+\s+\[[^\]]*\]\s*—\s*/, "");
+  return q;
+}
 
 function esc(s) {
   return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -344,7 +352,7 @@ Player.prototype.renderHub = function () {
         .concat(cs, cs.map(countryName))
         .concat(cs.map(function (x) { return countryName(x); }).join(" "))
         .join(" ");
-      h += '<article class="card course-card" data-name="' + esc(c.name.toLowerCase()) + '" data-search="' + esc(norm(searchBlob)) + '" data-countries="' + esc(cs.join(" ")) + '" style="--course-hue:' + hue + '"><a href="#/' + esc(c.code) + '" class="course-link" aria-label="Open ' + esc(c.name) + ' course"><span class="course-monogram" aria-hidden="true">' + esc(nativeName.slice(0, 2)) + '</span><span class="course-copy"><b>' + esc(c.name) + '</b>' + nativeSpan + '<span class="sub">' + esc(lvs.join(" · ")) + (c.complete ? " · complete" : "") + '</span><span class="country-chips">' + cs.slice(0, 5).map(function (x) { return '<em title="' + esc(countryName(x)) + '">' + esc(countryName(x)) + '</em>'; }).join("") + (cs.length > 5 ? '<em>+' + (cs.length - 5) + '</em>' : '') + '</span><span class="course-progress"><i style="width:' + pct + '%"></i></span><small class="progress-label">' + (done ? done + ' of ' + total + ' lessons complete' : 'Start at A1 or choose your level') + '</small></span><span class="course-arrow">→</span></a><button type="button" class="course-voice" data-voice-code="' + esc(c.code) + '" data-voice-text="' + esc(nativeName) + '" aria-label="Hear ' + esc(c.name) + '">🔊 Hear language</button></article>';
+      h += '<article class="card course-card" data-name="' + esc(c.name.toLowerCase()) + '" data-search="' + esc(norm(searchBlob)) + '" data-countries="' + esc(cs.join(" ")) + '" style="--course-hue:' + hue + '"><a href="#/' + esc(c.code) + '" class="course-link" aria-label="Open ' + esc(c.name) + ' course"><span class="course-monogram" aria-hidden="true">' + esc(nativeName.slice(0, 2)) + '</span><span class="course-copy"><b>' + esc(c.name) + '</b>' + nativeSpan + '<span class="sub">' + esc(lvs.join(" · ")) + (c.complete ? " · complete" : "") + '</span><span class="country-chips">' + cs.slice(0, 5).map(function (x) { return '<em title="' + esc(countryName(x)) + '">' + esc(countryName(x)) + '</em>'; }).join("") + (cs.length > 5 ? '<em>+' + (cs.length - 5) + '</em>' : '') + '</span><span class="course-progress"><i style="width:' + pct + '%"></i></span><small class="progress-label">' + (done ? done + ' of ' + total + ' lessons complete' : 'Start at A1 or choose your level') + '</small></span><span class="course-arrow">→</span></a><button type="button" class="course-voice" data-voice-code="' + esc(c.code) + '" data-voice-text="' + esc(nativeName) + '" aria-label="Hear ' + esc(c.name) + '">Hear language</button></article>';
     });
     h += "</div></section>";
   });
@@ -679,14 +687,14 @@ Player.prototype.renderLesson = function (d, key, lessonId) {
     h += "<h2>Grammar: " + esc(g.title || "") + "</h2><p>" + esc(g.explain || "") + "</p>";
     if (g.pattern) h += "<p><span class='pill'>" + esc(g.pattern) + "</span></p>";
     (g.examples || []).forEach(function (x) {
-      h += '<div class="ex"><b>' + esc(x.t) + '</b><button class="sayn" data-say="' + esc(x.t) + '">🔊</button><div class="roman">' + esc(x.r || "") + "</div><div>" + esc(x.en || "") + "</div></div>";
+      h += '<div class="ex"><b>' + esc(x.t) + '</b><button class="sayn" data-say="' + esc(x.t) + '">Say</button><div class="roman">' + esc(x.r || "") + "</div><div>" + esc(x.en || "") + "</div></div>";
     });
     (g.mistakes || []).forEach(function (m) { h += '<div class="mist">⚠️ ' + esc(m) + "</div>"; });
   }
   if (ls.dialogue && ls.dialogue.length) {
     h += "<h2>Dialogue</h2>";
     ls.dialogue.forEach(function (x) {
-      h += '<div class="dlg"><span class="sp">' + esc(x.sp) + ":</span> <b>" + esc(x.t) + '</b><button class="sayn" data-say="' + esc(x.t) + '">🔊</button><div class="roman">' + esc(x.r || "") + '</div><div class="en">' + esc(x.en || "") + "</div></div>";
+      h += '<div class="dlg"><span class="sp">' + esc(x.sp) + ":</span> <b>" + esc(x.t) + '</b><button class="sayn" data-say="' + esc(x.t) + '">Say</button><div class="roman">' + esc(x.r || "") + '</div><div class="en">' + esc(x.en || "") + "</div></div>";
     });
   }
   h += "<h2>Practice</h2><div id='egc-prac'></div>";
@@ -735,16 +743,24 @@ Player.prototype.checkText = function (input, answer) {
 };
 Player.prototype.buildPractice = function (box, items, code) {
   var self = this;
+  if (!items || !items.length) {
+    // Honest empty state: the lesson simply has no practice items yet.
+    // This player never invents filler questions.
+    box.innerHTML = '<p class="muted">This lesson does not have practice items ' +
+      'yet. The vocabulary, flashcards and quiz on this page still work; ' +
+      'practice appears here as it is authored for the lesson.</p>';
+    return;
+  }
   items.forEach(function (it, idx) {
     var prior = practiceHistory()[practiceId(code, it)];
     var historyNote = prior ? '<div class="why">Saved history: ' + prior.correct + '/' + prior.attempts + ' correct · attempts do not reset on reload</div>' : '';
-    var wrap = el('<div class="q"><span class="pill">' + esc(practiceLabel(it.type)) + '</span><br><b>' + (idx + 1) + ".</b> " + esc(it.q || "") + historyNote + '<div class="body"></div><div class="fb"></div></div>');
+    var wrap = el('<div class="q"><span class="pill">' + esc(practiceLabel(it.type)) + '</span><br><b>' + (idx + 1) + ".</b> " + esc(questionText(it.q)) + historyNote + '<div class="body"></div><div class="fb"></div></div>');
     var body = wrap.querySelector(".body"), fb = wrap.querySelector(".fb"), recorded = false;
     function saveResult(good) { if (!recorded) { recordPractice(code, it, good); recorded = true; } }
     function ok(msg) { saveResult(true); fb.className = "fb ok"; fb.textContent = "✓ " + (msg || "Correct!"); }
     function no(msg) { saveResult(false); fb.className = "fb no"; fb.textContent = "✗ " + (msg || ("Answer: " + it.answer)); }
     if (hasType(PRACTICE_AUDIO, it.type)) {
-      var audioBtn = el('<button class="btn ghost">🔊 Play synthetic ' + esc(TTS_LANG[code] || "voice") + ' audio</button>');
+      var audioBtn = el('<button class="btn ghost">Play ' + esc(TTS_LANG[code] || "browser") + ' audio</button>');
       audioBtn.addEventListener("click", function () { if (!speak(it.audio_source || it.answer, code)) { fb.className = "fb no"; fb.textContent = "Synthetic audio is unavailable on this device."; } });
       body.appendChild(audioBtn);
     }
@@ -779,7 +795,7 @@ Player.prototype.buildPractice = function (box, items, code) {
       clr.addEventListener("click", function () { built = []; poolBox.querySelectorAll(".ro-w").forEach(function (x) { x.style.display = ""; }); draw(); fb.textContent = ""; });
       body.appendChild(builtBox); body.appendChild(poolBox); body.appendChild(chk); body.appendChild(clr);
     } else if (hasType(PRACTICE_SPEAK, it.type)) {
-      var sb = el('<button class="btn">🔊 Listen</button>'), mb = el('<button class="btn green">I said it ✓</button>');
+      var sb = el('<button class="btn">Listen</button>'), mb = el('<button class="btn green">I said it ✓</button>');
       sb.addEventListener("click", function () { if (!speak(it.answer, code)) { fb.className = "fb no"; fb.textContent = "Audio not available — read aloud!"; } });
       mb.addEventListener("click", function () { ok("Self-check recorded. No microphone evaluation was performed."); });
       body.appendChild(sb); body.appendChild(mb);
@@ -803,7 +819,7 @@ Player.prototype.buildQuiz = function (box, items, code, onDone) {
   var scoreBox = el('<div class="score">Score: 0 / ' + total + "</div>");
   box.appendChild(scoreBox);
   items.forEach(function (it, idx) {
-    var wrap = el('<div class="q"><b>Q' + (idx + 1) + ".</b> " + esc(it.q || "") + '<div class="opts"></div><div class="fb"></div><div class="why"></div></div>');
+    var wrap = el('<div class="q"><b>Q' + (idx + 1) + ".</b> " + esc(questionText(it.q)) + '<div class="opts"></div><div class="fb"></div><div class="why"></div></div>');
     var ol = wrap.querySelector(".opts");
     (it.options || []).forEach(function (o, oi) {
       var b = el('<button class="opt">' + esc(o) + "</button>");
@@ -841,7 +857,7 @@ Player.prototype.renderTest = function (d, key) {
   var scoreBox = el('<div class="score">Score: 0 / ' + items.length + "</div>");
   box.appendChild(scoreBox);
   items.forEach(function (it, idx) {
-    var wrap = el('<div class="q"><b>Q' + (idx + 1) + ".</b> " + esc(it.q || "") + '<div class="body"></div><div class="fb"></div></div>');
+    var wrap = el('<div class="q"><b>Q' + (idx + 1) + ".</b> " + esc(questionText(it.q)) + '<div class="body"></div><div class="fb"></div></div>');
     var body = wrap.querySelector(".body"), fb = wrap.querySelector(".fb");
     var graded = false;
     function grade(good) {
@@ -881,7 +897,7 @@ Player.prototype.renderTest = function (d, key) {
       chk.addEventListener("click", function () { grade(norm(built.join(" ")) === norm(it.answer)); });
       body.appendChild(builtBox); body.appendChild(poolBox); body.appendChild(chk);
     } else if (it.type === "speak") {
-      var sb = el('<button class="btn">🔊 Listen</button>'), mb = el('<button class="btn green">I said it ✓</button>');
+      var sb = el('<button class="btn">Listen</button>'), mb = el('<button class="btn green">I said it ✓</button>');
       sb.addEventListener("click", function () { speak(it.answer, code); });
       mb.addEventListener("click", function () { grade(true); });
       body.appendChild(sb); body.appendChild(mb);
