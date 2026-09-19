@@ -237,16 +237,18 @@ visual = {
 }
 ( AUDIT_DIR / "visual-system.json").write_text(json.dumps(visual, indent=2, ensure_ascii=False))
 
-# OFFLINE GAME
+# OFFLINE GAME (removed by owner directive: report removal honestly, no live claims)
 print("-> offline-game")
+_og_removed = not (ROOT / "js" / "offline-games.js").exists() and not (ROOT / "js" / "offline-game.js").exists()
 og = {
     "generated_at": now_iso(),
+    "removed": _og_removed,
     "findings": {
         "offline_games_js_exists": (ROOT / "js" / "offline-games.js").exists(),
         "sw_has_offline": True
     },
-    "games": ["Word Match","Sentence Builder","Translation Sprint","Script Match","Vocabulary Recall","Memory Match","Word Scramble","Trace","Puzzle","Quiz"],
-    "status": "PASS"
+    "games": [] if _og_removed else ["Word Match","Sentence Builder","Translation Sprint","Script Match","Vocabulary Recall","Memory Match","Word Scramble","Trace","Puzzle","Quiz"],
+    "status": "REMOVED" if _og_removed else "PASS"
 }
 ( AUDIT_DIR / "offline-game.json").write_text(json.dumps(og, indent=2, ensure_ascii=False))
 

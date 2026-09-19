@@ -179,7 +179,11 @@ function createMockEnvironment(customProperties = {}) {
     },
     Utilities: {
       formatDate: (d, tz, fmt) => d.toISOString(),
-      getUuid: () => 'test_uuid_' + Math.random().toString(36).substring(2, 8),
+      /* High-entropy PREFIX like a real UUID: Code.gs keeps only the first
+         8 chars, so the old 'test_uuid_…' mock made every internal id in
+         the same millisecond identical — second verify matched the first
+         row and test [30/31] flaked. */
+      getUuid: () => crypto.randomUUID(),
       base64Encode: (str) => Buffer.from(str).toString('base64'),
       computeHmacSha256Signature: (value, key) => {
         const buf = crypto.createHmac('sha256', key).update(value).digest();

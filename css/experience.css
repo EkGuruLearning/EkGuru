@@ -986,6 +986,35 @@ html[dir="rtl"] .xp-sugg .xp-sugg-head { letter-spacing: 0; }
   color: var(--ink-2);
 }
 
+/* --------------------------------------------------------------------------
+   9b. SEARCH DROPDOWN STACKING FIX  (v3 hardening)
+   --------------------------------------------------------------------------
+   The suggestions dropdown painted BEHIND the hero content below the search
+   box and was clipped at the hero's bottom edge. Two root causes, both
+   structural — not a missing z-index:
+     1. `.xp-hero-copy > *` puts every hero child (searchbox, stats, trust
+        list) in its own z-index:1 stacking context in DOM order, so the
+        later siblings painted over the dropdown inside the earlier
+        searchbox. The searchbox is therefore lifted one step above its own
+        siblings — 2 against their 1 — instead of inflating the dropdown's
+        z-index, which could never escape its parent stacking context.
+     2. `.xp-hero` / `.xp-band` overflow:hidden clipped the dropdown at the
+        hero edge. The hero keeps clipping horizontally (overflow-x: clip,
+        with body{overflow-x:hidden} as the fallback guard) but lets the
+        dropdown extend vertically.
+   The dropdown itself is unchanged: opaque, internally scrolling,
+   dismissible. Bands without a search box keep overflow:hidden.
+   -------------------------------------------------------------------------- */
+.xp-hero {
+  overflow: visible;
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+.xp-hero-copy > .xp-searchbox {
+  z-index: 2;
+}
+
 /* ==========================================================================
    10. LANGUAGE RAIL  (the "which language are you learning" strip)
    ========================================================================== */

@@ -888,10 +888,17 @@ window.EKGURU_SITE = {
 window.PAYMENT_MODE = window.PAYMENT_MODE || "COMING_SOON"; // "COMING_SOON" (production default) | "LIVE_API"
 window.PAYMENT_BACKEND_URL = "https://script.google.com/macros/s/AKfycbz8u_rBr2o4VPgmQgaweswLWKdYb-MMGrsa7WfckTCruLP-ZEasWnpkqJrZHux5Y8_4zA/exec";
 window.RAZORPAY_PAYMENT_LINK = "https://rzp.io/rzp/EkGuru";
-window.RAZORPAY_BUTTON_ID = "pl_TdkrmHjhK9ip3r";
+/* The live Payment Page id (pl_TdvVT9QL3k7cSY) lives ONLY in
+   support/index.html's embed + docs/RAZORPAY_PAYMENT_SETUP.md.
+   (A stale second id was defined here, read nowhere — removed so no
+   future code can wire itself to the wrong page.) */
 
 /* Global Payment CTA Guard — Enforces "Coming Soon" on any generic payment trigger */
 (function () {
+  /* Double-evaluation guard: a second copy of this file must not bind its
+     listeners twice. (Own flag — the offline banner below has its own.) */
+  if (window.EKGURU_SITECONFIG_BEHAVIOR) return;
+  window.EKGURU_SITECONFIG_BEHAVIOR = true;
   function applyGlobalPaymentMode() {
     var mode = (window.PAYMENT_MODE || "COMING_SOON").toUpperCase();
     if (mode !== "COMING_SOON") return;
@@ -963,6 +970,10 @@ window.EKGURU_MARKETS = [
    ========================================================= */
 (function () {
   "use strict";
+  /* Own flag — the payment-guard IIFE above sets BEHAVIOR first, so sharing
+     one flag would silence this banner on every first load. */
+  if (window.EKGURU_SITECONFIG_BANNER) return;
+  window.EKGURU_SITECONFIG_BANNER = true;
   function mk(tag, cls, txt) {
     var n = document.createElement(tag);
     n.className = cls;

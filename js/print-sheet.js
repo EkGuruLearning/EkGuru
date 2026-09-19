@@ -100,7 +100,7 @@
     clone.style.cssText = 'background:#fff;color:#000;padding:0;margin:0;max-width:none;box-shadow:none;border:none';
     
     // Remove non-worksheet elements from clone
-    var kills = clone.querySelectorAll(".no-print, .sb-hint, .hi-listen, button, script, .hdr, .ftr, nav, .crumb, .pw-support, .pw-next, .prevnext, .course-tools, .course-hero, .xp-orb, .xp-progress, .adsbygoogle, #ekguru-consent, #ekguru-offline-game");
+    var kills = clone.querySelectorAll(".no-print, .sb-hint, .hi-listen, button, script, .hdr, .ftr, nav, .crumb, .pw-support, .pw-next, .prevnext, .course-tools, .course-hero, .xp-orb, .xp-progress, .adsbygoogle, #ekguru-consent");
     for (var i = 0; i < kills.length; i++) {
       if (kills[i].parentNode) kills[i].parentNode.removeChild(kills[i]);
     }

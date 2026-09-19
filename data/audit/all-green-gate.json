@@ -46,7 +46,7 @@
     },
     "LANGUAGE-SPECIFIC": {
       "status": "PASS",
-      "evidence": "data/language-research/ 38 files, language-specific motifs in visual-learning.js, script tasks in offline-game.js",
+      "evidence": "data/language-research/ 38 files, language-specific motifs in visual-learning.js, script tasks in practice tools (offline-game.js removed)",
       "remaining": "700 languages not all have research profile — P0/P1 prioritized"
     },
     "VOICE/AUDIO": {
@@ -77,13 +77,13 @@
     },
     "OFFLINE": {
       "status": "PASS",
-      "evidence": "sw.js OFFLINE cache, save-offline message handler, js/hindi-offline.js, offline-games.js",
+      "evidence": "sw.js OFFLINE cache, save-offline message handler, js/hindi-offline.js (offline-games.js removed)",
       "remaining": "full offline platform labeled as LIVE vs OFFLINE SNAPSHOT vs SYNTHETIC TTS"
     },
     "OFFLINE GAME": {
-      "status": "PASS",
-      "evidence": "js/offline-game.js v1 global, js/offline-games.js 5 games, data/games/index.json, tools/test-offline-game.js PASS, games: Word Match, Sentence Builder, Translation Sprint, Script Match, Grammar Fix, Vocab Recall, etc, no account, local score/streak, no manipulative, keyboard/touch/reduced-motion/screen-reader",
-      "remaining": "none"
+      "status": "REMOVED",
+      "evidence": "REMOVED by owner directive: js/offline-game.js, js/offline-games.js, data/games/index.json and tools/test-offline-game.js deleted; one-time stored-state cleanup in js/site-shell.js; no references remain in pages, service worker, sitemap, feed or search index.",
+      "remaining": "none (feature removed)"
     },
     "ADAPTIVE PRACTICE": {
       "status": "PASS",

@@ -499,11 +499,13 @@ def audit_offline_game():
     offline_games_path = ROOT / "js" / "offline-games.js"
     offline_game_path = ROOT / "js" / "offline-game.js"
     sw_path = ROOT / "sw.js"
+    removed = not offline_games_path.exists() and not offline_game_path.exists()
 
     out = {
         "generated_at": now_iso(),
         "scope": "offline game system per §18",
         "method": "check existence and content of offline game files, sw cache",
+        "removed": removed,
         "findings": {
             "offline_games_js_exists": offline_games_path.exists(),
             "offline_games_js_size": offline_games_path.stat().st_size if offline_games_path.exists() else 0,
@@ -512,7 +514,10 @@ def audit_offline_game():
             "sw_has_offline_cache": "OFFLINE" in sw_path.read_text() if sw_path.exists() else False,
             "sw_has_save_offline": "save-offline" in sw_path.read_text() if sw_path.exists() else False
         },
-        "games": [
+        # A removed feature must not keep a live game list or live PASS
+        # requirements: stale audit claims are how deleted features "come
+        # back" in reports. History is preserved as removed_* only.
+        "games": [] if removed else [
             "Word Match",
             "Sentence Builder",
             "Translation Sprint",
@@ -525,18 +530,21 @@ def audit_offline_game():
             "Quick Quiz"
         ],
         "requirements_check": {
-            "no_network_during_play": "PASS",
-            "no_account": "PASS",
-            "local_score": "PASS",
-            "local_streak": "PASS",
-            "no_manipulative_loss": "PASS",
-            "pause_resume": "PASS",
-            "keyboard_support": "PASS",
-            "mobile_touch": "PASS",
-            "reduced_motion": "REVIEW_REQUIRED",
-            "screen_reader": "PARTIAL"
+            k: ("REMOVED" if removed else v)
+            for k, v in {
+                "no_network_during_play": "PASS",
+                "no_account": "PASS",
+                "local_score": "PASS",
+                "local_streak": "PASS",
+                "no_manipulative_loss": "PASS",
+                "pause_resume": "PASS",
+                "keyboard_support": "PASS",
+                "mobile_touch": "PASS",
+                "reduced_motion": "REVIEW_REQUIRED",
+                "screen_reader": "PARTIAL"
+            }.items()
         },
-        "status": "PASS" if offline_games_path.exists() else "REVIEW_REQUIRED"
+        "status": "REMOVED" if removed else ("PASS" if offline_games_path.exists() else "REVIEW_REQUIRED")
     }
 
     out_path = AUDIT_DIR / "offline-game.json"
