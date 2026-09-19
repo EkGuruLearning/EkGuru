@@ -2474,14 +2474,34 @@
         return Promise.reject(new Error("No contact address is configured"));
       }
 
+      /* ------------------------------------------------------------
+         Header injection is a line break in a header. A name, an
+         email, a subject or a ref that carries CR/LF is trying to
+         smuggle a Bcc: or a second Subject: into the outbound mail,
+         so every one of them is flattened to a single line before it
+         reaches a template. The message is the body: its line breaks
+         are real, but a lone \r (old Mac) or a \r\n is normalized to
+         one \n so no CR survives anywhere we ship. */
+      function flat(s, cap) {
+        return String(s == null ? "" : s)
+          .replace(/[\r\n\t]+/g, " ").replace(/\s{2,}/g, " ").trim()
+          .slice(0, cap);
+      }
+      function flatlines(s) {
+        return String(s == null ? "" : s)
+          .replace(/\r\n?/g, "\n").replace(/\n{3,}/g, "\n\n").trim();
+      }
+
       var now = new Date();
-      var ref = data.ref || ("C-" + now.getTime().toString(36).toUpperCase().slice(-6));
-      var who = String(data.name).trim();
-      var from = String(data.email).trim();
-      var topic = String(data.topic || "General").trim();
-      var subj = String(data.subject || "").trim() ||
+      var ref = /^[A-Za-z0-9][A-Za-z0-9-]{0,23}$/.test(data.ref || "")
+        ? String(data.ref)
+        : ("C-" + now.getTime().toString(36).toUpperCase().slice(-6));
+      var who = flat(data.name, 80);
+      var from = flat(data.email, 200);
+      var topic = flat(data.topic, 60) || "General";
+      var subj = flat(data.subject, 160) ||
                  (topic + " — message from " + who);
-      var body = String(data.message).trim();
+      var body = flatlines(data.message);
 
       /* Idempotency keys — CONTACT-{ref}-INTERNAL / -VISITOR.
          Declared BEFORE the bodies are built so the templates carry

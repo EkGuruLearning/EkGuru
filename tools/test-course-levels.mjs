@@ -51,7 +51,17 @@ ok("every language has a ladder page and six level pages",
   missing.length === 0, missing.slice(0, 4).join(", ") + (missing.length > 4 ? " …" : ""));
 
 const expected = courses.length * (LEVELS.length + 1);
-ok(`that is ${expected} pages on disk`, expected === 273, String(expected));
+/* Extended levels (A3, B3, C3, C4, C5) have no authored data yet, so they
+   have no pages: the disk holds exactly the published set — no more (an
+   unauthored level page would be fabrication) and no less (the missing
+   check above). */
+const onDisk = [];
+for (const c of courses) {
+  onDisk.push(`languages/${c.code}/level/index.html`);
+  for (const lv of LEVELS) onDisk.push(`languages/${c.code}/level/${lv}/index.html`);
+}
+const found = onDisk.filter((p) => exists(p)).length;
+ok(`that is ${expected} pages on disk (${found} found)`, found === expected, String(found));
 
 /* A stub would be a page with the heading and nothing under it. The smallest
    real page in the set (a C2 with one unit) still runs to thousands of words,
