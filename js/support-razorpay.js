@@ -29,6 +29,13 @@
 (function (root) {
   "use strict";
 
+  /* Double-execution guard: a second run would bind a second submit
+     listener (two create-order calls per click in LIVE_API) and double
+     the supporters fetch/render. Livepatch/SW re-injection must be a
+     no-op, not a double charge. */
+  if (root.EKGURU_RAZORPAY_READY) return;
+  root.EKGURU_RAZORPAY_READY = true;
+
   // Verified popular currencies table for instant rendering
   var POPULAR_CURRENCIES = [
     { code: "INR", name: "Indian Rupee", symbol: "₹", exponent: 2, defaultAmt: "500", quick: ["100", "250", "500", "1000"] },

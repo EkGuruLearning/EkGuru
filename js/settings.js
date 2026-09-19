@@ -64,6 +64,12 @@
 (function (root) {
   "use strict";
 
+  /* Double-execution guard: paint() is idempotent, but a second run still
+     costs a second sheet fetch and a second DOMContentLoaded listener.
+     Livepatch/SW re-injection must be a no-op. */
+  if (root.EKGURU_SETTINGS_READY) return;
+  root.EKGURU_SETTINGS_READY = true;
+
   var S = root.EKGURU_SITE || {};
   var CFG = S.settings || {};
   var url = String(CFG.csvUrl || "").trim();

@@ -136,7 +136,7 @@
     mr: { title: "EkGuru ला पाठिंबा द्या", body: "मोफत शिक्षण सुरू ठेवण्यास मदत करा.", cta: "पाठिंबा द्या", close: "बंद करा", linksLabel: "मोफत धड्यांना पाठिंबा द्या:", coffee: "आम्हाला एक कॉफी द्या", tutor: "शिक्षक बुक करा" },
     gu: { title: "EkGuru ને ટેકો આપો", body: "મફત શિક્ષણ ચાલુ રાખવામાં મદદ કરો.", cta: "ટેકો આપો", close: "બંધ કરો", linksLabel: "મફત પાઠોને ટેકો આપો:", coffee: "અમને એક કોફી પીવડાવો", tutor: "ટ્યૂટર બુક કરો" },
     kn: { title: "EkGuru ಗೆ ಬೆಂಬಲ ನೀಡಿ", body: "ಉಚಿತ ಕಲಿಕೆ ಮುಂದುವರಿಯಲು ಸಹಾಯ ಮಾಡಿ.", cta: "ಬೆಂಬಲ ನೀಡಿ", close: "ಮುಚ್ಚಿ", linksLabel: "ಉಚಿತ ಪಾಠಗಳಿಗೆ ಬೆಂಬಲ ನೀಡಿ:", coffee: "ನಮಗೆ ಒಂದು ಕಾಫಿ ಕೊಡಿ", tutor: "ಶಿಕ್ಷಕರನ್ನು ಬುಕ್ ಮಾಡಿ" },
-    ml: { title: "EkGuru-വിനെ പിന്തുണയ്ക്കൂ", body: "സൗജന്യ പഠനം തുടരാൻ സഹായിക്കൂ.", cta: "പിന്തുണയ്ക്കൂ", close: "അടയ്ക്കൂ", linksLabel: "സൗജന്യ പാഠങ്ങളെ പിന്തുണയ്ക്കൂ:", coffee: "ഞങ്ങൾക്ക് ഒരു കാപ്പി വാങ്ങித் തരൂ", tutor: "ട്യൂട്ടറെ ബുക്ക് ചെയ്യൂ" },
+    ml: { title: "EkGuru-വിനെ പിന്തുണയ്ക്കൂ", body: "സൗജന്യ പഠനം തുടരാൻ സഹായിക്കൂ.", cta: "പിന്തുണയ്ക്കൂ", close: "അടയ്ക്കൂ", linksLabel: "സൗജന്യ പാഠങ്ങളെ പിന്തുണയ്ക്കൂ:", coffee: "ഞങ്ങൾക്ക് ഒരു കാപ്പി വാങ്ങി തരൂ", tutor: "ട്യൂട്ടറെ ബുക്ക് ചെയ്യൂ" },
     pa: { title: "EkGuru ਦਾ ਸਮਰਥਨ ਕਰੋ", body: "ਮੁਫ਼ਤ ਸਿੱਖਿਆ ਜਾਰੀ ਰੱਖਣ ਵਿੱਚ ਮਦਦ ਕਰੋ।", cta: "ਸਮਰਥਨ ਕਰੋ", close: "ਬੰਦ ਕਰੋ", linksLabel: "ਮੁਫ਼ਤ ਪਾਠਾਂ ਦਾ ਸਮਰਥਨ ਕਰੋ:", coffee: "ਸਾਨੂੰ ਇੱਕ ਕਾਫ਼ੀ ਪਿਆਓ", tutor: "ਟਿਊਟਰ ਬੁੱਕ ਕਰੋ" },
     it: { title: "Sostieni EkGuru", body: "Aiutaci a mantenere gratuito l'apprendimento.", cta: "Sostieni EkGuru", close: "Chiudi", linksLabel: "Sostieni le lezioni gratuite:", coffee: "Offrici un caffè", tutor: "Prenota un tutor" },
     ru: { title: "Поддержите EkGuru", body: "Помогите сохранить обучение бесплатным.", cta: "Поддержать EkGuru", close: "Закрыть", linksLabel: "Поддержите бесплатные уроки:", coffee: "Угостите нас кофе", tutor: "Записаться к репетитору" },
@@ -307,6 +307,7 @@
     document.body.appendChild(wrap);
 
     var hideTimer = null;
+    var showTimer = null;
 
     function show() {
       if (toastSuppressed()) { schedule(TOAST_REPEAT_MS); return; }
@@ -324,8 +325,13 @@
       schedule(TOAST_REPEAT_MS);
     }
 
+    /* Single-chain scheduling: hide() can fire twice for one showing (close
+       click + Escape, close + search-open), and each schedule() used to add
+       another pending show — orphaning hide timers and doubling the chain
+       forever. Clearing the pending show first keeps exactly one chain. */
     function schedule(ms) {
-      setTimeout(show, ms);
+      if (showTimer) { clearTimeout(showTimer); showTimer = null; }
+      showTimer = setTimeout(function () { showTimer = null; show(); }, ms);
     }
 
     /* Manual close hides this showing; the quiet hourly rhythm continues. */
