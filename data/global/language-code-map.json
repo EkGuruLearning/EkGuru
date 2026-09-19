@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "updated": "2026-09-19",
+  "purpose": "One language, one course code. Aliases must never spawn a second course or a second URL family.",
+  "canonical_course_codes": {
+    "ar": {
+      "name": "Arabic",
+      "iso_639_1": "ar",
+      "iso_639_3": "arb",
+      "aliases": ["arb", "ara", "standard-arabic"]
+    },
+    "az": {
+      "name": "Azerbaijani",
+      "iso_639_1": "az",
+      "iso_639_3": "azj",
+      "aliases": ["azj", "aze"],
+      "course_status": "INCOMPLETE"
+    },
+    "fil": {
+      "name": "Filipino",
+      "iso_639_1": "tl",
+      "iso_639_3": "fil",
+      "aliases": ["tl", "tgl", "tagalog"],
+      "note": "Filipino is the course; Tagalog is an alias, not a second course."
+    },
+    "ht": {
+      "name": "Haitian Creole",
+      "iso_639_1": "ht",
+      "iso_639_3": "hat",
+      "aliases": ["hat", "ht2"]
+    },
+    "npi": {
+      "name": "Nepali",
+      "iso_639_1": "ne",
+      "iso_639_3": "npi",
+      "aliases": ["ne", "nep"],
+      "course_status": "INCOMPLETE",
+      "note": "Catalogue currently points npi at placeholder phase-11 files. Do not also emit /languages/ne/."
+    },
+    "uzn": {
+      "name": "Uzbek",
+      "iso_639_1": "uz",
+      "iso_639_3": "uzn",
+      "aliases": ["uz", "uzb"]
+    },
+    "zsm": {
+      "name": "Malay",
+      "iso_639_1": "ms",
+      "iso_639_3": "zsm",
+      "aliases": ["ms", "msa", "standard-malay"]
+    },
+    "zh": {
+      "name": "Chinese (Mandarin)",
+      "iso_639_1": "zh",
+      "iso_639_3": "cmn",
+      "aliases": ["cmn", "zho", "chi", "mandarin"]
+    }
+  },
+  "blocked_new_course_codes": ["ne", "uz", "ms", "tl", "tgl", "ht2", "arb", "cmn", "azj"],
+  "rule": "tools/generate-extended-courses.py and any language builder must resolve aliases to the canonical course code and skip if that course already exists. Never publish a thin second language page for an alias."
+}
