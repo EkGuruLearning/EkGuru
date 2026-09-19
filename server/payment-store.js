@@ -7,8 +7,14 @@
 
 "use strict";
 
-const fs = require("fs");
-const path = require("path");
+let fs = null;
+let path = null;
+try {
+  fs = require("node:fs");
+  path = require("node:path");
+} catch (e) {
+  // Edge runtime without filesystem
+}
 
 const FORBIDDEN_FIELDS = new Set([
   "card",
@@ -209,16 +215,33 @@ class PaymentStore {
     if (existing) {
       existing.last_payment = now;
       existing.total_payments = (existing.total_payments || 1) + 1;
-      existing.total_amount = (existing.total_amount || 0) + amount;
+      existing.totals_by_currency = existing.totals_by_currency || {};
+      existing.totals_by_currency[currency] = (existing.totals_by_currency[currency] || 0) + amount;
+
       if (!existing.currencies.includes(currency)) {
         existing.currencies.push(currency);
       }
+
+      if (existing.currencies.length === 1) {
+        existing.total_amount = (existing.total_amount || 0) + amount;
+      } else {
+        // Multi-currency: never sum across currencies
+        existing.total_amount = Object.entries(existing.totals_by_currency)
+          .map(([c, a]) => `${c} ${a.toFixed(2)}`)
+          .join(", ");
+      }
+      existing.total_amount_by_currency = Object.entries(existing.totals_by_currency)
+        .map(([c, a]) => `${c} ${a.toFixed(2)}`)
+        .join(", ");
+
       if (customerData.name) existing.name = customerData.name;
       if (customerData.phone) existing.phone = customerData.phone;
       if (customerData.country) existing.country = customerData.country;
       this._saveToFile();
       return { ...existing };
     } else {
+      const totalsByCurrency = {};
+      totalsByCurrency[currency] = amount;
       const newCustomer = {
         customer_id: customerData.customer_id || `cust_${Date.now().toString(36)}`,
         name: customerData.name || "",
@@ -229,6 +252,8 @@ class PaymentStore {
         last_payment: now,
         total_payments: 1,
         total_amount: amount,
+        totals_by_currency: totalsByCurrency,
+        total_amount_by_currency: `${currency} ${amount.toFixed(2)}`,
         currencies: [currency],
       };
       this.customers.set(key, newCustomer);

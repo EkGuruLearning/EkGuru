@@ -59,7 +59,7 @@ export default {
     }
 
     const sheetsClient = new SheetsClient({
-      endpoint: env.GOOGLE_SHEETS_ENDPOINT || "",
+      endpoint: env.GOOGLE_SHEETS_ENDPOINT || "https://script.google.com/macros/s/AKfycbz8u_rBr2o4VPgmQgaweswLWKdYb-MMGrsa7WfckTCruLP-ZEasWnpkqJrZHux5Y8_4zA/exec",
       token: env.SHEETS_INGEST_TOKEN || "",
       spreadsheetId: env.GOOGLE_SPREADSHEET_ID || "1u5Jkbe_2lMoLWsaDPQkxTWhNACewRaOyZLLANy2dfVI",
     });

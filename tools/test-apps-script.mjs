@@ -389,4 +389,140 @@ function createMockEnvironment() {
   console.log('✓ PASS: Safe header repair replaces row 1 without losing transaction data in rows >= 2');
 }
 
+// TEST 6: Explicit End-to-End Contract Test Between SheetsClient and apps-script/Code.gs
+{
+  const { context, mockSpreadsheet } = createMockEnvironment();
+
+  // Create a custom fetch that delegates to context.doPost
+  const customFetch = async (url, options) => {
+    const e = {
+      postData: {
+        contents: options.body
+      }
+    };
+    const output = context.doPost(e);
+    const text = output.getContent();
+    return {
+      ok: true,
+      status: 200,
+      json: async () => JSON.parse(text)
+    };
+  };
+
+  const { SheetsClient } = await import('../server/sheets-client.js');
+  const client = new SheetsClient({
+    endpoint: 'https://script.google.com/macros/s/AKfycbz8u_rBr2o4VPgmQgaweswLWKdYb-MMGrsa7WfckTCruLP-ZEasWnpkqJrZHux5Y8_4zA/exec',
+    token: 'test-secret-token-1234567890',
+    spreadsheetId: '1u5Jkbe_2lMoLWsaDPQkxTWhNACewRaOyZLLANy2dfVI',
+    fetch: customFetch
+  });
+
+  // 1. Contract Test: syncPayment
+  const payRes = await client.syncPayment({
+    internal_id: 'ekg_contract_pay_01',
+    razorpay_payment_id: 'pay_contract_01',
+    razorpay_order_id: 'order_contract_01',
+    status: 'captured',
+    display_amount: 125.50,
+    currency: 'USD',
+    customer_name: 'Contract Patron',
+    customer_email: 'contract@example.com',
+    customer_phone: '+14155552671',
+    country: 'US',
+    support_message: 'Validating end-to-end client contract',
+    fee: 3.50,
+    tax: 0.63,
+    refund_status: 'none',
+    verification_status: 'verified',
+    created_at: '2026-09-19T06:30:00.000Z'
+  });
+  assert.equal(payRes.success, true);
+  const paySheet = mockSpreadsheet.getSheetByName('Payments');
+  assert.ok(paySheet);
+  assert.equal(paySheet.grid.length, 2); // 1 header + 1 record
+  assert.equal(paySheet.grid[1][2], 'pay_contract_01'); // Payment ID
+  assert.equal(paySheet.grid[1][3], 'order_contract_01'); // Order ID
+  assert.equal(paySheet.grid[1][5], 125.50); // Amount
+  assert.equal(paySheet.grid[1][6], 'USD'); // Currency
+  assert.equal(paySheet.grid[1][17], 'ekg_contract_pay_01'); // Internal Reference
+  assert.equal(paySheet.grid[1][18], 'true'); // Verified
+
+  // 2. Contract Test: syncCustomer
+  const custRes = await client.syncCustomer({
+    customer_id: 'cust_contract_01',
+    email: 'contract@example.com',
+    name: 'Contract Patron',
+    phone: '+14155552671',
+    country: 'US',
+    amount: 125.50,
+    currency: 'USD'
+  });
+  assert.equal(custRes.success, true);
+  const custSheet = mockSpreadsheet.getSheetByName('Customers');
+  assert.ok(custSheet);
+  assert.equal(custSheet.grid.length, 2);
+  assert.equal(custSheet.grid[1][0], 'cust_contract_01'); // Customer ID
+  assert.equal(custSheet.grid[1][2], 'contract@example.com'); // Email
+  assert.equal(custSheet.grid[1][7], 1); // Total Payments count
+  assert.equal(custSheet.grid[1][8], 'USD 125.50'); // Per-currency Total Supported Amount
+
+  // 3. Contract Test: syncRefund
+  const refRes = await client.syncRefund({
+    refund_id: 'rfnd_contract_01',
+    payment_id: 'pay_contract_01',
+    order_id: 'order_contract_01',
+    amount: 50.00,
+    currency: 'USD',
+    status: 'processed',
+    reason: 'supporter_request'
+  });
+  assert.equal(refRes.success, true);
+  const refSheet = mockSpreadsheet.getSheetByName('Refunds');
+  assert.ok(refSheet);
+  assert.equal(refSheet.grid.length, 2);
+  assert.equal(refSheet.grid[1][1], 'rfnd_contract_01');
+  assert.equal(refSheet.grid[1][4], 50.00);
+
+  // 4. Contract Test: syncWebhookEvent
+  const hookRes = await client.syncWebhookEvent({
+    event_id: 'evt_contract_01',
+    event_type: 'payment.captured',
+    payment_id: 'pay_contract_01',
+    order_id: 'order_contract_01',
+    processed: true,
+    result: 'success'
+  });
+  assert.equal(hookRes.success, true);
+  const hookSheet = mockSpreadsheet.getSheetByName('WebhookEvents');
+  assert.ok(hookSheet);
+  assert.equal(hookSheet.grid.length, 2);
+  assert.equal(hookSheet.grid[1][1], 'evt_contract_01');
+  assert.equal(hookSheet.grid[1][2], 'payment.captured');
+
+  // 5. Contract Test: syncPublicSupport
+  const pubRes = await client.syncPublicSupport({
+    displayName: 'Contract Patron',
+    country: 'US',
+    amount: 125.50,
+    currency: 'USD',
+    message: 'Validating end-to-end client contract',
+    publicDisplayOptIn: true,
+    internal_reference: 'ekg_contract_pay_01',
+    payment_id: 'pay_contract_01',
+    status: 'captured',
+    verified: true
+  });
+  assert.equal(pubRes.success, true);
+  const pubSheet = mockSpreadsheet.getSheetByName('PublicSupport');
+  assert.ok(pubSheet);
+  assert.equal(pubSheet.grid.length, 2);
+  assert.equal(pubSheet.grid[1][1], 'Contract Patron'); // Display Name
+  assert.equal(pubSheet.grid[1][2], 'US'); // Country
+  assert.equal(pubSheet.grid[1][3], 125.50); // Amount
+  assert.equal(pubSheet.grid[1][4], 'USD'); // Currency
+  assert.equal(pubSheet.grid[1][6], true); // Public
+
+  console.log('✓ PASS: SheetsClient <-> apps-script/Code.gs end-to-end contract test (5/5 operations)');
+}
+
 console.log('All Apps Script tests passed successfully!');

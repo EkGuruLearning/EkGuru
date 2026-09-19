@@ -12,7 +12,7 @@
 
 "use strict";
 
-const crypto = require("crypto");
+const crypto = require("node:crypto");
 const { toSubunits, fromSubunits, AmountValidationError } = require("./amount-util");
 const { isSupportedCurrency, getCurrency } = require("./currencies");
 const { defaultStore } = require("./payment-store");

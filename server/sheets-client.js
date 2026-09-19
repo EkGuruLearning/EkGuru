@@ -13,11 +13,14 @@
 
 "use strict";
 
+const DEFAULT_APPS_SCRIPT_ENDPOINT = "https://script.google.com/macros/s/AKfycbz8u_rBr2o4VPgmQgaweswLWKdYb-MMGrsa7WfckTCruLP-ZEasWnpkqJrZHux5Y8_4zA/exec";
+const DEFAULT_SPREADSHEET_ID = "1u5Jkbe_2lMoLWsaDPQkxTWhNACewRaOyZLLANy2dfVI";
+
 class SheetsClient {
   constructor(options = {}) {
-    this.endpoint = options.endpoint || process.env.GOOGLE_SHEETS_ENDPOINT || "";
-    this.token = options.token || process.env.SHEETS_INGEST_TOKEN || "";
-    this.spreadsheetId = options.spreadsheetId || process.env.GOOGLE_SPREADSHEET_ID || "1u5Jkbe_2lMoLWsaDPQkxTWhNACewRaOyZLLANy2dfVI";
+    this.endpoint = options.endpoint || (typeof process !== "undefined" && process.env && process.env.GOOGLE_SHEETS_ENDPOINT) || DEFAULT_APPS_SCRIPT_ENDPOINT;
+    this.token = options.token || (typeof process !== "undefined" && process.env && process.env.SHEETS_INGEST_TOKEN) || "";
+    this.spreadsheetId = options.spreadsheetId || (typeof process !== "undefined" && process.env && process.env.GOOGLE_SPREADSHEET_ID) || DEFAULT_SPREADSHEET_ID;
     this.customFetch = options.fetch || null;
 
     // Retry queue for resilience
@@ -181,7 +184,8 @@ class SheetsClient {
    * Syncs an entry to PublicSupport tab ONLY if user opted in.
    */
   async syncPublicSupport(data) {
-    if (data.publicDisplayOptIn !== true && data.public !== true) {
+    const hasOptIn = data && (data.publicDisplayOptIn === true || data.public === true || data.public_display_opt_in === true);
+    if (!hasOptIn) {
       return { success: false, error: "Public opt-in not granted" };
     }
 
@@ -192,7 +196,11 @@ class SheetsClient {
       currency: data.currency,
       message: String(data.message || data.support_message || "").trim(),
       public: true,
+      public_display_opt_in: true,
       payment_date: data.payment_date || new Date().toISOString().split("T")[0],
+      verified: data.verified !== false,
+      status: data.status || "captured",
+      internal_reference: data.internal_reference || data.internal_id || "",
     };
 
     // Update in-memory supporters cache

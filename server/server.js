@@ -1,15 +1,19 @@
 #!/usr/bin/env node
 /**
- * EkGuru — Razorpay Payments API & Static Dev Server
+ * EkGuru — Local Development & Test Preview Server
+ *
+ * NOTE ON RUNTIME ARCHITECTURE:
+ * - PRODUCTION BACKEND: Cloudflare Worker (`server/worker.js`) deployed to `api.ekguru.shop` via `wrangler.toml`.
+ * - LOCAL DEV & PREVIEW: This Node.js server (`server/server.js`) is used strictly for local development,
+ *   automated browser QA, and sandbox live previews. It serves static assets and proxies API calls.
  *
  * Serves the payment API endpoints:
  * - GET  /api/payments/razorpay/currencies
  * - POST /api/payments/razorpay/order
  * - POST /api/payments/razorpay/verify
  * - POST /api/payments/razorpay/webhook
- *
- * And serves static site assets when run locally or in live preview.
- * Binds to 0.0.0.0 so preview proxies and browsers can connect.
+ * - GET  /api/support/recent
+ * - GET  /api/payments/health
  */
 
 "use strict";

@@ -243,8 +243,8 @@ All user-facing language is neutral:
 ```bash
 # Set environment variables
 export RAZORPAY_KEY_ID="rzp_test_..."
-export RAZORPAY_KEY_SECRET="your_secret"
-export RAZORPAY_WEBHOOK_SECRET="your_webhook_secret"
+export RAZORPAY_KEY_SECRET="<YOUR_KEY_SECRET>"
+export RAZORPAY_WEBHOOK_SECRET="<YOUR_WEBHOOK_SECRET>"
 
 # Start the combined static + API dev server
 npm start
