@@ -22,6 +22,7 @@ function createMockEnvironment(customProperties = {}) {
   };
 
   const cacheStore = new Map();
+  let orderCounter = 0;
 
   class MockRange {
     constructor(sheet, row, col, numRows = 1, numCols = 1) {
@@ -189,10 +190,11 @@ function createMockEnvironment(customProperties = {}) {
     UrlFetchApp: {
       fetch: (url, options) => {
         // Simulated Razorpay API response
+        orderCounter = (orderCounter || 0) + 1;
         return {
           getResponseCode: () => 200,
           getContentText: () => JSON.stringify({
-            id: 'order_test_' + Date.now() + '_' + Math.random().toString(36).substring(2, 7),
+            id: 'order_test_' + Date.now() + '_' + orderCounter + '_' + Math.random().toString(36).substring(2, 7),
             entity: 'order',
             amount: 50000,
             currency: 'INR',
