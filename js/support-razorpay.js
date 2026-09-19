@@ -746,6 +746,35 @@
       });
     }
 
+    var paymentMode = (window.PAYMENT_MODE || "COMING_SOON").toUpperCase();
+    if (paymentMode === "COMING_SOON") {
+      if (submitBtn) {
+        submitBtn.setAttribute("disabled", "disabled");
+        submitBtn.setAttribute("aria-disabled", "true");
+        submitBtn.classList.add("btn-coming-soon");
+        btnText.textContent = "Coming Soon";
+      }
+      form.addEventListener("submit", function (ev) {
+        ev.preventDefault();
+        ev.stopPropagation();
+        return false;
+      });
+
+      // Initial draw
+      updateCurrencyUI();
+      // Initial lazy load of recent supporters (non-blocking)
+      loadRecentSupporters();
+      return;
+    } else {
+      // LIVE_API Mode: Enable button and ensure label is active
+      if (submitBtn) {
+        submitBtn.removeAttribute("disabled");
+        submitBtn.removeAttribute("aria-disabled");
+        submitBtn.classList.remove("btn-coming-soon");
+        btnText.textContent = "Support EkGuru";
+      }
+    }
+
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
 

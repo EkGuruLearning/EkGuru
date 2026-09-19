@@ -26,9 +26,14 @@
 (function () {
   "use strict";
 
-  var METHODS = ["upi", "paypal", "stripe", "revolut", "btc", "eth", "usdt"];
+  var METHODS = ["razorpay", "upi", "paypal", "stripe", "revolut", "btc", "eth", "usdt"];
 
   function val(card) {
+    if (card === "razorpay") {
+      var liveRzp = (window.EKGURU_SITE || {}).supportRazorpay;
+      var bakedRzp = (window.EKGURU_SHEET_SETTINGS || {}).supportRazorpay;
+      return String(liveRzp || bakedRzp || window.RAZORPAY_PAYMENT_LINK || "https://rzp.io/rzp/EkGuru").trim();
+    }
     var key = "support" + card.charAt(0).toUpperCase() + card.slice(1);
     var live = (window.EKGURU_SITE || {})[key];
     var baked = (window.EKGURU_SHEET_SETTINGS || {})[key];

@@ -884,8 +884,56 @@ window.EKGURU_SITE = {
   status: "live"
 };
 
-/* PRODUCTION CENTRALIZED PAYMENT BACKEND CONFIGURATION */
+/* PRODUCTION CENTRALIZED PAYMENT CONFIGURATION & MODE */
+window.PAYMENT_MODE = window.PAYMENT_MODE || "COMING_SOON"; // "COMING_SOON" (production default) | "LIVE_API"
 window.PAYMENT_BACKEND_URL = "https://script.google.com/macros/s/AKfycbz8u_rBr2o4VPgmQgaweswLWKdYb-MMGrsa7WfckTCruLP-ZEasWnpkqJrZHux5Y8_4zA/exec";
+window.RAZORPAY_PAYMENT_LINK = "https://rzp.io/rzp/EkGuru";
+window.RAZORPAY_BUTTON_ID = "pl_TdkrmHjhK9ip3r";
+
+/* Global Payment CTA Guard — Enforces "Coming Soon" on any generic payment trigger */
+(function () {
+  function applyGlobalPaymentMode() {
+    var mode = (window.PAYMENT_MODE || "COMING_SOON").toUpperCase();
+    if (mode !== "COMING_SOON") return;
+
+    var candidates = document.querySelectorAll(
+      "[data-payment-cta], .btn-pay, .btn-payment, button[id*='pay'], a[id*='pay']"
+    );
+    for (var i = 0; i < candidates.length; i++) {
+      var el = candidates[i];
+      // Do not alter active Razorpay hosted options or button embeds
+      if (
+        el.id === "razorpay-hosted-link" ||
+        el.id === "razorpay-hosted-payment-link" ||
+        (el.closest && el.closest("#rzp-hosted-grid, #rzp-button-container, #razorpay-payment-button-form, .razorpay-payment-button"))
+      ) {
+        continue;
+      }
+      var txt = (el.textContent || "").trim().toLowerCase();
+      if (
+        txt === "pay" ||
+        txt === "pay now" ||
+        txt === "make payment" ||
+        txt === "donate" ||
+        el.hasAttribute("data-payment-cta")
+      ) {
+        el.textContent = "Coming Soon";
+        el.setAttribute("disabled", "disabled");
+        el.setAttribute("aria-disabled", "true");
+        el.classList.add("disabled", "btn-coming-soon");
+        el.style.pointerEvents = "none";
+        el.style.opacity = "0.65";
+        el.style.cursor = "not-allowed";
+      }
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", applyGlobalPaymentMode);
+  } else {
+    applyGlobalPaymentMode();
+  }
+})();
 
 /* =========================================================
    The 7 major countries our students come from.
