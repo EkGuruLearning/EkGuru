@@ -273,18 +273,17 @@ Runs:
   }
   ```
 
-### Serverless Backend (Cloudflare Workers)
-Deploy `server/worker.js` to Cloudflare Workers:
-```bash
-npx wrangler deploy server/worker.js --name ekguru-payments
-```
-Configure environment variables in the Cloudflare Dashboard:
-- `RAZORPAY_KEY_ID`
-- `RAZORPAY_KEY_SECRET`
-- `RAZORPAY_WEBHOOK_SECRET`
+### Production Backend (Google Apps Script Web App)
+The production backend runs as a Google Apps Script Web App:
+- **Web App URL**: `https://script.google.com/macros/s/AKfycbz8u_rBr2o4VPgmQgaweswLWKdYb-MMGrsa7WfckTCruLP-ZEasWnpkqJrZHux5Y8_4zA/exec`
+- Direct serverless order creation via `POST ?action=create-order`
+- Direct HMAC verification via `POST ?action=verify-payment`
+- Direct webhook processing via `POST ?action=webhook`
+- Script Properties: `RAZORPAY_KEY_ID`, `RAZORPAY_KEY_SECRET`, `RAZORPAY_WEBHOOK_SECRET`, `SPREADSHEET_ID`
+- Direct automated private Google Sheets ledger recording
 
-### Node.js / Docker / VPS Deployment
-Run `node server/server.js` behind a reverse proxy (e.g., Nginx, Caddy, or Cloudflare Tunnel) with HTTPS termination.
+### Node.js Dev Server (Local Development / Testing)
+Run `node server/server.js` or `npm test` locally for automated gate verification. The local server provides a mock API compatible with both REST paths and `?action=...` query parameters.
 
 ---
 

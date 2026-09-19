@@ -67,6 +67,7 @@ function sendJson(res, statusCode, data, extraHeaders = {}) {
 async function handleApiRequest(req, res, service) {
   const parsedUrl = new URL(req.url, `http://${req.headers.host || "localhost"}`);
   const pathname = parsedUrl.pathname.replace(/\/+$/, "");
+  const queryAction = parsedUrl.searchParams.get("action") || "";
 
   setCorsHeaders(req, res);
 
@@ -77,8 +78,8 @@ async function handleApiRequest(req, res, service) {
     return true;
   }
 
-  // 1. GET /api/payments/razorpay/currencies
-  if (req.method === "GET" && pathname === "/api/payments/razorpay/currencies") {
+  // 1. Currencies: GET ?action=currencies OR /api/payments/razorpay/currencies
+  if (req.method === "GET" && (queryAction === "currencies" || pathname === "/api/payments/razorpay/currencies")) {
     const currencies = listSupportedCurrencies();
     sendJson(res, 200, {
       success: true,
@@ -88,8 +89,8 @@ async function handleApiRequest(req, res, service) {
     return true;
   }
 
-  // 2. GET /api/support/recent
-  if (req.method === "GET" && pathname === "/api/support/recent") {
+  // 2. Recent Supporters: GET ?action=recent-support OR /api/support/recent
+  if (req.method === "GET" && (queryAction === "recent-support" || queryAction === "recent" || pathname === "/api/support/recent")) {
     try {
       const supporters = await service.getRecentSupporters();
       sendJson(
@@ -99,21 +100,23 @@ async function handleApiRequest(req, res, service) {
           success: true,
           count: supporters.length,
           supporters,
+          items: supporters,
         },
         {
           "Cache-Control": "public, max-age=60, s-maxage=120, stale-while-revalidate=300",
         }
       );
     } catch (e) {
-      sendJson(res, 200, { success: true, count: 0, supporters: [] });
+      sendJson(res, 200, { success: true, count: 0, supporters: [], items: [] });
     }
     return true;
   }
 
-  // 3. GET /api/payments/health
-  if (req.method === "GET" && pathname === "/api/payments/health") {
+  // 3. Health: GET ?action=health OR /api/payments/health
+  if (req.method === "GET" && (queryAction === "health" || pathname === "/api/payments/health")) {
     sendJson(res, 200, {
       status: "ok",
+      success: true,
       service: "EkGuru Payments & Support API",
       currencies_count: listSupportedCurrencies().length,
       timestamp: new Date().toISOString(),
@@ -126,8 +129,8 @@ async function handleApiRequest(req, res, service) {
     const rawBuffer = await readRawBody(req);
     const rawBody = rawBuffer.toString("utf8");
 
-    // 4. POST /api/payments/razorpay/webhook
-    if (pathname === "/api/payments/razorpay/webhook") {
+    // 4. Webhook: POST ?action=webhook OR /api/payments/razorpay/webhook
+    if (queryAction === "webhook" || pathname === "/api/payments/razorpay/webhook") {
       const signature = req.headers["x-razorpay-signature"] || "";
       const result = await service.handleWebhook(rawBody, signature);
       sendJson(res, result.status || 200, result);
@@ -144,8 +147,10 @@ async function handleApiRequest(req, res, service) {
       }
     }
 
-    // 5. POST /api/payments/razorpay/order
-    if (pathname === "/api/payments/razorpay/order") {
+    const effectiveAction = queryAction || parsedBody.action || "";
+
+    // 5. Create Order: POST ?action=create-order OR /api/payments/razorpay/order
+    if (effectiveAction === "create-order" || pathname === "/api/payments/razorpay/order") {
       try {
         const orderData = await service.createOrder({
           amount: parsedBody.amount,
@@ -170,8 +175,8 @@ async function handleApiRequest(req, res, service) {
       return true;
     }
 
-    // 6. POST /api/payments/razorpay/verify
-    if (pathname === "/api/payments/razorpay/verify") {
+    // 6. Verify Payment: POST ?action=verify-payment OR /api/payments/razorpay/verify
+    if (effectiveAction === "verify-payment" || pathname === "/api/payments/razorpay/verify") {
       try {
         const verifyResult = await service.verifyPayment({
           razorpay_order_id: parsedBody.razorpay_order_id,

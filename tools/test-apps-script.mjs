@@ -1,21 +1,27 @@
 // tools/test-apps-script.mjs
-// Comprehensive test suite for apps-script/Code.gs running with mocked Apps Script environment.
+// Comprehensive test suite for apps-script/Code.gs running as the production Razorpay & Sheets payment backend.
 
 import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
+import crypto from 'node:crypto';
 
 const codePath = path.resolve(process.cwd(), 'apps-script/Code.gs');
 const codeGs = fs.readFileSync(codePath, 'utf8');
 
-console.log('Testing apps-script/Code.gs in mocked Google Apps Script runtime...');
+console.log('Testing apps-script/Code.gs as Production Payment Backend...');
 
-function createMockEnvironment() {
+function createMockEnvironment(customProperties = {}) {
   const scriptProperties = {
-    SHEETS_INGEST_TOKEN: 'test-secret-token-1234567890',
+    RAZORPAY_KEY_ID: 'rzp_test_simulated_key_001',
+    RAZORPAY_KEY_SECRET: 'test_key_secret_for_hmac_verification_only',
+    RAZORPAY_WEBHOOK_SECRET: 'test_webhook_secret_for_hmac_verification_only',
     SPREADSHEET_ID: '1u5Jkbe_2lMoLWsaDPQkxTWhNACewRaOyZLLANy2dfVI',
+    ...customProperties,
   };
+
+  const cacheStore = new Map();
 
   class MockRange {
     constructor(sheet, row, col, numRows = 1, numCols = 1) {
@@ -133,6 +139,13 @@ function createMockEnvironment() {
         setProperty: (key, val) => { scriptProperties[key] = val; }
       })
     },
+    CacheService: {
+      getScriptCache: () => ({
+        get: (k) => cacheStore.get(k) || null,
+        put: (k, v, ttl) => cacheStore.set(k, v),
+        remove: (k) => cacheStore.delete(k)
+      })
+    },
     ContentService: {
       MimeType: { JSON: 'application/json' },
       createTextOutput: (text) => ({
@@ -144,7 +157,28 @@ function createMockEnvironment() {
     },
     Utilities: {
       formatDate: (d, tz, fmt) => d.toISOString(),
-      getUuid: () => '12345678-test-uuid'
+      getUuid: () => 'test_uuid_' + Math.random().toString(36).substring(2, 8),
+      base64Encode: (str) => Buffer.from(str).toString('base64'),
+      computeHmacSha256Signature: (value, key) => {
+        const buf = crypto.createHmac('sha256', key).update(value).digest();
+        // Convert to signed bytes (-128 to 127) as Apps Script returns
+        return Array.from(buf).map(b => b > 127 ? b - 256 : b);
+      }
+    },
+    UrlFetchApp: {
+      fetch: (url, options) => {
+        // Simulated Razorpay API response
+        return {
+          getResponseCode: () => 200,
+          getContentText: () => JSON.stringify({
+            id: 'order_test_' + Date.now(),
+            entity: 'order',
+            amount: 50000,
+            currency: 'INR',
+            status: 'created'
+          })
+        };
+      }
     }
   };
 
@@ -154,375 +188,513 @@ function createMockEnvironment() {
   return { context, mockSpreadsheet, scriptProperties };
 }
 
-// TEST 1: Missing or Invalid Token Handling
+// 1. TEST: Health endpoint
 {
   const { context } = createMockEnvironment();
-  
-  // No token in POST body
-  const eNoToken = {
-    postData: {
-      contents: JSON.stringify({
-        operation: 'payment_upsert',
-        data: { payment_id: 'pay_123' }
-      })
-    }
-  };
-  const res1 = JSON.parse(context.doPost(eNoToken).getContent());
-  assert.equal(res1.success, false);
-  assert.match(res1.error, /Unauthorized/);
-  console.log('✓ PASS: Rejects POST with missing token (401)');
-
-  // Token passed via query parameter (strictly forbidden)
-  const eQueryToken = {
-    parameter: { token: 'test-secret-token-1234567890' },
-    postData: {
-      contents: JSON.stringify({
-        operation: 'payment_upsert',
-        data: { payment_id: 'pay_123' }
-      })
-    }
-  };
-  const res2 = JSON.parse(context.doPost(eQueryToken).getContent());
-  assert.equal(res2.success, false);
-  assert.equal(res2.code, 'FORBIDDEN_AUTH_METHOD');
-  console.log('✓ PASS: Rejects POST with token in URL query parameter (403)');
+  const res = JSON.parse(context.doGet({ parameter: { action: 'health' } }).getContent());
+  assert.equal(res.success, true);
+  assert.equal(res.status, 'ok');
+  assert.equal(res.currencies_count, 128);
+  console.log('✓ PASS [1/20]: GET ?action=health returns healthy status');
 }
 
-// TEST 2: Multi-Currency Customer Totals Preservation (No Cross-Currency Summing)
+// 2. TEST: Currencies registry
+{
+  const { context } = createMockEnvironment();
+  const res = JSON.parse(context.doGet({ parameter: { action: 'currencies' } }).getContent());
+  assert.equal(res.success, true);
+  assert.equal(res.count, 128);
+  console.log('✓ PASS [2/20]: GET ?action=currencies lists 128 verified currencies');
+}
+
+// 3. TEST: Reject query parameter token
+{
+  const { context } = createMockEnvironment();
+  const res = JSON.parse(context.doGet({ parameter: { token: 'secret' } }).getContent());
+  assert.equal(res.success, false);
+  assert.equal(res.code, 'FORBIDDEN_AUTH_METHOD');
+  console.log('✓ PASS [3/20]: Tokens in URL query parameters are strictly forbidden');
+}
+
+// 4. TEST: create-order valid INR
 {
   const { context, mockSpreadsheet } = createMockEnvironment();
+  const payload = {
+    action: 'create-order',
+    amount: '500',
+    currency: 'INR',
+    customer_name: 'Ananya Sharma',
+    customer_email: 'ananya@example.com',
+    customer_phone: '+919876543210',
+    country: 'IN',
+    support_message: 'Keep up the great education work!',
+    publicDisplayOptIn: true
+  };
+  const e = { postData: { contents: JSON.stringify(payload) } };
+  const res = JSON.parse(context.doPost(e).getContent());
+  assert.equal(res.success, true);
+  assert.equal(res.amount, 50000); // 500 INR -> 50000 paise
+  assert.equal(res.currency, 'INR');
+  assert.ok(res.order_id);
+  assert.ok(res.internal_id);
 
-  // First customer payment in INR
-  const e1 = {
+  const paySheet = mockSpreadsheet.getSheetByName('Payments');
+  assert.equal(paySheet.grid.length, 2); // header + record
+  assert.equal(paySheet.grid[1][4], 'created'); // Status
+  assert.equal(paySheet.grid[1][5], 500); // Amount
+  assert.equal(paySheet.grid[1][6], 'INR'); // Currency
+  console.log('✓ PASS [4/20]: POST ?action=create-order creates valid INR order & ledger entry');
+}
+
+// 5. TEST: create-order valid USD, EUR, GBP
+{
+  const { context } = createMockEnvironment();
+  const eUsd = { postData: { contents: JSON.stringify({ action: 'create-order', amount: '10.50', currency: 'USD' }) } };
+  const resUsd = JSON.parse(context.doPost(eUsd).getContent());
+  assert.equal(resUsd.success, true);
+  assert.equal(resUsd.amount, 1050); // $10.50 -> 1050 cents
+
+  const eEur = { postData: { contents: JSON.stringify({ action: 'create-order', amount: '15.00', currency: 'EUR' }) } };
+  const resEur = JSON.parse(context.doPost(eEur).getContent());
+  assert.equal(resEur.success, true);
+  assert.equal(resEur.amount, 1500);
+
+  const eGbp = { postData: { contents: JSON.stringify({ action: 'create-order', amount: '20.00', currency: 'GBP' }) } };
+  const resGbp = JSON.parse(context.doPost(eGbp).getContent());
+  assert.equal(resGbp.success, true);
+  assert.equal(resGbp.amount, 2000);
+  console.log('✓ PASS [5/20]: POST ?action=create-order converts USD, EUR, GBP to exact subunits');
+}
+
+// 6. TEST: create-order zero-decimal currency (JPY)
+{
+  const { context } = createMockEnvironment();
+  // Valid JPY
+  const eValidJpy = { postData: { contents: JSON.stringify({ action: 'create-order', amount: '1500', currency: 'JPY' }) } };
+  const resValid = JSON.parse(context.doPost(eValidJpy).getContent());
+  assert.equal(resValid.success, true);
+  assert.equal(resValid.amount, 1500);
+
+  // Invalid JPY with decimals
+  const eInvalidJpy = { postData: { contents: JSON.stringify({ action: 'create-order', amount: '1500.50', currency: 'JPY' }) } };
+  const resInvalid = JSON.parse(context.doPost(eInvalidJpy).getContent());
+  assert.equal(resInvalid.success, false);
+  assert.match(resInvalid.error, /zero-decimal/i);
+  console.log('✓ PASS [6/20]: Zero-decimal JPY rejects fractional decimals');
+}
+
+// 7. TEST: create-order 3-decimal currency (KWD)
+{
+  const { context } = createMockEnvironment();
+  const eKwd = { postData: { contents: JSON.stringify({ action: 'create-order', amount: '15.750', currency: 'KWD' }) } };
+  const resKwd = JSON.parse(context.doPost(eKwd).getContent());
+  assert.equal(resKwd.success, true);
+  assert.equal(resKwd.amount, 15750);
+  console.log('✓ PASS [7/20]: 3-decimal currency (KWD) handles 3 decimal precision');
+}
+
+// 8. TEST: Unsupported currency rejected
+{
+  const { context } = createMockEnvironment();
+  const eBad = { postData: { contents: JSON.stringify({ action: 'create-order', amount: '10', currency: 'FAKECOIN' }) } };
+  const resBad = JSON.parse(context.doPost(eBad).getContent());
+  assert.equal(resBad.success, false);
+  assert.match(resBad.error, /not supported/i);
+  console.log('✓ PASS [8/20]: Unsupported currency is strictly rejected');
+}
+
+// 9. TEST: Invalid amounts (negative, zero, above limit, malformed)
+{
+  const { context } = createMockEnvironment();
+  const eNeg = { postData: { contents: JSON.stringify({ action: 'create-order', amount: '-50', currency: 'USD' }) } };
+  assert.equal(JSON.parse(context.doPost(eNeg).getContent()).success, false);
+
+  const eZero = { postData: { contents: JSON.stringify({ action: 'create-order', amount: '0', currency: 'USD' }) } };
+  assert.equal(JSON.parse(context.doPost(eZero).getContent()).success, false);
+
+  const eMax = { postData: { contents: JSON.stringify({ action: 'create-order', amount: '999999', currency: 'USD' }) } };
+  assert.equal(JSON.parse(context.doPost(eMax).getContent()).success, false);
+
+  const eString = { postData: { contents: JSON.stringify({ action: 'create-order', amount: 'abc', currency: 'USD' }) } };
+  assert.equal(JSON.parse(context.doPost(eString).getContent()).success, false);
+  console.log('✓ PASS [9/20]: Negative, zero, malformed, and out-of-bound amounts rejected');
+}
+
+// 10. TEST: verify-payment valid signature
+{
+  const { context, mockSpreadsheet, scriptProperties } = createMockEnvironment();
+
+  // Create order
+  const orderRes = JSON.parse(context.doPost({
+    postData: { contents: JSON.stringify({ action: 'create-order', amount: '25.00', currency: 'USD', customer_email: 'donor@example.com', customer_name: 'Jane Doe', publicDisplayOptIn: true }) }
+  }).getContent());
+
+  const orderId = orderRes.order_id;
+  const paymentId = 'pay_test_valid_001';
+  const secret = scriptProperties.RAZORPAY_KEY_SECRET;
+
+  const validSignature = crypto.createHmac('sha256', secret).update(`${orderId}|${paymentId}`).digest('hex');
+
+  const verifyRes = JSON.parse(context.doPost({
     postData: {
       contents: JSON.stringify({
-        token: 'test-secret-token-1234567890',
-        operation: 'customer_upsert',
-        data: {
-          email: 'patron@example.com',
-          name: 'Test Patron',
-          amount: 500,
-          currency: 'INR'
-        }
+        action: 'verify-payment',
+        razorpay_order_id: orderId,
+        razorpay_payment_id: paymentId,
+        razorpay_signature: validSignature,
+        internal_id: orderRes.internal_id,
+        publicDisplayOptIn: true
       })
     }
-  };
-  const res1 = JSON.parse(context.doPost(e1).getContent());
-  assert.equal(res1.success, true);
+  }).getContent());
 
-  // Second customer payment in USD from same customer
-  const e2 = {
-    postData: {
-      contents: JSON.stringify({
-        token: 'test-secret-token-1234567890',
-        operation: 'customer_upsert',
-        data: {
-          email: 'patron@example.com',
-          name: 'Test Patron',
-          amount: 25,
-          currency: 'USD'
-        }
-      })
-    }
-  };
-  const res2 = JSON.parse(context.doPost(e2).getContent());
-  assert.equal(res2.success, true);
+  assert.equal(verifyRes.success, true);
+  assert.equal(verifyRes.status, 'captured');
 
-  // Check Customers tab row
+  const paySheet = mockSpreadsheet.getSheetByName('Payments');
+  assert.equal(paySheet.grid[1][4], 'captured'); // Status
+  assert.equal(paySheet.grid[1][18], 'true'); // Verified
+
   const custSheet = mockSpreadsheet.getSheetByName('Customers');
-  assert.ok(custSheet);
-  const rows = custSheet.grid;
-  // Header row is index 0
-  const custRow = rows[1];
-  assert.equal(custRow[2], 'patron@example.com'); // Email
-  assert.equal(custRow[7], 2); // Total Payments count = 2
-  // Total Supported Amount should NOT be 525 (INR 500 + USD 25)!
-  // It must be currency-separated: "INR 500.00, USD 25.00"
-  assert.equal(custRow[8], 'INR 500.00, USD 25.00');
-  assert.equal(custRow[9], 'INR, USD');
-  console.log('✓ PASS: Preserves multi-currency customer totals without cross-currency summing');
+  assert.equal(custSheet.grid.length, 2);
+  assert.equal(custSheet.grid[1][2], 'donor@example.com');
+  assert.equal(custSheet.grid[1][7], 1); // Total Payments count
+  assert.equal(custSheet.grid[1][8], 'USD 25.00');
+
+  const pubSheet = mockSpreadsheet.getSheetByName('PublicSupport');
+  assert.equal(pubSheet.grid.length, 2);
+  assert.equal(pubSheet.grid[1][1], 'Jane Doe');
+  console.log('✓ PASS [10/20]: POST ?action=verify-payment verifies valid signature and updates ledgers');
 }
 
-// TEST 3: PublicSupport Opt-In and Sanitization
+// 11. TEST: verify-payment invalid signature
 {
   const { context, mockSpreadsheet } = createMockEnvironment();
 
-  // Payment 1: Opted in
-  const eOptIn = {
+  const orderRes = JSON.parse(context.doPost({
+    postData: { contents: JSON.stringify({ action: 'create-order', amount: '10.00', currency: 'USD' }) }
+  }).getContent());
+
+  const verifyRes = JSON.parse(context.doPost({
     postData: {
       contents: JSON.stringify({
-        token: 'test-secret-token-1234567890',
-        operation: 'public_support_upsert',
-        data: {
-          payment_id: 'pay_PUB_01',
-          order_id: 'order_PUB_01',
-          status: 'captured',
-          amount: 1500,
-          currency: 'INR',
-          displayName: 'Ananya Sharma',
-          country: 'IN',
-          message: 'Keep up the fantastic education work!',
-          publicDisplayOptIn: true,
-          internal_reference: 'EKG-TEST-001',
-          verified: true
-        }
+        action: 'verify-payment',
+        razorpay_order_id: orderRes.order_id,
+        razorpay_payment_id: 'pay_fraud_123',
+        razorpay_signature: 'invalid_forged_signature_00000000000',
+        internal_id: orderRes.internal_id
       })
     }
+  }).getContent());
+
+  assert.equal(verifyRes.success, false);
+  assert.match(verifyRes.error, /invalid payment signature/i);
+
+  const paySheet = mockSpreadsheet.getSheetByName('Payments');
+  assert.equal(paySheet.grid[1][4], 'failed');
+  assert.equal(paySheet.grid[1][18], 'false');
+  console.log('✓ PASS [11/20]: Invalid signature rejected and record marked failed');
+}
+
+// 12. TEST: verify-payment amount tampering detection
+{
+  const { context, scriptProperties } = createMockEnvironment();
+
+  const orderRes = JSON.parse(context.doPost({
+    postData: { contents: JSON.stringify({ action: 'create-order', amount: '100.00', currency: 'USD' }) }
+  }).getContent());
+
+  const orderId = orderRes.order_id;
+  const paymentId = 'pay_tamper_001';
+  const sig = crypto.createHmac('sha256', scriptProperties.RAZORPAY_KEY_SECRET).update(`${orderId}|${paymentId}`).digest('hex');
+
+  const verifyRes = JSON.parse(context.doPost({
+    postData: {
+      contents: JSON.stringify({
+        action: 'verify-payment',
+        razorpay_order_id: orderId,
+        razorpay_payment_id: paymentId,
+        razorpay_signature: sig,
+        tampered_amount: 5.00 // Client claims $5 instead of $100
+      })
+    }
+  }).getContent());
+
+  assert.equal(verifyRes.success, false);
+  assert.match(verifyRes.error, /tampering/i);
+  console.log('✓ PASS [12/20]: Client-side amount tampering detected and rejected');
+}
+
+// 13. TEST: verify-payment currency tampering detection
+{
+  const { context, scriptProperties } = createMockEnvironment();
+
+  const orderRes = JSON.parse(context.doPost({
+    postData: { contents: JSON.stringify({ action: 'create-order', amount: '100.00', currency: 'USD' }) }
+  }).getContent());
+
+  const orderId = orderRes.order_id;
+  const paymentId = 'pay_tamper_curr_001';
+  const sig = crypto.createHmac('sha256', scriptProperties.RAZORPAY_KEY_SECRET).update(`${orderId}|${paymentId}`).digest('hex');
+
+  const verifyRes = JSON.parse(context.doPost({
+    postData: {
+      contents: JSON.stringify({
+        action: 'verify-payment',
+        razorpay_order_id: orderId,
+        razorpay_payment_id: paymentId,
+        razorpay_signature: sig,
+        tampered_currency: 'INR'
+      })
+    }
+  }).getContent());
+
+  assert.equal(verifyRes.success, false);
+  assert.match(verifyRes.error, /tampering/i);
+  console.log('✓ PASS [13/20]: Client-side currency tampering detected and rejected');
+}
+
+// 14. TEST: verify-payment duplicate idempotency
+{
+  const { context, mockSpreadsheet, scriptProperties } = createMockEnvironment();
+
+  const orderRes = JSON.parse(context.doPost({
+    postData: { contents: JSON.stringify({ action: 'create-order', amount: '15.00', currency: 'USD' }) }
+  }).getContent());
+
+  const orderId = orderRes.order_id;
+  const paymentId = 'pay_idem_001';
+  const sig = crypto.createHmac('sha256', scriptProperties.RAZORPAY_KEY_SECRET).update(`${orderId}|${paymentId}`).digest('hex');
+
+  const payload = {
+    action: 'verify-payment',
+    razorpay_order_id: orderId,
+    razorpay_payment_id: paymentId,
+    razorpay_signature: sig,
+    internal_id: orderRes.internal_id
   };
-  const res1 = JSON.parse(context.doPost(eOptIn).getContent());
+
+  // First verification
+  const res1 = JSON.parse(context.doPost({ postData: { contents: JSON.stringify(payload) } }).getContent());
   assert.equal(res1.success, true);
 
-  // Payment 2: NOT opted in
-  const eNoOptIn = {
-    postData: {
-      contents: JSON.stringify({
-        token: 'test-secret-token-1234567890',
-        operation: 'public_support_upsert',
-        data: {
-          payment_id: 'pay_PRIV_02',
-          order_id: 'order_PRIV_02',
-          status: 'captured',
+  // Second duplicate verification
+  const res2 = JSON.parse(context.doPost({ postData: { contents: JSON.stringify(payload) } }).getContent());
+  assert.equal(res2.success, true);
+  assert.equal(res2.duplicate, true);
+
+  const paySheet = mockSpreadsheet.getSheetByName('Payments');
+  assert.equal(paySheet.grid.length, 2); // Still only 1 data row!
+  console.log('✓ PASS [14/20]: Duplicate verification handled idempotently without duplicate rows');
+}
+
+// 15. TEST: webhook valid HMAC signature & payment.captured handling
+{
+  const { context, mockSpreadsheet, scriptProperties } = createMockEnvironment();
+
+  // Create order
+  const orderRes = JSON.parse(context.doPost({
+    postData: { contents: JSON.stringify({ action: 'create-order', amount: '50.00', currency: 'USD' }) }
+  }).getContent());
+
+  const webhookBody = JSON.stringify({
+    event: 'payment.captured',
+    event_id: 'evt_test_captured_001',
+    payload: {
+      payment: {
+        entity: {
+          id: 'pay_hook_001',
+          order_id: orderRes.order_id,
           amount: 5000,
-          currency: 'INR',
-          displayName: 'Secret Donor',
-          country: 'IN',
-          message: 'Private donation',
-          publicDisplayOptIn: false,
-          internal_reference: 'EKG-TEST-002',
-          verified: true
+          currency: 'USD',
+          status: 'captured',
+          fee: 150,
+          tax: 27
         }
-      })
+      }
     }
+  });
+
+  const webhookSecret = scriptProperties.RAZORPAY_WEBHOOK_SECRET;
+  const signature = crypto.createHmac('sha256', webhookSecret).update(webhookBody).digest('hex');
+
+  const hookRes = JSON.parse(context.doPost({
+    parameter: { action: 'webhook' },
+    headers: { 'X-Razorpay-Signature': signature },
+    postData: { contents: webhookBody }
+  }).getContent());
+
+  assert.equal(hookRes.success, true);
+  assert.equal(hookRes.processed, true);
+
+  const paySheet = mockSpreadsheet.getSheetByName('Payments');
+  assert.equal(paySheet.grid[1][4], 'captured'); // Status
+  assert.equal(paySheet.grid[1][18], 'true'); // Verified
+  assert.equal(paySheet.grid[1][14], 1.5); // Fee
+
+  const eventSheet = mockSpreadsheet.getSheetByName('WebhookEvents');
+  assert.equal(eventSheet.grid.length, 2);
+  assert.equal(eventSheet.grid[1][1], 'evt_test_captured_001');
+  console.log('✓ PASS [15/20]: Valid webhook processed and synchronized to ledger');
+}
+
+// 16. TEST: webhook invalid signature rejected
+{
+  const { context } = createMockEnvironment();
+  const webhookBody = JSON.stringify({ event: 'payment.captured', event_id: 'evt_invalid' });
+
+  const hookRes = JSON.parse(context.doPost({
+    parameter: { action: 'webhook' },
+    headers: { 'X-Razorpay-Signature': 'bogus_signature' },
+    postData: { contents: webhookBody }
+  }).getContent());
+
+  assert.equal(hookRes.success, false);
+  assert.match(hookRes.error, /invalid webhook signature/i);
+  console.log('✓ PASS [16/20]: Webhook with invalid HMAC signature rejected with 400');
+}
+
+// 17. TEST: webhook duplicate event idempotency
+{
+  const { context, mockSpreadsheet, scriptProperties } = createMockEnvironment();
+
+  const webhookBody = JSON.stringify({
+    event: 'payment.authorized',
+    event_id: 'evt_duplicate_test_002',
+    payload: { payment: { entity: { id: 'pay_hook_002' } } }
+  });
+  const sig = crypto.createHmac('sha256', scriptProperties.RAZORPAY_WEBHOOK_SECRET).update(webhookBody).digest('hex');
+
+  const e = {
+    parameter: { action: 'webhook' },
+    headers: { 'X-Razorpay-Signature': sig },
+    postData: { contents: webhookBody }
   };
-  const res2 = JSON.parse(context.doPost(eNoOptIn).getContent());
-  assert.equal(res2.success, false);
-  assert.match(res2.error, /opt-in not granted/i);
+
+  const res1 = JSON.parse(context.doPost(e).getContent());
+  assert.equal(res1.success, true);
+
+  const res2 = JSON.parse(context.doPost(e).getContent());
+  assert.equal(res2.success, true);
+  assert.equal(res2.duplicate, true);
+
+  const eventSheet = mockSpreadsheet.getSheetByName('WebhookEvents');
+  assert.equal(eventSheet.grid.length, 2); // 1 header + 1 event
+  console.log('✓ PASS [17/20]: Duplicate webhook event skipped idempotently');
+}
+
+// 18. TEST: webhook refund handling
+{
+  const { context, mockSpreadsheet, scriptProperties } = createMockEnvironment();
+
+  const orderRes = JSON.parse(context.doPost({
+    postData: { contents: JSON.stringify({ action: 'create-order', amount: '30.00', currency: 'USD' }) }
+  }).getContent());
+
+  const refundBody = JSON.stringify({
+    event: 'refund.processed',
+    event_id: 'evt_refund_001',
+    payload: {
+      refund: {
+        entity: {
+          id: 'rfnd_001',
+          payment_id: 'pay_ref_target_01',
+          amount: 3000,
+          currency: 'USD',
+          status: 'processed'
+        }
+      }
+    }
+  });
+
+  const sig = crypto.createHmac('sha256', scriptProperties.RAZORPAY_WEBHOOK_SECRET).update(refundBody).digest('hex');
+  const res = JSON.parse(context.doPost({
+    parameter: { action: 'webhook' },
+    headers: { 'X-Razorpay-Signature': sig },
+    postData: { contents: refundBody }
+  }).getContent());
+
+  assert.equal(res.success, true);
+  const refSheet = mockSpreadsheet.getSheetByName('Refunds');
+  assert.equal(refSheet.grid.length, 2);
+  assert.equal(refSheet.grid[1][1], 'rfnd_001');
+  assert.equal(refSheet.grid[1][4], 30);
+  console.log('✓ PASS [18/20]: Refund webhook records refund row and updates status');
+}
+
+// 19. TEST: Multi-currency customer total preservation without cross-currency addition
+{
+  const { context, mockSpreadsheet, scriptProperties } = createMockEnvironment();
+
+  // Payment 1 in INR
+  const order1 = JSON.parse(context.doPost({
+    postData: { contents: JSON.stringify({ action: 'create-order', amount: '500', currency: 'INR', customer_email: 'patron@example.com', customer_name: 'Multi Patron' }) }
+  }).getContent());
+  const sig1 = crypto.createHmac('sha256', scriptProperties.RAZORPAY_KEY_SECRET).update(`${order1.order_id}|pay_1`).digest('hex');
+  context.doPost({
+    postData: { contents: JSON.stringify({ action: 'verify-payment', razorpay_order_id: order1.order_id, razorpay_payment_id: 'pay_1', razorpay_signature: sig1 }) }
+  });
+
+  // Payment 2 in USD from same customer
+  const order2 = JSON.parse(context.doPost({
+    postData: { contents: JSON.stringify({ action: 'create-order', amount: '25.00', currency: 'USD', customer_email: 'patron@example.com', customer_name: 'Multi Patron' }) }
+  }).getContent());
+  const sig2 = crypto.createHmac('sha256', scriptProperties.RAZORPAY_KEY_SECRET).update(`${order2.order_id}|pay_2`).digest('hex');
+  context.doPost({
+    postData: { contents: JSON.stringify({ action: 'verify-payment', razorpay_order_id: order2.order_id, razorpay_payment_id: 'pay_2', razorpay_signature: sig2 }) }
+  });
+
+  const custSheet = mockSpreadsheet.getSheetByName('Customers');
+  assert.equal(custSheet.grid.length, 2); // 1 customer row
+  const row = custSheet.grid[1];
+  assert.equal(row[2], 'patron@example.com');
+  assert.equal(row[7], 2); // Total payments = 2
+  // Customer multi-currency total MUST NOT be 525 (INR 500 + USD 25)!
+  assert.equal(row[8], 'INR 500.00, USD 25.00');
+  assert.equal(row[9], 'INR, USD');
+  console.log('✓ PASS [19/20]: Multi-currency customer totals isolated per-currency');
+}
+
+// 20. TEST: PublicSupport opt-in vs opt-out and sanitization
+{
+  const { context, mockSpreadsheet, scriptProperties } = createMockEnvironment();
+
+  // Supporter 1: Opted in
+  const ord1 = JSON.parse(context.doPost({
+    postData: { contents: JSON.stringify({ action: 'create-order', amount: '1000', currency: 'INR', customer_name: 'Public Hero', customer_email: 'secret1@example.com', customer_phone: '+919876543210', country: 'IN', support_message: 'Keep going!', publicDisplayOptIn: true }) }
+  }).getContent());
+  const sig1 = crypto.createHmac('sha256', scriptProperties.RAZORPAY_KEY_SECRET).update(`${ord1.order_id}|pay_pub_1`).digest('hex');
+  context.doPost({
+    postData: { contents: JSON.stringify({ action: 'verify-payment', razorpay_order_id: ord1.order_id, razorpay_payment_id: 'pay_pub_1', razorpay_signature: sig1, publicDisplayOptIn: true }) }
+  });
+
+  // Supporter 2: Opted OUT (publicDisplayOptIn = false)
+  const ord2 = JSON.parse(context.doPost({
+    postData: { contents: JSON.stringify({ action: 'create-order', amount: '5000', currency: 'INR', customer_name: 'Anonymous Donor', customer_email: 'secret2@example.com', customer_phone: '+919999999999', country: 'IN', support_message: 'Private', publicDisplayOptIn: false }) }
+  }).getContent());
+  const sig2 = crypto.createHmac('sha256', scriptProperties.RAZORPAY_KEY_SECRET).update(`${ord2.order_id}|pay_priv_2`).digest('hex');
+  context.doPost({
+    postData: { contents: JSON.stringify({ action: 'verify-payment', razorpay_order_id: ord2.order_id, razorpay_payment_id: 'pay_priv_2', razorpay_signature: sig2, publicDisplayOptIn: false }) }
+  });
 
   // Check PublicSupport tab
   const pubSheet = mockSpreadsheet.getSheetByName('PublicSupport');
-  assert.ok(pubSheet);
-  // Grid should have Header (row 0) and exactly 1 supporter (row 1)
-  assert.equal(pubSheet.grid.length, 2);
-  const pubRow = pubSheet.grid[1];
-  assert.equal(pubRow[1], 'Ananya Sharma'); // Display Name
-  assert.equal(pubRow[2], 'IN'); // Country
-  assert.equal(pubRow[3], 1500); // Amount
-  assert.equal(pubRow[4], 'INR'); // Currency
-  assert.equal(pubRow[5], 'Keep up the fantastic education work!'); // Message
-  assert.equal(pubRow[6], true); // Public
+  assert.equal(pubSheet.grid.length, 2); // 1 header + ONLY 1 public supporter
+  assert.equal(pubSheet.grid[1][1], 'Public Hero');
 
-  // Check doGet output for recent support
-  const eGet = { parameter: { action: 'recent-support' } };
-  const getRes = JSON.parse(context.doGet(eGet).getContent());
+  // Check GET ?action=recent-support
+  const getRes = JSON.parse(context.doGet({ parameter: { action: 'recent-support' } }).getContent());
   assert.equal(getRes.success, true);
-  assert.equal(getRes.items.length, 1);
-  const supporter = getRes.items[0];
-  assert.equal(supporter.displayName, 'Ananya Sharma');
-  assert.equal(supporter.country, 'IN');
-  assert.equal(supporter.amount, 1500);
-  assert.equal(supporter.currency, 'INR');
-  assert.equal(supporter.message, 'Keep up the fantastic education work!');
+  assert.equal(getRes.supporters.length, 1);
+  assert.equal(getRes.supporters[0].displayName, 'Public Hero');
 
-  // Strict check: Private donor must NOT appear anywhere in public GET output
-  const jsonString = JSON.stringify(getRes);
-  assert.ok(!jsonString.includes('Secret Donor'));
-  assert.ok(!jsonString.includes('secret_donor@example.com'));
-  assert.ok(!jsonString.includes('9999999999'));
-  console.log('✓ PASS: PublicSupport tab & doGet sanitize private details and obey opt-in flag');
+  const str = JSON.stringify(getRes);
+  assert.ok(!str.includes('Anonymous Donor'));
+  assert.ok(!str.includes('secret1@example.com'));
+  assert.ok(!str.includes('secret2@example.com'));
+  assert.ok(!str.includes('9876543210'));
+  assert.ok(!str.includes('9999999999'));
+  console.log('✓ PASS [20/20]: Public opt-in respected & private data strictly sanitized from public GET view');
 }
 
-// TEST 4: PublicSupport Deduplication
-{
-  const { context, mockSpreadsheet } = createMockEnvironment();
-
-  const payload = {
-    token: 'test-secret-token-1234567890',
-    operation: 'public_support_upsert',
-    data: {
-      display_name: 'Devin AI',
-      country: 'US',
-      amount: 100,
-      currency: 'USD',
-      message: 'Great platform',
-      public_display_opt_in: true,
-      internal_reference: 'EKG-DUP-CHECK-1',
-      status: 'captured',
-      verified: true
-    }
-  };
-
-  // Run twice with same internal_reference
-  const res1 = JSON.parse(context.doPost({ postData: { contents: JSON.stringify(payload) } }).getContent());
-  assert.equal(res1.success, true);
-  const res2 = JSON.parse(context.doPost({ postData: { contents: JSON.stringify(payload) } }).getContent());
-  assert.equal(res2.success, true);
-  assert.equal(res2.deduplicated, true);
-
-  const pubSheet = mockSpreadsheet.getSheetByName('PublicSupport');
-  // Should only have 1 data row + 1 header row = 2 rows
-  assert.equal(pubSheet.grid.length, 2);
-  console.log('✓ PASS: public_support_upsert idempotently deduplicates repeated entries');
-}
-
-// TEST 5: Header Integrity & Safe Repair
-{
-  const { context, mockSpreadsheet } = createMockEnvironment();
-
-  // Create sheet with corrupted header
-  const pSheet = mockSpreadsheet.getSheetByName('Payments') || mockSpreadsheet.insertSheet('Payments');
-  pSheet.appendRow(['WrongHeader1', 'WrongHeader2']);
-  pSheet.appendRow(['2026-09-19', '2026-09-19', 'pay_EXISTING', 'order_EXISTING', 'captured']);
-
-  // Call sheet setup or an operation
-  const payload = {
-    token: 'test-secret-token-1234567890',
-    operation: 'sheet_setup',
-    data: {}
-  };
-  const res = JSON.parse(context.doPost({ postData: { contents: JSON.stringify(payload) } }).getContent());
-  assert.equal(res.success, true);
-
-  // Header should now be repaired (20 columns), but row 2 must be intact!
-  assert.equal(pSheet.grid[0][0], 'Created At');
-  assert.equal(pSheet.grid[0][2], 'Payment ID');
-  assert.equal(pSheet.grid[1][2], 'pay_EXISTING');
-  console.log('✓ PASS: Safe header repair replaces row 1 without losing transaction data in rows >= 2');
-}
-
-// TEST 6: Explicit End-to-End Contract Test Between SheetsClient and apps-script/Code.gs
-{
-  const { context, mockSpreadsheet } = createMockEnvironment();
-
-  // Create a custom fetch that delegates to context.doPost
-  const customFetch = async (url, options) => {
-    const e = {
-      postData: {
-        contents: options.body
-      }
-    };
-    const output = context.doPost(e);
-    const text = output.getContent();
-    return {
-      ok: true,
-      status: 200,
-      json: async () => JSON.parse(text)
-    };
-  };
-
-  const { SheetsClient } = await import('../server/sheets-client.js');
-  const client = new SheetsClient({
-    endpoint: 'https://script.google.com/macros/s/AKfycbz8u_rBr2o4VPgmQgaweswLWKdYb-MMGrsa7WfckTCruLP-ZEasWnpkqJrZHux5Y8_4zA/exec',
-    token: 'test-secret-token-1234567890',
-    spreadsheetId: '1u5Jkbe_2lMoLWsaDPQkxTWhNACewRaOyZLLANy2dfVI',
-    fetch: customFetch
-  });
-
-  // 1. Contract Test: syncPayment
-  const payRes = await client.syncPayment({
-    internal_id: 'ekg_contract_pay_01',
-    razorpay_payment_id: 'pay_contract_01',
-    razorpay_order_id: 'order_contract_01',
-    status: 'captured',
-    display_amount: 125.50,
-    currency: 'USD',
-    customer_name: 'Contract Patron',
-    customer_email: 'contract@example.com',
-    customer_phone: '+14155552671',
-    country: 'US',
-    support_message: 'Validating end-to-end client contract',
-    fee: 3.50,
-    tax: 0.63,
-    refund_status: 'none',
-    verification_status: 'verified',
-    created_at: '2026-09-19T06:30:00.000Z'
-  });
-  assert.equal(payRes.success, true);
-  const paySheet = mockSpreadsheet.getSheetByName('Payments');
-  assert.ok(paySheet);
-  assert.equal(paySheet.grid.length, 2); // 1 header + 1 record
-  assert.equal(paySheet.grid[1][2], 'pay_contract_01'); // Payment ID
-  assert.equal(paySheet.grid[1][3], 'order_contract_01'); // Order ID
-  assert.equal(paySheet.grid[1][5], 125.50); // Amount
-  assert.equal(paySheet.grid[1][6], 'USD'); // Currency
-  assert.equal(paySheet.grid[1][17], 'ekg_contract_pay_01'); // Internal Reference
-  assert.equal(paySheet.grid[1][18], 'true'); // Verified
-
-  // 2. Contract Test: syncCustomer
-  const custRes = await client.syncCustomer({
-    customer_id: 'cust_contract_01',
-    email: 'contract@example.com',
-    name: 'Contract Patron',
-    phone: '+14155552671',
-    country: 'US',
-    amount: 125.50,
-    currency: 'USD'
-  });
-  assert.equal(custRes.success, true);
-  const custSheet = mockSpreadsheet.getSheetByName('Customers');
-  assert.ok(custSheet);
-  assert.equal(custSheet.grid.length, 2);
-  assert.equal(custSheet.grid[1][0], 'cust_contract_01'); // Customer ID
-  assert.equal(custSheet.grid[1][2], 'contract@example.com'); // Email
-  assert.equal(custSheet.grid[1][7], 1); // Total Payments count
-  assert.equal(custSheet.grid[1][8], 'USD 125.50'); // Per-currency Total Supported Amount
-
-  // 3. Contract Test: syncRefund
-  const refRes = await client.syncRefund({
-    refund_id: 'rfnd_contract_01',
-    payment_id: 'pay_contract_01',
-    order_id: 'order_contract_01',
-    amount: 50.00,
-    currency: 'USD',
-    status: 'processed',
-    reason: 'supporter_request'
-  });
-  assert.equal(refRes.success, true);
-  const refSheet = mockSpreadsheet.getSheetByName('Refunds');
-  assert.ok(refSheet);
-  assert.equal(refSheet.grid.length, 2);
-  assert.equal(refSheet.grid[1][1], 'rfnd_contract_01');
-  assert.equal(refSheet.grid[1][4], 50.00);
-
-  // 4. Contract Test: syncWebhookEvent
-  const hookRes = await client.syncWebhookEvent({
-    event_id: 'evt_contract_01',
-    event_type: 'payment.captured',
-    payment_id: 'pay_contract_01',
-    order_id: 'order_contract_01',
-    processed: true,
-    result: 'success'
-  });
-  assert.equal(hookRes.success, true);
-  const hookSheet = mockSpreadsheet.getSheetByName('WebhookEvents');
-  assert.ok(hookSheet);
-  assert.equal(hookSheet.grid.length, 2);
-  assert.equal(hookSheet.grid[1][1], 'evt_contract_01');
-  assert.equal(hookSheet.grid[1][2], 'payment.captured');
-
-  // 5. Contract Test: syncPublicSupport
-  const pubRes = await client.syncPublicSupport({
-    displayName: 'Contract Patron',
-    country: 'US',
-    amount: 125.50,
-    currency: 'USD',
-    message: 'Validating end-to-end client contract',
-    publicDisplayOptIn: true,
-    internal_reference: 'ekg_contract_pay_01',
-    payment_id: 'pay_contract_01',
-    status: 'captured',
-    verified: true
-  });
-  assert.equal(pubRes.success, true);
-  const pubSheet = mockSpreadsheet.getSheetByName('PublicSupport');
-  assert.ok(pubSheet);
-  assert.equal(pubSheet.grid.length, 2);
-  assert.equal(pubSheet.grid[1][1], 'Contract Patron'); // Display Name
-  assert.equal(pubSheet.grid[1][2], 'US'); // Country
-  assert.equal(pubSheet.grid[1][3], 125.50); // Amount
-  assert.equal(pubSheet.grid[1][4], 'USD'); // Currency
-  assert.equal(pubSheet.grid[1][6], true); // Public
-
-  console.log('✓ PASS: SheetsClient <-> apps-script/Code.gs end-to-end contract test (5/5 operations)');
-}
-
-console.log('All Apps Script tests passed successfully!');
+console.log('All 20 Google Apps Script backend tests passed successfully!');

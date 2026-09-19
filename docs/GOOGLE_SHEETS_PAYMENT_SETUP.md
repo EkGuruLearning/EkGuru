@@ -1,27 +1,29 @@
-# EkGuru — Google Sheets Automated Private Payment Ledger Setup Guide
+# EkGuru — Google Apps Script Secure Payment Backend & Ledger Setup Guide
 
 ## 1. Overview & Architecture
 
-This guide details the setup and configuration of the automated Google Sheets private payment ledger for **EkGuru Support**.
-
-The Google Sheet acts as an operational mirror and historical reporting database. Razorpay remains the primary financial source of truth.
+**PRODUCTION PAYMENT BACKEND**: Google Apps Script Web App  
+(Cloudflare Worker has been retired; Google Apps Script directly serves the payment API, talks to Razorpay, verifies payments, and manages the Google Sheets ledger).
 
 ```
-Razorpay API / Webhooks
+GitHub Pages Frontend (ekguru.shop)
         │
-        ▼
-Cloudflare Worker / Backend API
-        │  (Authenticated with SHEETS_INGEST_TOKEN in POST body)
-        ▼
-Google Apps Script (Web App /exec)
+        ▼ (POST ?action=create-order, POST ?action=verify-payment)
+Google Apps Script Web App (https://script.google.com/macros/s/.../exec)
         │
+        ├──> Razorpay Orders API (https://api.razorpay.com/v1/orders)
         ▼
-Google Spreadsheet (ID: 1u5Jkbe_2lMoLWsaDPQkxTWhNACewRaOyZLLANy2dfVI)
-  ├── 1. Payments (Comprehensive private transaction ledger)
-  ├── 2. Customers (Aggregate patron profiles & per-currency stats)
-  ├── 3. Refunds (Refund synchronization from webhooks)
-  ├── 4. WebhookEvents (Audit trail & event-level idempotency)
-  └── 5. PublicSupport (Sanitized records for opted-in supporters only)
+Private Google Sheet (ID: 1u5Jkbe_2lMoLWsaDPQkxTWhNACewRaOyZLLANy2dfVI)
+  ├── 1. Payments        (Private transaction ledger)
+  ├── 2. Customers       (Lifetime profiles & multi-currency totals)
+  ├── 3. Refunds         (Webhook-synchronized refund ledger)
+  ├── 4. WebhookEvents   (Idempotent event processing logs)
+  └── 5. PublicSupport   (Sanitized records for opt-in supporters only)
+
+Razorpay Gateway Webhooks:
+Razorpay Gateway -> Google Apps Script Web App (?action=webhook)
+                 -> HMAC-SHA256 signature verification over raw body
+                 -> Idempotent state update in Payments, Customers, Refunds
 ```
 
 ---
@@ -40,7 +42,7 @@ The Google Apps Script automatically validates, creates, and safely repairs head
    `Created At`, `Updated At`, `Payment ID`, `Order ID`, `Status`, `Amount`, `Currency`, `International`, `Payment Method`, `Customer Name`, `Customer Email`, `Customer Phone`, `Country`, `Support Message`, `Razorpay Fee`, `Tax`, `Refund Status`, `Internal Reference`, `Verified`, `Sheet Sync Status`
 2. **Customers Tab**:
    `Customer ID`, `Name`, `Email`, `Phone`, `Country`, `First Payment`, `Last Payment`, `Total Payments`, `Total Supported Amount`, `Currencies Used`
-   *(Note: `Total Supported Amount` preserves totals strictly per currency, e.g. `INR 500.00, USD 25.00`. Cross-currency arithmetic is strictly prohibited)*
+   *(Note: `Total Supported Amount` preserves totals strictly per currency, e.g. `INR 500.00, USD 25.00`. Numerical cross-currency addition is prohibited)*
 3. **Refunds Tab**:
    `Created At`, `Refund ID`, `Payment ID`, `Order ID`, `Amount`, `Currency`, `Status`, `Reason`
 4. **WebhookEvents Tab**:
@@ -65,44 +67,48 @@ The Google Apps Script automatically validates, creates, and safely repairs head
 ### Step 3: Configure Script Properties
 1. In the left navigation bar of Apps Script, click on **Project Settings** (gear icon).
 2. Scroll to the **Script Properties** section and click **Edit script properties** $\to$ **Add script property**.
-3. Add the following property:
-   - **Property**: `SHEETS_INGEST_TOKEN`
-   - **Value**: A strong, cryptographically generated random string (e.g., 32+ characters).
-4. (Optional) Add:
-   - **Property**: `SPREADSHEET_ID`
+3. Add the following properties:
+   - **Property**: `RAZORPAY_KEY_ID`
+   - **Value**: Your Razorpay Key ID (e.g. `rzp_live_...` or `rzp_test_...`)
+   - **Property**: `RAZORPAY_KEY_SECRET`
+   - **Value**: Your private Razorpay Key Secret
+   - **Property**: `RAZORPAY_WEBHOOK_SECRET`
+   - **Value**: Your Razorpay Webhook Secret configured in the Razorpay Dashboard
+   - (Optional) **Property**: `SPREADSHEET_ID`
    - **Value**: `1u5Jkbe_2lMoLWsaDPQkxTWhNACewRaOyZLLANy2dfVI`
-5. Click **Save script properties**.
+4. Click **Save script properties**.
+
+*Note: No separate `SHEETS_INGEST_TOKEN` is needed because Google Apps Script directly accesses the private spreadsheet internally.*
 
 ### Step 4: Deploy as Web App
-1. In the top right corner, click **Deploy** $\to$ **New deployment**.
-2. Click the gear icon next to "Select type" and choose **Web app**.
-3. Fill in the deployment details:
-   - **Description**: `EkGuru Payment Ledger Webhook v1`
+1. In the top right corner, click **Deploy** $\to$ **Manage deployments** (or **New deployment**).
+2. If updating an existing deployment: Click edit (pencil icon), set version to **New version**, and click **Deploy**.
+3. Configuration:
    - **Execute as**: `Me (your Google account)`
-   - **Who has access**: `Anyone` *(Note: Write requests are authenticated via SHEETS_INGEST_TOKEN in POST body; unauthenticated writes are strictly rejected)*
-4. Click **Deploy**.
-5. Copy the generated **Web App URL** (ends in `/exec`).
-6. Set this URL as the backend environment variable: `GOOGLE_SHEETS_ENDPOINT`.
+   - **Who has access**: `Anyone` *(Note: Public actions are strictly restricted to create-order, verify-payment, webhook, and recent-support; sheet access is completely guarded server-side)*
+4. Copy the Web App URL:
+   `https://script.google.com/macros/s/AKfycbz8u_rBr2o4VPgmQgaweswLWKdYb-MMGrsa7WfckTCruLP-ZEasWnpkqJrZHux5Y8_4zA/exec`
 
 ---
 
-## 4. Privacy, Multi-Currency, & Public Support Ingest Rules
+## 4. Controlled Public Operations
 
-- **Authentication Rule**: `SHEETS_INGEST_TOKEN` is accepted **only from the POST JSON body**. Tokens passed in URL query parameters are rejected and never logged.
-- **Default Privacy**: All payments, customer profiles, emails, and phone numbers are private.
-- **Opt-In Requirement**: A supporter's record is added to the `PublicSupport` tab **only if** `publicDisplayOptIn === true` and the transaction is verified and captured.
-- **Public Query Endpoint (`doGet`)**:
-  - Responds **only** to `?action=recent-support`.
-  - Returns a maximum of 10 latest sanitized records containing:
-    `displayName`, `country`, `amount`, `currency`, `message`, `date`.
-  - It **never** returns email, phone, payment ID, order ID, or internal reference.
-  - Access to `Payments`, `Customers`, `Refunds`, or `WebhookEvents` via `doGet` is strictly forbidden.
-- **Idempotency**: `public_support_upsert` checks internal references to prevent duplicate public cards from replayed webhooks.
+The Web App exposes only safe, controlled operations:
+
+| Method | Action | Description | Public / Private |
+|---|---|---|---|
+| `POST` | `?action=create-order` | Server-side Razorpay order creation via UrlFetchApp. Validates currency & amounts. | Public input -> Safe checkout metadata |
+| `POST` | `?action=verify-payment` | Server-side HMAC-SHA256 payment verification against Razorpay secret. Updates ledger. | Public input -> Payment success/failure |
+| `POST` | `?action=webhook` | Gateway webhook handling. Verifies HMAC over raw body before updating payments/refunds. | Razorpay Gateway -> Ledger update |
+| `GET` | `?action=recent-support` | Retrieves latest 10 sanitized opted-in supporters. Cached via CacheService. | Public read |
+| `GET` | `?action=health` | Service health and currency registry count. | Public read |
+| `GET` | `?action=currencies` | Returns all 128 verified supported currencies with exponents. | Public read |
 
 ---
 
-## 5. Resilience & Failure Handling
+## 5. Quotas, Performance, & Rate Limiting
 
-- If Google Apps Script experiences a temporary timeout or service outage, **customer payments on Razorpay are NOT failed**.
-- The backend records `sheet_sync_status: "failed"` and automatically enqueues the payload in its retry queue.
-- Subsequent retry operations match by `internal_id` or `payment_id`, ensuring no duplicate rows are created when service resumes.
+- **Execution Quotas**: Google Apps Script has daily UrlFetchApp quotas (20,000 calls/day on standard Google accounts; 100,000/day on Google Workspace).
+- **Recent Supporters Caching**: `GET ?action=recent-support` caches records in `CacheService` for 120 seconds, drastically reducing sheet reads during traffic spikes.
+- **Input Validation**: All client inputs are validated server-side for bounds ($1.00 \le \text{amount} \le 25000$) and lengths (message max 300 characters).
+- **Idempotency**: Webhook events and duplicate payment verifications are checked against existing ledger entries, preventing double-processing.

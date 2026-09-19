@@ -99,7 +99,7 @@ async function runBrowserQA() {
     const fetchCalls = [];
     window.fetch = async (url, opts = {}) => {
       fetchCalls.push({ url, opts });
-      if (url.includes("/api/payments/razorpay/currencies")) {
+      if (url.includes("/api/payments/razorpay/currencies") || url.includes("action=currencies")) {
         return {
           ok: true,
           json: async () => ({
@@ -112,7 +112,7 @@ async function runBrowserQA() {
           }),
         };
       }
-      if (url.includes("/api/payments/razorpay/order")) {
+      if (url.includes("/api/payments/razorpay/order") || url.includes("action=create-order")) {
         const body = JSON.parse(opts.body || "{}");
         return {
           ok: true,
@@ -127,7 +127,7 @@ async function runBrowserQA() {
           }),
         };
       }
-      if (url.includes("/api/payments/razorpay/verify")) {
+      if (url.includes("/api/payments/razorpay/verify") || url.includes("action=verify-payment")) {
         return {
           ok: true,
           json: async () => ({
@@ -141,7 +141,7 @@ async function runBrowserQA() {
           }),
         };
       }
-      if (url.includes("/api/support/recent")) {
+      if (url.includes("/api/support/recent") || url.includes("action=recent-support")) {
         return {
           ok: true,
           json: async () => ({
@@ -242,7 +242,7 @@ async function runBrowserQA() {
     await new Promise((r) => setTimeout(r, 40));
 
     // Check backend API order was triggered with customer details
-    const orderCall = fetchCalls.find((c) => c.url.includes("/api/payments/razorpay/order"));
+    const orderCall = fetchCalls.find((c) => c.url.includes("/api/payments/razorpay/order") || c.url.includes("action=create-order"));
     check(!!orderCall, `[${vp.name}] Backend order endpoint called`);
     const orderPayload = JSON.parse(orderCall.opts.body);
     check(
@@ -258,7 +258,7 @@ async function runBrowserQA() {
     );
 
     // Check verification was called
-    const verifyCall = fetchCalls.find((c) => c.url.includes("/api/payments/razorpay/verify"));
+    const verifyCall = fetchCalls.find((c) => c.url.includes("/api/payments/razorpay/verify") || c.url.includes("action=verify-payment"));
     check(!!verifyCall, `[${vp.name}] Backend verify endpoint called with signature`);
 
     // Check genuine success state rendered

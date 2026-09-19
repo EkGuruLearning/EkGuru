@@ -35,12 +35,34 @@
   var currencyMap = {};
   POPULAR_CURRENCIES.forEach(function (c) { currencyMap[c.code] = c; });
 
-  var API_BASE = "";
+  var DEFAULT_APPS_SCRIPT_ENDPOINT = "https://script.google.com/macros/s/AKfycbz8u_rBr2o4VPgmQgaweswLWKdYb-MMGrsa7WfckTCruLP-ZEasWnpkqJrZHux5Y8_4zA/exec";
+
+  function getEndpoint() {
+    var live = (window.EKGURU_SITE || {}).api || {};
+    if (live.appsScriptEndpoint) return String(live.appsScriptEndpoint).trim();
+    if (live.payments) return String(live.payments).trim();
+    return DEFAULT_APPS_SCRIPT_ENDPOINT;
+  }
 
   function getApiBase() {
-    var live = (window.EKGURU_SITE || {}).api || {};
-    if (live.payments) return String(live.payments).replace(/\/+$/, "");
-    return "";
+    return getEndpoint();
+  }
+
+  var API_BASE = DEFAULT_APPS_SCRIPT_ENDPOINT;
+
+  function buildApiUrl(action) {
+    var ep = getEndpoint();
+    if (ep.indexOf("/exec") !== -1 || ep.indexOf("?") !== -1) {
+      var sep = ep.indexOf("?") !== -1 ? "&" : "?";
+      return ep + sep + "action=" + encodeURIComponent(action);
+    }
+    var cleanEp = ep.replace(/\/+$/, "");
+    if (action === "create-order") return cleanEp + "/api/payments/razorpay/order";
+    if (action === "verify-payment") return cleanEp + "/api/payments/razorpay/verify";
+    if (action === "recent-support") return cleanEp + "/api/support/recent";
+    if (action === "currencies") return cleanEp + "/api/payments/razorpay/currencies";
+    if (action === "health") return cleanEp + "/api/payments/health";
+    return cleanEp + "?action=" + encodeURIComponent(action);
   }
 
   function escapeHtml(str) {
@@ -75,7 +97,7 @@
     var listEl = document.getElementById("recent-supporters-list");
     if (!listEl) return;
 
-    fetch(API_BASE + "/api/support/recent")
+    fetch(buildApiUrl("recent-support"), { redirect: "follow" })
       .then(function (res) {
         if (!res.ok) throw new Error("HTTP " + res.status);
         return res.json();
@@ -183,7 +205,7 @@
 
     // Fetch full verified list from API if available
     try {
-      fetch(API_BASE + "/api/payments/razorpay/currencies")
+      fetch(buildApiUrl("currencies"), { redirect: "follow" })
         .then(function (r) { return r.ok ? r.json() : null; })
         .then(function (data) {
           if (data && data.currencies && data.currencies.length) {
@@ -362,10 +384,12 @@
 
     function verifyPaymentOnServer(checkoutResponse, internalId) {
       btnText.textContent = "Verifying payment...";
-      fetch(API_BASE + "/api/payments/razorpay/verify", {
+      fetch(buildApiUrl("verify-payment"), {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        redirect: "follow",
         body: JSON.stringify({
+          action: "verify-payment",
           razorpay_order_id: checkoutResponse.razorpay_order_id,
           razorpay_payment_id: checkoutResponse.razorpay_payment_id,
           razorpay_signature: checkoutResponse.razorpay_signature,
@@ -374,7 +398,7 @@
       })
         .then(function (r) {
           return r.json().then(function (data) {
-            return { ok: r.ok, data: data };
+            return { ok: r.ok && data.success !== false, data: data };
           });
         })
         .then(function (res) {
@@ -438,11 +462,13 @@
 
       setFormBusy(true);
 
-      // 1. Create order on backend
-      fetch(API_BASE + "/api/payments/razorpay/order", {
+      // 1. Create order on backend (Google Apps Script Web App)
+      fetch(buildApiUrl("create-order"), {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        redirect: "follow",
         body: JSON.stringify({
+          action: "create-order",
           amount: amtVal,
           currency: code,
           customer: {
@@ -451,13 +477,19 @@
             phone: phoneVal,
             country: countryVal,
           },
+          customer_name: nameVal,
+          customer_email: emailVal,
+          customer_phone: phoneVal,
+          country: countryVal,
           supportMessage: messageVal,
+          support_message: messageVal,
           publicDisplayOptIn: optInVal,
+          public_display_opt_in: optInVal,
         }),
       })
         .then(function (res) {
           return res.json().then(function (data) {
-            return { ok: res.ok, data: data };
+            return { ok: res.ok && data.success !== false, data: data };
           });
         })
         .then(function (res) {
