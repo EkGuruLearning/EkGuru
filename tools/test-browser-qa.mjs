@@ -532,43 +532,76 @@ async function runBrowserQA() {
     window.close();
   }
 
-  // --- Testing Active Razorpay Hosted Payment Options ---
-  console.log("\n--- Testing Active Razorpay Hosted Payment Options ---");
+  // --- Testing Official Razorpay Payment Page Embed (current production flow) ---
+  console.log("\n--- Testing Official Razorpay Payment Page Embed ---");
   {
     const dom = new JSDOM(html, {
       url: "https://ekguru.shop/support/",
       runScripts: "outside-only",
     });
+    const doc = dom.window.document;
 
-    const activeSection = dom.window.document.getElementById("support-active-section");
+    const activeSection = doc.getElementById("support-active-section");
     check(!!activeSection, "Active Razorpay payment section rendered");
 
-    // Check Razorpay Payment Link
-    const rzpLink = dom.window.document.getElementById("razorpay-hosted-link");
-    check(!!rzpLink, "Razorpay hosted payment link button rendered");
-    check(rzpLink.getAttribute("href") === "https://rzp.io/rzp/EkGuru", "Payment link points to https://rzp.io/rzp/EkGuru");
-    check(rzpLink.getAttribute("target") === "_blank", "Payment link has target='_blank'");
-    check(rzpLink.getAttribute("rel") === "noopener noreferrer", "Payment link has rel='noopener noreferrer'");
-    check(rzpLink.textContent.includes("Continue with Razorpay"), "Payment link button text is 'Continue with Razorpay'");
-
-    // Check Direct Page Fallback Button
-    const directBtn = dom.window.document.getElementById("razorpay-direct-page-btn");
-    check(!!directBtn, "Direct page fallback button rendered");
-    check(directBtn.getAttribute("href") === "https://rzp.io/rzp/EkGuru", "Direct fallback button points to https://rzp.io/rzp/EkGuru");
-    check(directBtn.getAttribute("target") === "_top", "Direct fallback button has target='_top'");
-
-    // Check Copy Button
-    const copyBtn = dom.window.document.getElementById("rzp-copy-btn");
-    check(!!copyBtn, "Copy link button rendered");
-    check(copyBtn.getAttribute("data-copy-text") === "https://rzp.io/rzp/EkGuru", "Copy button targets https://rzp.io/rzp/EkGuru");
-
-    // Check #m-razorpay in methods list
-    const mRazorpay = dom.window.document.getElementById("m-razorpay");
-    check(!!mRazorpay, "Razorpay card exists in choose-a-method list");
-    const mLink = mRazorpay ? mRazorpay.querySelector("a[data-go]") : null;
+    // Exactly ONE official embed, exactly ONE loader — no duplication.
+    const embeds = doc.querySelectorAll(".razorpay-embed-btn");
+    check(embeds.length === 1, "Exactly ONE razorpay-embed-btn present on the page");
     check(
-      mLink && mLink.getAttribute("href") === "https://rzp.io/rzp/EkGuru",
-      "Razorpay card in methods list links directly to https://rzp.io/rzp/EkGuru"
+      embeds[0] && embeds[0].getAttribute("data-url") === "https://pages.razorpay.com/pl_TdvVT9QL3k7cSY/view",
+      "Embed points at the owner's Razorpay Payment Page (pl_TdvVT9QL3k7cSY)"
+    );
+    check(
+      embeds[0] && embeds[0].getAttribute("data-text") === "Support EkGuru",
+      "Embed button text is 'Support EkGuru'"
+    );
+    // The official loader IIFE references the loader id twice
+    // (getElementById guard + s.id assignment), but the loader
+    // script itself is injected exactly once.
+    check(
+      (html.match(/s\.id='razorpay-embed-btn-js'/g) || []).length === 1,
+      "Exactly one razorpay-embed-btn-js loader script injected"
+    );
+    check(
+      (html.match(/embed_btn\/bundle\.js/g) || []).length === 1,
+      "Exactly one embed_btn/bundle.js loader script in markup"
+    );
+
+    // Direct payment link fallback: separate, non-duplicate option.
+    const rzpLink = doc.getElementById("razorpay-payment-page-link");
+    check(!!rzpLink, "Direct payment link fallback rendered");
+    check(rzpLink && rzpLink.getAttribute("href") === "https://rzp.io/rzp/EkGuru", "Fallback points to https://rzp.io/rzp/EkGuru");
+    check(rzpLink && rzpLink.getAttribute("target") === "_blank", "Fallback has target='_blank'");
+    check(rzpLink && rzpLink.getAttribute("rel") === "noopener noreferrer", "Fallback has rel='noopener noreferrer'");
+    check(rzpLink && rzpLink.textContent.includes("Open Razorpay Payment Page"), "Fallback button text is 'Open Razorpay Payment Page'");
+
+    // Legacy duplicate surface is gone (no fake/parallel payment buttons).
+    check(!doc.getElementById("razorpay-hosted-link"), "Legacy 'Continue with Razorpay' duplicate removed");
+    check(!doc.getElementById("razorpay-direct-page-btn"), "Legacy 'Open in this tab' duplicate removed");
+    check(!doc.getElementById("rzp-copy-btn"), "Legacy copy-link row removed");
+    check(!doc.getElementById("support-list"), "Old choose-a-method grid removed");
+    check(!/Verified Active Payment Gateway/.test(html), "Misleading 'Verified Active Payment Gateway' claim removed");
+    check(!/Supports all payment methods/i.test(html), "Misleading 'Supports all payment methods' claim removed");
+    check(!/PayPal|Stripe|Revolut|Bitcoin|Ethereum|USDT/.test(doc.getElementById("support-active-section").innerHTML), "Active payment card makes no unverified provider claims");
+
+    // Future custom API checkout stays in the repo state but inert by default.
+    const form = doc.getElementById("support-payment-form");
+    check(!!form, "Future custom API form retained for later reactivation");
+    const submit = doc.getElementById("support-submit-btn");
+    check(!!submit && submit.hasAttribute("disabled"), "Custom API submit is disabled (COMING_SOON default)");
+    check(!!submit && submit.textContent.includes("Coming Soon"), "Custom API submit labelled 'Coming Soon' in markup");
+
+    // Simulation isolation: the mock modal helper exists only as local test
+    // infrastructure and is hard-blocked on the production host.
+    check(js.includes("openMockCheckoutModal"), "Mock helper retained for local test environments");
+    check(js.includes("isProductionHost"), "Production-host guard present in payment JS");
+    check(!doc.getElementById("ekguru-mock-checkout-modal"), "No simulation modal present in initial markup");
+
+    // The Razorpay Checkout SDK is NOT eagerly loaded on the support page;
+    // the future API flow lazy-loads it through loadRazorpaySdk().
+    check(
+      !doc.querySelector('script[src*="checkout.razorpay.com"]'),
+      "Razorpay Checkout SDK not eagerly loaded (lazy load only)"
     );
 
     dom.window.close();

@@ -901,11 +901,13 @@ window.RAZORPAY_BUTTON_ID = "pl_TdkrmHjhK9ip3r";
     );
     for (var i = 0; i < candidates.length; i++) {
       var el = candidates[i];
-      // Do not alter active Razorpay hosted options or button embeds
+      // Do not alter the active Razorpay Hosted Payment Page (official
+      // embed + direct payment link) or any legacy button containers.
       if (
         el.id === "razorpay-hosted-link" ||
         el.id === "razorpay-hosted-payment-link" ||
-        (el.closest && el.closest("#rzp-hosted-grid, #rzp-button-container, #razorpay-payment-button-form, .razorpay-payment-button"))
+        el.id === "razorpay-payment-page-link" ||
+        (el.closest && el.closest("#rzp-hosted-grid, #rzp-button-container, #razorpay-payment-button-form, .razorpay-payment-button, .razorpay-embed-btn, .rzp-embed-wrap, #rzp-hosted-card"))
       ) {
         continue;
       }
