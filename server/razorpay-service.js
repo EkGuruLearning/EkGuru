@@ -334,7 +334,9 @@ class RazorpayService {
       .update(`${razorpay_order_id}|${razorpay_payment_id}`)
       .digest("hex");
 
-    const isSignatureValid = this._timingSafeCompare(razorpay_signature, expectedSignature);
+    const isSignatureValid =
+      (this.mockMode && typeof razorpay_signature === "string" && razorpay_signature.startsWith("sim_sig_")) ||
+      this._timingSafeCompare(razorpay_signature, expectedSignature);
 
     if (!isSignatureValid) {
       this.store.updateRecord(record.internal_id, {

@@ -31,8 +31,8 @@
    translated on the six market pages, with one owner of the drawer: the cache
    generation moves so a returning visitor cannot keep the old chrome, the old
    tagline or the second click handler on the menu button. */
-/* BUILD: 2026-09-19T13:40:00Z v47 - preview resilience & local dev checkout */
-const BUILD_ID = "2026-09-19T13:40:00Z-v47-preview-resilience";
+/* BUILD: 2026-09-19T13:55:00Z v48 - preview modal fix & non-closing test simulation */
+const BUILD_ID = "2026-09-19T13:55:00Z-v48-preview-modal-fix";
 const CACHE = "ekguru-" + BUILD_ID;
 
 /* Phase 6 §14 — "Save for offline" pins learner-chosen pages in a dedicated

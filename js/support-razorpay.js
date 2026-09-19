@@ -212,6 +212,126 @@
     }
   }
 
+  function openMockCheckoutModal(options, orderData) {
+    var existing = document.getElementById("ekguru-mock-checkout-modal");
+    if (existing && existing.parentNode) {
+      existing.parentNode.removeChild(existing);
+    }
+
+    var overlay = document.createElement("div");
+    overlay.id = "ekguru-mock-checkout-modal";
+    overlay.className = "ekg-checkout-modal-overlay";
+    overlay.style.cssText = "position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(15,23,42,0.7);z-index:999999;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;backdrop-filter:blur(4px);";
+
+    var dialog = document.createElement("div");
+    dialog.className = "ekg-checkout-modal-dialog";
+    dialog.style.cssText = "background:#ffffff;border-radius:16px;max-width:440px;width:100%;box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1e293b;animation:ekgModalIn 0.2s ease-out;";
+
+    var prefill = options.prefill || {};
+    var name = escapeHtml(prefill.name || "Learner");
+    var email = escapeHtml(prefill.email || "");
+    var formattedAmt = formatDisplay((orderData.display_amount || (orderData.amount / 100)), orderData.currency || "INR");
+
+    dialog.innerHTML = [
+      '<div style="background:#4f32d9;color:#ffffff;padding:20px 24px;position:relative;">',
+      '  <div style="display:flex;align-items:center;justify-content:space-between;">',
+      '    <div style="display:flex;align-items:center;gap:10px;">',
+      '      <div style="width:36px;height:36px;border-radius:10px;background:#ffffff;color:#4f32d9;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;">E</div>',
+      '      <div>',
+      '        <div style="font-weight:700;font-size:17px;line-height:1.2;">EkGuru Checkout</div>',
+      '        <div style="font-size:12px;opacity:0.85;">Test Mode Simulation</div>',
+      '      </div>',
+      '    </div>',
+      '    <button type="button" id="mock-checkout-close" style="background:none;border:none;color:#ffffff;font-size:24px;cursor:pointer;line-height:1;padding:4px;opacity:0.85;" aria-label="Close modal">&times;</button>',
+      '  </div>',
+      '</div>',
+      '<div style="padding:24px;">',
+      '  <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:16px;margin-bottom:20px;">',
+      '    <div style="display:flex;justify-content:space-between;margin-bottom:8px;">',
+      '      <span style="color:#64748b;font-size:13px;">Contribution Amount</span>',
+      '      <strong style="color:#0f172a;font-size:16px;">' + formattedAmt + '</strong>',
+      '    </div>',
+      '    <div style="display:flex;justify-content:space-between;">',
+      '      <span style="color:#64748b;font-size:13px;">Supporter</span>',
+      '      <span style="color:#0f172a;font-size:13px;font-weight:500;">' + name + '</span>',
+      '    </div>',
+      (email ? '    <div style="display:flex;justify-content:space-between;margin-top:4px;"><span style="color:#64748b;font-size:13px;">Email</span><span style="color:#0f172a;font-size:13px;">' + email + '</span></div>' : ''),
+      '  </div>',
+      '  <div style="font-size:13px;color:#475569;margin-bottom:18px;line-height:1.5;">',
+      '    <strong>Razorpay Preview Notice:</strong> Razorpay Checkout opened in test mode. Click below to complete the test payment:',
+      '  </div>',
+      '  <div style="display:flex;flex-direction:column;gap:10px;">',
+      '    <button type="button" id="mock-pay-success-btn" style="background:#4f32d9;color:#ffffff;border:none;border-radius:10px;padding:12px 16px;font-size:15px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 12px rgba(79,50,217,0.35);">',
+      '      <span>Simulate Successful Payment (Card / UPI)</span> &rarr;',
+      '    </button>',
+      '    <button type="button" id="mock-pay-fail-btn" style="background:#f1f5f9;color:#475569;border:1px solid #cbd5e1;border-radius:10px;padding:10px 16px;font-size:14px;font-weight:500;cursor:pointer;">',
+      '      Simulate Payment Failure',
+      '    </button>',
+      '    <button type="button" id="mock-pay-cancel-btn" style="background:none;border:none;color:#94a3b8;padding:6px;font-size:13px;cursor:pointer;">',
+      '      Cancel',
+      '    </button>',
+      '  </div>',
+      '</div>',
+    ].join("");
+
+    overlay.appendChild(dialog);
+    document.body.appendChild(overlay);
+
+    function closeMockModal() {
+      if (overlay.parentNode) {
+        overlay.parentNode.removeChild(overlay);
+      }
+    }
+
+    var closeBtn = document.getElementById("mock-checkout-close");
+    var cancelBtn = document.getElementById("mock-pay-cancel-btn");
+    var successBtn = document.getElementById("mock-pay-success-btn");
+    var failBtn = document.getElementById("mock-pay-fail-btn");
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", function () {
+        closeMockModal();
+        if (options.modal && typeof options.modal.ondismiss === "function") {
+          options.modal.ondismiss();
+        }
+      });
+    }
+
+    if (cancelBtn) {
+      cancelBtn.addEventListener("click", function () {
+        closeMockModal();
+        if (options.modal && typeof options.modal.ondismiss === "function") {
+          options.modal.ondismiss();
+        }
+      });
+    }
+
+    if (failBtn) {
+      failBtn.addEventListener("click", function () {
+        closeMockModal();
+        if (typeof options.modal && typeof options.modal.ondismiss === "function") {
+          options.modal.ondismiss();
+        }
+        showError("Payment was cancelled or rejected by patron.", "SIMULATED_PAYMENT_FAILURE");
+      });
+    }
+
+    if (successBtn) {
+      successBtn.addEventListener("click", function () {
+        closeMockModal();
+        var mockPayId = "pay_sim_" + Date.now().toString(36) + "_" + Math.random().toString(36).substring(2, 8);
+        var mockSig = "sim_sig_" + Date.now();
+        if (typeof options.handler === "function") {
+          options.handler({
+            razorpay_order_id: orderData.order_id,
+            razorpay_payment_id: mockPayId,
+            razorpay_signature: mockSig,
+          });
+        }
+      });
+    }
+  }
+
   function init() {
     var form = document.getElementById("support-payment-form");
     if (!form) return;
@@ -701,6 +821,12 @@
               theme: {
                 color: "#4f32d9",
               },
+              modal: {
+                confirm_close: true,
+                ondismiss: function () {
+                  setFormBusy(false);
+                },
+              },
               handler: function (checkoutResponse) {
                 btnText.textContent = "Verifying payment...";
                 callBackend("verify-payment", {
@@ -722,12 +848,14 @@
                     showError(verErr.message || "Payment verification failed.", "RAZORPAY_VERIFY_FAILED");
                   });
               },
-              modal: {
-                ondismiss: function () {
-                  setFormBusy(false);
-                },
-              },
             };
+
+            // In local/sandbox preview with mock orders, Razorpay's public gateway rejects fake orders
+            // within 100ms and forces modal dismissal. Open our interactive preview modal so testing doesn't vanish.
+            if (String(orderData.order_id).indexOf("order_mock_") === 0 || String(orderData.key_id).indexOf("preview") !== -1) {
+              openMockCheckoutModal(options, orderData);
+              return;
+            }
 
             var rzp = new RazorpayCtor(options);
             rzp.on("payment.failed", function (failResp) {
