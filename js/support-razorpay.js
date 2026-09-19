@@ -1,15 +1,29 @@
 /**
- * EkGuru — Razorpay International Multi-Currency Payment & Recent Supporters Client
+ * EkGuru — Razorpay Support Client (v2 — hosted Payment Page era)
  *
- * Manages the complete client-side support lifecycle:
- * 1. Dynamic verified currency registry loading
- * 2. Currency-aware quick amounts and decimal formatting
- * 3. Customer detail collection & opt-in consent handling
- * 4. Secure backend order creation via POST /api/payments/razorpay/order
- * 5. Razorpay Standard Checkout modal invocation with customer prefill
- * 6. Server-side signature verification via POST /api/payments/razorpay/verify
- * 7. Authentic success/failure state rendering (guaranteed no fake success)
- * 8. Sanitized Recent Supporters lazy loading & rendering
+ * Current user-facing payment on /support/ is the OFFICIAL Razorpay Payment
+ * Page embed + direct payment link fallback — both declared in
+ * support/index.html, no JS required. This file no longer drives that
+ * button; it keeps the future custom multi-currency API checkout
+ * (PAYMENT_MODE = "LIVE_API") intact for later reactivation, plus:
+ *
+ * 1. Sanitized Recent Supporters lazy loading & rendering — INDEPENDENT of
+ *    the payment form, so it works whether or not the form section exists
+ * 2. Future API flow (kept for reactivation):
+ *    - Dynamic verified currency registry loading
+ *    - Currency-aware quick amounts and decimal formatting
+ *    - Customer detail collection & opt-in consent handling
+ *    - Backend order creation (create-order) via the Apps Script endpoint
+ *    - Razorpay Standard Checkout modal invocation with customer prefill
+ *    - Server-side signature verification (verify-payment)
+ *    - Authentic success/failure state rendering (guaranteed no fake success)
+ *
+ * SAFETY:
+ * - While PAYMENT_MODE = "COMING_SOON" the custom form is inert: the submit
+ *   is disabled, submit is intercepted, no create-order call is made.
+ * - The local test-mode simulation modal (openMockCheckoutModal) is a
+ *   development aid only and is HARD-BLOCKED on production hosts by
+ *   isProductionHost(), independent of mode or payload.
  */
 
 (function (root) {
@@ -41,6 +55,15 @@
     if (typeof window === "undefined" || !window.location || !window.location.hostname) return false;
     var h = String(window.location.hostname).toLowerCase();
     return h === "localhost" || h === "127.0.0.1" || h.indexOf("arena.site") !== -1 || h.indexOf("e2b.app") !== -1;
+  }
+
+  /* Hard production-host guard: the test-mode simulation modal and any
+     mock order handling are local-development aids. On the production
+     domain this must be unreachable no matter what mode or payload says. */
+  function isProductionHost() {
+    if (typeof window === "undefined" || !window.location || !window.location.hostname) return false;
+    var h = String(window.location.hostname).toLowerCase();
+    return h === "ekguru.shop" || h === "www.ekguru.shop" || h.indexOf("ekguru.github.io") !== -1;
   }
 
   function getEndpoint() {
@@ -213,6 +236,11 @@
   }
 
   function openMockCheckoutModal(options, orderData) {
+    // Production isolation: never render the simulation modal on the real
+    // site, even if a stale order payload or a forced LIVE_API mode leaked
+    // here. Local/preview hosts keep the development aid.
+    if (isProductionHost()) return;
+
     var existing = document.getElementById("ekguru-mock-checkout-modal");
     if (existing && existing.parentNode) {
       existing.parentNode.removeChild(existing);
@@ -338,6 +366,14 @@
   }
 
   function init() {
+    // Recent Supporters is intentionally INDEPENDENT of the payment form:
+    // it must keep working when the payment section is absent, disabled,
+    // or the backend is unreachable — and a payment failure must never
+    // freeze the supporters list (and vice versa).
+    try {
+      loadRecentSupporters();
+    } catch (e) {}
+
     var form = document.getElementById("support-payment-form");
     if (!form) return;
 
@@ -746,68 +782,10 @@
       });
     }
 
-    // Active Razorpay Hosted Options Handlers
-    var hostedLink = document.getElementById("razorpay-hosted-link");
-    if (hostedLink) {
-      hostedLink.addEventListener("click", function () {
-        var targetUrl = hostedLink.getAttribute("href") || "https://rzp.io/rzp/EkGuru";
-        try {
-          var w = window.open(targetUrl, "_blank", "noopener,noreferrer");
-          if (!w || w.closed || typeof w.closed === "undefined") {
-            // Popup blocked by browser or iframe sandbox — navigate directly
-            if (window.top && window.top !== window) {
-              window.top.location.href = targetUrl;
-            } else {
-              window.location.href = targetUrl;
-            }
-          }
-        } catch (err) {
-          // Native anchor handles it
-        }
-      });
-    }
-
-    var directBtn = document.getElementById("razorpay-direct-page-btn");
-    if (directBtn) {
-      directBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-        var targetUrl = directBtn.getAttribute("href") || "https://rzp.io/rzp/EkGuru";
-        try {
-          if (window.top && window.top !== window) {
-            window.top.location.href = targetUrl;
-            return;
-          }
-        } catch (err) {}
-        window.location.href = targetUrl;
-      });
-    }
-
-    var rzpCopyBtn = document.getElementById("rzp-copy-btn");
-    if (rzpCopyBtn) {
-      rzpCopyBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-        var text = rzpCopyBtn.getAttribute("data-copy-text") || "https://rzp.io/rzp/EkGuru";
-        function done(ok) {
-          var old = rzpCopyBtn.textContent;
-          rzpCopyBtn.textContent = ok ? "Copied ✓" : "Copy failed";
-          setTimeout(function () { rzpCopyBtn.textContent = old; }, 2000);
-        }
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); });
-        } else {
-          try {
-            var ta = document.createElement("textarea");
-            ta.value = text;
-            ta.style.position = "fixed";
-            ta.style.opacity = "0";
-            document.body.appendChild(ta);
-            ta.select();
-            done(document.execCommand("copy"));
-            document.body.removeChild(ta);
-          } catch (err) { done(false); }
-        }
-      });
-    }
+    // The hosted Payment Page embed and the direct payment link are plain
+    // native anchors / Razorpay's own loader — no JS handler needed.
+    // (Earlier window.open/copy-link handlers for the removed duplicate
+    //  buttons are gone with the markup.)
 
     var paymentMode = (window.PAYMENT_MODE || "COMING_SOON").toUpperCase();
     if (paymentMode === "COMING_SOON") {
@@ -825,8 +803,6 @@
 
       // Initial draw
       updateCurrencyUI();
-      // Initial lazy load of recent supporters (non-blocking)
-      loadRecentSupporters();
       return;
     } else {
       // LIVE_API Mode: Enable button and ensure label is active
@@ -954,7 +930,8 @@
 
             // In local/sandbox preview with mock orders, Razorpay's public gateway rejects fake orders
             // within 100ms and forces modal dismissal. Open our interactive preview modal so testing doesn't vanish.
-            if (String(orderData.order_id).indexOf("order_mock_") === 0 || String(orderData.key_id).indexOf("preview") !== -1) {
+            // Production hosts NEVER enter this branch (isProductionHost guard).
+            if (!isProductionHost() && (String(orderData.order_id).indexOf("order_mock_") === 0 || String(orderData.key_id).indexOf("preview") !== -1)) {
               openMockCheckoutModal(options, orderData);
               return;
             }
@@ -989,8 +966,6 @@
 
     // Initial draw
     updateCurrencyUI();
-    // Initial lazy load of recent supporters (non-blocking)
-    loadRecentSupporters();
   }
 
   // Export for testing or manual re-init

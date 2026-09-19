@@ -289,21 +289,19 @@ Run `node server/server.js` or `npm test` locally for automated gate verificatio
 
 ## 9. Rollback Artifacts & Procedure
 
-If rollback to link-based payment is ever required:
-1. The legacy link-based support card was `#m-razorpay`.
-2. A backup of the static button card:
-   ```html
-   <div class="m-card off" id="m-razorpay">
-     <div class="m-top"><span aria-hidden="true" class="m-ic">💳</span><h2>Razorpay</h2></div>
-     <p class="who">India · UPI, cards &amp; netbanking on a secure page</p>
-     <div class="m-go">
-       <div class="m-row">
-         <a class="btn btn-primary" data-go="" href="#" rel="noopener" target="_blank">Pay with Razorpay</a>
-       </div>
-     </div>
-   </div>
-   ```
-3. To restore: uncomment `#m-razorpay` in `support/index.html` and add `"razorpay"` back into `METHODS` in `js/support.js`.
+Current user-facing payment (since the Payment Page embed reset):
+1. Primary: the OFFICIAL Razorpay Payment Page embed
+   (`div.razorpay-embed-btn` + its loader) in `support/index.html`.
+2. Fallback: `#razorpay-payment-page-link` → `https://rzp.io/rzp/EkGuru`
+   (`target="_blank" rel="noopener noreferrer"`).
+
+If rollback to a simpler link-only surface is ever required:
+1. Keep the fallback anchor and remove the embed wrapper
+   (`.rzp-embed-wrap` block) from `support/index.html`.
+2. The old choose-a-method grid and its painter (`js/support.js`,
+   removed from the page and from the repository in the same change)
+   are preserved in Git history under the support page's previous
+   revisions if a settings-sheet-driven method card is ever needed again.
 
 ---
 

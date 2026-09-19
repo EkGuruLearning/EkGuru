@@ -153,11 +153,23 @@ While custom Razorpay API credentials and international payment approvals are un
 - **Default State**: Defined in `js/site-config.js` (`window.PAYMENT_MODE = "COMING_SOON"`).
 - **Custom Checkout API UI**: Form submit button is marked non-actionable (`disabled`, `aria-disabled="true"`) and labeled `"Coming Soon"`. Form submissions are intercepted without making backend order creation calls or displaying broken checkout modals.
 - **Global Payment CTA Guard**: Automatically prevents simulated or test payments on any generic payment trigger across the website.
-- **Active Hosted Razorpay Options**:
-  1. **Direct Razorpay Payment Link**: `https://rzp.io/rzp/EkGuru` (opens in a secure new tab with `target="_blank" rel="noopener noreferrer"`).
-  2. **Official Razorpay Payment Button**: Embedded via `pl_TdkrmHjhK9ip3r` using the standard Razorpay script `https://checkout.razorpay.com/v1/payment-button.js`.
-  3. **Choose-a-Method Grid**: Active `#m-razorpay` card linking directly to `https://rzp.io/rzp/EkGuru`.
-- **Recent Supporters Section**: Operates fully independently, fetching verified contributors via direct JSON or resilient JSONP fallback.
+- **Active Hosted Razorpay Options** (the user-facing payment on `/support/`):
+  1. **Official Razorpay Payment Page embed** (primary): the exact owner-supplied
+     `div.razorpay-embed-btn` block pointing at
+     `https://pages.razorpay.com/pl_TdvVT9QL3k7cSY/view`, with its single
+     `razorpay-embed-btn-js` loader (`https://cdn.razorpay.com/static/embed_btn/bundle.js`).
+     The page must contain exactly ONE embed and ONE loader — Razorpay's
+     bundle self-initializes; EkGuru JS does not drive the button.
+  2. **Direct Razorpay Payment Link** (fallback): `#razorpay-payment-page-link`
+     → `https://rzp.io/rzp/EkGuru`, opened in a secure new tab
+     (`target="_blank" rel="noopener noreferrer"`), labelled
+     "Open Razorpay Payment Page".
+- **Simulation isolation**: the local test-mode modal in
+  `js/support-razorpay.js` is hard-blocked on production hosts
+  (`isProductionHost()`), independent of mode or payload.
+- **Recent Supporters Section**: Operates fully independently of the payment
+  section (loaded in `init()` before the form check), fetching verified
+  contributors via direct JSON or resilient JSONP fallback.
 
 ### B. Activating Full Custom API Mode (`PAYMENT_MODE = "LIVE_API"`)
 Once Razorpay completes account approval:

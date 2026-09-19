@@ -31,8 +31,14 @@
    translated on the six market pages, with one owner of the drawer: the cache
    generation moves so a returning visitor cannot keep the old chrome, the old
    tagline or the second click handler on the menu button. */
-/* BUILD: 2026-09-19T13:55:00Z v48 - preview modal fix & non-closing test simulation */
-const BUILD_ID = "2026-09-19T13:55:00Z-v48-preview-modal-fix";
+/* v49 — support page payment reset: the user-facing payment is now the
+   OFFICIAL Razorpay Payment Page embed + direct payment-link fallback
+   (support/index.html). The old hero, promo cards and the
+   choose-a-method grid are gone; the custom API checkout stays disabled
+   (PAYMENT_MODE = "COMING_SOON"). Cache generation moves so returning
+   visitors cannot keep the old payment surface or the removed hero art. */
+/* BUILD: 2026-09-19T17:00:00Z v49 - support razorpay payment page embed */
+const BUILD_ID = "2026-09-19T17:00:00Z-v49-support-razorpay-embed";
 const CACHE = "ekguru-" + BUILD_ID;
 
 /* Phase 6 §14 — "Save for offline" pins learner-chosen pages in a dedicated
@@ -45,6 +51,7 @@ const SHELL = [
   "./index.html",
   "./find-tutors.html",
   "./join.html",
+  "./support/",
   "./css/style.min.css",
   "./css/support-razorpay.css",
   "./js/support-razorpay.js",
@@ -141,7 +148,6 @@ const SHELL = [
      show, so they are worth having before the first paint. The other markets'
      files are cached on demand by the runtime handler like any other image. */
   "./images/xp/world-en.svg",
-  "./images/xp/world-hi.svg",
   "./images/xp/world-multi.svg",
   "./images/logo.svg"
 ];
