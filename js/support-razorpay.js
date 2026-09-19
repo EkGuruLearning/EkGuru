@@ -96,52 +96,109 @@
     }
   }
 
+  function renderSupporters(supporters, listEl) {
+    if (!listEl) return;
+    if (!Array.isArray(supporters) || supporters.length === 0) {
+      listEl.innerHTML = '<div class="supporter-empty">Be the first supporter to appear here.</div>';
+      return;
+    }
+
+    var html = "";
+    supporters.forEach(function (s) {
+      var name = escapeHtml(s.displayName || "Supporter");
+      var country = escapeHtml(s.country || "");
+      var amt = formatDisplay(s.amount, s.currency || "INR");
+      var msg = s.message ? escapeHtml(s.message) : "";
+      var date = escapeHtml(s.date || "");
+
+      html += '<div class="supporter-item">';
+      html += '  <div class="supporter-top">';
+      html += '    <h3 class="supporter-name">' + name + '</h3>';
+      html += '    <span class="supporter-amount">' + amt + '</span>';
+      html += '  </div>';
+      html += '  <div class="supporter-meta">';
+      html += '    <span class="supporter-country">' + (country || "International") + '</span>';
+      if (date) {
+        html += '    <span class="supporter-date">' + date + '</span>';
+      }
+      html += '  </div>';
+      if (msg) {
+        html += '  <div class="supporter-message">“' + msg + '”</div>';
+      }
+      html += '</div>';
+    });
+
+    listEl.innerHTML = html;
+  }
+
+  function loadRecentSupportersJsonp(listEl) {
+    if (typeof document === "undefined" || !document.createElement) {
+      listEl.innerHTML = '<div class="supporter-error">Recent supporter updates are temporarily unavailable.</div>';
+      return;
+    }
+    var callbackName = "_ekguru_sup_cb_" + Date.now() + "_" + Math.floor(Math.random() * 1000000);
+    var script = document.createElement("script");
+    var baseUrl = buildApiUrl("recent-support");
+    var sep = baseUrl.indexOf("?") === -1 ? "?" : "&";
+    script.src = baseUrl + sep + "callback=" + encodeURIComponent(callbackName);
+    script.async = true;
+
+    var cleanedUp = false;
+    function cleanup() {
+      if (cleanedUp) return;
+      cleanedUp = true;
+      try {
+        delete window[callbackName];
+      } catch (e) {
+        window[callbackName] = undefined;
+      }
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    }
+
+    var timer = setTimeout(function () {
+      cleanup();
+      listEl.innerHTML = '<div class="supporter-error">Recent supporter updates are temporarily unavailable.</div>';
+    }, 10000);
+
+    window[callbackName] = function (data) {
+      clearTimeout(timer);
+      cleanup();
+      var supporters = (data && (data.supporters || data.items)) || [];
+      renderSupporters(supporters, listEl);
+    };
+
+    script.onerror = function () {
+      clearTimeout(timer);
+      cleanup();
+      listEl.innerHTML = '<div class="supporter-error">Recent supporter updates are temporarily unavailable.</div>';
+    };
+
+    (document.head || document.body || document.documentElement).appendChild(script);
+  }
+
   function loadRecentSupporters() {
     var listEl = document.getElementById("recent-supporters-list");
     if (!listEl) return;
 
-    fetch(buildApiUrl("recent-support"), { redirect: "follow" })
-      .then(function (res) {
-        if (!res.ok) throw new Error("HTTP " + res.status);
-        return res.json();
-      })
-      .then(function (data) {
-        var supporters = (data && data.supporters) || [];
-        if (!Array.isArray(supporters) || supporters.length === 0) {
-          listEl.innerHTML = '<div class="supporter-empty">Be the first supporter to appear here.</div>';
-          return;
-        }
-
-        var html = "";
-        supporters.forEach(function (s) {
-          var name = escapeHtml(s.displayName || "Supporter");
-          var country = escapeHtml(s.country || "");
-          var amt = formatDisplay(s.amount, s.currency || "INR");
-          var msg = s.message ? escapeHtml(s.message) : "";
-          var date = escapeHtml(s.date || "");
-
-          html += '<div class="supporter-item">';
-          html += '  <div class="supporter-top">';
-          html += '    <h3 class="supporter-name">' + name + '</h3>';
-          html += '    <span class="supporter-amount">' + amt + '</span>';
-          html += '  </div>';
-          html += '  <div class="supporter-meta">';
-          html += '    <span class="supporter-country">' + (country || "International") + '</span>';
-          if (date) {
-            html += '    <span class="supporter-date">' + date + '</span>';
-          }
-          html += '  </div>';
-          if (msg) {
-            html += '  <div class="supporter-message">“' + msg + '”</div>';
-          }
-          html += '</div>';
+    if (typeof fetch === "function") {
+      fetch(buildApiUrl("recent-support"), { redirect: "follow" })
+        .then(function (res) {
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          return res.json();
+        })
+        .then(function (data) {
+          var supporters = (data && (data.supporters || data.items)) || [];
+          renderSupporters(supporters, listEl);
+        })
+        .catch(function () {
+          // Fall back to JSONP in case browser blocked cross-origin HTTP 302 redirect
+          loadRecentSupportersJsonp(listEl);
         });
-
-        listEl.innerHTML = html;
-      })
-      .catch(function () {
-        listEl.innerHTML = '<div class="supporter-error">Recent supporter updates are temporarily unavailable.</div>';
-      });
+    } else {
+      loadRecentSupportersJsonp(listEl);
+    }
   }
 
   function init() {
@@ -150,6 +207,7 @@
 
     var currencySelect = document.getElementById("support-currency-select");
     var amountInput = document.getElementById("support-amount-input");
+    var amountWrap = document.querySelector(".amount-input-wrap");
     var symbolEl = document.getElementById("support-currency-symbol");
     var badgeEl = document.getElementById("support-currency-code-badge");
     var quickWrap = document.getElementById("support-quick-amounts");
@@ -157,6 +215,14 @@
     var submitBtn = document.getElementById("support-submit-btn");
     var btnText = submitBtn.querySelector(".btn-text") || submitBtn;
     var feedbackEl = document.getElementById("amount-feedback");
+
+    if (amountWrap && amountInput) {
+      amountWrap.addEventListener("click", function (e) {
+        if (e.target !== amountInput) {
+          amountInput.focus();
+        }
+      });
+    }
 
     var nameInput = document.getElementById("support-customer-name");
     var emailInput = document.getElementById("support-customer-email");

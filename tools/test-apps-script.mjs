@@ -147,7 +147,7 @@ function createMockEnvironment(customProperties = {}) {
       })
     },
     ContentService: {
-      MimeType: { JSON: 'application/json' },
+      MimeType: { JSON: 'application/json', JAVASCRIPT: 'application/javascript' },
       createTextOutput: (text) => ({
         _content: text,
         _mime: 'text/plain',
@@ -697,4 +697,19 @@ function createMockEnvironment(customProperties = {}) {
   console.log('✓ PASS [20/20]: Public opt-in respected & private data strictly sanitized from public GET view');
 }
 
-console.log('All 20 Google Apps Script backend tests passed successfully!');
+// 21. TEST: JSONP callback support for GET ?action=recent-support
+{
+  const { context } = createMockEnvironment();
+  const output = context.doGet({ parameter: { action: 'recent-support', callback: 'parseSupportersCallback' } });
+  assert.equal(output._mime, 'application/javascript');
+  const rawContent = output.getContent();
+  assert.ok(rawContent.startsWith('parseSupportersCallback('));
+  assert.ok(rawContent.endsWith(');'));
+  const innerJson = rawContent.slice('parseSupportersCallback('.length, -2);
+  const parsed = JSON.parse(innerJson);
+  assert.equal(parsed.success, true);
+  assert.deepEqual(parsed.supporters, []);
+  console.log('✓ PASS [21/21]: JSONP callback wrapped correctly with application/javascript MIME');
+}
+
+console.log('All 21 Google Apps Script backend tests passed successfully!');

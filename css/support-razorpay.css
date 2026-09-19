@@ -183,53 +183,85 @@
   color: var(--primary, #4f32d9);
 }
 
-.amount-input-wrap {
+.amount-input-wrap,
+.support-form .amount-input-wrap {
   position: relative;
   display: flex;
   align-items: center;
   width: 100%;
-}
-
-.currency-prefix {
-  position: absolute;
-  left: 14px;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--muted, #64748b);
-  pointer-events: none;
-}
-
-.amount-input {
-  width: 100%;
-  padding: 12px 64px 12px 38px;
-  font-size: 1.25rem;
-  font-weight: 600;
-  font-family: inherit;
-  color: var(--text, #0f172a);
   background: var(--bg-alt, #f8fafc);
   border: 1.5px solid var(--border, #cbd5e1);
   border-radius: 10px;
-  outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  min-height: 48px;
+  min-height: 50px;
+  padding: 0 14px;
+  gap: 10px;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  cursor: text;
+}
+
+.amount-input-wrap:focus-within,
+.support-form .amount-input-wrap:focus-within {
+  border-color: var(--primary, #4f32d9);
+  box-shadow: 0 0 0 3px rgba(79, 50, 217, 0.15);
+  background: #ffffff;
+}
+
+.currency-prefix,
+.support-form .currency-prefix {
+  position: static;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--muted, #475569);
+  flex-shrink: 0;
+  pointer-events: none;
+  user-select: none;
+  min-width: 16px;
+  text-align: center;
+}
+
+.amount-input,
+.support-form .form-input.amount-input,
+.support-form .amount-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: 100%;
+  padding: 10px 0 !important;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.3;
+  font-family: inherit;
+  color: var(--text, #0f172a);
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  min-height: 48px !important;
   box-sizing: border-box;
 }
 
-.amount-input:focus {
-  border-color: var(--primary, #4f32d9);
-  box-shadow: 0 0 0 3px rgba(79, 50, 217, 0.15);
-}
-
-.currency-code-badge {
-  position: absolute;
-  right: 14px;
-  font-size: 0.85rem;
+.currency-code-badge,
+.support-form .currency-code-badge {
+  position: static;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
   font-weight: 700;
-  color: var(--muted, #64748b);
+  letter-spacing: 0.04em;
+  color: var(--muted, #475569);
   background: var(--border, #e2e8f0);
   padding: 4px 8px;
   border-radius: 6px;
+  line-height: 1.2;
+  flex-shrink: 0;
   pointer-events: none;
+  user-select: none;
 }
 
 .field-feedback {

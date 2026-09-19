@@ -40,6 +40,7 @@ const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), ".."
 const VIEWPORTS = [
   { name: "mobile-320", width: 320, height: 568 },
   { name: "mobile-360", width: 360, height: 640 },
+  { name: "mobile-375", width: 375, height: 667 },
   { name: "mobile-390", width: 390, height: 844 },
   { name: "mobile-430", width: 430, height: 932 },
   { name: "tablet-768", width: 768, height: 1024 },
@@ -78,6 +79,11 @@ async function runBrowserQA() {
   check(css.includes("min-height: 48px") || css.includes("min-height: 46px"), "Amount and customer inputs meet touch target (>= 44px)");
   check(css.includes(".recent-supporters-card"), "CSS contains styles for Recent Supporters card");
   check(css.includes(".supporter-item"), "CSS contains styles for Supporter item cards");
+  check(css.includes(".amount-input-wrap") && css.includes("display: flex"), "Amount input wrap uses flex layout for zero-overlap currency prefix");
+  check(css.includes(".currency-prefix") && css.includes("position: static"), "Currency prefix is statically positioned to prevent text overlap");
+  check(css.includes(".currency-code-badge") && css.includes("position: static"), "Currency code badge is statically positioned inside flex container");
+  check(js.includes("loadRecentSupportersJsonp"), "Recent supporters loader includes resilient JSONP fallback");
+  check(js.includes("Be the first supporter to appear here."), "Empty supporters list displays welcoming call to action");
 
   for (const vp of VIEWPORTS) {
     console.log(`\n--- Testing Viewport: ${vp.name} (${vp.width}x${vp.height}) ---`);
@@ -285,6 +291,96 @@ async function runBrowserQA() {
     check(!hasSecretInStorage, `[${vp.name}] Zero secrets found in localStorage / sessionStorage`);
 
     // Memory cleanup
+    window.close();
+  }
+
+  // Dedicated test: Empty supporters list displays call to action
+  {
+    console.log("\n--- Testing Recent Supporters Empty State ---");
+    const dom = new JSDOM(html, { url: "https://ekguru.shop/support/", runScripts: "outside-only" });
+    const { window } = dom;
+    window.fetch = async (url) => {
+      if (url.includes("action=recent-support") || url.includes("/api/support/recent")) {
+        return { ok: true, json: async () => ({ success: true, count: 0, supporters: [] }) };
+      }
+      return { ok: true, json: async () => ({}) };
+    };
+    window.eval(js);
+    await new Promise((r) => setTimeout(r, 20));
+    const list = dom.window.document.getElementById("recent-supporters-list");
+    check(list.innerHTML.includes("Be the first supporter to appear here."), "Empty supporters list displays 'Be the first supporter to appear here.'");
+    window.close();
+  }
+
+  // Dedicated test: Cross-origin redirect failure falls back to JSONP
+  {
+    console.log("\n--- Testing Recent Supporters JSONP Fallback ---");
+    const dom = new JSDOM(html, { url: "https://ekguru.shop/support/", runScripts: "outside-only" });
+    const { window } = dom;
+    let jsonpScriptUrl = null;
+    let jsonpCallbackName = null;
+
+    // Simulate cross-origin fetch failure (e.g. 302 redirect blocked)
+    window.fetch = async () => {
+      throw new TypeError("Failed to fetch: Cross-origin redirect not allowed");
+    };
+
+    // Intercept document.createElement for <script> to simulate JSONP execution
+    const origCreateElement = dom.window.document.createElement.bind(dom.window.document);
+    dom.window.document.createElement = function (tagName) {
+      const el = origCreateElement(tagName);
+      if (tagName.toLowerCase() === "script") {
+        setTimeout(() => {
+          if (el.src && el.src.includes("callback=")) {
+            jsonpScriptUrl = el.src;
+            const match = el.src.match(/callback=([^&]+)/);
+            if (match) {
+              jsonpCallbackName = decodeURIComponent(match[1]);
+              if (typeof window[jsonpCallbackName] === "function") {
+                window[jsonpCallbackName]({
+                  success: true,
+                  supporters: [
+                    { displayName: "Maya", country: "India", amount: 500, currency: "INR", date: "2026-09-19" },
+                  ],
+                });
+              }
+            }
+          }
+        }, 10);
+      }
+      return el;
+    };
+
+    window.eval(js);
+    await new Promise((r) => setTimeout(r, 60));
+    const list = dom.window.document.getElementById("recent-supporters-list");
+    check(!!jsonpScriptUrl, "Fetch failure initiates JSONP script injection fallback");
+    check(list.innerHTML.includes("Maya"), "JSONP fallback successfully renders supporter into DOM");
+    window.close();
+  }
+
+  // Dedicated test: Total failure falls back to error message
+  {
+    console.log("\n--- Testing Recent Supporters Genuine Error State ---");
+    const dom = new JSDOM(html, { url: "https://ekguru.shop/support/", runScripts: "outside-only" });
+    const { window } = dom;
+    window.fetch = async () => {
+      throw new Error("Network unreachable");
+    };
+    const origCreate = dom.window.document.createElement.bind(dom.window.document);
+    dom.window.document.createElement = function (tag) {
+      const el = origCreate(tag);
+      if (tag.toLowerCase() === "script") {
+        setTimeout(() => {
+          if (typeof el.onerror === "function") el.onerror();
+        }, 10);
+      }
+      return el;
+    };
+    window.eval(js);
+    await new Promise((r) => setTimeout(r, 60));
+    const list = dom.window.document.getElementById("recent-supporters-list");
+    check(list.innerHTML.includes("Recent supporter updates are temporarily unavailable."), "Genuine failure renders 'Recent supporter updates are temporarily unavailable.'");
     window.close();
   }
 

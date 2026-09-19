@@ -547,10 +547,19 @@ function testRazorpayConnectivity_() {
 }
 
 /**
- * Helper to construct clean JSON response.
+ * Helper to construct clean JSON or JSONP response.
  */
-function jsonOutput_(obj) {
-  return ContentService.createTextOutput(JSON.stringify(obj)).setMimeType(
+function jsonOutput_(obj, callback) {
+  var json = JSON.stringify(obj);
+  if (callback && typeof callback === "string") {
+    var trimmed = callback.trim();
+    if (/^[a-zA-Z0-9_$.]+$/.test(trimmed)) {
+      return ContentService.createTextOutput(trimmed + "(" + json + ");").setMimeType(
+        ContentService.MimeType.JAVASCRIPT
+      );
+    }
+  }
+  return ContentService.createTextOutput(json).setMimeType(
     ContentService.MimeType.JSON
   );
 }
@@ -561,13 +570,18 @@ function jsonOutput_(obj) {
  * ============================================================================
  */
 function doGet(e) {
+  var params = (e && e.parameter) || {};
+  var callback = params.callback || params.jsonp || "";
+  function output(obj) {
+    return jsonOutput_(obj, callback);
+  }
+
   try {
-    var params = (e && e.parameter) || {};
     var action = params.action || "recent-support";
 
     // Reject query parameter tokens to prevent URL logging leaks
     if (params.token) {
-      return jsonOutput_({
+      return output({
         success: false,
         error: "Forbidden: Query parameter authentication is forbidden.",
         code: "FORBIDDEN_AUTH_METHOD",
@@ -579,7 +593,7 @@ function doGet(e) {
 
     // 1. Health Check
     if (action === "health") {
-      return jsonOutput_({
+      return output({
         success: true,
         status: "ok",
         service: "EkGuru Payment Backend",
@@ -601,7 +615,7 @@ function doGet(e) {
         var ss = getSpreadsheet_();
         ssOk = Boolean(ss);
       } catch (e) {}
-      return jsonOutput_({
+      return output({
         success: true,
         service: "EkGuru Payment Backend",
         deploymentUrl: "https://script.google.com/macros/s/AKfycbz8u_rBr2o4VPgmQgaweswLWKdYb-MMGrsa7WfckTCruLP-ZEasWnpkqJrZHux5Y8_4zA/exec",
@@ -623,7 +637,7 @@ function doGet(e) {
       for (var code in VERIFIED_CURRENCIES) {
         list.push(VERIFIED_CURRENCIES[code]);
       }
-      return jsonOutput_({
+      return output({
         success: true,
         count: list.length,
         currencies: list,
@@ -638,7 +652,7 @@ function doGet(e) {
         var cached = cache ? cache.get("ekguru_recent_supporters") : null;
         if (cached) {
           var parsedCached = JSON.parse(cached);
-          return jsonOutput_({
+          return output({
             success: true,
             cached: true,
             count: parsedCached.length,
@@ -654,7 +668,7 @@ function doGet(e) {
       var lastRow = sheet.getLastRow();
 
       if (lastRow <= 1) {
-        return jsonOutput_({ success: true, count: 0, supporters: [], items: [] });
+        return output({ success: true, count: 0, supporters: [], items: [] });
       }
 
       var data = sheet.getRange(2, 1, lastRow - 1, HEADERS.PublicSupport.length).getValues();
@@ -684,7 +698,7 @@ function doGet(e) {
         }
       } catch (cachePutErr) {}
 
-      return jsonOutput_({
+      return output({
         success: true,
         count: supporters.length,
         supporters: supporters,
@@ -692,9 +706,9 @@ function doGet(e) {
       });
     }
 
-    return jsonOutput_({ success: false, error: "Unknown action: " + action });
+    return output({ success: false, error: "Unknown action: " + action });
   } catch (err) {
-    return jsonOutput_({ success: false, error: sanitizeErrorMessage_(err.message) });
+    return output({ success: false, error: sanitizeErrorMessage_(err.message) });
   }
 }
 
@@ -949,14 +963,18 @@ function reconcileVerifiedPayment_(ss, paymentContext, razorpayPaymentData, even
   var amount = Number(paymentContext.amount || cachedCtx.amount || (razorpayPaymentData.amount ? (razorpayPaymentData.amount / 100) : 0)) || 0;
   var currency = String(paymentContext.currency || cachedCtx.currency || razorpayPaymentData.currency || "INR").toUpperCase().trim();
 
-  var isOptedIn = Boolean(
-    paymentContext.publicDisplayOptIn === true ||
-    paymentContext.public_display_opt_in === true ||
-    paymentContext.public === true ||
-    cachedCtx.publicDisplayOptIn === true ||
-    rzpNotes.public_opt_in === "true" ||
-    rzpNotes.publicDisplayOptIn === "true"
-  );
+  var isOptedIn = false;
+  if (paymentContext.publicDisplayOptIn !== undefined && paymentContext.publicDisplayOptIn !== null) {
+    isOptedIn = Boolean(paymentContext.publicDisplayOptIn === true || String(paymentContext.publicDisplayOptIn).toLowerCase() === "true");
+  } else if (paymentContext.public_display_opt_in !== undefined && paymentContext.public_display_opt_in !== null) {
+    isOptedIn = Boolean(paymentContext.public_display_opt_in === true || String(paymentContext.public_display_opt_in).toLowerCase() === "true");
+  } else if (cachedCtx.publicDisplayOptIn !== undefined && cachedCtx.publicDisplayOptIn !== null) {
+    isOptedIn = Boolean(cachedCtx.publicDisplayOptIn === true || String(cachedCtx.publicDisplayOptIn).toLowerCase() === "true");
+  } else if (rzpNotes.public_opt_in !== undefined && rzpNotes.public_opt_in !== null) {
+    isOptedIn = Boolean(rzpNotes.public_opt_in === true || String(rzpNotes.public_opt_in).toLowerCase() === "true");
+  } else if (rzpNotes.publicDisplayOptIn !== undefined && rzpNotes.publicDisplayOptIn !== null) {
+    isOptedIn = Boolean(rzpNotes.publicDisplayOptIn === true || String(rzpNotes.publicDisplayOptIn).toLowerCase() === "true");
+  }
 
   var fee = razorpayPaymentData.fee ? (Number(razorpayPaymentData.fee) / 100) : 0;
   var tax = razorpayPaymentData.tax ? (Number(razorpayPaymentData.tax) / 100) : 0;

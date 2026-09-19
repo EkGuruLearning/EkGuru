@@ -91,23 +91,41 @@ async function handleApiRequest(req, res, service) {
 
   // 2. Recent Supporters: GET ?action=recent-support OR /api/support/recent
   if (req.method === "GET" && (queryAction === "recent-support" || queryAction === "recent" || pathname === "/api/support/recent")) {
+    const cb = parsedUrl.searchParams.get("callback") || parsedUrl.searchParams.get("jsonp");
     try {
       const supporters = await service.getRecentSupporters();
+      const payload = {
+        success: true,
+        count: supporters.length,
+        supporters,
+        items: supporters,
+      };
+      if (cb && /^[a-zA-Z0-9_$.]+$/.test(cb.trim())) {
+        setCorsHeaders(null, res);
+        res.statusCode = 200;
+        res.setHeader("Content-Type", "application/javascript; charset=utf-8");
+        res.setHeader("Cache-Control", "public, max-age=60, s-maxage=120, stale-while-revalidate=300");
+        res.end(`${cb.trim()}(${JSON.stringify(payload)});`);
+        return true;
+      }
       sendJson(
         res,
         200,
-        {
-          success: true,
-          count: supporters.length,
-          supporters,
-          items: supporters,
-        },
+        payload,
         {
           "Cache-Control": "public, max-age=60, s-maxage=120, stale-while-revalidate=300",
         }
       );
     } catch (e) {
-      sendJson(res, 200, { success: true, count: 0, supporters: [], items: [] });
+      const payload = { success: true, count: 0, supporters: [], items: [] };
+      if (cb && /^[a-zA-Z0-9_$.]+$/.test(cb.trim())) {
+        setCorsHeaders(null, res);
+        res.statusCode = 200;
+        res.setHeader("Content-Type", "application/javascript; charset=utf-8");
+        res.end(`${cb.trim()}(${JSON.stringify(payload)});`);
+        return true;
+      }
+      sendJson(res, 200, payload);
     }
     return true;
   }

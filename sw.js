@@ -31,8 +31,8 @@
    translated on the six market pages, with one owner of the drawer: the cache
    generation moves so a returning visitor cannot keep the old chrome, the old
    tagline or the second click handler on the menu button. */
-/* BUILD: 2026-09-19T09:10:00Z v44 - payment pipeline reconciliation */
-const BUILD_ID = "2026-09-19T09:10:00Z-v44-payment-pipeline";
+/* BUILD: 2026-09-19T12:35:00Z v45 - payment input alignment & jsonp recent supporters */
+const BUILD_ID = "2026-09-19T12:35:00Z-v45-payment-alignment-jsonp";
 const CACHE = "ekguru-" + BUILD_ID;
 
 /* Phase 6 §14 — "Save for offline" pins learner-chosen pages in a dedicated
@@ -46,6 +46,8 @@ const SHELL = [
   "./find-tutors.html",
   "./join.html",
   "./css/style.min.css",
+  "./css/support-razorpay.css",
+  "./js/support-razorpay.js",
   "./courses/",
   "./js/course-player.js",
   "./data/courses/index.json",
