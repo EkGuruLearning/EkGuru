@@ -9,15 +9,15 @@
   "certification_authority_id": "f08c47fec0942fa0",
   "source_of_truth": "this file; public publisher identifiers are not secrets"
  },
- "approval_status": "NOT_CLAIMED",
+ "approval_status": "NOT_READY_DO_NOT_APPLY",
  "products": [
   {
    "product": "AdSense Auto ads",
    "type": "website advertising",
    "website_app": "website",
-   "current_status": "publisher code present; account/site eligibility not verifiable from repository",
+   "current_status": "disabled in the current release; account/site eligibility is not verified",
    "eligibility": "AdSense-approved site and policy-compliant pages",
-   "implementation_status": "READY_CONSERVATIVE_ACCOUNT_CONFIGURATION_REQUIRED",
+   "implementation_status": "DISABLED_NOT_READY_DO_NOT_APPLY",
    "required_account_setup": [
     "verify site status",
     "preview formats",
@@ -42,9 +42,9 @@
    "product": "Auto ads banner/in-page",
    "type": "in-page",
    "website_app": "website",
-   "current_status": "available in Auto ads",
+   "current_status": "disabled in the current release; account/site eligibility is not verified",
    "eligibility": "eligible content-rich page",
-   "implementation_status": "ACCOUNT_OPT_IN_RECOMMENDED_AFTER_PAGE_REVIEW",
+   "implementation_status": "DISABLED_NOT_READY_DO_NOT_APPLY",
    "required_account_setup": [
     "low initial ad load",
     "minimum spacing",
@@ -178,9 +178,9 @@
    "product": "AdSense Offerwall rewarded ad",
    "type": "user-choice access",
    "website_app": "website",
-   "current_status": "generally available announcement; account availability unverified",
+   "current_status": "disabled in the current release; account/site eligibility is not verified",
    "eligibility": "AdSense Privacy & messaging availability",
-   "implementation_status": "DISABLED; OPTIONAL_DEEP_CONTENT_PILOT_ONLY",
+   "implementation_status": "DISABLED_NOT_READY_DO_NOT_APPLY",
    "required_account_setup": [
     "create in Privacy & messaging",
     "maximum/effectively dismissible setting",
@@ -257,11 +257,11 @@
  ],
  "page_classes": {
   "HIGH_CONTENT": {
-   "formats": "conservative in-page after approval; later tested side rail",
+   "formats": "future eligibility only; no loader or placement in the current release",
    "overlay": "off initially"
   },
   "MEDIUM_CONTENT": {
-   "formats": "at most conservative in-page after quality pass",
+   "formats": "future eligibility only; no loader or placement in the current release",
    "overlay": "off"
   },
   "INTERACTIVE_LEARNING": {
@@ -302,7 +302,8 @@
   "/booking/",
   "/checkout/",
   "/payment/",
-  "/courses/"
+  "/courses/",
+  "/monetization-disclosure/"
  ],
  "safe_zones": [
   "navigation",
@@ -339,12 +340,9 @@
  },
  "ad_policy": {
   "schema_version": 1,
-  "reviewed_at": "2026-09-18",
-  "rule": "The page class decides whether the AdSense loader is even in the HTML. Auto ads place themselves, so the only reliable way to keep an ad off a page that must not have one is to not load the script there. tools/inject-ads.py enforces this; tools/test-ad-policy.mjs checks it.",
-  "loader_allowed": [
-   "HIGH_CONTENT",
-   "MEDIUM_CONTENT"
-  ],
+  "reviewed_at": "2026-09-20",
+  "rule": "Page classes define future eligibility, but the global runtime gate currently disables the AdSense loader on every page. No custom banner authorizes personalized advertising.",
+  "loader_allowed": [],
   "attr": "data-ad-class",
   "classes": {
    "ADMIN": {
@@ -381,7 +379,8 @@
      "/terms/**",
      "/disclaimer/**",
      "/copyright/**",
-     "/cookie-policy/**"
+     "/cookie-policy/**",
+     "/monetization-disclosure/**"
     ],
     "why": "navigation, reference and legal pages: nothing of their own to read"
    },
@@ -452,13 +451,18 @@
    "TRANSACTIONAL": "never",
    "UTILITY": "never",
    "INTERACTIVE_LEARNING": "never",
-   "HIGH_CONTENT": "auto ads, low load",
-   "MEDIUM_CONTENT": "auto ads, lowest load"
+   "HIGH_CONTENT": "future candidate only; disabled globally",
+   "MEDIUM_CONTENT": "future candidate only; disabled globally"
   },
   "notes": [
-   "Every page also carries its class as data-ad-class on <html>, so a reviewer (or the audit) can see the decision in the HTML itself.",
-   "The legal pages — privacy, terms, disclaimer, copyright, cookie policy — are in excluded_paths as well as being UTILITY: an ad on a page that explains the ad cookies is the worst possible trade.",
-   "Consent stays a certified-CMP question (see 'consent'); this file never authorises a home-made banner."
+   "Every page carries a class as data-ad-class so future placement remains auditable.",
+   "Legal, search, form, payment, booking, error, admin and interactive-learning pages remain permanently excluded.",
+   "The current custom preferences notice is not a Google-certified CMP/TCF deployment. The loader stays absent until the owner activates and verifies one account-side."
   ]
+ },
+ "runtime_gate": {
+  "adsense_loader_enabled": false,
+  "reason": "Disabled until content, certified CMP/TCF deployment, account-side site status, and rendered UX checks all pass.",
+  "enablement_rule": "Do not add the loader merely because a page is long or a local banner records advertising=true."
  }
 }

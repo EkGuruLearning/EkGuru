@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-09-20",
+  "release_status": "DISABLED_NO_APPROVED_IDENTIFIERS",
+  "global_rules": [
+    "Never append or invent a tracking identifier.",
+    "Keep ordinary tutor-owned Preply profile links non-affiliate unless a separately approved EkGuru relationship is configured.",
+    "Label every commercial link or clearly bounded group beside the link.",
+    "Recommend only an item or service directly relevant to the page and learner task.",
+    "Do not state a price, discount, rating, personal use or availability unless it is verified at publication time.",
+    "Do not place commercial links in tests, answer keys, forms, booking, payment, legal, contact, search, error, research or blocked pages."
+  ],
+  "programmes": [
+    {
+      "name": "Preply",
+      "state": "PREPARED_NOT_AFFILIATED",
+      "current_links": "ordinary tutor-owned profile links only",
+      "allowed_future_context": "A labelled alternative booking route on the matching tutor profile or a sourced tutor-marketplace comparison",
+      "owner_only_actions": [
+        "Confirm programme approval and terms for India.",
+        "Provide the approved account-side tracking configuration without committing private credentials.",
+        "Confirm whether deep links to individual tutor profiles are permitted."
+      ]
+    },
+    {
+      "name": "Amazon India Associates",
+      "state": "PREPARED_NOT_CONFIGURED",
+      "current_links": "none",
+      "allowed_future_context": "A specifically reviewed Hindi book, keyboard or learning resource inside an editorial resource page; never a generic product wall",
+      "owner_only_actions": [
+        "Obtain programme approval for the intended site and territory.",
+        "Provide the owner-approved public associate tag through deployment configuration.",
+        "Review current price/availability wording and required Amazon disclosures before each launch."
+      ]
+    },
+    {
+      "name": "Impact",
+      "state": "PREPARED_NO_SELECTED_APPROVED_BRAND",
+      "current_links": "none",
+      "allowed_future_context": "Only a selected language-learning brand that is approved in the owner account and directly relevant to the page",
+      "owner_only_actions": [
+        "Select and obtain approval for a specific relevant advertiser.",
+        "Provide that programme's approved tracking configuration.",
+        "Confirm brand-specific creative, trademark and disclosure requirements."
+      ]
+    }
+  ]
+}

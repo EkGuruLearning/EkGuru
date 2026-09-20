@@ -1,13 +1,17 @@
-/* EkGuru — Advanced Monetization System v300
-   Purpose: Multiple revenue streams, AdSense approval compliance
-   Channels: AdSense, affiliate, donations, tutor commissions
-   Safety: Never shows ads on learning tasks, respects UX
+/* EkGuru — release-safe funding UI
+   Advertising and affiliates are globally disabled in this release.
+   The only active funding route is the optional Razorpay-hosted support link.
 */
 (function () {
   "use strict";
 
   var path = location.pathname.replace(/^\/+/, "/");
   var host = location.hostname;
+
+  // Global release gate. Page eligibility is not authorization to load ads.
+  // Keep false until a Google-certified CMP/TCF path and account-side site
+  // status have both been verified in production.
+  var ADS_RUNTIME_ENABLED = false;
 
   // Page classification for AdSense policy compliance
   var excluded = [
@@ -16,10 +20,11 @@
     "/checkout/", "/payment/", "/courses/", "/cookie-policy/"
   ];
   
-  var pageClass = "MEDIUM_CONTENT";
+  var declaredClass = document.documentElement.getAttribute("data-ad-class");
+  var pageClass = declaredClass || "MEDIUM_CONTENT";
   if (excluded.some(function (prefix) { return path.indexOf(prefix) === 0; })) {
     pageClass = path.indexOf("/courses/") === 0 ? "INTERACTIVE_LEARNING" : "UTILITY";
-  } else if (document.querySelector("article, main article, [itemtype*='Article'], .art, .pw-legacy")) {
+  } else if (!declaredClass && document.querySelector("article, main article, [itemtype*='Article'], .art, .pw-legacy")) {
     pageClass = "HIGH_CONTENT";
   }
   document.documentElement.dataset.monetizationClass = pageClass;
@@ -44,6 +49,9 @@
 
   // 1. AdSense - conservative, learning-safe placements
   function initAdSense() {
+    // Fail closed globally. Consent is necessary but not sufficient: this
+    // release also requires the certified CMP and account-side gate.
+    if (!ADS_RUNTIME_ENABLED) return;
     // Only on HIGH_CONTENT and MEDIUM_CONTENT, and only if consent given
     var consent = null;
     try {
@@ -63,51 +71,8 @@
   }
 
   function addAdSlots() {
-    // Don't add ads if page is too short (AdSense low value content policy)
-    var textLength = document.body.innerText.length;
-    if (textLength < 800) return; // Need enough content
-
-    var positions = [
-      { selector: '.art, .pw-legacy, .pw', position: 'after', minLength: 1000 },
-      { selector: '.egc', position: 'after', minLength: 800 }
-    ];
-
-    positions.forEach(function(pos) {
-      var containers = document.querySelectorAll(pos.selector);
-      containers.forEach(function(container) {
-        if (container.innerText.length < pos.minLength) return;
-        if (container.querySelector('.ad-slot')) return; // already has ad
-
-        // Find safe insertion point - after first 2 paragraphs or after first section
-        var paras = container.querySelectorAll('p, h2');
-        if (paras.length < 3) return;
-
-        var insertAfter = paras[1];
-        if (!insertAfter) return;
-
-        // Check if next element is already ad or learning widget
-        var next = insertAfter.nextElementSibling;
-        if (next && (next.classList.contains('ad-slot') || next.classList.contains('q') || next.classList.contains('tool'))) {
-          return;
-        }
-
-        var adContainer = document.createElement('div');
-        adContainer.className = 'ad-slot-wrapper google-anno-skip';
-        adContainer.innerHTML = 
-          '<div class="ad-label">Advertisement</div>' +
-          '<ins class="adsbygoogle ad-slot" style="display:block" data-ad-client="ca-pub-8175326569491671" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>';
-        
-        // Insert
-        if (insertAfter.parentNode) {
-          insertAfter.parentNode.insertBefore(adContainer, insertAfter.nextSibling);
-          
-          // Push ad
-          try {
-            (window.adsbygoogle = window.adsbygoogle || []).push({});
-          } catch (e) {}
-        }
-      });
-    });
+    // Deliberately empty. A future release must use individually reviewed,
+    // pre-marked placements; word count must never create ad units dynamically.
   }
 
   // Support-toast + support-link copy in the page's own language.
@@ -169,25 +134,10 @@
         '<a href="/find-tutors.html" class="btn btn-ghost btn-sm" style="text-decoration:none"></a>';
       var parts = extra.querySelectorAll('span, a');
       parts[0].textContent = copy.linksLabel;
-      parts[1].textContent = '☕ ' + copy.coffee;
+      parts[1].textContent = copy.cta;
       parts[2].textContent = '👨‍🏫 ' + copy.tutor;
 
       el.appendChild(extra);
-    });
-  }
-
-  // 3. Tutor commission tracking (for monetization via bookings)
-  function trackTutorInterest() {
-    document.querySelectorAll('a[href*="find-tutors"], a[href*="tutor"]').forEach(function(link) {
-      link.addEventListener('click', function() {
-        try {
-          localStorage.setItem('ekguru_last_tutor_interest', JSON.stringify({
-            path: path,
-            timestamp: Date.now(),
-            referrer: document.referrer
-          }));
-        } catch (e) {}
-      });
     });
   }
 
@@ -359,32 +309,9 @@
     schedule(TOAST_FIRST_MS);
   }
 
-  // 5. AdSense approval helpers
-  function ensureContentDepth() {
-    // Add structured data and content signals for AdSense review
-    var article = document.querySelector('article, .art, .pw-legacy');
-    if (!article) return;
-    
-    // Check if page is thin (AdSense low value content reason)
-    var text = article.innerText || "";
-    var wordCount = text.trim().split(/\s+/).length;
-    
-    if (wordCount < 250) {
-      document.documentElement.setAttribute('data-content-depth', 'thin');
-      // Add helpful content for thin pages (will be improved by build tools)
-      console.warn('EkGuru: Thin content detected (' + wordCount + ' words) - needs expansion for AdSense');
-    } else {
-      document.documentElement.setAttribute('data-content-depth', 'adequate');
-    }
-  }
-
   // Initialize
   function init() {
     initAdSense();
-    addSupportLinks();
-    trackTutorInterest();
-    ensureContentDepth();
-    
     // Support toast: quiet 60s rhythm, owned entirely by startSupportToast.
     // The pre-v3 24h-dismiss key is retired; remove it once.
     try { localStorage.removeItem('ekguru_donate_dismissed'); } catch (e) {}
@@ -394,17 +321,16 @@
     window.EKGURU_MONETIZATION = {
       pageClass: pageClass,
       channels: {
-        adsense: { client: 'ca-pub-8175326569491671', status: 'pending_approval', note: 'Conservative ad load, learning-safe' },
-        affiliate: { status: 'planned', note: 'Language tools, books' },
-        donations: { status: 'active', url: '/support/' },
-        tutoring: { status: 'active', note: 'Commission from bookings' }
+        adsense: { status: 'disabled_not_ready_do_not_apply', loaderEnabled: false },
+        affiliate: { status: 'disabled_no_approved_identifiers' },
+        support: { status: 'active_optional_external_payment_page', url: '/support/' },
+        tutoring: { status: 'profile_introductions_only_no_site_payment_or_commission_claim' }
       },
-      howWeMakeMoney: [
-        "Google AdSense: ads on reading pages (not on quizzes/practice)",
-        "Tutor bookings: small commission when you book a trial",
-        "Donations: voluntary support via support page",
-        "Future: affiliate links for language learning resources",
-        "All revenue keeps lessons free - no paywall, no account needed"
+      currentFunding: [
+        "Optional one-time support through Razorpay's hosted payment page",
+        "No AdSense loader or ad units in this release",
+        "No affiliate tracking identifiers in this release",
+        "EkGuru does not collect tutor-lesson payments in this release"
       ],
       adSafety: {
         noAdsOn: ["quiz", "practice", "test", "worksheet", "typing", "review", "forms", "booking"],
