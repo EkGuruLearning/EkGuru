@@ -7,7 +7,7 @@
 window.EKGURU_SITE = {
   /* ---------- Brand ---------- */
   brand: "EkGuru",
-  tagline: "One Student. One Guru. One Goal.",
+  tagline: "One Student. One Goal. One Guru.",
 
   /* ---------- Live URL (used for canonical + sitemap + OG) ----------
      If you rename the repo, change this ONE line.
@@ -60,7 +60,7 @@ window.EKGURU_SITE = {
 
   /* WhatsApp: leave "" to hide every WhatsApp button site-wide.
      Add a real number with country code to switch them all on,
-     e.g. "+919876543210"                                              */
+     e.g. "+9198765xxxxx"                                              */
   whatsapp: "",
 
   /* =========================================================
@@ -282,7 +282,7 @@ window.EKGURU_SITE = {
          ⚠️ v98: if your deployed script checks this word, paste the
          SAME value into the script's doPost() AND here. Left empty
          until you tell us the word you chose. */
-      token: ""
+      token: "ricyGSzqougMM2zbVoacUMUPfnYDCnes"
     },
 
     /* ---------- A SECOND FREE RELAY (optional) ----------
@@ -676,7 +676,7 @@ window.EKGURU_SITE = {
 
          key              value
          email            hello@example.com
-         whatsapp         +919876543210   (or "none" to hide)
+         whatsapp         +9198765xxxxx   (or "none" to hide)
          youtubeChannel   https://youtube.com/@...
          applyFormUrl     https://forms.gle/...
          tagline          One Student. One Guru. One Goal.
