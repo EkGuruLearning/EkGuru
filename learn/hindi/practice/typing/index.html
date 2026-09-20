@@ -27,25 +27,7 @@
 <meta name="theme-color" content="#4f32d9">
 <link rel="stylesheet" href="../../../../css/style.min.css">
 <link rel="stylesheet" href="../../../../css/storybook.css">
-<style>
-.art{max-width:760px;margin:0 auto;padding:0 20px 60px}
-.art h1{font-size:2rem;line-height:1.25;margin:26px 0 10px}
-.art .meta{color:var(--muted);font-size:.86rem;margin:0 0 26px}
-.art h2{font-size:1.28rem;margin:34px 0 12px;padding-top:6px}
-.art p,.art li{line-height:1.75}
-.art ul,.art ol{padding-left:22px}
-.art li{margin:7px 0}
-.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0}
-.crumb a{color:var(--muted)}
-.lede{color:var(--ink-2);font-size:1.05rem;line-height:1.7;margin:0 0 22px}
-.linklist{list-style:none;padding:0;margin:12px 0 0}
-.linklist li{padding:10px 0;border-bottom:1px solid var(--line)}
-.linklist li:last-child{border-bottom:0}
-.linklist a{font-weight:600}
-.linklist span{display:block;color:var(--muted);font-size:.87rem;margin-top:2px;line-height:1.5}
-.note{background:var(--bg-soft);border:1px solid #ddd8ff;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:.94rem;color:var(--ink-2)}
-.btn{margin:6px 6px 6px 0}
-</style>
+
 </head>
 <body>
 <!-- ekguru:shell-header:start -->
@@ -53,7 +35,7 @@
   <a class="skip" href="#main">Skip to content</a>
   <div class="hdr-in">
     <a class="logo" href="../../../../index.html">
-      <span class="logo-mark" aria-hidden="true">E</span>
+      <img class="logo-img" src="../../../../images/logo.svg" width="38" height="38" alt="EkGuru">
       <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
     </a>
     <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
@@ -85,14 +67,22 @@
   <p>Recognition is cheap: a Hindi word can look familiar long before you can produce it. Typing forces the harder step — recalling the matras and their order — and the mistakes it exposes are exactly the letters you keep mixing up. Ten words a day is a better routine than a hundred once a month.</p>
   <div class="note">This trainer checks your typed Devanagari against a curated word list from the lessons. It is not a full transliteration engine and makes no claim to be one.</div>
 
-
-  <h2>How the typing trainer works</h2>
-  <p>Read the Roman prompt and type it in Devanagari. Harmless formatting differences are accepted, so focus on getting the letters right rather than matching spacing exactly.</p>
-  <p>If you cannot type Devanagari yet, start with the alphabet lesson first. A few minutes of typing practice a day builds the muscle memory that reading alone cannot.</p>
-
 </div>
 </main>
 <!-- ekguru:trust-footer:start -->
+<!-- ekguru:pw-bands:start -->
+<nav class="pw-next" aria-label="Next step">
+  <b>Learn Hindi properly</b>
+  <p>The free course takes it in order — A1 to C2, 36 lessons, from the first letter to real
+  conversation, and it works without an account.</p>
+  <p><a class="btn btn-primary" href="/courses/#/hi">Open the Hindi course</a></p>
+</nav>
+<footer class="pw-support">
+  <p>Published lessons are currently free. Advertising is disabled in this release.</p>
+  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
+  <a href="/find-tutors.html">Tutor profiles</a>
+</footer>
+<!-- ekguru:pw-bands:end -->
 <!-- ekguru:trust-footer:end -->
 <script src="../../../../js/site-config.js" defer></script>
 <script src="../../../../js/analytics.js" defer></script>
@@ -102,8 +92,6 @@
 <!-- ekguru:recovery:end -->
 
 <script src="../../../../js/hindi-fuzzy.js" defer></script>
-<!-- ekguru:questions-api -->
-<script src="../../../../js/question-api.js" defer></script>
 <script src="../../../../js/hindi-tools.js" defer></script>
 <script src="../../../../js/storybook.js" defer></script>
 <script defer>
@@ -113,17 +101,15 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
-<!-- ekguru:consent -->
-<script src="../../../../js/cookie-consent.js" defer></script>
 <!-- ekguru:shell-footer:start -->
 <footer class="ftr">
   <div class="wrap ftr-in">
     <div>
       <a class="logo" href="../../../../index.html">
-        <span class="logo-mark" aria-hidden="true">E</span>
+        <img class="logo-img" src="../../../../images/logo.svg" width="38" height="38" alt="EkGuru">
         <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
       </a>
-      <p style="margin-top:14px">Online Hindi lessons with verified, caring tutors.</p>
+      <p style="margin-top:14px">Online Hindi lessons with independent tutor profiles.</p>
     </div>
     <div>
       <h3>Site</h3>
@@ -153,6 +139,7 @@ if ("serviceWorker" in navigator) {
       <a href="../../../../about/">About EkGuru</a>
       <a href="../../../../privacy/">Privacy policy</a>
       <a href="../../../../terms/">Terms of use</a>
+      <a href="../../../../monetization-disclosure/">Monetization disclosure</a>
       <a href="../../../../disclaimer/">Disclaimer</a>
       <a href="../../../../copyright/">Copyright</a>
       <a href="../../../../cookie-policy/">Cookie policy</a>
@@ -164,15 +151,5 @@ if ("serviceWorker" in navigator) {
   </div>
 </footer>
 <!-- ekguru:shell-footer:end -->
-<script src="../../../../js/monetization.js" defer></script>
-<script src="../../../../js/print-sheet.js" defer></script>
-<script src="../../../../js/level-visuals.js" defer></script>
-<script src="../../../../js/visual-learning.js" defer></script>
-<script src="../../../../js/practice-api.js" defer></script>
-<script src="../../../../js/refresh-guard.js" defer></script>
-<script src="../../../../js/course-player.js" defer></script>
-<script src="../../../../js/adaptive-practice.js" defer></script>
-<script src="../../../../js/global-srs.js" defer></script>
-<script src="../../../../js/scroll-restore.js" defer></script>
 </body>
 </html>

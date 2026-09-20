@@ -214,9 +214,22 @@ Player.prototype.route = function () {
     self.index = payload[0];
     self.relations = payload[1].relations || [];
     if (!r.lang) return self.renderHub();
-    if (!r.level) return self.renderLang(r.lang);
-    var key = r.lang + "_" + r.level;
     var entry = self.langMeta(r.lang);
+    var publishedLevels = Object.keys((entry && entry.levels) || {});
+    if (!publishedLevels.length) {
+      self.mount.innerHTML = '<div class="egc google-anno-skip"><h1>Course not published</h1>' +
+        '<p>This language remains in research and editorial review. No lesson level is public yet.</p>' +
+        '<p><a href="#/">Back to published courses</a></p></div>';
+      return;
+    }
+    if (!r.level) return self.renderLang(r.lang);
+    if (publishedLevels.indexOf(r.level) < 0) {
+      self.mount.innerHTML = '<div class="egc google-anno-skip"><h1>' + esc(r.level) + ' is not published</h1>' +
+        '<p>Available levels for this language: ' + esc(publishedLevels.join(", ")) + '.</p>' +
+        '<p><a href="#/' + esc(r.lang) + '">Open the available levels</a></p></div>';
+      return;
+    }
+    var key = r.lang + "_" + r.level;
     var phase = entry.phase || "phase-1";
     var file = key + ".json";
     (entry.files || []).forEach(function (f) { if (f.indexOf(key) === 0) file = f; });
@@ -250,7 +263,18 @@ Player.prototype.crumbs = function (items) {
   }).join("") + "</div>";
 };
 Player.prototype.renderHub = function () {
-  var self = this, courses = (this.index && this.index.courses) || [], relations = this.relations || [];
+  var self = this;
+  var courses = ((this.index && this.index.courses) || []).filter(function (c) {
+    return Object.keys(c.levels || {}).length > 0;
+  });
+  function verifiedRelation(row) {
+    var sourced = (row.sources || []).some(function (s) {
+      var p = String((s && s.priority) || "").split("-")[0];
+      return s && s.source_url && s.evidence_type !== "agent-compiled" && (p === "A" || p === "B");
+    });
+    return row.confidence === "high" && !row.needs_human_review && sourced;
+  }
+  var relations = (this.relations || []).filter(verifiedRelation);
   /* Country contexts per course code. Six languages have no ISO 639-1 row in
      the relations data (Standard Arabic is only "arb", Mandarin only "cmn"),
      so without the bridge their cards showed no countries at all while the
@@ -584,7 +608,7 @@ Player.prototype.langMeta = function (code) {
   for (var i = 0; i < courses.length; i++) {
     if (courses[i].code === code) return courses[i];
   }
-  return { code: code, name: code, native: "", levels: { A1: 1, A2: 1, B1: 1, B2: 1, C1: 1, C2: 1 } };
+  return { code: code, name: code, native: "", levels: {} };
 };
 Player.prototype.renderLang = function (code) {
   var meta = this.langMeta(code);

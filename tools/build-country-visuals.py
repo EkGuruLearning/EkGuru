@@ -160,7 +160,7 @@ def relations():
 
 def taught_codes():
     data = load(COURSES, {}) or {}
-    return {c["code"] for c in data.get("courses", [])}
+    return {c["code"] for c in data.get("courses", []) if c.get("levels")}
 
 
 def figure(info, rows, taught):
@@ -296,20 +296,15 @@ def block(info, fig, taught_names, documented):
     prose and prose can drift, so the test compares the attributes against the
     manifest and the manifest against the source data."""
     if taught_names:
-        if len(taught_names) == 1:
-            said = ("%s has a course on EkGuru, at every level from A1 to C2."
-                    % taught_names[0])
-        elif len(taught_names) <= 3:
-            said = ("%s and %s have courses on EkGuru, at every level from A1 to C2%s."
-                    % (", ".join(taught_names[:-1]), taught_names[-1],
-                       (" — %d of the %d documented languages here" % (fig["taught"], documented))
-                       if fig["taught"] > len(taught_names) else ""))
-        else:
-            said = ("%d of them have a course on EkGuru, at every level from A1 to C2."
-                    % len(taught_names))
+        visible = ", ".join(taught_names)
+        said = ("Published course levels are currently available for %s%s; check the course "
+                "catalogue for each exact range."
+                % (visible,
+                   (" and %d other documented language%s" %
+                    (fig["taught"] - len(taught_names), "" if fig["taught"] - len(taught_names) == 1 else "s"))
+                   if fig["taught"] > len(taught_names) else ""))
     else:
-        said = ("No course exists for them here yet — this page is the inventory, "
-                "not the promise.")
+        said = ("No published course level is linked from this research record yet.")
     return (
         MARK_START + "\n"
         '<section class="ct-visual" data-documented="%d" data-taught="%d" '
@@ -320,7 +315,7 @@ def block(info, fig, taught_names, documented):
         "%s, and how many of them can be learned here today. The colour is the page’s own — "
         "this site gives every country a colour from its code, and it is not meant to be "
         "the flag.</p>\n"
-        '<figure class="ct-fig"><img src="../../../%s" width="320" height="200" '
+        '<figure class="ct-fig"><img src="/%s" width="320" height="200" '
         'loading="lazy" decoding="async" alt="%s"><figcaption><b>%s</b> · %s — '
         "%d language%s documented, %s "
         '<a href="/courses/by-country/#country-%s">Courses for %s →</a></figcaption></figure>\n'

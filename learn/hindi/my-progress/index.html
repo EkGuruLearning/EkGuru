@@ -27,35 +27,7 @@
 <meta name="theme-color" content="#4f32d9">
 <link rel="stylesheet" href="../../../css/style.min.css">
 <link rel="stylesheet" href="../../../css/storybook.css">
-<style>
-.art{max-width:760px;margin:0 auto;padding:0 20px 60px}
-.art h1{font-size:2rem;line-height:1.25;margin:26px 0 10px}
-.art .meta{color:var(--muted);font-size:.86rem;margin:0 0 26px}
-.art h2{font-size:1.28rem;margin:34px 0 12px;padding-top:6px}
-.art p,.art li{line-height:1.75}
-.art ul,.art ol{padding-left:22px}
-.art li{margin:7px 0}
-.crumb{font-size:.84rem;color:var(--muted);padding:18px 0 0}
-.crumb a{color:var(--muted)}
-.lede{color:var(--ink-2);font-size:1.05rem;line-height:1.7;margin:0 0 22px}
-.linklist{list-style:none;padding:0;margin:12px 0 0}
-.linklist li{padding:10px 0;border-bottom:1px solid var(--line)}
-.linklist li:last-child{border-bottom:0}
-.linklist a{font-weight:600}
-.linklist span{display:block;color:var(--muted);font-size:.87rem;margin-top:2px;line-height:1.5}
-.note{background:var(--bg-soft);border:1px solid #ddd8ff;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:.94rem;color:var(--ink-2)}
-.btn{margin:6px 6px 6px 0}
-</style>
-<!-- ekguru:adsense:start -->
-<!-- Auto ads: one account loader, and Google places the units. Whether
-     this block is in the page at all is decided by the page's class
-     (html[data-ad-class]) and data/monetization/google-monetization.json
-     -> ad_policy. tools/inject-ads.py enforces it. -->
-<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
-<link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
-<meta name="google-adsense-account" content="ca-pub-8175326569491671">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8175326569491671" crossorigin="anonymous"></script>
-<!-- ekguru:adsense:end -->
+
 </head>
 <body>
 <!-- ekguru:shell-header:start -->
@@ -63,7 +35,7 @@
   <a class="skip" href="#main">Skip to content</a>
   <div class="hdr-in">
     <a class="logo" href="../../../index.html">
-      <span class="logo-mark" aria-hidden="true">E</span>
+      <img class="logo-img" src="../../../images/logo.svg" width="38" height="38" alt="EkGuru">
       <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
     </a>
     <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
@@ -100,6 +72,19 @@
 </div>
 </main>
 <!-- ekguru:trust-footer:start -->
+<!-- ekguru:pw-bands:start -->
+<nav class="pw-next" aria-label="Next step">
+  <b>Learn Hindi properly</b>
+  <p>The free course takes it in order — A1 to C2, 36 lessons, from the first letter to real
+  conversation, and it works without an account.</p>
+  <p><a class="btn btn-primary" href="/courses/#/hi">Open the Hindi course</a></p>
+</nav>
+<footer class="pw-support">
+  <p>Published lessons are currently free. Advertising is disabled in this release.</p>
+  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
+  <a href="/find-tutors.html">Tutor profiles</a>
+</footer>
+<!-- ekguru:pw-bands:end -->
 <!-- ekguru:trust-footer:end -->
 <script src="../../../js/site-config.js" defer></script>
 <script src="../../../js/analytics.js" defer></script>
@@ -177,17 +162,15 @@ if ("serviceWorker" in navigator) {
 })();
 </script>
 
-<!-- ekguru:consent -->
-<script src="../../../js/cookie-consent.js" defer></script>
 <!-- ekguru:shell-footer:start -->
 <footer class="ftr">
   <div class="wrap ftr-in">
     <div>
       <a class="logo" href="../../../index.html">
-        <span class="logo-mark" aria-hidden="true">E</span>
+        <img class="logo-img" src="../../../images/logo.svg" width="38" height="38" alt="EkGuru">
         <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
       </a>
-      <p style="margin-top:14px">Online Hindi lessons with verified, caring tutors.</p>
+      <p style="margin-top:14px">Online Hindi lessons with independent tutor profiles.</p>
     </div>
     <div>
       <h3>Site</h3>
@@ -217,6 +200,7 @@ if ("serviceWorker" in navigator) {
       <a href="../../../about/">About EkGuru</a>
       <a href="../../../privacy/">Privacy policy</a>
       <a href="../../../terms/">Terms of use</a>
+      <a href="../../../monetization-disclosure/">Monetization disclosure</a>
       <a href="../../../disclaimer/">Disclaimer</a>
       <a href="../../../copyright/">Copyright</a>
       <a href="../../../cookie-policy/">Cookie policy</a>
@@ -228,15 +212,5 @@ if ("serviceWorker" in navigator) {
   </div>
 </footer>
 <!-- ekguru:shell-footer:end -->
-<script src="../../../js/monetization.js" defer></script>
-<script src="../../../js/print-sheet.js" defer></script>
-<script src="../../../js/level-visuals.js" defer></script>
-<script src="../../../js/visual-learning.js" defer></script>
-<script src="../../../js/practice-api.js" defer></script>
-<script src="../../../js/refresh-guard.js" defer></script>
-<script src="../../../js/course-player.js" defer></script>
-<script src="../../../js/adaptive-practice.js" defer></script>
-<script src="../../../js/global-srs.js" defer></script>
-<script src="../../../js/scroll-restore.js" defer></script>
 </body>
 </html>

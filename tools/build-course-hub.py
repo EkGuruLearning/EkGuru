@@ -96,8 +96,21 @@ ISO3_ALIAS = {
 def load():
     with open(CATALOGUE, encoding="utf-8") as f:
         data = json.load(f)
-    courses = data.get("courses", [])
+    # Empty/research-only records remain in the internal registry, but a public
+    # catalogue must contain only languages with at least one publishable level.
+    courses = [c for c in data.get("courses", []) if c.get("levels")]
     levels = data.get("levels", ["A1", "A2", "B1", "B2", "C1", "C2"])
+
+    def verified_relation(row):
+        sources = row.get("sources") or []
+        sourced = any(
+            isinstance(s, dict)
+            and s.get("source_url")
+            and s.get("evidence_type") != "agent-compiled"
+            and str(s.get("priority") or "").split("-")[0] in ("A", "B")
+            for s in sources
+        )
+        return row.get("confidence") == "high" and not row.get("needs_human_review") and sourced
 
     meta = {}
     try:
@@ -110,11 +123,13 @@ def load():
         if not code:
             continue
         entry = meta.setdefault(code, {"native": "", "script": "", "countries": set()})
+        # Names/scripts are canonical language metadata. Country membership is
+        # a separate claim and gets the stricter relationship gate below.
         if row.get("native_name") and not entry["native"]:
             entry["native"] = row["native_name"]
         if row.get("script") and not entry["script"]:
             entry["script"] = row["script"]
-        if row.get("country_id"):
+        if verified_relation(row) and row.get("country_id"):
             entry["countries"].add(row["country_id"])
     return courses, levels, meta
 
@@ -176,7 +191,8 @@ def card(course, levels, meta, deep_prefix="..", names=None):
         # preview served from a sub-directory.
         href = deep_prefix.rstrip("/") + href if deep_prefix else href[1:]
     monogram = (native or name)[:2]
-    lvline = " · ".join(lv) if lv else "A1–C2"
+    lvline = " · ".join(lv) + (" · complete A1–C2" if course.get("complete") else " · available")
+    lesson_count = sum(int((course.get("levels") or {}).get(level, {}).get("lessons") or 0) for level in lv)
     # The native name is a real translation aid when it differs from the
     # English name ("español" under "Spanish") and useless noise when it does
     # not ("Filipino" under "Filipino"), so it is only emitted when it adds
@@ -200,7 +216,7 @@ def card(course, levels, meta, deep_prefix="..", names=None):
     ).format(
         hue=hue_for(code), code=esc(code), href=esc(href), name=esc(name),
         mono=esc(monogram), native_line=native_line,
-        lvline=esc(lvline), n=6 * len(lv) if lv else 24,
+        lvline=esc(lvline), n=lesson_count,
         chips=("".join("<em>%s</em>" % esc(x) for x in named[:4]) +
                ("<em>+%d more</em>" % (countries - 4) if countries > 4 else "")
                if countries else "<em>documented</em>"),
@@ -238,33 +254,34 @@ def build_hub(courses, levels, meta, names=None):
         '<img class="xp-world xp-world-herochip" data-xp-world="multi" '
         'src="../images/xp/world-multi.svg" alt="" aria-hidden="true" '
         'width="430" height="430" loading="lazy" decoding="async">'
-        '<span class="pill">Worldwide · A1–C2 · free</span>'
+        '<span class="pill">Free courses · published levels only</span>'
         "<h1>Choose your language journey</h1>"
-        "<p>One complete learning space for courses, country contexts, lessons, deep "
-        "practice, review history and level tests. Every course below is free, runs in "
-        "your browser and keeps its progress on your own device. "
-        "Not sure which language? <a href=\"../courses/by-country/\"><b>Browse courses by "
-        "country</b></a> — %d countries, each with the languages we can teach for it.</p>"
+        "<p>Open the lessons, practice and level tests that have passed EkGuru's "
+        "publication checks. Complete courses are labelled A1–C2; partial courses "
+        "show only the levels that are actually available. Research-only languages "
+        "are not listed here. Progress stays on your own device.</p>"
         '<div class="course-hero-stats">'
-        "<span><b>%d</b> languages</span>"
-        "<span><b>6</b> levels each</span>"
+        "<span><b>%d</b> published languages</span>"
+        "<span><b>%d</b> complete A1–C2</span>"
+        "<span><b>%d</b> partial</span>"
         "<span><b>%d</b> lessons</span>"
         "<span><b>%d</b> test items</span>"
-        "<span><b>%d</b> country contexts</span>"
         "</div>"
         '<div class="course-orbit" aria-hidden="true"><i>अ</i><i>Α</i><i>ع</i><i>あ</i><i>മ</i></div>'
         "</section>" % (
-            len(countries_with_courses),        # the sentence in the lede
-            len(courses), lessons, tests,
-            len(countries_with_courses),        # the stat
+            len(courses),
+            sum(bool(c.get("complete")) for c in courses),
+            sum(not bool(c.get("complete")) for c in courses),
+            lessons,
+            tests,
         )
     )
 
     out.append(
         '<section class="xp-sec" style="padding-block-start:0">'
         '<div class="xp-head" style="text-align:start;margin-inline:0">'
-        "<h2>How a course is built</h2>"
-        "<p>Six levels, six lessons per level, and a test that unlocks the next step.</p>"
+        "<h2>How published course content is checked</h2>"
+        "<p>Each available level has authored lessons and a level test; missing levels stay unpublished.</p>"
         "</div>"
         '<div class="xp-grid xp-grid-3 xp-stagger">'
         '<div class="xp-card"><div class="xp-card-ico" aria-hidden="true">🔤</div>'
@@ -348,9 +365,13 @@ def build_hub(courses, levels, meta, names=None):
             "position": i,
             "item": {
                 "@type": "Course",
-                "name": "%s %s course (A1–C2)" % (c["name"], c["code"]),
-                "description": "Free %s course with six levels, 24 lessons, practice "
-                               "sets and level tests." % c["name"],
+                "name": "%s course (%s)" % (
+                    c["name"],
+                    "A1–C2 complete" if c.get("complete") else "%s available" % ", ".join((c.get("levels") or {}).keys()),
+                ),
+                "description": "Free %s course with %d published level(s), %d lessons, practice sets and level tests."
+                               % (c["name"], len(c.get("levels") or {}),
+                                  sum(int(x.get("lessons") or 0) for x in (c.get("levels") or {}).values())),
                 "url": href,
                 "inLanguage": c["code"],
                 "provider": {"@type": "Organization", "name": "EkGuru",
@@ -384,7 +405,7 @@ def build_home(courses, levels, meta):
         '  <div class="xp-wrap">',
         '    <div class="xp-head xp-rise">',
         '      <span class="xp-kicker">Free courses</span>',
-        "      <h2>39 languages, A1 to C2 — free, in your browser</h2>",
+        "      <h2>Choose a free language course</h2>",
         '      <p class="center xp-mid-cta" style="margin:12px 0 8px">'
         '<a class="btn btn-primary" href="courses/">Open the full course library</a> '
         '<a class="btn btn-ghost" href="start/">Find my level first</a></p>',
