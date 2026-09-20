@@ -86,7 +86,7 @@
   }
 
   function render() {
-    var host = document.getElementById("country-rails") || document.getElementById("markets");
+    var host = document.getElementById("markets");
     if (!host) return;
     var data = window.EKGURU_COUNTRY_LANGS;
     if (!Array.isArray(data) || !data.length) return;
