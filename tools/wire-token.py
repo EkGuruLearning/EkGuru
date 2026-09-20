@@ -67,6 +67,14 @@ def current_token():
 
 
 def main():
+    if "--help" in sys.argv or "-h" in sys.argv:
+        print("Usage: python3 tools/wire-token.py [--check | --help]")
+        print("Reads gitignored deploy-secrets.local.json (mailerToken) and writes")
+        print("it into js/site-config.js for deploy. Do NOT commit the wired file.")
+        print("  --check   report whether site-config already has a non-empty token")
+        print("  --help    this message (does not write anything)")
+        return 0
+
     if "--check" in sys.argv:
         tok = current_token()
         if tok:
