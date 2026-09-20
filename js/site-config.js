@@ -282,7 +282,7 @@ window.EKGURU_SITE = {
          ⚠️ v98: if your deployed script checks this word, paste the
          SAME value into the script's doPost() AND here. Left empty
          until you tell us the word you chose. */
-      token: "ricyGSzqougMM2zbVoacUMUPfnYDCnes"
+      token: ""
     },
 
     /* ---------- A SECOND FREE RELAY (optional) ----------
@@ -476,9 +476,9 @@ window.EKGURU_SITE = {
                             ekguru.goatcounter.com
                plausible:   your domain
 
-     Neither sets cookies or needs a consent banner. Google
-     Analytics was deliberately not used — see js/analytics.js
-     for the reasoning.
+     Both supported providers are cookieless, but EkGuru still
+     requests analytics permission before loading one. Google
+     Analytics is not used — see js/analytics.js.
 
      SETUP: goatcounter.com → sign up → pick a code → paste it
      below → push. Free, two minutes.
@@ -492,7 +492,7 @@ window.EKGURU_SITE = {
        Your own visits are NOT counted — open the admin dashboard
        once on a browser, or run
          localStorage.setItem("ekguru_no_track","1")
-       See js/analytics.js. No cookies, no consent banner needed. */
+       See js/analytics.js. It loads only after analytics opt-in. */
     provider: "goatcounter",
     site: "ekguru"
   },
@@ -838,28 +838,10 @@ window.EKGURU_SITE = {
      ========================================================= */
   founder: {
     name: "Prakash",
-    displayName: "Prakash — MNIT Jaipur",
-    title: "Founder & CEO, EkGuru",
-    degree: "B.Tech, Computer Science & Engineering",
-    college: "Malaviya National Institute of Technology Jaipur",
-    collegeShort: "MNIT Jaipur",
-    collegeUrl: "https://www.mnit.ac.in/",
-    batch: "2022–2026",
+    displayName: "Prakash",
+    title: "Site operator, EkGuru",
     city: "Jaipur, Rajasthan, India",
-
-    /* Birthplace — used only for local SEO signals and the founder schema.
-       Nothing here is shown on the site beyond the footer credit line.     */
-    birthplace: {
-      hamlet: "Gothwal Ki Dhani",
-      village: "Kolwa",
-      district: "Dausa",
-      state: "Rajasthan",
-      country: "India",
-      pincode: "303325",
-      landmark: "Kolwa Railway Station"
-    },
-    /* The ONLY sentence written about the founder anywhere on the site. */
-    bio: "Prakash — MNIT Jaipur, CSE 2022–2026 batch pass out.",
+    bio: "Site operator for EkGuru. See the About page for ownership and editorial disclosures.",
     email: "EkGuruLearning@gmail.com",
     linkedin: "https://www.linkedin.com/in/itstheprakash/",
     twitter: ""
