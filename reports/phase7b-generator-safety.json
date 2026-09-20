@@ -1,11 +1,41 @@
 {
-  "generated": "2026-09-13T13:26:28Z",
-  "pass": true,
+  "generated": "2026-09-20T05:18:42Z",
+  "pass": false,
   "results": [
     {
       "file": "tools/build-hindi-pages.py (regeneration run)",
       "ok": true,
       "detail": "decorated lessons: 0 | hub nav updated: False"
+    },
+    {
+      "file": "reading layer (969 pages onto the design system) — re-run after regeneration",
+      "ok": false,
+      "detail": "Traceback (most recent call last):\n  File \"/home/user/EkGuru/tools/build-legacy-pages.py\", line 672, in <module>\n    sys.exit(main())\n             ^^^^^^\n  File \"/home/user/EkGuru/tools/build-legacy-p"
+    },
+    {
+      "file": "page layer (555 lesson + answer + hub pages) — re-run after regeneration",
+      "ok": true,
+      "detail": "page layer: 1623 page(s) updated, 0 already on it, 0 table cells named"
+    },
+    {
+      "file": "print sheets (worksheet prints as a sheet) — re-run after regeneration",
+      "ok": true,
+      "detail": "print sheets: 1 written, 16 printable page(s) known"
+    },
+    {
+      "file": "site shell (one header + one footer, every page) — re-run after regeneration",
+      "ok": true,
+      "detail": "updated:  8 page(s) (8 got the shell, 0 refreshed, 8 had hand-written chrome replaced)"
+    },
+    {
+      "file": "the eight learner pages are on the shared stylesheet, not their own copy",
+      "ok": true,
+      "detail": "8/8 layered, no page-owned CSS"
+    },
+    {
+      "file": "the eight learner pages carry the site shell",
+      "ok": true,
+      "detail": "8/8 have header + footer"
     },
     {
       "file": "learn/hindi/review/index.html — srs-reset clears queue (v31 fix)",
