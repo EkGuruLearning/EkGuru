@@ -61,6 +61,31 @@ def read_file(path):
     with open(path, encoding="utf-8") as fh:
         return fh.read()
 
+
+def page_path(url):
+    """Resolve one local search URL to its checked-in HTML fallback."""
+    if not url:
+        return "index.html"
+    if url.endswith(".html"):
+        return url
+    return os.path.join(url, "index.html")
+
+
+def is_indexable(url):
+    """Fail closed: internal search must not republish quarantined pages."""
+    path = page_path(url)
+    if not os.path.isfile(path):
+        return False
+    html = read_file(path)
+    tags = re.findall(r"<meta\b[^>]*>", html, flags=re.I)
+    for tag in tags:
+        if not re.search(r"\bname=[\"']robots[\"']", tag, flags=re.I):
+            continue
+        content = re.search(r"\bcontent=[\"']([^\"']*)", tag, flags=re.I)
+        if content and "noindex" in content.group(1).lower():
+            return False
+    return True
+
 def title_of(path):
     html = read_file(path)
     m = re.search(r"<title>(.*?)</title>", html, re.S)
@@ -89,11 +114,8 @@ def main():
     for e in idx:
         e["s"] = classify(e["u"], e["s"])
 
-    # 2) warn (never silently drop) about entries whose page is missing
-    missing = [e["u"] for e in idx if not os.path.exists(os.path.join(e["u"], "index.html"))
-               and not (e["u"].endswith(".html") and os.path.exists(e["u"]))]
-    for m in missing:
-        print("WARN missing page (kept in index):", m, file=sys.stderr)
+    # Missing and noindex entries are removed below after every upsert. Keeping
+    # one here would make an unpublished page discoverable through site search.
 
     # 3) upsert practice pages (interactive labs) — the page is the source
     #    of truth for title/description, so refresh them on every run.
@@ -129,7 +151,7 @@ def main():
                      ("learn/contexts/heritage/", "Page"),
                      ("learn/hindi/intermediate/", "Page"),
                      ("learn/hindi/", "Page")):
-        if hub in by_url or not os.path.exists(os.path.join(hub, "index.html")):
+        if hub in by_url or not is_indexable(hub):
             continue
         idx.append({"u": hub, "t": title_of(os.path.join(hub, "index.html")) or hub,
                     "d": desc_of(os.path.join(hub, "index.html")) or "",
@@ -146,7 +168,7 @@ def main():
     for pk in packs:
         u = "languages/%s/" % pk["lang"]
         f = os.path.join(u, "index.html")
-        if not os.path.exists(f):
+        if not os.path.exists(f) or not is_indexable(u):
             continue
         t = title_of(f) or ("Learn %s basics" % pk["name"])
         d = desc_of(f) or ""
@@ -163,7 +185,7 @@ def main():
     import glob as _glob
     for d in sorted(_glob.glob("learn-hindi-from-*/")):
         f = os.path.join(d, "index.html")
-        if not os.path.exists(f) or d in by_url:
+        if not os.path.exists(f) or d in by_url or not is_indexable(d):
             continue
         t = title_of(f) or d.strip("/").replace("learn-hindi-from-", "").replace("-", " ").title()
         t = t if t.startswith("Learn Hindi from ") else "Learn Hindi from " + t
@@ -178,7 +200,7 @@ def main():
     #    Add-only: existing tutor entries keep their hand-tuned keywords.
     for d in sorted(_glob.glob("tutor/*/")):
         f = os.path.join(d, "index.html")
-        if not os.path.exists(f) or d in by_url:
+        if not os.path.exists(f) or d in by_url or not is_indexable(d):
             continue
         t = title_of(f) or d.strip("/").rsplit("/", 1)[-1].replace("-", " ").title()
         dd = desc_of(f) or ""
@@ -187,7 +209,13 @@ def main():
         added += 1
         print("added tutor:", d)
 
-    # 4) sort by section order then title, write
+    # Publication gate: search is a discovery surface, so noindex, missing and
+    # quarantined pages must never survive merely because an old row exists.
+    before_gate = len(idx)
+    idx = [entry for entry in idx if is_indexable(entry["u"])]
+    removed = before_gate - len(idx)
+
+    # 9) sort by section order then title, write
     order = {s: i for i, s in enumerate(SECTION_ORDER)}
     idx.sort(key=lambda e: (order.get(e["s"], 99), e["t"].lower()))
     with open(INDEX, "w", encoding="utf-8") as f:
@@ -200,8 +228,8 @@ def main():
     pills = ['<button class="pill" type="button" data-s="" aria-pressed="true">Everything</button>']
     pills += ['<button class="pill" type="button" data-s="%s" aria-pressed="false">%s</button>'
               % (s, s) for s in sections]
-    block = '  <div class="row" id="sf">\n    ' + '\n    '.join(pills) + '\n  </div>'
-    html2, n = re.subn(r'  <div class="row" id="sf">.*?</div>', block, html, count=1, flags=re.S)
+    block = '<div class="row" id="sf">\n' + '\n'.join(pills) + '\n</div>'
+    html2, n = re.subn(r'<div class="row" id="sf">.*?</div>', block, html, count=1, flags=re.S)
     if n != 1:
         print("WARN: could not find pill block in", SEARCH, file=sys.stderr)
         html2 = html
@@ -217,12 +245,18 @@ def main():
                          rf'\g<1>{len(idx)}\g<2>', html2, count=1)
     if n2 or n3 or n4:
         print(f"updated page counts (score={n2}, lede={n3}, meta={n4}) -> {len(idx)}")
+    html2 = html2.replace(
+        "Country pages carry lesson times in local time and prices in local currency;\n    language pages are the ones written for speakers of your first language.",
+        "Only public, indexable pages appear here. Quarantined country and source-language research is excluded.")
+    html2 = html2.replace(
+        "Japan, Brazil, the UAE — every country funnel is indexed, with the languages that are\n          documented there. The <b>Country</b> list above does the same thing in one click.",
+        "Country and language filters use only publication-gated pages. Research-only funnels are excluded from search.")
     with open(SEARCH, "w", encoding="utf-8") as f:
         f.write(html2)
 
     from collections import Counter
     c = Counter(e["s"] for e in idx)
-    print(f"search-index.json: {len(idx)} entries (added {added})")
+    print(f"search-index.json: {len(idx)} entries (added {added}, removed {removed} non-indexable)")
     for s in SECTION_ORDER:
         if c.get(s):
             print(f"  {s:13} {c[s]}")

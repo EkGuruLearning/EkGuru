@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Search every Hindi lesson, tool and tutor | EkGuru</title>
-<meta content="Search 651 Hindi lessons, guides, practice labs, materials, country pages, tools and tutors. Highlighting, filters and keyboard control — and nothing you typ..." name="description"/>
+<meta content="Search 411 Hindi lessons, guides, practice labs, materials, country pages, tools and tutors. Highlighting, filters and keyboard control — and nothing you typ..." name="description"/>
 <meta content="noindex, follow" name="robots"/>
 <link href="https://ekguru.shop/search/" rel="canonical"/>
 <!-- Search Console verification. tools/patch.js also adds this to
@@ -114,7 +114,7 @@
   <a class="skip" href="#main">Skip to content</a>
   <div class="hdr-in">
     <a class="logo" href="../index.html">
-      <span class="logo-mark" aria-hidden="true">E</span>
+      <img class="logo-img" src="../images/logo.svg" width="38" height="38" alt="EkGuru">
       <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
     </a>
     <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
@@ -153,7 +153,7 @@
 <div class="xp-wrap xp-wrap-narrow">
 <p class="crumb"><a href="../">EkGuru</a> › Search</p>
 <h1>Search EkGuru</h1>
-<p class="lede">Everything on the site — 651 pages of lessons, answers,
+<p class="lede">Everything on the site — 411 pages of lessons, answers,
 practice labs, materials, country pages, tools and tutors. Pick the country you are in
 and the language you think in, and the search keeps only what is written for you.
 Searching happens in your browser; nothing you type is sent anywhere.</p>
@@ -169,30 +169,26 @@ Searching happens in your browser; nothing you type is sent anywhere.</p>
 </div>
 <div aria-label="Filter by type" class="xp-filters" role="group">
 <div class="row" id="sf">
-<button aria-pressed="true" class="pill" data-s="" type="button">Everything</button>
-<button aria-pressed="false" class="pill" data-s="Answer" type="button">Answer</button>
-<button aria-pressed="false" class="pill" data-s="Country" type="button">Country</button>
-<button aria-pressed="false" class="pill" data-s="Daily Hindi" type="button">Daily Hindi</button>
-<button aria-pressed="false" class="pill" data-s="Home" type="button">Home</button>
-<button aria-pressed="false" class="pill" data-s="Language" type="button">Language</button>
-<button aria-pressed="false" class="pill" data-s="Lesson" type="button">Lesson</button>
-<button aria-pressed="false" class="pill" data-s="Location" type="button">Location</button>
-<button aria-pressed="false" class="pill" data-s="Material" type="button">Material</button>
-<button aria-pressed="false" class="pill" data-s="Page" type="button">Page</button>
-<button aria-pressed="false" class="pill" data-s="Phrases" type="button">Phrases</button>
-<button aria-pressed="false" class="pill" data-s="Practice" type="button">Practice</button>
-<button aria-pressed="false" class="pill" data-s="Question" type="button">Question</button>
-<button aria-pressed="false" class="pill" data-s="Tool" type="button">Tool</button>
-<button aria-pressed="false" class="pill" data-s="Tutor" type="button">Tutor</button>
-<button aria-pressed="false" class="pill" data-s="Vocabulary" type="button">Vocabulary</button>
+<button class="pill" type="button" data-s="" aria-pressed="true">Everything</button>
+<button class="pill" type="button" data-s="Answer" aria-pressed="false">Answer</button>
+<button class="pill" type="button" data-s="Daily Hindi" aria-pressed="false">Daily Hindi</button>
+<button class="pill" type="button" data-s="Home" aria-pressed="false">Home</button>
+<button class="pill" type="button" data-s="Language" aria-pressed="false">Language</button>
+<button class="pill" type="button" data-s="Lesson" aria-pressed="false">Lesson</button>
+<button class="pill" type="button" data-s="Location" aria-pressed="false">Location</button>
+<button class="pill" type="button" data-s="Material" aria-pressed="false">Material</button>
+<button class="pill" type="button" data-s="Page" aria-pressed="false">Page</button>
+<button class="pill" type="button" data-s="Phrases" aria-pressed="false">Phrases</button>
+<button class="pill" type="button" data-s="Practice" aria-pressed="false">Practice</button>
+<button class="pill" type="button" data-s="Question" aria-pressed="false">Question</button>
+<button class="pill" type="button" data-s="Tool" aria-pressed="false">Tool</button>
+<button class="pill" type="button" data-s="Tutor" aria-pressed="false">Tutor</button>
+<button class="pill" type="button" data-s="Vocabulary" aria-pressed="false">Vocabulary</button>
 </div>
 </div>
-<!-- Country and language, the two questions the section pills cannot
-       answer. Populated from search-index.json at load (js/site-search.js
-       §facets), so a new country funnel or language pack appears here with
-       no edit. Today that is 220 countries (196 country funnels and the
-       25 city tutor pages) and 32 languages (the "for speakers" guides, the
-       starter packs and the 10 translated Hindi guides). -->
+<!-- Country and language facets are derived from the publication-gated
+     search index. Quarantined country and source-language research pages are
+     excluded even though their files remain in the repository. -->
 <div aria-label="Filter by country and language" class="xp-filters" id="facets" role="group">
 <label class="fld"><span>Country</span>
 <select aria-label="Show only pages for a country" id="c-country">
@@ -204,10 +200,9 @@ Searching happens in your browser; nothing you type is sent anywhere.</p>
 <option value="">Every language</option>
 </select>
 </label>
-<p class="fld-note muted">Country pages carry lesson times in local time and prices in local currency;
-    language pages are the ones written for speakers of your first language.</p>
+<p class="fld-note muted">Only public, indexable pages appear here. Quarantined country and source-language research is excluded.</p>
 </div>
-<p class="score" id="sc">Type to search 651 pages</p>
+<p class="score" id="sc">Type to search 411 pages</p>
 <p class="xp-recent" id="search-recent"></p>
 <p aria-live="polite" class="vh" id="search-live" role="status"></p>
 <div id="res"></div>
@@ -247,8 +242,7 @@ Searching happens in your browser; nothing you type is sent anywhere.</p>
 <div class="xp-card">
 <div aria-hidden="true" class="xp-card-ico">🌍</div>
 <h3>Search by place</h3>
-<p>Japan, Brazil, the UAE — every country funnel is indexed, with the languages that are
-          documented there. The <b>Country</b> list above does the same thing in one click.</p>
+<p>Country and language filters use only publication-gated pages. Research-only funnels are excluded from search.</p>
 </div>
 <div class="xp-card">
 <div aria-hidden="true" class="xp-card-ico">🧰</div>
@@ -444,10 +438,10 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
   <div class="wrap ftr-in">
     <div>
       <a class="logo" href="../index.html">
-        <span class="logo-mark" aria-hidden="true">E</span>
+        <img class="logo-img" src="../images/logo.svg" width="38" height="38" alt="EkGuru">
         <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
       </a>
-      <p style="margin-top:14px">Online Hindi lessons with verified, caring tutors.</p>
+      <p style="margin-top:14px">Online Hindi lessons with independent tutor profiles.</p>
     </div>
     <div>
       <h3>Site</h3>
@@ -477,6 +471,7 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
       <a href="../about/">About EkGuru</a>
       <a href="../privacy/">Privacy policy</a>
       <a href="../terms/">Terms of use</a>
+      <a href="../monetization-disclosure/">Monetization disclosure</a>
       <a href="../disclaimer/">Disclaimer</a>
       <a href="../copyright/">Copyright</a>
       <a href="../cookie-policy/">Cookie policy</a>

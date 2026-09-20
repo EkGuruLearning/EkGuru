@@ -607,7 +607,6 @@
         name: (tutor.videoTitle || "Intro video") + " — " + tutor.name,
         description: "Introduction video from " + tutor.name + ", online Hindi tutor on EkGuru.",
         thumbnailUrl: ["https://i.ytimg.com/vi/" + tutor.youtubeId + "/maxresdefault.jpg"],
-        uploadDate: "2026-01-01T00:00:00+05:30",
         contentUrl: "https://www.youtube.com/watch?v=" + tutor.youtubeId,
         embedUrl: "https://www.youtube-nocookie.com/embed/" + tutor.youtubeId,
         publisher: { "@id": BASE + "#organization" }
@@ -618,14 +617,14 @@
   /* --- FAQ (rich result eligible) --- */
   var FAQ = {
     en: [
-      ["How much does an online Hindi lesson cost on EkGuru?", "Private 1-on-1 Hindi lessons start at {minPrice} for a 50-minute session. The exact price is shown on each tutor's profile."],
-      ["Do I need to know any Hindi before starting?", "No. Our tutors teach complete beginners regularly, starting from the Devanagari alphabet and everyday greetings."],
-      ["Are the tutors native Hindi speakers?", "Yes. Every tutor listed on EkGuru is a native Hindi speaker and teaches Hindi only."],
-      ["Can I take a trial lesson first?", "Yes. A trial lesson is available so you can decide after your very first class, with no obligation."],
-      ["How are the lessons delivered?", "Lessons are live and one-to-one over video call. You agree the platform and timing directly with your tutor."],
-      ["Which timezones do you cover?", "Our tutors teach students in the United States, Spain, France, Germany, Brazil, Japan and the UAE, with slots arranged around your local time."],
+      ["How much does an online Hindi lesson cost on EkGuru?", "Check the current price, duration, currency and booking terms on the individual tutor profile before contacting the tutor."],
+      ["Do I need to know any Hindi before starting?", "Tutor profiles state the levels they support. Check the profile and confirm that the tutor currently accepts complete beginners."],
+      ["What language background do tutors have?", "Each profile states the tutor’s language background and subjects. Review those details before sending a lesson request."],
+      ["Can I take a trial lesson first?", "Check the individual tutor profile for current trial terms before sending a request."],
+      ["How are the lessons delivered?", "Ask the tutor which lesson platform and format they currently offer, then agree the timing directly."],
+      ["Which timezones do you cover?", "Availability depends on the individual tutor. Confirm the timezone and current lesson time directly before booking."],
       ["How do I contact a tutor?", "Open a tutor profile and use the email button, or book directly through their Preply profile if one is linked."],
-      ["Can I become a Hindi tutor on EkGuru?", "Yes. Listing is free with no commission — send your bio, photo, intro video and rates from the Become a Tutor page."]
+      ["Can I apply to become a Hindi tutor on EkGuru?", "Yes. Send the requested profile information from the Become a Tutor page. Submission does not guarantee publication."]
     ]
   };
   var faqList = (FAQ[L] || FAQ.en).map(function (qa) {
@@ -673,19 +672,19 @@
       "@type": "HowTo",
       "@id": BASE + "#howto",
       name: "How to start learning Hindi online with a private tutor",
-      description: "Three steps to book your first one-to-one Hindi lesson with a verified native tutor.",
+      description: "Three steps to request a first one-to-one Hindi lesson from a tutor profile.",
       totalTime: "PT10M",
       estimatedCost: { "@type": "MonetaryAmount", currency: S.currencyCode || "USD",
         value: String(T.length ? Math.min.apply(null, T.map(function (x) { return x.priceUSD || 0; })) : 3) },
       step: [
         { "@type": "HowToStep", position: 1, name: "Choose your tutor",
-          text: "Browse verified native Hindi tutors, watch their intro videos and read student reviews, then pick the teacher who fits your goal.",
+          text: "Browse tutor profiles, check the stated background, terms and any reviews, then choose the teacher who fits your goal.",
           url: BASE + "find-tutors.html" },
         { "@type": "HowToStep", position: 2, name: "Request a time",
-          text: "Open a tutor profile, click Book a lesson, choose a slot shown in your own timezone and send your details.",
+          text: "Open a tutor profile, review any published availability, and confirm the timezone and current time directly.",
           url: BASE + "find-tutors.html" },
         { "@type": "HowToStep", position: 3, name: "Take a trial lesson",
-          text: "Meet your tutor for a live one-to-one video lesson and decide afterwards. There is no obligation.",
+          text: "Confirm the platform, format and current booking terms with the tutor before the lesson.",
           url: BASE }
       ]
     });
@@ -704,54 +703,13 @@
       "@type": "Person",
       "@id": BASE + "#founder",
       name: F.name,
-      alternateName: [F.displayName, F.name + " MNIT Jaipur", F.name + " EkGuru"].filter(Boolean),
-      jobTitle: F.title || "Founder",
+      alternateName: [F.displayName].filter(Boolean),
+      jobTitle: F.title || "Site operator",
       description: F.bio || "",
       email: F.email || S.email,
+      url: BASE + "about/",
       worksFor: { "@id": BASE + "#organization" },
-      founder: true,
-      knowsAbout: ["Hindi language education", "EdTech", "Online tutoring platforms",
-        "Computer Science and Engineering", "Software engineering", "Startups in India"],
-      alumniOf: {
-        "@type": "CollegeOrUniversity",
-        name: F.college || "Malaviya National Institute of Technology Jaipur",
-        alternateName: F.collegeShort || "MNIT Jaipur",
-        url: F.collegeUrl || "https://www.mnit.ac.in/",
-        address: { "@type": "PostalAddress", addressLocality: "Jaipur",
-                   addressRegion: "Rajasthan", addressCountry: "IN" }
-      },
-      hasCredential: {
-        "@type": "EducationalOccupationalCredential",
-        credentialCategory: "degree",
-        educationalLevel: "Bachelor of Technology",
-        about: F.degree || "Computer Science & Engineering",
-        recognizedBy: { "@type": "CollegeOrUniversity", name: F.collegeShort || "MNIT Jaipur" },
-        dateCreated: String(F.batch || "2022-2026").split(/[-–]/).pop().trim()
-      },
-      address: { "@type": "PostalAddress", addressLocality: "Jaipur",
-                 addressRegion: "Rajasthan", addressCountry: "IN" },
-      birthPlace: (function () {
-        var b = F.birthplace || {};
-        if (!b.village) return undefined;
-        return {
-          "@type": "Place",
-          name: [b.hamlet, b.village, b.district].filter(Boolean).join(", "),
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: b.hamlet || undefined,
-            addressLocality: b.village,
-            addressRegion: b.state || "Rajasthan",
-            postalCode: b.pincode,
-            addressCountry: "IN"
-          },
-          containedInPlace: {
-            "@type": "AdministrativeArea",
-            name: (b.district || "Dausa") + " district, " + (b.state || "Rajasthan") + ", India"
-          }
-        };
-      })(),
-      nationality: { "@type": "Country", name: "India" },
-      sameAs: [F.linkedin, F.twitter, S.youtubeChannel].filter(Boolean)
+      sameAs: [F.linkedin, F.twitter].filter(Boolean)
     });
     ORG.founder = { "@id": BASE + "#founder" };
     ORG.employee = { "@id": BASE + "#founder" };

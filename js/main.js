@@ -281,10 +281,7 @@
         '<span class="fdr-lbl">' + esc(t("founder.by")) + "</span> " +
         nameHtml +
         '<span class="fdr-sep">·</span>' +
-        '<a class="fdr-col" href="' + esc(F.collegeUrl || "#") + '" target="_blank" rel="noopener">' +
-          esc(F.collegeShort) + "</a>" +
-        '<span class="fdr-sep">·</span>' +
-        '<span class="fdr-deg">' + esc(t("founder.cse")) + " " + esc(F.batch) + "</span>";
+        '<span class="fdr-deg">' + esc(t("founder.cse")) + "</span>";
     });
   }
 

@@ -43,10 +43,10 @@
   var HINTS = [
     ["Devanagari works", "Type पानी, किताब or नमस्ते — the index is Unicode-normalised."],
     ["Roman works too", "“paani”, “kitab”, “namaste” find the same pages when the fuzzy helper is loaded."],
-    ["Try a place", "Japan, UAE, Brazil — every country funnel is indexed."],
+    ["Try a public location", "Country filters include only publication-gated location pages."],
     ["Try a tool", "flashcards, alphabet, transliteration, numbers."],
     ["Search by type", "Use the filter chips to see only lessons, tools, tutors or materials."],
-    ["Search by country", "Pick your country in the Country list — lesson times come in your local time and prices in your currency."],
+    ["Search by location", "Research-only country funnels are excluded from site search."],
     ["Search by language", "The Language list keeps the pages written for speakers of your first language."]
   ];
 
@@ -108,17 +108,10 @@
   }
 
   /* ---------- facets: country and language ------------------------------
-     Prakash: "search mai done se search ho ... country or language".
-
-     Every country funnel is already in the index (learn-hindi-from-japan/,
-     hindi-tutor/dubai/), and so is every language page
-     (learn-hindi-for-japanese-speakers/, languages/ja/, ja/hindi/). The
-     section pills answer "what kind of page is this"; these two answer the
-     question a visitor actually has — "for MY country" and "for MY
-     language" — and they combine with the pills rather than replacing them.
-
-     The facets are derived from the index at load, so a country funnel added
-     by a generator appears in the dropdown with no edit here.
+     These filters are derived only from the publication-gated search index.
+     Quarantined country and source-language funnels are deliberately absent;
+     public tutor-location, translated-interface and course pages can still
+     supply useful facets without turning research URLs into search results.
      ---------------------------------------------------------------------- */
 
   /* A country slug from a URL, or "" — the two shapes the site uses. */
@@ -130,17 +123,21 @@
     return "";
   }
 
-  /* A language slug from a URL, or "". Three shapes: the "for speakers"
-     guides ("learn-hindi-for-japanese-speakers/"), the starter packs
-     ("languages/ja/") and the seven translated markets ("ja/hindi/").
-
-     The three shapes spell the same language three different ways — the
-     guides use the English name, the packs and markets use the ISO code —
-     so returning the raw slug would put "Japanese" and "ja" in the dropdown
-     as two separate languages, each with half the pages. LANG_ALIAS is
-     filled from the index itself (the starter pack's title carries the
-     name: "Learn Japanese basics") before the facets are counted. */
+  /* A language slug from a URL, or "". Legacy URL shapes are understood,
+     but only rows admitted by search-index.json can reach this function.
+     Aliases keep names and ISO-based paths in a single facet. */
   var LANG_ALIAS = Object.create(null);
+  /* Public interface translations are not course-publication claims. Their
+     localized titles cannot be parsed with the English "Learn …" pattern, so
+     give the facet an explicit display alias rather than exposing bare codes. */
+  var INTERFACE_LANGUAGE = {
+    ar: "arabic", de: "german", es: "spanish", fr: "french",
+    id: "indonesian", ja: "japanese", pt: "portuguese",
+    tr: "turkish", vi: "vietnamese"
+  };
+  Object.keys(INTERFACE_LANGUAGE).forEach(function (code) {
+    LANG_ALIAS[code] = INTERFACE_LANGUAGE[code];
+  });
 
   function langSlugFromUrl(u) {
     var m = /^learn-hindi-for-([a-z0-9-]+)-speakers(?:\/|$)/.exec(u);
@@ -194,9 +191,8 @@
       .replace(/\bUk\b/, "UK").replace(/\bGcc\b/, "GCC");
   }
 
-  /* The starter packs carry the language name in their title
-     ("Learn Japanese basics — free starter pack"), which beats mapping a
-     code through a table that would go stale. */
+  /* Published language pages carry a display name in their title, which
+     avoids maintaining a second code-to-name table here. */
   function languageLabel(slug, index) {
     for (var i = 0; i < index.length; i++) {
       var row = index[i];

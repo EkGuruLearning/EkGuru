@@ -76,6 +76,16 @@ const lang = w.document.getElementById("c-lang");
 const status = () => w.document.getElementById("sc").textContent.trim();
 const optionTexts = (sel) => [...sel.options].map((o) => o.text);
 
+const leaked = index.filter((row) => {
+  const file = row.u.endsWith(".html") ? row.u : path.join(row.u || ".", "index.html");
+  if (!fs.existsSync(file)) return true;
+  const source = fs.readFileSync(file, "utf8");
+  return /<meta\b(?=[^>]*name=["']robots["'])(?=[^>]*content=["'][^"']*noindex)/i.test(source) ||
+    /<meta\b(?=[^>]*content=["'][^"']*noindex)(?=[^>]*name=["']robots["'])/i.test(source);
+});
+check("search index excludes missing and noindex pages", leaked.length === 0,
+  leaked.slice(0, 5).map((row) => row.u).join(", "));
+
 const type = async (value) => {
   const q = w.document.getElementById("q");
   q.value = value;
@@ -95,16 +105,16 @@ const choose = async (sel, re) => {
 await wait(900);
 
 /* ---------- the lists exist before the visitor types ---------- */
-check("country dropdown is filled at load", country && country.options.length > 190,
+check("country dropdown is filled from public location pages", country && country.options.length > 10,
   `${country ? country.options.length : 0} options`);
-check("language dropdown is filled at load", lang && lang.options.length > 25,
+check("language dropdown is filled from published language pages", lang && lang.options.length > 10,
   `${lang ? lang.options.length : 0} options`);
 check("the country list starts with the empty choice",
   optionTexts(country)[0] === "Every country", optionTexts(country)[0]);
 check("the language list starts with the empty choice",
   optionTexts(lang)[0] === "Every language", optionTexts(lang)[0]);
-check("status line says how many pages are searchable",
-  /651 pages/.test(status()), status());
+check("status line says how many publication-gated pages are searchable",
+  new RegExp(String(index.length) + " pages").test(status()), status());
 
 /* ---------- one name per language, no bare codes ---------- */
 const bare = optionTexts(lang).filter((t) => /^[A-Z]{2} \(\d+\)$/.test(t));
