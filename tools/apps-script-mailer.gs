@@ -119,11 +119,15 @@ function allowedRecipients() {
   ];
 }
 
-/** Students (strangers) must receive their own booking receipt, so
- *  stranger addresses have to be accepted. Set this to false to lock
- *  the relay down to allowedRecipients() only — the site will then
- *  route student receipts through the other providers. */
-var ALLOW_STRANGERS = true;
+/** Types that MAY address a stranger (student / visitor / tutor).
+ *  Internal copies and admin outbound MUST land in allowedRecipients()
+ *  only — otherwise this Web App is an unrestricted Gmail relay the
+ *  moment its URL and token appear in page source. */
+var STRANGER_OK_TYPES = [
+  "CONTACT_VISITOR_CONFIRMATION",
+  "BOOKING_STUDENT_CONFIRMATION",
+  "BOOKING_TUTOR_NOTIFICATION"
+];
 
 /** Daily ceiling. Keep it below Gmail's own cap so we fail gracefully. */
 var DAILY_LIMIT = 90;
@@ -138,7 +142,7 @@ function doGet() {
     success: "true",
     status: "ok",
     script: SCRIPT_NAME,
-    strangers: ALLOW_STRANGERS,
+    strangers: true,
     limit: DAILY_LIMIT,
     configured: !!token()
   });
@@ -189,15 +193,16 @@ function handle(e) {
     return json({ success: "false", message: "Not authorised." });
   }
 
-  // 2. Message type — WHITELIST. Unknown types are refused before
-  //    any recipient is touched, so the relay cannot be used to
-  //    carry arbitrary content (open-relay defence).
+  // 2. Message type — WHITELIST. Empty AND unknown types are refused
+  //    before any recipient is touched. An empty type used to fall
+  //    through and send arbitrary client HTML — that is an open relay.
   var type = String(body.type || "").trim().toUpperCase();
-  if (type && MESSAGE_TYPES.indexOf(type) === -1) {
+  if (!type || MESSAGE_TYPES.indexOf(type) === -1) {
     return json({ success: "false", message: "Unknown message type." });
   }
 
   // 3. Recipient — must be a real address we are willing to write to.
+  //    Header-injection: isEmail() rejects CR/LF/commas.
   var to = String(body.to || "").trim();
   if (!isEmail(to)) {
     return json({ success: "false", message: "Missing or invalid recipient." });
@@ -205,7 +210,8 @@ function handle(e) {
   var known = allowedRecipients().some(function (a) {
     return a.toLowerCase() === to.toLowerCase();
   });
-  if (!known && !ALLOW_STRANGERS) {
+  var strangerOk = STRANGER_OK_TYPES.indexOf(type) !== -1;
+  if (!known && !strangerOk) {
     return json({ success: "false", message: "Recipient not allowed." });
   }
 
@@ -345,7 +351,9 @@ function json(obj) {
 }
 
 function isEmail(s) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(s || ""));
+  s = String(s || "").trim();
+  if (!s || /[\r\n\0,;<>]/.test(s)) return false;
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s);
 }
 
 function firstEmail(s) {

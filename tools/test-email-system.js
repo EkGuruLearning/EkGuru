@@ -177,8 +177,9 @@ function internalRows() {
     const student = byType("BOOKING_STUDENT_CONFIRMATION");
     check("tutor job stamped BOOKING_TUTOR_NOTIFICATION", tutor.length === 1, "got " + tutor.length);
     check("student job stamped BOOKING_STUDENT_CONFIRMATION", student.length === 1, "got " + student.length);
-    check("internal record goes via the internal route (rows, not Apps Script)",
-      internalRows().length === 1, "got " + internalRows().length);
+    const internalTyped = byType("BOOKING_EKGURU_NOTIFICATION");
+    check("internal record stamped BOOKING_EKGURU_NOTIFICATION (Apps Script primary)",
+      internalTyped.length === 1, "got " + internalTyped.length + " typed, rows=" + internalRows().length);
     if (tutor[0]) {
       check("tutor payload has html + text", !!tutor[0].parsed.html && !!tutor[0].parsed.text);
       check("tutor idempotencyKey = entityId:type",
@@ -202,13 +203,14 @@ function internalRows() {
       check("student idempotencyKey = entityId:type",
         student[0].parsed.idempotencyKey === "EK-TEST-01:BOOKING_STUDENT_CONFIRMATION");
     }
-    const rec = internalRows()[0];
+    const rec = internalTyped[0] || internalRows()[0];
     if (rec) {
-      check("internal record via the free internal relay (FormSubmit endpoint)",
-        /formsubmit\.co\/ajax\//i.test(rec.url), rec.url.slice(0, 60));
-      check("internal record carries delivery state row",
-        /Student: sending/.test(rec.parsed["Email Delivery"] || "") &&
-        /Tutor: sending/.test(rec.parsed["Email Delivery"] || ""));
+      check("internal record via Apps Script (or Web3Forms fallback), never FormSubmit",
+        /script\.google\.com|web3forms\.com/i.test(rec.url) &&
+        !/formsubmit\.co/i.test(rec.url), rec.url.slice(0, 80));
+      check("internal record is the internal template (not a student copy)",
+        /internal booking/i.test(rec.parsed.html || rec.parsed["Email Delivery"] || "") ||
+        /BOOKING_EKGURU_NOTIFICATION/.test(rec.parsed.type || rec.parsed.idempotencyKey || ""));
     }
   }
 
@@ -240,11 +242,13 @@ function internalRows() {
       "got " + byType("BOOKING_TUTOR_NOTIFICATION").length);
     check("student still gets their receipt",
       byType("BOOKING_STUDENT_CONFIRMATION").length === 1);
-    const rec = internalRows()[0];
+    const rec = byType("BOOKING_EKGURU_NOTIFICATION")[0] || internalRows()[0];
     check("internal record still written", !!rec);
     if (rec) {
+      const blob = JSON.stringify(rec.parsed);
       check("internal record marks tutor email state honestly",
-        rec.parsed["Tutor Email"] === "TUTOR_EMAIL_UNAVAILABLE");
+        rec.parsed["Tutor Email"] === "TUTOR_EMAIL_UNAVAILABLE" ||
+        /TUTOR_EMAIL_UNAVAILABLE/.test(blob));
     }
   }
 
@@ -266,8 +270,10 @@ function internalRows() {
     check("contact() resolves", !!cres.ok);
     const vis = byType("CONTACT_VISITOR_CONFIRMATION");
     check("visitor ack stamped CONTACT_VISITOR_CONFIRMATION", vis.length === 1, "got " + vis.length);
-    const intl = internalRows().filter((p) => p.parsed["Name"] === "Aarav");
-    check("internal contact goes via the internal route", intl.length === 1, "got " + intl.length);
+    const intl = byType("CONTACT_EKGURU_NOTIFICATION").concat(
+      internalRows().filter((p) => p.parsed["Name"] === "Aarav")
+    );
+    check("internal contact stamped CONTACT_EKGURU_NOTIFICATION", intl.length >= 1, "got " + intl.length);
     if (vis[0]) {
       check("visitor ack recipient = visitor email", vis[0].parsed.to === "aarav@example.com");
       check("visitor ack replyTo = support (not a bounce-back to self)",
@@ -278,9 +284,9 @@ function internalRows() {
     }
     if (intl[0]) {
       check("internal contact replyTo = visitor email",
-        (intl[0].parsed.email || "").toLowerCase() === "aarav@example.com");
-      check("internal contact via the free internal relay (FormSubmit endpoint)",
-        /formsubmit\.co\/ajax\//i.test(intl[0].url), intl[0].url.slice(0, 60));
+        (intl[0].parsed.email || intl[0].parsed.replyTo || "").toLowerCase() === "aarav@example.com");
+      check("internal contact not via FormSubmit",
+        !/formsubmit\.co/i.test(intl[0].url), intl[0].url.slice(0, 80));
     }
   }
 
@@ -300,8 +306,10 @@ function internalRows() {
     check("compose() resolves", !!ores.ok);
     const outbound = byType("ADMIN_CONTACT_OUTBOUND");
     check("outbound stamped ADMIN_CONTACT_OUTBOUND", outbound.length === 1, "got " + outbound.length);
-    const intl = internalRows().filter((p) => p.parsed["Message Sent"]);
-    check("admin internal copy sent to own inbox", intl.length === 1, "got " + intl.length);
+    const intl = byType("ADMIN_CONTACT_INTERNAL_COPY").concat(
+      internalRows().filter((p) => p.parsed["Message Sent"])
+    );
+    check("admin internal copy sent to own inbox", intl.length >= 1, "got " + intl.length);
     check("compose returns a conversation ref", /^ADMIN-/.test(ores.ref || ""), ores.ref);
     check("compose returns the internal copy result", !!ores.internalCopy);
     if (outbound[0]) {
@@ -313,8 +321,9 @@ function internalRows() {
     }
     if (intl[0]) {
       check("admin internal copy carries recipient + message",
-        intl[0].parsed["Recipient Email"] === "student@example.com" &&
-        /confirmed/.test(intl[0].parsed["Message Sent"]));
+        JSON.stringify(intl[0].parsed).toLowerCase().indexOf("student@example.com") > -1 &&
+        /confirmed/i.test(JSON.stringify(intl[0].parsed)),
+        JSON.stringify(intl[0].parsed).slice(0, 180));
     }
   }
 

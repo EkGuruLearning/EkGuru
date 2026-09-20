@@ -764,8 +764,9 @@
          booking receipt rides as a CC here. But a message
          ADDRESSED to a stranger must go via Web3Forms. */
       canAddressStrangers: false,
-      /* Always available — it is the floor of the chain. */
-      enabled: function () { return true; },
+      /* Retired from the live chain. Kept so leftover config and
+         the dashboard can still name it; chain() never selects it. */
+      enabled: function () { return false; },
       build: function (to, payload) {
         /* FormSubmit passes the payload straight through, so the
            Apps Script-only fields must be stripped here or they
@@ -785,6 +786,7 @@
      that have already hit their monthly limit. */
   function chain() {
     return PROVIDERS.filter(function (p) {
+      if (!isLive(p)) return false;
       /* v99 — routing asks sendable(), not enabled(). A provider
          whose URL is set but whose client token is missing (the
          Apps Script relay before the owner wires the token) is
@@ -831,9 +833,11 @@
              (!strangerOnly || p.canAddressStrangers);
     });
     if (!usable.length) {
-      var last = PROVIDERS[PROVIDERS.length - 1];
-      if (except.indexOf(last.id) === -1 &&
-          (!strangerOnly || last.canAddressStrangers)) usable = [last];
+      /* Do NOT force FormSubmit as a hidden floor. Stranger mail
+         that no live relay can carry must fail honestly so the UI
+         can offer mailto — not silently post to an unactivated
+         address and report success. */
+      return null;
     }
     if (!usable.length) return null;
 
@@ -1194,8 +1198,21 @@
   }
 
   function isEmail(v) {
-    return !!v && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v).trim());
+    v = String(v == null ? "" : v).trim();
+    if (!v || /[\r\n\0,;<>]/.test(v)) return false;
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
   }
+
+  function oneLine(s, max) {
+    return String(s == null ? "" : s).replace(/[\r\n\t]+/g, " ").trim().slice(0, max || 150);
+  }
+
+  /* Production chain: Apps Script (primary) → Web3Forms (one fallback).
+     EmailJS / StaticForms / FormSubmit stay in PROVIDERS for dashboard
+     visibility of leftover config, but they are never selected.
+     mailto: is the tertiary path in the form UI, not a relay. */
+  var LIVE_IDS = ["appsscript", "web3forms"];
+  function isLive(p) { return LIVE_IDS.indexOf(p.id) !== -1; }
 
   /* Where the tutor's copy should go.
      A tutor file may set  formKey: "abc123..."  to use a hidden
@@ -1772,6 +1789,23 @@
   }
 
 
+  /* Client-side burst cap. Bypassable (it is a static page) — the
+     Apps Script daily cap is the real backstop. This only stops a
+     double-click loop from burning the fallback quota in one tab. */
+  var RATE_KEY = "ekguru_mail_rate_v1";
+  function tooMany(kind) {
+    try {
+      var now = Date.now();
+      var m = JSON.parse(localStorage.getItem(RATE_KEY) || "{}") || {};
+      var list = (m[kind] || []).filter(function (t) { return now - t < 10 * 60 * 1000; });
+      if (list.length >= 8) return true;
+      list.push(now);
+      m[kind] = list;
+      localStorage.setItem(RATE_KEY, JSON.stringify(m));
+    } catch (e) {}
+    return false;
+  }
+
   var Mail = {
 
     /* Is real sending switched on and usable in this browser? */
@@ -1810,6 +1844,9 @@
 
       if (CFG.enabled === false) {
         return Promise.reject(new Error("Mail sending is switched off in site-config.js"));
+      }
+      if (tooMany("booking")) {
+        return Promise.reject(new Error("Too many booking requests from this browser. Please wait a few minutes, or send from your own email app."));
       }
       if (!target) {
         return Promise.reject(new Error("No recipient address configured"));
@@ -2452,6 +2489,9 @@
 
       if (CFG.enabled === false) {
         return Promise.reject(new Error("Mail sending is switched off in site-config.js"));
+      }
+      if (tooMany("contact")) {
+        return Promise.reject(new Error("Too many messages from this browser. Please wait a few minutes, or send from your own email app."));
       }
       if (typeof window.fetch !== "function") {
         return Promise.reject(new Error("This browser cannot send in the background"));
