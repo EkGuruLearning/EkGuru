@@ -370,49 +370,19 @@ console.log("C. Home search suggestions — runtime");
   ok(!/<img\s/i.test(box.innerHTML) && /&lt;img/.test(box.innerHTML), "suggestion HTML escaped (no injection)");
 }
 
-/* ================= D. SUPPORT GATE (§8/§9, frontend layer) ================= */
-console.log("D. Support page gate — runtime");
+/* ================= D. SUPPORT RELEASE STATE (§8/§9) ================= */
+console.log("D. Support page gate — hosted-link release");
 {
   const html = fs.readFileSync(path.join(ROOT, "support/index.html"), "utf8");
-  const dom = new JSDOM(html, { url: "http://localhost/support/", runScripts: "outside-only", pretendToBeVisual: true });
-  const { window } = dom;
-  polyfills(window);
-  const fetched = [];
-  window.fetch = (u) => { fetched.push(String(u)); return Promise.reject(new Error("offline")); };
-  const clock = installClock(window);
-  await ready(window);
-  load(window, "js/support-razorpay.js");
-
-  const btn = window.document.getElementById("support-submit-btn");
-  ok(btn.disabled && btn.getAttribute("aria-disabled") === "true", "submit locked while COMING_SOON");
-  ok(/Coming Soon/.test(btn.textContent), "honest Coming Soon label");
-  ok(window.document.querySelectorAll(".razorpay-embed-btn").length === 1, "exactly one embed in live DOM");
-  ok(!window.document.querySelector('script[src*="checkout.razorpay.com"]'), "no checkout SDK preloaded while gated");
-  ok(!window.document.getElementById("ekguru-mock-checkout-modal"), "no mock modal in DOM");
-
-  const form = window.document.getElementById("support-payment-form");
-  const ev = new window.Event("submit", { bubbles: true, cancelable: true });
-  form.dispatchEvent(ev);
-  ok(ev.defaultPrevented, "submit intercepted (no order attempt possible)");
-  ok(!fetched.some((u) => /create-order/.test(u)), "no create-order call while gated");
-  ok(![...window.document.scripts].some((s) => /create-order/.test(s.src)), "no JSONP order fallback while gated");
-  ok(typeof window.EkGuruSupportPayments === "object", "support API exported");
-  await new Promise((r) => setTimeout(r, 20)); // let fetch rejection arm the JSONP fallback
-  clock.advance(11000); // JSONP timeout path
-  ok(/temporarily unavailable|first supporter/i.test(window.document.getElementById("recent-supporters-list").textContent), "supporters list fails honestly offline");
-}
-{
-  const html = fs.readFileSync(path.join(ROOT, "support/index.html"), "utf8");
-  const dom = new JSDOM(html, { url: "http://localhost/support/", runScripts: "outside-only", pretendToBeVisual: true });
-  const { window } = dom;
-  polyfills(window);
-  window.fetch = () => Promise.reject(new Error("offline"));
-  installClock(window);
-  await ready(window);
-  window.PAYMENT_MODE = "LIVE_API";
-  load(window, "js/support-razorpay.js");
-  const btn = window.document.getElementById("support-submit-btn");
-  ok(!btn.disabled && /Support EkGuru/.test(btn.textContent), "single-flag activation unlocks submit");
+  const dom = new JSDOM(html, { url: "https://ekguru.shop/support/", runScripts: "outside-only", pretendToBeVisual: true });
+  const { document } = dom.window;
+  const links = [...document.querySelectorAll('a[href^="https://pages.razorpay.com/"]')];
+  ok(links.length === 1, "exactly one Razorpay-hosted payment link");
+  ok(links[0] && links[0].target === "_blank" && /noopener/.test(links[0].rel), "hosted link is isolated");
+  ok(!document.getElementById("support-payment-form"), "owner-only custom checkout is not public");
+  ok(!document.getElementById("recent-supporters-section"), "unverified supporter feed is not public");
+  ok(![...document.scripts].some((node) => /razorpay|support-razorpay/i.test(node.src)), "no payment SDK or custom-payment script runs on EkGuru");
+  ok(/optional/i.test(document.getElementById("support-active-section").textContent) && /does not purchase/i.test(document.getElementById("support-active-section").textContent), "copy distinguishes support from a purchase");
 }
 
 /* ================= E. DRAWER OWNERSHIP + FILE GUARDS (§11/v200.2) ================= */
@@ -503,7 +473,7 @@ function esc(win) {
   load(window, "js/support-razorpay.js");
   load(window, "js/support-razorpay.js"); // livepatch/SW re-injection
   ok(window.EKGURU_RAZORPAY_READY === true, "razorpay guard flag set");
-  ok(support === 1 && order === 0, "second injection fetches nothing (no double listener, no order risk)");
+  ok(support === 0 && order === 0, "inactive payment script makes no fetch and adds no order risk");
 
   // E5: swipe-to-close on the shell-owned drawer (ported from main.js v163)
   const sdom = drawerPage("en", ["js/site-shell.js", "js/experience.js", "js/main.js"]);
@@ -577,7 +547,7 @@ console.log("F. Search overlap contract — static + real-index runtime");
     "search input flex-safe (min-width:0, long query cannot break layout)");
 }
 {
-  // F2: home dropdown driven against the REAL 651-row index
+  // F2: home dropdown driven against the real publication-gated index
   const IDX = JSON.parse(fs.readFileSync(path.join(ROOT, "search-index.json"), "utf8"));
   async function query(q) {
     const dom = new JSDOM(`<!DOCTYPE html><html lang="en"><body><div class="xp-searchbox">` +
@@ -598,16 +568,16 @@ console.log("F. Search overlap contract — static + real-index runtime");
     return { window, box, options: box.querySelectorAll('a[role="option"]') };
   }
   let r = await query("beginner");
-  ok(!r.box.hidden && r.options.length >= 1 && r.options.length <= 6, "beginner: 1–6 rows paint (43 index hits)");
+  ok(!r.box.hidden && r.options.length >= 1 && r.options.length <= 6, "beginner: 1–6 publication-gated rows paint");
   ok(/View all results/.test(r.box.textContent), "beginner: view-all escape hatch present");
   r = await query("conversation");
-  ok(!r.box.hidden && r.options.length >= 1 && r.options.length <= 6, "conversation: 1–6 rows paint (19 hits)");
+  ok(!r.box.hidden && r.options.length >= 1 && r.options.length <= 6, "conversation: 1–6 publication-gated rows paint");
   r = await query("kids");
   ok(r.box.hidden && r.options.length === 0, "kids: 0 title/desc/keyword hits → closes honestly, no stale rows");
   r = await query("/j");
   ok(r.box.hidden, "/j: punctuation query closes honestly (no crash)");
   r = await query("hindi");
-  ok(!r.box.hidden && r.options.length === 6, "hindi: 613 hits capped at exactly 6 rows (many-results path)");
+  ok(!r.box.hidden && r.options.length === 6, "hindi: many-results path capped at exactly 6 rows");
   r = await query("zzzzqqqx");
   ok(r.box.hidden && r.options.length === 0, "zero results: panel closes, nothing painted");
   r = await query("a".repeat(200) + '<img src=x onerror=alert(1)>');

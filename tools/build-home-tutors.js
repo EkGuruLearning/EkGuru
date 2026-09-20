@@ -4,7 +4,7 @@
    --------------------------------------------------------------------------
    Rewrites the static tutor list on the English home page from the live
    roster (js/tutors/*.js + the sheet overrides, through tools/lib/site-data.js)
-   and keeps the "Verified Gurus" figure in the hero in step with it.
+   and keeps the tutor-profile figure in the hero in step with it.
 
    WHY THIS TOOL EXISTS
    --------------------

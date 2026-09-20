@@ -113,6 +113,7 @@ const seo = {
   critical,
   warnings,
   pages: HTML.length,
+  linksChecked: linkCount.checked,
   sitemapUrls: sitemapUrls.length,
   sitemapFiles,
   brokenLinks: broken.length,

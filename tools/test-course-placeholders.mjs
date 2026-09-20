@@ -67,7 +67,9 @@ const c3 = [...sm.matchAll(/\/level\/c[345]\//g)];
 ok("sitemap-levels.xml has no C3–C5 URLs", c3.length === 0, String(c3.length));
 
 const robots = fs.readFileSync("robots.txt", "utf8");
-ok("robots.txt lists sitemap-levels.xml", /sitemap-levels\.xml/.test(robots));
+const sitemapIndex = fs.readFileSync("sitemap-index.xml", "utf8");
+ok("robots points to the sitemap index and the index lists level URLs",
+  /sitemap-index\.xml/.test(robots) && /sitemap-levels\.xml/.test(sitemapIndex));
 
 const mon = fs.readFileSync("js/monetization.js", "utf8");
 ok("ads require advertising === true", /consent\.advertising === true/.test(mon));

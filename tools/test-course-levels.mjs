@@ -71,7 +71,8 @@ ok("no complete CEFR level page is a stub (≥1,500 words)", thin.length === 0, 
 
 console.log("\n2. the course data is actually on the page\n");
 
-const one = read("languages/ar/level/a1/index.html");
+const sample = complete[0];
+const one = read(`languages/${sample.code}/level/a1/index.html`);
 /* The rail is counted inside its own <ul>: the page also links the next level
    from the checkpoint paragraph, and a page-wide link count would read that as
    a seventh level. */
@@ -82,14 +83,14 @@ ok("the level rail lists all six levels",
   (rail.match(/href="\.\.\/[abc][12]\/"/g) || []).length === 6,
   (rail.match(/href="\.\.\/[abc][12]\/"/g) || []).length + " links");
 ok("the vocabulary is a table with the language's own words",
-  /<table[\s\S]*?<th>Word<\/th>/.test(one) && /lang="ar"/.test(one));
+  /<table[\s\S]*?<th>Word<\/th>/.test(one) && new RegExp(`lang="${sample.code}"`).test(one));
 ok("the grammar box carries the rule and the mistakes",
   /class="lv-gram"/.test(one) && /Watch out:/.test(one));
 ok("the dialogue carries four columns", /<th>Who<\/th><th>Line<\/th><th>Say it<\/th><th>English<\/th>/.test(one));
 ok("the practice answers are on the page, in <details>",
   (one.match(/<details><summary>Show the answer<\/summary>/g) || []).length > 50);
 ok("the level test is on the page", /The A1 test — 10 items/.test(one));
-ok("the level's own figure is on the page", /images\/vis\/ar-a1\.svg/.test(one));
+ok("the level's own figure is on the page", new RegExp(`images/vis/${sample.code}-a1\\.svg`).test(one));
 
 /* The recall drills say what they are. A page that generated questions must
    say so — the site's rule is that a machine may re-ask what a human wrote,
@@ -194,8 +195,16 @@ for (const c of courses) {
   }
 }
 ok(`the world-course hubs link their levels (${rails.length})`, rails.length === 10, String(rails.length));
-const railHrefs = rails.map((p) => [...read(p).matchAll(/href="(\/languages\/[a-z]{2,3}\/level\/[a-z0-9]+\/)"/g)].length);
-ok("each hub rail holds six links", railHrefs.every((n) => n === 6), railHrefs.join(", "));
+const byCode = new Map(courses.map((course) => [course.code, course]));
+const railHrefs = rails.map((p) => {
+  const code = (p.match(/^languages\/([^/]+)\//) || [])[1];
+  const actual = [...read(p).matchAll(/href="(\/languages\/[a-z]{2,3}\/level\/[a-z0-9]+\/)"/g)].length;
+  const expected = Object.keys((byCode.get(code) || {}).levels || {}).filter((lv) => LEVELS.map((x) => x.toUpperCase()).includes(lv)).length;
+  return { code, actual, expected };
+});
+ok("each hub rail matches its gated published-level count",
+  railHrefs.every((row) => row.actual === row.expected),
+  railHrefs.map((row) => `${row.code}:${row.actual}/${row.expected}`).join(", "));
 
 console.log(`\n${fail ? "FAIL" : "PASS"}  ${pass} passed, ${fail} failed\n`);
 process.exit(fail ? 1 : 0);
