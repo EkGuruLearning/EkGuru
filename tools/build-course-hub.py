@@ -385,17 +385,14 @@ def build_home(courses, levels, meta):
         '    <div class="xp-head xp-rise">',
         '      <span class="xp-kicker">Free courses</span>',
         "      <h2>39 languages, A1 to C2 — free, in your browser</h2>",
-        "      <p>%s lessons across %d languages, each with its own alphabet, "
-        "vocabulary, dialogues and level tests. Nothing to install, nothing to pay, "
-        "progress saved on your device.</p>" % (lessons, len(courses)),
+        '      <p class="center xp-mid-cta" style="margin:12px 0 8px">'
+        '<a class="btn btn-primary" href="courses/">Open the full course library</a> '
+        '<a class="btn btn-ghost" href="start/">Find my level first</a></p>',
         '      <div class="xp-rule" aria-hidden="true"></div>',
         "    </div>",
         '    <div class="grid course-grid xp-stagger">',
         "".join(card(c, levels, meta, deep_prefix="") for c in picked),
         "    </div>",
-        '    <p class="center" style="margin-top:28px">'
-        '<a class="btn btn-primary btn-lg" href="courses/">Open the full course library</a> '
-        '<a class="btn btn-ghost btn-lg" href="start/">Find my level first</a></p>',
         "  </div>",
         "</section>",
         HOME_END,

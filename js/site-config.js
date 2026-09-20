@@ -168,21 +168,8 @@ window.EKGURU_SITE = {
        Uncomment a line ONLY when you have pasted a real key
        into it. */
     web3formsKeys: [
-      /* v95 — FIVE REAL KEYS, supplied by Prakash on 11 Sep 2026.
-         He listed seven; two were the same UUID repeated, so the
-         real count is five and the ceiling is 5 x 250 = 1,250 a
-         month. Duplicates are dropped by js/mailer.js keys()
-         anyway, but they are removed here so the file says the
-         truth.
-
-         The old key 995dfc7d-31cc-4403-9c63-56a1d50cd9d9 has been
-         replaced by the first of these. It is kept out of the list
-         deliberately: if it had been revoked or exhausted it would
-         waste one attempt per send discovering that. */
-      "abc520f5-f682-4225-9810-266bac004cd6",
-      "50855e6f-ffcd-4956-b6b1-8802eb8840e1",
-      "8d80b297-9f6d-42d3-8865-d4883e264021",
-      "83fd80d7-9ab4-4116-9082-685433861376",
+      /* Extra keys retired. One Web3Forms account is the only fallback.
+         Stacking public keys only multiplies the blast radius. */
     ],
 
     /* ---------- EmailJS — THE RELAY THAT NEEDS NO ACTIVATION ----
@@ -326,7 +313,10 @@ window.EKGURU_SITE = {
        Note it delivers only to the address the key is registered
        with, so it cannot copy a tutor directly. That is why it sits
        BELOW Web3Forms in the chain — see js/mailer.js. */
-    staticFormsKey: "sf_cfb12602e030b67320c6f99e",
+    /* Retired. StaticForms ignores the recipient and reports success
+       while delivering only to the key owner — a wrong-inbox "win".
+       The live chain is Apps Script → one Web3Forms key → mailto. */
+    staticFormsKey: "",
     copyToSite: true,
     copyToStudent: true,
     alwaysCc: [],

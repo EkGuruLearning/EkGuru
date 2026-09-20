@@ -67,10 +67,19 @@ def current_token():
 
 
 def main():
+    # --help / -h is informational only: no file reads, no writes, no secrets.
+    if "--help" in sys.argv or "-h" in sys.argv:
+        print("Usage: python3 tools/wire-token.py [--check | --help]")
+        print("Default: copy mailerToken from gitignored deploy-secrets.local.json")
+        print("into js/site-config.js for deploy. Do NOT commit the wired file.")
+        print("  --check   report EMPTY or WIRED; does not print the token; does not write")
+        print("  --help    this message (does not read or write anything)")
+        return 0
+
     if "--check" in sys.argv:
         tok = current_token()
         if tok:
-            print("token wired in js/site-config.js (length %d)" % len(tok))
+            print("token WIRED in js/site-config.js — do not commit this file")
             return 0
         print("token EMPTY in js/site-config.js — run: python3 tools/wire-token.py")
         return 1

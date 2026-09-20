@@ -273,13 +273,13 @@
         ref: makeRef()
       };
 
-      /* Dwell-time trap — see the honeypot note at the top. A
-         human has not read this page and typed all of that in
-         three seconds. Treated exactly like the honeypot: looks
-         successful, sends nothing. */
-      if (Date.now() - openedAt < 3000) {
+      /* Dwell-time trap. A scripted submit in under a second is
+         not a person. Do NOT fake a success screen — that is a
+         lie to a real visitor on a slow type-ahead or a restored
+         form. Drop the send quietly only when the honeypot is
+         also filled; otherwise just continue. */
+      if (Date.now() - openedAt < 800 && data.hp && String(data.hp).trim()) {
         track("contact_too_fast");
-        showSent(host, { ok: true, ref: data.ref, acknowledged: false }, data);
         return;
       }
 

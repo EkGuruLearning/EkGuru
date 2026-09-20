@@ -9,7 +9,8 @@
     "test:qa": "node tools/test-browser-qa.mjs",
     "test:sheets": "node tools/test-apps-script.mjs",
     "test:e2e": "node tools/test-payment-e2e.mjs",
-    "test:contract": "node tools/test-live-payment-contract.mjs"
+    "test:contract": "node tools/test-live-payment-contract.mjs",
+    "test:courses": "node tools/test-course-placeholders.mjs && node tools/test-course-levels.mjs"
   },
   "devDependencies": {
     "jsdom": "^30.1.0"

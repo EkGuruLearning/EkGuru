@@ -728,6 +728,8 @@
   function renderMarkets() {
     var host = $("#markets");
     if (!host) return;
+    /* Homepage country rails own this node — do not overwrite. */
+    if (host.getAttribute("data-eg-cc-rails") === "1" || host.getAttribute("data-eg-cc-host") === "1") return;
     host.innerHTML = MARKETS.map(function (m) {
       return '<a class="mkt" href="' + esc(m.slug || "learn-hindi-by-country/") + '"><span class="mkt-flag">' + m.flag + "</span><b>" + esc(m.country) + "</b><span>" + esc(m.label) + "</span></a>";
     }).join("");

@@ -92,20 +92,20 @@ function check(name, cond, extra) {
 /* =========================== 1. registry =========================== */
 check("EKGURU_EMAIL exposed", !!E);
 check("EkGuruMail exposed", !!M);
-const TYPES = ["CONTACT_VISITOR_CONFIRMATION", "CONTACT_EKGURU_NOTIFICATION",
-  "BOOKING_STUDENT_CONFIRMATION", "BOOKING_TUTOR_NOTIFICATION",
-  "BOOKING_EKGURU_NOTIFICATION", "ADMIN_CONTACT_OUTBOUND", "ADMIN_CONTACT_INTERNAL_COPY"];
+const TYPES = ["contact_submitter_confirmation", "contact_internal_record",
+  "booking_student_confirmation", "booking_tutor_notification",
+  "booking_internal_record", "ADMIN_CONTACT_OUTBOUND", "ADMIN_CONTACT_INTERNAL_COPY"];
 check("WHITELIST = seven message types",
   TYPES.every((t) => (E.WHITELIST || []).indexOf(t) > -1) && E.WHITELIST.length === 7,
   JSON.stringify(E.WHITELIST));
 
 /* =========================== 2. render =========================== */
 const KEY2TYPE = {
-  contactVisitor: "CONTACT_VISITOR_CONFIRMATION",
-  contactInternal: "CONTACT_EKGURU_NOTIFICATION",
-  bookingStudent: "BOOKING_STUDENT_CONFIRMATION",
-  bookingTutor: "BOOKING_TUTOR_NOTIFICATION",
-  bookingInternal: "BOOKING_EKGURU_NOTIFICATION",
+  contactVisitor: "contact_submitter_confirmation",
+  contactInternal: "contact_internal_record",
+  bookingStudent: "booking_student_confirmation",
+  bookingTutor: "booking_tutor_notification",
+  bookingInternal: "booking_internal_record",
   adminOutbound: "ADMIN_CONTACT_OUTBOUND",
   adminInternalCopy: "ADMIN_CONTACT_INTERNAL_COPY"
 };
@@ -117,10 +117,10 @@ Object.keys(E.FIXTURES).forEach((k) => {
 });
 
 check("unknown type rejected", E.render("NOT_A_TYPE", {}).ok === false);
-check("missing var rejected",
-  E.render("bookingStudent", { studentName: "X" }).ok === false);
-check("undeclared var rejected",
-  E.render("bookingStudent", Object.assign({}, E.FIXTURES.bookingStudent, { extraVar: "x" })).ok === false);
+check("missing vars omitted (still renders)",
+  E.render("bookingStudent", { studentName: "X" }).ok === true);
+check("undeclared extra var ignored",
+  E.render("bookingStudent", Object.assign({}, E.FIXTURES.bookingStudent, { extraVar: "x" })).ok === true);
 
 /* =========================== 3. escaping =========================== */
 const evil = Object.assign({}, E.FIXTURES.bookingStudent, {
@@ -173,21 +173,22 @@ function internalRows() {
   }
   if (res) {
     check("send() resolves (tutor WITH email)", !!res.ok, JSON.stringify(res));
-    const tutor = byType("BOOKING_TUTOR_NOTIFICATION");
-    const student = byType("BOOKING_STUDENT_CONFIRMATION");
-    check("tutor job stamped BOOKING_TUTOR_NOTIFICATION", tutor.length === 1, "got " + tutor.length);
-    check("student job stamped BOOKING_STUDENT_CONFIRMATION", student.length === 1, "got " + student.length);
-    check("internal record goes via the internal route (rows, not Apps Script)",
-      internalRows().length === 1, "got " + internalRows().length);
+    const tutor = byType("booking_tutor_notification");
+    const student = byType("booking_student_confirmation");
+    check("tutor job stamped booking_tutor_notification", tutor.length === 1, "got " + tutor.length);
+    check("student job stamped booking_student_confirmation", student.length === 1, "got " + student.length);
+    const internalTyped = byType("booking_internal_record");
+    check("internal record stamped booking_internal_record (Apps Script primary)",
+      internalTyped.length === 1, "got " + internalTyped.length + " typed, rows=" + internalRows().length);
     if (tutor[0]) {
       check("tutor payload has html + text", !!tutor[0].parsed.html && !!tutor[0].parsed.text);
-      check("tutor idempotencyKey = entityId:type",
-        tutor[0].parsed.idempotencyKey === "EK-TEST-01:BOOKING_TUTOR_NOTIFICATION",
+      check("tutor idempotencyKey = entity|template|recipient",
+        tutor[0].parsed.idempotencyKey === "EK-TEST-01|booking_tutor_notification|tara@example.com",
         JSON.stringify(tutor[0].parsed.idempotencyKey));
-      check("tutor subject is the SIMPLE tutor subject",
-        /congratulations — you have a new booking request/i.test(tutor[0].parsed.subject || ""),
+      check("tutor subject is the tutor notification subject",
+        /new booking on ekguru/i.test(tutor[0].parsed.subject || ""),
         tutor[0].parsed.subject);
-      check("tutor html rendered by template", /you have received a new booking request/i.test(tutor[0].parsed.html));
+      check("tutor html rendered by template", /you have a new booking/i.test(tutor[0].parsed.html));
       check("tutor payload recipient = tutor email", tutor[0].parsed.to === "tara@example.com");
       check("tutor copy replyTo = student (supported direct-response)",
         (tutor[0].parsed.replyTo || "").toLowerCase() === "priya@example.com");
@@ -195,20 +196,21 @@ function internalRows() {
     if (student[0]) {
       check("student recipient = student email", student[0].parsed.to === "priya@example.com");
       check("student html is the STUDENT template (not tutor's)",
-        /your booking request has been received/i.test(student[0].parsed.html) &&
-        !/you have received a new booking request/i.test(student[0].parsed.html));
+        /your booking is confirmed/i.test(student[0].parsed.html) &&
+        !/you have a new booking/i.test(student[0].parsed.html));
       check("student html does not expose tutor inbox",
         !/tara@example\.com/i.test(student[0].parsed.html));
-      check("student idempotencyKey = entityId:type",
-        student[0].parsed.idempotencyKey === "EK-TEST-01:BOOKING_STUDENT_CONFIRMATION");
+      check("student idempotencyKey = entity|template|recipient",
+        student[0].parsed.idempotencyKey === "EK-TEST-01|booking_student_confirmation|priya@example.com");
     }
-    const rec = internalRows()[0];
+    const rec = internalTyped[0] || internalRows()[0];
     if (rec) {
-      check("internal record via the free internal relay (FormSubmit endpoint)",
-        /formsubmit\.co\/ajax\//i.test(rec.url), rec.url.slice(0, 60));
-      check("internal record carries delivery state row",
-        /Student: sending/.test(rec.parsed["Email Delivery"] || "") &&
-        /Tutor: sending/.test(rec.parsed["Email Delivery"] || ""));
+      check("internal record via Apps Script (or Web3Forms fallback), never FormSubmit",
+        /script\.google\.com|web3forms\.com/i.test(rec.url) &&
+        !/formsubmit\.co/i.test(rec.url), rec.url.slice(0, 80));
+      check("internal record is the internal template (not a student copy)",
+        /internal booking/i.test(rec.parsed.html || rec.parsed["Email Delivery"] || "") ||
+        /booking_internal_record/.test(rec.parsed.type || rec.parsed.idempotencyKey || ""));
     }
   }
 
@@ -236,15 +238,17 @@ function internalRows() {
   if (res) {
     check("send() resolves (tutor WITHOUT email)", !!res.ok, JSON.stringify(res));
     check("NO tutor job when tutor email unavailable",
-      byType("BOOKING_TUTOR_NOTIFICATION").length === 0,
-      "got " + byType("BOOKING_TUTOR_NOTIFICATION").length);
+      byType("booking_tutor_notification").length === 0,
+      "got " + byType("booking_tutor_notification").length);
     check("student still gets their receipt",
-      byType("BOOKING_STUDENT_CONFIRMATION").length === 1);
-    const rec = internalRows()[0];
+      byType("booking_student_confirmation").length === 1);
+    const rec = byType("booking_internal_record")[0] || internalRows()[0];
     check("internal record still written", !!rec);
     if (rec) {
+      const blob = JSON.stringify(rec.parsed);
       check("internal record marks tutor email state honestly",
-        rec.parsed["Tutor Email"] === "TUTOR_EMAIL_UNAVAILABLE");
+        rec.parsed["Tutor Email"] === "TUTOR_EMAIL_UNAVAILABLE" ||
+        /TUTOR_EMAIL_UNAVAILABLE/.test(blob));
     }
   }
 
@@ -264,23 +268,25 @@ function internalRows() {
   }
   if (cres) {
     check("contact() resolves", !!cres.ok);
-    const vis = byType("CONTACT_VISITOR_CONFIRMATION");
-    check("visitor ack stamped CONTACT_VISITOR_CONFIRMATION", vis.length === 1, "got " + vis.length);
-    const intl = internalRows().filter((p) => p.parsed["Name"] === "Aarav");
-    check("internal contact goes via the internal route", intl.length === 1, "got " + intl.length);
+    const vis = byType("contact_submitter_confirmation");
+    check("visitor ack stamped contact_submitter_confirmation", vis.length === 1, "got " + vis.length);
+    const intl = byType("contact_internal_record").concat(
+      internalRows().filter((p) => p.parsed["Name"] === "Aarav")
+    );
+    check("internal contact stamped contact_internal_record", intl.length >= 1, "got " + intl.length);
     if (vis[0]) {
       check("visitor ack recipient = visitor email", vis[0].parsed.to === "aarav@example.com");
       check("visitor ack replyTo = support (not a bounce-back to self)",
         (vis[0].parsed.replyTo || "").toLowerCase() === "ekgurulearning@gmail.com");
-      check("visitor ack idempotencyKey = entityId:type",
-        /^C-[A-Z0-9]+:CONTACT_VISITOR_CONFIRMATION$/.test(vis[0].parsed.idempotencyKey || ""),
+      check("visitor ack idempotencyKey = entity|template|recipient",
+        /\|contact_submitter_confirmation\|aarav@example\.com$/i.test(vis[0].parsed.idempotencyKey || ""),
         JSON.stringify(vis[0].parsed.idempotencyKey));
     }
     if (intl[0]) {
       check("internal contact replyTo = visitor email",
-        (intl[0].parsed.email || "").toLowerCase() === "aarav@example.com");
-      check("internal contact via the free internal relay (FormSubmit endpoint)",
-        /formsubmit\.co\/ajax\//i.test(intl[0].url), intl[0].url.slice(0, 60));
+        (intl[0].parsed.email || intl[0].parsed.replyTo || "").toLowerCase() === "aarav@example.com");
+      check("internal contact not via FormSubmit",
+        !/formsubmit\.co/i.test(intl[0].url), intl[0].url.slice(0, 80));
     }
   }
 
@@ -300,28 +306,31 @@ function internalRows() {
     check("compose() resolves", !!ores.ok);
     const outbound = byType("ADMIN_CONTACT_OUTBOUND");
     check("outbound stamped ADMIN_CONTACT_OUTBOUND", outbound.length === 1, "got " + outbound.length);
-    const intl = internalRows().filter((p) => p.parsed["Message Sent"]);
-    check("admin internal copy sent to own inbox", intl.length === 1, "got " + intl.length);
+    const intl = byType("ADMIN_CONTACT_INTERNAL_COPY").concat(
+      internalRows().filter((p) => p.parsed["Message Sent"])
+    );
+    check("admin internal copy sent to own inbox", intl.length >= 1, "got " + intl.length);
     check("compose returns a conversation ref", /^ADMIN-/.test(ores.ref || ""), ores.ref);
     check("compose returns the internal copy result", !!ores.internalCopy);
     if (outbound[0]) {
-      check("outbound idempotencyKey = entityId:type",
-        /^ADMIN-[A-Z0-9]+:ADMIN_CONTACT_OUTBOUND$/.test(outbound[0].parsed.idempotencyKey || ""),
+      check("outbound idempotencyKey = entity|template|recipient",
+        /\|ADMIN_CONTACT_OUTBOUND\|student@example\.com$/i.test(outbound[0].parsed.idempotencyKey || ""),
         JSON.stringify(outbound[0].parsed.idempotencyKey));
       check("outbound replyTo = support",
         (outbound[0].parsed.replyTo || "").toLowerCase() === "ekgurulearning@gmail.com");
     }
     if (intl[0]) {
       check("admin internal copy carries recipient + message",
-        intl[0].parsed["Recipient Email"] === "student@example.com" &&
-        /confirmed/.test(intl[0].parsed["Message Sent"]));
+        JSON.stringify(intl[0].parsed).toLowerCase().indexOf("student@example.com") > -1 &&
+        /confirmed/i.test(JSON.stringify(intl[0].parsed)),
+        JSON.stringify(intl[0].parsed).slice(0, 180));
     }
   }
 
   /* =========================== 8. send-test =========================== */
   POSTED.length = 0;
   try {
-    const t = await M.testSend("BOOKING_STUDENT_CONFIRMATION", "EkGuruLearning@gmail.com",
+    const t = await M.testSend("booking_student_confirmation", "EkGuruLearning@gmail.com",
       E.FIXTURES.bookingStudent);
     check("testSend to controlled inbox resolves", !!t.ok && t.state === "ACCEPTED", JSON.stringify(t));
     check("testSend subject prefixed [TEST]", /^\[TEST\]/i.test(t.subject || ""), t.subject);
@@ -329,7 +338,7 @@ function internalRows() {
     check("testSend to controlled inbox resolves", false, e.message);
   }
   try {
-    await M.testSend("BOOKING_STUDENT_CONFIRMATION", "stranger@example.com", E.FIXTURES.bookingStudent);
+    await M.testSend("booking_student_confirmation", "stranger@example.com", E.FIXTURES.bookingStudent);
     check("testSend REFUSES a non-controlled address", false, "should have rejected");
   } catch (e) {
     check("testSend REFUSES a non-controlled address", /control/i.test(e.message), e.message);

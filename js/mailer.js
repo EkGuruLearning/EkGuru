@@ -764,8 +764,9 @@
          booking receipt rides as a CC here. But a message
          ADDRESSED to a stranger must go via Web3Forms. */
       canAddressStrangers: false,
-      /* Always available — it is the floor of the chain. */
-      enabled: function () { return true; },
+      /* Retired from the live chain. Kept so leftover config and
+         the dashboard can still name it; chain() never selects it. */
+      enabled: function () { return false; },
       build: function (to, payload) {
         /* FormSubmit passes the payload straight through, so the
            Apps Script-only fields must be stripped here or they
@@ -785,6 +786,7 @@
      that have already hit their monthly limit. */
   function chain() {
     return PROVIDERS.filter(function (p) {
+      if (!isLive(p)) return false;
       /* v99 — routing asks sendable(), not enabled(). A provider
          whose URL is set but whose client token is missing (the
          Apps Script relay before the owner wires the token) is
@@ -831,9 +833,11 @@
              (!strangerOnly || p.canAddressStrangers);
     });
     if (!usable.length) {
-      var last = PROVIDERS[PROVIDERS.length - 1];
-      if (except.indexOf(last.id) === -1 &&
-          (!strangerOnly || last.canAddressStrangers)) usable = [last];
+      /* Do NOT force FormSubmit as a hidden floor. Stranger mail
+         that no live relay can carry must fail honestly so the UI
+         can offer mailto — not silently post to an unactivated
+         address and report success. */
+      return null;
     }
     if (!usable.length) return null;
 
@@ -1194,8 +1198,21 @@
   }
 
   function isEmail(v) {
-    return !!v && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v).trim());
+    v = String(v == null ? "" : v).trim();
+    if (!v || /[\r\n\0,;<>]/.test(v)) return false;
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
   }
+
+  function oneLine(s, max) {
+    return String(s == null ? "" : s).replace(/[\r\n\t]+/g, " ").trim().slice(0, max || 150);
+  }
+
+  /* Production chain: Apps Script (primary) → Web3Forms (one fallback).
+     EmailJS / StaticForms / FormSubmit stay in PROVIDERS for dashboard
+     visibility of leftover config, but they are never selected.
+     mailto: is the tertiary path in the form UI, not a relay. */
+  var LIVE_IDS = ["appsscript", "web3forms"];
+  function isLive(p) { return LIVE_IDS.indexOf(p.id) !== -1; }
 
   /* Where the tutor's copy should go.
      A tutor file may set  formKey: "abc123..."  to use a hidden
@@ -1222,6 +1239,38 @@
      js/sheet.js applies the published sheet to the tutor object
      before the mailer sees it, so an owner can change where a
      tutor's mail lands without a deploy. */
+  function idemKey(entity, type, email) {
+    var parts = [String(entity || "").toUpperCase(), String(type || "")];
+    var em = String(email || "").trim().toLowerCase();
+    if (em) parts.push(em);
+    return parts.filter(Boolean).join("|");
+  }
+
+  function resolveRecipients(kind, ctx) {
+    ctx = ctx || {};
+    var internal = isEmail(SITE.email) ? String(SITE.email).trim() : "";
+    if (kind === "booking") {
+      var tutor = ctx.tutor || {};
+      var student = isEmail(ctx.studentEmail || ctx.email) ? String(ctx.studentEmail || ctx.email).trim() : "";
+      var state = tutorEmailState(tutor);
+      var tutorAddr = state === "ACTIVE+VALID" ? notificationEmail(tutor) : "";
+      return {
+        student: student,
+        tutor: tutorAddr,
+        internal: internal,
+        tutorState: state,
+        tutorUnavailable: state !== "ACTIVE+VALID"
+      };
+    }
+    if (kind === "contact") {
+      return {
+        submitter: isEmail(ctx.email) ? String(ctx.email).trim() : "",
+        internal: internal
+      };
+    }
+    return { internal: internal, recipient: isEmail(ctx.to) ? String(ctx.to).trim() : "" };
+  }
+
   function notificationEmail(tutor) {
     if (tutor && isEmail(tutor.notificationEmail)) return String(tutor.notificationEmail).trim();
     if (tutor && isEmail(tutor.notification_email)) return String(tutor.notification_email).trim();
@@ -1772,6 +1821,23 @@
   }
 
 
+  /* Client-side burst cap. Bypassable (it is a static page) — the
+     Apps Script daily cap is the real backstop. This only stops a
+     double-click loop from burning the fallback quota in one tab. */
+  var RATE_KEY = "ekguru_mail_rate_v1";
+  function tooMany(kind) {
+    try {
+      var now = Date.now();
+      var m = JSON.parse(localStorage.getItem(RATE_KEY) || "{}") || {};
+      var list = (m[kind] || []).filter(function (t) { return now - t < 10 * 60 * 1000; });
+      if (list.length >= 8) return true;
+      list.push(now);
+      m[kind] = list;
+      localStorage.setItem(RATE_KEY, JSON.stringify(m));
+    } catch (e) {}
+    return false;
+  }
+
   var Mail = {
 
     /* Is real sending switched on and usable in this browser? */
@@ -1810,6 +1876,9 @@
 
       if (CFG.enabled === false) {
         return Promise.reject(new Error("Mail sending is switched off in site-config.js"));
+      }
+      if (tooMany("booking")) {
+        return Promise.reject(new Error("Too many booking requests from this browser. Please wait a few minutes, or send from your own email app."));
       }
       if (!target) {
         return Promise.reject(new Error("No recipient address configured"));
@@ -1911,7 +1980,7 @@
             "another time (reply with the time that suits you)",
 
           email: data.email || SITE.email || ""
-        }, "BOOKING_TUTOR_NOTIFICATION", {
+        }, "booking_tutor_notification", {
           tutorName: tutorName,
           bookingId: ref,
           studentName: studentName,
@@ -1956,7 +2025,7 @@
           "Source": data.pageUrl || (location && location.href) || "",
 
           email: data.email || SITE.email || ""
-        }, "BOOKING_EKGURU_NOTIFICATION", {
+        }, "booking_internal_record", {
           bookingId: ref,
           studentName: studentName,
           studentEmail: data.email || "",
@@ -2000,7 +2069,7 @@
           /* Replies from the student come to EkGuru, not to the tutor's
              private inbox, so the address is never disclosed. */
           email: SITE.email || ""
-        }, "BOOKING_STUDENT_CONFIRMATION", {
+        }, "booking_student_confirmation", {
           studentName: studentName,
           bookingId: ref,
           tutorName: tutorName,
@@ -2072,11 +2141,11 @@
          browser, so a double-click or a refresh cannot send twice. */
       var refKey = ref ? String(ref).toUpperCase() : "";
       /* v101 — idempotency key = entityId:messageType (RESET §16).
-         BOOK-123:BOOKING_STUDENT_CONFIRMATION etc. One event → one
+         BOOK-123:booking_student_confirmation etc. One event → one
          effective message per role, across client AND relay. */
-      var kTutor = refKey ? refKey + ":BOOKING_TUTOR_NOTIFICATION" : "";
-      var kStudent = refKey ? refKey + ":BOOKING_STUDENT_CONFIRMATION" : "";
-      var kInternal = refKey ? refKey + ":BOOKING_EKGURU_NOTIFICATION" : "";
+      var kTutor = refKey ? idemKey(refKey, "booking_tutor_notification", target) : "";
+      var kStudent = refKey ? idemKey(refKey, "booking_student_confirmation", data.email) : "";
+      var kInternal = refKey ? idemKey(refKey, "booking_internal_record", SITE.email) : "";
 
       /* v97 — an ADMIN RETRY must be able to actually re-send a role
          that already succeeded (e.g. the student lost their receipt).
@@ -2453,6 +2522,9 @@
       if (CFG.enabled === false) {
         return Promise.reject(new Error("Mail sending is switched off in site-config.js"));
       }
+      if (tooMany("contact")) {
+        return Promise.reject(new Error("Too many messages from this browser. Please wait a few minutes, or send from your own email app."));
+      }
       if (typeof window.fetch !== "function") {
         return Promise.reject(new Error("This browser cannot send in the background"));
       }
@@ -2493,8 +2565,8 @@
          Declared BEFORE the bodies are built so the templates carry
          their idempotencyKey (the relay dedupes a replay by it). */
       var refKey = ref ? String(ref).toUpperCase() : "";
-      var kInternal = refKey ? refKey + ":CONTACT_EKGURU_NOTIFICATION" : "";
-      var kVisitor = refKey ? refKey + ":CONTACT_VISITOR_CONFIRMATION" : "";
+      var kInternal = refKey ? idemKey(refKey, "contact_internal_record", ourInbox) : "";
+      var kVisitor = refKey ? idemKey(refKey, "contact_submitter_confirmation", from) : "";
 
       var founder = (SITE.founder && SITE.founder.name) || "Prakash";
       var signOff =
@@ -2561,7 +2633,7 @@
            previous version set this to SITE.email, which made every
            reply come back to ourselves. */
         email: from
-      }, "CONTACT_EKGURU_NOTIFICATION", {
+      }, "contact_internal_record", {
         contactId: ref,
         visitorName: who,
         visitorEmail: from,
@@ -2589,7 +2661,7 @@
         "What happens next": nextStep,
         _cc: from,
         email: SITE.email || ourInbox
-      }, "CONTACT_VISITOR_CONFIRMATION", {
+      }, "contact_submitter_confirmation", {
         visitorName: who,
         contactId: ref,
         message: body,
@@ -2925,8 +2997,8 @@
          delivery state. The internal copy is the record. */
       var now = new Date();
       var convRef = data.ref || ("ADMIN-" + now.getTime().toString(36).toUpperCase().slice(-6));
-      var kOutbound = convRef + ":ADMIN_CONTACT_OUTBOUND";
-      var kInternalCopy = convRef + ":ADMIN_CONTACT_INTERNAL_COPY";
+      var kOutbound = idemKey(convRef, "ADMIN_CONTACT_OUTBOUND", data.to);
+      var kInternalCopy = idemKey(convRef, "ADMIN_CONTACT_INTERNAL_COPY", SITE.email);
       var recipientName = data.toName || data.name ||
         String(data.to || "").split("@")[0] || "there";
 
@@ -3372,6 +3444,8 @@
        operational address exists (ACTIVE+VALID); otherwise the
        message is TUTOR_EMAIL_UNAVAILABLE and target is the EkGuru
        inbox. */
+    resolveRecipients: resolveRecipients,
+
     tutorEmailInfo: function (tutor) {
       return {
         state: tutorEmailState(tutor),
