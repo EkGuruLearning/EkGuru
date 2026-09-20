@@ -50,8 +50,8 @@
       consent = JSON.parse(localStorage.getItem('ekguru_cookie_consent_v3') || 'null');
     } catch (e) {}
     
-    var canShowAds = (pageClass === "HIGH_CONTENT" || pageClass === "MEDIUM_CONTENT") && 
-                     (!consent || consent.advertising !== false); // default allow if no consent yet, but banner will handle
+    var canShowAds = (pageClass === "HIGH_CONTENT" || pageClass === "MEDIUM_CONTENT") &&
+                     (consent && consent.advertising === true); // default deny until explicit advertising consent
     
     if (!canShowAds) return;
 

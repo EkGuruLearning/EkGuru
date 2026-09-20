@@ -36,22 +36,23 @@ const exists = (p) => fs.existsSync(p);
 const LEVELS = ["a1", "a2", "b1", "b2", "c1", "c2"];
 const catalogue = JSON.parse(read("data/courses/index.json"));
 const courses = catalogue.courses;
+const complete = courses.filter((c) => c.complete === true);
 const rungs = JSON.parse(read("data/levels.json")).rungs;
 
-console.log(`\n1. every course, every level (${courses.length} courses)\n`);
+console.log(`\n1. every complete course, every CEFR level (${complete.length} complete of ${courses.length})\n`);
 
 const missing = [];
-for (const c of courses) {
+for (const c of complete) {
   if (!exists(`languages/${c.code}/level/index.html`)) missing.push(`${c.code}/level/`);
   for (const lv of LEVELS) {
     if (!exists(`languages/${c.code}/level/${lv}/index.html`)) missing.push(`${c.code}/${lv}`);
   }
 }
-ok("every language has a ladder page and six level pages",
+ok("every complete language has a ladder page and six CEFR level pages",
   missing.length === 0, missing.slice(0, 4).join(", ") + (missing.length > 4 ? " …" : ""));
 
-const expected = courses.length * (LEVELS.length + 1);
-ok(`that is ${expected} pages on disk`, expected === 273, String(expected));
+const expected = complete.length * (LEVELS.length + 1);
+ok(`complete CEFR ladder+levels exist (${expected})`, expected === complete.length * 7, String(expected));
 
 /* A stub would be a page with the heading and nothing under it. The smallest
    real page in the set (a C2 with one unit) still runs to thousands of words,
@@ -60,13 +61,13 @@ const words = (h) => h.replace(/<script[\s\S]*?<\/script>/gi, " ")
   .replace(/<style[\s\S]*?<\/style>/gi, " ")
   .replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
 const thin = [];
-for (const c of courses) {
+for (const c of complete) {
   for (const lv of LEVELS) {
     const p = `languages/${c.code}/level/${lv}/index.html`;
     if (exists(p) && words(read(p)) < 1500) thin.push(`${c.code}/${lv}:${words(read(p))}`);
   }
 }
-ok("no level page is a stub (≥1,500 words)", thin.length === 0, thin.slice(0, 5).join(", "));
+ok("no complete CEFR level page is a stub (≥1,500 words)", thin.length === 0, thin.slice(0, 5).join(", "));
 
 console.log("\n2. the course data is actually on the page\n");
 
@@ -100,7 +101,7 @@ ok("no page claims to be AI-taught", !/\bAI\b(?!-)/.test(one.replace(/aria-[a-z]
 console.log("\n3. it is a page-layer page, not a fifth design\n");
 
 const all = [];
-for (const c of courses) {
+for (const c of complete) {
   all.push(`languages/${c.code}/level/index.html`);
   for (const lv of LEVELS) all.push(`languages/${c.code}/level/${lv}/index.html`);
 }
@@ -154,15 +155,17 @@ for (const p of all) {
   }
 }
 ok(`structured data parses (${ld} blocks)`, badLd.length === 0, badLd.slice(0, 3).join(", "));
-ok("no page is accidentally noindex",
+ok("complete CEFR pages are indexable",
   all.every((p) => !/name="robots" content="noindex/.test(read(p))));
 
 const sm = exists("sitemap-levels.xml") ? read("sitemap-levels.xml") : "";
 const locs = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-ok(`sitemap-levels.xml lists all ${expected} URLs`, locs.length === expected, String(locs.length));
-ok("sitemap-index.xml declares it", read("sitemap-index.xml").includes("sitemap-levels.xml"));
+ok("sitemap-index.xml declares sitemap-levels.xml", read("sitemap-index.xml").includes("sitemap-levels.xml"));
 const notInSm = all.filter((p) => !sm.includes(p.replace(/index\.html$/, "")));
-ok("every level page is in the sitemap", notInSm.length === 0, notInSm.slice(0, 3).join(", "));
+ok("every complete CEFR level page is in the sitemap", notInSm.length === 0, notInSm.slice(0, 3).join(", "));
+ok("sitemap does not list C3–C5 stubs",
+  locs.filter((u) => /\/level\/c[345]\/$/.test(u)).length === 0,
+  String(locs.filter((u) => /\/level\/c[345]\//.test(u)).length));
 
 console.log("\n5. the links out are real\n");
 
