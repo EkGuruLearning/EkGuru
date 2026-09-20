@@ -32,7 +32,7 @@ CEFR is A1–C2 plus half-steps A1+…C1+. **A3, B3, C3, C4, C5 are EkGuru exten
 
 | Track | Authored now | Otherwise |
 |---|---|---|
-| A3 | `ar de en es fr hi it ja pt` | INCOMPLETE + noindex + dropped from sitemap |
+| A3 | `ar bn de en es fil fr hi id it ja ko nl pl pt ru tr ur vi zh zsm` (21) | INCOMPLETE + noindex + dropped from sitemap |
 | B3 | `en es fr` | same |
 | C3 C4 C5 | none | same |
 
@@ -108,7 +108,7 @@ Evidence file: `data/quality/adsense-readiness.json`
 
 ## Phases 41–43 — residual risk
 
-1. **Most extra tracks are unpublished.** Only 12 REAL extra files. That is honest, not finished curriculum.
+1. **Some extra tracks are still unpublished.** 24 REAL extra files (21 A3 + 3 B3). Remaining complete languages without an A3 bank stay noindex stubs. That is honest, not finished curriculum.
 2. **51 catalogue languages have no authored A1–C2.** Their old placeholder A1–C2 JSON was replaced with INCOMPLETE stubs. Those URLs still exist as noindex holders.
 3. **Kannada `kn`** is `course` in `languages.json` but not a catalogue course. Not fabricated.
 4. **Nepali** needs an authored bank before `npi` can be `complete`.

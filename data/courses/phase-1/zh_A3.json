@@ -5,16 +5,2722 @@
   "phase": "phase-1",
   "medium": "en",
   "file_level": "A3",
-  "content_status": "INCOMPLETE",
-  "indexable": false,
+  "content_status": "REAL",
+  "indexable": true,
   "ekguru_extension": true,
   "cefr_equivalent": null,
   "cefr_note": "EkGuru A2→B1 bridge. Not a CEFR level.",
-  "reason": "EkGuru A2→B1 bridge. Not a CEFR level.",
   "level": {
     "id": "A3",
-    "title": "Chinese A3 — not published",
-    "goals": [],
-    "units": []
+    "title": "Chinese A3",
+    "goals": [
+      "Handle a short Chinese exchange about school and studies.",
+      "Handle a short Chinese exchange about hobbies and free time.",
+      "Handle a short Chinese exchange about travel basics.",
+      "Handle a short Chinese exchange about food and restaurants.",
+      "Handle a short Chinese exchange about friends and social life.",
+      "Handle a short Chinese exchange about weather and plans.",
+      "Handle a short Chinese exchange about shopping and money.",
+      "Handle a short Chinese exchange about daily routines and future plans."
+    ],
+    "units": [
+      {
+        "id": "Unit 1",
+        "title": "Chinese A3 — first half",
+        "lessons": [
+          {
+            "id": "L1",
+            "title": "School and studies",
+            "learn": "用“要／打算”谈考试和近计划。",
+            "vocab": [
+              {
+                "t": "考试",
+                "r": "kǎoshì",
+                "en": "exam",
+                "pos": "noun"
+              },
+              {
+                "t": "科目",
+                "r": "kēmù",
+                "en": "subject",
+                "pos": "noun"
+              },
+              {
+                "t": "作业",
+                "r": "zuòyè",
+                "en": "homework",
+                "pos": "noun"
+              },
+              {
+                "t": "课程表",
+                "r": "kèchéngbiǎo",
+                "en": "timetable",
+                "pos": "noun"
+              },
+              {
+                "t": "截止日期",
+                "r": "jiézhǐ rìqī",
+                "en": "deadline",
+                "pos": "noun"
+              },
+              {
+                "t": "复习",
+                "r": "fùxí",
+                "en": "revise",
+                "pos": "verb"
+              },
+              {
+                "t": "课",
+                "r": "kè",
+                "en": "lecture",
+                "pos": "noun"
+              },
+              {
+                "t": "笔记",
+                "r": "bǐjì",
+                "en": "notes",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "要／打算 + 动词",
+              "explain": "已经决定的近计划用要或打算，后面直接跟动词。",
+              "pattern": "我今晚要复习",
+              "examples": [
+                {
+                  "t": "我今晚要复习。",
+                  "r": "wǒ jīnwǎn yào fùxí",
+                  "en": "I'm going to revise tonight."
+                },
+                {
+                  "t": "她要缺那堂课。",
+                  "r": "tā yào quē nà táng kè",
+                  "en": "She's going to miss the lecture."
+                },
+                {
+                  "t": "你打算写完作业吗？",
+                  "r": "nǐ dǎsuàn xiě wán zuòyè ma?",
+                  "en": "Are you going to finish the homework?"
+                }
+              ],
+              "mistakes": [
+                "不要说“我要了复习”。",
+                "打算后面仍是动词，不加“的”。"
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "安娜",
+                "t": "你明天有考试吗？",
+                "r": "nǐ míngtiān yǒu kǎoshì ma?",
+                "en": "Have you got an exam tomorrow?"
+              },
+              {
+                "sp": "路易斯",
+                "t": "有，历史。下了课我要复习。",
+                "r": "yǒu, lìshǐ. xià le kè wǒ yào fùxí.",
+                "en": "Yes, history. I'll revise after class."
+              },
+              {
+                "sp": "安娜",
+                "t": "去图书馆一起看？",
+                "r": "qù túshūguǎn yìqǐ kàn?",
+                "en": "Shall we study in the library?"
+              },
+              {
+                "sp": "路易斯",
+                "t": "好。笔记的截止日期是今天。",
+                "r": "hǎo. bǐjì de jiézhǐ rìqī shì jīntiān.",
+                "en": "Yes. The notes deadline is today."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “考试” mean?",
+                "options": [
+                  "exam",
+                  "subject",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": "exam",
+                "why": "“考试” means “exam”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “exam” in Chinese?",
+                "answer": "考试",
+                "why": "The course word for “exam” is “考试”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “科目” mean?",
+                "options": [
+                  "subject",
+                  "exam",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": "subject",
+                "why": "“科目” means “subject”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “subject” in Chinese?",
+                "answer": "科目",
+                "why": "The course word for “subject” is “科目”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “作业” mean?",
+                "options": [
+                  "homework",
+                  "exam",
+                  "subject",
+                  "timetable"
+                ],
+                "answer": "homework",
+                "why": "“作业” means “homework”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “homework” in Chinese?",
+                "answer": "作业",
+                "why": "The course word for “homework” is “作业”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “课程表” mean?",
+                "options": [
+                  "timetable",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "timetable",
+                "why": "“课程表” means “timetable”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “timetable” in Chinese?",
+                "answer": "课程表",
+                "why": "The course word for “timetable” is “课程表”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “截止日期” mean?",
+                "options": [
+                  "deadline",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "deadline",
+                "why": "“截止日期” means “deadline”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “deadline” in Chinese?",
+                "answer": "截止日期",
+                "why": "The course word for “deadline” is “截止日期”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “复习” mean?",
+                "options": [
+                  "revise",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "revise",
+                "why": "“复习” means “revise”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “revise” in Chinese?",
+                "answer": "复习",
+                "why": "The course word for “revise” is “复习”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“考试” means:",
+                "options": [
+                  "exam",
+                  "subject",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“考试” = “exam”."
+              },
+              {
+                "q": "“科目” means:",
+                "options": [
+                  "subject",
+                  "exam",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“科目” = “subject”."
+              },
+              {
+                "q": "“作业” means:",
+                "options": [
+                  "homework",
+                  "exam",
+                  "subject",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“作业” = “homework”."
+              },
+              {
+                "q": "“课程表” means:",
+                "options": [
+                  "timetable",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": 0,
+                "why": "“课程表” = “timetable”."
+              },
+              {
+                "q": "“截止日期” means:",
+                "options": [
+                  "deadline",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": 0,
+                "why": "“截止日期” = “deadline”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Chinese word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "exam",
+                    "subject",
+                    "homework",
+                    "timetable",
+                    "deadline",
+                    "revise"
+                  ],
+                  "key": [
+                    "考试",
+                    "科目",
+                    "作业",
+                    "课程表",
+                    "截止日期",
+                    "复习"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "考试",
+              "科目",
+              "作业",
+              "课程表",
+              "截止日期",
+              "复习",
+              "课",
+              "笔记"
+            ]
+          },
+          {
+            "id": "L2",
+            "title": "Hobbies and free time",
+            "learn": "爱好：喜欢 + 动词。",
+            "vocab": [
+              {
+                "t": "爱好",
+                "r": "àihào",
+                "en": "hobby",
+                "pos": "noun"
+              },
+              {
+                "t": "吉他",
+                "r": "jítā",
+                "en": "guitar",
+                "pos": "noun"
+              },
+              {
+                "t": "队",
+                "r": "duì",
+                "en": "team",
+                "pos": "noun"
+              },
+              {
+                "t": "练习",
+                "r": "liànxí",
+                "en": "practice",
+                "pos": "noun"
+              },
+              {
+                "t": "周末",
+                "r": "zhōumò",
+                "en": "weekend",
+                "pos": "noun"
+              },
+              {
+                "t": "加入",
+                "r": "jiārù",
+                "en": "join",
+                "pos": "verb"
+              },
+              {
+                "t": "音乐会",
+                "r": "yīnyuèhuì",
+                "en": "concert",
+                "pos": "noun"
+              },
+              {
+                "t": "画画",
+                "r": "huàhuà",
+                "en": "draw",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "喜欢 + 动词",
+              "explain": "喜欢后面直接跟动词或名词。",
+              "pattern": "我喜欢弹吉他",
+              "examples": [
+                {
+                  "t": "我喜欢弹吉他。",
+                  "r": "wǒ xǐhuan tán jítā",
+                  "en": "I like playing guitar."
+                },
+                {
+                  "t": "她不喜欢等。",
+                  "r": "tā bù xǐhuan děng",
+                  "en": "She doesn't like waiting."
+                },
+                {
+                  "t": "你周末喜欢画画吗？",
+                  "r": "nǐ zhōumò xǐhuan huàhuà ma?",
+                  "en": "Do you like drawing at weekends?"
+                }
+              ],
+              "mistakes": [
+                "不要说“我喜欢的弹”。",
+                "否定是不喜欢，不是没喜欢。"
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "阿莎",
+                "t": "周末你做什么？",
+                "r": "zhōumò nǐ zuò shénme?",
+                "en": "What do you do at the weekend?"
+              },
+              {
+                "sp": "本",
+                "t": "弹吉他。周六有音乐会。",
+                "r": "tán jítā. zhōuliù yǒu yīnyuèhuì.",
+                "en": "I play guitar. There's a concert on Saturday."
+              },
+              {
+                "sp": "阿莎",
+                "t": "我喜欢画画。你来吗？",
+                "r": "wǒ xǐhuan huàhuà. nǐ lái ma?",
+                "en": "I like drawing. Are you coming?"
+              },
+              {
+                "sp": "本",
+                "t": "练习完就来。",
+                "r": "liànxí wán jiù lái.",
+                "en": "Yes, after practice."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “爱好” mean?",
+                "options": [
+                  "hobby",
+                  "guitar",
+                  "team",
+                  "practice"
+                ],
+                "answer": "hobby",
+                "why": "“爱好” means “hobby”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “hobby” in Chinese?",
+                "answer": "爱好",
+                "why": "The course word for “hobby” is “爱好”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “吉他” mean?",
+                "options": [
+                  "guitar",
+                  "hobby",
+                  "team",
+                  "practice"
+                ],
+                "answer": "guitar",
+                "why": "“吉他” means “guitar”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “guitar” in Chinese?",
+                "answer": "吉他",
+                "why": "The course word for “guitar” is “吉他”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “队” mean?",
+                "options": [
+                  "team",
+                  "hobby",
+                  "guitar",
+                  "practice"
+                ],
+                "answer": "team",
+                "why": "“队” means “team”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “team” in Chinese?",
+                "answer": "队",
+                "why": "The course word for “team” is “队”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “练习” mean?",
+                "options": [
+                  "practice",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "practice",
+                "why": "“练习” means “practice”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “practice” in Chinese?",
+                "answer": "练习",
+                "why": "The course word for “practice” is “练习”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “周末” mean?",
+                "options": [
+                  "weekend",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "weekend",
+                "why": "“周末” means “weekend”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “weekend” in Chinese?",
+                "answer": "周末",
+                "why": "The course word for “weekend” is “周末”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “加入” mean?",
+                "options": [
+                  "join",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "join",
+                "why": "“加入” means “join”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “join” in Chinese?",
+                "answer": "加入",
+                "why": "The course word for “join” is “加入”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“爱好” means:",
+                "options": [
+                  "hobby",
+                  "guitar",
+                  "team",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“爱好” = “hobby”."
+              },
+              {
+                "q": "“吉他” means:",
+                "options": [
+                  "guitar",
+                  "hobby",
+                  "team",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“吉他” = “guitar”."
+              },
+              {
+                "q": "“队” means:",
+                "options": [
+                  "team",
+                  "hobby",
+                  "guitar",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“队” = “team”."
+              },
+              {
+                "q": "“练习” means:",
+                "options": [
+                  "practice",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": 0,
+                "why": "“练习” = “practice”."
+              },
+              {
+                "q": "“周末” means:",
+                "options": [
+                  "weekend",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": 0,
+                "why": "“周末” = “weekend”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Chinese word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "hobby",
+                    "guitar",
+                    "team",
+                    "practice",
+                    "weekend",
+                    "join"
+                  ],
+                  "key": [
+                    "爱好",
+                    "吉他",
+                    "队",
+                    "练习",
+                    "周末",
+                    "加入"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "爱好",
+              "吉他",
+              "队",
+              "练习",
+              "周末",
+              "加入",
+              "音乐会",
+              "画画"
+            ]
+          },
+          {
+            "id": "L3",
+            "title": "Travel basics",
+            "learn": "车票、站台、晚点。",
+            "vocab": [
+              {
+                "t": "站台",
+                "r": "zhàntái",
+                "en": "platform",
+                "pos": "noun"
+              },
+              {
+                "t": "往返票",
+                "r": "wǎngfǎn piào",
+                "en": "return ticket",
+                "pos": "noun"
+              },
+              {
+                "t": "晚点",
+                "r": "wǎndiǎn",
+                "en": "delay",
+                "pos": "noun"
+              },
+              {
+                "t": "行李",
+                "r": "xíngli",
+                "en": "luggage",
+                "pos": "noun"
+              },
+              {
+                "t": "登机口",
+                "r": "dēngjīkǒu",
+                "en": "gate",
+                "pos": "noun"
+              },
+              {
+                "t": "护照",
+                "r": "hùzhào",
+                "en": "passport",
+                "pos": "noun"
+              },
+              {
+                "t": "订",
+                "r": "dìng",
+                "en": "book",
+                "pos": "verb"
+              },
+              {
+                "t": "换乘",
+                "r": "huànchéng",
+                "en": "change trains",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "得 + 动词",
+              "explain": "外部规定用得。",
+              "pattern": "你得出示护照",
+              "examples": [
+                {
+                  "t": "你得出示护照。",
+                  "r": "nǐ děi chūshì hùzhào",
+                  "en": "You have to show your passport."
+                },
+                {
+                  "t": "我们得在南京换乘。",
+                  "r": "wǒmen děi zài Nánjīng huànchéng",
+                  "en": "We have to change in Nanjing."
+                },
+                {
+                  "t": "他今天不用订。",
+                  "r": "tā jīntiān bú yòng dìng",
+                  "en": "He doesn't have to book today."
+                }
+              ],
+              "mistakes": [
+                "得后面是动词，不是“得了出示”。",
+                "不用 = 没有必要，不是禁止。"
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "窗口",
+                "t": "单程还是往返？",
+                "r": "dānchéng háishì wǎngfǎn?",
+                "en": "Single or return?"
+              },
+              {
+                "sp": "妮娜",
+                "t": "往返。几号站台？",
+                "r": "wǎngfǎn. jǐ hào zhàntái?",
+                "en": "Return. Which platform?"
+              },
+              {
+                "sp": "窗口",
+                "t": "四号。有点晚点。",
+                "r": "sì hào. yǒudiǎn wǎndiǎn.",
+                "en": "Platform 4. There's a short delay."
+              },
+              {
+                "sp": "妮娜",
+                "t": "我得换乘吗？",
+                "r": "wǒ děi huànchéng ma?",
+                "en": "Do I have to change?"
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “站台” mean?",
+                "options": [
+                  "platform",
+                  "return ticket",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": "platform",
+                "why": "“站台” means “platform”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “platform” in Chinese?",
+                "answer": "站台",
+                "why": "The course word for “platform” is “站台”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “往返票” mean?",
+                "options": [
+                  "return ticket",
+                  "platform",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": "return ticket",
+                "why": "“往返票” means “return ticket”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “return ticket” in Chinese?",
+                "answer": "往返票",
+                "why": "The course word for “return ticket” is “往返票”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “晚点” mean?",
+                "options": [
+                  "delay",
+                  "platform",
+                  "return ticket",
+                  "luggage"
+                ],
+                "answer": "delay",
+                "why": "“晚点” means “delay”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “delay” in Chinese?",
+                "answer": "晚点",
+                "why": "The course word for “delay” is “晚点”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “行李” mean?",
+                "options": [
+                  "luggage",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "luggage",
+                "why": "“行李” means “luggage”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “luggage” in Chinese?",
+                "answer": "行李",
+                "why": "The course word for “luggage” is “行李”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “登机口” mean?",
+                "options": [
+                  "gate",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "gate",
+                "why": "“登机口” means “gate”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “gate” in Chinese?",
+                "answer": "登机口",
+                "why": "The course word for “gate” is “登机口”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “护照” mean?",
+                "options": [
+                  "passport",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "passport",
+                "why": "“护照” means “passport”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “passport” in Chinese?",
+                "answer": "护照",
+                "why": "The course word for “passport” is “护照”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“站台” means:",
+                "options": [
+                  "platform",
+                  "return ticket",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“站台” = “platform”."
+              },
+              {
+                "q": "“往返票” means:",
+                "options": [
+                  "return ticket",
+                  "platform",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“往返票” = “return ticket”."
+              },
+              {
+                "q": "“晚点” means:",
+                "options": [
+                  "delay",
+                  "platform",
+                  "return ticket",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“晚点” = “delay”."
+              },
+              {
+                "q": "“行李” means:",
+                "options": [
+                  "luggage",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": 0,
+                "why": "“行李” = “luggage”."
+              },
+              {
+                "q": "“登机口” means:",
+                "options": [
+                  "gate",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": 0,
+                "why": "“登机口” = “gate”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Chinese word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "platform",
+                    "return ticket",
+                    "delay",
+                    "luggage",
+                    "gate",
+                    "passport"
+                  ],
+                  "key": [
+                    "站台",
+                    "往返票",
+                    "晚点",
+                    "行李",
+                    "登机口",
+                    "护照"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "站台",
+              "往返票",
+              "晚点",
+              "行李",
+              "登机口",
+              "护照",
+              "订",
+              "换乘"
+            ]
+          },
+          {
+            "id": "L4",
+            "title": "Food and restaurants",
+            "learn": "点菜和过敏。",
+            "vocab": [
+              {
+                "t": "菜单",
+                "r": "càidān",
+                "en": "menu",
+                "pos": "noun"
+              },
+              {
+                "t": "账单",
+                "r": "zhàngdān",
+                "en": "bill",
+                "pos": "noun"
+              },
+              {
+                "t": "前菜",
+                "r": "qiáncài",
+                "en": "starter",
+                "pos": "noun"
+              },
+              {
+                "t": "过敏",
+                "r": "guòmǐn",
+                "en": "allergic",
+                "pos": "noun"
+              },
+              {
+                "t": "辣",
+                "r": "là",
+                "en": "spicy",
+                "pos": "adj"
+              },
+              {
+                "t": "推荐",
+                "r": "tuījiàn",
+                "en": "recommend",
+                "pos": "verb"
+              },
+              {
+                "t": "小费",
+                "r": "xiǎofèi",
+                "en": "tip",
+                "pos": "noun"
+              },
+              {
+                "t": "桌子",
+                "r": "zhuōzi",
+                "en": "table",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "我想要／请给我",
+              "explain": "客气点菜。",
+              "pattern": "我想要汤",
+              "examples": [
+                {
+                  "t": "我想要汤。",
+                  "r": "wǒ xiǎng yào tāng",
+                  "en": "I'd like the soup."
+                },
+                {
+                  "t": "要辣的吗？",
+                  "r": "yào là de ma?",
+                  "en": "Would you like it spicy?"
+                },
+                {
+                  "t": "请给我菜单。",
+                  "r": "qǐng gěi wǒ càidān",
+                  "en": "I'd like to see the menu."
+                }
+              ],
+              "mistakes": [
+                "对服务员不要只说“给我这个”。",
+                "想要后面是名词或动词。"
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "服务员",
+                "t": "可以点了吗？",
+                "r": "kěyǐ diǎn le ma?",
+                "en": "Ready to order?"
+              },
+              {
+                "sp": "山姆",
+                "t": "我要面条。辣吗？",
+                "r": "wǒ yào miàntiáo. là ma?",
+                "en": "I'd like the pasta. Is it spicy?"
+              },
+              {
+                "sp": "服务员",
+                "t": "一点点。您过敏吗？",
+                "r": "yìdiǎndiǎn. nín guòmǐn ma?",
+                "en": "A little. Are you allergic?"
+              },
+              {
+                "sp": "山姆",
+                "t": "不。最后再结账。",
+                "r": "bù. zuìhòu zài jiézhàng.",
+                "en": "No. The bill at the end, please."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “菜单” mean?",
+                "options": [
+                  "menu",
+                  "bill",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": "menu",
+                "why": "“菜单” means “menu”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “menu” in Chinese?",
+                "answer": "菜单",
+                "why": "The course word for “menu” is “菜单”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “账单” mean?",
+                "options": [
+                  "bill",
+                  "menu",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": "bill",
+                "why": "“账单” means “bill”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “bill” in Chinese?",
+                "answer": "账单",
+                "why": "The course word for “bill” is “账单”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “前菜” mean?",
+                "options": [
+                  "starter",
+                  "menu",
+                  "bill",
+                  "allergic"
+                ],
+                "answer": "starter",
+                "why": "“前菜” means “starter”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “starter” in Chinese?",
+                "answer": "前菜",
+                "why": "The course word for “starter” is “前菜”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “过敏” mean?",
+                "options": [
+                  "allergic",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "allergic",
+                "why": "“过敏” means “allergic”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “allergic” in Chinese?",
+                "answer": "过敏",
+                "why": "The course word for “allergic” is “过敏”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “辣” mean?",
+                "options": [
+                  "spicy",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "spicy",
+                "why": "“辣” means “spicy”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “spicy” in Chinese?",
+                "answer": "辣",
+                "why": "The course word for “spicy” is “辣”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “推荐” mean?",
+                "options": [
+                  "recommend",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "recommend",
+                "why": "“推荐” means “recommend”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “recommend” in Chinese?",
+                "answer": "推荐",
+                "why": "The course word for “recommend” is “推荐”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“菜单” means:",
+                "options": [
+                  "menu",
+                  "bill",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“菜单” = “menu”."
+              },
+              {
+                "q": "“账单” means:",
+                "options": [
+                  "bill",
+                  "menu",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“账单” = “bill”."
+              },
+              {
+                "q": "“前菜” means:",
+                "options": [
+                  "starter",
+                  "menu",
+                  "bill",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“前菜” = “starter”."
+              },
+              {
+                "q": "“过敏” means:",
+                "options": [
+                  "allergic",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": 0,
+                "why": "“过敏” = “allergic”."
+              },
+              {
+                "q": "“辣” means:",
+                "options": [
+                  "spicy",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": 0,
+                "why": "“辣” = “spicy”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Chinese word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "menu",
+                    "bill",
+                    "starter",
+                    "allergic",
+                    "spicy",
+                    "recommend"
+                  ],
+                  "key": [
+                    "菜单",
+                    "账单",
+                    "前菜",
+                    "过敏",
+                    "辣",
+                    "推荐"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "菜单",
+              "账单",
+              "前菜",
+              "过敏",
+              "辣",
+              "推荐",
+              "小费",
+              "桌子"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Unit 2",
+        "title": "Chinese A3 — second half",
+        "lessons": [
+          {
+            "id": "L5",
+            "title": "Friends and social life",
+            "learn": "邀请和礼貌拒绝。",
+            "vocab": [
+              {
+                "t": "邀请",
+                "r": "yāoqǐng",
+                "en": "invitation",
+                "pos": "noun"
+              },
+              {
+                "t": "忙",
+                "r": "máng",
+                "en": "busy",
+                "pos": "adj"
+              },
+              {
+                "t": "见面",
+                "r": "jiànmiàn",
+                "en": "catch up",
+                "pos": "verb"
+              },
+              {
+                "t": "带",
+                "r": "dài",
+                "en": "bring",
+                "pos": "verb"
+              },
+              {
+                "t": "聚会",
+                "r": "jùhuì",
+                "en": "party",
+                "pos": "noun"
+              },
+              {
+                "t": "有空",
+                "r": "yǒu kòng",
+                "en": "free",
+                "pos": "noun"
+              },
+              {
+                "t": "也许",
+                "r": "yěxǔ",
+                "en": "maybe",
+                "pos": "noun"
+              },
+              {
+                "t": "下周",
+                "r": "xià zhōu",
+                "en": "next week",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "要不／不如",
+              "explain": "建议，不是命令。",
+              "pattern": "要不七点见？",
+              "examples": [
+                {
+                  "t": "要不七点见？",
+                  "r": "yàobù qī diǎn jiàn?",
+                  "en": "Why don't we meet at seven?"
+                },
+                {
+                  "t": "不如下周再聚？",
+                  "r": "bùrú xià zhōu zài jù?",
+                  "en": "What if we catch up next week?"
+                },
+                {
+                  "t": "我们带点吃的吧。",
+                  "r": "wǒmen dài diǎn chī de ba",
+                  "en": "Let's bring some food."
+                }
+              ],
+              "mistakes": [
+                "只说“不”很硬：要给理由。",
+                "吧 把建议说软。"
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "丽雅",
+                "t": "周五有聚会。去吗？",
+                "r": "zhōuwǔ yǒu jùhuì. qù ma?",
+                "en": "There's a party Friday. Shall we go?"
+              },
+              {
+                "sp": "奥马尔",
+                "t": "周五忙。下周？",
+                "r": "zhōuwǔ máng. xià zhōu?",
+                "en": "I'm busy Friday. Next week?"
+              },
+              {
+                "sp": "丽雅",
+                "t": "周日？六点后我有空。",
+                "r": "zhōurì? liù diǎn hòu wǒ yǒu kòng.",
+                "en": "Sunday? I'm free after six."
+              },
+              {
+                "sp": "奥马尔",
+                "t": "好。甜点我带。",
+                "r": "hǎo. tiándiǎn wǒ dài.",
+                "en": "Perfect. I'll bring dessert."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “邀请” mean?",
+                "options": [
+                  "invitation",
+                  "busy",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": "invitation",
+                "why": "“邀请” means “invitation”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “invitation” in Chinese?",
+                "answer": "邀请",
+                "why": "The course word for “invitation” is “邀请”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “忙” mean?",
+                "options": [
+                  "busy",
+                  "invitation",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": "busy",
+                "why": "“忙” means “busy”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “busy” in Chinese?",
+                "answer": "忙",
+                "why": "The course word for “busy” is “忙”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “见面” mean?",
+                "options": [
+                  "catch up",
+                  "invitation",
+                  "busy",
+                  "bring"
+                ],
+                "answer": "catch up",
+                "why": "“见面” means “catch up”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “catch up” in Chinese?",
+                "answer": "见面",
+                "why": "The course word for “catch up” is “见面”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “带” mean?",
+                "options": [
+                  "bring",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "bring",
+                "why": "“带” means “bring”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “bring” in Chinese?",
+                "answer": "带",
+                "why": "The course word for “bring” is “带”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “聚会” mean?",
+                "options": [
+                  "party",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "party",
+                "why": "“聚会” means “party”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “party” in Chinese?",
+                "answer": "聚会",
+                "why": "The course word for “party” is “聚会”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “有空” mean?",
+                "options": [
+                  "free",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "free",
+                "why": "“有空” means “free”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “free” in Chinese?",
+                "answer": "有空",
+                "why": "The course word for “free” is “有空”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“邀请” means:",
+                "options": [
+                  "invitation",
+                  "busy",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“邀请” = “invitation”."
+              },
+              {
+                "q": "“忙” means:",
+                "options": [
+                  "busy",
+                  "invitation",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“忙” = “busy”."
+              },
+              {
+                "q": "“见面” means:",
+                "options": [
+                  "catch up",
+                  "invitation",
+                  "busy",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“见面” = “catch up”."
+              },
+              {
+                "q": "“带” means:",
+                "options": [
+                  "bring",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": 0,
+                "why": "“带” = “bring”."
+              },
+              {
+                "q": "“聚会” means:",
+                "options": [
+                  "party",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": 0,
+                "why": "“聚会” = “party”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Chinese word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "invitation",
+                    "busy",
+                    "catch up",
+                    "bring",
+                    "party",
+                    "free"
+                  ],
+                  "key": [
+                    "邀请",
+                    "忙",
+                    "见面",
+                    "带",
+                    "聚会",
+                    "有空"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "邀请",
+              "忙",
+              "见面",
+              "带",
+              "聚会",
+              "有空",
+              "也许",
+              "下周"
+            ]
+          },
+          {
+            "id": "L6",
+            "title": "Weather and plans",
+            "learn": "天气和如果。",
+            "vocab": [
+              {
+                "t": "预报",
+                "r": "yùbào",
+                "en": "forecast",
+                "pos": "noun"
+              },
+              {
+                "t": "阵雨",
+                "r": "zhènyǔ",
+                "en": "shower",
+                "pos": "noun"
+              },
+              {
+                "t": "潮湿",
+                "r": "cháoshī",
+                "en": "humid",
+                "pos": "adj"
+              },
+              {
+                "t": "取消",
+                "r": "qǔxiāo",
+                "en": "cancel",
+                "pos": "verb"
+              },
+              {
+                "t": "室内",
+                "r": "shìnèi",
+                "en": "indoor",
+                "pos": "noun"
+              },
+              {
+                "t": "伞",
+                "r": "sǎn",
+                "en": "umbrella",
+                "pos": "noun"
+              },
+              {
+                "t": "度",
+                "r": "dù",
+                "en": "degree",
+                "pos": "noun"
+              },
+              {
+                "t": "转晴",
+                "r": "zhuǎn qíng",
+                "en": "clear up",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "如果 + 现在，就…",
+              "explain": "真实条件。",
+              "pattern": "如果下雨，我们就取消",
+              "examples": [
+                {
+                  "t": "如果下雨，我们就取消野餐。",
+                  "r": "rúguǒ xià yǔ, wǒmen jiù qǔxiāo yěcān",
+                  "en": "If it rains, we'll cancel the picnic."
+                },
+                {
+                  "t": "如果预报好，我们就走路。",
+                  "r": "rúguǒ yùbào hǎo, wǒmen jiù zǒulù",
+                  "en": "If the forecast is good, we'll walk."
+                },
+                {
+                  "t": "如果不转晴，我们就待在室内。",
+                  "r": "rúguǒ bù zhuǎn qíng, wǒmen jiù dāi zài shìnèi",
+                  "en": "If it doesn't clear up, we'll stay inside."
+                }
+              ],
+              "mistakes": [
+                "如果句里不要再堆一个“会要是”。",
+                "就 引出结果。"
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "珍",
+                "t": "预报说有阵雨。",
+                "r": "yùbào shuō yǒu zhènyǔ.",
+                "en": "The forecast says showers."
+              },
+              {
+                "sp": "凯",
+                "t": "如果下雨，我们去博物馆。",
+                "r": "rúguǒ xià yǔ, wǒmen qù bówùguǎn.",
+                "en": "If it rains, we'll go to the museum."
+              },
+              {
+                "sp": "珍",
+                "t": "还是带伞。",
+                "r": "háishì dài sǎn.",
+                "en": "Take an umbrella anyway."
+              },
+              {
+                "sp": "凯",
+                "t": "如果转晴，我们沿河走。",
+                "r": "rúguǒ zhuǎn qíng, wǒmen yán hé zǒu.",
+                "en": "If it clears up, we'll walk by the river."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “预报” mean?",
+                "options": [
+                  "forecast",
+                  "shower",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": "forecast",
+                "why": "“预报” means “forecast”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “forecast” in Chinese?",
+                "answer": "预报",
+                "why": "The course word for “forecast” is “预报”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “阵雨” mean?",
+                "options": [
+                  "shower",
+                  "forecast",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": "shower",
+                "why": "“阵雨” means “shower”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “shower” in Chinese?",
+                "answer": "阵雨",
+                "why": "The course word for “shower” is “阵雨”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “潮湿” mean?",
+                "options": [
+                  "humid",
+                  "forecast",
+                  "shower",
+                  "cancel"
+                ],
+                "answer": "humid",
+                "why": "“潮湿” means “humid”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “humid” in Chinese?",
+                "answer": "潮湿",
+                "why": "The course word for “humid” is “潮湿”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “取消” mean?",
+                "options": [
+                  "cancel",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "cancel",
+                "why": "“取消” means “cancel”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “cancel” in Chinese?",
+                "answer": "取消",
+                "why": "The course word for “cancel” is “取消”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “室内” mean?",
+                "options": [
+                  "indoor",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "indoor",
+                "why": "“室内” means “indoor”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “indoor” in Chinese?",
+                "answer": "室内",
+                "why": "The course word for “indoor” is “室内”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “伞” mean?",
+                "options": [
+                  "umbrella",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "umbrella",
+                "why": "“伞” means “umbrella”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “umbrella” in Chinese?",
+                "answer": "伞",
+                "why": "The course word for “umbrella” is “伞”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“预报” means:",
+                "options": [
+                  "forecast",
+                  "shower",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“预报” = “forecast”."
+              },
+              {
+                "q": "“阵雨” means:",
+                "options": [
+                  "shower",
+                  "forecast",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“阵雨” = “shower”."
+              },
+              {
+                "q": "“潮湿” means:",
+                "options": [
+                  "humid",
+                  "forecast",
+                  "shower",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“潮湿” = “humid”."
+              },
+              {
+                "q": "“取消” means:",
+                "options": [
+                  "cancel",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": 0,
+                "why": "“取消” = “cancel”."
+              },
+              {
+                "q": "“室内” means:",
+                "options": [
+                  "indoor",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": 0,
+                "why": "“室内” = “indoor”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Chinese word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "forecast",
+                    "shower",
+                    "humid",
+                    "cancel",
+                    "indoor",
+                    "umbrella"
+                  ],
+                  "key": [
+                    "预报",
+                    "阵雨",
+                    "潮湿",
+                    "取消",
+                    "室内",
+                    "伞"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "预报",
+              "阵雨",
+              "潮湿",
+              "取消",
+              "室内",
+              "伞",
+              "度",
+              "转晴"
+            ]
+          },
+          {
+            "id": "L7",
+            "title": "Shopping and money",
+            "learn": "购物比较。",
+            "vocab": [
+              {
+                "t": "尺码",
+                "r": "chǐmǎ",
+                "en": "size",
+                "pos": "noun"
+              },
+              {
+                "t": "收据",
+                "r": "shōujù",
+                "en": "receipt",
+                "pos": "noun"
+              },
+              {
+                "t": "退款",
+                "r": "tuìkuǎn",
+                "en": "refund",
+                "pos": "noun"
+              },
+              {
+                "t": "折扣",
+                "r": "zhékòu",
+                "en": "discount",
+                "pos": "noun"
+              },
+              {
+                "t": "现金",
+                "r": "xiànjīn",
+                "en": "cash",
+                "pos": "noun"
+              },
+              {
+                "t": "卡",
+                "r": "kǎ",
+                "en": "card",
+                "pos": "noun"
+              },
+              {
+                "t": "合身",
+                "r": "héshēn",
+                "en": "fit",
+                "pos": "verb"
+              },
+              {
+                "t": "换",
+                "r": "huàn",
+                "en": "exchange",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "比",
+              "explain": "A 比 B + 形容词。",
+              "pattern": "这件比那件便宜",
+              "examples": [
+                {
+                  "t": "这件衬衫比那件便宜。",
+                  "r": "zhè jiàn chènshān bǐ nà jiàn piányi",
+                  "en": "This shirt is cheaper than that one."
+                },
+                {
+                  "t": "蓝色的更贵。",
+                  "r": "lánsè de gèng guì",
+                  "en": "The blue one is more expensive."
+                },
+                {
+                  "t": "M码更合身。",
+                  "r": "M mǎ gèng héshēn",
+                  "en": "Size M fits better."
+                }
+              ],
+              "mistakes": [
+                "不要说“更比较便宜”。",
+                "比 的后面是比较对象。"
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "店员",
+                "t": "刷卡还是现金？",
+                "r": "shuākǎ háishì xiànjīn?",
+                "en": "Card or cash?"
+              },
+              {
+                "sp": "莉拉",
+                "t": "刷卡。有小一号吗？",
+                "r": "shuākǎ. yǒu xiǎo yí hào ma?",
+                "en": "Card. Have you got a smaller size?"
+              },
+              {
+                "sp": "店员",
+                "t": "有。退款请留收据。",
+                "r": "yǒu. tuìkuǎn qǐng liú shōujù.",
+                "en": "Yes. Keep the receipt for a refund."
+              },
+              {
+                "sp": "莉拉",
+                "t": "有学生折扣吗？",
+                "r": "yǒu xuéshēng zhékòu ma?",
+                "en": "Is there a student discount?"
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “尺码” mean?",
+                "options": [
+                  "size",
+                  "receipt",
+                  "refund",
+                  "discount"
+                ],
+                "answer": "size",
+                "why": "“尺码” means “size”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “size” in Chinese?",
+                "answer": "尺码",
+                "why": "The course word for “size” is “尺码”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “收据” mean?",
+                "options": [
+                  "receipt",
+                  "size",
+                  "refund",
+                  "discount"
+                ],
+                "answer": "receipt",
+                "why": "“收据” means “receipt”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “receipt” in Chinese?",
+                "answer": "收据",
+                "why": "The course word for “receipt” is “收据”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “退款” mean?",
+                "options": [
+                  "refund",
+                  "size",
+                  "receipt",
+                  "discount"
+                ],
+                "answer": "refund",
+                "why": "“退款” means “refund”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “refund” in Chinese?",
+                "answer": "退款",
+                "why": "The course word for “refund” is “退款”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “折扣” mean?",
+                "options": [
+                  "discount",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "discount",
+                "why": "“折扣” means “discount”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “discount” in Chinese?",
+                "answer": "折扣",
+                "why": "The course word for “discount” is “折扣”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “现金” mean?",
+                "options": [
+                  "cash",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "cash",
+                "why": "“现金” means “cash”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “cash” in Chinese?",
+                "answer": "现金",
+                "why": "The course word for “cash” is “现金”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “卡” mean?",
+                "options": [
+                  "card",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "card",
+                "why": "“卡” means “card”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “card” in Chinese?",
+                "answer": "卡",
+                "why": "The course word for “card” is “卡”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“尺码” means:",
+                "options": [
+                  "size",
+                  "receipt",
+                  "refund",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“尺码” = “size”."
+              },
+              {
+                "q": "“收据” means:",
+                "options": [
+                  "receipt",
+                  "size",
+                  "refund",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“收据” = “receipt”."
+              },
+              {
+                "q": "“退款” means:",
+                "options": [
+                  "refund",
+                  "size",
+                  "receipt",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“退款” = “refund”."
+              },
+              {
+                "q": "“折扣” means:",
+                "options": [
+                  "discount",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": 0,
+                "why": "“折扣” = “discount”."
+              },
+              {
+                "q": "“现金” means:",
+                "options": [
+                  "cash",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": 0,
+                "why": "“现金” = “cash”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Chinese word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "size",
+                    "receipt",
+                    "refund",
+                    "discount",
+                    "cash",
+                    "card"
+                  ],
+                  "key": [
+                    "尺码",
+                    "收据",
+                    "退款",
+                    "折扣",
+                    "现金",
+                    "卡"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "尺码",
+              "收据",
+              "退款",
+              "折扣",
+              "现金",
+              "卡",
+              "合身",
+              "换"
+            ]
+          },
+          {
+            "id": "L8",
+            "title": "Daily routines and future plans",
+            "learn": "习惯和打算。",
+            "vocab": [
+              {
+                "t": "通勤",
+                "r": "tōngqín",
+                "en": "commute",
+                "pos": "verb"
+              },
+              {
+                "t": "班",
+                "r": "bān",
+                "en": "shift",
+                "pos": "noun"
+              },
+              {
+                "t": "闹钟",
+                "r": "nàozhōng",
+                "en": "alarm",
+                "pos": "noun"
+              },
+              {
+                "t": "存",
+                "r": "cún",
+                "en": "save",
+                "pos": "verb"
+              },
+              {
+                "t": "目标",
+                "r": "mùbiāo",
+                "en": "goal",
+                "pos": "noun"
+              },
+              {
+                "t": "习惯",
+                "r": "xíguàn",
+                "en": "habit",
+                "pos": "noun"
+              },
+              {
+                "t": "下个月",
+                "r": "xià ge yuè",
+                "en": "next month",
+                "pos": "noun"
+              },
+              {
+                "t": "一般",
+                "r": "yìbān",
+                "en": "usually",
+                "pos": "adv"
+              }
+            ],
+            "grammar": {
+              "title": "一般 + 现在 vs 打算",
+              "explain": "时刻表用现在；决定用打算／要。",
+              "pattern": "我一般七点出门",
+              "examples": [
+                {
+                  "t": "我一般七点出门。",
+                  "r": "wǒ yìbān qī diǎn chūmén",
+                  "en": "I usually leave at seven."
+                },
+                {
+                  "t": "下个月我打算存钱。",
+                  "r": "xià ge yuè wǒ dǎsuàn cún qián",
+                  "en": "I'm going to save next month."
+                },
+                {
+                  "t": "我的班九点开始。",
+                  "r": "wǒ de bān jiǔ diǎn kāishǐ",
+                  "en": "My shift starts at nine."
+                }
+              ],
+              "mistakes": [
+                "印好的时刻表不要用打算。",
+                "不要把昨天和打算混在一句。"
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "达娜",
+                "t": "你一般几点开始？",
+                "r": "nǐ yìbān jǐ diǎn kāishǐ?",
+                "en": "What time do you usually start?"
+              },
+              {
+                "sp": "内德",
+                "t": "班九点。下个月我打算改。",
+                "r": "bān jiǔ diǎn. xià ge yuè wǒ dǎsuàn gǎi.",
+                "en": "The shift starts at nine. I'm going to change it next month."
+              },
+              {
+                "sp": "达娜",
+                "t": "为什么？",
+                "r": "wèishénme?",
+                "en": "Why?"
+              },
+              {
+                "sp": "内德",
+                "t": "想通勤短一点。这就是目标。",
+                "r": "xiǎng tōngqín duǎn yìdiǎn. zhè jiù shì mùbiāo.",
+                "en": "I want a shorter commute. That's the goal."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “通勤” mean?",
+                "options": [
+                  "commute",
+                  "shift",
+                  "alarm",
+                  "save"
+                ],
+                "answer": "commute",
+                "why": "“通勤” means “commute”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “commute” in Chinese?",
+                "answer": "通勤",
+                "why": "The course word for “commute” is “通勤”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “班” mean?",
+                "options": [
+                  "shift",
+                  "commute",
+                  "alarm",
+                  "save"
+                ],
+                "answer": "shift",
+                "why": "“班” means “shift”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “shift” in Chinese?",
+                "answer": "班",
+                "why": "The course word for “shift” is “班”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “闹钟” mean?",
+                "options": [
+                  "alarm",
+                  "commute",
+                  "shift",
+                  "save"
+                ],
+                "answer": "alarm",
+                "why": "“闹钟” means “alarm”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “alarm” in Chinese?",
+                "answer": "闹钟",
+                "why": "The course word for “alarm” is “闹钟”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “存” mean?",
+                "options": [
+                  "save",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "save",
+                "why": "“存” means “save”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “save” in Chinese?",
+                "answer": "存",
+                "why": "The course word for “save” is “存”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “目标” mean?",
+                "options": [
+                  "goal",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "goal",
+                "why": "“目标” means “goal”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “goal” in Chinese?",
+                "answer": "目标",
+                "why": "The course word for “goal” is “目标”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “习惯” mean?",
+                "options": [
+                  "habit",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "habit",
+                "why": "“习惯” means “habit”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “habit” in Chinese?",
+                "answer": "习惯",
+                "why": "The course word for “habit” is “习惯”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“通勤” means:",
+                "options": [
+                  "commute",
+                  "shift",
+                  "alarm",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“通勤” = “commute”."
+              },
+              {
+                "q": "“班” means:",
+                "options": [
+                  "shift",
+                  "commute",
+                  "alarm",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“班” = “shift”."
+              },
+              {
+                "q": "“闹钟” means:",
+                "options": [
+                  "alarm",
+                  "commute",
+                  "shift",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“闹钟” = “alarm”."
+              },
+              {
+                "q": "“存” means:",
+                "options": [
+                  "save",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": 0,
+                "why": "“存” = “save”."
+              },
+              {
+                "q": "“目标” means:",
+                "options": [
+                  "goal",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": 0,
+                "why": "“目标” = “goal”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Chinese word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "commute",
+                    "shift",
+                    "alarm",
+                    "save",
+                    "goal",
+                    "habit"
+                  ],
+                  "key": [
+                    "通勤",
+                    "班",
+                    "闹钟",
+                    "存",
+                    "目标",
+                    "习惯"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "通勤",
+              "班",
+              "闹钟",
+              "存",
+              "目标",
+              "习惯",
+              "下个月",
+              "一般"
+            ]
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "A3 test",
+      "items": [
+        {
+          "type": "multiple_choice",
+          "q": "What does “考试” mean?",
+          "options": [
+            "exam",
+            "subject",
+            "homework",
+            "timetable"
+          ],
+          "answer": "exam",
+          "why": "From this A3 lesson: “考试” means “exam”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “科目” mean?",
+          "options": [
+            "subject",
+            "exam",
+            "homework",
+            "timetable"
+          ],
+          "answer": "subject",
+          "why": "From this A3 lesson: “科目” means “subject”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “爱好” mean?",
+          "options": [
+            "hobby",
+            "guitar",
+            "team",
+            "practice"
+          ],
+          "answer": "hobby",
+          "why": "From this A3 lesson: “爱好” means “hobby”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “吉他” mean?",
+          "options": [
+            "guitar",
+            "hobby",
+            "team",
+            "practice"
+          ],
+          "answer": "guitar",
+          "why": "From this A3 lesson: “吉他” means “guitar”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “站台” mean?",
+          "options": [
+            "platform",
+            "return ticket",
+            "delay",
+            "luggage"
+          ],
+          "answer": "platform",
+          "why": "From this A3 lesson: “站台” means “platform”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “往返票” mean?",
+          "options": [
+            "return ticket",
+            "platform",
+            "delay",
+            "luggage"
+          ],
+          "answer": "return ticket",
+          "why": "From this A3 lesson: “往返票” means “return ticket”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “菜单” mean?",
+          "options": [
+            "menu",
+            "bill",
+            "starter",
+            "allergic"
+          ],
+          "answer": "menu",
+          "why": "From this A3 lesson: “菜单” means “menu”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “账单” mean?",
+          "options": [
+            "bill",
+            "menu",
+            "starter",
+            "allergic"
+          ],
+          "answer": "bill",
+          "why": "From this A3 lesson: “账单” means “bill”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “邀请” mean?",
+          "options": [
+            "invitation",
+            "busy",
+            "catch up",
+            "bring"
+          ],
+          "answer": "invitation",
+          "why": "From this A3 lesson: “邀请” means “invitation”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “忙” mean?",
+          "options": [
+            "busy",
+            "invitation",
+            "catch up",
+            "bring"
+          ],
+          "answer": "busy",
+          "why": "From this A3 lesson: “忙” means “busy”."
+        }
+      ]
+    }
   }
 }

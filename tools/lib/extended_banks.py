@@ -340,7 +340,17 @@ def load_all_packs():
     from tools.lib import extended_banks_core
     from tools.lib import extended_banks_world
     from tools.lib import extended_banks_rest
+    from tools.lib import extended_banks_batch2
+    from tools.lib import extended_banks_batch3
+    from tools.lib import extended_banks_batch4
+    from tools.lib import extended_banks_batch5
+    from tools.lib import extended_banks_batch6
     extended_banks_core.register()
     extended_banks_world.register()
     extended_banks_rest.register()
+    extended_banks_batch2.register()
+    extended_banks_batch3.register()
+    extended_banks_batch4.register()
+    extended_banks_batch5.register()
+    extended_banks_batch6.register()
     return PACKS

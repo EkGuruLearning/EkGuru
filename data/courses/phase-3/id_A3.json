@@ -5,16 +5,2722 @@
   "phase": "phase-3",
   "medium": "en",
   "file_level": "A3",
-  "content_status": "INCOMPLETE",
-  "indexable": false,
+  "content_status": "REAL",
+  "indexable": true,
   "ekguru_extension": true,
   "cefr_equivalent": null,
   "cefr_note": "EkGuru A2→B1 bridge. Not a CEFR level.",
-  "reason": "EkGuru A2→B1 bridge. Not a CEFR level.",
   "level": {
     "id": "A3",
-    "title": "Indonesian A3 — not published",
-    "goals": [],
-    "units": []
+    "title": "Indonesian A3",
+    "goals": [
+      "Handle a short Indonesian exchange about school and studies.",
+      "Handle a short Indonesian exchange about hobbies and free time.",
+      "Handle a short Indonesian exchange about travel basics.",
+      "Handle a short Indonesian exchange about food and restaurants.",
+      "Handle a short Indonesian exchange about friends and social life.",
+      "Handle a short Indonesian exchange about weather and plans.",
+      "Handle a short Indonesian exchange about shopping and money.",
+      "Handle a short Indonesian exchange about daily routines and future plans."
+    ],
+    "units": [
+      {
+        "id": "Unit 1",
+        "title": "Indonesian A3 — first half",
+        "lessons": [
+          {
+            "id": "L1",
+            "title": "School and studies",
+            "learn": "Rencana dekat: akan / mau.",
+            "vocab": [
+              {
+                "t": "ujian",
+                "r": "",
+                "en": "exam",
+                "pos": "noun"
+              },
+              {
+                "t": "mata pelajaran",
+                "r": "",
+                "en": "subject",
+                "pos": "noun"
+              },
+              {
+                "t": "pekerjaan rumah",
+                "r": "",
+                "en": "homework",
+                "pos": "noun"
+              },
+              {
+                "t": "jadwal",
+                "r": "",
+                "en": "timetable",
+                "pos": "noun"
+              },
+              {
+                "t": "tenggat",
+                "r": "",
+                "en": "deadline",
+                "pos": "noun"
+              },
+              {
+                "t": "mengulang",
+                "r": "",
+                "en": "revise",
+                "pos": "verb"
+              },
+              {
+                "t": "kuliah",
+                "r": "",
+                "en": "lecture",
+                "pos": "noun"
+              },
+              {
+                "t": "catatan",
+                "r": "",
+                "en": "notes",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "akan / mau + verba",
+              "explain": "Rencana yang sudah diputuskan.",
+              "pattern": "saya akan mengulang malam ini",
+              "examples": [
+                {
+                  "t": "Saya akan mengulang malam ini.",
+                  "r": "",
+                  "en": "I'm going to revise tonight."
+                },
+                {
+                  "t": "Dia akan bolos kuliah.",
+                  "r": "",
+                  "en": "She's going to miss the lecture."
+                },
+                {
+                  "t": "Kamu mau menyelesaikan PR?",
+                  "r": "",
+                  "en": "Are you going to finish the homework?"
+                }
+              ],
+              "mistakes": [
+                "Jangan ‘saya akan untuk mengulang’.",
+                "akan + verba mentah."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Ana",
+                "t": "Besok ada ujian?",
+                "r": "",
+                "en": "Have you got an exam tomorrow?"
+              },
+              {
+                "sp": "Luis",
+                "t": "Ya, sejarah. Habis kelas saya akan mengulang.",
+                "r": "",
+                "en": "Yes, history. I'll revise after class."
+              },
+              {
+                "sp": "Ana",
+                "t": "Belajar di perpustakaan?",
+                "r": "",
+                "en": "Shall we study in the library?"
+              },
+              {
+                "sp": "Luis",
+                "t": "Ya. Tenggat catatan hari ini.",
+                "r": "",
+                "en": "Yes. The notes deadline is today."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “ujian” mean?",
+                "options": [
+                  "exam",
+                  "subject",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": "exam",
+                "why": "“ujian” means “exam”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “exam” in Indonesian?",
+                "answer": "ujian",
+                "why": "The course word for “exam” is “ujian”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “mata pelajaran” mean?",
+                "options": [
+                  "subject",
+                  "exam",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": "subject",
+                "why": "“mata pelajaran” means “subject”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “subject” in Indonesian?",
+                "answer": "mata pelajaran",
+                "why": "The course word for “subject” is “mata pelajaran”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “pekerjaan rumah” mean?",
+                "options": [
+                  "homework",
+                  "exam",
+                  "subject",
+                  "timetable"
+                ],
+                "answer": "homework",
+                "why": "“pekerjaan rumah” means “homework”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “homework” in Indonesian?",
+                "answer": "pekerjaan rumah",
+                "why": "The course word for “homework” is “pekerjaan rumah”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “jadwal” mean?",
+                "options": [
+                  "timetable",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "timetable",
+                "why": "“jadwal” means “timetable”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “timetable” in Indonesian?",
+                "answer": "jadwal",
+                "why": "The course word for “timetable” is “jadwal”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “tenggat” mean?",
+                "options": [
+                  "deadline",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "deadline",
+                "why": "“tenggat” means “deadline”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “deadline” in Indonesian?",
+                "answer": "tenggat",
+                "why": "The course word for “deadline” is “tenggat”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “mengulang” mean?",
+                "options": [
+                  "revise",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "revise",
+                "why": "“mengulang” means “revise”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “revise” in Indonesian?",
+                "answer": "mengulang",
+                "why": "The course word for “revise” is “mengulang”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“ujian” means:",
+                "options": [
+                  "exam",
+                  "subject",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“ujian” = “exam”."
+              },
+              {
+                "q": "“mata pelajaran” means:",
+                "options": [
+                  "subject",
+                  "exam",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“mata pelajaran” = “subject”."
+              },
+              {
+                "q": "“pekerjaan rumah” means:",
+                "options": [
+                  "homework",
+                  "exam",
+                  "subject",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“pekerjaan rumah” = “homework”."
+              },
+              {
+                "q": "“jadwal” means:",
+                "options": [
+                  "timetable",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": 0,
+                "why": "“jadwal” = “timetable”."
+              },
+              {
+                "q": "“tenggat” means:",
+                "options": [
+                  "deadline",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": 0,
+                "why": "“tenggat” = “deadline”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Indonesian word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "exam",
+                    "subject",
+                    "homework",
+                    "timetable",
+                    "deadline",
+                    "revise"
+                  ],
+                  "key": [
+                    "ujian",
+                    "mata pelajaran",
+                    "pekerjaan rumah",
+                    "jadwal",
+                    "tenggat",
+                    "mengulang"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "ujian",
+              "mata pelajaran",
+              "pekerjaan rumah",
+              "jadwal",
+              "tenggat",
+              "mengulang",
+              "kuliah",
+              "catatan"
+            ]
+          },
+          {
+            "id": "L2",
+            "title": "Hobbies and free time",
+            "learn": "Hobi: suka + verba.",
+            "vocab": [
+              {
+                "t": "hobi",
+                "r": "",
+                "en": "hobby",
+                "pos": "noun"
+              },
+              {
+                "t": "gitar",
+                "r": "",
+                "en": "guitar",
+                "pos": "noun"
+              },
+              {
+                "t": "tim",
+                "r": "",
+                "en": "team",
+                "pos": "noun"
+              },
+              {
+                "t": "latihan",
+                "r": "",
+                "en": "practice",
+                "pos": "noun"
+              },
+              {
+                "t": "akhir pekan",
+                "r": "",
+                "en": "weekend",
+                "pos": "noun"
+              },
+              {
+                "t": "bergabung",
+                "r": "",
+                "en": "join",
+                "pos": "verb"
+              },
+              {
+                "t": "konser",
+                "r": "",
+                "en": "concert",
+                "pos": "noun"
+              },
+              {
+                "t": "menggambar",
+                "r": "",
+                "en": "draw",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "suka + verba",
+              "explain": "Suka diikuti verba atau nomina.",
+              "pattern": "saya suka main gitar",
+              "examples": [
+                {
+                  "t": "Saya suka main gitar.",
+                  "r": "",
+                  "en": "I like playing guitar."
+                },
+                {
+                  "t": "Dia tidak suka menunggu.",
+                  "r": "",
+                  "en": "She doesn't like waiting."
+                },
+                {
+                  "t": "Kamu suka menggambar di akhir pekan?",
+                  "r": "",
+                  "en": "Do you like drawing at weekends?"
+                }
+              ],
+              "mistakes": [
+                "Bukan ‘saya suka untuk main’.",
+                "tidak suka, bukan tidak menyukai selalu."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Asha",
+                "t": "Akhir pekan kamu ngapain?",
+                "r": "",
+                "en": "What do you do at the weekend?"
+              },
+              {
+                "sp": "Ben",
+                "t": "Main gitar. Sabtu ada konser.",
+                "r": "",
+                "en": "I play guitar. There's a concert on Saturday."
+              },
+              {
+                "sp": "Asha",
+                "t": "Saya suka menggambar. Ikut?",
+                "r": "",
+                "en": "I like drawing. Are you coming?"
+              },
+              {
+                "sp": "Ben",
+                "t": "Habis latihan.",
+                "r": "",
+                "en": "Yes, after practice."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “hobi” mean?",
+                "options": [
+                  "hobby",
+                  "guitar",
+                  "team",
+                  "practice"
+                ],
+                "answer": "hobby",
+                "why": "“hobi” means “hobby”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “hobby” in Indonesian?",
+                "answer": "hobi",
+                "why": "The course word for “hobby” is “hobi”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “gitar” mean?",
+                "options": [
+                  "guitar",
+                  "hobby",
+                  "team",
+                  "practice"
+                ],
+                "answer": "guitar",
+                "why": "“gitar” means “guitar”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “guitar” in Indonesian?",
+                "answer": "gitar",
+                "why": "The course word for “guitar” is “gitar”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “tim” mean?",
+                "options": [
+                  "team",
+                  "hobby",
+                  "guitar",
+                  "practice"
+                ],
+                "answer": "team",
+                "why": "“tim” means “team”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “team” in Indonesian?",
+                "answer": "tim",
+                "why": "The course word for “team” is “tim”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “latihan” mean?",
+                "options": [
+                  "practice",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "practice",
+                "why": "“latihan” means “practice”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “practice” in Indonesian?",
+                "answer": "latihan",
+                "why": "The course word for “practice” is “latihan”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “akhir pekan” mean?",
+                "options": [
+                  "weekend",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "weekend",
+                "why": "“akhir pekan” means “weekend”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “weekend” in Indonesian?",
+                "answer": "akhir pekan",
+                "why": "The course word for “weekend” is “akhir pekan”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “bergabung” mean?",
+                "options": [
+                  "join",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "join",
+                "why": "“bergabung” means “join”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “join” in Indonesian?",
+                "answer": "bergabung",
+                "why": "The course word for “join” is “bergabung”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“hobi” means:",
+                "options": [
+                  "hobby",
+                  "guitar",
+                  "team",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“hobi” = “hobby”."
+              },
+              {
+                "q": "“gitar” means:",
+                "options": [
+                  "guitar",
+                  "hobby",
+                  "team",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“gitar” = “guitar”."
+              },
+              {
+                "q": "“tim” means:",
+                "options": [
+                  "team",
+                  "hobby",
+                  "guitar",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“tim” = “team”."
+              },
+              {
+                "q": "“latihan” means:",
+                "options": [
+                  "practice",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": 0,
+                "why": "“latihan” = “practice”."
+              },
+              {
+                "q": "“akhir pekan” means:",
+                "options": [
+                  "weekend",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": 0,
+                "why": "“akhir pekan” = “weekend”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Indonesian word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "hobby",
+                    "guitar",
+                    "team",
+                    "practice",
+                    "weekend",
+                    "join"
+                  ],
+                  "key": [
+                    "hobi",
+                    "gitar",
+                    "tim",
+                    "latihan",
+                    "akhir pekan",
+                    "bergabung"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "hobi",
+              "gitar",
+              "tim",
+              "latihan",
+              "akhir pekan",
+              "bergabung",
+              "konser",
+              "menggambar"
+            ]
+          },
+          {
+            "id": "L3",
+            "title": "Travel basics",
+            "learn": "Tiket.",
+            "vocab": [
+              {
+                "t": "peron",
+                "r": "",
+                "en": "platform",
+                "pos": "noun"
+              },
+              {
+                "t": "tiket pulang-pergi",
+                "r": "",
+                "en": "return ticket",
+                "pos": "noun"
+              },
+              {
+                "t": "keterlambatan",
+                "r": "",
+                "en": "delay",
+                "pos": "noun"
+              },
+              {
+                "t": "bagasi",
+                "r": "",
+                "en": "luggage",
+                "pos": "noun"
+              },
+              {
+                "t": "pintu",
+                "r": "",
+                "en": "gate",
+                "pos": "noun"
+              },
+              {
+                "t": "paspor",
+                "r": "",
+                "en": "passport",
+                "pos": "noun"
+              },
+              {
+                "t": "memesan",
+                "r": "",
+                "en": "book",
+                "pos": "verb"
+              },
+              {
+                "t": "transit",
+                "r": "",
+                "en": "change trains",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "harus + verba",
+              "explain": "Kewajiban luar.",
+              "pattern": "kamu harus tunjukkan paspor",
+              "examples": [
+                {
+                  "t": "Kamu harus tunjukkan paspor.",
+                  "r": "",
+                  "en": "You have to show your passport."
+                },
+                {
+                  "t": "Kita harus transit di Bandung.",
+                  "r": "",
+                  "en": "We have to change in Bandung."
+                },
+                {
+                  "t": "Dia tidak harus memesan hari ini.",
+                  "r": "",
+                  "en": "He doesn't have to book today."
+                }
+              ],
+              "mistakes": [
+                "harus + verba, tanpa ‘untuk’ wajib.",
+                "tidak harus ≠ dilarang."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Loket",
+                "t": "Sekali jalan atau pulang-pergi?",
+                "r": "",
+                "en": "Single or return?"
+              },
+              {
+                "sp": "Nina",
+                "t": "Pulang-pergi. Peron berapa?",
+                "r": "",
+                "en": "Return. Which platform?"
+              },
+              {
+                "sp": "Loket",
+                "t": "Empat. Ada keterlambatan singkat.",
+                "r": "",
+                "en": "Platform 4. There's a short delay."
+              },
+              {
+                "sp": "Nina",
+                "t": "Harus transit?",
+                "r": "",
+                "en": "Do I have to change?"
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “peron” mean?",
+                "options": [
+                  "platform",
+                  "return ticket",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": "platform",
+                "why": "“peron” means “platform”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “platform” in Indonesian?",
+                "answer": "peron",
+                "why": "The course word for “platform” is “peron”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “tiket pulang-pergi” mean?",
+                "options": [
+                  "return ticket",
+                  "platform",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": "return ticket",
+                "why": "“tiket pulang-pergi” means “return ticket”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “return ticket” in Indonesian?",
+                "answer": "tiket pulang-pergi",
+                "why": "The course word for “return ticket” is “tiket pulang-pergi”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “keterlambatan” mean?",
+                "options": [
+                  "delay",
+                  "platform",
+                  "return ticket",
+                  "luggage"
+                ],
+                "answer": "delay",
+                "why": "“keterlambatan” means “delay”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “delay” in Indonesian?",
+                "answer": "keterlambatan",
+                "why": "The course word for “delay” is “keterlambatan”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “bagasi” mean?",
+                "options": [
+                  "luggage",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "luggage",
+                "why": "“bagasi” means “luggage”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “luggage” in Indonesian?",
+                "answer": "bagasi",
+                "why": "The course word for “luggage” is “bagasi”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “pintu” mean?",
+                "options": [
+                  "gate",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "gate",
+                "why": "“pintu” means “gate”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “gate” in Indonesian?",
+                "answer": "pintu",
+                "why": "The course word for “gate” is “pintu”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “paspor” mean?",
+                "options": [
+                  "passport",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "passport",
+                "why": "“paspor” means “passport”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “passport” in Indonesian?",
+                "answer": "paspor",
+                "why": "The course word for “passport” is “paspor”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“peron” means:",
+                "options": [
+                  "platform",
+                  "return ticket",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“peron” = “platform”."
+              },
+              {
+                "q": "“tiket pulang-pergi” means:",
+                "options": [
+                  "return ticket",
+                  "platform",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“tiket pulang-pergi” = “return ticket”."
+              },
+              {
+                "q": "“keterlambatan” means:",
+                "options": [
+                  "delay",
+                  "platform",
+                  "return ticket",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“keterlambatan” = “delay”."
+              },
+              {
+                "q": "“bagasi” means:",
+                "options": [
+                  "luggage",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": 0,
+                "why": "“bagasi” = “luggage”."
+              },
+              {
+                "q": "“pintu” means:",
+                "options": [
+                  "gate",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": 0,
+                "why": "“pintu” = “gate”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Indonesian word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "platform",
+                    "return ticket",
+                    "delay",
+                    "luggage",
+                    "gate",
+                    "passport"
+                  ],
+                  "key": [
+                    "peron",
+                    "tiket pulang-pergi",
+                    "keterlambatan",
+                    "bagasi",
+                    "pintu",
+                    "paspor"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "peron",
+              "tiket pulang-pergi",
+              "keterlambatan",
+              "bagasi",
+              "pintu",
+              "paspor",
+              "memesan",
+              "transit"
+            ]
+          },
+          {
+            "id": "L4",
+            "title": "Food and restaurants",
+            "learn": "Restoran.",
+            "vocab": [
+              {
+                "t": "menu",
+                "r": "",
+                "en": "menu",
+                "pos": "noun"
+              },
+              {
+                "t": "bon",
+                "r": "",
+                "en": "bill",
+                "pos": "noun"
+              },
+              {
+                "t": "pembuka",
+                "r": "",
+                "en": "starter",
+                "pos": "noun"
+              },
+              {
+                "t": "alergi",
+                "r": "",
+                "en": "allergic",
+                "pos": "noun"
+              },
+              {
+                "t": "pedas",
+                "r": "",
+                "en": "spicy",
+                "pos": "adj"
+              },
+              {
+                "t": "merekomendasikan",
+                "r": "",
+                "en": "recommend",
+                "pos": "verb"
+              },
+              {
+                "t": "tip",
+                "r": "",
+                "en": "tip",
+                "pos": "noun"
+              },
+              {
+                "t": "meja",
+                "r": "",
+                "en": "table",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "saya mau",
+              "explain": "Pesanan sopan.",
+              "pattern": "saya mau sop",
+              "examples": [
+                {
+                  "t": "Saya mau sop.",
+                  "r": "",
+                  "en": "I'd like the soup."
+                },
+                {
+                  "t": "Mau pedas?",
+                  "r": "",
+                  "en": "Would you like it spicy?"
+                },
+                {
+                  "t": "Boleh lihat menu?",
+                  "r": "",
+                  "en": "I'd like to see the menu."
+                }
+              ],
+              "mistakes": [
+                "Ke pelayan, ‘kasih ini’ kasar.",
+                "mau + nomina."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Pelayan",
+                "t": "Sudah siap pesan?",
+                "r": "",
+                "en": "Ready to order?"
+              },
+              {
+                "sp": "Sam",
+                "t": "Saya mau pasta. Pedas tidak?",
+                "r": "",
+                "en": "I'd like the pasta. Is it spicy?"
+              },
+              {
+                "sp": "Pelayan",
+                "t": "Sedikit. Ada alergi?",
+                "r": "",
+                "en": "A little. Are you allergic?"
+              },
+              {
+                "sp": "Sam",
+                "t": "Tidak. Bon di akhir, ya.",
+                "r": "",
+                "en": "No. The bill at the end, please."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “menu” mean?",
+                "options": [
+                  "menu",
+                  "bill",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": "menu",
+                "why": "“menu” means “menu”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “menu” in Indonesian?",
+                "answer": "menu",
+                "why": "The course word for “menu” is “menu”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “bon” mean?",
+                "options": [
+                  "bill",
+                  "menu",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": "bill",
+                "why": "“bon” means “bill”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “bill” in Indonesian?",
+                "answer": "bon",
+                "why": "The course word for “bill” is “bon”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “pembuka” mean?",
+                "options": [
+                  "starter",
+                  "menu",
+                  "bill",
+                  "allergic"
+                ],
+                "answer": "starter",
+                "why": "“pembuka” means “starter”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “starter” in Indonesian?",
+                "answer": "pembuka",
+                "why": "The course word for “starter” is “pembuka”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “alergi” mean?",
+                "options": [
+                  "allergic",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "allergic",
+                "why": "“alergi” means “allergic”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “allergic” in Indonesian?",
+                "answer": "alergi",
+                "why": "The course word for “allergic” is “alergi”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “pedas” mean?",
+                "options": [
+                  "spicy",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "spicy",
+                "why": "“pedas” means “spicy”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “spicy” in Indonesian?",
+                "answer": "pedas",
+                "why": "The course word for “spicy” is “pedas”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “merekomendasikan” mean?",
+                "options": [
+                  "recommend",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "recommend",
+                "why": "“merekomendasikan” means “recommend”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “recommend” in Indonesian?",
+                "answer": "merekomendasikan",
+                "why": "The course word for “recommend” is “merekomendasikan”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“menu” means:",
+                "options": [
+                  "menu",
+                  "bill",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“menu” = “menu”."
+              },
+              {
+                "q": "“bon” means:",
+                "options": [
+                  "bill",
+                  "menu",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“bon” = “bill”."
+              },
+              {
+                "q": "“pembuka” means:",
+                "options": [
+                  "starter",
+                  "menu",
+                  "bill",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“pembuka” = “starter”."
+              },
+              {
+                "q": "“alergi” means:",
+                "options": [
+                  "allergic",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": 0,
+                "why": "“alergi” = “allergic”."
+              },
+              {
+                "q": "“pedas” means:",
+                "options": [
+                  "spicy",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": 0,
+                "why": "“pedas” = “spicy”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Indonesian word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "menu",
+                    "bill",
+                    "starter",
+                    "allergic",
+                    "spicy",
+                    "recommend"
+                  ],
+                  "key": [
+                    "menu",
+                    "bon",
+                    "pembuka",
+                    "alergi",
+                    "pedas",
+                    "merekomendasikan"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "menu",
+              "bon",
+              "pembuka",
+              "alergi",
+              "pedas",
+              "merekomendasikan",
+              "tip",
+              "meja"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Unit 2",
+        "title": "Indonesian A3 — second half",
+        "lessons": [
+          {
+            "id": "L5",
+            "title": "Friends and social life",
+            "learn": "Undangan.",
+            "vocab": [
+              {
+                "t": "undangan",
+                "r": "",
+                "en": "invitation",
+                "pos": "noun"
+              },
+              {
+                "t": "sibuk",
+                "r": "",
+                "en": "busy",
+                "pos": "adj"
+              },
+              {
+                "t": "ketemu",
+                "r": "",
+                "en": "catch up",
+                "pos": "verb"
+              },
+              {
+                "t": "bawa",
+                "r": "",
+                "en": "bring",
+                "pos": "verb"
+              },
+              {
+                "t": "pesta",
+                "r": "",
+                "en": "party",
+                "pos": "noun"
+              },
+              {
+                "t": "luang",
+                "r": "",
+                "en": "free",
+                "pos": "noun"
+              },
+              {
+                "t": "mungkin",
+                "r": "",
+                "en": "maybe",
+                "pos": "noun"
+              },
+              {
+                "t": "minggu depan",
+                "r": "",
+                "en": "next week",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "bagaimana kalau",
+              "explain": "Saran, bukan perintah.",
+              "pattern": "bagaimana kalau ketemu jam tujuh?",
+              "examples": [
+                {
+                  "t": "Bagaimana kalau ketemu jam tujuh?",
+                  "r": "",
+                  "en": "Why don't we meet at seven?"
+                },
+                {
+                  "t": "Minggu depan saja?",
+                  "r": "",
+                  "en": "What if we catch up next week?"
+                },
+                {
+                  "t": "Kita bawa makanan.",
+                  "r": "",
+                  "en": "Let's bring some food."
+                }
+              ],
+              "mistakes": [
+                "‘Tidak’ polos terasa keras: beri alasan.",
+                "bagaimana kalau + klausa."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Riya",
+                "t": "Jumat ada pesta. Pergi?",
+                "r": "",
+                "en": "There's a party Friday. Shall we go?"
+              },
+              {
+                "sp": "Omar",
+                "t": "Jumat sibuk. Minggu depan?",
+                "r": "",
+                "en": "I'm busy Friday. Next week?"
+              },
+              {
+                "sp": "Riya",
+                "t": "Minggu? Setelah jam enam saya luang.",
+                "r": "",
+                "en": "Sunday? I'm free after six."
+              },
+              {
+                "sp": "Omar",
+                "t": "Sip. Saya bawa pencuci mulut.",
+                "r": "",
+                "en": "Perfect. I'll bring dessert."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “undangan” mean?",
+                "options": [
+                  "invitation",
+                  "busy",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": "invitation",
+                "why": "“undangan” means “invitation”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “invitation” in Indonesian?",
+                "answer": "undangan",
+                "why": "The course word for “invitation” is “undangan”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “sibuk” mean?",
+                "options": [
+                  "busy",
+                  "invitation",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": "busy",
+                "why": "“sibuk” means “busy”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “busy” in Indonesian?",
+                "answer": "sibuk",
+                "why": "The course word for “busy” is “sibuk”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ketemu” mean?",
+                "options": [
+                  "catch up",
+                  "invitation",
+                  "busy",
+                  "bring"
+                ],
+                "answer": "catch up",
+                "why": "“ketemu” means “catch up”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “catch up” in Indonesian?",
+                "answer": "ketemu",
+                "why": "The course word for “catch up” is “ketemu”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “bawa” mean?",
+                "options": [
+                  "bring",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "bring",
+                "why": "“bawa” means “bring”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “bring” in Indonesian?",
+                "answer": "bawa",
+                "why": "The course word for “bring” is “bawa”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “pesta” mean?",
+                "options": [
+                  "party",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "party",
+                "why": "“pesta” means “party”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “party” in Indonesian?",
+                "answer": "pesta",
+                "why": "The course word for “party” is “pesta”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “luang” mean?",
+                "options": [
+                  "free",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "free",
+                "why": "“luang” means “free”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “free” in Indonesian?",
+                "answer": "luang",
+                "why": "The course word for “free” is “luang”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“undangan” means:",
+                "options": [
+                  "invitation",
+                  "busy",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“undangan” = “invitation”."
+              },
+              {
+                "q": "“sibuk” means:",
+                "options": [
+                  "busy",
+                  "invitation",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“sibuk” = “busy”."
+              },
+              {
+                "q": "“ketemu” means:",
+                "options": [
+                  "catch up",
+                  "invitation",
+                  "busy",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“ketemu” = “catch up”."
+              },
+              {
+                "q": "“bawa” means:",
+                "options": [
+                  "bring",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": 0,
+                "why": "“bawa” = “bring”."
+              },
+              {
+                "q": "“pesta” means:",
+                "options": [
+                  "party",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": 0,
+                "why": "“pesta” = “party”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Indonesian word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "invitation",
+                    "busy",
+                    "catch up",
+                    "bring",
+                    "party",
+                    "free"
+                  ],
+                  "key": [
+                    "undangan",
+                    "sibuk",
+                    "ketemu",
+                    "bawa",
+                    "pesta",
+                    "luang"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "undangan",
+              "sibuk",
+              "ketemu",
+              "bawa",
+              "pesta",
+              "luang",
+              "mungkin",
+              "minggu depan"
+            ]
+          },
+          {
+            "id": "L6",
+            "title": "Weather and plans",
+            "learn": "Cuaca: kalau.",
+            "vocab": [
+              {
+                "t": "prakiraan",
+                "r": "",
+                "en": "forecast",
+                "pos": "noun"
+              },
+              {
+                "t": "gerimis",
+                "r": "",
+                "en": "shower",
+                "pos": "noun"
+              },
+              {
+                "t": "lembab",
+                "r": "",
+                "en": "humid",
+                "pos": "adj"
+              },
+              {
+                "t": "membatalkan",
+                "r": "",
+                "en": "cancel",
+                "pos": "verb"
+              },
+              {
+                "t": "di dalam",
+                "r": "",
+                "en": "indoor",
+                "pos": "noun"
+              },
+              {
+                "t": "payung",
+                "r": "",
+                "en": "umbrella",
+                "pos": "noun"
+              },
+              {
+                "t": "derajat",
+                "r": "",
+                "en": "degree",
+                "pos": "noun"
+              },
+              {
+                "t": "cerah",
+                "r": "",
+                "en": "clear up",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "kalau + sekarang, akan",
+              "explain": "Syarat nyata.",
+              "pattern": "kalau hujan, kita batalkan",
+              "examples": [
+                {
+                  "t": "Kalau hujan, kita batalkan piknik.",
+                  "r": "",
+                  "en": "If it rains, we'll cancel the picnic."
+                },
+                {
+                  "t": "Kalau prakiraan bagus, kita jalan.",
+                  "r": "",
+                  "en": "If the forecast is good, we'll walk."
+                },
+                {
+                  "t": "Kalau tidak cerah, kita di dalam.",
+                  "r": "",
+                  "en": "If it doesn't clear up, we'll stay inside."
+                }
+              ],
+              "mistakes": [
+                "Jangan tumpuk akan di klausa kalau.",
+                "kalau = syarat."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Jen",
+                "t": "Prakiraan bilang gerimis.",
+                "r": "",
+                "en": "The forecast says showers."
+              },
+              {
+                "sp": "Kai",
+                "t": "Kalau hujan, ke museum.",
+                "r": "",
+                "en": "If it rains, we'll go to the museum."
+              },
+              {
+                "sp": "Jen",
+                "t": "Tetap bawa payung.",
+                "r": "",
+                "en": "Take an umbrella anyway."
+              },
+              {
+                "sp": "Kai",
+                "t": "Kalau cerah, jalan di sungai.",
+                "r": "",
+                "en": "If it clears up, we'll walk by the river."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “prakiraan” mean?",
+                "options": [
+                  "forecast",
+                  "shower",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": "forecast",
+                "why": "“prakiraan” means “forecast”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “forecast” in Indonesian?",
+                "answer": "prakiraan",
+                "why": "The course word for “forecast” is “prakiraan”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “gerimis” mean?",
+                "options": [
+                  "shower",
+                  "forecast",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": "shower",
+                "why": "“gerimis” means “shower”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “shower” in Indonesian?",
+                "answer": "gerimis",
+                "why": "The course word for “shower” is “gerimis”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “lembab” mean?",
+                "options": [
+                  "humid",
+                  "forecast",
+                  "shower",
+                  "cancel"
+                ],
+                "answer": "humid",
+                "why": "“lembab” means “humid”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “humid” in Indonesian?",
+                "answer": "lembab",
+                "why": "The course word for “humid” is “lembab”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “membatalkan” mean?",
+                "options": [
+                  "cancel",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "cancel",
+                "why": "“membatalkan” means “cancel”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “cancel” in Indonesian?",
+                "answer": "membatalkan",
+                "why": "The course word for “cancel” is “membatalkan”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “di dalam” mean?",
+                "options": [
+                  "indoor",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "indoor",
+                "why": "“di dalam” means “indoor”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “indoor” in Indonesian?",
+                "answer": "di dalam",
+                "why": "The course word for “indoor” is “di dalam”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “payung” mean?",
+                "options": [
+                  "umbrella",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "umbrella",
+                "why": "“payung” means “umbrella”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “umbrella” in Indonesian?",
+                "answer": "payung",
+                "why": "The course word for “umbrella” is “payung”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“prakiraan” means:",
+                "options": [
+                  "forecast",
+                  "shower",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“prakiraan” = “forecast”."
+              },
+              {
+                "q": "“gerimis” means:",
+                "options": [
+                  "shower",
+                  "forecast",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“gerimis” = “shower”."
+              },
+              {
+                "q": "“lembab” means:",
+                "options": [
+                  "humid",
+                  "forecast",
+                  "shower",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“lembab” = “humid”."
+              },
+              {
+                "q": "“membatalkan” means:",
+                "options": [
+                  "cancel",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": 0,
+                "why": "“membatalkan” = “cancel”."
+              },
+              {
+                "q": "“di dalam” means:",
+                "options": [
+                  "indoor",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": 0,
+                "why": "“di dalam” = “indoor”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Indonesian word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "forecast",
+                    "shower",
+                    "humid",
+                    "cancel",
+                    "indoor",
+                    "umbrella"
+                  ],
+                  "key": [
+                    "prakiraan",
+                    "gerimis",
+                    "lembab",
+                    "membatalkan",
+                    "di dalam",
+                    "payung"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "prakiraan",
+              "gerimis",
+              "lembab",
+              "membatalkan",
+              "di dalam",
+              "payung",
+              "derajat",
+              "cerah"
+            ]
+          },
+          {
+            "id": "L7",
+            "title": "Shopping and money",
+            "learn": "Belanja.",
+            "vocab": [
+              {
+                "t": "ukuran",
+                "r": "",
+                "en": "size",
+                "pos": "noun"
+              },
+              {
+                "t": "struk",
+                "r": "",
+                "en": "receipt",
+                "pos": "noun"
+              },
+              {
+                "t": "pengembalian",
+                "r": "",
+                "en": "refund",
+                "pos": "noun"
+              },
+              {
+                "t": "diskon",
+                "r": "",
+                "en": "discount",
+                "pos": "noun"
+              },
+              {
+                "t": "tunai",
+                "r": "",
+                "en": "cash",
+                "pos": "noun"
+              },
+              {
+                "t": "kartu",
+                "r": "",
+                "en": "card",
+                "pos": "noun"
+              },
+              {
+                "t": "muat",
+                "r": "",
+                "en": "fit",
+                "pos": "verb"
+              },
+              {
+                "t": "tukar",
+                "r": "",
+                "en": "exchange",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "lebih ... daripada",
+              "explain": "Perbandingan.",
+              "pattern": "kemeja ini lebih murah daripada itu",
+              "examples": [
+                {
+                  "t": "Kemeja ini lebih murah daripada itu.",
+                  "r": "",
+                  "en": "This shirt is cheaper than that one."
+                },
+                {
+                  "t": "Yang biru lebih mahal.",
+                  "r": "",
+                  "en": "The blue one is more expensive."
+                },
+                {
+                  "t": "Ukuran M lebih muat.",
+                  "r": "",
+                  "en": "Size M fits better."
+                }
+              ],
+              "mistakes": [
+                "Jangan ‘lebih lebih murah’.",
+                "daripada suku kedua."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Toko",
+                "t": "Kartu atau tunai?",
+                "r": "",
+                "en": "Card or cash?"
+              },
+              {
+                "sp": "Lila",
+                "t": "Kartu. Ada ukuran lebih kecil?",
+                "r": "",
+                "en": "Card. Have you got a smaller size?"
+              },
+              {
+                "sp": "Toko",
+                "t": "Ada. Simpan struk untuk pengembalian.",
+                "r": "",
+                "en": "Yes. Keep the receipt for a refund."
+              },
+              {
+                "sp": "Lila",
+                "t": "Ada diskon pelajar?",
+                "r": "",
+                "en": "Is there a student discount?"
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “ukuran” mean?",
+                "options": [
+                  "size",
+                  "receipt",
+                  "refund",
+                  "discount"
+                ],
+                "answer": "size",
+                "why": "“ukuran” means “size”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “size” in Indonesian?",
+                "answer": "ukuran",
+                "why": "The course word for “size” is “ukuran”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “struk” mean?",
+                "options": [
+                  "receipt",
+                  "size",
+                  "refund",
+                  "discount"
+                ],
+                "answer": "receipt",
+                "why": "“struk” means “receipt”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “receipt” in Indonesian?",
+                "answer": "struk",
+                "why": "The course word for “receipt” is “struk”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “pengembalian” mean?",
+                "options": [
+                  "refund",
+                  "size",
+                  "receipt",
+                  "discount"
+                ],
+                "answer": "refund",
+                "why": "“pengembalian” means “refund”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “refund” in Indonesian?",
+                "answer": "pengembalian",
+                "why": "The course word for “refund” is “pengembalian”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “diskon” mean?",
+                "options": [
+                  "discount",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "discount",
+                "why": "“diskon” means “discount”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “discount” in Indonesian?",
+                "answer": "diskon",
+                "why": "The course word for “discount” is “diskon”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “tunai” mean?",
+                "options": [
+                  "cash",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "cash",
+                "why": "“tunai” means “cash”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “cash” in Indonesian?",
+                "answer": "tunai",
+                "why": "The course word for “cash” is “tunai”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “kartu” mean?",
+                "options": [
+                  "card",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "card",
+                "why": "“kartu” means “card”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “card” in Indonesian?",
+                "answer": "kartu",
+                "why": "The course word for “card” is “kartu”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“ukuran” means:",
+                "options": [
+                  "size",
+                  "receipt",
+                  "refund",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“ukuran” = “size”."
+              },
+              {
+                "q": "“struk” means:",
+                "options": [
+                  "receipt",
+                  "size",
+                  "refund",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“struk” = “receipt”."
+              },
+              {
+                "q": "“pengembalian” means:",
+                "options": [
+                  "refund",
+                  "size",
+                  "receipt",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“pengembalian” = “refund”."
+              },
+              {
+                "q": "“diskon” means:",
+                "options": [
+                  "discount",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": 0,
+                "why": "“diskon” = “discount”."
+              },
+              {
+                "q": "“tunai” means:",
+                "options": [
+                  "cash",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": 0,
+                "why": "“tunai” = “cash”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Indonesian word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "size",
+                    "receipt",
+                    "refund",
+                    "discount",
+                    "cash",
+                    "card"
+                  ],
+                  "key": [
+                    "ukuran",
+                    "struk",
+                    "pengembalian",
+                    "diskon",
+                    "tunai",
+                    "kartu"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "ukuran",
+              "struk",
+              "pengembalian",
+              "diskon",
+              "tunai",
+              "kartu",
+              "muat",
+              "tukar"
+            ]
+          },
+          {
+            "id": "L8",
+            "title": "Daily routines and future plans",
+            "learn": "Kebiasaan.",
+            "vocab": [
+              {
+                "t": "pergi-pulang",
+                "r": "",
+                "en": "commute",
+                "pos": "noun"
+              },
+              {
+                "t": "giliran",
+                "r": "",
+                "en": "shift",
+                "pos": "noun"
+              },
+              {
+                "t": "alarm",
+                "r": "",
+                "en": "alarm",
+                "pos": "noun"
+              },
+              {
+                "t": "menabung",
+                "r": "",
+                "en": "save",
+                "pos": "verb"
+              },
+              {
+                "t": "tujuan",
+                "r": "",
+                "en": "goal",
+                "pos": "noun"
+              },
+              {
+                "t": "kebiasaan",
+                "r": "",
+                "en": "habit",
+                "pos": "noun"
+              },
+              {
+                "t": "bulan depan",
+                "r": "",
+                "en": "next month",
+                "pos": "noun"
+              },
+              {
+                "t": "biasanya",
+                "r": "",
+                "en": "usually",
+                "pos": "adv"
+              }
+            ],
+            "grammar": {
+              "title": "biasanya kini vs akan",
+              "explain": "Jadwal kini; keputusan akan.",
+              "pattern": "biasanya saya berangkat jam tujuh",
+              "examples": [
+                {
+                  "t": "Biasanya saya berangkat jam tujuh.",
+                  "r": "",
+                  "en": "I usually leave at seven."
+                },
+                {
+                  "t": "Bulan depan saya akan menabung.",
+                  "r": "",
+                  "en": "I'm going to save next month."
+                },
+                {
+                  "t": "Giliran saya mulai jam sembilan.",
+                  "r": "",
+                  "en": "My shift starts at nine."
+                }
+              ],
+              "mistakes": [
+                "Jadwal tercetak jangan pakai akan.",
+                "Jangan campur kemarin dan akan."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Dana",
+                "t": "Biasanya mulai jam berapa?",
+                "r": "",
+                "en": "What time do you usually start?"
+              },
+              {
+                "sp": "Ned",
+                "t": "Jam sembilan. Bulan depan saya akan ganti.",
+                "r": "",
+                "en": "The shift starts at nine. I'm going to change it next month."
+              },
+              {
+                "sp": "Dana",
+                "t": "Kenapa?",
+                "r": "",
+                "en": "Why?"
+              },
+              {
+                "sp": "Ned",
+                "t": "Mau perjalanan lebih pendek. Itu tujuannya.",
+                "r": "",
+                "en": "I want a shorter commute. That's the goal."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “pergi-pulang” mean?",
+                "options": [
+                  "commute",
+                  "shift",
+                  "alarm",
+                  "save"
+                ],
+                "answer": "commute",
+                "why": "“pergi-pulang” means “commute”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “commute” in Indonesian?",
+                "answer": "pergi-pulang",
+                "why": "The course word for “commute” is “pergi-pulang”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “giliran” mean?",
+                "options": [
+                  "shift",
+                  "commute",
+                  "alarm",
+                  "save"
+                ],
+                "answer": "shift",
+                "why": "“giliran” means “shift”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “shift” in Indonesian?",
+                "answer": "giliran",
+                "why": "The course word for “shift” is “giliran”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “alarm” mean?",
+                "options": [
+                  "alarm",
+                  "commute",
+                  "shift",
+                  "save"
+                ],
+                "answer": "alarm",
+                "why": "“alarm” means “alarm”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “alarm” in Indonesian?",
+                "answer": "alarm",
+                "why": "The course word for “alarm” is “alarm”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “menabung” mean?",
+                "options": [
+                  "save",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "save",
+                "why": "“menabung” means “save”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “save” in Indonesian?",
+                "answer": "menabung",
+                "why": "The course word for “save” is “menabung”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “tujuan” mean?",
+                "options": [
+                  "goal",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "goal",
+                "why": "“tujuan” means “goal”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “goal” in Indonesian?",
+                "answer": "tujuan",
+                "why": "The course word for “goal” is “tujuan”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “kebiasaan” mean?",
+                "options": [
+                  "habit",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "habit",
+                "why": "“kebiasaan” means “habit”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “habit” in Indonesian?",
+                "answer": "kebiasaan",
+                "why": "The course word for “habit” is “kebiasaan”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“pergi-pulang” means:",
+                "options": [
+                  "commute",
+                  "shift",
+                  "alarm",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“pergi-pulang” = “commute”."
+              },
+              {
+                "q": "“giliran” means:",
+                "options": [
+                  "shift",
+                  "commute",
+                  "alarm",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“giliran” = “shift”."
+              },
+              {
+                "q": "“alarm” means:",
+                "options": [
+                  "alarm",
+                  "commute",
+                  "shift",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“alarm” = “alarm”."
+              },
+              {
+                "q": "“menabung” means:",
+                "options": [
+                  "save",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": 0,
+                "why": "“menabung” = “save”."
+              },
+              {
+                "q": "“tujuan” means:",
+                "options": [
+                  "goal",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": 0,
+                "why": "“tujuan” = “goal”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Indonesian word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "commute",
+                    "shift",
+                    "alarm",
+                    "save",
+                    "goal",
+                    "habit"
+                  ],
+                  "key": [
+                    "pergi-pulang",
+                    "giliran",
+                    "alarm",
+                    "menabung",
+                    "tujuan",
+                    "kebiasaan"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "pergi-pulang",
+              "giliran",
+              "alarm",
+              "menabung",
+              "tujuan",
+              "kebiasaan",
+              "bulan depan",
+              "biasanya"
+            ]
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "A3 test",
+      "items": [
+        {
+          "type": "multiple_choice",
+          "q": "What does “ujian” mean?",
+          "options": [
+            "exam",
+            "subject",
+            "homework",
+            "timetable"
+          ],
+          "answer": "exam",
+          "why": "From this A3 lesson: “ujian” means “exam”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “mata pelajaran” mean?",
+          "options": [
+            "subject",
+            "exam",
+            "homework",
+            "timetable"
+          ],
+          "answer": "subject",
+          "why": "From this A3 lesson: “mata pelajaran” means “subject”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “hobi” mean?",
+          "options": [
+            "hobby",
+            "guitar",
+            "team",
+            "practice"
+          ],
+          "answer": "hobby",
+          "why": "From this A3 lesson: “hobi” means “hobby”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “gitar” mean?",
+          "options": [
+            "guitar",
+            "hobby",
+            "team",
+            "practice"
+          ],
+          "answer": "guitar",
+          "why": "From this A3 lesson: “gitar” means “guitar”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “peron” mean?",
+          "options": [
+            "platform",
+            "return ticket",
+            "delay",
+            "luggage"
+          ],
+          "answer": "platform",
+          "why": "From this A3 lesson: “peron” means “platform”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “tiket pulang-pergi” mean?",
+          "options": [
+            "return ticket",
+            "platform",
+            "delay",
+            "luggage"
+          ],
+          "answer": "return ticket",
+          "why": "From this A3 lesson: “tiket pulang-pergi” means “return ticket”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “menu” mean?",
+          "options": [
+            "menu",
+            "bill",
+            "starter",
+            "allergic"
+          ],
+          "answer": "menu",
+          "why": "From this A3 lesson: “menu” means “menu”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “bon” mean?",
+          "options": [
+            "bill",
+            "menu",
+            "starter",
+            "allergic"
+          ],
+          "answer": "bill",
+          "why": "From this A3 lesson: “bon” means “bill”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “undangan” mean?",
+          "options": [
+            "invitation",
+            "busy",
+            "catch up",
+            "bring"
+          ],
+          "answer": "invitation",
+          "why": "From this A3 lesson: “undangan” means “invitation”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “sibuk” mean?",
+          "options": [
+            "busy",
+            "invitation",
+            "catch up",
+            "bring"
+          ],
+          "answer": "busy",
+          "why": "From this A3 lesson: “sibuk” means “busy”."
+        }
+      ]
+    }
   }
 }

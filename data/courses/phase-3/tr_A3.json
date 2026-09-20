@@ -5,16 +5,2722 @@
   "phase": "phase-3",
   "medium": "en",
   "file_level": "A3",
-  "content_status": "INCOMPLETE",
-  "indexable": false,
+  "content_status": "REAL",
+  "indexable": true,
   "ekguru_extension": true,
   "cefr_equivalent": null,
   "cefr_note": "EkGuru A2→B1 bridge. Not a CEFR level.",
-  "reason": "EkGuru A2→B1 bridge. Not a CEFR level.",
   "level": {
     "id": "A3",
-    "title": "Turkish A3 — not published",
-    "goals": [],
-    "units": []
+    "title": "Turkish A3",
+    "goals": [
+      "Handle a short Turkish exchange about school and studies.",
+      "Handle a short Turkish exchange about hobbies and free time.",
+      "Handle a short Turkish exchange about travel basics.",
+      "Handle a short Turkish exchange about food and restaurants.",
+      "Handle a short Turkish exchange about friends and social life.",
+      "Handle a short Turkish exchange about weather and plans.",
+      "Handle a short Turkish exchange about shopping and money.",
+      "Handle a short Turkish exchange about daily routines and future plans."
+    ],
+    "units": [
+      {
+        "id": "Unit 1",
+        "title": "Turkish A3 — first half",
+        "lessons": [
+          {
+            "id": "L1",
+            "title": "School and studies",
+            "learn": "Yakın plan: -ecek.",
+            "vocab": [
+              {
+                "t": "sınav",
+                "r": "",
+                "en": "exam",
+                "pos": "noun"
+              },
+              {
+                "t": "ders",
+                "r": "",
+                "en": "subject",
+                "pos": "noun"
+              },
+              {
+                "t": "ödev",
+                "r": "",
+                "en": "homework",
+                "pos": "noun"
+              },
+              {
+                "t": "program",
+                "r": "",
+                "en": "timetable",
+                "pos": "noun"
+              },
+              {
+                "t": "son tarih",
+                "r": "",
+                "en": "deadline",
+                "pos": "noun"
+              },
+              {
+                "t": "tekrar etmek",
+                "r": "",
+                "en": "revise",
+                "pos": "verb"
+              },
+              {
+                "t": "ders",
+                "r": "",
+                "en": "lecture",
+                "pos": "noun"
+              },
+              {
+                "t": "not",
+                "r": "",
+                "en": "notes",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "-ecek",
+              "explain": "Karar verilmiş yakın gelecek.",
+              "pattern": "bu akşam tekrar edeceğim",
+              "examples": [
+                {
+                  "t": "Bu akşam tekrar edeceğim.",
+                  "r": "",
+                  "en": "I'm going to revise tonight."
+                },
+                {
+                  "t": "Dersi kaçıracak.",
+                  "r": "",
+                  "en": "She's going to miss the lecture."
+                },
+                {
+                  "t": "Ödevi bitirecek misin?",
+                  "r": "",
+                  "en": "Are you going to finish the homework?"
+                }
+              ],
+              "mistakes": [
+                "-ecek'ten önce fiil kökü.",
+                "dün ile -ecek'i karıştırmayın."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Ana",
+                "t": "Yarın sınavın var mı?",
+                "r": "",
+                "en": "Have you got an exam tomorrow?"
+              },
+              {
+                "sp": "Luis",
+                "t": "Evet, tarih. Dersten sonra tekrar edeceğim.",
+                "r": "",
+                "en": "Yes, history. I'll revise after class."
+              },
+              {
+                "sp": "Ana",
+                "t": "Kütüphanede çalışalım mı?",
+                "r": "",
+                "en": "Shall we study in the library?"
+              },
+              {
+                "sp": "Luis",
+                "t": "Evet. Notların son tarihi bugün.",
+                "r": "",
+                "en": "Yes. The notes deadline is today."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “sınav” mean?",
+                "options": [
+                  "exam",
+                  "subject",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": "exam",
+                "why": "“sınav” means “exam”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “exam” in Turkish?",
+                "answer": "sınav",
+                "why": "The course word for “exam” is “sınav”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ders” mean?",
+                "options": [
+                  "subject",
+                  "exam",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": "subject",
+                "why": "“ders” means “subject”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “subject” in Turkish?",
+                "answer": "ders",
+                "why": "The course word for “subject” is “ders”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ödev” mean?",
+                "options": [
+                  "homework",
+                  "exam",
+                  "subject",
+                  "timetable"
+                ],
+                "answer": "homework",
+                "why": "“ödev” means “homework”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “homework” in Turkish?",
+                "answer": "ödev",
+                "why": "The course word for “homework” is “ödev”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “program” mean?",
+                "options": [
+                  "timetable",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "timetable",
+                "why": "“program” means “timetable”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “timetable” in Turkish?",
+                "answer": "program",
+                "why": "The course word for “timetable” is “program”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “son tarih” mean?",
+                "options": [
+                  "deadline",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "deadline",
+                "why": "“son tarih” means “deadline”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “deadline” in Turkish?",
+                "answer": "son tarih",
+                "why": "The course word for “deadline” is “son tarih”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “tekrar etmek” mean?",
+                "options": [
+                  "revise",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "revise",
+                "why": "“tekrar etmek” means “revise”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “revise” in Turkish?",
+                "answer": "tekrar etmek",
+                "why": "The course word for “revise” is “tekrar etmek”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“sınav” means:",
+                "options": [
+                  "exam",
+                  "subject",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“sınav” = “exam”."
+              },
+              {
+                "q": "“ders” means:",
+                "options": [
+                  "subject",
+                  "exam",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“ders” = “subject”."
+              },
+              {
+                "q": "“ödev” means:",
+                "options": [
+                  "homework",
+                  "exam",
+                  "subject",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“ödev” = “homework”."
+              },
+              {
+                "q": "“program” means:",
+                "options": [
+                  "timetable",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": 0,
+                "why": "“program” = “timetable”."
+              },
+              {
+                "q": "“son tarih” means:",
+                "options": [
+                  "deadline",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": 0,
+                "why": "“son tarih” = “deadline”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Turkish word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "exam",
+                    "subject",
+                    "homework",
+                    "timetable",
+                    "deadline",
+                    "revise"
+                  ],
+                  "key": [
+                    "sınav",
+                    "ders",
+                    "ödev",
+                    "program",
+                    "son tarih",
+                    "tekrar etmek"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "sınav",
+              "ders",
+              "ödev",
+              "program",
+              "son tarih",
+              "tekrar etmek",
+              "ders",
+              "not"
+            ]
+          },
+          {
+            "id": "L2",
+            "title": "Hobbies and free time",
+            "learn": "Hobiler: -mek hoşuma gidiyor.",
+            "vocab": [
+              {
+                "t": "hobi",
+                "r": "",
+                "en": "hobby",
+                "pos": "noun"
+              },
+              {
+                "t": "gitar",
+                "r": "",
+                "en": "guitar",
+                "pos": "noun"
+              },
+              {
+                "t": "takım",
+                "r": "",
+                "en": "team",
+                "pos": "noun"
+              },
+              {
+                "t": "antrenman",
+                "r": "",
+                "en": "practice",
+                "pos": "noun"
+              },
+              {
+                "t": "hafta sonu",
+                "r": "",
+                "en": "weekend",
+                "pos": "noun"
+              },
+              {
+                "t": "katılmak",
+                "r": "",
+                "en": "join",
+                "pos": "verb"
+              },
+              {
+                "t": "konser",
+                "r": "",
+                "en": "concert",
+                "pos": "noun"
+              },
+              {
+                "t": "çizmek",
+                "r": "",
+                "en": "draw",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "-mek hoşuna gitmek",
+              "explain": "Fiil + -mek + hoşuna gidiyor.",
+              "pattern": "gitar çalmak hoşuma gidiyor",
+              "examples": [
+                {
+                  "t": "Gitar çalmak hoşuma gidiyor.",
+                  "r": "",
+                  "en": "I like playing guitar."
+                },
+                {
+                  "t": "Beklemek hoşuna gitmiyor.",
+                  "r": "",
+                  "en": "She doesn't like waiting."
+                },
+                {
+                  "t": "Hafta sonu çizmek hoşuna gidiyor mu?",
+                  "r": "",
+                  "en": "Do you like drawing at weekends?"
+                }
+              ],
+              "mistakes": [
+                "‘Ben hoşuma gidiyor gitar’ yanlış.",
+                "hoşuna, hoşuma kişiye göre değişir."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Asha",
+                "t": "Hafta sonu ne yapıyorsun?",
+                "r": "",
+                "en": "What do you do at the weekend?"
+              },
+              {
+                "sp": "Ben",
+                "t": "Gitar çalıyorum. Cumartesi konser var.",
+                "r": "",
+                "en": "I play guitar. There's a concert on Saturday."
+              },
+              {
+                "sp": "Asha",
+                "t": "Çizmek hoşuma gidiyor. Gelir misin?",
+                "r": "",
+                "en": "I like drawing. Are you coming?"
+              },
+              {
+                "sp": "Ben",
+                "t": "Antrenmandan sonra.",
+                "r": "",
+                "en": "Yes, after practice."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “hobi” mean?",
+                "options": [
+                  "hobby",
+                  "guitar",
+                  "team",
+                  "practice"
+                ],
+                "answer": "hobby",
+                "why": "“hobi” means “hobby”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “hobby” in Turkish?",
+                "answer": "hobi",
+                "why": "The course word for “hobby” is “hobi”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “gitar” mean?",
+                "options": [
+                  "guitar",
+                  "hobby",
+                  "team",
+                  "practice"
+                ],
+                "answer": "guitar",
+                "why": "“gitar” means “guitar”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “guitar” in Turkish?",
+                "answer": "gitar",
+                "why": "The course word for “guitar” is “gitar”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “takım” mean?",
+                "options": [
+                  "team",
+                  "hobby",
+                  "guitar",
+                  "practice"
+                ],
+                "answer": "team",
+                "why": "“takım” means “team”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “team” in Turkish?",
+                "answer": "takım",
+                "why": "The course word for “team” is “takım”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “antrenman” mean?",
+                "options": [
+                  "practice",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "practice",
+                "why": "“antrenman” means “practice”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “practice” in Turkish?",
+                "answer": "antrenman",
+                "why": "The course word for “practice” is “antrenman”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “hafta sonu” mean?",
+                "options": [
+                  "weekend",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "weekend",
+                "why": "“hafta sonu” means “weekend”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “weekend” in Turkish?",
+                "answer": "hafta sonu",
+                "why": "The course word for “weekend” is “hafta sonu”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “katılmak” mean?",
+                "options": [
+                  "join",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "join",
+                "why": "“katılmak” means “join”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “join” in Turkish?",
+                "answer": "katılmak",
+                "why": "The course word for “join” is “katılmak”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“hobi” means:",
+                "options": [
+                  "hobby",
+                  "guitar",
+                  "team",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“hobi” = “hobby”."
+              },
+              {
+                "q": "“gitar” means:",
+                "options": [
+                  "guitar",
+                  "hobby",
+                  "team",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“gitar” = “guitar”."
+              },
+              {
+                "q": "“takım” means:",
+                "options": [
+                  "team",
+                  "hobby",
+                  "guitar",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“takım” = “team”."
+              },
+              {
+                "q": "“antrenman” means:",
+                "options": [
+                  "practice",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": 0,
+                "why": "“antrenman” = “practice”."
+              },
+              {
+                "q": "“hafta sonu” means:",
+                "options": [
+                  "weekend",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": 0,
+                "why": "“hafta sonu” = “weekend”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Turkish word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "hobby",
+                    "guitar",
+                    "team",
+                    "practice",
+                    "weekend",
+                    "join"
+                  ],
+                  "key": [
+                    "hobi",
+                    "gitar",
+                    "takım",
+                    "antrenman",
+                    "hafta sonu",
+                    "katılmak"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "hobi",
+              "gitar",
+              "takım",
+              "antrenman",
+              "hafta sonu",
+              "katılmak",
+              "konser",
+              "çizmek"
+            ]
+          },
+          {
+            "id": "L3",
+            "title": "Travel basics",
+            "learn": "Bilet.",
+            "vocab": [
+              {
+                "t": "peron",
+                "r": "",
+                "en": "platform",
+                "pos": "noun"
+              },
+              {
+                "t": "gidiş-dönüş",
+                "r": "",
+                "en": "return ticket",
+                "pos": "noun"
+              },
+              {
+                "t": "gecikme",
+                "r": "",
+                "en": "delay",
+                "pos": "noun"
+              },
+              {
+                "t": "bagaj",
+                "r": "",
+                "en": "luggage",
+                "pos": "noun"
+              },
+              {
+                "t": "kapı",
+                "r": "",
+                "en": "gate",
+                "pos": "noun"
+              },
+              {
+                "t": "pasaport",
+                "r": "",
+                "en": "passport",
+                "pos": "noun"
+              },
+              {
+                "t": "ayırmak",
+                "r": "",
+                "en": "book",
+                "pos": "verb"
+              },
+              {
+                "t": "aktarma",
+                "r": "",
+                "en": "change trains",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "-meli / gerek",
+              "explain": "Dış zorunluluk.",
+              "pattern": "pasaport göstermelisin",
+              "examples": [
+                {
+                  "t": "Pasaport göstermelisin.",
+                  "r": "",
+                  "en": "You have to show your passport."
+                },
+                {
+                  "t": "Eskişehir'de aktarma yapmalıyız.",
+                  "r": "",
+                  "en": "We have to change in Eskişehir."
+                },
+                {
+                  "t": "Bugün ayırması gerekmiyor.",
+                  "r": "",
+                  "en": "He doesn't have to book today."
+                }
+              ],
+              "mistakes": [
+                "-meli fiile eklenir.",
+                "gerekmiyor yasak değildir."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Gişe",
+                "t": "Tek yön mı, gidiş-dönüş mü?",
+                "r": "",
+                "en": "Single or return?"
+              },
+              {
+                "sp": "Nina",
+                "t": "Gidiş-dönüş. Hangi peron?",
+                "r": "",
+                "en": "Return. Which platform?"
+              },
+              {
+                "sp": "Gişe",
+                "t": "Dört. Kısa bir gecikme var.",
+                "r": "",
+                "en": "Platform 4. There's a short delay."
+              },
+              {
+                "sp": "Nina",
+                "t": "Aktarma yapmam gerekir mi?",
+                "r": "",
+                "en": "Do I have to change?"
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “peron” mean?",
+                "options": [
+                  "platform",
+                  "return ticket",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": "platform",
+                "why": "“peron” means “platform”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “platform” in Turkish?",
+                "answer": "peron",
+                "why": "The course word for “platform” is “peron”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “gidiş-dönüş” mean?",
+                "options": [
+                  "return ticket",
+                  "platform",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": "return ticket",
+                "why": "“gidiş-dönüş” means “return ticket”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “return ticket” in Turkish?",
+                "answer": "gidiş-dönüş",
+                "why": "The course word for “return ticket” is “gidiş-dönüş”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “gecikme” mean?",
+                "options": [
+                  "delay",
+                  "platform",
+                  "return ticket",
+                  "luggage"
+                ],
+                "answer": "delay",
+                "why": "“gecikme” means “delay”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “delay” in Turkish?",
+                "answer": "gecikme",
+                "why": "The course word for “delay” is “gecikme”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “bagaj” mean?",
+                "options": [
+                  "luggage",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "luggage",
+                "why": "“bagaj” means “luggage”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “luggage” in Turkish?",
+                "answer": "bagaj",
+                "why": "The course word for “luggage” is “bagaj”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “kapı” mean?",
+                "options": [
+                  "gate",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "gate",
+                "why": "“kapı” means “gate”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “gate” in Turkish?",
+                "answer": "kapı",
+                "why": "The course word for “gate” is “kapı”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “pasaport” mean?",
+                "options": [
+                  "passport",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "passport",
+                "why": "“pasaport” means “passport”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “passport” in Turkish?",
+                "answer": "pasaport",
+                "why": "The course word for “passport” is “pasaport”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“peron” means:",
+                "options": [
+                  "platform",
+                  "return ticket",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“peron” = “platform”."
+              },
+              {
+                "q": "“gidiş-dönüş” means:",
+                "options": [
+                  "return ticket",
+                  "platform",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“gidiş-dönüş” = “return ticket”."
+              },
+              {
+                "q": "“gecikme” means:",
+                "options": [
+                  "delay",
+                  "platform",
+                  "return ticket",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“gecikme” = “delay”."
+              },
+              {
+                "q": "“bagaj” means:",
+                "options": [
+                  "luggage",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": 0,
+                "why": "“bagaj” = “luggage”."
+              },
+              {
+                "q": "“kapı” means:",
+                "options": [
+                  "gate",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": 0,
+                "why": "“kapı” = “gate”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Turkish word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "platform",
+                    "return ticket",
+                    "delay",
+                    "luggage",
+                    "gate",
+                    "passport"
+                  ],
+                  "key": [
+                    "peron",
+                    "gidiş-dönüş",
+                    "gecikme",
+                    "bagaj",
+                    "kapı",
+                    "pasaport"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "peron",
+              "gidiş-dönüş",
+              "gecikme",
+              "bagaj",
+              "kapı",
+              "pasaport",
+              "ayırmak",
+              "aktarma"
+            ]
+          },
+          {
+            "id": "L4",
+            "title": "Food and restaurants",
+            "learn": "Restoran.",
+            "vocab": [
+              {
+                "t": "menü",
+                "r": "",
+                "en": "menu",
+                "pos": "noun"
+              },
+              {
+                "t": "hesap",
+                "r": "",
+                "en": "bill",
+                "pos": "noun"
+              },
+              {
+                "t": "başlangıç",
+                "r": "",
+                "en": "starter",
+                "pos": "noun"
+              },
+              {
+                "t": "alerji",
+                "r": "",
+                "en": "allergic",
+                "pos": "noun"
+              },
+              {
+                "t": "acı",
+                "r": "",
+                "en": "spicy",
+                "pos": "adj"
+              },
+              {
+                "t": "önermek",
+                "r": "",
+                "en": "recommend",
+                "pos": "verb"
+              },
+              {
+                "t": "bahşiş",
+                "r": "",
+                "en": "tip",
+                "pos": "noun"
+              },
+              {
+                "t": "masa",
+                "r": "",
+                "en": "table",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "isterim",
+              "explain": "Kibar sipariş.",
+              "pattern": "çorba isterim",
+              "examples": [
+                {
+                  "t": "Çorba isterim.",
+                  "r": "",
+                  "en": "I'd like the soup."
+                },
+                {
+                  "t": "Acı olsun mu?",
+                  "r": "",
+                  "en": "Would you like it spicy?"
+                },
+                {
+                  "t": "Menüyü görebilir miyim?",
+                  "r": "",
+                  "en": "I'd like to see the menu."
+                }
+              ],
+              "mistakes": [
+                "Garsona ‘ver şunu’ kaba.",
+                "isterim + ad."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Garson",
+                "t": "Sipariş verecek misiniz?",
+                "r": "",
+                "en": "Ready to order?"
+              },
+              {
+                "sp": "Sam",
+                "t": "Makarna isterim. Acı mı?",
+                "r": "",
+                "en": "I'd like the pasta. Is it spicy?"
+              },
+              {
+                "sp": "Garson",
+                "t": "Biraz. Alerjiniz var mı?",
+                "r": "",
+                "en": "A little. Are you allergic?"
+              },
+              {
+                "sp": "Sam",
+                "t": "Yok. Hesabı sonda lütfen.",
+                "r": "",
+                "en": "No. The bill at the end, please."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “menü” mean?",
+                "options": [
+                  "menu",
+                  "bill",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": "menu",
+                "why": "“menü” means “menu”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “menu” in Turkish?",
+                "answer": "menü",
+                "why": "The course word for “menu” is “menü”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “hesap” mean?",
+                "options": [
+                  "bill",
+                  "menu",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": "bill",
+                "why": "“hesap” means “bill”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “bill” in Turkish?",
+                "answer": "hesap",
+                "why": "The course word for “bill” is “hesap”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “başlangıç” mean?",
+                "options": [
+                  "starter",
+                  "menu",
+                  "bill",
+                  "allergic"
+                ],
+                "answer": "starter",
+                "why": "“başlangıç” means “starter”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “starter” in Turkish?",
+                "answer": "başlangıç",
+                "why": "The course word for “starter” is “başlangıç”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “alerji” mean?",
+                "options": [
+                  "allergic",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "allergic",
+                "why": "“alerji” means “allergic”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “allergic” in Turkish?",
+                "answer": "alerji",
+                "why": "The course word for “allergic” is “alerji”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “acı” mean?",
+                "options": [
+                  "spicy",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "spicy",
+                "why": "“acı” means “spicy”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “spicy” in Turkish?",
+                "answer": "acı",
+                "why": "The course word for “spicy” is “acı”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “önermek” mean?",
+                "options": [
+                  "recommend",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "recommend",
+                "why": "“önermek” means “recommend”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “recommend” in Turkish?",
+                "answer": "önermek",
+                "why": "The course word for “recommend” is “önermek”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“menü” means:",
+                "options": [
+                  "menu",
+                  "bill",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“menü” = “menu”."
+              },
+              {
+                "q": "“hesap” means:",
+                "options": [
+                  "bill",
+                  "menu",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“hesap” = “bill”."
+              },
+              {
+                "q": "“başlangıç” means:",
+                "options": [
+                  "starter",
+                  "menu",
+                  "bill",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“başlangıç” = “starter”."
+              },
+              {
+                "q": "“alerji” means:",
+                "options": [
+                  "allergic",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": 0,
+                "why": "“alerji” = “allergic”."
+              },
+              {
+                "q": "“acı” means:",
+                "options": [
+                  "spicy",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": 0,
+                "why": "“acı” = “spicy”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Turkish word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "menu",
+                    "bill",
+                    "starter",
+                    "allergic",
+                    "spicy",
+                    "recommend"
+                  ],
+                  "key": [
+                    "menü",
+                    "hesap",
+                    "başlangıç",
+                    "alerji",
+                    "acı",
+                    "önermek"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "menü",
+              "hesap",
+              "başlangıç",
+              "alerji",
+              "acı",
+              "önermek",
+              "bahşiş",
+              "masa"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Unit 2",
+        "title": "Turkish A3 — second half",
+        "lessons": [
+          {
+            "id": "L5",
+            "title": "Friends and social life",
+            "learn": "Davet.",
+            "vocab": [
+              {
+                "t": "davet",
+                "r": "",
+                "en": "invitation",
+                "pos": "noun"
+              },
+              {
+                "t": "meşgul",
+                "r": "",
+                "en": "busy",
+                "pos": "adj"
+              },
+              {
+                "t": "buluşmak",
+                "r": "",
+                "en": "catch up",
+                "pos": "verb"
+              },
+              {
+                "t": "getirmek",
+                "r": "",
+                "en": "bring",
+                "pos": "verb"
+              },
+              {
+                "t": "parti",
+                "r": "",
+                "en": "party",
+                "pos": "noun"
+              },
+              {
+                "t": "boş",
+                "r": "",
+                "en": "free",
+                "pos": "adj"
+              },
+              {
+                "t": "belki",
+                "r": "",
+                "en": "maybe",
+                "pos": "noun"
+              },
+              {
+                "t": "gelecek hafta",
+                "r": "",
+                "en": "next week",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "-elim / -sek",
+              "explain": "Öneri.",
+              "pattern": "saat yedide buluşalım",
+              "examples": [
+                {
+                  "t": "Saat yedide buluşalım.",
+                  "r": "",
+                  "en": "Why don't we meet at seven?"
+                },
+                {
+                  "t": "Gelecek hafta buluşsak?",
+                  "r": "",
+                  "en": "What if we catch up next week?"
+                },
+                {
+                  "t": "Yiyecek getirelim.",
+                  "r": "",
+                  "en": "Let's bring some food."
+                }
+              ],
+              "mistakes": [
+                "Sadece ‘hayır’ sert: sebep verin.",
+                "-elim emir değildir."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Riya",
+                "t": "Cuma parti var. Gidelim mi?",
+                "r": "",
+                "en": "There's a party Friday. Shall we go?"
+              },
+              {
+                "sp": "Omar",
+                "t": "Cuma meşgulüm. Gelecek hafta?",
+                "r": "",
+                "en": "I'm busy Friday. Next week?"
+              },
+              {
+                "sp": "Riya",
+                "t": "Pazar? Altıdan sonra boşum.",
+                "r": "",
+                "en": "Sunday? I'm free after six."
+              },
+              {
+                "sp": "Omar",
+                "t": "Tamam. Tatlıyı ben getiririm.",
+                "r": "",
+                "en": "Perfect. I'll bring dessert."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “davet” mean?",
+                "options": [
+                  "invitation",
+                  "busy",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": "invitation",
+                "why": "“davet” means “invitation”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “invitation” in Turkish?",
+                "answer": "davet",
+                "why": "The course word for “invitation” is “davet”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “meşgul” mean?",
+                "options": [
+                  "busy",
+                  "invitation",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": "busy",
+                "why": "“meşgul” means “busy”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “busy” in Turkish?",
+                "answer": "meşgul",
+                "why": "The course word for “busy” is “meşgul”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “buluşmak” mean?",
+                "options": [
+                  "catch up",
+                  "invitation",
+                  "busy",
+                  "bring"
+                ],
+                "answer": "catch up",
+                "why": "“buluşmak” means “catch up”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “catch up” in Turkish?",
+                "answer": "buluşmak",
+                "why": "The course word for “catch up” is “buluşmak”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “getirmek” mean?",
+                "options": [
+                  "bring",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "bring",
+                "why": "“getirmek” means “bring”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “bring” in Turkish?",
+                "answer": "getirmek",
+                "why": "The course word for “bring” is “getirmek”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “parti” mean?",
+                "options": [
+                  "party",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "party",
+                "why": "“parti” means “party”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “party” in Turkish?",
+                "answer": "parti",
+                "why": "The course word for “party” is “parti”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “boş” mean?",
+                "options": [
+                  "free",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "free",
+                "why": "“boş” means “free”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “free” in Turkish?",
+                "answer": "boş",
+                "why": "The course word for “free” is “boş”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“davet” means:",
+                "options": [
+                  "invitation",
+                  "busy",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“davet” = “invitation”."
+              },
+              {
+                "q": "“meşgul” means:",
+                "options": [
+                  "busy",
+                  "invitation",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“meşgul” = “busy”."
+              },
+              {
+                "q": "“buluşmak” means:",
+                "options": [
+                  "catch up",
+                  "invitation",
+                  "busy",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“buluşmak” = “catch up”."
+              },
+              {
+                "q": "“getirmek” means:",
+                "options": [
+                  "bring",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": 0,
+                "why": "“getirmek” = “bring”."
+              },
+              {
+                "q": "“parti” means:",
+                "options": [
+                  "party",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": 0,
+                "why": "“parti” = “party”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Turkish word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "invitation",
+                    "busy",
+                    "catch up",
+                    "bring",
+                    "party",
+                    "free"
+                  ],
+                  "key": [
+                    "davet",
+                    "meşgul",
+                    "buluşmak",
+                    "getirmek",
+                    "parti",
+                    "boş"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "davet",
+              "meşgul",
+              "buluşmak",
+              "getirmek",
+              "parti",
+              "boş",
+              "belki",
+              "gelecek hafta"
+            ]
+          },
+          {
+            "id": "L6",
+            "title": "Weather and plans",
+            "learn": "Hava: eğer.",
+            "vocab": [
+              {
+                "t": "tahmin",
+                "r": "",
+                "en": "forecast",
+                "pos": "noun"
+              },
+              {
+                "t": "sağanak",
+                "r": "",
+                "en": "shower",
+                "pos": "noun"
+              },
+              {
+                "t": "nemli",
+                "r": "",
+                "en": "humid",
+                "pos": "adj"
+              },
+              {
+                "t": "iptal etmek",
+                "r": "",
+                "en": "cancel",
+                "pos": "verb"
+              },
+              {
+                "t": "içeri",
+                "r": "",
+                "en": "indoor",
+                "pos": "noun"
+              },
+              {
+                "t": "şemsiye",
+                "r": "",
+                "en": "umbrella",
+                "pos": "noun"
+              },
+              {
+                "t": "derece",
+                "r": "",
+                "en": "degree",
+                "pos": "noun"
+              },
+              {
+                "t": "açılmak",
+                "r": "",
+                "en": "clear up",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "eğer + -se",
+              "explain": "Gerçek koşul.",
+              "pattern": "yağmur yağarsa iptal ederiz",
+              "examples": [
+                {
+                  "t": "Yağmur yağarsa pikniği iptal ederiz.",
+                  "r": "",
+                  "en": "If it rains, we'll cancel the picnic."
+                },
+                {
+                  "t": "Tahmin iyiyse yürürüz.",
+                  "r": "",
+                  "en": "If the forecast is good, we'll walk."
+                },
+                {
+                  "t": "Açılmazsa içeride kalırız.",
+                  "r": "",
+                  "en": "If it doesn't clear up, we'll stay inside."
+                }
+              ],
+              "mistakes": [
+                "eğer cümlesine bir daha -ecek yığmayın.",
+                "-sa koşuldur."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Jen",
+                "t": "Tahmin sağanak diyor.",
+                "r": "",
+                "en": "The forecast says showers."
+              },
+              {
+                "sp": "Kai",
+                "t": "Yağarsa müzeye gideriz.",
+                "r": "",
+                "en": "If it rains, we'll go to the museum."
+              },
+              {
+                "sp": "Jen",
+                "t": "Yine de şemsiye al.",
+                "r": "",
+                "en": "Take an umbrella anyway."
+              },
+              {
+                "sp": "Kai",
+                "t": "Açılırsa nehir kenarında yürürüz.",
+                "r": "",
+                "en": "If it clears up, we'll walk by the river."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “tahmin” mean?",
+                "options": [
+                  "forecast",
+                  "shower",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": "forecast",
+                "why": "“tahmin” means “forecast”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “forecast” in Turkish?",
+                "answer": "tahmin",
+                "why": "The course word for “forecast” is “tahmin”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “sağanak” mean?",
+                "options": [
+                  "shower",
+                  "forecast",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": "shower",
+                "why": "“sağanak” means “shower”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “shower” in Turkish?",
+                "answer": "sağanak",
+                "why": "The course word for “shower” is “sağanak”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “nemli” mean?",
+                "options": [
+                  "humid",
+                  "forecast",
+                  "shower",
+                  "cancel"
+                ],
+                "answer": "humid",
+                "why": "“nemli” means “humid”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “humid” in Turkish?",
+                "answer": "nemli",
+                "why": "The course word for “humid” is “nemli”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “iptal etmek” mean?",
+                "options": [
+                  "cancel",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "cancel",
+                "why": "“iptal etmek” means “cancel”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “cancel” in Turkish?",
+                "answer": "iptal etmek",
+                "why": "The course word for “cancel” is “iptal etmek”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “içeri” mean?",
+                "options": [
+                  "indoor",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "indoor",
+                "why": "“içeri” means “indoor”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “indoor” in Turkish?",
+                "answer": "içeri",
+                "why": "The course word for “indoor” is “içeri”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “şemsiye” mean?",
+                "options": [
+                  "umbrella",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "umbrella",
+                "why": "“şemsiye” means “umbrella”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “umbrella” in Turkish?",
+                "answer": "şemsiye",
+                "why": "The course word for “umbrella” is “şemsiye”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“tahmin” means:",
+                "options": [
+                  "forecast",
+                  "shower",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“tahmin” = “forecast”."
+              },
+              {
+                "q": "“sağanak” means:",
+                "options": [
+                  "shower",
+                  "forecast",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“sağanak” = “shower”."
+              },
+              {
+                "q": "“nemli” means:",
+                "options": [
+                  "humid",
+                  "forecast",
+                  "shower",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“nemli” = “humid”."
+              },
+              {
+                "q": "“iptal etmek” means:",
+                "options": [
+                  "cancel",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": 0,
+                "why": "“iptal etmek” = “cancel”."
+              },
+              {
+                "q": "“içeri” means:",
+                "options": [
+                  "indoor",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": 0,
+                "why": "“içeri” = “indoor”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Turkish word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "forecast",
+                    "shower",
+                    "humid",
+                    "cancel",
+                    "indoor",
+                    "umbrella"
+                  ],
+                  "key": [
+                    "tahmin",
+                    "sağanak",
+                    "nemli",
+                    "iptal etmek",
+                    "içeri",
+                    "şemsiye"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "tahmin",
+              "sağanak",
+              "nemli",
+              "iptal etmek",
+              "içeri",
+              "şemsiye",
+              "derece",
+              "açılmak"
+            ]
+          },
+          {
+            "id": "L7",
+            "title": "Shopping and money",
+            "learn": "Alışveriş.",
+            "vocab": [
+              {
+                "t": "beden",
+                "r": "",
+                "en": "size",
+                "pos": "noun"
+              },
+              {
+                "t": "fiş",
+                "r": "",
+                "en": "receipt",
+                "pos": "noun"
+              },
+              {
+                "t": "iade",
+                "r": "",
+                "en": "refund",
+                "pos": "noun"
+              },
+              {
+                "t": "indirim",
+                "r": "",
+                "en": "discount",
+                "pos": "noun"
+              },
+              {
+                "t": "nakit",
+                "r": "",
+                "en": "cash",
+                "pos": "noun"
+              },
+              {
+                "t": "kart",
+                "r": "",
+                "en": "card",
+                "pos": "noun"
+              },
+              {
+                "t": "olmak",
+                "r": "",
+                "en": "fit",
+                "pos": "verb"
+              },
+              {
+                "t": "değiştirmek",
+                "r": "",
+                "en": "exchange",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "daha / -den",
+              "explain": "Karşılaştırma.",
+              "pattern": "bu gömlek ondan ucuz",
+              "examples": [
+                {
+                  "t": "Bu gömlek ondan ucuz.",
+                  "r": "",
+                  "en": "This shirt is cheaper than that one."
+                },
+                {
+                  "t": "Mavisi daha pahalı.",
+                  "r": "",
+                  "en": "The blue one is more expensive."
+                },
+                {
+                  "t": "M beden daha iyi oluyor.",
+                  "r": "",
+                  "en": "Size M fits better."
+                }
+              ],
+              "mistakes": [
+                "daha ucuzdan demeyin.",
+                "-den ikinci terim."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Dükkân",
+                "t": "Kart mı nakit mi?",
+                "r": "",
+                "en": "Card or cash?"
+              },
+              {
+                "sp": "Lila",
+                "t": "Kart. Daha küçük beden var mı?",
+                "r": "",
+                "en": "Card. Have you got a smaller size?"
+              },
+              {
+                "sp": "Dükkân",
+                "t": "Var. İade için fişi saklayın.",
+                "r": "",
+                "en": "Yes. Keep the receipt for a refund."
+              },
+              {
+                "sp": "Lila",
+                "t": "Öğrenci indirimi var mı?",
+                "r": "",
+                "en": "Is there a student discount?"
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “beden” mean?",
+                "options": [
+                  "size",
+                  "receipt",
+                  "refund",
+                  "discount"
+                ],
+                "answer": "size",
+                "why": "“beden” means “size”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “size” in Turkish?",
+                "answer": "beden",
+                "why": "The course word for “size” is “beden”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “fiş” mean?",
+                "options": [
+                  "receipt",
+                  "size",
+                  "refund",
+                  "discount"
+                ],
+                "answer": "receipt",
+                "why": "“fiş” means “receipt”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “receipt” in Turkish?",
+                "answer": "fiş",
+                "why": "The course word for “receipt” is “fiş”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “iade” mean?",
+                "options": [
+                  "refund",
+                  "size",
+                  "receipt",
+                  "discount"
+                ],
+                "answer": "refund",
+                "why": "“iade” means “refund”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “refund” in Turkish?",
+                "answer": "iade",
+                "why": "The course word for “refund” is “iade”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “indirim” mean?",
+                "options": [
+                  "discount",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "discount",
+                "why": "“indirim” means “discount”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “discount” in Turkish?",
+                "answer": "indirim",
+                "why": "The course word for “discount” is “indirim”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “nakit” mean?",
+                "options": [
+                  "cash",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "cash",
+                "why": "“nakit” means “cash”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “cash” in Turkish?",
+                "answer": "nakit",
+                "why": "The course word for “cash” is “nakit”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “kart” mean?",
+                "options": [
+                  "card",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "card",
+                "why": "“kart” means “card”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “card” in Turkish?",
+                "answer": "kart",
+                "why": "The course word for “card” is “kart”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“beden” means:",
+                "options": [
+                  "size",
+                  "receipt",
+                  "refund",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“beden” = “size”."
+              },
+              {
+                "q": "“fiş” means:",
+                "options": [
+                  "receipt",
+                  "size",
+                  "refund",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“fiş” = “receipt”."
+              },
+              {
+                "q": "“iade” means:",
+                "options": [
+                  "refund",
+                  "size",
+                  "receipt",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“iade” = “refund”."
+              },
+              {
+                "q": "“indirim” means:",
+                "options": [
+                  "discount",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": 0,
+                "why": "“indirim” = “discount”."
+              },
+              {
+                "q": "“nakit” means:",
+                "options": [
+                  "cash",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": 0,
+                "why": "“nakit” = “cash”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Turkish word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "size",
+                    "receipt",
+                    "refund",
+                    "discount",
+                    "cash",
+                    "card"
+                  ],
+                  "key": [
+                    "beden",
+                    "fiş",
+                    "iade",
+                    "indirim",
+                    "nakit",
+                    "kart"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "beden",
+              "fiş",
+              "iade",
+              "indirim",
+              "nakit",
+              "kart",
+              "olmak",
+              "değiştirmek"
+            ]
+          },
+          {
+            "id": "L8",
+            "title": "Daily routines and future plans",
+            "learn": "Alışkanlık.",
+            "vocab": [
+              {
+                "t": "yolculuk",
+                "r": "",
+                "en": "commute",
+                "pos": "noun"
+              },
+              {
+                "t": "vardiya",
+                "r": "",
+                "en": "shift",
+                "pos": "noun"
+              },
+              {
+                "t": "alarm",
+                "r": "",
+                "en": "alarm",
+                "pos": "noun"
+              },
+              {
+                "t": "biriktirmek",
+                "r": "",
+                "en": "save",
+                "pos": "verb"
+              },
+              {
+                "t": "hedef",
+                "r": "",
+                "en": "goal",
+                "pos": "noun"
+              },
+              {
+                "t": "alışkanlık",
+                "r": "",
+                "en": "habit",
+                "pos": "noun"
+              },
+              {
+                "t": "gelecek ay",
+                "r": "",
+                "en": "next month",
+                "pos": "noun"
+              },
+              {
+                "t": "genelde",
+                "r": "",
+                "en": "usually",
+                "pos": "adv"
+              }
+            ],
+            "grammar": {
+              "title": "genelde şimdiki vs -ecek",
+              "explain": "Çizelge şimdiki; karar -ecek.",
+              "pattern": "genelde yedide çıkıyorum",
+              "examples": [
+                {
+                  "t": "Genelde yedide çıkıyorum.",
+                  "r": "",
+                  "en": "I usually leave at seven."
+                },
+                {
+                  "t": "Gelecek ay biriktireceğim.",
+                  "r": "",
+                  "en": "I'm going to save next month."
+                },
+                {
+                  "t": "Vardiyam dokuzda başlıyor.",
+                  "r": "",
+                  "en": "My shift starts at nine."
+                }
+              ],
+              "mistakes": [
+                "Basılı saate -ecek yakışmaz.",
+                "dün ile -ecek karışmasın."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Dana",
+                "t": "Genelde saat kaçta başlıyorsun?",
+                "r": "",
+                "en": "What time do you usually start?"
+              },
+              {
+                "sp": "Ned",
+                "t": "Dokuzda. Gelecek ay değiştireceğim.",
+                "r": "",
+                "en": "The shift starts at nine. I'm going to change it next month."
+              },
+              {
+                "sp": "Dana",
+                "t": "Neden?",
+                "r": "",
+                "en": "Why?"
+              },
+              {
+                "sp": "Ned",
+                "t": "Daha kısa yol istiyorum. Hedef bu.",
+                "r": "",
+                "en": "I want a shorter commute. That's the goal."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “yolculuk” mean?",
+                "options": [
+                  "commute",
+                  "shift",
+                  "alarm",
+                  "save"
+                ],
+                "answer": "commute",
+                "why": "“yolculuk” means “commute”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “commute” in Turkish?",
+                "answer": "yolculuk",
+                "why": "The course word for “commute” is “yolculuk”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “vardiya” mean?",
+                "options": [
+                  "shift",
+                  "commute",
+                  "alarm",
+                  "save"
+                ],
+                "answer": "shift",
+                "why": "“vardiya” means “shift”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “shift” in Turkish?",
+                "answer": "vardiya",
+                "why": "The course word for “shift” is “vardiya”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “alarm” mean?",
+                "options": [
+                  "alarm",
+                  "commute",
+                  "shift",
+                  "save"
+                ],
+                "answer": "alarm",
+                "why": "“alarm” means “alarm”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “alarm” in Turkish?",
+                "answer": "alarm",
+                "why": "The course word for “alarm” is “alarm”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “biriktirmek” mean?",
+                "options": [
+                  "save",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "save",
+                "why": "“biriktirmek” means “save”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “save” in Turkish?",
+                "answer": "biriktirmek",
+                "why": "The course word for “save” is “biriktirmek”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “hedef” mean?",
+                "options": [
+                  "goal",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "goal",
+                "why": "“hedef” means “goal”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “goal” in Turkish?",
+                "answer": "hedef",
+                "why": "The course word for “goal” is “hedef”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “alışkanlık” mean?",
+                "options": [
+                  "habit",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "habit",
+                "why": "“alışkanlık” means “habit”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “habit” in Turkish?",
+                "answer": "alışkanlık",
+                "why": "The course word for “habit” is “alışkanlık”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“yolculuk” means:",
+                "options": [
+                  "commute",
+                  "shift",
+                  "alarm",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“yolculuk” = “commute”."
+              },
+              {
+                "q": "“vardiya” means:",
+                "options": [
+                  "shift",
+                  "commute",
+                  "alarm",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“vardiya” = “shift”."
+              },
+              {
+                "q": "“alarm” means:",
+                "options": [
+                  "alarm",
+                  "commute",
+                  "shift",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“alarm” = “alarm”."
+              },
+              {
+                "q": "“biriktirmek” means:",
+                "options": [
+                  "save",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": 0,
+                "why": "“biriktirmek” = “save”."
+              },
+              {
+                "q": "“hedef” means:",
+                "options": [
+                  "goal",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": 0,
+                "why": "“hedef” = “goal”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Turkish word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "commute",
+                    "shift",
+                    "alarm",
+                    "save",
+                    "goal",
+                    "habit"
+                  ],
+                  "key": [
+                    "yolculuk",
+                    "vardiya",
+                    "alarm",
+                    "biriktirmek",
+                    "hedef",
+                    "alışkanlık"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "yolculuk",
+              "vardiya",
+              "alarm",
+              "biriktirmek",
+              "hedef",
+              "alışkanlık",
+              "gelecek ay",
+              "genelde"
+            ]
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "A3 test",
+      "items": [
+        {
+          "type": "multiple_choice",
+          "q": "What does “sınav” mean?",
+          "options": [
+            "exam",
+            "subject",
+            "homework",
+            "timetable"
+          ],
+          "answer": "exam",
+          "why": "From this A3 lesson: “sınav” means “exam”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “ders” mean?",
+          "options": [
+            "subject",
+            "exam",
+            "homework",
+            "timetable"
+          ],
+          "answer": "subject",
+          "why": "From this A3 lesson: “ders” means “subject”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “hobi” mean?",
+          "options": [
+            "hobby",
+            "guitar",
+            "team",
+            "practice"
+          ],
+          "answer": "hobby",
+          "why": "From this A3 lesson: “hobi” means “hobby”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “gitar” mean?",
+          "options": [
+            "guitar",
+            "hobby",
+            "team",
+            "practice"
+          ],
+          "answer": "guitar",
+          "why": "From this A3 lesson: “gitar” means “guitar”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “peron” mean?",
+          "options": [
+            "platform",
+            "return ticket",
+            "delay",
+            "luggage"
+          ],
+          "answer": "platform",
+          "why": "From this A3 lesson: “peron” means “platform”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “gidiş-dönüş” mean?",
+          "options": [
+            "return ticket",
+            "platform",
+            "delay",
+            "luggage"
+          ],
+          "answer": "return ticket",
+          "why": "From this A3 lesson: “gidiş-dönüş” means “return ticket”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “menü” mean?",
+          "options": [
+            "menu",
+            "bill",
+            "starter",
+            "allergic"
+          ],
+          "answer": "menu",
+          "why": "From this A3 lesson: “menü” means “menu”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “hesap” mean?",
+          "options": [
+            "bill",
+            "menu",
+            "starter",
+            "allergic"
+          ],
+          "answer": "bill",
+          "why": "From this A3 lesson: “hesap” means “bill”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “davet” mean?",
+          "options": [
+            "invitation",
+            "busy",
+            "catch up",
+            "bring"
+          ],
+          "answer": "invitation",
+          "why": "From this A3 lesson: “davet” means “invitation”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “meşgul” mean?",
+          "options": [
+            "busy",
+            "invitation",
+            "catch up",
+            "bring"
+          ],
+          "answer": "busy",
+          "why": "From this A3 lesson: “meşgul” means “busy”."
+        }
+      ]
+    }
   }
 }

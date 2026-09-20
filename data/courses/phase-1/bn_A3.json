@@ -5,16 +5,2722 @@
   "phase": "phase-1",
   "medium": "en",
   "file_level": "A3",
-  "content_status": "INCOMPLETE",
-  "indexable": false,
+  "content_status": "REAL",
+  "indexable": true,
   "ekguru_extension": true,
   "cefr_equivalent": null,
   "cefr_note": "EkGuru A2→B1 bridge. Not a CEFR level.",
-  "reason": "EkGuru A2→B1 bridge. Not a CEFR level.",
   "level": {
     "id": "A3",
-    "title": "Bengali A3 — not published",
-    "goals": [],
-    "units": []
+    "title": "Bengali A3",
+    "goals": [
+      "Handle a short Bengali exchange about school and studies.",
+      "Handle a short Bengali exchange about hobbies and free time.",
+      "Handle a short Bengali exchange about travel basics.",
+      "Handle a short Bengali exchange about food and restaurants.",
+      "Handle a short Bengali exchange about friends and social life.",
+      "Handle a short Bengali exchange about weather and plans.",
+      "Handle a short Bengali exchange about shopping and money.",
+      "Handle a short Bengali exchange about daily routines and future plans."
+    ],
+    "units": [
+      {
+        "id": "Unit 1",
+        "title": "Bengali A3 — first half",
+        "lessons": [
+          {
+            "id": "L1",
+            "title": "School and studies",
+            "learn": "কাছের পরিকল্পনা: -তে যাচ্ছি।",
+            "vocab": [
+              {
+                "t": "পরীক্ষা",
+                "r": "porīkṣā",
+                "en": "exam",
+                "pos": "noun"
+              },
+              {
+                "t": "বিষয়",
+                "r": "biṣoy",
+                "en": "subject",
+                "pos": "noun"
+              },
+              {
+                "t": "বাড়ির কাজ",
+                "r": "bāṛir kāj",
+                "en": "homework",
+                "pos": "noun"
+              },
+              {
+                "t": "সময়সূচি",
+                "r": "samoysūci",
+                "en": "timetable",
+                "pos": "noun"
+              },
+              {
+                "t": "শেষ তারিখ",
+                "r": "śeṣ tārikh",
+                "en": "deadline",
+                "pos": "noun"
+              },
+              {
+                "t": "পুনরাবৃত্তি",
+                "r": "punorābṛtti",
+                "en": "revise",
+                "pos": "noun"
+              },
+              {
+                "t": "ক্লাস",
+                "r": "klās",
+                "en": "lecture",
+                "pos": "noun"
+              },
+              {
+                "t": "নোট",
+                "r": "noṭ",
+                "en": "notes",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "যাচ্ছি + করতে",
+              "explain": "কাছের সিদ্ধান্ত।",
+              "pattern": "আজ রাতে আমি পুনরাবৃত্তি করতে যাচ্ছি",
+              "examples": [
+                {
+                  "t": "আজ রাতে আমি পুনরাবৃত্তি করতে যাচ্ছি।",
+                  "r": "āj rāte āmi punorābṛtti korte jācchi",
+                  "en": "I'm going to revise tonight."
+                },
+                {
+                  "t": "সে ক্লাস মিস করতে যাচ্ছে।",
+                  "r": "se klās mis korte jācche",
+                  "en": "She's going to miss the lecture."
+                },
+                {
+                  "t": "তুমি কি বাড়ির কাজ শেষ করতে যাচ্ছ?",
+                  "r": "tumi ki bāṛir kāj śeṣ korte jāccho?",
+                  "en": "Are you going to finish the homework?"
+                }
+              ],
+              "mistakes": [
+                "‘আমি যাচ্ছি পুনরাবৃত্তি’ ক্রম উল্টো।",
+                "যাচ্ছি-র পরে ক্রিয়া।"
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "আনা",
+                "t": "কাল পরীক্ষা আছে?",
+                "r": "kāl porīkṣā āche?",
+                "en": "Have you got an exam tomorrow?"
+              },
+              {
+                "sp": "লুইস",
+                "t": "হ্যাঁ, ইতিহাস। ক্লাসের পর পুনরাবৃত্তি করব।",
+                "r": "hyã, itihās. klāser por punorābṛtti korbo.",
+                "en": "Yes, history. I'll revise after class."
+              },
+              {
+                "sp": "আনা",
+                "t": "লাইব্রেরিতে পড়ি?",
+                "r": "lāibrerite poṛi?",
+                "en": "Shall we study in the library?"
+              },
+              {
+                "sp": "লুইস",
+                "t": "হ্যাঁ। নোটের শেষ তারিখ আজ।",
+                "r": "hyã. noṭer śeṣ tārikh āj.",
+                "en": "Yes. The notes deadline is today."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “পরীক্ষা” mean?",
+                "options": [
+                  "exam",
+                  "subject",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": "exam",
+                "why": "“পরীক্ষা” means “exam”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “exam” in Bengali?",
+                "answer": "পরীক্ষা",
+                "why": "The course word for “exam” is “পরীক্ষা”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “বিষয়” mean?",
+                "options": [
+                  "subject",
+                  "exam",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": "subject",
+                "why": "“বিষয়” means “subject”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “subject” in Bengali?",
+                "answer": "বিষয়",
+                "why": "The course word for “subject” is “বিষয়”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “বাড়ির কাজ” mean?",
+                "options": [
+                  "homework",
+                  "exam",
+                  "subject",
+                  "timetable"
+                ],
+                "answer": "homework",
+                "why": "“বাড়ির কাজ” means “homework”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “homework” in Bengali?",
+                "answer": "বাড়ির কাজ",
+                "why": "The course word for “homework” is “বাড়ির কাজ”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “সময়সূচি” mean?",
+                "options": [
+                  "timetable",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "timetable",
+                "why": "“সময়সূচি” means “timetable”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “timetable” in Bengali?",
+                "answer": "সময়সূচি",
+                "why": "The course word for “timetable” is “সময়সূচি”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “শেষ তারিখ” mean?",
+                "options": [
+                  "deadline",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "deadline",
+                "why": "“শেষ তারিখ” means “deadline”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “deadline” in Bengali?",
+                "answer": "শেষ তারিখ",
+                "why": "The course word for “deadline” is “শেষ তারিখ”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “পুনরাবৃত্তি” mean?",
+                "options": [
+                  "revise",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "revise",
+                "why": "“পুনরাবৃত্তি” means “revise”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “revise” in Bengali?",
+                "answer": "পুনরাবৃত্তি",
+                "why": "The course word for “revise” is “পুনরাবৃত্তি”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“পরীক্ষা” means:",
+                "options": [
+                  "exam",
+                  "subject",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“পরীক্ষা” = “exam”."
+              },
+              {
+                "q": "“বিষয়” means:",
+                "options": [
+                  "subject",
+                  "exam",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“বিষয়” = “subject”."
+              },
+              {
+                "q": "“বাড়ির কাজ” means:",
+                "options": [
+                  "homework",
+                  "exam",
+                  "subject",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“বাড়ির কাজ” = “homework”."
+              },
+              {
+                "q": "“সময়সূচি” means:",
+                "options": [
+                  "timetable",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": 0,
+                "why": "“সময়সূচি” = “timetable”."
+              },
+              {
+                "q": "“শেষ তারিখ” means:",
+                "options": [
+                  "deadline",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": 0,
+                "why": "“শেষ তারিখ” = “deadline”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Bengali word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "exam",
+                    "subject",
+                    "homework",
+                    "timetable",
+                    "deadline",
+                    "revise"
+                  ],
+                  "key": [
+                    "পরীক্ষা",
+                    "বিষয়",
+                    "বাড়ির কাজ",
+                    "সময়সূচি",
+                    "শেষ তারিখ",
+                    "পুনরাবৃত্তি"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "পরীক্ষা",
+              "বিষয়",
+              "বাড়ির কাজ",
+              "সময়সূচি",
+              "শেষ তারিখ",
+              "পুনরাবৃত্তি",
+              "ক্লাস",
+              "নোট"
+            ]
+          },
+          {
+            "id": "L2",
+            "title": "Hobbies and free time",
+            "learn": "শখ: ভালো লাগে।",
+            "vocab": [
+              {
+                "t": "শখ",
+                "r": "śokh",
+                "en": "hobby",
+                "pos": "noun"
+              },
+              {
+                "t": "গিটার",
+                "r": "giṭār",
+                "en": "guitar",
+                "pos": "noun"
+              },
+              {
+                "t": "দল",
+                "r": "dol",
+                "en": "team",
+                "pos": "noun"
+              },
+              {
+                "t": "অনুশীলন",
+                "r": "onuśīlon",
+                "en": "practice",
+                "pos": "noun"
+              },
+              {
+                "t": "সপ্তাহান্ত",
+                "r": "saptāhānto",
+                "en": "weekend",
+                "pos": "noun"
+              },
+              {
+                "t": "যোগ দেওয়া",
+                "r": "jog deoa",
+                "en": "join",
+                "pos": "verb"
+              },
+              {
+                "t": "কনসার্ট",
+                "r": "konsārṭ",
+                "en": "concert",
+                "pos": "noun"
+              },
+              {
+                "t": "আঁকা",
+                "r": "ãkā",
+                "en": "draw",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "ভালো লাগে",
+              "explain": "যাকে ভালো লাগে সেটা কর্তা নয়।",
+              "pattern": "আমার গিটার বাজাতে ভালো লাগে",
+              "examples": [
+                {
+                  "t": "আমার গিটার বাজাতে ভালো লাগে।",
+                  "r": "āmār giṭār bājāte bhālo lāge",
+                  "en": "I like playing guitar."
+                },
+                {
+                  "t": "তার অপেক্ষা ভালো লাগে না।",
+                  "r": "tār opekṣā bhālo lāge nā",
+                  "en": "She doesn't like waiting."
+                },
+                {
+                  "t": "সপ্তাহান্তে আঁকতে ভালো লাগে?",
+                  "r": "saptāhānte ãkte bhālo lāge?",
+                  "en": "Do you like drawing at weekends?"
+                }
+              ],
+              "mistakes": [
+                "‘আমি ভালো লাগে গিটার’ ভুল।",
+                "লাগে বস্তুর সাথে মেলে।"
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "আশা",
+                "t": "সপ্তাহান্তে কী করো?",
+                "r": "saptāhānte kī koro?",
+                "en": "What do you do at the weekend?"
+              },
+              {
+                "sp": "বেন",
+                "t": "গিটার বাজাই। শনিবার কনসার্ট।",
+                "r": "giṭār bājāi. śonibār konsārṭ.",
+                "en": "I play guitar. There's a concert on Saturday."
+              },
+              {
+                "sp": "আশা",
+                "t": "আমার আঁকতে ভালো লাগে। আসবে?",
+                "r": "āmār ãkte bhālo lāge. āsbe?",
+                "en": "I like drawing. Are you coming?"
+              },
+              {
+                "sp": "বেন",
+                "t": "অনুশীলনের পরে।",
+                "r": "onuśīloner pore.",
+                "en": "Yes, after practice."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “শখ” mean?",
+                "options": [
+                  "hobby",
+                  "guitar",
+                  "team",
+                  "practice"
+                ],
+                "answer": "hobby",
+                "why": "“শখ” means “hobby”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “hobby” in Bengali?",
+                "answer": "শখ",
+                "why": "The course word for “hobby” is “শখ”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “গিটার” mean?",
+                "options": [
+                  "guitar",
+                  "hobby",
+                  "team",
+                  "practice"
+                ],
+                "answer": "guitar",
+                "why": "“গিটার” means “guitar”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “guitar” in Bengali?",
+                "answer": "গিটার",
+                "why": "The course word for “guitar” is “গিটার”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “দল” mean?",
+                "options": [
+                  "team",
+                  "hobby",
+                  "guitar",
+                  "practice"
+                ],
+                "answer": "team",
+                "why": "“দল” means “team”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “team” in Bengali?",
+                "answer": "দল",
+                "why": "The course word for “team” is “দল”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “অনুশীলন” mean?",
+                "options": [
+                  "practice",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "practice",
+                "why": "“অনুশীলন” means “practice”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “practice” in Bengali?",
+                "answer": "অনুশীলন",
+                "why": "The course word for “practice” is “অনুশীলন”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “সপ্তাহান্ত” mean?",
+                "options": [
+                  "weekend",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "weekend",
+                "why": "“সপ্তাহান্ত” means “weekend”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “weekend” in Bengali?",
+                "answer": "সপ্তাহান্ত",
+                "why": "The course word for “weekend” is “সপ্তাহান্ত”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “যোগ দেওয়া” mean?",
+                "options": [
+                  "join",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "join",
+                "why": "“যোগ দেওয়া” means “join”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “join” in Bengali?",
+                "answer": "যোগ দেওয়া",
+                "why": "The course word for “join” is “যোগ দেওয়া”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“শখ” means:",
+                "options": [
+                  "hobby",
+                  "guitar",
+                  "team",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“শখ” = “hobby”."
+              },
+              {
+                "q": "“গিটার” means:",
+                "options": [
+                  "guitar",
+                  "hobby",
+                  "team",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“গিটার” = “guitar”."
+              },
+              {
+                "q": "“দল” means:",
+                "options": [
+                  "team",
+                  "hobby",
+                  "guitar",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“দল” = “team”."
+              },
+              {
+                "q": "“অনুশীলন” means:",
+                "options": [
+                  "practice",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": 0,
+                "why": "“অনুশীলন” = “practice”."
+              },
+              {
+                "q": "“সপ্তাহান্ত” means:",
+                "options": [
+                  "weekend",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": 0,
+                "why": "“সপ্তাহান্ত” = “weekend”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Bengali word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "hobby",
+                    "guitar",
+                    "team",
+                    "practice",
+                    "weekend",
+                    "join"
+                  ],
+                  "key": [
+                    "শখ",
+                    "গিটার",
+                    "দল",
+                    "অনুশীলন",
+                    "সপ্তাহান্ত",
+                    "যোগ দেওয়া"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "শখ",
+              "গিটার",
+              "দল",
+              "অনুশীলন",
+              "সপ্তাহান্ত",
+              "যোগ দেওয়া",
+              "কনসার্ট",
+              "আঁকা"
+            ]
+          },
+          {
+            "id": "L3",
+            "title": "Travel basics",
+            "learn": "টিকিট।",
+            "vocab": [
+              {
+                "t": "প্ল্যাটফর্ম",
+                "r": "plætphôrm",
+                "en": "platform",
+                "pos": "noun"
+              },
+              {
+                "t": "রিটার্ন টিকিট",
+                "r": "riṭārn ṭikiṭ",
+                "en": "return ticket",
+                "pos": "noun"
+              },
+              {
+                "t": "দেরি",
+                "r": "deri",
+                "en": "delay",
+                "pos": "noun"
+              },
+              {
+                "t": "মালপত্র",
+                "r": "mālpotra",
+                "en": "luggage",
+                "pos": "noun"
+              },
+              {
+                "t": "গেট",
+                "r": "geṭ",
+                "en": "gate",
+                "pos": "noun"
+              },
+              {
+                "t": "পাসপোর্ট",
+                "r": "pāsporṭ",
+                "en": "passport",
+                "pos": "noun"
+              },
+              {
+                "t": "বুক করা",
+                "r": "buk kôra",
+                "en": "book",
+                "pos": "verb"
+              },
+              {
+                "t": "ট্রেন বদলানো",
+                "r": "ṭren bôdāno",
+                "en": "change trains",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "হবে / লাগবে",
+              "explain": "বাইরের দায়।",
+              "pattern": "পাসপোর্ট দেখাতে হবে",
+              "examples": [
+                {
+                  "t": "পাসপোর্ট দেখাতে হবে।",
+                  "r": "pāsporṭ dekhāte hobe",
+                  "en": "You have to show your passport."
+                },
+                {
+                  "t": "রাজশাহীতে ট্রেন বদলাতে হবে।",
+                  "r": "rājśāhīte ṭren bôdāte hobe",
+                  "en": "We have to change in Rajshahi."
+                },
+                {
+                  "t": "আজ বুক করতে হবে না।",
+                  "r": "āj buk korte hobe nā",
+                  "en": "He doesn't have to book today."
+                }
+              ],
+              "mistakes": [
+                "হবে-র আগে ক্রিয়া।",
+                "হবে না = দরকার নেই।"
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "কাউন্টার",
+                "t": "একমুখী না রিটার্ন?",
+                "r": "ekmukhī nā riṭārn?",
+                "en": "Single or return?"
+              },
+              {
+                "sp": "নিনা",
+                "t": "রিটার্ন। কোন প্ল্যাটফর্ম?",
+                "r": "riṭārn. kon plætphôrm?",
+                "en": "Return. Which platform?"
+              },
+              {
+                "sp": "কাউন্টার",
+                "t": "চার। একটু দেরি।",
+                "r": "cār. ektu deri.",
+                "en": "Platform 4. There's a short delay."
+              },
+              {
+                "sp": "নিনা",
+                "t": "ট্রেন বদলাতে হবে?",
+                "r": "ṭren bôdāte hobe?",
+                "en": "Do I have to change?"
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “প্ল্যাটফর্ম” mean?",
+                "options": [
+                  "platform",
+                  "return ticket",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": "platform",
+                "why": "“প্ল্যাটফর্ম” means “platform”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “platform” in Bengali?",
+                "answer": "প্ল্যাটফর্ম",
+                "why": "The course word for “platform” is “প্ল্যাটফর্ম”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “রিটার্ন টিকিট” mean?",
+                "options": [
+                  "return ticket",
+                  "platform",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": "return ticket",
+                "why": "“রিটার্ন টিকিট” means “return ticket”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “return ticket” in Bengali?",
+                "answer": "রিটার্ন টিকিট",
+                "why": "The course word for “return ticket” is “রিটার্ন টিকিট”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “দেরি” mean?",
+                "options": [
+                  "delay",
+                  "platform",
+                  "return ticket",
+                  "luggage"
+                ],
+                "answer": "delay",
+                "why": "“দেরি” means “delay”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “delay” in Bengali?",
+                "answer": "দেরি",
+                "why": "The course word for “delay” is “দেরি”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “মালপত্র” mean?",
+                "options": [
+                  "luggage",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "luggage",
+                "why": "“মালপত্র” means “luggage”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “luggage” in Bengali?",
+                "answer": "মালপত্র",
+                "why": "The course word for “luggage” is “মালপত্র”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “গেট” mean?",
+                "options": [
+                  "gate",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "gate",
+                "why": "“গেট” means “gate”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “gate” in Bengali?",
+                "answer": "গেট",
+                "why": "The course word for “gate” is “গেট”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “পাসপোর্ট” mean?",
+                "options": [
+                  "passport",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "passport",
+                "why": "“পাসপোর্ট” means “passport”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “passport” in Bengali?",
+                "answer": "পাসপোর্ট",
+                "why": "The course word for “passport” is “পাসপোর্ট”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“প্ল্যাটফর্ম” means:",
+                "options": [
+                  "platform",
+                  "return ticket",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“প্ল্যাটফর্ম” = “platform”."
+              },
+              {
+                "q": "“রিটার্ন টিকিট” means:",
+                "options": [
+                  "return ticket",
+                  "platform",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“রিটার্ন টিকিট” = “return ticket”."
+              },
+              {
+                "q": "“দেরি” means:",
+                "options": [
+                  "delay",
+                  "platform",
+                  "return ticket",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“দেরি” = “delay”."
+              },
+              {
+                "q": "“মালপত্র” means:",
+                "options": [
+                  "luggage",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": 0,
+                "why": "“মালপত্র” = “luggage”."
+              },
+              {
+                "q": "“গেট” means:",
+                "options": [
+                  "gate",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": 0,
+                "why": "“গেট” = “gate”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Bengali word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "platform",
+                    "return ticket",
+                    "delay",
+                    "luggage",
+                    "gate",
+                    "passport"
+                  ],
+                  "key": [
+                    "প্ল্যাটফর্ম",
+                    "রিটার্ন টিকিট",
+                    "দেরি",
+                    "মালপত্র",
+                    "গেট",
+                    "পাসপোর্ট"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "প্ল্যাটফর্ম",
+              "রিটার্ন টিকিট",
+              "দেরি",
+              "মালপত্র",
+              "গেট",
+              "পাসপোর্ট",
+              "বুক করা",
+              "ট্রেন বদলানো"
+            ]
+          },
+          {
+            "id": "L4",
+            "title": "Food and restaurants",
+            "learn": "রেস্তোরাঁ।",
+            "vocab": [
+              {
+                "t": "মেনু",
+                "r": "menu",
+                "en": "menu",
+                "pos": "noun"
+              },
+              {
+                "t": "বিল",
+                "r": "bil",
+                "en": "bill",
+                "pos": "noun"
+              },
+              {
+                "t": "স্টার্টার",
+                "r": "stārṭār",
+                "en": "starter",
+                "pos": "noun"
+              },
+              {
+                "t": "অ্যালার্জি",
+                "r": "ælārji",
+                "en": "allergic",
+                "pos": "noun"
+              },
+              {
+                "t": "ঝাল",
+                "r": "jhāl",
+                "en": "spicy",
+                "pos": "noun"
+              },
+              {
+                "t": "পরামর্শ",
+                "r": "pôrāmorśo",
+                "en": "recommend",
+                "pos": "noun"
+              },
+              {
+                "t": "টিপ",
+                "r": "ṭip",
+                "en": "tip",
+                "pos": "noun"
+              },
+              {
+                "t": "টেবিল",
+                "r": "ṭebil",
+                "en": "table",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "চাই / দেবেন কি",
+              "explain": "ভদ্র অর্ডার।",
+              "pattern": "আমি স্যুপ চাই",
+              "examples": [
+                {
+                  "t": "আমি স্যুপ চাই।",
+                  "r": "āmi syup cāi",
+                  "en": "I'd like the soup."
+                },
+                {
+                  "t": "ঝাল রাখব?",
+                  "r": "jhāl rākhbo?",
+                  "en": "Would you like it spicy?"
+                },
+                {
+                  "t": "মেনুটা দেবেন কি?",
+                  "r": "menutā deben ki?",
+                  "en": "I'd like to see the menu."
+                }
+              ],
+              "mistakes": [
+                "ওয়েটারকে শুধু ‘দাও’ কর্কশ।",
+                "চাই-এর পরে নাম।"
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "ওয়েটার",
+                "t": "অর্ডার করবেন?",
+                "r": "ôrḍār korben?",
+                "en": "Ready to order?"
+              },
+              {
+                "sp": "স্যাম",
+                "t": "পাস্তা চাই। ঝাল কি?",
+                "r": "pāstā cāi. jhāl ki?",
+                "en": "I'd like the pasta. Is it spicy?"
+              },
+              {
+                "sp": "ওয়েটার",
+                "t": "একটু। অ্যালার্জি আছে?",
+                "r": "ektu. ælārji āche?",
+                "en": "A little. Are you allergic?"
+              },
+              {
+                "sp": "স্যাম",
+                "t": "না। শেষে বিল দেবেন।",
+                "r": "nā. śeṣe bil deben.",
+                "en": "No. The bill at the end, please."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “মেনু” mean?",
+                "options": [
+                  "menu",
+                  "bill",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": "menu",
+                "why": "“মেনু” means “menu”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “menu” in Bengali?",
+                "answer": "মেনু",
+                "why": "The course word for “menu” is “মেনু”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “বিল” mean?",
+                "options": [
+                  "bill",
+                  "menu",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": "bill",
+                "why": "“বিল” means “bill”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “bill” in Bengali?",
+                "answer": "বিল",
+                "why": "The course word for “bill” is “বিল”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “স্টার্টার” mean?",
+                "options": [
+                  "starter",
+                  "menu",
+                  "bill",
+                  "allergic"
+                ],
+                "answer": "starter",
+                "why": "“স্টার্টার” means “starter”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “starter” in Bengali?",
+                "answer": "স্টার্টার",
+                "why": "The course word for “starter” is “স্টার্টার”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “অ্যালার্জি” mean?",
+                "options": [
+                  "allergic",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "allergic",
+                "why": "“অ্যালার্জি” means “allergic”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “allergic” in Bengali?",
+                "answer": "অ্যালার্জি",
+                "why": "The course word for “allergic” is “অ্যালার্জি”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ঝাল” mean?",
+                "options": [
+                  "spicy",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "spicy",
+                "why": "“ঝাল” means “spicy”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “spicy” in Bengali?",
+                "answer": "ঝাল",
+                "why": "The course word for “spicy” is “ঝাল”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “পরামর্শ” mean?",
+                "options": [
+                  "recommend",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "recommend",
+                "why": "“পরামর্শ” means “recommend”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “recommend” in Bengali?",
+                "answer": "পরামর্শ",
+                "why": "The course word for “recommend” is “পরামর্শ”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“মেনু” means:",
+                "options": [
+                  "menu",
+                  "bill",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“মেনু” = “menu”."
+              },
+              {
+                "q": "“বিল” means:",
+                "options": [
+                  "bill",
+                  "menu",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“বিল” = “bill”."
+              },
+              {
+                "q": "“স্টার্টার” means:",
+                "options": [
+                  "starter",
+                  "menu",
+                  "bill",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“স্টার্টার” = “starter”."
+              },
+              {
+                "q": "“অ্যালার্জি” means:",
+                "options": [
+                  "allergic",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": 0,
+                "why": "“অ্যালার্জি” = “allergic”."
+              },
+              {
+                "q": "“ঝাল” means:",
+                "options": [
+                  "spicy",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": 0,
+                "why": "“ঝাল” = “spicy”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Bengali word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "menu",
+                    "bill",
+                    "starter",
+                    "allergic",
+                    "spicy",
+                    "recommend"
+                  ],
+                  "key": [
+                    "মেনু",
+                    "বিল",
+                    "স্টার্টার",
+                    "অ্যালার্জি",
+                    "ঝাল",
+                    "পরামর্শ"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "মেনু",
+              "বিল",
+              "স্টার্টার",
+              "অ্যালার্জি",
+              "ঝাল",
+              "পরামর্শ",
+              "টিপ",
+              "টেবিল"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Unit 2",
+        "title": "Bengali A3 — second half",
+        "lessons": [
+          {
+            "id": "L5",
+            "title": "Friends and social life",
+            "learn": "নিমন্ত্রণ।",
+            "vocab": [
+              {
+                "t": "নিমন্ত্রণ",
+                "r": "nimontrôṇ",
+                "en": "invitation",
+                "pos": "noun"
+              },
+              {
+                "t": "ব্যস্ত",
+                "r": "bæsto",
+                "en": "busy",
+                "pos": "adj"
+              },
+              {
+                "t": "দেখা করা",
+                "r": "dekhā kôra",
+                "en": "catch up",
+                "pos": "verb"
+              },
+              {
+                "t": "আনা",
+                "r": "ānā",
+                "en": "bring",
+                "pos": "verb"
+              },
+              {
+                "t": "পার্টি",
+                "r": "pārṭi",
+                "en": "party",
+                "pos": "noun"
+              },
+              {
+                "t": "ফাঁকা",
+                "r": "phãkā",
+                "en": "free",
+                "pos": "adj"
+              },
+              {
+                "t": "হয়তো",
+                "r": "hôyto",
+                "en": "maybe",
+                "pos": "noun"
+              },
+              {
+                "t": "আগামী সপ্তাহ",
+                "r": "āgāmī saptāh",
+                "en": "next week",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "কেন না / চলো",
+              "explain": "প্রস্তাব।",
+              "pattern": "কেন না সাতটায় দেখা করি?",
+              "examples": [
+                {
+                  "t": "কেন না সাতটায় দেখা করি?",
+                  "r": "keno nā sātṭāy dekhā kori?",
+                  "en": "Why don't we meet at seven?"
+                },
+                {
+                  "t": "আগামী সপ্তাহে দেখা করি?",
+                  "r": "āgāmī saptāhe dekhā kori?",
+                  "en": "What if we catch up next week?"
+                },
+                {
+                  "t": "কিছু খাবার আনি।",
+                  "r": "kichu khābār āni",
+                  "en": "Let's bring some food."
+                }
+              ],
+              "mistakes": [
+                "শুধু ‘না’ কঠিন — কারণ দিন।",
+                "চলো আদেশ নয়।"
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "রিয়া",
+                "t": "শুক্রবার পার্টি। যাব?",
+                "r": "śukrobār pārṭi. jābo?",
+                "en": "There's a party Friday. Shall we go?"
+              },
+              {
+                "sp": "ওমর",
+                "t": "শুক্রবার ব্যস্ত। আগামী সপ্তাহ?",
+                "r": "śukrobār bæsto. āgāmī saptāh?",
+                "en": "I'm busy Friday. Next week?"
+              },
+              {
+                "sp": "রিয়া",
+                "t": "রবিবার? ছয়টার পর ফাঁকা।",
+                "r": "robibār? chôyṭār pôr phãkā.",
+                "en": "Sunday? I'm free after six."
+              },
+              {
+                "sp": "ওমর",
+                "t": "ঠিক আছে। মিষ্টি আমি আনব।",
+                "r": "ṭhik āche. miṣṭi āmi ānbo.",
+                "en": "Perfect. I'll bring dessert."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “নিমন্ত্রণ” mean?",
+                "options": [
+                  "invitation",
+                  "busy",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": "invitation",
+                "why": "“নিমন্ত্রণ” means “invitation”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “invitation” in Bengali?",
+                "answer": "নিমন্ত্রণ",
+                "why": "The course word for “invitation” is “নিমন্ত্রণ”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ব্যস্ত” mean?",
+                "options": [
+                  "busy",
+                  "invitation",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": "busy",
+                "why": "“ব্যস্ত” means “busy”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “busy” in Bengali?",
+                "answer": "ব্যস্ত",
+                "why": "The course word for “busy” is “ব্যস্ত”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “দেখা করা” mean?",
+                "options": [
+                  "catch up",
+                  "invitation",
+                  "busy",
+                  "bring"
+                ],
+                "answer": "catch up",
+                "why": "“দেখা করা” means “catch up”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “catch up” in Bengali?",
+                "answer": "দেখা করা",
+                "why": "The course word for “catch up” is “দেখা করা”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “আনা” mean?",
+                "options": [
+                  "bring",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "bring",
+                "why": "“আনা” means “bring”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “bring” in Bengali?",
+                "answer": "আনা",
+                "why": "The course word for “bring” is “আনা”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “পার্টি” mean?",
+                "options": [
+                  "party",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "party",
+                "why": "“পার্টি” means “party”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “party” in Bengali?",
+                "answer": "পার্টি",
+                "why": "The course word for “party” is “পার্টি”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ফাঁকা” mean?",
+                "options": [
+                  "free",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "free",
+                "why": "“ফাঁকা” means “free”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “free” in Bengali?",
+                "answer": "ফাঁকা",
+                "why": "The course word for “free” is “ফাঁকা”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“নিমন্ত্রণ” means:",
+                "options": [
+                  "invitation",
+                  "busy",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“নিমন্ত্রণ” = “invitation”."
+              },
+              {
+                "q": "“ব্যস্ত” means:",
+                "options": [
+                  "busy",
+                  "invitation",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“ব্যস্ত” = “busy”."
+              },
+              {
+                "q": "“দেখা করা” means:",
+                "options": [
+                  "catch up",
+                  "invitation",
+                  "busy",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“দেখা করা” = “catch up”."
+              },
+              {
+                "q": "“আনা” means:",
+                "options": [
+                  "bring",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": 0,
+                "why": "“আনা” = “bring”."
+              },
+              {
+                "q": "“পার্টি” means:",
+                "options": [
+                  "party",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": 0,
+                "why": "“পার্টি” = “party”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Bengali word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "invitation",
+                    "busy",
+                    "catch up",
+                    "bring",
+                    "party",
+                    "free"
+                  ],
+                  "key": [
+                    "নিমন্ত্রণ",
+                    "ব্যস্ত",
+                    "দেখা করা",
+                    "আনা",
+                    "পার্টি",
+                    "ফাঁকা"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "নিমন্ত্রণ",
+              "ব্যস্ত",
+              "দেখা করা",
+              "আনা",
+              "পার্টি",
+              "ফাঁকা",
+              "হয়তো",
+              "আগামী সপ্তাহ"
+            ]
+          },
+          {
+            "id": "L6",
+            "title": "Weather and plans",
+            "learn": "আবহাওয়া: যদি।",
+            "vocab": [
+              {
+                "t": "পূর্বাভাস",
+                "r": "pūrbābhās",
+                "en": "forecast",
+                "pos": "noun"
+              },
+              {
+                "t": "ঝড়বৃষ্টি",
+                "r": "jhôṛbriṣṭi",
+                "en": "shower",
+                "pos": "noun"
+              },
+              {
+                "t": "আর্দ্র",
+                "r": "ārdro",
+                "en": "humid",
+                "pos": "adj"
+              },
+              {
+                "t": "বাতিল",
+                "r": "bātil",
+                "en": "cancel",
+                "pos": "noun"
+              },
+              {
+                "t": "ঘরে",
+                "r": "ghôre",
+                "en": "indoor",
+                "pos": "noun"
+              },
+              {
+                "t": "ছাতা",
+                "r": "chātā",
+                "en": "umbrella",
+                "pos": "noun"
+              },
+              {
+                "t": "ডিগ্রি",
+                "r": "ḍigri",
+                "en": "degree",
+                "pos": "noun"
+              },
+              {
+                "t": "পরিষ্কার হওয়া",
+                "r": "poriṣkār hôoa",
+                "en": "clear up",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "যদি + হয়, তবে",
+              "explain": "আসল শর্ত।",
+              "pattern": "যদি বৃষ্টি হয় তবে বাতিল করব",
+              "examples": [
+                {
+                  "t": "যদি বৃষ্টি হয় তবে পিকনিক বাতিল করব।",
+                  "r": "jodi briṣṭi hôy tôbe picnic bātil korbo",
+                  "en": "If it rains, we'll cancel the picnic."
+                },
+                {
+                  "t": "পূর্বাভাস ভালো হলে হাঁটব।",
+                  "r": "pūrbābhās bhālo hole hãṭbo",
+                  "en": "If the forecast is good, we'll walk."
+                },
+                {
+                  "t": "পরিষ্কার না হলে ঘরে থাকব।",
+                  "r": "poriṣkār nā hole ghôre thākbo",
+                  "en": "If it doesn't clear up, we'll stay inside."
+                }
+              ],
+              "mistakes": [
+                "যদি-র ভিতরে আরেক ভবিষ্যৎ না থাকে।",
+                "তবে ফল দেয়।"
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "জেন",
+                "t": "পূর্বাভাসে ঝড়বৃষ্টি।",
+                "r": "pūrbābhāse jhôṛbriṣṭi.",
+                "en": "The forecast says showers."
+              },
+              {
+                "sp": "কাই",
+                "t": "বৃষ্টি হলে যাদুঘরে যাব।",
+                "r": "briṣṭi hole jādughôre jābo.",
+                "en": "If it rains, we'll go to the museum."
+              },
+              {
+                "sp": "জেন",
+                "t": "তারপরও ছাতা নাও।",
+                "r": "tārporo chātā nāo.",
+                "en": "Take an umbrella anyway."
+              },
+              {
+                "sp": "কাই",
+                "t": "পরিষ্কার হলে নদীর ধারে হাঁটব।",
+                "r": "poriṣkār hole nodīr dhāre hãṭbo.",
+                "en": "If it clears up, we'll walk by the river."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “পূর্বাভাস” mean?",
+                "options": [
+                  "forecast",
+                  "shower",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": "forecast",
+                "why": "“পূর্বাভাস” means “forecast”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “forecast” in Bengali?",
+                "answer": "পূর্বাভাস",
+                "why": "The course word for “forecast” is “পূর্বাভাস”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ঝড়বৃষ্টি” mean?",
+                "options": [
+                  "shower",
+                  "forecast",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": "shower",
+                "why": "“ঝড়বৃষ্টি” means “shower”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “shower” in Bengali?",
+                "answer": "ঝড়বৃষ্টি",
+                "why": "The course word for “shower” is “ঝড়বৃষ্টি”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “আর্দ্র” mean?",
+                "options": [
+                  "humid",
+                  "forecast",
+                  "shower",
+                  "cancel"
+                ],
+                "answer": "humid",
+                "why": "“আর্দ্র” means “humid”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “humid” in Bengali?",
+                "answer": "আর্দ্র",
+                "why": "The course word for “humid” is “আর্দ্র”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “বাতিল” mean?",
+                "options": [
+                  "cancel",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "cancel",
+                "why": "“বাতিল” means “cancel”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “cancel” in Bengali?",
+                "answer": "বাতিল",
+                "why": "The course word for “cancel” is “বাতিল”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ঘরে” mean?",
+                "options": [
+                  "indoor",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "indoor",
+                "why": "“ঘরে” means “indoor”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “indoor” in Bengali?",
+                "answer": "ঘরে",
+                "why": "The course word for “indoor” is “ঘরে”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ছাতা” mean?",
+                "options": [
+                  "umbrella",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "umbrella",
+                "why": "“ছাতা” means “umbrella”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “umbrella” in Bengali?",
+                "answer": "ছাতা",
+                "why": "The course word for “umbrella” is “ছাতা”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“পূর্বাভাস” means:",
+                "options": [
+                  "forecast",
+                  "shower",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“পূর্বাভাস” = “forecast”."
+              },
+              {
+                "q": "“ঝড়বৃষ্টি” means:",
+                "options": [
+                  "shower",
+                  "forecast",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“ঝড়বৃষ্টি” = “shower”."
+              },
+              {
+                "q": "“আর্দ্র” means:",
+                "options": [
+                  "humid",
+                  "forecast",
+                  "shower",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“আর্দ্র” = “humid”."
+              },
+              {
+                "q": "“বাতিল” means:",
+                "options": [
+                  "cancel",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": 0,
+                "why": "“বাতিল” = “cancel”."
+              },
+              {
+                "q": "“ঘরে” means:",
+                "options": [
+                  "indoor",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": 0,
+                "why": "“ঘরে” = “indoor”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Bengali word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "forecast",
+                    "shower",
+                    "humid",
+                    "cancel",
+                    "indoor",
+                    "umbrella"
+                  ],
+                  "key": [
+                    "পূর্বাভাস",
+                    "ঝড়বৃষ্টি",
+                    "আর্দ্র",
+                    "বাতিল",
+                    "ঘরে",
+                    "ছাতা"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "পূর্বাভাস",
+              "ঝড়বৃষ্টি",
+              "আর্দ্র",
+              "বাতিল",
+              "ঘরে",
+              "ছাতা",
+              "ডিগ্রি",
+              "পরিষ্কার হওয়া"
+            ]
+          },
+          {
+            "id": "L7",
+            "title": "Shopping and money",
+            "learn": "কেনাকাটা।",
+            "vocab": [
+              {
+                "t": "সাইজ",
+                "r": "sāij",
+                "en": "size",
+                "pos": "noun"
+              },
+              {
+                "t": "রসিদ",
+                "r": "rosid",
+                "en": "receipt",
+                "pos": "noun"
+              },
+              {
+                "t": "ফেরত",
+                "r": "phērot",
+                "en": "refund",
+                "pos": "noun"
+              },
+              {
+                "t": "ছাড়",
+                "r": "chāṛ",
+                "en": "discount",
+                "pos": "noun"
+              },
+              {
+                "t": "নগদ",
+                "r": "nôgod",
+                "en": "cash",
+                "pos": "noun"
+              },
+              {
+                "t": "কার্ড",
+                "r": "kārḍ",
+                "en": "card",
+                "pos": "noun"
+              },
+              {
+                "t": "মানানো",
+                "r": "mānāno",
+                "en": "fit",
+                "pos": "verb"
+              },
+              {
+                "t": "বদল",
+                "r": "bôdol",
+                "en": "exchange",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "চেয়ে / আরও",
+              "explain": "তুলনা।",
+              "pattern": "এই জামাটা ওটার চেয়ে সস্তা",
+              "examples": [
+                {
+                  "t": "এই জামাটা ওটার চেয়ে সস্তা।",
+                  "r": "ei jāmāṭā oṭār ceye sôstā",
+                  "en": "This shirt is cheaper than that one."
+                },
+                {
+                  "t": "নীলটা আরও দামি।",
+                  "r": "nīlṭā āro dāmi",
+                  "en": "The blue one is more expensive."
+                },
+                {
+                  "t": "এম সাইজ ভালো মানায়।",
+                  "r": "em sāij bhālo mānāy",
+                  "en": "Size M fits better."
+                }
+              ],
+              "mistakes": [
+                "‘আরও সস্তা চেয়ে’ দ্বিগুণ নয়।",
+                "চেয়ে দ্বিতীয় পক্ষ।"
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "দোকান",
+                "t": "কার্ড না নগদ?",
+                "r": "kārḍ nā nôgod?",
+                "en": "Card or cash?"
+              },
+              {
+                "sp": "লীলা",
+                "t": "কার্ড। ছোট সাইজ আছে?",
+                "r": "kārḍ. choṭo sāij āche?",
+                "en": "Card. Have you got a smaller size?"
+              },
+              {
+                "sp": "দোকান",
+                "t": "আছে। ফেরতের জন্য রসিদ রাখুন।",
+                "r": "āche. phēroter jonyo rosid rākhun.",
+                "en": "Yes. Keep the receipt for a refund."
+              },
+              {
+                "sp": "লীলা",
+                "t": "ছাত্র ছাড় আছে?",
+                "r": "chātro chāṛ āche?",
+                "en": "Is there a student discount?"
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “সাইজ” mean?",
+                "options": [
+                  "size",
+                  "receipt",
+                  "refund",
+                  "discount"
+                ],
+                "answer": "size",
+                "why": "“সাইজ” means “size”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “size” in Bengali?",
+                "answer": "সাইজ",
+                "why": "The course word for “size” is “সাইজ”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “রসিদ” mean?",
+                "options": [
+                  "receipt",
+                  "size",
+                  "refund",
+                  "discount"
+                ],
+                "answer": "receipt",
+                "why": "“রসিদ” means “receipt”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “receipt” in Bengali?",
+                "answer": "রসিদ",
+                "why": "The course word for “receipt” is “রসিদ”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ফেরত” mean?",
+                "options": [
+                  "refund",
+                  "size",
+                  "receipt",
+                  "discount"
+                ],
+                "answer": "refund",
+                "why": "“ফেরত” means “refund”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “refund” in Bengali?",
+                "answer": "ফেরত",
+                "why": "The course word for “refund” is “ফেরত”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ছাড়” mean?",
+                "options": [
+                  "discount",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "discount",
+                "why": "“ছাড়” means “discount”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “discount” in Bengali?",
+                "answer": "ছাড়",
+                "why": "The course word for “discount” is “ছাড়”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “নগদ” mean?",
+                "options": [
+                  "cash",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "cash",
+                "why": "“নগদ” means “cash”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “cash” in Bengali?",
+                "answer": "নগদ",
+                "why": "The course word for “cash” is “নগদ”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “কার্ড” mean?",
+                "options": [
+                  "card",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "card",
+                "why": "“কার্ড” means “card”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “card” in Bengali?",
+                "answer": "কার্ড",
+                "why": "The course word for “card” is “কার্ড”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“সাইজ” means:",
+                "options": [
+                  "size",
+                  "receipt",
+                  "refund",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“সাইজ” = “size”."
+              },
+              {
+                "q": "“রসিদ” means:",
+                "options": [
+                  "receipt",
+                  "size",
+                  "refund",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“রসিদ” = “receipt”."
+              },
+              {
+                "q": "“ফেরত” means:",
+                "options": [
+                  "refund",
+                  "size",
+                  "receipt",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“ফেরত” = “refund”."
+              },
+              {
+                "q": "“ছাড়” means:",
+                "options": [
+                  "discount",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": 0,
+                "why": "“ছাড়” = “discount”."
+              },
+              {
+                "q": "“নগদ” means:",
+                "options": [
+                  "cash",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": 0,
+                "why": "“নগদ” = “cash”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Bengali word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "size",
+                    "receipt",
+                    "refund",
+                    "discount",
+                    "cash",
+                    "card"
+                  ],
+                  "key": [
+                    "সাইজ",
+                    "রসিদ",
+                    "ফেরত",
+                    "ছাড়",
+                    "নগদ",
+                    "কার্ড"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "সাইজ",
+              "রসিদ",
+              "ফেরত",
+              "ছাড়",
+              "নগদ",
+              "কার্ড",
+              "মানানো",
+              "বদল"
+            ]
+          },
+          {
+            "id": "L8",
+            "title": "Daily routines and future plans",
+            "learn": "অভ্যাস ও পরিকল্পনা।",
+            "vocab": [
+              {
+                "t": "যাতায়াত",
+                "r": "jātāyāt",
+                "en": "commute",
+                "pos": "noun"
+              },
+              {
+                "t": "শিফট",
+                "r": "śiphṭ",
+                "en": "shift",
+                "pos": "noun"
+              },
+              {
+                "t": "অ্যালার্ম",
+                "r": "ælārm",
+                "en": "alarm",
+                "pos": "noun"
+              },
+              {
+                "t": "জমানো",
+                "r": "jômāno",
+                "en": "save",
+                "pos": "verb"
+              },
+              {
+                "t": "লক্ষ্য",
+                "r": "lokkho",
+                "en": "goal",
+                "pos": "noun"
+              },
+              {
+                "t": "অভ্যাস",
+                "r": "ôbhās",
+                "en": "habit",
+                "pos": "noun"
+              },
+              {
+                "t": "আগামী মাস",
+                "r": "āgāmī mās",
+                "en": "next month",
+                "pos": "noun"
+              },
+              {
+                "t": "সাধারণত",
+                "r": "sādhārônoto",
+                "en": "usually",
+                "pos": "adv"
+              }
+            ],
+            "grammar": {
+              "title": "সাধারণত বর্তমান vs যাচ্ছি",
+              "explain": "সময়সূচি বর্তমান; সিদ্ধান্ত যাচ্ছি।",
+              "pattern": "সাধারণত সাতটায় বের হই",
+              "examples": [
+                {
+                  "t": "সাধারণত সাতটায় বের হই।",
+                  "r": "sādhārônoto sātṭāy ber hoi",
+                  "en": "I usually leave at seven."
+                },
+                {
+                  "t": "আগামী মাসে টাকা জমাতে যাচ্ছি।",
+                  "r": "āgāmī māse ṭākā jômāte jācchi",
+                  "en": "I'm going to save next month."
+                },
+                {
+                  "t": "আমার শিফট নয়টায় শুরু।",
+                  "r": "āmār śiphṭ nôyṭāy śuru",
+                  "en": "My shift starts at nine."
+                }
+              ],
+              "mistakes": [
+                "ছাপানো সময়সূচিতে যাচ্ছি নয়।",
+                "গতকাল আর যাচ্ছি মেশাবেন না।"
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "ডানা",
+                "t": "সাধারণত কখন শুরু?",
+                "r": "sādhārônoto kôkhon śuru?",
+                "en": "What time do you usually start?"
+              },
+              {
+                "sp": "নেড",
+                "t": "নয়টায় শিফট। আগামী মাসে বদলাব।",
+                "r": "nôyṭāy śiphṭ. āgāmī māse bôdābo.",
+                "en": "The shift starts at nine. I'm going to change it next month."
+              },
+              {
+                "sp": "ডানা",
+                "t": "কেন?",
+                "r": "keno?",
+                "en": "Why?"
+              },
+              {
+                "sp": "নেড",
+                "t": "যাতায়াত ছোট চাই। এটাই লক্ষ্য।",
+                "r": "jātāyāt choṭo cāi. eṭāi lokkho.",
+                "en": "I want a shorter commute. That's the goal."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “যাতায়াত” mean?",
+                "options": [
+                  "commute",
+                  "shift",
+                  "alarm",
+                  "save"
+                ],
+                "answer": "commute",
+                "why": "“যাতায়াত” means “commute”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “commute” in Bengali?",
+                "answer": "যাতায়াত",
+                "why": "The course word for “commute” is “যাতায়াত”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “শিফট” mean?",
+                "options": [
+                  "shift",
+                  "commute",
+                  "alarm",
+                  "save"
+                ],
+                "answer": "shift",
+                "why": "“শিফট” means “shift”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “shift” in Bengali?",
+                "answer": "শিফট",
+                "why": "The course word for “shift” is “শিফট”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “অ্যালার্ম” mean?",
+                "options": [
+                  "alarm",
+                  "commute",
+                  "shift",
+                  "save"
+                ],
+                "answer": "alarm",
+                "why": "“অ্যালার্ম” means “alarm”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “alarm” in Bengali?",
+                "answer": "অ্যালার্ম",
+                "why": "The course word for “alarm” is “অ্যালার্ম”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “জমানো” mean?",
+                "options": [
+                  "save",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "save",
+                "why": "“জমানো” means “save”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “save” in Bengali?",
+                "answer": "জমানো",
+                "why": "The course word for “save” is “জমানো”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “লক্ষ্য” mean?",
+                "options": [
+                  "goal",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "goal",
+                "why": "“লক্ষ্য” means “goal”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “goal” in Bengali?",
+                "answer": "লক্ষ্য",
+                "why": "The course word for “goal” is “লক্ষ্য”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “অভ্যাস” mean?",
+                "options": [
+                  "habit",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "habit",
+                "why": "“অভ্যাস” means “habit”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “habit” in Bengali?",
+                "answer": "অভ্যাস",
+                "why": "The course word for “habit” is “অভ্যাস”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“যাতায়াত” means:",
+                "options": [
+                  "commute",
+                  "shift",
+                  "alarm",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“যাতায়াত” = “commute”."
+              },
+              {
+                "q": "“শিফট” means:",
+                "options": [
+                  "shift",
+                  "commute",
+                  "alarm",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“শিফট” = “shift”."
+              },
+              {
+                "q": "“অ্যালার্ম” means:",
+                "options": [
+                  "alarm",
+                  "commute",
+                  "shift",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“অ্যালার্ম” = “alarm”."
+              },
+              {
+                "q": "“জমানো” means:",
+                "options": [
+                  "save",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": 0,
+                "why": "“জমানো” = “save”."
+              },
+              {
+                "q": "“লক্ষ্য” means:",
+                "options": [
+                  "goal",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": 0,
+                "why": "“লক্ষ্য” = “goal”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Bengali word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "commute",
+                    "shift",
+                    "alarm",
+                    "save",
+                    "goal",
+                    "habit"
+                  ],
+                  "key": [
+                    "যাতায়াত",
+                    "শিফট",
+                    "অ্যালার্ম",
+                    "জমানো",
+                    "লক্ষ্য",
+                    "অভ্যাস"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "যাতায়াত",
+              "শিফট",
+              "অ্যালার্ম",
+              "জমানো",
+              "লক্ষ্য",
+              "অভ্যাস",
+              "আগামী মাস",
+              "সাধারণত"
+            ]
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "A3 test",
+      "items": [
+        {
+          "type": "multiple_choice",
+          "q": "What does “পরীক্ষা” mean?",
+          "options": [
+            "exam",
+            "subject",
+            "homework",
+            "timetable"
+          ],
+          "answer": "exam",
+          "why": "From this A3 lesson: “পরীক্ষা” means “exam”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “বিষয়” mean?",
+          "options": [
+            "subject",
+            "exam",
+            "homework",
+            "timetable"
+          ],
+          "answer": "subject",
+          "why": "From this A3 lesson: “বিষয়” means “subject”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “শখ” mean?",
+          "options": [
+            "hobby",
+            "guitar",
+            "team",
+            "practice"
+          ],
+          "answer": "hobby",
+          "why": "From this A3 lesson: “শখ” means “hobby”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “গিটার” mean?",
+          "options": [
+            "guitar",
+            "hobby",
+            "team",
+            "practice"
+          ],
+          "answer": "guitar",
+          "why": "From this A3 lesson: “গিটার” means “guitar”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “প্ল্যাটফর্ম” mean?",
+          "options": [
+            "platform",
+            "return ticket",
+            "delay",
+            "luggage"
+          ],
+          "answer": "platform",
+          "why": "From this A3 lesson: “প্ল্যাটফর্ম” means “platform”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “রিটার্ন টিকিট” mean?",
+          "options": [
+            "return ticket",
+            "platform",
+            "delay",
+            "luggage"
+          ],
+          "answer": "return ticket",
+          "why": "From this A3 lesson: “রিটার্ন টিকিট” means “return ticket”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “মেনু” mean?",
+          "options": [
+            "menu",
+            "bill",
+            "starter",
+            "allergic"
+          ],
+          "answer": "menu",
+          "why": "From this A3 lesson: “মেনু” means “menu”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “বিল” mean?",
+          "options": [
+            "bill",
+            "menu",
+            "starter",
+            "allergic"
+          ],
+          "answer": "bill",
+          "why": "From this A3 lesson: “বিল” means “bill”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “নিমন্ত্রণ” mean?",
+          "options": [
+            "invitation",
+            "busy",
+            "catch up",
+            "bring"
+          ],
+          "answer": "invitation",
+          "why": "From this A3 lesson: “নিমন্ত্রণ” means “invitation”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “ব্যস্ত” mean?",
+          "options": [
+            "busy",
+            "invitation",
+            "catch up",
+            "bring"
+          ],
+          "answer": "busy",
+          "why": "From this A3 lesson: “ব্যস্ত” means “busy”."
+        }
+      ]
+    }
   }
 }

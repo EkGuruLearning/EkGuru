@@ -5,16 +5,2722 @@
   "phase": "phase-1",
   "medium": "en",
   "file_level": "A3",
-  "content_status": "INCOMPLETE",
-  "indexable": false,
+  "content_status": "REAL",
+  "indexable": true,
   "ekguru_extension": true,
   "cefr_equivalent": null,
   "cefr_note": "EkGuru A2→B1 bridge. Not a CEFR level.",
-  "reason": "EkGuru A2→B1 bridge. Not a CEFR level.",
   "level": {
     "id": "A3",
-    "title": "Russian A3 — not published",
-    "goals": [],
-    "units": []
+    "title": "Russian A3",
+    "goals": [
+      "Handle a short Russian exchange about school and studies.",
+      "Handle a short Russian exchange about hobbies and free time.",
+      "Handle a short Russian exchange about travel basics.",
+      "Handle a short Russian exchange about food and restaurants.",
+      "Handle a short Russian exchange about friends and social life.",
+      "Handle a short Russian exchange about weather and plans.",
+      "Handle a short Russian exchange about shopping and money.",
+      "Handle a short Russian exchange about daily routines and future plans."
+    ],
+    "units": [
+      {
+        "id": "Unit 1",
+        "title": "Russian A3 — first half",
+        "lessons": [
+          {
+            "id": "L1",
+            "title": "School and studies",
+            "learn": "Собираться + инфинитив: планы и экзамен.",
+            "vocab": [
+              {
+                "t": "экзамен",
+                "r": "ekzamen",
+                "en": "exam",
+                "pos": "noun"
+              },
+              {
+                "t": "предмет",
+                "r": "predmet",
+                "en": "subject",
+                "pos": "noun"
+              },
+              {
+                "t": "домашнее задание",
+                "r": "domashneye zadaniye",
+                "en": "homework",
+                "pos": "noun"
+              },
+              {
+                "t": "расписание",
+                "r": "raspisaniye",
+                "en": "timetable",
+                "pos": "noun"
+              },
+              {
+                "t": "срок",
+                "r": "srok",
+                "en": "deadline",
+                "pos": "noun"
+              },
+              {
+                "t": "повторять",
+                "r": "povtoryat'",
+                "en": "revise",
+                "pos": "verb"
+              },
+              {
+                "t": "лекция",
+                "r": "lektsiya",
+                "en": "lecture",
+                "pos": "noun"
+              },
+              {
+                "t": "конспект",
+                "r": "konspekt",
+                "en": "notes",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "собираться + инфинитив",
+              "explain": "Близкий план: я собираюсь + глагол.",
+              "pattern": "я собираюсь повторять",
+              "examples": [
+                {
+                  "t": "Я собираюсь повторять вечером.",
+                  "r": "ya sobirayus' povtoryat' vecherom",
+                  "en": "I'm going to revise tonight."
+                },
+                {
+                  "t": "Она собирается пропустить лекцию.",
+                  "r": "ona sobirayetsya propustit' lektsiyu",
+                  "en": "She's going to miss the lecture."
+                },
+                {
+                  "t": "Ты собираешься закончить задание?",
+                  "r": "ty sobirayesh'sya zakonchit' zadaniye?",
+                  "en": "Are you going to finish the homework?"
+                }
+              ],
+              "mistakes": [
+                "Не говорите «я собираюсь чтобы повторять».",
+                "После собираться — инфинитив."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Ана",
+                "t": "У тебя завтра экзамен?",
+                "r": "u tebya zavtra ekzamen?",
+                "en": "Have you got an exam tomorrow?"
+              },
+              {
+                "sp": "Луис",
+                "t": "Да, история. После пары буду повторять.",
+                "r": "da, istoriya. posle pary budu povtoryat'.",
+                "en": "Yes, history. I'll revise after class."
+              },
+              {
+                "sp": "Ана",
+                "t": "В библиотеке позанимаемся?",
+                "r": "v biblioteke pozanimayemsya?",
+                "en": "Shall we study in the library?"
+              },
+              {
+                "sp": "Луис",
+                "t": "Да. Срок конспекта — сегодня.",
+                "r": "da. srok konspekta — segodnya.",
+                "en": "Yes. The notes deadline is today."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “экзамен” mean?",
+                "options": [
+                  "exam",
+                  "subject",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": "exam",
+                "why": "“экзамен” means “exam”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “exam” in Russian?",
+                "answer": "экзамен",
+                "why": "The course word for “exam” is “экзамен”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “предмет” mean?",
+                "options": [
+                  "subject",
+                  "exam",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": "subject",
+                "why": "“предмет” means “subject”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “subject” in Russian?",
+                "answer": "предмет",
+                "why": "The course word for “subject” is “предмет”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “домашнее задание” mean?",
+                "options": [
+                  "homework",
+                  "exam",
+                  "subject",
+                  "timetable"
+                ],
+                "answer": "homework",
+                "why": "“домашнее задание” means “homework”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “homework” in Russian?",
+                "answer": "домашнее задание",
+                "why": "The course word for “homework” is “домашнее задание”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “расписание” mean?",
+                "options": [
+                  "timetable",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "timetable",
+                "why": "“расписание” means “timetable”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “timetable” in Russian?",
+                "answer": "расписание",
+                "why": "The course word for “timetable” is “расписание”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “срок” mean?",
+                "options": [
+                  "deadline",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "deadline",
+                "why": "“срок” means “deadline”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “deadline” in Russian?",
+                "answer": "срок",
+                "why": "The course word for “deadline” is “срок”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “повторять” mean?",
+                "options": [
+                  "revise",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "revise",
+                "why": "“повторять” means “revise”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “revise” in Russian?",
+                "answer": "повторять",
+                "why": "The course word for “revise” is “повторять”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“экзамен” means:",
+                "options": [
+                  "exam",
+                  "subject",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“экзамен” = “exam”."
+              },
+              {
+                "q": "“предмет” means:",
+                "options": [
+                  "subject",
+                  "exam",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“предмет” = “subject”."
+              },
+              {
+                "q": "“домашнее задание” means:",
+                "options": [
+                  "homework",
+                  "exam",
+                  "subject",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“домашнее задание” = “homework”."
+              },
+              {
+                "q": "“расписание” means:",
+                "options": [
+                  "timetable",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": 0,
+                "why": "“расписание” = “timetable”."
+              },
+              {
+                "q": "“срок” means:",
+                "options": [
+                  "deadline",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": 0,
+                "why": "“срок” = “deadline”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Russian word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "exam",
+                    "subject",
+                    "homework",
+                    "timetable",
+                    "deadline",
+                    "revise"
+                  ],
+                  "key": [
+                    "экзамен",
+                    "предмет",
+                    "домашнее задание",
+                    "расписание",
+                    "срок",
+                    "повторять"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "экзамен",
+              "предмет",
+              "домашнее задание",
+              "расписание",
+              "срок",
+              "повторять",
+              "лекция",
+              "конспект"
+            ]
+          },
+          {
+            "id": "L2",
+            "title": "Hobbies and free time",
+            "learn": "Любить + инфинитив.",
+            "vocab": [
+              {
+                "t": "хобби",
+                "r": "khobbi",
+                "en": "hobby",
+                "pos": "noun"
+              },
+              {
+                "t": "гитара",
+                "r": "gitara",
+                "en": "guitar",
+                "pos": "noun"
+              },
+              {
+                "t": "команда",
+                "r": "komanda",
+                "en": "team",
+                "pos": "noun"
+              },
+              {
+                "t": "тренировка",
+                "r": "trenirovka",
+                "en": "practice",
+                "pos": "noun"
+              },
+              {
+                "t": "выходные",
+                "r": "vykhodnyye",
+                "en": "weekend",
+                "pos": "noun"
+              },
+              {
+                "t": "вступить",
+                "r": "vstupit'",
+                "en": "join",
+                "pos": "verb"
+              },
+              {
+                "t": "концерт",
+                "r": "kontsert",
+                "en": "concert",
+                "pos": "noun"
+              },
+              {
+                "t": "рисовать",
+                "r": "risovat'",
+                "en": "draw",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "любить + инфинитив",
+              "explain": "После любить — инфинитив или существительное.",
+              "pattern": "я люблю играть на гитаре",
+              "examples": [
+                {
+                  "t": "Я люблю играть на гитаре.",
+                  "r": "ya lyublyu igrat' na gitare",
+                  "en": "I like playing guitar."
+                },
+                {
+                  "t": "Ей не нравится ждать.",
+                  "r": "yey ne nravitsya zhdat'",
+                  "en": "She doesn't like waiting."
+                },
+                {
+                  "t": "Ты любишь рисовать на выходных?",
+                  "r": "ty lyubish' risovat' na vykhodnykh?",
+                  "en": "Do you like drawing at weekends?"
+                }
+              ],
+              "mistakes": [
+                "Не «я люблю чтобы играть».",
+                "играть на + инструмент."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Аша",
+                "t": "Что ты делаешь на выходных?",
+                "r": "chto ty delayesh' na vykhodnykh?",
+                "en": "What do you do at the weekend?"
+              },
+              {
+                "sp": "Бен",
+                "t": "Играю на гитаре. В субботу концерт.",
+                "r": "igrayu na gitare. v subbotu kontsert.",
+                "en": "I play guitar. There's a concert on Saturday."
+              },
+              {
+                "sp": "Аша",
+                "t": "Люблю рисовать. Пойдёшь?",
+                "r": "lyublyu risovat'. poydyosh'?",
+                "en": "I like drawing. Are you coming?"
+              },
+              {
+                "sp": "Бен",
+                "t": "Да, после тренировки.",
+                "r": "da, posle trenirovki.",
+                "en": "Yes, after practice."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “хобби” mean?",
+                "options": [
+                  "hobby",
+                  "guitar",
+                  "team",
+                  "practice"
+                ],
+                "answer": "hobby",
+                "why": "“хобби” means “hobby”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “hobby” in Russian?",
+                "answer": "хобби",
+                "why": "The course word for “hobby” is “хобби”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “гитара” mean?",
+                "options": [
+                  "guitar",
+                  "hobby",
+                  "team",
+                  "practice"
+                ],
+                "answer": "guitar",
+                "why": "“гитара” means “guitar”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “guitar” in Russian?",
+                "answer": "гитара",
+                "why": "The course word for “guitar” is “гитара”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “команда” mean?",
+                "options": [
+                  "team",
+                  "hobby",
+                  "guitar",
+                  "practice"
+                ],
+                "answer": "team",
+                "why": "“команда” means “team”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “team” in Russian?",
+                "answer": "команда",
+                "why": "The course word for “team” is “команда”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “тренировка” mean?",
+                "options": [
+                  "practice",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "practice",
+                "why": "“тренировка” means “practice”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “practice” in Russian?",
+                "answer": "тренировка",
+                "why": "The course word for “practice” is “тренировка”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “выходные” mean?",
+                "options": [
+                  "weekend",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "weekend",
+                "why": "“выходные” means “weekend”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “weekend” in Russian?",
+                "answer": "выходные",
+                "why": "The course word for “weekend” is “выходные”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “вступить” mean?",
+                "options": [
+                  "join",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "join",
+                "why": "“вступить” means “join”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “join” in Russian?",
+                "answer": "вступить",
+                "why": "The course word for “join” is “вступить”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“хобби” means:",
+                "options": [
+                  "hobby",
+                  "guitar",
+                  "team",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“хобби” = “hobby”."
+              },
+              {
+                "q": "“гитара” means:",
+                "options": [
+                  "guitar",
+                  "hobby",
+                  "team",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“гитара” = “guitar”."
+              },
+              {
+                "q": "“команда” means:",
+                "options": [
+                  "team",
+                  "hobby",
+                  "guitar",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“команда” = “team”."
+              },
+              {
+                "q": "“тренировка” means:",
+                "options": [
+                  "practice",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": 0,
+                "why": "“тренировка” = “practice”."
+              },
+              {
+                "q": "“выходные” means:",
+                "options": [
+                  "weekend",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": 0,
+                "why": "“выходные” = “weekend”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Russian word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "hobby",
+                    "guitar",
+                    "team",
+                    "practice",
+                    "weekend",
+                    "join"
+                  ],
+                  "key": [
+                    "хобби",
+                    "гитара",
+                    "команда",
+                    "тренировка",
+                    "выходные",
+                    "вступить"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "хобби",
+              "гитара",
+              "команда",
+              "тренировка",
+              "выходные",
+              "вступить",
+              "концерт",
+              "рисовать"
+            ]
+          },
+          {
+            "id": "L3",
+            "title": "Travel basics",
+            "learn": "Билет и путь.",
+            "vocab": [
+              {
+                "t": "платформа",
+                "r": "platforma",
+                "en": "platform",
+                "pos": "noun"
+              },
+              {
+                "t": "билет туда и обратно",
+                "r": "bilet tuda i obratno",
+                "en": "return ticket",
+                "pos": "noun"
+              },
+              {
+                "t": "задержка",
+                "r": "zaderzhka",
+                "en": "delay",
+                "pos": "noun"
+              },
+              {
+                "t": "багаж",
+                "r": "bagazh",
+                "en": "luggage",
+                "pos": "noun"
+              },
+              {
+                "t": "выход",
+                "r": "vykhod",
+                "en": "gate",
+                "pos": "noun"
+              },
+              {
+                "t": "паспорт",
+                "r": "pasport",
+                "en": "passport",
+                "pos": "noun"
+              },
+              {
+                "t": "бронировать",
+                "r": "bronirovat'",
+                "en": "book",
+                "pos": "verb"
+              },
+              {
+                "t": "пересадка",
+                "r": "peresadka",
+                "en": "change trains",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "нужно / должен",
+              "explain": "Внешняя необходимость.",
+              "pattern": "тебе нужно показать паспорт",
+              "examples": [
+                {
+                  "t": "Тебе нужно показать паспорт.",
+                  "r": "tebe nuzhno pokazat' pasport",
+                  "en": "You have to show your passport."
+                },
+                {
+                  "t": "Нам нужна пересадка в Казани.",
+                  "r": "nam nuzhna peresadka v Kazani",
+                  "en": "We have to change in Kazan."
+                },
+                {
+                  "t": "Ему сегодня не нужно бронировать.",
+                  "r": "yemu segodnya ne nuzhno bronirovat'",
+                  "en": "He doesn't have to book today."
+                }
+              ],
+              "mistakes": [
+                "Нужно + инфинитив.",
+                "Не путайте не нужно и нельзя."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Касса",
+                "t": "В одну сторону или туда и обратно?",
+                "r": "v odnu storonu ili tuda i obratno?",
+                "en": "Single or return?"
+              },
+              {
+                "sp": "Нина",
+                "t": "Туда и обратно. Какая платформа?",
+                "r": "tuda i obratno. kakaya platforma?",
+                "en": "Return. Which platform?"
+              },
+              {
+                "sp": "Касса",
+                "t": "Четвёртая. Небольшая задержка.",
+                "r": "chetvyortaya. nebol'shaya zaderzhka.",
+                "en": "Platform 4. There's a short delay."
+              },
+              {
+                "sp": "Нина",
+                "t": "Нужна пересадка?",
+                "r": "nuzhna peresadka?",
+                "en": "Do I have to change?"
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “платформа” mean?",
+                "options": [
+                  "platform",
+                  "return ticket",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": "platform",
+                "why": "“платформа” means “platform”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “platform” in Russian?",
+                "answer": "платформа",
+                "why": "The course word for “platform” is “платформа”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “билет туда и обратно” mean?",
+                "options": [
+                  "return ticket",
+                  "platform",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": "return ticket",
+                "why": "“билет туда и обратно” means “return ticket”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “return ticket” in Russian?",
+                "answer": "билет туда и обратно",
+                "why": "The course word for “return ticket” is “билет туда и обратно”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “задержка” mean?",
+                "options": [
+                  "delay",
+                  "platform",
+                  "return ticket",
+                  "luggage"
+                ],
+                "answer": "delay",
+                "why": "“задержка” means “delay”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “delay” in Russian?",
+                "answer": "задержка",
+                "why": "The course word for “delay” is “задержка”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “багаж” mean?",
+                "options": [
+                  "luggage",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "luggage",
+                "why": "“багаж” means “luggage”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “luggage” in Russian?",
+                "answer": "багаж",
+                "why": "The course word for “luggage” is “багаж”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “выход” mean?",
+                "options": [
+                  "gate",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "gate",
+                "why": "“выход” means “gate”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “gate” in Russian?",
+                "answer": "выход",
+                "why": "The course word for “gate” is “выход”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “паспорт” mean?",
+                "options": [
+                  "passport",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "passport",
+                "why": "“паспорт” means “passport”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “passport” in Russian?",
+                "answer": "паспорт",
+                "why": "The course word for “passport” is “паспорт”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“платформа” means:",
+                "options": [
+                  "platform",
+                  "return ticket",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“платформа” = “platform”."
+              },
+              {
+                "q": "“билет туда и обратно” means:",
+                "options": [
+                  "return ticket",
+                  "platform",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“билет туда и обратно” = “return ticket”."
+              },
+              {
+                "q": "“задержка” means:",
+                "options": [
+                  "delay",
+                  "platform",
+                  "return ticket",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“задержка” = “delay”."
+              },
+              {
+                "q": "“багаж” means:",
+                "options": [
+                  "luggage",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": 0,
+                "why": "“багаж” = “luggage”."
+              },
+              {
+                "q": "“выход” means:",
+                "options": [
+                  "gate",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": 0,
+                "why": "“выход” = “gate”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Russian word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "platform",
+                    "return ticket",
+                    "delay",
+                    "luggage",
+                    "gate",
+                    "passport"
+                  ],
+                  "key": [
+                    "платформа",
+                    "билет туда и обратно",
+                    "задержка",
+                    "багаж",
+                    "выход",
+                    "паспорт"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "платформа",
+              "билет туда и обратно",
+              "задержка",
+              "багаж",
+              "выход",
+              "паспорт",
+              "бронировать",
+              "пересадка"
+            ]
+          },
+          {
+            "id": "L4",
+            "title": "Food and restaurants",
+            "learn": "Ресторан.",
+            "vocab": [
+              {
+                "t": "меню",
+                "r": "menyu",
+                "en": "menu",
+                "pos": "noun"
+              },
+              {
+                "t": "счёт",
+                "r": "schyot",
+                "en": "bill",
+                "pos": "noun"
+              },
+              {
+                "t": "закуска",
+                "r": "zakuska",
+                "en": "starter",
+                "pos": "noun"
+              },
+              {
+                "t": "аллергия",
+                "r": "allergiya",
+                "en": "allergic",
+                "pos": "noun"
+              },
+              {
+                "t": "острый",
+                "r": "ostryy",
+                "en": "spicy",
+                "pos": "adj"
+              },
+              {
+                "t": "советовать",
+                "r": "sovetovat'",
+                "en": "recommend",
+                "pos": "verb"
+              },
+              {
+                "t": "чаевые",
+                "r": "chayevyye",
+                "en": "tip",
+                "pos": "noun"
+              },
+              {
+                "t": "стол",
+                "r": "stol",
+                "en": "table",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "я бы хотел(а)",
+              "explain": "Вежливый заказ.",
+              "pattern": "я бы хотел суп",
+              "examples": [
+                {
+                  "t": "Я бы хотел суп.",
+                  "r": "ya by khotel sup",
+                  "en": "I'd like the soup."
+                },
+                {
+                  "t": "Сделать острым?",
+                  "r": "sdelat' ostrym?",
+                  "en": "Would you like it spicy?"
+                },
+                {
+                  "t": "Можно меню?",
+                  "r": "mozhno menyu?",
+                  "en": "I'd like to see the menu."
+                }
+              ],
+              "mistakes": [
+                "«Дай это» грубо официанту.",
+                "бы хотел + существительное."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Официант",
+                "t": "Вы готовы заказать?",
+                "r": "vy gotovy zakazat'?",
+                "en": "Ready to order?"
+              },
+              {
+                "sp": "Сэм",
+                "t": "Я бы хотел пасту. Она острая?",
+                "r": "ya by khotel pastu. ona ostraya?",
+                "en": "I'd like the pasta. Is it spicy?"
+              },
+              {
+                "sp": "Официант",
+                "t": "Немного. Есть аллергия?",
+                "r": "nemnogo. yest' allergiya?",
+                "en": "A little. Are you allergic?"
+              },
+              {
+                "sp": "Сэм",
+                "t": "Нет. Счёт в конце, пожалуйста.",
+                "r": "net. schyot v kontse, pozhaluysta.",
+                "en": "No. The bill at the end, please."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “меню” mean?",
+                "options": [
+                  "menu",
+                  "bill",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": "menu",
+                "why": "“меню” means “menu”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “menu” in Russian?",
+                "answer": "меню",
+                "why": "The course word for “menu” is “меню”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “счёт” mean?",
+                "options": [
+                  "bill",
+                  "menu",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": "bill",
+                "why": "“счёт” means “bill”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “bill” in Russian?",
+                "answer": "счёт",
+                "why": "The course word for “bill” is “счёт”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “закуска” mean?",
+                "options": [
+                  "starter",
+                  "menu",
+                  "bill",
+                  "allergic"
+                ],
+                "answer": "starter",
+                "why": "“закуска” means “starter”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “starter” in Russian?",
+                "answer": "закуска",
+                "why": "The course word for “starter” is “закуска”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “аллергия” mean?",
+                "options": [
+                  "allergic",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "allergic",
+                "why": "“аллергия” means “allergic”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “allergic” in Russian?",
+                "answer": "аллергия",
+                "why": "The course word for “allergic” is “аллергия”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “острый” mean?",
+                "options": [
+                  "spicy",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "spicy",
+                "why": "“острый” means “spicy”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “spicy” in Russian?",
+                "answer": "острый",
+                "why": "The course word for “spicy” is “острый”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “советовать” mean?",
+                "options": [
+                  "recommend",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "recommend",
+                "why": "“советовать” means “recommend”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “recommend” in Russian?",
+                "answer": "советовать",
+                "why": "The course word for “recommend” is “советовать”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“меню” means:",
+                "options": [
+                  "menu",
+                  "bill",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“меню” = “menu”."
+              },
+              {
+                "q": "“счёт” means:",
+                "options": [
+                  "bill",
+                  "menu",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“счёт” = “bill”."
+              },
+              {
+                "q": "“закуска” means:",
+                "options": [
+                  "starter",
+                  "menu",
+                  "bill",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“закуска” = “starter”."
+              },
+              {
+                "q": "“аллергия” means:",
+                "options": [
+                  "allergic",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": 0,
+                "why": "“аллергия” = “allergic”."
+              },
+              {
+                "q": "“острый” means:",
+                "options": [
+                  "spicy",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": 0,
+                "why": "“острый” = “spicy”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Russian word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "menu",
+                    "bill",
+                    "starter",
+                    "allergic",
+                    "spicy",
+                    "recommend"
+                  ],
+                  "key": [
+                    "меню",
+                    "счёт",
+                    "закуска",
+                    "аллергия",
+                    "острый",
+                    "советовать"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "меню",
+              "счёт",
+              "закуска",
+              "аллергия",
+              "острый",
+              "советовать",
+              "чаевые",
+              "стол"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Unit 2",
+        "title": "Russian A3 — second half",
+        "lessons": [
+          {
+            "id": "L5",
+            "title": "Friends and social life",
+            "learn": "Приглашение.",
+            "vocab": [
+              {
+                "t": "приглашение",
+                "r": "priglasheniye",
+                "en": "invitation",
+                "pos": "noun"
+              },
+              {
+                "t": "занят",
+                "r": "zanyat",
+                "en": "busy",
+                "pos": "adj"
+              },
+              {
+                "t": "встретиться",
+                "r": "vstretit'sya",
+                "en": "catch up",
+                "pos": "verb"
+              },
+              {
+                "t": "принести",
+                "r": "prinesti",
+                "en": "bring",
+                "pos": "verb"
+              },
+              {
+                "t": "вечеринка",
+                "r": "vecherinka",
+                "en": "party",
+                "pos": "noun"
+              },
+              {
+                "t": "свободен",
+                "r": "svoboden",
+                "en": "free",
+                "pos": "adj"
+              },
+              {
+                "t": "может быть",
+                "r": "mozhet byt'",
+                "en": "maybe",
+                "pos": "noun"
+              },
+              {
+                "t": "на следующей неделе",
+                "r": "na sleduyushchey nedele",
+                "en": "next week",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "давай / не + ли",
+              "explain": "Предложение.",
+              "pattern": "давай встретимся в семь",
+              "examples": [
+                {
+                  "t": "Давай встретимся в семь.",
+                  "r": "davay vstretimsya v sem'",
+                  "en": "Shall we meet at seven?"
+                },
+                {
+                  "t": "Может, на следующей неделе?",
+                  "r": "mozhet, na sleduyushchey nedele?",
+                  "en": "What if we catch up next week?"
+                },
+                {
+                  "t": "Давай принесём еду.",
+                  "r": "davay prinesyom yedu",
+                  "en": "Let's bring some food."
+                }
+              ],
+              "mistakes": [
+                "Голое «нет» резко: дайте причину.",
+                "давай + глагол в 1 л. мн."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Рия",
+                "t": "В пятницу вечеринка. Пойдём?",
+                "r": "v pyatnitsu vecherinka. poydyom?",
+                "en": "There's a party Friday. Shall we go?"
+              },
+              {
+                "sp": "Омар",
+                "t": "В пятницу занят. На следующей неделе?",
+                "r": "v pyatnitsu zanyat. na sleduyushchey nedele?",
+                "en": "I'm busy Friday. Next week?"
+              },
+              {
+                "sp": "Рия",
+                "t": "В воскресенье? После шести свободна.",
+                "r": "v voskresen'ye? posle shesti svobodna.",
+                "en": "Sunday? I'm free after six."
+              },
+              {
+                "sp": "Омар",
+                "t": "Отлично. Десерт принесу я.",
+                "r": "otlichno. desert prinesu ya.",
+                "en": "Perfect. I'll bring dessert."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “приглашение” mean?",
+                "options": [
+                  "invitation",
+                  "busy",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": "invitation",
+                "why": "“приглашение” means “invitation”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “invitation” in Russian?",
+                "answer": "приглашение",
+                "why": "The course word for “invitation” is “приглашение”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “занят” mean?",
+                "options": [
+                  "busy",
+                  "invitation",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": "busy",
+                "why": "“занят” means “busy”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “busy” in Russian?",
+                "answer": "занят",
+                "why": "The course word for “busy” is “занят”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “встретиться” mean?",
+                "options": [
+                  "catch up",
+                  "invitation",
+                  "busy",
+                  "bring"
+                ],
+                "answer": "catch up",
+                "why": "“встретиться” means “catch up”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “catch up” in Russian?",
+                "answer": "встретиться",
+                "why": "The course word for “catch up” is “встретиться”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “принести” mean?",
+                "options": [
+                  "bring",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "bring",
+                "why": "“принести” means “bring”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “bring” in Russian?",
+                "answer": "принести",
+                "why": "The course word for “bring” is “принести”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “вечеринка” mean?",
+                "options": [
+                  "party",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "party",
+                "why": "“вечеринка” means “party”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “party” in Russian?",
+                "answer": "вечеринка",
+                "why": "The course word for “party” is “вечеринка”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “свободен” mean?",
+                "options": [
+                  "free",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "free",
+                "why": "“свободен” means “free”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “free” in Russian?",
+                "answer": "свободен",
+                "why": "The course word for “free” is “свободен”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“приглашение” means:",
+                "options": [
+                  "invitation",
+                  "busy",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“приглашение” = “invitation”."
+              },
+              {
+                "q": "“занят” means:",
+                "options": [
+                  "busy",
+                  "invitation",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“занят” = “busy”."
+              },
+              {
+                "q": "“встретиться” means:",
+                "options": [
+                  "catch up",
+                  "invitation",
+                  "busy",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“встретиться” = “catch up”."
+              },
+              {
+                "q": "“принести” means:",
+                "options": [
+                  "bring",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": 0,
+                "why": "“принести” = “bring”."
+              },
+              {
+                "q": "“вечеринка” means:",
+                "options": [
+                  "party",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": 0,
+                "why": "“вечеринка” = “party”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Russian word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "invitation",
+                    "busy",
+                    "catch up",
+                    "bring",
+                    "party",
+                    "free"
+                  ],
+                  "key": [
+                    "приглашение",
+                    "занят",
+                    "встретиться",
+                    "принести",
+                    "вечеринка",
+                    "свободен"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "приглашение",
+              "занят",
+              "встретиться",
+              "принести",
+              "вечеринка",
+              "свободен",
+              "может быть",
+              "на следующей неделе"
+            ]
+          },
+          {
+            "id": "L6",
+            "title": "Weather and plans",
+            "learn": "Погода: если.",
+            "vocab": [
+              {
+                "t": "прогноз",
+                "r": "prognoz",
+                "en": "forecast",
+                "pos": "noun"
+              },
+              {
+                "t": "ливень",
+                "r": "liven'",
+                "en": "shower",
+                "pos": "noun"
+              },
+              {
+                "t": "влажный",
+                "r": "vlazhnyy",
+                "en": "humid",
+                "pos": "adj"
+              },
+              {
+                "t": "отменить",
+                "r": "otmenit'",
+                "en": "cancel",
+                "pos": "verb"
+              },
+              {
+                "t": "в помещении",
+                "r": "v pomeshchenii",
+                "en": "indoor",
+                "pos": "noun"
+              },
+              {
+                "t": "зонт",
+                "r": "zont",
+                "en": "umbrella",
+                "pos": "noun"
+              },
+              {
+                "t": "градус",
+                "r": "gradus",
+                "en": "degree",
+                "pos": "noun"
+              },
+              {
+                "t": "проясниться",
+                "r": "proyasnit'sya",
+                "en": "clear up",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "если + наст., то будущее",
+              "explain": "Реальное условие.",
+              "pattern": "если пойдёт дождь, мы отменим",
+              "examples": [
+                {
+                  "t": "Если пойдёт дождь, мы отменим пикник.",
+                  "r": "yesli poydyot dozhd', my otmenim piknik",
+                  "en": "If it rains, we'll cancel the picnic."
+                },
+                {
+                  "t": "Если прогноз хороший, пойдём пешком.",
+                  "r": "yesli prognoz khoroshiy, poydyom peshkom",
+                  "en": "If the forecast is good, we'll walk."
+                },
+                {
+                  "t": "Если не прояснится, останемся внутри.",
+                  "r": "yesli ne proyasnitsya, ostanemsya vnutri",
+                  "en": "If it doesn't clear up, we'll stay inside."
+                }
+              ],
+              "mistakes": [
+                "В если не ставьте чистое будущее без нужды.",
+                "то можно опустить."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Джен",
+                "t": "Прогноз обещает ливень.",
+                "r": "prognoz obeshchayet liven'.",
+                "en": "The forecast says showers."
+              },
+              {
+                "sp": "Кай",
+                "t": "Если дождь — в музей.",
+                "r": "yesli dozhd' — v muzey.",
+                "en": "If it rains, we'll go to the museum."
+              },
+              {
+                "sp": "Джен",
+                "t": "Зонт всё равно возьми.",
+                "r": "zont vsyo ravno voz'mi.",
+                "en": "Take an umbrella anyway."
+              },
+              {
+                "sp": "Кай",
+                "t": "Если прояснится — вдоль реки.",
+                "r": "yesli proyasnitsya — vdol' reki.",
+                "en": "If it clears up, we'll walk by the river."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “прогноз” mean?",
+                "options": [
+                  "forecast",
+                  "shower",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": "forecast",
+                "why": "“прогноз” means “forecast”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “forecast” in Russian?",
+                "answer": "прогноз",
+                "why": "The course word for “forecast” is “прогноз”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ливень” mean?",
+                "options": [
+                  "shower",
+                  "forecast",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": "shower",
+                "why": "“ливень” means “shower”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “shower” in Russian?",
+                "answer": "ливень",
+                "why": "The course word for “shower” is “ливень”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “влажный” mean?",
+                "options": [
+                  "humid",
+                  "forecast",
+                  "shower",
+                  "cancel"
+                ],
+                "answer": "humid",
+                "why": "“влажный” means “humid”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “humid” in Russian?",
+                "answer": "влажный",
+                "why": "The course word for “humid” is “влажный”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “отменить” mean?",
+                "options": [
+                  "cancel",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "cancel",
+                "why": "“отменить” means “cancel”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “cancel” in Russian?",
+                "answer": "отменить",
+                "why": "The course word for “cancel” is “отменить”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “в помещении” mean?",
+                "options": [
+                  "indoor",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "indoor",
+                "why": "“в помещении” means “indoor”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “indoor” in Russian?",
+                "answer": "в помещении",
+                "why": "The course word for “indoor” is “в помещении”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “зонт” mean?",
+                "options": [
+                  "umbrella",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "umbrella",
+                "why": "“зонт” means “umbrella”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “umbrella” in Russian?",
+                "answer": "зонт",
+                "why": "The course word for “umbrella” is “зонт”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“прогноз” means:",
+                "options": [
+                  "forecast",
+                  "shower",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“прогноз” = “forecast”."
+              },
+              {
+                "q": "“ливень” means:",
+                "options": [
+                  "shower",
+                  "forecast",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“ливень” = “shower”."
+              },
+              {
+                "q": "“влажный” means:",
+                "options": [
+                  "humid",
+                  "forecast",
+                  "shower",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“влажный” = “humid”."
+              },
+              {
+                "q": "“отменить” means:",
+                "options": [
+                  "cancel",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": 0,
+                "why": "“отменить” = “cancel”."
+              },
+              {
+                "q": "“в помещении” means:",
+                "options": [
+                  "indoor",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": 0,
+                "why": "“в помещении” = “indoor”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Russian word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "forecast",
+                    "shower",
+                    "humid",
+                    "cancel",
+                    "indoor",
+                    "umbrella"
+                  ],
+                  "key": [
+                    "прогноз",
+                    "ливень",
+                    "влажный",
+                    "отменить",
+                    "в помещении",
+                    "зонт"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "прогноз",
+              "ливень",
+              "влажный",
+              "отменить",
+              "в помещении",
+              "зонт",
+              "градус",
+              "проясниться"
+            ]
+          },
+          {
+            "id": "L7",
+            "title": "Shopping and money",
+            "learn": "Магазин.",
+            "vocab": [
+              {
+                "t": "размер",
+                "r": "razmer",
+                "en": "size",
+                "pos": "noun"
+              },
+              {
+                "t": "чек",
+                "r": "chek",
+                "en": "receipt",
+                "pos": "noun"
+              },
+              {
+                "t": "возврат",
+                "r": "vozvrat",
+                "en": "refund",
+                "pos": "noun"
+              },
+              {
+                "t": "скидка",
+                "r": "skidka",
+                "en": "discount",
+                "pos": "noun"
+              },
+              {
+                "t": "наличные",
+                "r": "nalichnyye",
+                "en": "cash",
+                "pos": "noun"
+              },
+              {
+                "t": "карта",
+                "r": "karta",
+                "en": "card",
+                "pos": "noun"
+              },
+              {
+                "t": "сидеть",
+                "r": "sidet'",
+                "en": "fit",
+                "pos": "verb"
+              },
+              {
+                "t": "обменять",
+                "r": "obmenyat'",
+                "en": "exchange",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "сравнительная степень",
+              "explain": "дешевле / более + прил.",
+              "pattern": "эта рубашка дешевле той",
+              "examples": [
+                {
+                  "t": "Эта рубашка дешевле той.",
+                  "r": "eta rubashka deshevle toy",
+                  "en": "This shirt is cheaper than that one."
+                },
+                {
+                  "t": "Синяя дороже.",
+                  "r": "sinyaya dorozhe",
+                  "en": "The blue one is more expensive."
+                },
+                {
+                  "t": "Размер M сидит лучше.",
+                  "r": "razmer M sidit luchshe",
+                  "en": "Size M fits better."
+                }
+              ],
+              "mistakes": [
+                "Не «более дешевле».",
+                "чем вводит второй член."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Магазин",
+                "t": "Картой или наличными?",
+                "r": "kartoy ili nalichnymi?",
+                "en": "Card or cash?"
+              },
+              {
+                "sp": "Лила",
+                "t": "Картой. Есть размер меньше?",
+                "r": "kartoy. yest' razmer men'she?",
+                "en": "Card. Have you got a smaller size?"
+              },
+              {
+                "sp": "Магазин",
+                "t": "Да. Чек сохраните для возврата.",
+                "r": "da. chek sokhranite dlya vozvrata.",
+                "en": "Yes. Keep the receipt for a refund."
+              },
+              {
+                "sp": "Лила",
+                "t": "Есть студенческая скидка?",
+                "r": "yest' studencheskaya skidka?",
+                "en": "Is there a student discount?"
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “размер” mean?",
+                "options": [
+                  "size",
+                  "receipt",
+                  "refund",
+                  "discount"
+                ],
+                "answer": "size",
+                "why": "“размер” means “size”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “size” in Russian?",
+                "answer": "размер",
+                "why": "The course word for “size” is “размер”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “чек” mean?",
+                "options": [
+                  "receipt",
+                  "size",
+                  "refund",
+                  "discount"
+                ],
+                "answer": "receipt",
+                "why": "“чек” means “receipt”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “receipt” in Russian?",
+                "answer": "чек",
+                "why": "The course word for “receipt” is “чек”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “возврат” mean?",
+                "options": [
+                  "refund",
+                  "size",
+                  "receipt",
+                  "discount"
+                ],
+                "answer": "refund",
+                "why": "“возврат” means “refund”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “refund” in Russian?",
+                "answer": "возврат",
+                "why": "The course word for “refund” is “возврат”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “скидка” mean?",
+                "options": [
+                  "discount",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "discount",
+                "why": "“скидка” means “discount”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “discount” in Russian?",
+                "answer": "скидка",
+                "why": "The course word for “discount” is “скидка”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “наличные” mean?",
+                "options": [
+                  "cash",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "cash",
+                "why": "“наличные” means “cash”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “cash” in Russian?",
+                "answer": "наличные",
+                "why": "The course word for “cash” is “наличные”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “карта” mean?",
+                "options": [
+                  "card",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "card",
+                "why": "“карта” means “card”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “card” in Russian?",
+                "answer": "карта",
+                "why": "The course word for “card” is “карта”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“размер” means:",
+                "options": [
+                  "size",
+                  "receipt",
+                  "refund",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“размер” = “size”."
+              },
+              {
+                "q": "“чек” means:",
+                "options": [
+                  "receipt",
+                  "size",
+                  "refund",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“чек” = “receipt”."
+              },
+              {
+                "q": "“возврат” means:",
+                "options": [
+                  "refund",
+                  "size",
+                  "receipt",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“возврат” = “refund”."
+              },
+              {
+                "q": "“скидка” means:",
+                "options": [
+                  "discount",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": 0,
+                "why": "“скидка” = “discount”."
+              },
+              {
+                "q": "“наличные” means:",
+                "options": [
+                  "cash",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": 0,
+                "why": "“наличные” = “cash”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Russian word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "size",
+                    "receipt",
+                    "refund",
+                    "discount",
+                    "cash",
+                    "card"
+                  ],
+                  "key": [
+                    "размер",
+                    "чек",
+                    "возврат",
+                    "скидка",
+                    "наличные",
+                    "карта"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "размер",
+              "чек",
+              "возврат",
+              "скидка",
+              "наличные",
+              "карта",
+              "сидеть",
+              "обменять"
+            ]
+          },
+          {
+            "id": "L8",
+            "title": "Daily routines and future plans",
+            "learn": "Привычка и план.",
+            "vocab": [
+              {
+                "t": "ездить на работу",
+                "r": "yezdit' na rabotu",
+                "en": "commute",
+                "pos": "verb"
+              },
+              {
+                "t": "смена",
+                "r": "smena",
+                "en": "shift",
+                "pos": "noun"
+              },
+              {
+                "t": "будильник",
+                "r": "budil'nik",
+                "en": "alarm",
+                "pos": "noun"
+              },
+              {
+                "t": "копить",
+                "r": "kopit'",
+                "en": "save",
+                "pos": "verb"
+              },
+              {
+                "t": "цель",
+                "r": "tsel'",
+                "en": "goal",
+                "pos": "noun"
+              },
+              {
+                "t": "привычка",
+                "r": "privychka",
+                "en": "habit",
+                "pos": "noun"
+              },
+              {
+                "t": "в следующем месяце",
+                "r": "v sleduyushchem mesyatse",
+                "en": "next month",
+                "pos": "noun"
+              },
+              {
+                "t": "обычно",
+                "r": "obychno",
+                "en": "usually",
+                "pos": "adv"
+              }
+            ],
+            "grammar": {
+              "title": "обычно + наст. vs собираться",
+              "explain": "Расписание — настоящее; решение — собираться.",
+              "pattern": "обычно я выхожу в семь",
+              "examples": [
+                {
+                  "t": "Обычно я выхожу в семь.",
+                  "r": "obychno ya vykhozhu v sem'",
+                  "en": "I usually leave at seven."
+                },
+                {
+                  "t": "В следующем месяце собираюсь копить.",
+                  "r": "v sleduyushchem mesyatse sobirayus' kopit'",
+                  "en": "I'm going to save next month."
+                },
+                {
+                  "t": "Смена начинается в девять.",
+                  "r": "smena nachinayetsya v devyat'",
+                  "en": "My shift starts at nine."
+                }
+              ],
+              "mistakes": [
+                "Не используйте собираться для печатного расписания.",
+                "Не мешайте вчера и собираюсь."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Дана",
+                "t": "Во сколько ты обычно начинаешь?",
+                "r": "vo skol'ko ty obychno nachinayesh'?",
+                "en": "What time do you usually start?"
+              },
+              {
+                "sp": "Нед",
+                "t": "Смена в девять. В следующем месяце поменяю.",
+                "r": "smena v devyat'. v sleduyushchem mesyatse pomenyayu.",
+                "en": "The shift starts at nine. I'm going to change it next month."
+              },
+              {
+                "sp": "Дана",
+                "t": "Почему?",
+                "r": "pochemu?",
+                "en": "Why?"
+              },
+              {
+                "sp": "Нед",
+                "t": "Хочу короче дорогу. Это цель.",
+                "r": "khochu koroche dorogu. eto tsel'.",
+                "en": "I want a shorter commute. That's the goal."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “ездить на работу” mean?",
+                "options": [
+                  "commute",
+                  "shift",
+                  "alarm",
+                  "save"
+                ],
+                "answer": "commute",
+                "why": "“ездить на работу” means “commute”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “commute” in Russian?",
+                "answer": "ездить на работу",
+                "why": "The course word for “commute” is “ездить на работу”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “смена” mean?",
+                "options": [
+                  "shift",
+                  "commute",
+                  "alarm",
+                  "save"
+                ],
+                "answer": "shift",
+                "why": "“смена” means “shift”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “shift” in Russian?",
+                "answer": "смена",
+                "why": "The course word for “shift” is “смена”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “будильник” mean?",
+                "options": [
+                  "alarm",
+                  "commute",
+                  "shift",
+                  "save"
+                ],
+                "answer": "alarm",
+                "why": "“будильник” means “alarm”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “alarm” in Russian?",
+                "answer": "будильник",
+                "why": "The course word for “alarm” is “будильник”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “копить” mean?",
+                "options": [
+                  "save",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "save",
+                "why": "“копить” means “save”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “save” in Russian?",
+                "answer": "копить",
+                "why": "The course word for “save” is “копить”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “цель” mean?",
+                "options": [
+                  "goal",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "goal",
+                "why": "“цель” means “goal”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “goal” in Russian?",
+                "answer": "цель",
+                "why": "The course word for “goal” is “цель”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “привычка” mean?",
+                "options": [
+                  "habit",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "habit",
+                "why": "“привычка” means “habit”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “habit” in Russian?",
+                "answer": "привычка",
+                "why": "The course word for “habit” is “привычка”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“ездить на работу” means:",
+                "options": [
+                  "commute",
+                  "shift",
+                  "alarm",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“ездить на работу” = “commute”."
+              },
+              {
+                "q": "“смена” means:",
+                "options": [
+                  "shift",
+                  "commute",
+                  "alarm",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“смена” = “shift”."
+              },
+              {
+                "q": "“будильник” means:",
+                "options": [
+                  "alarm",
+                  "commute",
+                  "shift",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“будильник” = “alarm”."
+              },
+              {
+                "q": "“копить” means:",
+                "options": [
+                  "save",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": 0,
+                "why": "“копить” = “save”."
+              },
+              {
+                "q": "“цель” means:",
+                "options": [
+                  "goal",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": 0,
+                "why": "“цель” = “goal”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Russian word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "commute",
+                    "shift",
+                    "alarm",
+                    "save",
+                    "goal",
+                    "habit"
+                  ],
+                  "key": [
+                    "ездить на работу",
+                    "смена",
+                    "будильник",
+                    "копить",
+                    "цель",
+                    "привычка"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "ездить на работу",
+              "смена",
+              "будильник",
+              "копить",
+              "цель",
+              "привычка",
+              "в следующем месяце",
+              "обычно"
+            ]
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "A3 test",
+      "items": [
+        {
+          "type": "multiple_choice",
+          "q": "What does “экзамен” mean?",
+          "options": [
+            "exam",
+            "subject",
+            "homework",
+            "timetable"
+          ],
+          "answer": "exam",
+          "why": "From this A3 lesson: “экзамен” means “exam”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “предмет” mean?",
+          "options": [
+            "subject",
+            "exam",
+            "homework",
+            "timetable"
+          ],
+          "answer": "subject",
+          "why": "From this A3 lesson: “предмет” means “subject”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “хобби” mean?",
+          "options": [
+            "hobby",
+            "guitar",
+            "team",
+            "practice"
+          ],
+          "answer": "hobby",
+          "why": "From this A3 lesson: “хобби” means “hobby”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “гитара” mean?",
+          "options": [
+            "guitar",
+            "hobby",
+            "team",
+            "practice"
+          ],
+          "answer": "guitar",
+          "why": "From this A3 lesson: “гитара” means “guitar”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “платформа” mean?",
+          "options": [
+            "platform",
+            "return ticket",
+            "delay",
+            "luggage"
+          ],
+          "answer": "platform",
+          "why": "From this A3 lesson: “платформа” means “platform”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “билет туда и обратно” mean?",
+          "options": [
+            "return ticket",
+            "platform",
+            "delay",
+            "luggage"
+          ],
+          "answer": "return ticket",
+          "why": "From this A3 lesson: “билет туда и обратно” means “return ticket”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “меню” mean?",
+          "options": [
+            "menu",
+            "bill",
+            "starter",
+            "allergic"
+          ],
+          "answer": "menu",
+          "why": "From this A3 lesson: “меню” means “menu”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “счёт” mean?",
+          "options": [
+            "bill",
+            "menu",
+            "starter",
+            "allergic"
+          ],
+          "answer": "bill",
+          "why": "From this A3 lesson: “счёт” means “bill”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “приглашение” mean?",
+          "options": [
+            "invitation",
+            "busy",
+            "catch up",
+            "bring"
+          ],
+          "answer": "invitation",
+          "why": "From this A3 lesson: “приглашение” means “invitation”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “занят” mean?",
+          "options": [
+            "busy",
+            "invitation",
+            "catch up",
+            "bring"
+          ],
+          "answer": "busy",
+          "why": "From this A3 lesson: “занят” means “busy”."
+        }
+      ]
+    }
   }
 }

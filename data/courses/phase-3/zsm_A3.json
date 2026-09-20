@@ -5,16 +5,2722 @@
   "phase": "phase-3",
   "medium": "en",
   "file_level": "A3",
-  "content_status": "INCOMPLETE",
-  "indexable": false,
+  "content_status": "REAL",
+  "indexable": true,
   "ekguru_extension": true,
   "cefr_equivalent": null,
   "cefr_note": "EkGuru A2→B1 bridge. Not a CEFR level.",
-  "reason": "EkGuru A2→B1 bridge. Not a CEFR level.",
   "level": {
     "id": "A3",
-    "title": "Standard Malay A3 — not published",
-    "goals": [],
-    "units": []
+    "title": "Standard Malay A3",
+    "goals": [
+      "Handle a short Standard Malay exchange about school and studies.",
+      "Handle a short Standard Malay exchange about hobbies and free time.",
+      "Handle a short Standard Malay exchange about travel basics.",
+      "Handle a short Standard Malay exchange about food and restaurants.",
+      "Handle a short Standard Malay exchange about friends and social life.",
+      "Handle a short Standard Malay exchange about weather and plans.",
+      "Handle a short Standard Malay exchange about shopping and money.",
+      "Handle a short Standard Malay exchange about daily routines and future plans."
+    ],
+    "units": [
+      {
+        "id": "Unit 1",
+        "title": "Standard Malay A3 — first half",
+        "lessons": [
+          {
+            "id": "L1",
+            "title": "School and studies",
+            "learn": "Rancangan dekat: akan / nak.",
+            "vocab": [
+              {
+                "t": "peperiksaan",
+                "r": "",
+                "en": "exam",
+                "pos": "noun"
+              },
+              {
+                "t": "mata pelajaran",
+                "r": "",
+                "en": "subject",
+                "pos": "noun"
+              },
+              {
+                "t": "kerja rumah",
+                "r": "",
+                "en": "homework",
+                "pos": "noun"
+              },
+              {
+                "t": "jadual",
+                "r": "",
+                "en": "timetable",
+                "pos": "noun"
+              },
+              {
+                "t": "tarikh akhir",
+                "r": "",
+                "en": "deadline",
+                "pos": "noun"
+              },
+              {
+                "t": "ulangkaji",
+                "r": "",
+                "en": "revise",
+                "pos": "verb"
+              },
+              {
+                "t": "kuliah",
+                "r": "",
+                "en": "lecture",
+                "pos": "noun"
+              },
+              {
+                "t": "nota",
+                "r": "",
+                "en": "notes",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "akan + kata kerja",
+              "explain": "Keputusan yang sudah dibuat.",
+              "pattern": "saya akan ulangkaji malam ini",
+              "examples": [
+                {
+                  "t": "Saya akan ulangkaji malam ini.",
+                  "r": "",
+                  "en": "I'm going to revise tonight."
+                },
+                {
+                  "t": "Dia akan tertinggal kuliah.",
+                  "r": "",
+                  "en": "She's going to miss the lecture."
+                },
+                {
+                  "t": "Awak nak habiskan kerja rumah?",
+                  "r": "",
+                  "en": "Are you going to finish the homework?"
+                }
+              ],
+              "mistakes": [
+                "Jangan ‘saya akan untuk ulangkaji’.",
+                "akan + kata kerja."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Ana",
+                "t": "Esok ada peperiksaan?",
+                "r": "",
+                "en": "Have you got an exam tomorrow?"
+              },
+              {
+                "sp": "Luis",
+                "t": "Ada, sejarah. Lepas kelas saya akan ulangkaji.",
+                "r": "",
+                "en": "Yes, history. I'll revise after class."
+              },
+              {
+                "sp": "Ana",
+                "t": "Belajar di perpustakaan?",
+                "r": "",
+                "en": "Shall we study in the library?"
+              },
+              {
+                "sp": "Luis",
+                "t": "Ya. Tarikh akhir nota hari ini.",
+                "r": "",
+                "en": "Yes. The notes deadline is today."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “peperiksaan” mean?",
+                "options": [
+                  "exam",
+                  "subject",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": "exam",
+                "why": "“peperiksaan” means “exam”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “exam” in Standard Malay?",
+                "answer": "peperiksaan",
+                "why": "The course word for “exam” is “peperiksaan”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “mata pelajaran” mean?",
+                "options": [
+                  "subject",
+                  "exam",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": "subject",
+                "why": "“mata pelajaran” means “subject”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “subject” in Standard Malay?",
+                "answer": "mata pelajaran",
+                "why": "The course word for “subject” is “mata pelajaran”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “kerja rumah” mean?",
+                "options": [
+                  "homework",
+                  "exam",
+                  "subject",
+                  "timetable"
+                ],
+                "answer": "homework",
+                "why": "“kerja rumah” means “homework”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “homework” in Standard Malay?",
+                "answer": "kerja rumah",
+                "why": "The course word for “homework” is “kerja rumah”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “jadual” mean?",
+                "options": [
+                  "timetable",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "timetable",
+                "why": "“jadual” means “timetable”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “timetable” in Standard Malay?",
+                "answer": "jadual",
+                "why": "The course word for “timetable” is “jadual”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “tarikh akhir” mean?",
+                "options": [
+                  "deadline",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "deadline",
+                "why": "“tarikh akhir” means “deadline”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “deadline” in Standard Malay?",
+                "answer": "tarikh akhir",
+                "why": "The course word for “deadline” is “tarikh akhir”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ulangkaji” mean?",
+                "options": [
+                  "revise",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "revise",
+                "why": "“ulangkaji” means “revise”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “revise” in Standard Malay?",
+                "answer": "ulangkaji",
+                "why": "The course word for “revise” is “ulangkaji”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“peperiksaan” means:",
+                "options": [
+                  "exam",
+                  "subject",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“peperiksaan” = “exam”."
+              },
+              {
+                "q": "“mata pelajaran” means:",
+                "options": [
+                  "subject",
+                  "exam",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“mata pelajaran” = “subject”."
+              },
+              {
+                "q": "“kerja rumah” means:",
+                "options": [
+                  "homework",
+                  "exam",
+                  "subject",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“kerja rumah” = “homework”."
+              },
+              {
+                "q": "“jadual” means:",
+                "options": [
+                  "timetable",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": 0,
+                "why": "“jadual” = “timetable”."
+              },
+              {
+                "q": "“tarikh akhir” means:",
+                "options": [
+                  "deadline",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": 0,
+                "why": "“tarikh akhir” = “deadline”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Standard Malay word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "exam",
+                    "subject",
+                    "homework",
+                    "timetable",
+                    "deadline",
+                    "revise"
+                  ],
+                  "key": [
+                    "peperiksaan",
+                    "mata pelajaran",
+                    "kerja rumah",
+                    "jadual",
+                    "tarikh akhir",
+                    "ulangkaji"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "peperiksaan",
+              "mata pelajaran",
+              "kerja rumah",
+              "jadual",
+              "tarikh akhir",
+              "ulangkaji",
+              "kuliah",
+              "nota"
+            ]
+          },
+          {
+            "id": "L2",
+            "title": "Hobbies and free time",
+            "learn": "Hobi: suka + kata kerja.",
+            "vocab": [
+              {
+                "t": "hobi",
+                "r": "",
+                "en": "hobby",
+                "pos": "noun"
+              },
+              {
+                "t": "gitar",
+                "r": "",
+                "en": "guitar",
+                "pos": "noun"
+              },
+              {
+                "t": "pasukan",
+                "r": "",
+                "en": "team",
+                "pos": "noun"
+              },
+              {
+                "t": "latihan",
+                "r": "",
+                "en": "practice",
+                "pos": "noun"
+              },
+              {
+                "t": "hujung minggu",
+                "r": "",
+                "en": "weekend",
+                "pos": "noun"
+              },
+              {
+                "t": "sertai",
+                "r": "",
+                "en": "join",
+                "pos": "verb"
+              },
+              {
+                "t": "konsert",
+                "r": "",
+                "en": "concert",
+                "pos": "noun"
+              },
+              {
+                "t": "melukis",
+                "r": "",
+                "en": "draw",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "suka + kata kerja",
+              "explain": "Suka diikuti kata kerja atau nama.",
+              "pattern": "saya suka main gitar",
+              "examples": [
+                {
+                  "t": "Saya suka main gitar.",
+                  "r": "",
+                  "en": "I like playing guitar."
+                },
+                {
+                  "t": "Dia tak suka menunggu.",
+                  "r": "",
+                  "en": "She doesn't like waiting."
+                },
+                {
+                  "t": "Awak suka melukis hujung minggu?",
+                  "r": "",
+                  "en": "Do you like drawing at weekends?"
+                }
+              ],
+              "mistakes": [
+                "Bukan ‘saya suka untuk main’.",
+                "tak suka, bukan haram."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Asha",
+                "t": "Hujung minggu awak buat apa?",
+                "r": "",
+                "en": "What do you do at the weekend?"
+              },
+              {
+                "sp": "Ben",
+                "t": "Main gitar. Sabtu ada konsert.",
+                "r": "",
+                "en": "I play guitar. There's a concert on Saturday."
+              },
+              {
+                "sp": "Asha",
+                "t": "Saya suka melukis. Nak ikut?",
+                "r": "",
+                "en": "I like drawing. Are you coming?"
+              },
+              {
+                "sp": "Ben",
+                "t": "Lepas latihan.",
+                "r": "",
+                "en": "Yes, after practice."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “hobi” mean?",
+                "options": [
+                  "hobby",
+                  "guitar",
+                  "team",
+                  "practice"
+                ],
+                "answer": "hobby",
+                "why": "“hobi” means “hobby”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “hobby” in Standard Malay?",
+                "answer": "hobi",
+                "why": "The course word for “hobby” is “hobi”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “gitar” mean?",
+                "options": [
+                  "guitar",
+                  "hobby",
+                  "team",
+                  "practice"
+                ],
+                "answer": "guitar",
+                "why": "“gitar” means “guitar”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “guitar” in Standard Malay?",
+                "answer": "gitar",
+                "why": "The course word for “guitar” is “gitar”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “pasukan” mean?",
+                "options": [
+                  "team",
+                  "hobby",
+                  "guitar",
+                  "practice"
+                ],
+                "answer": "team",
+                "why": "“pasukan” means “team”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “team” in Standard Malay?",
+                "answer": "pasukan",
+                "why": "The course word for “team” is “pasukan”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “latihan” mean?",
+                "options": [
+                  "practice",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "practice",
+                "why": "“latihan” means “practice”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “practice” in Standard Malay?",
+                "answer": "latihan",
+                "why": "The course word for “practice” is “latihan”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “hujung minggu” mean?",
+                "options": [
+                  "weekend",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "weekend",
+                "why": "“hujung minggu” means “weekend”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “weekend” in Standard Malay?",
+                "answer": "hujung minggu",
+                "why": "The course word for “weekend” is “hujung minggu”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “sertai” mean?",
+                "options": [
+                  "join",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "join",
+                "why": "“sertai” means “join”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “join” in Standard Malay?",
+                "answer": "sertai",
+                "why": "The course word for “join” is “sertai”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“hobi” means:",
+                "options": [
+                  "hobby",
+                  "guitar",
+                  "team",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“hobi” = “hobby”."
+              },
+              {
+                "q": "“gitar” means:",
+                "options": [
+                  "guitar",
+                  "hobby",
+                  "team",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“gitar” = “guitar”."
+              },
+              {
+                "q": "“pasukan” means:",
+                "options": [
+                  "team",
+                  "hobby",
+                  "guitar",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“pasukan” = “team”."
+              },
+              {
+                "q": "“latihan” means:",
+                "options": [
+                  "practice",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": 0,
+                "why": "“latihan” = “practice”."
+              },
+              {
+                "q": "“hujung minggu” means:",
+                "options": [
+                  "weekend",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": 0,
+                "why": "“hujung minggu” = “weekend”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Standard Malay word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "hobby",
+                    "guitar",
+                    "team",
+                    "practice",
+                    "weekend",
+                    "join"
+                  ],
+                  "key": [
+                    "hobi",
+                    "gitar",
+                    "pasukan",
+                    "latihan",
+                    "hujung minggu",
+                    "sertai"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "hobi",
+              "gitar",
+              "pasukan",
+              "latihan",
+              "hujung minggu",
+              "sertai",
+              "konsert",
+              "melukis"
+            ]
+          },
+          {
+            "id": "L3",
+            "title": "Travel basics",
+            "learn": "Tiket.",
+            "vocab": [
+              {
+                "t": "platform",
+                "r": "",
+                "en": "platform",
+                "pos": "noun"
+              },
+              {
+                "t": "tiket pergi balik",
+                "r": "",
+                "en": "return ticket",
+                "pos": "noun"
+              },
+              {
+                "t": "kelewatan",
+                "r": "",
+                "en": "delay",
+                "pos": "noun"
+              },
+              {
+                "t": "bagasi",
+                "r": "",
+                "en": "luggage",
+                "pos": "noun"
+              },
+              {
+                "t": "pintu",
+                "r": "",
+                "en": "gate",
+                "pos": "noun"
+              },
+              {
+                "t": "pasport",
+                "r": "",
+                "en": "passport",
+                "pos": "noun"
+              },
+              {
+                "t": "tempah",
+                "r": "",
+                "en": "book",
+                "pos": "verb"
+              },
+              {
+                "t": "bertukar kereta api",
+                "r": "",
+                "en": "change trains",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "perlu / kena",
+              "explain": "Kewajipan luar.",
+              "pattern": "awak kena tunjuk pasport",
+              "examples": [
+                {
+                  "t": "Awak kena tunjuk pasport.",
+                  "r": "",
+                  "en": "You have to show your passport."
+                },
+                {
+                  "t": "Kita perlu bertukar di Ipoh.",
+                  "r": "",
+                  "en": "We have to change in Ipoh."
+                },
+                {
+                  "t": "Dia tak perlu tempah hari ini.",
+                  "r": "",
+                  "en": "He doesn't have to book today."
+                }
+              ],
+              "mistakes": [
+                "kena + kata kerja.",
+                "tak perlu ≠ dilarang."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Kaunter",
+                "t": "Sehala atau pergi balik?",
+                "r": "",
+                "en": "Single or return?"
+              },
+              {
+                "sp": "Nina",
+                "t": "Pergi balik. Platform mana?",
+                "r": "",
+                "en": "Return. Which platform?"
+              },
+              {
+                "sp": "Kaunter",
+                "t": "Empat. Ada kelewatan sikit.",
+                "r": "",
+                "en": "Platform 4. There's a short delay."
+              },
+              {
+                "sp": "Nina",
+                "t": "Perlu bertukar ke?",
+                "r": "",
+                "en": "Do I have to change?"
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “platform” mean?",
+                "options": [
+                  "platform",
+                  "return ticket",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": "platform",
+                "why": "“platform” means “platform”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “platform” in Standard Malay?",
+                "answer": "platform",
+                "why": "The course word for “platform” is “platform”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “tiket pergi balik” mean?",
+                "options": [
+                  "return ticket",
+                  "platform",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": "return ticket",
+                "why": "“tiket pergi balik” means “return ticket”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “return ticket” in Standard Malay?",
+                "answer": "tiket pergi balik",
+                "why": "The course word for “return ticket” is “tiket pergi balik”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “kelewatan” mean?",
+                "options": [
+                  "delay",
+                  "platform",
+                  "return ticket",
+                  "luggage"
+                ],
+                "answer": "delay",
+                "why": "“kelewatan” means “delay”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “delay” in Standard Malay?",
+                "answer": "kelewatan",
+                "why": "The course word for “delay” is “kelewatan”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “bagasi” mean?",
+                "options": [
+                  "luggage",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "luggage",
+                "why": "“bagasi” means “luggage”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “luggage” in Standard Malay?",
+                "answer": "bagasi",
+                "why": "The course word for “luggage” is “bagasi”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “pintu” mean?",
+                "options": [
+                  "gate",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "gate",
+                "why": "“pintu” means “gate”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “gate” in Standard Malay?",
+                "answer": "pintu",
+                "why": "The course word for “gate” is “pintu”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “pasport” mean?",
+                "options": [
+                  "passport",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "passport",
+                "why": "“pasport” means “passport”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “passport” in Standard Malay?",
+                "answer": "pasport",
+                "why": "The course word for “passport” is “pasport”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“platform” means:",
+                "options": [
+                  "platform",
+                  "return ticket",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“platform” = “platform”."
+              },
+              {
+                "q": "“tiket pergi balik” means:",
+                "options": [
+                  "return ticket",
+                  "platform",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“tiket pergi balik” = “return ticket”."
+              },
+              {
+                "q": "“kelewatan” means:",
+                "options": [
+                  "delay",
+                  "platform",
+                  "return ticket",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“kelewatan” = “delay”."
+              },
+              {
+                "q": "“bagasi” means:",
+                "options": [
+                  "luggage",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": 0,
+                "why": "“bagasi” = “luggage”."
+              },
+              {
+                "q": "“pintu” means:",
+                "options": [
+                  "gate",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": 0,
+                "why": "“pintu” = “gate”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Standard Malay word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "platform",
+                    "return ticket",
+                    "delay",
+                    "luggage",
+                    "gate",
+                    "passport"
+                  ],
+                  "key": [
+                    "platform",
+                    "tiket pergi balik",
+                    "kelewatan",
+                    "bagasi",
+                    "pintu",
+                    "pasport"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "platform",
+              "tiket pergi balik",
+              "kelewatan",
+              "bagasi",
+              "pintu",
+              "pasport",
+              "tempah",
+              "bertukar kereta api"
+            ]
+          },
+          {
+            "id": "L4",
+            "title": "Food and restaurants",
+            "learn": "Restoran.",
+            "vocab": [
+              {
+                "t": "menu",
+                "r": "",
+                "en": "menu",
+                "pos": "noun"
+              },
+              {
+                "t": "bil",
+                "r": "",
+                "en": "bill",
+                "pos": "noun"
+              },
+              {
+                "t": "hidangan pembuka",
+                "r": "",
+                "en": "starter",
+                "pos": "noun"
+              },
+              {
+                "t": "alahan",
+                "r": "",
+                "en": "allergic",
+                "pos": "noun"
+              },
+              {
+                "t": "pedas",
+                "r": "",
+                "en": "spicy",
+                "pos": "adj"
+              },
+              {
+                "t": "cadang",
+                "r": "",
+                "en": "recommend",
+                "pos": "verb"
+              },
+              {
+                "t": "tip",
+                "r": "",
+                "en": "tip",
+                "pos": "noun"
+              },
+              {
+                "t": "meja",
+                "r": "",
+                "en": "table",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "saya nak",
+              "explain": "Pesanan sopan.",
+              "pattern": "saya nak sup",
+              "examples": [
+                {
+                  "t": "Saya nak sup.",
+                  "r": "",
+                  "en": "I'd like the soup."
+                },
+                {
+                  "t": "Nak pedas?",
+                  "r": "",
+                  "en": "Would you like it spicy?"
+                },
+                {
+                  "t": "Boleh tengok menu?",
+                  "r": "",
+                  "en": "I'd like to see the menu."
+                }
+              ],
+              "mistakes": [
+                "Pada pelayan, ‘bagi ni’ kasar.",
+                "nak + nama."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Pelayan",
+                "t": "Boleh order?",
+                "r": "",
+                "en": "Ready to order?"
+              },
+              {
+                "sp": "Sam",
+                "t": "Saya nak pasta. Pedas ke?",
+                "r": "",
+                "en": "I'd like the pasta. Is it spicy?"
+              },
+              {
+                "sp": "Pelayan",
+                "t": "Sikit. Ada alahan?",
+                "r": "",
+                "en": "A little. Are you allergic?"
+              },
+              {
+                "sp": "Sam",
+                "t": "Tak. Bil kat hujung, terima kasih.",
+                "r": "",
+                "en": "No. The bill at the end, please."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “menu” mean?",
+                "options": [
+                  "menu",
+                  "bill",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": "menu",
+                "why": "“menu” means “menu”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “menu” in Standard Malay?",
+                "answer": "menu",
+                "why": "The course word for “menu” is “menu”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “bil” mean?",
+                "options": [
+                  "bill",
+                  "menu",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": "bill",
+                "why": "“bil” means “bill”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “bill” in Standard Malay?",
+                "answer": "bil",
+                "why": "The course word for “bill” is “bil”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “hidangan pembuka” mean?",
+                "options": [
+                  "starter",
+                  "menu",
+                  "bill",
+                  "allergic"
+                ],
+                "answer": "starter",
+                "why": "“hidangan pembuka” means “starter”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “starter” in Standard Malay?",
+                "answer": "hidangan pembuka",
+                "why": "The course word for “starter” is “hidangan pembuka”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “alahan” mean?",
+                "options": [
+                  "allergic",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "allergic",
+                "why": "“alahan” means “allergic”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “allergic” in Standard Malay?",
+                "answer": "alahan",
+                "why": "The course word for “allergic” is “alahan”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “pedas” mean?",
+                "options": [
+                  "spicy",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "spicy",
+                "why": "“pedas” means “spicy”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “spicy” in Standard Malay?",
+                "answer": "pedas",
+                "why": "The course word for “spicy” is “pedas”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “cadang” mean?",
+                "options": [
+                  "recommend",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "recommend",
+                "why": "“cadang” means “recommend”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “recommend” in Standard Malay?",
+                "answer": "cadang",
+                "why": "The course word for “recommend” is “cadang”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“menu” means:",
+                "options": [
+                  "menu",
+                  "bill",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“menu” = “menu”."
+              },
+              {
+                "q": "“bil” means:",
+                "options": [
+                  "bill",
+                  "menu",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“bil” = “bill”."
+              },
+              {
+                "q": "“hidangan pembuka” means:",
+                "options": [
+                  "starter",
+                  "menu",
+                  "bill",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“hidangan pembuka” = “starter”."
+              },
+              {
+                "q": "“alahan” means:",
+                "options": [
+                  "allergic",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": 0,
+                "why": "“alahan” = “allergic”."
+              },
+              {
+                "q": "“pedas” means:",
+                "options": [
+                  "spicy",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": 0,
+                "why": "“pedas” = “spicy”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Standard Malay word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "menu",
+                    "bill",
+                    "starter",
+                    "allergic",
+                    "spicy",
+                    "recommend"
+                  ],
+                  "key": [
+                    "menu",
+                    "bil",
+                    "hidangan pembuka",
+                    "alahan",
+                    "pedas",
+                    "cadang"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "menu",
+              "bil",
+              "hidangan pembuka",
+              "alahan",
+              "pedas",
+              "cadang",
+              "tip",
+              "meja"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Unit 2",
+        "title": "Standard Malay A3 — second half",
+        "lessons": [
+          {
+            "id": "L5",
+            "title": "Friends and social life",
+            "learn": "Jemputan.",
+            "vocab": [
+              {
+                "t": "jemputan",
+                "r": "",
+                "en": "invitation",
+                "pos": "noun"
+              },
+              {
+                "t": "sibuk",
+                "r": "",
+                "en": "busy",
+                "pos": "adj"
+              },
+              {
+                "t": "jumpa",
+                "r": "",
+                "en": "catch up",
+                "pos": "verb"
+              },
+              {
+                "t": "bawa",
+                "r": "",
+                "en": "bring",
+                "pos": "verb"
+              },
+              {
+                "t": "parti",
+                "r": "",
+                "en": "party",
+                "pos": "noun"
+              },
+              {
+                "t": "lapang",
+                "r": "",
+                "en": "free",
+                "pos": "noun"
+              },
+              {
+                "t": "mungkin",
+                "r": "",
+                "en": "maybe",
+                "pos": "noun"
+              },
+              {
+                "t": "minggu depan",
+                "r": "",
+                "en": "next week",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "jika / jom",
+              "explain": "Cadangan.",
+              "pattern": "jom jumpa jam tujuh?",
+              "examples": [
+                {
+                  "t": "Jom jumpa jam tujuh?",
+                  "r": "",
+                  "en": "Why don't we meet at seven?"
+                },
+                {
+                  "t": "Minggu depan?",
+                  "r": "",
+                  "en": "What if we catch up next week?"
+                },
+                {
+                  "t": "Kita bawa makanan.",
+                  "r": "",
+                  "en": "Let's bring some food."
+                }
+              ],
+              "mistakes": [
+                "‘Tidak’ kosong keras: beri sebab.",
+                "jom ajakan, bukan arahan kasar."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Riya",
+                "t": "Jumaat ada parti. Pergi?",
+                "r": "",
+                "en": "There's a party Friday. Shall we go?"
+              },
+              {
+                "sp": "Omar",
+                "t": "Jumaat sibuk. Minggu depan?",
+                "r": "",
+                "en": "I'm busy Friday. Next week?"
+              },
+              {
+                "sp": "Riya",
+                "t": "Ahad? Lepas enam saya lapang.",
+                "r": "",
+                "en": "Sunday? I'm free after six."
+              },
+              {
+                "sp": "Omar",
+                "t": "Okay. Saya bawa pencuci mulut.",
+                "r": "",
+                "en": "Perfect. I'll bring dessert."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “jemputan” mean?",
+                "options": [
+                  "invitation",
+                  "busy",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": "invitation",
+                "why": "“jemputan” means “invitation”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “invitation” in Standard Malay?",
+                "answer": "jemputan",
+                "why": "The course word for “invitation” is “jemputan”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “sibuk” mean?",
+                "options": [
+                  "busy",
+                  "invitation",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": "busy",
+                "why": "“sibuk” means “busy”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “busy” in Standard Malay?",
+                "answer": "sibuk",
+                "why": "The course word for “busy” is “sibuk”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “jumpa” mean?",
+                "options": [
+                  "catch up",
+                  "invitation",
+                  "busy",
+                  "bring"
+                ],
+                "answer": "catch up",
+                "why": "“jumpa” means “catch up”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “catch up” in Standard Malay?",
+                "answer": "jumpa",
+                "why": "The course word for “catch up” is “jumpa”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “bawa” mean?",
+                "options": [
+                  "bring",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "bring",
+                "why": "“bawa” means “bring”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “bring” in Standard Malay?",
+                "answer": "bawa",
+                "why": "The course word for “bring” is “bawa”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “parti” mean?",
+                "options": [
+                  "party",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "party",
+                "why": "“parti” means “party”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “party” in Standard Malay?",
+                "answer": "parti",
+                "why": "The course word for “party” is “parti”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “lapang” mean?",
+                "options": [
+                  "free",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "free",
+                "why": "“lapang” means “free”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “free” in Standard Malay?",
+                "answer": "lapang",
+                "why": "The course word for “free” is “lapang”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“jemputan” means:",
+                "options": [
+                  "invitation",
+                  "busy",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“jemputan” = “invitation”."
+              },
+              {
+                "q": "“sibuk” means:",
+                "options": [
+                  "busy",
+                  "invitation",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“sibuk” = “busy”."
+              },
+              {
+                "q": "“jumpa” means:",
+                "options": [
+                  "catch up",
+                  "invitation",
+                  "busy",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“jumpa” = “catch up”."
+              },
+              {
+                "q": "“bawa” means:",
+                "options": [
+                  "bring",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": 0,
+                "why": "“bawa” = “bring”."
+              },
+              {
+                "q": "“parti” means:",
+                "options": [
+                  "party",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": 0,
+                "why": "“parti” = “party”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Standard Malay word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "invitation",
+                    "busy",
+                    "catch up",
+                    "bring",
+                    "party",
+                    "free"
+                  ],
+                  "key": [
+                    "jemputan",
+                    "sibuk",
+                    "jumpa",
+                    "bawa",
+                    "parti",
+                    "lapang"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "jemputan",
+              "sibuk",
+              "jumpa",
+              "bawa",
+              "parti",
+              "lapang",
+              "mungkin",
+              "minggu depan"
+            ]
+          },
+          {
+            "id": "L6",
+            "title": "Weather and plans",
+            "learn": "Cuaca: kalau.",
+            "vocab": [
+              {
+                "t": "ramalan",
+                "r": "",
+                "en": "forecast",
+                "pos": "noun"
+              },
+              {
+                "t": "hujan renyai",
+                "r": "",
+                "en": "shower",
+                "pos": "noun"
+              },
+              {
+                "t": "lembap",
+                "r": "",
+                "en": "humid",
+                "pos": "adj"
+              },
+              {
+                "t": "batal",
+                "r": "",
+                "en": "cancel",
+                "pos": "verb"
+              },
+              {
+                "t": "dalam",
+                "r": "",
+                "en": "indoor",
+                "pos": "noun"
+              },
+              {
+                "t": "payung",
+                "r": "",
+                "en": "umbrella",
+                "pos": "noun"
+              },
+              {
+                "t": "darjah",
+                "r": "",
+                "en": "degree",
+                "pos": "noun"
+              },
+              {
+                "t": "cerah",
+                "r": "",
+                "en": "clear up",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "kalau + sekarang",
+              "explain": "Syarat nyata.",
+              "pattern": "kalau hujan, kita batal",
+              "examples": [
+                {
+                  "t": "Kalau hujan, kita batal piknik.",
+                  "r": "",
+                  "en": "If it rains, we'll cancel the picnic."
+                },
+                {
+                  "t": "Kalau ramalan elok, kita jalan.",
+                  "r": "",
+                  "en": "If the forecast is good, we'll walk."
+                },
+                {
+                  "t": "Kalau tak cerah, kita duduk dalam.",
+                  "r": "",
+                  "en": "If it doesn't clear up, we'll stay inside."
+                }
+              ],
+              "mistakes": [
+                "Jangan tindan akan dalam klausa kalau.",
+                "kalau = syarat."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Jen",
+                "t": "Ramalan kata hujan renyai.",
+                "r": "",
+                "en": "The forecast says showers."
+              },
+              {
+                "sp": "Kai",
+                "t": "Kalau hujan, ke muzium.",
+                "r": "",
+                "en": "If it rains, we'll go to the museum."
+              },
+              {
+                "sp": "Jen",
+                "t": "Bawa payung juga.",
+                "r": "",
+                "en": "Take an umbrella anyway."
+              },
+              {
+                "sp": "Kai",
+                "t": "Kalau cerah, jalan tepi sungai.",
+                "r": "",
+                "en": "If it clears up, we'll walk by the river."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “ramalan” mean?",
+                "options": [
+                  "forecast",
+                  "shower",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": "forecast",
+                "why": "“ramalan” means “forecast”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “forecast” in Standard Malay?",
+                "answer": "ramalan",
+                "why": "The course word for “forecast” is “ramalan”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “hujan renyai” mean?",
+                "options": [
+                  "shower",
+                  "forecast",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": "shower",
+                "why": "“hujan renyai” means “shower”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “shower” in Standard Malay?",
+                "answer": "hujan renyai",
+                "why": "The course word for “shower” is “hujan renyai”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “lembap” mean?",
+                "options": [
+                  "humid",
+                  "forecast",
+                  "shower",
+                  "cancel"
+                ],
+                "answer": "humid",
+                "why": "“lembap” means “humid”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “humid” in Standard Malay?",
+                "answer": "lembap",
+                "why": "The course word for “humid” is “lembap”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “batal” mean?",
+                "options": [
+                  "cancel",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "cancel",
+                "why": "“batal” means “cancel”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “cancel” in Standard Malay?",
+                "answer": "batal",
+                "why": "The course word for “cancel” is “batal”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “dalam” mean?",
+                "options": [
+                  "indoor",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "indoor",
+                "why": "“dalam” means “indoor”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “indoor” in Standard Malay?",
+                "answer": "dalam",
+                "why": "The course word for “indoor” is “dalam”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “payung” mean?",
+                "options": [
+                  "umbrella",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "umbrella",
+                "why": "“payung” means “umbrella”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “umbrella” in Standard Malay?",
+                "answer": "payung",
+                "why": "The course word for “umbrella” is “payung”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“ramalan” means:",
+                "options": [
+                  "forecast",
+                  "shower",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“ramalan” = “forecast”."
+              },
+              {
+                "q": "“hujan renyai” means:",
+                "options": [
+                  "shower",
+                  "forecast",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“hujan renyai” = “shower”."
+              },
+              {
+                "q": "“lembap” means:",
+                "options": [
+                  "humid",
+                  "forecast",
+                  "shower",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“lembap” = “humid”."
+              },
+              {
+                "q": "“batal” means:",
+                "options": [
+                  "cancel",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": 0,
+                "why": "“batal” = “cancel”."
+              },
+              {
+                "q": "“dalam” means:",
+                "options": [
+                  "indoor",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": 0,
+                "why": "“dalam” = “indoor”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Standard Malay word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "forecast",
+                    "shower",
+                    "humid",
+                    "cancel",
+                    "indoor",
+                    "umbrella"
+                  ],
+                  "key": [
+                    "ramalan",
+                    "hujan renyai",
+                    "lembap",
+                    "batal",
+                    "dalam",
+                    "payung"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "ramalan",
+              "hujan renyai",
+              "lembap",
+              "batal",
+              "dalam",
+              "payung",
+              "darjah",
+              "cerah"
+            ]
+          },
+          {
+            "id": "L7",
+            "title": "Shopping and money",
+            "learn": "Beli-belah.",
+            "vocab": [
+              {
+                "t": "saiz",
+                "r": "",
+                "en": "size",
+                "pos": "noun"
+              },
+              {
+                "t": "resit",
+                "r": "",
+                "en": "receipt",
+                "pos": "noun"
+              },
+              {
+                "t": "bayaran balik",
+                "r": "",
+                "en": "refund",
+                "pos": "noun"
+              },
+              {
+                "t": "diskaun",
+                "r": "",
+                "en": "discount",
+                "pos": "noun"
+              },
+              {
+                "t": "tunai",
+                "r": "",
+                "en": "cash",
+                "pos": "noun"
+              },
+              {
+                "t": "kad",
+                "r": "",
+                "en": "card",
+                "pos": "noun"
+              },
+              {
+                "t": "muat",
+                "r": "",
+                "en": "fit",
+                "pos": "verb"
+              },
+              {
+                "t": "tukar",
+                "r": "",
+                "en": "exchange",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "lebih … daripada",
+              "explain": "Perbandingan.",
+              "pattern": "baju ini lebih murah daripada itu",
+              "examples": [
+                {
+                  "t": "Baju ini lebih murah daripada itu.",
+                  "r": "",
+                  "en": "This shirt is cheaper than that one."
+                },
+                {
+                  "t": "Yang biru lebih mahal.",
+                  "r": "",
+                  "en": "The blue one is more expensive."
+                },
+                {
+                  "t": "Saiz M lebih muat.",
+                  "r": "",
+                  "en": "Size M fits better."
+                }
+              ],
+              "mistakes": [
+                "Jangan ‘lebih lebih murah’.",
+                "daripada pihak kedua."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Kedai",
+                "t": "Kad atau tunai?",
+                "r": "",
+                "en": "Card or cash?"
+              },
+              {
+                "sp": "Lila",
+                "t": "Kad. Ada saiz lebih kecil?",
+                "r": "",
+                "en": "Card. Have you got a smaller size?"
+              },
+              {
+                "sp": "Kedai",
+                "t": "Ada. Simpan resit untuk bayaran balik.",
+                "r": "",
+                "en": "Yes. Keep the receipt for a refund."
+              },
+              {
+                "sp": "Lila",
+                "t": "Ada diskaun pelajar?",
+                "r": "",
+                "en": "Is there a student discount?"
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “saiz” mean?",
+                "options": [
+                  "size",
+                  "receipt",
+                  "refund",
+                  "discount"
+                ],
+                "answer": "size",
+                "why": "“saiz” means “size”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “size” in Standard Malay?",
+                "answer": "saiz",
+                "why": "The course word for “size” is “saiz”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “resit” mean?",
+                "options": [
+                  "receipt",
+                  "size",
+                  "refund",
+                  "discount"
+                ],
+                "answer": "receipt",
+                "why": "“resit” means “receipt”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “receipt” in Standard Malay?",
+                "answer": "resit",
+                "why": "The course word for “receipt” is “resit”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “bayaran balik” mean?",
+                "options": [
+                  "refund",
+                  "size",
+                  "receipt",
+                  "discount"
+                ],
+                "answer": "refund",
+                "why": "“bayaran balik” means “refund”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “refund” in Standard Malay?",
+                "answer": "bayaran balik",
+                "why": "The course word for “refund” is “bayaran balik”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “diskaun” mean?",
+                "options": [
+                  "discount",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "discount",
+                "why": "“diskaun” means “discount”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “discount” in Standard Malay?",
+                "answer": "diskaun",
+                "why": "The course word for “discount” is “diskaun”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “tunai” mean?",
+                "options": [
+                  "cash",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "cash",
+                "why": "“tunai” means “cash”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “cash” in Standard Malay?",
+                "answer": "tunai",
+                "why": "The course word for “cash” is “tunai”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “kad” mean?",
+                "options": [
+                  "card",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "card",
+                "why": "“kad” means “card”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “card” in Standard Malay?",
+                "answer": "kad",
+                "why": "The course word for “card” is “kad”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“saiz” means:",
+                "options": [
+                  "size",
+                  "receipt",
+                  "refund",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“saiz” = “size”."
+              },
+              {
+                "q": "“resit” means:",
+                "options": [
+                  "receipt",
+                  "size",
+                  "refund",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“resit” = “receipt”."
+              },
+              {
+                "q": "“bayaran balik” means:",
+                "options": [
+                  "refund",
+                  "size",
+                  "receipt",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“bayaran balik” = “refund”."
+              },
+              {
+                "q": "“diskaun” means:",
+                "options": [
+                  "discount",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": 0,
+                "why": "“diskaun” = “discount”."
+              },
+              {
+                "q": "“tunai” means:",
+                "options": [
+                  "cash",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": 0,
+                "why": "“tunai” = “cash”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Standard Malay word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "size",
+                    "receipt",
+                    "refund",
+                    "discount",
+                    "cash",
+                    "card"
+                  ],
+                  "key": [
+                    "saiz",
+                    "resit",
+                    "bayaran balik",
+                    "diskaun",
+                    "tunai",
+                    "kad"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "saiz",
+              "resit",
+              "bayaran balik",
+              "diskaun",
+              "tunai",
+              "kad",
+              "muat",
+              "tukar"
+            ]
+          },
+          {
+            "id": "L8",
+            "title": "Daily routines and future plans",
+            "learn": "Tabiat.",
+            "vocab": [
+              {
+                "t": "ulang-alik",
+                "r": "",
+                "en": "commute",
+                "pos": "noun"
+              },
+              {
+                "t": "syif",
+                "r": "",
+                "en": "shift",
+                "pos": "noun"
+              },
+              {
+                "t": "penggera",
+                "r": "",
+                "en": "alarm",
+                "pos": "noun"
+              },
+              {
+                "t": "simpan",
+                "r": "",
+                "en": "save",
+                "pos": "verb"
+              },
+              {
+                "t": "matlamat",
+                "r": "",
+                "en": "goal",
+                "pos": "noun"
+              },
+              {
+                "t": "tabiat",
+                "r": "",
+                "en": "habit",
+                "pos": "noun"
+              },
+              {
+                "t": "bulan depan",
+                "r": "",
+                "en": "next month",
+                "pos": "noun"
+              },
+              {
+                "t": "biasanya",
+                "r": "",
+                "en": "usually",
+                "pos": "adv"
+              }
+            ],
+            "grammar": {
+              "title": "biasanya kini vs akan",
+              "explain": "Jadual kini; keputusan akan.",
+              "pattern": "biasanya saya keluar jam tujuh",
+              "examples": [
+                {
+                  "t": "Biasanya saya keluar jam tujuh.",
+                  "r": "",
+                  "en": "I usually leave at seven."
+                },
+                {
+                  "t": "Bulan depan saya akan simpan duit.",
+                  "r": "",
+                  "en": "I'm going to save next month."
+                },
+                {
+                  "t": "Syif saya mula jam sembilan.",
+                  "r": "",
+                  "en": "My shift starts at nine."
+                }
+              ],
+              "mistakes": [
+                "Jadual tercetak jangan pakai akan.",
+                "Jangan campur semalam dengan akan."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Dana",
+                "t": "Biasanya mula jam berapa?",
+                "r": "",
+                "en": "What time do you usually start?"
+              },
+              {
+                "sp": "Ned",
+                "t": "Jam sembilan. Bulan depan saya akan tukar.",
+                "r": "",
+                "en": "The shift starts at nine. I'm going to change it next month."
+              },
+              {
+                "sp": "Dana",
+                "t": "Kenapa?",
+                "r": "",
+                "en": "Why?"
+              },
+              {
+                "sp": "Ned",
+                "t": "Nak perjalanan lebih pendek. Itu matlamat.",
+                "r": "",
+                "en": "I want a shorter commute. That's the goal."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “ulang-alik” mean?",
+                "options": [
+                  "commute",
+                  "shift",
+                  "alarm",
+                  "save"
+                ],
+                "answer": "commute",
+                "why": "“ulang-alik” means “commute”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “commute” in Standard Malay?",
+                "answer": "ulang-alik",
+                "why": "The course word for “commute” is “ulang-alik”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “syif” mean?",
+                "options": [
+                  "shift",
+                  "commute",
+                  "alarm",
+                  "save"
+                ],
+                "answer": "shift",
+                "why": "“syif” means “shift”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “shift” in Standard Malay?",
+                "answer": "syif",
+                "why": "The course word for “shift” is “syif”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “penggera” mean?",
+                "options": [
+                  "alarm",
+                  "commute",
+                  "shift",
+                  "save"
+                ],
+                "answer": "alarm",
+                "why": "“penggera” means “alarm”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “alarm” in Standard Malay?",
+                "answer": "penggera",
+                "why": "The course word for “alarm” is “penggera”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “simpan” mean?",
+                "options": [
+                  "save",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "save",
+                "why": "“simpan” means “save”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “save” in Standard Malay?",
+                "answer": "simpan",
+                "why": "The course word for “save” is “simpan”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “matlamat” mean?",
+                "options": [
+                  "goal",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "goal",
+                "why": "“matlamat” means “goal”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “goal” in Standard Malay?",
+                "answer": "matlamat",
+                "why": "The course word for “goal” is “matlamat”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “tabiat” mean?",
+                "options": [
+                  "habit",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "habit",
+                "why": "“tabiat” means “habit”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “habit” in Standard Malay?",
+                "answer": "tabiat",
+                "why": "The course word for “habit” is “tabiat”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“ulang-alik” means:",
+                "options": [
+                  "commute",
+                  "shift",
+                  "alarm",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“ulang-alik” = “commute”."
+              },
+              {
+                "q": "“syif” means:",
+                "options": [
+                  "shift",
+                  "commute",
+                  "alarm",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“syif” = “shift”."
+              },
+              {
+                "q": "“penggera” means:",
+                "options": [
+                  "alarm",
+                  "commute",
+                  "shift",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“penggera” = “alarm”."
+              },
+              {
+                "q": "“simpan” means:",
+                "options": [
+                  "save",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": 0,
+                "why": "“simpan” = “save”."
+              },
+              {
+                "q": "“matlamat” means:",
+                "options": [
+                  "goal",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": 0,
+                "why": "“matlamat” = “goal”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Standard Malay word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "commute",
+                    "shift",
+                    "alarm",
+                    "save",
+                    "goal",
+                    "habit"
+                  ],
+                  "key": [
+                    "ulang-alik",
+                    "syif",
+                    "penggera",
+                    "simpan",
+                    "matlamat",
+                    "tabiat"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "ulang-alik",
+              "syif",
+              "penggera",
+              "simpan",
+              "matlamat",
+              "tabiat",
+              "bulan depan",
+              "biasanya"
+            ]
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "A3 test",
+      "items": [
+        {
+          "type": "multiple_choice",
+          "q": "What does “peperiksaan” mean?",
+          "options": [
+            "exam",
+            "subject",
+            "homework",
+            "timetable"
+          ],
+          "answer": "exam",
+          "why": "From this A3 lesson: “peperiksaan” means “exam”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “mata pelajaran” mean?",
+          "options": [
+            "subject",
+            "exam",
+            "homework",
+            "timetable"
+          ],
+          "answer": "subject",
+          "why": "From this A3 lesson: “mata pelajaran” means “subject”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “hobi” mean?",
+          "options": [
+            "hobby",
+            "guitar",
+            "team",
+            "practice"
+          ],
+          "answer": "hobby",
+          "why": "From this A3 lesson: “hobi” means “hobby”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “gitar” mean?",
+          "options": [
+            "guitar",
+            "hobby",
+            "team",
+            "practice"
+          ],
+          "answer": "guitar",
+          "why": "From this A3 lesson: “gitar” means “guitar”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “platform” mean?",
+          "options": [
+            "platform",
+            "return ticket",
+            "delay",
+            "luggage"
+          ],
+          "answer": "platform",
+          "why": "From this A3 lesson: “platform” means “platform”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “tiket pergi balik” mean?",
+          "options": [
+            "return ticket",
+            "platform",
+            "delay",
+            "luggage"
+          ],
+          "answer": "return ticket",
+          "why": "From this A3 lesson: “tiket pergi balik” means “return ticket”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “menu” mean?",
+          "options": [
+            "menu",
+            "bill",
+            "starter",
+            "allergic"
+          ],
+          "answer": "menu",
+          "why": "From this A3 lesson: “menu” means “menu”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “bil” mean?",
+          "options": [
+            "bill",
+            "menu",
+            "starter",
+            "allergic"
+          ],
+          "answer": "bill",
+          "why": "From this A3 lesson: “bil” means “bill”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “jemputan” mean?",
+          "options": [
+            "invitation",
+            "busy",
+            "catch up",
+            "bring"
+          ],
+          "answer": "invitation",
+          "why": "From this A3 lesson: “jemputan” means “invitation”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “sibuk” mean?",
+          "options": [
+            "busy",
+            "invitation",
+            "catch up",
+            "bring"
+          ],
+          "answer": "busy",
+          "why": "From this A3 lesson: “sibuk” means “busy”."
+        }
+      ]
+    }
   }
 }

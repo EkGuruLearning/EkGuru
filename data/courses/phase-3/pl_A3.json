@@ -5,16 +5,2722 @@
   "phase": "phase-3",
   "medium": "en",
   "file_level": "A3",
-  "content_status": "INCOMPLETE",
-  "indexable": false,
+  "content_status": "REAL",
+  "indexable": true,
   "ekguru_extension": true,
   "cefr_equivalent": null,
   "cefr_note": "EkGuru A2→B1 bridge. Not a CEFR level.",
-  "reason": "EkGuru A2→B1 bridge. Not a CEFR level.",
   "level": {
     "id": "A3",
-    "title": "Polish A3 — not published",
-    "goals": [],
-    "units": []
+    "title": "Polish A3",
+    "goals": [
+      "Handle a short Polish exchange about school and studies.",
+      "Handle a short Polish exchange about hobbies and free time.",
+      "Handle a short Polish exchange about travel basics.",
+      "Handle a short Polish exchange about food and restaurants.",
+      "Handle a short Polish exchange about friends and social life.",
+      "Handle a short Polish exchange about weather and plans.",
+      "Handle a short Polish exchange about shopping and money.",
+      "Handle a short Polish exchange about daily routines and future plans."
+    ],
+    "units": [
+      {
+        "id": "Unit 1",
+        "title": "Polish A3 — first half",
+        "lessons": [
+          {
+            "id": "L1",
+            "title": "School and studies",
+            "learn": "Bliskie plany: zbierać się / będę.",
+            "vocab": [
+              {
+                "t": "egzamin",
+                "r": "",
+                "en": "exam",
+                "pos": "noun"
+              },
+              {
+                "t": "przedmiot",
+                "r": "",
+                "en": "subject",
+                "pos": "noun"
+              },
+              {
+                "t": "praca domowa",
+                "r": "",
+                "en": "homework",
+                "pos": "noun"
+              },
+              {
+                "t": "plan lekcji",
+                "r": "",
+                "en": "timetable",
+                "pos": "noun"
+              },
+              {
+                "t": "termin",
+                "r": "",
+                "en": "deadline",
+                "pos": "noun"
+              },
+              {
+                "t": "powtarzać",
+                "r": "",
+                "en": "revise",
+                "pos": "verb"
+              },
+              {
+                "t": "wykład",
+                "r": "",
+                "en": "lecture",
+                "pos": "noun"
+              },
+              {
+                "t": "notatki",
+                "r": "",
+                "en": "notes",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "będę + bezokolicznik",
+              "explain": "Bliska decyzja.",
+              "pattern": "wieczorem będę powtarzać",
+              "examples": [
+                {
+                  "t": "Wieczorem będę powtarzać.",
+                  "r": "",
+                  "en": "I'm going to revise tonight."
+                },
+                {
+                  "t": "Ona opuści wykład.",
+                  "r": "",
+                  "en": "She's going to miss the lecture."
+                },
+                {
+                  "t": "Skończysz pracę domową?",
+                  "r": "",
+                  "en": "Are you going to finish the homework?"
+                }
+              ],
+              "mistakes": [
+                "Nie mów ‘będę żeby powtarzać’.",
+                "Po będę — bezokolicznik."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Ana",
+                "t": "Masz jutro egzamin?",
+                "r": "",
+                "en": "Have you got an exam tomorrow?"
+              },
+              {
+                "sp": "Luis",
+                "t": "Tak, historię. Po zajęciach będę powtarzać.",
+                "r": "",
+                "en": "Yes, history. I'll revise after class."
+              },
+              {
+                "sp": "Ana",
+                "t": "Uczymy się w bibliotece?",
+                "r": "",
+                "en": "Shall we study in the library?"
+              },
+              {
+                "sp": "Luis",
+                "t": "Tak. Termin notatek jest dziś.",
+                "r": "",
+                "en": "Yes. The notes deadline is today."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “egzamin” mean?",
+                "options": [
+                  "exam",
+                  "subject",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": "exam",
+                "why": "“egzamin” means “exam”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “exam” in Polish?",
+                "answer": "egzamin",
+                "why": "The course word for “exam” is “egzamin”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “przedmiot” mean?",
+                "options": [
+                  "subject",
+                  "exam",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": "subject",
+                "why": "“przedmiot” means “subject”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “subject” in Polish?",
+                "answer": "przedmiot",
+                "why": "The course word for “subject” is “przedmiot”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “praca domowa” mean?",
+                "options": [
+                  "homework",
+                  "exam",
+                  "subject",
+                  "timetable"
+                ],
+                "answer": "homework",
+                "why": "“praca domowa” means “homework”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “homework” in Polish?",
+                "answer": "praca domowa",
+                "why": "The course word for “homework” is “praca domowa”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “plan lekcji” mean?",
+                "options": [
+                  "timetable",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "timetable",
+                "why": "“plan lekcji” means “timetable”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “timetable” in Polish?",
+                "answer": "plan lekcji",
+                "why": "The course word for “timetable” is “plan lekcji”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “termin” mean?",
+                "options": [
+                  "deadline",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "deadline",
+                "why": "“termin” means “deadline”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “deadline” in Polish?",
+                "answer": "termin",
+                "why": "The course word for “deadline” is “termin”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “powtarzać” mean?",
+                "options": [
+                  "revise",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "revise",
+                "why": "“powtarzać” means “revise”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “revise” in Polish?",
+                "answer": "powtarzać",
+                "why": "The course word for “revise” is “powtarzać”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“egzamin” means:",
+                "options": [
+                  "exam",
+                  "subject",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“egzamin” = “exam”."
+              },
+              {
+                "q": "“przedmiot” means:",
+                "options": [
+                  "subject",
+                  "exam",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“przedmiot” = “subject”."
+              },
+              {
+                "q": "“praca domowa” means:",
+                "options": [
+                  "homework",
+                  "exam",
+                  "subject",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“praca domowa” = “homework”."
+              },
+              {
+                "q": "“plan lekcji” means:",
+                "options": [
+                  "timetable",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": 0,
+                "why": "“plan lekcji” = “timetable”."
+              },
+              {
+                "q": "“termin” means:",
+                "options": [
+                  "deadline",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": 0,
+                "why": "“termin” = “deadline”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Polish word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "exam",
+                    "subject",
+                    "homework",
+                    "timetable",
+                    "deadline",
+                    "revise"
+                  ],
+                  "key": [
+                    "egzamin",
+                    "przedmiot",
+                    "praca domowa",
+                    "plan lekcji",
+                    "termin",
+                    "powtarzać"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "egzamin",
+              "przedmiot",
+              "praca domowa",
+              "plan lekcji",
+              "termin",
+              "powtarzać",
+              "wykład",
+              "notatki"
+            ]
+          },
+          {
+            "id": "L2",
+            "title": "Hobbies and free time",
+            "learn": "Hobby: lubić + bezokolicznik.",
+            "vocab": [
+              {
+                "t": "hobby",
+                "r": "",
+                "en": "hobby",
+                "pos": "noun"
+              },
+              {
+                "t": "gitara",
+                "r": "",
+                "en": "guitar",
+                "pos": "noun"
+              },
+              {
+                "t": "drużyna",
+                "r": "",
+                "en": "team",
+                "pos": "noun"
+              },
+              {
+                "t": "trening",
+                "r": "",
+                "en": "practice",
+                "pos": "noun"
+              },
+              {
+                "t": "weekend",
+                "r": "",
+                "en": "weekend",
+                "pos": "noun"
+              },
+              {
+                "t": "dołączyć",
+                "r": "",
+                "en": "join",
+                "pos": "verb"
+              },
+              {
+                "t": "koncert",
+                "r": "",
+                "en": "concert",
+                "pos": "noun"
+              },
+              {
+                "t": "rysować",
+                "r": "",
+                "en": "draw",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "lubić + bezokolicznik",
+              "explain": "Po lubić — bezokolicznik albo rzeczownik.",
+              "pattern": "lubię grać na gitarze",
+              "examples": [
+                {
+                  "t": "Lubię grać na gitarze.",
+                  "r": "",
+                  "en": "I like playing guitar."
+                },
+                {
+                  "t": "Ona nie lubi czekać.",
+                  "r": "",
+                  "en": "She doesn't like waiting."
+                },
+                {
+                  "t": "Lubisz rysować w weekend?",
+                  "r": "",
+                  "en": "Do you like drawing at weekends?"
+                }
+              ],
+              "mistakes": [
+                "Nie ‘ja lubię żeby grać’.",
+                "grać na + instrument."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Asha",
+                "t": "Co robisz w weekend?",
+                "r": "",
+                "en": "What do you do at the weekend?"
+              },
+              {
+                "sp": "Ben",
+                "t": "Gram na gitarze. W sobotę jest koncert.",
+                "r": "",
+                "en": "I play guitar. There's a concert on Saturday."
+              },
+              {
+                "sp": "Asha",
+                "t": "Lubię rysować. Przyjdziesz?",
+                "r": "",
+                "en": "I like drawing. Are you coming?"
+              },
+              {
+                "sp": "Ben",
+                "t": "Po treningu.",
+                "r": "",
+                "en": "Yes, after practice."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “hobby” mean?",
+                "options": [
+                  "hobby",
+                  "guitar",
+                  "team",
+                  "practice"
+                ],
+                "answer": "hobby",
+                "why": "“hobby” means “hobby”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “hobby” in Polish?",
+                "answer": "hobby",
+                "why": "The course word for “hobby” is “hobby”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “gitara” mean?",
+                "options": [
+                  "guitar",
+                  "hobby",
+                  "team",
+                  "practice"
+                ],
+                "answer": "guitar",
+                "why": "“gitara” means “guitar”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “guitar” in Polish?",
+                "answer": "gitara",
+                "why": "The course word for “guitar” is “gitara”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “drużyna” mean?",
+                "options": [
+                  "team",
+                  "hobby",
+                  "guitar",
+                  "practice"
+                ],
+                "answer": "team",
+                "why": "“drużyna” means “team”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “team” in Polish?",
+                "answer": "drużyna",
+                "why": "The course word for “team” is “drużyna”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “trening” mean?",
+                "options": [
+                  "practice",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "practice",
+                "why": "“trening” means “practice”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “practice” in Polish?",
+                "answer": "trening",
+                "why": "The course word for “practice” is “trening”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “weekend” mean?",
+                "options": [
+                  "weekend",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "weekend",
+                "why": "“weekend” means “weekend”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “weekend” in Polish?",
+                "answer": "weekend",
+                "why": "The course word for “weekend” is “weekend”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “dołączyć” mean?",
+                "options": [
+                  "join",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "join",
+                "why": "“dołączyć” means “join”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “join” in Polish?",
+                "answer": "dołączyć",
+                "why": "The course word for “join” is “dołączyć”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“hobby” means:",
+                "options": [
+                  "hobby",
+                  "guitar",
+                  "team",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“hobby” = “hobby”."
+              },
+              {
+                "q": "“gitara” means:",
+                "options": [
+                  "guitar",
+                  "hobby",
+                  "team",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“gitara” = “guitar”."
+              },
+              {
+                "q": "“drużyna” means:",
+                "options": [
+                  "team",
+                  "hobby",
+                  "guitar",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“drużyna” = “team”."
+              },
+              {
+                "q": "“trening” means:",
+                "options": [
+                  "practice",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": 0,
+                "why": "“trening” = “practice”."
+              },
+              {
+                "q": "“weekend” means:",
+                "options": [
+                  "weekend",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": 0,
+                "why": "“weekend” = “weekend”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Polish word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "hobby",
+                    "guitar",
+                    "team",
+                    "practice",
+                    "weekend",
+                    "join"
+                  ],
+                  "key": [
+                    "hobby",
+                    "gitara",
+                    "drużyna",
+                    "trening",
+                    "weekend",
+                    "dołączyć"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "hobby",
+              "gitara",
+              "drużyna",
+              "trening",
+              "weekend",
+              "dołączyć",
+              "koncert",
+              "rysować"
+            ]
+          },
+          {
+            "id": "L3",
+            "title": "Travel basics",
+            "learn": "Bilet.",
+            "vocab": [
+              {
+                "t": "peron",
+                "r": "",
+                "en": "platform",
+                "pos": "noun"
+              },
+              {
+                "t": "bilet powrotny",
+                "r": "",
+                "en": "return ticket",
+                "pos": "noun"
+              },
+              {
+                "t": "opóźnienie",
+                "r": "",
+                "en": "delay",
+                "pos": "noun"
+              },
+              {
+                "t": "bagaż",
+                "r": "",
+                "en": "luggage",
+                "pos": "noun"
+              },
+              {
+                "t": "bramka",
+                "r": "",
+                "en": "gate",
+                "pos": "noun"
+              },
+              {
+                "t": "paszport",
+                "r": "",
+                "en": "passport",
+                "pos": "noun"
+              },
+              {
+                "t": "rezerwować",
+                "r": "",
+                "en": "book",
+                "pos": "verb"
+              },
+              {
+                "t": "przesiadka",
+                "r": "",
+                "en": "change trains",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "musieć / trzeba",
+              "explain": "Zewnętrzny obowiązek.",
+              "pattern": "musisz pokazać paszport",
+              "examples": [
+                {
+                  "t": "Musisz pokazać paszport.",
+                  "r": "",
+                  "en": "You have to show your passport."
+                },
+                {
+                  "t": "Musimy się przesiąść w Poznaniu.",
+                  "r": "",
+                  "en": "We have to change in Poznań."
+                },
+                {
+                  "t": "On nie musi dziś rezerwować.",
+                  "r": "",
+                  "en": "He doesn't have to book today."
+                }
+              ],
+              "mistakes": [
+                "musieć + bezokolicznik.",
+                "nie musi ≠ nie wolno."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Kasa",
+                "t": "W jedną stronę czy powrotny?",
+                "r": "",
+                "en": "Single or return?"
+              },
+              {
+                "sp": "Nina",
+                "t": "Powrotny. Który peron?",
+                "r": "",
+                "en": "Return. Which platform?"
+              },
+              {
+                "sp": "Kasa",
+                "t": "Czwarty. Krótkie opóźnienie.",
+                "r": "",
+                "en": "Platform 4. There's a short delay."
+              },
+              {
+                "sp": "Nina",
+                "t": "Muszę się przesiąść?",
+                "r": "",
+                "en": "Do I have to change?"
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “peron” mean?",
+                "options": [
+                  "platform",
+                  "return ticket",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": "platform",
+                "why": "“peron” means “platform”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “platform” in Polish?",
+                "answer": "peron",
+                "why": "The course word for “platform” is “peron”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “bilet powrotny” mean?",
+                "options": [
+                  "return ticket",
+                  "platform",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": "return ticket",
+                "why": "“bilet powrotny” means “return ticket”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “return ticket” in Polish?",
+                "answer": "bilet powrotny",
+                "why": "The course word for “return ticket” is “bilet powrotny”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “opóźnienie” mean?",
+                "options": [
+                  "delay",
+                  "platform",
+                  "return ticket",
+                  "luggage"
+                ],
+                "answer": "delay",
+                "why": "“opóźnienie” means “delay”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “delay” in Polish?",
+                "answer": "opóźnienie",
+                "why": "The course word for “delay” is “opóźnienie”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “bagaż” mean?",
+                "options": [
+                  "luggage",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "luggage",
+                "why": "“bagaż” means “luggage”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “luggage” in Polish?",
+                "answer": "bagaż",
+                "why": "The course word for “luggage” is “bagaż”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “bramka” mean?",
+                "options": [
+                  "gate",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "gate",
+                "why": "“bramka” means “gate”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “gate” in Polish?",
+                "answer": "bramka",
+                "why": "The course word for “gate” is “bramka”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “paszport” mean?",
+                "options": [
+                  "passport",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "passport",
+                "why": "“paszport” means “passport”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “passport” in Polish?",
+                "answer": "paszport",
+                "why": "The course word for “passport” is “paszport”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“peron” means:",
+                "options": [
+                  "platform",
+                  "return ticket",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“peron” = “platform”."
+              },
+              {
+                "q": "“bilet powrotny” means:",
+                "options": [
+                  "return ticket",
+                  "platform",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“bilet powrotny” = “return ticket”."
+              },
+              {
+                "q": "“opóźnienie” means:",
+                "options": [
+                  "delay",
+                  "platform",
+                  "return ticket",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“opóźnienie” = “delay”."
+              },
+              {
+                "q": "“bagaż” means:",
+                "options": [
+                  "luggage",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": 0,
+                "why": "“bagaż” = “luggage”."
+              },
+              {
+                "q": "“bramka” means:",
+                "options": [
+                  "gate",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": 0,
+                "why": "“bramka” = “gate”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Polish word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "platform",
+                    "return ticket",
+                    "delay",
+                    "luggage",
+                    "gate",
+                    "passport"
+                  ],
+                  "key": [
+                    "peron",
+                    "bilet powrotny",
+                    "opóźnienie",
+                    "bagaż",
+                    "bramka",
+                    "paszport"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "peron",
+              "bilet powrotny",
+              "opóźnienie",
+              "bagaż",
+              "bramka",
+              "paszport",
+              "rezerwować",
+              "przesiadka"
+            ]
+          },
+          {
+            "id": "L4",
+            "title": "Food and restaurants",
+            "learn": "Restauracja.",
+            "vocab": [
+              {
+                "t": "karta",
+                "r": "",
+                "en": "menu",
+                "pos": "noun"
+              },
+              {
+                "t": "rachunek",
+                "r": "",
+                "en": "bill",
+                "pos": "noun"
+              },
+              {
+                "t": "przystawka",
+                "r": "",
+                "en": "starter",
+                "pos": "noun"
+              },
+              {
+                "t": "alergia",
+                "r": "",
+                "en": "allergic",
+                "pos": "noun"
+              },
+              {
+                "t": "ostry",
+                "r": "",
+                "en": "spicy",
+                "pos": "adj"
+              },
+              {
+                "t": "polecać",
+                "r": "",
+                "en": "recommend",
+                "pos": "verb"
+              },
+              {
+                "t": "napiwek",
+                "r": "",
+                "en": "tip",
+                "pos": "noun"
+              },
+              {
+                "t": "stolik",
+                "r": "",
+                "en": "table",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "poproszę",
+              "explain": "Grzeczne zamówienie.",
+              "pattern": "poproszę zupę",
+              "examples": [
+                {
+                  "t": "Poproszę zupę.",
+                  "r": "",
+                  "en": "I'd like the soup."
+                },
+                {
+                  "t": "Ostro?",
+                  "r": "",
+                  "en": "Would you like it spicy?"
+                },
+                {
+                  "t": "Poproszę kartę.",
+                  "r": "",
+                  "en": "I'd like to see the menu."
+                }
+              ],
+              "mistakes": [
+                "Kelnerowi ‘daj to’ brzmi ostro.",
+                "poproszę + rzeczownik."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Kelner",
+                "t": "Mogę przyjąć zamówienie?",
+                "r": "",
+                "en": "Ready to order?"
+              },
+              {
+                "sp": "Sam",
+                "t": "Poproszę makaron. Jest ostry?",
+                "r": "",
+                "en": "I'd like the pasta. Is it spicy?"
+              },
+              {
+                "sp": "Kelner",
+                "t": "Trochę. Ma pan alergię?",
+                "r": "",
+                "en": "A little. Are you allergic?"
+              },
+              {
+                "sp": "Sam",
+                "t": "Nie. Rachunek na końcu, proszę.",
+                "r": "",
+                "en": "No. The bill at the end, please."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “karta” mean?",
+                "options": [
+                  "menu",
+                  "bill",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": "menu",
+                "why": "“karta” means “menu”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “menu” in Polish?",
+                "answer": "karta",
+                "why": "The course word for “menu” is “karta”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “rachunek” mean?",
+                "options": [
+                  "bill",
+                  "menu",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": "bill",
+                "why": "“rachunek” means “bill”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “bill” in Polish?",
+                "answer": "rachunek",
+                "why": "The course word for “bill” is “rachunek”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “przystawka” mean?",
+                "options": [
+                  "starter",
+                  "menu",
+                  "bill",
+                  "allergic"
+                ],
+                "answer": "starter",
+                "why": "“przystawka” means “starter”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “starter” in Polish?",
+                "answer": "przystawka",
+                "why": "The course word for “starter” is “przystawka”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “alergia” mean?",
+                "options": [
+                  "allergic",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "allergic",
+                "why": "“alergia” means “allergic”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “allergic” in Polish?",
+                "answer": "alergia",
+                "why": "The course word for “allergic” is “alergia”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ostry” mean?",
+                "options": [
+                  "spicy",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "spicy",
+                "why": "“ostry” means “spicy”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “spicy” in Polish?",
+                "answer": "ostry",
+                "why": "The course word for “spicy” is “ostry”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “polecać” mean?",
+                "options": [
+                  "recommend",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "recommend",
+                "why": "“polecać” means “recommend”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “recommend” in Polish?",
+                "answer": "polecać",
+                "why": "The course word for “recommend” is “polecać”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“karta” means:",
+                "options": [
+                  "menu",
+                  "bill",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“karta” = “menu”."
+              },
+              {
+                "q": "“rachunek” means:",
+                "options": [
+                  "bill",
+                  "menu",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“rachunek” = “bill”."
+              },
+              {
+                "q": "“przystawka” means:",
+                "options": [
+                  "starter",
+                  "menu",
+                  "bill",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“przystawka” = “starter”."
+              },
+              {
+                "q": "“alergia” means:",
+                "options": [
+                  "allergic",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": 0,
+                "why": "“alergia” = “allergic”."
+              },
+              {
+                "q": "“ostry” means:",
+                "options": [
+                  "spicy",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": 0,
+                "why": "“ostry” = “spicy”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Polish word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "menu",
+                    "bill",
+                    "starter",
+                    "allergic",
+                    "spicy",
+                    "recommend"
+                  ],
+                  "key": [
+                    "karta",
+                    "rachunek",
+                    "przystawka",
+                    "alergia",
+                    "ostry",
+                    "polecać"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "karta",
+              "rachunek",
+              "przystawka",
+              "alergia",
+              "ostry",
+              "polecać",
+              "napiwek",
+              "stolik"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Unit 2",
+        "title": "Polish A3 — second half",
+        "lessons": [
+          {
+            "id": "L5",
+            "title": "Friends and social life",
+            "learn": "Zaproszenie.",
+            "vocab": [
+              {
+                "t": "zaproszenie",
+                "r": "",
+                "en": "invitation",
+                "pos": "noun"
+              },
+              {
+                "t": "zajęty",
+                "r": "",
+                "en": "busy",
+                "pos": "adj"
+              },
+              {
+                "t": "spotkać się",
+                "r": "",
+                "en": "catch up",
+                "pos": "verb"
+              },
+              {
+                "t": "przynieść",
+                "r": "",
+                "en": "bring",
+                "pos": "verb"
+              },
+              {
+                "t": "impreza",
+                "r": "",
+                "en": "party",
+                "pos": "noun"
+              },
+              {
+                "t": "wolny",
+                "r": "",
+                "en": "free",
+                "pos": "adj"
+              },
+              {
+                "t": "może",
+                "r": "",
+                "en": "maybe",
+                "pos": "noun"
+              },
+              {
+                "t": "w przyszłym tygodniu",
+                "r": "",
+                "en": "next week",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "może / chodźmy",
+              "explain": "Propozycja.",
+              "pattern": "może spotkamy się o siódmej?",
+              "examples": [
+                {
+                  "t": "Może spotkamy się o siódmej?",
+                  "r": "",
+                  "en": "Why don't we meet at seven?"
+                },
+                {
+                  "t": "W przyszłym tygodniu?",
+                  "r": "",
+                  "en": "What if we catch up next week?"
+                },
+                {
+                  "t": "Przynieśmy jedzenie.",
+                  "r": "",
+                  "en": "Let's bring some food."
+                }
+              ],
+              "mistakes": [
+                "Samo ‘nie’ jest twarde: podaj powód.",
+                "chodźmy to nie rozkaz."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Riya",
+                "t": "W piątek jest impreza. Idziemy?",
+                "r": "",
+                "en": "There's a party Friday. Shall we go?"
+              },
+              {
+                "sp": "Omar",
+                "t": "W piątek jestem zajęty. W przyszłym tygodniu?",
+                "r": "",
+                "en": "I'm busy Friday. Next week?"
+              },
+              {
+                "sp": "Riya",
+                "t": "Niedziela? Po szóstej jestem wolna.",
+                "r": "",
+                "en": "Sunday? I'm free after six."
+              },
+              {
+                "sp": "Omar",
+                "t": "Super. Deser przyniosę ja.",
+                "r": "",
+                "en": "Perfect. I'll bring dessert."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “zaproszenie” mean?",
+                "options": [
+                  "invitation",
+                  "busy",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": "invitation",
+                "why": "“zaproszenie” means “invitation”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “invitation” in Polish?",
+                "answer": "zaproszenie",
+                "why": "The course word for “invitation” is “zaproszenie”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “zajęty” mean?",
+                "options": [
+                  "busy",
+                  "invitation",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": "busy",
+                "why": "“zajęty” means “busy”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “busy” in Polish?",
+                "answer": "zajęty",
+                "why": "The course word for “busy” is “zajęty”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “spotkać się” mean?",
+                "options": [
+                  "catch up",
+                  "invitation",
+                  "busy",
+                  "bring"
+                ],
+                "answer": "catch up",
+                "why": "“spotkać się” means “catch up”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “catch up” in Polish?",
+                "answer": "spotkać się",
+                "why": "The course word for “catch up” is “spotkać się”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “przynieść” mean?",
+                "options": [
+                  "bring",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "bring",
+                "why": "“przynieść” means “bring”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “bring” in Polish?",
+                "answer": "przynieść",
+                "why": "The course word for “bring” is “przynieść”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “impreza” mean?",
+                "options": [
+                  "party",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "party",
+                "why": "“impreza” means “party”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “party” in Polish?",
+                "answer": "impreza",
+                "why": "The course word for “party” is “impreza”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “wolny” mean?",
+                "options": [
+                  "free",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "free",
+                "why": "“wolny” means “free”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “free” in Polish?",
+                "answer": "wolny",
+                "why": "The course word for “free” is “wolny”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“zaproszenie” means:",
+                "options": [
+                  "invitation",
+                  "busy",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“zaproszenie” = “invitation”."
+              },
+              {
+                "q": "“zajęty” means:",
+                "options": [
+                  "busy",
+                  "invitation",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“zajęty” = “busy”."
+              },
+              {
+                "q": "“spotkać się” means:",
+                "options": [
+                  "catch up",
+                  "invitation",
+                  "busy",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“spotkać się” = “catch up”."
+              },
+              {
+                "q": "“przynieść” means:",
+                "options": [
+                  "bring",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": 0,
+                "why": "“przynieść” = “bring”."
+              },
+              {
+                "q": "“impreza” means:",
+                "options": [
+                  "party",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": 0,
+                "why": "“impreza” = “party”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Polish word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "invitation",
+                    "busy",
+                    "catch up",
+                    "bring",
+                    "party",
+                    "free"
+                  ],
+                  "key": [
+                    "zaproszenie",
+                    "zajęty",
+                    "spotkać się",
+                    "przynieść",
+                    "impreza",
+                    "wolny"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "zaproszenie",
+              "zajęty",
+              "spotkać się",
+              "przynieść",
+              "impreza",
+              "wolny",
+              "może",
+              "w przyszłym tygodniu"
+            ]
+          },
+          {
+            "id": "L6",
+            "title": "Weather and plans",
+            "learn": "Pogoda: jeśli.",
+            "vocab": [
+              {
+                "t": "prognoza",
+                "r": "",
+                "en": "forecast",
+                "pos": "noun"
+              },
+              {
+                "t": "przelotne deszcze",
+                "r": "",
+                "en": "shower",
+                "pos": "noun"
+              },
+              {
+                "t": "wilgotno",
+                "r": "",
+                "en": "humid",
+                "pos": "noun"
+              },
+              {
+                "t": "odwołać",
+                "r": "",
+                "en": "cancel",
+                "pos": "verb"
+              },
+              {
+                "t": "w środku",
+                "r": "",
+                "en": "indoor",
+                "pos": "noun"
+              },
+              {
+                "t": "parasol",
+                "r": "",
+                "en": "umbrella",
+                "pos": "noun"
+              },
+              {
+                "t": "stopień",
+                "r": "",
+                "en": "degree",
+                "pos": "noun"
+              },
+              {
+                "t": "rozpogodzić się",
+                "r": "",
+                "en": "clear up",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "jeśli + teraźniejszy",
+              "explain": "Warunek realny.",
+              "pattern": "jeśli spadnie deszcz, odwołamy",
+              "examples": [
+                {
+                  "t": "Jeśli spadnie deszcz, odwołamy piknik.",
+                  "r": "",
+                  "en": "If it rains, we'll cancel the picnic."
+                },
+                {
+                  "t": "Jeśli prognoza będzie dobra, pójdziemy.",
+                  "r": "",
+                  "en": "If the forecast is good, we'll walk."
+                },
+                {
+                  "t": "Jeśli się nie rozpogodzi, zostaniemy w środku.",
+                  "r": "",
+                  "en": "If it doesn't clear up, we'll stay inside."
+                }
+              ],
+              "mistakes": [
+                "Nie wkładaj przyszłego do jeśli bez potrzeby.",
+                "to wprowadza skutek."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Jen",
+                "t": "Prognoza mówi o przelotnych deszczach.",
+                "r": "",
+                "en": "The forecast says showers."
+              },
+              {
+                "sp": "Kai",
+                "t": "Jeśli deszcz, idziemy do muzeum.",
+                "r": "",
+                "en": "If it rains, we'll go to the museum."
+              },
+              {
+                "sp": "Jen",
+                "t": "I tak weź parasol.",
+                "r": "",
+                "en": "Take an umbrella anyway."
+              },
+              {
+                "sp": "Kai",
+                "t": "Jeśli się rozpogodzi, idziemy nad rzekę.",
+                "r": "",
+                "en": "If it clears up, we'll walk by the river."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “prognoza” mean?",
+                "options": [
+                  "forecast",
+                  "shower",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": "forecast",
+                "why": "“prognoza” means “forecast”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “forecast” in Polish?",
+                "answer": "prognoza",
+                "why": "The course word for “forecast” is “prognoza”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “przelotne deszcze” mean?",
+                "options": [
+                  "shower",
+                  "forecast",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": "shower",
+                "why": "“przelotne deszcze” means “shower”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “shower” in Polish?",
+                "answer": "przelotne deszcze",
+                "why": "The course word for “shower” is “przelotne deszcze”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “wilgotno” mean?",
+                "options": [
+                  "humid",
+                  "forecast",
+                  "shower",
+                  "cancel"
+                ],
+                "answer": "humid",
+                "why": "“wilgotno” means “humid”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “humid” in Polish?",
+                "answer": "wilgotno",
+                "why": "The course word for “humid” is “wilgotno”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “odwołać” mean?",
+                "options": [
+                  "cancel",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "cancel",
+                "why": "“odwołać” means “cancel”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “cancel” in Polish?",
+                "answer": "odwołać",
+                "why": "The course word for “cancel” is “odwołać”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “w środku” mean?",
+                "options": [
+                  "indoor",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "indoor",
+                "why": "“w środku” means “indoor”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “indoor” in Polish?",
+                "answer": "w środku",
+                "why": "The course word for “indoor” is “w środku”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “parasol” mean?",
+                "options": [
+                  "umbrella",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "umbrella",
+                "why": "“parasol” means “umbrella”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “umbrella” in Polish?",
+                "answer": "parasol",
+                "why": "The course word for “umbrella” is “parasol”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“prognoza” means:",
+                "options": [
+                  "forecast",
+                  "shower",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“prognoza” = “forecast”."
+              },
+              {
+                "q": "“przelotne deszcze” means:",
+                "options": [
+                  "shower",
+                  "forecast",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“przelotne deszcze” = “shower”."
+              },
+              {
+                "q": "“wilgotno” means:",
+                "options": [
+                  "humid",
+                  "forecast",
+                  "shower",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“wilgotno” = “humid”."
+              },
+              {
+                "q": "“odwołać” means:",
+                "options": [
+                  "cancel",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": 0,
+                "why": "“odwołać” = “cancel”."
+              },
+              {
+                "q": "“w środku” means:",
+                "options": [
+                  "indoor",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": 0,
+                "why": "“w środku” = “indoor”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Polish word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "forecast",
+                    "shower",
+                    "humid",
+                    "cancel",
+                    "indoor",
+                    "umbrella"
+                  ],
+                  "key": [
+                    "prognoza",
+                    "przelotne deszcze",
+                    "wilgotno",
+                    "odwołać",
+                    "w środku",
+                    "parasol"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "prognoza",
+              "przelotne deszcze",
+              "wilgotno",
+              "odwołać",
+              "w środku",
+              "parasol",
+              "stopień",
+              "rozpogodzić się"
+            ]
+          },
+          {
+            "id": "L7",
+            "title": "Shopping and money",
+            "learn": "Zakupy.",
+            "vocab": [
+              {
+                "t": "rozmiar",
+                "r": "",
+                "en": "size",
+                "pos": "noun"
+              },
+              {
+                "t": "paragon",
+                "r": "",
+                "en": "receipt",
+                "pos": "noun"
+              },
+              {
+                "t": "zwrot",
+                "r": "",
+                "en": "refund",
+                "pos": "noun"
+              },
+              {
+                "t": "zniżka",
+                "r": "",
+                "en": "discount",
+                "pos": "noun"
+              },
+              {
+                "t": "gotówka",
+                "r": "",
+                "en": "cash",
+                "pos": "noun"
+              },
+              {
+                "t": "karta",
+                "r": "",
+                "en": "card",
+                "pos": "noun"
+              },
+              {
+                "t": "pasować",
+                "r": "",
+                "en": "fit",
+                "pos": "verb"
+              },
+              {
+                "t": "wymienić",
+                "r": "",
+                "en": "exchange",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "stopień wyższy",
+              "explain": "tańszy niż / bardziej.",
+              "pattern": "ta koszula jest tańsza niż tamta",
+              "examples": [
+                {
+                  "t": "Ta koszula jest tańsza niż tamta.",
+                  "r": "",
+                  "en": "This shirt is cheaper than that one."
+                },
+                {
+                  "t": "Niebieska jest droższa.",
+                  "r": "",
+                  "en": "The blue one is more expensive."
+                },
+                {
+                  "t": "Rozmiar M lepiej pasuje.",
+                  "r": "",
+                  "en": "Size M fits better."
+                }
+              ],
+              "mistakes": [
+                "Nie ‘bardziej tańsza’.",
+                "niż drugi człon."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Sklep",
+                "t": "Kartą czy gotówką?",
+                "r": "",
+                "en": "Card or cash?"
+              },
+              {
+                "sp": "Lila",
+                "t": "Kartą. Jest mniejszy rozmiar?",
+                "r": "",
+                "en": "Card. Have you got a smaller size?"
+              },
+              {
+                "sp": "Sklep",
+                "t": "Tak. Paragon proszę zachować na zwrot.",
+                "r": "",
+                "en": "Yes. Keep the receipt for a refund."
+              },
+              {
+                "sp": "Lila",
+                "t": "Jest zniżka studencka?",
+                "r": "",
+                "en": "Is there a student discount?"
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “rozmiar” mean?",
+                "options": [
+                  "size",
+                  "receipt",
+                  "refund",
+                  "discount"
+                ],
+                "answer": "size",
+                "why": "“rozmiar” means “size”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “size” in Polish?",
+                "answer": "rozmiar",
+                "why": "The course word for “size” is “rozmiar”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “paragon” mean?",
+                "options": [
+                  "receipt",
+                  "size",
+                  "refund",
+                  "discount"
+                ],
+                "answer": "receipt",
+                "why": "“paragon” means “receipt”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “receipt” in Polish?",
+                "answer": "paragon",
+                "why": "The course word for “receipt” is “paragon”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “zwrot” mean?",
+                "options": [
+                  "refund",
+                  "size",
+                  "receipt",
+                  "discount"
+                ],
+                "answer": "refund",
+                "why": "“zwrot” means “refund”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “refund” in Polish?",
+                "answer": "zwrot",
+                "why": "The course word for “refund” is “zwrot”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “zniżka” mean?",
+                "options": [
+                  "discount",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "discount",
+                "why": "“zniżka” means “discount”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “discount” in Polish?",
+                "answer": "zniżka",
+                "why": "The course word for “discount” is “zniżka”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “gotówka” mean?",
+                "options": [
+                  "cash",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "cash",
+                "why": "“gotówka” means “cash”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “cash” in Polish?",
+                "answer": "gotówka",
+                "why": "The course word for “cash” is “gotówka”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “karta” mean?",
+                "options": [
+                  "card",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "card",
+                "why": "“karta” means “card”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “card” in Polish?",
+                "answer": "karta",
+                "why": "The course word for “card” is “karta”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“rozmiar” means:",
+                "options": [
+                  "size",
+                  "receipt",
+                  "refund",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“rozmiar” = “size”."
+              },
+              {
+                "q": "“paragon” means:",
+                "options": [
+                  "receipt",
+                  "size",
+                  "refund",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“paragon” = “receipt”."
+              },
+              {
+                "q": "“zwrot” means:",
+                "options": [
+                  "refund",
+                  "size",
+                  "receipt",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“zwrot” = “refund”."
+              },
+              {
+                "q": "“zniżka” means:",
+                "options": [
+                  "discount",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": 0,
+                "why": "“zniżka” = “discount”."
+              },
+              {
+                "q": "“gotówka” means:",
+                "options": [
+                  "cash",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": 0,
+                "why": "“gotówka” = “cash”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Polish word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "size",
+                    "receipt",
+                    "refund",
+                    "discount",
+                    "cash",
+                    "card"
+                  ],
+                  "key": [
+                    "rozmiar",
+                    "paragon",
+                    "zwrot",
+                    "zniżka",
+                    "gotówka",
+                    "karta"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "rozmiar",
+              "paragon",
+              "zwrot",
+              "zniżka",
+              "gotówka",
+              "karta",
+              "pasować",
+              "wymienić"
+            ]
+          },
+          {
+            "id": "L8",
+            "title": "Daily routines and future plans",
+            "learn": "Nawyk.",
+            "vocab": [
+              {
+                "t": "dojazd",
+                "r": "",
+                "en": "commute",
+                "pos": "noun"
+              },
+              {
+                "t": "zmiana",
+                "r": "",
+                "en": "shift",
+                "pos": "noun"
+              },
+              {
+                "t": "budzik",
+                "r": "",
+                "en": "alarm",
+                "pos": "noun"
+              },
+              {
+                "t": "oszczędzać",
+                "r": "",
+                "en": "save",
+                "pos": "verb"
+              },
+              {
+                "t": "cel",
+                "r": "",
+                "en": "goal",
+                "pos": "noun"
+              },
+              {
+                "t": "nawyk",
+                "r": "",
+                "en": "habit",
+                "pos": "noun"
+              },
+              {
+                "t": "w przyszłym miesiącu",
+                "r": "",
+                "en": "next month",
+                "pos": "noun"
+              },
+              {
+                "t": "zazwyczaj",
+                "r": "",
+                "en": "usually",
+                "pos": "adv"
+              }
+            ],
+            "grammar": {
+              "title": "zazwyczaj teraźniejszy vs będę",
+              "explain": "Rozkład — teraźniejszy; decyzja — będę.",
+              "pattern": "zazwyczaj wychodzę o siódmej",
+              "examples": [
+                {
+                  "t": "Zazwyczaj wychodzę o siódmej.",
+                  "r": "",
+                  "en": "I usually leave at seven."
+                },
+                {
+                  "t": "W przyszłym miesiącu będę oszczędzać.",
+                  "r": "",
+                  "en": "I'm going to save next month."
+                },
+                {
+                  "t": "Moja zmiana zaczyna się o dziewiątej.",
+                  "r": "",
+                  "en": "My shift starts at nine."
+                }
+              ],
+              "mistakes": [
+                "Nie używaj będę do drukowanego rozkładu.",
+                "Nie mieszaj wczoraj i będę."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Dana",
+                "t": "O której zazwyczaj zaczynasz?",
+                "r": "",
+                "en": "What time do you usually start?"
+              },
+              {
+                "sp": "Ned",
+                "t": "O dziewiątej. W przyszłym miesiącu zmienię.",
+                "r": "",
+                "en": "The shift starts at nine. I'm going to change it next month."
+              },
+              {
+                "sp": "Dana",
+                "t": "Dlaczego?",
+                "r": "",
+                "en": "Why?"
+              },
+              {
+                "sp": "Ned",
+                "t": "Chcę krótszy dojazd. Taki jest cel.",
+                "r": "",
+                "en": "I want a shorter commute. That's the goal."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “dojazd” mean?",
+                "options": [
+                  "commute",
+                  "shift",
+                  "alarm",
+                  "save"
+                ],
+                "answer": "commute",
+                "why": "“dojazd” means “commute”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “commute” in Polish?",
+                "answer": "dojazd",
+                "why": "The course word for “commute” is “dojazd”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “zmiana” mean?",
+                "options": [
+                  "shift",
+                  "commute",
+                  "alarm",
+                  "save"
+                ],
+                "answer": "shift",
+                "why": "“zmiana” means “shift”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “shift” in Polish?",
+                "answer": "zmiana",
+                "why": "The course word for “shift” is “zmiana”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “budzik” mean?",
+                "options": [
+                  "alarm",
+                  "commute",
+                  "shift",
+                  "save"
+                ],
+                "answer": "alarm",
+                "why": "“budzik” means “alarm”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “alarm” in Polish?",
+                "answer": "budzik",
+                "why": "The course word for “alarm” is “budzik”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “oszczędzać” mean?",
+                "options": [
+                  "save",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "save",
+                "why": "“oszczędzać” means “save”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “save” in Polish?",
+                "answer": "oszczędzać",
+                "why": "The course word for “save” is “oszczędzać”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “cel” mean?",
+                "options": [
+                  "goal",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "goal",
+                "why": "“cel” means “goal”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “goal” in Polish?",
+                "answer": "cel",
+                "why": "The course word for “goal” is “cel”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “nawyk” mean?",
+                "options": [
+                  "habit",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "habit",
+                "why": "“nawyk” means “habit”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “habit” in Polish?",
+                "answer": "nawyk",
+                "why": "The course word for “habit” is “nawyk”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“dojazd” means:",
+                "options": [
+                  "commute",
+                  "shift",
+                  "alarm",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“dojazd” = “commute”."
+              },
+              {
+                "q": "“zmiana” means:",
+                "options": [
+                  "shift",
+                  "commute",
+                  "alarm",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“zmiana” = “shift”."
+              },
+              {
+                "q": "“budzik” means:",
+                "options": [
+                  "alarm",
+                  "commute",
+                  "shift",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“budzik” = “alarm”."
+              },
+              {
+                "q": "“oszczędzać” means:",
+                "options": [
+                  "save",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": 0,
+                "why": "“oszczędzać” = “save”."
+              },
+              {
+                "q": "“cel” means:",
+                "options": [
+                  "goal",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": 0,
+                "why": "“cel” = “goal”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Polish word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "commute",
+                    "shift",
+                    "alarm",
+                    "save",
+                    "goal",
+                    "habit"
+                  ],
+                  "key": [
+                    "dojazd",
+                    "zmiana",
+                    "budzik",
+                    "oszczędzać",
+                    "cel",
+                    "nawyk"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "dojazd",
+              "zmiana",
+              "budzik",
+              "oszczędzać",
+              "cel",
+              "nawyk",
+              "w przyszłym miesiącu",
+              "zazwyczaj"
+            ]
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "A3 test",
+      "items": [
+        {
+          "type": "multiple_choice",
+          "q": "What does “egzamin” mean?",
+          "options": [
+            "exam",
+            "subject",
+            "homework",
+            "timetable"
+          ],
+          "answer": "exam",
+          "why": "From this A3 lesson: “egzamin” means “exam”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “przedmiot” mean?",
+          "options": [
+            "subject",
+            "exam",
+            "homework",
+            "timetable"
+          ],
+          "answer": "subject",
+          "why": "From this A3 lesson: “przedmiot” means “subject”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “hobby” mean?",
+          "options": [
+            "hobby",
+            "guitar",
+            "team",
+            "practice"
+          ],
+          "answer": "hobby",
+          "why": "From this A3 lesson: “hobby” means “hobby”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “gitara” mean?",
+          "options": [
+            "guitar",
+            "hobby",
+            "team",
+            "practice"
+          ],
+          "answer": "guitar",
+          "why": "From this A3 lesson: “gitara” means “guitar”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “peron” mean?",
+          "options": [
+            "platform",
+            "return ticket",
+            "delay",
+            "luggage"
+          ],
+          "answer": "platform",
+          "why": "From this A3 lesson: “peron” means “platform”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “bilet powrotny” mean?",
+          "options": [
+            "return ticket",
+            "platform",
+            "delay",
+            "luggage"
+          ],
+          "answer": "return ticket",
+          "why": "From this A3 lesson: “bilet powrotny” means “return ticket”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “karta” mean?",
+          "options": [
+            "menu",
+            "bill",
+            "starter",
+            "allergic"
+          ],
+          "answer": "menu",
+          "why": "From this A3 lesson: “karta” means “menu”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “rachunek” mean?",
+          "options": [
+            "bill",
+            "menu",
+            "starter",
+            "allergic"
+          ],
+          "answer": "bill",
+          "why": "From this A3 lesson: “rachunek” means “bill”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “zaproszenie” mean?",
+          "options": [
+            "invitation",
+            "busy",
+            "catch up",
+            "bring"
+          ],
+          "answer": "invitation",
+          "why": "From this A3 lesson: “zaproszenie” means “invitation”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “zajęty” mean?",
+          "options": [
+            "busy",
+            "invitation",
+            "catch up",
+            "bring"
+          ],
+          "answer": "busy",
+          "why": "From this A3 lesson: “zajęty” means “busy”."
+        }
+      ]
+    }
   }
 }

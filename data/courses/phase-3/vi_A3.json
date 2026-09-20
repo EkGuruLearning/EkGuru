@@ -5,16 +5,2722 @@
   "phase": "phase-3",
   "medium": "en",
   "file_level": "A3",
-  "content_status": "INCOMPLETE",
-  "indexable": false,
+  "content_status": "REAL",
+  "indexable": true,
   "ekguru_extension": true,
   "cefr_equivalent": null,
   "cefr_note": "EkGuru A2→B1 bridge. Not a CEFR level.",
-  "reason": "EkGuru A2→B1 bridge. Not a CEFR level.",
   "level": {
     "id": "A3",
-    "title": "Vietnamese A3 — not published",
-    "goals": [],
-    "units": []
+    "title": "Vietnamese A3",
+    "goals": [
+      "Handle a short Vietnamese exchange about school and studies.",
+      "Handle a short Vietnamese exchange about hobbies and free time.",
+      "Handle a short Vietnamese exchange about travel basics.",
+      "Handle a short Vietnamese exchange about food and restaurants.",
+      "Handle a short Vietnamese exchange about friends and social life.",
+      "Handle a short Vietnamese exchange about weather and plans.",
+      "Handle a short Vietnamese exchange about shopping and money.",
+      "Handle a short Vietnamese exchange about daily routines and future plans."
+    ],
+    "units": [
+      {
+        "id": "Unit 1",
+        "title": "Vietnamese A3 — first half",
+        "lessons": [
+          {
+            "id": "L1",
+            "title": "School and studies",
+            "learn": "Kế hoạch gần: sẽ / định.",
+            "vocab": [
+              {
+                "t": "kỳ thi",
+                "r": "",
+                "en": "exam",
+                "pos": "noun"
+              },
+              {
+                "t": "môn",
+                "r": "",
+                "en": "subject",
+                "pos": "noun"
+              },
+              {
+                "t": "bài tập",
+                "r": "",
+                "en": "homework",
+                "pos": "noun"
+              },
+              {
+                "t": "thời khóa biểu",
+                "r": "",
+                "en": "timetable",
+                "pos": "noun"
+              },
+              {
+                "t": "hạn",
+                "r": "",
+                "en": "deadline",
+                "pos": "noun"
+              },
+              {
+                "t": "ôn",
+                "r": "",
+                "en": "revise",
+                "pos": "verb"
+              },
+              {
+                "t": "bài giảng",
+                "r": "",
+                "en": "lecture",
+                "pos": "noun"
+              },
+              {
+                "t": "ghi chú",
+                "r": "",
+                "en": "notes",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "sẽ / định + động từ",
+              "explain": "Kế hoạch đã quyết.",
+              "pattern": "tối nay tôi sẽ ôn",
+              "examples": [
+                {
+                  "t": "Tối nay tôi sẽ ôn.",
+                  "r": "",
+                  "en": "I'm going to revise tonight."
+                },
+                {
+                  "t": "Cô ấy sẽ nghỉ bài giảng.",
+                  "r": "",
+                  "en": "She's going to miss the lecture."
+                },
+                {
+                  "t": "Bạn định xong bài tập không?",
+                  "r": "",
+                  "en": "Are you going to finish the homework?"
+                }
+              ],
+              "mistakes": [
+                "Không nói ‘tôi sẽ để ôn’.",
+                "sẽ + động từ trần."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Ana",
+                "t": "Mai có thi không?",
+                "r": "",
+                "en": "Have you got an exam tomorrow?"
+              },
+              {
+                "sp": "Luis",
+                "t": "Có, sử. Tan học tôi sẽ ôn.",
+                "r": "",
+                "en": "Yes, history. I'll revise after class."
+              },
+              {
+                "sp": "Ana",
+                "t": "Học ở thư viện nhé?",
+                "r": "",
+                "en": "Shall we study in the library?"
+              },
+              {
+                "sp": "Luis",
+                "t": "Được. Hạn ghi chú là hôm nay.",
+                "r": "",
+                "en": "Yes. The notes deadline is today."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “kỳ thi” mean?",
+                "options": [
+                  "exam",
+                  "subject",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": "exam",
+                "why": "“kỳ thi” means “exam”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “exam” in Vietnamese?",
+                "answer": "kỳ thi",
+                "why": "The course word for “exam” is “kỳ thi”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “môn” mean?",
+                "options": [
+                  "subject",
+                  "exam",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": "subject",
+                "why": "“môn” means “subject”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “subject” in Vietnamese?",
+                "answer": "môn",
+                "why": "The course word for “subject” is “môn”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “bài tập” mean?",
+                "options": [
+                  "homework",
+                  "exam",
+                  "subject",
+                  "timetable"
+                ],
+                "answer": "homework",
+                "why": "“bài tập” means “homework”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “homework” in Vietnamese?",
+                "answer": "bài tập",
+                "why": "The course word for “homework” is “bài tập”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “thời khóa biểu” mean?",
+                "options": [
+                  "timetable",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "timetable",
+                "why": "“thời khóa biểu” means “timetable”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “timetable” in Vietnamese?",
+                "answer": "thời khóa biểu",
+                "why": "The course word for “timetable” is “thời khóa biểu”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “hạn” mean?",
+                "options": [
+                  "deadline",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "deadline",
+                "why": "“hạn” means “deadline”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “deadline” in Vietnamese?",
+                "answer": "hạn",
+                "why": "The course word for “deadline” is “hạn”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ôn” mean?",
+                "options": [
+                  "revise",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "revise",
+                "why": "“ôn” means “revise”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “revise” in Vietnamese?",
+                "answer": "ôn",
+                "why": "The course word for “revise” is “ôn”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“kỳ thi” means:",
+                "options": [
+                  "exam",
+                  "subject",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“kỳ thi” = “exam”."
+              },
+              {
+                "q": "“môn” means:",
+                "options": [
+                  "subject",
+                  "exam",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“môn” = “subject”."
+              },
+              {
+                "q": "“bài tập” means:",
+                "options": [
+                  "homework",
+                  "exam",
+                  "subject",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“bài tập” = “homework”."
+              },
+              {
+                "q": "“thời khóa biểu” means:",
+                "options": [
+                  "timetable",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": 0,
+                "why": "“thời khóa biểu” = “timetable”."
+              },
+              {
+                "q": "“hạn” means:",
+                "options": [
+                  "deadline",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": 0,
+                "why": "“hạn” = “deadline”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Vietnamese word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "exam",
+                    "subject",
+                    "homework",
+                    "timetable",
+                    "deadline",
+                    "revise"
+                  ],
+                  "key": [
+                    "kỳ thi",
+                    "môn",
+                    "bài tập",
+                    "thời khóa biểu",
+                    "hạn",
+                    "ôn"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "kỳ thi",
+              "môn",
+              "bài tập",
+              "thời khóa biểu",
+              "hạn",
+              "ôn",
+              "bài giảng",
+              "ghi chú"
+            ]
+          },
+          {
+            "id": "L2",
+            "title": "Hobbies and free time",
+            "learn": "Sở thích: thích + động từ.",
+            "vocab": [
+              {
+                "t": "sở thích",
+                "r": "",
+                "en": "hobby",
+                "pos": "noun"
+              },
+              {
+                "t": "ghita",
+                "r": "",
+                "en": "guitar",
+                "pos": "noun"
+              },
+              {
+                "t": "đội",
+                "r": "",
+                "en": "team",
+                "pos": "noun"
+              },
+              {
+                "t": "tập",
+                "r": "",
+                "en": "practice",
+                "pos": "noun"
+              },
+              {
+                "t": "cuối tuần",
+                "r": "",
+                "en": "weekend",
+                "pos": "noun"
+              },
+              {
+                "t": "tham gia",
+                "r": "",
+                "en": "join",
+                "pos": "verb"
+              },
+              {
+                "t": "hòa nhạc",
+                "r": "",
+                "en": "concert",
+                "pos": "noun"
+              },
+              {
+                "t": "vẽ",
+                "r": "",
+                "en": "draw",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "thích + động từ",
+              "explain": "Thích đi với động từ hoặc danh từ.",
+              "pattern": "tôi thích chơi ghita",
+              "examples": [
+                {
+                  "t": "Tôi thích chơi ghita.",
+                  "r": "",
+                  "en": "I like playing guitar."
+                },
+                {
+                  "t": "Cô ấy không thích đợi.",
+                  "r": "",
+                  "en": "She doesn't like waiting."
+                },
+                {
+                  "t": "Cuối tuần bạn thích vẽ không?",
+                  "r": "",
+                  "en": "Do you like drawing at weekends?"
+                }
+              ],
+              "mistakes": [
+                "Không ‘tôi thích để chơi’.",
+                "không thích, không phải chẳng thích luôn."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Asha",
+                "t": "Cuối tuần bạn làm gì?",
+                "r": "",
+                "en": "What do you do at the weekend?"
+              },
+              {
+                "sp": "Ben",
+                "t": "Chơi ghita. Thứ bảy có hòa nhạc.",
+                "r": "",
+                "en": "I play guitar. There's a concert on Saturday."
+              },
+              {
+                "sp": "Asha",
+                "t": "Tôi thích vẽ. Đi không?",
+                "r": "",
+                "en": "I like drawing. Are you coming?"
+              },
+              {
+                "sp": "Ben",
+                "t": "Sau buổi tập.",
+                "r": "",
+                "en": "Yes, after practice."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “sở thích” mean?",
+                "options": [
+                  "hobby",
+                  "guitar",
+                  "team",
+                  "practice"
+                ],
+                "answer": "hobby",
+                "why": "“sở thích” means “hobby”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “hobby” in Vietnamese?",
+                "answer": "sở thích",
+                "why": "The course word for “hobby” is “sở thích”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ghita” mean?",
+                "options": [
+                  "guitar",
+                  "hobby",
+                  "team",
+                  "practice"
+                ],
+                "answer": "guitar",
+                "why": "“ghita” means “guitar”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “guitar” in Vietnamese?",
+                "answer": "ghita",
+                "why": "The course word for “guitar” is “ghita”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “đội” mean?",
+                "options": [
+                  "team",
+                  "hobby",
+                  "guitar",
+                  "practice"
+                ],
+                "answer": "team",
+                "why": "“đội” means “team”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “team” in Vietnamese?",
+                "answer": "đội",
+                "why": "The course word for “team” is “đội”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “tập” mean?",
+                "options": [
+                  "practice",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "practice",
+                "why": "“tập” means “practice”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “practice” in Vietnamese?",
+                "answer": "tập",
+                "why": "The course word for “practice” is “tập”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “cuối tuần” mean?",
+                "options": [
+                  "weekend",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "weekend",
+                "why": "“cuối tuần” means “weekend”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “weekend” in Vietnamese?",
+                "answer": "cuối tuần",
+                "why": "The course word for “weekend” is “cuối tuần”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “tham gia” mean?",
+                "options": [
+                  "join",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "join",
+                "why": "“tham gia” means “join”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “join” in Vietnamese?",
+                "answer": "tham gia",
+                "why": "The course word for “join” is “tham gia”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“sở thích” means:",
+                "options": [
+                  "hobby",
+                  "guitar",
+                  "team",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“sở thích” = “hobby”."
+              },
+              {
+                "q": "“ghita” means:",
+                "options": [
+                  "guitar",
+                  "hobby",
+                  "team",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“ghita” = “guitar”."
+              },
+              {
+                "q": "“đội” means:",
+                "options": [
+                  "team",
+                  "hobby",
+                  "guitar",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“đội” = “team”."
+              },
+              {
+                "q": "“tập” means:",
+                "options": [
+                  "practice",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": 0,
+                "why": "“tập” = “practice”."
+              },
+              {
+                "q": "“cuối tuần” means:",
+                "options": [
+                  "weekend",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": 0,
+                "why": "“cuối tuần” = “weekend”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Vietnamese word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "hobby",
+                    "guitar",
+                    "team",
+                    "practice",
+                    "weekend",
+                    "join"
+                  ],
+                  "key": [
+                    "sở thích",
+                    "ghita",
+                    "đội",
+                    "tập",
+                    "cuối tuần",
+                    "tham gia"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "sở thích",
+              "ghita",
+              "đội",
+              "tập",
+              "cuối tuần",
+              "tham gia",
+              "hòa nhạc",
+              "vẽ"
+            ]
+          },
+          {
+            "id": "L3",
+            "title": "Travel basics",
+            "learn": "Vé.",
+            "vocab": [
+              {
+                "t": "sân ga",
+                "r": "",
+                "en": "platform",
+                "pos": "noun"
+              },
+              {
+                "t": "vé khứ hồi",
+                "r": "",
+                "en": "return ticket",
+                "pos": "noun"
+              },
+              {
+                "t": "trễ",
+                "r": "",
+                "en": "delay",
+                "pos": "noun"
+              },
+              {
+                "t": "hành lý",
+                "r": "",
+                "en": "luggage",
+                "pos": "noun"
+              },
+              {
+                "t": "cửa",
+                "r": "",
+                "en": "gate",
+                "pos": "noun"
+              },
+              {
+                "t": "hộ chiếu",
+                "r": "",
+                "en": "passport",
+                "pos": "noun"
+              },
+              {
+                "t": "đặt",
+                "r": "",
+                "en": "book",
+                "pos": "verb"
+              },
+              {
+                "t": "đổi tàu",
+                "r": "",
+                "en": "change trains",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "phải + động từ",
+              "explain": "Bắt buộc bên ngoài.",
+              "pattern": "bạn phải đưa hộ chiếu",
+              "examples": [
+                {
+                  "t": "Bạn phải đưa hộ chiếu.",
+                  "r": "",
+                  "en": "You have to show your passport."
+                },
+                {
+                  "t": "Chúng ta phải đổi tàu ở Huế.",
+                  "r": "",
+                  "en": "We have to change in Huế."
+                },
+                {
+                  "t": "Hôm nay không phải đặt.",
+                  "r": "",
+                  "en": "He doesn't have to book today."
+                }
+              ],
+              "mistakes": [
+                "phải + động từ.",
+                "không phải ≠ cấm."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Quầy",
+                "t": "Một chiều hay khứ hồi?",
+                "r": "",
+                "en": "Single or return?"
+              },
+              {
+                "sp": "Nina",
+                "t": "Khứ hồi. Sân ga nào?",
+                "r": "",
+                "en": "Return. Which platform?"
+              },
+              {
+                "sp": "Quầy",
+                "t": "Số 4. Trễ một chút.",
+                "r": "",
+                "en": "Platform 4. There's a short delay."
+              },
+              {
+                "sp": "Nina",
+                "t": "Phải đổi tàu không?",
+                "r": "",
+                "en": "Do I have to change?"
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “sân ga” mean?",
+                "options": [
+                  "platform",
+                  "return ticket",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": "platform",
+                "why": "“sân ga” means “platform”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “platform” in Vietnamese?",
+                "answer": "sân ga",
+                "why": "The course word for “platform” is “sân ga”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “vé khứ hồi” mean?",
+                "options": [
+                  "return ticket",
+                  "platform",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": "return ticket",
+                "why": "“vé khứ hồi” means “return ticket”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “return ticket” in Vietnamese?",
+                "answer": "vé khứ hồi",
+                "why": "The course word for “return ticket” is “vé khứ hồi”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “trễ” mean?",
+                "options": [
+                  "delay",
+                  "platform",
+                  "return ticket",
+                  "luggage"
+                ],
+                "answer": "delay",
+                "why": "“trễ” means “delay”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “delay” in Vietnamese?",
+                "answer": "trễ",
+                "why": "The course word for “delay” is “trễ”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “hành lý” mean?",
+                "options": [
+                  "luggage",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "luggage",
+                "why": "“hành lý” means “luggage”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “luggage” in Vietnamese?",
+                "answer": "hành lý",
+                "why": "The course word for “luggage” is “hành lý”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “cửa” mean?",
+                "options": [
+                  "gate",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "gate",
+                "why": "“cửa” means “gate”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “gate” in Vietnamese?",
+                "answer": "cửa",
+                "why": "The course word for “gate” is “cửa”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “hộ chiếu” mean?",
+                "options": [
+                  "passport",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "passport",
+                "why": "“hộ chiếu” means “passport”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “passport” in Vietnamese?",
+                "answer": "hộ chiếu",
+                "why": "The course word for “passport” is “hộ chiếu”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“sân ga” means:",
+                "options": [
+                  "platform",
+                  "return ticket",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“sân ga” = “platform”."
+              },
+              {
+                "q": "“vé khứ hồi” means:",
+                "options": [
+                  "return ticket",
+                  "platform",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“vé khứ hồi” = “return ticket”."
+              },
+              {
+                "q": "“trễ” means:",
+                "options": [
+                  "delay",
+                  "platform",
+                  "return ticket",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“trễ” = “delay”."
+              },
+              {
+                "q": "“hành lý” means:",
+                "options": [
+                  "luggage",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": 0,
+                "why": "“hành lý” = “luggage”."
+              },
+              {
+                "q": "“cửa” means:",
+                "options": [
+                  "gate",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": 0,
+                "why": "“cửa” = “gate”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Vietnamese word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "platform",
+                    "return ticket",
+                    "delay",
+                    "luggage",
+                    "gate",
+                    "passport"
+                  ],
+                  "key": [
+                    "sân ga",
+                    "vé khứ hồi",
+                    "trễ",
+                    "hành lý",
+                    "cửa",
+                    "hộ chiếu"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "sân ga",
+              "vé khứ hồi",
+              "trễ",
+              "hành lý",
+              "cửa",
+              "hộ chiếu",
+              "đặt",
+              "đổi tàu"
+            ]
+          },
+          {
+            "id": "L4",
+            "title": "Food and restaurants",
+            "learn": "Nhà hàng.",
+            "vocab": [
+              {
+                "t": "thực đơn",
+                "r": "",
+                "en": "menu",
+                "pos": "noun"
+              },
+              {
+                "t": "hóa đơn",
+                "r": "",
+                "en": "bill",
+                "pos": "noun"
+              },
+              {
+                "t": "món khai vị",
+                "r": "",
+                "en": "starter",
+                "pos": "noun"
+              },
+              {
+                "t": "dị ứng",
+                "r": "",
+                "en": "allergic",
+                "pos": "noun"
+              },
+              {
+                "t": "cay",
+                "r": "",
+                "en": "spicy",
+                "pos": "adj"
+              },
+              {
+                "t": "gợi ý",
+                "r": "",
+                "en": "recommend",
+                "pos": "noun"
+              },
+              {
+                "t": "tiền típ",
+                "r": "",
+                "en": "tip",
+                "pos": "noun"
+              },
+              {
+                "t": "bàn",
+                "r": "",
+                "en": "table",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "cho tôi / tôi muốn",
+              "explain": "Gọi món lịch sự.",
+              "pattern": "cho tôi món súp",
+              "examples": [
+                {
+                  "t": "Cho tôi món súp.",
+                  "r": "",
+                  "en": "I'd like the soup."
+                },
+                {
+                  "t": "Cay không?",
+                  "r": "",
+                  "en": "Would you like it spicy?"
+                },
+                {
+                  "t": "Cho xem thực đơn.",
+                  "r": "",
+                  "en": "I'd like to see the menu."
+                }
+              ],
+              "mistakes": [
+                "Với phục vụ, ‘đưa cái này’ thô.",
+                "cho tôi + danh từ."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Phục vụ",
+                "t": "Gọi món được chưa?",
+                "r": "",
+                "en": "Ready to order?"
+              },
+              {
+                "sp": "Sam",
+                "t": "Cho tôi mì. Có cay không?",
+                "r": "",
+                "en": "I'd like the pasta. Is it spicy?"
+              },
+              {
+                "sp": "Phục vụ",
+                "t": "Một chút. Có dị ứng không?",
+                "r": "",
+                "en": "A little. Are you allergic?"
+              },
+              {
+                "sp": "Sam",
+                "t": "Không. Cuối cùng tính tiền.",
+                "r": "",
+                "en": "No. The bill at the end, please."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “thực đơn” mean?",
+                "options": [
+                  "menu",
+                  "bill",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": "menu",
+                "why": "“thực đơn” means “menu”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “menu” in Vietnamese?",
+                "answer": "thực đơn",
+                "why": "The course word for “menu” is “thực đơn”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “hóa đơn” mean?",
+                "options": [
+                  "bill",
+                  "menu",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": "bill",
+                "why": "“hóa đơn” means “bill”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “bill” in Vietnamese?",
+                "answer": "hóa đơn",
+                "why": "The course word for “bill” is “hóa đơn”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “món khai vị” mean?",
+                "options": [
+                  "starter",
+                  "menu",
+                  "bill",
+                  "allergic"
+                ],
+                "answer": "starter",
+                "why": "“món khai vị” means “starter”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “starter” in Vietnamese?",
+                "answer": "món khai vị",
+                "why": "The course word for “starter” is “món khai vị”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “dị ứng” mean?",
+                "options": [
+                  "allergic",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "allergic",
+                "why": "“dị ứng” means “allergic”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “allergic” in Vietnamese?",
+                "answer": "dị ứng",
+                "why": "The course word for “allergic” is “dị ứng”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “cay” mean?",
+                "options": [
+                  "spicy",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "spicy",
+                "why": "“cay” means “spicy”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “spicy” in Vietnamese?",
+                "answer": "cay",
+                "why": "The course word for “spicy” is “cay”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “gợi ý” mean?",
+                "options": [
+                  "recommend",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "recommend",
+                "why": "“gợi ý” means “recommend”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “recommend” in Vietnamese?",
+                "answer": "gợi ý",
+                "why": "The course word for “recommend” is “gợi ý”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“thực đơn” means:",
+                "options": [
+                  "menu",
+                  "bill",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“thực đơn” = “menu”."
+              },
+              {
+                "q": "“hóa đơn” means:",
+                "options": [
+                  "bill",
+                  "menu",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“hóa đơn” = “bill”."
+              },
+              {
+                "q": "“món khai vị” means:",
+                "options": [
+                  "starter",
+                  "menu",
+                  "bill",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“món khai vị” = “starter”."
+              },
+              {
+                "q": "“dị ứng” means:",
+                "options": [
+                  "allergic",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": 0,
+                "why": "“dị ứng” = “allergic”."
+              },
+              {
+                "q": "“cay” means:",
+                "options": [
+                  "spicy",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": 0,
+                "why": "“cay” = “spicy”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Vietnamese word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "menu",
+                    "bill",
+                    "starter",
+                    "allergic",
+                    "spicy",
+                    "recommend"
+                  ],
+                  "key": [
+                    "thực đơn",
+                    "hóa đơn",
+                    "món khai vị",
+                    "dị ứng",
+                    "cay",
+                    "gợi ý"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "thực đơn",
+              "hóa đơn",
+              "món khai vị",
+              "dị ứng",
+              "cay",
+              "gợi ý",
+              "tiền típ",
+              "bàn"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Unit 2",
+        "title": "Vietnamese A3 — second half",
+        "lessons": [
+          {
+            "id": "L5",
+            "title": "Friends and social life",
+            "learn": "Mời.",
+            "vocab": [
+              {
+                "t": "lời mời",
+                "r": "",
+                "en": "invitation",
+                "pos": "noun"
+              },
+              {
+                "t": "bận",
+                "r": "",
+                "en": "busy",
+                "pos": "adj"
+              },
+              {
+                "t": "gặp",
+                "r": "",
+                "en": "catch up",
+                "pos": "verb"
+              },
+              {
+                "t": "mang",
+                "r": "",
+                "en": "bring",
+                "pos": "verb"
+              },
+              {
+                "t": "tiệc",
+                "r": "",
+                "en": "party",
+                "pos": "noun"
+              },
+              {
+                "t": "rảnh",
+                "r": "",
+                "en": "free",
+                "pos": "adj"
+              },
+              {
+                "t": "có lẽ",
+                "r": "",
+                "en": "maybe",
+                "pos": "noun"
+              },
+              {
+                "t": "tuần sau",
+                "r": "",
+                "en": "next week",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "hay là",
+              "explain": "Gợi ý.",
+              "pattern": "hay là gặp lúc bảy giờ?",
+              "examples": [
+                {
+                  "t": "Hay là gặp lúc bảy giờ?",
+                  "r": "",
+                  "en": "Why don't we meet at seven?"
+                },
+                {
+                  "t": "Tuần sau gặp nhé?",
+                  "r": "",
+                  "en": "What if we catch up next week?"
+                },
+                {
+                  "t": "Mang đồ ăn đi.",
+                  "r": "",
+                  "en": "Let's bring some food."
+                }
+              ],
+              "mistakes": [
+                "Chỉ ‘không’ thì cứng: nêu lý do.",
+                "hay là không phải lệnh."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Riya",
+                "t": "Thứ sáu có tiệc. Đi không?",
+                "r": "",
+                "en": "There's a party Friday. Shall we go?"
+              },
+              {
+                "sp": "Omar",
+                "t": "Thứ sáu bận. Tuần sau?",
+                "r": "",
+                "en": "I'm busy Friday. Next week?"
+              },
+              {
+                "sp": "Riya",
+                "t": "Chủ nhật? Sau sáu giờ tôi rảnh.",
+                "r": "",
+                "en": "Sunday? I'm free after six."
+              },
+              {
+                "sp": "Omar",
+                "t": "Được. Tôi mang món ngọt.",
+                "r": "",
+                "en": "Perfect. I'll bring dessert."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “lời mời” mean?",
+                "options": [
+                  "invitation",
+                  "busy",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": "invitation",
+                "why": "“lời mời” means “invitation”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “invitation” in Vietnamese?",
+                "answer": "lời mời",
+                "why": "The course word for “invitation” is “lời mời”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “bận” mean?",
+                "options": [
+                  "busy",
+                  "invitation",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": "busy",
+                "why": "“bận” means “busy”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “busy” in Vietnamese?",
+                "answer": "bận",
+                "why": "The course word for “busy” is “bận”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “gặp” mean?",
+                "options": [
+                  "catch up",
+                  "invitation",
+                  "busy",
+                  "bring"
+                ],
+                "answer": "catch up",
+                "why": "“gặp” means “catch up”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “catch up” in Vietnamese?",
+                "answer": "gặp",
+                "why": "The course word for “catch up” is “gặp”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “mang” mean?",
+                "options": [
+                  "bring",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "bring",
+                "why": "“mang” means “bring”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “bring” in Vietnamese?",
+                "answer": "mang",
+                "why": "The course word for “bring” is “mang”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “tiệc” mean?",
+                "options": [
+                  "party",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "party",
+                "why": "“tiệc” means “party”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “party” in Vietnamese?",
+                "answer": "tiệc",
+                "why": "The course word for “party” is “tiệc”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “rảnh” mean?",
+                "options": [
+                  "free",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "free",
+                "why": "“rảnh” means “free”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “free” in Vietnamese?",
+                "answer": "rảnh",
+                "why": "The course word for “free” is “rảnh”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“lời mời” means:",
+                "options": [
+                  "invitation",
+                  "busy",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“lời mời” = “invitation”."
+              },
+              {
+                "q": "“bận” means:",
+                "options": [
+                  "busy",
+                  "invitation",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“bận” = “busy”."
+              },
+              {
+                "q": "“gặp” means:",
+                "options": [
+                  "catch up",
+                  "invitation",
+                  "busy",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“gặp” = “catch up”."
+              },
+              {
+                "q": "“mang” means:",
+                "options": [
+                  "bring",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": 0,
+                "why": "“mang” = “bring”."
+              },
+              {
+                "q": "“tiệc” means:",
+                "options": [
+                  "party",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": 0,
+                "why": "“tiệc” = “party”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Vietnamese word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "invitation",
+                    "busy",
+                    "catch up",
+                    "bring",
+                    "party",
+                    "free"
+                  ],
+                  "key": [
+                    "lời mời",
+                    "bận",
+                    "gặp",
+                    "mang",
+                    "tiệc",
+                    "rảnh"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "lời mời",
+              "bận",
+              "gặp",
+              "mang",
+              "tiệc",
+              "rảnh",
+              "có lẽ",
+              "tuần sau"
+            ]
+          },
+          {
+            "id": "L6",
+            "title": "Weather and plans",
+            "learn": "Thời tiết: nếu.",
+            "vocab": [
+              {
+                "t": "dự báo",
+                "r": "",
+                "en": "forecast",
+                "pos": "noun"
+              },
+              {
+                "t": "mưa rào",
+                "r": "",
+                "en": "shower",
+                "pos": "noun"
+              },
+              {
+                "t": "ẩm",
+                "r": "",
+                "en": "humid",
+                "pos": "adj"
+              },
+              {
+                "t": "hủy",
+                "r": "",
+                "en": "cancel",
+                "pos": "verb"
+              },
+              {
+                "t": "trong nhà",
+                "r": "",
+                "en": "indoor",
+                "pos": "noun"
+              },
+              {
+                "t": "ô",
+                "r": "",
+                "en": "umbrella",
+                "pos": "noun"
+              },
+              {
+                "t": "độ",
+                "r": "",
+                "en": "degree",
+                "pos": "noun"
+              },
+              {
+                "t": "tạnh",
+                "r": "",
+                "en": "clear up",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "nếu + hiện tại",
+              "explain": "Điều kiện thật.",
+              "pattern": "nếu mưa thì chúng ta hủy",
+              "examples": [
+                {
+                  "t": "Nếu mưa thì chúng ta hủy dã ngoại.",
+                  "r": "",
+                  "en": "If it rains, we'll cancel the picnic."
+                },
+                {
+                  "t": "Nếu dự báo đẹp thì đi bộ.",
+                  "r": "",
+                  "en": "If the forecast is good, we'll walk."
+                },
+                {
+                  "t": "Nếu không tạnh thì ở trong nhà.",
+                  "r": "",
+                  "en": "If it doesn't clear up, we'll stay inside."
+                }
+              ],
+              "mistakes": [
+                "Đừng chồng sẽ trong mệnh đề nếu.",
+                "thì đưa kết quả."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Jen",
+                "t": "Dự báo bảo mưa rào.",
+                "r": "",
+                "en": "The forecast says showers."
+              },
+              {
+                "sp": "Kai",
+                "t": "Nếu mưa thì vào bảo tàng.",
+                "r": "",
+                "en": "If it rains, we'll go to the museum."
+              },
+              {
+                "sp": "Jen",
+                "t": "Vẫn mang ô.",
+                "r": "",
+                "en": "Take an umbrella anyway."
+              },
+              {
+                "sp": "Kai",
+                "t": "Nếu tạnh thì đi ven sông.",
+                "r": "",
+                "en": "If it clears up, we'll walk by the river."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “dự báo” mean?",
+                "options": [
+                  "forecast",
+                  "shower",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": "forecast",
+                "why": "“dự báo” means “forecast”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “forecast” in Vietnamese?",
+                "answer": "dự báo",
+                "why": "The course word for “forecast” is “dự báo”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “mưa rào” mean?",
+                "options": [
+                  "shower",
+                  "forecast",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": "shower",
+                "why": "“mưa rào” means “shower”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “shower” in Vietnamese?",
+                "answer": "mưa rào",
+                "why": "The course word for “shower” is “mưa rào”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ẩm” mean?",
+                "options": [
+                  "humid",
+                  "forecast",
+                  "shower",
+                  "cancel"
+                ],
+                "answer": "humid",
+                "why": "“ẩm” means “humid”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “humid” in Vietnamese?",
+                "answer": "ẩm",
+                "why": "The course word for “humid” is “ẩm”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “hủy” mean?",
+                "options": [
+                  "cancel",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "cancel",
+                "why": "“hủy” means “cancel”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “cancel” in Vietnamese?",
+                "answer": "hủy",
+                "why": "The course word for “cancel” is “hủy”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “trong nhà” mean?",
+                "options": [
+                  "indoor",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "indoor",
+                "why": "“trong nhà” means “indoor”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “indoor” in Vietnamese?",
+                "answer": "trong nhà",
+                "why": "The course word for “indoor” is “trong nhà”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ô” mean?",
+                "options": [
+                  "umbrella",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "umbrella",
+                "why": "“ô” means “umbrella”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “umbrella” in Vietnamese?",
+                "answer": "ô",
+                "why": "The course word for “umbrella” is “ô”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“dự báo” means:",
+                "options": [
+                  "forecast",
+                  "shower",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“dự báo” = “forecast”."
+              },
+              {
+                "q": "“mưa rào” means:",
+                "options": [
+                  "shower",
+                  "forecast",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“mưa rào” = “shower”."
+              },
+              {
+                "q": "“ẩm” means:",
+                "options": [
+                  "humid",
+                  "forecast",
+                  "shower",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“ẩm” = “humid”."
+              },
+              {
+                "q": "“hủy” means:",
+                "options": [
+                  "cancel",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": 0,
+                "why": "“hủy” = “cancel”."
+              },
+              {
+                "q": "“trong nhà” means:",
+                "options": [
+                  "indoor",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": 0,
+                "why": "“trong nhà” = “indoor”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Vietnamese word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "forecast",
+                    "shower",
+                    "humid",
+                    "cancel",
+                    "indoor",
+                    "umbrella"
+                  ],
+                  "key": [
+                    "dự báo",
+                    "mưa rào",
+                    "ẩm",
+                    "hủy",
+                    "trong nhà",
+                    "ô"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "dự báo",
+              "mưa rào",
+              "ẩm",
+              "hủy",
+              "trong nhà",
+              "ô",
+              "độ",
+              "tạnh"
+            ]
+          },
+          {
+            "id": "L7",
+            "title": "Shopping and money",
+            "learn": "Mua sắm.",
+            "vocab": [
+              {
+                "t": "cỡ",
+                "r": "",
+                "en": "size",
+                "pos": "noun"
+              },
+              {
+                "t": "hóa đơn",
+                "r": "",
+                "en": "receipt",
+                "pos": "noun"
+              },
+              {
+                "t": "hoàn tiền",
+                "r": "",
+                "en": "refund",
+                "pos": "noun"
+              },
+              {
+                "t": "giảm giá",
+                "r": "",
+                "en": "discount",
+                "pos": "noun"
+              },
+              {
+                "t": "tiền mặt",
+                "r": "",
+                "en": "cash",
+                "pos": "noun"
+              },
+              {
+                "t": "thẻ",
+                "r": "",
+                "en": "card",
+                "pos": "noun"
+              },
+              {
+                "t": "vừa",
+                "r": "",
+                "en": "fit",
+                "pos": "verb"
+              },
+              {
+                "t": "đổi",
+                "r": "",
+                "en": "exchange",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "hơn / hơn …",
+              "explain": "So sánh.",
+              "pattern": "áo này rẻ hơn cái kia",
+              "examples": [
+                {
+                  "t": "Áo này rẻ hơn cái kia.",
+                  "r": "",
+                  "en": "This shirt is cheaper than that one."
+                },
+                {
+                  "t": "Cái xanh đắt hơn.",
+                  "r": "",
+                  "en": "The blue one is more expensive."
+                },
+                {
+                  "t": "Cỡ M vừa hơn.",
+                  "r": "",
+                  "en": "Size M fits better."
+                }
+              ],
+              "mistakes": [
+                "Không ‘hơn rẻ hơn’.",
+                "hơn đứng sau tính từ."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Cửa hàng",
+                "t": "Thẻ hay tiền mặt?",
+                "r": "",
+                "en": "Card or cash?"
+              },
+              {
+                "sp": "Lila",
+                "t": "Thẻ. Có cỡ nhỏ hơn không?",
+                "r": "",
+                "en": "Card. Have you got a smaller size?"
+              },
+              {
+                "sp": "Cửa hàng",
+                "t": "Có. Giữ hóa đơn để hoàn tiền.",
+                "r": "",
+                "en": "Yes. Keep the receipt for a refund."
+              },
+              {
+                "sp": "Lila",
+                "t": "Có giảm giá sinh viên không?",
+                "r": "",
+                "en": "Is there a student discount?"
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “cỡ” mean?",
+                "options": [
+                  "size",
+                  "receipt",
+                  "refund",
+                  "discount"
+                ],
+                "answer": "size",
+                "why": "“cỡ” means “size”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “size” in Vietnamese?",
+                "answer": "cỡ",
+                "why": "The course word for “size” is “cỡ”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “hóa đơn” mean?",
+                "options": [
+                  "receipt",
+                  "size",
+                  "refund",
+                  "discount"
+                ],
+                "answer": "receipt",
+                "why": "“hóa đơn” means “receipt”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “receipt” in Vietnamese?",
+                "answer": "hóa đơn",
+                "why": "The course word for “receipt” is “hóa đơn”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “hoàn tiền” mean?",
+                "options": [
+                  "refund",
+                  "size",
+                  "receipt",
+                  "discount"
+                ],
+                "answer": "refund",
+                "why": "“hoàn tiền” means “refund”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “refund” in Vietnamese?",
+                "answer": "hoàn tiền",
+                "why": "The course word for “refund” is “hoàn tiền”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “giảm giá” mean?",
+                "options": [
+                  "discount",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "discount",
+                "why": "“giảm giá” means “discount”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “discount” in Vietnamese?",
+                "answer": "giảm giá",
+                "why": "The course word for “discount” is “giảm giá”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “tiền mặt” mean?",
+                "options": [
+                  "cash",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "cash",
+                "why": "“tiền mặt” means “cash”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “cash” in Vietnamese?",
+                "answer": "tiền mặt",
+                "why": "The course word for “cash” is “tiền mặt”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “thẻ” mean?",
+                "options": [
+                  "card",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "card",
+                "why": "“thẻ” means “card”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “card” in Vietnamese?",
+                "answer": "thẻ",
+                "why": "The course word for “card” is “thẻ”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“cỡ” means:",
+                "options": [
+                  "size",
+                  "receipt",
+                  "refund",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“cỡ” = “size”."
+              },
+              {
+                "q": "“hóa đơn” means:",
+                "options": [
+                  "receipt",
+                  "size",
+                  "refund",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“hóa đơn” = “receipt”."
+              },
+              {
+                "q": "“hoàn tiền” means:",
+                "options": [
+                  "refund",
+                  "size",
+                  "receipt",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“hoàn tiền” = “refund”."
+              },
+              {
+                "q": "“giảm giá” means:",
+                "options": [
+                  "discount",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": 0,
+                "why": "“giảm giá” = “discount”."
+              },
+              {
+                "q": "“tiền mặt” means:",
+                "options": [
+                  "cash",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": 0,
+                "why": "“tiền mặt” = “cash”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Vietnamese word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "size",
+                    "receipt",
+                    "refund",
+                    "discount",
+                    "cash",
+                    "card"
+                  ],
+                  "key": [
+                    "cỡ",
+                    "hóa đơn",
+                    "hoàn tiền",
+                    "giảm giá",
+                    "tiền mặt",
+                    "thẻ"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "cỡ",
+              "hóa đơn",
+              "hoàn tiền",
+              "giảm giá",
+              "tiền mặt",
+              "thẻ",
+              "vừa",
+              "đổi"
+            ]
+          },
+          {
+            "id": "L8",
+            "title": "Daily routines and future plans",
+            "learn": "Thói quen.",
+            "vocab": [
+              {
+                "t": "đi làm",
+                "r": "",
+                "en": "commute",
+                "pos": "verb"
+              },
+              {
+                "t": "ca",
+                "r": "",
+                "en": "shift",
+                "pos": "noun"
+              },
+              {
+                "t": "báo thức",
+                "r": "",
+                "en": "alarm",
+                "pos": "noun"
+              },
+              {
+                "t": "tiết kiệm",
+                "r": "",
+                "en": "save",
+                "pos": "verb"
+              },
+              {
+                "t": "mục tiêu",
+                "r": "",
+                "en": "goal",
+                "pos": "noun"
+              },
+              {
+                "t": "thói quen",
+                "r": "",
+                "en": "habit",
+                "pos": "noun"
+              },
+              {
+                "t": "tháng sau",
+                "r": "",
+                "en": "next month",
+                "pos": "noun"
+              },
+              {
+                "t": "thường",
+                "r": "",
+                "en": "usually",
+                "pos": "adv"
+              }
+            ],
+            "grammar": {
+              "title": "thường hiện tại vs sẽ",
+              "explain": "Giờ tàu là hiện tại; quyết định là sẽ.",
+              "pattern": "tôi thường ra lúc bảy giờ",
+              "examples": [
+                {
+                  "t": "Tôi thường ra lúc bảy giờ.",
+                  "r": "",
+                  "en": "I usually leave at seven."
+                },
+                {
+                  "t": "Tháng sau tôi sẽ tiết kiệm.",
+                  "r": "",
+                  "en": "I'm going to save next month."
+                },
+                {
+                  "t": "Ca của tôi bắt đầu lúc chín.",
+                  "r": "",
+                  "en": "My shift starts at nine."
+                }
+              ],
+              "mistakes": [
+                "Giờ in sẵn đừng dùng sẽ.",
+                "Đừng trộn hôm qua với sẽ."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Dana",
+                "t": "Thường bắt đầu lúc mấy?",
+                "r": "",
+                "en": "What time do you usually start?"
+              },
+              {
+                "sp": "Ned",
+                "t": "Chín giờ. Tháng sau tôi sẽ đổi.",
+                "r": "",
+                "en": "The shift starts at nine. I'm going to change it next month."
+              },
+              {
+                "sp": "Dana",
+                "t": "Sao?",
+                "r": "",
+                "en": "Why?"
+              },
+              {
+                "sp": "Ned",
+                "t": "Muốn đường đi làm ngắn hơn. Đó là mục tiêu.",
+                "r": "",
+                "en": "I want a shorter commute. That's the goal."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “đi làm” mean?",
+                "options": [
+                  "commute",
+                  "shift",
+                  "alarm",
+                  "save"
+                ],
+                "answer": "commute",
+                "why": "“đi làm” means “commute”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “commute” in Vietnamese?",
+                "answer": "đi làm",
+                "why": "The course word for “commute” is “đi làm”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ca” mean?",
+                "options": [
+                  "shift",
+                  "commute",
+                  "alarm",
+                  "save"
+                ],
+                "answer": "shift",
+                "why": "“ca” means “shift”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “shift” in Vietnamese?",
+                "answer": "ca",
+                "why": "The course word for “shift” is “ca”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “báo thức” mean?",
+                "options": [
+                  "alarm",
+                  "commute",
+                  "shift",
+                  "save"
+                ],
+                "answer": "alarm",
+                "why": "“báo thức” means “alarm”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “alarm” in Vietnamese?",
+                "answer": "báo thức",
+                "why": "The course word for “alarm” is “báo thức”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “tiết kiệm” mean?",
+                "options": [
+                  "save",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "save",
+                "why": "“tiết kiệm” means “save”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “save” in Vietnamese?",
+                "answer": "tiết kiệm",
+                "why": "The course word for “save” is “tiết kiệm”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “mục tiêu” mean?",
+                "options": [
+                  "goal",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "goal",
+                "why": "“mục tiêu” means “goal”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “goal” in Vietnamese?",
+                "answer": "mục tiêu",
+                "why": "The course word for “goal” is “mục tiêu”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “thói quen” mean?",
+                "options": [
+                  "habit",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "habit",
+                "why": "“thói quen” means “habit”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “habit” in Vietnamese?",
+                "answer": "thói quen",
+                "why": "The course word for “habit” is “thói quen”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“đi làm” means:",
+                "options": [
+                  "commute",
+                  "shift",
+                  "alarm",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“đi làm” = “commute”."
+              },
+              {
+                "q": "“ca” means:",
+                "options": [
+                  "shift",
+                  "commute",
+                  "alarm",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“ca” = “shift”."
+              },
+              {
+                "q": "“báo thức” means:",
+                "options": [
+                  "alarm",
+                  "commute",
+                  "shift",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“báo thức” = “alarm”."
+              },
+              {
+                "q": "“tiết kiệm” means:",
+                "options": [
+                  "save",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": 0,
+                "why": "“tiết kiệm” = “save”."
+              },
+              {
+                "q": "“mục tiêu” means:",
+                "options": [
+                  "goal",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": 0,
+                "why": "“mục tiêu” = “goal”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Vietnamese word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "commute",
+                    "shift",
+                    "alarm",
+                    "save",
+                    "goal",
+                    "habit"
+                  ],
+                  "key": [
+                    "đi làm",
+                    "ca",
+                    "báo thức",
+                    "tiết kiệm",
+                    "mục tiêu",
+                    "thói quen"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "đi làm",
+              "ca",
+              "báo thức",
+              "tiết kiệm",
+              "mục tiêu",
+              "thói quen",
+              "tháng sau",
+              "thường"
+            ]
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "A3 test",
+      "items": [
+        {
+          "type": "multiple_choice",
+          "q": "What does “kỳ thi” mean?",
+          "options": [
+            "exam",
+            "subject",
+            "homework",
+            "timetable"
+          ],
+          "answer": "exam",
+          "why": "From this A3 lesson: “kỳ thi” means “exam”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “môn” mean?",
+          "options": [
+            "subject",
+            "exam",
+            "homework",
+            "timetable"
+          ],
+          "answer": "subject",
+          "why": "From this A3 lesson: “môn” means “subject”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “sở thích” mean?",
+          "options": [
+            "hobby",
+            "guitar",
+            "team",
+            "practice"
+          ],
+          "answer": "hobby",
+          "why": "From this A3 lesson: “sở thích” means “hobby”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “ghita” mean?",
+          "options": [
+            "guitar",
+            "hobby",
+            "team",
+            "practice"
+          ],
+          "answer": "guitar",
+          "why": "From this A3 lesson: “ghita” means “guitar”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “sân ga” mean?",
+          "options": [
+            "platform",
+            "return ticket",
+            "delay",
+            "luggage"
+          ],
+          "answer": "platform",
+          "why": "From this A3 lesson: “sân ga” means “platform”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “vé khứ hồi” mean?",
+          "options": [
+            "return ticket",
+            "platform",
+            "delay",
+            "luggage"
+          ],
+          "answer": "return ticket",
+          "why": "From this A3 lesson: “vé khứ hồi” means “return ticket”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “thực đơn” mean?",
+          "options": [
+            "menu",
+            "bill",
+            "starter",
+            "allergic"
+          ],
+          "answer": "menu",
+          "why": "From this A3 lesson: “thực đơn” means “menu”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “hóa đơn” mean?",
+          "options": [
+            "bill",
+            "menu",
+            "starter",
+            "allergic"
+          ],
+          "answer": "bill",
+          "why": "From this A3 lesson: “hóa đơn” means “bill”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “lời mời” mean?",
+          "options": [
+            "invitation",
+            "busy",
+            "catch up",
+            "bring"
+          ],
+          "answer": "invitation",
+          "why": "From this A3 lesson: “lời mời” means “invitation”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “bận” mean?",
+          "options": [
+            "busy",
+            "invitation",
+            "catch up",
+            "bring"
+          ],
+          "answer": "busy",
+          "why": "From this A3 lesson: “bận” means “busy”."
+        }
+      ]
+    }
   }
 }

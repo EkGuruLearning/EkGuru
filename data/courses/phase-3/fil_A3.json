@@ -5,16 +5,2722 @@
   "phase": "phase-3",
   "medium": "en",
   "file_level": "A3",
-  "content_status": "INCOMPLETE",
-  "indexable": false,
+  "content_status": "REAL",
+  "indexable": true,
   "ekguru_extension": true,
   "cefr_equivalent": null,
   "cefr_note": "EkGuru A2→B1 bridge. Not a CEFR level.",
-  "reason": "EkGuru A2→B1 bridge. Not a CEFR level.",
   "level": {
     "id": "A3",
-    "title": "Filipino A3 — not published",
-    "goals": [],
-    "units": []
+    "title": "Filipino A3",
+    "goals": [
+      "Handle a short Filipino exchange about school and studies.",
+      "Handle a short Filipino exchange about hobbies and free time.",
+      "Handle a short Filipino exchange about travel basics.",
+      "Handle a short Filipino exchange about food and restaurants.",
+      "Handle a short Filipino exchange about friends and social life.",
+      "Handle a short Filipino exchange about weather and plans.",
+      "Handle a short Filipino exchange about shopping and money.",
+      "Handle a short Filipino exchange about daily routines and future plans."
+    ],
+    "units": [
+      {
+        "id": "Unit 1",
+        "title": "Filipino A3 — first half",
+        "lessons": [
+          {
+            "id": "L1",
+            "title": "School and studies",
+            "learn": "Malapit na plano: mag- + -na.",
+            "vocab": [
+              {
+                "t": "pagsusulit",
+                "r": "",
+                "en": "exam",
+                "pos": "noun"
+              },
+              {
+                "t": "asignatura",
+                "r": "",
+                "en": "subject",
+                "pos": "noun"
+              },
+              {
+                "t": "takdang-aralin",
+                "r": "",
+                "en": "homework",
+                "pos": "noun"
+              },
+              {
+                "t": "iskedyul",
+                "r": "",
+                "en": "timetable",
+                "pos": "noun"
+              },
+              {
+                "t": "deadline",
+                "r": "",
+                "en": "deadline",
+                "pos": "noun"
+              },
+              {
+                "t": "magreview",
+                "r": "",
+                "en": "revise",
+                "pos": "verb"
+              },
+              {
+                "t": "leksiyon",
+                "r": "",
+                "en": "lecture",
+                "pos": "noun"
+              },
+              {
+                "t": "notes",
+                "r": "",
+                "en": "notes",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "mag- + na",
+              "explain": "Desisyong malapit.",
+              "pattern": "magrereview ako mamaya",
+              "examples": [
+                {
+                  "t": "Magrereview ako mamaya.",
+                  "r": "",
+                  "en": "I'm going to revise tonight."
+                },
+                {
+                  "t": "Mawawalan siya ng leksiyon.",
+                  "r": "",
+                  "en": "She's going to miss the lecture."
+                },
+                {
+                  "t": "Tatapusin mo ba ang takdang-aralin?",
+                  "r": "",
+                  "en": "Are you going to finish the homework?"
+                }
+              ],
+              "mistakes": [
+                "Huwag ‘ako na magreview ng mali ang ayos’.",
+                "Ang aspect ang nagpapakita ng plano."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Ana",
+                "t": "May pagsusulit ka ba bukas?",
+                "r": "",
+                "en": "Have you got an exam tomorrow?"
+              },
+              {
+                "sp": "Luis",
+                "t": "Oo, kasaysayan. Magrereview ako pagkatapos ng klase.",
+                "r": "",
+                "en": "Yes, history. I'll revise after class."
+              },
+              {
+                "sp": "Ana",
+                "t": "Sa library tayo mag-aral?",
+                "r": "",
+                "en": "Shall we study in the library?"
+              },
+              {
+                "sp": "Luis",
+                "t": "Sige. Deadline ng notes ay ngayon.",
+                "r": "",
+                "en": "Yes. The notes deadline is today."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “pagsusulit” mean?",
+                "options": [
+                  "exam",
+                  "subject",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": "exam",
+                "why": "“pagsusulit” means “exam”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “exam” in Filipino?",
+                "answer": "pagsusulit",
+                "why": "The course word for “exam” is “pagsusulit”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “asignatura” mean?",
+                "options": [
+                  "subject",
+                  "exam",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": "subject",
+                "why": "“asignatura” means “subject”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “subject” in Filipino?",
+                "answer": "asignatura",
+                "why": "The course word for “subject” is “asignatura”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “takdang-aralin” mean?",
+                "options": [
+                  "homework",
+                  "exam",
+                  "subject",
+                  "timetable"
+                ],
+                "answer": "homework",
+                "why": "“takdang-aralin” means “homework”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “homework” in Filipino?",
+                "answer": "takdang-aralin",
+                "why": "The course word for “homework” is “takdang-aralin”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “iskedyul” mean?",
+                "options": [
+                  "timetable",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "timetable",
+                "why": "“iskedyul” means “timetable”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “timetable” in Filipino?",
+                "answer": "iskedyul",
+                "why": "The course word for “timetable” is “iskedyul”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “deadline” mean?",
+                "options": [
+                  "deadline",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "deadline",
+                "why": "“deadline” means “deadline”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “deadline” in Filipino?",
+                "answer": "deadline",
+                "why": "The course word for “deadline” is “deadline”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “magreview” mean?",
+                "options": [
+                  "revise",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "revise",
+                "why": "“magreview” means “revise”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “revise” in Filipino?",
+                "answer": "magreview",
+                "why": "The course word for “revise” is “magreview”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“pagsusulit” means:",
+                "options": [
+                  "exam",
+                  "subject",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“pagsusulit” = “exam”."
+              },
+              {
+                "q": "“asignatura” means:",
+                "options": [
+                  "subject",
+                  "exam",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“asignatura” = “subject”."
+              },
+              {
+                "q": "“takdang-aralin” means:",
+                "options": [
+                  "homework",
+                  "exam",
+                  "subject",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“takdang-aralin” = “homework”."
+              },
+              {
+                "q": "“iskedyul” means:",
+                "options": [
+                  "timetable",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": 0,
+                "why": "“iskedyul” = “timetable”."
+              },
+              {
+                "q": "“deadline” means:",
+                "options": [
+                  "deadline",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": 0,
+                "why": "“deadline” = “deadline”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Filipino word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "exam",
+                    "subject",
+                    "homework",
+                    "timetable",
+                    "deadline",
+                    "revise"
+                  ],
+                  "key": [
+                    "pagsusulit",
+                    "asignatura",
+                    "takdang-aralin",
+                    "iskedyul",
+                    "deadline",
+                    "magreview"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "pagsusulit",
+              "asignatura",
+              "takdang-aralin",
+              "iskedyul",
+              "deadline",
+              "magreview",
+              "leksiyon",
+              "notes"
+            ]
+          },
+          {
+            "id": "L2",
+            "title": "Hobbies and free time",
+            "learn": "Libangan: gusto + mag-.",
+            "vocab": [
+              {
+                "t": "libangan",
+                "r": "",
+                "en": "hobby",
+                "pos": "noun"
+              },
+              {
+                "t": "gitara",
+                "r": "",
+                "en": "guitar",
+                "pos": "noun"
+              },
+              {
+                "t": "koponan",
+                "r": "",
+                "en": "team",
+                "pos": "noun"
+              },
+              {
+                "t": "pagsasanay",
+                "r": "",
+                "en": "practice",
+                "pos": "noun"
+              },
+              {
+                "t": "linggo",
+                "r": "",
+                "en": "weekend",
+                "pos": "noun"
+              },
+              {
+                "t": "sumali",
+                "r": "",
+                "en": "join",
+                "pos": "verb"
+              },
+              {
+                "t": "konsiyerto",
+                "r": "",
+                "en": "concert",
+                "pos": "noun"
+              },
+              {
+                "t": "magguhit",
+                "r": "",
+                "en": "draw",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "gusto + mag-",
+              "explain": "Gusto ay sinusundan ng mag- o ng pangngalan.",
+              "pattern": "gusto kong tumugtog ng gitara",
+              "examples": [
+                {
+                  "t": "Gusto kong tumugtog ng gitara.",
+                  "r": "",
+                  "en": "I like playing guitar."
+                },
+                {
+                  "t": "Ayaw niyang maghintay.",
+                  "r": "",
+                  "en": "She doesn't like waiting."
+                },
+                {
+                  "t": "Gusto mo bang magguhit tuwing linggo?",
+                  "r": "",
+                  "en": "Do you like drawing at weekends?"
+                }
+              ],
+              "mistakes": [
+                "Huwag ‘ako gusto tumugtog’ nang walang kong.",
+                "gusto ko, ayaw niya."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Asha",
+                "t": "Ano'ng ginagawa mo tuwing linggo?",
+                "r": "",
+                "en": "What do you do at the weekend?"
+              },
+              {
+                "sp": "Ben",
+                "t": "Tumutugtog ako ng gitara. May konsiyerto sa Sabado.",
+                "r": "",
+                "en": "I play guitar. There's a concert on Saturday."
+              },
+              {
+                "sp": "Asha",
+                "t": "Gusto kong magguhit. Sasama ka?",
+                "r": "",
+                "en": "I like drawing. Are you coming?"
+              },
+              {
+                "sp": "Ben",
+                "t": "Pagkatapos ng pagsasanay.",
+                "r": "",
+                "en": "Yes, after practice."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “libangan” mean?",
+                "options": [
+                  "hobby",
+                  "guitar",
+                  "team",
+                  "practice"
+                ],
+                "answer": "hobby",
+                "why": "“libangan” means “hobby”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “hobby” in Filipino?",
+                "answer": "libangan",
+                "why": "The course word for “hobby” is “libangan”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “gitara” mean?",
+                "options": [
+                  "guitar",
+                  "hobby",
+                  "team",
+                  "practice"
+                ],
+                "answer": "guitar",
+                "why": "“gitara” means “guitar”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “guitar” in Filipino?",
+                "answer": "gitara",
+                "why": "The course word for “guitar” is “gitara”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “koponan” mean?",
+                "options": [
+                  "team",
+                  "hobby",
+                  "guitar",
+                  "practice"
+                ],
+                "answer": "team",
+                "why": "“koponan” means “team”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “team” in Filipino?",
+                "answer": "koponan",
+                "why": "The course word for “team” is “koponan”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “pagsasanay” mean?",
+                "options": [
+                  "practice",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "practice",
+                "why": "“pagsasanay” means “practice”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “practice” in Filipino?",
+                "answer": "pagsasanay",
+                "why": "The course word for “practice” is “pagsasanay”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “linggo” mean?",
+                "options": [
+                  "weekend",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "weekend",
+                "why": "“linggo” means “weekend”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “weekend” in Filipino?",
+                "answer": "linggo",
+                "why": "The course word for “weekend” is “linggo”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “sumali” mean?",
+                "options": [
+                  "join",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "join",
+                "why": "“sumali” means “join”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “join” in Filipino?",
+                "answer": "sumali",
+                "why": "The course word for “join” is “sumali”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“libangan” means:",
+                "options": [
+                  "hobby",
+                  "guitar",
+                  "team",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“libangan” = “hobby”."
+              },
+              {
+                "q": "“gitara” means:",
+                "options": [
+                  "guitar",
+                  "hobby",
+                  "team",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“gitara” = “guitar”."
+              },
+              {
+                "q": "“koponan” means:",
+                "options": [
+                  "team",
+                  "hobby",
+                  "guitar",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“koponan” = “team”."
+              },
+              {
+                "q": "“pagsasanay” means:",
+                "options": [
+                  "practice",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": 0,
+                "why": "“pagsasanay” = “practice”."
+              },
+              {
+                "q": "“linggo” means:",
+                "options": [
+                  "weekend",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": 0,
+                "why": "“linggo” = “weekend”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Filipino word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "hobby",
+                    "guitar",
+                    "team",
+                    "practice",
+                    "weekend",
+                    "join"
+                  ],
+                  "key": [
+                    "libangan",
+                    "gitara",
+                    "koponan",
+                    "pagsasanay",
+                    "linggo",
+                    "sumali"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "libangan",
+              "gitara",
+              "koponan",
+              "pagsasanay",
+              "linggo",
+              "sumali",
+              "konsiyerto",
+              "magguhit"
+            ]
+          },
+          {
+            "id": "L3",
+            "title": "Travel basics",
+            "learn": "Tiket.",
+            "vocab": [
+              {
+                "t": "plataporma",
+                "r": "",
+                "en": "platform",
+                "pos": "noun"
+              },
+              {
+                "t": "ticket na pauwi",
+                "r": "",
+                "en": "return ticket",
+                "pos": "noun"
+              },
+              {
+                "t": "delay",
+                "r": "",
+                "en": "delay",
+                "pos": "noun"
+              },
+              {
+                "t": "bagahe",
+                "r": "",
+                "en": "luggage",
+                "pos": "noun"
+              },
+              {
+                "t": "gate",
+                "r": "",
+                "en": "gate",
+                "pos": "noun"
+              },
+              {
+                "t": "pasaporte",
+                "r": "",
+                "en": "passport",
+                "pos": "noun"
+              },
+              {
+                "t": "mag-book",
+                "r": "",
+                "en": "book",
+                "pos": "verb"
+              },
+              {
+                "t": "lumipat ng tren",
+                "r": "",
+                "en": "change trains",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "kailangan + mag-",
+              "explain": "Panlabas na utos.",
+              "pattern": "kailangan mong ipakita ang pasaporte",
+              "examples": [
+                {
+                  "t": "Kailangan mong ipakita ang pasaporte.",
+                  "r": "",
+                  "en": "You have to show your passport."
+                },
+                {
+                  "t": "Kailangan nating lumipat sa Tarlac.",
+                  "r": "",
+                  "en": "We have to change in Tarlac."
+                },
+                {
+                  "t": "Hindi niya kailangang mag-book ngayon.",
+                  "r": "",
+                  "en": "He doesn't have to book today."
+                }
+              ],
+              "mistakes": [
+                "kailangan + ng tao + mag-.",
+                "hindi kailangan ≠ bawal."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Kwelyo",
+                "t": "One-way o pauwi?",
+                "r": "",
+                "en": "Single or return?"
+              },
+              {
+                "sp": "Nina",
+                "t": "Pauwi. Anong plataporma?",
+                "r": "",
+                "en": "Return. Which platform?"
+              },
+              {
+                "sp": "Kwelyo",
+                "t": "Apat. May maikling delay.",
+                "r": "",
+                "en": "Platform 4. There's a short delay."
+              },
+              {
+                "sp": "Nina",
+                "t": "Kailangan bang lumipat?",
+                "r": "",
+                "en": "Do I have to change?"
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “plataporma” mean?",
+                "options": [
+                  "platform",
+                  "return ticket",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": "platform",
+                "why": "“plataporma” means “platform”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “platform” in Filipino?",
+                "answer": "plataporma",
+                "why": "The course word for “platform” is “plataporma”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ticket na pauwi” mean?",
+                "options": [
+                  "return ticket",
+                  "platform",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": "return ticket",
+                "why": "“ticket na pauwi” means “return ticket”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “return ticket” in Filipino?",
+                "answer": "ticket na pauwi",
+                "why": "The course word for “return ticket” is “ticket na pauwi”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “delay” mean?",
+                "options": [
+                  "delay",
+                  "platform",
+                  "return ticket",
+                  "luggage"
+                ],
+                "answer": "delay",
+                "why": "“delay” means “delay”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “delay” in Filipino?",
+                "answer": "delay",
+                "why": "The course word for “delay” is “delay”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “bagahe” mean?",
+                "options": [
+                  "luggage",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "luggage",
+                "why": "“bagahe” means “luggage”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “luggage” in Filipino?",
+                "answer": "bagahe",
+                "why": "The course word for “luggage” is “bagahe”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “gate” mean?",
+                "options": [
+                  "gate",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "gate",
+                "why": "“gate” means “gate”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “gate” in Filipino?",
+                "answer": "gate",
+                "why": "The course word for “gate” is “gate”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “pasaporte” mean?",
+                "options": [
+                  "passport",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "passport",
+                "why": "“pasaporte” means “passport”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “passport” in Filipino?",
+                "answer": "pasaporte",
+                "why": "The course word for “passport” is “pasaporte”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“plataporma” means:",
+                "options": [
+                  "platform",
+                  "return ticket",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“plataporma” = “platform”."
+              },
+              {
+                "q": "“ticket na pauwi” means:",
+                "options": [
+                  "return ticket",
+                  "platform",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“ticket na pauwi” = “return ticket”."
+              },
+              {
+                "q": "“delay” means:",
+                "options": [
+                  "delay",
+                  "platform",
+                  "return ticket",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“delay” = “delay”."
+              },
+              {
+                "q": "“bagahe” means:",
+                "options": [
+                  "luggage",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": 0,
+                "why": "“bagahe” = “luggage”."
+              },
+              {
+                "q": "“gate” means:",
+                "options": [
+                  "gate",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": 0,
+                "why": "“gate” = “gate”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Filipino word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "platform",
+                    "return ticket",
+                    "delay",
+                    "luggage",
+                    "gate",
+                    "passport"
+                  ],
+                  "key": [
+                    "plataporma",
+                    "ticket na pauwi",
+                    "delay",
+                    "bagahe",
+                    "gate",
+                    "pasaporte"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "plataporma",
+              "ticket na pauwi",
+              "delay",
+              "bagahe",
+              "gate",
+              "pasaporte",
+              "mag-book",
+              "lumipat ng tren"
+            ]
+          },
+          {
+            "id": "L4",
+            "title": "Food and restaurants",
+            "learn": "Restawran.",
+            "vocab": [
+              {
+                "t": "menu",
+                "r": "",
+                "en": "menu",
+                "pos": "noun"
+              },
+              {
+                "t": "bill",
+                "r": "",
+                "en": "bill",
+                "pos": "noun"
+              },
+              {
+                "t": "pampagana",
+                "r": "",
+                "en": "starter",
+                "pos": "noun"
+              },
+              {
+                "t": "allergy",
+                "r": "",
+                "en": "allergic",
+                "pos": "noun"
+              },
+              {
+                "t": "maanghang",
+                "r": "",
+                "en": "spicy",
+                "pos": "adj"
+              },
+              {
+                "t": "magrekomenda",
+                "r": "",
+                "en": "recommend",
+                "pos": "verb"
+              },
+              {
+                "t": "tip",
+                "r": "",
+                "en": "tip",
+                "pos": "noun"
+              },
+              {
+                "t": "mesa",
+                "r": "",
+                "en": "table",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "pwede po / gusto ko po",
+              "explain": "Magalang na order.",
+              "pattern": "gusto ko po ng sopas",
+              "examples": [
+                {
+                  "t": "Gusto ko po ng sopas.",
+                  "r": "",
+                  "en": "I'd like the soup."
+                },
+                {
+                  "t": "Gusto n'yo po bang maanghang?",
+                  "r": "",
+                  "en": "Would you like it spicy?"
+                },
+                {
+                  "t": "Patingin po ng menu.",
+                  "r": "",
+                  "en": "I'd like to see the menu."
+                }
+              ],
+              "mistakes": [
+                "Sa waiter, ‘bigay mo ’to’ ay magaspang.",
+                "po nagpapagalang."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Waiter",
+                "t": "Pwede na po bang umorder?",
+                "r": "",
+                "en": "Ready to order?"
+              },
+              {
+                "sp": "Sam",
+                "t": "Pasta po. Maanghang ba?",
+                "r": "",
+                "en": "I'd like the pasta. Is it spicy?"
+              },
+              {
+                "sp": "Waiter",
+                "t": "Konti. May allergy po ba?",
+                "r": "",
+                "en": "A little. Are you allergic?"
+              },
+              {
+                "sp": "Sam",
+                "t": "Wala. Sa dulo na po ang bill.",
+                "r": "",
+                "en": "No. The bill at the end, please."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “menu” mean?",
+                "options": [
+                  "menu",
+                  "bill",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": "menu",
+                "why": "“menu” means “menu”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “menu” in Filipino?",
+                "answer": "menu",
+                "why": "The course word for “menu” is “menu”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “bill” mean?",
+                "options": [
+                  "bill",
+                  "menu",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": "bill",
+                "why": "“bill” means “bill”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “bill” in Filipino?",
+                "answer": "bill",
+                "why": "The course word for “bill” is “bill”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “pampagana” mean?",
+                "options": [
+                  "starter",
+                  "menu",
+                  "bill",
+                  "allergic"
+                ],
+                "answer": "starter",
+                "why": "“pampagana” means “starter”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “starter” in Filipino?",
+                "answer": "pampagana",
+                "why": "The course word for “starter” is “pampagana”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “allergy” mean?",
+                "options": [
+                  "allergic",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "allergic",
+                "why": "“allergy” means “allergic”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “allergic” in Filipino?",
+                "answer": "allergy",
+                "why": "The course word for “allergic” is “allergy”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “maanghang” mean?",
+                "options": [
+                  "spicy",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "spicy",
+                "why": "“maanghang” means “spicy”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “spicy” in Filipino?",
+                "answer": "maanghang",
+                "why": "The course word for “spicy” is “maanghang”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “magrekomenda” mean?",
+                "options": [
+                  "recommend",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "recommend",
+                "why": "“magrekomenda” means “recommend”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “recommend” in Filipino?",
+                "answer": "magrekomenda",
+                "why": "The course word for “recommend” is “magrekomenda”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“menu” means:",
+                "options": [
+                  "menu",
+                  "bill",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“menu” = “menu”."
+              },
+              {
+                "q": "“bill” means:",
+                "options": [
+                  "bill",
+                  "menu",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“bill” = “bill”."
+              },
+              {
+                "q": "“pampagana” means:",
+                "options": [
+                  "starter",
+                  "menu",
+                  "bill",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“pampagana” = “starter”."
+              },
+              {
+                "q": "“allergy” means:",
+                "options": [
+                  "allergic",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": 0,
+                "why": "“allergy” = “allergic”."
+              },
+              {
+                "q": "“maanghang” means:",
+                "options": [
+                  "spicy",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": 0,
+                "why": "“maanghang” = “spicy”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Filipino word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "menu",
+                    "bill",
+                    "starter",
+                    "allergic",
+                    "spicy",
+                    "recommend"
+                  ],
+                  "key": [
+                    "menu",
+                    "bill",
+                    "pampagana",
+                    "allergy",
+                    "maanghang",
+                    "magrekomenda"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "menu",
+              "bill",
+              "pampagana",
+              "allergy",
+              "maanghang",
+              "magrekomenda",
+              "tip",
+              "mesa"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Unit 2",
+        "title": "Filipino A3 — second half",
+        "lessons": [
+          {
+            "id": "L5",
+            "title": "Friends and social life",
+            "learn": "Anyaya.",
+            "vocab": [
+              {
+                "t": "anyaya",
+                "r": "",
+                "en": "invitation",
+                "pos": "noun"
+              },
+              {
+                "t": "abala",
+                "r": "",
+                "en": "busy",
+                "pos": "adj"
+              },
+              {
+                "t": "magkita",
+                "r": "",
+                "en": "catch up",
+                "pos": "verb"
+              },
+              {
+                "t": "magdala",
+                "r": "",
+                "en": "bring",
+                "pos": "verb"
+              },
+              {
+                "t": "party",
+                "r": "",
+                "en": "party",
+                "pos": "noun"
+              },
+              {
+                "t": "libre",
+                "r": "",
+                "en": "free",
+                "pos": "adj"
+              },
+              {
+                "t": "baka",
+                "r": "",
+                "en": "maybe",
+                "pos": "noun"
+              },
+              {
+                "t": "sa susunod na linggo",
+                "r": "",
+                "en": "next week",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "baka / tayo",
+              "explain": "Mungkahi.",
+              "pattern": "magkita tayo nang alas-siyete?",
+              "examples": [
+                {
+                  "t": "Magkita tayo nang alas-siyete?",
+                  "r": "",
+                  "en": "Why don't we meet at seven?"
+                },
+                {
+                  "t": "Sa susunod na linggo na lang?",
+                  "r": "",
+                  "en": "What if we catch up next week?"
+                },
+                {
+                  "t": "Magdala tayo ng pagkain.",
+                  "r": "",
+                  "en": "Let's bring some food."
+                }
+              ],
+              "mistakes": [
+                "Ang ‘hindi’ lang ay matigas: magbigay ng dahilan.",
+                "tayo ay sama-sama, hindi utos."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Riya",
+                "t": "May party sa Biyernes. Punta tayo?",
+                "r": "",
+                "en": "There's a party Friday. Shall we go?"
+              },
+              {
+                "sp": "Omar",
+                "t": "Abala ako sa Biyernes. Sa susunod na linggo?",
+                "r": "",
+                "en": "I'm busy Friday. Next week?"
+              },
+              {
+                "sp": "Riya",
+                "t": "Linggo? Libre ako pagkatapos ng alas-sais.",
+                "r": "",
+                "en": "Sunday? I'm free after six."
+              },
+              {
+                "sp": "Omar",
+                "t": "Sige. Ako ang magdadala ng panghimagas.",
+                "r": "",
+                "en": "Perfect. I'll bring dessert."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “anyaya” mean?",
+                "options": [
+                  "invitation",
+                  "busy",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": "invitation",
+                "why": "“anyaya” means “invitation”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “invitation” in Filipino?",
+                "answer": "anyaya",
+                "why": "The course word for “invitation” is “anyaya”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “abala” mean?",
+                "options": [
+                  "busy",
+                  "invitation",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": "busy",
+                "why": "“abala” means “busy”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “busy” in Filipino?",
+                "answer": "abala",
+                "why": "The course word for “busy” is “abala”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “magkita” mean?",
+                "options": [
+                  "catch up",
+                  "invitation",
+                  "busy",
+                  "bring"
+                ],
+                "answer": "catch up",
+                "why": "“magkita” means “catch up”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “catch up” in Filipino?",
+                "answer": "magkita",
+                "why": "The course word for “catch up” is “magkita”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “magdala” mean?",
+                "options": [
+                  "bring",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "bring",
+                "why": "“magdala” means “bring”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “bring” in Filipino?",
+                "answer": "magdala",
+                "why": "The course word for “bring” is “magdala”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “party” mean?",
+                "options": [
+                  "party",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "party",
+                "why": "“party” means “party”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “party” in Filipino?",
+                "answer": "party",
+                "why": "The course word for “party” is “party”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “libre” mean?",
+                "options": [
+                  "free",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "free",
+                "why": "“libre” means “free”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “free” in Filipino?",
+                "answer": "libre",
+                "why": "The course word for “free” is “libre”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“anyaya” means:",
+                "options": [
+                  "invitation",
+                  "busy",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“anyaya” = “invitation”."
+              },
+              {
+                "q": "“abala” means:",
+                "options": [
+                  "busy",
+                  "invitation",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“abala” = “busy”."
+              },
+              {
+                "q": "“magkita” means:",
+                "options": [
+                  "catch up",
+                  "invitation",
+                  "busy",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“magkita” = “catch up”."
+              },
+              {
+                "q": "“magdala” means:",
+                "options": [
+                  "bring",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": 0,
+                "why": "“magdala” = “bring”."
+              },
+              {
+                "q": "“party” means:",
+                "options": [
+                  "party",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": 0,
+                "why": "“party” = “party”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Filipino word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "invitation",
+                    "busy",
+                    "catch up",
+                    "bring",
+                    "party",
+                    "free"
+                  ],
+                  "key": [
+                    "anyaya",
+                    "abala",
+                    "magkita",
+                    "magdala",
+                    "party",
+                    "libre"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "anyaya",
+              "abala",
+              "magkita",
+              "magdala",
+              "party",
+              "libre",
+              "baka",
+              "sa susunod na linggo"
+            ]
+          },
+          {
+            "id": "L6",
+            "title": "Weather and plans",
+            "learn": "Panahon: kung.",
+            "vocab": [
+              {
+                "t": "taya",
+                "r": "",
+                "en": "forecast",
+                "pos": "noun"
+              },
+              {
+                "t": "ambon",
+                "r": "",
+                "en": "shower",
+                "pos": "noun"
+              },
+              {
+                "t": "mahalumigmig",
+                "r": "",
+                "en": "humid",
+                "pos": "adj"
+              },
+              {
+                "t": "kanselahin",
+                "r": "",
+                "en": "cancel",
+                "pos": "verb"
+              },
+              {
+                "t": "sa loob",
+                "r": "",
+                "en": "indoor",
+                "pos": "noun"
+              },
+              {
+                "t": "payong",
+                "r": "",
+                "en": "umbrella",
+                "pos": "noun"
+              },
+              {
+                "t": "degree",
+                "r": "",
+                "en": "degree",
+                "pos": "noun"
+              },
+              {
+                "t": "lumilinaw",
+                "r": "",
+                "en": "clear up",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "kung + aspect",
+              "explain": "Totoong kundisyon.",
+              "pattern": "kung umulan, kakanselahin namin",
+              "examples": [
+                {
+                  "t": "Kung umulan, kakanselahin namin ang picnic.",
+                  "r": "",
+                  "en": "If it rains, we'll cancel the picnic."
+                },
+                {
+                  "t": "Kung maganda ang taya, maglalakad kami.",
+                  "r": "",
+                  "en": "If the forecast is good, we'll walk."
+                },
+                {
+                  "t": "Kung hindi lumilinaw, sa loob kami.",
+                  "r": "",
+                  "en": "If it doesn't clear up, we'll stay inside."
+                }
+              ],
+              "mistakes": [
+                "Huwag magpatong ng dalawang future sa kung.",
+                "kung ang kundisyon."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Jen",
+                "t": "Uulan daw ayon sa taya.",
+                "r": "",
+                "en": "The forecast says showers."
+              },
+              {
+                "sp": "Kai",
+                "t": "Kung umulan, sa museo tayo.",
+                "r": "",
+                "en": "If it rains, we'll go to the museum."
+              },
+              {
+                "sp": "Jen",
+                "t": "Magdala pa rin ng payong.",
+                "r": "",
+                "en": "Take an umbrella anyway."
+              },
+              {
+                "sp": "Kai",
+                "t": "Kung lumininaw, maglakad tayo sa ilog.",
+                "r": "",
+                "en": "If it clears up, we'll walk by the river."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “taya” mean?",
+                "options": [
+                  "forecast",
+                  "shower",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": "forecast",
+                "why": "“taya” means “forecast”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “forecast” in Filipino?",
+                "answer": "taya",
+                "why": "The course word for “forecast” is “taya”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ambon” mean?",
+                "options": [
+                  "shower",
+                  "forecast",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": "shower",
+                "why": "“ambon” means “shower”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “shower” in Filipino?",
+                "answer": "ambon",
+                "why": "The course word for “shower” is “ambon”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “mahalumigmig” mean?",
+                "options": [
+                  "humid",
+                  "forecast",
+                  "shower",
+                  "cancel"
+                ],
+                "answer": "humid",
+                "why": "“mahalumigmig” means “humid”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “humid” in Filipino?",
+                "answer": "mahalumigmig",
+                "why": "The course word for “humid” is “mahalumigmig”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “kanselahin” mean?",
+                "options": [
+                  "cancel",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "cancel",
+                "why": "“kanselahin” means “cancel”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “cancel” in Filipino?",
+                "answer": "kanselahin",
+                "why": "The course word for “cancel” is “kanselahin”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “sa loob” mean?",
+                "options": [
+                  "indoor",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "indoor",
+                "why": "“sa loob” means “indoor”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “indoor” in Filipino?",
+                "answer": "sa loob",
+                "why": "The course word for “indoor” is “sa loob”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “payong” mean?",
+                "options": [
+                  "umbrella",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "umbrella",
+                "why": "“payong” means “umbrella”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “umbrella” in Filipino?",
+                "answer": "payong",
+                "why": "The course word for “umbrella” is “payong”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“taya” means:",
+                "options": [
+                  "forecast",
+                  "shower",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“taya” = “forecast”."
+              },
+              {
+                "q": "“ambon” means:",
+                "options": [
+                  "shower",
+                  "forecast",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“ambon” = “shower”."
+              },
+              {
+                "q": "“mahalumigmig” means:",
+                "options": [
+                  "humid",
+                  "forecast",
+                  "shower",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“mahalumigmig” = “humid”."
+              },
+              {
+                "q": "“kanselahin” means:",
+                "options": [
+                  "cancel",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": 0,
+                "why": "“kanselahin” = “cancel”."
+              },
+              {
+                "q": "“sa loob” means:",
+                "options": [
+                  "indoor",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": 0,
+                "why": "“sa loob” = “indoor”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Filipino word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "forecast",
+                    "shower",
+                    "humid",
+                    "cancel",
+                    "indoor",
+                    "umbrella"
+                  ],
+                  "key": [
+                    "taya",
+                    "ambon",
+                    "mahalumigmig",
+                    "kanselahin",
+                    "sa loob",
+                    "payong"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "taya",
+              "ambon",
+              "mahalumigmig",
+              "kanselahin",
+              "sa loob",
+              "payong",
+              "degree",
+              "lumilinaw"
+            ]
+          },
+          {
+            "id": "L7",
+            "title": "Shopping and money",
+            "learn": "Pamimili.",
+            "vocab": [
+              {
+                "t": "sukat",
+                "r": "",
+                "en": "size",
+                "pos": "noun"
+              },
+              {
+                "t": "resibo",
+                "r": "",
+                "en": "receipt",
+                "pos": "noun"
+              },
+              {
+                "t": "refund",
+                "r": "",
+                "en": "refund",
+                "pos": "noun"
+              },
+              {
+                "t": "diskwento",
+                "r": "",
+                "en": "discount",
+                "pos": "noun"
+              },
+              {
+                "t": "cash",
+                "r": "",
+                "en": "cash",
+                "pos": "noun"
+              },
+              {
+                "t": "kard",
+                "r": "",
+                "en": "card",
+                "pos": "noun"
+              },
+              {
+                "t": "kasya",
+                "r": "",
+                "en": "fit",
+                "pos": "verb"
+              },
+              {
+                "t": "palitan",
+                "r": "",
+                "en": "exchange",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "mas … kaysa",
+              "explain": "Paghahambing.",
+              "pattern": "mas mura ang damit na ito kaysa doon",
+              "examples": [
+                {
+                  "t": "Mas mura ang damit na ito kaysa doon.",
+                  "r": "",
+                  "en": "This shirt is cheaper than that one."
+                },
+                {
+                  "t": "Mas mahal ang asul.",
+                  "r": "",
+                  "en": "The blue one is more expensive."
+                },
+                {
+                  "t": "Mas kasya ang size M.",
+                  "r": "",
+                  "en": "Size M fits better."
+                }
+              ],
+              "mistakes": [
+                "Huwag ‘mas mas mura’.",
+                "kaysa ang ikalawang panig."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Tindahan",
+                "t": "Kard o cash?",
+                "r": "",
+                "en": "Card or cash?"
+              },
+              {
+                "sp": "Lila",
+                "t": "Kard. May mas maliit na sukat?",
+                "r": "",
+                "en": "Card. Have you got a smaller size?"
+              },
+              {
+                "sp": "Tindahan",
+                "t": "Meron. Itago ang resibo para sa refund.",
+                "r": "",
+                "en": "Yes. Keep the receipt for a refund."
+              },
+              {
+                "sp": "Lila",
+                "t": "May student discount ba?",
+                "r": "",
+                "en": "Is there a student discount?"
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “sukat” mean?",
+                "options": [
+                  "size",
+                  "receipt",
+                  "refund",
+                  "discount"
+                ],
+                "answer": "size",
+                "why": "“sukat” means “size”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “size” in Filipino?",
+                "answer": "sukat",
+                "why": "The course word for “size” is “sukat”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “resibo” mean?",
+                "options": [
+                  "receipt",
+                  "size",
+                  "refund",
+                  "discount"
+                ],
+                "answer": "receipt",
+                "why": "“resibo” means “receipt”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “receipt” in Filipino?",
+                "answer": "resibo",
+                "why": "The course word for “receipt” is “resibo”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “refund” mean?",
+                "options": [
+                  "refund",
+                  "size",
+                  "receipt",
+                  "discount"
+                ],
+                "answer": "refund",
+                "why": "“refund” means “refund”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “refund” in Filipino?",
+                "answer": "refund",
+                "why": "The course word for “refund” is “refund”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “diskwento” mean?",
+                "options": [
+                  "discount",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "discount",
+                "why": "“diskwento” means “discount”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “discount” in Filipino?",
+                "answer": "diskwento",
+                "why": "The course word for “discount” is “diskwento”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “cash” mean?",
+                "options": [
+                  "cash",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "cash",
+                "why": "“cash” means “cash”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “cash” in Filipino?",
+                "answer": "cash",
+                "why": "The course word for “cash” is “cash”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “kard” mean?",
+                "options": [
+                  "card",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "card",
+                "why": "“kard” means “card”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “card” in Filipino?",
+                "answer": "kard",
+                "why": "The course word for “card” is “kard”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“sukat” means:",
+                "options": [
+                  "size",
+                  "receipt",
+                  "refund",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“sukat” = “size”."
+              },
+              {
+                "q": "“resibo” means:",
+                "options": [
+                  "receipt",
+                  "size",
+                  "refund",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“resibo” = “receipt”."
+              },
+              {
+                "q": "“refund” means:",
+                "options": [
+                  "refund",
+                  "size",
+                  "receipt",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“refund” = “refund”."
+              },
+              {
+                "q": "“diskwento” means:",
+                "options": [
+                  "discount",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": 0,
+                "why": "“diskwento” = “discount”."
+              },
+              {
+                "q": "“cash” means:",
+                "options": [
+                  "cash",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": 0,
+                "why": "“cash” = “cash”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Filipino word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "size",
+                    "receipt",
+                    "refund",
+                    "discount",
+                    "cash",
+                    "card"
+                  ],
+                  "key": [
+                    "sukat",
+                    "resibo",
+                    "refund",
+                    "diskwento",
+                    "cash",
+                    "kard"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "sukat",
+              "resibo",
+              "refund",
+              "diskwento",
+              "cash",
+              "kard",
+              "kasya",
+              "palitan"
+            ]
+          },
+          {
+            "id": "L8",
+            "title": "Daily routines and future plans",
+            "learn": "Gawi.",
+            "vocab": [
+              {
+                "t": "byahe",
+                "r": "",
+                "en": "commute",
+                "pos": "noun"
+              },
+              {
+                "t": "shift",
+                "r": "",
+                "en": "shift",
+                "pos": "noun"
+              },
+              {
+                "t": "alarm",
+                "r": "",
+                "en": "alarm",
+                "pos": "noun"
+              },
+              {
+                "t": "mag-ipon",
+                "r": "",
+                "en": "save",
+                "pos": "verb"
+              },
+              {
+                "t": "layunin",
+                "r": "",
+                "en": "goal",
+                "pos": "noun"
+              },
+              {
+                "t": "ugali",
+                "r": "",
+                "en": "habit",
+                "pos": "noun"
+              },
+              {
+                "t": "sa susunod na buwan",
+                "r": "",
+                "en": "next month",
+                "pos": "noun"
+              },
+              {
+                "t": "madalas",
+                "r": "",
+                "en": "usually",
+                "pos": "adv"
+              }
+            ],
+            "grammar": {
+              "title": "madalas + kasalukuyan vs mag-",
+              "explain": "Ang oras ay kasalukuyan; ang desisyon ay mag-.",
+              "pattern": "madalas akong umalis nang alas-siyete",
+              "examples": [
+                {
+                  "t": "Madalas akong umalis nang alas-siyete.",
+                  "r": "",
+                  "en": "I usually leave at seven."
+                },
+                {
+                  "t": "Sa susunod na buwan, mag-iipon ako.",
+                  "r": "",
+                  "en": "I'm going to save next month."
+                },
+                {
+                  "t": "Nagsisimula ang shift ko nang alas-nuwebe.",
+                  "r": "",
+                  "en": "My shift starts at nine."
+                }
+              ],
+              "mistakes": [
+                "Huwag gamitin ang mag- sa nakaimprentang oras.",
+                "Huwag ihalo ang kahapon sa mag-."
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "Dana",
+                "t": "Anong oras ka madalas nagsisimula?",
+                "r": "",
+                "en": "What time do you usually start?"
+              },
+              {
+                "sp": "Ned",
+                "t": "Alas-nuwebe. Papalitan ko sa susunod na buwan.",
+                "r": "",
+                "en": "The shift starts at nine. I'm going to change it next month."
+              },
+              {
+                "sp": "Dana",
+                "t": "Bakit?",
+                "r": "",
+                "en": "Why?"
+              },
+              {
+                "sp": "Ned",
+                "t": "Gusto ko ng mas maikling byahe. ’Yan ang layunin.",
+                "r": "",
+                "en": "I want a shorter commute. That's the goal."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “byahe” mean?",
+                "options": [
+                  "commute",
+                  "shift",
+                  "alarm",
+                  "save"
+                ],
+                "answer": "commute",
+                "why": "“byahe” means “commute”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “commute” in Filipino?",
+                "answer": "byahe",
+                "why": "The course word for “commute” is “byahe”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “shift” mean?",
+                "options": [
+                  "shift",
+                  "commute",
+                  "alarm",
+                  "save"
+                ],
+                "answer": "shift",
+                "why": "“shift” means “shift”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “shift” in Filipino?",
+                "answer": "shift",
+                "why": "The course word for “shift” is “shift”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “alarm” mean?",
+                "options": [
+                  "alarm",
+                  "commute",
+                  "shift",
+                  "save"
+                ],
+                "answer": "alarm",
+                "why": "“alarm” means “alarm”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “alarm” in Filipino?",
+                "answer": "alarm",
+                "why": "The course word for “alarm” is “alarm”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “mag-ipon” mean?",
+                "options": [
+                  "save",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "save",
+                "why": "“mag-ipon” means “save”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “save” in Filipino?",
+                "answer": "mag-ipon",
+                "why": "The course word for “save” is “mag-ipon”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “layunin” mean?",
+                "options": [
+                  "goal",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "goal",
+                "why": "“layunin” means “goal”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “goal” in Filipino?",
+                "answer": "layunin",
+                "why": "The course word for “goal” is “layunin”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ugali” mean?",
+                "options": [
+                  "habit",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "habit",
+                "why": "“ugali” means “habit”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “habit” in Filipino?",
+                "answer": "ugali",
+                "why": "The course word for “habit” is “ugali”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“byahe” means:",
+                "options": [
+                  "commute",
+                  "shift",
+                  "alarm",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“byahe” = “commute”."
+              },
+              {
+                "q": "“shift” means:",
+                "options": [
+                  "shift",
+                  "commute",
+                  "alarm",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“shift” = “shift”."
+              },
+              {
+                "q": "“alarm” means:",
+                "options": [
+                  "alarm",
+                  "commute",
+                  "shift",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“alarm” = “alarm”."
+              },
+              {
+                "q": "“mag-ipon” means:",
+                "options": [
+                  "save",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": 0,
+                "why": "“mag-ipon” = “save”."
+              },
+              {
+                "q": "“layunin” means:",
+                "options": [
+                  "goal",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": 0,
+                "why": "“layunin” = “goal”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Filipino word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "commute",
+                    "shift",
+                    "alarm",
+                    "save",
+                    "goal",
+                    "habit"
+                  ],
+                  "key": [
+                    "byahe",
+                    "shift",
+                    "alarm",
+                    "mag-ipon",
+                    "layunin",
+                    "ugali"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "byahe",
+              "shift",
+              "alarm",
+              "mag-ipon",
+              "layunin",
+              "ugali",
+              "sa susunod na buwan",
+              "madalas"
+            ]
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "A3 test",
+      "items": [
+        {
+          "type": "multiple_choice",
+          "q": "What does “pagsusulit” mean?",
+          "options": [
+            "exam",
+            "subject",
+            "homework",
+            "timetable"
+          ],
+          "answer": "exam",
+          "why": "From this A3 lesson: “pagsusulit” means “exam”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “asignatura” mean?",
+          "options": [
+            "subject",
+            "exam",
+            "homework",
+            "timetable"
+          ],
+          "answer": "subject",
+          "why": "From this A3 lesson: “asignatura” means “subject”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “libangan” mean?",
+          "options": [
+            "hobby",
+            "guitar",
+            "team",
+            "practice"
+          ],
+          "answer": "hobby",
+          "why": "From this A3 lesson: “libangan” means “hobby”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “gitara” mean?",
+          "options": [
+            "guitar",
+            "hobby",
+            "team",
+            "practice"
+          ],
+          "answer": "guitar",
+          "why": "From this A3 lesson: “gitara” means “guitar”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “plataporma” mean?",
+          "options": [
+            "platform",
+            "return ticket",
+            "delay",
+            "luggage"
+          ],
+          "answer": "platform",
+          "why": "From this A3 lesson: “plataporma” means “platform”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “ticket na pauwi” mean?",
+          "options": [
+            "return ticket",
+            "platform",
+            "delay",
+            "luggage"
+          ],
+          "answer": "return ticket",
+          "why": "From this A3 lesson: “ticket na pauwi” means “return ticket”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “menu” mean?",
+          "options": [
+            "menu",
+            "bill",
+            "starter",
+            "allergic"
+          ],
+          "answer": "menu",
+          "why": "From this A3 lesson: “menu” means “menu”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “bill” mean?",
+          "options": [
+            "bill",
+            "menu",
+            "starter",
+            "allergic"
+          ],
+          "answer": "bill",
+          "why": "From this A3 lesson: “bill” means “bill”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “anyaya” mean?",
+          "options": [
+            "invitation",
+            "busy",
+            "catch up",
+            "bring"
+          ],
+          "answer": "invitation",
+          "why": "From this A3 lesson: “anyaya” means “invitation”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “abala” mean?",
+          "options": [
+            "busy",
+            "invitation",
+            "catch up",
+            "bring"
+          ],
+          "answer": "busy",
+          "why": "From this A3 lesson: “abala” means “busy”."
+        }
+      ]
+    }
   }
 }

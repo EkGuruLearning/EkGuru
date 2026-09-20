@@ -5,16 +5,2722 @@
   "phase": "phase-2",
   "medium": "en",
   "file_level": "A3",
-  "content_status": "INCOMPLETE",
-  "indexable": false,
+  "content_status": "REAL",
+  "indexable": true,
   "ekguru_extension": true,
   "cefr_equivalent": null,
   "cefr_note": "EkGuru A2→B1 bridge. Not a CEFR level.",
-  "reason": "EkGuru A2→B1 bridge. Not a CEFR level.",
   "level": {
     "id": "A3",
-    "title": "Urdu A3 — not published",
-    "goals": [],
-    "units": []
+    "title": "Urdu A3",
+    "goals": [
+      "Handle a short Urdu exchange about school and studies.",
+      "Handle a short Urdu exchange about hobbies and free time.",
+      "Handle a short Urdu exchange about travel basics.",
+      "Handle a short Urdu exchange about food and restaurants.",
+      "Handle a short Urdu exchange about friends and social life.",
+      "Handle a short Urdu exchange about weather and plans.",
+      "Handle a short Urdu exchange about shopping and money.",
+      "Handle a short Urdu exchange about daily routines and future plans."
+    ],
+    "units": [
+      {
+        "id": "Unit 1",
+        "title": "Urdu A3 — first half",
+        "lessons": [
+          {
+            "id": "L1",
+            "title": "School and studies",
+            "learn": "قریب کے منصوبے: والا / نے والا۔",
+            "vocab": [
+              {
+                "t": "امتحان",
+                "r": "imtihān",
+                "en": "exam",
+                "pos": "noun"
+              },
+              {
+                "t": "مضمون",
+                "r": "mazmūn",
+                "en": "subject",
+                "pos": "noun"
+              },
+              {
+                "t": "ہوم ورک",
+                "r": "homework",
+                "en": "homework",
+                "pos": "noun"
+              },
+              {
+                "t": "ٹائم ٹیبل",
+                "r": "time table",
+                "en": "timetable",
+                "pos": "noun"
+              },
+              {
+                "t": "آخری تاریخ",
+                "r": "ākhirī tārīkh",
+                "en": "deadline",
+                "pos": "noun"
+              },
+              {
+                "t": "دہрана",
+                "r": "dohrānā",
+                "en": "revise",
+                "pos": "verb"
+              },
+              {
+                "t": "لیکچر",
+                "r": "lecture",
+                "en": "lecture",
+                "pos": "noun"
+              },
+              {
+                "t": "نوٹس",
+                "r": "notes",
+                "en": "notes",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "والا",
+              "explain": "پکی قریبی پلان۔",
+              "pattern": "میں رات کو دہرانے والا ہوں",
+              "examples": [
+                {
+                  "t": "میں رات کو دہرانے والا ہوں۔",
+                  "r": "main rāt ko dohrāne vālā hū̃",
+                  "en": "I'm going to revise tonight."
+                },
+                {
+                  "t": "وہ لیکچر چھوڑنے والی ہے۔",
+                  "r": "vo lecture choṛne vālī hai",
+                  "en": "She's going to miss the lecture."
+                },
+                {
+                  "t": "کیا تم ہوم ورک ختم کرنے والے ہو؟",
+                  "r": "kyā tum homework khatm karne vāle ho?",
+                  "en": "Are you going to finish the homework?"
+                }
+              ],
+              "mistakes": [
+                "میں والا ہوں دہرانا غلط ہے۔",
+                "جنس کے مطابق والا/والی۔"
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "آنا",
+                "t": "کل امتحان ہے؟",
+                "r": "kal imtihān hai?",
+                "en": "Have you got an exam tomorrow?"
+              },
+              {
+                "sp": "لوئس",
+                "t": "ہاں، تاریخ کا۔ کلاس کے بعد دہرانے والا ہوں۔",
+                "r": "hā̃, tārīkh kā. class ke baʿd dohrāne vālā hū̃.",
+                "en": "Yes, history. I'll revise after class."
+              },
+              {
+                "sp": "آنا",
+                "t": "لائبریری میں پڑھیں؟",
+                "r": "library mẽ paṛhẽ?",
+                "en": "Shall we study in the library?"
+              },
+              {
+                "sp": "لوئس",
+                "t": "ہاں۔ نوٹس کی آخری تاریخ آج ہے۔",
+                "r": "hā̃. notes kī ākhirī tārīkh āj hai.",
+                "en": "Yes. The notes deadline is today."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “امتحان” mean?",
+                "options": [
+                  "exam",
+                  "subject",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": "exam",
+                "why": "“امتحان” means “exam”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “exam” in Urdu?",
+                "answer": "امتحان",
+                "why": "The course word for “exam” is “امتحان”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “مضمون” mean?",
+                "options": [
+                  "subject",
+                  "exam",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": "subject",
+                "why": "“مضمون” means “subject”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “subject” in Urdu?",
+                "answer": "مضمون",
+                "why": "The course word for “subject” is “مضمون”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ہوم ورک” mean?",
+                "options": [
+                  "homework",
+                  "exam",
+                  "subject",
+                  "timetable"
+                ],
+                "answer": "homework",
+                "why": "“ہوم ورک” means “homework”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “homework” in Urdu?",
+                "answer": "ہوم ورک",
+                "why": "The course word for “homework” is “ہوم ورک”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ٹائم ٹیبل” mean?",
+                "options": [
+                  "timetable",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "timetable",
+                "why": "“ٹائم ٹیبل” means “timetable”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “timetable” in Urdu?",
+                "answer": "ٹائم ٹیبل",
+                "why": "The course word for “timetable” is “ٹائم ٹیبل”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “آخری تاریخ” mean?",
+                "options": [
+                  "deadline",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "deadline",
+                "why": "“آخری تاریخ” means “deadline”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “deadline” in Urdu?",
+                "answer": "آخری تاریخ",
+                "why": "The course word for “deadline” is “آخری تاریخ”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “دہрана” mean?",
+                "options": [
+                  "revise",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": "revise",
+                "why": "“دہрана” means “revise”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “revise” in Urdu?",
+                "answer": "دہрана",
+                "why": "The course word for “revise” is “دہрана”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“امتحان” means:",
+                "options": [
+                  "exam",
+                  "subject",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“امتحان” = “exam”."
+              },
+              {
+                "q": "“مضمون” means:",
+                "options": [
+                  "subject",
+                  "exam",
+                  "homework",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“مضمون” = “subject”."
+              },
+              {
+                "q": "“ہوم ورک” means:",
+                "options": [
+                  "homework",
+                  "exam",
+                  "subject",
+                  "timetable"
+                ],
+                "answer": 0,
+                "why": "“ہوم ورک” = “homework”."
+              },
+              {
+                "q": "“ٹائم ٹیبل” means:",
+                "options": [
+                  "timetable",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": 0,
+                "why": "“ٹائم ٹیبل” = “timetable”."
+              },
+              {
+                "q": "“آخری تاریخ” means:",
+                "options": [
+                  "deadline",
+                  "exam",
+                  "subject",
+                  "homework"
+                ],
+                "answer": 0,
+                "why": "“آخری تاریخ” = “deadline”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Urdu word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "exam",
+                    "subject",
+                    "homework",
+                    "timetable",
+                    "deadline",
+                    "revise"
+                  ],
+                  "key": [
+                    "امتحان",
+                    "مضمون",
+                    "ہوم ورک",
+                    "ٹائم ٹیبل",
+                    "آخری تاریخ",
+                    "دہрана"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "امتحان",
+              "مضمون",
+              "ہوم ورک",
+              "ٹائم ٹیبل",
+              "آخری تاریخ",
+              "دہрана",
+              "لیکچر",
+              "نوٹس"
+            ]
+          },
+          {
+            "id": "L2",
+            "title": "Hobbies and free time",
+            "learn": "پسند: کو اچھا لگنا۔",
+            "vocab": [
+              {
+                "t": "شوق",
+                "r": "shauq",
+                "en": "hobby",
+                "pos": "noun"
+              },
+              {
+                "t": "گٹار",
+                "r": "giṭār",
+                "en": "guitar",
+                "pos": "noun"
+              },
+              {
+                "t": "ٹیم",
+                "r": "ṭīm",
+                "en": "team",
+                "pos": "noun"
+              },
+              {
+                "t": "مشق",
+                "r": "mashq",
+                "en": "practice",
+                "pos": "noun"
+              },
+              {
+                "t": "ہفتے کا آخر",
+                "r": "hafte kā ākhir",
+                "en": "weekend",
+                "pos": "noun"
+              },
+              {
+                "t": "شامل ہونا",
+                "r": "shāmil honā",
+                "en": "join",
+                "pos": "verb"
+              },
+              {
+                "t": "کنسرٹ",
+                "r": "concert",
+                "en": "concert",
+                "pos": "noun"
+              },
+              {
+                "t": "رسم کرنا",
+                "r": "rasm karnā",
+                "en": "draw",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "کو اچھا لگنا",
+              "explain": "جسے پسند ہو وہ کو میں آتا ہے۔",
+              "pattern": "مجھے گٹار بجانا اچھا لگتا ہے",
+              "examples": [
+                {
+                  "t": "مجھے گٹار بجانا اچھا لگتا ہے۔",
+                  "r": "mujhe giṭār bajānā acchā lagtā hai",
+                  "en": "I like playing guitar."
+                },
+                {
+                  "t": "اسے انتظار اچھا نہیں لگتا۔",
+                  "r": "use intizār acchā nahī̃ lagtā",
+                  "en": "She doesn't like waiting."
+                },
+                {
+                  "t": "کیا تمہیں ہفتے کے آخر میں رسم کرنا اچھا لگتا ہے؟",
+                  "r": "kyā tumhẽ hafte ke ākhir mẽ rasm karnā acchā lagtā hai?",
+                  "en": "Do you like drawing at weekends?"
+                }
+              ],
+              "mistakes": [
+                "میں اچھا لگتا ہوں گٹار غلط ہے۔",
+                "لگنا فعل چیز سے ملتا ہے، میں سے نہیں۔"
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "آشا",
+                "t": "ہفتے کے آخر میں کیا کرتے ہو؟",
+                "r": "hafte ke ākhir mẽ kyā karte ho?",
+                "en": "What do you do at the weekend?"
+              },
+              {
+                "sp": "بن",
+                "t": "گٹار بجاتا ہوں۔ ہفتے کو کنسرٹ ہے۔",
+                "r": "giṭār bajātā hū̃. hafte ko concert hai.",
+                "en": "I play guitar. There's a concert on Saturday."
+              },
+              {
+                "sp": "آشا",
+                "t": "مجھے رسم کرنا اچھا لگتا ہے۔ چلو گے؟",
+                "r": "mujhe rasm karnā acchā lagtā hai. chalo ge?",
+                "en": "I like drawing. Are you coming?"
+              },
+              {
+                "sp": "بن",
+                "t": "ہاں، مشق کے بعد۔",
+                "r": "hā̃, mashq ke baʿd.",
+                "en": "Yes, after practice."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “شوق” mean?",
+                "options": [
+                  "hobby",
+                  "guitar",
+                  "team",
+                  "practice"
+                ],
+                "answer": "hobby",
+                "why": "“شوق” means “hobby”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “hobby” in Urdu?",
+                "answer": "شوق",
+                "why": "The course word for “hobby” is “شوق”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “گٹار” mean?",
+                "options": [
+                  "guitar",
+                  "hobby",
+                  "team",
+                  "practice"
+                ],
+                "answer": "guitar",
+                "why": "“گٹار” means “guitar”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “guitar” in Urdu?",
+                "answer": "گٹار",
+                "why": "The course word for “guitar” is “گٹار”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ٹیم” mean?",
+                "options": [
+                  "team",
+                  "hobby",
+                  "guitar",
+                  "practice"
+                ],
+                "answer": "team",
+                "why": "“ٹیم” means “team”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “team” in Urdu?",
+                "answer": "ٹیم",
+                "why": "The course word for “team” is “ٹیم”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “مشق” mean?",
+                "options": [
+                  "practice",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "practice",
+                "why": "“مشق” means “practice”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “practice” in Urdu?",
+                "answer": "مشق",
+                "why": "The course word for “practice” is “مشق”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ہفتے کا آخر” mean?",
+                "options": [
+                  "weekend",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "weekend",
+                "why": "“ہفتے کا آخر” means “weekend”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “weekend” in Urdu?",
+                "answer": "ہفتے کا آخر",
+                "why": "The course word for “weekend” is “ہفتے کا آخر”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “شامل ہونا” mean?",
+                "options": [
+                  "join",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": "join",
+                "why": "“شامل ہونا” means “join”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “join” in Urdu?",
+                "answer": "شامل ہونا",
+                "why": "The course word for “join” is “شامل ہونا”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“شوق” means:",
+                "options": [
+                  "hobby",
+                  "guitar",
+                  "team",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“شوق” = “hobby”."
+              },
+              {
+                "q": "“گٹار” means:",
+                "options": [
+                  "guitar",
+                  "hobby",
+                  "team",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“گٹار” = “guitar”."
+              },
+              {
+                "q": "“ٹیم” means:",
+                "options": [
+                  "team",
+                  "hobby",
+                  "guitar",
+                  "practice"
+                ],
+                "answer": 0,
+                "why": "“ٹیم” = “team”."
+              },
+              {
+                "q": "“مشق” means:",
+                "options": [
+                  "practice",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": 0,
+                "why": "“مشق” = “practice”."
+              },
+              {
+                "q": "“ہفتے کا آخر” means:",
+                "options": [
+                  "weekend",
+                  "hobby",
+                  "guitar",
+                  "team"
+                ],
+                "answer": 0,
+                "why": "“ہفتے کا آخر” = “weekend”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Urdu word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "hobby",
+                    "guitar",
+                    "team",
+                    "practice",
+                    "weekend",
+                    "join"
+                  ],
+                  "key": [
+                    "شوق",
+                    "گٹار",
+                    "ٹیم",
+                    "مشق",
+                    "ہفتے کا آخر",
+                    "شامل ہونا"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "شوق",
+              "گٹار",
+              "ٹیم",
+              "مشق",
+              "ہفتے کا آخر",
+              "شامل ہونا",
+              "کنسرٹ",
+              "رسم کرنا"
+            ]
+          },
+          {
+            "id": "L3",
+            "title": "Travel basics",
+            "learn": "ٹکٹ اور پلیٹ فارم۔",
+            "vocab": [
+              {
+                "t": "پلیٹ فارم",
+                "r": "platform",
+                "en": "platform",
+                "pos": "noun"
+              },
+              {
+                "t": "واپسی ٹکٹ",
+                "r": "vāpsī ṭikaṭ",
+                "en": "return ticket",
+                "pos": "noun"
+              },
+              {
+                "t": "تاخیر",
+                "r": "tākhīr",
+                "en": "delay",
+                "pos": "noun"
+              },
+              {
+                "t": "سامان",
+                "r": "sāmān",
+                "en": "luggage",
+                "pos": "noun"
+              },
+              {
+                "t": "گیٹ",
+                "r": "gate",
+                "en": "gate",
+                "pos": "noun"
+              },
+              {
+                "t": "پاسپورٹ",
+                "r": "passport",
+                "en": "passport",
+                "pos": "noun"
+              },
+              {
+                "t": "بک کرنا",
+                "r": "buk karnā",
+                "en": "book",
+                "pos": "verb"
+              },
+              {
+                "t": "گاڑی بدلنا",
+                "r": "gāṛī badalnā",
+                "en": "change trains",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "کو پڑنا",
+              "explain": "باہر کی ضرورت۔",
+              "pattern": "تمہیں پاسپورٹ دکھانا پڑے گا",
+              "examples": [
+                {
+                  "t": "تمہیں پاسپورٹ دکھانا پڑے گا۔",
+                  "r": "tumhẽ passport dikhānā paṛe gā",
+                  "en": "You have to show your passport."
+                },
+                {
+                  "t": "ہمیں لاہور میں گاڑی بدلنی ہے۔",
+                  "r": "hamẽ Lāhor mẽ gāṛī badalnī hai",
+                  "en": "We have to change in Lahore."
+                },
+                {
+                  "t": "اسے آج بک نہیں کرنا۔",
+                  "r": "use āj buk nahī̃ karnā",
+                  "en": "He doesn't have to book today."
+                }
+              ],
+              "mistakes": [
+                "تم پڑنا ہے غلط ہے — کو چاہیے۔",
+                "نہیں کرنا = ضرورت نہیں، منع نہیں۔"
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "کلرک",
+                "t": "ایک طرف یا واپسی؟",
+                "r": "ek taraf yā vāpsī?",
+                "en": "Single or return?"
+              },
+              {
+                "sp": "نینا",
+                "t": "واپسی۔ کون سا پلیٹ فارم؟",
+                "r": "vāpsī. kaun sā platform?",
+                "en": "Return. Which platform?"
+              },
+              {
+                "sp": "کلرک",
+                "t": "چار۔ تھوڑی تاخیر ہے۔",
+                "r": "cār. thoṛī tākhīr hai.",
+                "en": "Platform 4. There's a short delay."
+              },
+              {
+                "sp": "نینا",
+                "t": "گاڑی بدلنی پڑے گی؟",
+                "r": "gāṛī badalnī paṛe gī?",
+                "en": "Do I have to change?"
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “پلیٹ فارم” mean?",
+                "options": [
+                  "platform",
+                  "return ticket",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": "platform",
+                "why": "“پلیٹ فارم” means “platform”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “platform” in Urdu?",
+                "answer": "پلیٹ فارم",
+                "why": "The course word for “platform” is “پلیٹ فارم”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “واپسی ٹکٹ” mean?",
+                "options": [
+                  "return ticket",
+                  "platform",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": "return ticket",
+                "why": "“واپسی ٹکٹ” means “return ticket”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “return ticket” in Urdu?",
+                "answer": "واپسی ٹکٹ",
+                "why": "The course word for “return ticket” is “واپسی ٹکٹ”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “تاخیر” mean?",
+                "options": [
+                  "delay",
+                  "platform",
+                  "return ticket",
+                  "luggage"
+                ],
+                "answer": "delay",
+                "why": "“تاخیر” means “delay”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “delay” in Urdu?",
+                "answer": "تاخیر",
+                "why": "The course word for “delay” is “تاخیر”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “سامان” mean?",
+                "options": [
+                  "luggage",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "luggage",
+                "why": "“سامان” means “luggage”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “luggage” in Urdu?",
+                "answer": "سامان",
+                "why": "The course word for “luggage” is “سامان”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “گیٹ” mean?",
+                "options": [
+                  "gate",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "gate",
+                "why": "“گیٹ” means “gate”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “gate” in Urdu?",
+                "answer": "گیٹ",
+                "why": "The course word for “gate” is “گیٹ”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “پاسپورٹ” mean?",
+                "options": [
+                  "passport",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": "passport",
+                "why": "“پاسپورٹ” means “passport”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “passport” in Urdu?",
+                "answer": "پاسپورٹ",
+                "why": "The course word for “passport” is “پاسپورٹ”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“پلیٹ فارم” means:",
+                "options": [
+                  "platform",
+                  "return ticket",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“پلیٹ فارم” = “platform”."
+              },
+              {
+                "q": "“واپسی ٹکٹ” means:",
+                "options": [
+                  "return ticket",
+                  "platform",
+                  "delay",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“واپسی ٹکٹ” = “return ticket”."
+              },
+              {
+                "q": "“تاخیر” means:",
+                "options": [
+                  "delay",
+                  "platform",
+                  "return ticket",
+                  "luggage"
+                ],
+                "answer": 0,
+                "why": "“تاخیر” = “delay”."
+              },
+              {
+                "q": "“سامان” means:",
+                "options": [
+                  "luggage",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": 0,
+                "why": "“سامان” = “luggage”."
+              },
+              {
+                "q": "“گیٹ” means:",
+                "options": [
+                  "gate",
+                  "platform",
+                  "return ticket",
+                  "delay"
+                ],
+                "answer": 0,
+                "why": "“گیٹ” = “gate”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Urdu word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "platform",
+                    "return ticket",
+                    "delay",
+                    "luggage",
+                    "gate",
+                    "passport"
+                  ],
+                  "key": [
+                    "پلیٹ فارم",
+                    "واپسی ٹکٹ",
+                    "تاخیر",
+                    "سامان",
+                    "گیٹ",
+                    "پاسپورٹ"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "پلیٹ فارم",
+              "واپسی ٹکٹ",
+              "تاخیر",
+              "سامان",
+              "گیٹ",
+              "پاسپورٹ",
+              "بک کرنا",
+              "گاڑی بدلنا"
+            ]
+          },
+          {
+            "id": "L4",
+            "title": "Food and restaurants",
+            "learn": "ریستوران۔",
+            "vocab": [
+              {
+                "t": "مینیو",
+                "r": "menu",
+                "en": "menu",
+                "pos": "noun"
+              },
+              {
+                "t": "بل",
+                "r": "bil",
+                "en": "bill",
+                "pos": "noun"
+              },
+              {
+                "t": "سٹارٹر",
+                "r": "starter",
+                "en": "starter",
+                "pos": "noun"
+              },
+              {
+                "t": "الرجی",
+                "r": "allergy",
+                "en": "allergic",
+                "pos": "noun"
+              },
+              {
+                "t": "تیز",
+                "r": "tez",
+                "en": "spicy",
+                "pos": "adj"
+              },
+              {
+                "t": "تجویز دینا",
+                "r": "tajvīz denā",
+                "en": "recommend",
+                "pos": "verb"
+              },
+              {
+                "t": "ٹپ",
+                "r": "ṭip",
+                "en": "tip",
+                "pos": "noun"
+              },
+              {
+                "t": "میز",
+                "r": "mez",
+                "en": "table",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "چاہیے / لوں گا",
+              "explain": "شائستہ آرڈر۔",
+              "pattern": "مجھے سوپ چاہیے",
+              "examples": [
+                {
+                  "t": "مجھے سوپ چاہیے۔",
+                  "r": "mujhe sūp cāhie",
+                  "en": "I'd like the soup."
+                },
+                {
+                  "t": "تیز رکھوں؟",
+                  "r": "tez rakhū̃?",
+                  "en": "Would you like it spicy?"
+                },
+                {
+                  "t": "مینیو دیکھنا چاہوں گا۔",
+                  "r": "menu dekhnā cāhū̃ gā",
+                  "en": "I'd like to see the menu."
+                }
+              ],
+              "mistakes": [
+                "ویٹر سے صرف ‘دو’ سخت لگتا ہے۔",
+                "چاہیے کے بعد اسم صاف رکھیں۔"
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "ویٹر",
+                "t": "آرڈر کریں گے؟",
+                "r": "order karẽ ge?",
+                "en": "Ready to order?"
+              },
+              {
+                "sp": "سیم",
+                "t": "پاستا لوں گا۔ تیز ہے؟",
+                "r": "pāstā lū̃ gā. tez hai?",
+                "en": "I'd like the pasta. Is it spicy?"
+              },
+              {
+                "sp": "ویٹر",
+                "t": "تھوڑا۔ الرجی تو نہیں؟",
+                "r": "thoṛā. allergy to nahī̃?",
+                "en": "A little. Are you allergic?"
+              },
+              {
+                "sp": "سیم",
+                "t": "نہیں۔ آخر میں بل دیجیے۔",
+                "r": "nahī̃. ākhir mẽ bil dījie.",
+                "en": "No. The bill at the end, please."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “مینیو” mean?",
+                "options": [
+                  "menu",
+                  "bill",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": "menu",
+                "why": "“مینیو” means “menu”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “menu” in Urdu?",
+                "answer": "مینیو",
+                "why": "The course word for “menu” is “مینیو”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “بل” mean?",
+                "options": [
+                  "bill",
+                  "menu",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": "bill",
+                "why": "“بل” means “bill”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “bill” in Urdu?",
+                "answer": "بل",
+                "why": "The course word for “bill” is “بل”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “سٹارٹر” mean?",
+                "options": [
+                  "starter",
+                  "menu",
+                  "bill",
+                  "allergic"
+                ],
+                "answer": "starter",
+                "why": "“سٹارٹر” means “starter”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “starter” in Urdu?",
+                "answer": "سٹارٹر",
+                "why": "The course word for “starter” is “سٹارٹر”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “الرجی” mean?",
+                "options": [
+                  "allergic",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "allergic",
+                "why": "“الرجی” means “allergic”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “allergic” in Urdu?",
+                "answer": "الرجی",
+                "why": "The course word for “allergic” is “الرجی”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “تیز” mean?",
+                "options": [
+                  "spicy",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "spicy",
+                "why": "“تیز” means “spicy”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “spicy” in Urdu?",
+                "answer": "تیز",
+                "why": "The course word for “spicy” is “تیز”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “تجویز دینا” mean?",
+                "options": [
+                  "recommend",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": "recommend",
+                "why": "“تجویز دینا” means “recommend”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “recommend” in Urdu?",
+                "answer": "تجویز دینا",
+                "why": "The course word for “recommend” is “تجویز دینا”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“مینیو” means:",
+                "options": [
+                  "menu",
+                  "bill",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“مینیو” = “menu”."
+              },
+              {
+                "q": "“بل” means:",
+                "options": [
+                  "bill",
+                  "menu",
+                  "starter",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“بل” = “bill”."
+              },
+              {
+                "q": "“سٹارٹر” means:",
+                "options": [
+                  "starter",
+                  "menu",
+                  "bill",
+                  "allergic"
+                ],
+                "answer": 0,
+                "why": "“سٹارٹر” = “starter”."
+              },
+              {
+                "q": "“الرجی” means:",
+                "options": [
+                  "allergic",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": 0,
+                "why": "“الرجی” = “allergic”."
+              },
+              {
+                "q": "“تیز” means:",
+                "options": [
+                  "spicy",
+                  "menu",
+                  "bill",
+                  "starter"
+                ],
+                "answer": 0,
+                "why": "“تیز” = “spicy”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Urdu word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "menu",
+                    "bill",
+                    "starter",
+                    "allergic",
+                    "spicy",
+                    "recommend"
+                  ],
+                  "key": [
+                    "مینیو",
+                    "بل",
+                    "سٹارٹر",
+                    "الرجی",
+                    "تیز",
+                    "تجویز دینا"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "مینیو",
+              "بل",
+              "سٹارٹر",
+              "الرجی",
+              "تیز",
+              "تجویز دینا",
+              "ٹپ",
+              "میز"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Unit 2",
+        "title": "Urdu A3 — second half",
+        "lessons": [
+          {
+            "id": "L5",
+            "title": "Friends and social life",
+            "learn": "دعوت۔",
+            "vocab": [
+              {
+                "t": "دعوت",
+                "r": "daʿvat",
+                "en": "invitation",
+                "pos": "noun"
+              },
+              {
+                "t": "مصروف",
+                "r": "masrūf",
+                "en": "busy",
+                "pos": "adj"
+              },
+              {
+                "t": "ملنا",
+                "r": "milnā",
+                "en": "catch up",
+                "pos": "verb"
+              },
+              {
+                "t": "لانا",
+                "r": "lānā",
+                "en": "bring",
+                "pos": "verb"
+              },
+              {
+                "t": "پارٹی",
+                "r": "pārṭī",
+                "en": "party",
+                "pos": "noun"
+              },
+              {
+                "t": "فارغ",
+                "r": "fāriġ",
+                "en": "free",
+                "pos": "adj"
+              },
+              {
+                "t": "شاید",
+                "r": "shāyad",
+                "en": "maybe",
+                "pos": "noun"
+              },
+              {
+                "t": "اگلے ہفتے",
+                "r": "agle hafte",
+                "en": "next week",
+                "pos": "noun"
+              }
+            ],
+            "grammar": {
+              "title": "کیوں نہ",
+              "explain": "تجویز، حکم نہیں۔",
+              "pattern": "کیوں نہ سات بجے ملیں؟",
+              "examples": [
+                {
+                  "t": "کیوں نہ سات بجے ملیں؟",
+                  "r": "kyõ na sāt baje milẽ?",
+                  "en": "Why don't we meet at seven?"
+                },
+                {
+                  "t": "اگلے ہفتے کیوں نہ ملیں؟",
+                  "r": "agle hafte kyõ na milẽ?",
+                  "en": "What if we catch up next week?"
+                },
+                {
+                  "t": "کچھ کھانے کا لے آئیں۔",
+                  "r": "kuch khāne kā le āẽ",
+                  "en": "Let's bring some food."
+                }
+              ],
+              "mistakes": [
+                "صرف ‘نہیں’ سخت ہے — وجہ بتائیں۔",
+                "کیوں نہ کے بعد حال۔"
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "ریا",
+                "t": "جمعہ کو پارٹی ہے۔ چلیں؟",
+                "r": "jumʿah ko pārṭī hai. chalẽ?",
+                "en": "There's a party Friday. Shall we go?"
+              },
+              {
+                "sp": "عمر",
+                "t": "جمعہ مصروف ہوں۔ اگلے ہفتے؟",
+                "r": "jumʿah masrūf hū̃. agle hafte?",
+                "en": "I'm busy Friday. Next week?"
+              },
+              {
+                "sp": "ریا",
+                "t": "اتوار؟ چھ بجے بعد فارغ ہوں۔",
+                "r": "itvār? chah baje baʿd fāriġ hū̃.",
+                "en": "Sunday? I'm free after six."
+              },
+              {
+                "sp": "عمر",
+                "t": "ٹھیک۔ میٹھا میں لاتا ہوں۔",
+                "r": "ṭhīk. mīṭhā main lātā hū̃.",
+                "en": "Perfect. I'll bring dessert."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “دعوت” mean?",
+                "options": [
+                  "invitation",
+                  "busy",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": "invitation",
+                "why": "“دعوت” means “invitation”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “invitation” in Urdu?",
+                "answer": "دعوت",
+                "why": "The course word for “invitation” is “دعوت”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “مصروف” mean?",
+                "options": [
+                  "busy",
+                  "invitation",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": "busy",
+                "why": "“مصروف” means “busy”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “busy” in Urdu?",
+                "answer": "مصروف",
+                "why": "The course word for “busy” is “مصروف”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ملنا” mean?",
+                "options": [
+                  "catch up",
+                  "invitation",
+                  "busy",
+                  "bring"
+                ],
+                "answer": "catch up",
+                "why": "“ملنا” means “catch up”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “catch up” in Urdu?",
+                "answer": "ملنا",
+                "why": "The course word for “catch up” is “ملنا”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “لانا” mean?",
+                "options": [
+                  "bring",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "bring",
+                "why": "“لانا” means “bring”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “bring” in Urdu?",
+                "answer": "لانا",
+                "why": "The course word for “bring” is “لانا”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “پارٹی” mean?",
+                "options": [
+                  "party",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "party",
+                "why": "“پارٹی” means “party”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “party” in Urdu?",
+                "answer": "پارٹی",
+                "why": "The course word for “party” is “پارٹی”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “فارغ” mean?",
+                "options": [
+                  "free",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": "free",
+                "why": "“فارغ” means “free”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “free” in Urdu?",
+                "answer": "فارغ",
+                "why": "The course word for “free” is “فارغ”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“دعوت” means:",
+                "options": [
+                  "invitation",
+                  "busy",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“دعوت” = “invitation”."
+              },
+              {
+                "q": "“مصروف” means:",
+                "options": [
+                  "busy",
+                  "invitation",
+                  "catch up",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“مصروف” = “busy”."
+              },
+              {
+                "q": "“ملنا” means:",
+                "options": [
+                  "catch up",
+                  "invitation",
+                  "busy",
+                  "bring"
+                ],
+                "answer": 0,
+                "why": "“ملنا” = “catch up”."
+              },
+              {
+                "q": "“لانا” means:",
+                "options": [
+                  "bring",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": 0,
+                "why": "“لانا” = “bring”."
+              },
+              {
+                "q": "“پارٹی” means:",
+                "options": [
+                  "party",
+                  "invitation",
+                  "busy",
+                  "catch up"
+                ],
+                "answer": 0,
+                "why": "“پارٹی” = “party”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Urdu word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "invitation",
+                    "busy",
+                    "catch up",
+                    "bring",
+                    "party",
+                    "free"
+                  ],
+                  "key": [
+                    "دعوت",
+                    "مصروف",
+                    "ملنا",
+                    "لانا",
+                    "پارٹی",
+                    "فارغ"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "دعوت",
+              "مصروف",
+              "ملنا",
+              "لانا",
+              "پارٹی",
+              "فارغ",
+              "شاید",
+              "اگلے ہفتے"
+            ]
+          },
+          {
+            "id": "L6",
+            "title": "Weather and plans",
+            "learn": "موسم: اگر۔",
+            "vocab": [
+              {
+                "t": "پیش گوئی",
+                "r": "pesh goʾī",
+                "en": "forecast",
+                "pos": "noun"
+              },
+              {
+                "t": "بوچھاڑ",
+                "r": "bauchhāṛ",
+                "en": "shower",
+                "pos": "noun"
+              },
+              {
+                "t": "نمی",
+                "r": "namī",
+                "en": "humid",
+                "pos": "noun"
+              },
+              {
+                "t": "منسوخ کرنا",
+                "r": "mansūkh karnā",
+                "en": "cancel",
+                "pos": "verb"
+              },
+              {
+                "t": "اندر",
+                "r": "andar",
+                "en": "indoor",
+                "pos": "noun"
+              },
+              {
+                "t": "چھتری",
+                "r": "chhatrī",
+                "en": "umbrella",
+                "pos": "noun"
+              },
+              {
+                "t": "ڈگری",
+                "r": "degree",
+                "en": "degree",
+                "pos": "noun"
+              },
+              {
+                "t": "صاف ہونا",
+                "r": "sāf honā",
+                "en": "clear up",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "اگر + حال، تو",
+              "explain": "حقیقی شرط۔",
+              "pattern": "اگر بارش ہوئی تو منسوخ کریں گے",
+              "examples": [
+                {
+                  "t": "اگر بارش ہوئی تو پکنک منسوخ کریں گے۔",
+                  "r": "agar bārish huī to picnic mansūkh karẽ ge",
+                  "en": "If it rains, we'll cancel the picnic."
+                },
+                {
+                  "t": "اگر پیش گوئی اچھی رہی تو چلیں گے۔",
+                  "r": "agar pesh goʾī acchī rahī to chalẽ ge",
+                  "en": "If the forecast is good, we'll walk."
+                },
+                {
+                  "t": "اگر صاف نہ ہوا تو اندر رہیں گے۔",
+                  "r": "agar sāf na huā to andar rahẽ ge",
+                  "en": "If it doesn't clear up, we'll stay inside."
+                }
+              ],
+              "mistakes": [
+                "اگر کے بعد دو مستقبل نہ رکھیں۔",
+                "تو نتیجہ لاتا ہے۔"
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "جین",
+                "t": "پیش گوئی میں بوچھاڑ ہے۔",
+                "r": "pesh goʾī mẽ bauchhāṛ hai.",
+                "en": "The forecast says showers."
+              },
+              {
+                "sp": "کائی",
+                "t": "اگر بارش ہوئی تو میوزیم چلیں گے۔",
+                "r": "agar bārish huī to museum chalẽ ge.",
+                "en": "If it rains, we'll go to the museum."
+              },
+              {
+                "sp": "جین",
+                "t": "پھر بھی چھتری لینا۔",
+                "r": "phir bhī chhatrī lenā.",
+                "en": "Take an umbrella anyway."
+              },
+              {
+                "sp": "کائی",
+                "t": "اگر صاف ہوا تو دریا کنارے چلیں گے۔",
+                "r": "agar sāf huā to daryā kināre chalẽ ge.",
+                "en": "If it clears up, we'll walk by the river."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “پیش گوئی” mean?",
+                "options": [
+                  "forecast",
+                  "shower",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": "forecast",
+                "why": "“پیش گوئی” means “forecast”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “forecast” in Urdu?",
+                "answer": "پیش گوئی",
+                "why": "The course word for “forecast” is “پیش گوئی”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “بوچھاڑ” mean?",
+                "options": [
+                  "shower",
+                  "forecast",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": "shower",
+                "why": "“بوچھاڑ” means “shower”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “shower” in Urdu?",
+                "answer": "بوچھاڑ",
+                "why": "The course word for “shower” is “بوچھاڑ”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “نمی” mean?",
+                "options": [
+                  "humid",
+                  "forecast",
+                  "shower",
+                  "cancel"
+                ],
+                "answer": "humid",
+                "why": "“نمی” means “humid”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “humid” in Urdu?",
+                "answer": "نمی",
+                "why": "The course word for “humid” is “نمی”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “منسوخ کرنا” mean?",
+                "options": [
+                  "cancel",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "cancel",
+                "why": "“منسوخ کرنا” means “cancel”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “cancel” in Urdu?",
+                "answer": "منسوخ کرنا",
+                "why": "The course word for “cancel” is “منسوخ کرنا”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “اندر” mean?",
+                "options": [
+                  "indoor",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "indoor",
+                "why": "“اندر” means “indoor”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “indoor” in Urdu?",
+                "answer": "اندر",
+                "why": "The course word for “indoor” is “اندر”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “چھتری” mean?",
+                "options": [
+                  "umbrella",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": "umbrella",
+                "why": "“چھتری” means “umbrella”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “umbrella” in Urdu?",
+                "answer": "چھتری",
+                "why": "The course word for “umbrella” is “چھتری”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“پیش گوئی” means:",
+                "options": [
+                  "forecast",
+                  "shower",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“پیش گوئی” = “forecast”."
+              },
+              {
+                "q": "“بوچھاڑ” means:",
+                "options": [
+                  "shower",
+                  "forecast",
+                  "humid",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“بوچھاڑ” = “shower”."
+              },
+              {
+                "q": "“نمی” means:",
+                "options": [
+                  "humid",
+                  "forecast",
+                  "shower",
+                  "cancel"
+                ],
+                "answer": 0,
+                "why": "“نمی” = “humid”."
+              },
+              {
+                "q": "“منسوخ کرنا” means:",
+                "options": [
+                  "cancel",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": 0,
+                "why": "“منسوخ کرنا” = “cancel”."
+              },
+              {
+                "q": "“اندر” means:",
+                "options": [
+                  "indoor",
+                  "forecast",
+                  "shower",
+                  "humid"
+                ],
+                "answer": 0,
+                "why": "“اندر” = “indoor”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Urdu word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "forecast",
+                    "shower",
+                    "humid",
+                    "cancel",
+                    "indoor",
+                    "umbrella"
+                  ],
+                  "key": [
+                    "پیش گوئی",
+                    "بوچھاڑ",
+                    "نمی",
+                    "منسوخ کرنا",
+                    "اندر",
+                    "چھتری"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "پیش گوئی",
+              "بوچھاڑ",
+              "نمی",
+              "منسوخ کرنا",
+              "اندر",
+              "چھتری",
+              "ڈگری",
+              "صاف ہونا"
+            ]
+          },
+          {
+            "id": "L7",
+            "title": "Shopping and money",
+            "learn": "خرید۔",
+            "vocab": [
+              {
+                "t": "سائز",
+                "r": "size",
+                "en": "size",
+                "pos": "noun"
+              },
+              {
+                "t": "رسید",
+                "r": "rasīd",
+                "en": "receipt",
+                "pos": "noun"
+              },
+              {
+                "t": "واپسی",
+                "r": "vāpsī",
+                "en": "refund",
+                "pos": "noun"
+              },
+              {
+                "t": "رعایت",
+                "r": "riʿāyat",
+                "en": "discount",
+                "pos": "noun"
+              },
+              {
+                "t": "نقد",
+                "r": "naqd",
+                "en": "cash",
+                "pos": "noun"
+              },
+              {
+                "t": "کارڈ",
+                "r": "card",
+                "en": "card",
+                "pos": "noun"
+              },
+              {
+                "t": "فٹ ہونا",
+                "r": "fit honā",
+                "en": "fit",
+                "pos": "verb"
+              },
+              {
+                "t": "بدلنا",
+                "r": "badalnā",
+                "en": "exchange",
+                "pos": "verb"
+              }
+            ],
+            "grammar": {
+              "title": "اس سے + تر",
+              "explain": "سستا / مہنگا۔",
+              "pattern": "یہ قمیض اس سے سستی ہے",
+              "examples": [
+                {
+                  "t": "یہ قمیض اس سے سستی ہے۔",
+                  "r": "ye qamīz us se sastī hai",
+                  "en": "This shirt is cheaper than that one."
+                },
+                {
+                  "t": "نیلی زیادہ مہنگی ہے۔",
+                  "r": "nīlī ziyādah mahangī hai",
+                  "en": "The blue one is more expensive."
+                },
+                {
+                  "t": "ایم سائز بہتر بیٹھتا ہے۔",
+                  "r": "M size behtar baiṭhtā hai",
+                  "en": "Size M fits better."
+                }
+              ],
+              "mistakes": [
+                "زیادہ سستاتر نہ کہیں۔",
+                "اس سے دوسرا فریق ہے۔"
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "دکان",
+                "t": "کارڈ یا نقد؟",
+                "r": "card yā naqd?",
+                "en": "Card or cash?"
+              },
+              {
+                "sp": "لیلا",
+                "t": "کارڈ۔ چھوٹے سائز میں ہے؟",
+                "r": "card. choṭe size mẽ hai?",
+                "en": "Card. Have you got a smaller size?"
+              },
+              {
+                "sp": "دکان",
+                "t": "ہاں۔ واپسی کے لیے رسید رکھیں۔",
+                "r": "hā̃. vāpsī ke liye rasīd rakhẽ.",
+                "en": "Yes. Keep the receipt for a refund."
+              },
+              {
+                "sp": "لیلا",
+                "t": "طالب علم کی رعایت ہے؟",
+                "r": "ṭālib ʿilm kī riʿāyat hai?",
+                "en": "Is there a student discount?"
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “سائز” mean?",
+                "options": [
+                  "size",
+                  "receipt",
+                  "refund",
+                  "discount"
+                ],
+                "answer": "size",
+                "why": "“سائز” means “size”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “size” in Urdu?",
+                "answer": "سائز",
+                "why": "The course word for “size” is “سائز”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “رسید” mean?",
+                "options": [
+                  "receipt",
+                  "size",
+                  "refund",
+                  "discount"
+                ],
+                "answer": "receipt",
+                "why": "“رسید” means “receipt”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “receipt” in Urdu?",
+                "answer": "رسید",
+                "why": "The course word for “receipt” is “رسید”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “واپسی” mean?",
+                "options": [
+                  "refund",
+                  "size",
+                  "receipt",
+                  "discount"
+                ],
+                "answer": "refund",
+                "why": "“واپسی” means “refund”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “refund” in Urdu?",
+                "answer": "واپسی",
+                "why": "The course word for “refund” is “واپسی”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “رعایت” mean?",
+                "options": [
+                  "discount",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "discount",
+                "why": "“رعایت” means “discount”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “discount” in Urdu?",
+                "answer": "رعایت",
+                "why": "The course word for “discount” is “رعایت”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “نقد” mean?",
+                "options": [
+                  "cash",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "cash",
+                "why": "“نقد” means “cash”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “cash” in Urdu?",
+                "answer": "نقد",
+                "why": "The course word for “cash” is “نقد”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “کارڈ” mean?",
+                "options": [
+                  "card",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": "card",
+                "why": "“کارڈ” means “card”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “card” in Urdu?",
+                "answer": "کارڈ",
+                "why": "The course word for “card” is “کارڈ”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“سائز” means:",
+                "options": [
+                  "size",
+                  "receipt",
+                  "refund",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“سائز” = “size”."
+              },
+              {
+                "q": "“رسید” means:",
+                "options": [
+                  "receipt",
+                  "size",
+                  "refund",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“رسید” = “receipt”."
+              },
+              {
+                "q": "“واپسی” means:",
+                "options": [
+                  "refund",
+                  "size",
+                  "receipt",
+                  "discount"
+                ],
+                "answer": 0,
+                "why": "“واپسی” = “refund”."
+              },
+              {
+                "q": "“رعایت” means:",
+                "options": [
+                  "discount",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": 0,
+                "why": "“رعایت” = “discount”."
+              },
+              {
+                "q": "“نقد” means:",
+                "options": [
+                  "cash",
+                  "size",
+                  "receipt",
+                  "refund"
+                ],
+                "answer": 0,
+                "why": "“نقد” = “cash”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Urdu word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "size",
+                    "receipt",
+                    "refund",
+                    "discount",
+                    "cash",
+                    "card"
+                  ],
+                  "key": [
+                    "سائز",
+                    "رسید",
+                    "واپسی",
+                    "رعایت",
+                    "نقد",
+                    "کارڈ"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "سائز",
+              "رسید",
+              "واپسی",
+              "رعایت",
+              "نقد",
+              "کارڈ",
+              "فٹ ہونا",
+              "بدلنا"
+            ]
+          },
+          {
+            "id": "L8",
+            "title": "Daily routines and future plans",
+            "learn": "عادت اور پلان۔",
+            "vocab": [
+              {
+                "t": "آمد و رفت",
+                "r": "āmad-o-raft",
+                "en": "commute",
+                "pos": "noun"
+              },
+              {
+                "t": "شفٹ",
+                "r": "shift",
+                "en": "shift",
+                "pos": "noun"
+              },
+              {
+                "t": "الارم",
+                "r": "alarm",
+                "en": "alarm",
+                "pos": "noun"
+              },
+              {
+                "t": "بچانا",
+                "r": "bacānā",
+                "en": "save",
+                "pos": "verb"
+              },
+              {
+                "t": "ہدف",
+                "r": "hadaf",
+                "en": "goal",
+                "pos": "noun"
+              },
+              {
+                "t": "عادت",
+                "r": "ʿādat",
+                "en": "habit",
+                "pos": "noun"
+              },
+              {
+                "t": "اگلے مہینے",
+                "r": "agle mahīne",
+                "en": "next month",
+                "pos": "noun"
+              },
+              {
+                "t": "عام طور پر",
+                "r": "ʿām taur par",
+                "en": "usually",
+                "pos": "adv"
+              }
+            ],
+            "grammar": {
+              "title": "عادت: حال؛ پلان: والا",
+              "explain": "ٹائم ٹیبل حال میں؛ فیصلہ والا میں۔",
+              "pattern": "عام طور پر سات بجے نکلتا ہوں",
+              "examples": [
+                {
+                  "t": "عام طور پر سات بجے نکلتا ہوں۔",
+                  "r": "ʿām taur par sāt baje nikaltā hū̃",
+                  "en": "I usually leave at seven."
+                },
+                {
+                  "t": "اگلے مہینے پیسے بچانے والا ہوں۔",
+                  "r": "agle mahīne paise bacāne vālā hū̃",
+                  "en": "I'm going to save next month."
+                },
+                {
+                  "t": "میری شفٹ نو بجے شروع ہوتی ہے۔",
+                  "r": "merī shift nau baje shurū hotī hai",
+                  "en": "My shift starts at nine."
+                }
+              ],
+              "mistakes": [
+                "چھپے ہوئے ٹائم ٹیبل پر والا نہ لگائیں۔",
+                "کل اور والا ایک ساتھ نہ ملائیں۔"
+              ]
+            },
+            "dialogue": [
+              {
+                "sp": "ڈانا",
+                "t": "عام طور پر کب شروع کرتے ہو؟",
+                "r": "ʿām taur par kab shurū karte ho?",
+                "en": "What time do you usually start?"
+              },
+              {
+                "sp": "نیڈ",
+                "t": "شفٹ نو بجے۔ اگلے مہینے بدلنے والا ہوں۔",
+                "r": "shift nau baje. agle mahīne badalne vālā hū̃.",
+                "en": "The shift starts at nine. I'm going to change it next month."
+              },
+              {
+                "sp": "ڈانا",
+                "t": "کیوں؟",
+                "r": "kyõ?",
+                "en": "Why?"
+              },
+              {
+                "sp": "نیڈ",
+                "t": "چھوٹا راستہ چاہیے۔ یہی ہدف ہے۔",
+                "r": "choṭā rāstah cāhie. yahī hadaf hai.",
+                "en": "I want a shorter commute. That's the goal."
+              }
+            ],
+            "practice": [
+              {
+                "type": "multiple_choice",
+                "q": "What does “آمد و رفت” mean?",
+                "options": [
+                  "commute",
+                  "shift",
+                  "alarm",
+                  "save"
+                ],
+                "answer": "commute",
+                "why": "“آمد و رفت” means “commute”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “commute” in Urdu?",
+                "answer": "آمد و رفت",
+                "why": "The course word for “commute” is “آمد و رفت”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “شفٹ” mean?",
+                "options": [
+                  "shift",
+                  "commute",
+                  "alarm",
+                  "save"
+                ],
+                "answer": "shift",
+                "why": "“شفٹ” means “shift”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “shift” in Urdu?",
+                "answer": "شفٹ",
+                "why": "The course word for “shift” is “شفٹ”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “الارم” mean?",
+                "options": [
+                  "alarm",
+                  "commute",
+                  "shift",
+                  "save"
+                ],
+                "answer": "alarm",
+                "why": "“الارم” means “alarm”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “alarm” in Urdu?",
+                "answer": "الارم",
+                "why": "The course word for “alarm” is “الارم”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “بچانا” mean?",
+                "options": [
+                  "save",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "save",
+                "why": "“بچانا” means “save”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “save” in Urdu?",
+                "answer": "بچانا",
+                "why": "The course word for “save” is “بچانا”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “ہدف” mean?",
+                "options": [
+                  "goal",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "goal",
+                "why": "“ہدف” means “goal”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “goal” in Urdu?",
+                "answer": "ہدف",
+                "why": "The course word for “goal” is “ہدف”.",
+                "skill_target": "vocabulary production"
+              },
+              {
+                "type": "multiple_choice",
+                "q": "What does “عادت” mean?",
+                "options": [
+                  "habit",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": "habit",
+                "why": "“عادت” means “habit”.",
+                "skill_target": "vocabulary recognition"
+              },
+              {
+                "type": "translate_t",
+                "q": "How do you say “habit” in Urdu?",
+                "answer": "عادت",
+                "why": "The course word for “habit” is “عادت”.",
+                "skill_target": "vocabulary production"
+              }
+            ],
+            "quiz": [
+              {
+                "q": "“آمد و رفت” means:",
+                "options": [
+                  "commute",
+                  "shift",
+                  "alarm",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“آمد و رفت” = “commute”."
+              },
+              {
+                "q": "“شفٹ” means:",
+                "options": [
+                  "shift",
+                  "commute",
+                  "alarm",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“شفٹ” = “shift”."
+              },
+              {
+                "q": "“الارم” means:",
+                "options": [
+                  "alarm",
+                  "commute",
+                  "shift",
+                  "save"
+                ],
+                "answer": 0,
+                "why": "“الارم” = “alarm”."
+              },
+              {
+                "q": "“بچانا” means:",
+                "options": [
+                  "save",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": 0,
+                "why": "“بچانا” = “save”."
+              },
+              {
+                "q": "“ہدف” means:",
+                "options": [
+                  "goal",
+                  "commute",
+                  "shift",
+                  "alarm"
+                ],
+                "answer": 0,
+                "why": "“ہدف” = “goal”."
+              }
+            ],
+            "worksheet": {
+              "title": "Write the Urdu word",
+              "tasks": [
+                {
+                  "instruction": "Write the word that matches each English gloss. Use this lesson’s list, nothing else.",
+                  "items": [
+                    "commute",
+                    "shift",
+                    "alarm",
+                    "save",
+                    "goal",
+                    "habit"
+                  ],
+                  "key": [
+                    "آمد و رفت",
+                    "شفٹ",
+                    "الارم",
+                    "بچانا",
+                    "ہدف",
+                    "عادت"
+                  ]
+                }
+              ]
+            },
+            "srs_candidates": [
+              "آمد و رفت",
+              "شفٹ",
+              "الارم",
+              "بچانا",
+              "ہدف",
+              "عادت",
+              "اگلے مہینے",
+              "عام طور پر"
+            ]
+          }
+        ]
+      }
+    ],
+    "test": {
+      "title": "A3 test",
+      "items": [
+        {
+          "type": "multiple_choice",
+          "q": "What does “امتحان” mean?",
+          "options": [
+            "exam",
+            "subject",
+            "homework",
+            "timetable"
+          ],
+          "answer": "exam",
+          "why": "From this A3 lesson: “امتحان” means “exam”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “مضمون” mean?",
+          "options": [
+            "subject",
+            "exam",
+            "homework",
+            "timetable"
+          ],
+          "answer": "subject",
+          "why": "From this A3 lesson: “مضمون” means “subject”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “شوق” mean?",
+          "options": [
+            "hobby",
+            "guitar",
+            "team",
+            "practice"
+          ],
+          "answer": "hobby",
+          "why": "From this A3 lesson: “شوق” means “hobby”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “گٹار” mean?",
+          "options": [
+            "guitar",
+            "hobby",
+            "team",
+            "practice"
+          ],
+          "answer": "guitar",
+          "why": "From this A3 lesson: “گٹار” means “guitar”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “پلیٹ فارم” mean?",
+          "options": [
+            "platform",
+            "return ticket",
+            "delay",
+            "luggage"
+          ],
+          "answer": "platform",
+          "why": "From this A3 lesson: “پلیٹ فارم” means “platform”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “واپسی ٹکٹ” mean?",
+          "options": [
+            "return ticket",
+            "platform",
+            "delay",
+            "luggage"
+          ],
+          "answer": "return ticket",
+          "why": "From this A3 lesson: “واپسی ٹکٹ” means “return ticket”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “مینیو” mean?",
+          "options": [
+            "menu",
+            "bill",
+            "starter",
+            "allergic"
+          ],
+          "answer": "menu",
+          "why": "From this A3 lesson: “مینیو” means “menu”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “بل” mean?",
+          "options": [
+            "bill",
+            "menu",
+            "starter",
+            "allergic"
+          ],
+          "answer": "bill",
+          "why": "From this A3 lesson: “بل” means “bill”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “دعوت” mean?",
+          "options": [
+            "invitation",
+            "busy",
+            "catch up",
+            "bring"
+          ],
+          "answer": "invitation",
+          "why": "From this A3 lesson: “دعوت” means “invitation”."
+        },
+        {
+          "type": "multiple_choice",
+          "q": "What does “مصروف” mean?",
+          "options": [
+            "busy",
+            "invitation",
+            "catch up",
+            "bring"
+          ],
+          "answer": "busy",
+          "why": "From this A3 lesson: “مصروف” means “busy”."
+        }
+      ]
+    }
   }
 }
