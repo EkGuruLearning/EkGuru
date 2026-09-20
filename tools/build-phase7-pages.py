@@ -567,11 +567,11 @@ def patch_home():
         '    <div class="sec-head reveal">\n'
         '      <span class="kicker">Free language packs</span>\n'
         '      <h2>One engine, many languages</h2>\n'
-        '      <p class="lead">Full courses from English in %s. Free starter packs — %s — run on the same '
-        'engines with the same device-only review.</p>\n'
+        '      <p class="center xp-mid-cta" style="margin:12px 0 8px">'
+        '<a class="btn btn-primary" href="/courses/">Open the course library</a> '
+        '<a class="btn btn-ghost" href="/start/">Find my level</a></p>\n'
         '    </div>\n'
         '    <div class="lang-strip reveal center">%s</div>\n'
-        '    <p class="center" style="margin-top:18px"><a class="btn btn-ghost btn-sm" href="/languages/">See all languages</a></p>\n'
         '  </div>\n'
         '</section>\n'
         '<style>\n'
@@ -584,7 +584,7 @@ def patch_home():
         '@media(pointer:coarse){.lang-pill{min-height:44px}}\n'
         '</style>\n'
         '<!-- ekguru:languages-home:end -->\n'
-    ) % (course_names, names, pills)
+    ) % (pills)
     if "ekguru:languages-home:start" in html:
         i = html.index("<!-- ekguru:languages-home:start")
         j = html.index("<!-- ekguru:languages-home:end -->") + len("<!-- ekguru:languages-home:end -->")

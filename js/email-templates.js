@@ -1,644 +1,454 @@
 /* =========================================================
-   EkGuru — EMAIL TEMPLATES + ROUTING MATRIX  (single source of truth · v101)
-   ---------------------------------------------------------
-   EMAIL RESET: the copy is now SIMPLE, role-specific, and exactly
-   what the owner asked for. Seven message types, each with its own
-   wording — a student mail never reads like a tutor mail, and the
-   internal record never leaks to a public recipient.
-
-   The seven types:
-
-     BOOKING_STUDENT_CONFIRMATION   → the student
-     BOOKING_TUTOR_NOTIFICATION     → the tutor
-     BOOKING_EKGURU_NOTIFICATION    → EkGuru internal record
-     CONTACT_VISITOR_CONFIRMATION   → the visitor who wrote in
-     CONTACT_EKGURU_NOTIFICATION    → EkGuru internal record
-     ADMIN_CONTACT_OUTBOUND         → the recipient the admin wrote to
-     ADMIN_CONTACT_INTERNAL_COPY    → EkGuru internal copy
-
-   Each template declares its variable registry (allowedVars).
-   render() FAILS LOUDLY on an unknown type, a missing/undeclared/
-   null variable, a raw {placeholder} left in output, or an
-   unescaped <script>. A subject is one line (CR/LF collapsed, 150
-   chars) so a header can never be injected.
-
-   Design rules (§17/§18):
-     · From is ALWAYS the verified EkGuru sender (enforced by the
-       relay); Reply-To is per role and set at send time.
-     · Every user value is HTML-escaped. No raw user HTML.
-     · Only the internal templates carry operational detail
-       (delivery state, tutor email state, source page).
-
-   Consumed by:
-     · js/mailer.js          (renders html/text at send time)
-     · admin.html Mail Ops   (routing matrix + template preview)
-     · tools/test-email-system.js / tools/test-email-security.js
+   EkGuru — production email templates
+   Five public IDs + two admin extras. Missing fields are omitted.
    ========================================================= */
-(function () {
+(function (root) {
   "use strict";
 
   var BRAND = "EkGuru";
   var ACCENT = "#4f32d9";
   var SITE_URL = "https://ekguru.shop/";
-
-  /* ----------------------------------------------------------
-     SHARED DESIGN SYSTEM — one clean card, one footer (§18).
-     ---------------------------------------------------------- */
-  function shell(inner) {
-    return (
-      '<div style="background:#f5f6f8;padding:24px 12px;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#0f172a;">' +
-        '<table role="presentation" width="100%" style="max-width:640px;margin:0 auto;background:#ffffff;border-radius:12px;border:1px solid #e5e7eb;border-collapse:separate;border-spacing:0;">' +
-          '<tr><td style="padding:22px 24px 6px;">' +
-            '<div style="font-weight:800;letter-spacing:.06em;color:' + ACCENT + ';font-size:13px;">' + BRAND + '</div>' +
-          '</td></tr>' +
-          '<tr><td style="padding:6px 24px 18px;">' + inner + '</td></tr>' +
-          '<tr><td style="padding:14px 24px;border-top:1px solid #eef0f3;color:#94a3b8;font-size:12px;line-height:1.6;">' +
-            BRAND + ' · <a href="' + SITE_URL + '" style="color:' + ACCENT + ';text-decoration:none;">ekguru.shop</a>' +
-          '</td></tr>' +
-        '</table>' +
-      '</div>'
-    );
-  }
+  var SUPPORT = "EkGuruLearning@gmail.com";
 
   function esc(s) {
     return String(s == null ? "" : s)
-      .replace(/&/g, "&amp;").replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
+  function present(v) {
+    if (v == null) return false;
+    var s = String(v).trim();
+    if (!s) return false;
+    if (/^(undefined|null|n\/a|na)$/i.test(s)) return false;
+    return true;
+  }
+  function oneLine(s) {
+    return String(s == null ? "" : s).replace(/[\r\n\t]+/g, " ").trim().slice(0, 150);
+  }
+  function fill(str, data) {
+    return String(str).replace(/\{\{\s*([a-zA-Z0-9_]+)\s*\}\}/g, function (_, k) {
+      return present(data[k]) ? String(data[k]) : "";
+    }).replace(/\s{2,}/g, " ").replace(/\s+[—–-]\s*$/, "").trim();
+  }
+  function htmlToText(html) {
+    return String(html || "")
+      .replace(/<style[\s\S]*?<\/style>/gi, "")
+      .replace(/<br\s*\/?>/gi, "\n")
+      .replace(/<\/p>/gi, "\n")
+      .replace(/<\/tr>/gi, "\n")
+      .replace(/<\/h[1-6]>/gi, "\n")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&")
+      .replace(/&quot;/g, "\"").replace(/&#39;/g, "'")
+      .replace(/[ \t]+\n/g, "\n").replace(/\n{3,}/g, "\n\n")
+      .replace(/[ \t]{2,}/g, " ").trim();
   }
 
-  function badge(text, tone) {
-    var bg = tone === "ok" ? "#eef7f0" : tone === "warn" ? "#fff8e6" : "#eef0ff";
-    var fg = tone === "ok" ? "#12532a" : tone === "warn" ? "#8a5a00" : "#3b2fa8";
-    return '<span style="display:inline-block;background:' + bg + ';color:' + fg +
-      ';font-size:11px;font-weight:700;letter-spacing:.05em;padding:3px 10px;border-radius:999px;">' +
-      esc(text) + '</span>';
+  function shell(inner, preheader) {
+    return '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">' +
+      '<meta name="viewport" content="width=device-width">' +
+      "<title>" + esc(BRAND) + "</title></head>" +
+      '<body style="margin:0;padding:0;background:#f6f4ff;font-family:Inter,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#10131f;">' +
+      (present(preheader) ? '<div style="display:none;max-height:0;overflow:hidden;opacity:0">' + esc(preheader) + "</div>" : "") +
+      '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f6f4ff;padding:24px 12px"><tr><td align="center">' +
+      '<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#fff;border:1px solid #e4e4ef;border-radius:16px;overflow:hidden">' +
+      '<tr><td style="padding:18px 24px;background:linear-gradient(135deg,#4f32d9,#8b5cf6);color:#fff">' +
+      '<div style="font-weight:800;font-size:16px">EkGuru</div>' +
+      '<div style="font-size:12px;opacity:.9">One Student. One Goal. One Guru.</div></td></tr>' +
+      '<tr><td style="padding:28px 24px 12px">' + inner + "</td></tr>" +
+      '<tr><td style="padding:8px 24px 24px;color:#5f6577;font-size:12px;line-height:1.55">' +
+      "Sent by EkGuru because of a booking or form on " +
+      '<a href="' + SITE_URL + '" style="color:' + ACCENT + '">ekguru.shop</a>.' +
+      "</td></tr></table></td></tr></table></body></html>";
   }
-
+  function h1(t) {
+    return '<h1 style="margin:0 0 12px;font-size:22px;line-height:1.25">' + esc(t) + "</h1>";
+  }
+  function p(t) {
+    if (!present(t)) return "";
+    return '<p style="margin:0 0 14px;font-size:15px;line-height:1.65">' + esc(t) + "</p>";
+  }
   function row(label, value) {
-    if (value == null || value === "") return "";
-    return '<tr><td style="padding:7px 0;color:#64748b;font-size:12px;white-space:nowrap;vertical-align:top;width:150px;">' +
-      esc(label) + '</td><td style="padding:7px 0 7px 12px;color:#0f172a;font-size:14px;white-space:pre-wrap;">' +
-      esc(value) + '</td></tr>';
+    if (!present(value)) return "";
+    return '<tr><td style="padding:7px 0;color:#5f6577;font-size:13px;width:38%;vertical-align:top">' +
+      esc(label) + '</td><td style="padding:7px 0;font-size:14px;font-weight:600">' +
+      esc(value) + "</td></tr>";
+  }
+  function table(pairs) {
+    var inner = "";
+    (pairs || []).forEach(function (r) { inner += row(r[0], r[1]); });
+    if (!inner) return "";
+    return '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:8px 0 18px;border-top:1px solid #e4e4ef;border-bottom:1px solid #e4e4ef">' +
+      inner + "</table>";
+  }
+  function cta(href, label) {
+    if (!present(href) || !present(label)) return "";
+    return '<p style="margin:16px 0"><a href="' + esc(href) +
+      '" style="display:inline-block;background:' + ACCENT +
+      ';color:#fff;text-decoration:none;font-weight:700;padding:12px 18px;border-radius:999px">' +
+      esc(label) + "</a></p>";
   }
 
-  function table(rows) {
-    var inner = [];
-    rows.forEach(function (r) { var h = row(r[0], r[1]); if (h) inner.push(h); });
-    return '<table role="presentation" width="100%" style="border-collapse:collapse;">' +
-      inner.join("") + '</table>';
+  function norm(v) {
+    v = v || {};
+    var o = {};
+    Object.keys(v).forEach(function (k) { o[k] = v[k]; });
+    if (!present(o.sessionTitle) && present(o.lessonType)) o.sessionTitle = o.lessonType;
+    if (!present(o.bookingDate) && present(o.date)) o.bookingDate = o.date;
+    if (!present(o.bookingTime) && present(o.time)) o.bookingTime = o.time;
+    if (!present(o.name) && present(o.studentName)) o.name = o.studentName;
+    if (!present(o.name) && present(o.visitorName)) o.name = o.visitorName;
+    if (!present(o.email) && present(o.studentEmail)) o.email = o.studentEmail;
+    if (!present(o.email) && present(o.visitorEmail)) o.email = o.visitorEmail;
+    if (!present(o.pageUrl) && present(o.sourcePage)) o.pageUrl = o.sourcePage;
+    if (!present(o.bookingId) && present(o.contactId)) o.bookingId = o.contactId;
+    if (!present(o.notes) && present(o.studentRequirement)) o.notes = o.studentRequirement;
+    if (!present(o.subject) && present(o.adminSubject)) o.subject = o.adminSubject;
+    if (!present(o.body) && present(o.adminMessage)) o.body = o.adminMessage;
+    if (!present(o.to) && present(o.recipientEmail)) o.to = o.recipientEmail;
+    return o;
   }
 
-  function h2(t) { return '<h2 style="font-size:17px;margin:0 0 12px;font-weight:700;">' + esc(t) + '</h2>'; }
-  function p(t) { return '<p style="font-size:14px;line-height:1.7;margin:0 0 12px;color:#334155;">' + t + '</p>'; }
-  function list(items) {
-    return '<ul style="font-size:14px;line-height:1.7;margin:0 0 12px;padding-left:18px;color:#334155;">' +
-      items.map(function (i) { return "<li>" + i + "</li>"; }).join("") + '</ul>';
-  }
-
-  /* ----------------------------------------------------------
-     THE ROUTING MATRIX — machine-readable, one row per message.
-     ---------------------------------------------------------- */
-  var ROUTES = [
-    {
-      type: "BOOKING_STUDENT_CONFIRMATION",
-      role: "booking_student",
-      from: "verified EkGuru sender",
-      to: "exact booking student email",
-      replyTo: "official EkGuru support",
-      template: "bookingStudent"
-    },
-    {
-      type: "BOOKING_TUTOR_NOTIFICATION",
-      role: "booking_tutor",
-      from: "verified EkGuru sender",
-      to: "canonical tutor notification_email",
-      replyTo: "supported direct-response route (the student's email)",
-      template: "bookingTutor"
-    },
-    {
-      type: "BOOKING_EKGURU_NOTIFICATION",
-      role: "booking_internal",
-      from: "verified EkGuru sender",
-      to: "EkGuru internal inbox",
-      replyTo: "exact booking student email",
-      template: "bookingInternal"
-    },
-    {
-      type: "CONTACT_VISITOR_CONFIRMATION",
-      role: "contact_visitor",
-      from: "verified EkGuru sender",
-      to: "exact submitted visitor email",
-      replyTo: "official EkGuru support",
-      template: "contactVisitor"
-    },
-    {
-      type: "CONTACT_EKGURU_NOTIFICATION",
-      role: "contact_internal",
-      from: "verified EkGuru sender",
-      to: "EkGuru internal inbox",
-      replyTo: "exact visitor email",
-      template: "contactInternal"
-    },
-    {
-      type: "ADMIN_CONTACT_OUTBOUND",
-      role: "admin_outbound",
-      from: "verified EkGuru sender",
-      to: "exact admin-selected recipient",
-      replyTo: "official EkGuru support",
-      template: "adminOutbound"
-    },
-    {
-      type: "ADMIN_CONTACT_INTERNAL_COPY",
-      role: "admin_internal_copy",
-      from: "verified EkGuru sender",
-      to: "EkGuru internal inbox",
-      replyTo: "official EkGuru support",
-      template: "adminInternalCopy"
-    }
-  ];
-
-  var WHITELIST = ROUTES.map(function (r) { return r.type; });
-
-  /* ----------------------------------------------------------
-     TEMPLATES — SIMPLE, role-specific copy (§8–§13)
-     ---------------------------------------------------------- */
   var TEMPLATES = {
-
-    /* ============ BOOKING — STUDENT ============ */
-    bookingStudent: {
+    booking_student_confirmation: {
+      key: "bookingStudent",
       role: "student",
-      subject: function () { return "Congratulations — your booking request was received | EkGuru"; },
-      allowedVars: ["studentName", "bookingId", "tutorName", "studentRequirement",
-                    "date", "time", "timezone", "bookingStatus", "nextStep",
-                    "supportEmail", "siteUrl"],
+      subject: "Your EkGuru booking is confirmed — {{tutorName}}",
+      allowedVars: ["studentName", "tutorName", "sessionTitle", "bookingDate", "bookingTime", "duration", "amount", "bookingId", "bookingUrl", "date", "time", "lessonType", "studentRequirement", "timezone", "bookingStatus", "nextStep", "supportEmail", "siteUrl"],
       html: function (v) {
+        var who = present(v.studentName) ? "Hello " + v.studentName + "." : "Hello.";
         return shell(
-          h2("Booking request received") +
-          p("Hi " + esc(v.studentName) + ",") +
-          p("Congratulations! Your booking request has been received by EkGuru.") +
+          h1("Your booking is confirmed") +
+          p(who) +
+          p("This confirms your lesson" + (present(v.tutorName) ? " with " + v.tutorName : "") + " on EkGuru.") +
           table([
-            ["Reference Number", v.bookingId],
-            ["You requested a lesson with", v.tutorName],
-            ["Your message", v.studentRequirement],
-            ["Requested date", v.date],
-            ["Requested time", v.time],
-            ["Timezone", v.timezone],
-            ["Current status", v.bookingStatus],
-            ["What happens next", v.nextStep]
+            ["Tutor", v.tutorName],
+            ["Session", v.sessionTitle || v.lessonType],
+            ["Date", v.bookingDate || v.date],
+            ["Time", v.bookingTime || v.time],
+            ["Duration", v.duration],
+            ["Amount", v.amount],
+            ["Your message", v.studentRequirement || v.notes],
+            ["Booking ID", v.bookingId]
           ]) +
-          p('<span style="font-size:13px;color:#64748b;">Please keep your reference number for future communication.</span>')
+          cta(v.bookingUrl, "Open booking details") +
+          p(v.nextStep) +
+          p("If the time no longer works, reply to this email."),
+          "Your EkGuru lesson is booked."
         );
-      },
-      text: function (v) {
-        return [
-          "Hi " + v.studentName + ",", "",
-          "Congratulations! Your booking request has been received by EkGuru.", "",
-          "Reference Number:",
-          v.bookingId, "",
-          "You requested a lesson with:",
-          v.tutorName, "",
-          "Your message:",
-          v.studentRequirement, "",
-          "Requested date:",
-          v.date, "",
-          "Requested time:",
-          v.time, "",
-          "Timezone:",
-          v.timezone, "",
-          "Current status:",
-          v.bookingStatus, "",
-          "What happens next:",
-          v.nextStep, "",
-          "Please keep your reference number for future communication.", "",
-          "EkGuru",
-          v.siteUrl || SITE_URL
-        ].join("\n");
       }
     },
-
-    /* ============ BOOKING — TUTOR ============ */
-    bookingTutor: {
+    booking_tutor_notification: {
+      key: "bookingTutor",
       role: "tutor",
-      subject: function () { return "Congratulations — you have a new booking request | EkGuru"; },
-      allowedVars: ["tutorName", "bookingId", "studentName", "studentEmail",
-                    "date", "time", "timezone", "lessonType", "studentRequirement",
-                    "tutorNextAction", "tutorAltTimeInstruction",
-                    "supportEmail", "siteUrl"],
+      subject: "New booking on EkGuru — {{studentName}}",
+      allowedVars: ["tutorName", "studentName", "studentEmail", "sessionTitle", "bookingDate", "bookingTime", "duration", "amount", "notes", "bookingId", "bookingUrl", "date", "time", "timezone", "lessonType", "studentRequirement", "tutorNextAction", "tutorAltTimeInstruction", "supportEmail", "siteUrl"],
       html: function (v) {
         return shell(
-          h2("New booking request") +
-          p("Hi " + esc(v.tutorName) + ",") +
-          p("Congratulations! You have received a new booking request.") +
+          h1("You have a new booking") +
+          p("A student booked a lesson with you on EkGuru.") +
           table([
-            ["Reference Number", v.bookingId],
             ["Student", v.studentName],
-            ["Student Email", v.studentEmail],
-            ["Requested date", v.date],
-            ["Requested time", v.time],
-            ["Timezone", v.timezone],
-            ["Lesson", v.lessonType],
-            ["Student's message", v.studentRequirement],
-            ["What to do next", v.tutorNextAction]
+            ["Student email", v.studentEmail],
+            ["Session", v.sessionTitle || v.lessonType],
+            ["Date", v.bookingDate || v.date],
+            ["Time", v.bookingTime || v.time],
+            ["Duration", v.duration],
+            ["Amount", v.amount],
+            ["Notes", v.notes || v.studentRequirement],
+            ["Booking ID", v.bookingId]
           ]) +
-          p("You can respond with:") +
-          list([
-            "Available",
-            "Not available",
-            "Available at another time" + (v.tutorAltTimeInstruction ? ": " + esc(v.tutorAltTimeInstruction) : "")
-          ]) +
-          p("EkGuru will continue the booking process based on your response.")
+          cta(v.bookingUrl, "Open booking") +
+          p(v.tutorNextAction) +
+          p("Please confirm the meeting link with the student if you have not already."),
+          "New student booking on EkGuru."
         );
-      },
-      text: function (v) {
-        return [
-          "Hi " + v.tutorName + ",", "",
-          "Congratulations! You have received a new booking request.", "",
-          "Reference Number:",
-          v.bookingId, "",
-          "Student:",
-          v.studentName, "",
-          "Student Email:",
-          v.studentEmail, "",
-          "Requested date:",
-          v.date, "",
-          "Requested time:",
-          v.time, "",
-          "Timezone:",
-          v.timezone, "",
-          "Lesson:",
-          v.lessonType, "",
-          "Student's message:",
-          v.studentRequirement, "",
-          "What to do next:",
-          v.tutorNextAction, "",
-          "You can respond with:",
-          "- Available",
-          "- Not available",
-          "- Available at another time" + (v.tutorAltTimeInstruction ? ": " + v.tutorAltTimeInstruction : ""), "",
-          "EkGuru will continue the booking process based on your response.", "",
-          "EkGuru",
-          v.siteUrl || SITE_URL
-        ].join("\n");
       }
     },
-
-    /* ============ BOOKING — EKGURU INTERNAL ============ */
-    bookingInternal: {
+    booking_internal_record: {
+      key: "bookingInternal",
       role: "internal",
-      subject: function (v) { return "New booking request — " + v.studentName + " → " + v.tutorName + " | " + v.bookingId; },
-      allowedVars: ["bookingId", "studentName", "studentEmail", "tutorName", "tutorId",
-                    "tutorEmail", "date", "time", "timezone", "lessonType",
-                    "studentRequirement", "bookingStatus",
-                    "studentDeliveryStatus", "tutorDeliveryStatus", "internalDeliveryStatus",
-                    "adminNextAction", "sourcePage"],
+      subject: "Booking record — {{tutorName}} ← {{studentName}} — {{bookingId}}",
+      allowedVars: ["bookingId", "studentName", "studentEmail", "tutorName", "tutorId", "tutorEmail", "sessionTitle", "bookingDate", "bookingTime", "duration", "amount", "notes", "pageUrl", "date", "time", "timezone", "lessonType", "studentRequirement", "bookingStatus", "studentDeliveryStatus", "tutorDeliveryStatus", "internalDeliveryStatus", "adminNextAction", "sourcePage"],
       html: function (v) {
         return shell(
-          badge("EKGURU INTERNAL BOOKING", "warn") + '<div style="height:12px"></div>' +
+          h1("Internal booking record") +
+          p("A booking was stored. This copy is for EkGuru operations — it is not a payment receipt.") +
           table([
-            ["Reference Number", v.bookingId],
-            ["Student", v.studentName],
-            ["Student Email", v.studentEmail],
+            ["Booking ID", v.bookingId],
             ["Tutor", v.tutorName],
             ["Tutor ID", v.tutorId],
-            ["Tutor Email", v.tutorEmail],
-            ["Date", v.date],
-            ["Time", v.time],
-            ["Timezone", v.timezone],
-            ["Lesson", v.lessonType],
-            ["Student Message", v.studentRequirement],
-            ["Booking Status", v.bookingStatus],
-            ["Email Delivery — Student", v.studentDeliveryStatus],
-            ["Email Delivery — Tutor", v.tutorDeliveryStatus],
-            ["Email Delivery — Internal", v.internalDeliveryStatus],
-            ["Next Admin Action", v.adminNextAction],
-            ["Source", v.sourcePage]
-          ])
+            ["Tutor email", v.tutorEmail],
+            ["Student", v.studentName],
+            ["Student email", v.studentEmail],
+            ["Session", v.sessionTitle || v.lessonType],
+            ["Date", v.bookingDate || v.date],
+            ["Time", v.bookingTime || v.time],
+            ["Duration", v.duration],
+            ["Amount", v.amount],
+            ["Notes", v.notes || v.studentRequirement],
+            ["Status", v.bookingStatus],
+            ["Page", v.pageUrl || v.sourcePage]
+          ]),
+          "Internal booking record."
         );
-      },
-      text: function (v) {
-        return [
-          "EKGURU INTERNAL BOOKING", "",
-          "Reference Number:", v.bookingId, "",
-          "Student:", v.studentName,
-          "Student Email:", v.studentEmail, "",
-          "Tutor:", v.tutorName,
-          "Tutor ID:", v.tutorId,
-          "Tutor Email:", v.tutorEmail, "",
-          "Date:", v.date,
-          "Time:", v.time,
-          "Timezone:", v.timezone, "",
-          "Lesson:", v.lessonType, "",
-          "Student Message:", v.studentRequirement, "",
-          "Booking Status:", v.bookingStatus, "",
-          "Email Delivery:",
-          "Student: " + v.studentDeliveryStatus,
-          "Tutor: " + v.tutorDeliveryStatus,
-          "Internal: " + v.internalDeliveryStatus, "",
-          "Next Admin Action:", v.adminNextAction, "",
-          "Source:", v.sourcePage
-        ].join("\n");
       }
     },
-
-    /* ============ CONTACT — VISITOR ============ */
-    contactVisitor: {
-      role: "visitor",
-      subject: function () { return "We received your message — EkGuru"; },
-      allowedVars: ["visitorName", "contactId", "message", "nextStep",
-                    "supportEmail", "siteUrl"],
+    contact_submitter_confirmation: {
+      key: "contactVisitor",
+      role: "submitter",
+      subject: "We received your message — EkGuru",
+      allowedVars: ["name", "visitorName", "topic", "message", "pageUrl", "contactId", "nextStep", "supportEmail", "siteUrl"],
       html: function (v) {
+        var who = present(v.name || v.visitorName) ? "Hello " + (v.name || v.visitorName) + "." : "Hello.";
         return shell(
-          h2("Message received") +
-          p("Hi " + esc(v.visitorName) + ",") +
-          p("Thank you for contacting EkGuru.") +
-          p("We have received your message.") +
+          h1("We received your message") +
+          p(who) +
+          p("Thanks for writing to EkGuru. A person will read this and reply to the email you gave us.") +
           table([
-            ["Reference Number", v.contactId],
-            ["Your message", v.message],
-            ["What happens next", v.nextStep]
-          ])
+            ["Name", v.name || v.visitorName],
+            ["Topic", v.topic],
+            ["Reference", v.contactId],
+            ["Page", v.pageUrl]
+          ]) +
+          (present(v.message) ? p("Your message:") + p(v.message) : "") +
+          p(v.nextStep),
+          "EkGuru received your message."
         );
-      },
-      text: function (v) {
-        return [
-          "Hi " + v.visitorName + ",", "",
-          "Thank you for contacting EkGuru.", "",
-          "We have received your message.", "",
-          "Reference Number:",
-          v.contactId, "",
-          "Your message:",
-          v.message, "",
-          "What happens next:",
-          v.nextStep, "",
-          "EkGuru",
-          v.siteUrl || SITE_URL
-        ].join("\n");
       }
     },
-
-    /* ============ CONTACT — EKGURU INTERNAL ============ */
-    contactInternal: {
+    contact_internal_record: {
+      key: "contactInternal",
       role: "internal",
-      subject: function (v) { return "New contact message — " + v.contactId; },
-      allowedVars: ["contactId", "visitorName", "visitorEmail", "subject",
-                    "message", "timestamp", "sourcePage", "adminNextAction"],
+      subject: "New contact message — {{name}}",
+      allowedVars: ["name", "visitorName", "email", "visitorEmail", "topic", "subject", "message", "pageUrl", "userAgent", "contactId", "timestamp", "sourcePage", "adminNextAction"],
       html: function (v) {
         return shell(
-          badge("EKGURU INTERNAL CONTACT", "warn") + '<div style="height:12px"></div>' +
+          h1("New contact message") +
           table([
-            ["Reference Number", v.contactId],
-            ["Name", v.visitorName],
-            ["Email", v.visitorEmail],
+            ["Name", v.name || v.visitorName],
+            ["Email", v.email || v.visitorEmail],
+            ["Topic", v.topic],
             ["Subject", v.subject],
-            ["Message", v.message],
-            ["Submitted", v.timestamp],
-            ["Source", v.sourcePage],
-            ["Reply-To", v.visitorEmail],
-            ["Internal action", v.adminNextAction]
-          ])
+            ["Reference", v.contactId],
+            ["Page", v.pageUrl || v.sourcePage],
+            ["User agent", v.userAgent]
+          ]) +
+          (present(v.message) ? p("Message:") + p(v.message) : ""),
+          "New contact form submission."
         );
-      },
-      text: function (v) {
-        return [
-          "EKGURU INTERNAL CONTACT", "",
-          "Reference Number:", v.contactId, "",
-          "Name:", v.visitorName,
-          "Email:", v.visitorEmail,
-          "Subject:", v.subject, "",
-          "Message:", v.message, "",
-          "Submitted:", v.timestamp,
-          "Source:", v.sourcePage,
-          "Reply-To:", v.visitorEmail, "",
-          "Internal action:", v.adminNextAction
-        ].join("\n");
       }
     },
-
-    /* ============ ADMIN → RECIPIENT ============ */
-    adminOutbound: {
-      role: "outbound",
-      subject: function (v) { return v.adminSubject || ("A message from " + BRAND); },
-      allowedVars: ["recipientName", "adminSubject", "adminMessage",
-                    "conversationId", "supportContact"],
+    ADMIN_CONTACT_OUTBOUND: {
+      key: "adminOutbound",
+      role: "recipient",
+      subject: "{{subject}}",
+      allowedVars: ["recipientName", "adminSubject", "adminMessage", "conversationId", "supportContact", "subject", "body", "to"],
       html: function (v) {
         return shell(
-          p("Hi " + esc(v.recipientName) + ",") +
-          p(esc(v.adminMessage).replace(/\n/g, "<br>")) +
+          h1(present(v.adminSubject || v.subject) ? (v.adminSubject || v.subject) : "Message from EkGuru") +
+          p(v.adminMessage || v.body) +
+          table([["Reference", v.conversationId]]),
+          present(v.adminSubject || v.subject) ? (v.adminSubject || v.subject) : "Message from EkGuru"
+        );
+      }
+    },
+    ADMIN_CONTACT_INTERNAL_COPY: {
+      key: "adminInternalCopy",
+      role: "internal",
+      subject: "{{subject}}",
+      allowedVars: ["recipientName", "recipientEmail", "adminSubject", "adminMessage", "conversationId", "adminIdentity", "timestamp", "subject", "body", "to"],
+      html: function (v) {
+        return shell(
+          h1("Admin message copy") +
           table([
+            ["To", v.recipientName],
+            ["Recipient email", v.recipientEmail || v.to],
+            ["Subject", v.adminSubject || v.subject],
+            ["Sent by", v.adminIdentity],
             ["Reference", v.conversationId]
           ]) +
-          p("Regards,<br>" + BRAND + (v.supportContact ? "<br>" + esc(v.supportContact) : ""))
+          p(v.adminMessage || v.body),
+          "Copy of an admin message."
         );
-      },
-      text: function (v) {
-        return [
-          "Hi " + v.recipientName + ",", "",
-          v.adminMessage, "",
-          "Reference:",
-          v.conversationId, "",
-          "Regards,",
-          BRAND,
-          v.supportContact
-        ].join("\n");
-      }
-    },
-
-    /* ============ ADMIN INTERNAL COPY ============ */
-    adminInternalCopy: {
-      role: "internal",
-      subject: function (v) { return "Admin sent a contact message — " + v.conversationId; },
-      allowedVars: ["recipientName", "recipientEmail", "adminSubject",
-                    "adminMessage", "conversationId", "adminIdentity", "timestamp"],
-      html: function (v) {
-        return shell(
-          badge("EKGURU INTERNAL COPY", "warn") + '<div style="height:12px"></div>' +
-          table([
-            ["Recipient", v.recipientName],
-            ["Recipient Email", v.recipientEmail],
-            ["Subject", v.adminSubject],
-            ["Message Sent", v.adminMessage],
-            ["Reference", v.conversationId],
-            ["Sent By", v.adminIdentity],
-            ["Timestamp", v.timestamp]
-          ])
-        );
-      },
-      text: function (v) {
-        return [
-          "EKGURU INTERNAL COPY", "",
-          "Recipient:", v.recipientName,
-          "Recipient Email:", v.recipientEmail,
-          "Subject:", v.adminSubject, "",
-          "Message Sent:", v.adminMessage, "",
-          "Reference:", v.conversationId,
-          "Sent By:", v.adminIdentity,
-          "Timestamp:", v.timestamp
-        ].join("\n");
       }
     }
   };
 
-  /* ----------------------------------------------------------
-     ROLE-LANGUAGE QA  (§27-H)
-     A tutor mail must not read like a student mail, and vice
-     versa; internal wording must never leak to public roles.
-     ---------------------------------------------------------- */
-  var ROLE_QA = {
-    bookingStudent: {
-      mustSay: ["congratulations", "your booking request has been received", "reference"],
-      mustNotSay: ["you have received a new booking request", "new lesson request",
-                   "student email", "tutor email", "available / not available"]
-    },
-    bookingTutor: {
-      mustSay: ["congratulations", "you have received a new booking request", "available"],
-      mustNotSay: ["your booking request has been received", "you booked", "your booking"]
-    },
-    bookingInternal: {
-      mustSay: ["internal booking", "delivery"],
-      mustNotSay: []
-    },
-    contactVisitor: {
-      mustSay: ["thank you", "we have received your message", "reference"],
-      mustNotSay: ["internal contact", "reply-to", "internal action"]
-    },
-    contactInternal: {
-      mustSay: ["internal contact", "reply-to"],
-      mustNotSay: ["congratulations", "you have received a new booking"]
-    },
-    adminOutbound: {
-      mustSay: ["regards"],
-      mustNotSay: ["internal copy", "internal booking", "new booking request"]
-    },
-    adminInternalCopy: {
-      mustSay: ["internal copy", "sent by"],
-      mustNotSay: []
-    }
+  var ALIAS = {
+    bookingStudent: "booking_student_confirmation",
+    bookingTutor: "booking_tutor_notification",
+    bookingInternal: "booking_internal_record",
+    contactVisitor: "contact_submitter_confirmation",
+    contactInternal: "contact_internal_record",
+    adminOutbound: "ADMIN_CONTACT_OUTBOUND",
+    adminInternalCopy: "ADMIN_CONTACT_INTERNAL_COPY",
+    BOOKING_STUDENT_CONFIRMATION: "booking_student_confirmation",
+    BOOKING_TUTOR_NOTIFICATION: "booking_tutor_notification",
+    BOOKING_EKGURU_NOTIFICATION: "booking_internal_record",
+    BOOKING_INTERNAL_RECORD: "booking_internal_record",
+    CONTACT_VISITOR_CONFIRMATION: "contact_submitter_confirmation",
+    CONTACT_EKGURU_NOTIFICATION: "contact_internal_record",
+    CONTACT_SUBMITTER_CONFIRMATION: "contact_submitter_confirmation",
+    CONTACT_INTERNAL_RECORD: "contact_internal_record"
   };
 
-  /* ----------------------------------------------------------
-     RENDER + VALIDATION  (§29)
-     ---------------------------------------------------------- */
-  function resolveTemplate(type) {
-    if (TEMPLATES[type]) return { key: type, t: TEMPLATES[type] };
-    for (var i = 0; i < ROUTES.length; i++) {
-      if (ROUTES[i].type === type) {
-        var tk = ROUTES[i].template;
-        return TEMPLATES[tk] ? { key: tk, t: TEMPLATES[tk] } : null;
-      }
-    }
-    return null;
-  }
+  var PUBLIC_IDS = [
+    "booking_student_confirmation",
+    "booking_tutor_notification",
+    "booking_internal_record",
+    "contact_submitter_confirmation",
+    "contact_internal_record"
+  ];
+  var WHITELIST = PUBLIC_IDS.concat(["ADMIN_CONTACT_OUTBOUND", "ADMIN_CONTACT_INTERNAL_COPY"]);
 
-  function render(type, vars) {
-    var found = resolveTemplate(type);
-    if (!found) return { ok: false, errors: ["unknown message type: " + type] };
-    var t = found.t;
-    vars = vars || {};
-    var errors = [];
-
-    /* undeclared variables */
-    Object.keys(vars).forEach(function (k) {
-      if (t.allowedVars.indexOf(k) === -1) errors.push("undeclared variable: " + k);
-    });
-
-    /* required variables — a declared var must not be null/undefined.
-       An empty string is allowed: it renders as an omitted row, which
-       is the honest state for optional fields. */
-    t.allowedVars.forEach(function (k) {
-      if (vars[k] == null) errors.push("missing variable: " + k);
-    });
-
-    if (errors.length) return { ok: false, errors: errors };
-
-    var out = {};
-    try {
-      out.subject = t.subject(vars);
-      out.html = t.html(vars);
-      out.text = t.text(vars);
-    } catch (e) {
-      return { ok: false, errors: ["render threw: " + e.message] };
-    }
-
-    /* Header-injection defence: a subject is a single line. */
-    out.subject = String(out.subject || "").replace(/[\r\n\t]+/g, " ").slice(0, 150);
-
-    /* no raw {placeholder} may survive into output */
-    ["subject", "html", "text"].forEach(function (k) {
-      if (/\{[A-Za-z_]+\}/.test(out[k])) {
-        errors.push("raw placeholder left in " + k + ": " + (out[k].match(/\{[A-Za-z_]+\}/) || [])[0]);
-      }
-    });
-
-    /* HTML must be escaped — a literal <script> in a user value is a fail */
-    ["html"].forEach(function (k) {
-      if (/<script/i.test(out[k])) errors.push("unescaped script in " + k);
-    });
-
-    return { ok: errors.length === 0, errors: errors, subject: out.subject, html: out.html, text: out.text, template: found.key };
-  }
-
-  /* Fixtures for preview — never real customer data. */
   var FIXTURES = {
     bookingStudent: {
-      studentName: "Priya", bookingId: "BOOK-TEST-001", tutorName: "Tara",
-      studentRequirement: "Conversation practice", date: "20 September 2026",
-      time: "7:00 PM", timezone: "Asia/Kolkata",
-      bookingStatus: "Request received — waiting for Tara to confirm",
-      nextStep: "Tara has your request and will reply to this address to confirm the time. This is a request, not a confirmed booking.",
-      supportEmail: "EkGuruLearning@gmail.com", siteUrl: "https://ekguru.shop/"
+      studentName: "Priya", tutorName: "Tara", sessionTitle: "Trial lesson",
+      bookingDate: "20 September 2026", bookingTime: "19:00", duration: "50 min",
+      bookingId: "EK-TEST-01", date: "20 September 2026", time: "19:00",
+      lessonType: "Trial lesson", timezone: "Asia/Kolkata", bookingStatus: "Request received",
+      nextStep: "Tara will reply to confirm the time.", studentRequirement: "Conversation practice",
+      supportEmail: SUPPORT, siteUrl: SITE_URL
     },
     bookingTutor: {
-      tutorName: "Tara", bookingId: "BOOK-TEST-001", studentName: "Priya",
-      studentEmail: "priya@example.com", date: "20 September 2026",
-      time: "7:00 PM", timezone: "Asia/Kolkata", lessonType: "Trial lesson · 50 min",
+      tutorName: "Tara", studentName: "Priya", studentEmail: "priya@example.com",
+      sessionTitle: "Trial lesson", bookingDate: "20 September 2026", bookingTime: "19:00",
+      bookingId: "EK-TEST-01", date: "20 September 2026", time: "19:00",
+      timezone: "Asia/Kolkata", lessonType: "Trial lesson",
       studentRequirement: "Conversation practice",
-      tutorNextAction: "Please reply to this email / use the available booking action to confirm whether you are available.",
+      tutorNextAction: "Please reply to confirm whether you are available.",
       tutorAltTimeInstruction: "reply with the time that suits you",
-      supportEmail: "EkGuruLearning@gmail.com", siteUrl: "https://ekguru.shop/"
+      supportEmail: SUPPORT, siteUrl: SITE_URL
     },
     bookingInternal: {
-      bookingId: "BOOK-TEST-001", studentName: "Priya", studentEmail: "priya@example.com",
-      tutorName: "Tara", tutorId: "tara", tutorEmail: "TUTOR_EMAIL_UNAVAILABLE",
-      date: "20 September 2026", time: "7:00 PM", timezone: "Asia/Kolkata",
-      lessonType: "Trial lesson · 50 min", studentRequirement: "Conversation practice",
-      bookingStatus: "sent",
-      studentDeliveryStatus: "ACCEPTED", tutorDeliveryStatus: "NOT_ATTEMPTED",
-      internalDeliveryStatus: "ACCEPTED",
-      adminNextAction: "Confirm the time with the learner.", sourcePage: "/find-tutors.html"
+      bookingId: "EK-TEST-01", studentName: "Priya", studentEmail: "priya@example.com",
+      tutorName: "Tara", tutorId: "tara", tutorEmail: "tara@example.com",
+      sessionTitle: "Trial lesson", bookingDate: "20 September 2026", bookingTime: "19:00",
+      date: "20 September 2026", time: "19:00", timezone: "Asia/Kolkata",
+      lessonType: "Trial lesson", studentRequirement: "Conversation practice",
+      bookingStatus: "Request received", studentDeliveryStatus: "SENDING",
+      tutorDeliveryStatus: "SENDING", internalDeliveryStatus: "SENDING",
+      adminNextAction: "Confirm the time with the tutor.",
+      sourcePage: "https://ekguru.shop/find-tutors.html"
     },
     contactVisitor: {
-      visitorName: "Priya", contactId: "C-TEST01",
-      message: "Do you teach complete beginners?",
-      nextStep: "A person reads every message. You will get a reply within a day.",
-      supportEmail: "EkGuruLearning@gmail.com", siteUrl: "https://ekguru.shop/"
+      name: "Aarav", visitorName: "Aarav", topic: "General",
+      message: "Do you teach absolute beginners?",
+      contactId: "C-TEST01", nextStep: "A person reads every message.",
+      supportEmail: SUPPORT, siteUrl: SITE_URL, pageUrl: "https://ekguru.shop/contact/"
     },
     contactInternal: {
-      contactId: "C-TEST01", visitorName: "Priya", visitorEmail: "priya@example.com",
-      subject: "A question about lessons", message: "Do you teach complete beginners?",
-      timestamp: "11 Sep 2026, 3:00 PM", sourcePage: "/contact/",
+      name: "Aarav", visitorName: "Aarav", email: "aarav@example.com",
+      visitorEmail: "aarav@example.com", topic: "General",
+      subject: "Question about lessons", message: "Do you teach absolute beginners?",
+      contactId: "C-TEST01", timestamp: "Sun, 20 Sep 2026 12:00:00 GMT",
+      sourcePage: "https://ekguru.shop/contact/",
       adminNextAction: "Reply to the visitor within a day."
     },
     adminOutbound: {
       recipientName: "Priya", adminSubject: "Your lesson time is confirmed",
-      adminMessage: "Your trial lesson with Tara is confirmed for 7:00 PM. See you then!",
-      conversationId: "ADMIN-001", supportContact: "EkGuruLearning@gmail.com"
+      adminMessage: "Your trial lesson with Tara is confirmed. See you then!",
+      conversationId: "ADMIN-TEST01", supportContact: SUPPORT,
+      subject: "Your lesson time is confirmed"
     },
     adminInternalCopy: {
-      recipientName: "Priya", recipientEmail: "priya@example.com",
+      recipientName: "Priya", recipientEmail: "student@example.com",
       adminSubject: "Your lesson time is confirmed",
-      adminMessage: "Your trial lesson with Tara is confirmed for 7:00 PM. See you then!",
-      conversationId: "ADMIN-001", adminIdentity: "Prakash (admin)",
-      timestamp: "11 Sep 2026, 3:05 PM"
+      adminMessage: "Your trial lesson with Tara is confirmed. See you then!",
+      conversationId: "ADMIN-TEST01", adminIdentity: "admin dashboard",
+      timestamp: "Sun, 20 Sep 2026 12:00:00 GMT",
+      subject: "Your lesson time is confirmed"
     }
   };
 
-  window.EKGURU_EMAIL = {
-    ROUTES: ROUTES,
-    WHITELIST: WHITELIST,
-    TEMPLATES: TEMPLATES,
-    ROLE_QA: ROLE_QA,
-    FIXTURES: FIXTURES,
-    render: render,
-    esc: esc
+  var ROLE_QA = {
+    bookingStudent: {
+      mustSay: ["booking is confirmed", "EkGuru"],
+      mustNotSay: ["you have a new booking", "internal booking record", "TUTOR_EMAIL_UNAVAILABLE"]
+    },
+    bookingTutor: {
+      mustSay: ["new booking", "student"],
+      mustNotSay: ["your booking is confirmed", "internal booking record"]
+    },
+    bookingInternal: {
+      mustSay: ["internal booking record"],
+      mustNotSay: ["your booking is confirmed"]
+    },
+    contactVisitor: {
+      mustSay: ["we received your message"],
+      mustNotSay: ["new contact message", "user agent"]
+    },
+    contactInternal: {
+      mustSay: ["new contact message"],
+      mustNotSay: ["thanks for writing to ekguru"]
+    },
+    adminOutbound: { mustSay: ["ekguru"], mustNotSay: ["admin message copy"] },
+    adminInternalCopy: { mustSay: ["admin message copy"], mustNotSay: [] }
   };
-})();
+
+  function canonical(id) {
+    id = String(id || "");
+    return ALIAS[id] || id;
+  }
+
+  function render(id, data) {
+    var key = canonical(id);
+    var tpl = TEMPLATES[key];
+    if (!tpl) return { ok: false, errors: ["unknown type " + id] };
+    var v = norm(data);
+    var subject = oneLine(fill(tpl.subject, v) || (present(v.adminSubject) ? v.adminSubject : "EkGuru"));
+    var html = tpl.html(v);
+    var text = htmlToText(html);
+    return {
+      ok: true,
+      errors: [],
+      subject: subject,
+      html: html,
+      text: text,
+      template: tpl.key,
+      id: key,
+      audience: tpl.role
+    };
+  }
+
+  var ROUTES = [
+    { type: "booking_student_confirmation", role: "booking_student", template: "bookingStudent" },
+    { type: "booking_tutor_notification", role: "booking_tutor", template: "bookingTutor" },
+    { type: "booking_internal_record", role: "booking_internal", template: "bookingInternal" },
+    { type: "contact_submitter_confirmation", role: "contact_submitter", template: "contactVisitor" },
+    { type: "contact_internal_record", role: "contact_internal", template: "contactInternal" },
+    { type: "ADMIN_CONTACT_OUTBOUND", role: "admin_outbound", template: "adminOutbound" },
+    { type: "ADMIN_CONTACT_INTERNAL_COPY", role: "admin_internal_copy", template: "adminInternalCopy" }
+  ];
+
+  var api = {
+    BRAND: BRAND,
+    TEMPLATES: {
+      bookingStudent: TEMPLATES.booking_student_confirmation,
+      bookingTutor: TEMPLATES.booking_tutor_notification,
+      bookingInternal: TEMPLATES.booking_internal_record,
+      contactVisitor: TEMPLATES.contact_submitter_confirmation,
+      contactInternal: TEMPLATES.contact_internal_record,
+      adminOutbound: TEMPLATES.ADMIN_CONTACT_OUTBOUND,
+      adminInternalCopy: TEMPLATES.ADMIN_CONTACT_INTERNAL_COPY
+    },
+    PUBLIC_IDS: PUBLIC_IDS,
+    WHITELIST: WHITELIST,
+    FIXTURES: FIXTURES,
+    ROLE_QA: ROLE_QA,
+    ROUTES: ROUTES,
+    render: render,
+    canonical: canonical,
+    esc: esc,
+    present: present
+  };
+
+  if (typeof module !== "undefined" && module.exports) module.exports = api;
+  root.EKGURU_EMAIL = api;
+  root.EkGuruEmailTemplates = api;
+  if (typeof window !== "undefined") {
+    window.EKGURU_EMAIL = api;
+    window.EkGuruEmailTemplates = api;
+  }
+})(typeof globalThis !== "undefined" ? globalThis : this);

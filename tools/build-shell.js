@@ -218,7 +218,7 @@ function headerHTML(p, shell, loc, dict, hasMain) {
   <a class="skip" href="#main">${esc(L("Skip to content", "nav.skip"))}</a>
   <div class="hdr-in">
     <a class="logo" href="${esc(href("home"))}">
-      <span class="logo-mark" aria-hidden="true">E</span>
+      <img class="logo-img" src="${esc(p)}images/logo.svg" width="38" height="38" alt="EkGuru">
       <span><span data-brand>EkGuru</span><small data-tagline>${esc(shell.tagline)}</small></span>
     </a>
     <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
@@ -262,7 +262,7 @@ ${links.map(renderLink).join("\n")}
   <div class="wrap ftr-in">
     <div>
       <a class="logo" href="${esc(href("home"))}">
-        <span class="logo-mark" aria-hidden="true">E</span>
+        <img class="logo-img" src="${esc(p)}images/logo.svg" width="38" height="38" alt="EkGuru">
         <span><span data-brand>EkGuru</span><small data-tagline>${esc(shell.tagline)}</small></span>
       </a>
       <p style="margin-top:14px"${loc ? ' data-i18n="ftr.about"' : ""}>${esc(L("Online Hindi lessons with verified, caring tutors.", "ftr.about"))}</p>

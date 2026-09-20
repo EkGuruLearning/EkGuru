@@ -169,8 +169,8 @@ await (async function () {
     pageUrl: "https://ekguru.shop/contact/"
   });
   check("contact() ACCEPTED (not DELIVERED)", cres && cres.ok && cres.state === "ACCEPTED");
-  const vis = POSTED.filter((p) => p.parsed.type === "CONTACT_VISITOR_CONFIRMATION");
-  const intl = POSTED.filter((p) => p.parsed.type === "CONTACT_EKGURU_NOTIFICATION");
+  const vis = POSTED.filter((p) => p.parsed.type === "contact_submitter_confirmation");
+  const intl = POSTED.filter((p) => p.parsed.type === "contact_internal_record");
   check("contact: one visitor job, one internal job",
     vis.length === 1 && intl.length === 1,
     "vis=" + vis.length + " intl=" + intl.length + " types=" + typesPosted().join(","));
@@ -203,7 +203,7 @@ await (async function () {
     "posted " + POSTED.length + " after first " + n1);
 
   /* XSS in template */
-  const xss = E.render("CONTACT_VISITOR_CONFIRMATION", Object.assign({}, E.FIXTURES.contactVisitor, {
+  const xss = E.render("contact_submitter_confirmation", Object.assign({}, E.FIXTURES.contactVisitor, {
     visitorName: "<script>alert(1)</script>",
     message: "<img src=x onerror=alert(1)>"
   }));
@@ -230,12 +230,12 @@ await (async function () {
     if (t) byType[t] = (byType[t] || 0) + 1;
   });
   check("one POST per booking role (no multi-provider duplicate)",
-    (byType.BOOKING_TUTOR_NOTIFICATION || 0) === 1 &&
-    (byType.BOOKING_STUDENT_CONFIRMATION || 0) === 1 &&
-    (byType.BOOKING_EKGURU_NOTIFICATION || 0) === 1,
+    (byType.booking_tutor_notification || 0) === 1 &&
+    (byType.booking_student_confirmation || 0) === 1 &&
+    (byType.booking_internal_record || 0) === 1,
     JSON.stringify(byType));
   check("booking student copy does not include tutor inbox",
-    POSTED.filter((p) => p.parsed.type === "BOOKING_STUDENT_CONFIRMATION")
+    POSTED.filter((p) => p.parsed.type === "booking_student_confirmation")
       .every((p) => !/tara@example\.com/i.test(JSON.stringify(p.parsed))));
   check("no live hop to FormSubmit/StaticForms/EmailJS on booking",
     POSTED.every((p) => /script\.google\.com|web3forms\.com/.test(p.url)));
@@ -254,7 +254,7 @@ await (async function () {
   check("AUTH on Apps Script falls through to Web3Forms (still one logical send per role)",
     send2 && send2.ok);
   const tutorHops = POSTED.filter((p) =>
-    (p.parsed.type === "BOOKING_TUTOR_NOTIFICATION") ||
+    (p.parsed.type === "booking_tutor_notification") ||
     (p.parsed.to === "tara@example.com") ||
     (p.parsed.access_key && p.parsed.to === "tara@example.com")
   );
@@ -294,7 +294,7 @@ await (async function () {
   /* testSend refuses a stranger */
   let refuse = false;
   try {
-    await M.testSend("BOOKING_STUDENT_CONFIRMATION", "stranger@example.com", E.FIXTURES.bookingStudent);
+    await M.testSend("booking_student_confirmation", "stranger@example.com", E.FIXTURES.bookingStudent);
   } catch (e) { refuse = /control/i.test(e.message); }
   check("testSend refuses a non-controlled address", refuse);
 })().catch((e) => {

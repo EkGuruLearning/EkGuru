@@ -80,7 +80,7 @@ function postRelay(body) {
   for (const k in E.FIXTURES.bookingInternal) vars[k] = E.FIXTURES.bookingInternal[k];
   vars.bookingId = "BOOK-TEST-001";
   try {
-    const t = await M.testSend("BOOKING_EKGURU_NOTIFICATION", "EkGuruLearning@gmail.com", vars);
+    const t = await M.testSend("booking_internal_record", "EkGuruLearning@gmail.com", vars);
     check("mailer.testSend → relay ACCEPTED (real send)", t.ok && t.state === "ACCEPTED", JSON.stringify(t));
     check("testSend subject carries [TEST]", /^\[TEST\]/i.test(t.subject || ""), t.subject);
     check("testSend went via Apps Script", /Apps Script/i.test(t.via || ""), t.via);
@@ -92,7 +92,7 @@ function postRelay(body) {
   const idem = "LIVE-TEST-" + Date.now().toString(36).toUpperCase();
   const payload = {
     token: cfg.token,
-    type: "CONTACT_EKGURU_NOTIFICATION",
+    type: "contact_internal_record",
     to: "EkGuruLearning@gmail.com",
     subject: "[TEST] idempotency replay check",
     text: "controlled relay idempotency test — please ignore",

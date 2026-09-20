@@ -61,13 +61,17 @@ var SCRIPT_NAME = "EkGuru Mail Relay";
  * from turning the relay into an open mailer for arbitrary content.
  * ============================================================ */
 var MESSAGE_TYPES = [
-  "CONTACT_VISITOR_CONFIRMATION",
-  "CONTACT_EKGURU_NOTIFICATION",
   "BOOKING_STUDENT_CONFIRMATION",
   "BOOKING_TUTOR_NOTIFICATION",
-  "BOOKING_EKGURU_NOTIFICATION",
+  "BOOKING_INTERNAL_RECORD",
+  "CONTACT_SUBMITTER_CONFIRMATION",
+  "CONTACT_INTERNAL_RECORD",
   "ADMIN_CONTACT_OUTBOUND",
-  "ADMIN_CONTACT_INTERNAL_COPY"
+  "ADMIN_CONTACT_INTERNAL_COPY",
+  /* legacy aliases — same IDs after toUpperCase of the public snake_case names */
+  "CONTACT_VISITOR_CONFIRMATION",
+  "CONTACT_EKGURU_NOTIFICATION",
+  "BOOKING_EKGURU_NOTIFICATION"
 ];
 
 /* The display name that may appear as the sender. The client may
@@ -124,9 +128,11 @@ function allowedRecipients() {
  *  only — otherwise this Web App is an unrestricted Gmail relay the
  *  moment its URL and token appear in page source. */
 var STRANGER_OK_TYPES = [
+  "CONTACT_SUBMITTER_CONFIRMATION",
   "CONTACT_VISITOR_CONFIRMATION",
   "BOOKING_STUDENT_CONFIRMATION",
-  "BOOKING_TUTOR_NOTIFICATION"
+  "BOOKING_TUTOR_NOTIFICATION",
+  "ADMIN_CONTACT_OUTBOUND"
 ];
 
 /** Daily ceiling. Keep it below Gmail's own cap so we fail gracefully. */

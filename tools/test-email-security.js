@@ -60,11 +60,11 @@ check("img onerror escaped", xr.ok && !/<img/i.test(xr.html) && /&lt;img/i.test(
 check("unknown type refused", E.render("ADMIN_ANNOUNCE_BULK", {}).ok === false);
 check("every whitelisted type renders", E.WHITELIST.every((t) => {
   const map = {
-    "CONTACT_VISITOR_CONFIRMATION": "contactVisitor",
-    "CONTACT_EKGURU_NOTIFICATION": "contactInternal",
-    "BOOKING_STUDENT_CONFIRMATION": "bookingStudent",
-    "BOOKING_TUTOR_NOTIFICATION": "bookingTutor",
-    "BOOKING_EKGURU_NOTIFICATION": "bookingInternal",
+    "contact_submitter_confirmation": "contactVisitor",
+    "contact_internal_record": "contactInternal",
+    "booking_student_confirmation": "bookingStudent",
+    "booking_tutor_notification": "bookingTutor",
+    "booking_internal_record": "bookingInternal",
     "ADMIN_CONTACT_OUTBOUND": "adminOutbound",
     "ADMIN_CONTACT_INTERNAL_COPY": "adminInternalCopy"
   };
