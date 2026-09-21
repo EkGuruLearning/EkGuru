@@ -287,23 +287,19 @@ function tutorCards(t, lang, tutors) {
          A brand-new tutor's card claimed a perfect record they had not
          earned yet. */
       const stars = x.reviewsCount
-        ? `<span class="stars">${"★".repeat(
+        ? `<span class="stars">${esc(t(lang, "pf.sourceShort"))}: ${"★".repeat(
             Math.max(1, Math.min(5, Math.round(Number(x.rating) || 0)))
           )} ${Number(x.rating || 0).toFixed(1)} (${x.reviewsCount})</span>`
-        : x.trialAvailable
-        ? `<span>${esc(t(lang, "pf.trial"))}</span>`
-        : x.badge
-        ? `<span>${esc(x.badge)}</span>`
         : "";
       return `      <article class="xp-card xp-tutor">
         <img class="xp-tutor-photo" src="../${esc(x.thumb || x.photo)}" alt="${esc(x.name)}, ${esc(
         x.subject
       )} tutor" width="76" height="76" loading="lazy" decoding="async">
         <h3><a href="../tutor/${esc(x.id)}/">${esc(x.name)}</a></h3>
-        <p class="xp-tutor-meta">${price} · <span data-i18n="tutor.perLesson">${esc(
+        <p class="xp-tutor-meta">${price} · ${esc(t(lang, "pf.profilePrice"))} · <span data-i18n="tutor.perLesson">${esc(
         t(lang, "tutor.perLesson")
       )}</span>${stars ? " · " + stars : ""}</p>
-        <p class="xp-tutor-headline">${esc(x.headline || "")}</p>
+        <p class="xp-tutor-headline"><strong>${esc(t(lang, "pf.sourceShort"))}:</strong> ${esc(x.headline || "")}</p>
         <p class="xp-tutor-teaches">${esc(teaches)}</p>
         <a class="btn btn-primary btn-sm" href="../tutor/${esc(x.id)}/" data-i18n="hero.viewProfile">${esc(
         t(lang, "hero.viewProfile")
@@ -501,11 +497,30 @@ function tagBody(head) {
   return head.replace("<body>", '<body class="xp-page xp-market">');
 }
 
+function updateTutorItemList(head, lang, tutors, file) {
+  const re = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/;
+  const match = re.exec(head);
+  if (!match) throw new Error(file + ": missing JSON-LD graph");
+  const data = JSON.parse(match[1]);
+  const graph = data["@graph"] || [];
+  const list = graph.find((node) => node["@type"] === "ItemList" && /#tutors$/.test(node["@id"] || ""));
+  if (!list) throw new Error(file + ": missing tutor ItemList");
+  list.numberOfItems = tutors.length;
+  list.itemListElement = tutors.map((tutor, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: tutor.name,
+    url: "https://ekguru.shop/tutor/" + tutor.id + "/"
+  }));
+  return head.slice(0, match.index) + '<script type="application/ld+json">' +
+    JSON.stringify(data) + "</script>" + head.slice(match.index + match[0].length);
+}
+
 function build(lang, site, t) {
   const file = path.join(lang, "index.html");
   const html = fs.readFileSync(file, "utf8");
   const parts = split(html, file);
-  parts.head = stripHeadStyles(tagBody(parts.head));
+  parts.head = updateTutorItemList(stripHeadStyles(tagBody(parts.head)), lang, site.tutors, file);
 
   const price = site.tutors.reduce(
     (min, x) => (x.priceUSD && x.priceUSD < min ? x.priceUSD : min),

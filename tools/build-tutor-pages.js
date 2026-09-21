@@ -133,35 +133,26 @@ function prettyPrice(n) {
    -------------------------------------------------------------------------- */
 
 function metaDescription(t, price) {
-  const bits = [
-    "Book a private Hindi lesson with " + t.name + " — native speaker from " +
-      (t.country || "India") +
-      (t.experienceYears ? ", " + t.experienceYears + "+ years' experience" : "") + "."
-  ];
-  if (t.rating && t.reviewsCount) {
-    bits.push("Rated " + Number(t.rating).toFixed(1) + "/5 from " + t.reviewsCount + " reviews.");
-  }
-  if (price) bits.push("Lessons " + price + " per " + (t.lessonLength || "50 min") + ".");
-  if (t.trialAvailable) bits.push("Trial lesson available.");
-  return truncate(bits.join(" "), 158);
+  return truncate(
+    "Tutor-provided profile for " + t.name +
+      ": stated subjects, languages and lesson details. Confirm current pricing and availability before booking.",
+    158
+  );
 }
 
 function title(t) {
-  const rating = t.rating && t.reviewsCount
-    ? " (" + Number(t.rating).toFixed(1) + "★, " + t.lessonsCount + " lessons)"
-    : "";
-  return t.name + " — Online Hindi Tutor" + rating + " | EkGuru";
+  return t.name + " — Online Hindi Tutor Profile | EkGuru";
 }
 
-/* The JSON-LD graph. Same @graph shape as the pages this replaces: Person,
-   Service, Course, BreadcrumbList — so the Google structured-data report
-   that already knows these URLs keeps seeing the same entities. */
+/* Profiles are descriptive pages, not inventory. Do not emit Offer,
+   availability, CourseInstance or employment relationships: prices and
+   schedules are imported profile fields that visitors must reconfirm. */
 function jsonLd(t) {
   const url = SITE + "/tutor/" + t.id + "/";
-  const price = prettyPrice(t.priceUSD).replace("$", "");
   const photo = /^https?:/i.test(t.photo || "")
     ? t.photo
     : SITE + "/" + String(t.photo || "").replace(/^\//, "");
+  const excerpt = (t.about && t.about[0]) || t.headline || "";
 
   const graph = [
     {
@@ -169,83 +160,23 @@ function jsonLd(t) {
       "@id": url + "#person",
       name: t.name,
       jobTitle: "Hindi Tutor",
-      description: (t.about && t.about[0]) || t.headline || "",
+      description: "Tutor-provided profile excerpt: " + excerpt,
       image: photo,
       url,
       knowsLanguage: (t.speaks || []).map((s) => (typeof s === "string" ? s : s.lang)).filter(Boolean),
       knowsAbout: t.teaches || [],
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: t.city || t.country || "India",
-        addressCountry: t.country === "India" ? "IN" : t.country || "IN"
-      },
-      worksFor: { "@id": SITE + "/#organization" },
       sameAs: [t.preplyUrl].filter(Boolean)
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": url + "#breadcrumb",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE + "/" },
+        { "@type": "ListItem", position: 2, name: "Hindi Tutors", item: SITE + "/find-tutors.html" },
+        { "@type": "ListItem", position: 3, name: t.name, item: url }
+      ]
     }
   ];
-
-  if (price) {
-    graph.push({
-      "@type": "Service",
-      "@id": url + "#service",
-      serviceType: "Private online Hindi lessons",
-      name: "Hindi lessons with " + t.name,
-      provider: { "@id": url + "#person" },
-      offers: {
-        "@type": "Offer",
-        price,
-        priceCurrency: "USD",
-        availability: "https://schema.org/InStock",
-        url
-      }
-    });
-
-    const levels = (t.levels || []).join(", ").toLowerCase();
-    graph.push({
-      "@type": "Course",
-      "@id": url + "#course",
-      name: "Private Hindi Lessons with " + t.name,
-      description:
-        "One-to-one online Hindi lessons with " + t.name + ", a native Hindi speaker in " +
-        (t.country || "India") + ". " + (t.lessonLength || "50 min") + " per lesson" +
-        (levels ? ", for " + levels + "." : "."),
-      provider: { "@type": "Organization", name: "EkGuru", sameAs: SITE + "/" },
-      inLanguage: "en",
-      teaches: "Hindi",
-      educationalLevel: (t.levels || []).join(", "),
-      isAccessibleForFree: false,
-      hasCourseInstance: {
-        "@type": "CourseInstance",
-        courseMode: "Online",
-        courseSchedule: {
-          "@type": "Schedule",
-          repeatFrequency: "Weekly",
-          repeatCount: 1,
-          duration: "PT" + (parseInt(t.lessonLength, 10) || 50) + "M"
-        },
-        courseWorkload: "PT" + (parseInt(t.lessonLength, 10) || 50) + "M",
-        instructor: { "@id": url + "#person" },
-        offers: {
-          "@type": "Offer",
-          price,
-          priceCurrency: "USD",
-          availability: "https://schema.org/InStock",
-          category: "Paid",
-          url
-        }
-      }
-    });
-  }
-
-  graph.push({
-    "@type": "BreadcrumbList",
-    "@id": url + "#breadcrumb",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: SITE + "/" },
-      { "@type": "ListItem", position: 2, name: "Hindi Tutors", item: SITE + "/find-tutors.html" },
-      { "@type": "ListItem", position: 3, name: t.name, item: url }
-    ]
-  });
 
   return JSON.stringify({ "@context": "https://schema.org", "@graph": graph });
 }
@@ -275,35 +206,35 @@ function headBlock(t, price) {
 
   if (price) {
     stats.push(
-      '<strong data-usd="' + t.priceUSD + '" data-t="' + t.id + '" data-f="priceUSD" data-fmt="money">' +
+      'Profile lists <strong data-usd="' + t.priceUSD + '" data-t="' + t.id + '" data-f="priceUSD" data-fmt="money">' +
         price + "</strong> per <span data-t=\"" + t.id + '" data-f="lessonLength">' +
         esc(t.lessonLength || "50 min") + "</span> lesson"
     );
   }
   if (t.rating && t.reviewsCount) {
     stats.push(
-      "★".repeat(Math.max(1, Math.min(5, Math.round(Number(t.rating))))) +
+      "Source profile: " + "★".repeat(Math.max(1, Math.min(5, Math.round(Number(t.rating))))) +
         ' <span data-t="' + t.id + '" data-f="rating" data-fmt="rating">' +
         Number(t.rating).toFixed(1) + '</span> from <span data-t="' + t.id +
         '" data-f="reviewsCount">' + t.reviewsCount + "</span> reviews"
     );
   }
   if (t.lessonsCount) {
-    stats.push('<span data-t="' + t.id + '" data-f="lessonsCount">' + t.lessonsCount + "</span> lessons taught");
+    stats.push('Source profile lists <span data-t="' + t.id + '" data-f="lessonsCount">' + t.lessonsCount + "</span> lessons");
   }
   if (t.experienceYears) {
     stats.push(
-      '<span data-t="' + t.id + '" data-f="experienceYears">' + t.experienceYears + "</span>+ years' experience"
+      'Tutor states <span data-t="' + t.id + '" data-f="experienceYears">' + t.experienceYears + "</span>+ years' experience"
     );
   }
 
   const cta = [
-    '<a class="btn btn-primary" href="../../tutor.html?id=' + t.id + '">Book a lesson with ' + esc(t.name) + "</a>",
+    '<a class="btn btn-primary" href="../../tutor.html?id=' + t.id + '">Request a lesson with ' + esc(t.name) + "</a>",
     '<a class="btn btn-ghost" href="mailto:' + (t.formKey || t.email || "") +
-      "?subject=" + encodeURIComponent("Hindi lesson enquiry — " + t.name) + '">Send an email</a>'
+      "?subject=" + encodeURIComponent("Hindi lesson enquiry — " + t.name) + '">Send an enquiry</a>'
   ];
   if (t.preplyUrl) {
-    cta.push('<a class="btn btn-ghost" href="' + esc(t.preplyUrl) + '" rel="noopener nofollow">Book on Preply</a>');
+    cta.push('<a class="btn btn-ghost" href="' + esc(t.preplyUrl) + '" rel="noopener nofollow">View current Preply profile</a>');
   }
 
   return `  <header class="pr-head">
@@ -346,13 +277,13 @@ function teachesBlock(t) {
   );
 
   return `  <section class="pr-sec">
-    <h2>What ${esc(t.name)} teaches</h2>
+    <h2>What ${esc(t.name)}'s profile lists</h2>
     <ul>
 ${items}
     </ul>
-    <p>Suitable for <strong>${esc((t.levels || []).join(", "))}</strong> learners.
-       ${esc(t.name)} speaks ${esc(speaks.join(" and "))}.</p>
-${exams.length ? "    <p>Prepares students for: <strong>" + esc(exams.join(", ")) + "</strong>.</p>\n" : ""}${specialities.length ? "    <p>Specialities: " + esc(specialities.join(" · ")) + ".</p>\n" : ""}  </section>`;
+    <p>The tutor-provided profile lists <strong>${esc((t.levels || []).join(", "))}</strong> learner levels
+       and these languages: ${esc(speaks.join(" and "))}.</p>
+${exams.length ? "    <p>Profile-listed exam preparation: <strong>" + esc(exams.join(", ")) + "</strong>.</p>\n" : ""}${specialities.length ? "    <p>Profile-listed specialities: " + esc(specialities.join(" · ")) + ".</p>\n" : ""}  </section>`;
 }
 
 function experienceBlock(t) {
@@ -389,16 +320,13 @@ ${rows}
 function availabilityBlock(t) {
   const days = availabilityDays(t);
   if (!days.length) return "";
-  const off = DAYS.filter((d) => days.indexOf(d) === -1).map((d) => DAY_LONG[d]);
   const on = days.map((d) => DAY_LONG[d]);
 
   const sentence =
     on.length
-      ? esc(t.name) + " teaches on " +
-        (on.length > 1 ? on.slice(0, -1).join(", ") + ", and " + on[on.length - 1] : on[0]) +
-        (off.length ? ", and is not available on " + (off.length > 1 ? off.slice(0, -1).join(", ") + ", and " + off[off.length - 1] : off[0]) : "") +
-        "."
-      : esc(t.name) + " has no weekly slots published at the moment.";
+      ? "The imported profile lists times on " +
+        (on.length > 1 ? on.slice(0, -1).join(", ") + ", and " + on[on.length - 1] : on[0]) + "."
+      : "The imported profile has no weekly times listed.";
 
   const rows = DAYS.map((d) => {
     const slots = (t.availability || {})[d] || [];
@@ -407,10 +335,10 @@ function availabilityBlock(t) {
   }).join("\n");
 
   return `  <section class="pr-sec">
-    <h2>Availability</h2>
-    <p>${sentence} All times are ${esc(t.timezone || "IST (GMT+5:30)")}; the live site converts them into your own timezone automatically.</p>
+    <h2>Profile-listed times (confirmation required)</h2>
+    <p>${sentence} Times are shown in ${esc(t.timezone || "IST (GMT+5:30)")}. This is not a live availability calendar; request confirmation before making plans.</p>
     <table class="pr-table">
-      <caption>Weekly schedule for ${esc(t.name)}</caption>
+      <caption>Imported weekly times for ${esc(t.name)}; availability is not guaranteed</caption>
       <thead><tr><th scope="col">Day</th><th scope="col">Available times</th></tr></thead>
       <tbody>
 ${rows}
@@ -433,38 +361,36 @@ function reviewsBlock(t) {
   const reviews = t.reviews || [];
   if (!reviews.length) return "";
   const quote = (r) => {
-    const stars = r.rating ? "★".repeat(Math.round(Number(r.rating))) : "";
-    const who = [r.student || r.author || "Student", r.date].filter(Boolean).join(", ");
+    const value = r.stars || r.rating;
+    const stars = value ? "★".repeat(Math.round(Number(value))) : "";
+    const who = [r.name || r.student || r.author || "Reviewer", r.date].filter(Boolean).join(", ");
+    const source = r.source === "preply" && t.preplyUrl
+      ? ' · excerpt attributed to <a href="' + esc(t.preplyUrl) + '" rel="nofollow noopener">Preply</a>'
+      : " · source not independently verified";
     return `    <blockquote class="pr-quote">
       <p>${esc(r.text || r.body || "")}</p>
-      <footer>— <cite>${esc(who)}</cite>${stars ? " · " + stars : ""}</footer>
+      <footer>— <cite>${esc(who)}</cite>${stars ? " · " + stars : ""}${source}</footer>
     </blockquote>`;
   };
   return `  <section class="pr-sec">
-    <h2>Student reviews of ${esc(t.name)}</h2>
+    <h2>Attributed review excerpts for ${esc(t.name)}</h2>
 ${reviews.map(quote).join("\n")}
   </section>`;
 }
 
 function bookingBlock(t, price) {
-  const contact = t.formKey || t.email || "";
-  const trial = t.trialAvailable
-    ? (t.trialMinutes
-        ? " A free " + t.trialMinutes + "-minute trial lesson is available, so you can decide after your first class."
-        : " A trial lesson is available, so you can decide after your first class.")
-    : "";
+  const contact = t.formKey || t.email || "EkGuruLearning@gmail.com";
 
   return `  <section class="pr-sec">
-    <h2>Book a Hindi lesson with ${esc(t.name)}</h2>
-    <p>Lessons cost <span data-usd="${t.priceUSD}" data-t="${t.id}" data-f="priceUSD" data-fmt="money">${price}</span> for <span data-t="${t.id}" data-f="lessonLength">${esc(
+    <h2>Request current lesson details from ${esc(t.name)}</h2>
+    <p>The imported profile lists <span data-usd="${t.priceUSD}" data-t="${t.id}" data-f="priceUSD" data-fmt="money">${price}</span> for <span data-t="${t.id}" data-f="lessonLength">${esc(
     t.lessonLength || "50 min"
-  )}</span>, one to one over video call.${trial}
-       Send a booking request to
+  )}</span>. Price, format and availability can change and are not confirmed by this static page.
+       Send an enquiry to
        <a data-s="email" href="mailto:${esc(contact)}?subject=${encodeURIComponent(
-    "Hindi lesson with " + t.name
-  )}">${esc(contact)}</a>
-       and it reaches ${esc(t.name)} directly.</p>
-    <p><a class="btn btn-primary" href="../../tutor.html?id=${t.id}">Open the interactive profile — booking calendar, timezone conversion and intro video</a></p>
+    "Hindi lesson enquiry for " + t.name
+  )}">${esc(contact)}</a>. EkGuru forwards it when no direct tutor contact is on file.</p>
+    <p><a class="btn btn-primary" href="../../tutor.html?id=${t.id}">Open the interactive profile and send an availability request</a></p>
   </section>`;
 }
 
@@ -479,7 +405,7 @@ function othersBlock(t, roster) {
         '" data-f="name">' + esc(x.name) + '</span></a> — <span data-t="' + x.id + '" data-f="headline">' +
         esc(x.headline || "") + "</span> (" +
         '<span data-usd="' + x.priceUSD + '" data-t="' + x.id + '" data-f="priceUSD" data-fmt="money">' +
-        p + "</span> per lesson)</li>"
+        p + "</span> per lesson in the imported profile)</li>"
       );
     })
     .join("\n");
@@ -517,8 +443,8 @@ function main(t, roster) {
 
   return `<main id="main" class="pr-wrap">
   <p class="pr-note">
-    This is the text version of ${esc(t.name)}'s profile.
-    <a href="../../tutor.html?id=${t.id}"><strong>Open the interactive profile — booking calendar, timezone conversion and intro video</strong></a>
+    This page contains tutor-provided or source-profile information imported on 14 September 2026. EkGuru has not independently verified every statement, price or time. Confirm current details before booking.
+    <a href="../../tutor.html?id=${t.id}"><strong>Open the interactive profile and send an availability request</strong></a>
   </p>
   <article class="pr-article" itemscope itemtype="https://schema.org/Person">
   <nav class="crumbs" aria-label="Breadcrumb">
@@ -578,23 +504,23 @@ function build(t, roster) {
   };
 
   once(/<title>[\s\S]*?<\/title>/, "<title>" + esc(h.title) + "</title>", "<title>");
-  once(/<meta name="description" content="[^"]*">/, '<meta name="description" content="' + attr(h.desc) + '">', "meta description");
-  once(/<link rel="canonical" href="[^"]*">/, '<link rel="canonical" href="' + h.url + '">', "canonical");
-  once(/<meta property="og:title" content="[^"]*">/, '<meta property="og:title" content="' + attr(h.title) + '">', "og:title");
-  once(/<meta property="og:description" content="[^"]*">/, '<meta property="og:description" content="' + attr(h.desc) + '">', "og:description");
-  once(/<meta property="og:url" content="[^"]*">/, '<meta property="og:url" content="' + h.url + '">', "og:url");
-  once(/<meta property="og:image" content="[^"]*">/, '<meta property="og:image" content="' + attr(h.image) + '">', "og:image");
-  once(/<meta name="twitter:title" content="[^"]*">/, '<meta name="twitter:title" content="' + attr(h.title) + '">', "twitter:title");
-  once(/<meta name="twitter:description" content="[^"]*">/, '<meta name="twitter:description" content="' + attr(h.desc) + '">', "twitter:description");
-  once(/<meta name="twitter:image" content="[^"]*">/, '<meta name="twitter:image" content="' + attr(h.image) + '">', "twitter:image");
+  once(/<meta(?=[^>]*\bname="description")[^>]*>/, '<meta name="description" content="' + attr(h.desc) + '">', "meta description");
+  once(/<link(?=[^>]*\brel="canonical")[^>]*>/, '<link rel="canonical" href="' + h.url + '">', "canonical");
+  once(/<meta(?=[^>]*\bproperty="og:title")[^>]*>/, '<meta property="og:title" content="' + attr(h.title) + '">', "og:title");
+  once(/<meta(?=[^>]*\bproperty="og:description")[^>]*>/, '<meta property="og:description" content="' + attr(h.desc) + '">', "og:description");
+  once(/<meta(?=[^>]*\bproperty="og:url")[^>]*>/, '<meta property="og:url" content="' + h.url + '">', "og:url");
+  once(/<meta(?=[^>]*\bproperty="og:image")[^>]*>/, '<meta property="og:image" content="' + attr(h.image) + '">', "og:image");
+  once(/<meta(?=[^>]*\bname="twitter:title")[^>]*>/, '<meta name="twitter:title" content="' + attr(h.title) + '">', "twitter:title");
+  once(/<meta(?=[^>]*\bname="twitter:description")[^>]*>/, '<meta name="twitter:description" content="' + attr(h.desc) + '">', "twitter:description");
+  once(/<meta(?=[^>]*\bname="twitter:image")[^>]*>/, '<meta name="twitter:image" content="' + attr(h.image) + '">', "twitter:image");
   once(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, '<script type="application/ld+json">' + h.jsonLd + "</script>", "JSON-LD");
-  once(/<main id="main"[\s\S]*?<\/main>/, main(t, roster), "<main>");
+  once(/<main(?=[^>]*\bid="main")[^>]*>[\s\S]*?<\/main>/, main(t, roster), "<main>");
 
   /* the portrait preload must point at the portrait this tutor actually has */
   const pre = webpSibling(t.photo || "") || (t.photo || "images/placeholder-tutor.webp");
-  if (/<link rel="preload" as="image" href="[^"]*">/.test(out)) {
+  if (/<link(?=[^>]*\brel="preload")(?=[^>]*\bas="image")[^>]*>/.test(out)) {
     out = out.replace(
-      /<link rel="preload" as="image" href="[^"]*">/,
+      /<link(?=[^>]*\brel="preload")(?=[^>]*\bas="image")[^>]*>/,
       '<link rel="preload" as="image" href="' + esc(relImage(pre)) + '"' +
         (/\.webp$/i.test(pre) ? ' type="image/webp"' : "") + " fetchpriority=\"high\">"
     );
@@ -655,7 +581,7 @@ function feedItem(t, pubDate) {
   return `  <item>\n    <title>${esc(t.name + " — " + (t.headline || "Hindi tutor"))}</title>\n` +
     `    <link>${SITE}/tutor/${t.id}/</link>\n` +
     `    <guid isPermaLink="true">${SITE}/tutor/${t.id}/</guid>\n` +
-    `    <description>${esc(first)}${price ? " Lessons " + price + " per " + (t.lessonLength || "50 min") + "." : ""}</description>\n` +
+    `    <description>${esc("Tutor-provided profile excerpt: " + first)}${price ? " Imported profile price: " + price + " per " + (t.lessonLength || "50 min") + "; confirm current details." : ""}</description>\n` +
     `    <category>Hindi tutor</category>\n    <pubDate>${rfc822(pubDate)}</pubDate>\n  </item>`;
 }
 
@@ -674,6 +600,25 @@ function upsertUrlBlock(xml, id, block) {
   if (!last) throw new Error("no tutor <url> block to anchor a new tutor to");
   const at = last.index + last[0].length;
   return xml.slice(0, at) + "\n" + block + xml.slice(at);
+}
+
+function pruneTutorImageEntries(text, roster) {
+  const keep = new Set(roster.map((t) => t.name));
+  return text.replace(/\s*<image:image>[\s\S]*?<\/image:image>/g, (block) => {
+    const caption = block.match(/<image:caption>(.*?) — online Hindi tutor<\/image:caption>/);
+    return caption && !keep.has(caption[1]) ? "" : block;
+  });
+}
+
+function pruneTutorEntries(text, roster, kind) {
+  const keep = new Set(roster.map((t) => t.id));
+  const block = kind === "feed"
+    ? /  <item>[\s\S]*?<\/item>\n?/g
+    : /  <url>[\s\S]*?<\/url>\n?/g;
+  return text.replace(block, (whole) => {
+    const match = whole.match(new RegExp(SITE.replace(/\./g, "\\.") + "/tutor/([a-z0-9-]+)/"));
+    return match && !keep.has(match[1]) ? "" : whole;
+  });
 }
 
 function upsertFeedItem(feed, t, stamp) {
@@ -722,7 +667,7 @@ function updateIndexFiles(roster, stamp, check) {
   };
 
   /* sitemap-tutors.xml — the tutor set only */
-  let st = fs.readFileSync("sitemap-tutors.xml", "utf8");
+  let st = pruneTutorEntries(fs.readFileSync("sitemap-tutors.xml", "utf8"), tutors, "sitemap");
   for (const t of tutors) {
     st = upsertUrlBlock(
       st,
@@ -733,12 +678,13 @@ function updateIndexFiles(roster, stamp, check) {
   write("sitemap-tutors.xml", st, tutors.length + " tutor URLs");
 
   /* sitemap.xml — the same entries, with the image markup Google uses */
-  let sm = fs.readFileSync("sitemap.xml", "utf8");
+  let sm = pruneTutorImageEntries(fs.readFileSync("sitemap.xml", "utf8"), tutors);
+  sm = pruneTutorEntries(sm, tutors, "sitemap");
   for (const t of tutors) sm = upsertUrlBlock(sm, t.id, sitemapEntry(t, stamp));
   write("sitemap.xml", sm, tutors.length + " tutor URLs");
 
   /* feed.xml — items, with the channel's build date */
-  let feed = fs.readFileSync("feed.xml", "utf8");
+  let feed = pruneTutorEntries(fs.readFileSync("feed.xml", "utf8"), tutors, "feed");
   for (const t of tutors) feed = upsertFeedItem(feed, t, stamp);
   feed = feed.replace(/<lastBuildDate>[^<]*<\/lastBuildDate>/, () => `<lastBuildDate>${rfc822(stamp)}</lastBuildDate>`);
   write("feed.xml", feed, tutors.length + " items");

@@ -62,16 +62,25 @@ function walk(dir, out) {
 /* Pages do not agree on `defer`: the English pages use it, the six market
    pages load these scripts plainly. The new tag copies whatever the page
    already does, so a sync never changes how a page loads its scripts. */
-const REGISTRY_TAG = /(<script src="((?:\.\.\/)*js\/tutors\/)_registry\.js"( defer)?><\/script>)/;
+const REGISTRY_TAG = /(<script(?=[^>]*\bsrc="((?:\.\.\/)*js\/tutors\/)_registry\.js")[^>]*><\/script>)/;
 const TUTOR_TAG = (prefix, id, defer) => `<script src="${prefix}${id}.js"${defer || ""}></script>`;
 
 function sync(html, ids, file) {
   const reg = REGISTRY_TAG.exec(html);
   if (!reg) return null;                       // page does not use tutors at all
   const prefix = reg[2];                       // "js/tutors/" or "../../js/tutors/"
-  const defer = reg[3] || "";                  // "" or " defer"
+  const defer = /\bdefer(?:="")?/.test(reg[1]) ? " defer" : "";
 
-  const has = (id) => new RegExp('<script src="' + prefix + id + '\\.js"(?: defer)?></script>').test(html);
+  /* Remove tutor scripts that are no longer in the public registry. Keeping a
+     draft file loaded would let runtime rendering republish it even after its
+     static profile and sitemap entry had been quarantined. */
+  const allowed = new Set(ids);
+  html = html.replace(
+    new RegExp('<script(?=[^>]*\\bsrc="' + prefix + '([a-z0-9-]+)\\.js")[^>]*><\\/script>\\n?', "g"),
+    function (whole, id) { return allowed.has(id) ? whole : ""; }
+  );
+
+  const has = (id) => new RegExp('<script(?=[^>]*\\bsrc="' + prefix + id + '\\.js")[^>]*><\\/script>').test(html);
   const missing = ids.filter((id) => !has(id));
   if (!missing.length) return html;
 
@@ -79,7 +88,7 @@ function sync(html, ids, file) {
      lists three of five gets the two new ones at the end — not in the middle
      of a hand-written block; if the page has none at all, right after the
      registry tag, which is where the first one always lived. */
-  const tagRe = new RegExp('<script src="' + prefix + '[a-z0-9-]+\\.js"(?: defer)?><\\/script>', "g");
+  const tagRe = new RegExp('<script(?=[^>]*\\bsrc="' + prefix + '[a-z0-9-]+\\.js")[^>]*><\\/script>', "g");
   let at = -1;
   for (let m = tagRe.exec(html); m; m = tagRe.exec(html)) at = m.index + m[0].length;
   if (at === -1) at = reg.index + reg[1].length;

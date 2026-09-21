@@ -95,6 +95,18 @@
     return s;
   }
 
+  var started = false;
+  function analyticsAllowed() {
+    try {
+      var consent = JSON.parse(localStorage.getItem("ekguru_cookie_consent_v3") || "null");
+      return !!(consent && consent.analytics === true);
+    } catch (e) { return false; }
+  }
+
+  function bootAnalytics() {
+    if (started || !analyticsAllowed()) return;
+    started = true;
+
   if (provider === "goatcounter") {
     /* GoatCounter counts the page view itself on load. */
     window.goatcounter = { no_onload: false };
@@ -107,7 +119,7 @@
        groups neatly in GoatCounter's list. */
     window.addEventListener("ekguru:event", function (e) {
       try {
-        if (!window.goatcounter || !window.goatcounter.count) return;
+        if (!analyticsAllowed() || !window.goatcounter || !window.goatcounter.count) return;
         window.goatcounter.count({
           path: "event/" + (e.detail && e.detail.name || "unknown"),
           title: (e.detail && e.detail.label) || "",
@@ -126,6 +138,7 @@
     };
     window.addEventListener("ekguru:event", function (e) {
       try {
+        if (!analyticsAllowed()) return;
         window.plausible((e.detail && e.detail.name) || "event",
           { props: { label: (e.detail && e.detail.label) || "" } });
       } catch (err) {}
@@ -156,4 +169,13 @@
       try { return localStorage.getItem("ekguru_no_track") === "1"; } catch (e) { return false; }
     }
   };
+  }
+
+  // No consent/new session/reject: no analytics request. Accepting or changing
+  // settings starts the cookieless provider without a page reload. Withdrawal
+  // stops future EkGuru events; an already-sent page view cannot be recalled.
+  bootAnalytics();
+  document.addEventListener("ekguru:consent", function (event) {
+    if (event.detail && event.detail.analytics === true) bootAnalytics();
+  });
 })();

@@ -26,12 +26,13 @@
    ⚠️ Names here must match the FILENAME and the tutor's `id`.
    ========================================================= */
 
+/* Only profiles with a non-placeholder identity/photo and owner-reviewed
+   source material are public. Draft records stay in this directory so they
+   can be completed, but keeping them out of this list keeps them out of the
+   roster, localized pages, feeds and generated tutor sitemaps. */
 window.EKGURU_TUTOR_ORDER = [
   "sushila-g",
-  "hemlata",
   "shikha-dutta",
-  "tara",
-  "sarshtee-baliyan",
 ];
 
 /* ---------------------------------------------------------

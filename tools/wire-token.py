@@ -31,9 +31,10 @@ USAGE
        python3 tools/wire-token.py
   3. Verify:  python3 tools/wire-token.py --check
 
-The token is a SHARED value, not a true secret (a static page is public
-by construction); the relay's real backstop is its daily cap and the
-server-side property. Still, keep it out of git and out of chat.
+The token is a deploy-time credential. A static browser bundle cannot keep
+it confidential after deployment, but it must never be committed to source
+control, copied into reports, or printed by diagnostics. The relay must also
+enforce server-side authorization, origin checks, validation, and rate limits.
 """
 
 import json
@@ -77,12 +78,10 @@ def main():
         return 0
 
     if "--check" in sys.argv:
-        tok = current_token()
-        if tok:
-            print("token WIRED in js/site-config.js — do not commit this file")
-            return 0
-        print("token EMPTY in js/site-config.js — run: python3 tools/wire-token.py")
-        return 1
+        # This is deliberately machine-readable and reveals no credential
+        # metadata. Do not add paths, lengths, prefixes, or hints here.
+        print("WIRED" if current_token() else "EMPTY")
+        return 0
 
     tok = read_token()
     if not tok:

@@ -131,7 +131,7 @@
   function hasWa(v) { return !!v && !/[xX]/.test(v) && v.replace(/\D/g, "").length >= 10; }
   function waHref(num, who) {
     return "https://wa.me/" + String(num).replace(/\D/g, "") + "?text=" +
-      encodeURIComponent("Hello " + (who || "") + "! I found your profile on EkGuru and I would like to learn Hindi. Could you tell me about a trial lesson?");
+      encodeURIComponent("Hello " + (who || "") + "! I found your profile on EkGuru and I would like to learn Hindi. Could you confirm your current price, lesson format and availability?");
   }
   function mailHref(to, subject, body) {
     return "mailto:" + (to || SITE.email) +
@@ -666,22 +666,22 @@
                 '<source type="image/jpeg" srcset="' + srcBase(x) + '-176.jpg 176w, ' + srcBase(x) + '-264.jpg 264w" sizes="88px">') +
               '<img data-safe src="' + esc(x.thumb || x.photo) + '" alt="' + esc(x.name) + ', ' + esc(t("card.tutor")) + '" loading="lazy" decoding="async" width="88" height="88">' +
             '</picture>' +
-            (x.verified ? '<span class="badge-verified" title="' + esc(t("pf.verified")) + '">✓</span>' : "") +
+            "" +
           "</div><div>" +
             "<h3>" + esc(x.name) + " <span>" + esc(x.countryFlag || "") + "</span></h3>" +
-            '<p class="role">' + esc(t("card.tutor")) + (x.superTutor ? " · ⭐ " + esc(t("card.super")) : "") + "</p>" +
+            '<p class="role">' + esc(t("card.tutor")) + " · " + esc(t("pf.sourceShort")) + "</p>" +
             '<div class="meta">' +
-              '<span class="stars">' + stars(x.rating) + " <b>" + (x.rating || 0).toFixed(1) + "</b></span>" +
-              "<span>" + (x.reviewsCount || 0) + " " + esc(t("card.reviews")) + "</span>" +
-              "<span>" + (x.lessonsCount || 0) + " " + esc(t("card.lessons")) + "</span>" +
+              (x.reviewsCount ? '<span class="stars">' + stars(x.rating) + " <b>" + (x.rating || 0).toFixed(1) + "</b></span>" +
+                "<span>" + x.reviewsCount + " " + esc(t("card.reviews")) + "</span>" : "") +
+              (x.lessonsCount ? "<span>" + x.lessonsCount + " " + esc(t("card.lessons")) + "</span>" : "") +
             "</div></div></div>" +
-        '<div class="tcard-body"><p>' + esc(intro) + "</p>" +
+        '<div class="tcard-body"><p><strong>' + esc(t("pf.sourceShort")) + '</strong> ' + esc(intro) + "</p>" +
           '<div class="tags">' +
             (x.teaches || []).slice(0, 2).map(function (v) { return '<span class="tag hi">' + esc(v) + "</span>"; }).join("") +
             (x.tags || []).slice(0, 3).map(function (v) { return '<span class="tag">' + esc(v) + "</span>"; }).join("") +
           "</div></div>" +
         '<div class="tcard-foot">' +
-          '<div class="price"><b data-usd="' + esc(x.priceUSD) + '" data-usd-mode="bare">' + px(x.priceUSD) + "</b><span>" + esc(x.lessonLength || "50 min") + " " + esc(t("card.lesson")) + "</span></div>" +
+          '<div class="price"><b data-usd="' + esc(x.priceUSD) + '" data-usd-mode="bare">' + px(x.priceUSD) + "</b><span>" + esc(t("pf.profilePrice")) + " · " + esc(x.lessonLength || "50 min") + " " + esc(t("card.lesson")) + "</span></div>" +
           '<span class="btn btn-primary btn-sm tcard-cta">' + esc(t("card.view")) + " →</span>" +
         "</div></article>";
   }
@@ -961,7 +961,7 @@
     }
 
     var subj = "Hindi lesson enquiry — " + x.name + " (EkGuru)";
-    var body = "Hello " + x.name + ",\n\nI found your profile on EkGuru and I would like to learn Hindi.\n\nMy current level: \nMy goal: \nPreferred days and times (with my timezone): \n\nCould you tell me about a trial lesson?\n\nThank you!";
+    var body = "Hello " + x.name + ",\n\nI found your profile on EkGuru and I would like to learn Hindi.\n\nMy current level: \nMy goal: \nPreferred days and times (with my timezone): \n\nCould you confirm your current price, lesson format and availability?\n\nThank you!";
     var mail = mailHref(x.email || SITE.email, subj, body);
 
     var waTutor = hasWa(x.whatsapp) ? x.whatsapp : (hasWa(SITE.whatsapp) ? SITE.whatsapp : "");
@@ -992,7 +992,7 @@
       ? '<div class="rev-wrap" data-rev-slider>' + x.reviews.map(function (r) {
           return '<article class="rev"><div class="rev-h"><div class="rev-av">' + esc(String(r.name || "?").charAt(0)) +
             "</div><div><b>" + esc(r.name) + '</b><span class="stars">' + stars(r.stars) +
-            "</span> <span>· " + esc(r.date) + '</span></div></div><p class="rev-text">' + esc(r.text) + "</p></article>";
+            "</span> <span>· " + esc(r.date) + " · " + esc(r.source === "preply" ? "Preply" : t("pf.sourceUnverified")) + '</span></div></div><p class="rev-text">' + esc(r.text) + "</p></article>";
         }).join("") + "</div>"
       : '<p class="muted">' + esc(t("pf.noReviews")) + "</p>";
 
@@ -1009,18 +1009,20 @@
         '<a href="' + langHref("find-tutors.html") + '">' + esc(t("nav.tutors")) + "</a> › <span>" + esc(x.name) + "</span></nav>" +
         '<div class="pf-top reveal"><div class="pf-photo">' +
           '<img data-safe src="' + esc(x.photo) + '" alt="' + esc(x.name) + ', ' + esc(t("card.tutor")) + '" width="200" height="200">' +
-          (x.verified ? '<span class="badge-verified" title="' + esc(t("pf.verified")) + '">✓</span>' : "") +
+          "" +
         "</div><div>" +
           '<div class="pf-name"><h1>' + esc(x.name) + "</h1>" +
-            (x.superTutor ? '<span class="chip brand">⭐ ' + esc(t("card.super")) + "</span>" : "") +
+            "" +
             '<span class="chip">' + esc(x.countryFlag || "") + " " + esc(x.country || "") + "</span></div>" +
           '<p class="pf-headline">' + esc(x.headline) + "</p>" +
+          '<p class="pr-note">' + esc(t("pf.sourceNote")) + "</p>" +
           '<div class="tags">' + (x.tags || []).map(function (v) { return '<span class="tag hi">' + esc(v) + "</span>"; }).join("") + "</div>" +
           '<div class="pf-stats">' +
-            '<div><b class="stars">' + stars(x.rating) + "</b><span>" + (x.rating || 0).toFixed(1) + " · " + (x.reviewsCount || 0) + " " + esc(t("card.reviews")) + "</span></div>" +
-            "<div><b>" + (x.lessonsCount || 0) + "</b><span>" + esc(t("pf.lessonsTaught")) + "</span></div>" +
-            "<div><b>" + (x.experienceYears || 0) + "+ " + esc(t("pf.yrs")) + "</b><span>" + esc(t("pf.exp")) + "</span></div>" +
-            '<div><b data-usd="' + esc(x.priceUSD) + '" data-usd-mode="bare">' + px(x.priceUSD) + "</b><span>" + esc(t("pf.per")) + " " + esc(x.lessonLength || "50 min") + "</span></div>" +
+            (x.reviewsCount ? '<div><b class="stars">' + stars(x.rating) + "</b><span>" +
+              esc(t("pf.sourceShort")) + " " + (x.rating || 0).toFixed(1) + " · " + x.reviewsCount + " " + esc(t("card.reviews")) + "</span></div>" : "") +
+            (x.lessonsCount ? "<div><b>" + x.lessonsCount + "</b><span>" + esc(t("pf.profileLessons")) + "</span></div>" : "") +
+            (x.experienceYears ? "<div><b>" + x.experienceYears + "+ " + esc(t("pf.yrs")) + "</b><span>" + esc(t("pf.statedExp")) + "</span></div>" : "") +
+            '<div><b data-usd="' + esc(x.priceUSD) + '" data-usd-mode="bare">' + px(x.priceUSD) + "</b><span>" + esc(t("pf.profilePrice")) + " · " + esc(x.lessonLength || "50 min") + "</span></div>" +
           "</div>" +
           '<div class="pf-actions">' +
             bookBtn(x, "btn-lg") +
@@ -1065,7 +1067,7 @@
 
         '<section class="panel reveal"><h2><span class="ico">💬</span>' + esc(t("pf.reviews")) + "</h2>" + revs + "</section>" +
       "</main><aside><div class=\"side\"><div class=\"side-card reveal\">" +
-        '<div class="side-price"><b data-usd="' + esc(x.priceUSD) + '" data-usd-mode="full">' + pxFull(x.priceUSD) + "</b><span>" + esc(x.lessonLength || "50 min") + " " + esc(t("card.lesson")) + "</span></div>" +
+        '<div class="side-price"><b data-usd="' + esc(x.priceUSD) + '" data-usd-mode="full">' + pxFull(x.priceUSD) + "</b><span>" + esc(t("pf.profilePrice")) + " · " + esc(x.lessonLength || "50 min") + " " + esc(t("card.lesson")) + "</span></div>" +
         bookBtn(x, "btn-block") +
         preplySmall +
         '<a class="btn btn-ghost btn-block" href="' + mail + '">' + esc(t("pf.email")) + "</a>" +

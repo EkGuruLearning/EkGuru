@@ -1,104 +1,102 @@
 #!/usr/bin/env python3
-"""EkGuru — put the questions API on every page that asks questions.
+"""Own the question-api tag on explicit question-rendering pages only.
 
-js/question-api.js is what lets one learner's flag reach the next learner, so
-it has to be loaded wherever a question is answered:
-
-  · the ten language quiz pages and the Hindi quiz page  (js/hindi-tools.js)
-  · the ten language worksheet pages                     (same builder)
-  · the typing trainers                                  (same builder)
-  · the world-course quiz/practice/review pages          (js/practice-engine.js)
-
-The script is a sibling of js/hindi-tools.js and js/practice-engine.js, so it
-is injected immediately before whichever of those the page already loads. The
-depth prefix is taken from that tag, which is why this is a tool and not a
-sed one-liner. Idempotent: a page that already has the tag is left alone.
-
-Run:  python3 tools/inject-questions-api.py [--check]
+The check mode is read-only. Generic course bundle consumers are deliberately
+not targets: a shared bundle does not prove that a page renders questions.
 """
+from __future__ import annotations
 
-import os
 import re
 import sys
+from pathlib import Path
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-os.chdir(ROOT)
-
-SKIP_DIRS = {".git", "node_modules", "images", "css", "js", "data", "reports",
-             "docs", "templates", "research", "tools"}
-
-# The tools that render questions on the page.
-HOSTS = ("js/hindi-tools.js", "js/practice-engine.js")
-# The world-course pages (languages/<code>/quiz, /practice, /review) render
-# questions through their own course bundle, so that is a host too.
-COURSE = re.compile(r'<script src="((?:\.\./)*)(js/course-[a-z-]+\.js)"')
-TAG = '<script src="%sjs/question-api.js" defer></script>'
+ROOT = Path(__file__).resolve().parents[1]
+SKIP = {".git", "node_modules", "reports", "tools", "data", "research", "templates"}
 MARK = "<!-- ekguru:questions-api -->"
+BLOCK = re.compile(r"\s*<!-- ekguru:questions-api -->\s*<script\b[^>]*\bsrc=[\"'](?:\.\./)*js/question-api\.js[\"'][^>]*>\s*</script>", re.I)
+SCRIPT = re.compile(r"<script\b[^>]*>", re.I)
+SRC = re.compile(r"\bsrc=[\"']([^\"']+)[\"']", re.I)
 
 
-def pages():
+def pages() -> list[Path]:
+    return sorted(p for p in ROOT.rglob("*.html")
+                  if not any(part in SKIP or part.startswith(".") for part in p.relative_to(ROOT).parts[:-1]))
+
+
+def scripts(text: str) -> list[tuple[int, str]]:
     out = []
-    for dirpath, dirs, files in os.walk("."):
-        parts = [x for x in dirpath.split(os.sep) if x and x != "."]
-        if any(part in SKIP_DIRS or part.startswith(".") for part in parts):
-            continue
-        for f in sorted(files):
-            if f.endswith(".html"):
-                out.append(os.path.join(dirpath, f))
-    return sorted(out)
+    for tag in SCRIPT.finditer(text):
+        src = SRC.search(tag.group(0))
+        if src:
+            out.append((tag.start(), src.group(1)))
+    return out
 
 
-def host_tag(html):
-    """The tag for one of HOSTS, with its own depth prefix."""
-    for host in HOSTS:
-        m = re.search(r'<script src="((?:\.\./)*)' + re.escape(host) + r'"', html)
-        if m:
-            return m.start(), m.group(1)
-    m = COURSE.search(html)
-    if m:
-        return m.start(), m.group(1)
-    return None, None
+def eligible(rel: str, assets: list[str]) -> bool:
+    names = {a.rsplit("/", 1)[-1] for a in assets}
+    if "hindi-tools.js" in names or "practice-engine.js" in names:
+        return True
+    if re.fullmatch(r"languages/[^/]+/(?:quiz|review)/index\.html", rel):
+        return any(re.fullmatch(r"course-[a-z-]+\.js", name) for name in names)
+    return rel == "toolbox/hindi-quiz/index.html"
 
 
-def inject(html):
-    if MARK in html or "js/question-api.js" in html:
-        return html, False
-    at, prefix = host_tag(html)
-    if at is None:
-        return html, False
-    tag = MARK + "\n" + TAG % (prefix if prefix is not None else "")
-    return html[:at] + tag + "\n" + html[at:], True
+def desired(path: Path, html: str) -> tuple[str, bool]:
+    rel = path.relative_to(ROOT).as_posix()
+    clean = BLOCK.sub("", html)
+    clean = re.sub(r"\s*<script\b[^>]*\bsrc=[\"'](?:\.\./)*js/question-api\.js[\"'][^>]*>\s*</script>", "", clean, flags=re.I)
+    found = scripts(clean)
+    assets = [src for _, src in found]
+    target = eligible(rel, assets)
+    if not target:
+        return clean, False
+
+    preferred = ["hindi-tools.js", "practice-engine.js"]
+    anchor = None
+    prefix = ""
+    for wanted in preferred:
+        for at, src in found:
+            if src.rsplit("/", 1)[-1] == wanted:
+                anchor, prefix = at, src[:-len("js/" + wanted)] if src.endswith("js/" + wanted) else ""
+                break
+        if anchor is not None:
+            break
+    if anchor is None:
+        # World-course quiz/review or the self-contained toolbox quiz: place it
+        # beside the first local runtime script near the end of the page.
+        candidates = [(at, src) for at, src in found if "/js/" in src or src.startswith("js/")]
+        anchor, src = candidates[-1] if candidates else (clean.lower().rfind("</body>"), "")
+        m = re.match(r"((?:\.\./)*)js/", src)
+        prefix = m.group(1) if m else ""
+    tag = f'{MARK}\n<script src="{prefix}js/question-api.js" defer></script>\n'
+    return clean[:anchor] + tag + clean[anchor:], True
 
 
-def main():
+def main() -> int:
     check = "--check" in sys.argv
-    stale, written, seen = [], 0, 0
-    for p in pages():
-        with open(p, encoding="utf-8") as fh:
-            html = fh.read()
-        new, changed = inject(html)
-        if not changed and MARK not in new:
-            continue
-        seen += 1
-        if not changed:
+    stale, targets, updated = [], 0, 0
+    for path in pages():
+        old = path.read_text(encoding="utf-8", errors="replace")
+        new, target = desired(path, old)
+        targets += int(target)
+        if new == old:
             continue
         if check:
-            stale.append(p)
-            continue
-        with open(p, "w", encoding="utf-8") as fh:
-            fh.write(new)
-        written += 1
+            stale.append(path.relative_to(ROOT).as_posix())
+        else:
+            path.write_text(new, encoding="utf-8")
+            updated += 1
+    if check and stale:
+        print(f"STALE {len(stale)} page(s) — run: python3 tools/inject-questions-api.py")
+        for path in stale[:10]:
+            print("  " + path)
+        return 1
     if check:
-        if stale:
-            print("STALE %d page(s) — run: python3 tools/inject-questions-api.py" % len(stale))
-            for p in stale[:10]:
-                print("  " + p)
-            return 1
-        print("ok    questions API on %d question page(s)" % seen)
-        return 0
-    print("questions api: %d page(s) updated, %d question page(s) known" % (written, seen))
+        print(f"ok    questions API on {targets} question page(s)")
+    else:
+        print(f"questions api: {updated} page(s) updated, {targets} question page(s) known")
     return 0
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    raise SystemExit(main())

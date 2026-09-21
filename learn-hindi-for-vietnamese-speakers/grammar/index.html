@@ -35,15 +35,6 @@
 <meta content="#4f32d9" name="theme-color"/>
 <link href="../../css/style.min.css" rel="stylesheet"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://ekguru.shop/learn-hindi-for-vietnamese-speakers/grammar/#article","headline":"Hindi Grammar for Vietnamese Speakers","description":"Hindi grammar compared with Vietnamese: what transfers directly, what is genuinely new, and what to learn in which order.","inLanguage":"en","about":{"@type":"Language","name":"Hindi","alternateName":"हिन्दी"},"author":{"@type":"Organization","name":"EkGuru","url":"https://ekguru.shop/"},"publisher":{"@type":"Organization","name":"EkGuru","url":"https://ekguru.shop/"},"mainEntityOfPage":"https://ekguru.shop/learn-hindi-for-vietnamese-speakers/grammar/","isPartOf":{"@id":"https://ekguru.shop/learn-hindi-for-vietnamese-speakers/#article"}},{"@type":"FAQPage","@id":"https://ekguru.shop/learn-hindi-for-vietnamese-speakers/grammar/#faq","mainEntity":[{"@type":"Question","name":"Is Hindi grammar hard for Vietnamese speakers?","acceptedAnswer":{"@type":"Answer","text":"It depends entirely on which feature. Subject-verb-object, so Hindi's verb-final order is new. Vietnamese's strict word order does mean you are used to position carrying meaning, which makes the switch feel systematic rather than arbitrary."}},{"@type":"Question","name":"What is the hardest part?","acceptedAnswer":{"@type":"Answer","text":"Learning to stop using pitch to distinguish words, which is harder than it sounds because it is unconscious. Inflection is the other: Vietnamese is strongly isolating and marks almost nothing on the word, while Hindi marks gender, number and formality throughout. And the retroflex series is new."}},{"@type":"Question","name":"Do I need to learn grammar rules, or can I just absorb it?","acceptedAnswer":{"@type":"Answer","text":"Adults learn grammar faster by being told the rule than by inferring it — that is one of the few genuine advantages adults have over children. Learn the rule, then produce twenty sentences of your own with it. Reading the rule alone does almost nothing."}}]},{"@id":"https://ekguru.shop/learn-hindi-for-vietnamese-speakers/grammar/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"EkGuru","item":"https://ekguru.shop/"},{"@type":"ListItem","position":2,"name":"Learn Hindi","item":"https://ekguru.shop/learn/"},{"@type":"ListItem","position":3,"name":"By first language","item":"https://ekguru.shop/learn-hindi-for-speakers/"},{"@type":"ListItem","position":4,"name":"Vietnamese","item":"https://ekguru.shop/learn-hindi-for-vietnamese-speakers/"},{"@type":"ListItem","position":5,"name":"Grammar","item":"https://ekguru.shop/learn-hindi-for-vietnamese-speakers/grammar/"}]}]}</script>
-<!-- Google AdSense. Emitted only because ads.client is set to a valid
-     publisher id in js/site-config.js. Clear that value and every one
-     of these tags disappears on the next build. See tools/adsense.js. -->
-<!-- ekguru:adsense:start -->
-<link crossorigin="" href="https://pagead2.googlesyndication.com" rel="preconnect"/>
-<link crossorigin="" href="https://googleads.g.doubleclick.net" rel="preconnect"/>
-<meta content="ca-pub-8175326569491671" name="google-adsense-account"/>
-<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8175326569491671"></script>
-<!-- ekguru:adsense:end -->
 </head>
 <body>
 <!-- ekguru:shell-header:start -->
@@ -51,7 +42,7 @@
   <a class="skip" href="#main">Skip to content</a>
   <div class="hdr-in">
     <a class="logo" href="../../index.html">
-      <span class="logo-mark" aria-hidden="true">E</span>
+      <img class="logo-img" src="../../images/logo.svg" width="38" height="38" alt="EkGuru">
       <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
     </a>
     <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
@@ -62,7 +53,7 @@
       <a href="../../learn/">Learn</a>
       <a href="../../support/index.html">Support</a>
       <a href="../../search/">Search</a>
-      <a class="btn btn-primary btn-sm" href="../../find-tutors.html">Book a trial</a>
+      <a class="btn btn-primary btn-sm" href="../../find-tutors.html">Find tutors</a>
     </nav>
   </div>
 </header>
@@ -202,14 +193,12 @@ way to write Hindi in Latin letters.</p></div>
 /* =========================================================
    ANALYTICS EVENTS  (v72, Phase 26)
    ---------------------------------------------------------
-   GoatCounter is already on the site and is privacy-conscious
-   by design: no cookies, no cross-site identifier, nothing
-   that needs a consent banner. No new provider is introduced.
+   GoatCounter is requested only after the visitor allows
+   analytics in Privacy settings. It uses no analytics cookie
+   or cross-site identifier. No new provider is introduced.
 
-   What was missing is that it only counted PAGE VIEWS, so
-   there was no way to tell whether anyone who read a country
-   page ever clicked through to a tutor — which is the only
-   number that matters for this whole build.
+   These custom events run through the same consent-gated
+   analytics helper and do nothing when analytics is off.
 
    Two events are added here, on every page produced by the
    shell:
@@ -310,15 +299,9 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
 <p><a class="btn btn-primary" href="/courses/#/hi">Open the Hindi course</a></p>
 </nav>
 <footer class="pw-support">
-<div>
-<b>Every lesson here is free, and always will be.</b>
-<p>No account, no paywall. The practice itself — every quiz, worksheet
-    and drill — carries no ad at all; the pages around it sometimes do,
-    and that is what keeps the lessons running. Keeping it free is the
-    only thing this page asks of you.</p>
-</div>
+<p>Published lessons are currently free. Advertising is disabled in this release.</p>
 <a class="pw-support-cta" href="/support/">Support EkGuru</a>
-<a href="/find-tutors.html">Book a trial lesson</a>
+<a href="/find-tutors.html">Tutor profiles</a>
 </footer>
 <!-- ekguru:pw-bands:end -->
 </main>
@@ -327,10 +310,10 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
   <div class="wrap ftr-in">
     <div>
       <a class="logo" href="../../index.html">
-        <span class="logo-mark" aria-hidden="true">E</span>
+        <img class="logo-img" src="../../images/logo.svg" width="38" height="38" alt="EkGuru">
         <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
       </a>
-      <p style="margin-top:14px">Online Hindi lessons with verified, caring tutors.</p>
+      <p style="margin-top:14px">Online Hindi lessons with independent tutor profiles.</p>
     </div>
     <div>
       <h3>Site</h3>
@@ -360,6 +343,7 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
       <a href="../../about/">About EkGuru</a>
       <a href="../../privacy/">Privacy policy</a>
       <a href="../../terms/">Terms of use</a>
+      <a href="../../monetization-disclosure/">Monetization disclosure</a>
       <a href="../../disclaimer/">Disclaimer</a>
       <a href="../../copyright/">Copyright</a>
       <a href="../../cookie-policy/">Cookie policy</a>

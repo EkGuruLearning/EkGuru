@@ -46,16 +46,6 @@
 .note{background:var(--bg-soft);border:1px solid #ddd8ff;border-radius:12px;padding:14px 16px;margin:14px 0;font-size:.94rem;color:var(--ink-2)}
 .btn{margin:6px 6px 6px 0}
 </style>
-<!-- ekguru:adsense:start -->
-<!-- Auto ads: one account loader, and Google places the units. Whether
-     this block is in the page at all is decided by the page's class
-     (html[data-ad-class]) and data/monetization/google-monetization.json
-     -> ad_policy. tools/inject-ads.py enforces it. -->
-<link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
-<link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
-<meta name="google-adsense-account" content="ca-pub-8175326569491671">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8175326569491671" crossorigin="anonymous"></script>
-<!-- ekguru:adsense:end -->
 </head>
 <body>
 <!-- ekguru:shell-header:start -->
@@ -63,7 +53,7 @@
   <a class="skip" href="#main">Skip to content</a>
   <div class="hdr-in">
     <a class="logo" href="../../../index.html">
-      <span class="logo-mark" aria-hidden="true">E</span>
+      <img class="logo-img" src="../../../images/logo.svg" width="38" height="38" alt="EkGuru">
       <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
     </a>
     <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
@@ -74,7 +64,7 @@
       <a href="../../../learn/">Learn</a>
       <a href="../../../support/index.html">Support</a>
       <a href="../../../search/">Search</a>
-      <a class="btn btn-primary btn-sm" href="../../../find-tutors.html">Book a trial</a>
+      <a class="btn btn-primary btn-sm" href="../../../find-tutors.html">Find tutors</a>
     </nav>
   </div>
 </header>
@@ -141,10 +131,10 @@ if ("serviceWorker" in navigator) {
   <div class="wrap ftr-in">
     <div>
       <a class="logo" href="../../../index.html">
-        <span class="logo-mark" aria-hidden="true">E</span>
+        <img class="logo-img" src="../../../images/logo.svg" width="38" height="38" alt="EkGuru">
         <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
       </a>
-      <p style="margin-top:14px">Online Hindi lessons with verified, caring tutors.</p>
+      <p style="margin-top:14px">Online Hindi lessons with independent tutor profiles.</p>
     </div>
     <div>
       <h3>Site</h3>
@@ -174,6 +164,7 @@ if ("serviceWorker" in navigator) {
       <a href="../../../about/">About EkGuru</a>
       <a href="../../../privacy/">Privacy policy</a>
       <a href="../../../terms/">Terms of use</a>
+      <a href="../../../monetization-disclosure/">Monetization disclosure</a>
       <a href="../../../disclaimer/">Disclaimer</a>
       <a href="../../../copyright/">Copyright</a>
       <a href="../../../cookie-policy/">Cookie policy</a>

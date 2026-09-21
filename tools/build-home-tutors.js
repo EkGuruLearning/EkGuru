@@ -4,7 +4,7 @@
    --------------------------------------------------------------------------
    Rewrites the static tutor list on the English home page from the live
    roster (js/tutors/*.js + the sheet overrides, through tools/lib/site-data.js)
-   and keeps the "Verified Gurus" figure in the hero in step with it.
+   and keeps the tutor-profile figure in the hero in step with it.
 
    WHY THIS TOOL EXISTS
    --------------------
@@ -100,27 +100,21 @@ function metaLine(t) {
   if (t.reviewsCount) {
     const stars = "★".repeat(Math.max(1, Math.min(5, Math.round(Number(t.rating) || 0))));
     bits.push(
-      `<span class="stars">${stars} <b>${Number(t.rating || 0).toFixed(1)}</b></span>` +
-        `<span>${t.reviewsCount} review${t.reviewsCount === 1 ? "" : "s"}</span>`
+      `<span class="stars">Source profile: ${stars} <b>${Number(t.rating || 0).toFixed(1)}</b></span>` +
+        `<span>${t.reviewsCount} attributed review${t.reviewsCount === 1 ? "" : "s"}</span>`
     );
-  } else if (t.trialAvailable) {
-    bits.push("<span>Trial lesson available</span>");
-  } else if (t.badge) {
-    bits.push("<span>" + esc(t.badge) + "</span>");
+  } else {
+    bits.push("<span>No public reviews listed</span>");
   }
-  if (t.lessonsCount) bits.push(`<span>${t.lessonsCount} lessons</span>`);
+  if (t.lessonsCount) bits.push(`<span>Source profile lists ${t.lessonsCount} lessons</span>`);
   if (t.experienceYears) {
-    bits.push(`<span>${t.experienceYears} year${t.experienceYears === 1 ? "" : "s"}' experience</span>`);
+    bits.push(`<span>Tutor states ${t.experienceYears}+ year${t.experienceYears === 1 ? "" : "s"}' experience</span>`);
   }
   return bits.join("");
 }
 
 function roleLine(t) {
-  const parts = [(t.subject || "Hindi") + " tutor"];
-  if (t.badge) parts.push(esc(t.badge));
-  else if (t.superTutor) parts.push("⭐ Super Tutor");
-  if (t.verified) parts.push("✓ Verified");
-  return parts.join(" · ");
+  return (t.subject || "Hindi") + " tutor profile";
 }
 
 function card(t) {
@@ -133,8 +127,8 @@ function card(t) {
             <div><h3>${esc(t.name)}</h3><p class="role">${roleLine(t)}</p>
             <div class="meta">${metaLine(t)}</div></div>
           </div>
-          <div class="tcard-body"><p>${esc(intro)}</p></div>
-          <div class="tcard-foot"><div class="price">${price}<span>${esc(t.lessonLength || "50 min")} lesson</span></div>
+          <div class="tcard-body"><p><strong>Tutor-provided profile:</strong> ${esc(intro)}</p></div>
+          <div class="tcard-foot"><div class="price">${price}<span>Profile-listed ${esc(t.lessonLength || "50 min")} lesson · confirm current price</span></div>
           <span class="btn btn-primary btn-sm tcard-cta">View profile →</span></div>
         </article>`;
 }

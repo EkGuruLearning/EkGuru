@@ -47,15 +47,6 @@
 <meta content="#4f32d9" name="theme-color"/>
 <link href="../../css/style.min.css" rel="stylesheet"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://ekguru.shop/pt/hindi/#article","headline":"Aprender hindi online — guia completo","description":"Como aprender hindi do zero: o alfabeto devanágari, a pronúncia, as primeiras frases e a vantagem que o português já lhe dá.","inLanguage":"pt","about":{"@type":"Language","name":"Hindi","alternateName":"हिन्दी"},"author":{"@type":"Organization","name":"EkGuru","url":"https://ekguru.shop/"},"publisher":{"@type":"Organization","name":"EkGuru","url":"https://ekguru.shop/"},"mainEntityOfPage":"https://ekguru.shop/pt/hindi/"},{"@type":"FAQPage","@id":"https://ekguru.shop/pt/hindi/#faq","mainEntity":[{"@type":"Question","name":"Hindi é difícil para quem fala português?","acceptedAnswer":{"@type":"Answer","text":"As vogais, as nasais e o r você já tem. O trabalho real é a aspiração e, no caso do português brasileiro, não palatalizar t e d antes de i."}},{"@type":"Question","name":"Preciso aprender o devanágari?","acceptedAnswer":{"@type":"Answer","text":"Para falar, não. Para ler, sim — e é mais fácil do que parece: a escrita é fonética e a maioria lê palavras simples em quatro a seis semanas."}},{"@type":"Question","name":"Quanto tempo leva?","acceptedAnswer":{"@type":"Answer","text":"Depende muito mais das suas horas semanais do que da sua língua materna. Ler devanágari: 30 a 50 horas. Conversa simples: 300 a 500."}}]},{"@id":"https://ekguru.shop/pt/hindi/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"EkGuru","item":"https://ekguru.shop/"},{"@type":"ListItem","position":2,"name":"Aprenda hindi do zero","item":"https://ekguru.shop/pt/hindi/"}]}]}</script>
-<!-- Google AdSense. Emitted only because ads.client is set to a valid
-     publisher id in js/site-config.js. Clear that value and every one
-     of these tags disappears on the next build. See tools/adsense.js. -->
-<!-- ekguru:adsense:start -->
-<link crossorigin="" href="https://pagead2.googlesyndication.com" rel="preconnect"/>
-<link crossorigin="" href="https://googleads.g.doubleclick.net" rel="preconnect"/>
-<meta content="ca-pub-8175326569491671" name="google-adsense-account"/>
-<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8175326569491671"></script>
-<!-- ekguru:adsense:end -->
 </head>
 <body>
 <!-- ekguru:shell-header:start -->
@@ -63,7 +54,7 @@
   <a class="skip" href="#main">Ir para o conteúdo</a>
   <div class="hdr-in">
     <a class="logo" href="../">
-      <span class="logo-mark" aria-hidden="true">E</span>
+      <img class="logo-img" src="../../images/logo.svg" width="38" height="38" alt="EkGuru">
       <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
     </a>
     <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
@@ -74,7 +65,7 @@
       <a href="../../learn/" data-i18n="nav.learn">Aprender</a>
       <a href="../../support/index.html" data-i18n="nav.support">Ajuda</a>
       <a href="../../search/" data-i18n="nav.search">Pesquisar</a>
-      <a class="btn btn-primary btn-sm" href="../find-tutors.html" data-i18n="nav.cta">Agendar aula teste</a>
+      <a class="btn btn-primary btn-sm" href="../find-tutors.html" data-i18n="nav.cta">Encontrar professores</a>
     </nav>
   </div>
 </header>
@@ -224,14 +215,12 @@ way to write Hindi in Latin letters.</p></div>
 /* =========================================================
    ANALYTICS EVENTS  (v72, Phase 26)
    ---------------------------------------------------------
-   GoatCounter is already on the site and is privacy-conscious
-   by design: no cookies, no cross-site identifier, nothing
-   that needs a consent banner. No new provider is introduced.
+   GoatCounter is requested only after the visitor allows
+   analytics in Privacy settings. It uses no analytics cookie
+   or cross-site identifier. No new provider is introduced.
 
-   What was missing is that it only counted PAGE VIEWS, so
-   there was no way to tell whether anyone who read a country
-   page ever clicked through to a tutor — which is the only
-   number that matters for this whole build.
+   These custom events run through the same consent-gated
+   analytics helper and do nothing when analytics is off.
 
    Two events are added here, on every page produced by the
    shell:
@@ -332,12 +321,9 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
 <p><a class="btn btn-primary" href="/courses/#/pt">Open the Portuguese course</a></p>
 </nav>
 <footer class="pw-support">
-  <div>
-    <b>Cada lição aqui é grátis, e sempre será.</b>
-    <p>Sem conta, sem paywall. A prática em si — cada quiz, ficha e exercício — não tem nenhum anúncio; as páginas ao redor às vezes têm, e é isso que mantém as lições no ar. Mantê-lo grátis é a única coisa que esta página pede de você.</p>
-  </div>
-  <a class="pw-support-cta" href="/support/">Apoie a EkGuru</a>
-  <a href="/find-tutors.html">Reserve uma aula experimental</a>
+<p>Published lessons are currently free. Advertising is disabled in this release.</p>
+<a class="pw-support-cta" href="/support/">Support EkGuru</a>
+<a href="/find-tutors.html">Tutor profiles</a>
 </footer>
 <!-- ekguru:pw-bands:end -->
 </main>
@@ -346,10 +332,10 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
   <div class="wrap ftr-in">
     <div>
       <a class="logo" href="../">
-        <span class="logo-mark" aria-hidden="true">E</span>
+        <img class="logo-img" src="../../images/logo.svg" width="38" height="38" alt="EkGuru">
         <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
       </a>
-      <p style="margin-top:14px" data-i18n="ftr.about">Aulas de hindi online com professores verificados. Aprenda a falar, não só a decorar.</p>
+      <p style="margin-top:14px" data-i18n="ftr.about">Aulas de hindi online com perfis de professores independentes. Aprenda a falar, não só a decorar.</p>
     </div>
     <div>
       <h3 data-i18n="ftr.site">Site</h3>
@@ -379,6 +365,7 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
       <a href="../../about/" data-i18n="ftr.about2">Sobre o EkGuru</a>
       <a href="../../privacy/" data-i18n="ftr.privacy">Política de privacidade</a>
       <a href="../../terms/" data-i18n="ftr.terms">Termos de uso</a>
+      <a href="../../monetization-disclosure/" data-i18n="ftr.monetization">Divulgação de monetização</a>
       <a href="../../disclaimer/" data-i18n="ftr.disclaimer">Aviso legal</a>
       <a href="../../copyright/" data-i18n="ftr.copyright">Direitos autorais</a>
       <a href="../../cookie-policy/" data-i18n="ftr.cookies">Política de cookies</a>
