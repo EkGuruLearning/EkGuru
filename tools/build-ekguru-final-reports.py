@@ -15,7 +15,7 @@ from urllib.parse import urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 REPORTS = ROOT / "reports"
 BASE_SHA = "2066d27b3b41ccb3cb63c59d58dce4803d3d33a2"
-TODAY = "2026-09-20"
+TODAY = "2026-09-21"
 
 
 def run(*args: str) -> str:
@@ -289,7 +289,7 @@ def main() -> int:
         "## Audit coverage and limitations",
         "",
         "- Inventory/SEO/canonical/robots/sitemap/internal-link, placeholder-signal, duplicate, course, relation, legal, mail, payment-release-state, consent-source, advertising and affiliate checks were run against the working tree.",
-        "- `tools/seocheck.js` reported 2,636 pages, 153,205 checked internal links, zero broken links and zero orphans.",
+        "- `tools/seocheck.js` reported 2,636 pages, 155,633 checked internal links, zero broken links and zero orphans.",
         "- Static mail-flow, payment backend and release-mode DOM suites passed. These do not prove live email receipt or a real payment transaction.",
         "- A real Chromium run was prepared in `tools/test-release-browser.py`, but Playwright’s browser download failed at the sandbox TLS boundary. This unresolved requirement is why readiness is not a pass.",
         "",

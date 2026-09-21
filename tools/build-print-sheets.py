@@ -55,7 +55,7 @@ MARK = "data-print"
 # point of the page: the ten worksheet builders, and the printed guides under
 # /materials/ that carry their own Print button. Lessons, answers and hubs
 # print as content with the chrome off — they are not sheets.
-WS_APP = re.compile(r'<div id="ws-app"[^>]*>')
+WS_APP = re.compile(r'<div\b(?=[^>]*\bid=["\']ws-app["\'])[^>]*>', re.I)
 ART = re.compile(r'<div\b[^>]*\bclass="[^"]*\bart\b[^"]*"[^>]*>')
 
 
@@ -414,8 +414,12 @@ def mark(path, html):
         # … then put it on the tag this page's kind prints
         out = out[:m.end() - 1] + " data-print-target" + out[m.end() - 1:]
 
+    # Keep one baked sample. A rollback briefly enabled both injectors.
+    out = re.sub(re.escape(STATIC_MARK) + r".*?(?=" + re.escape(SAMPLE_MARK) + r")",
+                 "", out, count=1, flags=re.S)
     out = sample_sheet(path, out)
-    out = static_sheet(path, out)
+    if SAMPLE_MARK in out and STATIC_MARK not in out:
+        out = out.replace(SAMPLE_MARK, STATIC_MARK + "\n" + SAMPLE_MARK, 1)
     out = insert_script(out, path)
     out = mark_chain(out, target)
     return out, kind

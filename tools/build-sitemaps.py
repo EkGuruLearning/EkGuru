@@ -19,7 +19,7 @@ from urllib.parse import unquote, urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 BASE = "https://ekguru.shop"
 REPORT = ROOT / "data/quality/sitemap-audit.json"
-EXCLUDED_FROM_INDEX = {"sitemap-index.xml", "sitemap-world-languages.xml", "sitemap-countries.xml", "sitemap-source-languages.xml", "sitemap-courses-hub.xml"}
+EXCLUDED_FROM_INDEX = {"sitemap-index.xml", "sitemap-world-languages.xml", "sitemap-countries.xml", "sitemap-source-languages.xml"}
 REQUIRED_CORE = [
     "/",
     "/about/",

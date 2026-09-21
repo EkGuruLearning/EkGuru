@@ -413,6 +413,11 @@ def load_countries():
 # One factual support band is used in every language tree; it avoids
 # unreviewed translations of commercial or permanence claims.
 
+def page_lang(html):
+    match = re.search(r'<html\b[^>]*\blang=["\']([^"\']+)', html, re.I)
+    return (match.group(1).split("-")[0].lower() if match else "en")
+
+
 def support_band(lang="en"):
     # Keep this factual and language-neutral. The former translated variants
     # promised that every lesson would remain free forever and claimed ads were

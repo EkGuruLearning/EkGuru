@@ -1,14 +1,14 @@
 # EkGuru Page Matrix
 
-Generated: 2026-09-20
+Generated: 2026-09-21
 
-- Public-tree HTML files: **2636**
-- Indexable: **1182**
-- Noindex/quarantined: **1454**
+- Public-tree HTML files: **2635**
+- Indexable: **1228**
+- Noindex/quarantined: **1407**
 - Pages with AdSense loader: **0**
 - AdSense slots: **0**
-- Duplicate canonical groups: **1**
-- Matrix issue pages: **23** (see CSV `issues` column)
+- Duplicate canonical groups: **0**
+- Matrix issue pages: **0** (see CSV `issues` column)
 
 ## Page classes
 
@@ -25,7 +25,7 @@ Generated: 2026-09-20
 | interactive-tool | 14 |
 | learning-content | 399 |
 | legal | 6 |
-| other | 493 |
+| other | 492 |
 | payment | 1 |
 | source-language-research | 141 |
 | tutor | 41 |
@@ -35,12 +35,7 @@ Generated: 2026-09-20
 
 | Signal | Pages |
 |---|---:|
-| h1-count-0 | 1 |
-| h1-count-2 | 2 |
-| indexable-missing-canonical | 1 |
-| missing-title | 1 |
-| placeholder-copy | 21 |
 
-`placeholder-copy` is a review signal, not an automatic publication verdict; it includes honest ‘coming soon’ strings that must be checked in context. The canonical and advertising signals are hard gates.
+Placeholder signals are limited to indexable pages and require review; canonical, indexability and advertising signals are hard gates.
 
 The CSV is the file-level source of truth for title, canonical, robots, publication state, ad class, word count, landmarks, links, forms, consent/analytics inclusion and issues.

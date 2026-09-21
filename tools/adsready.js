@@ -75,15 +75,16 @@ function localChecks() {
   const wrongCanon = [], noCanon = [];
   for (const p of pages) {
     const h = fs.readFileSync(p, "utf8");
-    const m = h.match(/<link rel="canonical" href="([^"]+)"/);
-    const noindex = /<meta name="robots"[^>]*noindex/i.test(h) || /google-?[0-9a-f]{16}\.html$/i.test(p);
+    const m = h.match(/<link\b(?=[^>]*\brel=["']canonical["'])(?=[^>]*\bhref=["']([^"']+)["'])[^>]*>/i);
+    const noindex = /<meta\b(?=[^>]*\bname=["\']robots["\'])(?=[^>]*\bcontent=["\'][^"\']*noindex)[^>]*>/i.test(h) || /google-?[0-9a-f]{16}\.html$/i.test(p);
     if (!m) { if (!noindex) noCanon.push(p); continue; }
     if (!m[1].startsWith("https://ekguru.shop/")) wrongCanon.push([p, m[1]]);
   }
   add("canonical", "every indexable page canonicalises to https://ekguru.shop/",
     wrongCanon.length === 0 && noCanon.length === 0,
     wrongCanon.length ? wrongCanon.slice(0, 3).map((x) => x[0] + " → " + x[1]).join("; ")
-      : `${pages.length} pages; only noindex utilities (admin.html, the Search Console file) omit one`);
+      : noCanon.length ? "missing: " + noCanon.slice(0, 3).join(", ")
+      : `${pages.length} pages; canonical or explicitly noindex`);
 
   for (const p of ["privacy/index.html", "about/index.html", "contact/index.html", "terms/index.html",
                    "cookie-policy/index.html", "disclaimer/index.html", "copyright/index.html"]) {

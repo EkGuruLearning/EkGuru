@@ -47,9 +47,10 @@ const globRe = (pattern) => {
 const url = (rel) => "/" + rel;
 const excluded = (u) => EXCLUDED.some((p) =>
   p.endsWith("/") ? (u === p || u.startsWith(p)) : u === p);
-const classify = (u) => {
-  for (const name of ["ADMIN", "TRANSACTIONAL", "UTILITY", "INTERACTIVE_LEARNING",
-                      "HIGH_CONTENT", "MEDIUM_CONTENT"]) {
+const classify = (u, html = "") => {
+  for (const pattern of (CLASSES.ADMIN || {}).match || []) { if (globRe(pattern).test(u)) return "ADMIN"; }
+  if (/<meta\b(?=[^>]*\bname=["']robots["'])(?=[^>]*\bcontent=["'][^"']*noindex)/i.test(html)) return "RESEARCH_REQUIRED";
+  for (const name of ["TRANSACTIONAL", "UTILITY", "INTERACTIVE_LEARNING", "HIGH_CONTENT", "MEDIUM_CONTENT"]) {
     for (const pattern of (CLASSES[name] || {}).match || []) {
       if (pattern === "/" ? (u === "/" || u === "/index.html") : globRe(pattern).test(u)) return name;
     }
@@ -61,9 +62,8 @@ console.log("\n1. the policy is complete\n");
 
 ok("every class the loader list names exists",
   [...ALLOWED].every((c) => c in CLASSES), [...ALLOWED].filter((c) => !(c in CLASSES)).join(", "));
-ok("every class has the patterns that define it",
-  Object.values(CLASSES).every((c) => Array.isArray(c.match) && c.match.length),
-  Object.entries(CLASSES).filter(([, c]) => !c.match).map(([n]) => n).join(", "));
+ok("every route class has patterns; the noindex override is explicit",
+  Object.entries(CLASSES).every(([n,c]) => Array.isArray(c.match) && (c.match.length || n === "RESEARCH_REQUIRED")));
 ok("every class says why it exists",
   Object.values(CLASSES).every((c) => c.why));
 ok("the interactive class may never load the loader",
@@ -82,7 +82,7 @@ console.log("\n2. every page agrees\n");
 const rows = files.map((rel) => {
   const html = read(rel);
   const u = url(rel);
-  const cls = classify(u);
+  const cls = classify(u, html);
   const m = html.match(/<html\b[^>]*data-ad-class="([^"]+)"/);
   return {
     rel, u, cls, declared: m && m[1],
@@ -120,14 +120,14 @@ console.log("        classes: " + Object.entries(byClass).map(([c, n]) => `${c} 
 console.log("\n3. the rest of the monetization setup\n");
 
 ok("ads.txt names the publisher", read("ads.txt").includes(mon.publisher.ads_txt_id));
-ok("the publisher id is the one in every page's loader",
-  read("answers/hindi-colours-list/index.html").includes(mon.publisher.adsense_client));
+ok("the publisher id is configured but no loader is authorized while the runtime gate is closed",
+  /^ca-pub-\d+$/.test(mon.publisher.adsense_client) && mon.runtime_gate.adsense_loader_enabled === false && rows.every((r) => !r.loader));
 ok("robots.txt does not block AdsBot",
   !/User-agent:\s*AdsBot/i.test(read("robots.txt")));
 ok("consent is a certified-CMP question, not a home-made banner",
   /certified/i.test(mon.consent.requirement) && /CMP/i.test(mon.consent.requirement));
-ok("js/cookie-consent.js still renders no UI",
-  !/createElement|innerHTML\s*=|appendChild/.test(read("js/cookie-consent.js")));
+ok("the local privacy UI cannot grant advertising consent",
+  /ADVERTISING_AVAILABLE\s*=\s*false/.test(read("js/cookie-consent.js")) && /id=["']cc-advertising["'][^>]*disabled/.test(read("js/cookie-consent.js")));
 ok("no page anywhere sets a cookie",
   files.every((f) => !/document\.cookie\s*=/.test(read(f))));
 

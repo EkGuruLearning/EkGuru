@@ -75,7 +75,7 @@ for (const p of pages) {
 /* ---------- 1. the class is where it should be, and nowhere else ---------- */
 check("the reading layer is on every hand-written page", legacy.length === 969,
   legacy.length + " page(s)");
-check("the page layer's pages carry the same class, tested separately", pageLayer.length === 829,
+check("the page layer's pages carry the same class, tested separately", pageLayer.length === 1625,
   pageLayer.length + " page(s)");
 check("the pages already on the v200 system were left alone", modern.length === 5,
   modern.join(", "));

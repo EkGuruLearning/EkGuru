@@ -39,7 +39,7 @@ const exists = (p) => fs.existsSync(p);
 const manifest = JSON.parse(read("data/country-visuals.json"));
 const figures = manifest.figures;
 const rows = JSON.parse(read("data/global/language-country-relations.json")).relations;
-const courses = JSON.parse(read("data/courses/index.json")).courses.map((c) => c.code);
+const courses = JSON.parse(read("data/courses/index.json")).courses.filter((c) => Object.keys(c.levels || {}).length).map((c) => c.code);
 const taught = new Set(courses);
 const ALIAS = { arb: "ar", cmn: "zh", fil: "fil", npi: "npi", uzn: "uzn", zsm: "zsm" };
 
@@ -102,6 +102,7 @@ for (const [cc, f] of Object.entries(figures)) {
   const p = `world-languages/${f.slug}/index.html`;
   if (!exists(p)) continue;
   const h = read(p);
+  if (/name=["']robots["'][^>]*noindex|content=["'][^"']*noindex[^"']*["'][^>]*name=["']robots["']/i.test(h)) continue;
   const block = (h.match(/<!-- ekguru:country-visuals:start -->[\s\S]*?<!-- ekguru:country-visuals:end -->/) || [""])[0];
   if (!block) { disagree.push(`${cc}:no block`); continue; }
   /* The counts are in the markup as data attributes, because a caption is

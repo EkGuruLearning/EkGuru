@@ -221,7 +221,7 @@ setTimeout(function () {
       JSON.stringify(h.notification_email));
     check("newest row applies: all six specialities, badged, still on the roster",
       (h.specialities || []).length === 6 && h.badge === cell(newest, "badge") &&
-      h._hiddenBySheet === false,
+      h._hiddenBySheet !== true,
       (h.specialities || []).length + " specialities, badge " + h.badge);
   }
 

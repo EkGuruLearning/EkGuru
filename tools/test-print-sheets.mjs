@@ -160,11 +160,13 @@ ok(`every sheet page loads the script (${marked.length} pages)`,
 ok("the script path resolves from every page's own depth",
   marked.every((p) => {
     const depth = p.split("/").length - 1;
-    return read(p).includes(`<script src="${"../".repeat(depth)}js/print-sheet.js" defer></script>`);
+    const tag = (read(p).match(/<script\b(?=[^>]*\bsrc=["'][^"']*js\/print-sheet\.js["'])[^>]*>/i) || [""])[0];
+    return tag.includes(`src="${"../".repeat(depth)}js/print-sheet.js"`);
   }),
   marked.filter((p) => {
     const depth = p.split("/").length - 1;
-    return !read(p).includes(`<script src="${"../".repeat(depth)}js/print-sheet.js" defer></script>`);
+    const tag = (read(p).match(/<script\b(?=[^>]*\bsrc=["'][^"']*js\/print-sheet\.js["'])[^>]*>/i) || [""])[0];
+    return !tag.includes(`src="${"../".repeat(depth)}js/print-sheet.js"`);
   }).slice(0, 5).join(", "));
 ok("the offline cache carries the script", /print-sheet\.js/.test(read("sw.js")));
 
@@ -192,7 +194,7 @@ ok("the baked sheet has real questions and answers",
 ok("the print target is the element that holds the sheet",
   marked.filter((p) => /id="ws-app"/.test(read(p))).every((p) => {
     const h = read(p);
-    const t = h.match(/<div id="ws-app"[^>]*>/);
+    const t = h.match(/<div\b(?=[^>]*\bid=["']ws-app["'])[^>]*>/i);
     return t && /data-print-target/.test(t[0]);
   }));
 

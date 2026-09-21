@@ -200,8 +200,8 @@ console.log("\n4. /how-levels-work/ exists and answers the question\n");
   const graph = ld ? JSON.parse(ld.textContent)["@graph"] : [];
   ok("it carries FAQ structured data for the questions it answers",
     graph.some((g) => g["@type"] === "FAQPage") && graph.some((g) => g["@type"] === "Article"));
-  ok("it is tagged for the ad policy like the rest of the site",
-    /data-ad-class="/.test(html) && /google-adsense-account/.test(html));
+  ok("it is classified but carries no ad loader while the release gate is closed",
+    /data-ad-class="/.test(html) && !/adsbygoogle\.js/.test(html));
   ok("no page links to it from the strip of a language that has no hub",
     Object.values(manifest.languages).every((l) => existsSync(l.url)));
 }

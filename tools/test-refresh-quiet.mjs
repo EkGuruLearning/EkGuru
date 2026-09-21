@@ -37,6 +37,7 @@ const ok = (name, cond, detail = "") => {
   else { fail++; console.log("  FAIL  " + name + (detail ? " — " + detail : "")); }
 };
 const read = (p) => readFileSync(p, "utf8");
+const scriptSources = (html) => [...html.matchAll(/<script\b[^>]*>/gi)].map((m) => { const x=m[0].match(/\bsrc=["']([^"']+)["']/i); return x&&x[1]; }).filter(Boolean);
 
 /* The pages a visitor actually reloads. */
 const PAGES = [
@@ -75,7 +76,7 @@ function boot(page) {
   ["assign", "replace", "reload"].forEach((m) => { try { w.location[m] = () => nav("location." + m); } catch (e) {} });
 
   /* Boot exactly what the page asks for: scripts in document order. */
-  const srcs = [...html.matchAll(/<script src="([^"]+)"/g)].map((m) => m[1]);
+  const srcs = scriptSources(html);
   for (const src of srcs) {
     const file = path.normalize(src.replace(/^\.\.\//, "").replace(/^(\.\.\/)+/, "").replace(/^\//, ""));
     if (!existsSync(file) || !file.endsWith(".js")) continue;
@@ -92,7 +93,7 @@ console.log("\n1. the page itself declares only what it needs\n");
      rest of the site does not load. */
   let dupe = [];
   for (const p of PAGES) {
-    const srcs = [...read(p).matchAll(/<script src="([^"]+)"/g)].map((m) => m[1]);
+    const srcs = scriptSources(read(p));
     const dup = srcs.filter((s, i) => srcs.indexOf(s) !== i);
     if (dup.length) dupe.push(p + " (" + dup.join(", ") + ")");
   }
@@ -194,7 +195,7 @@ console.log("\n4. a second boot adds nothing (the reload case)\n");
     apps: d.querySelectorAll("#ws-app").length
   };
   const html = read("learn/bengali/practice/worksheets/index.html");
-  for (const src of [...html.matchAll(/<script src="([^"]+)"/g)].map((m) => m[1])) {
+  for (const src of scriptSources(html)) {
     const file = src.replace(/^(\.\.\/)+/, "").replace(/^\//, "");
     if (!existsSync(file) || !file.endsWith(".js")) continue;
     try { w.eval(read(file)); } catch (e) {}
@@ -247,7 +248,7 @@ console.log("\n5. a reload shows what is deployed, not yesterday's copy\n");
   ok("offline still falls back to the saved copy instead of failing",
     /catch\(\(\) =>[\s\S]{0,240}caches\.open\(OFFLINE\)/.test(sw));
   ok("the cache generation was bumped, so nobody keeps the old stylesheet",
-    /ekguru-v4[2-9]/.test(sw), (sw.match(/const CACHE = "([^"]+)"/) || [])[1]);
+    /const BUILD_ID = "[^"]*-v(?:4[2-9]|[5-9][0-9])\b/.test(sw), (sw.match(/const BUILD_ID = "([^"]+)"/) || [])[1]);
   ok("the worker never forces the tab to reload",
     !/location\.reload\(\)/.test(sw) && !/clients\.claim[\s\S]{0,120}reload/.test(sw));
 }

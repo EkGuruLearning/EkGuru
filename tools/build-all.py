@@ -85,7 +85,10 @@ def main():
         run("roster rows --check", ["node", "tools/build-roster-rows.js", "--check"])
         run("legal pages --check (terms, privacy, disclaimer, copyright)",
             ["python3", "tools/build-legal-pages.py", "--check"])
+        run("research quarantine --check", ["python3", "tools/quarantine-country-funnels.py", "--check"])
+        run("draft tutor quarantine --check", ["python3", "tools/quarantine-tutor-drafts.py", "--check"])
         run("courses by country --check", ["python3", "tools/build-course-countries.py", "--check"])
+        run("sitemap publication gate --check", ["python3", "tools/build-sitemaps.py", "--check"])
         run("reading layer --check (969 hand-written pages)", ["python3", "tools/build-legacy-pages.py", "--check"])
         run("page layer --check (555 lesson/answer/hub pages + 273 level pages)", ["python3", "tools/build-page-layer.py", "--check"])
         run("level visuals --check (a learner per language per rung)",
@@ -163,7 +166,9 @@ def main():
     run("market pages (6 locales)", ["node", "tools/build-market-pages.js"])
     run("roster rows (long-tail tutor lists)", ["node", "tools/build-roster-rows.js"])
     run("legal pages (contents card + clause ids)", ["python3", "tools/build-legal-pages.py"])
-    run("courses by country (194 countries + the build queue)", ["python3", "tools/build-course-countries.py"])
+    run("research quarantine", ["python3", "tools/quarantine-country-funnels.py"])
+    run("draft tutor quarantine", ["python3", "tools/quarantine-tutor-drafts.py"])
+    run("courses by country (published + sourced)", ["python3", "tools/build-course-countries.py"])
     run("Hindi learning pages (learn/hindi/**)", ["python3", "tools/build-hindi-pages.py"])
     run("country visuals (one plate per country, on both country page sets)",
         ["python3", "tools/build-country-visuals.py"])
@@ -176,6 +181,7 @@ def main():
     run("questions api (flags and likes reach other learners)",
         ["python3", "tools/inject-questions-api.py"])
     run("site shell (one header + one footer, every page)", ["node", "tools/build-shell.js"])
+    run("sitemap publication gate", ["python3", "tools/build-sitemaps.py"])
     run("copy index (ownership fingerprints)", ["node", "tools/build-copy-index.js"])
     run("doctor", ["node", "tools/doctor.js"])
     print("\n══════════════════════════════════════════")
