@@ -1,0 +1,329 @@
+    var pValues = paySheet.getRange(2, 1, lastRow - 1, HEADERS.Payments.length).getValues();
+    for (var i = 0; i < pValues.length; i++) {
+      var rOrderId = String(pValues[i][3] || "").trim();
+      var rInternalId = String(pValues[i][17] || "").trim();
+
+      var matchOrder = orderId && rOrderId === orderId;
+      var matchInternal = internalId && rInternalId === internalId;
+      var isMatch = (orderId && internalId) ? (matchOrder && matchInternal) : (matchOrder || matchInternal);
+
+      if (isMatch) {
+        var currentResult = String(pValues[i][20] || "");
+        if (currentResult === "PENDING" || currentResult === "") {
+          var targetRow = i + 2;
+          paySheet.getRange(targetRow, 2).setValue(now);
+          paySheet.getRange(targetRow, 5).setValue("cancelled");
+          paySheet.getRange(targetRow, 19).setValue("false");
+          paySheet.getRange(targetRow, 21).setValue("CANCELLED");
+          paySheet.getRange(targetRow, 23).setValue(reason);
+          try { updatePaymentSummarySheet_(ss); } catch (e) {}
+          return { success: true, updated: true, payment_result: "CANCELLED" };
+        }
+        return { success: true, updated: false, reason: "Payment result is " + currentResult };
+      }
+    }
+  }
+
+  return { success: false, error: "Payment record not found." };
+}
+
+/**
+ * ============================================================================
+ * PDF GATEWAY — GOOGLE SHEETS INTEGRATION
+ * ============================================================================
+ *
+ * Two new tabs are added to the same spreadsheet:
+ *
+ *   Pdfs        — one row per Telegram PDF the admin publishes.
+ *                 Contains telegram_pdf_url (SERVER-SIDE ONLY, never returned
+ *                 by public endpoints). The public /pdf/<publicId> route is
+ *                 served by the Node.js PDF gateway, not by this Apps Script.
+ *
+ *   Config      — key/value operational config. Holds TELEGRAM_API_ID and
+ *                 TELEGRAM_API_HASH for server-side reads. NEVER stores
+ *                 TELEGRAM_SESSION (that lives only in server env secrets).
+ *
+ * New controlled actions:
+ *
+ *   GET  ?action=pdf-list        (requires SHEETS_INGEST_TOKEN bearer OR
+ *                                 server-to-server token via POST)
+ *   POST operation=pdf_upsert    (admin only, token gated)
+ *   POST operation=pdf_delete    (admin only, token gated)
+ *   GET  ?action=config-get      (token gated; returns non-secret config)
+ */
+
+var TAB_PDFS = "Pdfs";
+var TAB_CONFIG = "Config";
+
+var HEADERS_PDFS = [
+  "public_id",
+  "course_id",
+  "title",
+  "category",
+  "telegram_pdf_url",
+  "published",
+  "sort_order",
+  "description",
+  "filename",
+  "created_at",
+  "updated_at",
+];
+
+var HEADERS_CONFIG = ["key", "value"];
+
+function ensurePdfTabs_(ss) {
+  function ensureTab(name, headers) {
+    var s = ss.getSheetByName(name);
+    if (!s) {
+      s = ss.insertSheet(name);
+      s.appendRow(headers);
+      styleHeaderRow_(s, headers.length);
+    } else {
+      var lastCol = s.getLastColumn();
+      var cur = lastCol > 0 ? s.getRange(1, 1, 1, lastCol).getValues()[0] : [];
+      var match = cur.length >= headers.length;
+      if (match) {
+        for (var h = 0; h < headers.length; h++) {
+          if (String(cur[h] || "").trim().toLowerCase() !== String(headers[h]).trim().toLowerCase()) {
+            match = false;
+            break;
+          }
+        }
+      }
+      if (!match) {
+        if (typeof s.getMaxColumns === "function" && typeof s.insertColumnsAfter === "function") {
+          var need = headers.length - s.getMaxColumns();
+          if (need > 0) s.insertColumnsAfter(s.getMaxColumns(), need);
+        }
+        s.getRange(1, 1, 1, headers.length).setValues([headers]);
+        styleHeaderRow_(s, headers.length);
+      }
+    }
+    return s;
+  }
+  ensureTab(TAB_PDFS, HEADERS_PDFS);
+  ensureTab(TAB_CONFIG, HEADERS_CONFIG);
+}
+
+function verifyIngestToken_(payloadToken, queryToken) {
+  // Token may arrive as bearer Authorization from node server
+  var props = PropertiesService.getScriptProperties();
+  var expected = props.getProperty("SHEETS_INGEST_TOKEN") || "";
+  if (!expected) return false;
+  var provided = payloadToken || queryToken || "";
+  if (!provided) return false;
+  // Constant-time comparison
+  if (provided.length !== expected.length) return false;
+  var bad = 0;
+  for (var i = 0; i < provided.length; i++) bad |= provided.charCodeAt(i) ^ expected.charCodeAt(i);
+  return bad === 0;
+}
+
+/**
+ * GET ?action=pdf-list — requires token in Authorization header (passed by node server).
+ * Returns rows from Pdfs tab as objects keyed by header name. The node server
+ * is responsible for sanitizing output before any public response.
+ */
+function handlePdfList_(token) {
+  if (!verifyIngestToken_(token, "")) {
+    return { success: false, error: "Unauthorized", code: "UNAUTHORIZED" };
+  }
+  var ss = getSpreadsheet_();
+  ensureSheetsAndHeaders_(ss);
+  ensurePdfTabs_(ss);
+  var sheet = ss.getSheetByName(TAB_PDFS);
+  var lastRow = sheet.getLastRow();
+  var rows = [];
+  if (lastRow > 1) {
+    var lastCol = HEADERS_PDFS.length;
+    var values = sheet.getRange(2, 1, lastRow - 1, lastCol).getValues();
+    for (var i = 0; i < values.length; i++) {
+      var r = values[i];
+      if (!r || !r[4]) continue; // require telegram_pdf_url
+      rows.push({
+        public_id: String(r[0] || "").trim(),
+        course_id: String(r[1] || "").trim(),
+        title: String(r[2] || "").trim(),
+        category: String(r[3] || "").trim(),
+        telegram_pdf_url: String(r[4] || "").trim(),
+        published: String(r[5] || "").trim(),
+        sort_order: Number(r[6]) || 0,
+        description: String(r[7] || "").trim(),
+        filename: String(r[8] || "").trim(),
+        created_at: r[9] instanceof Date ? r[9].toISOString() : String(r[9] || ""),
+        updated_at: r[10] instanceof Date ? r[10].toISOString() : String(r[10] || ""),
+      });
+    }
+  }
+  return { success: true, rows: rows };
+}
+
+/**
+ * POST operation=pdf_upsert
+ */
+function handlePdfUpsert_(data, token) {
+  if (!verifyIngestToken_(token, "")) {
+    return { success: false, error: "Unauthorized", code: "UNAUTHORIZED" };
+  }
+  var ss = getSpreadsheet_();
+  ensureSheetsAndHeaders_(ss);
+  ensurePdfTabs_(ss);
+  var sheet = ss.getSheetByName(TAB_PDFS);
+  var publicId = String(data.public_id || "").trim();
+  var telegramUrl = String(data.telegram_pdf_url || "").trim();
+  var courseId = String(data.course_id || "").trim();
+  var title = String(data.title || "").trim();
+  var category = String(data.category || "").trim();
+  var published = data.published === true || String(data.published).toLowerCase() === "true";
+  var sortOrder = Number(data.sort_order) || 0;
+  var description = String(data.description || "").trim();
+  var filename = String(data.filename || "").trim();
+
+  if (!title) return { success: false, error: "Title is required.", code: "MISSING_TITLE" };
+  if (!courseId) return { success: false, error: "Course is required.", code: "MISSING_COURSE" };
+  if (!telegramUrl) return { success: false, error: "Telegram PDF URL is required.", code: "MISSING_URL" };
+  if (!publicId) {
+    // Fallback deterministic id generation on server side already does this, but guard here too.
+    publicId = "pdf-" + Utilities.getUuid().substring(0, 8);
+  }
+
+  var now = formatTimestamp_(new Date());
+  var lastRow = sheet.getLastRow();
+  var targetRow = -1;
+  if (lastRow > 1) {
+    var values = sheet.getRange(2, 1, lastRow - 1, HEADERS_PDFS.length).getValues();
+    for (var i = 0; i < values.length; i++) {
+      if (String(values[i][0] || "").trim() === publicId) {
+        targetRow = i + 2;
+        break;
+      }
+    }
+  }
+
+  var row = [
+    publicId,
+    courseId,
+    title,
+    category,
+    telegramUrl,
+    published ? "true" : "false",
+    sortOrder,
+    description,
+    filename,
+    targetRow > 0 ? values[targetRow - 2][9] : now,
+    now,
+  ];
+
+  if (targetRow > 0) {
+    sheet.getRange(targetRow, 1, 1, HEADERS_PDFS.length).setValues([row]);
+  } else {
+    sheet.appendRow(row);
+  }
+
+  return { success: true, public_id: publicId };
+}
+
+/**
+ * POST operation=pdf_delete
+ */
+function handlePdfDelete_(data, token) {
+  // Accept either the bearer token or data.token for backward compatibility
+  var tok = token || (data && data.token) || "";
+  if (!verifyIngestToken_(tok, "")) {
+    return { success: false, error: "Unauthorized", code: "UNAUTHORIZED" };
+  }
+  var ss = getSpreadsheet_();
+  ensureSheetsAndHeaders_(ss);
+  ensurePdfTabs_(ss);
+  var sheet = ss.getSheetByName(TAB_PDFS);
+  var publicId = String(data && data.public_id || "").trim();
+  if (!publicId) return { success: false, error: "public_id required." };
+  var lastRow = sheet.getLastRow();
+  if (lastRow > 1) {
+    var values = sheet.getRange(2, 1, lastRow - 1, 1).getValues();
+    for (var i = 0; i < values.length; i++) {
+      if (String(values[i][0] || "").trim() === publicId) {
+        sheet.deleteRow(i + 2);
+        return { success: true };
+      }
+    }
+  }
+  return { success: false, error: "Not found.", code: "NOT_FOUND" };
+}
+
+/**
+ * GET ?action=config-get — returns non-secret config from Config tab and script properties.
+ * NEVER returns TELEGRAM_SESSION.
+ */
+function handleConfigGet_(token) {
+  if (!verifyIngestToken_(token, "")) {
+    return { success: false, error: "Unauthorized", code: "UNAUTHORIZED" };
+  }
+  var ss = getSpreadsheet_();
+  ensureSheetsAndHeaders_(ss);
+  ensurePdfTabs_(ss);
+  var cfg = {};
+  var props = PropertiesService.getScriptProperties();
+  // Pull from Config tab
+  var sheet = ss.getSheetByName(TAB_CONFIG);
+  var lastRow = sheet.getLastRow();
+  if (lastRow > 1) {
+    var values = sheet.getRange(2, 1, lastRow - 1, 2).getValues();
+    for (var i = 0; i < values.length; i++) {
+      var k = String(values[i][0] || "").trim();
+      var v = String(values[i][1] || "").trim();
+      if (k && k !== "TELEGRAM_SESSION" && k.indexOf("SESSION") === -1) {
+        cfg[k] = v;
+      }
+    }
+  }
+  // Allow script-property overrides for non-secret config
+  var apiId = props.getProperty("TELEGRAM_API_ID");
+  var apiHash = props.getProperty("TELEGRAM_API_HASH");
+  if (apiId && !cfg.TELEGRAM_API_ID) cfg.TELEGRAM_API_ID = apiId;
+  if (apiHash && !cfg.TELEGRAM_API_HASH) cfg.TELEGRAM_API_HASH = apiHash;
+  return { success: true, config: cfg };
+}
+
+// NOTE: Route registration for the PDF actions lives inline inside
+// the existing doGet and doPost (see the small `// PDF:` additions to
+// each switch/branch). We deliberately do NOT monkey-patch doGet/doPost
+// because Apps Script function declarations are not assignable.
+//
+// To register the new actions, add the following branches inside the
+// `try` block of doGet (before the final "Unknown action" line):
+//
+//   // PDF: list (bearer token from Authorization header)
+//   if (action === "pdf-list") {
+//     var pdfTok = extractBearerToken_(e);
+//     return output(handlePdfList_(pdfTok));
+//   }
+//   // PDF: config-get (bearer token)
+//   if (action === "config-get") {
+//     var cfgTok = extractBearerToken_(e);
+//     return output(handleConfigGet_(cfgTok));
+//   }
+//
+// and inside the switch in doPost add:
+//
+//   case "pdf_upsert":
+//     return jsonOutput_(handlePdfUpsert_(payload, extractBearerToken_(e, payload)));
+//   case "pdf_delete":
+//     return jsonOutput_(handlePdfDelete_(payload, extractBearerToken_(e, payload)));
+
+function extractBearerToken_(e, payload) {
+  var token = "";
+  if (e && e.headers && e.headers.Authorization) {
+    var m = /^Bearer\s+(.+)$/i.exec(String(e.headers.Authorization));
+    if (m) token = m[1];
+  }
+  if (!token && payload && payload.token) token = String(payload.token);
+  return token;
+}
+
+// To wire these handlers into the production Apps Script, edit the
+// original doGet and doPost in Code.gs (see README). The appended code
+// only defines helper functions and tab handlers — it does not
+// monkeypatch at global scope, so it is safe to append to Code.gs
+// unchanged; deployment still requires adding the branches below to
+// the original doGet/doPost.

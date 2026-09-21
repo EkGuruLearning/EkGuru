@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>PDF Library | EkGuru</title>
+<meta name="description" content="Free PDF study material published by EkGuru. View in-browser or download."/>
+<meta name="robots" content="index, follow"/>
+<link href="../../css/style.min.css" rel="stylesheet"/>
+<style>
+:root{--ink:#111;--ink-2:#4a4a55;--line:#e6e6ee;--brand:#5736d8;--bg:#fafafe;--ok:#0d9f6e}
+.pdf-page{max-width:1100px;margin:0 auto;padding:24px 18px 80px}
+.pdf-page h1{font-size:2rem;margin:.4rem 0 0.2rem}
+.pdf-page .muted{color:var(--ink-2);font-size:.95rem}
+.pdf-categories{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 8px}
+.pdf-categories button{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.85rem;cursor:pointer}
+.pdf-categories button.active{background:var(--brand);border-color:var(--brand);color:#fff}
+.pdf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:14px}
+.pdf-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;min-height:150px;transition:transform .12s ease,box-shadow .12s ease}
+.pdf-card:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(87,54,216,.10)}
+.pdf-card .cat{font-size:.75rem;letter-spacing:.04em;text-transform:uppercase;color:var(--brand);font-weight:700}
+.pdf-card h3{margin:6px 0 8px;font-size:1.05rem;line-height:1.35}
+.pdf-card .desc{color:var(--ink-2);font-size:.88rem;flex:1}
+.pdf-actions{display:flex;gap:8px;margin-top:12px}
+.pdf-actions a,.pdf-actions button{flex:1;text-align:center;font-weight:600;border-radius:10px;padding:9px 10px;font-size:.88rem;text-decoration:none;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.pdf-actions a.primary,.pdf-actions button.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+.pdf-actions a:hover{filter:brightness(.96)}
+.pdf-status{padding:10px;border-radius:10px;background:#fff8e1;color:#8a6d00;border:1px solid #f5e1a8;margin-top:8px;display:none}
+footer.site{margin-top:40px;color:var(--ink-2);font-size:.85rem;text-align:center}
+.breadcrumbs{font-size:.85rem;color:var(--ink-2);margin-bottom:12px}
+.breadcrumbs a{color:var(--ink-2)}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a href="/" class="logo">EkGuru</a>
+    <nav class="nav">
+      <a href="/courses/">Courses</a>
+      <a href="/courses/pdfs/" aria-current="page">PDFs</a>
+      <a href="/ask/">Ask</a>
+    </nav>
+  </div>
+</header>
+
+<main class="pdf-page">
+  <nav class="breadcrumbs"><a href="/">Home</a> &rsaquo; <a href="/courses/">Courses</a> &rsaquo; PDFs</nav>
+  <h1>PDF Library</h1>
+  <p class="muted">Study material published by EkGuru. Click <b>Preview</b> to view the PDF inline in your browser, or <b>Download</b> to save it. Nothing here requires a Telegram account.</p>
+
+  <div class="pdf-categories" id="pdfCats"></div>
+  <div class="pdf-grid" id="pdfGrid"></div>
+  <div class="pdf-status" id="pdfStatus">Loading PDFs…</div>
+</main>
+
+<footer class="site"><p>&copy; EkGuru — All PDFs are streamed directly from EkGuru.</p></footer>
+
+<script>
+(function(){
+  const grid = document.getElementById('pdfGrid');
+  const cats = document.getElementById('pdfCats');
+  const status = document.getElementById('pdfStatus');
+
+  function show(msg){ status.style.display='block'; status.textContent = msg; }
+  function hide(){ status.style.display='none'; }
+
+  function render(items, activeCat){
+    const visible = activeCat === 'all' ? items : items.filter(i => (i.category||'').toLowerCase() === activeCat);
+    if (visible.length === 0){ show('No PDFs in this category yet.'); grid.innerHTML=''; return; }
+    hide();
+    grid.innerHTML = visible.map(function(it){
+      const t = escapeHtml(it.title || 'PDF');
+      const c = escapeHtml(it.category || 'General');
+      const d = escapeHtml(it.description || '');
+      return '<article class="pdf-card">'
+        + '<div><div class="cat">'+c+'</div>'
+        + '<h3>'+t+'</h3>'
+        + (d ? '<p class="desc">'+d+'</p>' : '')
+        + '</div>'
+        + '<div class="pdf-actions">'
+        + '<a class="primary" href="/pdf/'+encodeURIComponent(it.publicId)+'/">Preview</a>'
+        + '<a href="/pdf/'+encodeURIComponent(it.publicId)+'/download">Download</a>'
+        + '</div>'
+        + '</article>';
+    }).join('');
+  }
+
+  function escapeHtml(s){ return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
+
+  function renderCats(items, active){
+    const set = new Set();
+    items.forEach(i => set.add((i.category||'general').toLowerCase()));
+    const list = ['all', ...Array.from(set).sort()];
+    cats.innerHTML = list.map(c => '<button data-cat="'+c+'" class="'+(c===active?'active':'')+'">'+c+'</button>').join('');
+    cats.querySelectorAll('button').forEach(b => b.addEventListener('click', function(){
+      const c = this.getAttribute('data-cat');
+      renderCats(items, c);
+      render(items, c);
+    }));
+  }
+
+  fetch('/api/pdfs', {credentials:'same-origin'})
+    .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP '+r.status)))
+    .then(j => {
+      if (!j.success) throw new Error(j.error || 'load failed');
+      const items = j.items || [];
+      if (items.length === 0){ show('No PDFs published yet.'); return; }
+      renderCats(items, 'all');
+      render(items, 'all');
+    })
+    .catch(err => show('Could not load PDF list right now. Please try again later.'));
+})();
+</script>
+</body>
+</html>

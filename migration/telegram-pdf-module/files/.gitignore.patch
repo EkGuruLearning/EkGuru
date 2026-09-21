@@ -1,0 +1,9 @@
+--- a/.gitignore
++++ b/.gitignore
+@@
++# Telegram session (secret — never commit)
++.telegram-session
++*.session
++data/mock-telegram/
++data/pdfs.json
++server/**/*.session

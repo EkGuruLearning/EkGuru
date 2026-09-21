@@ -21,3 +21,10 @@ node_modules/
 # OS / editor noise
 .DS_Store
 Thumbs.db
+
+# Telegram session (secret — never commit)
+.telegram-session
+*.session
+data/mock-telegram/
+data/pdfs.json
+server/**/*.session

@@ -1,0 +1,12 @@
+--- a/package.json
++++ b/package.json
+@@
+   "scripts": {
+     "start": "node server/server.js",
++    "telegram:login": "node scripts/telegram-login.js",
+-    "test": "..."
++    "test:pdf": "node tools/test-pdf-gateway.mjs"
+   },
+   "dependencies": {
++    "teleproto": "^1.229.0"
+   }
