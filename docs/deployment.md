@@ -40,7 +40,7 @@ The EkGuru Node server now hosts three things in one process:
 8. Smoke test:
    - `GET /api/pdfs` returns `{"success":true,"items":[...]}`.
    - `GET /api/pdf/health` returns `{"mockMode":false,"connected":true}`.
-   - Publish a real PDF via `/admin-pdfs.html` and preview it.
+   - Publish a real PDF via `/admin.html (Content → PDF Publisher tab)` and preview it.
 
 ## PDF page routing
 

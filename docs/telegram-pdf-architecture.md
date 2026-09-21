@@ -83,7 +83,8 @@ account to view or download them.
 | `apps-script/Code.gs` | Apps Script additions: `pdf-list`, `pdf_upsert`, `pdf_delete`, `config-get`, `Pdfs` + `Config` tabs. |
 | `scripts/telegram-login.js` | One-time CLI to create `TELEGRAM_SESSION`. |
 | `courses/pdfs/index.html` | Public PDF library page. |
-| `admin-pdfs.html` | Admin PDF publisher. |
+| `admin.html` (Content → PDF Publisher tab) | Admin PDF publisher UI (embedded). |
+| `admin-pdfs.html` | Standalone reference copy (kept on disk for migration history; primary entry is the admin tab). |
 
 ## Security rules
 

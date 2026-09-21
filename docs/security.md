@@ -38,7 +38,7 @@ The audit command:
 ```bash
 grep -rE "t\.me/|telegramLink|telegram_pdf_url|telegramReference|chat_id|message_id|file_reference|/api/resolve|telegram-gateway|localhost:8000" \
   --include="*.html" --include="*.js" --include="*.json" --include="*.css" \
-  courses/ js/ admin-pdfs.html index.html 2>/dev/null
+  courses/ js/ admin.html (PDF Publisher tab) index.html 2>/dev/null
 ```
 
 Only `server/` and `apps-script/` may legitimately reference those

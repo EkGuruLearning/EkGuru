@@ -254,6 +254,8 @@
 <button data-tab="learnops">Learn Ops</button>
 <span class="tabgrp">Payments</span>
 <button data-tab="payments">Payments &amp; Support</button>
+<span class="tabgrp">Content</span>
+<button data-tab="pdfs">PDF Publisher</button>
 </div>
 <!-- ================= OVERVIEW ================= -->
 <section id="tab-overview">
@@ -1243,8 +1245,96 @@ someone@example.com" rows="6" style="width:100%;font:inherit;padding:11px 13px;b
   </div>
 </div>
 </section>
-<!-- (site-config.js loads once, in <head> — a second copy here double-ran
-     its online/offline listeners. Removed in the PR #8 hardening pass.) -->
+<!-- ================= PDF PUBLISHER ================= -->
+<!-- v103 — Telegram-backed PDF publisher, embedded into admin.html
+     as a new tab under "Content". Server-side only: the browser never
+     sees a Telegram URL or needs a Telegram account. Uploads/edits go
+     through POST /api/admin/pdfs (requires SHEETS_INGEST_TOKEN bearer);
+     the public list comes from GET /api/pdfs. The standalone
+     admin-pdfs.html remains on disk as a migration reference. -->
+<section hidden="" id="tab-pdfs">
+<h2>PDF Publisher</h2>
+<p class="sub">Publish Telegram-served PDFs to the public library. The server fetches files from Telegram and serves them from <code>/pdf/&lt;publicId&gt;/</code> — visitors never see the original Telegram link.</p>
+
+<div class="card">
+<h2>Add or edit a PDF</h2>
+<p class="muted">Paste a private-channel Telegram message URL (the server resolves, downloads and caches the file; the public gets only a same-origin URL). Original Telegram URLs are never exposed to visitors.</p>
+
+<div class="row" style="margin-bottom:12px">
+  <label class="muted" style="font-size:.82rem">Admin token
+    <input type="password" id="pdfToken" placeholder="SHEETS_INGEST_TOKEN (saved in this browser)" style="padding:8px 10px;font-size:.88rem;min-width:280px" autocomplete="off"/>
+  </label>
+  <button class="ghost" id="pdfTokenShow" type="button">Show</button>
+  <button class="ghost" id="pdfTokenForget" type="button">Forget</button>
+</div>
+
+<div style="display:grid;gap:10px;max-width:720px">
+  <label>
+    <div class="muted" style="font-size:.82rem;margin-bottom:4px">Telegram URL</div>
+    <input id="pdfTelegramUrl" placeholder="https://t.me/c/&lt;channel_id&gt;/&lt;msg_id&gt;" style="width:100%" type="url"/>
+  </label>
+  <div class="row" style="gap:10px">
+    <label style="flex:1">
+      <div class="muted" style="font-size:.82rem;margin-bottom:4px">Course</div>
+      <select id="pdfCourse" style="width:100%">
+        <option value="">— pick a course folder —</option>
+        <option value="reasoning">Reasoning</option>
+        <option value="maths">Maths</option>
+        <option value="english">English</option>
+        <option value="gs">General Studies</option>
+        <option value="hindi">Hindi</option>
+        <option value="current-affairs">Current Affairs</option>
+        <option value="computer">Computer</option>
+        <option value="other">Other</option>
+      </select>
+    </label>
+    <label>
+      <div class="muted" style="font-size:.82rem;margin-bottom:4px">Sort order</div>
+      <input id="pdfSortOrder" type="number" value="0" min="0" style="width:90px"/>
+    </label>
+    <label style="display:flex;align-items:flex-end;gap:6px;padding-bottom:8px">
+      <input id="pdfPublished" type="checkbox" checked/>
+      <span>Published</span>
+    </label>
+  </div>
+  <label>
+    <div class="muted" style="font-size:.82rem;margin-bottom:4px">Title</div>
+    <input id="pdfTitle" placeholder="Calendar Topic-wise Questions" style="width:100%" type="text"/>
+  </label>
+  <label>
+    <div class="muted" style="font-size:.82rem;margin-bottom:4px">Category</div>
+    <input id="pdfCategory" placeholder="Practice Set" style="width:100%" type="text"/>
+  </label>
+  <label>
+    <div class="muted" style="font-size:.82rem;margin-bottom:4px">Description (optional)</div>
+    <textarea id="pdfDescription" placeholder="Short description shown in the library." rows="3" style="width:100%;font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:9px"></textarea>
+  </label>
+</div>
+
+<div class="row" style="margin-top:14px">
+  <button id="pdfSave">Save PDF</button>
+  <button class="ghost" id="pdfClear" type="button">Clear form</button>
+  <span class="muted" id="pdfStatus"></span>
+</div>
+<div id="pdfMsg"></div>
+</div>
+
+<div class="card">
+<h2>Existing PDFs</h2>
+<p class="muted" id="pdfCount"></p>
+<div class="row" style="margin-bottom:10px">
+  <button id="pdfReload" class="ghost" type="button">Reload list</button>
+</div>
+<div class="scroll"><table id="pdfTbl">
+  <thead>
+    <tr><th>Title</th><th>Course</th><th>Category</th><th>Public link</th><th>State</th><th></th></tr>
+  </thead>
+  <tbody id="pdfTblBody">
+    <tr><td colspan="6" class="empty">Loading…</td></tr>
+  </tbody>
+</table></div>
+</div>
+</section>
 <!-- v48: the admin dashboard deliberately does NOT load js/analytics.js —
      Prakash's own visits must never inflate the numbers he is reading.
      Instead it sets the opt-out flag that analytics.js checks, so simply
@@ -6342,6 +6432,298 @@ someone@example.com" rows="6" style="width:100%;font:inherit;padding:11px 13px;b
     document.addEventListener("DOMContentLoaded", initPaymentsTab);
   } else {
     initPaymentsTab();
+  }
+})();
+</script>
+<!-- ================= PDF PUBLISHER JS ================= -->
+<script>
+/* v103 — PDF Publisher tab (Telegram-backed). Mirrors the standalone
+   admin-pdfs.html functionality inlined into admin.html so there is
+   one entry point behind the existing passcode gate. The first time
+   the "pdfs" tab is opened, the list is loaded and the form wired. */
+(function () {
+  "use strict";
+  var TOKEN_KEY = "ekguru_pdf_token";
+  var EDITING_PID = null;
+
+  function $(s) { return document.querySelector(s); }
+  function el(id) { return document.getElementById(id); }
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+  function say(html, kind) {
+    var box = el("pdfMsg");
+    if (!box) return;
+    box.innerHTML = html
+      ? '<div class="note ' + (kind === "err" ? "warn" : kind === "ok" ? "good" : "") + '">' + html + "</div>"
+      : "";
+  }
+  function status(text, tone) {
+    var s = el("pdfStatus");
+    if (!s) return;
+    s.textContent = text || "";
+    s.style.color = tone === "err" ? "var(--bad,#b91c1c)"
+                  : tone === "ok"  ? "var(--ok,#15803d)"
+                  : "";
+  }
+
+  function restoreToken() {
+    try {
+      var t = el("pdfToken");
+      if (t) t.value = localStorage.getItem(TOKEN_KEY) || "";
+    } catch (e) {}
+  }
+  function getToken() {
+    var t = el("pdfToken");
+    return (t ? t.value : "").trim();
+  }
+
+  function wireTokenButtons() {
+    var show = el("pdfTokenShow");
+    if (show && !show._bound) {
+      show._bound = 1;
+      show.addEventListener("click", function () {
+        var f = el("pdfToken");
+        if (!f) return;
+        var hidden = f.type === "password";
+        f.type = hidden ? "text" : "password";
+        show.textContent = hidden ? "Hide" : "Show";
+      });
+    }
+    var forget = el("pdfTokenForget");
+    if (forget && !forget._bound) {
+      forget._bound = 1;
+      forget.addEventListener("click", function () {
+        try { localStorage.removeItem(TOKEN_KEY); } catch (e) {}
+        var f = el("pdfToken");
+        if (f) f.value = "";
+        status("Token forgotten on this device.", "ok");
+      });
+    }
+  }
+
+  function clearForm() {
+    EDITING_PID = null;
+    ["pdfTelegramUrl", "pdfTitle", "pdfCategory", "pdfDescription"].forEach(function (id) {
+      var e = el(id); if (e) e.value = "";
+    });
+    var c = el("pdfCourse"); if (c) c.value = "";
+    var so = el("pdfSortOrder"); if (so) so.value = "0";
+    var p = el("pdfPublished"); if (p) p.checked = true;
+    var btn = el("pdfSave"); if (btn) btn.textContent = "Save PDF";
+    status(""); say("");
+  }
+
+  function fillForm(pdf) {
+    EDITING_PID = pdf.publicId || null;
+    var tel = el("pdfTelegramUrl");
+    if (tel) tel.value = pdf.telegramUrl || "";
+    var t = el("pdfTitle"); if (t) t.value = pdf.title || "";
+    var cat = el("pdfCategory"); if (cat) cat.value = pdf.category || "";
+    var d = el("pdfDescription"); if (d) d.value = pdf.description || "";
+    var c = el("pdfCourse"); if (c) c.value = pdf.folder || pdf.course || "";
+    var so = el("pdfSortOrder"); if (so) so.value = Number(pdf.sortOrder || 0);
+    var p = el("pdfPublished"); if (p) p.checked = pdf.published !== false;
+    var btn = el("pdfSave"); if (btn) btn.textContent = "Update PDF";
+    status("Editing " + (pdf.title || pdf.publicId), "ok");
+  }
+
+  function loadList() {
+    var body = el("pdfTblBody");
+    var cnt = el("pdfCount");
+    if (!body) return;
+    body.innerHTML = '<tr><td colspan="6" class="empty">Loading…</td></tr>';
+    fetch("/api/pdfs", { cache: "no-store" })
+      .then(function (r) {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.json();
+      })
+      .then(function (j) {
+        var list = (j && j.pdfs) ? j.pdfs : (Array.isArray(j) ? j : []);
+        if (cnt) cnt.textContent = list.length + " PDF(s) published.";
+        if (!list.length) {
+          body.innerHTML = '<tr><td colspan="6" class="empty">No PDFs yet. Add one above.</td></tr>';
+          return;
+        }
+        body.innerHTML = list.map(function (p) {
+          var pub = p.published !== false;
+          var link = "/pdf/" + encodeURIComponent(p.publicId) + "/";
+          var dl = "/pdf/" + encodeURIComponent(p.publicId) + "/download";
+          return "<tr>" +
+            "<td><b>" + esc(p.title || p.publicId) + "</b>" +
+              (p.description ? '<br><span class="muted">' + esc(String(p.description).slice(0, 120)) + "</span>" : "") +
+              '<br><code class="muted" style="font-size:.75rem">' + esc(p.publicId) + "</code></td>" +
+            "<td>" + esc(p.folder || p.course || "—") + "</td>" +
+            "<td>" + esc(p.category || "—") + "</td>" +
+            '<td class="ref"><a href="' + esc(link) + '" target="_blank" rel="noopener">' + esc(link) + "</a></td>" +
+            "<td>" + (pub ? '<span class="pill sent">published</span>' : '<span class="pill failed">draft</span>') +
+              (p.cached ? '<br><span class="muted" style="font-size:.75rem">cached</span>' : "") + "</td>" +
+            '<td style="white-space:nowrap">' +
+              '<a class="btn ghost" style="padding:4px 9px;font-size:.8rem" href="' + esc(link) + '" target="_blank" rel="noopener">Preview</a> ' +
+              '<a class="btn ghost" style="padding:4px 9px;font-size:.8rem" href="' + esc(dl) + '" target="_blank" rel="noopener">Download</a> ' +
+              '<button class="ghost pdf-edit" data-pid="' + esc(p.publicId) + '" style="padding:4px 9px;font-size:.8rem">Edit</button> ' +
+              '<button class="ghost pdf-del" data-pid="' + esc(p.publicId) + '" data-title="' + esc(p.title || p.publicId) + '" style="padding:4px 9px;font-size:.8rem;color:var(--bad,#b91c1c);border-color:#fecaca">Delete</button>' +
+            "</td>" +
+          "</tr>";
+        }).join("");
+
+        body.querySelectorAll(".pdf-del").forEach(function (b) {
+          b.addEventListener("click", function () {
+            var pid = b.dataset.pid, title = b.dataset.title || pid;
+            var tok = getToken();
+            if (!tok) { status("Enter the admin token first.", "err"); return; }
+            if (!confirm("Delete PDF \"" + title + "\" (" + pid + ")? This cannot be undone.")) return;
+            b.disabled = true; b.textContent = "deleting…";
+            fetch("/api/admin/pdfs?publicId=" + encodeURIComponent(pid), {
+              method: "DELETE",
+              headers: { "Authorization": "Bearer " + tok }
+            }).then(function (r) {
+              return r.text().then(function (t) { var j = {}; try { j = JSON.parse(t); } catch (e) {} return { ok: r.ok, j: j, t: t }; });
+            }).then(function (res) {
+              b.disabled = false; b.textContent = "Delete";
+              if (!res.ok) {
+                status("Delete failed: " + ((res.j && res.j.error) || res.t), "err");
+                say("Delete failed: " + esc((res.j && res.j.error) || res.t), "err");
+                return;
+              }
+              status("Deleted.", "ok");
+              say("Deleted <b>" + esc(title) + "</b>.", "ok");
+              loadList();
+            }).catch(function (e) {
+              b.disabled = false; b.textContent = "Delete";
+              status("Delete failed: " + e.message, "err");
+              say("Delete failed: " + esc(e.message), "err");
+            });
+          });
+        });
+
+        body.querySelectorAll(".pdf-edit").forEach(function (b) {
+          b.addEventListener("click", function () {
+            var pid = b.dataset.pid;
+            var found = list.filter(function (x) { return x.publicId === pid; })[0];
+            if (found) fillForm(found);
+            try { el("pdfTitle").focus(); } catch (e) {}
+          });
+        });
+      })
+      .catch(function (e) {
+        if (body) body.innerHTML = '<tr><td colspan="6" class="muted">Could not load list: ' + esc(e.message) + ". Are you running the server?</td></tr>";
+        if (cnt) cnt.textContent = "";
+      });
+  }
+
+  function savePdf(ev) {
+    ev.preventDefault();
+    var token = getToken();
+    if (!token) { status("Enter the admin token first.", "err"); return; }
+    try { localStorage.setItem(TOKEN_KEY, token); } catch (e) {}
+
+    var tgUrl = (el("pdfTelegramUrl") || {}).value || "";
+    var course = (el("pdfCourse") || {}).value || "";
+    var body = {
+      telegramUrl: tgUrl,
+      telegramPdfUrl: tgUrl,
+      telegram_pdf_url: tgUrl,
+      title:       (el("pdfTitle") || {}).value || "",
+      category:    (el("pdfCategory") || {}).value || "",
+      description: (el("pdfDescription") || {}).value || "",
+      folder:      course,
+      course:      course,
+      courseId:    course,
+      course_id:   course,
+      sortOrder:   parseInt((el("pdfSortOrder") || {}).value || "0", 10) || 0,
+      sort_order:  parseInt((el("pdfSortOrder") || {}).value || "0", 10) || 0,
+      published:   !!(el("pdfPublished") || {}).checked
+    };
+    if (EDITING_PID) {
+      body.publicId = EDITING_PID;
+      body.public_id = EDITING_PID;
+    }
+
+    if (!body.telegramUrl.trim()) { status("Telegram URL is required.", "err"); return; }
+    if (!body.title.trim())       { status("Title is required.", "err"); return; }
+    if (!body.folder)             { status("Pick a course folder.", "err"); return; }
+
+    var btn = el("pdfSave");
+    btn.disabled = true; btn.textContent = "Saving…";
+    status("Saving…");
+    say("");
+
+    fetch("/api/admin/pdfs", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + token
+      },
+      body: JSON.stringify(body)
+    }).then(function (r) {
+      return r.text().then(function (t) {
+        var j = {}; try { j = JSON.parse(t); } catch (e) {}
+        return { ok: r.ok, j: j, t: t };
+      });
+    }).then(function (res) {
+      btn.disabled = false; btn.textContent = EDITING_PID ? "Update PDF" : "Save PDF";
+      if (!res.ok) {
+        status("Save failed: " + ((res.j && res.j.error) || res.t), "err");
+        say("Save failed: " + esc((res.j && res.j.error) || res.t), "err");
+        return;
+      }
+      var pid = res.j.pdf && res.j.pdf.publicId;
+      status(EDITING_PID ? "Updated." : "Saved. Public id: " + pid, "ok");
+      say("<b>Saved.</b> Public link: <a href=\"/pdf/" + encodeURIComponent(pid) + "/\" target=\"_blank\" rel=\"noopener\"><code>/pdf/" + esc(pid) + "/</code></a>", "ok");
+      clearForm();
+      loadList();
+    }).catch(function (e) {
+      btn.disabled = false; btn.textContent = EDITING_PID ? "Update PDF" : "Save PDF";
+      status("Save failed: " + e.message, "err");
+      say("Save failed: " + esc(e.message) + ". Is the server running?", "err");
+    });
+  }
+
+  var BOUND = false;
+  function initPdfsTab() {
+    if (BOUND) return;
+    BOUND = true;
+    restoreToken();
+    wireTokenButtons();
+
+    var save = el("pdfSave");
+    if (save) save.addEventListener("click", savePdf);
+    var clr = el("pdfClear");
+    if (clr) clr.addEventListener("click", clearForm);
+    var rl = el("pdfReload");
+    if (rl) rl.addEventListener("click", loadList);
+
+    /* Enter in the last textarea/input submits. */
+    ["pdfTitle", "pdfCategory", "pdfTelegramUrl"].forEach(function (id) {
+      var e = el(id);
+      if (e) e.addEventListener("keydown", function (ev) {
+        if (ev.key === "Enter") savePdf(ev);
+      });
+    });
+
+    loadList();
+  }
+
+  /* First-time-open wiring, same lazy pattern as SEO/mail centre. */
+  var opened = false;
+  document.querySelectorAll('.tabs button[data-tab="pdfs"]').forEach(function (b) {
+    b.addEventListener("click", function () {
+      if (opened) return;
+      opened = true;
+      try { initPdfsTab(); } catch (e) {
+        console.error("[pdfs tab]", e);
+        say("Could not initialise PDF tab: " + esc(e.message), "err");
+      }
+    });
+  });
+
+  /* If the admin is already unlocked and the URL hash points here,
+     initialise immediately. */
+  if (window.EKG_ADMIN_OPEN && /[#&]tab=pdfs\b/.test(location.hash)) {
+    initPdfsTab();
   }
 })();
 </script>

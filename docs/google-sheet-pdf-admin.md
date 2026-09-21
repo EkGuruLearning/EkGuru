@@ -29,7 +29,7 @@ Script Properties). The gateway adds and manages two tabs:
 
 ## Admin UI
 
-Open `/admin-pdfs.html` (same token as other admin operations).
+Open `/admin.html (Content → PDF Publisher tab)` (same token as other admin operations).
 The flow is:
 
 1. Enter / save the `SHEETS_INGEST_TOKEN` (stored in browser localStorage only).
