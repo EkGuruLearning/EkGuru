@@ -94,10 +94,25 @@ def build_matrix() -> tuple[list[dict], dict]:
         ad_class_match = re.search(r'<html\b[^>]*\bdata-ad-class=["\']([^"\']+)', text, re.I)
         noindex = "noindex" in robots.lower()
         h1 = len(re.findall(r"<h1\b", text, re.I))
+        ids = re.findall(r'<[a-z][^>]*\bid=["\']([^"\']+)["\']', text, re.I)
+        duplicate_ids = sorted(value for value, count in Counter(ids).items() if count > 1)
+        script_sources = []
+        for script in re.findall(r"<script\b[^>]*>", text, re.I):
+            source = re.search(r'\bsrc\s*=\s*["\']([^"\']+)["\']', script, re.I)
+            if source:
+                script_sources.append(source.group(1).strip())
+        duplicate_script_sources = sorted(value for value, count in Counter(script_sources).items() if count > 1)
+        images_missing_alt = 0
+        for image in re.findall(r"<img\b[^>]*>", text, re.I):
+            if not re.search(r"\balt\s*=", image, re.I):
+                images_missing_alt += 1
         issues = []
         if not noindex and not title: issues.append("indexable-missing-title")
         if not noindex and not canonical: issues.append("indexable-missing-canonical")
         if not noindex and h1 != 1: issues.append(f"indexable-h1-count-{h1}")
+        if duplicate_ids: issues.append("duplicate-id")
+        if duplicate_script_sources: issues.append("duplicate-external-script")
+        if images_missing_alt: issues.append("image-missing-alt")
         if "pagead2.googlesyndication.com/pagead/js/adsbygoogle" in text: issues.append("adsense-loader")
         if re.search(r"<ins\b[^>]*\badsbygoogle", text, re.I): issues.append("adsense-slot")
         if not noindex and placeholder_rx.search(re.sub(r"<!--.*?-->", "", text, flags=re.S)): issues.append("indexable-placeholder-copy")
@@ -116,6 +131,9 @@ def build_matrix() -> tuple[list[dict], dict]:
             "ad_class": ad_class_match.group(1) if ad_class_match else "(unspecified)",
             "visible_words": visible_words(text),
             "h1_count": h1,
+            "duplicate_ids": ";".join(duplicate_ids),
+            "duplicate_external_scripts": ";".join(duplicate_script_sources),
+            "images_missing_alt": images_missing_alt,
             "internal_links": len(re.findall(r'href=["\'](?:/|\.\.?/)[^"\']*["\']', text, re.I)),
             "external_links": len(re.findall(r'href=["\']https?://', text, re.I)),
             "forms": len(re.findall(r"<form\b", text, re.I)),
@@ -141,6 +159,9 @@ def build_matrix() -> tuple[list[dict], dict]:
         "adsense_slots": sum(r["adsense_slots"] for r in rows),
         "pages_with_matrix_issues": sum(bool(r["issues"]) for r in rows),
         "issue_counts": dict(sorted(Counter(issue for r in rows for issue in r["issues"].split(";") if issue).items())),
+        "duplicate_id_pages": sum(bool(r["duplicate_ids"]) for r in rows),
+        "duplicate_external_script_pages": sum(bool(r["duplicate_external_scripts"]) for r in rows),
+        "images_missing_alt": sum(r["images_missing_alt"] for r in rows),
         "duplicate_title_groups": len(duplicate_titles),
         "duplicate_canonical_groups": len(duplicate_canonicals),
         "duplicate_titles": duplicate_titles,
@@ -150,24 +171,34 @@ def build_matrix() -> tuple[list[dict], dict]:
 
 
 def git_reconciliation() -> dict:
+    """Compare the reference commit with the whole current tree, not just unstaged work."""
     tracked = set(run("git", "ls-files").splitlines())
+    untracked = set(run("git", "ls-files", "--others", "--exclude-standard").splitlines())
     base = set(run("git", "ls-tree", "-r", "--name-only", BASE_SHA).splitlines())
-    status = run("git", "status", "--porcelain").splitlines()
-    modified, added, deleted = [], [], []
-    for line in status:
-        code, name = line[:2], line[3:]
-        if " -> " in name: name = name.split(" -> ")[-1]
-        if code == "??" or name not in base: added.append(name)
-        elif "D" in code: deleted.append(name)
-        else: modified.append(name)
+    modified: set[str] = set()
+    added: set[str] = set(untracked)
+    deleted: set[str] = set()
+    for line in run("git", "diff", "--name-status", "--find-renames", BASE_SHA, "--").splitlines():
+        fields = line.split("\t")
+        code = fields[0]
+        if code.startswith("R") and len(fields) >= 3:
+            deleted.add(fields[1])
+            added.add(fields[2])
+        elif len(fields) >= 2 and code.startswith("A"):
+            added.add(fields[1])
+        elif len(fields) >= 2 and code.startswith("D"):
+            deleted.add(fields[1])
+        elif len(fields) >= 2:
+            modified.add(fields[1])
     html_base = sum(name.endswith(".html") for name in base)
     return {
         "reference_sha": BASE_SHA,
         "working_branch": run("git", "branch", "--show-current").strip(),
-        "head_sha": run("git", "rev-parse", "HEAD").strip(),
+        "head_sha_at_generation": run("git", "rev-parse", "HEAD").strip(),
         "reference_tracked_files": len(base),
         "reference_html_files": html_base,
         "working_tracked_files": len(tracked),
+        "pending_untracked_files": len(untracked),
         "modified": sorted(modified),
         "added": sorted(added),
         "deleted": sorted(deleted),
@@ -180,7 +211,7 @@ def main() -> int:
     rows, matrix = build_matrix()
     fields = list(rows[0])
     with (REPORTS / "EKGURU-PAGE-MATRIX.csv").open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
         writer.writeheader(); writer.writerows(rows)
 
     matrix_md = [
@@ -194,6 +225,9 @@ def main() -> int:
         f"- Pages with AdSense loader: **{matrix['pages_with_adsense_loader']}**",
         f"- AdSense slots: **{matrix['adsense_slots']}**",
         f"- Duplicate canonical groups: **{matrix['duplicate_canonical_groups']}**",
+        f"- Pages with duplicate IDs: **{matrix['duplicate_id_pages']}**",
+        f"- Pages with duplicate external scripts: **{matrix['duplicate_external_script_pages']}**",
+        f"- Images missing an `alt` attribute: **{matrix['images_missing_alt']}**",
         f"- Matrix issue pages: **{matrix['pages_with_matrix_issues']}** (see CSV `issues` column)",
         "",
         "## Page classes",
@@ -216,8 +250,12 @@ def main() -> int:
     course = json.loads((ROOT / "data/quality/course-publication-audit.json").read_text())
     country = json.loads((ROOT / "data/quality/country-language-verification.json").read_text())
     sitemap = json.loads((ROOT / "data/quality/sitemap-audit.json").read_text())
+    seo_path = REPORTS / "seo.json"
+    seo = json.loads(seo_path.read_text()) if seo_path.exists() else {}
     browser_path = REPORTS / "EKGURU-RELEASE-BROWSER.json"
     browser = json.loads(browser_path.read_text()) if browser_path.exists() else {"status": "NOT_RUN"}
+    http_path = REPORTS / "local-http-audit.json"
+    local_http = json.loads(http_path.read_text()) if http_path.exists() else {"status": "NOT_RUN", "failures": []}
     main_ads = run("git", "grep", "-l", "pagead2.googlesyndication.com/pagead/js/adsbygoogle", BASE_SHA, "--", "*.html").splitlines()
     forensic = {
         "generated_on": TODAY,
@@ -238,12 +276,26 @@ def main() -> int:
             "page_matrix": matrix,
             "course_publication": course["summary"],
             "country_language_relations": country["summary"],
-            "sitemap_gate": {"status": sitemap["status"], "failures": len(sitemap["failures"]), "url_memberships": sum(x["urls"] for x in sitemap["sitemaps"].values())},
+            "sitemap_gate": {
+                "status": sitemap["status"],
+                "failures": len(sitemap["failures"]),
+                "indexed_url_memberships": sitemap.get("indexed_url_memberships"),
+                "indexed_unique_urls": sitemap.get("indexed_unique_urls"),
+                "missing_indexable_urls": sitemap.get("missing_indexable_urls"),
+                "duplicate_url_memberships": sitemap.get("duplicate_url_memberships"),
+            },
             "mail": {"static_flow_tests": "PASS", "tracked_client_credential": "EMPTY", "live_delivery": "BROWSER_NOT_VERIFIED"},
             "payment": {"public_mode": "one ordinary Razorpay-hosted link", "custom_checkout": "UNPUBLISHED", "recent_supporters": "UNPUBLISHED", "live_provider_completion": "NOT_VERIFIED"},
             "consent": {"local_choice": "fail-closed", "advertising_choice": "unavailable/false", "certified_cmp_tcf": "NOT_DEPLOYED"},
             "advertising": {"runtime_gate": "DISABLED", "public_html_loaders": matrix["pages_with_adsense_loader"], "slots": matrix["adsense_slots"]},
             "affiliates": {"configured_tracking_ids": 0, "public_status": "DISABLED"},
+            "local_http_gate": {
+                "status": local_http.get("status"),
+                "sitemap_children": local_http.get("sitemap_children"),
+                "unique_sitemap_urls": local_http.get("unique_sitemap_urls"),
+                "html_responses": local_http.get("html_responses"),
+                "failures": len(local_http.get("failures", [])),
+            },
             "real_browser_gate": browser.get("status"),
         },
         "final_readiness_status": "NOT_READY_DO_NOT_APPLY",
@@ -283,13 +335,15 @@ def main() -> int:
         f"- Courses: **{course['summary']['complete']} complete**, **{course['summary']['partial']} partial**, **{course['summary']['research_required']} research-required**; **{course['summary']['level_states'].get('PUBLISHABLE_EXISTING', 0)}** allowed CEFR levels and **{course['summary']['level_states'].get('PUBLIC_CONTENT_BUG', 0)}** blocked.",
         f"- Country-language relations: **{country['summary']['states'].get('VERIFIED', 0)} verified**, **{country['summary']['states'].get('PROVISIONAL', 0)} provisional**, **{country['summary']['states'].get('RESEARCH_REQUIRED', 0)} research-required**.",
         f"- HTML: **{matrix['pages']}** files; **{matrix['indexable']} indexable**, **{matrix['noindex']} noindex**.",
-        f"- Sitemap gate: **{sitemap['status']}**, {len(sitemap['failures'])} invalid URL memberships.",
+        f"- Sitemap gate: **{sitemap['status']}**, {sitemap.get('indexed_unique_urls', 0)} unique indexable URLs, {sitemap.get('missing_indexable_urls', 0)} omitted, {sitemap.get('duplicate_url_memberships', 0)} duplicate memberships.",
+        f"- Local HTTP gate: **{local_http.get('status')}**, {local_http.get('unique_sitemap_urls', 0)} sitemap URLs fetched, {len(local_http.get('failures', []))} failures.",
+        f"- DOM duplicate/accessibility scan: **{matrix['duplicate_id_pages']}** pages with duplicate IDs, **{matrix['duplicate_external_script_pages']}** with duplicate external scripts, **{matrix['images_missing_alt']}** images missing `alt`.",
         f"- Real-browser gate: **{browser.get('status')}** (not treated as a pass).",
         "",
         "## Audit coverage and limitations",
         "",
         "- Inventory/SEO/canonical/robots/sitemap/internal-link, placeholder-signal, duplicate, course, relation, legal, mail, payment-release-state, consent-source, advertising and affiliate checks were run against the working tree.",
-        "- `tools/seocheck.js` reported 2,636 pages, 155,633 checked internal links, zero broken links and zero orphans.",
+        f"- `tools/seocheck.js` reported {seo.get('pages', 0):,} pages, {seo.get('checkedLinks', 0):,} checked internal links, {len(seo.get('broken', []))} broken links and {len(seo.get('orphanPages', []))} orphans.",
         "- Static mail-flow, payment backend and release-mode DOM suites passed. These do not prove live email receipt or a real payment transaction.",
         "- A real Chromium run was prepared in `tools/test-release-browser.py`, but Playwright’s browser download failed at the sandbox TLS boundary. This unresolved requirement is why readiness is not a pass.",
         "",
@@ -326,9 +380,11 @@ No affiliate link is authorized until a real programme relationship and tracking
 
 ## Evidence
 
-- Sitemap/noindex gate: **{sitemap['status']}**, zero invalid memberships.
+- Sitemap/noindex gate: **{sitemap['status']}**; {sitemap.get('indexed_unique_urls', 0)} unique indexable URLs; {sitemap.get('missing_indexable_urls', 0)} omitted; {sitemap.get('duplicate_url_memberships', 0)} duplicate memberships.
 - Course gate: {course['summary']['level_states'].get('PUBLISHABLE_EXISTING', 0)} allowed; {course['summary']['level_states'].get('PUBLIC_CONTENT_BUG', 0)} blocked.
 - Country relation gate: {country['summary']['states'].get('VERIFIED', 0)} verified; {country['summary']['states'].get('PROVISIONAL', 0)} provisional; {country['summary']['states'].get('RESEARCH_REQUIRED', 0)} research-required.
+- Local HTTP gate: **{local_http.get('status')}**; {local_http.get('unique_sitemap_urls', 0)} sitemap URLs fetched; {len(local_http.get('failures', []))} failures.
+- DOM resource/accessibility scan: {matrix['duplicate_id_pages']} duplicate-ID pages; {matrix['duplicate_external_script_pages']} duplicate-script pages; {matrix['images_missing_alt']} images missing `alt`.
 - Consent/release-mode DOM tests are automated in `tools/test-consent-release.mjs` and `tools/test-browser-qa.mjs`.
 - Required rendered-browser result: **{browser.get('status')}**; unresolved and not waived.
 

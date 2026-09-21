@@ -6,7 +6,7 @@
 
 ## File-level reconciliation
 
-The reference contains 5109 tracked files (2636 HTML). The working tree reconciles **2633 modified**, **11 added**, and **0 deleted** paths. The complete arrays are in `EKGURU-MAIN-FORENSIC.json`; the per-page result is in `EKGURU-PAGE-MATRIX.csv`.
+The reference contains 5109 tracked files (2636 HTML). The working tree reconciles **2875 modified**, **26 added**, and **0 deleted** paths. The complete arrays are in `EKGURU-MAIN-FORENSIC.json`; the per-page result is in `EKGURU-PAGE-MATRIX.csv`.
 
 ## Main findings
 
@@ -22,14 +22,16 @@ The reference contains 5109 tracked files (2636 HTML). The working tree reconcil
 
 - Courses: **10 complete**, **8 partial**, **71 research-required**; **92** allowed CEFR levels and **442** blocked.
 - Country-language relations: **232 verified**, **196 provisional**, **1555 research-required**.
-- HTML: **2635** files; **1228 indexable**, **1407 noindex**.
-- Sitemap gate: **PASS**, 0 invalid URL memberships.
+- HTML: **2635** files; **1007 indexable**, **1628 noindex**.
+- Sitemap gate: **PASS**, 1007 unique indexable URLs, 0 omitted, 0 duplicate memberships.
+- Local HTTP gate: **PASS**, 1007 sitemap URLs fetched, 0 failures.
+- DOM duplicate/accessibility scan: **0** pages with duplicate IDs, **0** with duplicate external scripts, **0** images missing `alt`.
 - Real-browser gate: **BLOCKED_ENVIRONMENT** (not treated as a pass).
 
 ## Audit coverage and limitations
 
 - Inventory/SEO/canonical/robots/sitemap/internal-link, placeholder-signal, duplicate, course, relation, legal, mail, payment-release-state, consent-source, advertising and affiliate checks were run against the working tree.
-- `tools/seocheck.js` reported 2,636 pages, 155,633 checked internal links, zero broken links and zero orphans.
+- `tools/seocheck.js` reported 2,636 pages, 155,787 checked internal links, 0 broken links and 0 orphans.
 - Static mail-flow, payment backend and release-mode DOM suites passed. These do not prove live email receipt or a real payment transaction.
 - A real Chromium run was prepared in `tools/test-release-browser.py`, but Playwright’s browser download failed at the sandbox TLS boundary. This unresolved requirement is why readiness is not a pass.
 

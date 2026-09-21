@@ -3,11 +3,14 @@
 Generated: 2026-09-21
 
 - Public-tree HTML files: **2635**
-- Indexable: **1228**
-- Noindex/quarantined: **1407**
+- Indexable: **1007**
+- Noindex/quarantined: **1628**
 - Pages with AdSense loader: **0**
 - AdSense slots: **0**
 - Duplicate canonical groups: **0**
+- Pages with duplicate IDs: **0**
+- Pages with duplicate external scripts: **0**
+- Images missing an `alt` attribute: **0**
 - Matrix issue pages: **0** (see CSV `issues` column)
 
 ## Page classes

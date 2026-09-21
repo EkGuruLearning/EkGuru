@@ -24,9 +24,11 @@ No affiliate link is authorized until a real programme relationship and tracking
 
 ## Evidence
 
-- Sitemap/noindex gate: **PASS**, zero invalid memberships.
+- Sitemap/noindex gate: **PASS**; 1007 unique indexable URLs; 0 omitted; 0 duplicate memberships.
 - Course gate: 92 allowed; 442 blocked.
 - Country relation gate: 232 verified; 196 provisional; 1555 research-required.
+- Local HTTP gate: **PASS**; 1007 sitemap URLs fetched; 0 failures.
+- DOM resource/accessibility scan: 0 duplicate-ID pages; 0 duplicate-script pages; 0 images missing `alt`.
 - Consent/release-mode DOM tests are automated in `tools/test-consent-release.mjs` and `tools/test-browser-qa.mjs`.
 - Required rendered-browser result: **BLOCKED_ENVIRONMENT**; unresolved and not waived.
 

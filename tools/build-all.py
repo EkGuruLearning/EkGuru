@@ -87,6 +87,7 @@ def main():
             ["python3", "tools/build-legal-pages.py", "--check"])
         run("research quarantine --check", ["python3", "tools/quarantine-country-funnels.py", "--check"])
         run("draft tutor quarantine --check", ["python3", "tools/quarantine-tutor-drafts.py", "--check"])
+        run("language publication quarantine --check", ["python3", "tools/quarantine-language-surfaces.py", "--check"])
         run("courses by country --check", ["python3", "tools/build-course-countries.py", "--check"])
         run("sitemap publication gate --check", ["python3", "tools/build-sitemaps.py", "--check"])
         run("reading layer --check (969 hand-written pages)", ["python3", "tools/build-legacy-pages.py", "--check"])
@@ -114,6 +115,7 @@ def main():
         run("print sheets --check (only the sheet prints)", ["python3", "tools/build-print-sheets.py", "--check"])
         run("site shell --check (header + footer on every page)", ["node", "tools/build-shell.js", "--check"])
         run("copy index --check", ["node", "tools/build-copy-index.js", "--check"])
+        run("search publication check", ["python3", "tools/check-search-index.py"])
         run("ownership test (matcher vs its own corpus)", ["node", "tools/test-copy-index.mjs"])
         run("search facet test (country + language)", ["node", "tools/test-search-facets.mjs"])
         run("header drawer test (one owner, one open)", ["node", "tools/test-shell-drawer.mjs"])
@@ -131,6 +133,7 @@ def main():
             ["node", "tools/test-ad-policy.mjs"])
         run("questions api --check (votes on every question page)",
             ["python3", "tools/inject-questions-api.py", "--check"])
+        run("duplicate external scripts --check", ["python3", "tools/dedupe-script-tags.py", "--check"])
         run("questions api test (flag -> queue -> community)",
             ["node", "tools/test-question-api.mjs"])
         run("refresh test (a reload shows the deploy and starts nothing)",
@@ -151,7 +154,6 @@ def main():
     run("inventory validate", ["python3", "tools/validate-inventory.py"])
     run("inventory build", ["python3", "tools/build-inventory.py"])
     run("country language pages", ["python3", "tools/build-country-language-pages.py"])
-    run("search index", ["python3", "tools/build-search-index.py"])
     run("experience bundle (css/experience.css -> style.min.css)", ["python3", "tools/bundle-experience-css.py"])
     run("world artwork (9 emblems)", ["python3", "tools/build-world-art.py"])
     run("course hub + home teaser", ["python3", "tools/build-course-hub.py"])
@@ -168,6 +170,7 @@ def main():
     run("legal pages (contents card + clause ids)", ["python3", "tools/build-legal-pages.py"])
     run("research quarantine", ["python3", "tools/quarantine-country-funnels.py"])
     run("draft tutor quarantine", ["python3", "tools/quarantine-tutor-drafts.py"])
+    run("language publication quarantine", ["python3", "tools/quarantine-language-surfaces.py"])
     run("courses by country (published + sourced)", ["python3", "tools/build-course-countries.py"])
     run("Hindi learning pages (learn/hindi/**)", ["python3", "tools/build-hindi-pages.py"])
     run("country visuals (one plate per country, on both country page sets)",
@@ -180,8 +183,10 @@ def main():
     run("print sheets (worksheet prints as a sheet)", ["python3", "tools/build-print-sheets.py"])
     run("questions api (flags and likes reach other learners)",
         ["python3", "tools/inject-questions-api.py"])
+    run("duplicate external scripts", ["python3", "tools/dedupe-script-tags.py"])
     run("site shell (one header + one footer, every page)", ["node", "tools/build-shell.js"])
     run("sitemap publication gate", ["python3", "tools/build-sitemaps.py"])
+    run("search index (published pages only)", ["python3", "tools/build-search-index.py"])
     run("copy index (ownership fingerprints)", ["node", "tools/build-copy-index.js"])
     run("doctor", ["node", "tools/doctor.js"])
     print("\n══════════════════════════════════════════")

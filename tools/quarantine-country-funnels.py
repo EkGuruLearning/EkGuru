@@ -20,7 +20,7 @@ NOTICE = ('<aside class="note research-notice" role="note"><b>Research archive â
 COMPARISONS = {
     "answers/hindi-vs-sanskrit-difference/index.html",
     "bengali/bengali-vs-assamese/index.html",
-    "malayalam/malayalam-vs-tamil/index.html",
+    # The unsupported Malayalam tree is owned by quarantine-language-surfaces.py.
     "tamil/tamil-vs-malayalam/index.html",
 }
 
@@ -50,7 +50,9 @@ def research_country_pages() -> set[Path]:
 def candidates() -> list[Path]:
     out = research_country_pages()
     out.update(ROOT.glob("world-languages/**/index.html"))
-    out.update(ROOT.glob("learn-hindi-for-*-speakers/index.html"))
+    # A quarantined source-language funnel includes its four child articles;
+    # excluding only the hub left research pages indexable through sitemap.xml.
+    out.update(ROOT.glob("learn-hindi-for-*-speakers/**/index.html"))
     for rel in ["learn-hindi-for-speakers/index.html", "learn-hindi-by-country/index.html", *sorted(COMPARISONS)]:
         path = ROOT / rel
         if path.is_file(): out.add(path)
