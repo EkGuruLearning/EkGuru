@@ -28,16 +28,7 @@
 <!-- ekguru:storybook -->
 <link href="../../../css/storybook.css" rel="stylesheet"/>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Course", "@id": "https://ekguru.shop/learn/paths/speaking-starter/#course", "name": "Speaking Starter — EkGuru learning path", "description": "Produce real spoken sentences from day one, however slowly.", "url": "https://ekguru.shop/learn/paths/speaking-starter/", "inLanguage": "en", "teaches": "Hindi", "isAccessibleForFree": true, "educationalLevel": "Beginner — knows some words", "provider": {"@type": "Organization", "name": "EkGuru", "url": "https://ekguru.shop/"}, "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "online", "courseWorkload": "PT4H"}}, {"@type": "ItemList", "@id": "https://ekguru.shop/learn/paths/speaking-starter/#list", "name": "Speaking Starter lessons", "numberOfItems": 10, "itemListElement": [{"@type": "ListItem", "name": "How to say hello in Hindi", "url": "https://ekguru.shop/learn/how-to-say-hello-in-hindi/"}, {"@type": "ListItem", "name": "Aap, tum or tu — the politeness that matters", "url": "https://ekguru.shop/learn/aap-tum-tu-hindi/"}, {"@type": "ListItem", "name": "Pronunciation: the sounds English doesn't have", "url": "https://ekguru.shop/toolbox/hindi-pronunciation/"}, {"@type": "ListItem", "name": "Shadowing drill (minimal pairs)", "url": "https://ekguru.shop/learn/practice/pronunciation/"}, {"@type": "ListItem", "name": "50 travel phrases people actually use", "url": "https://ekguru.shop/learn/hindi-phrases-for-travel/"}, {"@type": "ListItem", "name": "Phrasebook with search", "url": "https://ekguru.shop/toolbox/hindi-phrasebook/"}, {"@type": "ListItem", "name": "Family words — the twelve cousins", "url": "https://ekguru.shop/learn/hindi-family-words/"}, {"@type": "ListItem", "name": "Listening: hear it, choose it", "url": "https://ekguru.shop/learn/practice/listening/"}, {"@type": "ListItem", "name": "Word order — why the verb goes last", "url": "https://ekguru.shop/learn/hindi-sentence-structure/"}, {"@type": "ListItem", "name": "Sentence builder practice", "url": "https://ekguru.shop/learn/practice/sentence-builder/"}]}]}</script>
-<!-- ekguru:adsense:start -->
-<!-- Auto ads: one account loader, and Google places the units. Whether
-     this block is in the page at all is decided by the page's class
-     (html[data-ad-class]) and data/monetization/google-monetization.json
-     -> ad_policy. tools/inject-ads.py enforces it. -->
-<link crossorigin="" href="https://pagead2.googlesyndication.com" rel="preconnect"/>
-<link crossorigin="" href="https://googleads.g.doubleclick.net" rel="preconnect"/>
-<meta content="ca-pub-8175326569491671" name="google-adsense-account"/>
-<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8175326569491671"></script>
-<!-- ekguru:adsense:end -->
+
 <meta content="en_US" property="og:locale"/><meta content="https://ekguru.shop/images/og-cover.jpg" name="twitter:image"/><link href="https://ekguru.shop/learn/paths/speaking-starter/" hreflang="en" rel="alternate"/><link href="https://ekguru.shop/learn/paths/speaking-starter/" hreflang="x-default" rel="alternate"/></head>
 <body data-topic="conversation">
 <!-- ekguru:shell-header:start -->
@@ -45,7 +36,7 @@
   <a class="skip" href="#main">Skip to content</a>
   <div class="hdr-in">
     <a class="logo" href="../../../index.html">
-      <span class="logo-mark" aria-hidden="true">E</span>
+      <img class="logo-img" src="../../../images/logo.svg" width="38" height="38" alt="EkGuru">
       <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
     </a>
     <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
@@ -56,7 +47,7 @@
       <a href="../../../learn/">Learn</a>
       <a href="../../../support/index.html">Support</a>
       <a href="../../../search/">Search</a>
-      <a class="btn btn-primary btn-sm" href="../../../find-tutors.html">Book a trial</a>
+      <a class="btn btn-primary btn-sm" href="../../../find-tutors.html">Find tutors</a>
     </nav>
   </div>
 </header>
@@ -133,15 +124,9 @@ if ("serviceWorker" in navigator) {
 <script defer="" src="../../../js/cookie-consent.js"></script>
 <!-- ekguru:pw-bands:start -->
 <footer class="pw-support">
-<div>
-<b>Every lesson here is free, and always will be.</b>
-<p>No account, no paywall. The practice itself — every quiz, worksheet
-    and drill — carries no ad at all; the pages around it sometimes do,
-    and that is what keeps the lessons running. Keeping it free is the
-    only thing this page asks of you.</p>
-</div>
-<a class="pw-support-cta" href="/support/">Support EkGuru</a>
-<a href="/find-tutors.html">Book a trial lesson</a>
+  <p>Published lessons are currently free. Advertising is disabled in this release.</p>
+  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
+  <a href="/find-tutors.html">Tutor profiles</a>
 </footer>
 <!-- ekguru:pw-bands:end -->
 </main>
@@ -150,10 +135,10 @@ if ("serviceWorker" in navigator) {
   <div class="wrap ftr-in">
     <div>
       <a class="logo" href="../../../index.html">
-        <span class="logo-mark" aria-hidden="true">E</span>
+        <img class="logo-img" src="../../../images/logo.svg" width="38" height="38" alt="EkGuru">
         <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
       </a>
-      <p style="margin-top:14px">Online Hindi lessons with verified, caring tutors.</p>
+      <p style="margin-top:14px">Online Hindi lessons with independent tutor profiles.</p>
     </div>
     <div>
       <h3>Site</h3>
@@ -183,6 +168,7 @@ if ("serviceWorker" in navigator) {
       <a href="../../../about/">About EkGuru</a>
       <a href="../../../privacy/">Privacy policy</a>
       <a href="../../../terms/">Terms of use</a>
+      <a href="../../../monetization-disclosure/">Monetization disclosure</a>
       <a href="../../../disclaimer/">Disclaimer</a>
       <a href="../../../copyright/">Copyright</a>
       <a href="../../../cookie-policy/">Cookie policy</a>

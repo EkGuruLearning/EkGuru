@@ -148,18 +148,21 @@ window.EKGURU_SHEET_OVERRIDES = {
         "name": "Tomasz",
         "date": "2026-07-12",
         "stars": 5,
+        "source": "preply",
         "text": "Sushila is a very patient teacher. She adjusts the tempo to the student's level and the content to his needs, is very calm and helpful. Her pronunciation is very clear and understandable. A lesson with Sushila is a highly enjoyable Hindi experience with lots of new knowledge. Thank you, Sushila!"
       },
       {
         "name": "Jon",
         "date": "2026-06-19",
         "stars": 5,
+        "source": "preply",
         "text": "Shashi is very patient and maintains a good pace during lessons. She plans the lessons according to my level, and we mostly converse in Hindi. She is a wonderful person with a calm and gentle nature — we even talk about Hindi culture. She is very professional and we share a great rapport. Shashi, you are amazing — thank you!"
       },
       {
         "name": "Matthew",
         "date": "2026-06-18",
         "stars": 5,
+        "source": "preply",
         "text": "Sushila is well organised, friendly, and most importantly she is patient. She is always fully present in class. She is helping me with my pronunciation, reading and speaking, and it is going well. Classes are fun — we read children's stories and other school material. I look forward to classes and I recommend her as a tutor."
       }
     ]

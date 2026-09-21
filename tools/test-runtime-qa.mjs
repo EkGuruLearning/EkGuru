@@ -370,49 +370,20 @@ console.log("C. Home search suggestions — runtime");
   ok(!/<img\s/i.test(box.innerHTML) && /&lt;img/.test(box.innerHTML), "suggestion HTML escaped (no injection)");
 }
 
-/* ================= D. SUPPORT GATE (§8/§9, frontend layer) ================= */
-console.log("D. Support page gate — runtime");
+/* ================= D. SUPPORT RELEASE MODE ================= */
+console.log("D. Support page — hosted-payment release mode");
 {
   const html = fs.readFileSync(path.join(ROOT, "support/index.html"), "utf8");
-  const dom = new JSDOM(html, { url: "http://localhost/support/", runScripts: "outside-only", pretendToBeVisual: true });
-  const { window } = dom;
-  polyfills(window);
-  const fetched = [];
-  window.fetch = (u) => { fetched.push(String(u)); return Promise.reject(new Error("offline")); };
-  const clock = installClock(window);
-  await ready(window);
-  load(window, "js/support-razorpay.js");
-
-  const btn = window.document.getElementById("support-submit-btn");
-  ok(btn.disabled && btn.getAttribute("aria-disabled") === "true", "submit locked while COMING_SOON");
-  ok(/Coming Soon/.test(btn.textContent), "honest Coming Soon label");
-  ok(window.document.querySelectorAll(".razorpay-embed-btn").length === 1, "exactly one embed in live DOM");
-  ok(!window.document.querySelector('script[src*="checkout.razorpay.com"]'), "no checkout SDK preloaded while gated");
-  ok(!window.document.getElementById("ekguru-mock-checkout-modal"), "no mock modal in DOM");
-
-  const form = window.document.getElementById("support-payment-form");
-  const ev = new window.Event("submit", { bubbles: true, cancelable: true });
-  form.dispatchEvent(ev);
-  ok(ev.defaultPrevented, "submit intercepted (no order attempt possible)");
-  ok(!fetched.some((u) => /create-order/.test(u)), "no create-order call while gated");
-  ok(![...window.document.scripts].some((s) => /create-order/.test(s.src)), "no JSONP order fallback while gated");
-  ok(typeof window.EkGuruSupportPayments === "object", "support API exported");
-  await new Promise((r) => setTimeout(r, 20)); // let fetch rejection arm the JSONP fallback
-  clock.advance(11000); // JSONP timeout path
-  ok(/temporarily unavailable|first supporter/i.test(window.document.getElementById("recent-supporters-list").textContent), "supporters list fails honestly offline");
-}
-{
-  const html = fs.readFileSync(path.join(ROOT, "support/index.html"), "utf8");
-  const dom = new JSDOM(html, { url: "http://localhost/support/", runScripts: "outside-only", pretendToBeVisual: true });
-  const { window } = dom;
-  polyfills(window);
-  window.fetch = () => Promise.reject(new Error("offline"));
-  installClock(window);
-  await ready(window);
-  window.PAYMENT_MODE = "LIVE_API";
-  load(window, "js/support-razorpay.js");
-  const btn = window.document.getElementById("support-submit-btn");
-  ok(!btn.disabled && /Support EkGuru/.test(btn.textContent), "single-flag activation unlocks submit");
+  const dom = new JSDOM(html, { url: "https://ekguru.shop/support/", runScripts: "outside-only", pretendToBeVisual: true });
+  const { document } = dom.window;
+  const pay = document.querySelectorAll('a[href*="pages.razorpay.com"]');
+  ok(pay.length === 1, "one canonical Razorpay-hosted payment link");
+  ok(pay[0] && pay[0].target === "_blank" && /noopener/.test(pay[0].rel), "external payment link isolates opener");
+  ok(!document.getElementById("support-payment-form"), "unfinished custom checkout is not public");
+  ok(!document.getElementById("recent-supporters-section"), "unverified supporter feed is not public");
+  ok(!document.querySelector('script[src*="razorpay"]'), "no third-party payment script runs before visitor action");
+  ok(!document.querySelector('script[src*="support-razorpay.js"]'), "disabled custom payment runtime is not loaded");
+  ok(/contribution is optional/i.test(html) && /does not purchase access/i.test(html), "payment state and consideration are disclosed");
 }
 
 /* ================= E. DRAWER OWNERSHIP + FILE GUARDS (§11/v200.2) ================= */
@@ -503,7 +474,7 @@ function esc(win) {
   load(window, "js/support-razorpay.js");
   load(window, "js/support-razorpay.js"); // livepatch/SW re-injection
   ok(window.EKGURU_RAZORPAY_READY === true, "razorpay guard flag set");
-  ok(support === 1 && order === 0, "second injection fetches nothing (no double listener, no order risk)");
+  ok(support === 0 && order === 0, "disabled payment module performs no supporter/order fetch when public UI is absent");
 
   // E5: swipe-to-close on the shell-owned drawer (ported from main.js v163)
   const sdom = drawerPage("en", ["js/site-shell.js", "js/experience.js", "js/main.js"]);

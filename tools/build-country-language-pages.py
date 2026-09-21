@@ -347,7 +347,9 @@ def page_shell(title, desc, canon_path, crumb_html, body_html, extra_ld=None):
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>%s</title>
 <meta name="description" content="%s">
-<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="robots" content="noindex, follow">
+<!-- Country-language records remain research surfaces until every public
+     relationship on a page passes data/quality/country-language-verification.json. -->
 <link rel="canonical" href="%s%s">
 <meta name="google-site-verification" content="hFaqyp-9LdUXSKPA9RF011TkO2m_-7AUMasXqm_0dGI" />
 <meta property="og:type" content="website">
@@ -638,19 +640,15 @@ def build():
     os.makedirs("world-languages", exist_ok=True)
     open("world-languages/index.html", "w", encoding="utf-8").write(index_page(countries_meta))
 
-    urls = ["  <url>\n    <loc>%s/world-languages/</loc>\n    <lastmod>%s</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>" % (SITE, TODAY)]
-    for cc, cname, sub, n in sorted(countries_meta, key=lambda x: x[1]):
-        urls.append("  <url>\n    <loc>%s/world-languages/%s/</loc>\n    <lastmod>%s</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>" % (SITE, SLUGS[cc], TODAY))
+    # Research/incomplete pages are deliberately absent from sitemaps.
     open("sitemap-world-languages.xml", "w", encoding="utf-8").write(
-        '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-        + "\n".join(urls) + "\n</urlset>\n")
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<!-- Research country-language pages are noindex until relation-level verification is complete. -->\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>\n')
 
     idx = open("sitemap-index.xml", encoding="utf-8").read()
-    if "sitemap-world-languages.xml" not in idx:
-        idx = idx.replace("</sitemapindex>",
-                          '  <sitemap>\n    <loc>%s/sitemap-world-languages.xml</loc>\n    <lastmod>%s</lastmod>\n  </sitemap>\n</sitemapindex>'
-                          % (SITE, TODAY))
-        open("sitemap-index.xml", "w", encoding="utf-8").write(idx)
+    idx = re.sub(r'\s*<sitemap>\s*<loc>[^<]*/sitemap-world-languages\.xml</loc>[\s\S]*?</sitemap>', "", idx)
+    open("sitemap-index.xml", "w", encoding="utf-8").write(idx)
 
     missing = insert_backlinks([(cc, sov[cc]["name"]) for cc in audited])
     print("pages: %d | backlinks ok: %d | missing: %s"

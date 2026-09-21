@@ -133,31 +133,31 @@
     "index.html": {
       en: {
         t: "Learn Hindi Online with a Private Tutor | EkGuru — 1-on-1 Hindi Lessons",
-        d: "Learn Hindi online with verified native tutors. Private 1-on-1 Hindi lessons from {minPrice} — speaking, reading, writing and Devanagari. Book a trial lesson today.",
-        k: "learn hindi online, hindi tutor, private hindi lessons, hindi teacher online, speak hindi, devanagari, hindi for beginners, online hindi classes, native hindi tutor, 1-on-1 hindi lessons"
+        d: "Explore Hindi tutor profiles and request private 1-on-1 lessons. Check each profile for background, subjects, displayed price and current availability.",
+        k: "learn hindi online, hindi tutor profiles, private hindi lessons, speak hindi, devanagari, hindi for beginners, online hindi classes, 1-on-1 hindi lessons"
       },
-      es: { t: "Aprende hindi online con un profesor particular | EkGuru", d: "Aprende hindi online con profesores nativos verificados. Clases particulares desde {minPrice}: hablar, leer, escribir y devanagari. Reserva tu clase de prueba.", k: "aprender hindi, profesor de hindi, clases de hindi online, hindi para principiantes" },
+      es: { t: "Aprende hindi online con un profesor particular | EkGuru", d: "Explora perfiles de profesores de hindi. Comprueba la experiencia, las materias, el precio mostrado y la disponibilidad de cada perfil antes de solicitar una clase.", k: "aprender hindi, profesor de hindi, clases de hindi online, hindi para principiantes" },
       /* v50: was "Apprenez l'hindi en ligne avec un professeur particulier | EkGuru"
          — 65 characters, so Google cut the brand off. French is wordier than
          English and was the only pack over the ~60-character limit. */
-      fr: { t: "Cours d'hindi en ligne avec un professeur natif | EkGuru", d: "Apprenez l'hindi en ligne avec des professeurs natifs vérifiés. Cours particuliers dès {minPrice} : parler, lire, écrire et devanagari. Réservez un cours d'essai.", k: "apprendre l'hindi, professeur d'hindi, cours d'hindi en ligne, hindi débutant" },
-      de: { t: "Hindi online lernen mit Privatlehrer | EkGuru", d: "Lerne Hindi online mit geprüften Muttersprachlern. Einzelunterricht ab {minPrice}: Sprechen, Lesen, Schreiben und Devanagari. Jetzt Probestunde buchen.", k: "hindi lernen, hindi lehrer, hindi online kurs, hindi für anfänger" },
-      pt: { t: "Aprenda hindi online com professor particular | EkGuru", d: "Aprenda hindi online com professores nativos verificados. Aulas particulares a partir de {minPrice}: falar, ler, escrever e devanagari. Agende sua aula teste.", k: "aprender hindi, professor de hindi, aulas de hindi online, hindi para iniciantes" },
-      ja: { t: "オンラインでヒンディー語を学ぶ | EkGuru マンツーマンレッスン", d: "認証済みネイティブ講師とオンラインでヒンディー語を学習。1レッスン{minPrice}からのマンツーマン。会話・読み書き・デーヴァナーガリー対応。体験レッスン受付中。", k: "ヒンディー語 オンライン, ヒンディー語 講師, ヒンディー語 レッスン, ヒンディー語 初心者" },
-      ar: { t: "تعلم اللغة الهندية عبر الإنترنت مع معلم خاص | EkGuru", d: "تعلم الهندية أونلاين مع معلمين ناطقين موثوقين. دروس فردية من {minPrice}: المحادثة والقراءة والكتابة والديفاناغاري. احجز درساً تجريبياً.", k: "تعلم الهندية, معلم لغة هندية, دروس هندية اونلاين, الهندية للمبتدئين" }
+      fr: { t: "Cours d'hindi en ligne — profils de professeurs | EkGuru", d: "Explorez les profils de professeurs d'hindi. Vérifiez le parcours, les matières, le prix affiché et les disponibilités avant une demande.", k: "apprendre l'hindi, professeur d'hindi, cours d'hindi en ligne, hindi débutant" },
+      de: { t: "Hindi online lernen mit Privatlehrer | EkGuru", d: "Sieh dir Hindi-Lehrkraftprofile an. Prüfe den angegebenen Hintergrund, die Fächer, den angezeigten Preis und die Verfügbarkeit vor einer Anfrage.", k: "hindi lernen, hindi lehrer, hindi online kurs, hindi für anfänger" },
+      pt: { t: "Aprenda hindi online com professor particular | EkGuru", d: "Explore perfis de professores de hindi. Confira a experiência, as matérias, o preço exibido e a disponibilidade antes de solicitar uma aula.", k: "aprender hindi, professor de hindi, aulas de hindi online, hindi para iniciantes" },
+      ja: { t: "オンラインでヒンディー語を学ぶ | EkGuru マンツーマンレッスン", d: "ヒンディー語講師のプロフィールを確認し、申告された言語背景、科目、表示料金、空き状況を見てからレッスンをリクエストできます。", k: "ヒンディー語 オンライン, ヒンディー語 講師, ヒンディー語 レッスン, ヒンディー語 初心者" },
+      ar: { t: "تعلم اللغة الهندية عبر الإنترنت مع معلم خاص | EkGuru", d: "استعرض ملفات معلمي الهندية وتحقق من الخلفية والمواد والسعر المعروض والتوفر قبل إرسال طلب درس.", k: "تعلم الهندية, معلم لغة هندية, دروس هندية اونلاين, الهندية للمبتدئين" }
     },
     "find-tutors.html": {
       en: {
-        t: "Find a Hindi Tutor Online | Verified Native Teachers — EkGuru",
-        d: "Browse verified Hindi tutors and filter by level, price and rating. Native speakers, 1-on-1 online lessons from {minPrice}, flexible timings for every timezone.",
-        k: "find hindi tutor, hindi teacher near me, best hindi tutor online, cheap hindi lessons, native hindi teacher, hindi tutor for beginners"
+        t: "Find a Hindi Tutor Online | Tutor Profiles — EkGuru",
+        d: "Browse Hindi tutor profiles and filter by level, displayed price and rating. Check each profile’s stated language background and availability.",
+        k: "find hindi tutor, hindi tutor profiles, online hindi lessons, hindi tutor for beginners"
       },
-      es: { t: "Encuentra un profesor de hindi online | EkGuru", d: "Explora profesores de hindi verificados y filtra por nivel, precio y valoración. Clases individuales desde {minPrice}.", k: "profesor de hindi online, buscar profesor hindi" },
-      fr: { t: "Trouvez un professeur d'hindi en ligne | EkGuru", d: "Parcourez des professeurs d'hindi vérifiés et filtrez par niveau, prix et note. Cours particuliers dès {minPrice}.", k: "professeur d'hindi en ligne, trouver prof hindi" },
-      de: { t: "Hindi-Lehrer online finden | EkGuru", d: "Geprüfte Hindi-Lehrkräfte durchsuchen und nach Niveau, Preis und Bewertung filtern. Einzelunterricht ab {minPrice}.", k: "hindi lehrer finden, hindi nachhilfe online" },
-      pt: { t: "Encontre um professor de hindi online | EkGuru", d: "Veja professores de hindi verificados e filtre por nível, preço e avaliação. Aulas individuais a partir de {minPrice}.", k: "professor de hindi online, encontrar professor hindi" },
-      ja: { t: "ヒンディー語講師を探す | EkGuru", d: "認証済みのヒンディー語講師をレベル・価格・評価で絞り込み。マンツーマンレッスンは{minPrice}から。", k: "ヒンディー語 講師 探す, ヒンディー語 家庭教師" },
-      ar: { t: "ابحث عن معلم لغة هندية عبر الإنترنت | EkGuru", d: "تصفح معلمي الهندية الموثوقين وصفِّ حسب المستوى والسعر والتقييم. دروس فردية من {minPrice}.", k: "معلم هندية اونلاين, البحث عن معلم هندية" }
+      es: { t: "Encuentra un profesor de hindi online | EkGuru", d: "Explora perfiles de profesores de hindi y filtra por nivel, precio mostrado y valoración. Comprueba los datos de cada perfil antes de solicitar una clase.", k: "profesor de hindi online, buscar profesor hindi" },
+      fr: { t: "Trouvez un professeur d'hindi en ligne | EkGuru", d: "Parcourez les profils de professeurs d'hindi et filtrez par niveau, prix affiché et note. Vérifiez les détails avant une demande.", k: "professeur d'hindi en ligne, trouver prof hindi" },
+      de: { t: "Hindi-Lehrer online finden | EkGuru", d: "Hindi-Lehrkraftprofile nach Niveau, angezeigtem Preis und Bewertung filtern. Angaben vor einer Anfrage prüfen.", k: "hindi lehrer finden, hindi nachhilfe online" },
+      pt: { t: "Encontre um professor de hindi online | EkGuru", d: "Veja perfis de professores de hindi e filtre por nível, preço exibido e avaliação. Confira os detalhes antes de solicitar uma aula.", k: "professor de hindi online, encontrar professor hindi" },
+      ja: { t: "ヒンディー語講師を探す | EkGuru", d: "ヒンディー語講師のプロフィールをレベル、表示料金、評価で絞り込み、申告内容を確認してからリクエストできます。", k: "ヒンディー語 講師 探す, ヒンディー語 家庭教師" },
+      ar: { t: "ابحث عن معلم لغة هندية عبر الإنترنت | EkGuru", d: "تصفح ملفات معلمي الهندية وصفِّ حسب المستوى والسعر المعروض والتقييم، ثم تحقق من التفاصيل قبل الطلب.", k: "معلم هندية اونلاين, البحث عن معلم هندية" }
     },
     "join.html": {
       en: {
@@ -189,13 +189,13 @@
       }
 
       var titles = {
-        en: tutor.name + " — Online Hindi Tutor" + proof + " | EkGuru",
-        es: tutor.name + " — Profesor de hindi online" + proof + " | EkGuru",
-        fr: tutor.name + " — Professeur d'hindi en ligne" + proof + " | EkGuru",
-        de: tutor.name + " — Hindi-Lehrer online" + proof + " | EkGuru",
-        pt: tutor.name + " — Professor de hindi online" + proof + " | EkGuru",
-        ja: tutor.name + " — オンラインヒンディー語講師" + proof + " | EkGuru",
-        ar: tutor.name + " — معلم لغة هندية عبر الإنترنت" + proof + " | EkGuru"
+        en: tutor.name + " — Online Hindi Tutor Profile | EkGuru",
+        es: tutor.name + " — Perfil de profesor de hindi online | EkGuru",
+        fr: tutor.name + " — Profil de professeur d'hindi en ligne | EkGuru",
+        de: tutor.name + " — Profil einer Hindi-Lehrkraft online | EkGuru",
+        pt: tutor.name + " — Perfil de professor de hindi online | EkGuru",
+        ja: tutor.name + " — オンラインヒンディー語講師プロフィール | EkGuru",
+        ar: tutor.name + " — ملف معلم لغة هندية عبر الإنترنت | EkGuru"
       };
       /* ---------------------------------------------------------
          Every fragment below is conditional. A tutor may have no
@@ -205,7 +205,7 @@
          "rated 0.0/5 from 0 reviews" straight into the meta
          description, in all seven languages.
          --------------------------------------------------------- */
-      var from = tutor.country ? " — native speaker from " + tutor.country : "";
+      var from = tutor.country ? " — profile location: " + tutor.country : "";
       var yrs  = tutor.experienceYears > 0 ? tutor.experienceYears : 0;
       var rated = tutor.reviewsCount > 0 && tutor.rating > 0;
       var lesson = per[tutor.lessonLength] || tutor.lessonLength || "50 min";
@@ -229,36 +229,19 @@
       }
 
       var descs = {
-        en: "Book a private Hindi lesson with " + tutor.name + from + yearsEn() +
-            ratingEn() + "." + cost(" Lessons $", " per " + lesson + ".") + " " +
-            (tutor.youtubeId ? "Watch the intro video and message directly."
-                             : "Message directly to arrange a trial lesson."),
-        es: "Reserva una clase particular de hindi con " + tutor.name +
-            (tutor.country ? ", hablante nativo" : "") +
-            tail("años de experiencia", "valoración") + "." +
-            cost(" Clases desde $", "."),
-        fr: "Réservez un cours particulier d'hindi avec " + tutor.name +
-            (tutor.country ? ", locuteur natif" : "") +
-            tail("ans d'expérience", "note") + "." +
-            cost(" Cours dès ", " $."),
-        de: "Buche eine private Hindi-Stunde bei " + tutor.name +
-            (tutor.country ? " — Muttersprachler:in" : "") +
-            tail("Jahre Erfahrung", "Bewertung") + "." +
-            cost(" Stunden ab ", " $."),
-        pt: "Agende uma aula particular de hindi com " + tutor.name +
-            (tutor.country ? ", falante nativo" : "") +
-            tail("anos de experiência", "nota") + "." +
-            cost(" Aulas a partir de US$ ", "."),
-        ja: tutor.name + "とのヒンディー語マンツーマンレッスンを予約。" +
-            (tutor.country ? "ネイティブ講師。" : "") +
-            (yrs ? "指導歴" + yrs + "年以上。" : "") +
-            (rated ? "評価" + tutor.rating.toFixed(1) + "/5。" : "") +
-            (price == null ? "" : "1レッスン" + price + "ドルから。"),
-        ar: "احجز درساً خاصاً في الهندية مع " + tutor.name +
-            (tutor.country ? " — ناطق أصلي" : "") +
-            (yrs ? " بخبرة " + yrs + "+ سنوات" : "") +
-            (rated ? " وتقييم " + tutor.rating.toFixed(1) + "/5" : "") + "." +
-            (price == null ? "" : " الدروس من " + price + " دولار.")
+        en: "Tutor-provided profile for " + tutor.name +
+            ": stated subjects, languages and lesson details. Confirm current pricing and availability before booking.",
+        es: "Perfil aportado por " + tutor.name +
+            ": materias, idiomas y datos de clases declarados. Confirma el precio y la disponibilidad antes de reservar.",
+        fr: "Profil fourni par " + tutor.name +
+            " : matières, langues et détails de cours déclarés. Confirmez le prix et les disponibilités avant de réserver.",
+        de: "Von " + tutor.name +
+            " bereitgestelltes Profil mit genannten Fächern, Sprachen und Unterrichtsdetails. Preis und Verfügbarkeit vor der Buchung bestätigen.",
+        pt: "Perfil fornecido por " + tutor.name +
+            ": matérias, idiomas e detalhes de aula declarados. Confirme o preço e a disponibilidade antes de reservar.",
+        ja: tutor.name + "講師提供のプロフィールです。記載された科目、言語、レッスン情報を確認し、予約前に現在の料金と空き状況を確認してください。",
+        ar: "ملف قدمه المعلم " + tutor.name +
+            " ويعرض المواد واللغات وتفاصيل الدرس المذكورة. أكد السعر والتوافر الحالي قبل الحجز."
       };
       return {
         t: titles[L] || titles.en,
@@ -461,7 +444,7 @@
     alternateName: "EkGuru Learning",
     url: BASE,
     slogan: S.tagline,
-    description: "EkGuru offers private 1-on-1 online Hindi lessons with verified native tutors for students worldwide.",
+    description: "EkGuru publishes Hindi learning resources and independent tutor profiles for one-to-one online lesson requests.",
     email: S.email,
     logo: { "@type": "ImageObject", url: BASE + "images/sushila.jpg" },
     foundingDate: String(S.foundingYear || 2024),
@@ -497,32 +480,9 @@
   }
   graph.push({ "@type": "BreadcrumbList", "@id": canonical + "#breadcrumb", itemListElement: crumbs });
 
-  /* --- Home / listing: Course + ItemList of tutors --- */
+  /* --- Home / listing: the current public tutor profiles. These are profile
+     links, not Course/Offer inventory; current terms require confirmation. --- */
   if (pg === "index.html" || pg === "find-tutors.html") {
-    graph.push({
-      "@type": "Course",
-      "@id": BASE + "#hindi-course",
-      name: "Online Hindi Lessons — 1-on-1 with a Native Tutor",
-      description: "Private online Hindi lessons covering speaking, listening, grammar, vocabulary, pronunciation and Devanagari reading and writing. Suitable for beginner, intermediate and advanced learners.",
-      provider: { "@id": BASE + "#organization" },
-      inLanguage: "hi",
-      educationalLevel: ["Beginner", "Intermediate", "Advanced"],
-      teaches: ["Hindi speaking", "Hindi grammar", "Devanagari script", "Hindi pronunciation", "Hindi vocabulary"],
-      hasCourseInstance: {
-        "@type": "CourseInstance",
-        courseMode: "online",
-        courseWorkload: "PT50M",
-        instructor: T.map(function (t) { return { "@type": "Person", name: t.name }; }),
-        offers: {
-          "@type": "Offer",
-          price: String(T.length ? Math.min.apply(null, T.map(function (t) { return t.priceUSD || 0; })) : 3),
-          priceCurrency: S.currencyCode || "USD",
-          availability: "https://schema.org/InStock",
-          url: BASE + "find-tutors.html"
-        }
-      }
-    });
-
     graph.push({
       "@type": "ItemList",
       "@id": BASE + "find-tutors.html#tutorlist",
@@ -532,72 +492,28 @@
         return {
           "@type": "ListItem",
           position: i + 1,
-          url: BASE + "tutor.html?id=" + encodeURIComponent(t.id),
+          url: BASE + "tutor/" + encodeURIComponent(t.id) + "/",
           name: t.name
         };
       })
     });
   }
 
-  /* --- Tutor profile: Person + Service + Reviews + Video --- */
+  /* --- Tutor profile: Person + Video. Imported profile fields are not live
+     inventory, so do not emit Offer, Service, AggregateRating or Review data. --- */
   if (tutor) {
-    var person = {
+    graph.push({
       "@type": "Person",
       "@id": canonical + "#person",
       name: tutor.name,
       alternateName: tutor.nickname || undefined,
       jobTitle: "Hindi Tutor",
-      description: (tutor.about && tutor.about[0]) || "",
+      description: "Tutor-provided profile excerpt: " + ((tutor.about && tutor.about[0]) || ""),
       image: absUrl(tutor.photo),
       url: canonical,
-      email: tutor.email,
-      nationality: { "@type": "Country", name: tutor.country },
-      address: { "@type": "PostalAddress", addressLocality: tutor.city, addressCountry: "IN" },
       knowsLanguage: (tutor.speaks || []).map(function (s) { return s.lang; }),
       knowsAbout: tutor.teaches || [],
-      worksFor: { "@id": BASE + "#organization" },
       sameAs: [tutor.preplyUrl].filter(Boolean)
-    };
-    if (tutor.reviewsCount > 0) {
-      person.aggregateRating = {
-        "@type": "AggregateRating",
-        ratingValue: String(tutor.rating),
-        reviewCount: String(tutor.reviewsCount),
-        bestRating: "5",
-        worstRating: "1"
-      };
-    }
-    graph.push(person);
-
-    graph.push({
-      "@type": "Service",
-      "@id": canonical + "#service",
-      serviceType: "Private online Hindi lessons",
-      name: "Hindi lessons with " + tutor.name,
-      description: tutor.headline,
-      provider: { "@id": canonical + "#person" },
-      areaServed: M.map(function (m) { return { "@type": "Country", name: m.country }; }),
-      availableLanguage: (tutor.speaks || []).map(function (s) { return s.lang; }),
-      offers: {
-        "@type": "Offer",
-        price: String(tutor.priceUSD),
-        priceCurrency: S.currencyCode || "USD",
-        availability: "https://schema.org/InStock",
-        url: tutor.preplyUrl || canonical,
-        eligibleDuration: { "@type": "QuantitativeValue", value: 50, unitCode: "MIN" }
-      }
-    });
-
-    (tutor.reviews || []).forEach(function (r, i) {
-      graph.push({
-        "@type": "Review",
-        "@id": canonical + "#review-" + (i + 1),
-        itemReviewed: { "@id": canonical + "#person" },
-        author: { "@type": "Person", name: r.name },
-        datePublished: r.date,
-        reviewRating: { "@type": "Rating", ratingValue: String(r.stars), bestRating: "5", worstRating: "1" },
-        reviewBody: r.text
-      });
     });
 
     if (tutor.youtubeId) {
@@ -607,7 +523,6 @@
         name: (tutor.videoTitle || "Intro video") + " — " + tutor.name,
         description: "Introduction video from " + tutor.name + ", online Hindi tutor on EkGuru.",
         thumbnailUrl: ["https://i.ytimg.com/vi/" + tutor.youtubeId + "/maxresdefault.jpg"],
-        uploadDate: "2026-01-01T00:00:00+05:30",
         contentUrl: "https://www.youtube.com/watch?v=" + tutor.youtubeId,
         embedUrl: "https://www.youtube-nocookie.com/embed/" + tutor.youtubeId,
         publisher: { "@id": BASE + "#organization" }
@@ -618,14 +533,14 @@
   /* --- FAQ (rich result eligible) --- */
   var FAQ = {
     en: [
-      ["How much does an online Hindi lesson cost on EkGuru?", "Private 1-on-1 Hindi lessons start at {minPrice} for a 50-minute session. The exact price is shown on each tutor's profile."],
-      ["Do I need to know any Hindi before starting?", "No. Our tutors teach complete beginners regularly, starting from the Devanagari alphabet and everyday greetings."],
-      ["Are the tutors native Hindi speakers?", "Yes. Every tutor listed on EkGuru is a native Hindi speaker and teaches Hindi only."],
-      ["Can I take a trial lesson first?", "Yes. A trial lesson is available so you can decide after your very first class, with no obligation."],
-      ["How are the lessons delivered?", "Lessons are live and one-to-one over video call. You agree the platform and timing directly with your tutor."],
-      ["Which timezones do you cover?", "Our tutors teach students in the United States, Spain, France, Germany, Brazil, Japan and the UAE, with slots arranged around your local time."],
-      ["How do I contact a tutor?", "Open a tutor profile and use the email button, or book directly through their Preply profile if one is linked."],
-      ["Can I become a Hindi tutor on EkGuru?", "Yes. Listing is free with no commission — send your bio, photo, intro video and rates from the Become a Tutor page."]
+      ["How much does an online Hindi lesson cost on EkGuru?", "Profiles show imported USD prices and estimated local-currency displays. Confirm the current price, billing currency and external-platform terms before booking."],
+      ["Do I need to know any Hindi before starting?", "EkGuru has free beginner materials. For paid lessons, check the levels stated on each profile and ask whether your starting point is suitable."],
+      ["What language background do tutors have?", "Each profile states the tutor’s language background and subjects. Review those tutor-provided details before sending an enquiry."],
+      ["Can I request a trial lesson?", "Trial terms are not universal or guaranteed. Ask about the current format, price and cancellation terms before booking."],
+      ["How are the lessons delivered?", "Profiles describe online one-to-one lessons. Confirm the video platform, duration and timing in the enquiry response before booking."],
+      ["Which timezones do you cover?", "No timezone coverage is guaranteed. Include your timezone and preferred times in the enquiry and wait for availability confirmation."],
+      ["How do I contact a tutor?", "Send an enquiry from a profile; EkGuru may forward it using the contact information on file. You can also review a linked external profile directly."],
+      ["Can I apply to become a Hindi tutor on EkGuru?", "You can submit the requested profile information from the Become a Tutor page. Publication and current terms are confirmed during review."]
     ]
   };
   var faqList = (FAQ[L] || FAQ.en).map(function (qa) {
@@ -636,7 +551,7 @@
        worse one, because it is wrong rather than obviously broken. */
     return [fillTokens(qa[0]), fillTokens(qa[1])];
   });
-  if (pg === "index.html" || pg === "join.html") {
+  if (pg === "index.html") {
     graph.push({
       "@type": "FAQPage",
       "@id": canonical + "#faq",
@@ -673,19 +588,17 @@
       "@type": "HowTo",
       "@id": BASE + "#howto",
       name: "How to start learning Hindi online with a private tutor",
-      description: "Three steps to book your first one-to-one Hindi lesson with a verified native tutor.",
+      description: "Three steps to request a first one-to-one Hindi lesson from a tutor profile.",
       totalTime: "PT10M",
-      estimatedCost: { "@type": "MonetaryAmount", currency: S.currencyCode || "USD",
-        value: String(T.length ? Math.min.apply(null, T.map(function (x) { return x.priceUSD || 0; })) : 3) },
       step: [
         { "@type": "HowToStep", position: 1, name: "Choose your tutor",
-          text: "Browse verified native Hindi tutors, watch their intro videos and read student reviews, then pick the teacher who fits your goal.",
+          text: "Browse tutor profiles, check the stated background, terms and any reviews, then choose the teacher who fits your goal.",
           url: BASE + "find-tutors.html" },
-        { "@type": "HowToStep", position: 2, name: "Request a time",
-          text: "Open a tutor profile, click Book a lesson, choose a slot shown in your own timezone and send your details.",
+        { "@type": "HowToStep", position: 2, name: "Send an enquiry",
+          text: "Open a tutor profile, include your timezone and preferred times, and send a lesson enquiry.",
           url: BASE + "find-tutors.html" },
-        { "@type": "HowToStep", position: 3, name: "Take a trial lesson",
-          text: "Meet your tutor for a live one-to-one video lesson and decide afterwards. There is no obligation.",
+        { "@type": "HowToStep", position: 3, name: "Confirm current details",
+          text: "Wait for confirmation of the current price, format and availability before booking.",
           url: BASE }
       ]
     });

@@ -28,6 +28,7 @@ Run:  python3 tools/build-course-countries.py           # write
 """
 import json
 import os
+import re
 import sys
 import time
 
@@ -69,33 +70,19 @@ def load():
 
 
 def index(relations, courses):
-    """country → {languages with courses}, language → {countries}."""
-    have = {c["code"]: c for c in courses}
-    # (see the `name` key below: the course catalogue is the authority on what a
-    # language is called once a course exists for it)
-    by_country, docs_by_country, countries_of = {}, {}, {}
+    """Return only published courses with reviewed A/B source relationships."""
+    have = {c["code"]: c for c in courses if c.get("levels")}
+    by_country = {}
     for r in relations:
         code = r.get("iso_639_1") or ISO3_ALIAS.get(r.get("iso_639_3") or "") or r.get("iso_639_3")
         country = r.get("country_id")
-        if not code or not country:
+        sourced = any(isinstance(x, dict) and x.get("source_url") and x.get("evidence_type") != "agent-compiled"
+                      and str(x.get("priority") or "").split("-")[0] in {"A", "B"}
+                      for x in (r.get("sources") or []))
+        if not code or not country or code not in have or r.get("confidence") != "high" or r.get("needs_human_review") or not sourced:
             continue
-        row = {
-            "code": code,
-            # The course's own name when we have the course. The inventory calls
-            # the same language "Mandarin" where the course is "Chinese", and
-            # "Haitian" where the course is "Haitian Creole" — a chip that sends
-            # you to a course has to be named like the course.
-            "name": (have[code]["name"] if code in have else r.get("language_name")) or code,
-            "native": r.get("native_name") or "",
-            "family": r.get("language_family") or "",
-            "script": r.get("script") or "",
-            "category": r.get("category") or "",
-        }
-        docs_by_country.setdefault(country, {})[code] = row
-        countries_of.setdefault(code, set()).add(country)
-        if code in have:
-            by_country.setdefault(country, {})[code] = row
-    return by_country, docs_by_country, countries_of, have
+        by_country.setdefault(country, {})[code] = {"code": code, "name": have[code]["name"], "native": r.get("native_name") or ""}
+    return by_country, have
 
 
 def course_href(code):
@@ -109,22 +96,13 @@ def course_href(code):
 
 def build():
     courses, relations, names = load()
-    by_country, docs_by_country, countries_of, have = index(relations, courses)
+    by_country, have = index(relations, courses)
     name = lambda c: names.get(c, c)
 
     total_countries = len(by_country)
     total_langs = len({c for v in by_country.values() for c in v})
 
-    # Languages the inventory documents somewhere, with no course yet: the
-    # honest build queue. Sorted by how many countries care about them.
-    missing = []
-    for code, countries in countries_of.items():
-        if code in have:
-            continue
-        sample = docs_by_country.get(sorted(countries)[0], {}).get(code, {})
-        missing.append((len(countries), sample.get("name") or code, sample.get("native") or "",
-                        sorted(countries, key=lambda c: name(c))))
-    missing.sort(key=lambda x: (-x[0], x[1]))
+    total_published = len(have)
 
     out = [MARK]
     out.append(
@@ -133,19 +111,16 @@ def build():
         '<img class="xp-world xp-world-herochip" data-xp-world="multi" '
         'src="../../images/xp/world-multi.svg" alt="" aria-hidden="true" '
         'width="430" height="430" loading="lazy" decoding="async">'
-        '<span class="pill">%d countries · %d languages · free</span>'
-        '<h1>Courses by country</h1>'
-        '<p>Pick the country you live in, work in or are travelling to, and this page '
-        'shows every language EkGuru can teach you for it — and every language the '
-        'inventory documents there that has no course yet, so nothing is promised '
-        'that does not exist.</p>'
+        '<span class="pill">%d sourced country contexts · %d published courses</span>'
+        '<h1>Published courses by country</h1>'
+        '<p>Browse country relationships that have high-confidence, reviewed A/B source evidence and point to a course with published levels. Research inventory and unpublished course shells are omitted.</p>'
         '<div class="course-hero-stats">'
-        '<span><b>%d</b> countries with a course</span>'
-        '<span><b>%d</b> languages</span>'
-        '<span><b>%d</b> documented, no course yet</span>'
+        '<span><b>%d</b> sourced country contexts</span>'
+        '<span><b>%d</b> represented course languages</span>'
+        '<span><b>%d</b> published courses sitewide</span>'
         '</div>'
         '<div class="course-orbit" aria-hidden="true"><i>अ</i><i>Α</i><i>ع</i><i>あ</i><i>മ</i></div>'
-        '</section>' % (total_countries, total_langs, total_countries, total_langs, len(missing)))
+        '</section>' % (total_countries, total_published, total_countries, total_langs, total_published))
 
     # The filter is an upgrade, not a requirement: without it the list below is
     # complete and every link works.
@@ -175,32 +150,11 @@ def build():
                chips))
 
     out.append('<section class="xp-sec" id="countries"><div class="xp-head" style="text-align:start;margin-inline:0">'
-               '<h2>Pick a country</h2><p>The number is how many languages EkGuru can teach you for it today.</p>'
+               '<h2>Pick a sourced country context</h2><p>The number is how many published course languages have a qualifying relationship for that country.</p>'
                '</div><div class="country-grid">%s</div>'
                '<p class="country-empty" id="country-empty" hidden>No country matches that. '
                'Try the language name instead on the <a href="../">course hub</a>.</p></section>'
                % "".join(rows))
-
-    # The build queue: documented, not built. This is what "add more courses"
-    # looks like from the reader's side.
-    queue = "".join(
-        '<li><b>%s</b>%s<small>%d %s · %s</small></li>'
-        % (esc(l[1]), (' <span lang="und">%s</span>' % esc(l[2])) if l[2] else "",
-           l[0], "country" if l[0] == 1 else "countries",
-           esc(", ".join(l[3][:4]) + (", …" if len(l[3]) > 4 else "")))
-        for l in missing[:48])
-    out.append(
-        '<section class="xp-sec soft" id="queue"><div class="xp-head" style="text-align:start;margin-inline:0">'
-        '<h2>Documented, no course yet</h2>'
-        '<p>These languages are in the EkGuru inventory — there are real communities and real '
-        'learners for each — but no course has been written yet. Courses are authored one at a '
-        'time, by hand: 39 are done. This list is the queue, in the order the inventory says '
-        'people care.</p></div>'
-        '<ul class="course-queue">%s</ul>'
-        '<p class="source-note">Missing the language you need? '
-        '<a href="../../contact/?topic=Course%%20request">Ask for it</a> — requests decide what '
-        'gets written next. Source: EkGuru canonical global language-country inventory.</p>'
-        '</section>' % queue)
 
     out.append(
         '<section class="xp-sec"><div class="xp-head" style="text-align:start;margin-inline:0">'
@@ -226,7 +180,7 @@ def build():
         items.append({
             "@type": "ListItem", "position": i,
             "name": "Language courses for %s" % name(country),
-            "url": "https://ekguru.shop/courses/by-country/#%s" % country,
+            "url": "https://ekguru.shop/courses/by-country/#country-%s" % country,
         })
     out.append('<script type="application/ld+json">%s</script>' % json.dumps(
         {"@context": "https://schema.org", "@type": "ItemList",
@@ -263,6 +217,9 @@ def splice(path, block, start, end, check):
         raise SystemExit("ERROR: %s has one marker of the %s pair" % (path, start))
     else:
         updated = new_page(html, block)
+    canonical = "https://ekguru.shop/courses/by-country/"
+    updated = re.sub(r'<link\b(?=[^>]*\brel=["\']canonical["\'])[^>]*>', '<link rel="canonical" href="%s">' % canonical, updated, count=1, flags=re.I)
+    updated = re.sub(r'<meta\b(?=[^>]*\bproperty=["\']og:url["\'])[^>]*>', '<meta property="og:url" content="%s">' % canonical, updated, count=1, flags=re.I)
     return html, updated
 
 
@@ -287,7 +244,7 @@ def new_page(existing, block):
         write_page(PAGE, "../../", "Language Courses by Country — Every Language, Every Country | EkGuru",
                    "Every country EkGuru teaches a language for, the languages available for it "
                    "today, and the ones documented but not built yet.",
-                   "https://ekguru.shop", '<a href="../../">EkGuru</a> › <a href="../">Courses</a> › '
+                   "courses/by-country/", '<a href="../../">EkGuru</a> › <a href="../">Courses</a> › '
                    'By country', block + "\n")
     with open(PAGE, encoding="utf-8") as f:
         return f.read()

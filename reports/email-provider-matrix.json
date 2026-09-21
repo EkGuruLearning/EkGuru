@@ -1,118 +1,71 @@
 {
-  "generated": "2026-09-11T07:16:49Z",
+  "generated": "2026-09-21T00:52:14.939466+00:00",
+  "release_state": "STATIC_TESTS_PASS_LIVE_DELIVERY_NOT_VERIFIED",
+  "roles": {
+    "booking_student": [
+      "appsscript",
+      "web3forms"
+    ],
+    "booking_tutor": [
+      "appsscript",
+      "web3forms"
+    ],
+    "booking_internal": [
+      "appsscript",
+      "web3forms"
+    ],
+    "contact_visitor": [
+      "appsscript",
+      "web3forms"
+    ],
+    "contact_internal": [
+      "appsscript",
+      "web3forms"
+    ],
+    "admin_outbound": [
+      "appsscript",
+      "web3forms"
+    ],
+    "admin_internal_copy": [
+      "appsscript",
+      "web3forms"
+    ]
+  },
   "providers": [
     {
+      "provider": "Google Apps Script",
+      "id": "appsscript",
+      "status": "CONFIGURED_TOKEN_UNWIRED",
+      "delivery_verification": "NOT_RUN",
+      "credential_values_in_report": false
+    },
+    {
       "provider": "Web3Forms",
-      "send_support": true,
-      "reply_to_support": true,
-      "html": false,
-      "text": true,
-      "attachments": false,
-      "rate_limit": "250/month/key",
-      "timeout_seconds": 15,
-      "error_classes": [
-        "RATE_LIMIT",
-        "AUTH",
-        "NETWORK",
-        "TIMEOUT",
-        "UNKNOWN"
-      ],
-      "delivery_events": [
-        "ACCEPTED"
-      ],
-      "webhook_support": false,
-      "sandbox_test_mode": false,
-      "configuration_status": "configured (5 keys), unverifiable from datacenter"
+      "id": "web3forms",
+      "status": "CONFIGURED_NOT_LIVE_VERIFIED",
+      "delivery_verification": "NOT_RUN",
+      "credential_values_in_report": false
     },
     {
       "provider": "StaticForms",
-      "send_support": true,
-      "reply_to_support": true,
-      "html": false,
-      "text": true,
-      "attachments": false,
-      "rate_limit": "none",
-      "timeout_seconds": 15,
-      "error_classes": [
-        "AUTH",
-        "NETWORK",
-        "TIMEOUT",
-        "UNKNOWN"
-      ],
-      "delivery_events": [
-        "ACCEPTED"
-      ],
-      "webhook_support": false,
-      "sandbox_test_mode": false,
-      "configuration_status": "configured and LIVE_VERIFIED"
+      "id": "staticforms",
+      "status": "RETIRED",
+      "delivery_verification": "NOT_APPLICABLE",
+      "credential_values_in_report": false
     },
     {
       "provider": "FormSubmit",
-      "send_support": true,
-      "reply_to_support": true,
-      "html": true,
-      "text": true,
-      "attachments": false,
-      "rate_limit": "unlimited (burst-throttled)",
-      "timeout_seconds": 15,
-      "error_classes": [
-        "CONFIGURATION (needs Activation)",
-        "RATE_LIMIT",
-        "NETWORK",
-        "TIMEOUT",
-        "UNKNOWN"
-      ],
-      "delivery_events": [
-        "ACCEPTED"
-      ],
-      "webhook_support": false,
-      "sandbox_test_mode": false,
-      "configuration_status": "configured but NOT ACTIVATED (retired until activated)"
+      "id": "formsubmit",
+      "status": "RETIRED",
+      "delivery_verification": "NOT_APPLICABLE",
+      "credential_values_in_report": false
     },
     {
       "provider": "EmailJS",
-      "send_support": false,
-      "reply_to_support": true,
-      "html": true,
-      "text": true,
-      "attachments": false,
-      "rate_limit": "200/month",
-      "timeout_seconds": 15,
-      "error_classes": [
-        "AUTH",
-        "RATE_LIMIT",
-        "NETWORK",
-        "TIMEOUT",
-        "UNKNOWN"
-      ],
-      "delivery_events": [
-        "ACCEPTED"
-      ],
-      "webhook_support": false,
-      "sandbox_test_mode": false,
-      "configuration_status": "not configured"
-    },
-    {
-      "provider": "Google Apps Script",
-      "send_support": false,
-      "reply_to_support": true,
-      "html": true,
-      "text": true,
-      "attachments": false,
-      "rate_limit": "~100 recipients/day",
-      "timeout_seconds": 15,
-      "error_classes": [
-        "AUTH",
-        "NETWORK",
-        "TIMEOUT",
-        "UNKNOWN"
-      ],
-      "delivery_events": [
-        "ACCEPTED"
-      ],
-      "webhook_support": false,
-      "sandbox_test_mode": false,
-      "configuration_status": "not configured"
+      "id": "emailjs",
+      "status": "NOT_CONFIGURED",
+      "delivery_verification": "NOT_RUN",
+      "credential_values_in_report": false
     }
   ]
 }

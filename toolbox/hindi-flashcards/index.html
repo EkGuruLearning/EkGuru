@@ -44,7 +44,7 @@
   <a class="skip" href="#main">Skip to content</a>
   <div class="hdr-in">
     <a class="logo" href="../../index.html">
-      <span class="logo-mark" aria-hidden="true">E</span>
+      <img class="logo-img" src="../../images/logo.svg" width="38" height="38" alt="EkGuru">
       <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
     </a>
     <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
@@ -55,7 +55,7 @@
       <a href="../../learn/">Learn</a>
       <a href="../../support/index.html">Support</a>
       <a href="../../search/">Search</a>
-      <a class="btn btn-primary btn-sm" href="../../find-tutors.html">Book a trial</a>
+      <a class="btn btn-primary btn-sm" href="../../find-tutors.html">Find tutors</a>
     </nav>
   </div>
 </header>
@@ -251,14 +251,12 @@ way to write Hindi in Latin letters.</p></div>
 /* =========================================================
    ANALYTICS EVENTS  (v72, Phase 26)
    ---------------------------------------------------------
-   GoatCounter is already on the site and is privacy-conscious
-   by design: no cookies, no cross-site identifier, nothing
-   that needs a consent banner. No new provider is introduced.
+   GoatCounter is requested only after the visitor allows
+   analytics in Privacy settings. It uses no analytics cookie
+   or cross-site identifier. No new provider is introduced.
 
-   What was missing is that it only counted PAGE VIEWS, so
-   there was no way to tell whether anyone who read a country
-   page ever clicked through to a tutor — which is the only
-   number that matters for this whole build.
+   These custom events run through the same consent-gated
+   analytics helper and do nothing when analytics is off.
 
    Two events are added here, on every page produced by the
    shell:
@@ -354,29 +352,23 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
 <!-- ekguru:consent -->
 <script defer="" src="../../js/cookie-consent.js"></script>
 <!-- ekguru:toolbox-visuals:start -->
-<section aria-labelledby="ct-visual-h" class="ct-visual" data-items="1">
+<section class="ct-visual" data-items="1" aria-labelledby="ct-visual-h">
 <h2 id="ct-visual-h">Flashcards, in one picture</h2>
 <p>Every number and every word on this plate is taken from the tool below it, not drawn by hand: what you see here is what the tool holds.</p>
-<figure class="ct-fig"><img alt="Flashcards — फ़्लैश कार्ड. 167 cards in 5 decks: phrases, numbers, letters, verbs, days" decoding="async" height="200" loading="lazy" src="../../images/vis/tool-hindi-flashcards.svg" width="320"/><figcaption><b>Flashcards</b> · 167 cards in 5 decks: phrases, numbers, letters, verbs, days</figcaption></figure>
+<figure class="ct-fig"><img src="../../images/vis/tool-hindi-flashcards.svg" width="320" height="200" loading="lazy" decoding="async" alt="Flashcards — फ़्लैश कार्ड. 167 cards in 5 decks: phrases, numbers, letters, verbs, days"><figcaption><b>Flashcards</b> · 167 cards in 5 decks: phrases, numbers, letters, verbs, days</figcaption></figure>
 </section>
 <!-- ekguru:toolbox-visuals:end -->
 <!-- ekguru:pw-bands:start -->
-<nav aria-label="Next step" class="pw-next">
-<b>Turn a tool on, then learn around it</b>
-<p>The free Hindi course is what these tools belong to — A1 to C2, 36 lessons, and it works
+<nav class="pw-next" aria-label="Next step">
+  <b>Turn a tool on, then learn around it</b>
+  <p>The free Hindi course is what these tools belong to — A1 to C2, 36 lessons, and it works
   without an account.</p>
-<p><a class="btn btn-primary" href="/courses/#/hi">Open the Hindi course</a></p>
+  <p><a class="btn btn-primary" href="/courses/#/hi">Open the Hindi course</a></p>
 </nav>
 <footer class="pw-support">
-<div>
-<b>Every lesson here is free, and always will be.</b>
-<p>No account, no paywall. The practice itself — every quiz, worksheet
-    and drill — carries no ad at all; the pages around it sometimes do,
-    and that is what keeps the lessons running. Keeping it free is the
-    only thing this page asks of you.</p>
-</div>
-<a class="pw-support-cta" href="/support/">Support EkGuru</a>
-<a href="/find-tutors.html">Book a trial lesson</a>
+  <p>Published lessons are currently free. Advertising is disabled in this release.</p>
+  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
+  <a href="/find-tutors.html">Tutor profiles</a>
 </footer>
 <!-- ekguru:pw-bands:end -->
 </main>
@@ -385,10 +377,10 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
   <div class="wrap ftr-in">
     <div>
       <a class="logo" href="../../index.html">
-        <span class="logo-mark" aria-hidden="true">E</span>
+        <img class="logo-img" src="../../images/logo.svg" width="38" height="38" alt="EkGuru">
         <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
       </a>
-      <p style="margin-top:14px">Online Hindi lessons with verified, caring tutors.</p>
+      <p style="margin-top:14px">Online Hindi lessons with independent tutor profiles.</p>
     </div>
     <div>
       <h3>Site</h3>
@@ -418,6 +410,7 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
       <a href="../../about/">About EkGuru</a>
       <a href="../../privacy/">Privacy policy</a>
       <a href="../../terms/">Terms of use</a>
+      <a href="../../monetization-disclosure/">Monetization disclosure</a>
       <a href="../../disclaimer/">Disclaimer</a>
       <a href="../../copyright/">Copyright</a>
       <a href="../../cookie-policy/">Cookie policy</a>

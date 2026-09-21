@@ -61,15 +61,7 @@
 .lp-langs a{margin:0 9px 0 0;color:var(--brand);font-weight:700;white-space:nowrap}
 @media (max-width:600px){.lp-card{flex-direction:column}.lp-card img{width:72px;height:72px}}
 </style>
-<!-- ekguru:adsense:start -->
-<!-- Google AdSense. Emitted only because ads.client is set to a valid
-     publisher id in js/site-config.js. Clear that value and every one
-     of these tags disappears on the next build. See tools/adsense.js. -->
-<link crossorigin="" href="https://pagead2.googlesyndication.com" rel="preconnect"/>
-<link crossorigin="" href="https://googleads.g.doubleclick.net" rel="preconnect"/>
-<meta content="ca-pub-8175326569491671" name="google-adsense-account"/>
-<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8175326569491671"></script>
-<!-- ekguru:adsense:end -->
+
 <meta content="Encuentra un profesor de hindi online | EkGuru" name="twitter:title"/><meta content="Explora profesores de hindi verificados y filtra por nivel, precio y valoración." name="twitter:description"/><meta content="https://ekguru.shop/images/og-cover.jpg" name="twitter:image"/></head>
 <body>
 <!-- ekguru:shell-header:start -->
@@ -77,7 +69,7 @@
   <a class="skip" href="#main">Ir al contenido</a>
   <div class="hdr-in">
     <a class="logo" href="">
-      <span class="logo-mark" aria-hidden="true">E</span>
+      <img class="logo-img" src="../images/logo.svg" width="38" height="38" alt="EkGuru">
       <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
     </a>
     <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
@@ -88,7 +80,7 @@
       <a href="../learn/" data-i18n="nav.learn">Aprender</a>
       <a href="../support/index.html" data-i18n="nav.support">Ayuda</a>
       <a href="../search/" data-i18n="nav.search">Buscar</a>
-      <a class="btn btn-primary btn-sm" href="find-tutors.html" data-i18n="nav.cta">Reservar prueba</a>
+      <a class="btn btn-primary btn-sm" href="find-tutors.html" data-i18n="nav.cta">Buscar profesores</a>
     </nav>
   </div>
 </header>
@@ -104,84 +96,36 @@
 <h2 class="vh">Profesores</h2>
 <div class="lp-cards">
 <article class="lp-card" data-t-row="sushila-g">
-<picture>
-<source srcset="../images/sushila-176.webp" type="image/webp"/>
-<img alt="Sushila G., Profesor de hindi" decoding="async" height="88" loading="lazy" src="../images/sushila-176.jpg" width="88"/>
-</picture>
-<div>
-<h3><a href="../tutor/sushila-g/">Sushila G.</a></h3>
-<p class="lp-headline">Friendly Hindi Tutor — Speak, Read &amp; Write with Confidence</p>
-<p class="lp-meta">
-<strong data-f="priceUSD" data-fmt="money" data-t="sushila-g" data-usd="6" data-usd-mode="bare">$6</strong> · 50 min ·
-          Beginner, Intermediate, Advanced · ★ 5.0 (3)
-        </p>
-<p class="lp-teaches">Hindi for beginners · Conversational Hindi · Hindi grammar · Devanagari reading &amp; writing · Hindi for kids · Pronunciation training</p>
-<a class="btn btn-primary btn-sm" href="../tutor/sushila-g/">Ver perfil</a>
-</div>
-</article>
-<article class="lp-card" data-t-row="hemlata">
-<picture>
-<source srcset="../images/hemlata-176.webp" type="image/webp"/>
-<img alt="Hemlata, Profesor de hindi" decoding="async" height="88" loading="lazy" src="../images/hemlata-176.jpg" width="88"/>
-</picture>
-<div>
-<h3><a href="../tutor/hemlata/">Hemlata</a></h3>
-<p class="lp-headline">Native Hindi Tutor for Kids, Adults &amp; Beginners — Read, Write &amp; Speak</p>
-<p class="lp-meta">
-<strong data-f="priceUSD" data-fmt="money" data-t="hemlata" data-usd="12" data-usd-mode="bare">$12</strong> · 50 min ·
-          Beginner, Intermediate, Advanced · Clase de prueba disponible
-        </p>
-<p class="lp-teaches">Hindi for beginners · Hindi for kids · Conversational Hindi · Devanagari reading &amp; writing · Hindi grammar · Pronunciation training</p>
-<a class="btn btn-primary btn-sm" href="../tutor/hemlata/">Ver perfil</a>
-</div>
+  <picture>
+    <source srcset="../images/sushila-176.webp" type="image/webp">
+    <img src="../images/sushila-176.jpg" alt="Sushila G., Profesor de hindi" width="88" height="88" loading="lazy" decoding="async">
+  </picture>
+  <div>
+    <h3><a href="../tutor/sushila-g/">Sushila G.</a></h3>
+    <p class="lp-headline">Friendly Hindi Tutor — Speak, Read &amp; Write with Confidence</p>
+    <p class="lp-meta">
+      <strong data-t="sushila-g" data-f="priceUSD" data-fmt="money" data-usd="6" data-usd-mode="bare">$6</strong> · 50 min ·
+      Beginner, Intermediate, Advanced · ★ 5.0 (3)
+    </p>
+    <p class="lp-teaches">Hindi for beginners · Conversational Hindi · Hindi grammar · Devanagari reading &amp; writing · Hindi for kids · Pronunciation training</p>
+    <a class="btn btn-primary btn-sm" href="../tutor/sushila-g/">Ver perfil</a>
+  </div>
 </article>
 <article class="lp-card" data-t-row="shikha-dutta">
-<picture>
-<source srcset="../images/shikha-176.webp" type="image/webp"/>
-<img alt="Shikha Dutta, Profesor de hindi" decoding="async" height="88" loading="lazy" src="../images/shikha-176.jpg" width="88"/>
-</picture>
-<div>
-<h3><a href="../tutor/shikha-dutta/">Shikha Dutta</a></h3>
-<p class="lp-headline">Experienced Hindi Tutor for Classes 1–10 — Devanagari, Grammar &amp; Confident Speaking</p>
-<p class="lp-meta">
-<strong data-f="priceUSD" data-fmt="money" data-t="shikha-dutta" data-usd="8" data-usd-mode="bare">$8</strong> · 50 min ·
-          Beginner, Intermediate, Advanced · Clase de prueba disponible
-        </p>
-<p class="lp-teaches">Hindi for absolute beginners · Conversational Hindi · Hindi grammar · Devanagari reading &amp; writing · Pronunciation training · Hindi for children · Hindi for exams or academic study</p>
-<a class="btn btn-primary btn-sm" href="../tutor/shikha-dutta/">Ver perfil</a>
-</div>
-</article>
-<article class="lp-card" data-t-row="tara">
-<picture>
-<source srcset="../images/placeholder-tutor-176.webp" type="image/webp"/>
-<img alt="Tara, Profesor de hindi" decoding="async" height="88" loading="lazy" src="../images/placeholder-tutor-176.jpg" width="88"/>
-</picture>
-<div>
-<h3><a href="../tutor/tara/">Tara</a></h3>
-<p class="lp-headline">Native Hindi Tutor — Conversation, Grammar &amp; Script for Every Level</p>
-<p class="lp-meta">
-<strong data-f="priceUSD" data-fmt="money" data-t="tara" data-usd="8" data-usd-mode="bare">$8</strong> · 50 min ·
-          Beginner, Intermediate · Clase de prueba disponible
-        </p>
-<p class="lp-teaches">Conversational Hindi · Hindi for beginners · Hindi grammar · Devanagari reading &amp; writing</p>
-<a class="btn btn-primary btn-sm" href="../tutor/tara/">Ver perfil</a>
-</div>
-</article>
-<article class="lp-card" data-t-row="sarshtee-baliyan">
-<picture>
-<source srcset="../images/placeholder-tutor-176.webp" type="image/webp"/>
-<img alt="Sarshtee Baliyan, Profesor de hindi" decoding="async" height="88" loading="lazy" src="../images/placeholder-tutor-176.jpg" width="88"/>
-</picture>
-<div>
-<h3><a href="../tutor/sarshtee-baliyan/">Sarshtee Baliyan</a></h3>
-<p class="lp-headline">Hindi for Children &amp; Beginners — Speaking, Reading and Everyday Talk</p>
-<p class="lp-meta">
-<strong data-f="priceUSD" data-fmt="money" data-t="sarshtee-baliyan" data-usd="8" data-usd-mode="bare">$8</strong> · 50 min ·
-          Beginner, Intermediate · Clase de prueba disponible
-        </p>
-<p class="lp-teaches">Hindi for kids · Hindi for beginners · Conversational Hindi · Hindi reading &amp; vocabulary · Pronunciation training · Everyday Hindi sentences</p>
-<a class="btn btn-primary btn-sm" href="../tutor/sarshtee-baliyan/">Ver perfil</a>
-</div>
+  <picture>
+    <source srcset="../images/shikha-176.webp" type="image/webp">
+    <img src="../images/shikha-176.jpg" alt="Shikha Dutta, Profesor de hindi" width="88" height="88" loading="lazy" decoding="async">
+  </picture>
+  <div>
+    <h3><a href="../tutor/shikha-dutta/">Shikha Dutta</a></h3>
+    <p class="lp-headline">Experienced Hindi Tutor for Classes 1–10 — Devanagari, Grammar &amp; Confident Speaking</p>
+    <p class="lp-meta">
+      <strong data-t="shikha-dutta" data-f="priceUSD" data-fmt="money" data-usd="8" data-usd-mode="bare">$8</strong> · 50 min ·
+      Beginner, Intermediate, Advanced · Disponibilidad por confirmar
+    </p>
+    <p class="lp-teaches">Hindi for absolute beginners · Conversational Hindi · Hindi grammar · Devanagari reading &amp; writing · Pronunciation training · Hindi for children · Hindi for exams or academic study</p>
+    <a class="btn btn-primary btn-sm" href="../tutor/shikha-dutta/">Ver perfil</a>
+  </div>
 </article>
 </div>
 <!-- links to the guides, questions and location pages -->
@@ -241,10 +185,7 @@
 <script src="../js/i18n.js"></script>
 <script src="../js/tutors/_registry.js"></script>
 <script src="../js/tutors/sushila-g.js"></script>
-<script src="../js/tutors/hemlata.js"></script>
 <script src="../js/tutors/shikha-dutta.js"></script>
-<script src="../js/tutors/tara.js"></script>
-<script src="../js/tutors/sarshtee-baliyan.js"></script>
 <script src="../js/tutors/_overrides.js"></script>
 <script src="../js/tutors-data.js"></script>
 <script defer="" src="../js/sheet.js"></script>
@@ -283,10 +224,10 @@ document.addEventListener("DOMContentLoaded",function(){
   <div class="wrap ftr-in">
     <div>
       <a class="logo" href="">
-        <span class="logo-mark" aria-hidden="true">E</span>
+        <img class="logo-img" src="../images/logo.svg" width="38" height="38" alt="EkGuru">
         <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
       </a>
-      <p style="margin-top:14px" data-i18n="ftr.about">Clases de hindi online con profesores verificados. Aprende a hablar, no solo a memorizar.</p>
+      <p style="margin-top:14px" data-i18n="ftr.about">Clases de hindi online con perfiles de profesores independientes. Aprende a hablar, no solo a memorizar.</p>
     </div>
     <div>
       <h3 data-i18n="ftr.site">Sitio</h3>
@@ -316,6 +257,7 @@ document.addEventListener("DOMContentLoaded",function(){
       <a href="../about/" data-i18n="ftr.about2">Sobre EkGuru</a>
       <a href="../privacy/" data-i18n="ftr.privacy">Política de privacidad</a>
       <a href="../terms/" data-i18n="ftr.terms">Términos de uso</a>
+      <a href="../monetization-disclosure/" data-i18n="ftr.monetization">Divulgación de monetización</a>
       <a href="../disclaimer/" data-i18n="ftr.disclaimer">Aviso legal</a>
       <a href="../copyright/" data-i18n="ftr.copyright">Derechos de autor</a>
       <a href="../cookie-policy/" data-i18n="ftr.cookies">Política de cookies</a>

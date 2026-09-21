@@ -214,9 +214,22 @@ Player.prototype.route = function () {
     self.index = payload[0];
     self.relations = payload[1].relations || [];
     if (!r.lang) return self.renderHub();
-    if (!r.level) return self.renderLang(r.lang);
-    var key = r.lang + "_" + r.level;
     var entry = self.langMeta(r.lang);
+    var publishedLevels = Object.keys((entry && entry.levels) || {});
+    if (!publishedLevels.length) {
+      self.mount.innerHTML = '<div class="egc google-anno-skip"><h1>Course not published</h1>' +
+        '<p>This language remains in research and editorial review. No lesson level is public yet.</p>' +
+        '<p><a href="#/">Back to published courses</a></p></div>';
+      return;
+    }
+    if (!r.level) return self.renderLang(r.lang);
+    if (publishedLevels.indexOf(r.level) < 0) {
+      self.mount.innerHTML = '<div class="egc google-anno-skip"><h1>' + esc(r.level) + ' is not published</h1>' +
+        '<p>Available levels for this language: ' + esc(publishedLevels.join(", ")) + '.</p>' +
+        '<p><a href="#/' + esc(r.lang) + '">Open the available levels</a></p></div>';
+      return;
+    }
+    var key = r.lang + "_" + r.level;
     var phase = entry.phase || "phase-1";
     var file = key + ".json";
     (entry.files || []).forEach(function (f) { if (f.indexOf(key) === 0) file = f; });
@@ -250,12 +263,25 @@ Player.prototype.crumbs = function (items) {
   }).join("") + "</div>";
 };
 Player.prototype.renderHub = function () {
-  var self = this, courses = (this.index && this.index.courses) || [], relations = this.relations || [];
-  /* Country contexts per course code. Six languages have no ISO 639-1 row in
-     the relations data (Standard Arabic is only "arb", Mandarin only "cmn"),
-     so without the bridge their cards showed no countries at all while the
-     static HTML — which uses the same bridge — showed thirty. */
+  var self = this;
+  var courses = ((this.index && this.index.courses) || []).filter(function (c) {
+    return Object.keys(c.levels || {}).length > 0;
+  });
+  function verifiedRelation(row) {
+    var sourced = (row.sources || []).some(function (s) {
+      var p = String((s && s.priority) || "").split("-")[0];
+      return s && s.source_url && s.evidence_type !== "agent-compiled" && (p === "A" || p === "B");
+    });
+    return row.confidence === "high" && !row.needs_human_review && sourced;
+  }
+  /* Apply the alias bridge before filtering relations to published courses. */
   var ISO3_ALIAS = { arb: "ar", cmn: "zh", fil: "fil", npi: "npi", uzn: "uzn", zsm: "zsm" };
+  var publishedCodes = {};
+  courses.forEach(function (c) { publishedCodes[c.code] = true; });
+  var relations = (this.relations || []).filter(function (row) {
+    var code = row.iso_639_1 || ISO3_ALIAS[row.iso_639_3] || row.iso_639_3;
+    return verifiedRelation(row) && !!publishedCodes[code];
+  });
   var countriesByCode = {};
   relations.forEach(function (r) {
     var code = r.iso_639_1 || ISO3_ALIAS[r.iso_639_3] || r.iso_639_3;
@@ -284,29 +310,13 @@ Player.prototype.renderHub = function () {
   var displayNames;
   try { displayNames = new Intl.DisplayNames([document.documentElement.lang || "en"], { type: "region" }); } catch (e) {}
   function countryName(code) { try { return displayNames ? displayNames.of(code) : code; } catch (e) { return code; } }
-  var h = '<div class="egc course-hub google-anno-skip"><section class="course-hero"><span class="pill">Worldwide · A1–C2 · free</span><h1>Choose your language journey</h1>';
-  /* "course mai language ko country wise bi search kr ske": the dropdown and
-     the search box below cover the question for anyone who types. The static
-     page covers everyone else — 194 countries written out, linked and
-     crawlable — so it is linked from here rather than hidden in a footer. */
-  h += '<p>One complete learning space for courses, country contexts, lessons, deep practice, review history and level tests. Not sure which language? <a href="' + esc(self.base) + 'courses/by-country/"><b>Browse courses by country</b></a> — ' + withCourses.length + ' countries with a course today.</p><div class="course-orbit" aria-hidden="true"><i>अ</i><i>Α</i><i>ع</i><i>あ</i><i>മ</i></div></section>';
-  /* Which countries actually have a course. The dropdown used to list every
-     country in the inventory — all 200 — so picking most of them emptied the
-     grid with a bare "0 courses", which reads as a broken search. Prakash:
-     "course mai language ko country wise bi search kr ske jo abhi work nahi
-     kar raha". The two groups tell the truth up front: countries you can
-     learn a language for today, and countries the inventory documents but no
-     course has been written for yet. */
+  var h = '<div class="egc course-hub google-anno-skip"><section class="course-hero"><span class="pill">Published levels · free in your browser</span><h1>Choose your language journey</h1>';
+  h += '<p>Explore published course levels, practice and review. Not sure which language? <a href="' + esc(self.base) + 'courses/by-country/"><b>Browse published courses by country</b></a> — ' + withCourses.length + ' sourced country contexts are available.</p><div class="course-orbit" aria-hidden="true"><i>अ</i><i>Α</i><i>ع</i><i>あ</i><i>മ</i></div></section>';
+  /* Only published, evidence-qualified country contexts are offered. */
   h += '<div class="course-tools"><label>Find a language or country<input id="course-search" type="search" placeholder="e.g. Italian, Japan, Arabic" autocomplete="off" aria-describedby="course-result-count"></label><label>Country context<select id="country-filter">';
   h += '<option value="">All countries</option>';
   h += '<optgroup label="Learn a language for (' + withCourses.length + ')">' + withCourses.map(function (c) { return '<option value="' + esc(c) + '">' + esc(countryName(c)) + ' · ' + countryCourseCount[c] + '</option>'; }).join("") + '</optgroup>';
-  /* Today the inventory's 194 countries are all covered by at least one of the
-     39 courses, so this group is usually empty — an empty <optgroup> renders
-     as a stray heading, so it is only written when it has members. A country
-     added to the inventory before its language is authored lands here. */
-  if (withoutCourses.length) {
-    h += '<optgroup label="Documented, no course yet (' + withoutCourses.length + ')">' + withoutCourses.map(function (c) { return '<option value="' + esc(c) + '">' + esc(countryName(c)) + '</option>'; }).join("") + '</optgroup>';
-  }
+  /* Research-only locations are intentionally absent from this public filter. */
   h += '</select></label><span id="course-result-count" role="status"></span></div>';
   h += '<section id="country-story" class="country-story" hidden aria-live="polite"></section>';
   h += '<div id="course-empty" class="course-empty" hidden></div>';
@@ -584,7 +594,7 @@ Player.prototype.langMeta = function (code) {
   for (var i = 0; i < courses.length; i++) {
     if (courses[i].code === code) return courses[i];
   }
-  return { code: code, name: code, native: "", levels: { A1: 1, A2: 1, B1: 1, B2: 1, C1: 1, C2: 1 } };
+  return { code: code, name: code, native: "", levels: {} };
 };
 Player.prototype.renderLang = function (code) {
   var meta = this.langMeta(code);

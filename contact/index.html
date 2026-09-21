@@ -21,181 +21,7 @@
 <link href="../manifest.webmanifest" rel="manifest"/>
 <meta content="#4f32d9" name="theme-color"/>
 <link href="../css/style.min.css" rel="stylesheet"/>
-<style>
-/* Contact v300 — Modern, Responsive, Best Visual */
-.contact-hero {
-  background: linear-gradient(135deg, #4f32d9 0%, #7c3aed 50%, #a855f7 100%);
-  color: white;
-  padding: clamp(32px, 6vw, 72px) clamp(16px, 4vw, 32px);
-  border-radius: 24px;
-  margin: 0 0 32px;
-  position: relative;
-  overflow: hidden;
-}
-.contact-hero::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 60%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
-  pointer-events: none;
-}
-.contact-hero h1 {
-  font-size: clamp(28px, 5vw, 48px);
-  font-weight: 800;
-  line-height: 1.1;
-  margin: 0 0 16px;
-  position: relative;
-}
-.contact-hero .lede {
-  font-size: clamp(16px, 2.5vw, 20px);
-  line-height: 1.6;
-  opacity: 0.95;
-  max-width: 600px;
-  margin: 0 0 24px;
-  position: relative;
-}
-.contact-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 16px;
-  margin: 24px 0 0;
-  position: relative;
-}
-.contact-stat {
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 16px;
-  padding: 16px;
-  text-align: center;
-}
-.contact-stat b {
-  display: block;
-  font-size: clamp(20px, 3vw, 28px);
-  font-weight: 800;
-  line-height: 1;
-  margin-bottom: 6px;
-}
-.contact-stat span {
-  font-size: 13px;
-  opacity: 0.9;
-  line-height: 1.3;
-}
 
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-@media (min-width: 900px) {
-  .contact-grid { grid-template-columns: 1.2fr 0.8fr; }
-}
-
-.cf-wrap {
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 24px;
-  padding: clamp(20px, 4vw, 32px);
-  box-shadow: 0 8px 32px rgba(79,50,217,0.08);
-}
-.cf-h {
-  font-size: clamp(22px, 3vw, 28px);
-  font-weight: 800;
-  margin: 0 0 8px;
-  color: #0f172a;
-}
-.cf-lede {
-  color: #64748b;
-  font-size: 15px;
-  line-height: 1.6;
-  margin: 0 0 24px;
-}
-.cf-form { display: grid; gap: 20px; }
-.cf-row {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: 1fr;
-}
-@media (min-width: 640px) { .cf-row { grid-template-columns: 1fr 1fr; } }
-.cf-f { display: flex; flex-direction: column; gap: 8px; }
-.cf-f label { font-weight: 600; font-size: 14px; color: #0f172a; }
-.cf-req { color: #ef4444; }
-.cf-opt { color: #94a3b8; font-weight: 400; }
-.cf-f input, .cf-f select, .cf-f textarea {
-  border: 2px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 12px 16px;
-  font-size: 15px;
-  line-height: 1.5;
-  transition: all 0.2s;
-  background: #fff;
-  width: 100%;
-  font-family: inherit;
-}
-.cf-f input:focus, .cf-f select:focus, .cf-f textarea:focus {
-  outline: none;
-  border-color: #4f32d9;
-  box-shadow: 0 0 0 3px rgba(79,50,217,0.1);
-}
-.cf-f textarea { resize: vertical; min-height: 120px; }
-.cf-bad { border-color: #ef4444 !important; box-shadow: 0 0 0 3px rgba(239,68,68,0.1) !important; }
-.cf-e { color: #ef4444; font-size: 13px; margin: 0; }
-.cf-hint { color: #94a3b8; font-size: 12px; margin: 0; }
-.cf-count { color: #94a3b8; font-size: 12px; }
-.cf-count-hot { color: #f59e0b; font-weight: 600; }
-.cf-under { display: flex; justify-content: space-between; gap: 12px; align-items: start; }
-.cf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-.cf-err {
-  background: #fef2f2;
-  border: 1px solid #fecaca;
-  color: #dc2626;
-  padding: 12px 16px;
-  border-radius: 12px;
-  font-size: 14px;
-  line-height: 1.5;
-}
-.cf-actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
-.cf-send {
-  background: linear-gradient(135deg, #4f32d9, #7c3aed);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  padding: 14px 28px;
-  font-weight: 700;
-  font-size: 15px;
-  cursor: pointer;
-  transition: all 0.2s;
-  box-shadow: 0 4px 12px rgba(79,50,217,0.3);
-}
-.cf-send:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(79,50,217,0.4); }
-.cf-send:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-.cf-privacy { color: #94a3b8; font-size: 12px; max-width: 280px; line-height: 1.4; }
-.cf-done { text-align: center; padding: 32px 16px; }
-.cf-tick { width: 64px; height: 64px; background: #10b981; color: white; border-radius: 50%; display: grid; place-items: center; font-size: 32px; margin: 0 auto 16px; }
-.cf-ref { background: #f1f5f9; padding: 2px 8px; border-radius: 6px; font-family: monospace; }
-
-.contact-side { display: grid; gap: 20px; align-content: start; }
-.contact-card {
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 20px;
-  padding: 20px;
-}
-.contact-card h3 { font-size: 16px; font-weight: 700; margin: 0 0 12px; display: flex; align-items: center; gap: 8px; }
-.contact-card p, .contact-card li { font-size: 14px; line-height: 1.6; color: #475569; margin: 0 0 8px; }
-.contact-card ul { margin: 0; padding-left: 18px; }
-.contact-card a { color: #4f32d9; text-decoration: none; font-weight: 600; }
-.contact-card a:hover { text-decoration: underline; }
-
-.faq-modern { background: #f8fafc; border-radius: 12px; padding: 16px; margin: 0; }
-.faq-modern b { display: block; font-size: 14px; margin-bottom: 6px; color: #0f172a; }
-.faq-modern p { font-size: 13px; line-height: 1.6; color: #475569; margin: 0; }
-</style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"ContactPage","@id":"https://ekguru.shop/contact/#page","url":"https://ekguru.shop/contact/","name":"Contact EkGuru","description":"Write to EkGuru about Hindi lessons, a booking, a correction or teaching with us.","isPartOf":{"@type":"WebSite","@id":"https://ekguru.shop/#website","url":"https://ekguru.shop/","name":"EkGuru"},"about":{"@type":"Organization","name":"EkGuru","url":"https://ekguru.shop/","email":"EkGuruLearning@gmail.com","contactPoint":[{"@type":"ContactPoint","contactType":"customer support","email":"EkGuruLearning@gmail.com","availableLanguage":["English","Hindi"],"areaServed":"Worldwide"}]}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"EkGuru","item":"https://ekguru.shop/"},{"@type":"ListItem","position":2,"name":"Contact","item":"https://ekguru.shop/contact/"}]}]}</script>
 <meta content="en_US" property="og:locale"/><meta content="Contact EkGuru — Talk to a Real Person" name="twitter:title"/><meta content="No bots. No ticket system. A real person replies within 24h." name="twitter:description"/><meta content="https://ekguru.shop/images/og-cover.jpg" name="twitter:image"/></head>
 <body>
@@ -204,7 +30,7 @@
   <a class="skip" href="#main">Skip to content</a>
   <div class="hdr-in">
     <a class="logo" href="../index.html">
-      <span class="logo-mark" aria-hidden="true">E</span>
+      <img class="logo-img" src="../images/logo.svg" width="38" height="38" alt="EkGuru">
       <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
     </a>
     <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
@@ -215,7 +41,7 @@
       <a href="../learn/">Learn</a>
       <a href="../support/index.html">Support</a>
       <a href="../search/">Search</a>
-      <a class="btn btn-primary btn-sm" href="../find-tutors.html">Book a trial</a>
+      <a class="btn btn-primary btn-sm" href="../find-tutors.html">Find tutors</a>
     </nav>
   </div>
 </header>
@@ -223,7 +49,7 @@
 <script src="../js/copywatch.js" defer></script>
 <!-- ekguru:shell-header:end -->
 <main id="main">
-<div class="pw" style="max-width:1200px;margin:0 auto;padding:clamp(16px,4vw,32px);">
+<div class="pw pw-legacy" style="max-width:1200px;margin:0 auto;padding:clamp(16px,4vw,32px);">
 <div class="contact-hero">
 <h1>Talk to a real person</h1>
 <p class="lede">No bots. No ticket system. No account needed. Prakash in Jaipur reads every message and replies within 24 hours — usually faster.</p>
@@ -341,15 +167,22 @@
 <script defer="" src="../js/cookie-consent.js"></script>
 <script defer="" src="../js/monetization.js"></script>
 </main>
+<!-- ekguru:pw-bands:start -->
+<footer class="pw-support">
+  <p>Published lessons are currently free. Advertising is disabled in this release.</p>
+  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
+  <a href="/find-tutors.html">Tutor profiles</a>
+</footer>
+<!-- ekguru:pw-bands:end -->
 <!-- ekguru:shell-footer:start -->
 <footer class="ftr">
   <div class="wrap ftr-in">
     <div>
       <a class="logo" href="../index.html">
-        <span class="logo-mark" aria-hidden="true">E</span>
+        <img class="logo-img" src="../images/logo.svg" width="38" height="38" alt="EkGuru">
         <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
       </a>
-      <p style="margin-top:14px">Online Hindi lessons with verified, caring tutors.</p>
+      <p style="margin-top:14px">Online Hindi lessons with independent tutor profiles.</p>
     </div>
     <div>
       <h3>Site</h3>
@@ -379,6 +212,7 @@
       <a href="../about/">About EkGuru</a>
       <a href="../privacy/">Privacy policy</a>
       <a href="../terms/">Terms of use</a>
+      <a href="../monetization-disclosure/">Monetization disclosure</a>
       <a href="../disclaimer/">Disclaimer</a>
       <a href="../copyright/">Copyright</a>
       <a href="../cookie-policy/">Cookie policy</a>

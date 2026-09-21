@@ -113,8 +113,8 @@ def to_url(rel):
     return "/" + rel.replace(os.sep, "/")
 
 
-CLASS_ORDER = ("ADMIN", "TRANSACTIONAL", "UTILITY", "INTERACTIVE_LEARNING",
-               "HIGH_CONTENT", "MEDIUM_CONTENT")
+CLASS_ORDER = ("ADMIN", "RESEARCH_REQUIRED", "TRANSACTIONAL", "UTILITY",
+               "INTERACTIVE_LEARNING", "HIGH_CONTENT", "MEDIUM_CONTENT")
 
 
 def is_excluded(url):
@@ -126,9 +126,29 @@ def is_excluded(url):
     return False
 
 
-def classify(rel):
-    """The page's class — what kind of page it is."""
+def classify(rel, page_html=None):
+    """The page's class — what kind of page it is.
+
+    Noindex is a publication state, not a content-length shortcut. Draft and
+    research pages remain ad-ineligible even if a path later moves or acquires
+    enough prose to resemble an article.
+    """
+    if page_html is None:
+        try:
+            with open(rel, encoding="utf-8") as f:
+                page_html = f.read()
+        except (OSError, UnicodeDecodeError):
+            page_html = ""
     url = to_url(rel)
+    # Owner-only consoles remain ADMIN even though they also carry noindex.
+    if any(match(pattern, url) for pattern in CLASSES["ADMIN"]["match"]):
+        return "ADMIN"
+    head = page_html.split("</head>", 1)[0]
+    if re.search(r'<meta\b(?=[^>]*\bname=["\']robots["\'])(?=[^>]*\bcontent=["\'][^"\']*noindex)', head, re.I):
+        return "RESEARCH_REQUIRED"
+    if "research-notice" in page_html or 'data-publication-state="research-required"' in page_html:
+        return "RESEARCH_REQUIRED"
+
     for name in CLASS_ORDER:
         for pattern in CLASSES[name]["match"]:
             if match(pattern, url):
@@ -136,10 +156,10 @@ def classify(rel):
     return "MEDIUM_CONTENT"
 
 
-def may_load(rel):
+def may_load(rel, page_html=None):
     """(class, allowed, why) — the policy decision, in one place."""
     url = to_url(rel)
-    cls = classify(rel)
+    cls = classify(rel, page_html)
     if is_excluded(url):
         return cls, False, "excluded_paths"
     if cls not in ALLOWED:
@@ -169,7 +189,7 @@ def scrub(html):
 
 def apply_policy(rel, html):
     """(new_html, what happened). Idempotent: a second run writes nothing."""
-    cls, allowed, _why = may_load(rel)
+    cls, allowed, _why = may_load(rel, html)
     html = set_class_attr(html, cls)
 
     if not allowed:
@@ -199,7 +219,7 @@ def main():
         new, what = apply_policy(rel, html)
         counts[what] = counts.get(what, 0) + 1
         if report:
-            changes.setdefault((classify(rel), what), []).append(rel)
+            changes.setdefault((classify(rel, html), what), []).append(rel)
         if new == html:
             continue
         if check:

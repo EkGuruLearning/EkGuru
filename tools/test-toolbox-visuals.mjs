@@ -223,7 +223,8 @@ console.log("\n5. where the block sits\n");
   ok("one block per page, above the bands, with a heading, an image and a caption that matches",
     problems.length === 0, problems.slice(0, 4).join("; "));
 
-  const alt = read(pageOf("hindi-numbers")).match(/alt="([^"]+)"/)[1];
+  const numbersBlock = (read(pageOf("hindi-numbers")).match(/<!-- ekguru:toolbox-visuals:start -->[\s\S]*?<!-- ekguru:toolbox-visuals:end -->/) || [""])[0];
+  const alt = (numbersBlock.match(/alt="([^"]+)"/) || ["", ""])[1];
   ok("the alt text is a sentence about the tool, not a filename",
     alt.includes(manifest["hindi-numbers"].title) && alt.includes("Numbers") &&
     !/\.svg/.test(alt), alt.slice(0, 80));

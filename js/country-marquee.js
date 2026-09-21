@@ -59,17 +59,26 @@
       });
       current = cc;
       btn.setAttribute("aria-expanded", "true");
-      var langs = (item.langs || []).filter(Boolean);
-      var list = langs.length
-        ? "<ul class=\"eg-cc-langs\">" + langs.map(function (l) {
-            return "<li>" + esc(l) + "</li>";
-          }).join("") + "</ul>"
-        : "<p class=\"muted\">No documented languages for this country in our data.</p>";
+      var langs = (item.langs || []).filter(Boolean).map(function (lang) {
+        return typeof lang === "string" ? { name: lang, quality: "PROVISIONAL" } : lang;
+      });
+      var verified = langs.filter(function (lang) { return lang.quality === "VERIFIED"; });
+      var provisional = langs.filter(function (lang) { return lang.quality === "PROVISIONAL"; });
+      function languageList(rows, label, note) {
+        if (!rows.length) return "";
+        return "<h4>" + esc(label) + "</h4><p class=\"muted\">" + esc(note) + "</p>" +
+          "<ul class=\"eg-cc-langs\">" + rows.map(function (lang) {
+            var native = lang.native && lang.native !== lang.name ? " — " + lang.native : "";
+            return "<li>" + esc(lang.name + native) + "</li>";
+          }).join("") + "</ul>";
+      }
+      var list = languageList(verified, "Verified relationships", "Supported by a linked high-confidence source in the research inventory.") +
+        languageList(provisional, "Provisional relationships", "A reputable source is recorded, but editorial verification is not complete.");
+      if (!list) list = "<p class=\"muted\">No public relationship has passed the source gate.</p>";
       panel.hidden = false;
       panel.innerHTML =
-        "<h3>" + esc(item.name) + "</h3>" +
-        "<p class=\"muted\">Languages documented for this country</p>" + list;
-      var spoken = langs.length ? langs.join(", ") : "none listed";
+        "<h3>" + esc(item.name) + "</h3>" + list;
+      var spoken = langs.length ? langs.map(function (lang) { return lang.name; }).join(", ") : "none listed";
       if (live) live.textContent = item.name + ": " + spoken;
       try { panel.focus(); } catch (e) {}
     }
@@ -100,7 +109,7 @@
     host.setAttribute("data-eg-cc-rails", "1");
     host.innerHTML =
       '<div class="eg-cc-rails" role="region" aria-label="Countries and languages">' +
-      '<p class="eg-cc-hint">Click a country to see the languages we document for it.</p>' +
+      '<p class="eg-cc-hint">Click a country to see source-gated language relationships. Provisional records are labelled.</p>' +
       track(a, "ltr") +
       track(b, "rtl") +
       '<div id="eg-cc-live" class="vh" aria-live="polite"></div>' +

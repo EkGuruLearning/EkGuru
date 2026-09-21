@@ -120,7 +120,7 @@ const NAV = [
   ["Support", "nav.support", "support"],
   ["Search", "nav.search", "search"],
 ];
-const CTA = ["Book a trial", "nav.cta", "findTutors"];
+const CTA = ["Find tutors", "nav.cta", "findTutors"];
 const COLUMNS = [
   ["Site", "ftr.site", [
     ["Home", "nav.home", "home"],
@@ -147,6 +147,7 @@ const COLUMNS = [
     ["About EkGuru", "ftr.about2", "about"],
     ["Privacy policy", "ftr.privacy", "privacy"],
     ["Terms of use", "ftr.terms", "terms"],
+    ["Monetization disclosure", "ftr.monetization", "monetization"],
     ["Disclaimer", "ftr.disclaimer", "disclaimer"],
     ["Copyright", "ftr.copyright", "copyright"],
     ["Cookie policy", "ftr.cookies", "cookies"],
@@ -160,7 +161,7 @@ const TARGETS = {
   guides: "learn/", topics: "hindi/", tools: "toolbox/", daily: "daily-hindi/",
   ask: "ask/", answers: "answers/", countries: "learn-hindi-by-country/",
   contact: "contact/", about: "about/", privacy: "privacy/",
-  terms: "terms/", disclaimer: "disclaimer/", copyright: "copyright/",
+  terms: "terms/", monetization: "monetization-disclosure/", disclaimer: "disclaimer/", copyright: "copyright/",
   cookies: "cookie-policy/",
 };
 
@@ -265,7 +266,7 @@ ${links.map(renderLink).join("\n")}
         <img class="logo-img" src="${esc(p)}images/logo.svg" width="38" height="38" alt="EkGuru">
         <span><span data-brand>EkGuru</span><small data-tagline>${esc(shell.tagline)}</small></span>
       </a>
-      <p style="margin-top:14px"${loc ? ' data-i18n="ftr.about"' : ""}>${esc(L("Online Hindi lessons with verified, caring tutors.", "ftr.about"))}</p>
+      <p style="margin-top:14px"${loc ? ' data-i18n="ftr.about"' : ""}>${esc(L("Online Hindi lessons with independent tutor profiles.", "ftr.about"))}</p>
     </div>
 ${cols}
   </div>

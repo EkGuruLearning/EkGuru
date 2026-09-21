@@ -43,7 +43,7 @@
   var HINTS = [
     ["Devanagari works", "Type पानी, किताब or नमस्ते — the index is Unicode-normalised."],
     ["Roman works too", "“paani”, “kitab”, “namaste” find the same pages when the fuzzy helper is loaded."],
-    ["Try a place", "Japan, UAE, Brazil — every country funnel is indexed."],
+    ["Try a place", "Japan, UAE, Brazil — browse the country guides that passed publication review."],
     ["Try a tool", "flashcards, alphabet, transliteration, numbers."],
     ["Search by type", "Use the filter chips to see only lessons, tools, tutors or materials."],
     ["Search by country", "Pick your country in the Country list — lesson times come in your local time and prices in your currency."],
@@ -110,15 +110,14 @@
   /* ---------- facets: country and language ------------------------------
      Prakash: "search mai done se search ho ... country or language".
 
-     Every country funnel is already in the index (learn-hindi-from-japan/,
-     hindi-tutor/dubai/), and so is every language page
-     (learn-hindi-for-japanese-speakers/, languages/ja/, ja/hindi/). The
+     Published country guides and location pages are in the index, as are
+     published language starter/course hubs and translated market pages. The
      section pills answer "what kind of page is this"; these two answer the
      question a visitor actually has — "for MY country" and "for MY
      language" — and they combine with the pills rather than replacing them.
 
-     The facets are derived from the index at load, so a country funnel added
-     by a generator appears in the dropdown with no edit here.
+     The facets are derived from the publication-filtered index at load, so a
+     page appears only after its release gate allows search discovery.
      ---------------------------------------------------------------------- */
 
   /* A country slug from a URL, or "" — the two shapes the site uses. */
@@ -141,6 +140,12 @@
      filled from the index itself (the starter pack's title carries the
      name: "Learn Japanese basics") before the facets are counted. */
   var LANG_ALIAS = Object.create(null);
+  var ISO_LANGUAGE = {
+    ar: "arabic", bn: "bengali", de: "german", es: "spanish",
+    fr: "french", id: "indonesian", it: "italian", ja: "japanese",
+    ko: "korean", pl: "polish", pt: "portuguese", ru: "russian",
+    tr: "turkish", ur: "urdu", vi: "vietnamese", zh: "chinese"
+  };
 
   function langSlugFromUrl(u) {
     var m = /^learn-hindi-for-([a-z0-9-]+)-speakers(?:\/|$)/.exec(u);
@@ -179,7 +184,7 @@
     index.forEach(function (row) {
       var m = /^([a-z]{2})\/hindi(?:\/|$)/.exec(row.u);
       if (m && LANG_ALIAS[m[1]]) return;
-      if (m) LANG_ALIAS[m[1]] = m[1];
+      if (m) LANG_ALIAS[m[1]] = ISO_LANGUAGE[m[1]] || m[1];
     });
   }
 

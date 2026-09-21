@@ -297,7 +297,7 @@ def figure_html(code, rung_id, figs, rung=None, tail=""):
                % (_clean(rung.get("label", fig.get("label", ""))),
                   _clean(rung.get("who", "a learner")), fig.get("age", ""),
                   _clean(rung.get("can", "read and speak a little")).rstrip(".")))
-    return ('<figure class="lv-fig"><img src="../../../%s" width="320" height="200" '
+    return ('<figure class="lv-fig"><img src="/%s" width="320" height="200" '
             'loading="lazy" decoding="async" alt="%s"><figcaption>%s%s</figcaption></figure>'
             % (fig.get("path", ""), _clean(fig.get("alt", "")), caption,
                (" " + tail) if tail else ""))
@@ -444,17 +444,38 @@ def counts_of(data, code, name):
     }
 
 
-def is_publishable(data):
-    """Indexable only when the file is authored, not a stub or leftover placeholder."""
+def is_publishable(data, code="", level=""):
+    """Indexable only when authored content passes the publication audit.
+
+    A structurally full JSON file is not enough. Earlier generators produced
+    sentence fragments labelled as vocabulary meanings and repeated one model
+    answer across nominally different question types. Those files remain useful
+    research evidence, but must never become public lessons.
+    """
     if not data or not isinstance(data, dict):
         return False
-    if (data.get("content_status") or "").upper() == "INCOMPLETE":
+    if (data.get("content_status") or "").upper() in ("INCOMPLETE", "RESEARCH_REQUIRED"):
         return False
     if data.get("indexable") is False:
         return False
     blob = json.dumps(data, ensure_ascii=False)
-    if "_word_" in blob or "roman_1" in blob or "theme related word" in blob.lower():
+    public_bugs = (
+        r"(?:language_word(?:_\d+)?|\bword_\d+\b|\blesson_\d+\b|\broman_\d+\b|translation pending|theme related word)",
+        r"\bControl .{0,180}?level-appropriate",
+        r"discourse segment(?:\s+\d+)?\s+in",
+        r"analyse or produce .{0,240}?model",
+        r"suriin o buuin ang modelo",
+    )
+    if any(re.search(pattern, blob, re.I | re.S) for pattern in public_bugs):
         return False
+    if code and level:
+        # data/courses/index.json is the release manifest. The quality audit
+        # removes blocked levels from it; builders and the player must honour
+        # that decision rather than rediscovering files on disk.
+        courses, _ = catalogue()
+        row = next((c for c in courses if c.get("code") == code), None)
+        if not row or level not in (row.get("levels") or {}):
+            return False
     if not lessons_of(data):
         return False
     return True
@@ -679,18 +700,47 @@ def level_page(code, course, level, data, rungmap, figs, levels):
 def ladder_page(code, course, levels, loaded, rungmap, figs):
     name = course["name"]
     targets = lang_targets(code)
+    if not levels:
+        # Keep the historical URL useful without representing an empty shell as
+        # an A1–C2 course. compose(..., index=False) adds noindex at the caller.
+        title = "%s course — not published" % name
+        desc = ("The %s course is still in research and editorial review. No lesson "
+                "level is currently published." % name)
+        url = "languages/%s/level/" % code
+        parent = href_of(targets["course"]) or "/languages/"
+        crumb = ('<a href="/">EkGuru</a> › <a href="/languages/">Languages</a> › '
+                 "%s › Course status" % _clean(name))
+        body = (
+            '<div class="lv-main"><h1 id="lv-h1">%s course is not published</h1>'
+            '<p class="lv-lede">This language remains in research and editorial review. '
+            'EkGuru has not published an A1, A2, B1, B2, C1 or C2 course for it.</p>'
+            '<div class="note"><b>No empty course claim.</b> Source files may remain in the '
+            'internal research inventory, but they are excluded from search, sitemaps and the '
+            'course player until their vocabulary, dialogues, questions and answer keys pass '
+            'the publication gate.</div><p><a href="%s">Back to available language resources</a>'
+            '</p></div>' % (_clean(name), parent)
+        )
+        return title, desc, url, crumb, body
+
     body = ['<div class="lv-main">']
-    body.append('<h1 id="lv-h1">%s levels — A1 to C2</h1>' % _clean(name))
-    body.append('<p class="lv-lede">%s uses the six CEFR levels (A1–C2) and the same eleven rungs '
-                "as the rest of the site. Extra tracks such as A3 or B3 appear below only when "
-                "those lessons were authored — they are not CEFR levels. Empty extra levels are "
-                "not counted as a course.</p>" % _clean(name))
+    available_label = " to ".join((levels[0], levels[-1])) if len(levels) > 1 else levels[0]
+    body.append('<h1 id="lv-h1">%s levels — %s available</h1>'
+                % (_clean(name), _clean(available_label)))
+    if set(CEFR_LEVELS).issubset(set(levels)):
+        body.append('<p class="lv-lede">All six CEFR levels (A1–C2) are available for %s. '
+                    "Extra tracks appear only when separately authored and are labelled as "
+                    "EkGuru tracks, not CEFR levels.</p>" % _clean(name))
+    else:
+        body.append('<p class="lv-lede"><b>%s available.</b> This is a partial %s course, not an '
+                    "A1–C2-complete course. Missing or blocked levels stay unpublished until "
+                    "their lessons and tests pass the content gate.</p>"
+                    % (_clean(", ".join(levels)), _clean(name)))
 
     total = dict(lessons=0, vocab=0, questions=0)
     cards = []
     published = []
     for lv, data in zip(levels, loaded):
-        if data is None or not is_publishable(data):
+        if data is None or not is_publishable(data, code, lv):
             continue
         published.append(lv)
         n = counts_of(data, code, name)
@@ -723,7 +773,7 @@ def ladder_page(code, course, levels, loaded, rungmap, figs):
         fig = figs.get("%s-%s" % (code, rid))
         if not fig:
             continue
-        cells.append('<figure><img src="../../../%s" width="320" height="200" loading="lazy" '
+        cells.append('<figure><img src="/%s" width="320" height="200" loading="lazy" '
                      'decoding="async" alt="%s"><figcaption><b>%s</b> %s · age %s</figcaption>'
                      "</figure>"
                      % (fig["path"], _clean(fig.get("alt", "")), _clean(r.get("label", rid)),
@@ -752,11 +802,13 @@ def ladder_page(code, course, levels, loaded, rungmap, figs):
 
     body.append("</div>")
 
+    complete = set(CEFR_LEVELS).issubset(set(levels))
+    level_label = "A1 to C2" if complete else ", ".join(levels) + " available"
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "CollectionPage", "@id": "%s/languages/%s/level/#page" % (BASE, code),
-         "name": "%s levels — A1 to C2" % name,
-         "description": "%s levels: %d lessons, %d words and %d questions with answers across the "
-                        "six levels." % (name, total["lessons"], total["vocab"], total["questions"]),
+         "name": "%s levels — %s" % (name, level_label),
+         "description": "%s: %d lessons, %d words and %d questions with answers across %s."
+                        % (name, total["lessons"], total["vocab"], total["questions"], level_label),
          "url": "%s/languages/%s/level/" % (BASE, code), "inLanguage": "en"},
         {"@type": "ItemList", "itemListElement": [
             {"@type": "ListItem", "position": i + 1, "name": "%s %s" % (name, lv),
@@ -766,9 +818,9 @@ def ladder_page(code, course, levels, loaded, rungmap, figs):
     body.append('<script type="application/ld+json">%s</script>'
                 % json.dumps(ld, ensure_ascii=False, separators=(",", ":")))
 
-    title = "%s levels — A1 to C2, lesson by lesson" % name
-    desc = ("Every %s level in full: %d lessons, %d words with romanisation and %d questions with "
-            "answers, from A1 to C2." % (name, total["lessons"], total["vocab"], total["questions"]))
+    title = "%s levels — %s | EkGuru" % (name, level_label)
+    desc = ("%s has %s: %d lessons, %d words with romanisation and %d questions with answers."
+            % (name, level_label, total["lessons"], total["vocab"], total["questions"]))
     url = "languages/%s/level/" % code
     crumb = ('<a href="/">EkGuru</a> › <a href="/languages/">Languages</a> › '
              '<a href="%s">%s</a> › Levels'
@@ -783,7 +835,7 @@ def ladder_page(code, course, levels, loaded, rungmap, figs):
 def rail_block(code, course, levels, loaded):
     rows = []
     for lv, data in zip(levels, loaded):
-        if lv not in CEFR_LEVELS or not is_publishable(data):
+        if lv not in CEFR_LEVELS or not is_publishable(data, code, lv):
             continue
         n = counts_of(data, code, course["name"])
         rows.append('<li><a href="/languages/%s/level/%s/"><b>%s</b> %s'
@@ -793,10 +845,10 @@ def rail_block(code, course, levels, loaded):
     return (RAIL_START + "\n"
             '<section class="lv-levels" aria-labelledby="lv-levels-h">\n'
             '<h2 id="lv-levels-h">This course, level by level, in plain HTML</h2>\n'
-            "<p>The player above keeps your progress; these pages keep the content. Every level of "
-            "the %s course — its lessons, vocabulary, grammar, dialogues, practice questions, quiz, "
-            "worksheet and level test, with all the answers — is also a page you can read without "
-            "JavaScript, print, or link to. "
+            "<p>The player above keeps your progress; these pages keep the content. Each published "
+            "level of the %s course — its lessons, vocabulary, grammar, dialogues, practice questions, "
+            "quiz, worksheet and level test, with all the answers — is also a page you can read "
+            "without JavaScript, print, or link to. Unpublished levels are not presented as complete. "
             '<a href="/languages/%s/level/">The %s ladder in full →</a></p>\n'
             '<ul class="lv-level-list">%s</ul>\n'
             "</section>\n" % (_clean(course["name"]), code, _clean(course["name"]), "".join(rows))
@@ -906,13 +958,11 @@ def main():
             continue
         phase = course.get("phase") or "phase-1"
         loaded = [level_data(code, phase, lv) for lv in levels]
-        pub_levels = [lv for lv, data in zip(levels, loaded) if is_publishable(data)]
-        pub_loaded = [data for data in loaded if is_publishable(data)]
+        pub_levels = [lv for lv, data in zip(levels, loaded) if is_publishable(data, code, lv)]
+        pub_loaded = [data for lv, data in zip(levels, loaded) if is_publishable(data, code, lv)]
         ladder_index = bool(pub_levels)
         title, desc, url, crumb, body = ladder_page(
-            code, course, pub_levels or list(CEFR_LEVELS),
-            pub_loaded if pub_loaded else loaded[:6],
-            rungmap, figs)
+            code, course, pub_levels, pub_loaded, rungmap, figs)
         pages += emit("languages/%s/level/index.html" % code,
                       compose("../../../", title, desc, url, crumb, body, index=ladder_index),
                       check, stale)
@@ -920,24 +970,24 @@ def main():
             site_urls.append("%s/%s" % (BASE, url))
 
         for lv, data in zip(levels, loaded):
-            if is_publishable(data):
+            if is_publishable(data, code, lv):
                 made, why = level_page(code, course, lv, data, rungmap, figs,
                                        pub_levels or list(CEFR_LEVELS))
                 if made is None:
                     title, desc, url, crumb, body = unpublished_page(code, course, lv)
                     pages += emit("languages/%s/level/%s/index.html" % (code, lv.lower()),
-                                  compose("../../../", title, desc, url, crumb, body, index=False),
+                                  compose("../../../../", title, desc, url, crumb, body, index=False),
                                   check, stale)
                     continue
                 title, desc, url, crumb, body = made
                 pages += emit("languages/%s/level/%s/index.html" % (code, lv.lower()),
-                              compose("../../../", title, desc, url, crumb, body, index=True),
+                              compose("../../../../", title, desc, url, crumb, body, index=True),
                               check, stale)
                 site_urls.append("%s/%s" % (BASE, url))
             else:
                 title, desc, url, crumb, body = unpublished_page(code, course, lv)
                 pages += emit("languages/%s/level/%s/index.html" % (code, lv.lower()),
-                              compose("../../../", title, desc, url, crumb, body, index=False),
+                              compose("../../../../", title, desc, url, crumb, body, index=False),
                               check, stale)
 
         hub_levels = [lv for lv in pub_levels if lv in CEFR_LEVELS]

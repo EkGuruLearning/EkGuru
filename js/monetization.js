@@ -9,6 +9,11 @@
   var path = location.pathname.replace(/^\/+/, "/");
   var host = location.hostname;
 
+  // Global release gate. Page eligibility is not authorization to load ads.
+  // Keep false until a Google-certified CMP/TCF path and account-side site
+  // status have both been verified in production.
+  var ADS_RUNTIME_ENABLED = false;
+
   // Page classification for AdSense policy compliance
   var excluded = [
     "/admin", "/privacy/", "/terms/", "/disclaimer/", "/contact/",
@@ -16,10 +21,11 @@
     "/checkout/", "/payment/", "/courses/", "/cookie-policy/"
   ];
   
-  var pageClass = "MEDIUM_CONTENT";
+  var declaredClass = document.documentElement.getAttribute("data-ad-class");
+  var pageClass = declaredClass || "MEDIUM_CONTENT";
   if (excluded.some(function (prefix) { return path.indexOf(prefix) === 0; })) {
     pageClass = path.indexOf("/courses/") === 0 ? "INTERACTIVE_LEARNING" : "UTILITY";
-  } else if (document.querySelector("article, main article, [itemtype*='Article'], .art, .pw-legacy")) {
+  } else if (!declaredClass && document.querySelector("article, main article, [itemtype*='Article'], .art, .pw-legacy")) {
     pageClass = "HIGH_CONTENT";
   }
   document.documentElement.dataset.monetizationClass = pageClass;
@@ -44,6 +50,9 @@
 
   // 1. AdSense - conservative, learning-safe placements
   function initAdSense() {
+    // Fail closed globally. Consent is necessary but not sufficient: this
+    // release also requires the certified CMP and account-side gate.
+    if (!ADS_RUNTIME_ENABLED) return;
     // Only on HIGH_CONTENT and MEDIUM_CONTENT, and only if consent given
     var consent = null;
     try {

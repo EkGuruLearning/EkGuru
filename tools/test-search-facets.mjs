@@ -15,9 +15,9 @@
    and asserts the things a person would notice:
 
      · both dropdowns are filled before anyone types
-     · every language has a name, not an ISO code ("KN")
+     · every published language has a name, not an ISO code ("KN")
      · country=Japan shows Japan pages and nothing else
-     · language=Japanese + "grammar" finds the Japanese grammar page
+     · language=Japanese + "japanese" finds the published Japanese starter page
      · a facet combines with a section pill instead of cancelling it
 
    Run:  node tools/test-search-facets.mjs     (needs the dev-only jsdom)
@@ -95,16 +95,16 @@ const choose = async (sel, re) => {
 await wait(900);
 
 /* ---------- the lists exist before the visitor types ---------- */
-check("country dropdown is filled at load", country && country.options.length > 190,
+check("country dropdown is filled from published search targets", country && country.options.length > 50,
   `${country ? country.options.length : 0} options`);
-check("language dropdown is filled at load", lang && lang.options.length > 25,
+check("language dropdown is filled from published search targets", lang && lang.options.length > 10,
   `${lang ? lang.options.length : 0} options`);
 check("the country list starts with the empty choice",
   optionTexts(country)[0] === "Every country", optionTexts(country)[0]);
 check("the language list starts with the empty choice",
   optionTexts(lang)[0] === "Every language", optionTexts(lang)[0]);
 check("status line says how many pages are searchable",
-  /651 pages/.test(status()), status());
+  new RegExp(String(index.length) + " pages").test(status()), status());
 
 /* ---------- one name per language, no bare codes ---------- */
 const bare = optionTexts(lang).filter((t) => /^[A-Z]{2} \(\d+\)$/.test(t));
@@ -123,12 +123,12 @@ if (japan) {
 }
 await choose(country, /^Every country/);
 
-/* ---------- a language facet finds the page it promises ---------- */
+/* ---------- a language facet finds a published page it promises ---------- */
 await choose(lang, /^Japanese \(/);
-await type("grammar");
+await type("japanese");
 const links = [...w.document.querySelectorAll("#res a[href]")].map((a) => a.getAttribute("href"));
-check("language=Japanese + 'grammar' finds the Japanese grammar page",
-  links.some((h) => /learn-hindi-for-japanese-speakers\/grammar\//.test(h)),
+check("language=Japanese + 'japanese' finds the published Japanese starter page",
+  links.some((h) => /languages\/ja\//.test(h)),
   links.join(" "));
 check("and it says so, instead of 'Nothing matched'",
   !/Nothing matched/.test(status()), status());

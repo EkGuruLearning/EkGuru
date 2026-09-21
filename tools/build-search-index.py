@@ -81,8 +81,29 @@ def keywords(title, desc):
     words = (title + " " + desc).lower()
     return words
 
+
+def page_path(url):
+    clean = url.split("#", 1)[0].split("?", 1)[0]
+    if not clean:
+        return "index.html"
+    if clean.endswith(".html"):
+        return clean
+    return os.path.join(clean, "index.html")
+
+
+def is_public(url):
+    path = page_path(url)
+    if not os.path.isfile(path):
+        return True  # Preserve the existing warning path; do not silently erase typos.
+    head = read_file(path).split("</head>", 1)[0]
+    tags = re.findall(r"<meta\b[^>]*>", head, re.I)
+    return not any("robots" in tag.lower() and "noindex" in tag.lower() for tag in tags)
+
+
 def main():
-    idx = load_index()
+    original = load_index()
+    idx = [entry for entry in original if is_public(entry["u"])]
+    removed = len(original) - len(idx)
     by_url = {e["u"]: e for e in idx}
 
     # 1) reclassify + keep
@@ -99,6 +120,8 @@ def main():
     #    of truth for title/description, so refresh them on every run.
     added = 0
     for p in practice_pages():
+        if not is_public(p):
+            continue
         f = os.path.join(p, "index.html")
         t = title_of(f) or p.rstrip("/").rsplit("/", 1)[-1].replace("-", " ").title()
         d = desc_of(f) or "Free Hindi practice lab."
@@ -129,7 +152,7 @@ def main():
                      ("learn/contexts/heritage/", "Page"),
                      ("learn/hindi/intermediate/", "Page"),
                      ("learn/hindi/", "Page")):
-        if hub in by_url or not os.path.exists(os.path.join(hub, "index.html")):
+        if hub in by_url or not os.path.exists(os.path.join(hub, "index.html")) or not is_public(hub):
             continue
         idx.append({"u": hub, "t": title_of(os.path.join(hub, "index.html")) or hub,
                     "d": desc_of(os.path.join(hub, "index.html")) or "",
@@ -146,7 +169,7 @@ def main():
     for pk in packs:
         u = "languages/%s/" % pk["lang"]
         f = os.path.join(u, "index.html")
-        if not os.path.exists(f):
+        if not os.path.exists(f) or not is_public(u):
             continue
         t = title_of(f) or ("Learn %s basics" % pk["name"])
         d = desc_of(f) or ""
@@ -163,7 +186,7 @@ def main():
     import glob as _glob
     for d in sorted(_glob.glob("learn-hindi-from-*/")):
         f = os.path.join(d, "index.html")
-        if not os.path.exists(f) or d in by_url:
+        if not os.path.exists(f) or d in by_url or not is_public(d):
             continue
         t = title_of(f) or d.strip("/").replace("learn-hindi-from-", "").replace("-", " ").title()
         t = t if t.startswith("Learn Hindi from ") else "Learn Hindi from " + t
@@ -178,7 +201,7 @@ def main():
     #    Add-only: existing tutor entries keep their hand-tuned keywords.
     for d in sorted(_glob.glob("tutor/*/")):
         f = os.path.join(d, "index.html")
-        if not os.path.exists(f) or d in by_url:
+        if not os.path.exists(f) or d in by_url or not is_public(d):
             continue
         t = title_of(f) or d.strip("/").rsplit("/", 1)[-1].replace("-", " ").title()
         dd = desc_of(f) or ""
@@ -186,6 +209,12 @@ def main():
         by_url[d] = idx[-1]
         added += 1
         print("added tutor:", d)
+
+    # Final fail-closed filter: generators above may discover research pages
+    # after the initial cleanup, but local search must never republish them.
+    before_final_filter = len(idx)
+    idx = [entry for entry in idx if is_public(entry["u"])]
+    removed += before_final_filter - len(idx)
 
     # 4) sort by section order then title, write
     order = {s: i for i, s in enumerate(SECTION_ORDER)}
@@ -201,7 +230,7 @@ def main():
     pills += ['<button class="pill" type="button" data-s="%s" aria-pressed="false">%s</button>'
               % (s, s) for s in sections]
     block = '  <div class="row" id="sf">\n    ' + '\n    '.join(pills) + '\n  </div>'
-    html2, n = re.subn(r'  <div class="row" id="sf">.*?</div>', block, html, count=1, flags=re.S)
+    html2, n = re.subn(r'\s*<div\b(?=[^>]*\bclass="[^"]*\brow\b[^"]*")(?=[^>]*\bid="sf")[^>]*>.*?</div>', block, html, count=1, flags=re.S)
     if n != 1:
         print("WARN: could not find pill block in", SEARCH, file=sys.stderr)
         html2 = html
@@ -213,8 +242,8 @@ def main():
                          rf'\g<1>{len(idx)}\g<2>', html2, count=1)
     # the meta description carries the count too — keep it honest for anyone
     # who sees the result in a search engine rather than on the page
-    html2, n4 = re.subn(r'(content="Search )\d+( Hindi lessons)',
-                         rf'\g<1>{len(idx)}\g<2>', html2, count=1)
+    html2, n4 = re.subn(r'(Search )\d+( Hindi lessons)',
+                         rf'\g<1>{len(idx)}\g<2>', html2)
     if n2 or n3 or n4:
         print(f"updated page counts (score={n2}, lede={n3}, meta={n4}) -> {len(idx)}")
     with open(SEARCH, "w", encoding="utf-8") as f:
@@ -222,7 +251,7 @@ def main():
 
     from collections import Counter
     c = Counter(e["s"] for e in idx)
-    print(f"search-index.json: {len(idx)} entries (added {added})")
+    print(f"search-index.json: {len(idx)} entries (added {added}, removed {removed} noindex)")
     for s in SECTION_ORDER:
         if c.get(s):
             print(f"  {s:13} {c[s]}")

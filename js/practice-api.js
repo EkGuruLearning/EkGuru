@@ -67,6 +67,7 @@
   }
 
   async function fetchShared(){
+    if (typeof navigator !== "undefined" && navigator.onLine === false) return read(SHARED_KEY);
     try {
       var res = await fetch("/data/practice-flags.json", { cache:"no-store" });
       if (res.ok){
@@ -80,8 +81,8 @@
 
   async function postAction(action, qhash, meta){
     var payload = { qhash: qhash, action: action, meta: meta||{}, at: Date.now(), anon: true };
-    // Try real API
-    try {
+    // Offline is local-first: never attempt a request the browser already knows cannot work.
+    if (!(typeof navigator !== "undefined" && navigator.onLine === false)) try {
       var res = await fetch(API_BASE+"/"+action, {
         method:"POST",
         headers: {"Content-Type":"application/json"},

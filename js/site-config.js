@@ -282,7 +282,7 @@ window.EKGURU_SITE = {
          ⚠️ v98: if your deployed script checks this word, paste the
          SAME value into the script's doPost() AND here. Left empty
          until you tell us the word you chose. */
-      token: "ricyGSzqougMM2zbVoacUMUPfnYDCnes"
+      token: ""
     },
 
     /* ---------- A SECOND FREE RELAY (optional) ----------
@@ -476,9 +476,9 @@ window.EKGURU_SITE = {
                             ekguru.goatcounter.com
                plausible:   your domain
 
-     Neither sets cookies or needs a consent banner. Google
-     Analytics was deliberately not used — see js/analytics.js
-     for the reasoning.
+     Both are optional in this release. The provider is requested
+     only after the visitor allows analytics in Privacy settings.
+     Google Analytics is not used — see js/analytics.js.
 
      SETUP: goatcounter.com → sign up → pick a code → paste it
      below → push. Free, two minutes.
@@ -492,106 +492,31 @@ window.EKGURU_SITE = {
        Your own visits are NOT counted — open the admin dashboard
        once on a browser, or run
          localStorage.setItem("ekguru_no_track","1")
-       See js/analytics.js. No cookies, no consent banner needed. */
+       See js/analytics.js. The provider uses no analytics cookie,
+       but EkGuru still requires an affirmative local privacy choice. */
     provider: "goatcounter",
     site: "ekguru"
   },
 
   /* =========================================================
-     GOOGLE ADSENSE  (v79)
+     GOOGLE ADSENSE — RELEASE GATE
      ---------------------------------------------------------
-     Prakash: "muje isme google adsense monetization karvana hai
-     jisse paise kama saku, to uske liye all requirement puri kar
-     do."
+     Advertising is intentionally disabled. Content publication,
+     account-side site review and a Google-certified regional consent
+     flow are not complete. Do not add a client id or enable auto ads
+     until data/monetization/google-monetization.json is approved by
+     the release audit and production consent has been browser-tested.
 
-     Everything AdSense checks for is now built:
-
-       /privacy/      REQUIRED. Their own policy makes this a
-                      contractual term, and a missing one is the
-                      most common cause of a rejection that gets
-                      reported as "low value content" instead.
-       /about/        who runs the site, named, with a real link
-       /contact/      built in v78
-       /terms/  /disclaimer/
-       ads.txt        at the domain root
-       461 pages of original, hand-written material
-
-     ═══════════════════════════════════════════════════════
-     WHAT YOU STILL HAVE TO DO — IT CANNOT BE DONE FROM CODE
-     ═══════════════════════════════════════════════════════
-
-       1. Apply at adsense.google.com with this site's URL.
-       2. Google gives you a publisher id: ca-pub-0000000000000000
-       3. Paste it into `client` below and rebuild.
-
-     That is the whole integration. Leave `client` empty and NO
-     ad code is emitted anywhere — the site is exactly as it is
-     today. Fill it in and every page gets the loader plus the
-     verification meta tag.
-
-     ⚠️ DO NOT paste a publisher id you have not been given.
-     Shipping ad code before approval, or with a made-up id, is
-     a policy violation on its own.
-
-     ⚠️ ADSENSE WILL REJECT A SITE THAT IS NOT LIVE. Nothing in
-     v71–v79 has been pushed. Applying before pushing means
-     Google crawls a 404 for /privacy/, /about/ and /contact/ and
-     rejects for exactly the reason this block was written to
-     prevent. PUSH FIRST.
+     The hard runtime gate in js/monetization.js is independent of this
+     value so one configuration edit cannot accidentally load ads.
      ========================================================= */
   ads: {
-    /* Your AdSense publisher id, e.g. "ca-pub-1234567890123456".
-       Empty = no ad code anywhere.
-
-       v88 — SET. Prakash supplied the ads.txt line on 10 Sep 2026:
-           google.com, pub-8175326569491671, DIRECT, f08c47fec0942fa0
-       which means the AdSense account exists and this id is real.
-       The `ca-` prefix belongs on the CLIENT id used by the loader
-       script; ads.txt uses the bare `pub-` form. tools/adsense.js
-       strips it when writing ads.txt, so both come out correct from
-       this one value — never write the id in two places. */
-    client: "ca-pub-8175326569491671",
-
-    /* Auto ads let Google place units itself. It is the right
-       choice for a content site with 461 pages of varying shape:
-       hand-placing slots on generated pages means editing eight
-       generators, and a slot in the wrong place on a phone is an
-       AdSense violation. */
-    auto: true,
-
-    /* Pages that must NEVER carry advertising, as path prefixes.
-       Two different reasons, both of them policy:
-
-         · The admin dashboard is not public content.
-         · Ads ON a privacy policy or a contact form is, at best,
-           a bad look while a human reviewer is reading it — and
-           Google specifically dislikes ads that could be mistaken
-           for page furniture on a form. The search page is
-           noindex and is a utility, not content.
-
-       Matched as a prefix against the path below baseUrl. */
+    client: "",
+    auto: false,
     exclude: ["admin.html", "privacy/", "terms/", "disclaimer/",
-              "contact/", "search/", "404.html",
-
-              /* v88 — tutor.html is a JS SHELL, and that is an
-                 AdSense policy problem the moment ads are switched on.
-
-                 It exists so /tutor.html?id=hemlata still works for
-                 old links; the real, pre-rendered profiles live at
-                 /tutor/<id>/. It carries 107 visible words — the
-                 header, the nav and the footer — and everything a
-                 reader came for is written by JavaScript afterwards.
-
-                 Google's policy names this directly: no ads on
-                 pages "without publisher content", and screenshots
-                 are taken with JS in an unknown state. A page that
-                 is nav-plus-advert to a crawler is exactly the
-                 "low value content" refusal reason, and it is
-                 noindex anyway — so it can never earn from search.
-
-                 There is nothing to gain and an approval to lose.
-                 The four real /tutor/<id>/ pages keep their ads. */
-              "tutor.html"]
+              "copyright/", "cookie-policy/", "monetization-disclosure/",
+              "contact/", "booking/", "support/", "search/", "404.html",
+              "courses/", "languages/", "world-languages/", "tutor.html"]
   },
 
   /* =========================================================

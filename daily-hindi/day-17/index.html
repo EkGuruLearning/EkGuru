@@ -37,15 +37,6 @@
 <!-- ekguru:storybook -->
 <link href="../../css/storybook.css" rel="stylesheet"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LearningResource","@id":"https://ekguru.shop/daily-hindi/day-17/#lesson","name":"Day 17: Your first verbs — Daily Hindi","description":"Day 17 of a free 30-day Hindi course: your first verbs. One idea, one task, 4 words, and the mistake to avoid.","url":"https://ekguru.shop/daily-hindi/day-17/","inLanguage":"en","teaches":"Your first verbs","educationalLevel":"Beginner","learningResourceType":"Lesson","isPartOf":{"@type":"Course","@id":"https://ekguru.shop/daily-hindi/#course","name":"Daily Hindi — 30 days"},"isAccessibleForFree":true,"provider":{"@type":"Organization","name":"EkGuru","url":"https://ekguru.shop/"}},{"@id":"https://ekguru.shop/daily-hindi/day-17/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"EkGuru","item":"https://ekguru.shop/"},{"@type":"ListItem","position":2,"name":"Learn Hindi","item":"https://ekguru.shop/learn/"},{"@type":"ListItem","position":3,"name":"Daily Hindi","item":"https://ekguru.shop/daily-hindi/"},{"@type":"ListItem","position":4,"name":"Day 17","item":"https://ekguru.shop/daily-hindi/day-17/"}]}]}</script>
-<!-- Google AdSense. Emitted only because ads.client is set to a valid
-     publisher id in js/site-config.js. Clear that value and every one
-     of these tags disappears on the next build. See tools/adsense.js. -->
-<!-- ekguru:adsense:start -->
-<link crossorigin="" href="https://pagead2.googlesyndication.com" rel="preconnect"/>
-<link crossorigin="" href="https://googleads.g.doubleclick.net" rel="preconnect"/>
-<meta content="ca-pub-8175326569491671" name="google-adsense-account"/>
-<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8175326569491671"></script>
-<!-- ekguru:adsense:end -->
 </head>
 <body data-topic="section-daily">
 <!-- ekguru:shell-header:start -->
@@ -53,7 +44,7 @@
   <a class="skip" href="#main">Skip to content</a>
   <div class="hdr-in">
     <a class="logo" href="../../index.html">
-      <span class="logo-mark" aria-hidden="true">E</span>
+      <img class="logo-img" src="../../images/logo.svg" width="38" height="38" alt="EkGuru">
       <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
     </a>
     <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
@@ -64,7 +55,7 @@
       <a href="../../learn/">Learn</a>
       <a href="../../support/index.html">Support</a>
       <a href="../../search/">Search</a>
-      <a class="btn btn-primary btn-sm" href="../../find-tutors.html">Book a trial</a>
+      <a class="btn btn-primary btn-sm" href="../../find-tutors.html">Find tutors</a>
     </nav>
   </div>
 </header>
@@ -197,14 +188,12 @@ way to write Hindi in Latin letters.</p></div>
 /* =========================================================
    ANALYTICS EVENTS  (v72, Phase 26)
    ---------------------------------------------------------
-   GoatCounter is already on the site and is privacy-conscious
-   by design: no cookies, no cross-site identifier, nothing
-   that needs a consent banner. No new provider is introduced.
+   GoatCounter is requested only after the visitor allows
+   analytics in Privacy settings. It uses no analytics cookie
+   or cross-site identifier. No new provider is introduced.
 
-   What was missing is that it only counted PAGE VIEWS, so
-   there was no way to tell whether anyone who read a country
-   page ever clicked through to a tutor — which is the only
-   number that matters for this whole build.
+   These custom events run through the same consent-gated
+   analytics helper and do nothing when analytics is off.
 
    Two events are added here, on every page produced by the
    shell:
@@ -300,22 +289,16 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
 <!-- ekguru:consent -->
 <script defer="" src="../../js/cookie-consent.js"></script>
 <!-- ekguru:pw-bands:start -->
-<nav aria-label="Next step" class="pw-next">
-<b>Learn Hindi properly</b>
-<p>The free course takes it in order — A1 to C2, 36 lessons, from the first letter to real
+<nav class="pw-next" aria-label="Next step">
+  <b>Learn Hindi properly</b>
+  <p>The free course takes it in order — A1 to C2, 36 lessons, from the first letter to real
   conversation, and it works without an account.</p>
-<p><a class="btn btn-primary" href="/courses/#/hi">Open the Hindi course</a></p>
+  <p><a class="btn btn-primary" href="/courses/#/hi">Open the Hindi course</a></p>
 </nav>
 <footer class="pw-support">
-<div>
-<b>Every lesson here is free, and always will be.</b>
-<p>No account, no paywall. The practice itself — every quiz, worksheet
-    and drill — carries no ad at all; the pages around it sometimes do,
-    and that is what keeps the lessons running. Keeping it free is the
-    only thing this page asks of you.</p>
-</div>
-<a class="pw-support-cta" href="/support/">Support EkGuru</a>
-<a href="/find-tutors.html">Book a trial lesson</a>
+  <p>Published lessons are currently free. Advertising is disabled in this release.</p>
+  <a class="pw-support-cta" href="/support/">Support EkGuru</a>
+  <a href="/find-tutors.html">Tutor profiles</a>
 </footer>
 <!-- ekguru:pw-bands:end -->
 </main>
@@ -324,10 +307,10 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
   <div class="wrap ftr-in">
     <div>
       <a class="logo" href="../../index.html">
-        <span class="logo-mark" aria-hidden="true">E</span>
+        <img class="logo-img" src="../../images/logo.svg" width="38" height="38" alt="EkGuru">
         <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
       </a>
-      <p style="margin-top:14px">Online Hindi lessons with verified, caring tutors.</p>
+      <p style="margin-top:14px">Online Hindi lessons with independent tutor profiles.</p>
     </div>
     <div>
       <h3>Site</h3>
@@ -357,6 +340,7 @@ if("serviceWorker" in navigator){window.addEventListener("load",function(){
       <a href="../../about/">About EkGuru</a>
       <a href="../../privacy/">Privacy policy</a>
       <a href="../../terms/">Terms of use</a>
+      <a href="../../monetization-disclosure/">Monetization disclosure</a>
       <a href="../../disclaimer/">Disclaimer</a>
       <a href="../../copyright/">Copyright</a>
       <a href="../../cookie-policy/">Cookie policy</a>

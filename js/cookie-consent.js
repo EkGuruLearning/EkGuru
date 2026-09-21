@@ -9,13 +9,17 @@
   var CONSENT_KEY = "ekguru_cookie_consent_v3";
   var CONSENT_DATE_KEY = "ekguru_consent_date_v3";
   var COUNTRY_KEY = "ekguru_country";
+  // A local preferences banner is not a Google-certified CMP/TCF deployment.
+  // Advertising consent therefore remains unavailable and false until the
+  // account-side certified flow is deployed and production-tested.
+  var ADVERTISING_AVAILABLE = false;
 
   // Cookie categories explained
   var COOKIE_INFO = {
     necessary: {
       name: "Necessary",
-      desc: "Essential for site to work: session, security, load balancing. No consent needed.",
-      examples: "session_id, csrf_token, preferences",
+      desc: "Basic static-page delivery and the record of your privacy choice. EkGuru has no login session.",
+      examples: "Privacy choice in local storage; no EkGuru HTTP cookie",
       required: true
     },
     functional: {
@@ -32,8 +36,8 @@
     },
     advertising: {
       name: "Advertising",
-      desc: "Supports free lessons: Google AdSense shows relevant ads. Personalized ads only with your consent.",
-      examples: "Google AdSense cookies, ad personalization",
+      desc: "Currently disabled. A certified regional consent flow must be deployed before AdSense can be enabled.",
+      examples: "No AdSense loader in this release",
       required: false
     }
   };
@@ -46,6 +50,9 @@
   }
 
   function writeConsent(consent) {
+    var previous = readConsent();
+    consent = consent || defaultConsent();
+    consent.advertising = ADVERTISING_AVAILABLE && consent.advertising === true;
     try {
       localStorage.setItem(CONSENT_KEY, JSON.stringify(consent));
       localStorage.setItem(CONSENT_DATE_KEY, new Date().toISOString());
@@ -72,6 +79,11 @@
     } catch (e) {}
     document.documentElement.setAttribute('data-consent', JSON.stringify(consent));
     document.dispatchEvent(new CustomEvent('ekguru:consent', { detail: consent }));
+    if (previous && previous.advertising && !consent.advertising) {
+      document.querySelectorAll('.ad-slot-wrapper, ins.adsbygoogle').forEach(function (node) {
+        if (node.parentNode) node.parentNode.removeChild(node);
+      });
+    }
   }
 
   function defaultConsent() {
@@ -95,7 +107,7 @@
     var banner = document.createElement('div');
     banner.id = 'ekguru-consent';
     banner.setAttribute('role', 'dialog');
-    banner.setAttribute('aria-label', 'Cookie consent');
+    banner.setAttribute('aria-label', 'Privacy settings');
     banner.setAttribute('aria-live', 'polite');
     
     var isSmall = window.innerWidth < 600;
@@ -103,15 +115,15 @@
     banner.innerHTML = 
       '<div class="consent-in">' +
         '<div class="consent-text">' +
-          '<b>🍪 We use cookies to make learning better</b><br>' +
-          '<span style="font-size:.88em">Essential cookies keep progress on your device. ' +
-          'With your permission, we use analytics to improve lessons and advertising to keep everything free. ' +
-          'Your data never leaves your device except for ads (Google) when you allow. ' +
-          '<a href="/cookie-policy/" target="_blank">Learn how we use cookies</a> • ' +
-          '<a href="/privacy/" target="_blank">Privacy policy</a></span>' +
-          '<details style="margin-top:10px"><summary style="cursor:pointer;font-weight:700;font-size:.85em">⚙️ Cookie details</summary>' +
+          '<b>Privacy choices and browser storage</b><br>' +
+          '<span style="font-size:.88em">Learning progress and preferences can stay in browser local storage. ' +
+          'With your permission, cookieless analytics counts page views so we can improve lessons. ' +
+          'Advertising is disabled until a certified consent flow is deployed. Learning progress stays on your device. ' +
+          '<a href="/cookie-policy/" target="_blank" rel="noopener">Cookie and storage details</a> • ' +
+          '<a href="/privacy/" target="_blank" rel="noopener">Privacy policy</a></span>' +
+          '<details style="margin-top:10px"><summary style="cursor:pointer;font-weight:700;font-size:.85em">⚙️ Storage and provider details</summary>' +
             '<div style="margin-top:10px;display:grid;gap:8px;font-size:.84em">' +
-              '<div><b>🔒 Necessary (always on):</b> ' + COOKIE_INFO.necessary.desc + '<br><small>Examples: ' + COOKIE_INFO.necessary.examples + '</small></div>' +
+              '<div><b>🔒 Necessary record:</b> ' + COOKIE_INFO.necessary.desc + '<br><small>Examples: ' + COOKIE_INFO.necessary.examples + '</small></div>' +
               '<div><b>⚙️ Functional:</b> ' + COOKIE_INFO.functional.desc + '<br><small>Examples: ' + COOKIE_INFO.functional.examples + '</small></div>' +
               '<div><b>📊 Analytics:</b> ' + COOKIE_INFO.analytics.desc + '<br><small>Examples: ' + COOKIE_INFO.analytics.examples + '</small></div>' +
               '<div><b>💰 Advertising:</b> ' + COOKIE_INFO.advertising.desc + '<br><small>Examples: ' + COOKIE_INFO.advertising.examples + '</small></div>' +
@@ -125,17 +137,26 @@
         '</div>' +
       '</div>' +
       '<div id="consent-custom" style="display:none;max-width:1160px;margin:16px auto 0;padding:16px;border:1px solid #e4e4ef;border-radius:12px;background:#f8f7fd">' +
-        '<h3 style="margin:0 0 12px;font-size:1rem">Customize cookies</h3>' +
+        '<h3 style="margin:0 0 12px;font-size:1rem">Customize privacy choices</h3>' +
         '<div style="display:grid;gap:12px">' +
-          '<label style="display:flex;gap:10px;align-items:start"><input type="checkbox" checked disabled> <span><b>Necessary</b> — site cannot work without these</span></label>' +
-          '<label style="display:flex;gap:10px;align-items:start"><input type="checkbox" id="cc-functional" checked> <span><b>Functional</b> — remembers progress, language, offline saves</span></label>' +
+          '<label style="display:flex;gap:10px;align-items:start"><input type="checkbox" checked disabled> <span><b>Necessary</b> — records this privacy choice</span></label>' +
+          '<label style="display:flex;gap:10px;align-items:start"><input type="checkbox" id="cc-functional"> <span><b>Functional</b> — remembers progress, language, offline saves</span></label>' +
           '<label style="display:flex;gap:10px;align-items:start"><input type="checkbox" id="cc-analytics"> <span><b>Analytics</b> — helps us improve lessons (anonymous)</span></label>' +
-          '<label style="display:flex;gap:10px;align-items:start"><input type="checkbox" id="cc-advertising"> <span><b>Advertising</b> — keeps lessons free via Google AdSense</span></label>' +
+          '<label style="display:flex;gap:10px;align-items:start"><input type="checkbox" id="cc-advertising" disabled> <span><b>Advertising</b> — unavailable until a certified consent flow is deployed</span></label>' +
         '</div>' +
         '<div style="margin-top:16px;display:flex;gap:10px"><button type="button" class="consent-btn consent-accept" id="consent-save-custom">Save preferences</button><button type="button" class="consent-btn consent-reject" id="consent-cancel-custom">Cancel</button></div>' +
       '</div>';
 
     document.body.appendChild(banner);
+    var saved = readConsent();
+    if (saved) {
+      var functionalBox = banner.querySelector('#cc-functional');
+      var analyticsBox = banner.querySelector('#cc-analytics');
+      var advertisingBox = banner.querySelector('#cc-advertising');
+      if (functionalBox) functionalBox.checked = saved.functional === true;
+      if (analyticsBox) analyticsBox.checked = saved.analytics === true;
+      if (advertisingBox) advertisingBox.checked = ADVERTISING_AVAILABLE && saved.advertising === true;
+    }
     
     // Animate in
     requestAnimationFrame(function() {
@@ -146,7 +167,7 @@
 
     // Handlers
     banner.querySelector('#consent-accept-all').addEventListener('click', function() {
-      writeConsent({ necessary: true, functional: true, analytics: true, advertising: true, timestamp: Date.now() });
+      writeConsent({ necessary: true, functional: true, analytics: true, advertising: false, timestamp: Date.now() });
       banner.classList.remove('show');
       setTimeout(function() { if (banner.parentNode) banner.parentNode.removeChild(banner); }, 400);
     });
@@ -176,6 +197,25 @@
     });
   }
 
+  function ensureSettingsButton() {
+    if (document.getElementById('ekguru-cookie-settings')) return;
+    var button = document.createElement('button');
+    button.type = 'button';
+    button.id = 'ekguru-cookie-settings';
+    button.className = 'consent-settings';
+    button.textContent = 'Privacy settings';
+    button.setAttribute('aria-haspopup', 'dialog');
+    button.style.cssText = 'position:fixed;left:12px;bottom:12px;z-index:89;padding:8px 12px;border:1px solid #d7d3e8;border-radius:999px;background:#fff;color:#332a66;font:600 13px/1.2 system-ui;box-shadow:0 2px 10px rgba(0,0,0,.1);cursor:pointer';
+    button.addEventListener('click', function () {
+      createBanner();
+      var custom = document.getElementById('consent-custom');
+      if (custom) custom.style.display = 'block';
+      var dialog = document.getElementById('ekguru-consent');
+      if (dialog) dialog.scrollIntoView({ block: 'nearest' });
+    });
+    document.body.appendChild(button);
+  }
+
   function initConsentMode() {
     // Default deny for GDPR compliance until user consents
     try {
@@ -196,6 +236,7 @@
 
   function init() {
     initConsentMode();
+    ensureSettingsButton();
     
     var consent = readConsent();
     if (consent) {
@@ -211,13 +252,16 @@
       hasConsent: hasConsent,
       setConsent: writeConsent,
       showBanner: createBanner,
+      withdrawOptional: function () {
+        writeConsent({ necessary: true, functional: false, analytics: false, advertising: false, timestamp: Date.now() });
+      },
+      advertisingAvailable: ADVERTISING_AVAILABLE,
       info: COOKIE_INFO,
       // How cookies are used - for cookie-policy page
       usage: {
         essential: [
-          "Keep you logged in (no account system, but progress tracking)",
-          "Security: prevent CSRF attacks",
-          "Remember cookie consent choice itself"
+          "Remember the privacy choice itself in local storage",
+          "Deliver the static page without an EkGuru login session"
         ],
         functional: [
           "Save lesson progress on your device (localStorage)",
@@ -228,31 +272,26 @@
           "Quiz and test scores"
         ],
         analytics: [
-          "Anonymous page views (which lessons are popular)",
-          "Search queries (what learners look for)",
-          "No personal data collected, no IP tracking",
-          "Helps us improve content depth for AdSense approval"
+          "Cookieless page views after an affirmative choice",
+          "Page, referrer, approximate country and browser type",
+          "No cross-site advertising identifier"
         ],
         advertising: [
-          "Google AdSense: shows ads to keep lessons free",
-          "Ad personalization only if you consent",
-          "Ad measurement: which ads support the site",
-          "No ad on learning tasks (quiz, practice, typing)",
-          "Safe zones: navigation, forms, course player excluded"
+          "Unavailable in this release",
+          "No AdSense loader or ad unit is authorized"
         ],
         howToUse: [
-          "Essential: site won't work without - always on",
-          "Functional: enables progress tracking, offline mode - recommended",
-          "Analytics: helps us create better lessons - optional but helpful",
-          "Advertising: keeps site free, supports creators - optional",
-          "You can change anytime via footer link or cookie policy page"
+          "Necessary: records the privacy choice",
+          "Functional: local progress and display preferences",
+          "Analytics: optional cookieless page counts",
+          "Advertising: disabled and unavailable",
+          "Change choices with the Privacy settings button"
         ],
         monetization: [
-          "Google AdSense: main revenue - conservative ad load",
-          "Affiliate links: language learning tools (future)",
-          "Donations: Buy Me a Coffee, support page",
-          "Tutor bookings: commission from trial lessons",
-          "All monetization respects learning flow - no ads during quizzes"
+          "Optional one-time support uses a Razorpay-hosted link",
+          "Google AdSense is disabled pending site and certified-consent readiness",
+          "Affiliate tracking is disabled until a real programme relationship is configured",
+          "Tutor-lesson payments are not collected by EkGuru in this release"
         ]
       }
     };

@@ -174,7 +174,7 @@
     }
     
     // Add visual learning grid
-    if (!main.querySelector('.visual-learning-grid') && main.innerText.length > 500) {
+    if (!main.querySelector('.visual-learning-grid') && (main.innerText || main.textContent || '').length > 500) {
       var langInfo = VISUALS.languages[langCode];
       if (langInfo) {
         var grid = document.createElement('div');
