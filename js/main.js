@@ -771,11 +771,14 @@
     }
 
     var totalLessons = TUTORS.reduce(function (a, x) { return a + (x.lessonsCount || 0); }, 0);
+    var totalReviews = TUTORS.reduce(function (a, x) { return a + (x.reviewsCount || 0); }, 0);
     var avg = TUTORS.length ? (TUTORS.reduce(function (a, x) { return a + (x.rating || 0); }, 0) / TUTORS.length) : 0;
     var minP = TUTORS.length ? Math.min.apply(null, TUTORS.map(function (x) { return x.priceUSD || 0; })) : 0;
 
     var s1 = $("#stat-tutors"), s2 = $("#stat-lessons"), s3 = $("#stat-rating"), s4 = $("#stat-price");
-    if (s3) s3.textContent = avg.toFixed(1) + "★";
+    /* Honesty gate: with zero on-site reviews there is no rating to show —
+       never print a fabricated 0.0★/1.0★; show a plain dash instead. */
+    if (s3) s3.textContent = totalReviews > 0 ? avg.toFixed(1) + "★" : "—";
     if (s4) { s4.setAttribute("data-usd", minP); s4.setAttribute("data-usd-mode", "bare"); s4.textContent = px(minP); }
     if (s1 || s2) {
       var fired = false;
