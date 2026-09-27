@@ -58,15 +58,29 @@ ekguruTutor({
      verified   : true = blue tick on her photo
      superTutor : true = gold Super Tutor chip beside her name
      ================================================================ */
-  rating: 5.0,
-  reviewsCount: 3,
-  lessonsCount: 40,
-  priceUSD: 3,
+  /* ── Marketplace-imported numbers REMOVED (26 Sep 2026) ────────────
+     The old values (rating 5.0 / 3 reviews / 40 lessons) described her
+     record on an external marketplace, not on EkGuru, and the reviews
+     themselves were excerpts copied from that marketplace's website.
+     Policy: EkGuru shows only numbers it can verify from its own data.
+     No EkGuru lessons have been delivered yet, and no site-native
+     review exists — so nothing is claimed. Her external profile stays
+     linked below so a student can check her track record there.
+     priceUSD now matches the live sheet ($6); the sheet wins anyway,
+     this file is only the fallback. ───────────────────────────────── */
+  rating: 0,
+  reviewsCount: 0,
+  lessonsCount: 0,
+  priceUSD: 6,
   lessonLength: "50 min",
   experienceYears: 3,
   trialAvailable: true,
   verified: true,
-  superTutor: true,
+  /* superTutor: the gold chip is not rendered anywhere on the site today,
+     and there is no EkGuru record that earns the label — ratings, reviews
+     and lessons on EkGuru are all zero. Keep false until a real record
+     exists. */
+  superTutor: false,
 
   /* ===== EXTERNAL LINK — SUSHILA ONLY ================================
      preplyUrl : her booking page elsewhere. "" hides the button.
@@ -173,25 +187,12 @@ ekguruTutor({
      Add / edit / delete freely. After changing, update HER rating and
      reviewsCount above so Google's star rating stays honest.
      Format: { name: "...", date: "YYYY-MM-DD", stars: 5, text: "..." }
+
+     EMPTY on purpose (26 Sep 2026): the three excerpts that used to sit
+     here were copied from her profile on an external marketplace. They
+     were that platform's review content, reproduced here with an
+     attribution line — still copied. They are removed, not reworded.
+     Only reviews left by EkGuru students through this site belong here.
      ================================================================ */
-  reviews: [
-    {
-      name: "Tomasz",
-      date: "2026-07-12",
-      stars: 5,
-      text: "Sushila is a very patient teacher. She adjusts the tempo to the student's level and the content to his needs, is very calm and helpful. Her pronunciation is very clear and understandable. A lesson with Sushila is a highly enjoyable Hindi experience with lots of new knowledge. Thank you, Sushila!"
-    },
-    {
-      name: "Jon",
-      date: "2026-06-19",
-      stars: 5,
-      text: "Shashi is very patient and maintains a good pace during lessons. She plans the lessons according to my level, and we mostly converse in Hindi. She is a wonderful person with a calm and gentle nature — we even talk about Hindi culture. She is very professional and we share a great rapport. Shashi, you are amazing — thank you!"
-    },
-    {
-      name: "Matthew",
-      date: "2026-06-18",
-      stars: 5,
-      text: "Sushila is well organised, friendly, and most importantly she is patient. She is always fully present in class. She is helping me with my pronunciation, reading and speaking, and it is going well. Classes are fun — we read children's stories and other school material. I look forward to classes and I recommend her as a tutor."
-    }
-  ]
+  reviews: []
 });

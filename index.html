@@ -230,7 +230,11 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3.4vw,2.3rem)}p{ma
      Same contract as before, new skin:
        #home-search / #home-q   js/main.js §15 navigates to find-tutors
        #hero-tutor              main.js swaps in the first live tutor
-       #stat-tutors … #stat-price   main.js writes the live figures
+       #stat-tutors, #stat-price   main.js writes the live figures
+                                (lesson/review counts removed v-next:
+                                only numbers EkGuru can verify are
+                                shown — registry count and minimum
+                                listed price)
        data-i18n keys           unchanged, so all seven market
                                 translations keep working
      Everything visual comes from the xp-* components in
@@ -274,9 +278,9 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3.4vw,2.3rem)}p{ma
 </ul>
 <ul class="xp-stats xp-stagger">
 <li class="xp-stat"><b id="stat-tutors">2</b><span>Tutor profiles</span></li>
-<li class="xp-stat"><b id="stat-lessons">40+</b><span data-i18n="hero.stat2">Lessons listed in source profiles</span></li>
-<li class="xp-stat"><b id="stat-rating">5.0★</b><span data-i18n="hero.stat3">Profile review average</span></li>
 <li class="xp-stat"><b id="stat-price">$6</b><span data-i18n="hero.stat4">Profile prices from</span></li>
+<li class="xp-stat"><b>50 min</b><span>Stated lesson length</span></li>
+<li class="xp-stat"><b>1-on-1</b><span>Online lessons</span></li>
 </ul>
 </div>
 <div class="xp-visual xp-rise">
@@ -292,7 +296,7 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3.4vw,2.3rem)}p{ma
 <span data-xp-hello="">नमस्ते</span>
 <small>Hindi</small>
 </div>
-<span class="xp-float xp-float-1">⭐ <span data-i18n="hero.chip1">Displayed profile rating 5.0</span></span>
+<span class="xp-float xp-float-1">⭐ <span data-i18n="hero.chip1">Rating appears after the first on-site review</span></span>
 <span class="xp-float xp-float-2">💬 <span data-i18n="hero.chip2">Tutor-stated approach</span></span>
 <span class="xp-float xp-float-3">🎯 <span data-i18n="hero.chip3">Personal study plan</span></span>
 <div class="hero-card xp-sheen" id="hero-tutor">
@@ -303,7 +307,7 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3.4vw,2.3rem)}p{ma
 <img alt="Sushila G., online Hindi tutor" height="96" loading="eager" src="images/sushila.jpg" width="96"/>
 <p class="hc-name">Sushila G.</p>
 <p class="sm">Hindi tutor · India</p>
-<p class="stars" style="margin:6px 0 10px">Source profile: ★★★★★ 5.0</p>
+<p class="sm" style="margin:6px 0 10px">Tutor-stated profile · rating appears after the first on-site review</p>
 <a class="btn btn-primary btn-sm btn-block" href="tutor/sushila-g/">View profile</a>
 </div>
 <div aria-hidden="true" class="xp-letters xp-script" data-xp-letters="">
@@ -363,14 +367,14 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3.4vw,2.3rem)}p{ma
 </article>
 <article class="xp-card">
 <h3 data-i18n="why.w3t">Displayed prices</h3>
-<p data-i18n="why.w3d">Imported profiles currently list lessons from $6. Confirm current price and terms before booking.</p>
+<p data-i18n="why.w3d">Tutor-provided profiles currently list lessons from $6. Confirm current price and terms before booking.</p>
 </article>
 <article class="xp-card">
 <h3 data-i18n="why.w4t">Request a time</h3>
 <p data-i18n="why.w4d">Share your timezone and preferred times, then wait for availability confirmation.</p>
 </article>
 </div>
-<p class="center xp-owner">EkGuru is built and run by <b>Prakash</b> (B.Tech, MNIT Jaipur). Tutor statements, imported prices and external profiles are labelled so you can confirm them before booking. <a href="about/">Read the full story →</a></p>
+<p class="center xp-owner">EkGuru is built and run by <b>Prakash</b> (B.Tech, MNIT Jaipur). Tutor statements, prices and external profile links are labelled so you can confirm them before you book. <a href="about/">Read the full story →</a></p>
 </div>
 </section>
 <!-- =========================================================
@@ -394,7 +398,7 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3.4vw,2.3rem)}p{ma
           <div class="tcard-top">
             <div class="tcard-photo"><picture><source type="image/webp" srcset="images/sushila-176.webp 176w, images/sushila-264.webp 264w" sizes="88px"><img src="images/sushila-264.jpg" alt="Sushila G., Hindi tutor" width="88" height="88" loading="lazy" decoding="async"></picture></div>
             <div><h3>Sushila G.</h3><p class="role">Hindi tutor profile</p>
-            <div class="meta"><span class="stars">Source profile: ★★★★★ <b>5.0</b></span><span>3 attributed reviews</span><span>Source profile lists 40 lessons</span><span>Tutor states 3+ years' experience</span></div></div>
+            <div class="meta"><span>No public reviews listed</span><span>Tutor states 3+ years' experience</span></div></div>
           </div>
           <div class="tcard-body"><p><strong>Tutor-provided profile:</strong> Hello! My name is Sashi, and I am a passionate Hindi tutor. I love teaching Hindi and helping students learn in an easy, fun and effective way. I have experience…</p></div>
           <div class="tcard-foot"><div class="price"><b data-usd="6" data-usd-mode="bare">$6</b><span>Profile-listed 50 min lesson · confirm current price</span></div>
@@ -465,21 +469,21 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3.4vw,2.3rem)}p{ma
 <section class="xp-sec soft" id="reviews">
 <div class="xp-wrap">
 <div class="xp-head xp-rise">
-<span class="xp-kicker">Student reviews</span>
-<h2>Review excerpts attributed to Preply</h2>
+<span class="xp-kicker">Meet the tutors</span>
+<h2>Tutor introductions, in their own words</h2>
 <p class="center xp-mid-cta" style="margin:12px 0 8px">
-<a class="btn btn-ghost" href="tutor/sushila-g/">Read all reviews on Sushila's profile</a>
+<a class="btn btn-ghost" href="find-tutors.html">Compare all tutor profiles</a>
 </p>
 <div aria-hidden="true" class="xp-rule"></div>
 </div>
 <div class="xp-grid xp-grid-3 xp-stagger">
 <figure class="xp-quote">
-<p>“She adjusts the tempo to the student's level and the content to his needs. Her pronunciation is very clear and understandable.”</p>
-<figcaption><b>Tomasz</b><span>Excerpt attributed to <a href="https://preply.com/en/tutor/7717290" rel="nofollow noopener">Preply · Sushila G.</a></span></figcaption>
+<p>Every published profile is written by the tutor: their subjects, their approach, their stated price and their weekly times. Read it the way you would read a first message from them.</p>
+<figcaption><b>Profiles</b><span>Tutor-provided · confirm current details before booking</span></figcaption>
 </figure>
 <figure class="xp-quote">
-<p>“She plans the lessons according to my level, and we mostly converse in Hindi. We even talk about Hindi culture.”</p>
-<figcaption><b>Jon</b><span>Excerpt attributed to <a href="https://preply.com/en/tutor/7717290" rel="nofollow noopener">Preply · Sushila G.</a></span></figcaption>
+<p>Reviews on EkGuru appear only when a student leaves one through the site after a lesson enquiry. There are no imported review excerpts and no star rating without a review behind it.</p>
+<figcaption><b>Reviews</b><span>Site-native only · none published yet</span></figcaption>
 </figure>
 <figure class="xp-quote xp-quote-video">
 <a href="https://www.youtube.com/watch?v=Ykic7gkyHjg" rel="noopener">
@@ -536,7 +540,7 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3.4vw,2.3rem)}p{ma
 </div>
 <div class="faq-wrap reveal" id="faq-list">
 <details class="faq" open=""><summary>How much does an online Hindi lesson cost on EkGuru?</summary>
-<p>Profiles show imported USD prices and an estimated display in your selected currency. Confirm the current price, billing currency and any external-platform terms before booking.</p></details>
+<p>Profiles show tutor-listed USD prices and an estimated display in your selected currency. Confirm the current price, billing currency and any external-platform terms before booking.</p></details>
 <details class="faq"><summary>Do I need to know any Hindi before starting?</summary>
 <p>EkGuru has free beginner materials. For paid lessons, check the levels stated on each profile and ask the tutor to confirm that your starting point is suitable.</p></details>
 <details class="faq"><summary>Are the tutors native Hindi speakers?</summary>
