@@ -40,7 +40,7 @@ jobs:
       - name: Page inventory (SEO/sitemap/noindex gates)
         run: python3 tools/build-full-page-inventory.py
 
-      - name: Data-source tests (network: published Sheet endpoints)
+      - name: "Data-source tests (network: published Sheet endpoints)"
         run: |
           python3 tools/test-data-sources.py
           node tools/test-sheet-loader.js
