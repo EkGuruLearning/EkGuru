@@ -66,7 +66,7 @@ ekguruTutor({
   superTutor: false,                  // true = ⭐ Super Tutor chip next to her name
 
   /* ===== EXTERNAL LINK — HEMLATA ONLY ================================ */
-  preplyUrl: "",                      // ← EDIT ME: HER Preply link. "" hides the button.
+  preplyUrl: "",                      // owner's record only — the site does not render external marketplace links (27 Sep 2026).
 
   /* ===== CONTACT — HEMLATA ONLY =====================================
      ⚠️ EDIT ME. These two lines control HEMLATA's contact only.

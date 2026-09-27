@@ -154,18 +154,22 @@ function jsonLd(t) {
     : SITE + "/" + String(t.photo || "").replace(/^\//, "");
   const excerpt = (t.about && t.about[0]) || t.headline || "";
 
+  /* 27 Sep 2026 master audit — the description carries the tutor's own
+     first-paragraph text, with no "profile excerpt" meta-label and no
+     sameAs to an external marketplace profile. The marketplace URL
+     (preplyUrl) stays in the owner's data for records only; the site
+     does not emit it in structured data or in any link. */
   const graph = [
     {
       "@type": "Person",
       "@id": url + "#person",
       name: t.name,
       jobTitle: "Hindi Tutor",
-      description: "Tutor-provided profile excerpt: " + excerpt,
+      description: excerpt,
       image: photo,
       url,
       knowsLanguage: (t.speaks || []).map((s) => (typeof s === "string" ? s : s.lang)).filter(Boolean),
-      knowsAbout: t.teaches || [],
-      sameAs: [t.preplyUrl].filter(Boolean)
+      knowsAbout: t.teaches || []
     },
     {
       "@type": "BreadcrumbList",
@@ -228,14 +232,14 @@ function headBlock(t, price) {
     );
   }
 
+  /* 27 Sep 2026 master audit — the "View current Preply profile" CTA is
+     gone. The site does not link students to external marketplace
+     profiles; enquiries route through EkGuru (the booking flow). */
   const cta = [
     '<a class="btn btn-primary" href="../../tutor.html?id=' + t.id + '">Request a lesson with ' + esc(t.name) + "</a>",
     '<a class="btn btn-ghost" href="mailto:' + (t.formKey || t.email || "") +
       "?subject=" + encodeURIComponent("Hindi lesson enquiry — " + t.name) + '">Send an enquiry</a>'
   ];
-  if (t.preplyUrl) {
-    cta.push('<a class="btn btn-ghost" href="' + esc(t.preplyUrl) + '" rel="noopener nofollow">View current Preply profile</a>');
-  }
 
   return `  <header class="pr-head">
     <picture>
@@ -338,7 +342,7 @@ function availabilityBlock(t) {
     <h2>Profile-listed times (confirmation required)</h2>
     <p>${sentence} Times are shown in ${esc(t.timezone || "IST (GMT+5:30)")}. This is not a live availability calendar; request confirmation before making plans.</p>
     <table class="pr-table">
-      <caption>Imported weekly times for ${esc(t.name)}; availability is not guaranteed</caption>
+      <caption>The tutor-provided schedule for ${esc(t.name)}; availability is not guaranteed</caption>
       <thead><tr><th scope="col">Day</th><th scope="col">Available times</th></tr></thead>
       <tbody>
 ${rows}
@@ -357,16 +361,20 @@ function videoBlock(t) {
   </section>`;
 }
 
+/* 27 Sep 2026 master audit — reviews here come from the tutor file's
+   `reviews` array, which holds site-native reviews only (external-
+   marketplace excerpts were removed 26 Sep 2026 and the runtime gate
+   in js/reviews.js keeps them out). No marketplace provenance text. */
 function reviewsBlock(t) {
-  const reviews = t.reviews || [];
+  const reviews = (t.reviews || []).filter(function (r) {
+    return ["preply", "italki"].indexOf(String(r.source || "").trim().toLowerCase()) === -1;
+  });
   if (!reviews.length) return "";
   const quote = (r) => {
     const value = r.stars || r.rating;
     const stars = value ? "★".repeat(Math.round(Number(value))) : "";
     const who = [r.name || r.student || r.author || "Reviewer", r.date].filter(Boolean).join(", ");
-    const source = r.source === "preply" && t.preplyUrl
-      ? ' · left via the tutor\'s external listing, shown for provenance'
-      : " · left through EkGuru";
+    const source = " · left through EkGuru";
     return `    <blockquote class="pr-quote">
       <p>${esc(r.text || r.body || "")}</p>
       <footer>— <cite>${esc(who)}</cite>${stars ? " · " + stars : ""}${source}</footer>
@@ -581,7 +589,7 @@ function feedItem(t, pubDate) {
   return `  <item>\n    <title>${esc(t.name + " — " + (t.headline || "Hindi tutor"))}</title>\n` +
     `    <link>${SITE}/tutor/${t.id}/</link>\n` +
     `    <guid isPermaLink="true">${SITE}/tutor/${t.id}/</guid>\n` +
-    `    <description>${esc("Tutor-provided profile excerpt: " + first)}${price ? " Imported profile price: " + price + " per " + (t.lessonLength || "50 min") + "; confirm current details." : ""}</description>\n` +
+    `    <description>${esc("Tutor-provided introduction: " + first)}${price ? " Profile-listed price: " + price + " per " + (t.lessonLength || "50 min") + "; confirm current details." : ""}</description>\n` +
     `    <category>Hindi tutor</category>\n    <pubDate>${rfc822(pubDate)}</pubDate>\n  </item>`;
 }
 

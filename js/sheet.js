@@ -413,13 +413,51 @@
       return full;
     },
 
-    /* Mark a tutor as verified, or a Super Tutor, from the sheet. */
+    /* =========================================================
+       REPUTATION-METRIC POLICY  (27 Sep 2026 master audit)
+       ---------------------------------------------------------
+       A null transform = "the sheet cell does not change this
+       field". The four cells below are deliberately refused:
+
+       rating / reviewsCount
+         EkGuru's rating is only ever the average of reviews
+         that EkGuru students left on EkGuru. js/reviews.js
+         derives both from the published site-native reviews
+         and overwrites whatever is under them — a star figure
+         that has no review behind it is a fabricated rating,
+         and that is exactly what the stale sheet was re-serving
+         live (5.0 / 3 / 40) on 27 Sep 2026. The sheet cells
+         stay in the sheet for the owner's records; the site
+         simply no longer displays them.
+
+       lessonsCount
+         EkGuru has no lesson-delivery ledger — bookings are
+         enquiries, not completed-lesson records. Any number in
+         this column was imported from an external marketplace.
+         The field stays 0 until a real on-site lesson log
+         exists to fill it from.
+
+       superTutor
+         The badge is only earned by an EkGuru record. There is
+         no such record, and the label must not appear just
+         because a marketplace once granted one.
+
+       preplyUrl
+         The site does not link students to external
+         marketplace profiles. The column remains in the sheet
+         as the owner's record; the site ignores it. (27 Sep
+         2026 master audit: zero tolerance for competitor
+         attribution in published tutor content.)
+       ========================================================= */
+    /* Owner's verification flag — kept as data. Not rendered as a
+       public badge (nothing on the site displays it), so it can
+       never read as a claim the site has not made elsewhere. */
     verified:   function (v) { return /^(yes|true|1|y)$/i.test(v); },
-    superTutor: function (v) { return /^(yes|true|1|y)$/i.test(v); },
-    rating:     function (v) { var n = Number(v); return isFinite(n) && n >= 0 && n <= 5 ? n : null; },
-    reviewsCount:  function (v) { var n = Number(v); return isFinite(n) && n >= 0 ? n : null; },
-    lessonsCount:  function (v) { var n = Number(v); return isFinite(n) && n >= 0 ? n : null; },
-    preplyUrl:  function (v) { return /^https?:\/\//.test(v) ? v : null; },
+    superTutor: function () { return null; },  /* policy: not earnable from the sheet */
+    rating:     function () { return null; },  /* policy: derived from site-native reviews only */
+    reviewsCount:  function () { return null; },  /* policy: derived from site-native reviews only */
+    lessonsCount:  function () { return null; },  /* policy: no on-site lesson ledger exists */
+    preplyUrl:  function () { return null; },  /* policy: site never links to external marketplaces */
     calLink:    function (v) { return /^[a-z0-9-]+\/[a-z0-9-]+$/i.test(v) ? v : null; },
     /* v98 — the sheet stores "IST (GMT+5:30)"; the site displays the
        command's required form "IST (Asia/Kolkata)". Both parse to the

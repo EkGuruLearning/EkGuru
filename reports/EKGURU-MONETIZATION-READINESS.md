@@ -114,3 +114,17 @@ STATUS vocabulary: **READY** (verifiably done repo-side), **PARTIAL** (repo-side
 | 14 | Production QA | BLOCKED |
 
 Only §14 + the account-side items inside §1/§7/§8 remain, and every one is an owner action — the repository itself is monetization-clean.
+
+---
+
+## 15. Addendum — 2026-09-27 master audit (`arena/01a0e08b-ekguru`, base `dfa30ad`)
+
+Re-verified on 27 Sep against the current tree; the statuses in §1–§14 stand, with these confirmations and one new control:
+
+- **§1 AdSense (PARTIAL)** — `node tools/adsready.js --local` = **13/13** (exact ads.txt line included). The inventory exception that previously left one indexable thin/orphan page (the Search-Console token file) is now closed: it is a minimal noindex page with the token preserved, so `data/quality/full-page-inventory.json` reads `thin_indexable=0`, `indexable_not_in_sitemap=0`, `noindex_in_sitemap=0`, `orphan_indexable=0`, `broken_link_total=0`, `canonical_mismatches=0`.
+- **§13 Browser QA (PARTIAL→improved)** — the jsdom suites run green on 27 Sep: `test-browser-qa.mjs` 26/26, `test-runtime-qa.mjs` 142/142, `test-consent-release.mjs` 12/12, `test-ad-policy.mjs` 18/18, `test-affiliate-disclosure.mjs`, `test-course-levels.mjs` 29/29, `test-course-placeholders.mjs` 7/7, `test-question-api.mjs` 32/32, `test-search-facets.mjs`, `test-copy-index.mjs` (1,665 fingerprints), `test-shell-drawer.mjs`, `test-experience-dom.mjs`, `test-level-visuals.mjs` 35/35, `test-offline-playable.mjs` 21/21, `test-print-*.mjs` 17/17 + 27/27, `test-refresh-quiet.mjs` 26/26. Playwright/Chromium rendered QA still cannot run in this sandbox (no browser binary), so §13 stays PARTIAL, not READY.
+- **§14 Production QA (BLOCKED)** — unchanged and still owner-owned: live production was re-fetched 27 Sep and still serves the pre-remediation state (stale-sheet 5.0 / 3 reviews / 40 lessons, "My name is Sashi", Preply CTA, 5 visible tutors, "0 Tutor profiles"). **New:** the 27 Sep runtime gates (`js/sheet.js`, `js/reviews.js`, mirrored in `tools/sheetsync.js`) mean that *after redeploy*, a stale live sheet can no longer re-publish marketplace metrics, the marketplace profile link, or marketplace-sourced reviews — the code now refuses them on the update, create and record-only paths, proven by the new third pass in `tools/test-sheet-apply.js` (34/34). The BLOCK stays until (a) the owner corrects the Sheet, and (b) production is redeployed from HEAD.
+- **New preflight evidence (Phase 20):** `python3 tools/audit-adsense-readiness.py --selftest` ok; `python3 tools/audit-adsense-readiness.py` → `pages=2634 thin=962 thin_indexable=0 ads=0` (wrote `data/quality/adsense-readiness.json`); `node tools/adsready.js --local` 13/13; `python3 tools/build-all.py check` → "every generated layer is up to date".
+- **Regenerated artifacts:** homepage tutor cards, `tutor/sushila-g/`, `tutor/shikha-dutta/`, `feed.xml`, `data/copy-index.json`. Name fix: Sushila's bio now reads "My name is Sushila" (canonical display name) instead of the booking-form nickname "Sashi"; owner to confirm with the tutor. Homepage hero CTA now "Find My Guru" → `/find-tutors.html` in all 7 markets.
+
+Only §14 + the account-side items inside §1/§7/§8 remain, and every one is an owner action — the repository itself is monetization-clean.

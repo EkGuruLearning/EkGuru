@@ -47,8 +47,12 @@
      date     YYYY-MM-DD
      stars    1 to 5
      text     what they actually wrote
-     source   where it came from — preply, email, whatsapp,
-              google. Shown to nobody, kept for your records.
+     source   where it came from — email, whatsapp, google.
+              Kept for your records. Rows with an external
+              marketplace as the source (preply, italki) are
+              NEVER published and never feed the rating, by
+              policy (27 Sep 2026 master audit): a review is
+              only EkGuru's if an EkGuru student left it here.
      status   live / hidden
 
    ---------------------------------------------------------
@@ -203,10 +207,44 @@
     var byLower = {};
     T.forEach(function (x) { byLower[String(x.id).toLowerCase()] = x; });
 
+    /* =========================================================
+       EXTERNAL-MARKETPLACE GATE  (27 Sep 2026 master audit)
+       ---------------------------------------------------------
+       A review row with source=preply (or italki, or any other
+       external marketplace) is a review WRITTEN BY THAT
+       MARKETPLACE'S USERS ON THAT MARKETPLACE. Publishing it —
+       even with an attribution line — is still publishing
+       copied third-party content, and the rating it feeds is a
+       rating EkGuru never earned. This is the code-level
+       enforcement of the 26 Sep 2026 decision recorded in
+       js/tutors/sushila-g.js ("removed, not reworded").
+
+       It runs here, at the single point where every published
+       review passes, so a stale live sheet row with
+       source=preply/status=live can never set a star rating or
+       review count again — the failure this audit found live on
+       ekguru.shop on 27 Sep 2026 (5.0 / 3 reviews / 40 lessons
+       re-appearing from the sheet).
+
+       Site-native sources (email, whatsapp, google, blank) are
+       untouched: the owner can add real on-site reviews any
+       time, and they publish as before.
+       ========================================================= */
+    var MARKETPLACE_SOURCES = ["preply", "italki"];
+
     recs.forEach(function (r) {
       if (String(r.tutor || "").charAt(0) === "#") return;      /* help row */
       var status = String(r.status || "live").toLowerCase();
       if (status !== "live") return;
+
+      var src = String(r.source || "").trim().toLowerCase();
+      if (MARKETPLACE_SOURCES.indexOf(src) !== -1) {
+        skipped.push([
+          r.tutor + "/" + (r.name || "?"),
+          ["external-marketplace source (\"" + src + "\") — never published; site-native reviews only (27 Sep 2026 policy)"]
+        ]);
+        return;
+      }
 
       var why = validate(r);
       if (why.length) { skipped.push([r.tutor + "/" + (r.name || "?"), why]); return; }

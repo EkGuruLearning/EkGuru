@@ -140,6 +140,10 @@ def main():
             ["node", "tools/test-refresh-quiet.mjs"])
         run("page skeleton test (one main, skip link lands)", ["node", "tools/test-page-skeleton.mjs"])
         run("sheet-apply test (sheet row -> site)", ["node", "tools/test-sheet-apply.js"])
+        run("sheetsync policy test (build side refuses marketplace values)",
+            ["node", "tools/test-sheetsync-policy.js"])
+        run("no-competitor-attribution gate (public output + rendered strings)",
+            ["node", "tools/test-no-competitor-attribution.js"])
         run("experience DOM test", ["node", "tools/test-experience-dom.mjs"])
         print("\n✔ every generated layer is up to date.")
         return

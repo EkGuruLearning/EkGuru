@@ -8,8 +8,18 @@
    Sushila's marketplace-imported stats (rating 5 / 3 reviews /
    40 lessons) and her copied review excerpts were zeroed/removed.
    EkGuru shows only numbers it can verify from its own data, and
-   only site-native reviews. If the sheet is not updated to match,
-   the next sheetsync run will restore the imported values.
+   only site-native reviews.
+
+   ⚠ 2026-09-27 MANUAL EDIT (master audit §7-8, must be mirrored in
+   the sheet): Sushila's external marketplace profile link was
+   dropped from this override, and the bio's self-introduction now
+   matches her canonical display name (Sushila G., per the sheet's
+   name column) instead of the booking-form nickname. NOTE: the
+   live sheet still held the old values as of this audit — the
+   runtime gates in js/sheet.js and js/reviews.js now refuse
+   marketplace metrics and marketplace-sourced reviews, so the
+   stale sheet can no longer re-publish them. The owner must
+   update the sheet (see reports/EKGURU-FINAL-AUDIT-REPORT.md).
 
    Loaded AFTER the hand-written tutor files, so the sheet
    wins. Delete this file and the site falls back to those
@@ -45,7 +55,8 @@ window.EKGURU_SHEET_OVERRIDES = {
     "verified": true,
     /* not rendered anywhere; no EkGuru record earns the label — keep false */
     "superTutor": false,
-    "preplyUrl": "https://preply.com/en/tutor/7717290",
+    /* 27 Sep 2026: external marketplace profile link dropped — the site
+       no longer publishes or links external marketplace profiles. */
     "photo": "images/sushila.jpg",
     "thumb": "images/sushila.jpg",
     "videoTitle": "Hindi Tutor Intro",
@@ -80,7 +91,7 @@ window.EKGURU_SHEET_OVERRIDES = {
       }
     ],
     "about": [
-      "Hello! My name is Sashi, and I am a passionate Hindi tutor. I love teaching Hindi and helping students learn in an easy, fun and effective way. I have experience working with learners of every level, whether you are a complete beginner or looking to improve your fluency.",
+      "Hello! My name is Sushila, and I am a passionate Hindi tutor. I love teaching Hindi and helping students learn in an easy, fun and effective way. I have experience working with learners of every level, whether you are a complete beginner or looking to improve your fluency.",
       "In my classes I focus on speaking skills, grammar, vocabulary and correct pronunciation. I always adapt my teaching style to each student's needs, so that learning stays simple and genuinely enjoyable.",
       "My interests include reading, learning new languages, listening to music and exploring different cultures. I enjoy connecting with people and sharing knowledge. If you are interested in learning Hindi, I would be happy to guide you on your journey."
     ],

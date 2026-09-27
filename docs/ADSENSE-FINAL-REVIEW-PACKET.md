@@ -45,3 +45,22 @@ Prepared 2026-09-26 against the repository (`arena/01a0deed-ekguru`, = `main` @ 
 - `data/quality/adsense-readiness.json` — greedy depth/originality/navigation/trust/SEO gate output.
 - `data/quality/language-course-matrix.json` + `reports/EKGURU-GLOBAL-LANGUAGE-STATUS.md` — publishing/completeness truth for all 700 registry languages.
 - `reports/EKGURU-MONETIZATION-READINESS.md` — 14-section monetization status with exact owner actions.
+
+---
+
+## 5. Addendum — 2026-09-27 master audit (branch `arena/01a0e08b-ekguru`, base `dfa30ad`)
+
+Everything in sections 1–4 still holds; the numbers below were re-verified on 27 Sep against the current tree:
+
+- **Ads.txt**: unchanged — `google.com, pub-8175326569491671, DIRECT, f08c47fec0942fa0` (adsready local 13/13).
+- **Inventory gate now fully clean** (was 1 exception): the Search-Console verification file `googleb3b0e3defc1daa17.html` (plain-text token) was wrapped in a minimal noindex HTML page with the token line preserved byte-for-byte. Result: `indexable_not_in_sitemap = 0`, `noindex_in_sitemap = 0`, `thin_indexable = 0`, `orphan_indexable = 0`, `broken_link_total = 0`, `canonical_mismatches = 0`, `duplicate_meta_groups_count = 0` (`data/quality/full-page-inventory.json`, regenerated 27 Sep).
+- **New runtime gates close the live-sheet override hole.** Live QA on 26–27 Sep proved the production runtime re-served the stale sheet values (5.0 / 3 reviews / 40 lessons / "My name is Sashi" / Preply CTA) on every page load even after the repo zeroing. The repo now refuses them in code, so a stale sheet can no longer re-publish them:
+  - `js/sheet.js` — the `rating`, `reviewsCount`, `lessonsCount`, `superTutor`, `preplyUrl` cells return `null` in `FIELDS` (never applied; update, create and record-only paths all skip nulls).
+  - `js/reviews.js` — review rows with an external-marketplace `source` (preply/italki) are skipped with a logged reason; ratings derive only from site-native reviews.
+  - `tools/sheetsync.js` — the build-side mirror of both gates (same policy, same warning), so `_overrides.js` can never bake them back.
+  - `js/seo.js` + `tools/build-tutor-pages.js` — the Person schema's `sameAs` to the marketplace URL and the "Tutor-provided profile excerpt" label are gone from runtime and build paths; the Preply CTA is gone from `js/main.js` (both card and sidebar) and the pre-rendered pages.
+  - Regression test: `tools/test-sheet-apply.js` now has a third pass that hands the loader the exact stale row (5 / 3 / 40 / superTutor / marketplace URL) and asserts none of it leaks while ordinary cells still apply — 34/34 checks pass.
+- **Name mismatch fixed.** The bio self-introduction now reads "My name is Sushila" (matching the canonical display name "Sushila G." from the sheet's name column); the booking-form nickname "Sashi" is unchanged. The owner should confirm with the tutor which name she prefers — if the preference differs, the sheet's `name` column changes and the URL is rebuilt (see `reports/EKGURU-FINAL-AUDIT-REPORT.md`, OWNER_ACTION_REQUIRED).
+- **CTA re-pointed.** The homepage hero button now reads "Find My Guru" (all 7 markets) and targets `/find-tutors.html` — the tutor-discovery surface, as the audit direction requires.
+- **Regenerated artifacts**: `index.html` tutor cards, `tutor/sushila-g/`, `tutor/shikha-dutta/`, `feed.xml`, `data/copy-index.json`. `python3 tools/build-all.py check` → "every generated layer is up to date".
+- **Owner Sheet item 1 above is now belt-and-braces.** The runtime refuses the stale cells regardless, but the sheet must still be corrected (rating 0 / reviews 0 / lessons 0 / superTutor no / preplyUrl blank / bio name, and the 3 marketplace-sourced review rows removed) so the owner's records and the site agree. Repo PASS ≠ live PASS until the owner updates the sheet and production is redeployed.

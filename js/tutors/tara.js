@@ -65,7 +65,7 @@ ekguruTutor({
   superTutor: false,
 
   /* ===== EXTERNAL LINK — TARA ONLY =================================== */
-  preplyUrl: "",                      // ← EDIT ME: HER Preply link. "" hides the button.
+  preplyUrl: "",                      // owner's record only — the site does not render external marketplace links (27 Sep 2026).
 
   /* ===== CONTACT — TARA ONLY ========================================
      ⚠️ EDIT ME. These two lines control TARA's contact only.

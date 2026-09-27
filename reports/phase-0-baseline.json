@@ -1,0 +1,31 @@
+{
+  "start_sha": "dfa30ad7f91c4cec44c868f014292b333d3203db",
+  "branch": "arena/01a0e08b-ekguru",
+  "remote": "origin https://github.com/EkGuruLearning/EkGuru.git",
+  "worktree_clean": true,
+  "audit_started_at": "2026-09-27T01:50:00Z",
+  "baseline_created_at": "2026-09-27T01:52:00Z",
+  "commands_run": [
+    "git status --short",
+    "git branch --show-current",
+    "git log --oneline -20",
+    "git remote -v",
+    "git rev-parse HEAD",
+    "git status --porcelain=v1",
+    "git fetch origin",
+    "ls",
+    "find . -maxdepth 2 -type f | sort | head -300",
+    "cat package.json CNAME ads.txt robots.txt sitemap-index.xml .gitignore"
+  ],
+  "notes": [
+    "Worktree is clean at audit start. No pre-existing local changes; nothing to preserve.",
+    "Command-specified base commit e54e9004c51224e4e3cb43b10e2178a130e5c2be does not exist in the local clone nor in origin (verified via git cat-file after fetch). The actual branch point is dfa30ad7f91c4cec44c868f014292b333d3203db = origin/main (merge of PR #13). The audit uses dfa30ad as the effective baseline; the e54e9004 reference is recorded as UNRESOLVABLE_REFERENCE, not treated as a blocker.",
+    "Branch: arena/01a0e08b-ekguru (per Arena session rules, all work commits go to this branch; deployment to main is a separate owner/PR action).",
+    "Repository scale: 2637 HTML files, 292 top-level directories, static GitHub Pages-style site (no framework). Node used only by tools/ (jsdom). Python used by tools/ audit scripts.",
+    "CNAME = ekguru.shop. .nojekyll present. No README file present at repo root.",
+    "ads.txt at root: google.com, pub-8175326569491671, DIRECT, f08c47fec0942fa0 (matches the command's known publisher identity).",
+    "robots.txt: no global Disallow; Disallow /admin.html, /tools/, /search/; sitemap declared as https://ekguru.shop/sitemap-index.xml.",
+    "sitemap-index.xml lists 15 child sitemaps. Root also holds legacy sitemap.xml plus sitemap-countries.xml, sitemap-source-languages.xml, sitemap-world-languages.xml that are NOT referenced by the index (to be handled in Phase 11).",
+    "Note: robots.txt contains a comment mentioning competitor domains (preply.com, italki.com) as a sitemap-strategy reference; flagged for forensic classification in Phase 2."
+  ]
+}

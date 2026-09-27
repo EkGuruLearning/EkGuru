@@ -1,0 +1,120 @@
+{
+  "generated_at": "2026-09-27",
+  "note": "Source-of-truth map for every critical entity. SOURCE = where the value is edited; GENERATOR = what transforms it; OUTPUT = what ships; RUNTIME = what the browser applies over the output; DEPLOYMENT = how it reaches ekguru.shop. Where two stores exist, precedence is explicit and enforced by tests (see 'gates').",
+  "entities": {
+    "tutors": {
+      "source": "owner Google Sheet (gids in js/site-config.js: tutors 1631273256) + hand-written js/tutors/<id>.js for fields the owner does not own (bio, about, experience, methodology, photo)",
+      "generator": "tools/sheetsync.js  (live sheet -> js/tutors/_overrides.js, written at build time; buildTutor refuses rating/reviewsCount/lessonsCount/superTutor/preplyUrl cells — 27 Sep 2026 policy, unit-tested by tools/test-sheetsync-policy.js)",
+      "output": "js/tutors/_overrides.js (snapshot of the sheet as of last build) + pre-rendered pages (tutor/<id>/index.html, home cards, feed.xml) via tools/build-tutor-pages.js + tools/build-home-tutors.js",
+      "runtime": "js/sheet.js fetches the published CSV and applies the sheet over the merged roster in the visitor's browser — the SAME five cells return null in FIELDS, so a stale sheet can no longer re-publish marketplace metrics or profile links (regression-tested by tools/test-sheet-apply.js third pass). Roster merge: js/tutors-data.js (files first, overrides on top, hidden ids excluded).",
+      "precedence": "runtime sheet > _overrides.js > tutor file. Pre-rendered HTML is the crawlable fallback and is regenerated from the same merged data (tools/lib/site-data.js — the ONE loader for build and check, so generated and browser data cannot diverge).",
+      "deployment": "GitHub Pages from main (CNAME ekguru.shop)",
+      "gates": ["tools/test-sheet-apply.js (runtime, 34 checks incl. adversarial stale row)", "tools/test-sheetsync-policy.js (build side)", "tools/build-all.py check (tutor profiles + home grid --check)"]
+    },
+    "reviews": {
+      "source": "owner Google Sheet (gid 298809212), rows: tutor/name/date/stars/text/source/status",
+      "generator": "tools/sheetsync.js buildReviews() — rows sourced from preply/italki are skipped with a logged reason; only site-native reviews are baked",
+      "output": "reviews arrays inside js/tutors/_overrides.js (rating/reviewsCount derived from the site-native count; 0 when none)",
+      "runtime": "js/reviews.js applies review rows with the same marketplace-source gate; the profile UI renders 'Left through EkGuru' for on-site reviews only; no AggregateRating schema exists anywhere (no rating without real evidence)",
+      "precedence": "same as tutors",
+      "gates": ["tools/test-sheet-apply.js", "tools/test-sheetsync-policy.js", "tools/test-no-competitor-attribution.js (no 'marketplace review' / attribution wording in public output)"]
+    },
+    "courses": {
+      "source": "course data files under data/ (per-language lesson/vocab/dialogue/question/test files) indexed by data/courses/index.json",
+      "generator": "tools/build-world-course.py, tools/build-language-course.py (per slug), tools/build-course-hub.py, tools/build-course-levels.py",
+      "output": "languages/<code>/…, learn/<slug>/…, /courses/ hub, A1–C2 level pages",
+      "runtime": "static (no runtime override)",
+      "precedence": "single chain: data files -> generators -> pages; on-page counts are generated from the same files, so claim-vs-content is equal by construction (verified by tools/test-course-levels.mjs + the Phase-10 recount)",
+      "gates": ["tools/test-course-levels.mjs", "tools/test-course-placeholders.mjs", "python3 tools/build-all.py check"]
+    },
+    "languages": {
+      "source": "data/global/languages.json (700, ISO 639-3 keyed), data/global/language-support-readiness.json (733), data/global/language-priority.json (700), data/global/language-country-relations.json (1,983), data/language-inventory/sovereign-194.json",
+      "generator": "tools/build-phase7-registries.py, tools/build-phase7c-registries.py, tools/build-phase7-pages.py, tools/build-inventory.py, tools/build-country-language-pages.py",
+      "output": "language hub + per-language pages + country-language pages + language-course-matrix join (data/quality/language-course-matrix.json)",
+      "runtime": "static",
+      "precedence": "registries are the only authority; publishing state (PRODUCTION/AVAILABLE/BETA split) comes from the phase7c registries; incomplete languages are quarantined by tools/quarantine-language-surfaces.py (noindex, out of sitemap, no ads)",
+      "gates": ["tools/test-language-* (registry tests)", "python3 tools/quarantine-language-surfaces.py --check", "reports/EKGURU-GLOBAL-LANGUAGE-STATUS.md (recounted 27 Sep)"]
+    },
+    "pricing": {
+      "source": "owner Sheet priceUSD cell (tutor's stated price) — the ONLY price the site publishes",
+      "generator": "sheetsync buildTutor (num-validated)",
+      "output": "cards + profiles as 'profile-listed price; confirm current terms'",
+      "runtime": "js/sheet.js applies priceUSD; js/rates.js + js/pricing.js convert for display only (USD × published FX rate, rounded to nearest ₹50 — display normalisation, never a price change; sources open.er-api.com with cdn.jsdelivr.net fallback)",
+      "precedence": "sheet wins over file for priceUSD",
+      "gates": ["tools/test-sheet-apply.js (price applies)", "tools/test-sheetsync-policy.js"]
+    },
+    "availability": {
+      "source": "owner Sheet availability cell (day + time slots) — the tutor's stated schedule, not a live booking system",
+      "generator": "sheetsync buildTutor (day-map parse)",
+      "runtime": "js/sheet.js applies; UI shows timezone conversion and 'not live, confirm' wording",
+      "precedence": "sheet wins",
+      "gates": ["tools/test-sheet-apply.js (day-map assertions)"]
+    },
+    "verification": {
+      "source": "owner Sheet verified cell (owner's own decision)",
+      "runtime": "applied as data (verified: true); NOT rendered as a public badge anywhere, so it can never read as a claim",
+      "precedence": "sheet wins; superTutor is refused (badge is earned by an on-site record, which does not exist)",
+      "gates": ["tools/test-sheet-apply.js", "tools/test-sheetsync-policy.js"]
+    },
+    "sitemap_membership": {
+      "source": "page files + their robots meta",
+      "generator": "tools/build-sitemaps.py (publication gate: noindex/placeholder/research/draft never enter a sitemap) + per-section sitemap writers (sitemap-tutors.xml in build-tutor-pages.js, courses, questions…)",
+      "output": "sitemap-index.xml + 15 children",
+      "runtime": "static",
+      "precedence": "robots meta on the page is the authority; the sitemap gate enforces IN_SITEMAP => INDEXABLE and INDEXABLE => IN_SITEMAP (verified 0 violations by data/quality/full-page-inventory.json)",
+      "gates": ["python3 tools/build-sitemaps.py --check", "tools/build-full-page-inventory.py", "node tools/adsready.js --local (15 children exist + listed)"]
+    },
+    "page_state": {
+      "source": "robots meta in each page + data-ad-class attribute",
+      "generator": "python3 tools/inject-ads.py (tags every page with its class), quarantine-* tools (research/draft language/tutor surfaces)",
+      "output": "2,636 pages tagged (data-ad-class) across the tree",
+      "runtime": "js/monetization/monetization.js reads class + consent + ADS_RUNTIME_ENABLED (triple gate)",
+      "precedence": "class is data; the runtime flag is the switch; both enforced independently",
+      "gates": ["python3 tools/inject-ads.py --check (matrix match, 2,636 pages)", "node tools/test-ad-policy.mjs", "node tools/test-consent-release.mjs"]
+    },
+    "ad_eligibility": {
+      "source": "data-ad-class (12 excluded classes) + content state",
+      "runtime": "js/monetization/monetization.js: isAdEligible = class allowed AND consent granted AND ADS_RUNTIME_ENABLED (currently false site-wide)",
+      "output": "reports/public-page-ad-readiness.json (810 eligible by class / 1,827 excluded / 0 runtime-enabled)",
+      "gates": ["node tools/test-ad-policy.mjs (18)", "node tools/test-consent-release.mjs (12)", "python3 tools/inject-ads.py --check"]
+    },
+    "consent_state": {
+      "source": "visitor choice stored in localStorage (the local banner is honest: it is NOT a Google-certified CMP)",
+      "runtime": "js/cookie-consent.js state machine; ADVERTISING_AVAILABLE=false fail-closed; analytics (GoatCounter, cookieless) load post-consent only",
+      "gates": ["node tools/test-consent-release.mjs (12)"],
+      "owner_action": "Google-certified TCF CMP for EEA/UK/CH must be configured in the AdSense console (account-side)"
+    },
+    "affiliate_state": {
+      "source": "data/affiliate-programs.json (zero programs, activation_master_switch=false)",
+      "runtime": "js/affiliate/affiliate.js neutralises a[data-affiliate] anchors; no disclosure/label/tracking can appear without an approved+enabled program and an allowed placement",
+      "gates": ["node tools/test-affiliate-disclosure.mjs"]
+    },
+    "seo_metadata": {
+      "source": "page files (title/meta/h1/canonical/hreflang written by generators or by hand)",
+      "generator": "tools/build-tutor-pages.js (profile LD+JSON), tools/build-shell.js (header/footer on all 2,635 pages), per-page canonicals",
+      "output": "every indexable page: exactly one canonical = its own https://ekguru.shop URL, one H1, unique title/meta (0 duplicate groups), hreflang 7 locales + x-default",
+      "runtime": "js/seo.js maintains runtime schema (Person + VideoObject; no sameAs to marketplaces after 27 Sep)",
+      "gates": ["tools/build-full-page-inventory.py (canonical_mismatches=0, duplicate groups=0)", "node tools/adsready.js --local", "node tools/test-no-competitor-attribution.js (SEO tags self-referencing production)"]
+    },
+    "payment_state": {
+      "source": "Razorpay (hosted payment link RAZORPAY_PAYMENT_LINK in js/site-config.js) + server/ (Apps Script order create/verify/webhook)",
+      "runtime": "server verifies HMAC BEFORE parsing the payment body; idempotent reconciliation; the site UI is in honest COMING_SOON state for online support; mock checkout hard-blocked on production",
+      "gates": ["tools/test-razorpay-api.mjs (11/11)", "tools/test-live-payment-contract.mjs (8/8)", "node tools/test-browser-qa.mjs (no Razorpay script on public pages)"]
+    },
+    "mail_state": {
+      "source": "Apps Script mail endpoints (js/site-config.js) — booking/contact flows",
+      "runtime": "js/main.js builds mailto + Apps Script submissions; recipients/From/subject escaping audited; no secrets in frontend",
+      "gates": ["tools/test-apps-script.mjs", "reports/email-* (mail audits from prior phases)"]
+    }
+  },
+  "anti_stale_fallback_contract": {
+    "rule": "No stale CSV fallback and no generated-JS fallback may recreate removed values.",
+    "enforcement": [
+      "js/sheet.js FIELDS: rating/reviewsCount/lessonsCount/superTutor/preplyUrl => null on the update, create AND record-only paths",
+      "js/reviews.js: marketplace-source rows skipped before they can enter a rating",
+      "tools/sheetsync.js buildTutor/buildReviews: identical policy at build time (mirrored, unit-tested)",
+      "js/livepatch.js reads values only through the js/sheet.js records — there is no second apply path",
+      "tools/test-sheet-apply.js third pass + tools/test-sheetsync-policy.js prove the adversarial row (5/3/40/superTutor/marketplace URL) leaks nothing, on both sides, in every run"
+    ]
+  }
+}

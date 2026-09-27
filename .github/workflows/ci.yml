@@ -1,0 +1,74 @@
+name: ci
+
+# Connected-CI home for the gates the audit sandbox cannot run:
+#   · network data-source tests (live published-Sheet endpoints)
+#   · the full jsdom browser-QA suites
+#   · the master build check (every generated layer, incl. the
+#     27 Sep 2026 sheet-policy + no-competitor-attribution gates)
+# The site itself deploys from `main` via GitHub Pages (CNAME).
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dev dependencies (jsdom)
+        run: npm install --no-audit --no-fund
+
+      - name: Master build check (all generated layers + policy gates)
+        run: python3 tools/build-all.py check
+
+      - name: Readiness preflights
+        run: |
+          python3 tools/audit-adsense-readiness.py --selftest
+          python3 tools/audit-adsense-readiness.py
+          node tools/adsready.js --local
+
+      - name: Page inventory (SEO/sitemap/noindex gates)
+        run: python3 tools/build-full-page-inventory.py
+
+      - name: Data-source tests (network: published Sheet endpoints)
+        run: |
+          python3 tools/test-data-sources.py
+          node tools/test-sheet-loader.js
+
+      - name: Sheet sync policy (runtime + build side, adversarial)
+        run: |
+          node tools/test-sheet-apply.js
+          node tools/test-sheetsync-policy.js
+
+      - name: Public-output gate (competitor attribution, stale wording, origin)
+        run: node tools/test-no-competitor-attribution.js
+
+      - name: jsdom browser-QA suites
+        run: |
+          node tools/test-browser-qa.mjs
+          node tools/test-runtime-qa.mjs
+          node tools/test-consent-release.mjs
+          node tools/test-ad-policy.mjs
+          node tools/test-affiliate-disclosure.mjs
+          node tools/test-course-levels.mjs
+          node tools/test-course-placeholders.mjs
+          node tools/test-question-api.mjs
+          node tools/test-search-facets.mjs
+          node tools/test-copy-index.mjs
+          node tools/test-shell-drawer.mjs
+          node tools/test-experience-dom.mjs
+          node tools/test-level-visuals.mjs
+          node tools/test-offline-playable.mjs
+          node tools/test-print-sheet-dom.mjs
+          node tools/test-print-visible.mjs
+          node tools/test-refresh-quiet.mjs
