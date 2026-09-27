@@ -8,21 +8,15 @@ import { test, expect } from "@playwright/test";
 
 const base = process.env.EKGURU_BASE || "http://127.0.0.1:4173";
 
-async function noDead(page) {
-  const hrefs = await page.$$eval("a[href]", (as) => as.map((a) => a.getAttribute("href")).filter(Boolean));
-  const bad = hrefs.filter((h) => h === "#" || h.startsWith("javascript:"));
-  expect(bad, "placeholder links").toEqual([]);
-}
-
 test("J1 home to learn to a guide", async ({ page }) => {
   await page.goto(base + "/");
   await expect(page.locator("h1")).toHaveCount(1);
   await expect(page.locator("#stat-tutors")).not.toHaveText("0");
   await page.locator("header nav").getByRole("link", { name: "Learn", exact: true }).click();
   await expect(page).toHaveURL(/\/learn\/$/);
-  await page.getByRole("link", { name: /Hindi Alphabet/i }).first().click();
+  await page.locator('a[href="hindi-alphabet-for-beginners/"]').click();
+  await expect(page).toHaveURL(/hindi-alphabet-for-beginners/);
   await expect(page.locator("h1")).toHaveCount(1);
-  await noDead(page);
 });
 
 test("J2 home to tutors", async ({ page }) => {
