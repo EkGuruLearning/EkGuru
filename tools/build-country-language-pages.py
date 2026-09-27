@@ -389,7 +389,7 @@ def page_shell(title, desc, canon_path, crumb_html, body_html, extra_ld=None):
   </nav>
   <p>© <span>2026</span> EkGuru — One Student. One Goal. One Guru.<br>
   Written and maintained by Prakash.
-  Hindi lessons with native-speaking tutors, one to one.</p>
+  Hindi lessons with independent tutors, one to one.</p>
 </footer>
 </div>
 <script src="../../js/site-config.js" defer></script>

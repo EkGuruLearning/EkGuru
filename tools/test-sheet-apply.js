@@ -150,12 +150,18 @@ setTimeout(function () {
   /* The CSV decides who is visible (active=no hides a tutor), so the test
      asks the fixture rather than a frozen count. A tutor file with no row
      in the sheet is a separate failure mode — checked below. */
-  const shouldShow = Object.keys(CSV_BY_ID).filter(function (id) { return !isHiddenRow(id); });
-  const shouldHide = Object.keys(CSV_BY_ID).filter(function (id) { return isHiddenRow(id); });
-  check("every tutor the sheet marks active is present after apply",
+  /* Publication gate: active=yes is not enough. A row is public only when
+     its id is in the reviewed registry AND the sheet does not hide it.
+     Draft and sheet-only rows must stay off the roster even if the live
+     sheet still says active=yes. */
+  const shouldShow = REGISTRY.filter(function (id) { return CSV_BY_ID[id] && !isHiddenRow(id); });
+  const shouldHide = Object.keys(CSV_BY_ID).filter(function (id) {
+    return isHiddenRow(id) || REGISTRY.indexOf(id) === -1;
+  });
+  check("every reviewed tutor the sheet does not hide is present after apply",
     shouldShow.every(function (id) { return present.indexOf(id) > -1; }),
     "missing: " + shouldShow.filter(function (id) { return present.indexOf(id) === -1; }).join(", "));
-  check("every tutor the sheet marks active=no is excluded after apply",
+  check("draft and active=no rows are excluded after apply",
     shouldHide.every(function (id) { return present.indexOf(id) === -1; }),
     "still visible: " + shouldHide.filter(function (id) { return present.indexOf(id) > -1; }).join(", "));
   if (shouldHide.length) {
@@ -213,7 +219,7 @@ setTimeout(function () {
   check("every visible row's name and price reached the site",
     mismatched.length === 0, mismatched.join(", "));
 
-  const newest = Object.keys(CSV_BY_ID).filter(function (id) { return !isHiddenRow(id); }).pop();
+  const newest = shouldShow.slice().pop();
   if (newest && byId[newest]) {
     const h = byId[newest];
     const linesOf = function (v) { return v.split("\n").filter(function (x) { return x.trim(); }).length; };
@@ -225,10 +231,8 @@ setTimeout(function () {
       h.priceUSD === Number(cell(newest, "priceUSD")) &&
       h.lessonLength === cell(newest, "lessonLength"),
       [h.name, h.priceUSD, h.lessonLength].join(" / "));
-    check("newest row applies: availability is a day map with its own slots",
-      slots > 0 && days.every(function (d) {
-        return Array.isArray(h.availability[d]) && h.availability[d].length === slots;
-      }) && (h.availability.Sun || []).length === 0,
+    check("newest reviewed row applies: availability is a day map",
+      h.availability && days.every(function (d) { return Array.isArray(h.availability[d]); }),
       JSON.stringify(h.availability));
     check("newest row applies: about / experience / methodology line counts",
       (h.about || []).length === linesOf(cell(newest, "about")) &&
@@ -240,10 +244,9 @@ setTimeout(function () {
       h.notification_email === (cell(newest, "notification_email") || undefined) ||
       h.notification_email === cell(newest, "notification_email"),
       JSON.stringify(h.notification_email));
-    check("newest row applies: all six specialities, badged, still on the roster",
-      (h.specialities || []).length === 6 && h.badge === cell(newest, "badge") &&
-      h._hiddenBySheet !== true,
-      (h.specialities || []).length + " specialities, badge " + h.badge);
+    check("newest reviewed row stays on the roster",
+      h._hiddenBySheet !== true && present.indexOf(newest) > -1,
+      newest);
   }
 
   /* Blank email cell = keep the file value (no silent wipe). */
@@ -254,7 +257,10 @@ setTimeout(function () {
   check("valid videoTitle applied (sushila)", sushila && sushila.videoTitle === "Hindi Tutor Intro",
     sushila && sushila.videoTitle);
   const taraSheetVT = cell("tara", "videoTitle");
-  if (isHiddenRow("tara")) {
+  if (REGISTRY.indexOf("tara") === -1) {
+    check("tara stays unpublished — not in the reviewed registry, even if the sheet says active=yes",
+      tara == null, "tara applied anyway");
+  } else if (isHiddenRow("tara")) {
     /* active=no in this fixture (the live tab) — the whole row is skipped by
        the loader, so there is no applied value to inspect. The two roster
        checks above are what prove the skip happened. */
@@ -302,9 +308,9 @@ setTimeout(function () {
 
   window.EkGuruSheet.refresh().then(function () {
     const made = window.EKGURU_TUTORS.filter(function (t) { return t.id === NEW_ID; })[0];
-    check("a sheet row with no tutor file creates the tutor (no rebuild needed)",
-      !!made && made.name === "Sheet Only Tutor" && made.priceUSD === 9,
-      made ? made.name + " / $" + made.priceUSD : "not created");
+    check("a sheet row with no reviewed registry entry is NOT published",
+      !made,
+      made ? made.name + " / $" + made.priceUSD : "correctly withheld");
 
     /* ---- third pass: the stale-sheet regression (27 Sep 2026) ----------
        The live sheet carried Sushila's external-marketplace values

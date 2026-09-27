@@ -1,0 +1,22 @@
+name: playwright journeys
+
+# Connected CI for the five public journeys. The audit sandbox could not
+# install Chromium, so this workflow is the place the browser run happens.
+# A failure here is a real FAIL. It does not deploy the site.
+on:
+  pull_request:
+  push:
+    branches: [main, arena/01a0e390-ekguru]
+
+jobs:
+  journeys:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install Playwright
+        run: npm install --no-audit --no-fund --no-save @playwright/test && npx playwright install --with-deps chromium
+      - name: Five user journeys
+        run: npx playwright test --config=playwright.config.mjs

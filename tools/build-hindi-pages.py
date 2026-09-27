@@ -54,8 +54,19 @@ CORE_STYLE = """
 """
 
 
+def _brand(title):
+    """Append the brand once. Callers that already include '| EkGuru'
+    must not produce 'EkGuru | EkGuru'."""
+    text = re.sub(r"(?:\s*\|\s*EkGuru)+\s*$", "", str(title or "").strip())
+    return (text + " | EkGuru") if text else "EkGuru"
+
+
 def head(title, desc, url, up, index=True, extra_style=""):
     robots = "index, follow, max-snippet:-1, max-image-preview:large" if index else "noindex, follow"
+    title = _brand(title)
+    # The format string below still appends ' | EkGuru'. Strip the suffix
+    # we just added so the template and this helper cannot double it.
+    title = title[: -len(" | EkGuru")]
     return """<!DOCTYPE html>
 <html lang="en" dir="ltr" data-ad-class="HIGH">
 <head>
@@ -112,7 +123,7 @@ def foot(up, scripts=()):
   </nav>
   <p>
   © 2026 EkGuru — One Student. One Goal. One Guru.<br>
-  Written and maintained by Prakash. Hindi lessons with native-speaking tutors, one to one.
+  Written and maintained by Prakash. Hindi lessons with independent tutors, one to one.
   </p>
 </footer>
 <!-- ekguru:trust-footer:end -->

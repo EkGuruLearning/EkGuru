@@ -138,7 +138,7 @@ def foot(up="", scripts=()):
     <a href="%sdisclaimer/">Disclaimer</a>
   </nav>
   <p>© 2026 EkGuru — One Student. One Goal. One Guru.<br>
-  Written and maintained by Prakash. Hindi lessons with native-speaking tutors, one to one.</p>
+  Written and maintained by Prakash. Hindi lessons with independent tutors, one to one.</p>
 </footer>
 <!-- ekguru:recovery:start -->
 <script src="%sjs/recovery.js" defer></script>

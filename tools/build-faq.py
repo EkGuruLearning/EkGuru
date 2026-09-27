@@ -76,7 +76,7 @@ FAQ = [
     ]),
     ("Lessons & tutors", [
         ("How do lessons work and what do they cost?",
-         "One-to-one video lessons with native-speaking tutors, typically from about $6 an hour, "
+         "One-to-one video lessons with independent tutors, typically from about $6 an hour, "
          "booked through each tutor's page. Times, prices and the tutor's own description are on the "
          "<a href=\"%sfind-tutors.html\">find a tutor</a> page and on every "
          "<a href=\"%stutor/\">tutor profile</a>." % (D, D)),

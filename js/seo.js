@@ -132,8 +132,8 @@
   var COPY = {
     "index.html": {
       en: {
-        t: "Learn Hindi Online with a Private Tutor | EkGuru — 1-on-1 Hindi Lessons",
-        d: "Explore Hindi tutor profiles and request private 1-on-1 lessons. Check each profile for background, subjects, displayed price and current availability.",
+        t: "Learn Hindi Online with a Private Tutor | EkGuru",
+        d: "Explore Hindi tutor profiles and request private 1-on-1 online lessons covering speaking, reading, writing and Devanagari.",
         k: "learn hindi online, hindi tutor profiles, private hindi lessons, speak hindi, devanagari, hindi for beginners, online hindi classes, 1-on-1 hindi lessons"
       },
       es: { t: "Aprende hindi online con un profesor particular | EkGuru", d: "Explora perfiles de profesores de hindi. Comprueba la experiencia, las materias, el precio mostrado y la disponibilidad de cada perfil antes de solicitar una clase.", k: "aprender hindi, profesor de hindi, clases de hindi online, hindi para principiantes" },

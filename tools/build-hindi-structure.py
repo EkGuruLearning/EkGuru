@@ -361,7 +361,7 @@ def shell(depth, title, desc, canon, h1, lede, body, jsonld):
   </nav>
   <p>
   © 2026 EkGuru — One Student. One Goal. One Guru.<br>
-  Written and maintained by Prakash. Hindi lessons with native-speaking tutors, one to one.
+  Written and maintained by Prakash. Hindi lessons with independent tutors, one to one.
   </p>
 </footer>
 <!-- ekguru:trust-footer:end -->

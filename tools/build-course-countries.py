@@ -241,7 +241,7 @@ def new_page(existing, block):
     write_page = mod.write_page
     buf = io.StringIO()
     with contextlib.redirect_stdout(buf):
-        write_page(PAGE, "../../", "Language Courses by Country — Every Language, Every Country | EkGuru",
+        write_page(PAGE, "../../", "Language courses by country",
                    "Every country EkGuru teaches a language for, the languages available for it "
                    "today, and the ones documented but not built yet.",
                    "courses/by-country/", '<a href="../../">EkGuru</a> › <a href="../">Courses</a> › '
