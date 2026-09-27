@@ -185,11 +185,11 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3.4vw,2.3rem)}p{ma
     <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
     <nav class="nav" aria-label="Main">
       <a href="index.html">Home</a>
-      <a href="find-tutors.html">Find Tutors</a>
-      <a href="courses/index.html">Courses</a>
       <a href="learn/">Learn</a>
-      <a href="support/index.html">Support</a>
-      <a href="search/">Search</a>
+      <a href="find-tutors.html">Tutors</a>
+      <a href="courses/index.html">Courses</a>
+      <a href="about/">About</a>
+      <a href="contact/">Contact</a>
       <a class="btn btn-primary btn-sm" href="find-tutors.html">Find tutors</a>
       <div class="lang-wrap" id="lang-switch"></div>
     </nav>
@@ -450,7 +450,7 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3.4vw,2.3rem)}p{ma
 <div class="xp-steps xp-stagger">
 <div class="xp-step">
 <b data-i18n="how.s1t">Choose your Guru</b>
-<p data-i18n="how.s1d">Browse profiles, reviews and intro videos, then pick the teacher who fits you.</p>
+<p data-i18n="how.s1d">Compare tutor-provided profiles and any intro video, then pick the teacher who fits you.</p>
 </div>
 <div class="xp-step">
 <b data-i18n="how.s2t">Send a message</b>
@@ -568,7 +568,7 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3.4vw,2.3rem)}p{ma
 <p data-i18n="cta.sub">Review tutor-provided details, then send an enquiry and confirm current terms before booking.</p>
 <div class="xp-hero-actions" style="justify-content:center">
 <a class="btn btn-primary btn-lg" data-i18n="cta.btn1" data-navlink="find-tutors.html" href="find-tutors.html">Browse tutors</a>
-<a class="btn btn-ghost btn-lg" data-i18n="cta.btn2" data-mail-main="" href="#">Email us</a>
+<a class="btn btn-ghost btn-lg" data-i18n="cta.btn2" data-mail-main="" href="contact/?topic=Lessons">Email us</a>
 <a class="btn btn-ghost btn-lg" href="courses/">Try a free course</a>
 </div>
 </div>
@@ -576,7 +576,7 @@ h1{font-size:clamp(2rem,5vw,3.4rem)}h2{font-size:clamp(1.5rem,3.4vw,2.3rem)}p{ma
 </section>
 <div class="xp-wrap"><p class="text-versions" id="text-versions"></p></div>
 </main>
-<a aria-label="Contact" class="fab" href="#" id="contact-fab" rel="noopener" target="_blank">✉️</a>
+<a aria-label="Contact" class="fab" href="contact/" id="contact-fab">✉️</a>
 <!-- v74 — the tutor ranking engine. Must load BEFORE main.js,
      which calls window.EkGuruRank during renderFind(). main.js
      falls back to the old rating sort if this is missing, so an
@@ -695,12 +695,13 @@ if ("serviceWorker" in navigator) {
       <a href="daily-hindi/">Daily Hindi — 30 days</a>
       <a href="ask/">Questions answered</a>
       <a href="answers/">Short answers</a>
-      <a href="learn-hindi-by-country/">Countries &amp; languages</a>
+      <a href="learn/countries/">Published country guides</a>
     </div>
     <div>
       <h3>Contact &amp; legal</h3>
       <a href="contact/">Contact form</a>
       <a href="mailto:EkGuruLearning@gmail.com">EkGuruLearning@gmail.com</a>
+      <a href="mailto:support@ekguru.shop">support@ekguru.shop</a>
       <a href="about/">About EkGuru</a>
       <a href="privacy/">Privacy policy</a>
       <a href="terms/">Terms of use</a>

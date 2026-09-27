@@ -818,7 +818,7 @@ def ladder_page(code, course, levels, loaded, rungmap, figs):
     body.append('<script type="application/ld+json">%s</script>'
                 % json.dumps(ld, ensure_ascii=False, separators=(",", ":")))
 
-    title = "%s levels — %s | EkGuru" % (name, level_label)
+    title = "%s levels — %s" % (name, level_label)
     desc = ("%s has %s: %d lessons, %d words with romanisation and %d questions with answers."
             % (name, level_label, total["lessons"], total["vocab"], total["questions"]))
     url = "languages/%s/level/" % code

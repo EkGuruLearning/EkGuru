@@ -114,11 +114,11 @@ function loadI18n() {
    into TARGETS below. */
 const NAV = [
   ["Home", "nav.home", "home"],
-  ["Find Tutors", "nav.tutors", "findTutors"],
-  ["Courses", "nav.courses", "courses"],
   ["Learn", "nav.learn", "learn"],
-  ["Support", "nav.support", "support"],
-  ["Search", "nav.search", "search"],
+  ["Tutors", "nav.tutors", "findTutors"],
+  ["Courses", "nav.courses", "courses"],
+  ["About", "nav.about", "about"],
+  ["Contact", "nav.contact", "contact"],
 ];
 const CTA = ["Find tutors", "nav.cta", "findTutors"];
 const COLUMNS = [
@@ -139,11 +139,12 @@ const COLUMNS = [
     ["Daily Hindi — 30 days", "ftr.daily", "daily"],
     ["Questions answered", "ftr.ask", "ask"],
     ["Short answers", "ftr.answers", "answers"],
-    ["Countries & languages", "ftr.countries", "countries"],
+    ["Published country guides", "ftr.countries", "countries"],
   ]],
   ["Contact & legal", "ftr.legal", [
     ["Contact form", "ftr.contactForm", "contact"],
     ["EMAIL", "", "email"],
+    ["SUPPORT_EMAIL", "", "supportEmail"],
     ["About EkGuru", "ftr.about2", "about"],
     ["Privacy policy", "ftr.privacy", "privacy"],
     ["Terms of use", "ftr.terms", "terms"],
@@ -159,7 +160,7 @@ const TARGETS = {
   courses: "courses/index.html", byCountry: "courses/by-country/index.html", learn: "learn/", support: "support/index.html",
   search: "search/", tutorDir: "tutor/", locations: "hindi-tutor/",
   guides: "learn/", topics: "hindi/", tools: "toolbox/", daily: "daily-hindi/",
-  ask: "ask/", answers: "answers/", countries: "learn-hindi-by-country/",
+  ask: "ask/", answers: "answers/", countries: "learn/countries/",
   contact: "contact/", about: "about/", privacy: "privacy/",
   terms: "terms/", monetization: "monetization-disclosure/", disclaimer: "disclaimer/", copyright: "copyright/",
   cookies: "cookie-policy/",
@@ -248,9 +249,19 @@ function footerHTML(p, shell, loc, dict) {
     : "";
   /* The address is a link in the legal column — from the settings sheet, not
      typed into the markup. */
-  const renderLink = ([en, key, target]) => target === "email"
-    ? `      <a href="mailto:${esc(shell.email)}">${esc(shell.email)}</a>`
-    : "      " + anchor(href(target), en, key, L(en, key), loc);
+  const renderLink = ([en, key, target]) => {
+    if (target === "email") {
+      return `      <a href="mailto:${esc(shell.email)}">${esc(shell.email)}</a>`;
+    }
+    /* Domain mailbox. Delivery of this address was not re-tested in
+       this build; the form and the address above remain the monitored
+       inbox. Both are listed so the public contact is not only a
+       personal Gmail. */
+    if (target === "supportEmail") {
+      return `      <a href="mailto:support@ekguru.shop">support@ekguru.shop</a>`;
+    }
+    return "      " + anchor(href(target), en, key, L(en, key), loc);
+  };
   const cols = COLUMNS.map(([heading, hkey, links]) => {
     const hi = loc ? ` data-i18n="${hkey}"` : "";
     return `    <div>

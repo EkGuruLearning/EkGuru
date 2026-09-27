@@ -836,8 +836,30 @@
           return;
         }
 
+        /* Publication gate (27 Sep 2026). The sheet may update a tutor
+           who is already in the reviewed public registry. It may not
+           invent a public profile. Draft rows (Hemlata, Tara, Sarshtee
+           and any future sheet-only id) were reappearing on the live
+           homepage — including placeholder photos — because active=yes
+           took the create path and bypassed js/tutors/_registry.js.
+           Static profile pages for those drafts stay noindex; the
+           runtime must not undo that. Adding a tutor still means the
+           reviewed registry, then a rebuild. */
+        var reviewed = {};
+        (window.EKGURU_TUTOR_ORDER || []).forEach(function (id) {
+          reviewed[String(id).toLowerCase()] = 1;
+        });
+        if (!reviewed[r.id]) {
+          skipped.push(r.id + " (not in reviewed public registry)");
+          return;
+        }
         t = buildFromRow(r, lower);
         if (!t) { skipped.push(r.id + " (no name)"); return; }
+        var photo = String(t.photo || "").toLowerCase();
+        if (!photo || photo.indexOf("placeholder") !== -1) {
+          skipped.push(r.id + " (placeholder photo — not published)");
+          return;
+        }
         byId[r.id] = t;
         list.push(t);
         MASTER.push(t);

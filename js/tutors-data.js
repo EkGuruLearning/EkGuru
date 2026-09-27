@@ -45,12 +45,14 @@
     else missing.push(id);
   });
 
-  /* 2. safety net: a tutor file that loaded but was never listed
-        in the registry still shows up, rather than vanishing */
+  /* 2. A file that loaded but is not in the reviewed registry is
+        not published. The old safety net appended it, which is how a
+        draft script tag could put an unfinished profile on the public
+        roster. Missing script tags for a registry id are still reported
+        above; an unlisted file is a warning, not a publication. */
   Object.keys(files).forEach(function (id) {
     if (order.indexOf(id) === -1) {
-      console.warn('[EkGuru] "' + id + '" is not in _registry.js — adding it to the end.');
-      list.push(files[id]);
+      console.warn('[EkGuru] "' + id + '" loaded but is not in the reviewed public registry — not published.');
     }
   });
 

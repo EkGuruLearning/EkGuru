@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-09-27T16:12:54Z",
+  "method": "robots.txt and ads.txt were read from the repository and via fetch_page. Direct curl/TLS to ekguru.shop from this sandbox failed with SSL_ERROR_SYSCALL / SSLZeroReturnError, so a separate Googlebot and Mediapartners-Google byte fetch was not completed and is not invented.",
+  "robots_global_disallow": false,
+  "blocked_agents": [],
+  "explicitly_not_blocked": [
+    "Googlebot",
+    "Mediapartners-Google",
+    "Google-Display-Ads-Bot"
+  ],
+  "ads_txt_line": "google.com, pub-8175326569491671, DIRECT, f08c47fec0942fa0",
+  "pages_checked_via_fetch_page_before_this_deploy": [
+    {
+      "url": "https://ekguru.shop/",
+      "fetch_page": "success",
+      "title_present": true,
+      "h1_present": true,
+      "meaningful_content": true,
+      "note": "rendered DOM still on previous main SHA f22ed8b"
+    },
+    {
+      "url": "https://ekguru.shop/robots.txt",
+      "fetch_page": "success",
+      "meaningful_content": true
+    },
+    {
+      "url": "https://ekguru.shop/ads.txt",
+      "fetch_page": "success",
+      "meaningful_content": true
+    }
+  ],
+  "error": "sandbox TLS to GitHub Pages IPs failed; fetch_page succeeded for the URLs above"
+}

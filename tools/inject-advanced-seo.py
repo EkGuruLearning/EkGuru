@@ -62,14 +62,11 @@ def improve_title(soup, path):
     if not title_tag or not title_tag.string:
         return False
     title = title_tag.string.strip()
-    # Ensure brand at end, max 60 chars for SEO
+    # Brand once. Do not truncate mid-word: a cut title such as
+    # "Every Language, Ever | EkGuru" is worse than a slightly long one.
+    title = re.sub(r"(?:\s*\|\s*EkGuru)+\s*$", "", title).strip()
     if "EkGuru" not in title:
         title = title + " | EkGuru"
-    # Truncate if too long but keep brand
-    if len(title) > 65:
-        # Keep first part + brand
-        base = title.replace(" | EkGuru", "").replace("| EkGuru", "")[:50].strip()
-        title = base + " | EkGuru"
     title_tag.string = title
     return True
 

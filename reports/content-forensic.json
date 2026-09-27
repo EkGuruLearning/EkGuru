@@ -1,403 +1,45 @@
 {
-  "audit": "EkGuru full-repo content forensic (master audit Phase 2 + §6 known findings)",
-  "date": "2026-09-27",
-  "base_sha": "dfa30ad7f91c4cec44c868f014292b333d3203db",
-  "method": "grep -rni over all tracked files (excl. .git); each hit classified KEEP|REWRITE|REMOVE|NOINDEX|RESEARCH",
-  "known_findings_current_state": [
-    {
-      "finding": "Preply attribution in published tutor content",
-      "status": "PRESENT",
-      "evidence": [
-        "tutors-sheet.csv: sushila-g preplyUrl=https://preply.com/en/tutor/7717290",
-        "js/tutors/sushila-g.js: preplyUrl baked",
-        "js/tutors/_overrides.js: preplyUrl baked (generated 2026-09-14)",
-        "tutor/sushila-g/index.html: CTA 'View current Preply profile' + LD+JSON sameAs preply URL",
-        "js/main.js: preplyBig/preplySmall runtime buttons",
-        "js/i18n.js: pf.preply / pf.preplyProfile strings (8 markets)",
-        "index.html line 555: FAQ 'If a Preply profile is linked...'",
-        "js/main.js line 1108: tutor-application email '9. Preply profile link (optional):'",
-        "robots.txt: comment names preply.com and italki.com"
-      ],
-      "classification": "REMOVE (from published tutor surfaces) — repo-side fix this audit; live-sheet value is OWNER_ACTION",
-      "live_confirmed": "https://ekguru.shop/ fetched 2026-09-27 still renders 5.0★/3 reviews/40 lessons for Sushila G. — the live Google Sheet (old state) overrides the 26 Sep 2026 repo fix at runtime via js/sheet.js + js/reviews.js."
-    },
-    {
-      "finding": "'Source profile: 5.0' style attribution",
-      "status": "PRESENT (code paths; not rendered at zero reviews)",
-      "evidence": [
-        "tools/build-home-tutors.js line 103: 'Source profile: ${stars} ${rating}' (rendered only when reviewsCount>0)",
-        "tools/build-home-tutors.js line 109: 'Source profile lists N lessons'",
-        "js/i18n.js line 116: pf.profileLessons 'lessons listed in the source profile'",
-        "js/i18n.js line 139: hero.stat2 'Lessons listed in source profiles' (used on translated homepages with '—' value)"
-      ],
-      "classification": "REWRITE/REMOVE — replace with on-site-only wording; gate removes the underlying marketplace numbers"
-    },
-    {
-      "finding": "Sushila G. title but 'My name is Sashi' (name mismatch)",
-      "status": "PRESENT",
-      "evidence": [
-        "tutors-sheet.csv: name=Sushila G. (shown everywhere), nickname=Sashi (booking form)",
-        "tutors-sheet.csv about field + js/tutors/sushila-g.js about[0] + js/tutors/_overrides.js + tutor/sushila-g/index.html + index.html hardcoded card: 'Hello! My name is Sashi,...'",
-        "settings sheet (baked js/tutors/_overrides.js SETTINGS): youtubeChannel=@Sashi-e3s"
-      ],
-      "classification": "REWRITE — owner data establishes name='Sushila G.' as the name shown everywhere; bio self-introduction corrected to match the canonical display name. Owner to confirm preferred name with the tutor (report item).",
-      "note": "No repo evidence establishes which of Sashi/Sushila is the legal name; the sheet's 'name' column ('shown everywhere') is the operative identity for the site. URL /tutor/sushila-g/ and all page titles keep Sushila G."
-    },
-    {
-      "finding": "External profile image/CDN",
-      "status": "NOT_PRESENT (fixed)",
-      "evidence": "All tutor page images are local images/*.jpg|webp; only external image is i.ytimg.com thumbnail of the tutor's own YouTube intro video (legitimate third-party asset for a linked video). No Preply/competitor CDN images."
-    },
-    {
-      "finding": "External-source lesson/rating statistics",
-      "status": "PRESENT (live-sheet override)",
-      "evidence": [
-        "Repo tutor files and _overrides.js: rating 0 / reviews 0 / lessons 0 (26 Sep 2026 fix)",
-        "live-sheets/tutors.csv snapshot: sushila-g superTutor=yes rating=5 reviews=3 lessons=40 (stale live-sheet mirror)",
-        "csv/ekguru_tutors.csv upload pack: same stale values",
-        "LIVE fetch 2026-09-27: homepage hero card '★★★★★ 5.0', guru card '5.0 / 3 reviews / 40 lessons' — stale live sheet wins at runtime"
-      ],
-      "classification": "REMOVE — code gate added in js/sheet.js + js/reviews.js + tools/sheetsync.js so stale sheet values can no longer be published; owner must update the live sheet (OWNER_ACTION)"
-    },
-    {
-      "finding": "USD-only display",
-      "status": "NOT_PRESENT (fixed)",
-      "evidence": "js/rates.js fetches live exchange rates (open.er-api.com, 24h cache, fallback table); js/pricing.js renders all prices in visitor currency with honest 'lessons are charged in USD' note. No static USD-only paths found."
-    },
-    {
-      "finding": "Stray 5.0★ references",
-      "status": "NOT_PRESENT in repo (runtime only, see external-source statistics above)",
-      "evidence": "grep '5.0' across HTML: no static star claims. Live 5.0★ is produced at runtime from the stale live sheet."
-    }
+  "generated_at": "2026-09-27T16:12:54Z",
+  "fixes": [
+    "Sheet can no longer publish unreviewed tutors onto the public roster",
+    "Homepage tutor count no longer animates through 0",
+    "Homepage and i18n no longer tell visitors to browse reviews that do not exist",
+    "seo.js homepage title matches the static title",
+    "Double '| EkGuru | EkGuru' titles removed; brand helper no longer doubles",
+    "Broken '$6 to $6' price sentence replaced with the tutor-stated from-$6 disclosure",
+    "Blanket 'native-speaking tutors' claim replaced with 'independent tutors'",
+    "italki/Preply page no longer states unverified commission rates or a false arithmetic example",
+    "Contact and About no longer promise a 24-hour or within-a-day reply",
+    "support@ekguru.shop is listed; the form still delivers to the monitored Gmail inbox",
+    "Primary nav is Home, Learn, Tutors, Courses, About, Contact",
+    "/learn/countries/ lists the 54 indexable country guides; the research hub stays noindex",
+    "tutor directory JSON-LD lists two people, not four"
   ],
-  "findings": [
-    {
-      "file": "tutors-sheet.csv",
-      "line_or_context": "sushila-g row, preplyUrl column",
-      "match": "https://preply.com/en/tutor/7717290",
-      "classification": "REMOVE",
-      "reason": "Competitor profile link in the owner's operational data source; site must not render it.",
-      "replacement": ""
-    },
-    {
-      "file": "tutors-sheet.csv",
-      "line_or_context": "sushila-g row, about field para 1",
-      "match": "My name is Sashi",
-      "classification": "REWRITE",
-      "reason": "Name mismatch with canonical display name Sushila G.",
-      "replacement": "My name is Sushila"
-    },
-    {
-      "file": "js/tutors/sushila-g.js",
-      "line_or_context": "preplyUrl field",
-      "match": "https://preply.com/en/tutor/7717290",
-      "classification": "REMOVE",
-      "reason": "Competitor profile link; site drops preply rendering.",
-      "replacement": "preplyUrl: \"\""
-    },
-    {
-      "file": "js/tutors/sushila-g.js",
-      "line_or_context": "about[0]",
-      "match": "My name is Sashi",
-      "classification": "REWRITE",
-      "reason": "Name mismatch.",
-      "replacement": "My name is Sushila"
-    },
-    {
-      "file": "js/tutors/_overrides.js",
-      "line_or_context": "sushila-g override",
-      "match": "preplyUrl + about[0]",
-      "classification": "REMOVE/REWRITE",
-      "reason": "Baked stale snapshot; manual edit per 26 Sep 2026 convention.",
-      "replacement": "drop preplyUrl; fix about[0]"
-    },
-    {
-      "file": "tutor/sushila-g/index.html",
-      "line_or_context": "LD+JSON description + sameAs; CTA block",
-      "match": "Tutor-provided profile excerpt: ... / sameAs preply / View current Preply profile",
-      "classification": "REWRITE/REMOVE",
-      "reason": "Competitor sameAs in structured data; CTA to competitor; 'excerpt' framing in schema description.",
-      "replacement": "Regenerate via fixed tools/build-tutor-pages.js"
-    },
-    {
-      "file": "tools/build-tutor-pages.js",
-      "line_or_context": "lines 155-168, 236-238, 363-369, 580-585",
-      "match": "'Tutor-provided profile excerpt: ' + excerpt; sameAs [t.preplyUrl]; Preply CTA; source==='preply' provenance text; feed 'Imported profile price'",
-      "classification": "REMOVE/REWRITE",
-      "reason": "Generator would re-create removed content on every rebuild.",
-      "replacement": "description = excerpt (no label); no sameAs; no Preply CTA; reviews rendered without marketplace provenance; feed 'profile-listed price'"
-    },
-    {
-      "file": "tools/build-home-tutors.js",
-      "line_or_context": "metaLine() lines 100-112",
-      "match": "Source profile: ★.. / attributed review / Source profile lists N lessons",
-      "classification": "REWRITE",
-      "reason": "Competitor-source attribution wording; underlying numbers can no longer be marketplace-imported after the gate, but the code path must not recreate the phrase.",
-      "replacement": "On-site-only wording: '★x.x · N review(s)' when reviewsCount>0 (derived from site reviews), else 'No public reviews listed'; drop lessons line (EkGuru has no lesson delivery records); keep 'Tutor states N+ years' experience'"
-    },
-    {
-      "file": "index.html",
-      "line_or_context": "line 403 hardcoded guru card",
-      "match": "Hello! My name is Sashi",
-      "classification": "REWRITE",
-      "reason": "Name mismatch; block is generated (ekguru:home-tutors) — regenerated after source fix.",
-      "replacement": "regenerate"
-    },
-    {
-      "file": "index.html",
-      "line_or_context": "line 555 FAQ",
-      "match": "If a Preply profile is linked, you can also review that external profile directly.",
-      "classification": "REWRITE",
-      "reason": "Competitor reference in published content.",
-      "replacement": "Enquiries are forwarded by EkGuru when no direct contact is on file."
-    },
-    {
-      "file": "index.html",
-      "line_or_context": "hero CTA button",
-      "match": "See all tutors (+ filters)",
-      "classification": "REWRITE",
-      "reason": "Master audit requires hero CTA 'Find My Guru' -> /find-tutors.html.",
-      "replacement": "'Find My Guru' (en + 7 market i18n keys)"
-    },
-    {
-      "file": "js/main.js",
-      "line_or_context": "lines 976-979, 1033, 1075",
-      "match": "preplyBig / preplySmall buttons",
-      "classification": "REMOVE",
-      "reason": "Runtime competitor profile buttons; no code path may recreate removed content.",
-      "replacement": "delete buttons; sheet gate stops preplyUrl from being applied"
-    },
-    {
-      "file": "js/main.js",
-      "line_or_context": "line 998 review source label",
-      "match": "r.source === 'preply' ? 'Preply' : t('pf.sourceUnverified')",
-      "classification": "REWRITE",
-      "reason": "Marketplace provenance label; after gate only site-native reviews publish.",
-      "replacement": "label 'Left through EkGuru' (new i18n key pf.leftOnSite)"
-    },
-    {
-      "file": "js/main.js",
-      "line_or_context": "line 1108 tutor application email template",
-      "match": "9. Preply profile link (optional):",
-      "classification": "REWRITE",
-      "reason": "Competitor name in user-visible form.",
-      "replacement": "9. Links to your existing teaching profiles (optional):"
-    },
-    {
-      "file": "js/i18n.js",
-      "line_or_context": "en + 7 markets",
-      "match": "pf.preply 'Book on Preply'; pf.preplyProfile 'Preply profile'; pf.profileLessons 'lessons listed in the source profile'; pf.noReviews 'No source reviews are listed for this profile.'; pf.sourceUnverified 'source not independently verified'",
-      "classification": "REWRITE/REMOVE",
-      "reason": "Competitor/source-attribution strings no longer justified.",
-      "replacement": "remove pf.preply/pf.preplyProfile; pf.noReviews 'No on-site reviews yet.'; add pf.leftOnSite 'Left through EkGuru'; drop pf.profileLessons usage"
-    },
-    {
-      "file": "js/sheet.js",
-      "line_or_context": "FIELDS map lines 418-422 + applyRecords",
-      "match": "rating/reviewsCount/lessonsCount/superTutor/preplyUrl transforms",
-      "classification": "REWRITE",
-      "reason": "Sync-contract hole: a stale live sheet re-applies marketplace metrics at runtime (proven by live 5.0/3/40).",
-      "replacement": "policy gate: reputation metrics only ever derive from site-native reviews (reviews.js); sheet rating/reviewsCount/lessonsCount ignored (forced 0), superTutor false, preplyUrl never applied"
-    },
-    {
-      "file": "js/reviews.js",
-      "line_or_context": "apply() recs loop",
-      "match": "no source filtering",
-      "classification": "REWRITE",
-      "reason": "Rows with source=preply/status=live (per live-sheets/reviews.csv snapshot) publish copied marketplace reviews and recompute 5.0/3 at runtime.",
-      "replacement": "reject external-marketplace sources (preply, italki) with logged skip; site-native sources (email/whatsapp/google/blank) publish as before"
-    },
-    {
-      "file": "tools/sheetsync.js",
-      "line_or_context": "buildTutors/buildReviews output of js/tutors/_overrides.js",
-      "match": "no source filtering; reputation fields passed through",
-      "classification": "REWRITE",
-      "reason": "Build-time regeneration would bake stale marketplace values back into _overrides.js.",
-      "replacement": "same policy gate as js/sheet.js + js/reviews.js"
-    },
-    {
-      "file": "live-sheets/tutors.csv",
-      "line_or_context": "sushila-g row",
-      "match": "superTutor=yes rating=5 reviews=3 lessons=40 + preplyUrl",
-      "classification": "REMOVE",
-      "reason": "Stale mirror of the live sheet; any tooling that reads it would resurrect removed values.",
-      "replacement": "set to target state: superTutor=no 0/0/0, preplyUrl blank, bio name fixed (documented as target state pending owner sheet sync)"
-    },
-    {
-      "file": "live-sheets/reviews.csv",
-      "line_or_context": "3 rows source=preply status=live",
-      "match": "Tomasz/Jon/… preply reviews incl. 'Shashi is very patient…'",
-      "classification": "REMOVE",
-      "reason": "Copied marketplace review content (26 Sep 2026 decision: removed, not reworded).",
-      "replacement": "rows removed from mirror/upload packs; owner to delete/hide in the live sheet"
-    },
-    {
-      "file": "csv/ekguru_tutors.csv",
-      "line_or_context": "sushila-g row",
-      "match": "stale values + preplyUrl",
-      "classification": "REMOVE",
-      "reason": "Upload pack would re-import the removed values if used.",
-      "replacement": "same target state as tutors-sheet.csv"
-    },
-    {
-      "file": "csv/ekguru_reviews.csv",
-      "line_or_context": "3 rows source=preply status=live",
-      "match": "copied preply reviews",
-      "classification": "REMOVE",
-      "reason": "Upload pack would re-import copied reviews.",
-      "replacement": "rows removed"
-    },
-    {
-      "file": "robots.txt",
-      "line_or_context": "sitemap comment",
-      "match": "this is how preply.com and italki.com both do it",
-      "classification": "REWRITE",
-      "reason": "Competitor domain names in published file.",
-      "replacement": "neutral wording: 'a small file pointing at focused sitemaps'"
-    },
-    {
-      "file": "ask/is-italki-or-preply-better-for-hindi/index.html (+ link cards in 40+ ask/answers pages)",
-      "line_or_context": "FAQ comparison article + 'related' links",
-      "match": "Is italki or Preply better for learning Hindi? / 'Preply has more Hindi tutors…'",
-      "classification": "KEEP",
-      "reason": "Original editorial comparison; competitors named as the SUBJECT of comparison, not as content source or attribution; page is indexable, original, useful. No scraped content found.",
-      "replacement": ""
-    },
-    {
-      "file": "search-index.json",
-      "line_or_context": "entry 312",
-      "match": "ask/is-italki-or-preply-better-for-hindi/ + title/desc",
-      "classification": "KEEP",
-      "reason": "Index entry for the legitimate comparison page.",
-      "replacement": ""
-    },
-    {
-      "file": "sitemap-questions.xml / sitemap.xml",
-      "line_or_context": "URL ask/is-italki-or-preply-better-for-hindi/",
-      "match": "URL",
-      "classification": "KEEP",
-      "reason": "Legitimate indexable page URL.",
-      "replacement": ""
-    },
-    {
-      "file": "admin.html",
-      "line_or_context": "tutor editor form (7 hits)",
-      "match": "preplyUrl field",
-      "classification": "KEEP",
-      "reason": "Private admin tool (noindex, Disallowed); owner record-keeping field for the sheet column. Not published search content.",
-      "replacement": ""
-    },
-    {
-      "file": "js/site-config.js",
-      "line_or_context": "reviews csvUrl / tutors csvUrl / settings / support",
-      "match": "published Google Sheet URLs",
-      "classification": "KEEP",
-      "reason": "Legitimate public 'Publish to web' data endpoints; the sheet id is a public identifier, not a secret.",
-      "replacement": ""
-    },
-    {
-      "file": "f28bc2b1708bb36cf11365b735f24f14.txt",
-      "line_or_context": "IndexNow key file",
-      "match": "32-hex key",
-      "classification": "KEEP (FALSE_POSITIVE for secrets)",
-      "reason": "IndexNow key is designed to be public (must be fetchable for ownership proof); referenced in robots.txt.",
-      "replacement": ""
-    },
-    {
-      "file": "bengali/index.html",
-      "line_or_context": "line 73",
-      "match": "Topics (33 ready, 0 coming soon)",
-      "classification": "KEEP",
-      "reason": "Honest generated counter; zero 'coming soon' items.",
-      "replacement": ""
-    },
-    {
-      "file": "bengali/slang/index.html, data/topics/bn.json, data/courses/phase-2/gu_C2.json, js/monetization.js, js/practice-api.js",
-      "line_or_context": "MOCK grep hits",
-      "match": "mockery / 'mock the opponent' / #ekguru-mock-checkout-modal / 'mock-friendly'",
-      "classification": "KEEP (FALSE_POSITIVE)",
-      "reason": "No mock content; word matches inside legitimate text/ids/comments.",
-      "replacement": ""
-    },
-    {
-      "file": "world-languages/*/index.html (194 pages)",
-      "line_or_context": "method note",
-      "match": "language codes are verified against SIL…",
-      "classification": "KEEP",
-      "reason": "Accurate description of data validation process, not a 'verified tutor' claim.",
-      "replacement": ""
-    },
-    {
-      "file": "tutor/sushila-g/index.html + find-tutors.html + join.html + terms/",
-      "line_or_context": "disclaimers",
-      "match": "not guaranteed / not independently verified",
-      "classification": "KEEP",
-      "reason": "Honest disclaimers; 'guaranteed' always negated.",
-      "replacement": ""
-    },
-    {
-      "file": "cookie-policy/index.html",
-      "line_or_context": "line 147",
-      "match": "not a Google-certified CMP/TCF deployment",
-      "classification": "KEEP",
-      "reason": "Truthful negated claim; matches ADVERTISING_AVAILABLE=false in code.",
-      "replacement": ""
-    },
-    {
-      "file": "index.html",
-      "line_or_context": "hero stats",
-      "match": "2 Tutor profiles / $6 from / 50 min / 1-on-1",
-      "classification": "KEEP",
-      "reason": "Registry-derived count and minimum listed price only; no lesson/review/student counts (removed v-next per in-file note).",
-      "replacement": ""
-    },
-    {
-      "file": "index.html / about/index.html / tutor pages",
-      "line_or_context": "founder statements",
-      "match": "Prakash (B.Tech, MNIT Jaipur) / Founder & CEO / LinkedIn",
-      "classification": "KEEP",
-      "reason": "Owner's own factual statements in the repo (source of truth for owner data); no fabricated office/registration added. No Jaipur office address appears anywhere (verified by grep).",
-      "replacement": ""
-    }
+  "not_done": [
+    "No 20-article blog. Existing learning library is the content surface.",
+    "Certified CMP was not installed. Advertising consent stays disabled.",
+    "Live Sheet cells were not edited; the runtime refuses the bad publication path instead."
   ],
-  "competitor_term_totals": {
-    "preply_hits_all_files": 206,
-    "preply_hits_published_non_ask": "tutor/sushila-g (2), index.html FAQ (1), robots.txt comment (1), i18n strings, main.js buttons, csv data files, search/sitemap URLs of the legit comparison page",
-    "italki": "same comparison-page surfaces + robots.txt comment",
-    "duolingo_coursera_udemy": "only inside /ask/ and /answers/ educational content (legit references)"
-  },
-  "second_grep_after_fix": {
-    "status": "COMPLETE",
-    "run_at": "2026-09-27",
-    "command": "grep -rniE 'preply|italki' <repo> (full tree, --exclude-dir=.git); focused pass over published HTML (tutor/, index.html, find-tutors.html, language homes, join pages) and all rendered JS",
-    "result": "ZERO preply/italki attribution in any published page or rendered string. tutor/sushila-g/index.html: 0. index.html: 0. join pages (en+6): 0. js/i18n.js: 0. i18n keys pf.preply / pf.preplyProfile / pf.sourceUnverified / pf.profileLessons / hero.stat2 removed from all 7 markets; pf.leftOnSite added; tutors.all retargeted to 'Find My Guru' (button already pointed at find-tutors.html).",
-    "remaining_mentions": {
-      "enforcement_code_not_rendered": [
-        "js/sheet.js (FIELDS policy: rating/reviewsCount/lessonsCount/superTutor/preplyUrl transforms return null)",
-        "js/reviews.js (MARKETPLACE_SOURCES gate + comments)",
-        "js/main.js (comment only — Preply buttons removed)",
-        "js/seo.js (comment only — sameAs to marketplace removed from Person schema)",
-        "tools/build-tutor-pages.js (marketplace filter + comments; CTA/sameAs/excerpt-label removed)",
-        "js/tutors/*.js (preplyUrl: '' empty values + comments — nothing renders)"
-      ],
-      "legit_keep_classified_earlier": [
-        "/ask/ comparison pages + their links (editorial, own wording, 206 preply hits mostly here)",
-        "hindi/how-long (ItemList + link to the comparison page)",
-        "admin.html (private, noindex, Disallowed — owner tool)",
-        "js/admin-stats.js (admin page data incl. ask URLs)",
-        "csv/* + live-sheets/* + tutors-sheet.csv (owner's record fields, documented as record-only; sushila row corrected to 0/0/0/no/blank, 3 marketplace review rows removed)",
-        "search-index.json + sitemap*.xml (URLs of the legitimate comparison pages)",
-        "data/*, reports/*, research/* (internal audit artifacts — not site pages)"
-      ]
-    },
-    "data_remediation": {
-      "tutors-sheet.csv": "sushila preplyUrl blanked, bio name fixed; #help rows rewritten to the 27 Sep 2026 record-only policy",
-      "csv/ekguru_tutors.csv + live-sheets/tutors.csv": "sushila row set to target state (0/0/0, superTutor no, preplyUrl blank, bio fixed)",
-      "csv/ekguru_reviews.csv + live-sheets/reviews.csv": "3 marketplace-sourced review rows (Tomasz, Jon, Matthew — source=preply) removed; #help source row rewritten",
-      "js/tutors/sushila-g.js": "preplyUrl '' (was the marketplace URL), bio 'My name is Sashi' -> 'My name is Sushila' (canonical display name; owner to confirm with tutor)",
-      "js/tutors/_overrides.js": "preplyUrl removed, bio name fixed, dated header note added",
-      "regenerated": "node tools/build-home-tutors.js + node tools/build-tutor-pages.js + feed.xml + data/copy-index.json (all green via tools/build-all.py check)"
-    },
-    "live_site_note": "LIVE sheet still served the stale 5.0/3/40 + 'Sashi' + Preply CTA values as of 26-27 Sep 2026 (observed on ekguru.shop). The runtime gates now refuse all of it regardless of sheet content; the owner must still update the sheet (OWNER_ACTION_REQUIRED). Repo PASS != live PASS until then."
+  "inventory": {
+    "pages_total": 2638,
+    "indexable": 1008,
+    "noindex": 1630,
+    "indexable_not_in_sitemap": [],
+    "noindex_in_sitemap": [],
+    "thin_indexable": [],
+    "broken_link_pages": 0,
+    "broken_link_total": 0,
+    "broken_link_detail": {},
+    "missing_alt_pages": 0,
+    "structured_data_invalid": [],
+    "orphan_indexable": [],
+    "orphan_total": 891,
+    "duplicate_title_groups": {},
+    "duplicate_meta_groups_count": 0,
+    "canonical_mismatches": [],
+    "adsense_eligible_pages": 811,
+    "affiliate_eligible_pages": 811,
+    "accessibility_issue_pages": 3,
+    "mobile_issue_pages": 0
   }
 }

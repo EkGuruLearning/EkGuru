@@ -30,6 +30,42 @@
   }
   document.documentElement.dataset.monetizationClass = pageClass;
 
+  /* Single eligibility decision for every future ad load. Runtime stays
+     fail-closed until the account and a certified CMP are both verified.
+     Consent is necessary and not sufficient. */
+  function isAdEligiblePage(route, contentState, consentState) {
+    var p = String(route || path || "/");
+    if (p.charAt(0) !== "/") p = "/" + p;
+    var blockedPrefixes = [
+      "/admin", "/privacy", "/terms", "/disclaimer", "/copyright",
+      "/cookie-policy", "/contact", "/search", "/404", "/tutor.html",
+      "/join", "/booking", "/checkout", "/payment", "/support",
+      "/monetization-disclosure", "/classroom", "/messages", "/account",
+      "/login", "/dashboard", "/notifications", "/courses/"
+    ];
+    for (var i = 0; i < blockedPrefixes.length; i++) {
+      var pre = blockedPrefixes[i];
+      if (p === pre || p.indexOf(pre) === 0) return false;
+    }
+    var state = contentState || {};
+    var cls = state.pageClass || pageClass;
+    if (cls === "RESEARCH_REQUIRED" || cls === "UTILITY" || cls === "ADMIN" ||
+        cls === "TRANSACTIONAL" || cls === "INTERACTIVE_LEARNING" ||
+        cls === "ERROR" || cls === "PRIVATE_APP" || cls === "SEARCH") return false;
+    if (state.noindex || state.thin || state.placeholder || state.private) return false;
+    var robots = document.querySelector('meta[name="robots"]');
+    if (robots && /noindex/i.test(robots.getAttribute("content") || "")) return false;
+    if (!ADS_RUNTIME_ENABLED) return false;
+    var consent = consentState || null;
+    if (!consent) {
+      try { consent = JSON.parse(localStorage.getItem("ekguru_cookie_consent_v3") || "null"); }
+      catch (e) { consent = null; }
+    }
+    if (!consent || consent.advertising !== true) return false;
+    return cls === "HIGH_CONTENT" || cls === "MEDIUM_CONTENT";
+  }
+  window.isAdEligiblePage = isAdEligiblePage;
+
   // Protect learning UI from AdSense auto-ads intents
   var selectors = [
     "header", "nav", "footer", "form", "button", "audio", "video",
@@ -52,17 +88,7 @@
   function initAdSense() {
     // Fail closed globally. Consent is necessary but not sufficient: this
     // release also requires the certified CMP and account-side gate.
-    if (!ADS_RUNTIME_ENABLED) return;
-    // Only on HIGH_CONTENT and MEDIUM_CONTENT, and only if consent given
-    var consent = null;
-    try {
-      consent = JSON.parse(localStorage.getItem('ekguru_cookie_consent_v3') || 'null');
-    } catch (e) {}
-    
-    var canShowAds = (pageClass === "HIGH_CONTENT" || pageClass === "MEDIUM_CONTENT") &&
-                     (consent && consent.advertising === true); // default deny until explicit advertising consent
-    
-    if (!canShowAds) return;
+    if (!isAdEligiblePage(path, { pageClass: pageClass }, null)) return;
 
     // Check if AdSense loader already present (injected by build)
     if (document.querySelector('script[src*="adsbygoogle"]')) {
@@ -403,18 +429,18 @@
     window.EKGURU_MONETIZATION = {
       pageClass: pageClass,
       channels: {
-        adsense: { client: 'ca-pub-8175326569491671', status: 'pending_approval', note: 'Conservative ad load, learning-safe' },
-        affiliate: { status: 'planned', note: 'Language tools, books' },
-        donations: { status: 'active', url: '/support/' },
-        tutoring: { status: 'active', note: 'Commission from bookings' }
+        adsense: { client: 'ca-pub-8175326569491671', status: 'runtime_disabled_pending_approval', note: 'Loader is not requested while ADS_RUNTIME_ENABLED is false' },
+        affiliate: { status: 'none_active', note: 'No affiliate identifier is configured' },
+        donations: { status: 'optional', url: '/support/' },
+        tutoring: { status: 'enquiry_only', note: 'A profile enquiry is not a confirmed paid booking and is not a published commission' }
       },
       howWeMakeMoney: [
-        "Google AdSense: ads on reading pages (not on quizzes/practice)",
-        "Tutor bookings: small commission when you book a trial",
-        "Donations: voluntary support via support page",
-        "Future: affiliate links for language learning resources",
-        "All revenue keeps lessons free - no paywall, no account needed"
+        "Advertising is not currently loaded. AdSense may be used only after Google approval, a certified consent flow, and an explicit runtime enable.",
+        "Optional support payments are described on the support page. They are not required to use the free lessons.",
+        "No affiliate programme is active in this release.",
+        "Tutor profiles list tutor-stated prices. Confirm current terms before booking. EkGuru does not publish a commission rate it does not operate."
       ],
+      isAdEligiblePage: isAdEligiblePage,
       adSafety: {
         noAdsOn: ["quiz", "practice", "test", "worksheet", "typing", "review", "forms", "booking"],
         safeZones: ["navigation", "header", "footer", "ads"],

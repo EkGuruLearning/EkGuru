@@ -499,20 +499,13 @@
      number — animating down to 0 first would flash a wrong value at the
      visitor and at any crawler that runs JavaScript. */
   function countUp(el, to, suffix) {
-    var current = parseInt(String(el.textContent).replace(/\D/g, ""), 10);
-    if (isNaN(current) || current === to) {
-      el.textContent = to + (suffix || "");
-      return;
-    }
-    var start = null, dur = 1100, from = current < to ? 0 : current;
-    function step(ts) {
-      if (!start) start = ts;
-      var p = Math.min((ts - start) / dur, 1);
-      var eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(from + (to - from) * eased) + (suffix || "");
-      if (p < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
+    /* Do not animate. The old tween forced `from = 0` whenever the
+       static number was lower than the target, so the homepage painted
+       "0 Tutor profiles" for the whole animation — including in rendered
+       snapshots — even when tutors were on the page. The number written
+       here is the count that exists, immediately. */
+    if (!el) return;
+    el.textContent = String(to) + (suffix || "");
   }
 
   /* ---------- 7. YouTube facade (fast, real, click-to-play) ---------- */
@@ -777,23 +770,14 @@
 
     var s1 = $("#stat-tutors"), s2 = $("#stat-lessons"), s3 = $("#stat-rating"), s4 = $("#stat-price");
     /* Honesty gate: with zero on-site reviews there is no rating to show —
-       never print a fabricated 0.0★/1.0★; show a plain dash instead. */
+       never print a fabricated 0.0★/1.0★; show a plain dash instead.
+       Tutor and lesson counts are written immediately. A zero lesson
+       ledger is a dash, not "0+", because EkGuru has no completed-lesson
+       count to publish. */
     if (s3) s3.textContent = totalReviews > 0 ? avg.toFixed(1) + "★" : "—";
     if (s4) { s4.setAttribute("data-usd", minP); s4.setAttribute("data-usd-mode", "bare"); s4.textContent = px(minP); }
-    if (s1 || s2) {
-      var fired = false;
-      function fire() {
-        if (fired) return; fired = true;
-        if (s1) countUp(s1, TUTORS.length, "");
-        if (s2) countUp(s2, totalLessons, "+");
-      }
-      if ("IntersectionObserver" in window && s1) {
-        var io = new IntersectionObserver(function (en) {
-          en.forEach(function (x) { if (x.isIntersecting) { fire(); io.disconnect(); } });
-        }, { threshold: 0.3 });
-        io.observe(s1);
-      } else fire();
-    }
+    if (s1) s1.textContent = String(TUTORS.length);
+    if (s2) s2.textContent = totalLessons > 0 ? String(totalLessons) + "+" : "—";
   }
 
   /* ---------- 12. Find tutors ---------- */
