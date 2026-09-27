@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-27T16:12:54Z",
-  "method": "robots.txt and ads.txt were read from the repository and via fetch_page. Direct curl/TLS to ekguru.shop from this sandbox failed with SSL_ERROR_SYSCALL / SSLZeroReturnError, so a separate Googlebot and Mediapartners-Google byte fetch was not completed and is not invented.",
+  "generated_at": "2026-09-27T16:40:00Z",
+  "method": "fetch_page of production after Pages deploy 51770a9. curl/TLS from this sandbox to ekguru.shop still fails, so a separate Googlebot user-agent request was not completed and is not invented.",
   "robots_global_disallow": false,
   "blocked_agents": [],
   "explicitly_not_blocked": [
@@ -9,25 +9,44 @@
     "Google-Display-Ads-Bot"
   ],
   "ads_txt_line": "google.com, pub-8175326569491671, DIRECT, f08c47fec0942fa0",
-  "pages_checked_via_fetch_page_before_this_deploy": [
+  "pages_checked_via_fetch_page_after_deploy": [
     {
       "url": "https://ekguru.shop/",
-      "fetch_page": "success",
-      "title_present": true,
-      "h1_present": true,
+      "result": "success",
+      "title": "Learn Hindi Online with a Private Tutor | EkGuru",
       "meaningful_content": true,
-      "note": "rendered DOM still on previous main SHA f22ed8b"
+      "rendered_tutors": [
+        "Sushila G.",
+        "Shikha Dutta"
+      ],
+      "drafts_seen": false
+    },
+    {
+      "url": "https://ekguru.shop/contact/",
+      "result": "success",
+      "meaningful_content": true,
+      "support_email_visible": true
+    },
+    {
+      "url": "https://ekguru.shop/learn/countries/",
+      "result": "success",
+      "meaningful_content": true
     },
     {
       "url": "https://ekguru.shop/robots.txt",
-      "fetch_page": "success",
+      "result": "success",
       "meaningful_content": true
     },
     {
       "url": "https://ekguru.shop/ads.txt",
-      "fetch_page": "success",
+      "result": "success",
       "meaningful_content": true
+    },
+    {
+      "url": "https://ekguru.shop/js/sheet.js",
+      "result": "success",
+      "publication_gate_present": true
     }
   ],
-  "error": "sandbox TLS to GitHub Pages IPs failed; fetch_page succeeded for the URLs above"
+  "error": "sandbox TLS handshake to GitHub Pages IPs failed for curl; fetch_page succeeded"
 }

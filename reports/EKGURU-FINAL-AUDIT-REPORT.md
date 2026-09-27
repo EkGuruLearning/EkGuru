@@ -47,6 +47,14 @@ No tutors, reviews, ratings, lesson counts, traffic, offices, registrations, aff
 - Playwright: not run
 - Googlebot user-agent fetch: not run (sandbox TLS failure)
 
+## Live check after Pages deploy
+
+Merge `51770a9` deployed (GitHub Pages run 36332962077, success). `fetch_page` of https://ekguru.shop/ then showed two rendered profiles, Sushila G. and Shikha Dutta, a tutor count of 2, and no draft names. Live `js/sheet.js` contains the registry gate. `ads.txt` is the single publisher line. Playwright journeys passed 5/5 on Actions run 36332909827.
+
+A dedicated Googlebot user-agent fetch was not run. This sandbox cannot complete TLS to the Pages host with curl. That is a verification gap, not a robots block.
+
 ## Status
 
-See `reports/EKGURU-MASTER-EVIDENCE.json`. Do not read a repository pass as a production pass until the Pages build for the merge commit is checked.
+`CONTROLLABLE_READY_OWNER_ACTION_REQUIRED`
+
+The code defects found in this pass are fixed and on production. Ads remain off. A certified CMP, mailbox confirmation for support@ekguru.shop, and the AdSense account itself are still owner actions. This is not approval.
