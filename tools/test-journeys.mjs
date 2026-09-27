@@ -44,11 +44,11 @@ test("J4 about privacy terms contact", async ({ page }) => {
   await page.goto(base + "/about/");
   await expect(page.getByText("24 hours")).toHaveCount(0);
   await page.goto(base + "/privacy/");
-  await expect(page.getByText(/Advertising is disabled/i)).toBeVisible();
+  await expect(page.getByText(/Advertising is disabled/i).first()).toBeVisible();
   await page.goto(base + "/terms/");
   await expect(page.locator("h1")).toHaveCount(1);
   await page.goto(base + "/contact/");
-  await expect(page.getByRole("link", { name: "support@ekguru.shop" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "support@ekguru.shop" }).first()).toBeVisible();
   await expect(page.locator("#cf-name")).toBeVisible();
 });
 

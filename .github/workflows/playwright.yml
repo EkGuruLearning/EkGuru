@@ -19,4 +19,4 @@ jobs:
       - name: Install Playwright
         run: npm install --no-audit --no-fund --no-save @playwright/test && npx playwright install --with-deps chromium
       - name: Five user journeys
-        run: npx playwright test --config=playwright.config.mjs
+        run: npx playwright test --config=playwright.config.mjs --reporter=github,line
