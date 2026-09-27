@@ -500,7 +500,10 @@
   }
 
   /* --- Tutor profile: Person + Video. Imported profile fields are not live
-     inventory, so do not emit Offer, Service, AggregateRating or Review data. --- */
+     inventory, so do not emit Offer, Service, AggregateRating or Review data.
+     27 Sep 2026 master audit — no "profile excerpt" meta-label in the
+     description and no sameAs to an external marketplace profile (the
+     sheet gate in js/sheet.js refuses preplyUrl anyway). --- */
   if (tutor) {
     graph.push({
       "@type": "Person",
@@ -508,12 +511,11 @@
       name: tutor.name,
       alternateName: tutor.nickname || undefined,
       jobTitle: "Hindi Tutor",
-      description: "Tutor-provided profile excerpt: " + ((tutor.about && tutor.about[0]) || ""),
+      description: (tutor.about && tutor.about[0]) || "",
       image: absUrl(tutor.photo),
       url: canonical,
       knowsLanguage: (tutor.speaks || []).map(function (s) { return s.lang; }),
-      knowsAbout: tutor.teaches || [],
-      sameAs: [tutor.preplyUrl].filter(Boolean)
+      knowsAbout: tutor.teaches || []
     });
 
     if (tutor.youtubeId) {

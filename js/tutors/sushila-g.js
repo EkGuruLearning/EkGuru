@@ -83,9 +83,13 @@ ekguruTutor({
   superTutor: false,
 
   /* ===== EXTERNAL LINK — SUSHILA ONLY ================================
-     preplyUrl : her booking page elsewhere. "" hides the button.
+     27 Sep 2026 master audit — the external marketplace profile link
+     is removed from the site. The site does not link students to
+     external marketplace profiles; enquiries route through EkGuru.
+     The value is kept in the owner's sheet for records only; this
+     field is "" so nothing renders.
      ================================================================ */
-  preplyUrl: "https://preply.com/en/tutor/7717290",
+  preplyUrl: "",
 
   /* ===== CONTACT — SUSHILA ONLY =====================================
      These belong to THIS tutor. Changing them affects only Sushila's
@@ -131,6 +135,14 @@ ekguruTutor({
 
 
   /* ===== CONTENT — SUSHILA ONLY ===================================== */
+  /* 27 Sep 2026 master audit — name-mismatch fix. The sheet's `name`
+     column ("shown everywhere") is "Sushila G."; `nickname` ("Sashi")
+     is only what the booking form calls her. The bio previously said
+     "My name is Sashi", which contradicted her page title on every
+     render. It now introduces her as the name the site publishes.
+     Owner to confirm with the tutor which name she prefers (see
+     reports/EKGURU-FINAL-AUDIT-REPORT.md); if the preferred name
+     differs, change the sheet's name column and rebuild the URL. */
   tags: ["Patient", "Engaging", "Approachable", "Adaptable"],
   teaches: [
     "Hindi for beginners",
@@ -147,7 +159,7 @@ ekguruTutor({
   ],
 
   about: [
-    "Hello! My name is Sashi, and I am a passionate Hindi tutor. I love teaching Hindi and helping students learn in an easy, fun and effective way. I have experience working with learners of every level, whether you are a complete beginner or looking to improve your fluency.",
+    "Hello! My name is Sushila, and I am a passionate Hindi tutor. I love teaching Hindi and helping students learn in an easy, fun and effective way. I have experience working with learners of every level, whether you are a complete beginner or looking to improve your fluency.",
     "In my classes I focus on speaking skills, grammar, vocabulary and correct pronunciation. I always adapt my teaching style to each student's needs, so that learning stays simple and genuinely enjoyable.",
     "My interests include reading, learning new languages, listening to music and exploring different cultures. I enjoy connecting with people and sharing knowledge. If you are interested in learning Hindi, I would be happy to guide you on your journey."
   ],

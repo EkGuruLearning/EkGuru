@@ -973,10 +973,11 @@
     var waSmall = waTutor
       ? '<a class="btn btn-wa btn-block" href="' + waHref(waTutor, x.name) + '" target="_blank" rel="noopener">' + esc(t("pf.whatsapp")) + "</a>" : "";
 
-    var preplyBig = x.preplyUrl
-      ? '<a class="btn btn-ghost btn-lg" href="' + esc(x.preplyUrl) + '" target="_blank" rel="noopener nofollow">' + esc(t("pf.preplyProfile")) + " ↗</a>" : "";
-    var preplySmall = x.preplyUrl
-      ? '<a class="btn btn-primary btn-block" href="' + esc(x.preplyUrl) + '" target="_blank" rel="noopener nofollow">' + esc(t("pf.preply")) + " ↗</a>" : "";
+    /* 27 Sep 2026 master audit — the external-marketplace profile
+       buttons are gone. The site does not link students to external
+       marketplace profiles; the sheet gate in js/sheet.js also
+       refuses to apply a preplyUrl cell, so nothing here could
+       render one anyway. */
 
     var days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
     var av = x.availability || {};
@@ -995,7 +996,7 @@
       ? '<div class="rev-wrap" data-rev-slider>' + x.reviews.map(function (r) {
           return '<article class="rev"><div class="rev-h"><div class="rev-av">' + esc(String(r.name || "?").charAt(0)) +
             "</div><div><b>" + esc(r.name) + '</b><span class="stars">' + stars(r.stars) +
-            "</span> <span>· " + esc(r.date) + " · " + esc(r.source === "preply" ? "Preply" : t("pf.sourceUnverified")) + '</span></div></div><p class="rev-text">' + esc(r.text) + "</p></article>";
+            "</span> <span>· " + esc(r.date) + " · " + esc(t("pf.leftOnSite")) + '</span></div></div><p class="rev-text">' + esc(r.text) + "</p></article>";
         }).join("") + "</div>"
       : '<p class="muted">' + esc(t("pf.noReviews")) + "</p>";
 
@@ -1030,7 +1031,7 @@
           '<div class="pf-actions">' +
             bookBtn(x, "btn-lg") +
             '<a class="btn btn-ghost btn-lg" href="' + mail + '">' + esc(t("pf.email")) + "</a>" +
-            waBig + preplyBig +
+            waBig +
           "</div>" +
           '<div class="share-box" id="share-box"></div>' +
           '<p class="pr-link"><a href="' + esc(profileHref(x)) + '" rel="alternate">' +
@@ -1072,7 +1073,6 @@
       "</main><aside><div class=\"side\"><div class=\"side-card reveal\">" +
         '<div class="side-price"><b data-usd="' + esc(x.priceUSD) + '" data-usd-mode="full">' + pxFull(x.priceUSD) + "</b><span>" + esc(t("pf.profilePrice")) + " · " + esc(x.lessonLength || "50 min") + " " + esc(t("card.lesson")) + "</span></div>" +
         bookBtn(x, "btn-block") +
-        preplySmall +
         '<a class="btn btn-ghost btn-block" href="' + mail + '">' + esc(t("pf.email")) + "</a>" +
         waSmall +
         '<div class="trust">' +
@@ -1105,7 +1105,7 @@
       "6. Weekly availability and timezone: \n" +
       "7. Contact email: \n" +
       "8. WhatsApp number (optional): \n" +
-      "9. Preply profile link (optional): \n" +
+      "9. Links to your existing teaching profiles (optional): \n" +
       "10. Years of teaching experience: \n\n" +
       "Thank you!";
 

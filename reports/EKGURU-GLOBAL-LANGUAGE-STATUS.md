@@ -1,6 +1,6 @@
 # EkGuru — Global Language Status (final audit)
 
-Generated 2026-09-26 from the repository at `arena/01a0deed-ekguru` (= `main` @ 8089f1e plus the remediation working tree).
+Generated 2026-09-26, re-verified 2026-09-27 on `arena/01a0e08b-ekguru` (base `dfa30ad`): every registry total, readiness/priority distribution and the 10-complete-course list below were recounted from the data files on the current tree and match.
 Machine-readable source: `data/quality/language-course-matrix.json` (join of all registries with the pages actually on disk).
 
 **Truth rule for this file**: every number below is counted from repository data. Nothing is estimated, and nothing claims what a language will "soon" contain.

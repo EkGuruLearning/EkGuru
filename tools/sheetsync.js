@@ -140,14 +140,25 @@ function buildTutor(r) {
   if (r.formkey && r.formkey.indexOf("@") < 0 && /^[A-Za-z0-9_-]{6,64}$/.test(r.formkey)) set("formKey", r.formkey);
   set("priceUSD", num(r.priceusd || r["priceusd"], 1, 2000));
   set("experienceYears", num(r.experienceyears || r["experienceyears"]));
-  set("rating", num(r.rating, 0, 5));
-  set("reviewsCount", num(r.reviewscount || r["reviewscount"], 0));
-  set("lessonsCount", num(r.lessonscount || r["lessonscount"], 0));
+  /* =========================================================
+     REPUTATION-METRIC POLICY  (27 Sep 2026 master audit)
+     Mirrors the runtime gate in js/sheet.js — the two parsers
+     must agree (tools/test-sheet-loader.js asserts that).
+     The sheet's rating / reviewsCount / lessonsCount /
+     superTutor / preplyUrl cells are the owner's records only;
+     the site publishes:
+       · rating + reviewsCount derived from SITE-NATIVE
+         reviews (buildReviews below, marketplace rows gated)
+       · lessonsCount 0 — EkGuru has no lesson-delivery ledger
+       · superTutor false — no EkGuru record earns the label
+       · no external-marketplace profile links
+     Baking them from the sheet is exactly how the removed
+     marketplace values (5.0 / 3 / 40) would come back on the
+     next sync.
+     ========================================================= */
   if (r.video && String(r.video).length === 11) set("youtubeId", r.video);
   if (yes(r.trialavailable || r["trialavailable"])) set("trialAvailable", true);
   if (yes(r.verified)) set("verified", true);
-  if (yes(r.supertutor || r["supertutor"])) set("superTutor", true);
-  if (/^https?:\/\//.test(r.preplyurl || "")) set("preplyUrl", r.preplyurl);
   if (/^[a-z0-9-]+\/[a-z0-9-]+$/i.test(r.callink || "")) set("calLink", r.callink);
   const photo = normalizePhoto(r.photo); if (photo) set("photo", photo);
   const thumb = normalizePhoto(r.thumb); if (thumb) set("thumb", thumb);
@@ -183,11 +194,23 @@ function buildTutor(r) {
   return t;
 }
 
+/* External-marketplace gate — build side of the same policy the
+   runtime enforces in js/reviews.js (27 Sep 2026 master audit).
+   A review row sourced from preply/italki is content that belongs
+   to that marketplace; it is never baked into _overrides.js and
+   never feeds a rating. Site-native sources publish as before. */
+const MARKETPLACE_SOURCES = ["preply", "italki"];
+
 function buildReviews(reviewRows) {
   const byTutor = {};
   for (const r of reviewRows) {
     if (String(r.tutor || "").charAt(0) === "#") continue;
     if (String(r.status || "live").toLowerCase() !== "live") continue;
+    const src = String(r.source || "").trim().toLowerCase();
+    if (MARKETPLACE_SOURCES.indexOf(src) !== -1) {
+      console.warn(`  !! review for "${r.tutor}" (${r.name || "?"}) has external-marketplace source "${src}" — skipped (site-native reviews only, 27 Sep 2026 policy).`);
+      continue;
+    }
     const stars = Number(r.stars);
     if (!isFinite(stars) || stars < 1 || stars > 5) continue;
     const text = String(r.text || "").trim();

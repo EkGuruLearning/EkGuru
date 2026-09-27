@@ -15,7 +15,18 @@
        sheet over the tutor files in the visitor's browser, and this
        test proves EVERY column applies — including `video` (which
        becomes youtubeId), priceUSD, availability, timezone, levels,
-       teaches, tags, rating, notification_email, etc.
+       teaches, tags, notification_email, etc.
+
+   27 Sep 2026 — REPUTATION-METRIC POLICY (master audit §7-8).
+   The sheet's rating / reviewsCount / lessonsCount / superTutor /
+   preplyUrl cells stopped applying to the public site on 26 Sep
+   (zeroed) and 27 Sep (gates): they held an external marketplace's
+   numbers for Sushila (5.0 / 3 reviews / 40 lessons) and her
+   marketplace profile link, which the runtime re-published on every
+   page load until the live sheet was corrected. The test now
+   asserts the inverse of the old contract — a final pass hands the
+   loader exactly that stale row and proves none of it leaks, while
+   ordinary cells (price, availability, …) still apply.
 
    Runs js/sheet.js against the fresh /csv/ekguru_tutors.csv with
    a stubbed fetch, then asserts the applied tutor objects.
@@ -168,9 +179,19 @@ setTimeout(function () {
   check("tags applied (list)", sushila && Array.isArray(sushila.tags) && sushila.tags.length > 0);
   check("levels applied", sushila && Array.isArray(sushila.levels) && sushila.levels.indexOf("Beginner") > -1);
   check("speaks applied (objects)", sushila && Array.isArray(sushila.speaks) && sushila.speaks[0] && !!sushila.speaks[0].lang);
-  check("rating/reviewsCount/lessonsCount applied",
-    sushila && sushila.rating === 5 && sushila.reviewsCount === 3 && sushila.lessonsCount === 40);
-  check("verified + superTutor applied", sushila && sushila.verified === true && sushila.superTutor === true);
+  /* 27 Sep 2026 policy — the inverse of the old assertions below them
+     in git history (which demanded the marketplace's 5 / 3 / 40 and the
+     marketplace badge arrive from the sheet). Those cells now refuse to
+     apply; the third pass at the end of this file re-proves the refusal
+     against a row carrying the exact stale values. */
+  check("reputation cells NEVER apply: rating/reviewsCount/lessonsCount keep the file values (0)",
+    sushila && Number(sushila.rating) === 0 && Number(sushila.reviewsCount) === 0 && Number(sushila.lessonsCount) === 0,
+    sushila && [sushila.rating, sushila.reviewsCount, sushila.lessonsCount].join(" / "));
+  check("verified applies (owner flag) but superTutor NEVER does (27 Sep 2026 policy)",
+    sushila && sushila.verified === true && sushila.superTutor === false,
+    sushila && "verified=" + sushila.verified + " superTutor=" + sushila.superTutor);
+  check("preplyUrl NEVER applies (27 Sep 2026 policy)",
+    sushila && !sushila.preplyUrl, sushila && sushila.preplyUrl);
   check("trialAvailable applied", sushila && sushila.trialAvailable === true);
   check("photo + thumb applied", sushila && sushila.photo === "images/sushila.jpg" && sushila.thumb === "images/sushila.jpg");
   check("countryFlag applied (emoji)", sushila && !!sushila.countryFlag);
@@ -285,9 +306,48 @@ setTimeout(function () {
       !!made && made.name === "Sheet Only Tutor" && made.priceUSD === 9,
       made ? made.name + " / $" + made.priceUSD : "not created");
 
-    console.log("\n" + (failures === 0
-      ? "ALL SHEET-APPLY TESTS PASSED — sheet edits (incl. video links) will apply when new URLs are wired."
-      : failures + " FAILURE(S)"));
-    process.exit(failures === 0 ? 0 : 1);
+    /* ---- third pass: the stale-sheet regression (27 Sep 2026) ----------
+       The live sheet carried Sushila's external-marketplace values
+       (rating 5 / 3 reviews / 40 lessons / superTutor / her profile
+       link) and the runtime re-published them on every page load until
+       the gates landed. This pass hands the loader a row with exactly
+       those values and proves none of them leak, while the ordinary
+       cells on the same row still apply. */
+    const staleRows = CSV_ROWS.map(function (r, i) {
+      if (i === 0 || !r || r[0] !== "sushila-g") return r;
+      const row = r.slice();
+      const put = function (col, val) { const k = CSV_HEAD.indexOf(col); if (k > -1) row[k] = val; };
+      put("rating", "5");
+      put("reviewsCount", "3");
+      put("lessonsCount", "40");
+      put("superTutor", "yes");
+      put("preplyUrl", "https://preply.com/en/tutor/7717290");
+      return row;
+    });
+    csvText = staleRows.map(function (r) {
+      return r.map(function (v) {
+        return /[",\n]/.test(String(v)) ? '"' + String(v).replace(/"/g, '""') + '"' : String(v);
+      }).join(",");
+    }).join("\r\n") + "\r\n";
+    window.EkGuruSheet.refresh().then(function () {
+      const s = window.EKGURU_TUTORS.filter(function (t) { return t.id === "sushila-g"; })[0];
+      check("stale sheet: rating does NOT leak (stays the on-site value)",
+        !!s && Number(s.rating) === 0, s && s.rating);
+      check("stale sheet: reviewsCount does NOT leak (stays the on-site value)",
+        !!s && Number(s.reviewsCount) === 0, s && s.reviewsCount);
+      check("stale sheet: lessonsCount does NOT leak (stays the on-site value)",
+        !!s && Number(s.lessonsCount) === 0, s && s.lessonsCount);
+      check("stale sheet: superTutor does NOT leak (stays false)",
+        !!s && s.superTutor === false, s && s.superTutor);
+      check("stale sheet: external-marketplace profile link does NOT leak",
+        !!s && !s.preplyUrl, s && s.preplyUrl);
+      check("stale sheet: ordinary cells still apply (price 6 survives the pass)",
+        !!s && s.priceUSD === 6, s && s.priceUSD);
+
+      console.log("\n" + (failures === 0
+        ? "ALL SHEET-APPLY TESTS PASSED — sheet edits (incl. video links) apply; marketplace metrics and profile links never do (27 Sep 2026 policy)."
+        : failures + " FAILURE(S)"));
+      process.exit(failures === 0 ? 0 : 1);
+    });
   });
 }, 300);

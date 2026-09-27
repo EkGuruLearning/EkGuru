@@ -94,19 +94,26 @@ function photoMarkup(t) {
 }
 
 /* One line of true facts. A tutor with no reviews gets no stars — the old
-   cards printed five of them from an empty reviews array. */
+   cards printed five of them from an empty reviews array.
+
+   27 Sep 2026 master audit — the "Source profile: x.x" and "Source
+   profile lists N lessons" wording is gone. Those numbers came from an
+   external marketplace's listing, and the phrase attributed them to it.
+   After the source gate (js/reviews.js, js/sheet.js, tools/sheetsync.js)
+   reviewsCount can only ever count reviews that EkGuru students left on
+   EkGuru, and EkGuru has no lesson ledger, so the lessons line is
+   dropped entirely rather than relabelled. */
 function metaLine(t) {
   const bits = [];
   if (t.reviewsCount) {
     const stars = "★".repeat(Math.max(1, Math.min(5, Math.round(Number(t.rating) || 0))));
     bits.push(
-      `<span class="stars">Source profile: ${stars} <b>${Number(t.rating || 0).toFixed(1)}</b></span>` +
-        `<span>${t.reviewsCount} attributed review${t.reviewsCount === 1 ? "" : "s"}</span>`
+      `<span class="stars">${stars} <b>${Number(t.rating || 0).toFixed(1)}</b></span>` +
+        `<span>${t.reviewsCount} on-site review${t.reviewsCount === 1 ? "" : "s"}</span>`
     );
   } else {
     bits.push("<span>No public reviews listed</span>");
   }
-  if (t.lessonsCount) bits.push(`<span>Source profile lists ${t.lessonsCount} lessons</span>`);
   if (t.experienceYears) {
     bits.push(`<span>Tutor states ${t.experienceYears}+ year${t.experienceYears === 1 ? "" : "s"}' experience</span>`);
   }
