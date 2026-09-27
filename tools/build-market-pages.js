@@ -146,6 +146,22 @@ function hero(lang, t, tutors, price) {
     es: "¡Hola!", fr: "Bonjour", de: "Hallo", pt: "Olá", ja: "こんにちは", ar: "مرحبا"
   }[lang0] || "Namaste";
 
+  /* Honesty gate (after live verification of the 5.0 bug): a tutor with
+     rating 0 must never be decorated with `rating || 5`. Stars only exist
+     when real on-site reviews exist; otherwise state the policy plainly. */
+  const heroStars =
+    first && Number(first.reviewsCount) > 0
+      ? `<p class="stars" style="margin:6px 0 10px">${"★".repeat(
+          Math.max(1, Math.min(5, Math.round(Number(first.rating) || 0)))
+        )} ${Number(first.rating).toFixed(1)}</p>`
+      : `<p class="sm" style="margin:6px 0 10px">${esc(t(lang0, "hero.chip1"))}</p>`;
+  const withReviews = tutors.filter((x) => Number(x.reviewsCount) > 0);
+  const statRating = withReviews.length
+    ? `${(
+        withReviews.reduce((a, x) => a + (Number(x.rating) || 0), 0) / withReviews.length
+      ).toFixed(1)}★`
+    : "—";
+
   const card = first
     ? `      <div class="hero-card xp-sheen">
         <a class="hc-link" href="../tutor/${esc(first.id)}/" aria-label="${esc(first.name)}"></a>
@@ -154,7 +170,7 @@ function hero(lang, t, tutors, price) {
       )} tutor" width="96" height="96" loading="eager" decoding="async">
         <p class="hc-name">${esc(first.name)}</p>
         <p class="sm">${esc(first.subject)} · ${esc(first.city)}</p>
-        <p class="stars" style="margin:6px 0 10px">${"★".repeat(Math.round(first.rating || 5))} ${(first.rating || 5).toFixed(1)}</p>
+        ${heroStars}
         <a class="btn btn-primary btn-sm btn-block" href="../tutor/${esc(first.id)}/">${esc(
         t(lang0, "hero.viewProfile")
       )}</a>
@@ -193,7 +209,7 @@ function hero(lang, t, tutors, price) {
         <li class="xp-stat"><b data-usd="${price}" data-usd-mode="bare">$${price}</b><span data-i18n="hero.stat4">${esc(
     t(lang0, "hero.stat4")
   )}</span></li>
-        <li class="xp-stat"><b>5.0★</b><span data-i18n="hero.stat3">${esc(
+        <li class="xp-stat"><b>${statRating}</b><span data-i18n="hero.stat3">${esc(
     t(lang0, "hero.stat3")
   )}</span></li>
       </ul>
