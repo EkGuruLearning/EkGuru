@@ -250,7 +250,11 @@ async function fetchSettings(url) {
     .filter(o => o.key);
 }
 
-(async function main() {
+/* The policy functions above are unit-tested directly by
+   tools/test-sheetsync-policy.js (build-side of the 27 Sep 2026
+   reputation gate). Requiring this file must not run the sync —
+   only running it as a CLI does. */
+if (require.main === module) (async function main() {
   const [tutors, reviews, settings, support] = await Promise.all([
     fetchCSV(SRC.tutors), fetchCSV(SRC.reviews), fetchSettings(SRC.settings),
     fetchSettings(SRC.support),
@@ -345,3 +349,5 @@ window.EKGURU_SHEET_HIDDEN = ${JSON.stringify(hidden)};
   console.log(`  settings: ${Object.keys(settingsObj).join(", ")}`);
   console.log(`  emails written: ${Object.values(overrides).filter(t => t.email).length}`);
 })();
+
+module.exports = { buildTutor, buildReviews, MARKETPLACE_SOURCES };

@@ -342,7 +342,7 @@ function availabilityBlock(t) {
     <h2>Profile-listed times (confirmation required)</h2>
     <p>${sentence} Times are shown in ${esc(t.timezone || "IST (GMT+5:30)")}. This is not a live availability calendar; request confirmation before making plans.</p>
     <table class="pr-table">
-      <caption>Imported weekly times for ${esc(t.name)}; availability is not guaranteed</caption>
+      <caption>The tutor-provided schedule for ${esc(t.name)}; availability is not guaranteed</caption>
       <thead><tr><th scope="col">Day</th><th scope="col">Available times</th></tr></thead>
       <tbody>
 ${rows}

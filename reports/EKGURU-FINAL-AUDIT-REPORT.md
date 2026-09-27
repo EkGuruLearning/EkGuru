@@ -167,3 +167,29 @@ Reports: `reports/content-forensic.json` (second grep COMPLETE), `reports/EKGURU
 **`CONTROLLABLE_READY_OWNER_ACTION_REQUIRED`** — every repo-controllable gate (content forensics, tutor data truth, homepage, profiles, booking safety, SEO, thin pages, language matrix, course claims, sitemaps/robots, ads.txt, legal, consent, ad page classes, monetization, security, a11y/mobile, test suite, preflights, jsdom browser QA) passes with evidence; the remaining items are the owner's Sheet update, production redeploy, and Google account-side setup.
 
 Google AdSense approval remains Google's decision and is not guaranteed by this audit.
+
+---
+
+## 9. Addendum — second execution, 2026-09-27 (ultra-deep re-verify + build-side hardening)
+
+Command: "ULTRA DEEP AUTONOMOUS IMPLEMENTATION" + "FINAL ULTRA-HEAVY REPAIR" — every prior PASS re-proven from the current tree; new controls implemented where the command required them.
+
+**Re-verified (not trusted from memory):** all 4 preflights re-run green; full inventory regenerated (2,637 / 1,007 / 1,630, all consistency gates 0); language registries recounted; live `/`, `/ads.txt`, `/robots.txt`, `/tutor/sushila-g/` re-fetched; second-generation forensic grep over **post-build** output: 0 competitor words, 0 attribution phrases, 0 stale strings.
+
+**Live drift re-proven (DEPLOYMENT_DRIFT):** production still serves "0 Tutor profiles", "★★★★★ 5.0 · 3 reviews · 40 lessons", "My name is Sashi", 5 visible tutors, the old CTA, and — newly found — the "Imported weekly times" caption on the tutor page. `/ads.txt` is current. Deployment = owner merge (GitHub Pages from `main`).
+
+**New engineering controls (all green, all wired into `build-all.py check`):**
+- `tools/test-sheetsync-policy.js` (new, 10/10) — build-side anti-regression: `sheetsync.js` refactored to export `buildTutor`/`buildReviews` behind a `require.main` guard; the adversarial stale row (5/3/40/superTutor/marketplace URL) provably bakes nothing on the build side, mirroring the runtime gate proven by `test-sheet-apply.js`.
+- `tools/test-no-competitor-attribution.js` (new) — build-fail gate over 2,562 public HTML + 105 public JS files: no marketplace links, no attribution phrases in public HTML or rendered JS strings (comment-aware scanner), every absolute URL on a calibrated allowlist, canonical/hreflang/og self-referencing `https://ekguru.shop`, no non-empty `preplyUrl` literal, no `sameAs` from `preplyUrl`.
+- `.github/workflows/ci.yml` (new) — connected-CI home for what this sandbox cannot run: network data-source tests, the full jsdom suite, master build check. First Actions run happens on push/PR.
+
+**Fixes the new gate + live inspection surfaced (all at the source, then rebuilt):**
+- `find-tutors.html` — "imported profile schedule" → "tutor-provided schedule"
+- `tools/build-tutor-pages.js` — rendered caption "Imported weekly times for …" → "The tutor-provided schedule for …"
+- `js/seo.js` — runtime FAQ JSON-LD "imported USD prices … external-platform terms" → tutor-stated wording
+
+**New evidence artifacts:** `reports/tutor-data-audit.json` (loader-generated, 0 leaks), `reports/public-page-ad-readiness.json` (810/1,827/0 runtime), `reports/source-of-truth-map.json` (13 entities + anti-stale-fallback contract), `reports/current-execution-baseline.json`, `reports/EKGURU-MASTER-EVIDENCE.json` (final_status: **DEPLOYMENT_DRIFT**).
+
+**Status change:** `CONTROLLABLE_READY_OWNER_ACTION_REQUIRED` → **`DEPLOYMENT_DRIFT`** — the accurate value per the audit's own vocabulary, because live production demonstrably fails the content gates until the PR is merged. Everything repo-controllable is done and gated; the owner's actions are unchanged in substance (merge, sheet update, name confirmation, CMP, Search Console, AdSense review, post-approval flag flip).
+
+Google AdSense approval remains Google's decision and is not guaranteed by this audit.

@@ -1,0 +1,19 @@
+{
+  "start_sha": "502d623679dcf1a7a55d9d9ab1876b3a745dd54d",
+  "start_sha_note": "502d623 = previous execution's pushed commit (verified on origin earlier this session); new work for this execution accumulates on top",
+  "branch": "arena/01a0e08b-ekguru",
+  "remote": "https://github.com/EkGuruLearning/EkGuru.git",
+  "remote_sha_last_verified": "502d623679dcf1a7a55d9d9ab1876b3a745dd54d",
+  "remote_verification_note": "git ls-remote fails at execution start: GH_TOKEN expired mid-session. Last verified remote tip is the 502d623 push from the previous turn. Push of this execution's commit is pending re-auth (PUSH_BLOCKED_AUTHENTICATION reported if it persists).",
+  "worktree_clean_at_start": true,
+  "preexisting_changes": "none \u2014 clean worktree at execution start; all changes below were made during this execution",
+  "start_time_utc": "2026-09-27T13:37:13+00:00",
+  "node_version": "v22.22.3",
+  "npm_version": "10.9.8",
+  "python_version": "Python 3.11.2",
+  "environment_notes": [
+    "Sandbox outbound HTTPS: ekguru.shop reachable via fetch_page tool only (direct curl SSL-blocked); docs.google.com unreachable (sheet state inferred from live-sheets/ snapshots + observed live behavior); npm registry reachable (npm install works; node_modules is snapshot-excluded and reinstalled each session)",
+    "No browser binary in sandbox: rendered QA = project-native jsdom suites; Playwright is not a repo dependency and is not runnable here",
+    "Production deploys from main via GitHub Pages (CNAME=ekguru.shop, .nojekyll present); this session's branch can only push arena/01a0e08b-ekguru and open a PR \u2014 deploy requires owner merge"
+  ]
+}

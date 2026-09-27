@@ -535,7 +535,7 @@
   /* --- FAQ (rich result eligible) --- */
   var FAQ = {
     en: [
-      ["How much does an online Hindi lesson cost on EkGuru?", "Profiles show imported USD prices and estimated local-currency displays. Confirm the current price, billing currency and external-platform terms before booking."],
+      ["How much does an online Hindi lesson cost on EkGuru?", "Profiles show the tutor's stated USD price and an estimated local-currency display. Confirm the current price, billing currency and terms before booking."],
       ["Do I need to know any Hindi before starting?", "EkGuru has free beginner materials. For paid lessons, check the levels stated on each profile and ask whether your starting point is suitable."],
       ["What language background do tutors have?", "Each profile states the tutor’s language background and subjects. Review those tutor-provided details before sending an enquiry."],
       ["Can I request a trial lesson?", "Trial terms are not universal or guaranteed. Ask about the current format, price and cancellation terms before booking."],
