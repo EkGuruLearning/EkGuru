@@ -2,11 +2,11 @@
   "schema_version": 1,
   "generated_at": "2026-09-27T16:12:54Z",
   "start_sha": "f22ed8bf5e2d4d038648405453c227697b2d11d1",
-  "end_sha": "pending_commit",
+  "end_sha": "pending_followup_commit",
   "remote_sha": "f22ed8bf5e2d4d038648405453c227697b2d11d1",
   "branch": "arena/01a0e390-ekguru",
   "live_url": "https://ekguru.shop",
-  "live_deployment_status": "Pages last built f22ed8bf5e from main at 2026-09-27T15:17:52Z. This branch is not live until merged.",
+  "live_deployment_status": "GitHub Pages deploy of merge 51770a9 succeeded (run 36332962077). Live homepage rendered two reviewed tutors only.",
   "public_route_count": 2638,
   "indexable_count": 1008,
   "noindex_count": 1630,
@@ -32,16 +32,35 @@
   "mobile": "inventory mobile_issue_pages=0; jsdom viewport checks on support page PASS",
   "accessibility": "public content landmarks present; remaining inventory issues are admin.html, the Google verification file, and an email preview",
   "performance": "not measured with lab LCP/CLS/INP in this sandbox",
-  "browser": "jsdom suites PASS; Playwright NOT_RUN",
-  "live": "pre-fix fetch_page observed draft tutors and 0 count on current production SHA. Post-fix live check pending deploy.",
+  "browser": "Playwright journeys PASS 5/5 on GitHub Actions run 36332909827",
+  "live": {
+    "homepage_title": "Learn Hindi Online with a Private Tutor | EkGuru",
+    "rendered_tutors": [
+      "Sushila G.",
+      "Shikha Dutta"
+    ],
+    "drafts_absent": [
+      "Hemlata",
+      "Tara",
+      "Sarshtee"
+    ],
+    "tutor_count_shown": 2,
+    "reviews_copy": "none published yet",
+    "sheet_js_gate": "live js/sheet.js contains the reviewed-registry publication gate",
+    "countries": "https://ekguru.shop/learn/countries/ returned the 54-guide directory",
+    "ads_txt": "google.com, pub-8175326569491671, DIRECT, f08c47fec0942fa0",
+    "robots_global_disallow": false,
+    "contact_support": "support@ekguru.shop visible; form still delivers to EkGuruLearning@gmail.com",
+    "googlebot_ua_fetch": "not executed; sandbox TLS to ekguru.shop failed for curl. fetch_page of the live URLs succeeded."
+  },
   "account_side": "Search Console verification meta is present. AdSense account status, identity and certified CMP are owner actions.",
   "blockers": [
-    "DEPLOYMENT: this branch is not the Pages source until merged to main",
-    "PLAYWRIGHT_NOT_RUN",
-    "GOOGLEBOT_UA_FETCH_NOT_RUN",
-    "CERTIFIED_CMP_NOT_INSTALLED",
-    "support@ekguru.shop mailbox delivery not verified"
+    "CERTIFIED_CMP_NOT_INSTALLED \u2014 advertising consent stays disabled",
+    "support@ekguru.shop mailbox delivery not verified",
+    "AdSense account association, identity and tax are owner actions",
+    "Googlebot and Mediapartners-Google user-agent fetches were not executed from this sandbox"
   ],
-  "final_status": "NOT_READY",
-  "final_status_reason": "Repository gates for the defects found in this pass are fixed, but production still serves the previous SHA, Playwright was not run, and a certified CMP is not installed. That is not READY and not a claim that only owner clicks remain."
+  "final_status": "CONTROLLABLE_READY_OWNER_ACTION_REQUIRED",
+  "final_status_reason": "The defects found on the live homepage are fixed and deployed. Ads stay off. Remaining items are owner account actions, mailbox confirmation, a certified CMP before any personalised ads, and a user-agent crawler fetch this sandbox could not complete. This is not AdSense approval.",
+  "remote_sha_main_before_followup": "51770a92115dfc08aece125416dbb6f691134394"
 }
