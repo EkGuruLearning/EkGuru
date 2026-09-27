@@ -4,6 +4,13 @@
    Written by tools/sheetsync.js from the Google Sheet on
    2026-09-14T06:53:24.507Z.
 
+   ⚠ 2026-09-26 MANUAL EDIT (must be mirrored in the sheet):
+   Sushila's marketplace-imported stats (rating 5 / 3 reviews /
+   40 lessons) and her copied review excerpts were zeroed/removed.
+   EkGuru shows only numbers it can verify from its own data, and
+   only site-native reviews. If the sheet is not updated to match,
+   the next sheetsync run will restore the imported values.
+
    Loaded AFTER the hand-written tutor files, so the sheet
    wins. Delete this file and the site falls back to those
    files, which is exactly what happens when the sheet is
@@ -30,13 +37,14 @@ window.EKGURU_SHEET_OVERRIDES = {
     "lessonLength": "50 min",
     "priceUSD": 6,
     "experienceYears": 3,
-    "rating": 5,
-    "reviewsCount": 3,
-    "lessonsCount": 40,
+    "rating": 0,
+    "reviewsCount": 0,
+    "lessonsCount": 0,
     "youtubeId": "Ykic7gkyHjg",
     "trialAvailable": true,
     "verified": true,
-    "superTutor": true,
+    /* not rendered anywhere; no EkGuru record earns the label — keep false */
+    "superTutor": false,
     "preplyUrl": "https://preply.com/en/tutor/7717290",
     "photo": "images/sushila.jpg",
     "thumb": "images/sushila.jpg",
@@ -142,31 +150,7 @@ window.EKGURU_SHEET_OVERRIDES = {
         "15:00"
       ],
       "Sun": []
-    },
-    "reviews": [
-      {
-        "name": "Tomasz",
-        "date": "2026-07-12",
-        "stars": 5,
-        "source": "preply",
-        "text": "Sushila is a very patient teacher. She adjusts the tempo to the student's level and the content to his needs, is very calm and helpful. Her pronunciation is very clear and understandable. A lesson with Sushila is a highly enjoyable Hindi experience with lots of new knowledge. Thank you, Sushila!"
-      },
-      {
-        "name": "Jon",
-        "date": "2026-06-19",
-        "stars": 5,
-        "source": "preply",
-        "text": "Shashi is very patient and maintains a good pace during lessons. She plans the lessons according to my level, and we mostly converse in Hindi. She is a wonderful person with a calm and gentle nature — we even talk about Hindi culture. She is very professional and we share a great rapport. Shashi, you are amazing — thank you!"
-      },
-      {
-        "name": "Matthew",
-        "date": "2026-06-18",
-        "stars": 5,
-        "source": "preply",
-        "text": "Sushila is well organised, friendly, and most importantly she is patient. She is always fully present in class. She is helping me with my pronunciation, reading and speaking, and it is going well. Classes are fun — we read children's stories and other school material. I look forward to classes and I recommend her as a tutor."
-      }
-    ]
-  },
+    }},
   "shikha-dutta": {
     "name": "Shikha Dutta",
     "headline": "Experienced Hindi Tutor for Classes 1–10 — Devanagari, Grammar & Confident Speaking",

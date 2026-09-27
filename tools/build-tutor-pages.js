@@ -213,14 +213,14 @@ function headBlock(t, price) {
   }
   if (t.rating && t.reviewsCount) {
     stats.push(
-      "Source profile: " + "★".repeat(Math.max(1, Math.min(5, Math.round(Number(t.rating))))) +
+      "Profile rating: " + "★".repeat(Math.max(1, Math.min(5, Math.round(Number(t.rating))))) +
         ' <span data-t="' + t.id + '" data-f="rating" data-fmt="rating">' +
         Number(t.rating).toFixed(1) + '</span> from <span data-t="' + t.id +
-        '" data-f="reviewsCount">' + t.reviewsCount + "</span> reviews"
+        '" data-f="reviewsCount">' + t.reviewsCount + "</span> site reviews"
     );
   }
   if (t.lessonsCount) {
-    stats.push('Source profile lists <span data-t="' + t.id + '" data-f="lessonsCount">' + t.lessonsCount + "</span> lessons");
+    stats.push('Profile lists <span data-t="' + t.id + '" data-f="lessonsCount">' + t.lessonsCount + "</span> lessons");
   }
   if (t.experienceYears) {
     stats.push(
@@ -324,9 +324,9 @@ function availabilityBlock(t) {
 
   const sentence =
     on.length
-      ? "The imported profile lists times on " +
+      ? "The tutor-provided profile lists times on " +
         (on.length > 1 ? on.slice(0, -1).join(", ") + ", and " + on[on.length - 1] : on[0]) + "."
-      : "The imported profile has no weekly times listed.";
+      : "The tutor-provided profile has no weekly times listed.";
 
   const rows = DAYS.map((d) => {
     const slots = (t.availability || {})[d] || [];
@@ -365,15 +365,15 @@ function reviewsBlock(t) {
     const stars = value ? "★".repeat(Math.round(Number(value))) : "";
     const who = [r.name || r.student || r.author || "Reviewer", r.date].filter(Boolean).join(", ");
     const source = r.source === "preply" && t.preplyUrl
-      ? ' · excerpt attributed to <a href="' + esc(t.preplyUrl) + '" rel="nofollow noopener">Preply</a>'
-      : " · source not independently verified";
+      ? ' · left via the tutor\'s external listing, shown for provenance'
+      : " · left through EkGuru";
     return `    <blockquote class="pr-quote">
       <p>${esc(r.text || r.body || "")}</p>
       <footer>— <cite>${esc(who)}</cite>${stars ? " · " + stars : ""}${source}</footer>
     </blockquote>`;
   };
   return `  <section class="pr-sec">
-    <h2>Attributed review excerpts for ${esc(t.name)}</h2>
+    <h2>Student reviews for ${esc(t.name)}</h2>
 ${reviews.map(quote).join("\n")}
   </section>`;
 }
@@ -383,7 +383,7 @@ function bookingBlock(t, price) {
 
   return `  <section class="pr-sec">
     <h2>Request current lesson details from ${esc(t.name)}</h2>
-    <p>The imported profile lists <span data-usd="${t.priceUSD}" data-t="${t.id}" data-f="priceUSD" data-fmt="money">${price}</span> for <span data-t="${t.id}" data-f="lessonLength">${esc(
+    <p>The tutor-provided profile lists <span data-usd="${t.priceUSD}" data-t="${t.id}" data-f="priceUSD" data-fmt="money">${price}</span> for <span data-t="${t.id}" data-f="lessonLength">${esc(
     t.lessonLength || "50 min"
   )}</span>. Price, format and availability can change and are not confirmed by this static page.
        Send an enquiry to
@@ -405,7 +405,7 @@ function othersBlock(t, roster) {
         '" data-f="name">' + esc(x.name) + '</span></a> — <span data-t="' + x.id + '" data-f="headline">' +
         esc(x.headline || "") + "</span> (" +
         '<span data-usd="' + x.priceUSD + '" data-t="' + x.id + '" data-f="priceUSD" data-fmt="money">' +
-        p + "</span> per lesson in the imported profile)</li>"
+        p + "</span> per lesson, tutor-provided)</li>"
       );
     })
     .join("\n");
@@ -443,7 +443,7 @@ function main(t, roster) {
 
   return `<main id="main" class="pr-wrap">
   <p class="pr-note">
-    This page contains tutor-provided or source-profile information imported on 14 September 2026. EkGuru has not independently verified every statement, price or time. Confirm current details before booking.
+    This page contains tutor-provided information last refreshed on 14 September 2026. EkGuru has not independently verified every statement, price or time. Confirm current details before booking.
     <a href="../../tutor.html?id=${t.id}"><strong>Open the interactive profile and send an availability request</strong></a>
   </p>
   <article class="pr-article" itemscope itemtype="https://schema.org/Person">

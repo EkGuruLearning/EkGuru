@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-09-26",
+  "purpose": "Generic affiliate architecture for EkGuru. This registry is DATA ONLY. No program in it is active, approved or tracked until every gate below is true for that program AND the owner's activation checklist in docs/GOOGLE_MONETIZATION.md is complete.",
+  "global_rules": {
+    "activation_master_switch": false,
+    "truth_rules": [
+      "Never invent an affiliate ID or tracking parameter.",
+      "Never create fake affiliate links or fake discounts.",
+      "Never call any merchant an 'official partner' unless a signed/approved agreement exists.",
+      "Never build generic product walls or pages whose primary purpose is affiliate traffic.",
+      "Affiliate placement must be relevant, useful, clearly disclosed and secondary to original content.",
+      "Affiliate revenue is separate from Google AdSense and pays through the program's own network, not through AdSense.",
+      "No affiliate link may appear on pages whose data-ad-class is INTERACTIVE_LEARNING, UTILITY, TRANSACTIONAL, ACCOUNT, ADMIN, CONTACT, BOOKING, PAYMENT, ERROR, SEARCH, PLACEHOLDER, RESEARCH_REQUIRED or INCOMPLETE."
+    ],
+    "disclosure_standard": "Every page carrying an affiliate link must disclose the commercial relationship in plain language, near the link or in a clearly labelled disclosure for the section. See /monetization-disclosure/ for the site-wide statement.",
+    "editorial_rule": "Commercial relationships never determine course publication, tutor ranking, review wording or country/language claims."
+  },
+  "program_template": {
+    "slug": "example-do-not-activate",
+    "program_name": "(human-readable program name)",
+    "merchant_or_network": "(merchant and the network that runs the program)",
+    "owner_status": "RESEARCHED | APPLIED | APPROVED | REJECTED | EXPIRED",
+    "approval_status": "NOT_APPROVED_DO_NOT_ACTIVATE",
+    "tracking_id": "",
+    "country_eligibility": [],
+    "allowed_traffic": "(what the program terms allow: organic content, email, paid, social)",
+    "commission_rules": "(rate, qualifying actions, reversals)",
+    "cookie_duration_days": 0,
+    "disclosure_text": "(exact sentence shown beside links for this program)",
+    "allowed_placements": [],
+    "terms_url": "",
+    "terms_reviewed_at": null,
+    "notes": ""
+  },
+  "programs": [],
+  "activation_checklist_per_program": [
+    "1. Read the program's CURRENT terms on the merchant/network site; record terms_reviewed_at.",
+    "2. Confirm EkGuru's traffic type and countries are eligible.",
+    "3. Receive explicit approval and a real tracking ID from the network — never invent one.",
+    "4. Fill every field of the program entry; set approval_status to APPROVED and owner_status to APPROVED.",
+    "5. Add specific pages to allowed_placements; the policy exclusion list above always wins.",
+    "6. Write the disclosure_text and confirm it renders beside the link.",
+    "7. Run: node tools/test-affiliate-disclosure.mjs (renders the skeleton contract).",
+    "8. Only then flip the entry's enabled flag. The global activation_master_switch stays false until the first real approval exists."
+  ]
+}

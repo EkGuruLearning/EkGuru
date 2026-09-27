@@ -305,11 +305,78 @@ CC_CSS = """
 """
 
 
+def _context_static(cid):
+    """Render the context's modules as static HTML.
+
+    The interactive app (country-context.js) replaces #ctx-app when it
+    loads, so with JavaScript a learner gets the rehearse-and-tick
+    version. Without JavaScript — and for a crawler — the same phrases,
+    romanisations, meanings and source links are already on the page.
+    This is the same data, rendered twice; nothing is invented for SEO
+    and the page no longer depends on JS for its essential content."""
+    import json
+    path = os.path.join(ROOT, "data", "country-context-phase7c.json")
+    with open(path, encoding="utf-8") as fh:
+        data = json.load(fh)
+    context = next((c for c in data.get("contexts", []) if c.get("id") == cid), None)
+    if not context:
+        return ""
+    parts = ['<div class="cc-static">']
+    subtitle = context.get("subtitle")
+    if subtitle:
+        parts.append('<p class="cc-sub">%s</p>' % _escape(subtitle))
+    audience = context.get("audience")
+    shared = context.get("sharedCourse")
+    if audience or shared:
+        bits = []
+        if audience:
+            bits.append("Who it is for: %s." % _escape(audience))
+        if shared:
+            bits.append("Built on the shared %s course — the context re-orders real material, it does not replace the course." % _escape(shared))
+        parts.append('<p class="cc-shared">%s</p>' % " ".join(bits))
+    honest = context.get("honestNote")
+    if honest:
+        parts.append('<p class="cc-note">%s</p>' % _escape(honest))
+    for mod in context.get("modules", []):
+        parts.append('<section class="cc-mod"><h3>%s</h3>' % _escape(mod.get("title", "")))
+        phrases = mod.get("phrases", [])
+        if phrases:
+            parts.append('<ul class="cc-phrases">')
+            for ph in phrases:
+                parts.append(
+                    '<li class="cc-phrase"><span class="cc-target" lang="hi">%s</span>'
+                    '<span class="cc-roman">%s</span>'
+                    '<span class="cc-meaning">%s</span></li>' % (
+                        _escape(ph.get("target", "")),
+                        _escape(ph.get("roman", "")),
+                        _escape(ph.get("meaning", ""))))
+            parts.append('</ul>')
+        elif mod.get("links"):
+            parts.append('<p class="cc-shared">This step is reading-based; the material lives in the guides linked below.</p>')
+        links = mod.get("links", [])
+        if links:
+            parts.append('<ul class="cc-links">')
+            for ln in links:
+                parts.append('<li><a href="%s">%s</a></li>' % (
+                    _escape(ln.get("url", "#")), _escape(ln.get("title", "Read more"))))
+            parts.append('</ul>')
+        parts.append('</section>')
+    parts.append('</div>')
+    return "\n".join(parts)
+
+
+def _escape(text):
+    return (str(text).replace("&", "&amp;").replace("<", "&lt;")
+            .replace(">", "&gt;").replace('"', "&quot;"))
+
+
 def _context_page(cid, up, title, desc, url, crumb, lede, scripts):
     body = '  <h1>%s</h1>\n  <p class="lede">%s</p>\n  <div class="note"><b>Honest scope.</b> This is a curated path built from '
     body += 'real published phrases and lessons — a context on top of the shared Hindi course, not a new course. '
     body += 'Nothing here is AI-generated; every phrase is copied from a page that already exists on EkGuru.</div>\n'
-    body += '  <div id="ctx-app"><p class="muted">Loading…</p></div>\n'
+    body += '  <div id="ctx-app">'
+    body += _context_static(cid)
+    body += '</div>\n'
     body += """  <script defer>
   (function(){
     var el=document.getElementById("ctx-app");

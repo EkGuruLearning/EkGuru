@@ -765,7 +765,7 @@
         '<img data-safe src="' + esc(x.photo) + '" alt="' + esc(x.name) + '" width="96" height="96">' +
         '<p class="hc-name">' + esc(x.name) + "</p>" +
         '<p class="sm">' + esc(t("card.tutor")) + " · " + esc(x.country) + "</p>" +
-        '<p class="stars" style="margin:6px 0 10px">' + stars(x.rating) + " " + (x.rating || 0).toFixed(1) + "</p>" +
+        (x.reviewsCount ? '<p class="stars" style="margin:6px 0 10px">' + stars(x.rating) + " " + (x.rating || 0).toFixed(1) + "</p>" : "") +
         '<a class="btn btn-primary btn-sm btn-block" href="' + langHref("tutor.html", "id=" + encodeURIComponent(x.id)) + '">' + esc(t("hero.viewProfile")) + "</a>";
       $all("[data-safe]", hc).forEach(safeImg);
     }

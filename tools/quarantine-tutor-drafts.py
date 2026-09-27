@@ -12,11 +12,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DRAFTS = {
-    "hemlata": "This tutor record is currently hidden from the public roster.",
-    "tara": "This draft still contains placeholder profile fields.",
-    "sarshtee-baliyan": "This draft still requires publication review and complete assets.",
+    "hemlata": ("Hemlata", "This tutor record is currently hidden from the public roster."),
+    "tara": ("Tara", "This draft still contains placeholder profile fields."),
+    "sarshtee-baliyan": ("Sarshtee Baliyan", "This draft still requires publication review and complete assets."),
 }
-TITLE = "Tutor profile not published | EkGuru"
 DESC = "This tutor profile is not currently published. Browse EkGuru's current public tutor profiles."
 
 
@@ -26,26 +25,31 @@ def meta(text: str, key: str, value: str, content: str) -> str:
     return pattern.sub(tag, text, count=1) if pattern.search(text) else text.replace("</head>", tag + "\n</head>", 1)
 
 
-def desired(slug: str, reason: str, text: str) -> str:
+def desired(slug: str, name: str, reason: str, text: str) -> str:
     url = f"https://ekguru.shop/tutor/{slug}/"
+    # Unique title/H1 per draft: three identical titles across these pages
+    # was the one duplicate-title group left in the repository audit.
+    title = f"{name} — tutor profile not published | EkGuru"
+    h1 = f"{name} — tutor profile not published"
+    desc = f"The {name} tutor profile is not currently published. Browse EkGuru's current public tutor profiles."
     main = f'''<main class="pr-wrap" id="main">
   <nav aria-label="Breadcrumb" class="crumbs"><a href="../../index.html">Home</a> › <a href="../../find-tutors.html">Find Tutors</a> › <span>Profile not published</span></nav>
-  <article class="pr-sec"><h1>Tutor profile not published</h1><p>{reason}</p><p>No price, availability, identity status or booking terms are offered on this page.</p><p><a class="btn btn-primary" href="../../find-tutors.html">Browse current tutor profiles</a></p></article>
+  <article class="pr-sec"><h1>{h1}</h1><p>{reason}</p><p>No price, availability, identity status or booking terms are offered on this page.</p><p><a class="btn btn-primary" href="../../find-tutors.html">Browse current tutor profiles</a></p></article>
 </main>'''
-    text = re.sub(r"<title>.*?</title>", f"<title>{TITLE}</title>", text, count=1, flags=re.I | re.S)
-    text = meta(text, "name", "description", DESC)
+    text = re.sub(r"<title>.*?</title>", f"<title>{title}</title>", text, count=1, flags=re.I | re.S)
+    text = meta(text, "name", "description", desc)
     text = meta(text, "name", "robots", "noindex, follow")
-    text = meta(text, "property", "og:title", TITLE)
-    text = meta(text, "property", "og:description", DESC)
-    text = meta(text, "name", "twitter:title", TITLE)
-    text = meta(text, "name", "twitter:description", DESC)
+    text = meta(text, "property", "og:title", title)
+    text = meta(text, "property", "og:description", desc)
+    text = meta(text, "name", "twitter:title", title)
+    text = meta(text, "name", "twitter:description", desc)
     if re.search(r"<html\b[^>]*\bdata-ad-class=", text, re.I):
         text = re.sub(r'(<html\b[^>]*\bdata-ad-class=["\'])[^"\']*', r'\1RESEARCH_REQUIRED', text, count=1, flags=re.I)
     else:
         text = re.sub(r"<html\b", '<html data-ad-class="RESEARCH_REQUIRED"', text, count=1, flags=re.I)
     text = re.sub(r'<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>.*?</script>', "", text, flags=re.I | re.S)
-    schema = json.dumps({"@context": "https://schema.org", "@type": "WebPage", "name": TITLE,
-                         "url": url, "description": DESC}, ensure_ascii=False, separators=(",", ":"))
+    schema = json.dumps({"@context": "https://schema.org", "@type": "WebPage", "name": title,
+                         "url": url, "description": desc}, ensure_ascii=False, separators=(",", ":"))
     text = re.sub(r'\s*</head>', "\n</head>", text, count=1, flags=re.I)
     text = text.replace("</head>", f'<script type="application/ld+json">{schema}</script>\n</head>', 1)
     text = re.sub(r"<main\b.*?</main>", main, text, count=1, flags=re.I | re.S)
@@ -55,10 +59,10 @@ def desired(slug: str, reason: str, text: str) -> str:
 def main() -> int:
     check = "--check" in sys.argv
     stale = []
-    for slug, reason in DRAFTS.items():
+    for slug, (name, reason) in DRAFTS.items():
         path = ROOT / "tutor" / slug / "index.html"
         old = path.read_text(encoding="utf-8")
-        new = desired(slug, reason, old)
+        new = desired(slug, name, reason, old)
         if new != old:
             stale.append(path.relative_to(ROOT).as_posix())
             if not check: path.write_text(new, encoding="utf-8")
