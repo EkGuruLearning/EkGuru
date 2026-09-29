@@ -114,6 +114,7 @@ def main():
             ["node", "tools/adsready.js", "--local"])
         run("print sheets --check (only the sheet prints)", ["python3", "tools/build-print-sheets.py", "--check"])
         run("site shell --check (header + footer on every page)", ["node", "tools/build-shell.js", "--check"])
+        run("country specifics --check (P3 de-templated country pages)", ["python3", "tools/apply-country-specifics.py", "--check"])
         run("copy index --check", ["node", "tools/build-copy-index.js", "--check"])
         run("search publication check", ["python3", "tools/check-search-index.py"])
         run("ownership test (matcher vs its own corpus)", ["node", "tools/test-copy-index.mjs"])
