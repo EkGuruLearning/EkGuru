@@ -96,7 +96,7 @@ ok("the level's own figure is on the page", one.includes(`images/vis/${sample.co
    say so — the site's rule is that a machine may re-ask what a human wrote,
    and must never be presented as a teacher. */
 ok("the generated drills are labelled as generated",
-  /generated from this level’s own vocabulary/.test(one) && /never a\s+lesson|never a lesson/i.test(one));
+  /drills are generated from the [^<.]+ vocabulary list/.test(one) && /never a\s+lesson|never a lesson/i.test(one));
 ok("no page claims to be AI-taught", !/\bAI\b(?!-)/.test(one.replace(/aria-[a-z]+/g, "")));
 
 console.log("\n3. it is a page-layer page, not a fifth design\n");

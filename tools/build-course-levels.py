@@ -586,8 +586,8 @@ def level_page(code, course, level, data, rungmap, figs, levels):
                     if t and t not in seen:
                         seen.add(t); targets_list.append(t)
                 if targets_list:
-                    body.append('<p class="note"><b>What this practice tests.</b> %s</p>'
-                                % _clean(" ".join(targets_list)))
+                    body.append('<p class="note"><b>What this %s practice tests.</b> %s</p>'
+                                % (_clean(name), _clean(" ".join(targets_list))))
                 body.append('<ol class="prac">%s</ol>'
                             % "".join(practice_item(i, k) for k, i in enumerate(prac)))
             quiz = l.get("quiz") or []
@@ -602,11 +602,15 @@ def level_page(code, course, level, data, rungmap, figs, levels):
 
     body.append("<h2>Recall drills — %d more questions from the %s words</h2>"
                 % (n["drills"], level))
-    body.append('<p class="note">These drills are generated from this level’s own vocabulary '
-                "list, in both directions: recognition (word → meaning) and production "
+    unit_titles = [_clean(u.get("title", "")) for u in units if u.get("title")]
+    span = ((" — the words of “%s” through “%s”" % (unit_titles[0], unit_titles[-1]))
+            if len(unit_titles) > 1 else
+            (" — the words of “%s”" % unit_titles[0]) if unit_titles else "")
+    body.append('<p class="note">These %d drills are generated from the %s %s vocabulary '
+                "list%s, in both directions: recognition (word → meaning) and production "
                 "(meaning → word). They re-ask what the course data already contains; no answer "
                 "here was written by a machine, and a generated drill is practice, never a "
-                "lesson.</p>")
+                "lesson.</p>" % (n["drills"], _clean(name), level, span))
     for u in units:
         rows = []
         for l in (u.get("lessons") or []):
@@ -618,8 +622,12 @@ def level_page(code, course, level, data, rungmap, figs, levels):
     test = (lv.get("test") or {}).get("items") or []
     if test:
         body.append("<h2>The %s test — %d items</h2>" % (level, len(test)))
-        body.append("<p>The level test closes the level. Answers are shown; in the course player "
-                    "the same test decides whether the next level unlocks.</p>")
+        body.append("<p>The %d-item test closes %s %s. Answers are shown; in the course player "
+                    "the same test decides whether %s unlocks.</p>"
+                    % (len(test), _clean(name), level,
+                       ("%s %s" % (_clean(name), levels[levels.index(level) + 1]))
+                       if level in levels and levels.index(level) < len(levels) - 1
+                       else "the next level"))
         body.append('<ol class="test">%s</ol>' % "".join(practice_item(i, k) for k, i in enumerate(test)))
 
     nxt = NEXT_RUNG.get(level, "")
@@ -629,11 +637,11 @@ def level_page(code, course, level, data, rungmap, figs, levels):
     if nxt_rung:
         body.append('<h2 id="checkpoint">After %s: the %s checkpoint</h2>'
                     % (level, _clean(nxt_rung["label"])))
-        body.append("<p>%s is not a certificate — it is the half-step between this level and the "
-                    "next one, and it is on this site’s ladder because language schools use it. "
+        body.append("<p>%s is not a certificate — it is the half-step between %s %s and the "
+                    "next level, and it is on this site’s ladder because language schools use it. "
                     "You are at %s when you can %s. Get there by working the recall drills above "
                     "and the review deck until nothing on this page surprises you%s.</p>"
-                    % (_clean(nxt_rung["label"]), _clean(nxt_rung["label"]),
+                    % (_clean(nxt_rung["label"]), _clean(name), level, _clean(nxt_rung["label"]),
                        _clean(nxt_rung.get("can", "the level feels easy")).rstrip("."),
                        (", then open the <a href=\"../%s/\">%s pages</a>" % (nxt_level.lower(), nxt_level))
                        if nxt_level else ""))
@@ -753,21 +761,24 @@ def ladder_page(code, course, levels, loaded, rungmap, figs):
             % (lv.lower(), lv, _clean(((data.get("level") or {}).get("title") or LEVEL_NAMES.get(lv, lv))),
                _clean((rungmap.get(LEVEL_RUNG.get(lv, "")) or {}).get("can", "")),
                n["lessons"], n["vocab"], n["practice"] + n["quiz"] + n["test"]))
-    body.append('<p class="note"><b>The whole course, counted.</b> %d lessons, %d words with '
-                "romanisation and %d questions with answers — every one of them readable on the "
-                "level pages below.</p>" % (total["lessons"], total["vocab"], total["questions"]))
+    body.append('<p class="note"><b>The whole %s course, counted.</b> %d lessons, %d words with '
+                "romanisation and %d questions with answers across %s — every one of them readable "
+                "on the level pages below.</p>"
+                % (_clean(name), total["lessons"], total["vocab"], total["questions"],
+                   _clean(", ".join(published)) if published else "no published level yet"))
 
     body.append("<h2>Published levels</h2>")
     body.append('<div class="lv-cards">%s</div>' % "".join(cards))
 
     body.append("<h2>The eleven rungs, in pictures</h2>")
-    body.append("<p>CEFR has six levels. This site also names the half-step after each of the "
+    body.append("<p>CEFR has six levels. The %s ladder on this site also names the half-step after each of the "
                 "first five — A1+, A2+, B1+, B2+, C1+ — because that is the honest label for the "
                 "learner who has finished the lessons but is not yet ready for the next level. "
                 "A3, B3 and C3–C5, when they appear on a course, are optional EkGuru extension "
                 "tracks, not CEFR rungs, and they are published only with authored lessons. "
                 "A page that prints empty extra levels as if an examiner set them is a page an "
-                "examiner stops trusting. <a href=\"/how-levels-work/\">The full explanation is here.</a></p>")
+                "examiner stops trusting. <a href=\"/how-levels-work/\">The full explanation is here.</a></p>"
+                % _clean(name))
     cells = []
     for rid, r in rungmap.items():
         fig = figs.get("%s-%s" % (code, rid))

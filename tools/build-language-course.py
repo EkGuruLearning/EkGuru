@@ -483,7 +483,7 @@ def p_practice(d):
   <h2>What each {E(n)} lab does</h2>
   <p>The quiz pulls multiple-choice questions out of this course's own {E(n)} lesson bank, so the answer you get wrong links back to the exact lesson that explains it. The typing trainer gives you a Roman prompt and asks for the word in {E(d['script_name'])} — useful precisely because producing a word is harder than recognising it. The worksheet builder turns any topic into a printable page you can write on, and the conversation scenarios are short {E(n)} dialogues you read aloud line by line.</p>
   <h2>How to practise</h2>
-  <p>Ten focused minutes beats an hour of scrolling: pick one topic, take five questions, then read the explanations for everything you missed. Come back to the same topic tomorrow — the question set rotates with the date, so the second pass tests memory rather than the question order. Nothing here is timed and nothing is sent anywhere: the score stays in this browser unless you clear it.</p>
+  <p>Ten focused minutes beats an hour of scrolling: pick one {E(n)} topic, take five of its {len(d['quiz'])} questions, then read the explanations for everything you missed. Come back to the same topic tomorrow — the question set rotates with the date, so the second pass tests memory rather than the question order. Nothing here is timed and nothing is sent anywhere: the score stays in this browser unless you clear it.</p>
   <div class="note">Scores here are recognition scores, not fluency measures — nothing is a certified test.</div>""")
 
 
@@ -535,11 +535,11 @@ def lab_page(d, kind):
         "typing": f"""  <h2>How the {E(n)} typing check works</h2>
   <p>You get a Roman prompt and type the word in {E(d['script_name'])}. The trainer compares what you typed with the stored spelling and accepts spacing and equivalent punctuation as minor format rather than marking them wrong — this is a practice tool, not an exam. Every prompt comes from the {E(n)} vocabulary on this site, so what you type is what you will actually read later.</p>
   <h2>Why typing beats re-reading</h2>
-  <p>Recognition is cheap: a word can look familiar long before you can produce it. Typing forces the harder step — recalling the letters and their order — and the mistakes it exposes are exactly the letters you keep mixing up. Ten words a day is a better routine than a hundred once a month.</p>""",
+  <p>Recognition is cheap: a {E(n)} word can look familiar long before you can produce it. Typing forces the harder step — recalling the {E(d['script_name'])} letters and their order — and the mistakes it exposes are exactly the letters you keep mixing up. Ten words a day is a better routine than a hundred once a month.</p>""",
         "worksheets": f"""  <h2>How the {E(n)} worksheet is built</h2>
   <p>Choose a topic and a number of prompts, and the builder lays out a printable {E(n)} worksheet with writing space and an answer section at the end. It is designed for paper: one topic per sheet, prompts in a readable size, answers on their own block so they can be folded away. Printing from the browser prints just the sheet, with the watermark and this site's name kept on it.</p>
   <h2>Marking and reusing a sheet</h2>
-  <p>Write your answers first, then check them against the answer block and note which ones needed a second attempt — those are the words to review tomorrow. Nothing is stored for you, so print a fresh sheet for a fresh attempt; a set of five finished sheets makes an honest revision pack.</p>""",
+  <p>Write your answers first, then check them against the answer block and note which {E(n)} words needed a second attempt — those are the ones to review tomorrow. Nothing is stored for you, so print a fresh sheet for a fresh attempt; a set of five finished sheets makes an honest revision pack.</p>""",
     }
     body = f"""{crumb(d, [("../", "Practice"), (None, title.split(" — ")[0].replace(n + " ", "").title())])}
   <h1>{E(title)}</h1>

@@ -278,14 +278,16 @@ def gallery(code, lang, page, rungs, manifest):
         MARK_START + "\n"
         '<section class="lv-visuals" aria-labelledby="lv-visuals-h">\n'
         '<h2 id="lv-visuals-h">The same learner, from %s to %s</h2>\n'
-        '<p>Each rung of this course is a person at a different age: a child at the '
-        'first level, an adult using the language at work in the middle, and by the '
-        'last level someone who has spoken it for a lifetime. The picture is the level — '
+        '<p>Each rung of the %s course is a person at a different age: a child at '
+        '%s, an adult using %s at work around %s, and by %s someone who has spoken '
+        'it for a lifetime. The picture is the level — '
         'the same ladder every language here climbs, '
         '<a href="%show-levels-work/">and here is how the eleven rungs work</a>.</p>\n'
         '<div class="lv-strip">\n%s\n</div>\n'
         '</section>\n'
-        % (rungs[0]["label"], rungs[-1]["label"], prefix, "\n".join(items)) +
+        % (rungs[0]["label"], rungs[-1]["label"], esc(lang["name"]), rungs[0]["label"],
+           esc(lang["name"]), rungs[len(rungs) // 2]["label"], rungs[-1]["label"],
+           prefix, "\n".join(items)) +
         MARK_END + "\n")
 
 
