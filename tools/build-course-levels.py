@@ -912,7 +912,12 @@ def update_sitemap(urls, check):
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + body + "\n</urlset>\n")
     old = open(SITEMAP, encoding="utf-8").read() if os.path.exists(SITEMAP) else ""
     stale = []
-    if old != xml:
+    # lastmod is today's date, so a byte compare would call the sitemap stale
+    # on every day after the build (and a rebuild would re-date every URL,
+    # which is the mass-lastmod pattern search engines learn to ignore). The
+    # sitemap is stale when its URL set changed, not when a day passed.
+    undated = lambda s: re.sub(r"<lastmod>[^<]*</lastmod>", "<lastmod/>", s)
+    if undated(old) != undated(xml):
         if check:
             stale.append(SITEMAP)
             print("STALE: %s needs tools/build-course-levels.py" % SITEMAP)
