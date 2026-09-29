@@ -282,9 +282,9 @@ def topic_page(cfg, tp, prev_tp, next_tp, live):
     nav += ('<a href="../%s/">%s &rarr;</a>' % (next_tp["slug"], H.escape(next_tp["title"]))
             if next_tp else "<span></span>")
     nav += "</nav>"
-    cta = ('<div class="cta"><h2>Ready to test yourself?</h2>'
+    cta = ('<aside class="cta" aria-label="Next step"><h2>Ready to test yourself?</h2>'
            '<p>Turn this topic into lasting memory — quiz, practice and review, all free.</p>'
-           '<a class="cta-btn" href="%s">Quiz yourself</a></div>') % cfg["quiz_url"]
+           '<a class="cta-btn" href="%s">Quiz yourself</a></aside>') % cfg["quiz_url"]
     seo_title = localised(tp["title"], cfg["title"])
     seo_desc = tp["desc"] if cfg["title"].lower() in tp["desc"].lower() else \
         "%s: %s" % (cfg["title"], tp["desc"])

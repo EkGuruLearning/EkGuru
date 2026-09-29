@@ -51,7 +51,9 @@ jobs:
           node tools/test-sheetsync-policy.js
 
       - name: Public-output gate (competitor attribution, stale wording, origin)
-        run: node tools/test-no-competitor-attribution.js
+        run: |
+          node tools/test-no-competitor-attribution.js
+          node tools/test-tutor-claims.js
 
       - name: jsdom browser-QA suites
         run: |
