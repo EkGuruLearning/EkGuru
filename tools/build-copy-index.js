@@ -137,7 +137,11 @@ function build() {
   for (const file of walk(".", []).sort()) {
     const html = fs.readFileSync(file, "utf8");
     const text = proseOf(html);
-    const words = text ? text.split(" ") : [];
+    /* Lower-cased, as the panel (js/admin-ownership.js words()) lower-cases a
+       paste: hashing the page's own casing meant only all-lowercase windows
+       could ever match, so a paragraph with a few capitalised words scored
+       as "partly ours" against its own page. */
+    const words = text ? text.toLowerCase().split(" ") : [];
     if (words.length < MIN_WORDS) continue;
     const url = file.replace(/(^|\/)index\.html$/, "$1").replace(/\\/g, "/");
     pages.push({

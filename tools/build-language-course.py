@@ -218,7 +218,7 @@ def p_basics(d):
   <h1>{E(n)} basics — the script, sounds and first steps</h1>
   <p class="lede">The starting point: the {E(d['script_name'])}, your first words, and the honest answer to where to begin. {E(d['script_note'])}</p>
   <h2>The alphabet at a glance</h2>
-  <p>{len(d['vowels'])} vowels and {len(d['consonants'])} consonants. The full tables with sounds are on the <a href="../pronunciation/">pronunciation page</a> — learn to recognise them before you memorise any words.</p>
+  <p>The {E(d['script_name'] if 'script' in d['script_name'].lower() else d['script_name'] + ' script')} has {len(d['vowels'])} vowels and {len(d['consonants'])} consonants. The full tables with sounds are on the <a href="../pronunciation/">pronunciation page</a> — learn to recognise them before you memorise any words.</p>
   <h2>Your first five words</h2>
   {tri_table(d['greetings'][:5], col3=n)}
   <h2>The order to learn in</h2>
@@ -303,7 +303,7 @@ def p_conversation(d):
   <h2>Introducing yourself</h2>
   {tri_table(d['daily_phrases'][3:7], col3=n)}
   <h2>Full dialogues</h2>
-  <p>Three everyday scenes with every line in three languages: on the <a href="../practice/conversation/">convers<p>Three everyday scenes with every line in three languages: on the <a href="../practice/conversation/">conversation scenarios</a> page.</p>""")
+  <p>Three everyday scenes, with every line in English, Hindi and {E(n)} side by side, are on the <a href="../practice/conversation/">{E(n)} conversation scenarios</a> page.</p>""")
 
 
 def p_pronunciation(d):

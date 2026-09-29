@@ -138,19 +138,21 @@ def html_files():
 # content made every page look templated and hid the pages that really are
 # ("Meetings, customers, contracts — professional Kannada for offices." repeated
 # per language). Paragraph and intro duplication is measured on the body only.
-# The same holds for the call-to-action asides (<aside class="cta"> and
-# <aside class="pg-cta">, 29 Sep 2026): a "find a tutor" / "quiz yourself" box
-# is a navigation affordance repeated by design, marked up as complementary
-# content, and it is not what a page is about.
+# The same holds (29 Sep 2026) for the call-to-action asides — <aside> with
+# class cta, pg-cta, cta-box or pg-cta-box: a "find a tutor" / "quiz yourself"
+# box is a navigation affordance repeated by design, marked up as
+# complementary content, and not what a page is about — for a tutor card's
+# subject line (p.xp-tutor-teaches, roster metadata), and for the practice
+# labs' "a few of the items" caption (p.lab-hint).
 CHROME = re.compile(
     r"<!--\s*ekguru:(?:shell-header|shell-footer|trust-footer|pw-bands):start\s*-->[\s\S]*?"
     r"<!--\s*ekguru:(?:shell-header|shell-footer|trust-footer|pw-bands):end\s*-->"
     r"|<header\b[\s\S]*?</header>|<footer\b[\s\S]*?</footer>"
     r"|<nav\b[\s\S]*?</nav>"
     r"|<p class=\"[^\"]*\bhint\b[^\"]*\"[^>]*>[\s\S]*?</p>"
-    r"|<p class=\"[^\"]*\b(?:crumbs?|upd|updated|dateline|meta|byline)\b[^\"]*\"[^>]*>[\s\S]*?</p>"
+    r"|<p class=\"[^\"]*\b(?:crumbs?|upd|updated|dateline|meta|byline|xp-tutor-teaches)\b[^\"]*\"[^>]*>[\s\S]*?</p>"
     r"|<aside\b[^>]*(?:class=\"[^\"]*pg-note[^\"]*\"|role=\"note\")[^>]*>[\s\S]*?</aside>"
-    r"|<aside\b[^>]*class=\"(?:pg-)?cta\b[^\"]*\"[^>]*>[\s\S]*?</aside>", re.I)
+    r"|<aside\b[^>]*class=\"(?:pg-)?cta(?:-box)?\b[^\"]*\"[^>]*>[\s\S]*?</aside>", re.I)
 
 
 def signature(text):

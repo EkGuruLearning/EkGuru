@@ -150,7 +150,10 @@
      --------------------------------------------------------- */
   function compare(text) {
     var w = words(text);
-    if (w.length < SHINGLE) return { shingles: [], hits: [], words: w.length };
+    /* the same floor the button enforces: below MIN_WORDS a match is a
+       coincidence, so the API refuses to attribute rather than pin a short
+       sentence on one page */
+    if (w.length < Math.max(SHINGLE, MIN_WORDS)) return { shingles: [], hits: [], words: w.length };
     var mine = shinglesOf(w);
     var guard = Math.max(2, Math.ceil(mine.length * 0.06));
     var hits = [];
