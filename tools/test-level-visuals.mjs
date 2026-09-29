@@ -200,8 +200,16 @@ console.log("\n4. /how-levels-work/ exists and answers the question\n");
   const graph = ld ? JSON.parse(ld.textContent)["@graph"] : [];
   ok("it carries FAQ structured data for the questions it answers",
     graph.some((g) => g["@type"] === "FAQPage") && graph.some((g) => g["@type"] === "Article"));
-  ok("it is classified but carries no ad loader while the release gate is closed",
-    /data-ad-class="/.test(html) && !/adsbygoogle\.js/.test(html));
+  {
+    /* The loader follows the ad policy: absent while the runtime gate is
+       closed, present exactly when this page's class is allowed. */
+    const mon = JSON.parse(readFileSync("data/monetization/google-monetization.json", "utf8"));
+    const cls = (html.match(/data-ad-class="([^"]+)"/) || [])[1];
+    const want = mon.runtime_gate.adsense_loader_enabled === true &&
+      (mon.ad_policy.loader_allowed || []).includes(cls);
+    ok("it is classified and carries the ad loader only if the policy allows its class",
+      !!cls && /adsbygoogle\.js/.test(html) === want, cls + (want ? " (loader expected)" : " (no loader)"));
+  }
   ok("no page links to it from the strip of a language that has no hub",
     Object.values(manifest.languages).every((l) => existsSync(l.url)));
 }

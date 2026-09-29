@@ -72,7 +72,9 @@ ok("robots.txt declares the sitemap index and the index declares level URLs",
   /sitemap-index\.xml/.test(robots) && /sitemap-levels\.xml/.test(sitemapIndex));
 
 const mon = fs.readFileSync("js/monetization.js", "utf8");
-ok("ads require advertising === true", /consent\.advertising === true/.test(mon));
+/* fail-closed form: anything other than an explicit advertising === true returns false */
+ok("ads require advertising === true",
+  /consent\.advertising === true/.test(mon) || /consent\.advertising !== true\)\s*return false/.test(mon));
 
 console.log(`\n${fail ? "FAIL" : "PASS"}  ${pass} passed, ${fail} failed\n`);
 process.exit(fail ? 1 : 0);

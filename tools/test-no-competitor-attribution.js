@@ -54,6 +54,7 @@ const ALLOWED_HOSTS = new Set([
   "docs.google.com", "forms.gle", "script.google.com",      /* published Sheet/Forms/Apps Script endpoints (public publish-to-web URLs, classified KEEP) */
   "www.youtube.com", "youtube.com", "www.youtube-nocookie.com", "i.ytimg.com", "youtu.be", "lh3.googleusercontent.com",
   "inputtools.google.com",
+  "pagead2.googlesyndication.com", "googleads.g.doubleclick.net", /* AdSense account loader + preconnect, written only by tools/inject-ads.py on HIGH/MEDIUM_CONTENT pages */
   "ekguru.goatcounter.com", "www.goatcounter.com", "gc.zgo.at", "plausible.io",
   "translate.googleapis.com",                                 /* TTS pronunciation endpoint */
   "api.indexnow.org",
