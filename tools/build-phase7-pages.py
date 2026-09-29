@@ -108,6 +108,9 @@ def head(title, desc, url, up=""):
 <meta name="author" content="EkGuru">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <link rel="canonical" href="%s/%s">
+<link rel="icon" href="%simages/favicon.ico" sizes="any">
+<link rel="icon" href="%simages/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="%simages/apple-touch-icon.png">
 <meta property="og:type" content="article">
 <meta property="og:title" content="%s | EkGuru">
 <meta property="og:description" content="%s">
@@ -119,7 +122,7 @@ def head(title, desc, url, up=""):
 </head>
 <body>
 <div class="art">
-""" % (title, desc, BASE, url, title, desc, BASE, url, NOW, up, CORE_STYLE)
+""" % (title, desc, BASE, url, up, up, up, title, desc, BASE, url, NOW, up, CORE_STYLE)
 
 
 def foot(up="", scripts=()):

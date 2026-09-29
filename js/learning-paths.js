@@ -80,7 +80,7 @@ window.EKGURU_PATHS = [
     goal: "Produce real spoken sentences from day one, however slowly.",
     intro: [
       "Reading teaches you the grammar; speaking teaches you the language. This path is deliberately light on new rules and heavy on producing sound: greetings, self-introductions, and the sentence frames that cover half of everyday talk.",
-      "The speaking practice here is honest. A web page cannot judge your accent — it gives you phrases to shadow and a playback voice to compare against. The real check is a patient native speaker, which is what the tutors are for."
+      "The speaking practice here is honest. A web page cannot judge your accent — it gives you phrases to shadow and a playback voice to compare against. The real check is a patient teacher listening to you speak, which is what the tutors are for."
     ],
     modules: [
       {

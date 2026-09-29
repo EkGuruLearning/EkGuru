@@ -575,6 +575,25 @@ function main() {
     );
   }
 
+  /* The locale find-tutors and join pages carry the same "#tutors" ItemList
+     in their JSON-LD. Nothing kept it in step with the registry, so after
+     three tutors left the public roster those pages still told search
+     engines about four tutors, two of them on noindex pages. Same list, same
+     source, same check. */
+  for (const lang of MARKETS) {
+    for (const name of ["find-tutors.html", "join.html"]) {
+      const file = path.join(lang, name);
+      if (!fs.existsSync(file)) continue;
+      const before = fs.readFileSync(file, "utf8");
+      if (!/"@id":"[^"]*#tutors"/.test(before)) continue;
+      const after = updateTutorItemList(before, lang, site.tutors, file);
+      if (before === after) { console.log("ok    " + file + " tutor list current"); continue; }
+      if (check) { console.log("STALE " + file + " (tutor ItemList)"); stale++; continue; }
+      fs.writeFileSync(file, after);
+      console.log("wrote " + file + " (tutor ItemList: " + site.tutors.length + " tutors)");
+    }
+  }
+
   if (check && stale) {
     console.log("STALE: " + stale + " market page(s) — run tools/build-market-pages.js");
     return 1;

@@ -8,7 +8,7 @@
    tutor describing herself as a "Native Hindi Tutor") are the tutor's own,
    attributed statement and are NOT checked here.
 
-   Scans every public .html file plus feed.xml and llms.txt.
+   Scans every public .html file plus feed.xml, llms.txt and manifest.webmanifest.
    Exit 0 = clean, 1 = a site-level claim came back. */
 const fs = require("fs");
 const path = require("path");
@@ -21,6 +21,9 @@ const BANNED = [
   /verified native hindi tutors/i,
   /local currency, native tutors/i,
   /will i actually speak with a native speaker/i,
+  /verified native tutors/i,                          /* manifest, 29 Sep 2026 */
+  /(search|browse) verified hindi tutors/i,
+  /native speaker, which is what the tutors are for/i, /* js/learning-paths.js */
 ];
 const files = [];
 (function walk(d) {
@@ -29,7 +32,12 @@ const files = [];
     else if (e.name.endsWith(".html")) files.push(path.join(d, e.name));
   }
 })(ROOT);
-files.push(path.join(ROOT, "feed.xml"), path.join(ROOT, "llms.txt"));
+files.push(path.join(ROOT, "feed.xml"), path.join(ROOT, "llms.txt"),
+  path.join(ROOT, "manifest.webmanifest"));   /* the install card text, 29 Sep 2026 */
+/* strings rendered by the public scripts reach the reader too */
+for (const e of fs.readdirSync(path.join(ROOT, "js"), { withFileTypes: true })) {
+  if (e.isFile() && e.name.endsWith(".js")) files.push(path.join(ROOT, "js", e.name));
+}
 let bad = 0;
 for (const f of files) {
   if (!fs.existsSync(f)) continue;
