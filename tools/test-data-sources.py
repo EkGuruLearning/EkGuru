@@ -248,7 +248,7 @@ else:
     try:
         status, ctype, text = fetch(APPS)
         body = json.loads(text)
-        check("Apps Script: HTTP 200 JSON health", status == 200 and "json" in ctype and body.get("success") == "true", f"{status} {text[:80]}")
+        check("Apps Script: HTTP 200 JSON health", status == 200 and "json" in ctype and str(body.get("success")).lower() == "true", f"{status} {text[:80]}")
     except Exception as e:
         check("Apps Script: reachable", False, str(e))
 
