@@ -29,7 +29,20 @@
 /* Only profiles with a non-placeholder identity/photo and owner-reviewed
    source material are public. Draft records stay in this directory so they
    can be completed, but keeping them out of this list keeps them out of the
-   roster, localized pages, feeds and generated tutor sitemaps. */
+   roster, localized pages, feeds and generated tutor sitemaps.
+
+   U0 (30 Sep 2026) — the publication rule has TWO gates:
+
+      a tutor is PUBLIC  ⇔  in this registry  AND  sheet active=yes
+
+   The sheet owns the second gate (js/tutors/_overrides.js, written by
+   tools/sheetsync.js). A hidden tutor (active=no) keeps their profile
+   page — reachable by direct link, noindex, booking off — but is absent
+   from every list: home/locale cards, find-tutors, sitemaps, feed,
+   llms.txt, manifest shortcuts, 404.html and the ItemList JSON-LD.
+   Flipping the row back to active=yes restores everything — both
+   directions are owned by the generators and proven by
+   tools/test-tutor-activation.mjs. */
 window.EKGURU_TUTOR_ORDER = [
   "sushila-g",
   "shikha-dutta",

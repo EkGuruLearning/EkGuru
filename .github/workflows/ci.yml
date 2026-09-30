@@ -40,7 +40,7 @@ jobs:
       - name: Page inventory (SEO/sitemap/noindex gates)
         run: python3 tools/build-full-page-inventory.py
 
-      - name: "Data-source tests (network: published Sheet endpoints)"
+      - name: "Data-source tests (network: published Sheet endpoints, csv -> tsv fallback)"
         run: |
           python3 tools/test-data-sources.py
           node tools/test-sheet-loader.js
@@ -49,6 +49,11 @@ jobs:
         run: |
           node tools/test-sheet-apply.js
           node tools/test-sheetsync-policy.js
+          node tools/test-sheet-fetch.mjs
+
+      - name: Tutor re-activation cycle (active=yes/no restores everything)
+        run: |
+          node tools/test-tutor-activation.mjs
 
       - name: Public-output gate (competitor attribution, stale wording, origin)
         run: |

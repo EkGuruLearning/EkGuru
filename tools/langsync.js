@@ -100,7 +100,10 @@ function sync(html, ids, file) {
 function main() {
   const check = process.argv.includes("--check");
   const ids = readRegistry();
-  if (!ids.length) throw new Error("the registry lists no tutors");
+  /* U0 (30 Sep 2026) — an empty registry is a real state (every tutor
+     unpublished), not a build error: pages end up with the registry tag
+     and zero tutor tags, and sync() strips any that remain. */
+  if (!ids.length) console.log("note  the registry lists no tutors — stripping all tutor script tags (U0 empty state)");
 
   const pages = walk(".", []).sort();
   let touched = 0;

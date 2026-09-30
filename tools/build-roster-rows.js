@@ -67,7 +67,10 @@ const KINDS = [
 function findBlocks(html) {
   const blocks = [];
   for (const kind of KINDS) {
-    const open = new RegExp(`<${kind.tag} class="${kind.cls}" data-t-row="([^"]+)"`, "g");
+    /* U0 — a run may also be the generated EMPTY state (data-t-empty), so
+       the block machinery can swap it back to rows the moment a tutor
+       returns. Both markers count as one list slot. */
+    const open = new RegExp(`<${kind.tag} class="${kind.cls}" data-t-(?:row|empty)="([^"]+)"`, "g");
     for (let m = open.exec(html); m; m = open.exec(html)) {
       const start = m.index;
       /* walk the same tag name to the matching close — these blocks nest
@@ -86,7 +89,7 @@ function findBlocks(html) {
         }
       }
       if (end === -1) continue;
-      blocks.push({ kind: kind.cls, id: m[1], start, end });
+      blocks.push({ kind: kind.cls, tag: kind.tag, id: m[1], start, end });
     }
   }
   return blocks.sort((a, b) => a.start - b.start);
@@ -184,57 +187,133 @@ function fixCopy(html) {
 }
 
 /* --------------------------------------------------------------------------
+   U0 — THE "FIND A TUTOR" CTA, GENERATOR-OWNED
+   -------------------------------------------------------------------------- */
+/* While zero tutors are public, the conversion buttons in the three page
+   families that sell tutor browsing (hindi-tutor/<city>, learn-hindi-from-*,
+   answers/*) must not: they become "Start the free course" and point at the
+   free Hindi course. Nav links ("Tutors", "Find Tutors") stay — they lead to
+   find-tutors.html, which explains the state honestly.
+
+   Both directions are generated, so the buttons come back word for word the
+   moment a tutor row says active=yes. Never hand-edited (R-5). */
+const RESTORE_LABEL = {
+  "hindi-tutor/": "See all Hindi tutors",
+  "learn-hindi-from-": "Find a Hindi Guru",
+  "answers/": "Find a Hindi tutor"
+};
+
+function familyLabelOf(file) {
+  if (file.indexOf("hindi-tutor/") === 0) return RESTORE_LABEL["hindi-tutor/"];
+  if (file.indexOf("learn-hindi-from-") === 0) return RESTORE_LABEL["learn-hindi-from-"];
+  return RESTORE_LABEL["answers/"];
+}
+
+/* Prefix is the page's relative path to the site root ("../../" etc.),
+   derived from the page path itself — one level per directory. */
+function prefixOf(file) {
+  const depth = file.split("/").length - 1;
+  return "../".repeat(depth);
+}
+
+function applyCta(html, prefix, familyLabel, zero) {
+  if (zero) {
+    /* zero public tutors: the selling button becomes the free-course CTA */
+    return html.replace(
+      /<a class="(btn[^"]*)"([^>]*href=")((?:\.\.\/)*find-tutors\.html[^"]*)("[^>]*>)(Find a Hindi Guru|See all Hindi tutors|Find a Hindi tutor)(<\/a>)/g,
+      (m, cls, pre, href, mid, label, close) =>
+        `<a class="${cls}"${pre}${prefix}learn/hindi/"${mid}Start the free course${close}`
+    );
+  }
+  /* tutors are public again: the family's own words come back */
+  return html.replace(
+    /<a class="(btn[^"]*)"([^>]*href=")((?:\.\.\/)*learn-hindi\/")([^>]*>)Start the free course(<\/a>)/g,
+    (m, cls, pre, href, mid, close) =>
+      `<a class="${cls}"${pre}${prefix}find-tutors.html"${mid}${familyLabel}${close}`
+  );
+}
+
+/* --------------------------------------------------------------------------
    rewriting one page
    -------------------------------------------------------------------------- */
 
-function rebuild(html, roster, i18n, file) {
+/* U0 — the honest empty state in the exact slot the tutor rows used.
+   Marked data-t-empty so the same machinery swaps the rows back in. */
+function renderEmptyRun(kind, tag, prefix, indent, tr) {
+  const { emptyTutorsBlock } = require("./lib/zero-state");
+  return emptyTutorsBlock({
+    prefix,
+    lang: "en",
+    t: (lang, key) => tr(key),
+    tag,
+    attrs: `class="${kind}" data-t-empty="${kind}" data-eg-empty="1"`
+  }).split("\n").map((line, i) => (i === 0 ? line : indent + line)).join("\n");
+}
+
+function rebuild(html, roster, i18n, file, zero) {
   const blocks = findBlocks(html);
-  if (!blocks.length) return null;
 
   const lang = (html.match(/<html[^>]*\blang="([a-z-]{2,5})"/i) || [])[1] || "en";
   const dict = i18n[lang] || i18n.en || {};
   const tr = (key) => (dict[key] !== undefined ? dict[key] : (i18n.en || {})[key] || key);
 
-  /* group adjacent blocks into runs — a run is one tutor list */
-  const runs = [];
-  for (const b of blocks.slice().sort((a, c) => a.start - c.start)) {
-    const last = runs[runs.length - 1];
-    if (last && last.kind === b.kind && html.slice(last.end, b.start).trim() === "") last.end = b.end;
-    else runs.push({ kind: b.kind, start: b.start, end: b.end });
-  }
-
-  /* The replacement includes the line's own indentation, so the block that
-     goes back in starts where the block that came out did. Without this the
-     replacement is inserted after the old leading spaces and the markup
-     walks right by four spaces on every build. */
-  for (const run of runs) {
-    const lineStart = html.lastIndexOf("\n", run.start) + 1;
-    if (html.slice(lineStart, run.start).trim() === "") run.start = lineStart;
-  }
-
   let out = html;
-  /* back to front, so earlier offsets stay valid */
-  for (const run of runs.reverse()) {
-    /* the indentation of the line the run starts on (run.start is at the
-       first non-space character of that line by now) */
-    const indent = (html.slice(html.lastIndexOf("\n", run.start) + 1).match(/^[ \t]*/) || [""])[0];
 
-    /* the page's own relative prefix, taken from the block being replaced */
-    const sample = html.slice(run.start, run.end);
-    const imgSample = /(?:src|srcset)="((?:\.\.\/)*)images\//.exec(sample);
-    const linkSample = /href="((?:\.\.\/)*)tutor\//.exec(sample);
-    const prefix = imgSample ? imgSample[1] : linkSample ? linkSample[1] : "";
+  if (blocks.length) {
+    /* group adjacent blocks into runs — a run is one tutor list */
+    const runs = [];
+    for (const b of blocks.slice().sort((a, c) => a.start - c.start)) {
+      const last = runs[runs.length - 1];
+      if (last && last.kind === b.kind && html.slice(last.end, b.start).trim() === "") last.end = b.end;
+      else runs.push({ kind: b.kind, tag: b.tag, start: b.start, end: b.end });
+    }
 
-    const render =
-      run.kind === "tut" ? renderTut : run.kind === "t-item" ? renderTItem : renderLpCard;
-    const body = roster
-      .map((t) => (run.kind === "lp-card" ? render(t, prefix, indent, tr) : render(t, prefix, indent)))
-      .join("\n");
+    /* The replacement includes the line's own indentation, so the block that
+       goes back in starts where the block that came out did. Without this the
+       replacement is inserted after the old leading spaces and the markup
+       walks right by four spaces on every build. */
+    for (const run of runs) {
+      const lineStart = html.lastIndexOf("\n", run.start) + 1;
+      if (html.slice(lineStart, run.start).trim() === "") run.start = lineStart;
+    }
 
-    out = out.slice(0, run.start) + body + out.slice(run.end);
+    /* back to front, so earlier offsets stay valid */
+    for (const run of runs.reverse()) {
+      /* the indentation of the line the run starts on (run.start is at the
+         first non-space character of that line by now) */
+      const indent = (html.slice(html.lastIndexOf("\n", run.start) + 1).match(/^[ \t]*/) || [""])[0];
+
+      /* the page's own relative prefix, taken from the block being replaced;
+         an already-empty block carries no links or images, so fall back to
+         the page path itself (one level up per directory). */
+      const sample = html.slice(run.start, run.end);
+      const imgSample = /(?:src|srcset)="((?:\.\.\/)*)images\//.exec(sample);
+      const linkSample = /href="((?:\.\.\/)*)tutor\//.exec(sample);
+      const prefix = imgSample ? imgSample[1] : linkSample ? linkSample[1] : prefixOf(file);
+
+      const render =
+        run.kind === "tut" ? renderTut : run.kind === "t-item" ? renderTItem : renderLpCard;
+      /* U0 — rows when someone is public, the honest empty state when not. */
+      const body = roster.length
+        ? roster
+            .map((t) => (run.kind === "lp-card" ? render(t, prefix, indent, tr) : render(t, prefix, indent)))
+            .join("\n")
+        : renderEmptyRun(run.kind, run.tag, prefix, indent, tr);
+
+      out = out.slice(0, run.start) + body + out.slice(run.end);
+    }
+    out = fixCopy(out);
   }
 
-  return fixCopy(out);
+  /* The "Find a tutor" CTA swap runs on the three page families even when
+     the page has no roster blocks at all (most learn-hindi-from-* and
+     answers pages have none). Nowhere else — see familyLabelOf(). */
+  const inFamily =
+    file.indexOf("hindi-tutor/") === 0 ||
+    file.indexOf("learn-hindi-from-") === 0 ||
+    file.indexOf("answers/") === 0;
+  const cta = inFamily ? applyCta(out, prefixOf(file), familyLabelOf(file), zero) : out;
+  return cta === out && !blocks.length ? null : cta;
 }
 
 /* --------------------------------------------------------------------------
@@ -244,8 +323,10 @@ function rebuild(html, roster, i18n, file) {
 function main() {
   const check = process.argv.includes("--check");
   const site = loadSite();
-  const roster = site.tutors;
-  if (!roster.length) throw new Error("the tutor registry is empty");
+  /* U0 — PUBLIC roster only (registry ∩ sheet active=yes); zero is a
+     supported state and renders the honest empty state + free-course CTA. */
+  const roster = site.publicTutors;
+  const zero = roster.length === 0;
 
   const pages = walk(".", []).sort();
   let touched = 0;
@@ -254,7 +335,7 @@ function main() {
 
   for (const file of pages) {
     const html = fs.readFileSync(file, "utf8");
-    const after = rebuild(html, roster, site.i18n, file);
+    const after = rebuild(html, roster, site.i18n, file, zero);
     if (after === null) continue;
     seen++;
     if (after === html) continue;
@@ -269,7 +350,8 @@ function main() {
   }
 
   if (!touched && !stale) {
-    console.log("ok    all " + seen + " page(s) with a tutor list already list all " + roster.length + " tutors");
+    console.log("ok    all " + seen + " page(s) with a tutor list already list " +
+      (zero ? "the zero-tutor empty state" : "all " + roster.length + " public tutors"));
   } else {
     console.log((check ? "stale: " : "updated: ") + (stale || touched) + " page(s)");
   }

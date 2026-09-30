@@ -146,13 +146,29 @@ function title(t) {
 
 /* Profiles are descriptive pages, not inventory. Do not emit Offer,
    availability, CourseInstance or employment relationships: prices and
-   schedules are imported profile fields that visitors must reconfirm. */
-function jsonLd(t) {
+   schedules are imported profile fields that visitors must reconfirm.
+
+   U0 (30 Sep 2026) — a hidden tutor (sheet active=no) is not bookable and
+   not discoverable: the page keeps its content but the structured data
+   drops to a plain WebPage (no Person node to feed a knowledge panel), the
+   page is noindex, and every booking surface says so. */
+function jsonLd(t, hidden) {
   const url = SITE + "/tutor/" + t.id + "/";
   const photo = /^https?:/i.test(t.photo || "")
     ? t.photo
     : SITE + "/" + String(t.photo || "").replace(/^\//, "");
   const excerpt = (t.about && t.about[0]) || t.headline || "";
+
+  if (hidden) {
+    return JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: t.name + " — tutor profile (not currently listed)",
+      url,
+      description: "This tutor profile is not currently listed. Browse EkGuru's free lessons, practice and courses.",
+      isPartOf: { "@type": "WebSite", "@id": SITE + "/#website", url: SITE + "/", name: "EkGuru" }
+    });
+  }
 
   /* 27 Sep 2026 master audit — the description carries the tutor's own
      first-paragraph text, with no "profile excerpt" meta-label and no
@@ -185,7 +201,15 @@ function jsonLd(t) {
   return JSON.stringify({ "@context": "https://schema.org", "@graph": graph });
 }
 
-function head(t, price) {
+/* U0 — what replaces every booking surface on a hidden tutor's page. */
+function hiddenCta(t) {
+  return [
+    '<span class="btn btn-primary" aria-disabled="true" style="opacity:.65;pointer-events:none">Bookings currently closed</span>',
+    '<a class="btn btn-ghost" href="../../learn/hindi/">Start the free course</a>'
+  ];
+}
+
+function head(t, price, hidden) {
   const url = SITE + "/tutor/" + t.id + "/";
   const desc = metaDescription(t, price);
   const image = /^https?:/i.test(t.photo || "")
@@ -193,17 +217,19 @@ function head(t, price) {
     : SITE + "/" + String(t.photo || "images/placeholder-tutor.jpg").replace(/^\//, "");
 
   return {
-    title: title(t),
-    desc,
+    title: hidden ? t.name + " — tutor profile (not currently listed) | EkGuru" : title(t),
+    desc: hidden
+      ? "This tutor profile is not currently listed. No tutors are available for booking right now; free lessons, practice and courses are always open."
+      : desc,
     url,
     image,
-    jsonLd: jsonLd(t)
+    jsonLd: jsonLd(t, hidden)
   };
 }
 
 /* -- the profile itself ---------------------------------------------------- */
 
-function headBlock(t, price) {
+function headBlock(t, price, hidden) {
   const photo = relImage(t.photo || "images/placeholder-tutor.jpg");
   const webp = webpSibling(t.photo || "");
   const stats = [];
@@ -234,8 +260,11 @@ function headBlock(t, price) {
 
   /* 27 Sep 2026 master audit — the "View current Preply profile" CTA is
      gone. The site does not link students to external marketplace
-     profiles; enquiries route through EkGuru (the booking flow). */
-  const cta = [
+     profiles; enquiries route through EkGuru (the booking flow).
+
+     U0 — a hidden tutor has NO booking surface at all: the buttons are
+     replaced with an honest closed notice plus the free course. */
+  const cta = hidden ? hiddenCta(t) : [
     '<a class="btn btn-primary" href="../../tutor.html?id=' + t.id + '">Request a lesson with ' + esc(t.name) + "</a>",
     '<a class="btn btn-ghost" href="mailto:' + (t.formKey || t.email || "") +
       "?subject=" + encodeURIComponent("Hindi lesson enquiry — " + t.name) + '">Send an enquiry</a>'
@@ -386,7 +415,19 @@ ${reviews.map(quote).join("\n")}
   </section>`;
 }
 
-function bookingBlock(t, price) {
+function bookingBlock(t, price, hidden) {
+  if (hidden) {
+    /* U0 — no booking for a hidden tutor: no form, no mailto, no
+       availability request. Say so plainly and point at the free course. */
+    return `  <section class="pr-sec" data-eg-hidden="booking">
+    <h2>Bookings with ${esc(t.name)}</h2>
+    <p>No tutors are available for booking right now. ${esc(
+      t.name
+    )}'s details above are kept for reference only — no price, availability or booking terms are being offered on this page.</p>
+    <p><a class="btn btn-primary" href="../../learn/hindi/">Start the free course</a>
+       <a class="btn btn-ghost" href="../../courses/">Browse courses</a></p>
+  </section>`;
+  }
   const contact = t.formKey || t.email || "EkGuruLearning@gmail.com";
 
   return `  <section class="pr-sec">
@@ -442,18 +483,28 @@ ${links}
   </nav>`;
 }
 
-function main(t, roster) {
+function main(t, roster, hidden, publics) {
   const price = prettyPrice(t.priceUSD);
   const banner = t.banner
     ? '  <img class="pr-banner" src="' + esc(relImage(t.banner)) + '" alt="' + attr(t.name + " — " + (t.headline || "Hindi tutor")) +
       '" width="1280" height="720" fetchpriority="high" decoding="async">\n'
     : "";
 
-  return `<main id="main" class="pr-wrap">
-  <aside class="pr-note" role="note">
+  /* U0 — the note's "send an availability request" link is a booking
+     surface. On a hidden profile the note states the state instead. */
+  const note = hidden
+    ? `  <aside class="pr-note" role="note" data-eg-hidden="notice">
+    This tutor profile is not currently listed. No tutors are available for booking right now —
+    free lessons, practice and courses are always open.
+    <a href="../../find-tutors.html"><strong>See the current tutor listing</strong></a>
+  </aside>`
+    : `  <aside class="pr-note" role="note">
     This page contains tutor-provided information last refreshed on 14 September 2026. EkGuru has not independently verified every statement, price or time. Confirm current details before booking.
     <a href="../../tutor.html?id=${t.id}"><strong>Open the interactive profile and send an availability request</strong></a>
-  </aside>
+  </aside>`;
+
+  return `<main id="main" class="pr-wrap">
+${note}
   <article class="pr-article" itemscope itemtype="https://schema.org/Person">
   <nav class="crumbs" aria-label="Breadcrumb">
     <a href="../../index.html">Home</a> ›
@@ -462,7 +513,7 @@ function main(t, roster) {
   </nav>
 
 ${banner}
-${headBlock(t, price)}
+${headBlock(t, price, hidden)}
 
 ${aboutBlock(t)}
 
@@ -478,9 +529,9 @@ ${videoBlock(t)}
 
 ${reviewsBlock(t)}
 
-${bookingBlock(t, price)}
+${bookingBlock(t, price, hidden)}
 
-${othersBlock(t, roster)}
+${othersBlock(t, publics)}
 
 ${langsNav()}
 </article>
@@ -488,7 +539,9 @@ ${langsNav()}
 }
 
 function footerTutors(roster) {
-  const links = roster.map((x) => '      <a href="../' + x.id + '/">' + esc(x.name) + "</a>").join("\n");
+  const links = roster.length
+    ? roster.map((x) => '      <a href="../' + x.id + '/">' + esc(x.name) + "</a>").join("\n")
+    : '      <a href="../../learn/hindi/">Start the free course</a>';
   return `<h3>Tutors</h3>\n${links}</div>`;
 }
 
@@ -496,11 +549,11 @@ function footerTutors(roster) {
    build one page
    -------------------------------------------------------------------------- */
 
-function build(t, roster) {
+function build(t, roster, publics, hidden) {
   const file = path.join("tutor", t.id, "index.html");
   const shell = fs.existsSync(file) ? fs.readFileSync(file, "utf8") : fs.readFileSync(SHELL_FALLBACK, "utf8");
 
-  const h = head(t, prettyPrice(t.priceUSD));
+  const h = head(t, prettyPrice(t.priceUSD), hidden);
   let out = shell;
 
   /* Always replaced through a function, never a `$&`-style pattern string: the
@@ -510,6 +563,20 @@ function build(t, roster) {
     if (!re.test(out)) throw new Error(file + ": could not find " + what + " in the shell");
     out = out.replace(re, () => value);
   };
+
+  /* U0 — the robots meta is THE index switch for a hidden profile. Public:
+     index, follow (the long-form directives Google already has). Hidden
+     (sheet active=no): noindex, follow — the page stays reachable for
+     anyone holding a link, but it is out of search and out of every
+     discovery surface. */
+  const robotsWanted = hidden
+    ? '<meta name="robots" content="noindex, follow">'
+    : '<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">';
+  if (/<meta(?=[^>]*\bname="robots")[^>]*>/.test(out)) {
+    out = out.replace(/<meta(?=[^>]*\bname="robots")[^>]*>/, () => robotsWanted);
+  } else {
+    out = out.replace(/<meta(?=[^>]*\bname="description")[^>]*>/, (m) => m + "\n  " + robotsWanted);
+  }
 
   once(/<title>[\s\S]*?<\/title>/, "<title>" + esc(h.title) + "</title>", "<title>");
   once(/<meta(?=[^>]*\bname="description")[^>]*>/, '<meta name="description" content="' + attr(h.desc) + '">', "meta description");
@@ -522,7 +589,7 @@ function build(t, roster) {
   once(/<meta(?=[^>]*\bname="twitter:description")[^>]*>/, '<meta name="twitter:description" content="' + attr(h.desc) + '">', "twitter:description");
   once(/<meta(?=[^>]*\bname="twitter:image")[^>]*>/, '<meta name="twitter:image" content="' + attr(h.image) + '">', "twitter:image");
   once(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, '<script type="application/ld+json">' + h.jsonLd + "</script>", "JSON-LD");
-  once(/<main(?=[^>]*\bid="main")[^>]*>[\s\S]*?<\/main>/, main(t, roster), "<main>");
+  once(/<main(?=[^>]*\bid="main")[^>]*>[\s\S]*?<\/main>/, main(t, roster, hidden, publics), "<main>");
 
   /* the portrait preload must point at the portrait this tutor actually has */
   const pre = webpSibling(t.photo || "") || (t.photo || "images/placeholder-tutor.webp");
@@ -534,14 +601,23 @@ function build(t, roster) {
     );
   }
 
-  /* the header's booking button carries the tutor id */
-  out = out.replace(
-    /(<a class="btn btn-primary btn-sm" href="\.\.\/\.\.\/tutor\.html\?id=)[a-z0-9-]+(">)/,
-    "$1" + t.id + "$2"
-  );
+  /* the header's booking button carries the tutor id — and on a hidden
+     profile there is no booking button at all (U0): the free course instead */
+  if (hidden) {
+    out = out.replace(
+      /<a class="btn btn-primary btn-sm" href="\.\.\/\.\.\/tutor\.html\?id=[a-z0-9-]+">[^<]*<\/a>/,
+      '<a class="btn btn-primary btn-sm" href="../../learn/hindi/">Start the free course</a>'
+    );
+  } else {
+    out = out.replace(
+      /(<a class="btn btn-primary btn-sm" href="\.\.\/\.\.\/tutor\.html\?id=)[a-z0-9-]+(">)/,
+      "$1" + t.id + "$2"
+    );
+  }
 
-  /* the footer lists every tutor — keep it in registry order */
-  out = out.replace(/<h3>Tutors<\/h3>[\s\S]*?<\/div>/, footerTutors(roster));
+  /* the footer lists every PUBLIC tutor — registry order, hidden ones out
+     (U0: a hidden profile is linked from nowhere) */
+  out = out.replace(/<h3>Tutors<\/h3>[\s\S]*?<\/div>/, () => footerTutors(publics));
 
   return out;
 }
@@ -602,10 +678,10 @@ function upsertUrlBlock(xml, id, block) {
   );
   if (re.test(xml)) return xml.replace(re, () => block);
 
-  const all = /  <url>\s*<loc>[^<]*\/tutor\/[a-z0-9-]+\/<\/loc>[\s\S]*?<\/url>/g;
+  const all = /  <url>[\s\S]*?<\/url>/g;
   let last = null;
   for (let m = all.exec(xml); m; m = all.exec(xml)) last = m;
-  if (!last) throw new Error("no tutor <url> block to anchor a new tutor to");
+  if (!last) throw new Error("no <url> block to anchor a new tutor to");
   const at = last.index + last[0].length;
   return xml.slice(0, at) + "\n" + block + xml.slice(at);
 }
@@ -708,6 +784,206 @@ function updateIndexFiles(roster, stamp, check) {
 }
 
 /* --------------------------------------------------------------------------
+   U0 — THE PUBLIC SURFACES THAT QUOTE THE ROSTER
+   --------------------------------------------------------------------------
+   Four more files told the world about the tutors and nothing kept them
+   honest: find-tutors.html + tutor/index.html (ItemList JSON-LD), llms.txt
+   (the Facts block + the Tutors section), manifest.webmanifest (the "Book
+   with X" shortcuts) and 404.html (the named-tutor links). They are now
+   generated from the PUBLIC roster here — hidden tutors out, empty state in,
+   and everything flips back the moment a row says active=yes. */
+
+function upsertItemList(file, listName, publics, check, results) {
+  const before = fs.readFileSync(file, "utf8");
+  const re = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/;
+  const m = re.exec(before);
+  if (!m) return;
+  const data = JSON.parse(m[1]);
+  const graph = data["@graph"] || [];
+  const list = graph.find((n) => n["@type"] === "ItemList" && n.name === listName) ||
+    (data["@type"] === "ItemList" && data.name === listName ? data : null);
+  if (!list) return;
+
+  list.numberOfItems = publics.length;
+  list.itemListElement = publics.map((t, i) =>
+    listName === "Hindi tutor profiles"
+      ? {
+          "@type": "ListItem",
+          position: i + 1,
+          item: {
+            "@type": "Person",
+            "@id": SITE + "/tutor/" + t.id + "/#person",
+            name: t.name,
+            url: SITE + "/tutor/" + t.id + "/",
+            jobTitle: "Hindi tutor",
+            worksFor: { "@id": SITE + "/#org" },
+            knowsLanguage: ["Hindi", "English"]
+          }
+        }
+      : {
+          "@type": "ListItem",
+          position: i + 1,
+          url: SITE + "/tutor/" + t.id + "/",
+          name: t.name
+        }
+  );
+
+  const after = before.replace(re, () => '<script type="application/ld+json">' + JSON.stringify(data) + "</script>");
+  if (after === before) {
+    results.push("ok    " + file + " tutor ItemList current");
+    return;
+  }
+  if (check) { results.push("STALE " + file + " (tutor ItemList)"); return; }
+  fs.writeFileSync(file, after);
+  results.push("wrote " + file + " (tutor ItemList: " + publics.length + " public)");
+}
+
+function updateLlms(publics, check, results) {
+  const before = fs.readFileSync("llms.txt", "utf8");
+  let out = before;
+
+  /* --- the ## Tutors section (generated whole) --- */
+  const tutorLines = publics.length
+    ? publics.map((t) => {
+        const price = prettyPrice(t.priceUSD);
+        const bits = [];
+        if (t.headline) bits.push(t.headline);
+        if (price) bits.push(price + " per " + (t.lessonLength || "50 min"));
+        if ((t.teaches || []).length) bits.push("Teaches " + t.teaches.join(", "));
+        if ((t.levels || []).length) bits.push("Levels: " + t.levels.join(", "));
+        if (t.city || t.country) bits.push("Based in " + (t.city || t.country));
+        if (t.experienceYears) bits.push(t.experienceYears + " years' experience");
+        return "- [" + t.name + "](" + SITE + "/tutor/" + t.id + "/): " + bits.join(". ") + ".";
+      }).join("\n")
+    : "- No tutors are listed for booking right now. Free lessons, practice and courses are always open: " +
+      SITE + "/learn/ · " + SITE + "/courses/ · " + SITE + "/daily-hindi/";
+  out = out.replace(/## Tutors\n\n[\s\S]*?(?=\n## )/, () => "## Tutors\n\n" + tutorLines + "\n");
+
+  /* --- Facts: the lines that quote the roster --- */
+  const prices = publics.map((t) => Number(t.priceUSD) || 0).filter((n) => n > 0);
+  const listed = "- Tutors listed: " + publics.length + "\n";
+  out = out.replace(/- Tutors listed: [^\n]*\n/, () => listed);
+
+  /* price + trial lines only exist when there is a price to quote */
+  if (prices.length) {
+    const priceLine = "- Price range: $" + Math.min.apply(null, prices) + " to $" +
+      Math.max.apply(null, prices) + " per lesson\n";
+    if (/- Price range: [^\n]*\n/.test(out)) out = out.replace(/- Price range: [^\n]*\n/, () => priceLine);
+    else out = out.replace(listed, () => listed + priceLine);
+    const trials = publics.filter((t) => t.trialAvailable).length;
+    const trialLine = "- Trial lessons: available with " + trials + " of " + publics.length + " tutors\n";
+    if (/- Trial lessons: [^\n]*\n/.test(out)) out = out.replace(/- Trial lessons: [^\n]*\n/, () => trialLine);
+    else out = out.replace(priceLine, () => priceLine + trialLine);
+    out = out.replace(/- Booking: [^\n]*\n/, () =>
+      "- Booking: by email or WhatsApp directly with the tutor, no account needed\n");
+  } else {
+    out = out.replace(/- Price range: [^\n]*\n/, "");
+    out = out.replace(/- Trial lessons: [^\n]*\n/, "");
+    out = out.replace(/- Booking: [^\n]*\n/, () =>
+      "- Booking: not available while no tutors are listed\n");
+  }
+
+  /* --- the price claim in the header quote --- */
+  out = out.replace(/from \$[\d.]+ per lesson/, () =>
+    prices.length ? "from $" + Math.min.apply(null, prices) + " per lesson" : "when tutors are listed");
+
+  if (out === before) { results.push("ok    llms.txt already current"); return; }
+  if (check) { results.push("STALE llms.txt (tutor facts)"); return; }
+  fs.writeFileSync("llms.txt", out);
+  results.push("wrote llms.txt (" + publics.length + " public tutors)");
+}
+
+function updateManifest(publics, check, results) {
+  const before = fs.readFileSync("manifest.webmanifest", "utf8");
+  const data = JSON.parse(before);
+  const icon = [{ src: "images/icon-192.png", sizes: "192x192" }];
+  const shortcuts = [];
+
+  if (publics.length) {
+    shortcuts.push({
+      name: "Find a tutor", short_name: "Tutors",
+      description: "Browse Hindi tutor profiles",
+      url: "./find-tutors.html?utm_source=pwa_shortcut", icons: icon
+    });
+  } else {
+    /* U0 — no roster, no "Find a tutor" shortcut (it would be a door to an
+       empty room); the free course is the door that opens. */
+    shortcuts.push({
+      name: "Start the free course", short_name: "Learn",
+      description: "Free Hindi lessons, practice and courses",
+      url: "./learn/hindi/?utm_source=pwa_shortcut", icons: icon
+    });
+  }
+  shortcuts.push({
+    name: "Become a tutor", short_name: "Teach",
+    description: "Apply to teach Hindi on EkGuru",
+    url: "./join.html?utm_source=pwa_shortcut", icons: icon
+  });
+  for (const t of publics) {
+    shortcuts.push({
+      name: "Book with " + t.name,
+      short_name: String(t.name).split(/\s+/)[0],
+      description: String(t.headline || "Hindi tutor").slice(0, 90),
+      url: "./tutor.html?id=" + t.id + "&utm_source=pwa_shortcut",
+      icons: icon
+    });
+  }
+  data.shortcuts = shortcuts;
+
+  /* same indent + key order as the file on disk (JSON.parse preserves order) */
+  const after = JSON.stringify(data, null, 2) + "\n";
+  if (after === before) { results.push("ok    manifest.webmanifest already current"); return; }
+  if (check) { results.push("STALE manifest.webmanifest (shortcuts)"); return; }
+  fs.writeFileSync("manifest.webmanifest", after);
+  results.push("wrote manifest.webmanifest (" + publics.length + " tutor shortcut(s))");
+}
+
+function update404(publics, check, results) {
+  const before = fs.readFileSync("404.html", "utf8");
+  let out = before;
+
+  /* the named-tutor strip under the buttons */
+  const strip = publics.length
+    ? '<p class="e-tutors">\n' + publics.map((t) => '<a href="tutor/' + t.id + '/">' + esc(t.name) + "</a>").join("\n") + "\n</p>"
+    : '<p class="e-tutors">\n<a href="learn/hindi/">Start the free course</a>\n' +
+      '<a href="courses/">Courses</a>\n<a href="daily-hindi/">Daily Hindi</a>\n</p>';
+  out = out.replace(/<p class="e-tutors">[\s\S]*?<\/p>/, () => strip);
+
+  /* the "Find a Hindi tutor" door — a CTA that leads to an empty room */
+  if (publics.length) {
+    out = out.replace(
+      /<a class="btn btn-ghost btn-lg" href="learn\/hindi\/">Start the free course<\/a>/,
+      '<a class="btn btn-ghost btn-lg" href="find-tutors.html">Find a Hindi tutor</a>'
+    );
+  } else {
+    out = out.replace(
+      /<a class="btn btn-ghost btn-lg" href="find-tutors\.html">Find a Hindi tutor<\/a>/,
+      '<a class="btn btn-ghost btn-lg" href="learn/hindi/">Start the free course</a>'
+    );
+  }
+
+  if (out === before) { results.push("ok    404.html already current"); return; }
+  if (check) { results.push("STALE 404.html (tutor links)"); return; }
+  fs.writeFileSync("404.html", out);
+  results.push("wrote 404.html (" + publics.length + " tutor link(s))");
+}
+
+function updatePublicSurfaces(publics, check) {
+  const results = [];
+  upsertItemList("find-tutors.html", "Hindi tutors on EkGuru", publics, check, results);
+  upsertItemList("tutor/index.html", "Hindi tutor profiles", publics, check, results);
+  updateLlms(publics, check, results);
+  updateManifest(publics, check, results);
+  update404(publics, check, results);
+  let stale = 0;
+  for (const l of results) {
+    console.log(l);
+    if (l.startsWith("STALE")) stale++;
+  }
+  return stale;
+}
+
+/* --------------------------------------------------------------------------
    main
    -------------------------------------------------------------------------- */
 
@@ -718,8 +994,13 @@ function main0() {
   const only = idFlag > -1 ? argv[idFlag + 1] : null;
 
   const site = loadSite();
+  /* U0 — the full registry still gets a profile page (a hidden tutor keeps
+     their content, reachable by direct link), but ONLY the public roster
+     (registry ∩ sheet active=yes) is discoverable: sitemaps, feed, llms.txt,
+     manifest shortcuts, 404 links and the ItemLists. */
   const roster = site.tutors;
-  if (!roster.length) throw new Error("the tutor registry is empty");
+  const publics = site.publicTutors;
+  const isPublic = (t) => publics.some((p) => p.id === t.id);
 
   for (const id of site.unlisted) {
     console.log("warn  \"" + id + "\" has a tutor file but is not listed in js/tutors/_registry.js");
@@ -737,10 +1018,10 @@ function main0() {
   for (const t of targets) {
     const file = path.join("tutor", t.id, "index.html");
     const before = fs.existsSync(file) ? fs.readFileSync(file, "utf8") : "";
-    const after = build(t, roster);
+    const after = build(t, roster, publics, !isPublic(t));
 
     if (before === after) {
-      console.log("ok    " + file + " already up to date");
+      console.log("ok    " + file + " already up to date" + (isPublic(t) ? "" : " (hidden: noindex, booking off)"));
       continue;
     }
     if (check) {
@@ -753,22 +1034,24 @@ function main0() {
     wrote++;
     console.log(
       (before ? "wrote " : "new   ") + file + " (" + before.length + " → " + after.length + " bytes, " +
-        roster.length + " tutors)"
+        publics.length + " public of " + roster.length + " registry tutors)"
     );
   }
 
   if (!wrote && !stale) console.log("all " + targets.length + " tutor page(s) already up to date");
 
-  /* The sitemaps and the feed always follow the whole roster, even when only
-     one page was rebuilt — a tutor added with --id still has to be findable. */
+  /* The sitemaps and the feed always follow the whole PUBLIC roster, even
+     when only one page was rebuilt — a tutor added with --id still has to be
+     findable (and a tutor hidden by the sheet must vanish everywhere). */
   if (!only) {
-    const idx = updateIndexFiles(roster, today(), check);
+    const idx = updateIndexFiles(publics, today(), check);
     idx.lines.forEach((l) => console.log(l));
     stale += idx.stale;
+    stale += updatePublicSurfaces(publics, check);
   }
 
   if (check && stale) {
-    console.log("STALE: " + stale + " tutor page(s) — run tools/build-tutor-pages.js");
+    console.log("STALE: " + stale + " tutor surface(s) — run tools/build-tutor-pages.js");
     return 1;
   }
   return 0;

@@ -76,11 +76,19 @@ function loadSite(options) {
     }
   }
 
-  /* The roster in registry order. The sheet-hidden list is NOT applied here:
-     it is a runtime filter (js/tutors-data.js) that changes the moment the
-     owner edits the spreadsheet, while the generated pages are crawled and
-     indexed. Baking a temporary state into the HTML is how a tutor disappears
-     from Google. The static page lists the roster; the live page filters it. */
+  /* The roster in registry order. The sheet-hidden list is NOT applied to
+     `tutors`: every registry tutor still gets a complete object, because a
+     tutor the sheet currently hides needs one the moment the owner sets
+     active=yes again. What IS new in U0 (30 Sep 2026) is `publicTutors` —
+     the publication rule itself:
+
+         PUBLIC TUTOR = in the reviewed registry  AND  sheet active=yes
+
+     The owner's decision (U0): while every sheet row says active=no, no
+     tutor may be public anywhere — cards, ItemLists, sitemaps, feed,
+     llms.txt, manifest shortcuts, 404 links, profile discovery. The
+     generated surfaces read `publicTutors`; the hidden profile pages are
+     still built (noindex, booking off) by tools/build-tutor-pages.js. */
   const order = sandbox.EKGURU_TUTOR_ORDER || [];
   const registered = sandbox.EKGURU_TUTOR_FILES || {};
   const tutors = order.filter((id) => registered[id]).map((id) => registered[id]);
@@ -105,6 +113,10 @@ function loadSite(options) {
   return {
     i18n: sandbox.EKGURU_I18N || {},
     tutors,
+    /* U0 — the publication list: registry ∩ active=yes (see above). Every
+       public surface (cards, ItemList, sitemaps, feed, llms.txt, manifest,
+       404 links, CTAs) must read THIS, never `tutors`. */
+    publicTutors: tutors.filter((t) => hidden.indexOf(t.id) === -1),
     unlisted,
     hidden,
     site: sandbox.EKGURU_SITE || {},
