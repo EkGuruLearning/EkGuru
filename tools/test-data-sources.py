@@ -39,7 +39,11 @@ from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-FIXTURE_DIR = Path(__import__("os").environ.get("EKGURU_TEST_FIXTURE_DIR") or "")
+_raw = __import__("os").environ.get("EKGURU_TEST_FIXTURE_DIR") or ""
+# Path("") is PosixPath('.') — ALWAYS truthy and always a dir. The env var
+# must decide, or LIVE mode is unreachable (that bug is exactly what sent CI
+# hunting for ./tutors.tsv instead of the published sheet).
+FIXTURE_DIR = Path(_raw) if _raw else None
 
 def get_config_csvurls():
     """All csvUrl values in js/site-config.js, INCLUDING empty ones."""

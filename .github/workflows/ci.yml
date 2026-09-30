@@ -45,6 +45,7 @@ jobs:
           python3 tools/test-data-sources.py 2>&1 | tee /tmp/ds.out
           ec=${PIPESTATUS[0]}
           { echo "### test-data-sources.py (exit $ec)"; echo '```'; grep -E "FAIL|failures —|MODE=" /tmp/ds.out || true; tail -n 25 /tmp/ds.out; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          if [ $ec -ne 0 ]; then grep -E "FAIL|Error|Traceback" /tmp/ds.out | head -6 | while IFS= read -r l; do echo "::error title=test-data-sources::$l"; done; fi
           exit $ec
 
       - name: Sheet loader live smoke (csv -> tsv fallback applies cleanly)
@@ -52,6 +53,7 @@ jobs:
           node tools/test-sheet-loader.js 2>&1 | tee /tmp/sl.out
           ec=${PIPESTATUS[0]}
           { echo "### test-sheet-loader.js (exit $ec)"; echo '```'; grep -E "FAIL|PASS|fallback" /tmp/sl.out || true; tail -n 25 /tmp/sl.out; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          if [ $ec -ne 0 ]; then grep -E "FAIL|Error" /tmp/sl.out | head -6 | while IFS= read -r l; do echo "::error title=test-sheet-loader::$l"; done; fi
           exit $ec
 
       - name: Sheet sync policy (runtime + build side, adversarial)
