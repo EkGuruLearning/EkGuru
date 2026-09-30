@@ -1,6 +1,7 @@
 # U0 ACCEPTANCE REPORT — Zero-Tutor State + Sheet CSV→TSV Fallback
-**Phase:** U0 (ULTRA MASTER COMMAND v3) · **Branch:** `arena/01a0f024-ekguru` · **Commit:** `190b963`
-**Status:** ALL GATES GREEN locally. Push/PR blocked only by an expired GitHub token (Arena reconnect needed).
+**Phase:** U0 (ULTRA MASTER COMMAND v3) · **Branch:** `arena/01a0f024-ekguru` · **Commits:** `342d682`, `00fae57`, `c9cc995`
+**Status:** ✅ MERGE-READY — **CI GREEN on PR #21**: https://github.com/EkGuruLearning/EkGuru/pull/21
+(checks 1m55s ✔ · journeys 50s ✔ — run 36668906748 / 36668906780). Superseded **PR #20 closed** with a note.
 
 ---
 
@@ -38,12 +39,13 @@ restores everything — proven in §5.
 | langsync.js + all builders | tolerate 0 tutors (no throw) |
 
 ## 4. Pages touched
-**2670 files** in commit `190b963`. Tooling (21 files): `tools/sheet-fetch.js`,
+**2670+ files** across the U0 commits (`342d682` + CI-observability `00fae57` +
+LIVE-mode fix `c9cc995`). Tooling (22 files): `tools/sheet-fetch.js`,
 `tools/lib/zero-state.js`, `tools/test-sheet-fetch.mjs`, `tools/test-tutor-activation.mjs`,
 `tests/fixtures/*.tsv` (new); `js/sheet.js`, `js/i18n.js`, `js/main.js`,
 `js/tutors/_registry.js`, `tools/{sheetsync,langsync,build-home-tutors,build-market-pages,
-build-roster-rows,build-shell,build-tutor-pages}.js`, `tools/lib/site-data.js`,
-`tools/test-{data-sources.py,sheet-loader.js,experience-dom.mjs}`,
+build-roster-rows,build-shell,build-tutor-pages,test-journeys}.js|mjs`,
+`tools/lib/site-data.js`, `tools/test-{data-sources.py,sheet-loader.js,experience-dom.mjs}`,
 `.github/workflows/ci.yml` (edited). Rest = regenerated site pages (roster rows 263,
 shell refresh 2636, profiles, sitemaps, feed, llms.txt, manifest, 404, homes, markets,
 copy-index, search index).
@@ -65,9 +67,11 @@ copy-index, search index).
 | Gate | Result |
 |---|---|
 | `python3 tools/build-all.py check` | **EXIT 0** ✔ every generated layer up to date |
+| **CI `checks` (PR #21)** | **PASS 1m55s** ✔ incl. build-all check, preflights, inventory, live data-source (csv→tsv fallback), loader smoke, sheet policy, re-activation, public-output, jsdom QA |
+| **CI `journeys` (PR #21)** | **PASS 50s** ✔ five Playwright user journeys |
 | `node tools/test-tutor-activation.mjs` | 45/45 |
 | `node tools/test-sheet-fetch.mjs` | 35/35 |
-| `python3 tools/test-data-sources.py` | 21/21 offline fixture mode; live "PASS (tsv fallback)" is the CI path |
+| `python3 tools/test-data-sources.py` | 21/21 offline fixture mode; live "PASS (tsv fallback)" green in CI |
 | `python3 tools/inject-ads.py --check` | inside build-all check, green |
 | `node tools/test-ad-policy.mjs` | 22/22 |
 | `node tools/test-tutor-claims.js` | PASS (2741 files) |
@@ -75,13 +79,26 @@ copy-index, search index).
 | `node tools/test-sheet-apply.js` / `test-sheetsync-policy.js` | PASS |
 | `node tools/test-browser-qa.mjs` / `test-experience-dom.mjs` | 26/26 · all checks passed |
 
-## 7. CI
-`ci.yml` gains the two new steps (fetch tests + tutor re-activation cycle). **CI run link
-pending** — the GitHub token in this sandbox (`GH_TOKEN`) is expired
-("authentication failed … no longer valid"), so `git push`/`gh` are blocked. Once GitHub
-is reconnected in Arena: push `arena/01a0f024-ekguru`, open the PR, require the ci run,
-close superseded **PR #20** with a note (its scope is included here), and append the CI
-run URL to this report.
+## 7. CI — GREEN
+`ci.yml` runs the new suites as dedicated steps (sheet fetch unit tests + loader live
+smoke + tutor re-activation cycle), and the two network steps write their verdict to the
+step summary and emit `::error` annotations on failure. **PR #21:**
+https://github.com/EkGuruLearning/EkGuru/pull/21 · green run:
+https://github.com/EkGuruLearning/EkGuru/actions/runs/36668906748 (checks, incl. the
+live data-source step with csv→tsv fallback) and
+https://github.com/EkGuruLearning/EkGuru/actions/runs/36668906780 (journeys).
+PR #20 closed as superseded.
+
+### CI fixes made while getting to green (all R-5/R-10: generator or test owned)
+1. `tools/test-journeys.mjs` J1/J2 asserted a live tutor exists (`#stat-tutors` not "0";
+   click "Sushila") — a direct conflict with the real all-`active=no` sheet. Both now
+   follow whichever state is honest: roster → profile, zero → empty state + free course.
+2. `tools/test-data-sources.py` LIVE mode was **unreachable**: `Path("")` is
+   `PosixPath('.')` (truthy, a dir), so the test always ran OFFLINE mode and CI hunted
+   for `./tutors.tsv`. The env var alone now decides. Diagnosed with a monkeypatched
+   `urlopen` dry run of the LIVE path (csv HTTP 500 → tsv fallback → "PASS (tsv
+   fallback)" verdict) and by verifying all four live tab headers against the schema
+   checks.
 
 ## 8. Notes
 - Golden Rules honoured: no cloaking (empty states are honest text, hidden pages keep
