@@ -228,7 +228,7 @@ def sample_html(bank):
         a = it.get("a") or " ".join(it.get("answer") or []) or "—"
         out += f'    <li><b>{q}</b> — {a}</li>\n'
     out += "  </ul>\n"
-    out += "  <p style=\"color:var(--muted);font-size:.82rem\">A few of the items in this lab; the run draws from the full bank and shuffles each time.</p>\n"
+    out += "  <p class=\"lab-hint\" style=\"color:var(--muted);font-size:.82rem\">A few of the items in this lab; the run draws from the full bank and shuffles each time.</p>\n"
     out += "</section>\n"
     return out
 

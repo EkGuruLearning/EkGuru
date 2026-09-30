@@ -132,7 +132,7 @@ async function main() {
   const home = await get(`${BASE}/`);
   add("home-200", "Homepage serves HTTP 200", home.ok, String(home.status));
   add("canonical", "Homepage canonical is the https production URL",
-    /rel="canonical"\s+href="https:\/\/ekguru\.shop\/"/.test(home.body), "https://ekguru.shop/");
+    /<link[^>]*(?:rel="canonical"[^>]*href="https:\/\/ekguru\.shop\/"|href="https:\/\/ekguru\.shop\/"[^>]*rel="canonical")[^>]*>/.test(home.body), "https://ekguru.shop/");
 
   const redirect = await get("https://ekgurulearning.github.io/EkGuru/");
   add("old-github-redirect", "Old GitHub Pages URL 301s to production https",

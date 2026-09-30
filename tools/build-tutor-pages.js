@@ -450,10 +450,10 @@ function main(t, roster) {
     : "";
 
   return `<main id="main" class="pr-wrap">
-  <p class="pr-note">
+  <aside class="pr-note" role="note">
     This page contains tutor-provided information last refreshed on 14 September 2026. EkGuru has not independently verified every statement, price or time. Confirm current details before booking.
     <a href="../../tutor.html?id=${t.id}"><strong>Open the interactive profile and send an availability request</strong></a>
-  </p>
+  </aside>
   <article class="pr-article" itemscope itemtype="https://schema.org/Person">
   <nav class="crumbs" aria-label="Breadcrumb">
     <a href="../../index.html">Home</a> ›
@@ -659,9 +659,16 @@ function updateIndexFiles(roster, stamp, check) {
   const results = [];
 
   let stale = 0;
+  /* The stamp is today's date. A byte compare would call these files stale on
+     every day after the build, and a rebuild would re-date entries whose
+     content did not change. Compare without the dates: the files are stale
+     when a tutor entry changed, not when a day passed. */
+  const undated = (s) => s
+    .replace(/<lastmod>[^<]*<\/lastmod>/g, "<lastmod/>")
+    .replace(/<lastBuildDate>[^<]*<\/lastBuildDate>/g, "<lastBuildDate/>");
   const write = (file, next, what) => {
     const before = fs.readFileSync(file, "utf8");
-    if (before === next) {
+    if (before === next || undated(before) === undated(next)) {
       results.push("ok    " + file + " already up to date");
       return;
     }

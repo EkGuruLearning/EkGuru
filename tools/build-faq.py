@@ -80,8 +80,8 @@ FAQ = [
          "booked through each tutor's page. Times, prices and the tutor's own description are on the "
          "<a href=\"%sfind-tutors.html\">find a tutor</a> page and on every "
          "<a href=\"%stutor/\">tutor profile</a>." % (D, D)),
-        ("Will I actually speak with a native speaker?",
-         "Yes — EkGuru tutors are native Hindi speakers, and the point of a lesson is speaking and "
+        ("Will I actually get to speak Hindi in a lesson?",
+         "Yes — lessons are one-to-one video calls with a tutor based in India, and the point of a lesson is speaking and "
          "being corrected, not watching slides. The "
          "<a href=\"%slearn/hindi-alphabet-for-beginners/\">free guides</a> give you the material; the "
          "lesson gives you the feedback." % D),

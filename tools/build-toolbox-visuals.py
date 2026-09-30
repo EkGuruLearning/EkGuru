@@ -447,8 +447,9 @@ def block(spec, slug, count_note):
         'loading="lazy" decoding="async" alt="%s"><figcaption><b>%s</b> · %s</figcaption></figure>\n'
         "</section>\n" % (
             count_note, esc(spec["title"]),
-            esc("Every number and every word on this plate is taken from the tool below it, "
-                "not drawn by hand: what you see here is what the tool holds."),
+            esc("Every number and every word on the %s plate (%s) is taken from the tool "
+                "below it, not drawn by hand: what you see here is what the tool holds."
+                % (spec["title"], spec["stat"].rstrip("."))),
             "../.." if slug != "tools" else "..",
             slug, esc("%s — %s. %s" % (spec["title"], spec["native"], spec["stat"])),
             esc(spec["title"]), esc(spec["stat"])) + MARK_END + "\n"

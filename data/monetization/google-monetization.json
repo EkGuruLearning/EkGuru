@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "reviewed_at": "2026-09-17",
+  "reviewed_at": "2026-09-29",
   "publisher": {
     "adsense_client": "ca-pub-8175326569491671",
     "ads_txt_id": "pub-8175326569491671",
@@ -9,7 +9,7 @@
     "certification_authority_id": "f08c47fec0942fa0",
     "source_of_truth": "this file; public publisher identifiers are not secrets"
   },
-  "approval_status": "NOT_READY_DO_NOT_APPLY",
+  "approval_status": "APPLIED_AWAITING_GOOGLE_REVIEW",
   "products": [
     {
       "product": "AdSense Auto ads",
@@ -339,9 +339,12 @@
   },
   "ad_policy": {
     "schema_version": 1,
-    "reviewed_at": "2026-09-20",
-    "rule": "Page classes define future eligibility, but the global runtime gate currently disables the AdSense loader on every page. No custom banner authorizes personalized advertising.",
-    "loader_allowed": [],
+    "reviewed_at": "2026-09-29",
+    "rule": "Only HIGH_CONTENT and MEDIUM_CONTENT pages carry the AdSense account loader and verification meta, so Google can review the site. Every other class stays ad-free. Serving remains off in js/monetization.js (ADS_RUNTIME_ENABLED = false) and advertising consent stays unavailable in js/cookie-consent.js until approval.",
+    "loader_allowed": [
+      "HIGH_CONTENT",
+      "MEDIUM_CONTENT"
+    ],
     "attr": "data-ad-class",
     "classes": {
       "ADMIN": {
@@ -360,6 +363,7 @@
         "match": [
           "/support/**",
           "/join.html",
+          "/*/join.html",
           "/join/**",
           "/booking/**",
           "/checkout/**",
@@ -382,7 +386,8 @@
           "/terms/**",
           "/disclaimer/**",
           "/copyright/**",
-          "/cookie-policy/**"
+          "/cookie-policy/**",
+          "/monetization-disclosure/**"
         ],
         "why": "navigation, reference and legal pages: nothing of their own to read"
       },
@@ -459,12 +464,12 @@
     "notes": [
       "Every page carries a class as data-ad-class so future placement remains auditable.",
       "Legal, search, form, payment, booking, error, admin and interactive-learning pages remain permanently excluded.",
-      "The current custom preferences notice is not a Google-certified CMP/TCF deployment. The loader stays absent until the owner activates and verifies one account-side."
+      "The current custom preferences notice is not a Google-certified CMP/TCF deployment. The loader is present for site review only; runtime ad slots and advertising consent stay disabled until approval, and EEA/UK personalised ads need a certified CMP first."
     ]
   },
   "runtime_gate": {
-    "adsense_loader_enabled": false,
-    "reason": "Disabled until content, certified CMP/TCF deployment, account-side site status, and rendered UX checks all pass.",
+    "adsense_loader_enabled": true,
+    "reason": "Loader enabled on 2026-09-29 on HIGH_CONTENT and MEDIUM_CONTENT pages only, for the AdSense site review. Ad slots stay disabled at runtime (js/monetization.js ADS_RUNTIME_ENABLED = false) and advertising consent stays unavailable (js/cookie-consent.js ADVERTISING_AVAILABLE = false) until Google approves the site.",
     "enablement_rule": "Do not add the loader merely because a page is long or a local banner records advertising=true."
   }
 }

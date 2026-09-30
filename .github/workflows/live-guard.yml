@@ -1,0 +1,26 @@
+# Weekly live guard (plan PART C, Phase 10): the deployed site still serves
+# ads.txt, the account loader on content pages and no loader on legal/course
+# pages; the policy gate and the runtime flags are unchanged.
+name: live-guard
+on:
+  schedule:
+    - cron: "30 3 * * 1"   # Mondays 09:00 IST
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install test dependencies
+        run: npm install --no-audit --no-fund
+      - name: Weekly guard
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash tools/weekly-guard.sh

@@ -40,7 +40,7 @@ jobs:
       - name: Page inventory (SEO/sitemap/noindex gates)
         run: python3 tools/build-full-page-inventory.py
 
-      - name: Data-source tests (network: published Sheet endpoints)
+      - name: "Data-source tests (network: published Sheet endpoints)"
         run: |
           python3 tools/test-data-sources.py
           node tools/test-sheet-loader.js
@@ -51,7 +51,9 @@ jobs:
           node tools/test-sheetsync-policy.js
 
       - name: Public-output gate (competitor attribution, stale wording, origin)
-        run: node tools/test-no-competitor-attribution.js
+        run: |
+          node tools/test-no-competitor-attribution.js
+          node tools/test-tutor-claims.js
 
       - name: jsdom browser-QA suites
         run: |

@@ -108,6 +108,9 @@ def head(title, desc, url, up=""):
 <meta name="author" content="EkGuru">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <link rel="canonical" href="%s/%s">
+<link rel="icon" href="%simages/favicon.ico" sizes="any">
+<link rel="icon" href="%simages/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="%simages/apple-touch-icon.png">
 <meta property="og:type" content="article">
 <meta property="og:title" content="%s | EkGuru">
 <meta property="og:description" content="%s">
@@ -119,7 +122,7 @@ def head(title, desc, url, up=""):
 </head>
 <body>
 <div class="art">
-""" % (title, desc, BASE, url, title, desc, BASE, url, NOW, up, CORE_STYLE)
+""" % (title, desc, BASE, url, up, up, up, title, desc, BASE, url, NOW, up, CORE_STYLE)
 
 
 def foot(up="", scripts=()):
@@ -472,21 +475,21 @@ def lang_pages():
             '  <p>%s</p>\n'
             '%s'
             '  <h2>Starter pack preview</h2>\n'
-            '  <p class="muted">%d words · %d phrases · %d grammar concepts — rendered live by the same '
+            '  <p class="muted">%d %s words · %d phrases · %d grammar concepts — rendered live by the same '
             'engines that render Hindi, with the same device-only “Add to review” hook. The 🔊 Listen '
             'button is your browser’s computer voice, not a native recording.</p>\n'
             '  <div class="lp-box"><div id="langpack-app"><p class="muted">Loading %s starter pack…</p></div></div>\n'
             '  <h2>Starter check</h2>\n'
-            '  <p class="muted">A fixed rule-based check over this pack’s words — the same questions every '
+            '  <p class="muted">A fixed rule-based check over the %s pack’s words — the same questions every '
             'time. Not an exam, not AI, nothing is saved.</p>\n'
             '  <div id="starter-check"><p class="muted">Loading starter check…</p></div>\n'
             '%s'
             '  <p><a class="btn" href="/languages/">All languages</a> '
             '<a class="btn" href="/learn/hindi/">Start learning Hindi</a></p>\n'
         ) % (name, name, esc(d.get("honestNote", "") or STD_NOTE), about, course_html,
-             (p.get("counts") or {}).get("vocab", 0),
+             (p.get("counts") or {}).get("vocab", 0), name,
              (p.get("counts") or {}).get("phrase", 0),
-             (p.get("counts") or {}).get("grammar", 0), name, course_note) + _langpack_script(code) + _startercheck_script(code)
+             (p.get("counts") or {}).get("grammar", 0), name, name, course_note) + _langpack_script(code) + _startercheck_script(code)
         write("languages/%s/index.html" % code, "../../", title, d.get("about", ""),
               "languages/%s/" % code, body,
               scripts=["vocab-phrase-engine.js", "grammar-engine.js", "hindi-srs.js",

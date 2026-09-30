@@ -120,8 +120,27 @@ console.log("        classes: " + Object.entries(byClass).map(([c, n]) => `${c} 
 console.log("\n3. the rest of the monetization setup\n");
 
 ok("ads.txt names the publisher", read("ads.txt").includes(mon.publisher.ads_txt_id));
-ok("the publisher id is configured but no loader is authorized while the runtime gate is closed",
-  /^ca-pub-\d+$/.test(mon.publisher.adsense_client) && mon.runtime_gate.adsense_loader_enabled === false && rows.every((r) => !r.loader));
+ok("the publisher id is configured",
+  /^ca-pub-\d+$/.test(mon.publisher.adsense_client));
+if (mon.runtime_gate.adsense_loader_enabled === false) {
+  ok("no loader is authorized while the runtime gate is closed",
+    ALLOWED.size === 0 && rows.every((r) => !r.loader));
+} else {
+  /* Loader open for Google's site review: only the two content classes, the
+     application is recorded, and every loader names this publisher. Ad slots
+     themselves stay behind js/monetization.js until approval. */
+  ok("the runtime gate opens the loader for the content classes only",
+    [...ALLOWED].sort().join(",") === "HIGH_CONTENT,MEDIUM_CONTENT",
+    [...ALLOWED].join(", "));
+  ok("an open loader gate is backed by a recorded AdSense application",
+    /^(APPLIED_AWAITING_GOOGLE_REVIEW|APPROVED)$/.test(mon.approval_status || ""),
+    String(mon.approval_status));
+  const foreign = files.filter((f) => /adsbygoogle\.js\?client=/.test(read(f)) &&
+    !read(f).includes("adsbygoogle.js?client=" + mon.publisher.adsense_client));
+  ok("every loader names this publisher", foreign.length === 0, foreign.slice(0, 6).join(", "));
+  ok("ad slots stay off at runtime until approval",
+    mon.approval_status === "APPROVED" || /ADS_RUNTIME_ENABLED\s*=\s*false/.test(read("js/monetization.js")));
+}
 ok("robots.txt does not block AdsBot",
   !/User-agent:\s*AdsBot/i.test(read("robots.txt")));
 ok("consent is a certified-CMP question, not a home-made banner",

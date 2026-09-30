@@ -251,14 +251,14 @@ def build_material(mat):
     # Journey: content → material → tool → practice → lesson → path → tutor.
     # Every material closes with the same three next actions, so a learner
     # never dead-ends on a printable sheet.
-    body.append('<div class="pg-cta-box"><h2>Keep going</h2>'
+    body.append('<aside class="pg-cta-box" aria-label="Next step"><h2>Keep going</h2>'
                 '<p>A chart helps only once you use it. Drill these same points in the '
                 '<a href="%slearn/practice/">practice labs</a>, follow a '
                 '<a href="%slearn/paths/">learning path</a> to keep the order right, '
                 'or practise one to one with a tutor.</p>'
                 '<p><a class="btn btn-primary" href="%sfind-tutors.html">See the tutors</a> '
                 '<a class="btn btn-ghost" href="%slearn/practice/">Practise this</a> '
-                '<a class="btn btn-ghost" href="%slearn/paths/">Learning paths</a></p></div>'
+                '<a class="btn btn-ghost" href="%slearn/paths/">Learning paths</a></p></aside>'
                 % (d, d, d, d, d))
     nxt = mat.get("next")
     if nxt:
