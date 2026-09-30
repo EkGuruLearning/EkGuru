@@ -184,7 +184,11 @@ for (const [lang, dir, script] of [["es", "ltr", "latin"], ["ja", "ltr", "cjk"],
   check(`${lang}: language rail present`, railItems.length >= 15, `${railItems.length} items`);
 
   const card = doc.querySelector(".hero-card .hc-name");
-  check(`${lang}: hero card names a real tutor`, !!card && card.textContent.trim().length > 2,
+  const heroEmpty = doc.querySelector(".hero-card[data-eg-empty]");
+  /* U0: with zero public tutors the hero card carries the honest empty
+     state instead of a profile. Either is correct; a blank card is not. */
+  check(`${lang}: hero card names a real tutor or shows the honest empty state`,
+    !!card && card.textContent.trim().length > 2 && (!!heroEmpty || !/emptyTitle/i.test(card.textContent)),
     card ? card.textContent.trim() : "no card");
 }
 

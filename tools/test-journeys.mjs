@@ -11,7 +11,16 @@ const base = process.env.EKGURU_BASE || "http://127.0.0.1:4173";
 test("J1 home to learn to a guide", async ({ page }) => {
   await page.goto(base + "/");
   await expect(page.locator("h1")).toHaveCount(1);
-  await expect(page.locator("#stat-tutors")).not.toHaveText("0");
+  /* The stat is honest in BOTH states (U0): with public tutors it equals the
+     number of cards; with zero it shows 0 and the hero carries the empty
+     state with the free course — never a stale face or a fake count. */
+  const stat = (await page.locator("#stat-tutors").textContent()).trim();
+  if (stat === "0") {
+    await expect(page.locator("#hero-tutor[data-eg-empty='1']")).toHaveCount(1);
+    await expect(page.locator("#hero-tutor").getByRole("link", { name: /free course/i })).toBeVisible();
+  } else {
+    await expect(page.locator(".tcard").first()).toBeVisible();
+  }
   await page.locator("header nav").getByRole("link", { name: "Learn", exact: true }).click();
   await expect(page).toHaveURL(/\/learn\/$/);
   await page.locator('a[href="hindi-alphabet-for-beginners/"]').click();
@@ -24,8 +33,18 @@ test("J2 home to tutors", async ({ page }) => {
   await expect(page.locator("h1")).toHaveCount(1);
   await expect(page.getByText("Hemlata")).toHaveCount(0);
   await expect(page.getByText("Tara")).toHaveCount(0);
-  await page.getByRole("link", { name: /Sushila/i }).first().click();
-  await expect(page).toHaveURL(/sushila-g/);
+  /* U0: with zero public tutors the directory shows the honest empty state
+     and every door leads to free learning. With a roster it leads to a real
+     profile. Both paths keep the journey true. */
+  const sushila = page.getByRole("link", { name: /Sushila/i });
+  if (await sushila.count()) {
+    await sushila.first().click();
+    await expect(page).toHaveURL(/sushila-g/);
+  } else {
+    await expect(page.locator("[data-eg-empty='1']").first()).toBeVisible();
+    await page.locator("main, #main").getByRole("link", { name: /free course|Learn Hindi|courses/i }).first().click();
+    await expect(page).toHaveURL(/learn\/|courses\//);
+  }
 });
 
 test("J3 countries directory", async ({ page }) => {

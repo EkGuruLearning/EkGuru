@@ -30,24 +30,15 @@ const SRC = {
   support:  `${BASE}?gid=1041390059&single=true&output=csv`,
 };
 
-/* ---------- CSV parser (same behaviour as js/sheet.js parseCSV) ---------- */
-function parseCSV(text) {
-  const rows = []; let row = []; let field = ""; let q = false;
-  text = String(text).replace(/^\uFEFF/, "");
-  for (let i = 0; i < text.length; i++) {
-    const c = text[i], next = text[i + 1];
-    if (q) {
-      if (c === '"' && next === '"') { field += '"'; i++; }
-      else if (c === '"') q = false;
-      else field += c;
-    } else if (c === '"') q = true;
-    else if (c === ",") { row.push(field); field = ""; }
-    else if (c === "\n") { row.push(field); rows.push(row); row = []; field = ""; }
-    else if (c !== "\r") field += c;
-  }
-  if (field.length || row.length) { row.push(field); rows.push(row); }
-  return rows.filter(r => r.some(c => c.trim()));
-}
+/* ---------- delimited-text parsing (shared, see tools/sheet-fetch.js) ----------
+   v143 (30 Sep 2026): the parser and the CSV→TSV fallback now live in
+   tools/sheet-fetch.js — one implementation for the build, the offline
+   fixtures and the unit tests (tools/test-sheet-fetch.mjs asserts this file
+   and js/sheet.js agree). Google's published-CSV endpoints for this workbook
+   answer HTTP 500 while output=tsv answers 200; the fallback order is
+   csv first, tsv second, and it is not configurable. */
+const SHEET_FETCH = require("./sheet-fetch");
+const parseCSV = SHEET_FETCH.parseCSV;
 
 function toRecords(rows) {
   if (rows.length < 2) return [];
@@ -228,21 +219,60 @@ function buildReviews(reviewRows) {
   return byTutor;
 }
 
+/* CSV first, TSV fallback — see tools/sheet-fetch.js. Throws only when
+   both formats fail (with both errors in the message). */
+async function fetchRows(url, opts) {
+  return SHEET_FETCH.fetchSheetRows((u) => fetch(u), url, opts);
+}
+
 async function fetchCSV(url) {
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
-  const text = await res.text();
-  if (/^\s*</.test(text)) throw new Error("returned HTML, not CSV: " + url);
-  return toRecords(parseCSV(text));
+  const { rows, format, usedFallback } = await fetchRows(url);
+  if (usedFallback) console.warn(`  !! ${url.split("gid=")[1] || url} answered via output=${format} (csv endpoint down) — tsv fallback.`);
+  return toRecords(rows);
 }
 
 /* Settings tab has key/value rows, not an id column. */
 async function fetchSettings(url) {
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
-  const text = await res.text();
-  if (/^\s*</.test(text)) throw new Error("returned HTML, not CSV: " + url);
-  const rows = parseCSV(text);
+  const { rows, format, usedFallback } = await fetchRows(url, { allowKeyOnly: true });
+  if (usedFallback) console.warn(`  !! settings/support tab answered via output=${format} (csv endpoint down) — tsv fallback.`);
+  const head = (rows[0] || []).map(h => String(h).trim().toLowerCase());
+  const ki = head.indexOf("key"), vi = head.indexOf("value");
+  if (ki === -1 || vi === -1) return [];
+  return rows.slice(1).map(r => ({ key: (r[ki] || "").trim(), value: (r[vi] || "").trim() }))
+    .filter(o => o.key);
+}
+
+/* ---------- offline mode (--offline <dir>) ----------
+   Reads a saved export instead of the network:
+       <dir>/tutors.tsv  reviews.tsv  settings.tsv  support.tsv
+   (.csv works too). Used by tools/test-tutor-activation.mjs and by
+   builds in a sandbox where docs.google.com is unreachable. The
+   parsing path is the SAME code the network path uses. */
+function offlineRows(dir, name) {
+  for (const ext of [".tsv", ".csv"]) {
+    const p = path.join(dir, name + ext);
+    if (fs.existsSync(p)) {
+      return { rows: SHEET_FETCH.readLocalRows(fs.readFileSync(p, "utf8"), ext.slice(1)), file: p };
+    }
+  }
+  throw new Error(`offline sheet input missing: ${name}.tsv (or .csv) in ${dir}`);
+}
+
+function offlineAll(dir) {
+  const t = offlineRows(dir, "tutors");
+  const r = offlineRows(dir, "reviews");
+  const s = offlineRows(dir, "settings");
+  const u = offlineRows(dir, "support");
+  console.log(`  offline inputs: ${[t, r, s, u].map(x => path.relative(process.cwd(), x.file)).join(", ")}`);
+  return {
+    tutors: toRecords(t.rows),
+    reviews: toRecords(r.rows),
+    settings: keyValues(s.rows),
+    support: keyValues(u.rows)
+  };
+}
+
+function keyValues(rows) {
   const head = (rows[0] || []).map(h => String(h).trim().toLowerCase());
   const ki = head.indexOf("key"), vi = head.indexOf("value");
   if (ki === -1 || vi === -1) return [];
@@ -255,10 +285,20 @@ async function fetchSettings(url) {
    reputation gate). Requiring this file must not run the sync —
    only running it as a CLI does. */
 if (require.main === module) (async function main() {
-  const [tutors, reviews, settings, support] = await Promise.all([
-    fetchCSV(SRC.tutors), fetchCSV(SRC.reviews), fetchSettings(SRC.settings),
-    fetchSettings(SRC.support),
-  ]);
+  /* --offline <dir>: read a saved export (tests/fixtures/, a downloaded
+     snapshot) instead of the network. Same parsers, same output. */
+  const argv = process.argv.slice(2);
+  const offIdx = argv.indexOf("--offline");
+  let tutors, reviews, settings, support;
+  if (offIdx > -1 && argv[offIdx + 1]) {
+    const src = offlineAll(argv[offIdx + 1]);
+    tutors = src.tutors; reviews = src.reviews; settings = src.settings; support = src.support;
+  } else {
+    [tutors, reviews, settings, support] = await Promise.all([
+      fetchCSV(SRC.tutors), fetchCSV(SRC.reviews), fetchSettings(SRC.settings),
+      fetchSettings(SRC.support),
+    ]);
+  }
   /* Support tab merges UNDER the main settings tab: on a conflict
      the main tab wins, so payments can only ADD keys. */
   const have = new Set(settings.map(s => String(s.key || "").toLowerCase()));

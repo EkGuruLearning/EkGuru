@@ -163,8 +163,17 @@ const TARGETS = {
   ask: "ask/", answers: "answers/", countries: "learn/countries/",
   contact: "contact/", about: "about/", privacy: "privacy/",
   terms: "terms/", monetization: "monetization-disclosure/", disclaimer: "disclaimer/", copyright: "copyright/",
-  cookies: "cookie-policy/",
+  cookies: "cookie-policy/", learnHindi: "learn/hindi/",
 };
+
+/* U0 (30 Sep 2026) — while the sheet marks every tutor active=no there is
+   no roster to browse, so the header's conversion button must not sell one.
+   It becomes the honest "Start the free course" CTA (i18n tutors.emptyCta,
+   all 7 markets) pointing at the free Hindi course. The NAV "Tutors" item
+   stays: the find-tutors page exists and says so itself. Regenerated from
+   the roster on every build — the button flips back by itself the moment a
+   tutor row says active=yes. */
+let ZERO_TUTORS = false;
 
 /* A market page keeps its own three pages — a Spanish visitor lands on the
    Spanish home, books from the Spanish tutor list and applies on the Spanish
@@ -226,7 +235,7 @@ function headerHTML(p, shell, loc, dict, hasMain) {
     <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
     <nav class="nav" aria-label="Main">
 ${nav}
-      <a class="btn btn-primary btn-sm" href="${esc(href("findTutors"))}"${loc ? ' data-i18n="nav.cta"' : ""}>${esc(L(CTA[0], CTA[1]))}</a>
+      <a class="btn btn-primary btn-sm" href="${esc(href(ZERO_TUTORS ? "learnHindi" : "findTutors"))}"${loc ? ` data-i18n="${ZERO_TUTORS ? "tutors.emptyCta" : "nav.cta"}"` : ""}>${esc(ZERO_TUTORS ? L("Start the free course", "tutors.emptyCta") : L(CTA[0], CTA[1]))}</a>
 ${hasMain ? LANGSWITCH + "\n" : ""}    </nav>
   </div>
 </header>
@@ -487,6 +496,8 @@ function main() {
   const check = process.argv.includes("--check");
   const verbose = process.argv.includes("--verbose");
   const site = loadSite();
+  /* U0 — the header CTA follows the PUBLIC roster (registry ∩ active=yes). */
+  ZERO_TUTORS = site.publicTutors.length === 0;
   const settings = site.settings || {};
   const config = site.site || {};
   const dict = loadI18n();

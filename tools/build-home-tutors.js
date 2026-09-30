@@ -140,15 +140,59 @@ function card(t) {
         </article>`;
 }
 
-function block(roster) {
+function block(roster, site) {
+  if (!roster.length) {
+    /* U0 (30 Sep 2026) — zero public tutors is a real state (the sheet
+       marks every row active=no). The grid slot carries the honest
+       empty state instead of an error or a blank run of cards. */
+    const { emptyTutorsBlock } = require("./lib/zero-state");
+    return START + "\n        " + emptyTutorsBlock({
+      prefix: "", lang: "en", i18n: site.i18n,
+      tag: "div",
+      attrs: 'class="t-empty empty" data-eg-empty="1"'
+    }) + "\n        " + END;
+  }
   return START + "\n" + roster.map(card).join("\n") + "\n        " + END;
+}
+
+/* The hero card (id="hero-tutor") is the static fallback js/main.js swaps
+   for the live first tutor — a crawler and a no-JS reader see exactly what
+   is written here. It is a tutor card like any other, so it obeys the same
+   U0 rule: hidden tutors out, and with nobody public the card becomes the
+   honest empty state (never a stale face from the registry). */
+function heroBlock(roster, site) {
+  const first = roster[0];
+  const i18n = site.i18n || {};
+  const en = (k, fb) => ((i18n.en && i18n.en[k]) || fb);
+  if (!first) {
+    return `<div class="hero-card xp-sheen" id="hero-tutor" data-eg-empty="1">
+<!-- Static fallback: js/main.js replaces this card with the live first
+             tutor when there is one. With no public tutors it stays the
+             honest empty state (U0). -->
+<p class="hc-name">${esc(en("tutors.emptyTitle", "No tutors are available for booking right now."))}</p>
+<p class="sm">${esc(en("tutors.emptyBody", "Free lessons, practice and courses are always open."))}</p>
+<a class="btn btn-primary btn-sm btn-block" href="learn/hindi/">${esc(en("tutors.emptyCta", "Start the free course"))}</a>
+</div>`;
+  }
+  const photo = first.thumb || first.photo || "images/placeholder-tutor.jpg";
+  return `<div class="hero-card xp-sheen" id="hero-tutor">
+<!-- Static fallback: a crawler, and anyone before JavaScript runs,
+             sees a real tutor here rather than a grey placeholder.
+             main.js replaces this with the live first tutor. -->
+<a aria-label="View ${esc(first.name)}'s profile" class="hc-link" href="tutor/${esc(first.id)}/"></a>
+<img alt="${esc(first.name)}, online Hindi tutor" height="96" loading="eager" src="${esc(photo)}" width="96"/>
+<p class="hc-name">${esc(first.name)}</p>
+<p class="sm">Hindi tutor · ${esc(first.country || first.city || "India")}</p>
+<p class="sm" style="margin:6px 0 10px">Tutor-stated profile · rating appears after the first on-site review</p>
+<a class="btn btn-primary btn-sm btn-block" href="tutor/${esc(first.id)}/">View profile</a>
+</div>`;
 }
 
 function main() {
   const check = process.argv.includes("--check");
   const site = loadSite();
-  const roster = site.tutors;
-  if (!roster.length) throw new Error("the tutor registry is empty");
+  /* U0 — PUBLIC roster only: registry ∩ sheet active=yes. */
+  const roster = site.publicTutors;
 
   const html = fs.readFileSync(FILE, "utf8");
   if (html.indexOf(START) === -1 || html.indexOf(END) === -1) {
@@ -157,8 +201,18 @@ function main() {
 
   let updated = html.replace(
     new RegExp(START.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "[\\s\\S]*?" + END.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")),
-    () => block(roster)
+    () => block(roster, site)
   );
+
+  /* The hero card is a tutor card too (U0): same public roster, same
+     empty-state rule. The opener matches any attribute set (the empty-state
+     variant carries data-eg-empty="1" next to the id). */
+  if (/<div class="hero-card xp-sheen" id="hero-tutor"[^>]*>[\s\S]*?<\/div>/.test(updated)) {
+    updated = updated.replace(
+      /<div class="hero-card xp-sheen" id="hero-tutor"[^>]*>[\s\S]*?<\/div>/,
+      () => heroBlock(roster, site)
+    );
+  }
 
   /* The hero figure. js/main.js overwrites it with the live count on load;
      the number in the HTML is what a crawler and a no-JS visitor read. */
@@ -168,7 +222,7 @@ function main() {
   );
 
   if (updated === html) {
-    console.log("ok    " + FILE + " already up to date (" + roster.length + " tutors)");
+    console.log("ok    " + FILE + " already up to date (" + roster.length + " public tutors)");
     return 0;
   }
   if (check) {
@@ -177,12 +231,13 @@ function main() {
   }
   fs.writeFileSync(FILE, updated);
   console.log(
-    "wrote " + FILE + " (" + html.length + " → " + updated.length + " bytes, " + roster.length + " tutors)"
+    "wrote " + FILE + " (" + html.length + " → " + updated.length + " bytes, " + roster.length + " public tutors)"
   );
   if (site.hidden.length) {
     console.log(
-      "note  the sheet currently hides: " + site.hidden.join(", ") +
-        " — they stay in the static list (that is the roster) and js/tutors-data.js filters them live."
+      "note  the sheet hides (active=no): " + site.hidden.join(", ") +
+        " — they are out of every public list (U0), their profile pages are noindex," +
+        " and they return the moment a row says active=yes."
     );
   }
   return 0;

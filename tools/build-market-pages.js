@@ -162,6 +162,10 @@ function hero(lang, t, tutors, price) {
       ).toFixed(1)}★`
     : "—";
 
+  /* U0 (30 Sep 2026) — with zero public tutors there is no profile to
+     feature and no prices to quote. The hero card carries the honest
+     empty state (same keys as tools/lib/zero-state.js), the price stat
+     shows "—", and the price claim card is skipped entirely below. */
   const card = first
     ? `      <div class="hero-card xp-sheen">
         <a class="hc-link" href="../tutor/${esc(first.id)}/" aria-label="${esc(first.name)}"></a>
@@ -175,7 +179,13 @@ function hero(lang, t, tutors, price) {
         t(lang0, "hero.viewProfile")
       )}</a>
       </div>`
-    : "";
+    : `      <div class="hero-card xp-sheen" data-eg-empty="1">
+        <p class="hc-name">${esc(t(lang0, "tutors.emptyTitle"))}</p>
+        <p class="sm">${esc(t(lang0, "tutors.emptyBody"))}</p>
+        <a class="btn btn-primary btn-sm btn-block" href="../learn/hindi/">${esc(
+        t(lang0, "tutors.emptyCta")
+      )}</a>
+      </div>`;
 
   return `<section class="xp-hero xp-band">
   <span class="xp-orb xp-orb-1" aria-hidden="true"></span>
@@ -206,7 +216,11 @@ function hero(lang, t, tutors, price) {
         <li class="xp-stat"><b>${tutors.length}</b><span data-i18n="hero.stat1">${esc(
     t(lang0, "hero.stat1")
   )}</span></li>
-        <li class="xp-stat"><b data-usd="${price}" data-usd-mode="bare">$${price}</b><span data-i18n="hero.stat4">${esc(
+        <li class="xp-stat">${
+          price == null
+            ? `<b>—</b>`
+            : `<b data-usd="${price}" data-usd-mode="bare">$${price}</b>`
+        }<span data-i18n="hero.stat4">${esc(
     t(lang0, "hero.stat4")
   )}</span></li>
         <li class="xp-stat"><b>${statRating}</b><span data-i18n="hero.stat3">${esc(
@@ -263,7 +277,12 @@ ${items}
 }
 
 function why(t, lang, price) {
+  /* U0 — card 3 is a price claim ("profiles list lessons from {minPrice}").
+     With zero public tutors there is no price to quote and no profile to
+     point at, so the claim is not made at all: three honest cards beat one
+     false one. */
   const cards = [1, 2, 3, 4]
+    .filter((i) => i !== 3 || price != null)
     .map(
       (i) => `      <article class="xp-card">
         <div class="xp-card-ico" aria-hidden="true">${["🎯", "🗣️", "💸", "🕒"][i - 1]}</div>
@@ -326,6 +345,25 @@ function tutorCards(t, lang, tutors) {
 }
 
 function tutorsSection(t, lang, tutors) {
+  const { emptyTutorsBlock } = require("./lib/zero-state");
+  /* U0 — no public tutors: the slot says so honestly, in market language,
+     and points at the free course instead of a roster that is not there. */
+  const grid = tutors.length
+    ? `    <div class="xp-grid xp-grid-3 xp-stagger">
+${tutorCards(t, lang, tutors)}
+    </div>
+    <p class="center" style="margin-top:26px">
+      <a class="btn btn-ghost" href="../find-tutors.html?lang=${lang}" data-i18n="tutors.all">${esc(
+        t(lang, "tutors.all")
+      )}</a>
+    </p>`
+    : `    <div class="xp-grid xp-grid-1 xp-stagger">
+${emptyTutorsBlock({
+        prefix: "../", lang, t,
+        tag: "div",
+        attrs: 'class="t-empty empty xp-card" data-eg-empty="1"'
+      })}
+    </div>`;
   return `<section class="xp-sec soft" id="tutors">
   <div class="xp-wrap">
     <div class="xp-head xp-rise">
@@ -334,14 +372,7 @@ function tutorsSection(t, lang, tutors) {
       <p data-i18n="tutors.sub">${esc(t(lang, "tutors.sub"))}</p>
       <div class="xp-rule" aria-hidden="true"></div>
     </div>
-    <div class="xp-grid xp-grid-3 xp-stagger">
-${tutorCards(t, lang, tutors)}
-    </div>
-    <p class="center" style="margin-top:26px">
-      <a class="btn btn-ghost" href="../find-tutors.html?lang=${lang}" data-i18n="tutors.all">${esc(
-    t(lang, "tutors.all")
-  )}</a>
-    </p>
+${grid}
   </div>
 </section>`;
 }
@@ -536,14 +567,19 @@ function build(lang, site, t) {
   const file = path.join(lang, "index.html");
   const html = fs.readFileSync(file, "utf8");
   const parts = split(html, file);
-  parts.head = updateTutorItemList(stripHeadStyles(tagBody(parts.head)), lang, site.tutors, file);
+  /* U0 — only PUBLIC tutors (registry ∩ sheet active=yes) reach the
+     page and its ItemList. */
+  const publics = site.publicTutors;
+  parts.head = updateTutorItemList(stripHeadStyles(tagBody(parts.head)), lang, publics, file);
 
-  const price = site.tutors.reduce(
-    (min, x) => (x.priceUSD && x.priceUSD < min ? x.priceUSD : min),
-    site.tutors[0].priceUSD
-  );
+  const price = publics.length
+    ? publics.reduce(
+        (min, x) => (x.priceUSD && x.priceUSD < min ? x.priceUSD : min),
+        publics[0].priceUSD
+      )
+    : null;   /* U0 — no public tutor, no price claim (see why()) */
 
-  return parts.head + renderMain(lang, t, site.tutors, price) + parts.tail;
+  return parts.head + renderMain(lang, t, publics, price) + parts.tail;
 }
 
 function main() {
@@ -551,7 +587,7 @@ function main() {
   const site = loadSite();
   const t = makeT(site.i18n);
 
-  if (!site.tutors.length) throw new Error("the tutor registry is empty");
+  /* U0 — zero public tutors is a supported state, not an error. */
 
   let stale = 0;
   for (const lang of MARKETS) {
@@ -571,7 +607,7 @@ function main() {
     fs.writeFileSync(file, after);
     console.log(
       "wrote " + file + " (" + before.length + " → " + after.length + " bytes, " +
-        site.tutors.length + " tutors, min price $" + site.tutors.reduce((m, x) => Math.min(m, x.priceUSD), 99) + ")"
+        site.publicTutors.length + " public tutors)"
     );
   }
 
@@ -579,18 +615,19 @@ function main() {
      in their JSON-LD. Nothing kept it in step with the registry, so after
      three tutors left the public roster those pages still told search
      engines about four tutors, two of them on noindex pages. Same list, same
-     source, same check. */
+     source, same check. U0: the list is the PUBLIC roster — hidden tutors
+     are out of it. */
   for (const lang of MARKETS) {
     for (const name of ["find-tutors.html", "join.html"]) {
       const file = path.join(lang, name);
       if (!fs.existsSync(file)) continue;
       const before = fs.readFileSync(file, "utf8");
       if (!/"@id":"[^"]*#tutors"/.test(before)) continue;
-      const after = updateTutorItemList(before, lang, site.tutors, file);
+      const after = updateTutorItemList(before, lang, site.publicTutors, file);
       if (before === after) { console.log("ok    " + file + " tutor list current"); continue; }
       if (check) { console.log("STALE " + file + " (tutor ItemList)"); stale++; continue; }
       fs.writeFileSync(file, after);
-      console.log("wrote " + file + " (tutor ItemList: " + site.tutors.length + " tutors)");
+      console.log("wrote " + file + " (tutor ItemList: " + site.publicTutors.length + " public tutors)");
     }
   }
 

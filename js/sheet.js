@@ -231,10 +231,26 @@
   var configured = !!url && typeof window.fetch === "function";
 
   /* ---------------------------------------------------------
-     A CSV parser that handles quoted fields, because a bio
-     will contain commas and a naive split would corrupt it.
+     A delimited-text parser that handles quoted fields, because
+     a bio will contain commas and a naive split would corrupt it.
+
+     v143 (30 Sep 2026) — ONE parser for CSV AND TSV. Google's
+     published-CSV endpoint started answering HTTP 500 for this
+     workbook while `output=tsv` still worked, so the loader now
+     falls back to TSV (see fetchSheet below). Google's TSV export
+     uses the same quoting rules as its CSV export — `""` for a
+     literal quote, quotes around fields containing the delimiter,
+     quotes around multi-line cells — so the delimiter is the only
+     difference. This function must stay byte-compatible with
+     parseDelimited() in tools/sheet-fetch.js;
+     tools/test-sheet-fetch.mjs asserts the two agree.
+
+     A UTF-8 BOM is stripped: Google's export carries one and it
+     would otherwise glue itself to the first header name.
      --------------------------------------------------------- */
-  function parseCSV(text) {
+  function parseDelimited(text, delim) {
+    text = String(text == null ? "" : text);
+    if (text.charCodeAt(0) === 0xfeff) text = text.slice(1);
     var rows = [], row = [], field = "", inQuotes = false;
     for (var i = 0; i < text.length; i++) {
       var c = text[i], next = text[i + 1];
@@ -244,7 +260,7 @@
         else field += c;
       } else {
         if (c === '"') inQuotes = true;
-        else if (c === ",") { row.push(field); field = ""; }
+        else if (c === delim) { row.push(field); field = ""; }
         else if (c === "\n") { row.push(field); rows.push(row); row = []; field = ""; }
         else if (c !== "\r") field += c;
       }
@@ -252,6 +268,9 @@
     if (field.length || row.length) { row.push(field); rows.push(row); }
     return rows.filter(function (r) { return r.some(function (c) { return c.trim(); }); });
   }
+
+  function parseCSV(text) { return parseDelimited(text, ","); }
+  function parseTSV(text) { return parseDelimited(text, "\t"); }
 
   function toRecords(rows) {
     if (rows.length < 2) return [];
@@ -974,8 +993,17 @@
   function fetchSheet() {
     /* v97 — one silent retry after a failed fetch (a cold Google CDN
        edge on the first hit of the day is common), then the existing
-       error path. The 8-second abort timeout applies per attempt. */
-    function once(attempt) {
+       error path. The 8-second abort timeout applies per attempt.
+
+       v143 (30 Sep 2026) — CSV first, TSV fallback. Google's
+       published-CSV endpoint began answering HTTP 500 for this
+       workbook while the same tab with output=tsv returned 200.
+       The order is fixed: try the configured (csv) URL, and if it
+       is non-200, returns an HTML page, or has no id column, retry
+       the SAME URL with output=tsv. tools/sheet-fetch.js is the
+       build-side twin of this logic; tools/test-sheet-fetch.mjs
+       proves the two agree. */
+    function tryOne(url, fmt) {
       var ctrl = null, timer = null;
       try { ctrl = new AbortController(); } catch (e) {}
       if (ctrl) timer = setTimeout(function () { try { ctrl.abort(); } catch (e) {} }, 8000);
@@ -987,10 +1015,10 @@
           /* A Sheet that is not actually published returns an HTML
              login page, not CSV. Refuse it rather than parsing junk. */
           if (/^\s*</.test(text)) {
-            throw new Error("That URL returned a web page, not CSV. " +
-              "Use File → Share → Publish to web → CSV.");
+            throw new Error("That URL returned a web page, not " + fmt.toUpperCase() + ". " +
+              "Use File → Share → Publish to web.");
           }
-          var rows = parseCSV(text);
+          var rows = fmt === "tsv" ? parseTSV(text) : parseCSV(text);
           var head = (rows[0] || []).map(function (h) { return String(h).trim().toLowerCase(); });
           /* Schema check: without an id column nothing can map, and a
              wrong tab (or an empty sheet) must be loud, not silent. */
@@ -998,9 +1026,34 @@
             throw new Error("header row has no 'id' column (got: " +
               head.slice(0, 8).join(",") + ") — is the right tab published?");
           }
+          return rows;
+        })
+        .catch(function (e) {
+          if (timer) clearTimeout(timer);
+          e.message = fmt.toUpperCase() + ": " + e.message;
+          throw e;
+        });
+    }
+
+    function tsvVariant(u) {
+      u = String(u || "");
+      if (/[?&]output=/.test(u)) return u.replace(/([?&])output=[^&]*/, "$1output=tsv");
+      return u + (u.indexOf("?") === -1 ? "?" : "&") + "output=tsv";
+    }
+
+    function once(attempt) {
+      return tryOne(url, "csv")
+        .catch(function (csvErr) {
+          /* Non-200 or non-CSV on output=csv: same URL as TSV. */
+          return tryOne(tsvVariant(url), "tsv").catch(function (tsvErr) {
+            throw new Error(csvErr.message + " / " + tsvErr.message);
+          });
+        })
+        .then(function (rows) {
           /* Report columns the code expects but the sheet lacks, so a
              silently-dead column is visible instead of mysterious.
              'youtubeId' is the internal name of the 'video' column. */
+          var head = (rows[0] || []).map(function (h) { return String(h).trim().toLowerCase(); });
           var missing = Object.keys(FIELDS).filter(function (f) {
             return f !== "youtubeId" && head.indexOf(f.toLowerCase()) === -1;
           });
@@ -1016,7 +1069,6 @@
           if (n) console.info("[EkGuru] Sheet applied: " + n + " change(s).");
         })
         .catch(function (e) {
-          if (timer) clearTimeout(timer);
           if (attempt < 2) {
             /* One quiet retry; only the final failure reports. */
             return new Promise(function (res) {
@@ -1108,7 +1160,15 @@
     /* v62: exposed so the admin dashboard and the tests can check a
        Drive link without a second copy of the rewriting rules. */
     photoUrl: normalizePhoto,
-    isExternalImage: isExternalImage
+    isExternalImage: isExternalImage,
+
+    /* v143 — the delimited-text parsers, exported so
+       tools/test-sheet-fetch.mjs can assert this file and
+       tools/sheet-fetch.js parse byte-identically (two parsers for
+       one format is how they drift apart). */
+    parseDelimited: parseDelimited,
+    parseCSV: parseCSV,
+    parseTSV: parseTSV
   };
   }
 })();

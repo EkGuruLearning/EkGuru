@@ -701,6 +701,28 @@
     });
   }
 
+  /* U0 (30 Sep 2026) — the honest zero-tutor state, i18n'd.
+     The old empty branch printed "No tutors have been added yet.
+     Add one in js/tutors-data.js" — a developer note, visible to
+     every visitor the moment the sheet hides the roster. When no
+     tutor is available for booking, the page says exactly that,
+     and points at the free lessons, practice and courses, which
+     are always open. Same text and same keys as the static block
+     written by tools/lib/zero-state.js (the generators) — one
+     message, one wording, JS ON or OFF. */
+  function emptyTutorsHTML() {
+    var root = LANG !== "en" ? "../" : "";
+    return '<div class="empty t-empty" data-eg-empty="1"><div>📚</div>' +
+      "<p><strong>" + esc(t("tutors.emptyTitle")) + "</strong></p>" +
+      "<p>" + esc(t("tutors.emptyBody")) + "</p>" +
+      '<p class="t-empty-links">' +
+        '<a class="btn btn-primary" href="' + root + 'learn/hindi/">' + esc(t("tutors.emptyCta")) + "</a>" +
+        ' · <a href="' + root + 'learn/">Learn</a>' +
+        ' · <a href="' + root + 'courses/">Courses</a>' +
+        ' · <a href="' + root + 'daily-hindi/">Daily Hindi</a>' +
+      "</p></div>";
+  }
+
   /* ---------- 8b. Text-version links ----------
      The pre-rendered pages under /tutor/ hold the full profile as plain
      HTML. Without a link from a real page they were reachable only via
@@ -744,7 +766,10 @@
     if (!host) return;
 
     if (!TUTORS.length) {
-      host.innerHTML = '<div class="empty"><div>📚</div><p>No tutors have been added yet. Add one in <code>js/tutors-data.js</code>.</p></div>';
+      /* U0 — zero tutors is a real, public state now (the sheet's
+         active=no hides everyone): say so honestly instead of
+         printing a developer note. */
+      host.innerHTML = emptyTutorsHTML();
     } else {
       host.innerHTML = TUTORS.map(tutorCard).join("");
       wireCards(host);
@@ -761,6 +786,15 @@
         (x.reviewsCount ? '<p class="stars" style="margin:6px 0 10px">' + stars(x.rating) + " " + (x.rating || 0).toFixed(1) + "</p>" : "") +
         '<a class="btn btn-primary btn-sm btn-block" href="' + langHref("tutor.html", "id=" + encodeURIComponent(x.id)) + '">' + esc(t("hero.viewProfile")) + "</a>";
       $all("[data-safe]", hc).forEach(safeImg);
+    } else if (hc) {
+      /* U0 (30 Sep 2026) — no public tutor, no face in the hero: the card
+         is the honest empty state (JS ON parity with the static fallback
+         tools/build-home-tutors.js writes). */
+      hc.setAttribute("data-eg-empty", "1");
+      hc.innerHTML =
+        '<p class="hc-name">' + esc(t("tutors.emptyTitle")) + "</p>" +
+        '<p class="sm">' + esc(t("tutors.emptyBody")) + "</p>" +
+        '<a class="btn btn-primary btn-sm btn-block" href="' + langHref("learn/hindi/") + '">' + esc(t("tutors.emptyCta")) + "</a>";
     }
 
     var totalLessons = TUTORS.reduce(function (a, x) { return a + (x.lessonsCount || 0); }, 0);
@@ -859,7 +893,9 @@
       }
 
       if (ct) ct.innerHTML = "<b>" + out.length + "</b> " + esc(out.length === 1 ? t("find.found1") : t("find.found"));
-      host.innerHTML = out.length
+      host.innerHTML = !TUTORS.length
+        ? emptyTutorsHTML()                     /* U0 — nobody is listed at all */
+        : out.length
         ? out.map(tutorCard).join("")
         : '<div class="empty"><div>🔍</div><p>' + esc(t("find.none")) + "</p></div>";
       wireCards(host);
@@ -1238,7 +1274,12 @@
     try { wireVideos(document); } catch (e) { showError("video", e); }
     try { initReveal(); } catch (e) { showError("animations", e); }
 
-    if (!TUTORS.length) showError("tutors-data.js", new Error("EKGURU_TUTORS is empty or the file failed to load."));
+    /* U0 — an empty roster is a real state (the sheet's active=no hides
+       everyone), not a loading failure. Only a MISSING data file is an
+       error: EKGURU_TUTORS would then be undefined, not an empty array. */
+    if (!Array.isArray(window.EKGURU_TUTORS)) {
+      showError("tutors-data.js", new Error("EKGURU_TUTORS is missing — the tutor data file failed to load."));
+    }
   }
 
   /* =========================================================
