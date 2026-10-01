@@ -96,6 +96,7 @@
     r.last = Date.now();
     m[k] = r;
     write(m);
+    if (window.EkGuruRetention) window.EkGuruRetention.practice(document.documentElement.getAttribute("data-learning-language") || "hi", entry.item.level || "legacy", correct);
   }
 
   /* ---------- helpers ---------- */

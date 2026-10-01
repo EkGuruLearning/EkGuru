@@ -59,6 +59,10 @@ function markDone(key, lessonId) {
   p[key] = p[key] || { done: [], test: 0 };
   if (p[key].done.indexOf(lessonId) < 0) p[key].done.push(lessonId);
   saveProgress(p);
+  if (window.EkGuruRetention) {
+    var kp = key.split("_");
+    window.EkGuruRetention.complete(kp[0], kp[1], "/courses/#/" + kp[0] + "/" + kp[1] + "/" + lessonId, lessonId);
+  }
 }
 function markTest(key, score) {
   var p = loadProgress();
@@ -77,10 +81,11 @@ function practiceId(code, item) {
 function practiceHistory() {
   try { return JSON.parse(localStorage.getItem(PRACTICE_KEY) || "{}") || {}; } catch (e) { return {}; }
 }
-function recordPractice(code, item, correct) {
+function recordPractice(code, item, correct, level) {
   var all = practiceHistory(), id = practiceId(code, item), row = all[id] || { attempts: 0, correct: 0, last: 0 };
   row.attempts++; if (correct) row.correct++; row.last = Date.now(); all[id] = row;
   try { localStorage.setItem(PRACTICE_KEY, JSON.stringify(all)); } catch (e) {}
+  if (window.EkGuruRetention) window.EkGuruRetention.practice(code, level || "legacy", correct);
   return row;
 }
 
@@ -707,11 +712,13 @@ Player.prototype.renderLesson = function (d, key, lessonId) {
   h += '<div class="navrow">' + prevH + '<button class="btn green" id="egc-done">✓ Mark complete</button>' + nextH + "</div>";
   h += "</div>";
   self.mount.innerHTML = h;
+  self.mount.setAttribute("data-course-code", code);
+  if (window.EkGuruRetention) window.EkGuruRetention.visit(code, lv, "/courses/#/" + code + "/" + lv + "/" + lessonId, ls.title);
   window.scrollTo(0, 0);
   self.mount.querySelectorAll("[data-say]").forEach(function (b) { b.setAttribute("data-voice-lang", code); });
   if (window.EkGuruVoice) window.EkGuruVoice.mount(self.mount);
-  self.buildPractice(self.mount.querySelector("#egc-prac"), ls.practice || [], code);
-  self.buildQuiz(self.mount.querySelector("#egc-quiz"), ls.quiz || [], code, null);
+  self.buildPractice(self.mount.querySelector("#egc-prac"), ls.practice || [], code, lv);
+  self.buildQuiz(self.mount.querySelector("#egc-quiz"), ls.quiz || [], code, null, lv);
   var fc = self.mount.querySelector("#egc-fc");
   var srsTerms = ls.srs_candidates || [];
   var flashVocab = (ls.vocab || []).filter(function (v) { return !srsTerms.length || srsTerms.indexOf(v.t) >= 0; });
@@ -729,14 +736,14 @@ Player.prototype.renderLesson = function (d, key, lessonId) {
 Player.prototype.checkText = function (input, answer) {
   return norm(input) === norm(answer);
 };
-Player.prototype.buildPractice = function (box, items, code) {
+Player.prototype.buildPractice = function (box, items, code, level) {
   var self = this;
   items.forEach(function (it, idx) {
     var prior = practiceHistory()[practiceId(code, it)];
     var historyNote = prior ? '<div class="why">Saved history: ' + prior.correct + '/' + prior.attempts + ' correct · attempts do not reset on reload</div>' : '';
     var wrap = el('<div class="q"><span class="pill">' + esc(practiceLabel(it.type)) + '</span><br><b>' + (idx + 1) + ".</b> " + esc(it.q || "") + historyNote + '<div class="body"></div><div class="fb"></div></div>');
     var body = wrap.querySelector(".body"), fb = wrap.querySelector(".fb"), recorded = false;
-    function saveResult(good) { if (!recorded) { recordPractice(code, it, good); recorded = true; } }
+    function saveResult(good) { if (!recorded) { recordPractice(code, it, good, level); recorded = true; } }
     function ok(msg) { saveResult(true); fb.className = "fb ok"; fb.textContent = "✓ " + (msg || "Correct!"); }
     function no(msg) { saveResult(false); fb.className = "fb no"; fb.textContent = "✗ " + (msg || ("Answer: " + it.answer)); }
     if (hasType(PRACTICE_AUDIO, it.type)) {
@@ -800,7 +807,7 @@ Player.prototype.buildPractice = function (box, items, code) {
     box.appendChild(wrap);
   });
 };
-Player.prototype.buildQuiz = function (box, items, code, onDone) {
+Player.prototype.buildQuiz = function (box, items, code, onDone, level) {
   var self = this;
   var score = 0, answered = 0;
   var total = items.length;
@@ -818,6 +825,7 @@ Player.prototype.buildQuiz = function (box, items, code, onDone) {
           if (xi === it.answer) x.classList.add("right");
         });
         answered++;
+        recordPractice(code, it, oi === it.answer, level);
         if (oi === it.answer) { score++; wrap.querySelector(".fb").className = "fb ok"; wrap.querySelector(".fb").textContent = "✓ Correct!"; }
         else { b.classList.add("wrong"); wrap.querySelector(".fb").className = "fb no"; wrap.querySelector(".fb").textContent = "✗ Correct: " + it.options[it.answer]; }
         wrap.querySelector(".why").textContent = it.why || "";
@@ -834,29 +842,34 @@ Player.prototype.renderTest = function (d, key) {
   var code = d.code, lv = d.file_level;
   var T = d.test || { items: [] };
   var items = T.items || [];
+  var scorable = items.filter(function (it) { return it.type !== "speak"; }).length;
   var h = '<div class="egc google-anno-skip">' + self.crumbs([{ t: "Courses", href: "#/" }, { t: d.name, href: "#/" + code }, { t: lv, href: "#/" + code + "/" + lv }, { t: "Test" }]);
-  h += "<h1>" + esc(T.title || (lv + " final test")) + "</h1><p>Answer all " + items.length + " questions. Pass mark: 7 / " + items.length + ".</p>";
+  h += "<h1>" + esc(T.title || (lv + " final test")) + "</h1><p>Answer all " + items.length + " activities. The local practice unlock is 70% of " + scorable + " scorable answers. Self-reported speaking is not heard or scored, and this is not a CEFR certificate.</p>";
   h += "<div id='egc-test'></div>";
   h += '<div class="navrow"><a class="btn ghost" href="#/' + code + "/" + lv + '">← Back to ' + esc(lv) + "</a></div></div>";
   self.mount.innerHTML = h;
   window.scrollTo(0, 0);
   var box = self.mount.querySelector("#egc-test");
   var score = 0, answered = 0;
-  var scoreBox = el('<div class="score">Score: 0 / ' + items.length + "</div>");
+  var scoreBox = el('<div class="score" role="status">Score: 0 / ' + scorable + "</div>");
   box.appendChild(scoreBox);
   items.forEach(function (it, idx) {
     var wrap = el('<div class="q"><b>Q' + (idx + 1) + ".</b> " + esc(it.q || "") + '<div class="body"></div><div class="fb"></div></div>');
     var body = wrap.querySelector(".body"), fb = wrap.querySelector(".fb");
     var graded = false;
-    function grade(good) {
+    function grade(good, unscored) {
       if (graded) return; graded = true; answered++;
-      if (good) { score++; fb.className = "fb ok"; fb.textContent = "✓ Correct!"; }
-      else { fb.className = "fb no"; fb.textContent = "✗ Answer: " + it.answer; }
-      scoreBox.textContent = "Score: " + score + " / " + items.length;
+      if (unscored) { fb.className = "fb"; fb.textContent = "Self-reported speaking was not heard or scored."; }
+      else {
+        recordPractice(code, it, good, lv);
+        if (good) { score++; fb.className = "fb ok"; fb.textContent = "✓ Correct!"; }
+        else { fb.className = "fb no"; fb.textContent = "✗ Answer: " + it.answer; }
+      }
+      scoreBox.textContent = "Score: " + score + " / " + scorable;
       if (answered >= items.length) {
-        markTest(key, score);
-        var pass = score >= 7;
-        scoreBox.textContent = (pass ? "🎉 PASSED! " : "📚 Keep practising! ") + "Final score: " + score + " / " + items.length;
+        var pass = scorable > 0 && score / scorable >= 0.7;
+        if (scorable > 0) markTest(key, Math.round(score / scorable * 100) / 10);
+        scoreBox.textContent = (pass ? "🎉 PASSED! " : "📚 Keep practising! ") + "Recognition result: " + score + " / " + scorable + " scorable. Not a proficiency certificate.";
       }
     }
     if (it.type === "choose") {
@@ -887,7 +900,7 @@ Player.prototype.renderTest = function (d, key) {
     } else if (it.type === "speak") {
       var sb = el('<button class="btn">🔊 Listen</button>'), mb = el('<button class="btn green">I said it ✓</button>');
       sb.addEventListener("click", function () { speak(it.answer, code); });
-      mb.addEventListener("click", function () { grade(true); });
+      mb.addEventListener("click", function () { grade(null, true); mb.disabled = true; });
       body.appendChild(sb); body.appendChild(mb);
     } else {
       var inp = document.createElement("input");

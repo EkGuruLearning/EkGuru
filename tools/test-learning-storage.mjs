@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+/* Legacy-deck migration, corrupt/future storage, quota failure and calendar regressions with the production engines. */
+import { readFileSync } from 'node:fs';
+import assert from 'node:assert/strict';
+import { TextEncoder } from 'node:util';
+import { JSDOM, VirtualConsole } from 'jsdom';
+const read = (f) => readFileSync(f, 'utf8'), OLD = 'ekguru:hindi:v1:review', MARK = 'ekguru:hindi:shared-srs-migration:v1';
+let count = 0; const ok = (n, f) => { f(); count++; console.log('PASS ' + n); };
+const card = { card_id: 'legacy1', content_id: 'legacy1', language: 'hi', target: 'पानी', source: 'pānī', prompt: 'पानी', answer: 'water', category: 'vocabulary', level: 'beginner', goal: null, country: null, ease: 2.1, interval: 6, due_date: 1811808000000, review_count: 12, last_reviewed: 1811289600000, version: 1, added_at: 1770000000000 };
+const raw = JSON.stringify({ version: 1, cards: { legacy1: card } });
+function boot(store = {}, hindi = true) {
+  const dom = new JSDOM('<html lang="en" data-learning-language="hi"><body></body></html>', { url: 'https://ekguru.shop/learn/hindi/review/', runScripts: 'outside-only', virtualConsole: new VirtualConsole() });
+  const w = dom.window; w.TextEncoder = TextEncoder; Object.defineProperty(w.document, 'readyState', { value: 'complete' });
+  for (const [k, v] of Object.entries(store)) w.localStorage.setItem(k, v);
+  for (const f of ['js/global-srs.js', 'js/retention.js', ...(hindi ? ['js/hindi-srs.js'] : [])]) w.eval(read(f));
+  return { w, core: w.EkGuruGlobalSRS, legacy: w.EkGuruSRS, r: w.EkGuruRetention, store: () => Object.fromEntries(Array.from({ length: w.localStorage.length }, (_, i) => { const k = w.localStorage.key(i); return [k, w.localStorage.getItem(k)]; })), close: () => w.close() };
+}
+let t = boot({ [OLD]: raw });
+ok('a legacy schedule is copied once with its real dates, ease and review count', () => { const c = t.core.all('hi')[0]; assert.equal(c.due_date, card.due_date); assert.equal(c.interval, 6); assert.equal(c.ease, 2.1); assert.equal(c.review_count, 12); assert.equal(c.level, 'A1'); assert.equal(t.w.localStorage.getItem(OLD), raw); assert.equal(t.w.localStorage.getItem(MARK), 'done'); });
+ok('a removed legacy card stays removed after the next page boot', () => { assert.equal(t.legacy.remove('legacy1'), true); const state = t.store(); t.close(); t = boot(state); assert.equal(t.core.count('hi'), 0); assert.equal(t.w.localStorage.getItem(OLD), raw); });
+const backup = t.r.exportData();
+ok('a validated import on a not-yet-migrated device cannot resurrect legacy cards', () => { const target = boot({ [OLD]: raw }, false); target.r.importData(backup); target.w.eval(read('js/hindi-srs.js')); assert.equal(target.core.count('hi'), 0); assert.equal(target.w.localStorage.getItem(MARK), 'done'); assert.equal(target.w.localStorage.getItem(OLD), raw); target.close(); });
+ok('explicit legacy recovery needs a confirmation', () => { t.w.confirm = () => false; assert.equal(t.legacy.copyLegacyDeck(), false); assert.equal(t.core.count('hi'), 0); t.w.confirm = () => true; assert.equal(t.legacy.copyLegacyDeck(), true); assert.equal(t.core.count('hi'), 1); }); t.close();
+ok('a crashed in-progress migration is not silently rerun', () => { const x = boot({ [OLD]: raw, [MARK]: 'pending' }); assert.equal(x.core.count('hi'), 0); assert.equal(x.w.localStorage.getItem(OLD), raw); x.close(); });
+ok('malformed, future or unsafe legacy data are preserved and never normalized into valid cards', () => { for (const legacy of ['{"version":99}', JSON.stringify({ version: 1, cards: { legacy1: { ...card, ease: 900 } } }), JSON.stringify({ version: 1, cards: { legacy1: { ...card, language: '../api' } } })]) { const x = boot({ [OLD]: legacy }); assert.equal(x.core.count('hi'), 0); assert.equal(x.w.localStorage.getItem(OLD), legacy); assert.equal(x.w.localStorage.getItem(MARK), 'failed'); x.close(); } });
+ok('corrupt or future shared decks are never overwritten by add, remove or review', () => { for (const bad of ['{"version":99,"cards":{}}', 'broken', JSON.stringify({ version: 1, cards: { legacy1: card } })]) { const x = boot({ 'ekguru:srs:hi:v1': bad }, false); assert.equal(x.core.isReadable('hi'), false); assert.equal(x.core.add({ language: 'hi', prompt: 'दूध', answer: 'milk' }).added, false); assert.equal(x.core.remove('legacy1', 'hi'), false); assert.equal(x.core.review('legacy1', 'easy', 'hi'), null); assert.equal(x.w.localStorage.getItem('ekguru:srs:hi:v1'), bad); assert.throws(() => x.r.exportData(), /unreadable/); x.close(); } });
+ok('a quota-denied removal does not claim success', () => { const x = boot({}, false); const a = x.core.add({ language: 'hi', prompt: 'पानी', answer: 'water' }); const set = x.w.Storage.prototype.setItem; x.w.Storage.prototype.setItem = () => { throw Error('quota'); }; assert.equal(x.core.remove(a.id, 'hi'), false); assert.equal(x.core.has(a.id, 'hi'), true); x.w.Storage.prototype.setItem = set; x.close(); });
+ok('a migration quota failure rolls back the new decks and preserves the original', () => { const x = boot({ [OLD]: raw }, false); const set = x.w.Storage.prototype.setItem; let writes = 0; x.w.Storage.prototype.setItem = function (k, v) { writes++; if (writes === 2) throw Error('quota'); return set.call(this, k, v); }; x.w.eval(read('js/hindi-srs.js')); x.w.Storage.prototype.setItem = set; assert.equal(x.core.count('hi'), 0); assert.equal(x.w.localStorage.getItem(OLD), raw); assert.equal(x.w.localStorage.getItem(MARK), 'failed'); x.close(); });
+ok('the world-language review pages keep one deck per language through the same API', () => { const x = boot({}, true); const hi = x.legacy.add({ prompt: 'पानी', answer: 'water' }); assert.equal(x.core.count('hi'), 1); x.w.document.documentElement.setAttribute('data-learning-language', 'ar'); const ar = x.legacy.add({ prompt: 'ماء', answer: 'water', language: 'ar' }); assert.equal(ar.added, true); assert.equal(x.core.count('ar'), 1); assert.equal(x.legacy.count(), 1); assert.equal(x.core.count('hi'), 1); x.close(); });
+console.log(`PASS learning storage ${count}/${count}`);

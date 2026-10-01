@@ -69,12 +69,16 @@ ULTRA_BUILDS = [
     ("700-language draft registry + 197 country contexts", ["python3", "tools/build-language-registry.py"]),
     ("per-language AA themes (script font, direction, accent)", ["python3", "tools/build-themes.py"]),
     ("voice language tags + recording manifests (owner-supplied only)", ["python3", "tools/build-voice-languages.py"]),
+    ("bounded learning plans, placement banks and offline level lists", ["python3", "tools/build-learning-data.py"]),
 ]
 ULTRA_TESTS = [
     ("immutable owner indexing/canonical contract", ["python3", "tools/ultra/contract.py"]),
     ("theme semantic AA contrast + motion budgets", ["node", "tools/test-theme-contrast.mjs"]),
     ("shared runtime freshness (voice.js is built from src/runtime)", ["node", "tools/build-runtime.mjs", "--check"]),
     ("voice: exact-language voices, no autoplay, honest fallback, licensed recordings, mic transcript", ["node", "tools/test-voice.mjs"]),
+    ("device journal, SRS scheduling, streak/freeze, backup, privacy", ["node", "tools/test-retention.mjs"]),
+    ("legacy migration, corrupt/future storage, quota and calendar regressions", ["node", "tools/test-learning-storage.mjs"]),
+    ("offline worker: private routes, aggregate quota, rollback, concurrency", ["node", "tools/test-learning-worker.mjs"]),
 ]
 
 
