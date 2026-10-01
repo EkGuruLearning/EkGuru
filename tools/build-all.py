@@ -64,6 +64,27 @@ def run(label, cmd):
     print("✓ %s done." % label, flush=True)
 
 
+# ULTRA v3 generators/tests. Each slice appends here so check and write modes stay in step.
+ULTRA_BUILDS = [
+    ("700-language draft registry + 197 country contexts", ["python3", "tools/build-language-registry.py"]),
+    ("per-language AA themes (script font, direction, accent)", ["python3", "tools/build-themes.py"]),
+]
+ULTRA_TESTS = [
+    ("immutable owner indexing/canonical contract", ["python3", "tools/ultra/contract.py"]),
+    ("theme semantic AA contrast + motion budgets", ["node", "tools/test-theme-contrast.mjs"]),
+]
+
+
+def ultra_builds(check):
+    for label, cmd in ULTRA_BUILDS:
+        run(label + (" --check" if check else ""), cmd + (["--check"] if check else []))
+
+
+def ultra_tests():
+    for label, cmd in ULTRA_TESTS:
+        run(label, cmd)
+
+
 def main():
     only = [a for a in sys.argv[1:] if not a.startswith("-")]
     if only and only[0] == "courses":
@@ -73,7 +94,7 @@ def main():
         return
 
     if only and only[0] == "check":
-        run("immutable owner indexing/canonical contract", ["python3", "tools/ultra/contract.py"])
+        ultra_builds(True)
         run("experience bundle --check", ["python3", "tools/bundle-experience-css.py", "--check"])
         run("world artwork --check", ["python3", "tools/build-world-art.py", "--check"])
         run("course hub --check", ["python3", "tools/build-course-hub.py", "--check"])
@@ -148,7 +169,8 @@ def main():
         run("no-competitor-attribution gate (public output + rendered strings)",
             ["node", "tools/test-no-competitor-attribution.js"])
         run("experience DOM test", ["node", "tools/test-experience-dom.mjs"])
-        print("\n✔ every generated layer is up to date.")
+        ultra_tests()
+        print("\n✔ generated layers are current. This is NOT a native-review, publication, AdSense or release-readiness claim.")
         return
 
     run("sheetsync (live sheet -> overrides)", ["node", "tools/sheetsync.js"])
@@ -161,6 +183,7 @@ def main():
     run("inventory validate", ["python3", "tools/validate-inventory.py"])
     run("inventory build", ["python3", "tools/build-inventory.py"])
     run("country language pages", ["python3", "tools/build-country-language-pages.py"])
+    ultra_builds(False)
     run("experience bundle (css/experience.css -> style.min.css)", ["python3", "tools/bundle-experience-css.py"])
     run("world artwork (9 emblems)", ["python3", "tools/build-world-art.py"])
     run("course hub + home teaser", ["python3", "tools/build-course-hub.py"])

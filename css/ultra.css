@@ -1,0 +1,70 @@
+/* EkGuru v2 shared components. Additive: nothing here restyles a legacy light page. */
+html[data-theme] :focus-visible{outline:3px solid var(--eg-focus);outline-offset:4px}
+html[data-theme] [lang]:not([lang="en"]){font-family:var(--eg-font-script,var(--eg-font-ui));line-height:var(--eg-script-leading)}
+/* trust chrome: bylines and honest draft notices */
+.eg-byline{font-size:.8rem;line-height:1.6;color:var(--eg-muted);margin:1rem 0;border-inline-start:3px solid var(--eg-line);padding-inline-start:.75rem}
+.eg-byline a,.eg-review-notice a,.eg-appearance a,.eg-page a{color:var(--eg-accent);text-decoration:underline;text-underline-offset:.2em}
+.eg-review-notice{padding:.75rem 1rem;border:1px solid var(--eg-line);border-radius:.5rem;color:var(--eg-secondary);background:var(--eg-soft);font-size:.88rem;line-height:1.5}
+/* voice controls: SSR hidden placeholders reserve their box only when JS is present, so enabling them never shifts layout */
+.eg-voice{min-width:44px;min-height:44px;margin-inline-start:.4rem;border:1px solid var(--eg-line);border-radius:var(--eg-radius-sm);background:var(--eg-surface);color:var(--eg-ink);font:inherit;cursor:pointer;vertical-align:middle}
+.eg-voice:disabled{cursor:not-allowed;color:var(--eg-muted)}
+.eg-voice[aria-pressed="true"]{background:var(--eg-accent);color:var(--eg-accent-contrast)}
+html.eg-js .eg-voice[hidden]{display:inline-block!important;visibility:hidden}
+.eg-voice-note,.eg-voice-status{font-size:.8rem;line-height:1.4;color:var(--eg-secondary)}
+.eg-voice-source{font-size:.74rem;color:var(--eg-muted)}
+.voice-settings{border:1px solid var(--eg-line);border-radius:.5rem;padding:.75rem;margin-block:1rem}
+.voice-settings summary{cursor:pointer;font-weight:600;min-height:44px}
+.eg-controls{display:flex;gap:.65rem;flex-wrap:wrap;align-items:center}
+.eg-controls label{display:grid;gap:.3rem}
+.eg-controls :is(button,select,input){font:inherit;min-height:44px;padding:.4rem .7rem;border:1px solid var(--eg-line);border-radius:.5rem;background:var(--eg-surface);color:var(--eg-ink)}
+/* appearance control (theme choice persisted, system default) */
+.eg-appearance{max-width:1120px;margin:1.25rem auto;padding:1rem;color:var(--eg-ink);background:var(--eg-surface);border:1px solid var(--eg-line);border-radius:.75rem;font-size:.85rem}
+.eg-appearance select{font:inherit;min-height:44px;background:var(--eg-surface);color:var(--eg-ink);border:1px solid var(--eg-line);padding:.4rem}
+/* device-only learning blocks */
+.eg-journal,.eg-today,.eg-continue,.eg-lesson-controls{border:1px solid var(--eg-line);background:var(--eg-surface);color:var(--eg-ink);border-radius:var(--eg-radius);padding:1rem 1.25rem;margin-block:1rem}
+.eg-journal button,.eg-today button,.eg-lesson-controls button{font:inherit;min-height:44px;padding:.5rem .8rem;border:1px solid var(--eg-line);border-radius:.5rem;background:var(--eg-surface);color:var(--eg-ink);cursor:pointer}
+.eg-lesson-controls [hidden]{display:none!important}
+[data-eg-progress]{min-block-size:640px}[data-eg-placement]{min-block-size:260px}
+/* toast + celebration */
+.eg-toast{position:fixed;inset-inline:1rem;bottom:1rem;margin-inline:auto;max-width:540px;z-index:var(--eg-z-toast);padding:1rem;background:var(--eg-surface);color:var(--eg-ink);border:2px solid var(--eg-focus);border-radius:1rem;box-shadow:var(--eg-shadow)}
+.eg-confetti{position:fixed;inset:0;z-index:var(--eg-z-confetti);width:100%;height:100%}
+/* components (see /design/) */
+.eg-page{max-width:900px;margin:0 auto;padding:2rem 1.25rem 4rem;overflow-wrap:anywhere;font-family:var(--eg-font-ui)}
+.eg-page h1{font-size:var(--eg-text-hero);line-height:1.2}.eg-page h2{font-size:var(--eg-text-xl);margin-block:2rem 1rem}.eg-page p{line-height:1.75}
+.eg-demo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:1rem;margin-block:1.5rem}
+.eg-lesson-card,.eg-empty,.eg-dialogue{border:1px solid var(--eg-line);background:var(--eg-surface);color:var(--eg-ink);border-radius:var(--eg-radius);padding:1.25rem;margin-block:1rem;box-shadow:var(--eg-shadow)}
+.eg-badge{display:inline-block;border:1px solid var(--eg-line);border-radius:2rem;padding:.2rem .7rem;font-size:.8rem}
+.eg-dialogue p{max-width:85%;background:var(--eg-soft);border:1px solid var(--eg-line);border-radius:1rem 1rem 1rem .2rem;padding:1rem}.eg-dialogue p:nth-child(2n){margin-inline-start:auto;border-radius:1rem 1rem .2rem 1rem}
+.eg-flashcard{display:grid;gap:.5rem;width:min(100%,340px);min-height:180px;text-align:center;place-content:center;border-radius:1rem;border:1px solid var(--eg-line);background:var(--eg-surface);color:var(--eg-ink);font:inherit;cursor:pointer}.eg-flashcard [data-eg-front]{font-size:2rem}.eg-flashcard small{font-size:.8rem;color:var(--eg-muted)}
+.eg-correct{color:var(--eg-success);border:2px solid currentColor;padding:1rem;border-radius:.5rem}.eg-wrong{color:var(--eg-error);border:2px solid currentColor;padding:1rem;border-radius:.5rem}
+.eg-ladder{display:flex;gap:.5rem;flex-wrap:wrap;list-style:none;padding:0}.eg-ladder li{padding:.5rem .8rem;border:1px solid var(--eg-line);border-radius:.5rem}
+.eg-progress-ring{--eg-progress:0;display:grid;place-items:center;width:100px;height:100px;border-radius:50%;background:conic-gradient(var(--eg-accent) calc(var(--eg-progress)*1%),var(--eg-line) 0)}.eg-progress-ring span{display:grid;place-items:center;border-radius:50%;width:80px;height:80px;background:var(--eg-surface);color:var(--eg-ink);font-weight:700}
+.eg-visual svg,.eg-visual img{display:block;width:100%;max-width:720px;height:auto;color:var(--eg-ink)}.eg-visual figcaption{font-size:.8rem;line-height:1.5;color:var(--eg-muted)}
+.eg-strokes{width:160px;height:160px;stroke:var(--eg-ink);stroke-width:4;fill:none}.eg-strokes path{stroke-linecap:round;stroke-linejoin:round}.eg-strokes[data-animating] path{stroke-dasharray:1000;animation:eg-stroke 1s var(--eg-easing) both;animation-delay:calc(var(--stroke-index)*1s)}
+@keyframes eg-stroke{from{stroke-dashoffset:1000}to{stroke-dashoffset:0}}
+@media(prefers-reduced-motion:no-preference){.eg-lesson-card{transition:transform var(--eg-duration) var(--eg-easing)}.eg-lesson-card:hover{transform:translateY(-3px)}[data-eg-reveal].eg-enter{animation:eg-reveal var(--eg-duration) var(--eg-easing) both}@keyframes eg-reveal{from{opacity:.7;transform:translateY(8px)}to{opacity:1;transform:none}}}
+@media(prefers-reduced-motion:reduce){.eg-confetti{display:none!important}.eg-strokes path{animation:none!important;stroke-dashoffset:0!important}.eg-lesson-card:hover{transform:none}}
+@media(forced-colors:active){.eg-progress-ring{border:3px solid CanvasText}.eg-voice,.eg-badge{border:1px solid ButtonText}}
+@media print{.eg-voice,.voice-settings,.eg-today,.eg-continue,.eg-toast,.eg-confetti,.eg-controls,.eg-appearance,.eg-lesson-controls{display:none!important}.eg-page{color:#000;background:#fff}}
+/* legacy light-only surfaces: only the two non-default themes override them, so default pages are unchanged */
+html[data-theme="dark"] main,html[data-theme="contrast"] main{color:var(--eg-ink);background-color:var(--eg-bg)}
+html[data-theme="dark"] main :is(h1,h2,h3,h4,h5,h6),html[data-theme="contrast"] main :is(h1,h2,h3,h4,h5,h6){color:var(--eg-ink)!important}
+html[data-theme="dark"] main :is(p,li,dt,dd,th,td,small,.sub,.roman,.muted,.xp-lead,figcaption span,figcaption b),html[data-theme="contrast"] main :is(p,li,dt,dd,th,td,small,.sub,.roman,.muted,.xp-lead,figcaption span,figcaption b){color:var(--eg-secondary)}
+html[data-theme="dark"] main a,html[data-theme="contrast"] main a{color:var(--eg-accent)}
+html[data-theme="dark"] main :is(.card,.box,.note,.lp-box,.v-item,.g-concept,.lv-card,.lv-gram,.lv-level-list a,.sc-box,.ob-card,.lang-cell,.tcard,.xp-card,.xp-step,.xp-stat,.xp-rail-item,.faq,.pg-note,.course-tools,.q,.egc .card,.egc .score,.egc .ex,.egc .dlg,.egc .mist,figure,.pat,.chip-btn,.tag,.pill,.btn-ghost,.lang-pill,.field,.filters),html[data-theme="contrast"] main :is(.card,.box,.note,.lp-box,.v-item,.g-concept,.lv-card,.lv-gram,.lv-level-list a,.sc-box,.ob-card,.lang-cell,.tcard,.xp-card,.xp-step,.xp-stat,.xp-rail-item,.faq,.pg-note,.course-tools,.q,.egc .card,.egc .score,.egc .ex,.egc .dlg,.egc .mist,figure,.pat,.chip-btn,.tag,.pill,.btn-ghost,.lang-pill,.field,.filters){background:var(--eg-surface)!important;color:var(--eg-ink)!important;border-color:var(--eg-line)!important}
+html[data-theme="dark"] main :is(th,td),html[data-theme="contrast"] main :is(th,td){background:var(--eg-surface)!important;border-color:var(--eg-line)}
+html[data-theme="dark"] :is(input,select,textarea),html[data-theme="contrast"] :is(input,select,textarea){color:var(--eg-ink)!important;background:var(--eg-surface)!important;border-color:var(--eg-line)!important}
+html[data-theme="dark"] :is(label,.hdr .lbl,.hdr .cur-lbl),html[data-theme="contrast"] :is(label,.hdr .lbl,.hdr .cur-lbl){color:var(--eg-secondary)!important}
+html[data-theme="dark"] .hdr,html[data-theme="dark"] .ftr,html[data-theme="contrast"] .hdr,html[data-theme="contrast"] .ftr{background:var(--eg-surface);color:var(--eg-ink);border-color:var(--eg-line)}
+html[data-theme="dark"] :is(.ftr a,.ftr p,.nav a),html[data-theme="contrast"] :is(.ftr a,.ftr p,.nav a){color:var(--eg-ink)}
+html[data-theme="dark"] .nav .btn-primary,html[data-theme="contrast"] .nav .btn-primary,html[data-theme="dark"] main .btn-primary,html[data-theme="contrast"] main .btn-primary{background:var(--eg-accent);color:var(--eg-accent-contrast);border-color:var(--eg-accent)}
+html[data-theme="dark"] .hdr .burger,html[data-theme="contrast"] .hdr .burger{background:var(--eg-surface)!important;border:1px solid var(--eg-line)!important}
+html[data-theme="dark"] .hdr .burger span,html[data-theme="contrast"] .hdr .burger span{background:var(--eg-ink)!important}
+html[data-theme="dark"] :is(.xp-hero,.xp-hero-bg),html[data-theme="contrast"] :is(.xp-hero,.xp-hero-bg){background:var(--eg-bg)!important}
+html[data-theme="dark"] .sb-chapter,html[data-theme="contrast"] .sb-chapter{background:var(--eg-soft)!important;color:var(--eg-ink)!important;border:1px solid var(--eg-line)!important}
+html[data-theme="dark"] :is(.sb-chapter *,.sb-dock,.sb-dock-btn,.sb-keys-label,.sb-hint,.sb-voicenudge),html[data-theme="contrast"] :is(.sb-chapter *,.sb-dock,.sb-dock-btn,.sb-keys-label,.sb-hint,.sb-voicenudge){background:var(--eg-surface)!important;color:var(--eg-ink)!important;border-color:var(--eg-line)!important}
+html[data-theme="dark"] .sb-d-home,html[data-theme="contrast"] .sb-d-home{background:var(--eg-accent)!important;color:var(--eg-accent-contrast)!important}
+/* legacy contrast bug in every theme: the header currency label and Home dock button were illegible */
+html[data-theme] .hdr :is(.lbl,.cur-lbl),html[data-theme] label[for="cur-sel"]{color:var(--eg-secondary)}
+html[data-theme] .sb-dock-btn.sb-d-home{background:var(--eg-accent);color:var(--eg-accent-contrast)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
