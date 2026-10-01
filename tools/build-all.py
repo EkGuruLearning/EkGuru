@@ -71,6 +71,8 @@ ULTRA_BUILDS = [
     ("voice language tags + recording manifests (owner-supplied only)", ["python3", "tools/build-voice-languages.py"]),
     ("bounded learning plans, placement banks and offline level lists", ["python3", "tools/build-learning-data.py"]),
     ("trust, journal, review and design pages (all noindex)", ["python3", "tools/build-ultra-pages.py"]),
+    ("language quality gate report (failures reported, never hidden; no page edited)", ["python3", "tools/language-gate.py"]),
+    ("course health report", ["python3", "tools/course-health.py"]),
 ]
 ULTRA_TESTS = [
     ("immutable owner indexing/canonical contract", ["python3", "tools/ultra/contract.py"]),
