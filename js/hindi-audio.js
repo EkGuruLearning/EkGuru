@@ -19,11 +19,8 @@
   "use strict";
 
   function supported() {
-    if (typeof window === "undefined") return false;
-    if ("speechSynthesis" in window &&
-        typeof window.SpeechSynthesisUtterance === "function") return true;
-    /* v156: API voice needs only <audio> — no local voices required. */
-    return typeof Audio !== "undefined";
+    /* Speech is owned by the shared js/voice.js: same-language device voices only, never remote TTS. */
+    return typeof window !== "undefined" && !!window.EkGuruVoice;
   }
 
   var active = null;
@@ -34,7 +31,6 @@
       catch (e) {}
       active = null;
     }
-    if (supported()) { try { window.speechSynthesis.cancel(); } catch (e) {} }
     try { if (window.EkGuruVoice) window.EkGuruVoice.stop(); } catch (e) {}
   }
 
@@ -55,42 +51,17 @@
   function speak(text, btn, langTag) {
     if (!supported()) return false;
     stop();
-    /* v156: API voice engine when storybook.js is on the page. */
-    if (window.EkGuruVoice && window.EkGuruVoice.speak) {
-      try {
-        var tag = langTag || DEF_LANG;
-        btn.classList.add("playing");
-        btn.setAttribute("aria-pressed", "true");
-        var lblA = btn.querySelector(".hi-listen-lbl");
-        if (lblA) lblA.textContent = "Stop";
-        active = { btn: btn };
-        window.EkGuruVoice.speak(String(text), tag, 0.8, function () {
-          if (active && active.btn === btn) stop();
-        });
-        return true;
-      } catch (e) {}
-    }
-    try {
-      var u = new SpeechSynthesisUtterance(String(text));
-      u.lang = langTag || DEF_LANG;
-      u.rate = 0.8;
-      u.onend = function () {
-        if (active && active.btn === btn) stop();
-      };
-      u.onerror = function () {
-        if (active && active.btn === btn) stop();
-      };
-      btn.classList.add("playing");
-      btn.setAttribute("aria-pressed", "true");
-      var lbl = btn.querySelector(".hi-listen-lbl");
-      if (lbl) lbl.textContent = "Stop";
-      active = { btn: btn };
-      window.speechSynthesis.speak(u);
-      return true;
-    } catch (e) {
-      stop();
-      return false;
-    }
+    var tag = langTag || DEF_LANG;
+    var lbl = btn.querySelector(".hi-listen-lbl");
+    var started = window.EkGuruVoice.speak(String(text), tag, 0.8, function () {
+      if (active && active.btn === btn) stop();
+    }, btn);
+    if (!started) { stop(); return false; }
+    btn.classList.add("playing");
+    btn.setAttribute("aria-pressed", "true");
+    if (lbl) lbl.textContent = "Stop";
+    active = { btn: btn };
+    return true;
   }
 
   function esc(s) {
@@ -220,18 +191,7 @@
   window.EkGuruAudioProvider = {
     PROVIDERS: ["BROWSER_TTS", "RECORDED", "API_TTS", "UNAVAILABLE"],
     voiceExists: function (langTag) {
-      if (!supported()) return false;
-      try {
-        var v = window.speechSynthesis.getVoices();
-        if (v && v.length) {
-          var tag = String(langTag).toLowerCase();
-          for (var i = 0; i < v.length; i++) {
-            if (String(v[i].lang || "").toLowerCase().indexOf(tag) === 0) return true;
-          }
-          return false; /* v31 fix: voices ARE enumerated and none match -> UNAVAILABLE */
-        }
-        return true; // voices not yet enumerated; speechSynthesis still exists
-      } catch (e) { return false; }
+      return !!(window.EkGuruVoice && window.EkGuruVoice.available(langTag));
     },
     resolve: function (langTag) {
       if (!supported()) return "UNAVAILABLE";

@@ -36,12 +36,8 @@
     /* ---- speech: any .spk / [data-say] speaks Hindi ----
        Rate is global + persisted: the speed pill writes
        ekguru_tts_rate and every speak uses it. */
-    var RATE_KEY = "ekguru_tts_rate";
-    var ttsRate = 0.85;
-    try {
-      var r0 = parseFloat(window.localStorage && localStorage.getItem(RATE_KEY));
-      if (r0 >= 0.15 && r0 <= 1.5) ttsRate = r0;
-    } catch (eRate) {}
+    /* Speech speed is owned by the shared js/voice.js (0.6x / 0.8x / 1x, persisted once). */
+    var ttsRate = (window.EkGuruVoice && window.EkGuruVoice.rate && window.EkGuruVoice.rate()) || 0.8;
     /* ---- page language (v151): every language speaks its own ----
        Derived from the URL: /languages/<code>/ uses the code,
        /learn/<indian-slug>/ maps to its ISO code, root /<slug>/
@@ -80,21 +76,6 @@
       new RegExp("[" + scriptRange + "][" + scriptRange + " ]{0,41}", "g") : null;
     var RX_WORD = scriptRange ?
       new RegExp("^[\\u200C\\u200D" + scriptRange + "]+$") : null;
-    var pageVoice = null, voiceTried = false;
-    function pickVoice() {
-      if (voiceTried || !("speechSynthesis" in window)) return pageVoice;
-      voiceTried = true;
-      try {
-        var vs = window.speechSynthesis.getVoices() || [];
-        for (var i = 0; i < vs.length; i++) {
-          if (vs[i].lang && (vs[i].lang.toLowerCase().indexOf(pageLang) === 0 ||
-              (pageLang === "he" && vs[i].lang.toLowerCase().indexOf("iw") === 0))) {
-            pageVoice = vs[i]; break;
-          }
-        }
-      } catch (e) {}
-      return pageVoice;
-    }
     /* ---- voice nudge (v154): when this device has no voice for the
        page language, the browser falls back to its default voice — on
        Indian phones often Hindi — so Bengali/Tamil/French sound wrong.
@@ -143,283 +124,28 @@
     }
     function voiceNudge() {
       try {
-        if (!("speechSynthesis" in window)) return;
-        var vs0 = [];
-        try { vs0 = window.speechSynthesis.getVoices() || []; } catch (eVs) {}
-        if (!vs0.length) return; /* not enumerated yet; voiceschanged retries */
-        if (pickVoice()) return; /* native voice present: stay silent */
-        var apiOkNow = (typeof Audio !== "undefined") && !voiceApiFailed &&
-          (typeof navigator === "undefined" || navigator.onLine !== false);
-        if (apiOkNow) return; /* API voice covers this device: stay silent */
-        var k = "ekguru_voice_nudge_" + pageLang, dismissed = false;
-        try { dismissed = window.localStorage.getItem(k) === "1"; } catch (eLs) {}
-        if (dismissed || document.querySelector(".sb-voicenudge")) return;
-        var nm = LANG_NAMES[pageLang] || "this language";
-        var bar = document.createElement("div");
-        bar.className = "sb-voicenudge";
-        bar.setAttribute("role", "note");
-        var tx = document.createElement("span");
-        tx.textContent = "🔊 No " + nm + " voice on this device, so speech may sound wrong. " +
-          "Install one free: Android Settings → System → Languages → " +
-          "Text-to-speech → Google TTS ⚙ → Install voice data.";
-        var x = document.createElement("button");
-        x.type = "button"; x.className = "sb-voicenudge-x";
-        x.setAttribute("aria-label", "Dismiss");
-        x.textContent = "Got it";
-        x.addEventListener("click", function () {
-          try { window.localStorage.setItem(k, "1"); } catch (eDs) {}
-          if (bar.parentNode) bar.parentNode.removeChild(bar);
-        });
-        bar.appendChild(tx); bar.appendChild(x);
+        var V = window.EkGuruVoice, old = document.querySelector(".sb-voicenudge");
+        if (!V) return;
+        if (V.available(pageLang)) { if (old && old.parentNode) old.parentNode.removeChild(old); return; }
+        if (old) return;
+        var bar = document.createElement("p");
+        bar.className = "sb-voicenudge"; bar.setAttribute("role", "note"); bar.setAttribute("lang", "en");
+        bar.textContent = V.missing(pageLang);
         var host = document.querySelector(".sb-chapter") || document.querySelector("h1");
         if (host && host.parentNode) host.parentNode.insertBefore(bar, host.nextSibling);
-        else if (document.body) document.body.insertBefore(bar, document.body.firstChild);
       } catch (eN) {}
     }
-    if ("speechSynthesis" in window) {
-      try {
-        window.speechSynthesis.getVoices();
-        window.speechSynthesis.onvoiceschanged = function () {
-          voiceTried = false; pickVoice(); voiceNudge();
-        };
-      } catch (e) {}
+    if (window.speechSynthesis && window.speechSynthesis.addEventListener) {
+      window.speechSynthesis.addEventListener("voiceschanged", voiceNudge);
     }
     try { voiceNudge(); } catch (eNudge) {}
-    /* ---- EkGuru Voice Engine (v156): free API voice + smart local ----
-       Layer 1 (primary): Google Translate TTS audio — no key, no CORS
-         problem (plain media playback), works even with ZERO local
-         voices, which is exactly the "voice doesn't work" case.
-       Layer 2 (fallback): speechSynthesis with RANKED voices
-         (exact region > Google/Microsoft neural > prefix > default).
-       Offline / API error / no Audio -> layer 2 automatically, and
-       long text is chunked (raw TTS silently dies on long input).
-       Exposed as window.EkGuruVoice for the practice/audio engines. */
-    var voiceAudio = null, voiceRun = 0, voiceApiFailed = false,
-    voiceKeep = null, voiceApiDeadUntil = 0;
-    function voiceTl(base) {
-      base = String(base || "hi").toLowerCase();
-      if (base === "he") return "iw";
-      if (base === "zh") return "zh-CN";
-      return base;
-    }
-    function voiceChunk(text) {
-      var t = String(text || "").replace(/\s+/g, " ").trim();
-      if (!t) return [];
-      if (t.length <= 190) return [t];
-      var bits = t.split(/([\u0964?!\.\u3002\u061F\u06D4\n]+)/);
-      var out = [], cur = "";
-      for (var i = 0; i < bits.length; i++) {
-        if ((cur + bits[i]).length > 190 && cur) { out.push(cur.trim()); cur = ""; }
-        cur += bits[i];
-      }
-      if (cur.trim()) out.push(cur.trim());
-      var fin = [];
-      for (var j = 0; j < out.length; j++) {
-        if (out[j].length <= 190) { fin.push(out[j]); continue; }
-        var words = out[j].split(" "), wcur = "";
-        for (var k = 0; k < words.length; k++) {
-          if ((wcur + " " + words[k]).trim().length > 190 && wcur) { fin.push(wcur.trim()); wcur = ""; }
-          wcur += " " + words[k];
-        }
-        if (wcur.trim()) fin.push(wcur.trim());
-      }
-      return fin;
-    }
-    function rankVoice(vs, base) {
-      base = String(base || "hi").toLowerCase();
-      var best = null, bs = -1, prefName = "";
-      try {
-        var pj = JSON.parse(window.localStorage.getItem("ekguru_voice_pref_" + base) || "null");
-        if (pj && pj.name) prefName = pj.name;
-      } catch (ePref) {}
-      for (var i = 0; i < vs.length; i++) {
-        var v = vs[i] || {};
-        var l = String(v.lang || "").toLowerCase();
-        if (!l) continue;
-        var s = 0;
-        if (l === base || l.indexOf(base + "-") === 0 || l.indexOf(base + "_") === 0) s += 100;
-        else if (l.indexOf(base) === 0) s += 50;
-        else if (base === "he" && l.indexOf("iw") === 0) s += 100;
-        else continue;
-        var nm = String(v.name || "").toLowerCase();
-        if (nm.indexOf("google") > -1) s += 30;
-        if (nm.indexOf("natural") > -1 || nm.indexOf("neural") > -1) s += 25;
-        if (nm.indexOf("microsoft") > -1) s += 15;
-        if (nm.indexOf("samsung") > -1) s += 10;
-        if (v.default) s += 5;
-        if (prefName && v.name === prefName) s += 1000;
-        if (s > bs) { bs = s; best = v; }
-      }
-      return best;
-    }
-    function voiceStop() {
-      voiceRun++;
-      try { if (voiceKeep) clearInterval(voiceKeep); } catch (eK) {}
-      voiceKeep = null;
-      try { if (voiceAudio) voiceAudio.pause(); } catch (e) {}
-      voiceAudio = null;
-      try { if ("speechSynthesis" in window) window.speechSynthesis.cancel(); } catch (e) {}
-    }
+    /* ---- Voice: shared provider ----
+       js/voice.js owns every speech request (same-language device voice, click-only, no remote TTS,
+       licensed recordings first, speed 0.6/0.8/1). Buttons marked data-sb-say / .spk are handled there. */
     function voiceSpeak(text, langTag, rate, onend) {
-      var t = String(text || "").trim();
-      if (!t) return false;
-      voiceStop();
-      var run = ++voiceRun;
-      var base = String(langTag || "hi").split(/[-_]/)[0].toLowerCase() || "hi";
-      function done(ok) { if (typeof onend === "function") { try { onend(ok); } catch (e) {} } }
-      function localSpeak(str, forced) {
-        try {
-          if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") {
-            done(false); return false;
-          }
-          var u = new SpeechSynthesisUtterance(str);
-          u.lang = langTag; u.rate = rate || 1;
-          var rv = forced || null;
-          if (!rv) { try { rv = rankVoice(window.speechSynthesis.getVoices() || [], base); } catch (e) {} }
-          if (rv) u.voice = rv;
-          var finished = false, keep = null;
-          function fin(ok) {
-            if (finished) return; finished = true;
-            if (keep) { try { clearInterval(keep); } catch (e) {} }
-            if (voiceKeep === keep) voiceKeep = null;
-            done(ok);
-          }
-          try { u.onend = function () { fin(true); }; u.onerror = function () { fin(false); }; } catch (e) {}
-          /* Chrome desktop freezes long utterances (~15s): resume keepalive. */
-          try {
-            if (window.speechSynthesis.resume) {
-              keep = setInterval(function () { try { window.speechSynthesis.resume(); } catch (e) {} }, 5000);
-              voiceKeep = keep;
-            }
-          } catch (e) {}
-          window.speechSynthesis.cancel();
-          window.speechSynthesis.speak(u);
-          return true;
-        } catch (e) { done(false); return false; }
-      }
-      /* API-dead memory: modern Chrome ORB-blocks the free endpoint, so
-         after one real failure skip it for 7 days (retried automatically). */
-      function apiDead() {
-        if (Date.now() < voiceApiDeadUntil) return true;
-        try {
-          var v = parseInt(window.localStorage.getItem("ekguru_api_dead") || "0", 10);
-          if (Date.now() < v) { voiceApiDeadUntil = v; return true; }
-        } catch (e) {}
-        return false;
-      }
-      function markApiDead() {
-        voiceApiFailed = true;
-        if (typeof navigator !== "undefined" && navigator.onLine === false) return;
-        voiceApiDeadUntil = Date.now() + 7 * 86400000;
-        try { window.localStorage.setItem("ekguru_api_dead", String(voiceApiDeadUntil)); } catch (e) {}
-      }
-      function apiAlive() {
-        voiceApiFailed = false; voiceApiDeadUntil = 0;
-        try { window.localStorage.removeItem("ekguru_api_dead"); } catch (e) {}
-      }
-      /* Layer 1: ranked local voice — instant, offline, neural when present. */
-      var match = null;
-      var canLocal = ("speechSynthesis" in window) && typeof SpeechSynthesisUtterance !== "undefined";
-      if (canLocal) { try { match = rankVoice(window.speechSynthesis.getVoices() || [], base); } catch (e) {} }
-      if (match) return localSpeak(t, match);
-      /* Layer 2: free API audio — last resort for legacy browsers. */
-      var useApi = (typeof Audio !== "undefined") &&
-        (typeof navigator === "undefined" || navigator.onLine !== false) && !apiDead();
-      if (!useApi) { var r0 = localSpeak(t); voiceNudge(); return r0; }
-      var chunks = voiceChunk(t), ci = 0;
-      function playNext() {
-        if (run !== voiceRun) return;
-        if (ci >= chunks.length) { done(true); return; }
-        var remainder = chunks.slice(ci).join(" ");
-        var au = null;
-        try {
-          au = new Audio();
-          voiceAudio = au;
-          au.preload = "auto";
-          au.playbackRate = rate || 1;
-          au.src = "https://translate.googleapis.com/translate_tts?ie=UTF-8&tl=" +
-            encodeURIComponent(voiceTl(base)) + "&client=tw-ob&q=" + encodeURIComponent(chunks[ci]);
-        } catch (e) { markApiDead(); voiceAudio = null; localSpeak(remainder); voiceNudge(); return; }
-        var settled = false;
-        function failToLocal() {
-          if (settled || run !== voiceRun) return;
-          settled = true;
-          markApiDead(); voiceAudio = null; localSpeak(remainder); voiceNudge();
-        }
-        try {
-          au.addEventListener("error", failToLocal);
-          au.addEventListener("playing", apiAlive);
-          au.addEventListener("ended", function () {
-            if (run !== voiceRun) return;
-            settled = true; apiAlive(); ci++; playNext();
-          });
-          var pr = au.play();
-          if (pr && typeof pr.catch === "function") pr.catch(failToLocal);
-        } catch (e) { failToLocal(); }
-      }
-      playNext();
-      return true;
+      return !!(window.EkGuruVoice && window.EkGuruVoice.speak(String(text || ""), langTag, rate, onend));
     }
-    function listVoices(base) {
-      var out = [], prefName = "";
-      try {
-        var pj = JSON.parse(window.localStorage.getItem("ekguru_voice_pref_" + base) || "null");
-        if (pj && pj.name) prefName = pj.name;
-      } catch (ePref) {}
-      try {
-        var vs = window.speechSynthesis.getVoices() || [];
-        for (var i = 0; i < vs.length; i++) {
-          var v = vs[i] || {}, l = String(v.lang || "").toLowerCase(), s = -1;
-          if (l === base || l.indexOf(base + "-") === 0 || l.indexOf(base + "_") === 0) s = 100;
-          else if (l.indexOf(base) === 0) s = 50;
-          else if (base === "he" && l.indexOf("iw") === 0) s = 100;
-          if (s < 0) continue;
-          var nm = String(v.name || "").toLowerCase();
-          if (nm.indexOf("google") > -1) s += 30;
-          if (nm.indexOf("natural") > -1 || nm.indexOf("neural") > -1) s += 25;
-          if (prefName && v.name === prefName) s += 1000;
-          out.push({ name: v.name || "", lang: v.lang || "", score: s });
-        }
-        out.sort(function (a, b) { return b.score - a.score; });
-      } catch (e) {}
-      return out;
-    }
-    function voiceTry(text, langTag, rate, voiceName) {
-      try {
-        if (!("speechSynthesis" in window)) return false;
-        var u = new SpeechSynthesisUtterance(String(text || "").trim());
-        u.lang = langTag; u.rate = rate || 1;
-        var vs = window.speechSynthesis.getVoices() || [];
-        for (var i = 0; i < vs.length; i++) {
-          if (vs[i] && vs[i].name === voiceName) { u.voice = vs[i]; break; }
-        }
-        voiceStop();
-        window.speechSynthesis.speak(u);
-        return true;
-      } catch (e) { return false; }
-    }
-    try {
-      window.EkGuruVoice = { speak: voiceSpeak, stop: voiceStop,
-        _chunk: voiceChunk, _rank: rankVoice, _tl: voiceTl,
-        _list: listVoices, _try: voiceTry,
-        apiFailed: function () { return !!voiceApiFailed; } };
-    } catch (eVoice) {}
-    document.addEventListener("click", function (ev) {
-      var b = ev.target.closest ? ev.target.closest(".spk,[data-sb-say]") : null;
-      if (!b) return;
-      if (!("speechSynthesis" in window) && typeof Audio === "undefined") return;
-      ev.stopPropagation();
-      ev.preventDefault();
-      voiceNudge();
-      try {
-        var text = b.getAttribute("data-sb-say") || b.textContent;
-        voiceSpeak((text || "").trim(), pageLang === "hi" ? "hi-IN" : pageLang, ttsRate);
-        try {
-          b.classList.add("tapped");
-          setTimeout(function () { b.classList.remove("tapped"); }, 550);
-        } catch (eTap) {}
-      } catch (e) {}
-    });
+    function voiceStop() { if (window.EkGuruVoice) window.EkGuruVoice.stop(); }
 
     /* ---- trace grids: [data-traces] renders self-drawing letters ----
        data-traces="अ,आ,इ"  data-roman="a,aa,i" (parallel, comma lists) */
@@ -553,7 +279,7 @@
        carries the Hindi. Shown whenever speech works. */
     if ("speechSynthesis" in window) {
       try {
-        var RATES = [0.2, 0.4, 0.6, 0.85, 1, 1.25];
+        var RATES = [0.6, 0.8, 1];
         var pill = document.createElement("button");
         pill.type = "button";
         pill.className = "sb-speed";
@@ -568,9 +294,7 @@
           var icon = RATES[ri] < 0.6 ? "🐢" : (RATES[ri] >= 1 ? "🐇" : "🎙");
           pill.innerHTML = icon + " <b>" + (RATES[ri] === 1 ? "1" : RATES[ri]) +
             "×</b> <span>speed</span>";
-          try {
-            if (window.localStorage) localStorage.setItem(RATE_KEY, String(RATES[ri]));
-          } catch (e) {}
+          if (window.EkGuruVoice) window.EkGuruVoice.setRate(RATES[ri]);
         }
         paintRate();
         pill.addEventListener("click", function (ev) {
@@ -891,10 +615,6 @@
     /* ---- voice picker panel (v157): choose the exact voice ----
        Lists every on-device voice for the page language with Try
        buttons; the pick persists per language and wins ranking. */
-    function voiceBase() {
-      return String(pageLang || "hi").split(/[-_]/)[0].toLowerCase() || "hi";
-    }
-    function voicePrefKey(b) { return "ekguru_voice_pref_" + b; }
     function closeVoicePanel() {
       try {
         var p = document.querySelector(".sb-vpanel");
@@ -904,12 +624,9 @@
     function openVoicePanel() {
       try {
         closeVoicePanel();
-        var base = voiceBase();
-        var nm = (typeof LANG_NAMES !== "undefined" && LANG_NAMES[base]) || "this language";
-        var list = [];
-        try { list = window.EkGuruVoice._list(base) || []; } catch (e) {}
-        var pref = null;
-        try { pref = JSON.parse(window.localStorage.getItem(voicePrefKey(base)) || "null"); } catch (e) {}
+        var V = window.EkGuruVoice;
+        var nm = (typeof LANG_NAMES !== "undefined" && LANG_NAMES[pageLang]) || "this language";
+        var list = V ? V.voices(pageLang) : [];
         var pan = document.createElement("div");
         pan.className = "sb-vpanel";
         pan.setAttribute("role", "dialog");
@@ -923,42 +640,25 @@
         hd.appendChild(tt); hd.appendChild(xx); pan.appendChild(hd);
         var box = document.createElement("div"); box.className = "sb-vpanel-list";
         if (!list.length) {
-          var em = document.createElement("p"); em.className = "sb-vpanel-empty";
-          em.textContent = "No " + nm + " voice on this device yet — speech uses the default voice. " +
-            "Install one free: Android Settings → System → Languages → Text-to-speech → Google TTS ⚙ → Install voice data.";
+          var em = document.createElement("p"); em.className = "sb-vpanel-empty"; em.setAttribute("lang", "en");
+          em.textContent = V ? V.missing(pageLang) : "Voice playback is unavailable on this page.";
           box.appendChild(em);
         }
-        for (var i = 0; i < list.length; i++) {
-          (function (it) {
-            var row = document.createElement("div"); row.className = "sb-vpanel-row";
-            var isPref = !!(pref && it.name === pref.name);
-            if (isPref) row.className += " is-pref";
-            var lb = document.createElement("span"); lb.className = "sb-vpanel-name";
-            lb.textContent = (it.name || it.lang) + " · " + it.lang + (isPref ? " ✓" : "");
-            var tryB = document.createElement("button");
-            tryB.type = "button"; tryB.className = "sb-vpanel-try"; tryB.textContent = "Try";
-            tryB.addEventListener("click", function () {
-              var sample = "Hello";
-              try {
-                var f = document.querySelector("[data-sb-say]");
-                if (f) sample = ((f.getAttribute("data-sb-say") || f.textContent) || "Hello").trim() || "Hello";
-              } catch (e) {}
-              try { window.EkGuruVoice._try(sample, pageLang === "hi" ? "hi-IN" : pageLang, ttsRate, it.name); } catch (e) {}
-            });
-            var useB = document.createElement("button");
-            useB.type = "button"; useB.className = "sb-vpanel-use";
-            useB.textContent = isPref ? "Using" : "Use";
-            if (!isPref) useB.addEventListener("click", function () {
-              try {
-                window.localStorage.setItem(voicePrefKey(base),
-                  JSON.stringify({ name: it.name, lang: it.lang }));
-              } catch (e) {}
-              openVoicePanel();
-            });
-            row.appendChild(lb); row.appendChild(tryB); row.appendChild(useB);
-            box.appendChild(row);
-          })(list[i]);
-        }
+        list.forEach(function (it) {
+          var row = document.createElement("div"); row.className = "sb-vpanel-row";
+          var lb = document.createElement("span"); lb.className = "sb-vpanel-name";
+          lb.textContent = (it.name || it.lang) + " · " + it.lang;
+          var useB = document.createElement("button");
+          useB.type = "button"; useB.className = "sb-vpanel-use"; useB.textContent = "Use and hear";
+          useB.addEventListener("click", function () {
+            var sample = "";
+            try { var f = document.querySelector("[data-sb-say]"); if (f) sample = ((f.getAttribute("data-sb-say") || f.textContent) || "").trim(); } catch (e) {}
+            if (V.prefer(pageLang, it.uri) && sample) V.speak(sample, pageLang);
+            openVoicePanel();
+          });
+          row.appendChild(lb); row.appendChild(useB);
+          box.appendChild(row);
+        });
         pan.appendChild(box);
         document.body.appendChild(pan);
         setTimeout(function () { try { pan.classList.add("in"); } catch (e) {} }, 30);

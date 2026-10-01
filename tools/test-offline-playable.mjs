@@ -285,19 +285,15 @@ console.log("\n3. answer a question with the network off\n");
   ok("and nothing threw while playing", booted.length === 0, booted.join(" | "));
 }
 
-console.log("\n4. the voice falls back to the device\n");
+console.log("\n4. the voice uses the device only, never the network\n");
 
 {
   const story = read("js/storybook.js");
-  /* Order matters: the local engine is tried first, the network voice is
-     skipped when the browser says it is offline. */
-  const localFirst = story.indexOf("canLocal") < story.indexOf("translate.googleapis.com");
-  ok("the local speech engine is tried before the network voice", localFirst);
-  ok("the network voice is skipped when the browser is offline",
-    /navigator\.onLine\s*!==\s*false/.test(story) &&
-    /navigator\.onLine\s*===\s*false/.test(story));
-  ok("a failed network voice falls back to the device instead of silence",
-    /failToLocal/.test(story) && /markApiDead/.test(story));
+  const engine = read("src/runtime/voice.js");
+  ok("storybook no longer owns a second speech engine or an unofficial remote TTS endpoint",
+    !/translate\.googleapis\.com|SpeechSynthesisUtterance|speechSynthesis\.speak|new Audio/.test(story));
+  ok("the shared provider accepts same-language device voices only and recordings need a manifest",
+    /sameLanguage/.test(engine) && /registerManifest/.test(engine));
 
   /* Behavioural: with the network off, speak() must not build a network Audio. */
   const dom = new JSDOM("<body></body>", {
@@ -309,17 +305,18 @@ console.log("\n4. the voice falls back to the device\n");
   w.speechSynthesis = {
     getVoices: () => [{ name: "Local", lang: "ar-SA", default: true, localService: true }],
     speak: () => { spoke++; },
-    cancel: () => {}
+    cancel: () => {},
+    addEventListener: () => {}
   };
   w.SpeechSynthesisUtterance = function (t) { this.text = t; };
   try { Object.defineProperty(w.navigator, "onLine", { value: false, configurable: true }); } catch (e) {}
-  try { w.eval(read("js/storybook.js")); } catch (e) {}
+  try { w.eval(read("js/voice-languages.js")); w.eval(read("js/voice.js")); } catch (e) {}
   const voice = w.EkGuruVoice;
   ok("the voice module is on the page", !!voice && typeof voice.speak === "function");
   let said = false;
-  try { said = voice ? voice.speak("مرحبا", { lang: "ar" }) : false; } catch (e) { said = false; }
+  try { said = voice ? voice.speak("مرحبا", "ar") : false; } catch (e) { said = false; }
   ok("speaking offline used the device voice and never the network",
-    audioBuilt === 0 && (spoke > 0 || said === true),
+    audioBuilt === 0 && spoke > 0 && said === true,
     `audio=${audioBuilt} local=${spoke}`);
 }
 

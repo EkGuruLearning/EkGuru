@@ -45,15 +45,8 @@ function el(html) {
   return d.firstChild;
 }
 function speak(text, code) {
-  try {
-    if (!("speechSynthesis" in window)) return false;
-    var u = new SpeechSynthesisUtterance(String(text));
-    u.lang = TTS_LANG[code] || "en-US";
-    u.rate = 0.92;
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(u);
-    return true;
-  } catch (e) { return false; }
+  /* The shared js/voice.js owns speech: same-language device voices only, click-only, no remote TTS. */
+  return !!(window.EkGuruVoice && window.EkGuruVoice.speak(String(text), code));
 }
 function loadProgress() {
   try { return JSON.parse(localStorage.getItem(LS_KEY) || "{}"); } catch (e) { return {}; }
@@ -361,13 +354,7 @@ Player.prototype.renderHub = function () {
   if (!courses.length) h += "<p>No courses found in index.</p>";
   h += "</div>";
   this.mount.innerHTML = h;
-  this.mount.querySelectorAll(".course-voice").forEach(function (button) {
-    button.addEventListener("click", function (event) {
-      event.preventDefault(); event.stopPropagation();
-      var text = button.getAttribute("data-voice-text"), code = button.getAttribute("data-voice-code");
-      if (!speak(text, code)) button.textContent = "Voice unavailable";
-    });
-  });
+  if (window.EkGuruVoice) window.EkGuruVoice.mount(this.mount);
   var search = this.mount.querySelector("#course-search"), filter = this.mount.querySelector("#country-filter"), count = this.mount.querySelector("#course-result-count"), story = this.mount.querySelector("#country-story");
   var empty = this.mount.querySelector("#course-empty");
 
@@ -721,9 +708,8 @@ Player.prototype.renderLesson = function (d, key, lessonId) {
   h += "</div>";
   self.mount.innerHTML = h;
   window.scrollTo(0, 0);
-  self.mount.querySelectorAll("[data-say]").forEach(function (b) {
-    b.addEventListener("click", function () { speak(b.getAttribute("data-say"), code); });
-  });
+  self.mount.querySelectorAll("[data-say]").forEach(function (b) { b.setAttribute("data-voice-lang", code); });
+  if (window.EkGuruVoice) window.EkGuruVoice.mount(self.mount);
   self.buildPractice(self.mount.querySelector("#egc-prac"), ls.practice || [], code);
   self.buildQuiz(self.mount.querySelector("#egc-quiz"), ls.quiz || [], code, null);
   var fc = self.mount.querySelector("#egc-fc");
@@ -754,9 +740,17 @@ Player.prototype.buildPractice = function (box, items, code) {
     function ok(msg) { saveResult(true); fb.className = "fb ok"; fb.textContent = "✓ " + (msg || "Correct!"); }
     function no(msg) { saveResult(false); fb.className = "fb no"; fb.textContent = "✗ " + (msg || ("Answer: " + it.answer)); }
     if (hasType(PRACTICE_AUDIO, it.type)) {
-      var audioBtn = el('<button class="btn ghost">🔊 Play synthetic ' + esc(TTS_LANG[code] || "voice") + ' audio</button>');
-      audioBtn.addEventListener("click", function () { if (!speak(it.audio_source || it.answer, code)) { fb.className = "fb no"; fb.textContent = "Synthetic audio is unavailable on this device."; } });
+      var audioText = it.audio_source || it.answer;
+      var audioBtn = el('<button type="button" class="btn ghost">🔊 Play synthetic ' + esc(TTS_LANG[code] || "voice") + ' audio</button>');
+      audioBtn.addEventListener("click", function () { if (!speak(audioText, code)) { fb.className = "fb no"; fb.textContent = window.EkGuruVoice ? window.EkGuruVoice.missing(code) : "Synthetic audio is unavailable on this device."; } });
       body.appendChild(audioBtn);
+      if (!window.EkGuruVoice || !window.EkGuruVoice.available(code, audioText)) {
+        audioBtn.setAttribute("aria-disabled", "true");
+        fb.textContent = window.EkGuruVoice ? window.EkGuruVoice.missing(code) : "No audio provider is available. Read the romanisation instead.";
+        var skip = el('<button type="button" class="btn ghost">Skip listening — no matching voice (not scored)</button>');
+        skip.addEventListener("click", function () { fb.className = "fb"; fb.textContent = "Listening skipped: no matching voice. This item is not scored."; skip.disabled = true; });
+        body.appendChild(skip); box.appendChild(wrap); return;
+      }
     }
     if (hasType(PRACTICE_CHOICE, it.type)) {
       var ol = el('<div class="opts"></div>');
@@ -791,7 +785,7 @@ Player.prototype.buildPractice = function (box, items, code) {
     } else if (hasType(PRACTICE_SPEAK, it.type)) {
       var sb = el('<button class="btn">🔊 Listen</button>'), mb = el('<button class="btn green">I said it ✓</button>');
       sb.addEventListener("click", function () { if (!speak(it.answer, code)) { fb.className = "fb no"; fb.textContent = "Audio not available — read aloud!"; } });
-      mb.addEventListener("click", function () { ok("Self-check recorded. No microphone evaluation was performed."); });
+      mb.addEventListener("click", function () { mb.disabled = true; fb.className = "fb"; fb.textContent = "Self-reported speaking only. It was not heard or scored and does not count as a correct answer."; });
       body.appendChild(sb); body.appendChild(mb);
     } else {
       var inp = document.createElement("input");
