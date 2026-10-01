@@ -47,6 +47,7 @@ const EXCL_FILES = new Set(["admin.html"]);
    any github.io host — fails the build. */
 const ALLOWED_HOSTS = new Set([
   "ekguru.shop", "www.ekguru.shop",
+  "github.com",                                                /* public repository: review checklist link on /review/ (plain link, not a runtime dependency) */
   "schema.org", "w3.org", "www.w3.org",
   "www.linkedin.com", "www.mnit.ac.in", "mnit.ac.in",
   "web3forms.com", "api.web3forms.com", "formsubmit.co", "api.emailjs.com", "api.staticforms.dev",

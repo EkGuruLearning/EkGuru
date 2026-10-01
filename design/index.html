@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html data-learning-language="hi" lang="en" data-ad-class="RESEARCH_REQUIRED">
+<head><!-- ekguru:ultra-head:start -->
+<script>(function(){var t;try{t=localStorage.getItem('ekguru:theme:v2')}catch(e){}if(['light','dark','contrast'].indexOf(t)<0)t=typeof matchMedia==='function'&&matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.dataset.theme=t;document.documentElement.classList.add('eg-js')})()</script>
+<script src="/js/voice-languages.js" defer></script>
+<script src="/js/voice.js" defer></script>
+<script src="/js/speech-ui.js" defer></script>
+<script src="/js/ui-motion.js" defer></script>
+<!-- ekguru:ultra-head:end -->
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design system v2 | EkGuru</title>
+<meta name="description" content="Internal preview of the v2 themes, learning components, script-aware typography and accessible reduced-motion interactions.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://ekguru.shop/design/">
+<link rel="icon" href="/images/logo.svg" type="image/svg+xml">
+<meta property="og:title" content="Design system v2 | EkGuru">
+<meta property="og:description" content="Internal preview of the v2 themes, learning components, script-aware typography and accessible reduced-motion interactions.">
+<meta property="og:url" content="https://ekguru.shop/design/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://ekguru.shop/images/og-cover.jpg">
+<link rel="stylesheet" href="/css/style.min.css">
+<!-- ekguru:ultra-assets:start -->
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/ultra.css">
+<!-- ekguru:ultra-assets:end -->
+</head>
+<body>
+<!-- ekguru:shell-header:start -->
+<header class="hdr">
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="hdr-in">
+    <a class="logo" href="../index.html">
+      <img class="logo-img" src="../images/logo.svg" width="38" height="38" alt="EkGuru">
+      <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
+    </a>
+    <button class="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html">Home</a>
+      <a href="../learn/">Learn</a>
+      <a href="../find-tutors.html">Tutors</a>
+      <a href="../courses/index.html">Courses</a>
+      <a href="../about/">About</a>
+      <a href="../contact/">Contact</a>
+      <a class="btn btn-primary btn-sm" href="../learn/hindi/">Start the free course</a>
+    </nav>
+  </div>
+</header>
+<script src="../js/site-shell.js" defer></script>
+<script src="../js/copywatch.js" defer></script>
+<!-- ekguru:shell-header:end -->
+<main id="main" class="eg-page"><p class="crumb"><a href="/">EkGuru</a> / Design system v2</p>
+<h1>Design system v2</h1><!-- ekguru:ultra-byline:start -->
+<p class="eg-byline" lang="en" dir="ltr" data-eg-chrome="editorial">Written by: AI-assisted draft for owner review. Maintained by <a href="/authors/prakash/" hreflang="en">Prakash</a>. Reviewed by: not recorded. Updated: <time datetime="2026-10-01">2026-10-01</time>. <a href="/editorial-policy/" hreflang="en">Editorial policy and corrections</a>.</p>
+<!-- ekguru:ultra-byline:end -->
+<!-- ekguru:ultra-audio:start -->
+<p class="eg-voice-note" data-eg-voice-note="hi" lang="en" dir="ltr" data-eg-chrome="audio" aria-live="polite"></p>
+<!-- ekguru:ultra-audio:end -->
+
+<p>An internal preview of the v2 themes, learning components, script-aware type and accessible, reduced-motion-safe interactions. It is not indexed.</p>
+<label>Appearance <select data-eg-theme><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option><option value="contrast">High contrast</option></select></label>
+<h2>Lesson card and vocabulary row with audio</h2>
+<div class="eg-demo-grid"><article class="eg-lesson-card" data-eg-reveal><span class="eg-badge">A1 · Lesson 1</span><h2>Greetings</h2><p>Say hello and introduce yourself.</p></article>
+<article class="eg-lesson-card"><p lang="hi" dir="ltr">नमस्ते<button type="button" class="eg-voice" hidden data-voice-text="नमस्ते" data-voice-lang="hi" aria-label="Play नमस्ते in Hindi"></button></p><p>namaste — hello</p></article></div>
+<div class="voice-settings"><p class="eg-voice-note" data-eg-voice-note="hi" lang="en"></p><div class="eg-controls"><label>Voice for Hindi<select data-eg-voice-picker="hi"></select></label><label>Speed<select data-eg-voice-rate><option value="0.6">0.6×</option><option value="0.8" selected>0.8×</option><option value="1">1×</option></select></label><button type="button" data-eg-voice-slow>Slow</button><button type="button" data-eg-voice-repeat>Repeat</button><button type="button" data-eg-voice-stop>Stop</button></div><p role="status" data-eg-voice-status></p></div>
+<h2>Dialogue bubbles</h2>
+<div class="eg-dialogue"><p><b>A:</b> <span lang="es">Hola, ¿cómo estás?</span></p><p><b>B:</b> <span lang="es">Muy bien, gracias.</span></p></div>
+<h2>Flashcard flip</h2>
+<button type="button" class="eg-flashcard" data-eg-flip aria-pressed="false"><span data-eg-front lang="hi">पानी</span><span data-eg-back hidden>water</span><small>Press to flip</small></button>
+<h2>Answer states (icon + text, never colour alone)</h2>
+<p class="eg-correct">✓ Correct — the answer is “water”.</p><p class="eg-wrong">✕ Not quite — try again.</p>
+<h2>Level ladder and progress</h2>
+<ol class="eg-ladder"><li>A1</li><li>A1+</li><li>A2</li><li>A2+</li><li>B1</li><li>B1+</li><li>B2</li><li>B2+</li><li>C1</li><li>C1+</li><li>C2</li></ol>
+<div class="eg-progress-ring" role="img" aria-label="60 percent of this demonstration complete" style="--eg-progress:60"><span>60%</span></div>
+<h2>Empty state, toast and celebration</h2>
+<div class="eg-empty"><h3>No tutors available for booking</h3><p>Free lessons, practice and courses remain open.</p><a href="/learn/">Start learning</a></div>
+<p><button type="button" data-eg-toast="Your choice was recorded on this device only.">Show a status message</button> <button type="button" data-eg-confetti>Celebrate a completed level</button></p>
+<p>The celebration lasts at most 1.5 seconds, stops on click or Escape, and is disabled by reduced motion.</p>
+<h2>Speaking transcript, not a score</h2>
+<section data-eg-speaking data-eg-language="hi"><p>Recognition may use your browser provider's online service. Start only if you are comfortable sending microphone audio to that provider.</p><button type="button" data-eg-microphone>Start microphone</button> <button type="button" data-eg-microphone-stop disabled>Stop microphone</button><p role="status" data-eg-transcript>No microphone permission requested.</p></section>
+<p><a href="/editorial-policy/">Editorial policy</a> · <a href="/learn/progress/">Learning journal</a></p>
+</main>
+<script src="/js/cookie-consent.js" defer></script>
+<!-- ekguru:ultra-page:fp:9b9cb4e670a857a55b45 -->
+<!-- ekguru:ultra-appearance:start -->
+<section class="eg-appearance" lang="en" dir="ltr" data-eg-chrome="appearance"><label>Appearance <select data-eg-theme><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option><option value="contrast">High contrast</option></select></label> · <a href="/editorial-policy/" hreflang="en">Editorial policy</a> · <a href="/learn/progress/" hreflang="en">Learning journal</a></section>
+<!-- ekguru:ultra-appearance:end -->
+<!-- ekguru:shell-footer:start -->
+<footer class="ftr">
+  <div class="wrap ftr-in">
+    <div>
+      <a class="logo" href="../index.html">
+        <img class="logo-img" src="../images/logo.svg" width="38" height="38" alt="EkGuru">
+        <span><span data-brand>EkGuru</span><small data-tagline>One Student. One Goal. One Guru.</small></span>
+      </a>
+      <p style="margin-top:14px">Online Hindi lessons with independent tutor profiles.</p>
+    </div>
+    <div>
+      <h3>Site</h3>
+      <a href="../index.html">Home</a>
+      <a href="../find-tutors.html">Find Tutors</a>
+      <a href="../join.html">Become a tutor</a>
+      <a href="../tutor/">All tutors — text directory</a>
+      <a href="../hindi-tutor/">Hindi tutors by location</a>
+      <a href="../courses/index.html">Courses</a>
+      <a href="../courses/by-country/index.html">Courses by country</a>
+      <a href="../search/">Search the site</a>
+    </div>
+    <div>
+      <h3>Learn Hindi</h3>
+      <a href="../learn/">Free guides</a>
+      <a href="../hindi/">Every topic, mapped</a>
+      <a href="../toolbox/">Interactive tools</a>
+      <a href="../daily-hindi/">Daily Hindi — 30 days</a>
+      <a href="../ask/">Questions answered</a>
+      <a href="../answers/">Short answers</a>
+      <a href="../learn/countries/">Published country guides</a>
+    </div>
+    <div>
+      <h3>Contact &amp; legal</h3>
+      <a href="../contact/">Contact form</a>
+      <a href="mailto:EkGuruLearning@gmail.com">EkGuruLearning@gmail.com</a>
+      <a href="mailto:support@ekguru.shop">support@ekguru.shop</a>
+      <a href="../about/">About EkGuru</a>
+      <a href="../privacy/">Privacy policy</a>
+      <a href="../terms/">Terms of use</a>
+      <a href="../monetization-disclosure/">Monetization disclosure</a>
+      <a href="../disclaimer/">Disclaimer</a>
+      <a href="../copyright/">Copyright</a>
+      <a href="../cookie-policy/">Cookie policy</a>
+    </div>
+  </div>
+  <div class="wrap ftr-bot">
+    <p class="ftr-founder">Written and maintained by Prakash in Jaipur, India.</p>
+    <p>© <span data-year>2026</span> <span data-brand>EkGuru</span> — <span data-tagline>One Student. One Goal. One Guru.</span></p>
+  </div>
+</footer>
+<!-- ekguru:shell-footer:end -->
+</body>
+</html>
