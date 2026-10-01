@@ -73,6 +73,7 @@ def main():
         return
 
     if only and only[0] == "check":
+        run("immutable owner indexing/canonical contract", ["python3", "tools/ultra/contract.py"])
         run("experience bundle --check", ["python3", "tools/bundle-experience-css.py", "--check"])
         run("world artwork --check", ["python3", "tools/build-world-art.py", "--check"])
         run("course hub --check", ["python3", "tools/build-course-hub.py", "--check"])
