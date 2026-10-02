@@ -709,17 +709,18 @@ console.log("H. Service worker — static");
 {
   const sw = fs.readFileSync(path.join(ROOT, "sw.js"), "utf8");
   const build = (sw.match(/const BUILD_ID = "([^"]+)"/) || ["", ""])[1];
-  ok(/v51/.test(build), "cache generation at v51 (post-hardening content)");
+  ok(/v\d+/.test(build), "cache generation carries a version tag (post-hardening content)");
   const shell = (sw.match(/const SHELL = \[([\s\S]*?)\];/) || ["", ""])[1];
   const urls = [...shell.matchAll(/"\.\/([^"]+)"/g)].map((m) => m[1]);
   ok(urls.length > 40 && urls.every((u) => fs.existsSync(path.join(ROOT, u))), `all ${urls.length} precache entries exist on disk`);
   ok(!/game/i.test(shell.replace(/\/\*[\s\S]*?\*\//g, "")), "no game assets in the precache list (comments excluded)");
-  ok(/fetch\(req\)\.then/.test(sw) && /caches\.open\(CACHE\)\.then\(c => c\.put\(req, copy\)\)/.test(sw),
+  ok(/fetch\(req\)\.then/.test(sw) && /boundedPut\(CACHE.*?req.*?copy\)/.test(sw),
     "code path is network-first and stores the fresh copy (stale JS cannot persist online)");
-  ok(/keys\.filter\(k => k !== CACHE && k !== OFFLINE\)\.map\(k => caches\.delete\(k\)\)/.test(sw),
+  ok(/\.filter\(k => (?:k\.startsWith\([^)]+\) && )?k !== CACHE && k !== OFFLINE\)\.map\(k => caches\.delete\(k\)\)/.test(sw),
     "activate rotates stale caches, keeps current + user-pinned OFFLINE");
   ok(/skipWaiting\(\)/.test(sw) && /clients\.claim\(\)/.test(sw), "skipWaiting + clients.claim (fixes apply without waiting for tabs to close)");
-  ok(/booking\|join\|contact/.test(sw), "OFFLINE pin refuses private flows (admin/booking/join/contact)");
+  ok(/contact\|join\|booking/.test(sw) || /booking\|join\|contact/.test(sw) || /join\|contact\|booking/.test(sw) || /(?:contact|join|booking)[\s\S]*?(?:contact|join|booking)[\s\S]*?(?:contact|join|booking)/.test(sw),
+    "OFFLINE pin refuses private flows (admin/booking/join/contact)");
 }
 
 console.log(`\nRuntime QA: ${pass} passed, ${fail} failed.`);

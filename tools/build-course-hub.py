@@ -262,6 +262,8 @@ def build_hub(courses, levels, meta, names=None):
         "publication checks. Complete courses are labelled A1–C2; partial courses "
         "show only the levels that are actually available. Research-only languages "
         "are not listed here. Progress stays on your own device.</p>"
+        '<p style="margin-top:12px"><strong>New:</strong> All courses are now at '
+        '<a href="/learn/">/learn/</a> — one hub for every language, topic guides and practice tools.</p>'
         '<div class="course-hero-stats">'
         "<span><b>%d</b> published languages</span>"
         "<span><b>%d</b> complete A1–C2</span>"
