@@ -50,20 +50,22 @@
    generation moves so no returning visitor keeps the double drawer, the
    pre-guard payment file or the old toast chain. */
 /* BUILD: 2026-09-19T18:10:00Z v51 - pr8 final hardening: drawer-swipe-guards-toast */
-const BUILD_ID = "2026-09-19T18:10:00Z-v51-pr8-final-hardening";
+/* v52 — ULTRA v3 device-only learning: bounded offline level snapshots, private/payment/contact routes
+   never cached, runtime cache capped at 160 entries, voice/journal/theme scripts in the shell. The
+   join and support pages are no longer pre-cached (forms and payment surfaces are never saved). */
+const BUILD_ID = "2026-10-01T00:00:00Z-v52-ultra-device-learning";
 const CACHE = "ekguru-" + BUILD_ID;
 
 /* Phase 6 §14 — "Save for offline" pins learner-chosen pages in a dedicated
    cache that survives the main cache rotation. Only same-origin, non-private
    pages are ever saved (the message handler refuses everything else). */
 const OFFLINE = "ekguru-offline-v1";
+const MAX_RUNTIME = 160, MAX_PINNED = 200, MAX_PINNED_BYTES = 25 * 1024 * 1024, MAX_FILE_BYTES = 3 * 1024 * 1024;
 
 const SHELL = [
   "./",
   "./index.html",
   "./find-tutors.html",
-  "./join.html",
-  "./support/",
   "./css/style.min.css",
   "./css/support-razorpay.css",
   "./js/support-razorpay.js",
@@ -163,8 +165,107 @@ const SHELL = [
      files are cached on demand by the runtime handler like any other image. */
   "./images/xp/world-en.svg",
   "./images/xp/world-multi.svg",
-  "./images/logo.svg"
+  "./images/logo.svg",
+  /* v52 — design tokens, voice, device journal and the progress page */
+  "./css/tokens.css",
+  "./css/ultra.css",
+  "./js/voice-languages.js",
+  "./js/voice.js",
+  "./js/speech-ui.js",
+  "./js/ui-motion.js",
+  "./js/global-srs.js",
+  "./js/retention.js",
+  "./data/learning/index.json",
+  "./data/learning/offline-levels.json",
+  "./learn/progress/"
 ];
+
+/* Only explicit public learning inputs may be cached. Private/API/payment/contact/join/support routes,
+   credentials, query strings and unknown data files are refused — in both caches, and in every fetch. */
+function allowed(value) {
+  try {
+    if (typeof value !== "string" || !value || /%2f|%5c|\\|[<>\x00-\x1f]/i.test(value)) return false;
+    const u = new URL(value, self.location.origin), path = decodeURIComponent(u.pathname);
+    if (!["http:", "https:"].includes(u.protocol) || u.origin !== self.location.origin || u.search || u.username || u.password ||
+        !path.startsWith("/") || path.split("/").some(x => x.startsWith("."))) return false;
+    if (/^\/(?:api|admin|account|login|messages|notifications|checkout|payment|support|contact|join|booking|tutor)(?:[/.]|$)/i.test(path) ||
+        /deploy-secrets|credentials|\.local\.|\.env(?:$|[/.])/i.test(path)) return false;
+    if (path.startsWith("/data/") && !/^\/data\/(?:courses(?:\.json|\/(?:index\.json|phase-\d+\/[a-z]{2,3}_(?:A1|A2|B1|B2|C1|C2)[-_a-z0-9]*\.json))|global\/language-country-relations\.json|learning\/(?:index|offline-levels|placement\/[a-z]{2,3})\.json|audio-manifest\/[a-z]{2,3}\.json|practice(?:-flags)?\.json|practice\/index\.json)$/i.test(path)) return false;
+    return true;
+  } catch (_) { return false; }
+}
+
+let pinQueue = Promise.resolve();
+function serialPin(task) { const next = pinQueue.then(task); pinQueue = next.catch(() => {}); return next; }
+
+/* Runtime cache: never private/no-store, never over 3 MB, never more than MAX_RUNTIME entries. */
+async function boundedPut(name, request, response) {
+  if (/private|no-store/i.test(response.headers.get("cache-control") || "")) return;
+  if (Number(response.headers.get("content-length")) > MAX_FILE_BYTES) return;
+  const bytes = await response.arrayBuffer();
+  if (bytes.byteLength > MAX_FILE_BYTES) return;
+  const headers = new Headers(response.headers);
+  headers.delete("content-length"); headers.delete("content-encoding");
+  const cache = await caches.open(name);
+  await cache.put(request, new Response(bytes, { status: response.status, headers }));
+  const keys = await cache.keys();
+  if (name === CACHE) for (const key of keys.slice(0, Math.max(0, keys.length - MAX_RUNTIME))) await cache.delete(key);
+}
+
+/* Pinned (saved-for-offline) files: 200 entries / 25 MiB in total, all-or-nothing with a rollback attempt. */
+async function savePins(snapshots) {
+  const cache = await caches.open(OFFLINE), existing = await cache.keys();
+  const replacing = new Set(snapshots.map(([p]) => new URL(p, self.location.origin).href));
+  let stored = 0, total = 0;
+  for (const key of existing) if (!replacing.has(key.url)) { const r = await cache.match(key); stored += (await r.arrayBuffer()).byteLength; }
+  for (const [, r] of snapshots) total += (await r.clone().arrayBuffer()).byteLength;
+  if (stored + total > MAX_PINNED_BYTES || existing.filter(k => !replacing.has(k.url)).length + snapshots.length > MAX_PINNED) {
+    throw new Error("Offline capacity reached. Clear saved learning snapshots in your journal first.");
+  }
+  const before = new Map(), changed = [];
+  for (const [p] of snapshots) before.set(p, await cache.match(p));
+  try { for (const [p, r] of snapshots) { changed.push(p); await cache.put(p, r); } }
+  catch (error) {
+    for (const p of changed.reverse()) try { before.get(p) ? await cache.put(p, before.get(p)) : await cache.delete(p); } catch (_) {}
+    throw new Error("Offline storage is unavailable or full. Download did not complete.");
+  }
+  return { ok: true, files: snapshots.length, bytes: total };
+}
+async function snapshotOf(path) {
+  const response = await fetch(path, { credentials: "omit", redirect: "error" });
+  if (!response.ok || response.type === "opaque" || /private|no-store/i.test(response.headers.get("cache-control") || "")) throw new Error("File failed: " + path);
+  const bytes = await response.arrayBuffer();
+  if (bytes.byteLength > MAX_FILE_BYTES) throw new Error("File exceeds 3 MB.");
+  const headers = new Headers(response.headers);
+  headers.delete("content-encoding"); headers.delete("content-length"); headers.set("x-ekguru-snapshot-bytes", String(bytes.byteLength));
+  return new Response(bytes, { status: 200, headers });
+}
+async function levelManifest() {
+  const url = "/data/learning/offline-levels.json";
+  let r;
+  try { r = await fetch(url, { credentials: "omit" }); if (!r.ok) throw new Error("manifest"); } catch (_) { r = await caches.match(url); }
+  if (!r) throw new Error("Offline download manifest unavailable. Open this level online first.");
+  const data = await r.json();
+  if (data.version !== 1 || !data.levels) throw new Error("Invalid download manifest.");
+  return data;
+}
+async function downloadLevel(value) {
+  const url = new URL(value, self.location.origin);
+  if (!allowed(url.href) || url.hash || !/^\/languages\/[a-z]{2,3}\/level\/(?:a1|a2|b1|b2|c1|c2)\/$/.test(url.pathname)) throw new Error("refused");
+  const spec = (await levelManifest()).levels[url.pathname];
+  if (!spec || !Array.isArray(spec.urls) || spec.urls.length < 1 || spec.urls.length > 40 || !spec.urls.includes(url.pathname) ||
+      spec.urls.some(u => !allowed(u) || new URL(u, self.location.origin).hash)) throw new Error("Invalid or excessive level download.");
+  const snapshots = []; let total = 0;
+  for (const path of spec.urls) {
+    const r = await snapshotOf(path);
+    total += Number(r.headers.get("x-ekguru-snapshot-bytes"));
+    if (total > MAX_FILE_BYTES) throw new Error("Level download exceeded 3 MB.");
+    snapshots.push([path, r]);
+  }
+  // Everything is fetched and checked BEFORE anything is written; a failed download never claims success.
+  const result = await savePins(snapshots);
+  return { ...result, url: url.pathname };
+}
 
 self.addEventListener("install", event => {
   /* Activate the new worker straight away instead of waiting for
@@ -174,7 +275,10 @@ self.addEventListener("install", event => {
   /* a missing file must not abort the whole install */
   event.waitUntil(
     caches.open(CACHE)
-      .then(c => Promise.allSettled(SHELL.map(u => c.add(u))))
+      .then(() => Promise.allSettled(SHELL.filter(allowed).map(async u => {
+        const r = await fetch(u, { credentials: "omit", redirect: "error" });
+        if (r.ok && r.type !== "opaque") await boundedPut(CACHE, u, r);
+      })))
       .then(() => self.skipWaiting())
   );
 });
@@ -182,56 +286,39 @@ self.addEventListener("install", event => {
 self.addEventListener("activate", event => {
   event.waitUntil(
     caches.keys()
-      .then(keys => Promise.all(keys.filter(k => k !== CACHE && k !== OFFLINE).map(k => caches.delete(k))))
+      .then(keys => Promise.all(keys.filter(k => k.startsWith("ekguru-") && k !== CACHE && k !== OFFLINE).map(k => caches.delete(k))))
+      .then(() => caches.open(OFFLINE))
+      .then(async pins => { for (const key of await pins.keys()) if (!allowed(key.url)) await pins.delete(key); })
       .then(() => self.clients.claim())
   );
 });
 
-/* Phase 6 §14 — message channel for Save-for-offline.
-   save-offline  {url}          → pin a same-origin page
-   remove-offline {url}         → unpin
-   list-offline  {}             → saved list */
+/* Phase 6 §14 + v52 — message channel for Save-for-offline.
+   save-offline {url} · remove-offline {url} · list-offline {} · download-level {url} · clear-offline {} */
 self.addEventListener("message", event => {
-  const d = event.data || {};
-  const reply = port => {
+  if (!event.ports || !event.ports[0]) return;
+  const port = event.ports[0], d = event.data || {};
+  event.waitUntil(serialPin(async () => {
     try {
-      if (d.type === "save-offline") {
-        const url = new URL(d.url, self.location.origin);
-        /* refuse anything outside our origin, and never cache admin/private state */
-        if (url.origin !== self.location.origin ||
-            /\/admin(\.html)?($|\/)/.test(url.pathname) ||
-            /booking|join|contact/.test(url.pathname)) {
-          port.postMessage({ ok: false, reason: "refused" });
-          return;
-        }
-        caches.open(OFFLINE)
-          .then(c => c.add(url.pathname + url.search))
-          .then(() => port.postMessage({ ok: true }))
-          .catch(() => port.postMessage({ ok: false, reason: "cache-error" }));
-      } else if (d.type === "remove-offline") {
-        const url = new URL(d.url, self.location.origin);
-        caches.open(OFFLINE)
-          .then(c => c.delete(url.pathname + url.search))
-          .then(() => port.postMessage({ ok: true }));
-      } else if (d.type === "list-offline") {
-        caches.open(OFFLINE).then(c => c.keys()).then(keys => {
-          port.postMessage({ ok: true, urls: keys.map(k => new URL(k.url).pathname) });
-        });
-      } else {
-        port.postMessage({ ok: false, reason: "unknown-type" });
-      }
-    } catch (e) {
-      port.postMessage({ ok: false, reason: "error" });
-    }
-  };
-  if (event.ports && event.ports[0]) reply(event.ports[0]);
+      if (d.type === "download-level") { port.postMessage(await downloadLevel(d.url)); return; }
+      if (d.type === "clear-offline") { await caches.delete(OFFLINE); await caches.delete(CACHE); port.postMessage({ ok: true }); return; }
+      const cache = await caches.open(OFFLINE);
+      if (d.type === "list-offline") { port.postMessage({ ok: true, urls: (await cache.keys()).filter(k => allowed(k.url)).map(k => new URL(k.url).pathname) }); return; }
+      if (!allowed(d.url) || !["save-offline", "remove-offline"].includes(d.type)) throw new Error("refused");
+      const url = new URL(d.url, self.location.origin);
+      if (url.hash) throw new Error("refused");
+      if (d.type === "remove-offline") await cache.delete(url.pathname);
+      else await savePins([[url.pathname, await snapshotOf(url.pathname)]]);
+      port.postMessage({ ok: true });
+    } catch (error) { port.postMessage({ ok: false, reason: error.message || "cache-error" }); }
+  }));
 });
 
 self.addEventListener("fetch", event => {
   const req = event.request;
 
   /* only handle our own GET requests; never touch YouTube, fonts or analytics */
-  if (req.method !== "GET") return;
+  if (req.method !== "GET" || req.headers.has("authorization") || !allowed(req.url)) return;
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) return;
 
@@ -243,7 +330,7 @@ self.addEventListener("fetch", event => {
       caches.match(req).then(hit => hit || fetch(req).then(res => {
         if (res.ok) {
           const copy = res.clone();
-          caches.open(CACHE).then(c => c.put(req, copy));
+          event.waitUntil(boundedPut(CACHE, req, copy).catch(() => {}));
         }
         return res;
       }).catch(() => hit))
@@ -289,13 +376,13 @@ self.addEventListener("fetch", event => {
       fetch(req).then(res => {
         if (res.ok) {
           const copy = res.clone();
-          caches.open(CACHE).then(c => c.put(req, copy));
+          event.waitUntil(boundedPut(CACHE, req, copy).catch(() => {}));
         }
         return res;
       }).catch(() =>
         /* offline: prefer an explicitly saved copy, then any cached copy */
         caches.open(OFFLINE).then(c => c.match(req)).then(hit =>
-          hit || caches.match(req))
+          hit || caches.match(req)).then(hit => hit || new Response("This file has not been saved for offline use.", { status: 503, headers: { "Content-Type": "text/plain; charset=utf-8" } }))
       )
     );
     return;
@@ -324,7 +411,7 @@ self.addEventListener("fetch", event => {
       const network = fetch(req).then(res => {
         if (res.ok) {
           const copy = res.clone();
-          caches.open(CACHE).then(c => c.put(req, copy));
+          event.waitUntil(boundedPut(CACHE, req, copy).catch(() => {}));
         }
         return res;
       }).catch(() => hit);

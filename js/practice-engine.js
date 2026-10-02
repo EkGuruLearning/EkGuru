@@ -96,6 +96,7 @@
     r.last = Date.now();
     m[k] = r;
     write(m);
+    if (window.EkGuruRetention) window.EkGuruRetention.practice(document.documentElement.getAttribute("data-learning-language") || "hi", entry.item.level || "legacy", correct);
   }
 
   /* ---------- helpers ---------- */
@@ -158,20 +159,8 @@
     return "hi-IN";
   })();
   function speak(text, lang) {
-    try {
-      var tag = lang || DEF_LANG;
-      /* v156: API voice engine when storybook.js is on the page. */
-      if (window.EkGuruVoice && window.EkGuruVoice.speak) {
-        return window.EkGuruVoice.speak(String(text), tag, 0.8);
-      }
-      if (!("speechSynthesis" in window)) return false;
-      var u = new SpeechSynthesisUtterance(String(text));
-      u.lang = tag;
-      u.rate = 0.8;
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(u);
-      return true;
-    } catch (e) { return false; }
+    /* Shared js/voice.js: same-language device voice, click-only, never remote TTS. */
+    return !!(window.EkGuruVoice && window.EkGuruVoice.speak(String(text), lang || DEF_LANG, 0.8));
   }
   function deva(t) {
     var m = String(t || "").match(/[\u0900-\u097F]+/);
@@ -199,7 +188,7 @@
     }
     entries = chooseEntries();
 
-    var state = { i: 0, score: 0, answered: false, answerWords: [] };
+    var state = { i: 0, score: 0, skipped: 0, answered: false, answerWords: [] };
     var box = el;
 
     function note() {
@@ -207,7 +196,7 @@
       if (mode === "placement") {
         s = "A rough diagnostic, not a certified placement test. It suggests where to start — it does not grade you.";
       } else if (mode === "speak") {
-        s = "Say the phrase out loud before you reveal it. This page cannot hear you — the only scoring here is your own honesty. Playback is a computer voice, not a native accent.";
+        s = "Say the phrase out loud before you reveal it. This page cannot hear you — this page cannot hear you, so speaking is self-reported and never scored. Playback is a computer voice, not a native accent.";
       } else if (mode === "review") {
         s = "A simple review box system (not clinical spaced repetition). Items you get wrong come back sooner; items you get right wait longer.";
       } else if (mode === "daily") {
@@ -361,6 +350,22 @@
 
       var play = box.querySelector(".px-play");
       if (play) {
+        var requested = item.tts || play.getAttribute("data-sayw");
+        var requestedLang = play.getAttribute("data-saylang") || cfg.speechLang || DEF_LANG;
+        if (requested && (!window.EkGuruVoice || !window.EkGuruVoice.available(requestedLang, requested))) {
+          play.setAttribute("aria-disabled", "true");
+          var reason = document.createElement("p"); reason.setAttribute("role", "status");
+          reason.textContent = window.EkGuruVoice ? window.EkGuruVoice.missing(requestedLang) : "Audio is unavailable. Read the romanisation instead.";
+          play.after(reason);
+          if (item.tts) {
+            /* A listening item cannot be answered without audio: skip it, unscored. */
+            box.querySelectorAll(".px-opt").forEach(function (b) { b.disabled = true; });
+            var skip = document.createElement("button"); skip.type = "button"; skip.className = "btn";
+            skip.textContent = "Skip listening — no matching voice (not scored)";
+            skip.addEventListener("click", function () { state.skipped++; state.i++; render(); });
+            reason.after(skip);
+          }
+        }
         if (play.getAttribute("data-sayw")) {
           var sayText = play.getAttribute("data-sayw");
           var sayLang = play.getAttribute("data-saylang") || DEF_LANG;
@@ -371,7 +376,6 @@
           play.addEventListener("click", function () {
             if (!speak(item.tts, cfg.speechLang || DEF_LANG)) play.textContent = "Playback unavailable in this browser";
           });
-          speak(item.tts, cfg.speechLang || DEF_LANG);   // play once on load
         }
       }
     }
@@ -380,7 +384,7 @@
       box.innerHTML =
         '<div class="px-head">' +
           '<span class="px-count">Phrase ' + (state.i + 1) + " of " + entries.length + "</span>" +
-          '<span class="px-score">' + state.score + " said right</span>" +
+          '<span class="px-score">' + state.i + " attempted (self-reported, unscored)</span>" +
         "</div>" +
         '<div class="px-bar"><span style="width:' + Math.round(state.i / entries.length * 100) + '%"></span></div>' +
         '<div class="px-q" style="font-size:1.45rem;line-height:1.6">' + esc(item.q) + "</div>" +
@@ -410,8 +414,7 @@
             '<button type="button" class="btn btn-ghost px-bad">Not yet</button></div>';
         var good = box.querySelector(".px-good"), bad = box.querySelector(".px-bad");
         function graded(correct) {
-          record(e, correct);
-          if (correct) state.score++;
+          /* A spoken self-report is not heard or measured, so it is neither scored nor recorded as accuracy. */
           if (good) good.disabled = true;
           if (bad) bad.disabled = true;
           next.hidden = false;
@@ -427,10 +430,10 @@
       var pct = entries.length ? Math.round(state.score / entries.length * 100) : 0;
       var body;
       if (mode === "placement") {
-        var suggestion = placementSuggestion(state.score, entries.length);
+        var suggestion = placementSuggestion(state.score, Math.max(1, entries.length - state.skipped));
         body = '<div class="px-done" role="status"><div class="px-done-ic">✓</div>' +
           "<h3>Diagnostic complete</h3>" +
-          "<p>You got <b>" + state.score + " of " + entries.length + "</b>.</p>" +
+          "<p>You got <b>" + state.score + " of " + (entries.length - state.skipped) + "</b>" + (state.skipped ? " scorable answers (" + state.skipped + " listening item(s) skipped without a score)" : "") + ".</p>" +
           '<div class="px-explain">' + esc(suggestion) + "</div>" +
           '<div class="px-done-btns">' +
             '<a class="btn btn-primary" href="' + suggestionUrl(suggestion) + '">Start here</a> ' +
@@ -448,7 +451,7 @@
       } else {
         body = '<div class="px-done" role="status"><div class="px-done-ic">✓</div>' +
           "<h3>" + (mode === "daily" ? "Daily practice done" : "Round complete") + "</h3>" +
-          "<p>" + state.score + " of " + entries.length + " correct.</p>" +
+          "<p>" + state.score + " of " + (entries.length - state.skipped) + " scorable answers correct." + (state.skipped ? " " + state.skipped + " listening item(s) were skipped without a score." : "") + "</p>" +
           '<div class="px-done-btns">' +
             '<button type="button" class="btn btn-primary px-again">Another round</button> ' +
             '<a class="btn btn-ghost" href="./">All practice</a>' +
@@ -459,7 +462,7 @@
       if (again) again.addEventListener("click", function () {
         bumpRound(roundId);
         entries = chooseEntries();
-        state.i = 0; state.score = 0; render();
+        state.i = 0; state.score = 0; state.skipped = 0; render();
       });
     }
 

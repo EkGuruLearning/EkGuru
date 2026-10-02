@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ekguru.shop/schemas/starter-t2.schema.json",
+  "title": "T2 starter pack",
+  "type": "object",
+  "required": ["code", "script_lesson", "words", "phrases", "dialogues", "grammar", "practice", "voice_tag"],
+  "properties": {
+    "code": { "type": "string", "pattern": "^[a-z]{2,3}$" },
+    "script_lesson": { "type": "object", "required": ["title", "letters"], "properties": { "letters": { "type": "array", "minItems": 1 } } },
+    "words": { "type": "array", "minItems": 300, "items": { "type": "object", "required": ["t", "en"], "properties": { "t": { "type": "string", "minLength": 1 }, "r": { "type": "string" }, "ipa": { "type": "string" } } } },
+    "phrases": { "type": "array", "minItems": 50 },
+    "dialogues": { "type": "array", "minItems": 10 },
+    "grammar": { "type": "array", "minItems": 5 },
+    "practice": { "type": "array", "minItems": 3 },
+    "voice_tag": { "type": "string", "pattern": "^[A-Za-z]{2,3}(-[A-Za-z0-9]{2,8})*$" }
+  }
+}

@@ -21,3 +21,10 @@ node_modules/
 # OS / editor noise
 .DS_Store
 Thumbs.db
+
+# Local evidence/logs and regenerable QA artifacts are never public deployment assets.
+*.local.json
+.artifacts/
+playwright-report/
+test-results/
+.ultra-*.log

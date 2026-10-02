@@ -78,6 +78,10 @@
       if (on) o.completed[slug] = { title: this.title(), at: Date.now() };
       else delete o.completed[slug];
       write(o);
+      if (window.EkGuruRetention) {
+        if (on) window.EkGuruRetention.complete("hi", "A1", location.pathname, this.title());
+        else window.EkGuruRetention.uncomplete("hi", location.pathname);
+      }
       return true;
     },
 

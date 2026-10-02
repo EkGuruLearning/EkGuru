@@ -41,7 +41,10 @@
       "/cookie-policy", "/contact", "/search", "/404", "/tutor.html",
       "/join", "/booking", "/checkout", "/payment", "/support",
       "/monetization-disclosure", "/classroom", "/messages", "/account",
-      "/login", "/dashboard", "/notifications", "/courses/"
+      "/login", "/dashboard", "/notifications", "/courses/", "/languages/", "/start/", "/learn/progress/", "/learn/my-learning/",
+      "/editorial-policy/", "/authors/", "/design/", "/review/", "/daily-hindi/day-",
+      "/learn/hindi/", "/learn/bengali/", "/learn/gujarati/", "/learn/kannada/", "/learn/malayalam/", "/learn/marathi/",
+      "/learn/punjabi/", "/learn/tamil/", "/learn/telugu/", "/learn/urdu/"
     ];
     for (var i = 0; i < blockedPrefixes.length; i++) {
       var pre = blockedPrefixes[i];

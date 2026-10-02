@@ -1,206 +1,116 @@
 /* =========================================================
-   EkGuru — HINDI SRS / REVIEW  (v1)
+   EkGuru — REVIEW DECK COMPATIBILITY UI (v2)
    ---------------------------------------------------------
-   A transparent, client-side spaced-repetition engine for the
-   Hindi learning product. Honest limits:
+   Keeps the original window.EkGuruSRS API (Hindi review page, world-language review pages,
+   "Add to review" buttons) but scheduling now belongs to the shared per-language engine
+   (js/global-srs.js, deck key ekguru:srs:<code>:v1). The page's data-learning-language picks the deck.
 
-     · Data lives ONLY in this browser (localStorage), versioned
-       under ekguru:hindi:v1:review. No account, no upload, no
-       cross-device sync, and no claim of "AI personalisation".
-     · The schedule is a simple SM-2-lite: ease, interval,
-       due_date, review_count, last_reviewed. Again / Hard /
-       Good / Easy are the only four answers.
-
-   Cards enter the deck two ways:
-     · "Add to review" buttons mounted next to any element that
-       carries data-hi-card (see build-hindi-audio.py).
-     · The review page's "Load starter deck", seeded from the
-       quiz bank and the practice vocabulary bank.
-
-   Window API: window.EkGuruSRS
+   One-time migration: cards from the original single deck (ekguru:hindi:v1:review) are COPIED with
+   their real schedules. The original key is never deleted. A persistent marker means the copy never
+   runs again on its own, so a card you removed (or a verified import) cannot silently come back.
+   Copying again is an explicit, confirmed recovery (EkGuruSRS.copyLegacyDeck()).
    ========================================================= */
-(function () {
+(function (w) {
   "use strict";
-
-  var KEY = "ekguru:hindi:v1:review";
-  var VERSION = 1;
-
-  function read() {
-    try {
-      var raw = localStorage.getItem(KEY);
-      if (!raw) return { version: VERSION, cards: {} };
-      var o = JSON.parse(raw);
-      if (o && o.version === VERSION && o.cards) return o;
-      return { version: VERSION, cards: {} };
-    } catch (e) { return { version: VERSION, cards: {} }; }
-  }
-  function write(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
-
-  function contentId(prompt, answer) {
-    var s = String(prompt || "") + "|" + String(answer || "");
-    var h = 0;
-    for (var i = 0; i < s.length; i++) { h = (h * 31 + s.charCodeAt(i)) | 0; }
+  if (w.EkGuruSRS && w.EkGuruSRS._shared) return;
+  var LEGACY = "ekguru:hindi:v1:review", MARKER = "ekguru:hindi:shared-srs-migration:v1";
+  function core() { return w.EkGuruGlobalSRS; }
+  function current() { return document.documentElement.getAttribute("data-learning-language") || "hi"; }
+  function idFor(prompt, answer) {
+    var s = String(prompt || "") + "|" + String(answer || ""), h = 0;
+    for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0;
     return "c" + Math.abs(h).toString(36);
   }
+  function level(l) { return { beginner: "A1", elementary: "A2", intermediate: "B1", advanced: "C1" }[l] || l || "A1"; }
 
-  function esc(s) {
-    return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  function migrate(force) {
+    if (!core()) return false;
+    var before = {}, writes = {}, changed = [];
+    try {
+      if (localStorage.getItem(MARKER) !== null && !force) return true;
+      var raw = localStorage.getItem(LEGACY), old = raw ? JSON.parse(raw) : null;
+      if (old && (old.version !== 1 || !old.cards || typeof old.cards !== "object" || Array.isArray(old.cards) || Object.keys(old.cards).length > 10000)) throw new Error("Unreadable legacy review deck preserved.");
+      Object.keys(old && old.cards || {}).forEach(function (id) {
+        var c = old.cards[id], l = c && c.language || "hi";
+        if (!c || !/^[a-z]{2,3}$/.test(l)) throw new Error("Invalid legacy card.");
+        var mapped = { card_id: id, content_id: String(c.content_id || id), language: l, target: String(c.target || c.prompt), source: String(c.source || ""),
+          prompt: c.prompt, prompt_language: null, answer: c.answer, category: String(c.category || "vocabulary"), level: level(c.level), skill: "vocabulary",
+          country: c.country || null, ease: c.ease, interval: c.interval, due_date: c.due_date, review_count: c.review_count, last_reviewed: c.last_reviewed,
+          version: 1, added_at: c.added_at, srs_eligible: true };
+        if (!core().validCard(mapped, l, id) || !core().isReadable(l)) throw new Error("Invalid or unreadable saved review data preserved.");
+        var key = "ekguru:srs:" + l + ":v1";
+        if (!writes[key]) writes[key] = JSON.parse(localStorage.getItem(key) || '{"version":1,"cards":{}}');
+        if (!Object.prototype.hasOwnProperty.call(writes[key].cards, id)) writes[key].cards[id] = mapped;
+      });
+      Object.keys(writes).forEach(function (k) { before[k] = localStorage.getItem(k); });
+      // The in-progress marker is written FIRST: a crash or quota failure cannot silently rerun the copy.
+      localStorage.setItem(MARKER, "pending");
+      Object.keys(writes).forEach(function (k) { changed.push(k); localStorage.setItem(k, JSON.stringify(writes[k])); });
+      localStorage.setItem(MARKER, "done");
+      return true;
+    } catch (e) {
+      changed.reverse().forEach(function (k) { try { if (before[k] === null) localStorage.removeItem(k); else localStorage.setItem(k, before[k]); } catch (_) {} });
+      try { localStorage.setItem(MARKER, "failed"); } catch (_) {}
+      if (w.EkGuruUI) w.EkGuruUI.toast("Legacy review migration did not finish. Original data were preserved. Export before an explicit retry.");
+      return false;
+    }
   }
 
-  var SRS = {
-    version: VERSION,
-
+  var api = {
+    version: 1, _shared: true,
+    copyLegacyDeck: function () {
+      return w.confirm("Copy missing cards from the original deck? This can restore cards you removed. Export your learning backup first.") ? migrate(true) : false;
+    },
     add: function (spec) {
-      var o = read();
-      var id = spec.card_id || contentId(spec.prompt, spec.answer);
-      if (o.cards[id]) return { id: id, added: false, card: o.cards[id] };
-      var now = Date.now();
-      var card = {
-        card_id: id,
-        content_id: spec.content_id || id,
-        language: spec.language || "hi",
-        target: spec.target || spec.prompt || "",
-        source: spec.source || "",
-        prompt: spec.prompt || "",
-        answer: spec.answer || "",
-        category: spec.category || "vocabulary",
-        level: spec.level || "beginner",
-        goal: spec.goal || null,
-        country: spec.country || null,
-        ease: 2.5,
-        interval: 0,
-        due_date: now,
-        review_count: 0,
-        last_reviewed: 0,
-        version: VERSION,
-        added_at: now
-      };
-      o.cards[id] = card;
-      write(o);
-      return { id: id, added: true, card: card };
+      if (!core()) return { added: false, reason: "Review engine unavailable" };
+      var card = Object.assign({}, spec, { language: spec.language || current(), level: level(spec.level), card_id: spec.card_id || idFor(spec.prompt, spec.answer) });
+      return core().add(card);
     },
-
-    has: function (id) { return !!read().cards[id]; },
-
-    due: function (limit) {
-      var o = read(), now = Date.now(), out = [];
-      Object.keys(o.cards).forEach(function (id) {
-        var c = o.cards[id];
-        if (c.due_date <= now) out.push(c);
-      });
-      out.sort(function (a, b) { return a.due_date - b.due_date; });
-      return limit ? out.slice(0, limit) : out;
-    },
-
-    all: function () {
-      var o = read();
-      return Object.keys(o.cards).map(function (id) { return o.cards[id]; });
-    },
-
-    count: function () { return Object.keys(read().cards).length; },
-    dueCount: function () { return this.due().length; },
-
-    /* rating: "again" | "hard" | "good" | "easy" */
-    review: function (card_id, rating) {
-      var o = read();
-      var c = o.cards[card_id];
-      if (!c) return null;
-      var day = 86400000;
-      var interval = c.interval || 0;
-      var ease = c.ease || 2.5;
-      if (rating === "again") {
-        interval = 0; ease = Math.max(1.3, ease - 0.2);
-      } else if (rating === "hard") {
-        interval = Math.max(1, interval * 1.2); ease = Math.max(1.3, ease - 0.15);
-      } else if (rating === "good") {
-        interval = interval === 0 ? 1 : Math.max(1, interval * ease);
-      } else { /* easy */
-        interval = interval === 0 ? 3 : Math.max(1, interval * ease * 1.3);
-        ease = Math.min(3.5, ease + 0.15);
-      }
-      c.interval = Math.round(interval * 10) / 10;
-      c.ease = Math.round(ease * 100) / 100;
-      c.review_count = (c.review_count || 0) + 1;
-      c.last_reviewed = Date.now();
-      c.due_date = c.last_reviewed + Math.round(c.interval * day);
-      o.cards[card_id] = c;
-      write(o);
-      return c;
-    },
-
-    remove: function (card_id) {
-      var o = read();
-      if (!o.cards[card_id]) return false;
-      delete o.cards[card_id];
-      write(o);
-      return true;
-    },
-
-    /* ---- starter deck from the quiz bank + practice vocabulary ---- */
+    has: function (id, lang) { return !!(core() && core().has(id, lang || current())); },
+    due: function (limit) { return core() ? core().due(current(), limit) : []; },
+    all: function () { return core() ? core().all(current()) : []; },
+    count: function () { return core() ? core().count(current()) : 0; },
+    dueCount: function () { return core() ? core().dueCount(current()) : 0; },
+    review: function (id, rating) { return core() ? core().review(id, rating, current()) : null; },
+    remove: function (id) { return !!(core() && core().remove(id, current())); },
     starterDeck: function () {
-      var out = [];
-      var Q = window.EKGURU_HINDI_QUIZ;
-      if (Q && Q.questions) {
-        Q.questions.forEach(function (q) {
-          out.push({ prompt: q.q, answer: q.a + " — " + q.explain,
-                     category: q.topic, level: q.level });
-        });
-      }
-      var B = window.EKGURU_PRACTICE_BANK;
-      if (B && B.vocabulary) {
-        B.vocabulary.forEach(function (v) {
-          out.push({ prompt: v.q, answer: v.a + " — " + (v.explain || ""),
-                     category: "vocabulary", level: "beginner" });
-        });
-      }
+      if (current() !== "hi") return [];
+      var out = [], q = w.EKGURU_HINDI_QUIZ, b = w.EKGURU_PRACTICE_BANK;
+      if (q && q.questions) q.questions.forEach(function (x) { out.push({ prompt: x.q, answer: x.a + " — " + x.explain, category: x.topic, level: level(x.level), language: "hi" }); });
+      if (b && b.vocabulary) b.vocabulary.forEach(function (x) { out.push({ prompt: x.q, answer: x.a + " — " + (x.explain || ""), category: "vocabulary", level: "A1", language: "hi" }); });
       return out;
     },
-
     seedStarter: function () {
-      var cards = this.starterDeck(), added = 0;
-      cards.forEach(function (c) { if (SRS.add(c).added) added++; });
+      var cards = api.starterDeck(), added = 0;
+      cards.forEach(function (c) { if (api.add(c).added) added++; });
       return { total: cards.length, added: added };
     },
-
-    /* ---- "Add to review" buttons for [data-hi-card] elements ---- */
     mountAddButtons: function () {
-      var items = document.querySelectorAll("[data-hi-card]");
-      items.forEach(function (el) {
-        if (el.getAttribute("data-hi-card-mounted")) return;
+      document.querySelectorAll("[data-hi-card]").forEach(function (el) {
+        if (el.hasAttribute("data-hi-card-mounted")) return;
         el.setAttribute("data-hi-card-mounted", "1");
-        var spec = null;
-        try { spec = JSON.parse(el.getAttribute("data-hi-card")); } catch (e) {}
-        if (!spec || !spec.p) return;
-        var btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "hi-review-add";
-        btn.setAttribute("aria-label", "Add “" + spec.p + "” to review");
-        renderAddState(btn, spec);
-        btn.addEventListener("click", function (e) {
+        var spec; try { spec = JSON.parse(el.getAttribute("data-hi-card")); } catch (_) { return; }
+        if (!spec || !spec.p || !spec.a) return;
+        var b = document.createElement("button");
+        b.type = "button"; b.className = "hi-review-add";
+        b.setAttribute("aria-label", "Add " + spec.p + " to its language review deck");
+        function paint() {
+          var added = api.has(idFor(spec.p, spec.a), spec.l || current());
+          b.textContent = added ? "✓ In review" : "＋ Add to review";
+          b.setAttribute("aria-pressed", String(added));
+        }
+        paint();
+        b.addEventListener("click", function (e) {
           e.preventDefault();
-          var r = SRS.add({ prompt: spec.p, answer: spec.a, category: spec.c || "vocabulary",
-                            language: spec.l || "hi", target: spec.p });
-          renderAddState(btn, spec);
-          if (window.EkGuruToast) window.EkGuruToast.show(r.added ? "Added to review" : "Already in review");
+          var r = api.add({ prompt: spec.p, answer: spec.a, category: spec.c || "vocabulary", language: spec.l || current(), target: spec.p });
+          paint();
+          if (w.EkGuruUI) w.EkGuruUI.toast(r.added ? "Saved to its language review deck." : (r.reason || "Already in this language review deck."));
         });
-        el.appendChild(btn);
+        el.appendChild(b);
       });
     }
   };
-
-  function renderAddState(btn, spec) {
-    var added = SRS.has(contentId(spec.p, spec.a));
-    btn.innerHTML = added ? "✓ Review" : "＋ Review";
-    btn.setAttribute("aria-pressed", added ? "true" : "false");
-    btn.classList.toggle("added", added);
-  }
-
-  window.EkGuruSRS = SRS;
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", function () { SRS.mountAddButtons(); });
-  } else {
-    SRS.mountAddButtons();
-  }
-})();
+  w.EkGuruSRS = api;
+  function boot() { migrate(); api.mountAddButtons(); }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
+})(window);

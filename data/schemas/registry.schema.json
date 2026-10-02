@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ekguru.shop/schemas/registry.schema.json",
+  "title": "EkGuru language registry row (draft; no approval implied)",
+  "type": "object",
+  "required": ["code", "iso639_3", "bcp47", "speech_tag", "name", "endonym", "scripts", "direction", "tier", "status", "review", "countries"],
+  "additionalProperties": true,
+  "properties": {
+    "code": { "type": "string", "pattern": "^[a-z]{2,3}$" },
+    "iso639_3": { "type": "string", "pattern": "^[a-z]{3}$" },
+    "iso639_1": { "type": ["string", "null"], "pattern": "^[a-z]{2}$" },
+    "bcp47": { "type": "string", "pattern": "^[A-Za-z]{2,3}(-[A-Za-z0-9]{2,8})*$" },
+    "speech_tag": { "type": "string", "pattern": "^[A-Za-z]{2,3}(-[A-Za-z0-9]{2,8})*$" },
+    "name": { "type": "string", "minLength": 2 },
+    "endonym": { "type": "string", "minLength": 1 },
+    "scripts": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^[A-Z][a-z]{3}$" } },
+    "direction": { "enum": ["ltr", "rtl"] },
+    "tier": { "enum": ["T1", "T2", "T3"] },
+    "status": { "enum": ["draft", "review", "published"] },
+    "review": {
+      "type": "object",
+      "required": ["status", "reviewer_id", "consent_to_publish", "content_digest", "reviewed_on", "owner_verified"],
+      "properties": {
+        "status": { "enum": ["none", "requested", "reviewed"] },
+        "reviewer_id": { "type": ["string", "null"], "pattern": "^[a-zA-Z0-9_-]{8,64}$" },
+        "consent_to_publish": { "type": "boolean" },
+        "name": { "type": "string", "minLength": 2, "maxLength": 100 },
+        "content_digest": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$" },
+        "reviewed_on": { "type": ["string", "null"], "format": "date" },
+        "owner_verified": { "type": "boolean" }
+      },
+      "allOf": [
+        { "if": { "properties": { "consent_to_publish": { "const": false } }, "required": ["consent_to_publish"] }, "then": { "not": { "required": ["name"] } } },
+        { "if": { "properties": { "consent_to_publish": { "const": true } }, "required": ["consent_to_publish"] }, "then": { "required": ["name"] } },
+        { "if": { "properties": { "status": { "const": "reviewed" } }, "required": ["status"] }, "then": { "required": ["reviewer_id", "content_digest", "reviewed_on"], "properties": { "owner_verified": { "const": true }, "reviewer_id": { "type": "string" }, "content_digest": { "type": "string" }, "reviewed_on": { "type": "string" } } } }
+      ]
+    },
+    "countries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["code", "roles", "sources", "speaker_estimates"],
+        "properties": {
+          "code": { "type": "string", "pattern": "^[A-Z]{2}$" },
+          "roles": { "type": "array", "items": { "type": "string" } },
+          "sources": { "type": "array", "items": { "type": "object", "required": ["title", "url", "verification"], "properties": { "url": { "type": "string", "pattern": "^https?://" } } } },
+          "speaker_estimates": { "type": "array", "items": { "type": "object", "required": ["source_urls"], "properties": { "source_urls": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^https?://" } } } } }
+        }
+      }
+    }
+  }
+}
