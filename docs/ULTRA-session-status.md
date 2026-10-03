@@ -132,3 +132,42 @@ marks their drills and lanes share — a repertoire question, not a spelling one
 The remaining known gap is Urdu's *cross-level* split: A1 was written with marks
 (`Assalām Alaikum`), A2+ without. Each published page is internally consistent
 now; which scheme Urdu should settle on is a decision for its PHASE 1 pass.
+
+## PHASE 1 session — branch `arena/01a102f8-ekguru`, 4 October 2026
+
+Portuguese is the **13th of the 18** published languages to reach 11/11.
+`tools/depth-content/pt.py` carries six `extra` blocks, eighteen third lessons
+and the five half-steps A1+ … C1+; the authoring run wrote 38 changes across the
+six rung files plus five new half-step files, and `data/courses/index.json`
+gained the five files and the new lesson counts.
+
+Gates at the tip, all local: `build-all.py check` green (the flashcard deck and
+lab checks are part of it now), course-levels 32/0, placeholders 7/0,
+ad-policy 22/0, `inject-ads.py --check` ok, ultra integration 2687 pages / 0
+problems, page inventory 2690 pages with `thin_indexable 0` and `broken 0`,
+`normalise-romanisation.py` 0 strings, and the PHASE 1 gap audit reads
+`pt 11/11 - 0 0 0`. The language gate's pt row is `FAIL ['no_native_review']`
+only — the same honest, pre-existing failure every T1 language carries —
+with `unique_text_ratio` 0.947 and `script_mismatch 0`.
+
+Two pieces of the same commit are not content: the pt ladder page moved its
+counts (24 → 36 lessons, 194 → 255 words, 836 → 1162 questions) while keeping
+the committed `twitter:title` line, and the pt flashcard deck was rebuilt from
+the new vocabulary (`data/flashcards/pt.json`, `js/flashcards-pt.js`,
+`data/quality/flashcard-coverage.json`) with the pt lab block refreshed on
+`languages/pt/practice/index.html`.
+
+**Finding (recorded as trap #9 in `docs/PHASE1-CONTENT-DEPTH.md`).** The
+publication audit (`tools/audit-course-quality.py`, which writes
+`levels`/`complete`/`quality_status`) still keeps pt at `complete: false`: its
+`C1`/`C2` files carry the unreviewed phase-3 batch's `discourse segment N in`
+filler. Six courses the gap audit already counts as done — `ar bn de it ja ko` —
+carry the same filler in their C1/C2 and are in the same `PUBLISHABLE_PARTIAL`
+state, while the done courses whose fragments are labelled differently (`pa`,
+etc.) pass the same check. Re-authoring those C1/C2 lessons is one shared job
+after this queue, not a pt-specific defect.
+
+Still open: PHASE 1 for `ru ta te ur zh` (25 rungs, 30 `extra` blocks, 30 short
+units), the six-course C1/C2 re-authoring above, 260 English speaker labels
+(`ta` 104, `te` 128, `ur` 28), and the Urdu A1-marks-vs-ASCII decision. Runtime
+flags stay OFF; indexing, canonicals, robots and the domain are untouched.

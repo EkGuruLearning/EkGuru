@@ -199,6 +199,47 @@ stale chain → `build-all.py check` → gate + audit → commit.
   number table was the last IAST block in the language) and left the diacritics
   in the alphabet and pronunciation blocks, which are the two places that explain
   the marks they use.
+- **The synthetic C1/C2 batch blocks publication, and only the six unfinished
+  courses trip its marker.** `tools/audit-course-quality.py` (the tool that
+  writes `levels`, `complete` and `quality_status` in `data/courses/index.json`)
+  refuses any level file carrying `discourse segment N in`. Eight courses carry
+  that phrase in `C1`/`C2`: the two in this queue's tail (`pt ru`) and six the
+  gap audit already counts as done (`ar bn de it ja ko`). Their C1/C2 lessons
+  are the unreviewed phase-3 batch — the same windowed fragments every done
+  course has (`pa_C1` holds `ਰਿਪੋਰਟ ਮੁਤਾਬਕ,`), but labelled differently, so
+  `pa` passes the check while `ar` fails it. Consequence: `pt` reads `11/11`
+  and its gate row is clean, yet `complete` stays `false` and C1/C2 stay out of
+  the published level list until those files are re-authored. The Portuguese
+  pass rebuilt the deck from the new lessons and left the rest as found; the
+  six already-done courses need one shared re-authoring pass, tracked here as
+  the next content job after this queue.
+
+2026-10-04 (after Portuguese — 13 of 18): **25 rung files · 30 `extra` blocks ·
+30 short units · 260 English labels**. pt reads `11/11`; its gate row is
+`FAIL ['no_native_review']` only, `unique_text_ratio` 0.947 and `script_mismatch`
+0 against the 0.85 and 0 thresholds. The module is `tools/depth-content/pt.py`:
+six `extra` blocks built on sourced Brazil notes (the language, cuisine, the
+culture, the literature, the media, the languages of Brazil), eighteen third
+lessons, and five half-steps that keep their own themes — the bakery counter and
+the money at the till, the flat and the street, the weekend, then shopping and
+health and the job, then transport and opinion, and finally academia, climate
+and the language question. Portuguese is the first language in the queue whose
+course teaches in English while the target is a Latin-script language with its
+own accent system, so the romanisation column keeps the course's own scheme
+(stressed syllable in capitals, hyphens, `(n)` for nasals: `oh-LAH`, `boh(n)
+DEE-uh`) and every new lesson carries it. No theme is reused from an earlier
+language.
+
+Two mechanical notes from this pass, both already handled by the documented
+order: the rebuilt pt ladder page moved its counts (24 → 36 lessons, 194 → 255
+words, 836 → 1162 questions) and kept the committed `twitter:title` line
+rather than taking the head template's regression, and the six pages whose only
+difference is that line were restored. Because new lessons add vocabulary, the
+decoration chain also rebuilds `js/flashcards-pt.js` and the pt lab block in the
+same commit (`build-flashcards.py`, `inject-flashcards.py` are checks in
+`build-all.py check`), and `build-learning-data.py` runs before the gates when
+course data moves.
+
 ## Acceptance (from the command doc)
 
 - `python3 tools/build-all.py check` green
