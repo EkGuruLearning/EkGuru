@@ -59,13 +59,18 @@ short units**. Hindi's six CEFR rungs now carry the block:
 builder did not do before — until this change no course file carried `extra` and
 no tool read it, so the schema had required a block that could not be seen.
 
-2026-10-03 (after Italian — 7 of 18): **55 rung files · 66 `extra` blocks · 66 short
-units**. The seven authored courses (hi, ar, bn, de, es, fr, it) each read `11/11`
+2026-10-03 (after Gujarati — 8 of 18): **60 rung files · 72 `extra` blocks · 72 short
+units**. The eight authored courses (hi, ar, bn, de, es, fr, it, gu) each read `11/11`
 in the audit; the gate row for each is `FAIL ['no_native_review']` only —
-`unique_text_ratio` 0.986 (hi) / 0.946 (ar) / 0.918 (it) / 0.912 (bn) / 0.906 (de)
-/ 0.928 (es) / 0.919 (fr), `script_mismatch` 0 — against 0.85 for the flag, which
-is the mechanical part of "no templated intros"; native review is the one reason
-that cannot be generated. The modules are `tools/depth-content/{ar,bn,de,es,fr,it}.py`.
+`unique_text_ratio` 0.986 (hi) / 0.947 (gu) / 0.946 (ar) / 0.918 (it) / 0.912 (bn)
+/ 0.906 (de) / 0.928 (es) / 0.919 (fr), `script_mismatch` 0 — against 0.85 for the
+flag, which is the mechanical part of "no templated intros"; native review is the
+one reason that cannot be generated. The modules are
+`tools/depth-content/{ar,bn,de,es,fr,gu,it}.py`. Gujarati is the first **phase-2**
+course authored with `tools/author-depth.py`: `course_dir()` globs
+`data/courses/*/{code}_A1.json`, so the phase is resolved from the file it finds
+rather than assumed, and the 12 new rung files landed in `data/courses/phase-2/`
+with no change to the tool.
 
 Three traps worth recording, all found by authoring Spanish, French and Italian:
 
