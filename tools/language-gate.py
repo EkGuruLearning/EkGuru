@@ -230,6 +230,9 @@ def selftest():
         ("Arabic is not Latin", "مرحبا", ['Latn'], False),
         ("Han is not Latin", "你好", ['Latn'], False),
         ("Devanagari still passes Deva", "नमस्ते", ['Deva'], True),
+        ("Hangul syllables pass Hang", "안녕하세요", ['Hang'], True),
+        ("Korean stem pattern with compat jamo passes Hang", "-(으)ㄹ 거예요", ['Hang'], True),
+        ("Latin still fails Hang", "annyeonghaseyo", ['Hang'], False),
         ("Latin still fails Deva", "Hello", ['Deva'], False),
     ]
     bad = []

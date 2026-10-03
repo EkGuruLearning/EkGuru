@@ -72,6 +72,17 @@ review is the one reason that cannot be generated. The modules are
 rather than assumed, and all 12 new rung files landed in `data/courses/phase-2/`
 with no change to the tool.
 
+2026-10-03 (after Korean — 10 of 18): **40 rung files · 48 `extra` blocks · 48 short
+units**. ko reads `11/11` in the audit; its gate row is `FAIL ['no_native_review']`
+only, `unique_text_ratio` 0.976 and `script_mismatch` 0 against 0.85 and 0 for the
+flags. Two defects surfaced while authoring it and were fixed rather than worked
+around: the English speaker labels (see the fifth trap below) and a script range
+too narrow to recognise Korean stem patterns (`tools/lib/text.py`, sixth trap).
+The modules are `tools/depth-content/{ar,bn,de,es,fr,gu,it,ja,ko}.py`; the five
+half-step rungs of ko pick their own themes — a day and a call, bank and phone
+shop, CV and interview, contract and negotiation, synthesis and citation — so
+that no theme is shared with ja.
+
 The audit also counts a content defect the schema cannot see: an English speaker
 label in a dialogue of a course taught in another language. The factory left the
 four C1/C2 roles in English (`Analyst`, `Editor`, `Mediator`, `Reviewer`) in
@@ -83,7 +94,7 @@ now fully native (672 dialogue lines re-labelled); the five courses that are
 still English throughout (mr, pa, ta, te, ur — 452 labels) are fixed as each is
 authored, and the audit keeps counting them until then.
 
-Five traps worth recording, all found by authoring Spanish, French and Italian:
+Six traps worth recording, all found while authoring the first ten languages:
 
 - the gate's capitalised `\bTODO\b` marker matched Spanish `TODO` inside
   all-caps emphasis (`SIGA TODO RECTO`, `POR TODO LO ANTERIOR`, `EN TODO CASO`)
@@ -158,6 +169,16 @@ sentences is not a PHASE 1 completion — see PART F (golden rules) and the
   (`D("…")` labels and the `listening=` transcript, never the English
   `listening_gloss`) and re-run `tools/author-depth.py` for half-steps; the CEFR
   rungs are hand-maintained data and are edited directly.
+
+- **A script range that is too narrow fails correct content.** `in_script()` in
+  `tools/lib/text.py` decides whether a vocabulary entry is written in the
+  language's own script, and its Hangul range held only precomposed syllables
+  and conjoining jamo. Korean grammar patterns are written with the
+  compatibility jamo block — `-(으)ㄹ 거예요`, `-ㄴ 셈이다` — so the gate reported
+  four script mismatches against correct Korean, and the tempting repair was to
+  rewrite the content. The range was extended instead, in the same spirit as the
+  Latn entry above it that had to grow for Uzbek `oʻ`, and `--selftest` now
+  covers Hangul syllables, a compat-jamo pattern, and Latin failing Hangul.
 
 ## What the pilot settled
 
