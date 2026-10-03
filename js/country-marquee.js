@@ -106,15 +106,31 @@
     var byCc = {};
     data.forEach(function (item) { byCc[item.cc] = item; });
 
+    /* Usability 6 + 12 (3 Oct 2026). Two continuous marquees of ~40 country
+       chips were the first thing under the country heading — a wall with no
+       grouping, no order and no links, and it REPLACED the server-rendered
+       grid, so a crawler or a no-JS reader saw only the fallback link.
+       Now: the static, grouped, crawlable grid stays where the markup put it,
+       and the interactive rails live behind one labelled disclosure. */
     host.setAttribute("data-eg-cc-rails", "1");
-    host.innerHTML =
+    var rails =
+      '<details class="eg-cc-more">' +
+      '<summary>All ' + data.length + ' countries with source-gated language detail</summary>' +
       '<div class="eg-cc-rails" role="region" aria-label="Countries and languages">' +
-      '<p class="eg-cc-hint">Click a country to see source-gated language relationships. Provisional records are labelled.</p>' +
+      '<p class="eg-cc-hint">Click a country to see its language relationships. Provisional records are labelled.</p>' +
       track(a, "ltr") +
       track(b, "rtl") +
       '<div id="eg-cc-live" class="vh" aria-live="polite"></div>' +
       '<div id="eg-cc-panel" class="eg-cc-panel" hidden tabindex="-1"></div>' +
-      "</div>";
+      "</div></details>";
+
+    var old = host.querySelector(".eg-cc-more");
+    if (old) old.parentNode.removeChild(old);
+    if (old || !host.querySelector(".mkt-grid")) {
+      host.innerHTML = rails;
+    } else {
+      host.insertAdjacentHTML("beforeend", rails);
+    }
     bind(host, byCc);
   }
 
