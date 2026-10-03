@@ -80,9 +80,9 @@ Doing that is what found both orderings above.
 
 ## Known residual difference
 
-Running the sequence on an unmodified checkout leaves a handful of files dirty —
-the published `languages/<code>/level/index.html` ladder pages — each differing
-by one line:
+Running the sequence on an unmodified checkout leaves six files dirty — the
+published `languages/<code>/level/index.html` ladder pages of `pt ru ta te ur
+zh`, reached by the suffix below — each differing by one line:
 
 ```html
 <!-- committed -->
