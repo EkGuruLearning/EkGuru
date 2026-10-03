@@ -47,3 +47,47 @@ Still open by design: `no_native_review` for every T1 language (an owner-verifie
 review record is not something a generator may invent), PHASE 1 for
 `pt ru ta te ur zh`, and the prose-rewrite polish pass. Runtime flags OFF;
 indexing and canonicals untouched.
+
+## Defect found on the live site after the merge — 3 October 2026
+
+The merge was followed by reading the deployed page rather than trusting the
+gates, and `https://ekguru.shop/languages/pa/level/a1/` was printing this to
+readers:
+
+```html
+<li>{'wrong': 'ਤੂੰ ਕਿੱਥੇ ਰਹਿੰਦਾ ਹੈ?', 'right': '…', 'why': '…'}</li>
+```
+
+A Python dictionary literal, in a "Watch out:" list. 58 level pages of 13
+languages carried it (6 each for `es fr gu mr pa`, 4 each for
+`ar bn de it ja ko`, 2 each for `te zh`) — and 12 of the 18 gates stayed green
+while it shipped, which is the part worth remembering.
+
+**Cause.** `grammar.mistakes` is a list of plain strings in the older courses and
+of `{wrong, right, why}` objects in everything authored since — 2,295 objects to
+1,218 strings, plus 400 object rows in `level.extra.mistakes`. The extra
+renderer (`tools/build-course-levels.py`, `extra_block`) has always known both
+shapes; the grammar box did not, and sent every item through `_clean()`, so a
+dict became `str(dict)`. The JSON was valid, the schema and audit gates read the
+JSON, the rendered HTML was valid and the words were on the page: nothing in the
+pipeline compares what the reader sees with what the lesson says.
+
+**Fix.** One formatter, `mistake_row()` in the same file, now serves both
+renderers; object rows print `<b>wrong</b> → right <span class="muted">why</span>`
+and string rows are byte-identical to before. Regenerated with the documented
+level-page recipe, so the 58 pages are generated output, not hand edits.
+
+**Gate.** `tools/test-course-levels.mjs` (runs in `build-all.py check` and in CI)
+now reads the rendered page against the course file, row by row: no page may
+print a Python literal, and every authored `{wrong, right, why}` row — grammar
+and extra — must appear on its page exactly as the lesson writes it. 556 rows
+across 64 pages are checked. Both halves were proofed by mutating a page until
+they failed (a row turned back into a literal; a row deleted) and restoring it
+byte-for-byte.
+
+**Still open from the same live read:** the practice prompts on the deployed
+Punjabi A1 page print IAST (`main ṭhīk hān! te tusīn?`) while the same page's
+vocabulary column uses plain ASCII (`main theek haan`) — the two-romanisation
+trap again, this time inside generated practice text. Fixing it means deciding
+which scheme is canonical and teaching the drills to use it, which is a content
+decision, not a formatter bug.

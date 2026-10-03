@@ -80,7 +80,7 @@ Doing that is what found both orderings above.
 
 ## Known residual difference
 
-Running the sequence on an unmodified checkout leaves exactly 18 files dirty —
+Running the sequence on an unmodified checkout leaves a handful of files dirty —
 the published `languages/<code>/level/index.html` ladder pages — each differing
 by one line:
 
@@ -98,8 +98,8 @@ carry a `twitter:title` without the suffix and only 7 carry it with — the
 consistent form is the one the 18 ladder pages have, and fixing it means
 changing the shared head template and every page that uses it. That is a
 separate decision, not a side effect of a content fix, so a change that has
-nothing to do with the head should restore those 18 files rather than regress
-them:
+nothing to do with the head should restore those files rather than regress
+them (`git status --short` names them):
 
 ```bash
 git checkout -- 'languages/*/level/index.html'

@@ -99,6 +99,61 @@ ok("the generated drills are labelled as generated",
   /drills are generated from the [^<.]+ vocabulary list/.test(one) && /never a\s+lesson|never a lesson/i.test(one));
 ok("no page claims to be AI-taught", !/\bAI\b(?!-)/.test(one.replace(/aria-[a-z]+/g, "")));
 
+/* What the page prints is what the data says. `grammar.mistakes` is a list of
+   plain strings in the older courses and of {wrong, right, why} objects in
+   everything authored since — 2,295 objects to 1,218 strings. The grammar box
+   sent both shapes through one text cleaner, so an object reached the reader as
+   a Python literal:
+
+       <li>{'wrong': 'ਤੂੰ ਕਿੱਥੇ ਰਹਿੰਦਾ ਹੈ?', 'right': …, 'why': …}</li>
+
+   on 58 pages of 13 languages. Nothing failed: the HTML was valid, the words
+   were on the page, the JSON was untouched, and every schema gate reads the
+   JSON. So this reads the rendered page against the source, row by row. */
+const esc = (v) => String(v).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const phaseOf = new Map(courses.map((c) => [c.code, c.phase || "phase-1"]));
+const reprish = [];
+const unrendered = [];
+let watchRows = 0, watchPages = 0;
+for (const c of courses) {
+  for (const lv of LEVELS) {
+    const page = `languages/${c.code}/level/${lv}/index.html`;
+    const data = `data/courses/${phaseOf.get(c.code)}/${c.code}_${lv.toUpperCase()}.json`;
+    if (!exists(page) || !exists(data)) continue;
+    const html = read(page);
+    /* The "not published" stub is generated from the same course file and
+       prints none of its content, so it is not evidence either way. */
+    if (/— not published/.test(html) || /content="noindex/.test(html)) continue;
+    if (/\{'[a-z_]+':|\{&#39;[a-z_]+&#39;:/.test(html)) reprish.push(page);
+    let rows = 0;
+    const source = JSON.parse(read(data));
+    const authored = [];
+    for (const unit of (source.level && source.level.units) || []) {
+      for (const lesson of (unit && unit.lessons) || []) {
+        const mis = lesson && lesson.grammar && lesson.grammar.mistakes;
+        if (Array.isArray(mis)) authored.push(...mis);
+      }
+    }
+    /* The same shape is used by the level's own "the mistakes this level
+       makes" list, printed from extra.mistakes. */
+    const extra = source.level && source.level.extra;
+    if (extra && Array.isArray(extra.mistakes)) authored.push(...extra.mistakes);
+    for (const m of authored) {
+      if (!m || typeof m !== "object" || Array.isArray(m)) continue;
+      rows++;
+      watchRows++;
+      const row = `<b>${esc(m.wrong)}</b> → ${esc(m.right)}`;
+      if (!html.includes(row)) unrendered.push(`${page} :: ${row.slice(0, 60)}`);
+    }
+    if (rows) watchPages++;
+  }
+}
+ok("no page prints a Python literal where a sentence belongs",
+  reprish.length === 0, reprish.slice(0, 4).join(", "));
+ok(`every {wrong,right,why} mistake renders as the lesson writes it ` +
+   `(${watchRows} rows on ${watchPages} pages)`,
+  watchRows > 0 && unrendered.length === 0, unrendered.slice(0, 3).join(" | "));
+
 console.log("\n3. it is a page-layer page, not a fifth design\n");
 
 const all = [];
