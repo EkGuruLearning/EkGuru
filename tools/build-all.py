@@ -117,6 +117,8 @@ def main():
             run("course hub --check", ["python3", "tools/build-course-hub.py", "--check"])
             run("course levels --check (the A1-C2 pages of every course)",
                 ["python3", "tools/build-course-levels.py", "--check"])
+            run("course romanisation --check (one scheme per course file)",
+                ["python3", "tools/normalise-romanisation.py"])
             run("tutor script tags --check", ["node", "tools/langsync.js", "--check"])
             run("tutor profiles --check", ["node", "tools/build-tutor-pages.js", "--check"])
             run("home tutor grid --check", ["node", "tools/build-home-tutors.js", "--check"])

@@ -91,3 +91,44 @@ vocabulary column uses plain ASCII (`main theek haan`) — the two-romanisation
 trap again, this time inside generated practice text. Fixing it means deciding
 which scheme is canonical and teaching the drills to use it, which is a content
 decision, not a formatter bug.
+
+## Two romanisations on one page — 3 October 2026
+
+The same live read that found the dict literal also caught the drills disagreeing
+with the vocabulary they test. Punjabi A1 printed `main ṭhīk hān! te tusīn?` in
+its practice lane while its own "Say it" column says `main thik han`; Gujarati
+printed `respectful તમે (tamē)` where the course writes `tame` in every other
+lane. Same words, two transliterations, one page.
+
+**The rule now.** A course file has one romanisation. `tools/normalise-
+romanisation.py` enforces it where the data can be read as data: for a course
+whose vocabulary column carries no marks (the `pa`, `mr`, `gu`, `ur A2+`
+convention) and whose own script is not Latin, it strips the marks from `r`-keyed
+values and from parenthesised transliterations of the course's own script. It
+never touches `alphabet`, `pronunciation` or `counting` — the blocks that *define*
+marks (`ṭa (retroflex)`, `ā (long a)`, low tone) — and never touches an English
+word standing on its own (`Café worksheet`, Russian `НАПИСА́ТЬ`). Rewrites are
+textual, so the diff is the characters that changed.
+
+**What it repaired** (68 characters, six files, nine published pages): Punjabi A1
+11 practice prompts; Gujarati A1–B2 the same generated mistake line six times per
+level; Urdu A2 33 example/worksheet/answer strings that disagreed with its own
+ASCII vocabulary lane. Two unrelated defects on the way: `auxiliaries,ਦਾ` — a
+missing space after the comma, 43 times each in `pa_C1`/`pa_C2` — and a Latin `Á`
+printed inside the Cyrillic `НАПИСÁТЬ` in `ru_B1`.
+
+**Two gates, because they read different things.** `tools/normalise-romanisation.py`
+(`--write`, 0 strings left) runs in `build-all.py check` and answers "is this file
+consistent with itself"; `tools/test-course-levels.mjs` reads the *rendered pages*
+and answers "does the reader see one scheme" — for every published page whose
+script is not Latin, each parenthesised transliteration must use letters that
+page's own "Say it" lane taught (68 pages, 42 marks in use). Both were proofed by
+putting the defect back: mutating `(sati sri akal)` → `(sati srī akāl)` and
+`(tame)` → `(tamē)` on the real pages makes the page gate fail on exactly those
+pages, and the byte-exact restore makes it pass again.
+
+**Not a defect:** Tamil, Telugu, Arabic, Bengali, Chinese and Hindi pages print
+marks their drills and lanes share — a repertoire question, not a spelling one.
+The remaining known gap is Urdu's *cross-level* split: A1 was written with marks
+(`Assalām Alaikum`), A2+ without. Each published page is internally consistent
+now; which scheme Urdu should settle on is a decision for its PHASE 1 pass.

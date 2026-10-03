@@ -154,6 +154,56 @@ ok(`every {wrong,right,why} mistake renders as the lesson writes it ` +
    `(${watchRows} rows on ${watchPages} pages)`,
   watchRows > 0 && unrendered.length === 0, unrendered.slice(0, 3).join(" | "));
 
+/* One romanisation per page. A course that writes its vocabulary lane in plain
+   ASCII (`main thik han`) must not romanise the same words with marks in its
+   practice lane (`main ṭhīk hān!`), and one that defines ē in its own lane must
+   not print a bare `e` where the reader has just been taught a length mark.
+   The reader's reference is the page's own "Say it" column, so that is what this
+   compares: every parenthetical transliteration of the language's own script has
+   to use letters the page already taught. Only pages with a non-Latin script are
+   read this way — for German or Spanish the Latin text IS the language. */
+/* "Native script" = a letter outside the Latin alphabet. A romanisation with
+   marks is non-ASCII too, so testing for non-ASCII would skip exactly the
+   strings this looks for. */
+const NATIVE = /[\u0400-\u04ff\u0530-\u058f\u0590-\u05ff\u0600-\u06ff\u0900-\u097f\u0980-\u09ff\u0a00-\u0a7f\u0a80-\u0aff\u0b00-\u0b7f\u0b80-\u0bff\u0c00-\u0c7f\u0c80-\u0cff\u0d00-\u0d7f\u0e00-\u0e7f\u0e80-\u0eff\u0f00-\u0fff\u1000-\u109f\u1780-\u17ff\u3040-\u30ff\u4e00-\u9fff\uac00-\ud7af]/;
+const latinMarks = (text) => [...new Set([...text].filter((c) => {
+  const d = c.normalize("NFD");
+  return d.length > 1 && /^[A-Za-z]$/.test(d[0]);
+}))];
+const romanisation = [];
+let nativePages = 0, marksInUse = new Set();
+for (const c of courses) {
+  for (const lv of LEVELS) {
+    const page = `languages/${c.code}/level/${lv}/index.html`;
+    if (!exists(page)) continue;
+    const html = read(page);
+    if (/— not published/.test(html) || /content="noindex/.test(html)) continue;
+    const words = [...html.matchAll(/<td data-h="Word"[^>]*>([\s\S]*?)<\/td>/g)]
+      .map((m) => m[1].replace(/<[^>]+>/g, " ")).join(" ");
+    if (!NATIVE.test(words)) continue;                          // Latin-script course
+    nativePages++;
+    /* The reference is this page's own lane, not the site's: a mark another
+       language teaches says nothing about what this page just taught. */
+    const sayIt = new Set();
+    for (const m of html.matchAll(/<td data-h="Say it">([^<]*)<\/td>/g))
+      for (const mark of latinMarks(m[1])) sayIt.add(mark.toLowerCase());
+    for (const mark of sayIt) marksInUse.add(mark);
+    const text = html.replace(/<(script|style)[\s\S]*?<\/\1>/gi, " ")
+      .replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
+    for (const m of text.matchAll(/\(([^()]{1,120})\)/g)) {
+      const inner = m[1];
+      if (NATIVE.test(inner)) continue;                        // native text, not a transliteration
+      if (!NATIVE.test(text.slice(Math.max(0, m.index - 60), m.index))) continue;
+      const strange = latinMarks(inner).filter((c) => !sayIt.has(c.toLowerCase()));
+      if (strange.length)
+        romanisation.push(`${page} :: ${m[0].slice(0, 48)} (${strange.join("")})`);
+    }
+  }
+}
+ok(`every page romanises the language the way its own "Say it" lane does ` +
+   `(${nativePages} non-Latin pages, ${marksInUse.size} marks in use)`,
+  nativePages > 0 && romanisation.length === 0, romanisation.slice(0, 3).join(" | "));
+
 console.log("\n3. it is a page-layer page, not a fifth design\n");
 
 const all = [];

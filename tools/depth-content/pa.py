@@ -13,7 +13,11 @@ course teaches in English. Unit ids keep each rung's own shipped scheme (A1 uses
 used diacritics (`sati srī akāl`, `chār`) where the rest of the course was plain
 ASCII; they were normalised to this convention in the pa pass, and the two blocks
 that *define* marks — `alphabet` (`ṭa (retroflex)`) and `pronunciation` (`low
-tone`) — keep them.
+tone`) — keep them. That pass missed the romanisation inside the A1 practice
+prompts (`main ṭhīk hān!`) — the drills disagreed with the vocabulary lane they
+test — and `tools/normalise-romanisation.py` repaired it, with a rendered-page
+gate in `tools/test-course-levels.mjs` that now fails if any page romanises a word
+with a mark its own "Say it" lane never taught.
 
 Register note: Punjabi is tonal, and the shipped course teaches the three-way
 address ਤੂੰ / ਤੁਸੀਂ / ਤੁਸੀਂ ਜੀ. A1–A2 stay with ਤੁਸੀਂ and the present; B1 adds the
