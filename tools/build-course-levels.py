@@ -580,14 +580,40 @@ def level_page(code, course, level, data, rungmap, figs, levels):
             if prac:
                 body.append("<p><b>Practice (%d).</b> Answer first, then open the answer.</p>"
                             % len(prac))
-                seen, targets_list = set(), []
+                # What the lesson's exercises test. Every exercise in a level
+                # repeats the same focus clause inside skill_target
+                # ("Italian gender/agreement, verb conjugation, pronunciation,
+                # and formal versus informal register"), so joining the whole
+                # strings printed that one clause once per exercise — 84
+                # identical sentences and about 840 words on the Italian B1
+                # page alone, roughly a tenth of a page a reviewer reads as
+                # templated. The exercise KIND is what differs between items,
+                # so the kinds are listed and the shared focus is stated once.
+                kinds, focus = [], []
                 for it in prac:
                     t = (it.get("skill_target") or "").strip()
-                    if t and t not in seen:
-                        seen.add(t); targets_list.append(t)
-                if targets_list:
+                    if not t:
+                        continue
+                    kind, _, tail = t.partition(": ")
+                    kind = kind.strip()
+                    if name and kind.lower().startswith(name.lower() + " "):
+                        kind = kind[len(name) + 1:].strip()   # "Italian multiple choice" -> "multiple choice"
+                    if kind and kind not in kinds:
+                        kinds.append(kind)
+                    tail = tail.strip()
+                    if tail and tail not in focus:
+                        focus.append(tail)
+                if kinds:
+                    if len(focus) == 1:
+                        note = ("%s. Every exercise works on %s."
+                                % (", ".join(kinds), focus[0]))
+                    elif focus:
+                        note = ("%s. Between them they work on %s."
+                                % (", ".join(kinds), " ".join(focus)))
+                    else:
+                        note = ", ".join(kinds) + "."
                     body.append('<p class="note"><b>What this %s practice tests.</b> %s</p>'
-                                % (_clean(name), _clean(" ".join(targets_list))))
+                                % (_clean(name), _clean(note)))
                 body.append('<ol class="prac">%s</ol>'
                             % "".join(practice_item(i, k) for k, i in enumerate(prac)))
             quiz = l.get("quiz") or []
